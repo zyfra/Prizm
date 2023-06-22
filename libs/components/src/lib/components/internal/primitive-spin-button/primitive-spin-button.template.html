@@ -1,0 +1,44 @@
+<div
+  class="z-wrapper"
+  *ngIf="spinTexts$ | async as texts"
+  #wrapper
+  prizmPreventDefault="mousedown"
+  [prizmFocusable]="computedFocusable"
+  (prizmFocusedChange)="onFocused($event)"
+  (prizmFocusVisibleChange)="onFocusVisible($event)"
+  (keydown.arrowLeft)="onLeftClick()"
+  (keydown.arrowRight)="onRightClick()"
+>
+  <button
+    class="z-arrow"
+    prizmIconButton
+    type="button"
+    size="xs"
+    [appearanceType]="mode"
+    automation-id="prizm-primitive-spin-button__left"
+    icon="arrows-chevron-left"
+    appearance="secondary"
+    [class.z-arrow_hidden]="leftComputedDisabled"
+    [title]="texts[0]"
+    [focusable]="false"
+    (click)="onLeftClick()"
+  ></button>
+  <span class="z-content">
+    <ng-content></ng-content>
+  </span>
+  <button
+    class="z-arrow"
+    prizmIconButton
+    type="button"
+    size="xs"
+    appearance="secondary"
+    automation-id="prizm-primitive-spin-button__right"
+    icon="arrows-chevron-right"
+    [appearanceType]="mode"
+    [class.z-arrow_hidden]="rightComputedDisabled"
+    [title]="texts[1]"
+    [focusable]="false"
+    (click)="onRightClick()"
+  ></button>
+  <!--  [appearanceType]='mode'-->
+</div>

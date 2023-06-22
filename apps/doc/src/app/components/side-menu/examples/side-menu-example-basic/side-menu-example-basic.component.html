@@ -1,0 +1,63 @@
+<div class="container">
+  <prizm-panel header="Заголовок">
+    <div class="toggle-container" instruments>
+      <div class="toggle" [class.toggle_active]="isSideMenuOpened" (click)="toggleSideMenu()">
+        <prizm-icon class="toggle__icon" [size]="16" iconClass="editor-panel-right"></prizm-icon>
+      </div>
+    </div>
+  </prizm-panel>
+  <div class="content" [class.content_column]="sideMenuType === 'col'">
+    <div class="content__inner">
+      <ul class="elements-list">
+        <li
+          class="element"
+          *ngFor="let el of elementList; let idx = index"
+          [class.element_selected]="idx === selectedElementIdx"
+          (click)="toggleElementState(idx)"
+        >
+          {{ el }}
+        </li>
+      </ul>
+    </div>
+
+    <div class="side-menu" *ngIf="isSideMenuOpened">
+      <div class="header">
+        <prizm-panel header="Side Menu">
+          <div class="instruments" instruments>
+            <div class="instruments__group">
+              <prizm-icon
+                class="instruments__icon"
+                [size]="16"
+                (click)="changeSideMenuType()"
+                iconClass="editor-down-1"
+              ></prizm-icon>
+            </div>
+
+            <div class="instruments__group">
+              <prizm-icon
+                class="instruments__icon"
+                [size]="16"
+                iconClass="cansel-delete-content"
+              ></prizm-icon>
+              <prizm-icon class="instruments__icon" [size]="16" iconClass="tools-content-save"></prizm-icon>
+            </div>
+          </div>
+        </prizm-panel>
+      </div>
+      <div class="side-menu__content" [class.side-menu__content_empty]="selectedElementIdx === -1">
+        <div class="input" *ngIf="selectedElementIdx > -1">
+          <prizm-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
+            <input prizmInput value="Контент" />
+          </prizm-input-layout>
+        </div>
+        <div class="empty-message" *ngIf="selectedElementIdx === -1">
+          <span class="empty-message__main">Нет данных для отображения</span>
+          <span class="empty-message__sub"
+            >Чтобы просмотреть информацию в этой области нужно изменить условия отображения или
+            фильтрации.</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

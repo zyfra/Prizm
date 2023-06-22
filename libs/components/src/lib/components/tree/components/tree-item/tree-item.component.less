@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  color: var(--prizm-text-main);
+
+  &.use-padding-indent {
+    .prizm-tree-item__children {
+      margin-left: 0;
+    }
+    .prizm-tree-item__dynamic-content {
+      padding-left: calc((var(--prizm-tree-item-indent, 24) * var(--prizm-tree-item-indent-level)) * 1px);
+    }
+  }
+}
+
+.prizm-tree-item__children {
+  position: relative;
+  margin-left: var(--prizm-tree-item-indent, 24px);
+}
+
+.prizm-tree-item__dynamic-content {
+  margin: 4px 0;
+}

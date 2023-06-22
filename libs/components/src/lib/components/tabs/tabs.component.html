@@ -1,0 +1,69 @@
+<div class="container">
+  <div class="control" [class.control_active]="isLeftBtnActive">
+    <button class="control__chevron" (click)="decrease()">
+      <prizm-icon class="control__icon" [size]="16" iconClass="arrows-chevron-left"></prizm-icon>
+    </button>
+    <prizm-dropdown-host
+      class="dropdown-host"
+      *ngIf="canShowMenu && !isRightBtnActive"
+      [(isOpen)]="openLeft"
+      [content]="dropdown"
+      prizmDropdownHostWidth="auto"
+    >
+      <prizm-icon
+        class="control__settings"
+        [class.control__settings_active]="openLeft"
+        [size]="16"
+        (click)="openLeft = !openLeft"
+        iconClass="settings-more-vert"
+      ></prizm-icon>
+    </prizm-dropdown-host>
+  </div>
+
+  <div class="tabs" #tabsContainer>
+    <ng-content></ng-content>
+  </div>
+
+  <div class="control" *ngIf="canShowMenu" [class.control_active]="isRightBtnActive">
+    <prizm-dropdown-host
+      class="dropdown-host"
+      #tabsDropdown
+      [(isOpen)]="openRight"
+      [content]="dropdown"
+      prizmDropdownHostWidth="auto"
+    >
+      <prizm-icon
+        class="control__settings"
+        [class.control__settings_active]="openRight"
+        [size]="16"
+        (click)="openRight = !openRight"
+        iconClass="settings-more-vert"
+      ></prizm-icon>
+    </prizm-dropdown-host>
+    <button class="control__chevron" (click)="increase()">
+      <prizm-icon class="control__icon" [size]="16" iconClass="arrows-chevron-right"></prizm-icon>
+    </button>
+  </div>
+
+  <ng-template #dropdown>
+    <prizm-data-list>
+      <div class="tabs-column prizm-tab-menu-container">
+        <ng-container *ngFor="let tabElement of tabElements; let i = index">
+          <ng-container *ngIf="tabElement as tab">
+            <prizm-tab
+              *prizmLet="{ inMenuIdx: i }"
+              [type]="tab.type"
+              [content]="tab.content"
+              [icon]="tab.icon"
+              [closable]="tab.closable"
+              [disabled]="tab.disabled"
+              [attr.dropdown-tab]="true"
+              (closeTab)="reCalculatePositions()"
+            >
+            </prizm-tab>
+          </ng-container>
+        </ng-container>
+      </div>
+    </prizm-data-list>
+  </ng-template>
+</div>

@@ -1,0 +1,111 @@
+<prizm-doc-page header="Radar">
+  <div class="page-description" description>
+    Radar charts are a useful way to display multivariate observations with an arbitrary number of variables.
+    Each star represents a single observation. Typically, radar charts are generated in a multi-plot format
+    with many stars on each page and each star representing one observation.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
+      <prizm-charts-radar-example></prizm-charts-radar-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-radar
+        #element
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [xField]="xField"
+        [height]="height"
+        [width]="width"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [yField]="yField"
+        [options]="options"
+      ></prizm-charts-radar>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsRadarOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="xField"
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="yField"
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Y Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyMode="input"
+        documentationPropertyType=" PrizmChartsRadarOptions[label]"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsRadarItem[]"
+      >
+        Data
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmChartsRadarModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

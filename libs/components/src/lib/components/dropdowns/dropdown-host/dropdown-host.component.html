@@ -1,0 +1,30 @@
+<div
+  class="block"
+  [zoneElement]="prizmDropdownHost"
+  [prizmMutationObserverHost]="el.nativeElement"
+  [zoneActive]="isOpen$ | async"
+  (zoneOutsideEvent)="outsideClick()"
+  (prizmMutationObserver)="updateWidth()"
+  prizmZoneEvent
+  zoneEventName="click"
+>
+  <ng-content></ng-content>
+  <ng-template #temp>
+    <div
+      class="prizm-dropdown-host-modal"
+      [ngStyle]="dropdownStyles"
+      [id]="prizmDropdownHostId"
+      [attr.position]="position$ | async"
+      (zoneOutsideEvent)="outsideClick()"
+      (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
+      (prizmOnDestroy)="removeListenerItems($event.nativeElement)"
+      prizmTheme
+      prizmZoneEvent
+      zoneEventName="click"
+    >
+      <ng-container
+        *polymorphOutlet="content; context: { custom: prizmDropdownCustomContext }"
+      ></ng-container>
+    </div>
+  </ng-template>
+</div>

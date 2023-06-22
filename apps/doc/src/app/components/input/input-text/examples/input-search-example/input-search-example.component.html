@@ -1,0 +1,21 @@
+<h3>Inner</h3>
+<prizm-input-layout label="Поиск">
+  <input #input (enter)="search($event)" prizmInput />
+  <button
+    [interactive]="true"
+    (click)="search(input.value)"
+    prizmInputIconButton="sort-zoom-in"
+    prizm-input-right
+  ></button>
+</prizm-input-layout>
+
+<h3>Outer</h3>
+<prizm-input-layout [outer]="true" label="Поиск">
+  <input #input [placeholder]="'Поиск'" (enter)="search($event)" prizmInput />
+  <button
+    [interactive]="true"
+    (click)="search(input.value)"
+    prizmInputIconButton="sort-zoom-in"
+    prizm-input-right
+  ></button>
+</prizm-input-layout>

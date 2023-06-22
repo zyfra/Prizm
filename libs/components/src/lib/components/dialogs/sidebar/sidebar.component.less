@@ -1,0 +1,127 @@
+@import '../../../../styles/ui-local';
+
+.content {
+  .ellipsis();
+  flex: 1 1 0;
+  padding: var(--prizm-sidebar-padding, 32px 16px);
+  color: var(--prizm-text-main);
+  overflow: hidden;
+  max-width: 100%;
+}
+
+.header {
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--prizm-border-widget);
+  padding: var(--prizm-sidebar-padding, 14px 16px);
+  display: flex;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: hidden;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--prizm-sidebar-font-size, 14px);
+  color: var(--prizm-text-contrast);
+
+  prizm-scrollbar {
+    max-height: 150px;
+    width: 100%;
+  }
+
+  .title {
+    .ellipsis();
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    color: var(--prizm-border-icon);
+    font-weight: 300;
+    cursor: pointer;
+    margin-left: 16px;
+  }
+}
+
+.description {
+  .ellipsis();
+  font-weight: var(--prizm-sidebar-description-font-weight, 400);
+  font-size: var(--prizm-sidebar-description-font-size, 14px);
+  line-height: var(--prizm-sidebar-description-line-height, 20px);
+  text-align: var(--prizm-sidebar-description-align, center);
+  color: var(--prizm-sidebar-description, var(--prizm-text-subscript));
+}
+
+:host {
+  display: block;
+  background: var(--prizm-sidebar-background, var(--prizm-bg-body));
+  border: 1px solid var(--prizm-border-widget);
+  border-radius: var(--prizm-sidebar-border-radius, 2px);
+  pointer-events: all;
+  width: 100%;
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.full-height {
+    height: 100%;
+  }
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+.horizontal {
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.left,
+.right,
+.top,
+.bottom {
+  display: flex;
+  gap: 8px;
+}
+
+.footer {
+  border-top: 1px solid var(--prizm-border-widget);
+  padding: var(--prizm-sidebar-padding, 14px 16px);
+  max-width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+}
+
+.scrollbar {
+  max-height: var(--prizm-sidebar-max-scrollbar-height, 100%);
+}
+
+.box {
+  height: 100%;
+  //grid-template-rows: min-content 1fr min-content;
+  //display: grid;
+  display: flex;
+  flex-direction: column;
+}
+
+.close-btn {
+  height: 24px;
+}
+
+[prizmInputIconButton] {
+  width: unset;
+}
+
+.full-height {
+  height: 100%;
+}

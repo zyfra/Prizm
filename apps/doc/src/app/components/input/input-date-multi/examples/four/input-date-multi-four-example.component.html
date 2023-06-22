@@ -1,0 +1,34 @@
+<prizm-input-date-multi [items]="items"> </prizm-input-date-multi>
+
+<ng-template #dateTime let-injector="injector">
+  <prizm-input-layout label="Абсолютное дата и время">
+    <prizm-input-layout-date-time
+      [formControl]="dateTimeControl"
+      [extraButtonInjector]="injector"
+    ></prizm-input-layout-date-time>
+  </prizm-input-layout>
+</ng-template>
+<ng-template #dateRelativeTime let-injector="injector">
+  <prizm-input-layout label="Относительная дата">
+    <prizm-input-layout-date-relative
+      [formControl]="relativeControl"
+      [extraButtonInjector]="injector"
+    ></prizm-input-layout-date-relative>
+  </prizm-input-layout>
+</ng-template>
+<ng-template #time let-injector="injector">
+  <prizm-input-layout label="Абсолютное время">
+    <prizm-input-layout-time
+      [formControl]="timeControl"
+      [extraButtonInjector]="injector"
+    ></prizm-input-layout-time>
+  </prizm-input-layout>
+</ng-template>
+<ng-template #date let-injector="injector">
+  <prizm-input-layout label="Абсолютная дата">
+    <prizm-input-layout-date
+      [formControl]="dateControl"
+      [extraButtonInjector]="injector"
+    ></prizm-input-layout-date>
+  </prizm-input-layout>
+</ng-template>

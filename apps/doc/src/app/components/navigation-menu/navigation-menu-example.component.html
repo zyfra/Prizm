@@ -1,0 +1,240 @@
+<prizm-doc-page header="Navigation menu" package="UI">
+  <div class="page-description" description>
+    Our navigation menu is a simple, responsive, and accessible menu that can be used in a variety of ways. It
+    can be used as a primary navigation menu, a secondary navigation menu, or a footer navigation menu.
+  </div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicNavigationMenu" heading="Basic">
+      <prizm-navigation-menu-basic-example></prizm-navigation-menu-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="groups" [content]="exampleGroupsNavigationMenu" heading="Groups">
+      <prizm-navigation-menu-groups-example></prizm-navigation-menu-groups-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="children-handler"
+      [content]="exampleChildrenHandlerNavigationMenu"
+      heading="ChildrenHandler"
+    >
+      <prizm-navigation-menu-children-handler-example></prizm-navigation-menu-children-handler-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="single-mode" [content]="exampleChildrenOneModeMenu" heading="Single Mode">
+      <prizm-navigation-menu-one-mode-example></prizm-navigation-menu-one-mode-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-navigation-menu
+        #prizmNavigationMenuLayout
+        [prizmDocHostElement]="prizmNavigationMenuLayout"
+        [title]="title"
+        [items]="items"
+        [toolbarConfig]="toolbarConfig"
+        [itemExtraTemplate]="itemExtraTemplate"
+        [headerExtraTemplate]="headerExtraTemplate"
+        [toolbarExtraTemplate]="toolbarExtraTemplate"
+        [activeItem]="activeItem"
+        [itemKeyName]="itemKeyName"
+        [expandedItemsMap]="expandedItemsMap"
+        [expandedGroupsMap]="expandedGroupsMap"
+        [settingsConfig]="settingsConfig"
+        [emptySearchResultMessageConfig]="emptySearchResultMessageConfig"
+        [emptyDataMessageConfig]="emptyDataMessageConfig"
+        [headerConfig]="headerConfig"
+        [searchConfig]="searchConfig"
+        prizmDocHostElementKey="PrizmNavigationMenuLayout"
+      ></prizm-navigation-menu>
+    </prizm-doc-demo>
+    <prizm-doc-documentation hostComponentKey="PrizmNavigationMenuLayout" heading="PrizmNavigationMenuLayout">
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Menu title
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="items"
+        documentationPropertyName="items"
+        documentationPropertyType="PrizmNavigationMenuItem[]"
+        documentationPropertyMode="input"
+      >
+        Menu items
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="toolbarConfig"
+        documentationPropertyName="toolbarConfig"
+        documentationPropertyType="PrizmNavigationMenuToolbarConfig[]"
+        documentationPropertyMode="input"
+      >
+        Toolbar config
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="itemExtraTemplate"
+        documentationPropertyName="itemExtraTemplate"
+        documentationPropertyType="TemplateRef"
+        documentationPropertyMode="input"
+      >
+        Slot for menu item
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="headerExtraTemplate"
+        documentationPropertyName="headerExtraTemplate"
+        documentationPropertyType="TemplateRef"
+        documentationPropertyMode="input"
+      >
+        Slot for menu's header items
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="toolbarExtraTemplate"
+        documentationPropertyName="toolbarExtraTemplate"
+        documentationPropertyType="TemplateRef"
+        documentationPropertyMode="input"
+      >
+        Slot for toolbar's items
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="activeItem"
+        documentationPropertyName="activeItem"
+        documentationPropertyType="T"
+        documentationPropertyMode="input"
+      >
+        activeItem
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="itemKeyName"
+        documentationPropertyName="itemKeyName"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        itemKeyName ???????????
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="expandedItemsMap"
+        documentationPropertyName="expandedItemsMap"
+        documentationPropertyType="Map<T, boolean>"
+        documentationPropertyMode="input"
+      >
+        expandedItemsMap
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="expandedGroupsMap"
+        documentationPropertyName="expandedGroupsMap"
+        documentationPropertyType="Map<string, boolean>"
+        documentationPropertyMode="input"
+      >
+        expandedGroupsMap
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="settingsConfig"
+        documentationPropertyName="settingsConfig"
+        documentationPropertyType="PrizmNavigationMenuSettingsConfig"
+        documentationPropertyMode="input"
+      >
+        settingsConfig
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="emptySearchResultMessageConfig"
+        documentationPropertyName="emptySearchResultMessageConfig"
+        documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
+        documentationPropertyMode="input"
+      >
+        Will be displayed when search is enabled and where are no search entires
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="emptyDataMessageConfig"
+        documentationPropertyName="emptyDataMessageConfig"
+        documentationPropertyType="PrizmNavigationMenuEmptyMessageConfig"
+        documentationPropertyMode="input"
+      >
+        Will be displayed when incoming data is empty (for example not loaded yet)
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="searchConfig"
+        documentationPropertyName="searchConfig"
+        documentationPropertyType="PrizmNavigationMenuSearchConfig"
+        documentationPropertyMode="input"
+      >
+        searchConfig
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="headerConfig"
+        documentationPropertyName="headerConfig"
+        documentationPropertyType="PrizmNavigationMenuHeaderConfig"
+        documentationPropertyMode="input"
+      >
+        headerConfig
+      </ng-template>
+
+      <!-- OUTPUTS -->
+
+      <ng-template
+        documentationPropertyName="homeClicked"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Home icon clicked
+      </ng-template>
+      <ng-template
+        documentationPropertyName="activeItemChanged"
+        documentationPropertyType="T"
+        documentationPropertyMode="output"
+      >
+        Current active item changed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="breadcrumbsChanged"
+        documentationPropertyType="T[]"
+        documentationPropertyMode="output"
+      >
+        Breadcrumbs of current active item changed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedItemsMapChanged"
+        documentationPropertyType="Map<T, boolean>"
+        documentationPropertyMode="output"
+      >
+        expandedItemsMapChanged
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedGroupsMapChangedEvent"
+        documentationPropertyType="Map<string, boolean>"
+        documentationPropertyMode="output"
+      >
+        expandedGroupsMapChangedEvent
+      </ng-template>
+      <ng-template
+        documentationPropertyName="itemExpandedChanged"
+        documentationPropertyType="ItemExpandedChangedEvent<T>"
+        documentationPropertyMode="output"
+      >
+        itemExpandedChanged
+      </ng-template>
+      <ng-template
+        documentationPropertyName="groupExpandedChanged"
+        documentationPropertyType="GroupExpandedChangedEvent"
+        documentationPropertyMode="output"
+      >
+        groupExpandedChanged
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmNavigationMenuModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

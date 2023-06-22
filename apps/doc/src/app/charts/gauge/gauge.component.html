@@ -1,0 +1,83 @@
+<prizm-doc-page header="Gauge">
+  <div class="page-description" description>
+    Gauge charts are useful for comparing values between a small number of variables either by using multiple
+    needles on the same gauge or by using multiple gauges.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
+      <prizm-charts-gauge-example></prizm-charts-gauge-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-gauge
+        #element
+        [prizmDocHostElement]="element"
+        [percent]="percent"
+        [width]="width"
+        [height]="height"
+        [options]="options"
+        [theme]="prizmTheme.changesTheme$ | async"
+      ></prizm-charts-gauge>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsGaugeOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="percent"
+        documentationPropertyName="percent"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Percent
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Height
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmChartsGaugeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

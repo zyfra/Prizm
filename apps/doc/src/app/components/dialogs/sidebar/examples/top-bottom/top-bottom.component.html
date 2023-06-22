@@ -1,0 +1,22 @@
+<button (click)="show()" type="button" prizmButton>Show SideBar</button>
+
+<div style="margin-top: 16px">
+  <prizm-doc-documentation>
+    <ng-template
+      [(documentationPropertyValue)]="position"
+      [documentationPropertyValues]="positionVariants"
+      documentationPropertyName="position"
+      documentationPropertyType="PrizmOverlayInsidePlacement"
+    >
+      Position
+    </ng-template>
+
+    <ng-template
+      [(documentationPropertyValue)]="backdrop"
+      documentationPropertyName="backdrop"
+      documentationPropertyType="boolean"
+    >
+      Backdrop
+    </ng-template>
+  </prizm-doc-documentation>
+</div>

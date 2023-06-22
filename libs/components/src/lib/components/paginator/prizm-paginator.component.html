@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="content">
+    <span
+      class="rows rows__count"
+      *ngIf="!paginatorOptions?.noRowsSelector && !paginatorOptions?.noRowsSelectorLabel"
+      >Строк на странице
+    </span>
+    <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
+      <prizm-select
+        [disabled]="disabled"
+        [forceClear]="false"
+        [label]="null"
+        [outer]="true"
+        [nullContent]="null"
+        [ngModel]="rows"
+        [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
+        (ngModelChange)="changeRows($event)"
+        size="s"
+      ></prizm-select>
+    </div>
+  </div>
+
+  <div class="content">
+    <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo" [hidden]="disabled">
+      Показано строк: {{ (currentPage - 1) * rows + 1 }}-{{
+        currentPage * rows > totalRecords ? totalRecords : currentPage * rows
+      }}
+      <ng-container> из {{ realTotalRecord }} </ng-container>
+    </span>
+    <div
+      class="paginator paginator__finite"
+      *ngIf="paginatorType === 'finite' && paginationGenerator() as pagingData"
+    >
+      <button
+        class="control control_left"
+        *ngIf="paginatorOptions.noToFirstPageBtn ?? true"
+        [disabled]="disabled || currentPage === 1"
+        (click)="toFirstPage()"
+      >
+        <prizm-icon size="16" iconClass="chevrons-double-left"></prizm-icon>
+      </button>
+      <button class="control control_left" [disabled]="disabled || currentPage === 1" (click)="decrease()">
+        <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
+        <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
+      </button>
+
+      <ng-container *ngIf="!paginatorOptions?.noPages">
+        <ng-container *ngIf="pagingData.left">
+          <button
+            class="page"
+            [disabled]="disabled"
+            [class.page_disabled]="disabled"
+            (click)="changePage(pagingData.left)"
+            type="button"
+          >
+            {{ pagingData.left }}
+          </button>
+          <div
+            class="dots"
+            *ngIf="pagingData.left + 1 !== pagingData.mid[0]"
+            [class.dots_disabled]="disabled"
+          >
+            ...
+          </div>
+        </ng-container>
+
+        <button
+          class="page"
+          *ngFor="let page of pagingData.mid"
+          [disabled]="disabled"
+          [class.page_disabled]="disabled"
+          [class.page_selected]="page === currentPage"
+          (click)="changePage(page)"
+          type="button"
+        >
+          {{ page }}
+        </button>
+
+        <ng-container *ngIf="pagingData.right">
+          <div
+            class="dots"
+            *ngIf="pagingData.right - 1 !== pagingData.mid[pagingData.mid.length - 1]"
+            [class.dots_disabled]="disabled"
+          >
+            ...
+          </div>
+          <button
+            class="page"
+            [disabled]="disabled"
+            [class.page_disabled]="disabled"
+            (click)="changePage(pagingData.right)"
+            type="button"
+          >
+            {{ pagingData.right }}
+          </button>
+        </ng-container>
+      </ng-container>
+
+      <button
+        class="control control_right"
+        [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
+        (click)="increase()"
+      >
+        <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
+        <prizm-icon size="16" iconClass="arrows-chevron-right"></prizm-icon>
+      </button>
+
+      <button
+        class="control control_right"
+        *ngIf="paginatorOptions.noToLastPageBtn ?? true"
+        [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
+        (click)="toLastPage()"
+      >
+        <prizm-icon size="16" iconClass="chevrons-double-right"></prizm-icon>
+      </button>
+    </div>
+
+    <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
+      <button
+        class="show-more"
+        [disabled]="disabled || showMoreDisabled"
+        [class.show-more_disabled]="disabled || showMoreDisabled"
+        (click)="increase()"
+      >
+        {{ moreButtonLabel }}
+      </button>
+    </div>
+  </div>
+</div>

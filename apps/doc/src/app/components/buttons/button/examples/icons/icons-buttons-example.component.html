@@ -1,0 +1,22 @@
+<h1>Button With Icon</h1>
+
+<div class="box">
+  <div class="title">Pass icon name</div>
+  <div class="content">
+    <button [icon]="'account-card-details'" prizmButton>Left Icon</button>
+    <button [iconRight]="'account-card-details'" prizmButton>Right Icon</button>
+    <button [icon]="'account-card-details'" [iconRight]="'account-card-details'" prizmButton>
+      Right and Left Icon
+    </button>
+  </div>
+</div>
+
+<div class="box">
+  <div class="title">Pass Template</div>
+  <div class="content">
+    <button [icon]="someTemplate" prizmButton>Left Template</button>
+    <button [iconRight]="someTemplate" prizmButton>Right Template</button>
+    <button [icon]="someTemplate" [iconRight]="someTemplate" prizmButton>Right and Reft Template</button>
+    <ng-template #someTemplate>%</ng-template>
+  </div>
+</div>

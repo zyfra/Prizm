@@ -1,0 +1,40 @@
+:host {
+  .header:empty,
+  .footer:empty {
+    display: none;
+  }
+}
+
+:host-context(.default) {
+  font-family: 'Inter';
+  font-style: normal;
+  font-size: 14px;
+  line-height: 20px;
+  border: var(--prizm-data-list-border, 1px solid var(--prizm-border-widget));
+  border-left: var(--prizm-data-list-border-left);
+  border-top: var(--prizm-data-list-border-top);
+  border-right: var(--prizm-data-list-border-right);
+  border-bottom: var(--prizm-data-list-border-bottom);
+  border-radius: var(--prizm-data-list-border-radius, 2px);
+  display: block;
+  background: var(--prizm-data-list-background, var(--prizm-bg-body));
+
+  .header {
+    color: var(--prizm-data-list-header-text, var(--prizm-text-subscript));
+    font-size: var(--prizm-data-list-header-text-size, 14px);
+    border-bottom: 1px solid var(--prizm-data-list-border, var(--prizm-border-widget));
+    font-weight: 600;
+    padding: var(--prizm-data-list-padding, 16px);
+  }
+
+  .body {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .footer {
+    border-top: 1px solid var(--prizm-data-list-border, var(--prizm-border-widget));
+    padding: var(--prizm-data-list-padding, 16px);
+  }
+}

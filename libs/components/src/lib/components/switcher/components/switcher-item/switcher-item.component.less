@@ -1,0 +1,138 @@
+.switcherSizing(@switcherSize, @titleFontSize, @padding) {
+  .switcher {
+    height: @switcherSize;
+    padding: 0 @padding;
+
+    &__title {
+      font-size: @titleFontSize;
+    }
+  }
+}
+
+:host {
+  button {
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+  }
+
+  &.full-width,
+  &.full-width button {
+    width: 100%;
+  }
+
+  span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &[last-child='true'] {
+    .switcher {
+      border-right: 1px solid var(--prizm-border-forms);
+    }
+  }
+
+  &[last-child='true'] {
+    .switcher {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+  &[first-child='true'] {
+    .switcher {
+      border-radius: 2px 0 0 2px;
+    }
+  }
+
+  .switcher {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+
+    border: 1px solid var(--prizm-border-forms);
+    border-right: none;
+
+    transition: 400ms;
+    overflow: hidden;
+
+    &__title {
+      font-weight: 600;
+      line-height: 16px;
+
+      color: var(--prizm-grey-g7-g7);
+    }
+
+    &__icon {
+      height: 16px;
+      width: 16px;
+
+      display: flex;
+
+      color: var(--prizm-grey-g7-g7);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+
+    &:disabled .switcher__icon,
+    &:disabled .switcher__title {
+      color: var(--prizm-disabled-text);
+    }
+
+    &:hover:not(&_active):not(:disabled) {
+      background: var(--prizm-grey-g12-g2);
+
+      .switcher__title,
+      .switcher__icon {
+        color: var(--prizm-exeptions-g1-b1);
+      }
+    }
+
+    &:focus {
+      border-color: transparent;
+      border-radius: 2px;
+      position: relative;
+      box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+    }
+
+    &_active {
+      background: var(--prizm-lite-b130-20);
+
+      .switcher__title,
+      .switcher__icon {
+        color: var(--prizm-exeptions-g1-b1);
+      }
+    }
+  }
+
+  &[switcher-type='outer'] {
+    &[data-size='l'] {
+      .switcherSizing(40px, 14px, 16px);
+    }
+
+    &[data-size='m'] {
+      .switcherSizing(32px, 14px, 16px);
+    }
+
+    &[data-size='s'] {
+      .switcherSizing(24px, 12px, 8px);
+    }
+  }
+
+  &[switcher-type='inner'] {
+    &[data-size='l'] {
+      .switcherSizing(44px, 14px, 16px);
+    }
+
+    &[data-size='m'],
+    &[data-size='s'] {
+      .switcherSizing(36px, 14px, 16px);
+    }
+  }
+}

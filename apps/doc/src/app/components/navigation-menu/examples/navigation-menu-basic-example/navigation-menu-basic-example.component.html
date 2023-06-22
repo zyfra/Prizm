@@ -1,0 +1,19 @@
+<div class="multiple-menu">
+  <section>
+    <prizm-navigation-menu
+      [title]="'Basic props'"
+      [toolbarConfig]="toolbarConfig"
+      [items]="items"
+      [emptyDataMessageConfig]="{
+        title: 'Нет никаких данных',
+        subtitle:
+          'По дефолту это сообщение не выводится. Но при желании можно сконфигурировать. \n\n А за сообщение поиска отличает свойство [emptySearchResultMessageConfig]'
+      }"
+    ></prizm-navigation-menu>
+  </section>
+  <section>
+    <button (click)="toggleLoading()" prizmButton>
+      {{ items.length ? 'Подставить пустой массив' : 'Подставить список данных' }}
+    </button>
+  </section>
+</div>

@@ -1,0 +1,43 @@
+@import '../../../styles/ui-local';
+
+.picker(3.6875rem);
+
+:host {
+  display: block;
+  height: 13.625rem;
+  width: 15.75rem;
+  padding: 1.125rem;
+  box-sizing: content-box;
+}
+
+.z-row {
+  flex-wrap: wrap;
+  margin-top: 1.4375rem;
+}
+
+.z-cell {
+  box-sizing: content-box;
+
+  &:nth-child(n + 5) {
+    margin-top: 1.75rem;
+  }
+
+  &:not([data-range='start']):not([data-range='single']):not([data-range='end']):hover {
+    background-color: var(--prizm-g2-g11);
+
+    .z-item {
+      color: var(--prizm-index-plan) !important;
+    }
+  }
+}
+
+.z-cell_interval:nth-child(4n) {
+  &:before {
+    right: 0;
+  }
+}
+
+.z-scrollbar {
+  height: inherit;
+  width: inherit;
+}

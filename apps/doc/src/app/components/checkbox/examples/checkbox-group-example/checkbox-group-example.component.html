@@ -1,0 +1,28 @@
+<div class="header">Название группы</div>
+
+<div *ngFor="let checkbox of data">
+  <prizm-checkbox
+    class="checkbox"
+    *ngIf="!checkbox.children"
+    [(ngModel)]="checkbox.checked"
+    [checked]="checkbox.checked"
+  >
+    {{ checkbox.label }}
+  </prizm-checkbox>
+
+  <div class="checkbox-container" *ngIf="checkbox.children">
+    <prizm-checkbox
+      class="checkbox"
+      [checked]="allChecked(checkbox.children)"
+      [indeterminate]="someChecked(checkbox)"
+      (changed)="setAll($event, checkbox.children)"
+    >
+      {{ checkbox.label }}
+    </prizm-checkbox>
+    <div class="children">
+      <div *ngFor="let child of checkbox.children">
+        <prizm-checkbox class="checkbox" [(ngModel)]="child.checked">{{ child.label }}</prizm-checkbox>
+      </div>
+    </div>
+  </div>
+</div>

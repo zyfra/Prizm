@@ -1,0 +1,5 @@
+<ng-container *ngIf="!empty; else emptyTpl">
+  <ng-content></ng-content>
+</ng-container>
+
+<ng-template #emptyTpl>&nbsp;</ng-template>

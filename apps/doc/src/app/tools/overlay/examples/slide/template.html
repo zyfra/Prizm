@@ -1,0 +1,9 @@
+<button prizmButton #elementRef (click)="toggle()">Click me</button>
+<ng-template #someTemplate>
+  <div class="box">
+    <div>SOME CONTENT</div>
+    <i>Can close also on backdrop click</i>
+
+    <button prizmButton (click)="close()">Close</button>
+  </div>
+</ng-template>

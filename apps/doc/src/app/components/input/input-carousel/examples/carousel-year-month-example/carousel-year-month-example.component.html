@@ -1,0 +1,8 @@
+<prizm-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
+  <prizm-input-carousel [required]="true" [carouselContent]="carouselContent" [ngModel]="currentValue">
+    <ng-container *ngIf="carouselContent.currentValue as value">
+      {{ value.month | prizmMonthExample }} {{ value.year }}
+    </ng-container>
+  </prizm-input-carousel>
+  <ng-template prizmInputStatusText>Текст статуса</ng-template>
+</prizm-input-layout>

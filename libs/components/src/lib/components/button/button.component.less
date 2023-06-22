@@ -1,0 +1,77 @@
+@import '../../../styles/ui-local';
+
+:host {
+  outline: none;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  vertical-align: top;
+  border: 0;
+  padding: 0;
+  border-radius: var(--prizm-button-radius, 2px);
+  background: transparent;
+
+  &._focused {
+    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+    transition: 0.3s;
+  }
+
+  &[prizmIconButton] .z-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .z-wrapper {
+    min-height: inherit;
+  }
+
+  .addSize(@size, @height, @width, @padding) {
+    &[data-size='@{size}'] {
+      min-height: @height;
+
+      &[prizmIconButton] {
+        width: @width;
+
+        .z-wrapper {
+          padding: 0;
+        }
+      }
+
+      .z-wrapper {
+        padding: @padding;
+      }
+    }
+  }
+  .addSize('xl', 44px, 44px, 14px 16px 14px 16px);
+  .addSize('l', 40px, 40px, 12px 16px 12px 16px);
+  .addSize('xm', 36px, 36px, 10px 16px 10px 16px);
+  .addSize('m', 32px, 32px, 8px 16px 8px 16px);
+  .addSize('s', 24px, 24px, 4px 8px 4px 8px);
+}
+
+.z-loader {
+  .fullsize();
+  cursor: default;
+  background: inherit;
+  border-radius: inherit;
+}
+
+.z-content {
+  gap: var(--prizm-button-gap, 8px);
+  display: flex;
+  justify-content: space-between;
+
+  *[hidden] {
+    visibility: hidden;
+  }
+}
+
+.text {
+  text-align: inherit;
+  width: 100%;
+
+  &:empty {
+    display: none;
+  }
+}

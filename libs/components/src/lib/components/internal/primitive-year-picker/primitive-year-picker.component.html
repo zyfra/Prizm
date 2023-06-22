@@ -1,0 +1,19 @@
+<div class="z-row" *prizmRepeatTimes="let rowIndex of rows" automation-id="prizm-primitive-year-picker__row">
+  <ng-container *prizmRepeatTimes="let colIndex of ITEMS_IN_ROW">
+    <div
+      class="z-cell"
+      *prizmLet="getItem(rowIndex, colIndex) as item"
+      [class.z-cell_today]="itemIsToday(item)"
+      [class.z-cell_interval]="itemIsInterval(item)"
+      [attr.data-range]="getItemRange(item)"
+      [attr.data-state]="getItemState(item)"
+      [prizmScrollIntoView]="scrollItemIntoView(item)"
+      (prizmHoveredChange)="onItemHovered($event, item)"
+      (prizmPressedChange)="onItemPressed($event, item)"
+      (click)="onItemClick($event, item)"
+      automation-id="prizm-primitive-year-picker__cell"
+    >
+      <div class="z-item">{{ item }}</div>
+    </div>
+  </ng-container>
+</div>

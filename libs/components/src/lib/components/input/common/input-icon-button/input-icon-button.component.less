@@ -1,0 +1,37 @@
+:host {
+  outline: none;
+  position: relative;
+  display: block;
+  flex-shrink: 0;
+  border: 0;
+  padding: 0;
+  background: transparent;
+
+  width: 32px;
+  font-size: inherit;
+
+  color: var(--prizm-text-contrast);
+
+  &.disabled {
+    color: var(--prizm-grey-g9-g5);
+    pointer-events: none;
+    cursor: not-allowed;
+  }
+}
+
+:host-context(.interactive) {
+  &:not(.disabled) {
+    &:hover {
+      color: var(--prizm-index-plan);
+    }
+
+    &:focus {
+      color: var(--prizm-index-plan);
+      text-shadow: 0 0 1px var(--prizm-index-plan);
+    }
+
+    cursor: pointer;
+  }
+
+  color: var(--prizm-border-icon);
+}

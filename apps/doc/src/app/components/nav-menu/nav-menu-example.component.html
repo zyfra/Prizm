@@ -1,0 +1,150 @@
+<prizm-doc-page header="Navigation menu" package="UI">
+  <div class="page-description" description>
+    Our navigation menu is a simple, responsive, and accessible menu that can be used in a variety of ways. It
+    can be used as a primary navigation menu, a secondary navigation menu, or a footer navigation menu.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicNavMenu" heading="Basic">
+      <prizm-nav-menu-basic-example></prizm-nav-menu-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="advanced" [content]="exampleAdvancedNavMenu" heading="Advanced">
+      <prizm-nav-menu-advanced-example></prizm-nav-menu-advanced-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-nav-menu
+        #element
+        [prizmDocHostElement]="element"
+        [model]="navigationList"
+        [menuTitle]="menuTitle"
+        [emptyMessage]="emptyMessage"
+        [toolbarConfig]="toolbarConfig"
+        [headerConfig]="headerConfig"
+        [searchPlaceholder]="searchPlaceholder"
+      ></prizm-nav-menu>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="model"
+        documentationPropertyType="PrizmMenuItem[]"
+        documentationPropertyMode="input"
+      >
+        Navigation menu data
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="menuTitle"
+        documentationPropertyName="menuTitle"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="emptyMessage"
+        documentationPropertyName="emptyMessage"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Empty message
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="headerConfig"
+        documentationPropertyType="HeaderConfig"
+        documentationPropertyMode="input"
+      >
+        Header content config
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="toolbarConfig"
+        documentationPropertyType="ToolbarConfig"
+        documentationPropertyMode="input"
+      >
+        Toolbar content config
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="searchPlaceholder"
+        documentationPropertyName="searchPlaceholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Search Placeholder
+      </ng-template>
+      <ng-template
+        documentationPropertyName="settingsConfig"
+        documentationPropertyType="SettingsConfig"
+        documentationPropertyMode="input"
+      >
+        Settings Config
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="nodes"
+        documentationPropertyType="TreeNode[]"
+        documentationPropertyMode="input"
+      >
+        Nodes
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="homeClick"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        homeClick
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="activeItemChange"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Active item change event
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectionChange"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Selected item change event
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="nodeExpand"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Expand node event
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="nodeCollapse"
+        documentationPropertyType="NavMenuEvent"
+        documentationPropertyMode="output"
+      >
+        Collapse node event
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmNavMenuModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,19 @@
+name: On PR was merged, creating comment in issue
+on:
+  pull_request_target:
+    types: [closed]
+jobs:
+  if_merged:
+    runs-on: ubuntu-latest
+    if: ${{ github.event.pull_request.merged == true }}
+    steps:
+      - name: 'Creating comments'
+        continue-on-error: true
+        uses: actions-cool/pr-extract-issues@v1
+        with:
+          way: 'body'
+          issues-labels: 'merged'
+          remove-labels: 'in_progress, released'
+          issues-comment: |
+            Привет! Этот issue: ${number} cлит в main。
+          issues-close: false

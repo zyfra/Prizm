@@ -1,0 +1,20 @@
+<prizm-doc-main #docRef (contentReady)="contentReady($event)">
+  <ng-container prizmPreNavigationHeader>
+    <prizm-doc-logo></prizm-doc-logo>
+  </ng-container>
+  <ng-container ngProjectAs="prizmDocHeader">
+    <label class="prizm-night-mode">
+      Night mode
+      <tui-toggle
+        class="tui-toggle"
+        [ngModel]="isNight$ | async"
+        (ngModelChange)="onMode($event)"
+      ></tui-toggle>
+    </label>
+    <a class="app-link" tuiLink tuiMode="onLight" href="https://github.com/zyfra/Prizm" target="_blank">
+      <img class="app-github" src="assets/images/git.svg" alt="" />
+    </a>
+  </ng-container>
+
+  <prizm-version-manager class="app-version" ngProjectAs="tuiDocNavigation"></prizm-version-manager>
+</prizm-doc-main>

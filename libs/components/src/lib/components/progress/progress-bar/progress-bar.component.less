@@ -1,0 +1,99 @@
+@import '../../../../styles/ui-local';
+
+.clearProgress() {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+}
+
+/* Used to style outer progress bar (container) */
+.progressContainer(@ruleset) {
+  &::-webkit-progress-bar {
+    @ruleset(); // Chrome | Opera | Safari
+  }
+  @ruleset(); // IE | Edge | Mozilla
+}
+
+/* used to style inner value bar */
+.progressValue(@ruleset) {
+  &::-webkit-progress-value {
+    @ruleset(); // Chromium Edge | Chrome | Opera | Safari
+  }
+
+  &::-moz-progress-bar {
+    @ruleset(); // Mozilla
+  }
+}
+
+/*
+* Edge and IE animate the progress bar right out of the box
+* Chrome | Opera | Safari animation is controlled by its mixins
+* No possibility for firefox animation (https://snook.ca/archives/html_and_css/animating-progress)
+*/
+.progressAnimation() {
+  &::-webkit-progress-value {
+    transition: width var(--prizm-duration) linear;
+  }
+}
+
+@keyframes prizmIndeterminateAnimation {
+  50% {
+    background-position: left;
+  }
+}
+
+:host {
+  @track-color: var(--prizm-progress-track-color, var(--prizm-grey-g11-g3));
+  @progress-color: var(--prizm-progress-color, currentColor);
+
+  .clearProgress();
+  .progressAnimation();
+  .progressValue({
+    background: @progress-color;
+  });
+  .progressContainer({
+    background-color: @track-color;
+  });
+  display: block;
+  width: 100%;
+  color: var(--prizm-primary);
+  border-radius: var(--prizm-radius-xs, 2px);
+  overflow: hidden;
+
+  &[data-size='m'] {
+    height: 16px;
+  }
+
+  &[data-size='s'] {
+    .progressValue({
+      border-radius: var(--prizm-radius-xs);
+    });
+    height: 4px;
+  }
+
+  &:indeterminate {
+    .progressContainer({
+      background: transparent;
+    });
+    .progressValue({
+      background: transparent;
+    });
+    background-image: linear-gradient(
+      to right,
+      @track-color 0 45%,
+      @progress-color 45% 55%,
+      @track-color 55% 100%
+    );
+    background-size: 225%;
+    background-position: right;
+    animation: prizmIndeterminateAnimation 3s infinite ease-in-out;
+  }
+}
+
+:host-context(label[prizmProgressLabel]):not(:first-child) {
+  .fullsize();
+  .progressContainer({
+    background-color: transparent;
+  });
+}

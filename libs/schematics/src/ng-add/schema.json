@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "components-ng-add",
+  "title": "@prizm-ui/components ng-add",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "$default": {
+        "$source": "projectName"
+      }
+    },
+    "installIcons": {
+      "type": "boolean",
+      "description": "Install icons?",
+      "default": true
+    }
+  }
+}

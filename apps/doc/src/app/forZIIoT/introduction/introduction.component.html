@@ -1,0 +1,32 @@
+<prizm-doc-page class="info-page" header="Введение">
+  <h3>Установка</h3>
+  <p>
+    Следуйте ручной установке:
+    <a href="{{ storybookBaseUrl }}/how-to-start/for-developers"
+      >http://doc.prizm.zyfra.com/how-to-start/for-developers</a
+    >
+  </p>
+
+  <h4>Особенность для ZIIoT приложения</h4>
+  <p>
+    Ресурсы которые не доступны необходимо переопределить согласно вашему baseHref приложения. <br />
+    Проблема описана в [RFC] КБ Предоставление стилей для иконочных шрифтов <br />
+    Например:
+  </p>
+  <prizm-doc-code [code]="featuresForZIIoT"></prizm-doc-code>
+
+  <h3>Runtime</h3>
+  <h4>CSS переменные</h4>
+  <p>
+    Если есть потребность изменить переменную, делайте это <br />
+    ✅ на уровне своего приложения. <br />
+    ❌ менять в рут ничего нельзя!
+  </p>
+
+  <h4>Темизация</h4>
+  <p>
+    Для подписки от AppShell на темы следует подписаться на соответствующее событие из ShellPropertiesCore и
+    обновить тему в самом Prizm. Например так:
+  </p>
+  <prizm-doc-code [code]="themization"></prizm-doc-code>
+</prizm-doc-page>

@@ -1,0 +1,31 @@
+<prizm-wrapper
+  class="z-wrapper"
+  [attr.data-appearance-type]="appearanceType"
+  [appearance]="appearance"
+  [hovered]="computedHovered"
+  [pseudoState]="pseudoState"
+  [pressed]="computedPressed"
+  [disabled]="computedDisabled"
+  [focused]="computedFocusVisible"
+>
+  <span class="z-content" [style.visibility]="showLoader ? 'hidden' : ''">
+    <ng-container
+      *ngIf="icon"
+      [ngTemplateOutlet]="showIconTemp"
+      [ngTemplateOutletContext]="{ icon: icon }"
+    ></ng-container>
+    <div class="text prizm-font-btn-links-14"><ng-content></ng-content></div>
+    <ng-container
+      *ngIf="iconRight"
+      [ngTemplateOutlet]="showIconTemp"
+      [ngTemplateOutletContext]="{ icon: iconRight }"
+    ></ng-container>
+  </span>
+  <prizm-loader class="z-loader" *ngIf="showLoader" [size]="loaderSize" [inheritColor]="true"></prizm-loader>
+</prizm-wrapper>
+
+<ng-template #showIconTemp let-icon="icon">
+  <ng-container *polymorphOutlet="icon as content; context: { size: size }">
+    <prizm-icon [iconClass]="content" [size]="16"></prizm-icon>
+  </ng-container>
+</ng-template>

@@ -1,0 +1,97 @@
+<div class="container">
+  <prizm-panel [withBackButton]="true" header="Заголовок" subheader="Подзаголовок">
+    <div class="buttons" buttons>
+      <prizm-toggle [(ngModel)]="toggleValue" [ngModelOptions]="{ standalone: true }" size="m"
+        >Ng Model
+      </prizm-toggle>
+    </div>
+
+    <div class="tabs" header></div>
+
+    <div class="instruments" instruments>
+      <div class="instruments__group">
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="add-plus"
+        ></button>
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="editor-mode"
+        ></button>
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="editor-copy"
+        ></button>
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="delete"
+        ></button>
+      </div>
+
+      <div class="instruments__group">
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="bookmarks-bookmark-check"
+        ></button>
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="arrows-expand-all"
+        ></button>
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="files-import-arr"
+        ></button>
+        <button
+          class="instruments__icon"
+          prizmIconButton
+          size="s"
+          appearanceType="ghost"
+          appearance="secondary"
+          icon="files-export-arr"
+        ></button>
+      </div>
+
+      <div class="instruments__group">
+        <button prizmButton appearance="success" size="m">Кнопка 2</button>
+        <button prizmButton appearance="primary" size="m">Кнопка</button>
+      </div>
+    </div>
+  </prizm-panel>
+  <div class="content">
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequatur delectus dolores magnam
+      quibusdam reiciendis, reprehenderit sapiente sequi sit sunt tempora tenetur vel veritatis? Incidunt modi
+      perferendis quas? Accusantium aut exercitationem id pariatur quisquam, sequi suscipit. A aspernatur
+      atque cum cumque error exercitationem hic id, in ipsa magni nesciunt quam qui, quidem quod ratione rem
+      repudiandae sint sunt suscipit, vitae.
+    </span>
+  </div>
+</div>

@@ -1,0 +1,75 @@
+@import '../../../styles/ui-local';
+
+.block {
+  border: 1px solid var(--prizm-border-widget);
+  border-radius: 2px;
+  padding: 6px 0;
+
+  width: var(--prizm-cron-width, 642px);
+  min-height: var(--prizm-cron-min-height, 952px);
+}
+
+.inner-block {
+  padding: 16px;
+  display: flex;
+
+  &.date-period {
+    flex-direction: column;
+    gap: 16px;
+
+    .date-block {
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .indefinitely-toggle {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &.py-none {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  &.title {
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.border-bottom {
+  border-bottom: 1px solid var(--prizm-border-widget);
+}
+
+.sub-pages {
+  width: 100%;
+  display: block;
+  padding-top: 16px;
+}
+
+.copy-icon {
+  color: var(--prizm-border-widget);
+  cursor: pointer;
+}
+
+.submit-block {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+:host {
+  --prizm-input-layout-width: auto;
+}
+
+.human-readable-block {
+  padding-bottom: 0;
+
+  prizm-input-layout {
+    width: 100%;
+  }
+}

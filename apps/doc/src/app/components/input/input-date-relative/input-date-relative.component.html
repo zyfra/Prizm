@@ -1,0 +1,126 @@
+<prizm-doc-page header="InputDateRelative" package="deprecated">
+  <div class="page-description" description>
+    It is a deprecated component, instead of this use PrizmInputLayoutDateRelative.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-input-date-relative-base-example></prizm-input-date-relative-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-date-relative
+        #element
+        [prizmDocHostElement]="element"
+        [formControl]="valueControl"
+        [label]="label"
+        [forceClear]="forceClear"
+        [placeholder]="placeholder"
+        [outer]="outer"
+        [disabled]="disabled"
+        [showClear]="showClear"
+        [size]="size"
+        [canOpen]="canOpen"
+      ></prizm-input-date-relative>
+    </prizm-doc-demo>
+    <prizm-doc-documentation [control]="valueControl">
+      <ng-template
+        [(documentationPropertyValue)]="forceClear"
+        [documentationPropertyValues]="forceClearVariants"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Show clear button
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="label"
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="placeholder"
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="outer"
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        [documentationPropertyDeprecated]="true"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="showClear"
+        documentationPropertyName="showClear"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show Clear
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+        documentationPropertyMode="input"
+      >
+        Injector for nested buttons (use in multi datepicker and similar case)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="canOpen"
+        documentationPropertyName="canOpen"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Open
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputDateRelativeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

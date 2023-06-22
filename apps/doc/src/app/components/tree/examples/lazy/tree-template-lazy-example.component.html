@@ -1,0 +1,15 @@
+<prizm-tree
+  [prizmTreeController]="false"
+  [map]="map"
+  [value]="service.data$ | async"
+  [childrenHandler]="childrenHandler"
+  [content]="content"
+  (toggled)="onToggled($event)"
+></prizm-tree>
+
+<ng-template #content let-item>
+  <prizm-loader class="loader" *ngIf="item === loading; else text" [showLoader]="true" [overlay]="true"
+    >Подгрузка</prizm-loader
+  >
+  <ng-template #text>{{ item.text }}</ng-template>
+</ng-template>

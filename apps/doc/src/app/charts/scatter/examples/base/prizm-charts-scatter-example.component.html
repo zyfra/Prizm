@@ -1,0 +1,8 @@
+<prizm-charts-scatter
+  [data]="data"
+  [theme]="prizmTheme.changesTheme$ | async"
+  [options]="{ size: 5, shape: 'circle', appendPadding: 30 }"
+  xField="xG conceded"
+  colorField="Result"
+  yField="Shot conceded"
+></prizm-charts-scatter>

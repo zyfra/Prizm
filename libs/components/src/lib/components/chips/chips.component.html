@@ -1,0 +1,68 @@
+<div
+  class="chips-list"
+  #prizmElementReady="prizmElementReady"
+  #parent
+  *ngIf="(chipsList$ | async).length"
+  [class.hidden]="singleLine"
+  [checker]="ready"
+  prizmElementReady
+>
+  <ng-container *ngIf="prizmElementReady.ready$ | async">
+    <ng-container
+      *ngFor="let item of chipsList$ | async; let i = index"
+      [ngTemplateOutlet]="buttonTemplate"
+      [ngTemplateOutletContext]="{
+        item: item,
+        idx: i,
+        allChipsCount: (chipsList$ | async).length,
+        parent: parent,
+        singleLine: singleLine
+      }"
+    >
+    </ng-container>
+
+    <ng-container *ngIf="overflowedChipsList$ | async as chipsOverflowedList">
+      <div
+        class="more-item"
+        *ngIf="chipsOverflowedList.size"
+        [prizmHint]="getOverflowedChipsListHint()"
+        [prizmHintDirection]="hintDirection"
+      >
+        ...
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
+
+<ng-template
+  #buttonTemplate
+  let-item="item"
+  let-idx="idx"
+  let-parent="parent"
+  let-background="background"
+  let-hint="hint"
+  let-allChipsCount="allChipsCount"
+  let-hideDelete="hideDelete"
+  let-singleLine="singleLine"
+  let-forceShowHint="forceShowHint"
+>
+  <prizm-chips-item
+    class="{{
+      prizmLifecycle.afterViewInit$
+        | prizmCallFunc : isChipsContent$ : parent : singleLine : item : idx : allChipsCount
+        | async
+    }}"
+    #prizmLifecycle="prizmLifecycle"
+    [hintCanShow]="hintCanShow"
+    [hintDirection]="hintDirection"
+    [class.single-line]="singleLine"
+    [hintText]="item"
+    [deletable]="!hideDelete && deletable"
+    [disabled]="accessorIsDisabled"
+    (deleted)="removeChips($event, idx)"
+    (click)="chipClick(item)"
+    prizmLifecycle
+  >
+    {{ item }}
+  </prizm-chips-item>
+</ng-template>

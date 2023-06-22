@@ -1,0 +1,63 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [content]="dropdown"
+  [isOpen]="isOpen && canOpen"
+  [closeByEsc]="true"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHostWidth]="'100%'"
+  (isOpenChange)="onOpenChange($event)"
+>
+  <input
+    class="input-search"
+    #focusableElementRef
+    [ngModelOptions]="{ standalone: true }"
+    [ngModel]="value"
+    [disabled]="disabled"
+    [placeholder]="placeholder"
+    (click)="safeOpenModal()"
+    (ngModelChange)="valueChange($event)"
+    prizmInput
+  />
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <ul class="prizm-datepicker-relative-menu" (prizmAfterViewInit)="markAsTouched()" role="listbox">
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
+    <li class="relative-menu-item-divider"></li>
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>
+    <li class="relative-menu-item-divider"></li>
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: periodItems }"></ng-container>
+
+    <ng-template #menuItemsTemplate let-items="items">
+      <li
+        class="relative-menu-item"
+        *ngFor="let item of items"
+        [class.relative-menu-item-active]="item.active"
+        (click)="onMenuItemClick($event, item)"
+        role="button"
+        tabindex="0"
+      >
+        <div class="relative-menu-item-icon">
+          <i class="prizm-icon {{ item.icon }}"></i>
+        </div>
+        <div class="relative-menu-item-label">{{ item.label }}</div>
+      </li>
+    </ng-template>
+  </ul>
+</ng-template>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    [interactive]="true"
+    [disabled]="disabled"
+    (click)="focusableElementRef.elementRef.nativeElement.click()"
+    prizmInputIconButton="date-update"
+  ></button>
+  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+  </ng-container>
+</ng-container>
+
+<ng-template [enable]="!!ngControl.errors?.requiredPattern" prizmInputStatusText status="danger">
+  {{ dictionary$ | async | prizmPluck : ['wrongFormat'] }}
+</ng-template>

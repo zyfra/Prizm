@@ -1,0 +1,85 @@
+<div>
+  <p class="title">Size XL</p>
+  <div class="block">
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="xl"></prizm-progress-circle>
+  </div>
+</div>
+
+<br />
+<div>
+  <p class="title">Size L</p>
+  <div class="block">
+    <prizm-progress-circle
+      [max]="max"
+      [trackColor]="'transparent'"
+      [value]="(value$ | async) || 0"
+      size="l"
+    ></prizm-progress-circle>
+
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="l"></prizm-progress-circle>
+
+    <prizm-progress-circle
+      [max]="max"
+      [trackColor]="'var(--prizm-index-warning)'"
+      [color]="'var(--prizm-index-plan)'"
+      [value]="(value$ | async) || 0"
+      size="l"
+    ></prizm-progress-circle>
+  </div>
+</div>
+<br />
+
+<br />
+<div>
+  <p class="title">Size S</p>
+  <div class="block">
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="s"></prizm-progress-circle>
+    <prizm-progress-circle
+      [max]="max"
+      [value]="(value$ | async) || 0"
+      size="s"
+      color="var(--prizm-index-warning)"
+      trackColor="transparent"
+    ></prizm-progress-circle>
+  </div>
+</div>
+
+<br />
+<div>
+  <p class="title">Size M</p>
+  <div class="block">
+    <prizm-progress-circle [max]="max" [value]="(value$ | async) || 0" size="m"></prizm-progress-circle>
+
+    <prizm-progress-circle
+      [max]="max"
+      [value]="(value$ | async) || 0"
+      size="m"
+      color="var(--prizm-index-warning)"
+    ></prizm-progress-circle>
+  </div>
+</div>
+
+<br />
+<div>
+  <p class="title">With label</p>
+  <div class="block">
+    <div>
+      <label *ngIf="value$ | async as value" prizmProgressLabel>
+        <span class="percent">{{ value }}%</span>
+
+        <prizm-progress-circle [max]="max" [value]="value" size="xl"></prizm-progress-circle>
+      </label>
+    </div>
+    <div>
+      <label *ngIf="value$ | async as value" prizmProgressLabel>
+        <span class="percent">{{ value }}%</span>
+        <prizm-progress-circle
+          [max]="max"
+          [trackColor]="'transparent'"
+          [value]="value"
+          size="l"
+        ></prizm-progress-circle>
+      </label>
+    </div>
+  </div>
+</div>

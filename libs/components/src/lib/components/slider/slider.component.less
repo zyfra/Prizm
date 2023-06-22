@@ -1,0 +1,83 @@
+:host {
+  --progress: var(--prizm-index-plan);
+  --disabled: var(--prizm-grey-g7-g7);
+  display: flex;
+  align-items: center;
+}
+
+.value {
+  font-size: 14px;
+  line-height: 20px;
+  font-family: Inter;
+}
+
+.scrollbar {
+  flex-grow: 1;
+  background-color: var(--prizm-border-forms);
+  border-radius: 2px;
+  display: flex;
+
+  &__track {
+    flex-grow: 1;
+    position: relative;
+    display: flex;
+  }
+
+  &__cnob {
+    position: absolute;
+  }
+}
+
+:host.horizontal {
+  & {
+    flex-direction: row;
+  }
+  .scrollbar {
+    &__track {
+      height: 4px;
+      margin-right: 20px;
+    }
+
+    &__cnob {
+      transform: translate(0, calc(-50% + 2px));
+    }
+  }
+
+  .value {
+    &--min {
+      margin: 0 8px 0 0;
+    }
+
+    &--max {
+      margin: 0 0 0 8px;
+    }
+  }
+}
+
+:host.vertical {
+  & {
+    flex-direction: column;
+  }
+
+  .value {
+    &--min {
+      margin: 8px 0 0 0;
+    }
+
+    &--max {
+      margin: 0 0 8px 0;
+    }
+  }
+
+  .scrollbar {
+    flex-direction: column;
+    &__track {
+      width: 4px;
+      margin-top: 20px;
+    }
+
+    &__cnob {
+      transform: translate(calc(-50% + 2px), 0);
+    }
+  }
+}

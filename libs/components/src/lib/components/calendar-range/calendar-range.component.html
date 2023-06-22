@@ -1,0 +1,73 @@
+<ng-container *ngIf="!items.length; else presets">
+  <prizm-primitive-calendar-range
+    [markerHandler]="markerHandler"
+    [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
+    [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
+    [defaultViewedMonthFirst]="computedMonth"
+    [defaultViewedMonthSecond]="computedMonth | prizmMapper : getEndRangeMonthOrShift"
+    [disabledItemHandler]="calculatedDisabledItemHandler"
+    [value]="value"
+    (dayClick)="onDayClick($event)"
+    automation-id="prizm-calendar-range__calendars"
+    prizmPreventDefault="mousedown"
+  >
+    <ng-container footerFrom>
+      <ng-content select="[footerFrom]"></ng-content>
+    </ng-container>
+    <ng-container headerFrom>
+      <ng-content select="[headerFrom]"></ng-content>
+    </ng-container>
+    <ng-container footerTo>
+      <ng-content select="[footerTo]"></ng-content>
+    </ng-container>
+    <ng-container headerTo>
+      <ng-content select="[headerTo]"></ng-content>
+    </ng-container>
+  </prizm-primitive-calendar-range>
+</ng-container>
+<ng-template #presets>
+  <div class="z-wrapper">
+    <prizm-calendar
+      [value]="value"
+      [markerHandler]="markerHandler"
+      [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
+      [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
+      [month]="computedMonth"
+      [disabledItemHandler]="calculatedDisabledItemHandler"
+      (dayClick)="onDayClick($event)"
+      automation-id="prizm-calendar-range__calendar"
+      prizmPreventDefault="mousedown"
+    >
+    </prizm-calendar>
+    <prizm-data-list
+      class="z-menu"
+      [style.--prizm-data-list-border]="0"
+      [style.--prizm-data-list-border-left]="'1px solid var(--prizm-border-widget)'"
+      role="menu"
+      automation-id="prizm-calendar-range__menu"
+    >
+      <button
+        class="button-list"
+        *ngFor="let item of items | prizmMapper : mapper : min : max : minLength : (otherDateText$ | async)"
+        [attr.aria-checked]="isItemActive(item)"
+        (keydown.enter.prevent)="onItemSelect(item)"
+        (keydown.space.prevent)="onItemSelect(item)"
+        (click)="onItemSelect(item)"
+        prizmPreventDefault="mousedown"
+        role="menuitemradio"
+        prizmButton
+        appearanceType="ghost"
+        appearance="primary"
+        automation-id="prizm-calendar-range__menu__item"
+      >
+        <div class="btn-content">
+          <span>{{ item }}</span>
+          <prizm-icon
+            [style.visibility]="isItemActive(item) ? '' : 'hidden'"
+            iconClass="selection-check-simple"
+          ></prizm-icon>
+        </div>
+      </button>
+    </prizm-data-list>
+  </div>
+</ng-template>

@@ -1,0 +1,27 @@
+<prizm-doc-page header="Theme">
+  <div class="page-description" description>User theme service for controlling the theme.</div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="global" [content]="baseExample" heading="Global Change">
+      <prizm-theme-base-example></prizm-theme-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="local" [content]="localExample" heading="Local Change">
+      <prizm-theme-local-example></prizm-theme-local-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Setup">
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmThemeService</code>
+          into a service where you want to use our service
+        </p>
+
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

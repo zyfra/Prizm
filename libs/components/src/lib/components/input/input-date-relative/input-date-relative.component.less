@@ -1,0 +1,43 @@
+.prizm-datepicker-relative-menu {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.relative-menu-item {
+  height: 44px;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  &-icon {
+    font-size: 18px;
+    display: inherit;
+  }
+
+  &-label {
+    padding-left: 8px;
+  }
+
+  &-divider {
+    margin: 2px 0;
+    border-bottom: 1px solid var(--prizm-border-widget);
+  }
+
+  &:hover {
+    background: var(--prizm-bg-dashboard-forms);
+  }
+
+  &-active {
+    background: var(--prizm-focus-border);
+
+    &:hover {
+      background: var(--prizm-focus-border);
+    }
+  }
+}
+
+.prizm-datepicker-relative-menu {
+  color: var(--prizm-text-contrast);
+}

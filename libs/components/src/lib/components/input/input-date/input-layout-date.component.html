@@ -1,0 +1,55 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [isOpen]="open && canOpen"
+  [content]="dropdown"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [closeByEsc]="true"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <input
+    class="input-search"
+    #focusableElementRef
+    [mask]="computedMask"
+    [showMaskTyped]="focusableElementRef.focused"
+    [dropSpecialCharacters]="false"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [ngModelOptions]="{ standalone: true }"
+    [ngModel]="stringValue"
+    (ngModelChange)="onValueChange($event || '')"
+    prizmInput
+  />
+  <ng-template #dropdown>
+    <prizm-calendar
+      [min]="min"
+      [max]="max"
+      [markerHandler]="markerHandler"
+      [disabledItemHandler]="disabledItemHandler"
+      [month]="computedActiveYearMonth"
+      [value]="value"
+      (prizmAfterViewInit)="markAsTouched()"
+      (dayClick)="onDayClick($event)"
+      (monthChange)="onMonthChange($event)"
+      prizmPreventDefault="mousedown"
+      automation-id="prizm-input-date__calendar"
+    ></prizm-calendar>
+    <div class="z-button" *ngIf="items.length === 1" prizmPreventDefault="mousedown">
+      <button (click)="onDayClick(items[0].day)" prizmLink type="button">
+        {{ items[0] }}
+      </button>
+    </div>
+  </ng-template>
+</prizm-dropdown-host>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    [disabled]="disabled"
+    [interactive]="true"
+    (click)="onOpenChange(!open)"
+    prizmInputIconButton="date-calendar-blank"
+  ></button>
+  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+  </ng-container>
+</ng-container>

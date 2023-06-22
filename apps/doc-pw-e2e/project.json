@@ -1,0 +1,39 @@
+{
+  "name": "doc-pw-e2e",
+  "sourceRoot": "apps/doc-pw-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@mands/nx-playwright:playwright-executor",
+      "options": {
+        "e2eFolder": "apps/doc-pw-e2e",
+        "devServerTarget": "doc:serve",
+        "packageRunner": "yarn"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "doc:serve:production"
+        }
+      }
+    },
+    "ts-check": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "tsc --build --force --verbose apps/doc-e2e/tsconfig.json"
+          }
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/doc-pw-e2e/**/*.{ts,tsx,js,jsx}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["doc"]
+}

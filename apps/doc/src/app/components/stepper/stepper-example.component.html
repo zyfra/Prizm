@@ -1,0 +1,196 @@
+<prizm-doc-page header="Stepper">
+  <div class="page-description" description>
+    Our stepper component is a simple way to display progress through a sequence of logical and numbered
+    steps. It may also be used for navigation.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="basicExample" heading="Base">
+      <prizm-stepper-basic-example></prizm-stepper-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="vertical" [content]="verticalExample" heading="Vertical">
+      <prizm-stepper-vertical-example></prizm-stepper-vertical-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="async" [content]="asyncExample" heading="Async">
+      <prizm-stepper-async-example></prizm-stepper-async-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-stepper
+        #element
+        [prizmDocHostElement]="element"
+        [currentStep]="currentStep"
+        [title]="title"
+        [vertical]="vertical"
+        [stepsSize]="stepperSize"
+        (selectStep)="this.currentStep = $event"
+      >
+        <ng-template [prizmStepperStep]="1" [title]="'Step 1'" [disabled]="false">
+          <div>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi deserunt ratione eius consequatur
+            earum laborum quod, reprehenderit nam totam excepturi magnam ex quae assumenda autem, amet nostrum
+            repellendus itaque, praesentium nisi reiciendis! Nostrum praesentium provident dolorem blanditiis
+            vitae mollitia nobis dicta? At recusandae autem ab ut repellendus repudiandae possimus, corporis
+            quaerat ullam dolores libero quas in dicta laudantium quos, explicabo maxime nostrum architecto
+            fuga, neque provident vitae? Odit, necessitatibus. Veritatis voluptatem aperiam perspiciatis
+            nesciunt ab reiciendis, voluptatum atque nobis dolor ullam optio soluta dignissimos pariatur rem
+            est totam quam officia. Dolorum nihil harum quo nulla. Blanditiis dicta earum, vero illo
+            voluptatibus animi commodi voluptate rem ullam, pariatur consectetur quo deleniti tempora labore
+            magnam obcaecati molestias harum dolore molestiae unde itaque! Laborum odit maxime rerum
+            aspernatur reprehenderit expedita laudantium itaque nesciunt eum iste perspiciatis hic ipsum
+            architecto magnam dignissimos odio, quas ipsam eaque suscipit modi voluptatibus officiis possimus.
+            Reiciendis unde tenetur maiores veritatis voluptates molestias ad nihil provident quod id illo
+            facilis
+          </div>
+        </ng-template>
+        <ng-template [prizmStepperStep]="2" [title]="'Step 2'" [disabled]="false">
+          <div>
+            laborum aut, quasi eligendi nihil quo laboriosam beatae repellat perferendis velit, vel accusamus
+            delectus. Odio, repellendus dignissimos unde consequuntur commodi facere laborum, ipsa, optio
+            incidunt sunt doloribus? Architecto, voluptatum, adipisci, autem dolore nam eveniet minima veniam
+            tenetur nemo iusto vel tempore exercitationem amet. Rem in, suscipit eveniet recusandae asperiores
+            nesciunt consectetur ipsam minima. Iure tempora dolores distinctio inventore quas, dicta vitae
+            expedita sapiente provident perferendis sunt aliquam voluptates voluptatibus est. Obcaecati illo
+            iure minus nam facere voluptas est consequatur deleniti amet magni fugiat, sit quas asperiores,
+            voluptate, mollitia inventore commodi libero et doloremque quisquam quam. Expedita, architecto!
+            Nesciunt neque voluptate iusto dicta id error cupiditate ab, corrupti fugit inventore non
+            assumenda voluptatum deleniti autem quidem quia suscipit ipsum maxime incidunt eum fugiat, placeat
+            est animi. Laboriosam cumque dolor quis esse, enim inventore soluta. Nisi natus tempora quis odio
+            atque non explicabo ad, provident voluptas quas esse sed dolore aliquam nulla autem libero
+            similique magnam et quia iusto minima voluptates consequatur ullam. Incidunt aliquid voluptate
+            itaque ipsam! Iusto nobis alias cum inventore sequi maiores. Facilis quae asperiores, accusamus
+            tempore dolorum laboriosam quis dolor ex voluptas. Tempora doloremque nulla, eveniet, ipsam beatae
+            tempore cumque omnis dolorem odio harum quisquam pariatur, rem laborum molestias consequatur?
+            Facilis eaque sed et ad nihil tempore rerum vel ipsa accusantium aliquam aliquid tempora atque
+            obcaecati cumque nulla quos voluptate, dolores cupiditate!
+          </div>
+        </ng-template>
+        <ng-template [prizmStepperStep]="3" [title]="'Step 3'" [disabled]="false">
+          <div>
+            laudantium, officiis officia eos suscipit reprehenderit vel repellendus ducimus voluptatum
+            voluptatibus quas provident minima. Delectus accusantium explicabo dicta voluptatum repudiandae
+            officia nesciunt molestias sapiente perferendis culpa quis quisquam nam commodi ipsum possimus
+            consequuntur labore amet libero ducimus, earum molestiae illo porro atque natus. Quibusdam, ex
+            harum dignissimos sed doloremque vel veniam quaerat obcaecati. Qui ratione, praesentium ullam
+            deserunt iste quae reiciendis deleniti laudantium voluptatum omnis nostrum voluptates? Debitis vel
+            commodi praesentium vitae et sapiente consequatur culpa. Nam dignissimos dolor vitae recusandae
+            mollitia incidunt, laudantium quae soluta velit ad! Quod voluptate ea sint molestias error nisi
+            praesentium. Vero, tempora! Tempore est ad quas voluptate eaque sint ipsum ipsam perferendis
+            accusantium laborum consectetur debitis, maiores possimus dignissimos quaerat fugiat aspernatur
+            minima aperiam quisquam sit perspiciatis incidunt. At, exercitationem recusandae atque laborum
+            nobis quas dolorum? Id quaerat corrupti vel sint expedita harum deleniti possimus deserunt nihil,
+            aut est recusandae dolor illum aliquam eos cupiditate dolore totam, labore ipsa officiis veniam
+            earum laudantium. Dicta officia iure beatae, vitae, dolore impedit perspiciatis vel, dolorum
+            eligendi aliquam laboriosam? Expedita ratione sequi repellendus consectetur eaque fugiat quo
+            deleniti laboriosam. Quibusdam quas, ducimus suscipit debitis cum nostrum earum hic dignissimos
+            dolores natus dicta cumque culpa et neque sit labore molestiae eveniet corrupti, minima, pariatur
+            facere. Pariatur labore qui aspernatur reiciendis, doloremque tenetur minus? Ex dolorum atque
+            labore cum consequatur architecto ipsa totam. Fuga ducimus
+          </div>
+        </ng-template>
+
+        <div
+          class="footer"
+          [ngStyle]="{ display: 'flex', 'justify-content': 'flex-end', gap: '10px' }"
+          prizmStepperFooter
+        >
+          <button
+            [disabled]="currentStep === 1"
+            (click)="currentStep = currentStep - 1"
+            prizmButton
+            appearanceType="outline"
+            appearance="primary"
+            size="l"
+          >
+            Предыдущий шаг
+          </button>
+          <button
+            [disabled]="currentStep === 3"
+            (click)="currentStep = currentStep + 1"
+            prizmButton
+            appearanceType="outline"
+            appearance="primary"
+            size="l"
+          >
+            Следующий шаг
+          </button>
+        </div>
+      </prizm-stepper>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="vertical"
+        documentationPropertyName="vertical"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Vertical
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="currentStep"
+        [documentationPropertyValues]="[1, 2, 3]"
+        documentationPropertyName="currentStep"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Current step
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="stepperSize"
+        [documentationPropertyValues]="['auto', '200px', '30%']"
+        documentationPropertyName="stepsSize"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Stepper Size
+        <br />
+        <small>Actual for vertical</small>
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="selectStep"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Select step
+      </ng-template>
+
+      <!-- <ng-template
+        documentationPropertyName="update"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Update
+        <br />
+        <small> Run sttepper change detector </small>
+      </ng-template> -->
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmStepperModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,85 @@
+.box {
+  padding: 16px;
+}
+
+.header {
+  color: var(--prizm-text-contrast);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .list-item {
+    display: flex;
+    justify-content: space-between;
+    gap: 64px;
+
+    .btns {
+      display: flex;
+      gap: 24px;
+    }
+  }
+}
+
+.header {
+  display: flex;
+  gap: 8px;
+  white-space: nowrap;
+  align-items: center;
+
+  prizm-icon {
+    font-weight: 300;
+  }
+}
+
+.date-control {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  prizm-input-date-time ::ng-deep {
+    width: 100%;
+
+    prizm-input-layout {
+      width: 100%;
+    }
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.trash-icon {
+  color: var(--prizm-index-danger);
+}
+
+prizm-icon {
+  cursor: pointer;
+}
+
+.edit-icon {
+  color: var(--prizm-grey-g8-g6);
+}
+
+.edit-block {
+  gap: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item-content {
+  width: 320px;
+  max-width: 320px;
+}
+
+.add-block {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+}

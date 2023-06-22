@@ -1,0 +1,54 @@
+<header class="t-header">
+  <h1 class="t-title">
+    {{ header }}
+    <tui-tag
+      class="t-tag t-tag_deprecated"
+      *ngIf="deprecated !== null"
+      value="deprecated"
+      status="custom"
+    ></tui-tag>
+    <tui-tag
+      class="t-tag t-tag_package"
+      *ngIf="package"
+      status="custom"
+      [value]="package"
+      [autoColor]="true"
+    ></tui-tag>
+  </h1>
+  <div class="description">
+    <ng-content select="[description]"></ng-content>
+  </div>
+  <tui-tabs-with-more class="t-tabs" *ngIf="tabConnectors.length" [(activeItemIndex)]="activeItemIndex">
+    <ng-container *ngFor="let tab of tabConnectors; first as first; index as index">
+      <ng-container *ngIf="first; else dynamicTab">
+        <a *tuiItem tuiTab routerLink="./" routerLinkActive [routerLinkActiveOptions]="{exact: true}">
+          {{ tab.prizmDocPageTab || defaultTabs[index] }}
+        </a>
+      </ng-container>
+      <ng-template #dynamicTab>
+        <a
+          *tuiItem
+          tuiTab
+          routerLinkActive
+          [routerLink]="getRouterLink(tab.prizmDocPageTab || defaultTabs[index])"
+        >
+          {{ tab.prizmDocPageTab || defaultTabs[index] }}
+        </a>
+      </ng-template>
+    </ng-container>
+  </tui-tabs-with-more>
+  <prizm-doc-source-code
+    class="t-source-code"
+    [header]="header"
+    [package]="package"
+    [type]="type"
+    [path]="path"
+  ></prizm-doc-source-code>
+</header>
+<div class="t-content">
+  <ng-content></ng-content>
+  <prizm-doc-see-also class="t-see-also" *ngIf="showSeeAlso" [seeAlso]="seeAlso"></prizm-doc-see-also>
+  <ng-container *ngFor="let tab of tabConnectors; index as index">
+    <ng-container *ngIf="index === activeItemIndex" [ngTemplateOutlet]="tab.template"></ng-container>
+  </ng-container>
+</div>

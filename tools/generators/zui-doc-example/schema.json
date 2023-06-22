@@ -1,0 +1,27 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "zui-doc-example",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Import module name",
+      "aliases": ["n", "name"],
+      "x-prompt": "What is module class name?"
+    },
+    "title": {
+      "type": "string",
+      "description": "Title for example page",
+      "aliases": ["t", "title"],
+      "x-prompt": "What is title for example page?"
+    },
+    "keywords": {
+      "type": "string",
+      "description": "Keywords for search in menu",
+      "aliases": ["k", "keywords"],
+      "x-prompt": "What is the keywords for search in menu?"
+    }
+  },
+  "required": ["name"]
+}

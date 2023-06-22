@@ -1,0 +1,220 @@
+<prizm-doc-page header="Toggle">
+  <div class="page-description" description>
+    Our toggle component is a simple on/off switch that can be used to turn a feature on or off.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-toggle-base-example></prizm-toggle-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-toggle
+        #element
+        [(ngModel)]="value"
+        [(val)]="val"
+        [prizmDocHostElement]="element"
+        [showLoader]="showLoader"
+        [singleColor]="singleColor"
+        [iconOn]="iconOn"
+        [size]="size"
+        [iconOff]="iconOff"
+        [disabled]="disabled"
+        [ngModelOptions]="{ standalone: true }"
+        [readOnly]="readOnly"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
+      ></prizm-toggle>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <!-- <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="disabled"
+      >
+        Disabled
+      </ng-template> -->
+
+      <ng-template
+        [(documentationPropertyValue)]="showLoader"
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show Loader
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="singleColor"
+        documentationPropertyName="singleColor"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Single Color
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmSizeL | PrizmSizeM"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="iconOn"
+        [documentationPropertyValues]="iconVariants"
+        documentationPropertyName="iconOn"
+        documentationPropertyType="PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>"
+        documentationPropertyMode="input"
+      >
+        Icon On
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="iconOff"
+        [documentationPropertyValues]="iconVariants"
+        documentationPropertyName="iconOff"
+        documentationPropertyType="PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>"
+        documentationPropertyMode="input"
+      >
+        Icon Off
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="readOnly"
+        documentationPropertyName="readOnly"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Read Only
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="val"
+        documentationPropertyName="val"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input-output"
+      >
+        Val
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoInvalid"
+        documentationPropertyName="pseudoInvalid"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Invalid
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoHovered"
+        documentationPropertyName="pseudoHovered"
+        documentationPropertyType=" boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Hovered
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoPressed"
+        documentationPropertyName="pseudoPressed"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Pressed
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoFocused"
+        documentationPropertyName="pseudoFocused"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Focused
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="focusable"
+        documentationPropertyName="focusable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Focusable
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoState"
+        documentationPropertyName="pseudoState"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Pseudo State
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="focusedChange"
+        documentationPropertyName="focusedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Focused Change
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pressedChange"
+        documentationPropertyName="pressedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Pressed Change
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="hoveredChange"
+        documentationPropertyName="hoveredChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Hovered Change
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="focusVisibleChange"
+        documentationPropertyName="focusVisibleChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Focus Visible Change
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmToggleModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

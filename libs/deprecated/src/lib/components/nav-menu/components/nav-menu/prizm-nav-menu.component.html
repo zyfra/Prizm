@@ -1,0 +1,64 @@
+<div class="prizm-nav-menu p-component" #navMenu>
+  <div class="header" #header>
+    <div class="app-name">{{ menuTitle }}</div>
+    <div class="right-side">
+      <ng-container *ngTemplateOutlet="headerExtraTemplate"></ng-container>
+      <prizm-icon
+        class="header__btn"
+        *ngIf="headerConfiguration?.settings"
+        [size]="16"
+        (click)="copyConfig()"
+        iconClass="settings"
+      ></prizm-icon>
+      <prizm-icon
+        class="header__btn"
+        *ngIf="headerConfiguration?.home"
+        [size]="16"
+        (click)="homeClick.emit()"
+        iconClass="social-home"
+      ></prizm-icon>
+    </div>
+  </div>
+
+  <div class="nav-menu-content" [ngClass]="settingsConfig?.selectedSize">
+    <ng-container *ngIf="menuGroups.length; else noGroups">
+      <p-accordion [multiple]="!settingsConfig.singleGroup">
+        <p-accordionTab *ngFor="let group of menuGroups; let i = index" [selected]="i === activeGroup">
+          <prizm-menu-group-content
+            [nodes]="groupNodes[i]"
+            [selectionMode]="settingsConfig.selectionMode"
+            [activeNode]="activeGroup === i ? activeNode : null"
+            [searchPlaceholder]="searchPlaceholder"
+            [toolbarConfig]="toolbarConfig"
+            [toolbarExtra]="toolbarExtraTemplate"
+            [itemExtra]="itemExtraTemplate"
+            [emptyMessage]="emptyMessage"
+            (activeItemChange)="updateActiveItem($event, i)"
+            (selectionChange)="selectionChangeHandler($event, i)"
+            (nodeCollapse)="nodeCollapseHandler($event, i)"
+            (nodeExpand)="nodeExpandHandler($event, i)"
+          >
+          </prizm-menu-group-content>
+        </p-accordionTab>
+      </p-accordion>
+    </ng-container>
+
+    <ng-template #noGroups>
+      <prizm-menu-group-content
+        [nodes]="nodes"
+        [activeNode]="activeNode"
+        [selectionMode]="settingsConfig.selectionMode"
+        [searchPlaceholder]="searchPlaceholder"
+        [toolbarConfig]="toolbarConfig"
+        [toolbarExtra]="toolbarExtraTemplate"
+        [itemExtra]="itemExtraTemplate"
+        [emptyMessage]="emptyMessage"
+        (activeItemChange)="updateActiveItem($event)"
+        (selectionChange)="selectionChangeHandler($event)"
+        (nodeCollapse)="nodeCollapseHandler($event)"
+        (nodeExpand)="nodeExpandHandler($event)"
+      >
+      </prizm-menu-group-content>
+    </ng-template>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<button [prizmConfirmPopupDirection]="direction" [prizmConfirmPopup]="dropdown" type="button" prizmButton>
+  Button
+</button>
+
+<ng-template #dropdown>
+  <div class="box">
+    <p class="title">Вы подтверждаете операцию списания денег?</p>
+    <div>
+      Максимальная рекомендуемая ширина тултипа - 288рх. Высота может варьироваться в зависимости от контента.
+    </div>
+    <div class="date">16.05.2022 10:00</div>
+    <div class="link">
+      <a href="#">Ссылка</a>
+    </div>
+  </div>
+</ng-template>

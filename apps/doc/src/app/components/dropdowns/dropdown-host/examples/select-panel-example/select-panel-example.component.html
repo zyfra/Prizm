@@ -1,0 +1,57 @@
+<prizm-dropdown-host [(isOpen)]="showPanel" [content]="dropdown" prizmDropdownHostWidth="auto">
+  <button (click)="show()" prizmButton type="button">Button</button>
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <prizm-data-list class="data-list" [defaultStyle]="false">
+    <ng-container header>
+      <div class="header">
+        <prizm-checkbox
+          class="header__checkbox"
+          [checked]="allChecked"
+          [indeterminate]="someChecked"
+          (changed)="onChange($event)"
+        >
+          <span class="header__label"> Заголовок блока </span>
+        </prizm-checkbox>
+      </div>
+    </ng-container>
+
+    <div class="content">
+      <div class="filter">
+        <prizm-input-layout class="filter__input-layout" [label]="'Фильтр'" [size]="'m'">
+          <input
+            #input
+            [placeholder]="'Введите значение'"
+            (input)="filter(input.value)"
+            (onClear)="filter('')"
+            prizmInput
+          />
+          <button
+            [interactive]="true"
+            (click)="filter(input.value)"
+            prizmInputIconButton="sort-zoom-in"
+            prizm-input-right
+          ></button>
+        </prizm-input-layout>
+      </div>
+
+      <ul class="options">
+        <li class="options__item option" *ngFor="let option of filteredData">
+          <prizm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
+            <div class="option__label">
+              <span class="option__title">{{ option.label.title }}</span>
+              <span class="option__subtitle">{{ option.label.subtitle }}</span>
+            </div>
+          </prizm-checkbox>
+        </li>
+      </ul>
+    </div>
+
+    <ng-container footer>
+      <div class="footer">
+        <button class="footer__btn" (click)="hide()" prizmButton>Применить запрос</button>
+      </div>
+    </ng-container>
+  </prizm-data-list>
+</ng-template>

@@ -1,0 +1,30 @@
+<prizm-input-layout [position]="'center'" label="Заголовок" size="l" status="default">
+  <button
+    [inputNumber]="inputNumber"
+    [disabled]="requiredInputControl.disabled"
+    [interactive]="true"
+    prizmInputIconButton="delete-minus"
+    prizmInputNumberAuxiliaryControl="decrement"
+    prizm-input-left
+  ></button>
+
+  <input
+    #inputNumber="prizmInputNumber"
+    [min]="0"
+    [max]="10"
+    [formControl]="requiredInputControl"
+    [step]="2"
+    type="number"
+    prizmInput
+    placeholder="Введите название"
+  />
+
+  <button
+    [inputNumber]="inputNumber"
+    [disabled]="requiredInputControl.disabled"
+    [interactive]="true"
+    prizmInputIconButton="add-plus"
+    prizmInputNumberAuxiliaryControl="increment"
+    prizm-input-right
+  ></button>
+</prizm-input-layout>

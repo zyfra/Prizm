@@ -1,0 +1,35 @@
+@import '../../../../styles/ui-local';
+
+:host {
+  display: flex;
+}
+
+.z-segment {
+  .transition(background-color);
+  flex: 1 1 100%;
+  border-radius: var(--prizm-segment-radius, 2px);
+  background-color: var(--prizm-segment-line, var(--prizm-grey-g11-g3));
+
+  &:not(:last-child) {
+    margin-right: @space;
+  }
+
+  :host[data-size='s'] & {
+    height: 0.25rem;
+  }
+
+  :host[data-size='m'] & {
+    height: 0.5rem;
+  }
+}
+
+.z-hidden-progress {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+}

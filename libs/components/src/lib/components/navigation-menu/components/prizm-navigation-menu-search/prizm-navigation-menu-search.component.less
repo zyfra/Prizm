@@ -1,0 +1,36 @@
+.prizm-navigation-menu-search {
+  display: flex;
+  align-items: center;
+  height: var(--prizm-navigation-menu__item-height);
+  padding: var(--prizm-navigation-menu__item-padding);
+  background: var(--prizm-grey-g11-g3);
+  border-bottom: 1px solid var(--prizm-grey-g10-g4);
+
+  &__input {
+    border: 0px;
+    padding: 0 8px;
+    background: transparent;
+    outline: none;
+    width: 100%;
+    height: 100%;
+    line-height: 16px;
+    font-size: 14px;
+    color: var(--prizm-text-contrast);
+    display: block;
+    text-overflow: ellipsis;
+  }
+
+  &__button {
+    &:hover,
+    &_active {
+      ::ng-deep prizm-wrapper.z-wrapper {
+        color: var(--prizm-primary);
+        background: transparent;
+      }
+    }
+
+    &._focused {
+      box-shadow: 0 0 0 2px var(--prizm-navigation-menu__focus-color);
+    }
+  }
+}

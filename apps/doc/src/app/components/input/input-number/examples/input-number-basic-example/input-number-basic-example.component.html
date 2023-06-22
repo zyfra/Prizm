@@ -1,0 +1,17 @@
+<prizm-input-layout label="Заголовок" size="l" status="default">
+  <input
+    #inputText
+    #inputNumber="prizmInputNumber"
+    [value]="2"
+    [step]="2"
+    [formControl]="requiredInputControl"
+    type="number"
+    prizmInput
+    placeholder="Введите название"
+  />
+  <ng-template [control]="inputText" prizmInputStatusText></ng-template>
+  <prizm-input-number-auxiliary-controls
+    [inputNumber]="inputNumber"
+    prizm-input-right
+  ></prizm-input-number-auxiliary-controls>
+</prizm-input-layout>

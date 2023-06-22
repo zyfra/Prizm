@@ -1,0 +1,15 @@
+<prizm-input-layout label="Validators">
+  <prizm-input-select [formControl]="control" [items]="items" style="width: 100%"></prizm-input-select>
+</prizm-input-layout>
+<!--<prizm-select style="width: 100%" [formControl]="control" [items]="items"></prizm-select>-->
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()" prizmButton>
+    Set default value: <b>{{ items[0] }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ control.value }}</div>

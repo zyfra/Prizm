@@ -1,0 +1,78 @@
+@indicatorSize: 8px;
+@indicatorSizeWithIcon: 14px;
+:host {
+  display: inline-flex;
+
+  .indicator {
+    height: @indicatorSize;
+    width: @indicatorSize;
+    min-height: @indicatorSize;
+    min-width: @indicatorSize;
+
+    &_with-icon {
+      height: @indicatorSizeWithIcon;
+      width: @indicatorSizeWithIcon;
+      min-height: @indicatorSizeWithIcon;
+      min-width: @indicatorSizeWithIcon;
+    }
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    &__icon {
+      height: @indicatorSizeWithIcon;
+      width: @indicatorSizeWithIcon;
+      min-height: @indicatorSizeWithIcon;
+      min-width: @indicatorSizeWithIcon;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--prizm-exceptions-white);
+    }
+
+    &[status='info'] {
+      background: var(--prizm-index-plan);
+    }
+
+    &[status='secondary'] {
+      background: var(--prizm-border-forms);
+    }
+
+    &[status='success'] {
+      background: var(--prizm-index-good);
+    }
+
+    &[status='warning'] {
+      background: var(--prizm-index-warning);
+
+      &[type='icon'] {
+        width: 0;
+        height: 0;
+
+        background: none;
+
+        border-left: (@indicatorSizeWithIcon / 2) solid transparent;
+        border-right: (@indicatorSizeWithIcon / 2) solid transparent;
+        border-bottom: @indicatorSizeWithIcon solid var(--prizm-index-warning);
+
+        border-radius: 0;
+
+        position: relative;
+
+        .indicator__icon {
+          position: absolute;
+          top: 1px;
+        }
+      }
+    }
+
+    &[status='danger'] {
+      background: var(--prizm-index-danger);
+    }
+  }
+}

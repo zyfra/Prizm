@@ -1,0 +1,70 @@
+<div class="calendar-host">
+  <ng-container *ngIf="year || clickedMonth; else calendar">
+    <prizm-primitive-year-month-pagination
+      class="z-pagination"
+      [min]="computedMinViewedMonth"
+      [max]="computedMaxViewedMonth"
+      [value]="month"
+      [hideButtons]="true"
+      [monthActive]="!!clickedMonth"
+      [yearActive]="!!year"
+      (valueChange)="onPaginationValueChange($event)"
+      (yearClick)="onPaginationYearClick($event)"
+      (monthClick)="onPaginationMonthClick($event)"
+      automation-id="prizm-calendar__pagination"
+    ></prizm-primitive-year-month-pagination>
+    <prizm-scrollbar class="z-scrollbar" automation-id="prizm-calendar__scrollbar">
+      <prizm-primitive-year-picker
+        *ngIf="year; else monthPickerTemplate"
+        [min]="min"
+        [max]="max"
+        [initialItem]="year"
+        [value]="value"
+        (yearClick)="onPickerYearClick($event)"
+        automation-id="prizm-calendar__year"
+      ></prizm-primitive-year-picker>
+      <ng-template #monthPickerTemplate>
+        <prizm-primitive-month-picker
+          [min]="min"
+          [max]="max"
+          [initialItem]="clickedMonth"
+          [value]="value"
+          [currentYear]="month.year"
+          (monthClick)="onPickerMonthClick($event)"
+          automation-id="prizm-calendar__year"
+        ></prizm-primitive-month-picker>
+      </ng-template>
+    </prizm-scrollbar>
+  </ng-container>
+  <ng-template #calendar>
+    <prizm-primitive-year-month-pagination
+      class="z-pagination"
+      [min]="computedMinViewedMonth"
+      [max]="computedMaxViewedMonth"
+      [value]="month"
+      (valueChange)="onPaginationValueChange($event)"
+      (yearClick)="onPaginationYearClick($event)"
+      (monthClick)="onPaginationMonthClick($event)"
+      automation-id="prizm-calendar__pagination"
+    ></prizm-primitive-year-month-pagination>
+    <prizm-primitive-calendar
+      [showAdjacent]="showAdjacent"
+      [value]="value"
+      [month]="month"
+      [daysWithStatus]="daysWithStatus"
+      [disabledItemHandler]="disabledItemHandler | prizmMapper : disabledItemHandlerMapper : min : max"
+      [markerHandler]="markerHandler"
+      [hoveredItem]="hoveredItem"
+      (hoveredItemChange)="onHoveredItemChange($event)"
+      (dayClick)="onDayClick($event)"
+      automation-id="prizm-calendar__calendar"
+    >
+      <ng-container footer>
+        <ng-content select="[footer]"></ng-content>
+      </ng-container>
+      <ng-container header>
+        <ng-content select="[header]"></ng-content>
+      </ng-container>
+    </prizm-primitive-calendar>
+  </ng-template>
+</div>

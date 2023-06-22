@@ -1,0 +1,2069 @@
+@font-face {
+  font-family: 'prizm-icons';
+  src: url('./prizm-icons.ttf?1772816e867a80e18921a5b7d83b4205') format('truetype'),
+    url('./prizm-icons.woff?1772816e867a80e18921a5b7d83b4205') format('woff'),
+    url('./prizm-icons.eot?1772816e867a80e18921a5b7d83b4205#iefix') format('embedded-opentype'),
+    url('./prizm-icons.woff2?1772816e867a80e18921a5b7d83b4205') format('woff2');
+}
+
+i[class^='prizm-icons-']:before,
+i[class*=' prizm-icons-']:before {
+  font-family: prizm-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.prizm-icons-charts-diagrams_bar-axis:before {
+  content: '\f101';
+}
+.prizm-icons-charts-diagrams_bar-basic:before {
+  content: '\f102';
+}
+.prizm-icons-charts-diagrams_bar-columns-axis x:before {
+  content: '\f103';
+}
+.prizm-icons-charts-diagrams_bar-columns:before {
+  content: '\f104';
+}
+.prizm-icons-charts-diagrams_bar-square:before {
+  content: '\f105';
+}
+.prizm-icons-charts-diagrams_bar-stacked-axis:before {
+  content: '\f106';
+}
+.prizm-icons-charts-diagrams_bar-stacked:before {
+  content: '\f107';
+}
+.prizm-icons-charts-diagrams_charts-histogram-chart-dashed:before {
+  content: '\f108';
+}
+.prizm-icons-charts-diagrams_column:before {
+  content: '\f109';
+}
+.prizm-icons-charts-diagrams_doughnut:before {
+  content: '\f10a';
+}
+.prizm-icons-charts-diagrams_gantt:before {
+  content: '\f10b';
+}
+.prizm-icons-charts-diagrams_gauge:before {
+  content: '\f10c';
+}
+.prizm-icons-charts-diagrams_hexagon-axis:before {
+  content: '\f10d';
+}
+.prizm-icons-charts-diagrams_hexagon:before {
+  content: '\f10e';
+}
+.prizm-icons-charts-diagrams_histogram-axis:before {
+  content: '\f10f';
+}
+.prizm-icons-charts-diagrams_line-axis x:before {
+  content: '\f110';
+}
+.prizm-icons-charts-diagrams_line-axis-arrow down:before {
+  content: '\f111';
+}
+.prizm-icons-charts-diagrams_line-axis:before {
+  content: '\f112';
+}
+.prizm-icons-charts-diagrams_line-down:before {
+  content: '\f113';
+}
+.prizm-icons-charts-diagrams_line-multiple y axis -x:before {
+  content: '\f114';
+}
+.prizm-icons-charts-diagrams_line-multiple y axis:before {
+  content: '\f115';
+}
+.prizm-icons-charts-diagrams_line-up:before {
+  content: '\f116';
+}
+.prizm-icons-charts-diagrams_line:before {
+  content: '\f117';
+}
+.prizm-icons-charts-diagrams_pie-line-nested:before {
+  content: '\f118';
+}
+.prizm-icons-charts-diagrams_pie-line:before {
+  content: '\f119';
+}
+.prizm-icons-charts-diagrams_pie-pentagon:before {
+  content: '\f11a';
+}
+.prizm-icons-charts-diagrams_pie-several parts:before {
+  content: '\f11b';
+}
+.prizm-icons-charts-diagrams_pie-simple:before {
+  content: '\f11c';
+}
+.prizm-icons-charts-diagrams_pie:before {
+  content: '\f11d';
+}
+.prizm-icons-charts-diagrams_range:before {
+  content: '\f11e';
+}
+.prizm-icons-charts-diagrams_scatter-axis:before {
+  content: '\f11f';
+}
+.prizm-icons-charts-diagrams_scatter-basic:before {
+  content: '\f120';
+}
+.prizm-icons-charts-diagrams_scatter:before {
+  content: '\f121';
+}
+.prizm-icons-communication-connection_at-sign:before {
+  content: '\f122';
+}
+.prizm-icons-communication-connection_bluetooth:before {
+  content: '\f123';
+}
+.prizm-icons-communication-connection_bubble-message-add:before {
+  content: '\f124';
+}
+.prizm-icons-communication-connection_bubble-message-attention:before {
+  content: '\f125';
+}
+.prizm-icons-communication-connection_bubble-message-circle:before {
+  content: '\f126';
+}
+.prizm-icons-communication-connection_bubble-message-empty:before {
+  content: '\f127';
+}
+.prizm-icons-communication-connection_bubble-message-off:before {
+  content: '\f128';
+}
+.prizm-icons-communication-connection_bubble-message-question:before {
+  content: '\f129';
+}
+.prizm-icons-communication-connection_bubble-message-text:before {
+  content: '\f12a';
+}
+.prizm-icons-communication-connection_bubble-message:before {
+  content: '\f12b';
+}
+.prizm-icons-communication-connection_headphones:before {
+  content: '\f12c';
+}
+.prizm-icons-communication-connection_heart-empty:before {
+  content: '\f12d';
+}
+.prizm-icons-communication-connection_heart-fill:before {
+  content: '\f12e';
+}
+.prizm-icons-communication-connection_mail-open:before {
+  content: '\f12f';
+}
+.prizm-icons-communication-connection_mail:before {
+  content: '\f130';
+}
+.prizm-icons-communication-connection_mailbox:before {
+  content: '\f131';
+}
+.prizm-icons-communication-connection_messaging-telegram-send:before {
+  content: '\f132';
+}
+.prizm-icons-communication-connection_messaging-telegram:before {
+  content: '\f133';
+}
+.prizm-icons-communication-connection_phone-active-call:before {
+  content: '\f134';
+}
+.prizm-icons-communication-connection_phone-cancelled:before {
+  content: '\f135';
+}
+.prizm-icons-communication-connection_phone-minus:before {
+  content: '\f136';
+}
+.prizm-icons-communication-connection_phone-off:before {
+  content: '\f137';
+}
+.prizm-icons-communication-connection_phone-paused:before {
+  content: '\f138';
+}
+.prizm-icons-communication-connection_phone-plus:before {
+  content: '\f139';
+}
+.prizm-icons-communication-connection_phone:before {
+  content: '\f13a';
+}
+.prizm-icons-communication-connection_share-left:before {
+  content: '\f13b';
+}
+.prizm-icons-communication-connection_share-right:before {
+  content: '\f13c';
+}
+.prizm-icons-communication-connection_shareing:before {
+  content: '\f13d';
+}
+.prizm-icons-communication-connection_signal-access-point:before {
+  content: '\f13e';
+}
+.prizm-icons-communication-connection_signal-off:before {
+  content: '\f13f';
+}
+.prizm-icons-communication-connection_signal-radio-tower:before {
+  content: '\f140';
+}
+.prizm-icons-communication-connection_signal:before {
+  content: '\f141';
+}
+.prizm-icons-communication-connection_star-empty:before {
+  content: '\f142';
+}
+.prizm-icons-communication-connection_star-fill:before {
+  content: '\f143';
+}
+.prizm-icons-communication-connection_star-half-fill:before {
+  content: '\f144';
+}
+.prizm-icons-communication-connection_support-man:before {
+  content: '\f145';
+}
+.prizm-icons-communication-connection_thumb-down:before {
+  content: '\f146';
+}
+.prizm-icons-communication-connection_thumb-up:before {
+  content: '\f147';
+}
+.prizm-icons-communication-connection_wifi-off:before {
+  content: '\f148';
+}
+.prizm-icons-communication-connection_wifi:before {
+  content: '\f149';
+}
+.prizm-icons-data-network_database-chek:before {
+  content: '\f14a';
+}
+.prizm-icons-data-network_database-json:before {
+  content: '\f14b';
+}
+.prizm-icons-data-network_database-magnifying glass:before {
+  content: '\f14c';
+}
+.prizm-icons-data-network_database-minus:before {
+  content: '\f14d';
+}
+.prizm-icons-data-network_database-plus:before {
+  content: '\f14e';
+}
+.prizm-icons-data-network_database-sql:before {
+  content: '\f14f';
+}
+.prizm-icons-data-network_database-xmark:before {
+  content: '\f150';
+}
+.prizm-icons-data-network_database:before {
+  content: '\f151';
+}
+.prizm-icons-data-network_ethernet:before {
+  content: '\f152';
+}
+.prizm-icons-data-network_lan-connect:before {
+  content: '\f153';
+}
+.prizm-icons-data-network_lan-disconnect:before {
+  content: '\f154';
+}
+.prizm-icons-data-network_lan-pending:before {
+  content: '\f155';
+}
+.prizm-icons-data-network_network-1:before {
+  content: '\f156';
+}
+.prizm-icons-data-network_network-2:before {
+  content: '\f157';
+}
+.prizm-icons-data-network_network-3:before {
+  content: '\f158';
+}
+.prizm-icons-data-network_network-wired:before {
+  content: '\f159';
+}
+.prizm-icons-data-network_server-close:before {
+  content: '\f15a';
+}
+.prizm-icons-data-network_server-download:before {
+  content: '\f15b';
+}
+.prizm-icons-data-network_server-minus:before {
+  content: '\f15c';
+}
+.prizm-icons-data-network_server-one:before {
+  content: '\f15d';
+}
+.prizm-icons-data-network_server-plus:before {
+  content: '\f15e';
+}
+.prizm-icons-data-network_server-security:before {
+  content: '\f15f';
+}
+.prizm-icons-data-network_server-shield:before {
+  content: '\f160';
+}
+.prizm-icons-data-network_server-slash-up-line:before {
+  content: '\f161';
+}
+.prizm-icons-data-network_server-slash:before {
+  content: '\f162';
+}
+.prizm-icons-data-network_server-up-line:before {
+  content: '\f163';
+}
+.prizm-icons-data-network_server-upload:before {
+  content: '\f164';
+}
+.prizm-icons-data-network_server:before {
+  content: '\f165';
+}
+.prizm-icons-date-time_alarm-clock:before {
+  content: '\f166';
+}
+.prizm-icons-date-time_alarm-plus:before {
+  content: '\f167';
+}
+.prizm-icons-date-time_calendar-blank:before {
+  content: '\f168';
+}
+.prizm-icons-date-time_calendar-check:before {
+  content: '\f169';
+}
+.prizm-icons-date-time_calendar-clock:before {
+  content: '\f16a';
+}
+.prizm-icons-date-time_calendar-deleted:before {
+  content: '\f16b';
+}
+.prizm-icons-date-time_calendar-event:before {
+  content: '\f16c';
+}
+.prizm-icons-date-time_calendar-plus:before {
+  content: '\f16d';
+}
+.prizm-icons-date-time_calendar-question:before {
+  content: '\f16e';
+}
+.prizm-icons-date-time_calendar-range:before {
+  content: '\f16f';
+}
+.prizm-icons-date-time_calendar-today:before {
+  content: '\f170';
+}
+.prizm-icons-date-time_calendar:before {
+  content: '\f171';
+}
+.prizm-icons-date-time_clock-add:before {
+  content: '\f172';
+}
+.prizm-icons-date-time_clock-arrow-down:before {
+  content: '\f173';
+}
+.prizm-icons-date-time_clock-arrow-right:before {
+  content: '\f174';
+}
+.prizm-icons-date-time_clock-arrow-up:before {
+  content: '\f175';
+}
+.prizm-icons-date-time_clock-deleted:before {
+  content: '\f176';
+}
+.prizm-icons-date-time_clock-exclamation:before {
+  content: '\f177';
+}
+.prizm-icons-date-time_clock-line-end:before {
+  content: '\f178';
+}
+.prizm-icons-date-time_clock-rotate-left:before {
+  content: '\f179';
+}
+.prizm-icons-date-time_clock-rotate-right:before {
+  content: '\f17a';
+}
+.prizm-icons-date-time_clock:before {
+  content: '\f17b';
+}
+.prizm-icons-date-time_letter-day:before {
+  content: '\f17c';
+}
+.prizm-icons-date-time_letter-hour:before {
+  content: '\f17d';
+}
+.prizm-icons-date-time_letter-minute:before {
+  content: '\f17e';
+}
+.prizm-icons-date-time_letter-month:before {
+  content: '\f17f';
+}
+.prizm-icons-date-time_letter-second:before {
+  content: '\f180';
+}
+.prizm-icons-date-time_letter-time:before {
+  content: '\f181';
+}
+.prizm-icons-date-time_letter-year:before {
+  content: '\f182';
+}
+.prizm-icons-date-time_sandglass:before {
+  content: '\f183';
+}
+.prizm-icons-date-time_stopwatch:before {
+  content: '\f184';
+}
+.prizm-icons-date-time_sumbol-asterisk:before {
+  content: '\f185';
+}
+.prizm-icons-documents-folders_book_stack:before {
+  content: '\f186';
+}
+.prizm-icons-documents-folders_box-open-arrow-down:before {
+  content: '\f187';
+}
+.prizm-icons-documents-folders_box:before {
+  content: '\f188';
+}
+.prizm-icons-documents-folders_cloud arrow_down:before {
+  content: '\f189';
+}
+.prizm-icons-documents-folders_cloud arrow_up_inside:before {
+  content: '\f18a';
+}
+.prizm-icons-documents-folders_cloud arrow_up:before {
+  content: '\f18b';
+}
+.prizm-icons-documents-folders_cloud check:before {
+  content: '\f18c';
+}
+.prizm-icons-documents-folders_cloud:before {
+  content: '\f18d';
+}
+.prizm-icons-documents-folders_collection-2:before {
+  content: '\f18e';
+}
+.prizm-icons-documents-folders_file arrow_down_left:before {
+  content: '\f18f';
+}
+.prizm-icons-documents-folders_file arrow_down:before {
+  content: '\f190';
+}
+.prizm-icons-documents-folders_file arrow_up:before {
+  content: '\f191';
+}
+.prizm-icons-documents-folders_file arrow:before {
+  content: '\f192';
+}
+.prizm-icons-documents-folders_file arrows_up_right:before {
+  content: '\f193';
+}
+.prizm-icons-documents-folders_file camera:before {
+  content: '\f194';
+}
+.prizm-icons-documents-folders_file cross_out:before {
+  content: '\f195';
+}
+.prizm-icons-documents-folders_file cross:before {
+  content: '\f196';
+}
+.prizm-icons-documents-folders_file doc:before {
+  content: '\f197';
+}
+.prizm-icons-documents-folders_file docx:before {
+  content: '\f198';
+}
+.prizm-icons-documents-folders_file dot:before {
+  content: '\f199';
+}
+.prizm-icons-documents-folders_file empty:before {
+  content: '\f19a';
+}
+.prizm-icons-documents-folders_file exclamatioâ:before {
+  content: '\f19b';
+}
+.prizm-icons-documents-folders_file eye:before {
+  content: '\f19c';
+}
+.prizm-icons-documents-folders_file filled:before {
+  content: '\f19d';
+}
+.prizm-icons-documents-folders_file image:before {
+  content: '\f19e';
+}
+.prizm-icons-documents-folders_file magnifying_glass:before {
+  content: '\f19f';
+}
+.prizm-icons-documents-folders_file minus:before {
+  content: '\f1a0';
+}
+.prizm-icons-documents-folders_file pdf:before {
+  content: '\f1a1';
+}
+.prizm-icons-documents-folders_file pen:before {
+  content: '\f1a2';
+}
+.prizm-icons-documents-folders_file play:before {
+  content: '\f1a3';
+}
+.prizm-icons-documents-folders_file plus:before {
+  content: '\f1a4';
+}
+.prizm-icons-documents-folders_file ppt:before {
+  content: '\f1a5';
+}
+.prizm-icons-documents-folders_file pptx:before {
+  content: '\f1a6';
+}
+.prizm-icons-documents-folders_file txt:before {
+  content: '\f1a7';
+}
+.prizm-icons-documents-folders_file up_right:before {
+  content: '\f1a8';
+}
+.prizm-icons-documents-folders_file xls:before {
+  content: '\f1a9';
+}
+.prizm-icons-documents-folders_file xlsx:before {
+  content: '\f1aa';
+}
+.prizm-icons-documents-folders_floppy cross_out:before {
+  content: '\f1ab';
+}
+.prizm-icons-documents-folders_floppy cross:before {
+  content: '\f1ac';
+}
+.prizm-icons-documents-folders_floppy pen:before {
+  content: '\f1ad';
+}
+.prizm-icons-documents-folders_floppy star:before {
+  content: '\f1ae';
+}
+.prizm-icons-documents-folders_floppy:before {
+  content: '\f1af';
+}
+.prizm-icons-documents-folders_folder arrow_down_left:before {
+  content: '\f1b0';
+}
+.prizm-icons-documents-folders_folder arrow_down:before {
+  content: '\f1b1';
+}
+.prizm-icons-documents-folders_folder arrow_up_right:before {
+  content: '\f1b2';
+}
+.prizm-icons-documents-folders_folder cross:before {
+  content: '\f1b3';
+}
+.prizm-icons-documents-folders_folder dot:before {
+  content: '\f1b4';
+}
+.prizm-icons-documents-folders_folder minus:before {
+  content: '\f1b5';
+}
+.prizm-icons-documents-folders_folder plus:before {
+  content: '\f1b6';
+}
+.prizm-icons-documents-folders_folder_open:before {
+  content: '\f1b7';
+}
+.prizm-icons-documents-folders_folder_underline minus:before {
+  content: '\f1b8';
+}
+.prizm-icons-documents-folders_folder_underline plus:before {
+  content: '\f1b9';
+}
+.prizm-icons-documents-folders_folder_underline:before {
+  content: '\f1ba';
+}
+.prizm-icons-documents-folders_folder:before {
+  content: '\f1bb';
+}
+.prizm-icons-documents-folders_list_square:before {
+  content: '\f1bc';
+}
+.prizm-icons-documents-folders_list-tree-archive:before {
+  content: '\f1bd';
+}
+.prizm-icons-documents-folders_list-tree:before {
+  content: '\f1be';
+}
+.prizm-icons-documents-folders_list:before {
+  content: '\f1bf';
+}
+.prizm-icons-documents-folders_ontology:before {
+  content: '\f1c0';
+}
+.prizm-icons-documents-folders_specification:before {
+  content: '\f1c1';
+}
+.prizm-icons-documents-folders_square arrows_curve_right_down:before {
+  content: '\f1c2';
+}
+.prizm-icons-documents-folders_square arrows_curve_up_right:before {
+  content: '\f1c3';
+}
+.prizm-icons-documents-folders_square excel:before {
+  content: '\f1c4';
+}
+.prizm-icons-documents-folders_square powerpoint:before {
+  content: '\f1c5';
+}
+.prizm-icons-documents-folders_square word:before {
+  content: '\f1c6';
+}
+.prizm-icons-documents-folders_tablet:before {
+  content: '\f1c7';
+}
+.prizm-icons-editor-decor_agenda-fill:before {
+  content: '\f1c8';
+}
+.prizm-icons-editor-decor_align-bottom:before {
+  content: '\f1c9';
+}
+.prizm-icons-editor-decor_align-center-h:before {
+  content: '\f1ca';
+}
+.prizm-icons-editor-decor_align-center-v:before {
+  content: '\f1cb';
+}
+.prizm-icons-editor-decor_align-center:before {
+  content: '\f1cc';
+}
+.prizm-icons-editor-decor_align-justify:before {
+  content: '\f1cd';
+}
+.prizm-icons-editor-decor_align-left:before {
+  content: '\f1ce';
+}
+.prizm-icons-editor-decor_align-right:before {
+  content: '\f1cf';
+}
+.prizm-icons-editor-decor_align-top:before {
+  content: '\f1d0';
+}
+.prizm-icons-editor-decor_array-fill:before {
+  content: '\f1d1';
+}
+.prizm-icons-editor-decor_bars-sort:before {
+  content: '\f1d2';
+}
+.prizm-icons-editor-decor_bdrv-administration:before {
+  content: '\f1d3';
+}
+.prizm-icons-editor-decor_bezier-curve:before {
+  content: '\f1d4';
+}
+.prizm-icons-editor-decor_bold:before {
+  content: '\f1d5';
+}
+.prizm-icons-editor-decor_border-all:before {
+  content: '\f1d6';
+}
+.prizm-icons-editor-decor_border-bottom:before {
+  content: '\f1d7';
+}
+.prizm-icons-editor-decor_border-center-h:before {
+  content: '\f1d8';
+}
+.prizm-icons-editor-decor_border-center-v:before {
+  content: '\f1d9';
+}
+.prizm-icons-editor-decor_border-inner:before {
+  content: '\f1da';
+}
+.prizm-icons-editor-decor_border-left:before {
+  content: '\f1db';
+}
+.prizm-icons-editor-decor_border-none:before {
+  content: '\f1dc';
+}
+.prizm-icons-editor-decor_border-outer:before {
+  content: '\f1dd';
+}
+.prizm-icons-editor-decor_border-right:before {
+  content: '\f1de';
+}
+.prizm-icons-editor-decor_border-top-left:before {
+  content: '\f1df';
+}
+.prizm-icons-editor-decor_border-top:before {
+  content: '\f1e0';
+}
+.prizm-icons-editor-decor_brackets-curly:before {
+  content: '\f1e1';
+}
+.prizm-icons-editor-decor_brackets-square:before {
+  content: '\f1e2';
+}
+.prizm-icons-editor-decor_broom:before {
+  content: '\f1e3';
+}
+.prizm-icons-editor-decor_browser:before {
+  content: '\f1e4';
+}
+.prizm-icons-editor-decor_brush:before {
+  content: '\f1e5';
+}
+.prizm-icons-editor-decor_carousel-fill:before {
+  content: '\f1e6';
+}
+.prizm-icons-editor-decor_code-download:before {
+  content: '\f1e7';
+}
+.prizm-icons-editor-decor_code-simple:before {
+  content: '\f1e8';
+}
+.prizm-icons-editor-decor_code:before {
+  content: '\f1e9';
+}
+.prizm-icons-editor-decor_collage-fill:before {
+  content: '\f1ea';
+}
+.prizm-icons-editor-decor_column-fill:before {
+  content: '\f1eb';
+}
+.prizm-icons-editor-decor_component:before {
+  content: '\f1ec';
+}
+.prizm-icons-editor-decor_copy-column:before {
+  content: '\f1ed';
+}
+.prizm-icons-editor-decor_copy-row:before {
+  content: '\f1ee';
+}
+.prizm-icons-editor-decor_crop:before {
+  content: '\f1ef';
+}
+.prizm-icons-editor-decor_dashboard-fill:before {
+  content: '\f1f0';
+}
+.prizm-icons-editor-decor_dashboard-variant-fill:before {
+  content: '\f1f1';
+}
+.prizm-icons-editor-decor_day-fill:before {
+  content: '\f1f2';
+}
+.prizm-icons-editor-decor_eraser:before {
+  content: '\f1f3';
+}
+.prizm-icons-editor-decor_fill:before {
+  content: '\f1f4';
+}
+.prizm-icons-editor-decor_function:before {
+  content: '\f1f5';
+}
+.prizm-icons-editor-decor_grid-fill:before {
+  content: '\f1f6';
+}
+.prizm-icons-editor-decor_grid:before {
+  content: '\f1f7';
+}
+.prizm-icons-editor-decor_hashtag:before {
+  content: '\f1f8';
+}
+.prizm-icons-editor-decor_headline-fill:before {
+  content: '\f1f9';
+}
+.prizm-icons-editor-decor_indent arrow-left:before {
+  content: '\f1fa';
+}
+.prizm-icons-editor-decor_indent arrow-right:before {
+  content: '\f1fb';
+}
+.prizm-icons-editor-decor_italic:before {
+  content: '\f1fc';
+}
+.prizm-icons-editor-decor_keyboard close:before {
+  content: '\f1fd';
+}
+.prizm-icons-editor-decor_keyboard:before {
+  content: '\f1fe';
+}
+.prizm-icons-editor-decor_layer-group-slash:before {
+  content: '\f1ff';
+}
+.prizm-icons-editor-decor_layer-group:before {
+  content: '\f200';
+}
+.prizm-icons-editor-decor_line-height:before {
+  content: '\f201';
+}
+.prizm-icons-editor-decor_list-fill:before {
+  content: '\f202';
+}
+.prizm-icons-editor-decor_list-ol:before {
+  content: '\f203';
+}
+.prizm-icons-editor-decor_list-ul:before {
+  content: '\f204';
+}
+.prizm-icons-editor-decor_magic wand:before {
+  content: '\f205';
+}
+.prizm-icons-editor-decor_module-fill:before {
+  content: '\f206';
+}
+.prizm-icons-editor-decor_npm:before {
+  content: '\f207';
+}
+.prizm-icons-editor-decor_object-down-subtract:before {
+  content: '\f208';
+}
+.prizm-icons-editor-decor_object-exclude:before {
+  content: '\f209';
+}
+.prizm-icons-editor-decor_object-intersect:before {
+  content: '\f20a';
+}
+.prizm-icons-editor-decor_object-selection:before {
+  content: '\f20b';
+}
+.prizm-icons-editor-decor_object-union:before {
+  content: '\f20c';
+}
+.prizm-icons-editor-decor_object-up-subtract:before {
+  content: '\f20d';
+}
+.prizm-icons-editor-decor_object:before {
+  content: '\f20e';
+}
+.prizm-icons-editor-decor_palette:before {
+  content: '\f20f';
+}
+.prizm-icons-editor-decor_panel-down:before {
+  content: '\f210';
+}
+.prizm-icons-editor-decor_panel-left:before {
+  content: '\f211';
+}
+.prizm-icons-editor-decor_panel-right:before {
+  content: '\f212';
+}
+.prizm-icons-editor-decor_panel-top:before {
+  content: '\f213';
+}
+.prizm-icons-editor-decor_pantone:before {
+  content: '\f214';
+}
+.prizm-icons-editor-decor_percent:before {
+  content: '\f215';
+}
+.prizm-icons-editor-decor_pi:before {
+  content: '\f216';
+}
+.prizm-icons-editor-decor_plus-column-right:before {
+  content: '\f217';
+}
+.prizm-icons-editor-decor_plus-column-top:before {
+  content: '\f218';
+}
+.prizm-icons-editor-decor_polyline:before {
+  content: '\f219';
+}
+.prizm-icons-editor-decor_quilt-fill:before {
+  content: '\f21a';
+}
+.prizm-icons-editor-decor_ruler:before {
+  content: '\f21b';
+}
+.prizm-icons-editor-decor_scissors:before {
+  content: '\f21c';
+}
+.prizm-icons-editor-decor_send-backward:before {
+  content: '\f21d';
+}
+.prizm-icons-editor-decor_send-forward:before {
+  content: '\f21e';
+}
+.prizm-icons-editor-decor_sequential-fill:before {
+  content: '\f21f';
+}
+.prizm-icons-editor-decor_shovel:before {
+  content: '\f220';
+}
+.prizm-icons-editor-decor_sigma:before {
+  content: '\f221';
+}
+.prizm-icons-editor-decor_square-bracket-curly-right-1:before {
+  content: '\f222';
+}
+.prizm-icons-editor-decor_square-bracket-curly-right:before {
+  content: '\f223';
+}
+.prizm-icons-editor-decor_square-bracket-left:before {
+  content: '\f224';
+}
+.prizm-icons-editor-decor_square-bracket-right:before {
+  content: '\f225';
+}
+.prizm-icons-editor-decor_square-divide:before {
+  content: '\f226';
+}
+.prizm-icons-editor-decor_square-minus:before {
+  content: '\f227';
+}
+.prizm-icons-editor-decor_square-multiply:before {
+  content: '\f228';
+}
+.prizm-icons-editor-decor_square-percent:before {
+  content: '\f229';
+}
+.prizm-icons-editor-decor_square-plus:before {
+  content: '\f22a';
+}
+.prizm-icons-editor-decor_star-line:before {
+  content: '\f22b';
+}
+.prizm-icons-editor-decor_strikethrough:before {
+  content: '\f22c';
+}
+.prizm-icons-editor-decor_subskrit-down:before {
+  content: '\f22d';
+}
+.prizm-icons-editor-decor_subskrit-up:before {
+  content: '\f22e';
+}
+.prizm-icons-editor-decor_table-down:before {
+  content: '\f22f';
+}
+.prizm-icons-editor-decor_table-magnifying glass:before {
+  content: '\f230';
+}
+.prizm-icons-editor-decor_table-right:before {
+  content: '\f231';
+}
+.prizm-icons-editor-decor_table-transpose:before {
+  content: '\f232';
+}
+.prizm-icons-editor-decor_table:before {
+  content: '\f233';
+}
+.prizm-icons-editor-decor_text-color:before {
+  content: '\f234';
+}
+.prizm-icons-editor-decor_text:before {
+  content: '\f235';
+}
+.prizm-icons-editor-decor_underlined:before {
+  content: '\f236';
+}
+.prizm-icons-editor-decor_vector-circle-one point:before {
+  content: '\f237';
+}
+.prizm-icons-editor-decor_vector-circle-two point:before {
+  content: '\f238';
+}
+.prizm-icons-editor-decor_vector-circle:before {
+  content: '\f239';
+}
+.prizm-icons-editor-decor_vector-line:before {
+  content: '\f23a';
+}
+.prizm-icons-editor-decor_vector-point:before {
+  content: '\f23b';
+}
+.prizm-icons-editor-decor_vector-polygon:before {
+  content: '\f23c';
+}
+.prizm-icons-editor-decor_vector-rectangle:before {
+  content: '\f23d';
+}
+.prizm-icons-editor-decor_vector-square:before {
+  content: '\f23e';
+}
+.prizm-icons-editor-decor_vector-triangle:before {
+  content: '\f23f';
+}
+.prizm-icons-editor-decor_vectors-radius:before {
+  content: '\f240';
+}
+.prizm-icons-editor-decor_window:before {
+  content: '\f241';
+}
+.prizm-icons-editor-decor_xmark-column-right:before {
+  content: '\f242';
+}
+.prizm-icons-editor-decor_xmark-column-top:before {
+  content: '\f243';
+}
+.prizm-icons-logistics-transportation_airplane-side view:before {
+  content: '\f244';
+}
+.prizm-icons-logistics-transportation_airplane-top view:before {
+  content: '\f245';
+}
+.prizm-icons-logistics-transportation_ambulance-side view:before {
+  content: '\f246';
+}
+.prizm-icons-logistics-transportation_car-jeep-side view:before {
+  content: '\f247';
+}
+.prizm-icons-logistics-transportation_car-light-side view:before {
+  content: '\f248';
+}
+.prizm-icons-logistics-transportation_concrete-mixer-side view:before {
+  content: '\f249';
+}
+.prizm-icons-logistics-transportation_helicopter-side view:before {
+  content: '\f24a';
+}
+.prizm-icons-logistics-transportation_minibus-side view:before {
+  content: '\f24b';
+}
+.prizm-icons-logistics-transportation_paver-side view:before {
+  content: '\f24c';
+}
+.prizm-icons-logistics-transportation_pipe-node-side view:before {
+  content: '\f24d';
+}
+.prizm-icons-logistics-transportation_railcar-hopper-side view:before {
+  content: '\f24e';
+}
+.prizm-icons-logistics-transportation_railcar-side view:before {
+  content: '\f24f';
+}
+.prizm-icons-logistics-transportation_ship-front view:before {
+  content: '\f250';
+}
+.prizm-icons-logistics-transportation_ship-side view:before {
+  content: '\f251';
+}
+.prizm-icons-logistics-transportation_tankcar-oil-side view:before {
+  content: '\f252';
+}
+.prizm-icons-logistics-transportation_tankcar-side view:before {
+  content: '\f253';
+}
+.prizm-icons-logistics-transportation_truck-dump-side view:before {
+  content: '\f254';
+}
+.prizm-icons-logistics-transportation_truck-empty-side view:before {
+  content: '\f255';
+}
+.prizm-icons-logistics-transportation_truck-garbage-side view:before {
+  content: '\f256';
+}
+.prizm-icons-logistics-transportation_truck-gasoline-side view:before {
+  content: '\f257';
+}
+.prizm-icons-logistics-transportation_truck-side view:before {
+  content: '\f258';
+}
+.prizm-icons-map-location_compass:before {
+  content: '\f259';
+}
+.prizm-icons-map-location_crosshairs-dot:before {
+  content: '\f25a';
+}
+.prizm-icons-map-location_crosshairs-simple:before {
+  content: '\f25b';
+}
+.prizm-icons-map-location_location-arrow:before {
+  content: '\f25c';
+}
+.prizm-icons-map-location_location-directly:before {
+  content: '\f25d';
+}
+.prizm-icons-map-location_location-dot:before {
+  content: '\f25e';
+}
+.prizm-icons-map-location_location-minus:before {
+  content: '\f25f';
+}
+.prizm-icons-map-location_location-plus:before {
+  content: '\f260';
+}
+.prizm-icons-map-location_location-slash:before {
+  content: '\f261';
+}
+.prizm-icons-map-location_location-user:before {
+  content: '\f262';
+}
+.prizm-icons-map-location_map-base:before {
+  content: '\f263';
+}
+.prizm-icons-map-location_map-pin:before {
+  content: '\f264';
+}
+.prizm-icons-map-location_map:before {
+  content: '\f265';
+}
+.prizm-icons-map-location_thumbtack-directly:before {
+  content: '\f266';
+}
+.prizm-icons-map-location_thumbtack:before {
+  content: '\f267';
+}
+.prizm-icons-map-location_world-2:before {
+  content: '\f268';
+}
+.prizm-icons-map-location_world:before {
+  content: '\f269';
+}
+.prizm-icons-multimedia-devices_android-pill:before {
+  content: '\f26a';
+}
+.prizm-icons-multimedia-devices_android:before {
+  content: '\f26b';
+}
+.prizm-icons-multimedia-devices_audio-speakers:before {
+  content: '\f26c';
+}
+.prizm-icons-multimedia-devices_bookmark-music:before {
+  content: '\f26d';
+}
+.prizm-icons-multimedia-devices_camera-front:before {
+  content: '\f26e';
+}
+.prizm-icons-multimedia-devices_camera-movie-cross:before {
+  content: '\f26f';
+}
+.prizm-icons-multimedia-devices_camera-movie:before {
+  content: '\f270';
+}
+.prizm-icons-multimedia-devices_camera:before {
+  content: '\f271';
+}
+.prizm-icons-multimedia-devices_cellphone-wireless:before {
+  content: '\f272';
+}
+.prizm-icons-multimedia-devices_cellphone:before {
+  content: '\f273';
+}
+.prizm-icons-multimedia-devices_circle-music:before {
+  content: '\f274';
+}
+.prizm-icons-multimedia-devices_clapperboard-cross:before {
+  content: '\f275';
+}
+.prizm-icons-multimedia-devices_clapperboard-open:before {
+  content: '\f276';
+}
+.prizm-icons-multimedia-devices_desktop-tower:before {
+  content: '\f277';
+}
+.prizm-icons-multimedia-devices_file-music:before {
+  content: '\f278';
+}
+.prizm-icons-multimedia-devices_film-cross:before {
+  content: '\f279';
+}
+.prizm-icons-multimedia-devices_film:before {
+  content: '\f27a';
+}
+.prizm-icons-multimedia-devices_forvard-step:before {
+  content: '\f27b';
+}
+.prizm-icons-multimedia-devices_forward:before {
+  content: '\f27c';
+}
+.prizm-icons-multimedia-devices_hard-drive-outline:before {
+  content: '\f27d';
+}
+.prizm-icons-multimedia-devices_image:before {
+  content: '\f27e';
+}
+.prizm-icons-multimedia-devices_infinity:before {
+  content: '\f27f';
+}
+.prizm-icons-multimedia-devices_input-device:before {
+  content: '\f280';
+}
+.prizm-icons-multimedia-devices_laptop-phone-slash:before {
+  content: '\f281';
+}
+.prizm-icons-multimedia-devices_laptop-phone:before {
+  content: '\f282';
+}
+.prizm-icons-multimedia-devices_laptop-slash:before {
+  content: '\f283';
+}
+.prizm-icons-multimedia-devices_laptop:before {
+  content: '\f284';
+}
+.prizm-icons-multimedia-devices_microphone-slash:before {
+  content: '\f285';
+}
+.prizm-icons-multimedia-devices_microphone:before {
+  content: '\f286';
+}
+.prizm-icons-multimedia-devices_monitor:before {
+  content: '\f287';
+}
+.prizm-icons-multimedia-devices_music-slash:before {
+  content: '\f288';
+}
+.prizm-icons-multimedia-devices_music:before {
+  content: '\f289';
+}
+.prizm-icons-multimedia-devices_pause:before {
+  content: '\f28a';
+}
+.prizm-icons-multimedia-devices_play-back:before {
+  content: '\f28b';
+}
+.prizm-icons-multimedia-devices_play:before {
+  content: '\f28c';
+}
+.prizm-icons-multimedia-devices_printer:before {
+  content: '\f28d';
+}
+.prizm-icons-multimedia-devices_push-button-cellphone:before {
+  content: '\f28e';
+}
+.prizm-icons-multimedia-devices_return-step:before {
+  content: '\f28f';
+}
+.prizm-icons-multimedia-devices_return:before {
+  content: '\f290';
+}
+.prizm-icons-multimedia-devices_square-music-double:before {
+  content: '\f291';
+}
+.prizm-icons-multimedia-devices_square-music:before {
+  content: '\f292';
+}
+.prizm-icons-multimedia-devices_stop:before {
+  content: '\f293';
+}
+.prizm-icons-multimedia-devices_tablet:before {
+  content: '\f294';
+}
+.prizm-icons-multimedia-devices_touchpad:before {
+  content: '\f295';
+}
+.prizm-icons-multimedia-devices_transmitter:before {
+  content: '\f296';
+}
+.prizm-icons-multimedia-devices_tv:before {
+  content: '\f297';
+}
+.prizm-icons-multimedia-devices_video-cross:before {
+  content: '\f298';
+}
+.prizm-icons-multimedia-devices_video-slash:before {
+  content: '\f299';
+}
+.prizm-icons-multimedia-devices_video:before {
+  content: '\f29a';
+}
+.prizm-icons-multimedia-devices_voicemail:before {
+  content: '\f29b';
+}
+.prizm-icons-multimedia-devices_volume-cross:before {
+  content: '\f29c';
+}
+.prizm-icons-multimedia-devices_volume-low:before {
+  content: '\f29d';
+}
+.prizm-icons-multimedia-devices_volume-minus:before {
+  content: '\f29e';
+}
+.prizm-icons-multimedia-devices_volume-off:before {
+  content: '\f29f';
+}
+.prizm-icons-multimedia-devices_volume-plus:before {
+  content: '\f2a0';
+}
+.prizm-icons-multimedia-devices_volume-slash:before {
+  content: '\f2a1';
+}
+.prizm-icons-multimedia-devices_volume:before {
+  content: '\f2a2';
+}
+.prizm-icons-multimedia-devices_watch:before {
+  content: '\f2a3';
+}
+.prizm-icons-multimedia-devices_webcam:before {
+  content: '\f2a4';
+}
+.prizm-icons-notifications-alerts_bell-fill:before {
+  content: '\f2a5';
+}
+.prizm-icons-notifications-alerts_bell-plus:before {
+  content: '\f2a6';
+}
+.prizm-icons-notifications-alerts_bell-ring-fill:before {
+  content: '\f2a7';
+}
+.prizm-icons-notifications-alerts_bell-ring:before {
+  content: '\f2a8';
+}
+.prizm-icons-notifications-alerts_bell-slash:before {
+  content: '\f2a9';
+}
+.prizm-icons-notifications-alerts_bell:before {
+  content: '\f2aa';
+}
+.prizm-icons-notifications-alerts_check-double:before {
+  content: '\f2ab';
+}
+.prizm-icons-notifications-alerts_chek:before {
+  content: '\f2ac';
+}
+.prizm-icons-notifications-alerts_circle-chek-empty:before {
+  content: '\f2ad';
+}
+.prizm-icons-notifications-alerts_circle-chek-fill:before {
+  content: '\f2ae';
+}
+.prizm-icons-notifications-alerts_circle-exclamation-empty:before {
+  content: '\f2af';
+}
+.prizm-icons-notifications-alerts_circle-exclamation-fill:before {
+  content: '\f2b0';
+}
+.prizm-icons-notifications-alerts_circle-info-empty:before {
+  content: '\f2b1';
+}
+.prizm-icons-notifications-alerts_circle-info-fill:before {
+  content: '\f2b2';
+}
+.prizm-icons-notifications-alerts_circle-question-empty:before {
+  content: '\f2b3';
+}
+.prizm-icons-notifications-alerts_circle-question-fill:before {
+  content: '\f2b4';
+}
+.prizm-icons-notifications-alerts_decagram-chek-empty:before {
+  content: '\f2b5';
+}
+.prizm-icons-notifications-alerts_decagram-chek-fill:before {
+  content: '\f2b6';
+}
+.prizm-icons-notifications-alerts_decagram-exclamation-empty:before {
+  content: '\f2b7';
+}
+.prizm-icons-notifications-alerts_decagram-exclamation-fill:before {
+  content: '\f2b8';
+}
+.prizm-icons-notifications-alerts_exclamation:before {
+  content: '\f2b9';
+}
+.prizm-icons-notifications-alerts_flag-fill-red:before {
+  content: '\f2ba';
+}
+.prizm-icons-notifications-alerts_flag-fill:before {
+  content: '\f2bb';
+}
+.prizm-icons-notifications-alerts_flag:before {
+  content: '\f2bc';
+}
+.prizm-icons-notifications-alerts_hexagon-exclamation-empty:before {
+  content: '\f2bd';
+}
+.prizm-icons-notifications-alerts_hexagon-exclamation-fill:before {
+  content: '\f2be';
+}
+.prizm-icons-notifications-alerts_info:before {
+  content: '\f2bf';
+}
+.prizm-icons-notifications-alerts_question:before {
+  content: '\f2c0';
+}
+.prizm-icons-notifications-alerts_square-exclamation-empty:before {
+  content: '\f2c1';
+}
+.prizm-icons-notifications-alerts_square-exclamation-fill:before {
+  content: '\f2c2';
+}
+.prizm-icons-notifications-alerts_square-info-empty:before {
+  content: '\f2c3';
+}
+.prizm-icons-notifications-alerts_square-info-fill:before {
+  content: '\f2c4';
+}
+.prizm-icons-notifications-alerts_square-question-empty:before {
+  content: '\f2c5';
+}
+.prizm-icons-notifications-alerts_square-question-fill:before {
+  content: '\f2c6';
+}
+.prizm-icons-notifications-alerts_triangle-cross-empty:before {
+  content: '\f2c7';
+}
+.prizm-icons-notifications-alerts_triangle-exclamation-empty:before {
+  content: '\f2c8';
+}
+.prizm-icons-notifications-alerts_triangle-exclamation-fill:before {
+  content: '\f2c9';
+}
+.prizm-icons-notifications-alerts_triangle-info-empty:before {
+  content: '\f2ca';
+}
+.prizm-icons-notifications-alerts_triangle-info-fill:before {
+  content: '\f2cb';
+}
+.prizm-icons-notifications-alerts_triangle-plus-empty:before {
+  content: '\f2cc';
+}
+.prizm-icons-other_award:before {
+  content: '\f2cd';
+}
+.prizm-icons-other_default-ico:before {
+  content: '\f2ce';
+}
+.prizm-icons-other_face-frown:before {
+  content: '\f2cf';
+}
+.prizm-icons-other_face-smile:before {
+  content: '\f2d0';
+}
+.prizm-icons-other_git-lab:before {
+  content: '\f2d1';
+}
+.prizm-icons-other_instagram:before {
+  content: '\f2d2';
+}
+.prizm-icons-other_logo-grey-z:before {
+  content: '\f2d3';
+}
+.prizm-icons-other_logo-s.grey:before {
+  content: '\f2d4';
+}
+.prizm-icons-other_map-marker-date-1:before {
+  content: '\f2d5';
+}
+.prizm-icons-other_map-marker-date-2:before {
+  content: '\f2d6';
+}
+.prizm-icons-other_owl:before {
+  content: '\f2d7';
+}
+.prizm-icons-other_portfel:before {
+  content: '\f2d8';
+}
+.prizm-icons-other_temperature-minus:before {
+  content: '\f2d9';
+}
+.prizm-icons-other_temperature-plus:before {
+  content: '\f2da';
+}
+.prizm-icons-other_temperature:before {
+  content: '\f2db';
+}
+.prizm-icons-other_template:before {
+  content: '\f2dc';
+}
+.prizm-icons-other_umbrella:before {
+  content: '\f2dd';
+}
+.prizm-icons-power-energy_battery-bolt:before {
+  content: '\f2de';
+}
+.prizm-icons-power-energy_battery-empty:before {
+  content: '\f2df';
+}
+.prizm-icons-power-energy_battery-exclametion mark:before {
+  content: '\f2e0';
+}
+.prizm-icons-power-energy_battery-full:before {
+  content: '\f2e1';
+}
+.prizm-icons-power-energy_battery-half:before {
+  content: '\f2e2';
+}
+.prizm-icons-power-energy_battery-minus:before {
+  content: '\f2e3';
+}
+.prizm-icons-power-energy_battery-plus:before {
+  content: '\f2e4';
+}
+.prizm-icons-power-energy_battery-quarter:before {
+  content: '\f2e5';
+}
+.prizm-icons-power-energy_battery-three-quarters:before {
+  content: '\f2e6';
+}
+.prizm-icons-power-energy_energy-check:before {
+  content: '\f2e7';
+}
+.prizm-icons-power-energy_energy-slash:before {
+  content: '\f2e8';
+}
+.prizm-icons-power-energy_energy:before {
+  content: '\f2e9';
+}
+.prizm-icons-power-energy_pulse:before {
+  content: '\f2ea';
+}
+.prizm-icons-production-industry_balloon:before {
+  content: '\f2eb';
+}
+.prizm-icons-production-industry_boiler-hot-water-gas-and-oil:before {
+  content: '\f2ec';
+}
+.prizm-icons-production-industry_boiler:before {
+  content: '\f2ed';
+}
+.prizm-icons-production-industry_burn:before {
+  content: '\f2ee';
+}
+.prizm-icons-production-industry_carbon:before {
+  content: '\f2ef';
+}
+.prizm-icons-production-industry_cart-flatbed-container:before {
+  content: '\f2f0';
+}
+.prizm-icons-production-industry_container 2:before {
+  content: '\f2f1';
+}
+.prizm-icons-production-industry_container:before {
+  content: '\f2f2';
+}
+.prizm-icons-production-industry_containers:before {
+  content: '\f2f3';
+}
+.prizm-icons-production-industry_crane:before {
+  content: '\f2f4';
+}
+.prizm-icons-production-industry_cube-empty:before {
+  content: '\f2f5';
+}
+.prizm-icons-production-industry_cube-fill:before {
+  content: '\f2f6';
+}
+.prizm-icons-production-industry_cubes:before {
+  content: '\f2f7';
+}
+.prizm-icons-production-industry_early-version:before {
+  content: '\f2f8';
+}
+.prizm-icons-production-industry_electrics:before {
+  content: '\f2f9';
+}
+.prizm-icons-production-industry_exchanger:before {
+  content: '\f2fa';
+}
+.prizm-icons-production-industry_factory-pipe:before {
+  content: '\f2fb';
+}
+.prizm-icons-production-industry_factory-pipes:before {
+  content: '\f2fc';
+}
+.prizm-icons-production-industry_factory:before {
+  content: '\f2fd';
+}
+.prizm-icons-production-industry_fan:before {
+  content: '\f2fe';
+}
+.prizm-icons-production-industry_fire:before {
+  content: '\f2ff';
+}
+.prizm-icons-production-industry_flask-round-potion:before {
+  content: '\f300';
+}
+.prizm-icons-production-industry_flask:before {
+  content: '\f301';
+}
+.prizm-icons-production-industry_fuel-oil-tank:before {
+  content: '\f302';
+}
+.prizm-icons-production-industry_gas-monitoring:before {
+  content: '\f303';
+}
+.prizm-icons-production-industry_gas-pump:before {
+  content: '\f304';
+}
+.prizm-icons-production-industry_gas:before {
+  content: '\f305';
+}
+.prizm-icons-production-industry_gear-cooling:before {
+  content: '\f306';
+}
+.prizm-icons-production-industry_generator:before {
+  content: '\f307';
+}
+.prizm-icons-production-industry_lng-storage:before {
+  content: '\f308';
+}
+.prizm-icons-production-industry_medical:before {
+  content: '\f309';
+}
+.prizm-icons-production-industry_ni-fi-logo:before {
+  content: '\f30a';
+}
+.prizm-icons-production-industry_oil-barrel:before {
+  content: '\f30b';
+}
+.prizm-icons-production-industry_oil-canister:before {
+  content: '\f30c';
+}
+.prizm-icons-production-industry_oil-droplet-arrows-all:before {
+  content: '\f30d';
+}
+.prizm-icons-production-industry_oil-droplet-arrows-repeat-h:before {
+  content: '\f30e';
+}
+.prizm-icons-production-industry_oil-droplet-chek:before {
+  content: '\f30f';
+}
+.prizm-icons-production-industry_oil-droplet:before {
+  content: '\f310';
+}
+.prizm-icons-production-industry_oil-field:before {
+  content: '\f311';
+}
+.prizm-icons-production-industry_oil-tank:before {
+  content: '\f312';
+}
+.prizm-icons-production-industry_pipe-sensor:before {
+  content: '\f313';
+}
+.prizm-icons-production-industry_pipe-valve:before {
+  content: '\f314';
+}
+.prizm-icons-production-industry_pipeline 2:before {
+  content: '\f315';
+}
+.prizm-icons-production-industry_pipeline:before {
+  content: '\f316';
+}
+.prizm-icons-production-industry_press:before {
+  content: '\f317';
+}
+.prizm-icons-production-industry_pump-triangle-down:before {
+  content: '\f318';
+}
+.prizm-icons-production-industry_pump:before {
+  content: '\f319';
+}
+.prizm-icons-production-industry_radiation:before {
+  content: '\f31a';
+}
+.prizm-icons-production-industry_respirator-1:before {
+  content: '\f31b';
+}
+.prizm-icons-production-industry_respirator-2:before {
+  content: '\f31c';
+}
+.prizm-icons-production-industry_respirator-3:before {
+  content: '\f31d';
+}
+.prizm-icons-production-industry_respirator-4:before {
+  content: '\f31e';
+}
+.prizm-icons-production-industry_respirator-5:before {
+  content: '\f31f';
+}
+.prizm-icons-production-industry_respirator-6:before {
+  content: '\f320';
+}
+.prizm-icons-production-industry_seedling-circle:before {
+  content: '\f321';
+}
+.prizm-icons-production-industry_seedling-rectangle:before {
+  content: '\f322';
+}
+.prizm-icons-production-industry_seedling:before {
+  content: '\f323';
+}
+.prizm-icons-production-industry_separator:before {
+  content: '\f324';
+}
+.prizm-icons-production-industry_snake-cup:before {
+  content: '\f325';
+}
+.prizm-icons-production-industry_snowflake-up-to bracket:before {
+  content: '\f326';
+}
+.prizm-icons-production-industry_snowflake:before {
+  content: '\f327';
+}
+.prizm-icons-production-industry_speed-reduction-cooling:before {
+  content: '\f328';
+}
+.prizm-icons-production-industry_steam-boiler:before {
+  content: '\f329';
+}
+.prizm-icons-production-industry_steam-turbine:before {
+  content: '\f32a';
+}
+.prizm-icons-production-industry_steam:before {
+  content: '\f32b';
+}
+.prizm-icons-production-industry_tank-1:before {
+  content: '\f32c';
+}
+.prizm-icons-production-industry_tank:before {
+  content: '\f32d';
+}
+.prizm-icons-production-industry_vial-arrow-rotate-left:before {
+  content: '\f32e';
+}
+.prizm-icons-production-industry_vial-flask:before {
+  content: '\f32f';
+}
+.prizm-icons-production-industry_vial-xmark:before {
+  content: '\f330';
+}
+.prizm-icons-production-industry_vial:before {
+  content: '\f331';
+}
+.prizm-icons-production-industry_water-heater:before {
+  content: '\f332';
+}
+.prizm-icons-production-industry_water-pump:before {
+  content: '\f333';
+}
+.prizm-icons-settings-tools_ban:before {
+  content: '\f334';
+}
+.prizm-icons-settings-tools_bars:before {
+  content: '\f335';
+}
+.prizm-icons-settings-tools_circle-plus-fill:before {
+  content: '\f336';
+}
+.prizm-icons-settings-tools_circle-plus:before {
+  content: '\f337';
+}
+.prizm-icons-settings-tools_circle-xmark-fill:before {
+  content: '\f338';
+}
+.prizm-icons-settings-tools_circle-xmark:before {
+  content: '\f339';
+}
+.prizm-icons-settings-tools_copy:before {
+  content: '\f33a';
+}
+.prizm-icons-settings-tools_delete-content:before {
+  content: '\f33b';
+}
+.prizm-icons-settings-tools_droplet-slash:before {
+  content: '\f33c';
+}
+.prizm-icons-settings-tools_droplet:before {
+  content: '\f33d';
+}
+.prizm-icons-settings-tools_ellipsis-grid:before {
+  content: '\f33e';
+}
+.prizm-icons-settings-tools_ellipsis-h:before {
+  content: '\f33f';
+}
+.prizm-icons-settings-tools_ellipsis-v:before {
+  content: '\f340';
+}
+.prizm-icons-settings-tools_eye-closed:before {
+  content: '\f341';
+}
+.prizm-icons-settings-tools_eye-slash:before {
+  content: '\f342';
+}
+.prizm-icons-settings-tools_eye:before {
+  content: '\f343';
+}
+.prizm-icons-settings-tools_filter:before {
+  content: '\f344';
+}
+.prizm-icons-settings-tools_gear-5:before {
+  content: '\f345';
+}
+.prizm-icons-settings-tools_gear-8:before {
+  content: '\f346';
+}
+.prizm-icons-settings-tools_grip-dots-vertical:before {
+  content: '\f347';
+}
+.prizm-icons-settings-tools_house-mini:before {
+  content: '\f348';
+}
+.prizm-icons-settings-tools_house:before {
+  content: '\f349';
+}
+.prizm-icons-settings-tools_key:before {
+  content: '\f34a';
+}
+.prizm-icons-settings-tools_library-plus:before {
+  content: '\f34b';
+}
+.prizm-icons-settings-tools_lightbulb:before {
+  content: '\f34c';
+}
+.prizm-icons-settings-tools_link-break:before {
+  content: '\f34d';
+}
+.prizm-icons-settings-tools_link-minus:before {
+  content: '\f34e';
+}
+.prizm-icons-settings-tools_link-plus:before {
+  content: '\f34f';
+}
+.prizm-icons-settings-tools_link-simple-h:before {
+  content: '\f350';
+}
+.prizm-icons-settings-tools_link-simple:before {
+  content: '\f351';
+}
+.prizm-icons-settings-tools_loader:before {
+  content: '\f352';
+}
+.prizm-icons-settings-tools_lock:before {
+  content: '\f353';
+}
+.prizm-icons-settings-tools_magnifying glass-exclamation:before {
+  content: '\f354';
+}
+.prizm-icons-settings-tools_magnifying glass-minus:before {
+  content: '\f355';
+}
+.prizm-icons-settings-tools_magnifying glass-plus:before {
+  content: '\f356';
+}
+.prizm-icons-settings-tools_magnifying glass-top-from bracket:before {
+  content: '\f357';
+}
+.prizm-icons-settings-tools_magnifying glass-triangle-down:before {
+  content: '\f358';
+}
+.prizm-icons-settings-tools_magnifying glass-xmark:before {
+  content: '\f359';
+}
+.prizm-icons-settings-tools_magnifying glass:before {
+  content: '\f35a';
+}
+.prizm-icons-settings-tools_minus-circle-fill:before {
+  content: '\f35b';
+}
+.prizm-icons-settings-tools_minus-circle:before {
+  content: '\f35c';
+}
+.prizm-icons-settings-tools_minus:before {
+  content: '\f35d';
+}
+.prizm-icons-settings-tools_moon:before {
+  content: '\f35e';
+}
+.prizm-icons-settings-tools_paperclip-vertical:before {
+  content: '\f35f';
+}
+.prizm-icons-settings-tools_paperclip:before {
+  content: '\f360';
+}
+.prizm-icons-settings-tools_pen-hammer:before {
+  content: '\f361';
+}
+.prizm-icons-settings-tools_pencil arrow-right:before {
+  content: '\f362';
+}
+.prizm-icons-settings-tools_pencil triangle-down:before {
+  content: '\f363';
+}
+.prizm-icons-settings-tools_pencil triangle-left:before {
+  content: '\f364';
+}
+.prizm-icons-settings-tools_pencil-line-bottom:before {
+  content: '\f365';
+}
+.prizm-icons-settings-tools_pencil:before {
+  content: '\f366';
+}
+.prizm-icons-settings-tools_pipette:before {
+  content: '\f367';
+}
+.prizm-icons-settings-tools_plus:before {
+  content: '\f368';
+}
+.prizm-icons-settings-tools_power:before {
+  content: '\f369';
+}
+.prizm-icons-settings-tools_shield-exclamation:before {
+  content: '\f36a';
+}
+.prizm-icons-settings-tools_shield-slash:before {
+  content: '\f36b';
+}
+.prizm-icons-settings-tools_shield:before {
+  content: '\f36c';
+}
+.prizm-icons-settings-tools_sliders-h:before {
+  content: '\f36d';
+}
+.prizm-icons-settings-tools_sliders-v:before {
+  content: '\f36e';
+}
+.prizm-icons-settings-tools_sun:before {
+  content: '\f36f';
+}
+.prizm-icons-settings-tools_trash-empty:before {
+  content: '\f370';
+}
+.prizm-icons-settings-tools_trash:before {
+  content: '\f371';
+}
+.prizm-icons-settings-tools_unlock:before {
+  content: '\f372';
+}
+.prizm-icons-settings-tools_wrench:before {
+  content: '\f373';
+}
+.prizm-icons-settings-tools_xmark-mini:before {
+  content: '\f374';
+}
+.prizm-icons-settings-tools_xmark:before {
+  content: '\f375';
+}
+.prizm-icons-shape-geometry_arrange-send-to-back:before {
+  content: '\f376';
+}
+.prizm-icons-shape-geometry_checkerboard:before {
+  content: '\f377';
+}
+.prizm-icons-shape-geometry_circle square- in square:before {
+  content: '\f378';
+}
+.prizm-icons-shape-geometry_circle square-fill-1:before {
+  content: '\f379';
+}
+.prizm-icons-shape-geometry_circle square-fill:before {
+  content: '\f37a';
+}
+.prizm-icons-shape-geometry_circle- in hexagon:before {
+  content: '\f37b';
+}
+.prizm-icons-shape-geometry_circles-line-left-up circle-right-down-fill:before {
+  content: '\f37c';
+}
+.prizm-icons-shape-geometry_circles-line-left-up circle-right-down:before {
+  content: '\f37d';
+}
+.prizm-icons-shape-geometry_collector:before {
+  content: '\f37e';
+}
+.prizm-icons-shape-geometry_discrete-set:before {
+  content: '\f37f';
+}
+.prizm-icons-shape-geometry_hexagon-fill:before {
+  content: '\f380';
+}
+.prizm-icons-shape-geometry_hexagon:before {
+  content: '\f381';
+}
+.prizm-icons-shape-geometry_pentagon-fill:before {
+  content: '\f382';
+}
+.prizm-icons-shape-geometry_pentagon:before {
+  content: '\f383';
+}
+.prizm-icons-shape-geometry_rhombus-fill:before {
+  content: '\f384';
+}
+.prizm-icons-shape-geometry_rhombus:before {
+  content: '\f385';
+}
+.prizm-icons-shape-geometry_ring- in square:before {
+  content: '\f386';
+}
+.prizm-icons-shape-geometry_shape-4-f:before {
+  content: '\f387';
+}
+.prizm-icons-shape-geometry_shape-4:before {
+  content: '\f388';
+}
+.prizm-icons-shape-geometry_shape-6:before {
+  content: '\f389';
+}
+.prizm-icons-shape-geometry_shape-7:before {
+  content: '\f38a';
+}
+.prizm-icons-shape-geometry_shape-plus:before {
+  content: '\f38b';
+}
+.prizm-icons-shape-geometry_square circle plus triangle-fill:before {
+  content: '\f38c';
+}
+.prizm-icons-shape-geometry_square circle triangle cross-fill:before {
+  content: '\f38d';
+}
+.prizm-icons-shape-geometry_square circle triangle cross:before {
+  content: '\f38e';
+}
+.prizm-icons-shape-geometry_square hexagon circle-fill:before {
+  content: '\f38f';
+}
+.prizm-icons-shape-geometry_square hexagon circle:before {
+  content: '\f390';
+}
+.prizm-icons-shape-geometry_square triangle circle triangle-fill-1:before {
+  content: '\f391';
+}
+.prizm-icons-shape-geometry_square triangle circle triangle-fill:before {
+  content: '\f392';
+}
+.prizm-icons-shape-geometry_square-in square:before {
+  content: '\f393';
+}
+.prizm-icons-shape-geometry_triangle circle square-fill-1:before {
+  content: '\f394';
+}
+.prizm-icons-shape-geometry_triangle circle square-fill:before {
+  content: '\f395';
+}
+.prizm-icons-shape-geometry_triangle-fill:before {
+  content: '\f396';
+}
+.prizm-icons-shape-geometry_triangle:before {
+  content: '\f397';
+}
+.prizm-icons-user-account_user-arrows swap:before {
+  content: '\f398';
+}
+.prizm-icons-user-account_user-card:before {
+  content: '\f399';
+}
+.prizm-icons-user-account_user-check:before {
+  content: '\f39a';
+}
+.prizm-icons-user-account_user-circle:before {
+  content: '\f39b';
+}
+.prizm-icons-user-account_user-cross:before {
+  content: '\f39c';
+}
+.prizm-icons-user-account_user-gear:before {
+  content: '\f39d';
+}
+.prizm-icons-user-account_user-location:before {
+  content: '\f39e';
+}
+.prizm-icons-user-account_user-minus:before {
+  content: '\f39f';
+}
+.prizm-icons-user-account_user-pen:before {
+  content: '\f3a0';
+}
+.prizm-icons-user-account_user-plus:before {
+  content: '\f3a1';
+}
+.prizm-icons-user-account_user-shield:before {
+  content: '\f3a2';
+}
+.prizm-icons-user-account_user-worker:before {
+  content: '\f3a3';
+}
+.prizm-icons-user-account_user:before {
+  content: '\f3a4';
+}
+.prizm-icons-user-account_users-arrow right:before {
+  content: '\f3a5';
+}
+.prizm-icons-user-account_users-gear:before {
+  content: '\f3a6';
+}
+.prizm-icons-user-account_users-key:before {
+  content: '\f3a7';
+}
+.prizm-icons-user-account_users-location:before {
+  content: '\f3a8';
+}
+.prizm-icons-user-account_users-minus:before {
+  content: '\f3a9';
+}
+.prizm-icons-user-account_users-plus:before {
+  content: '\f3aa';
+}
+.prizm-icons-user-account_users:before {
+  content: '\f3ab';
+}

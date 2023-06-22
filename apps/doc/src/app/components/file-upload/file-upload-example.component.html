@@ -1,0 +1,167 @@
+<prizm-doc-page header="File upload">
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="basic" heading="Base">
+      <prizm-file-upload-basic-example></prizm-file-upload-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="auto-upload" [content]="basic" heading="Auto upload">
+      <prizm-file-auto-upload-example></prizm-file-auto-upload-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-file-upload
+        #element
+        [prizmDocHostElement]="element"
+        [multiple]="multiple"
+        [accept]="accept"
+        [progress]="progress$$ | async"
+        [maxFilesCount]="maxFilesCount"
+        [maxFileSize]="maxFileSize"
+        [disabled]="disabled"
+        (filesChange)="onFilesChange($event)"
+        (filesValidationErrors)="onfilesValidationErrors($event)"
+        (filesCountError)="onFilesCountError($event)"
+        (retry)="retry($event)"
+      >
+        {{ userContent }}
+      </prizm-file-upload>
+
+      <br />
+
+      <button
+        class="submit"
+        [disabled]="files.length === 0 || disabled"
+        (click)="send()"
+        prizmButton
+        appearance="primary"
+        size="m"
+      >
+        Отправить
+      </button>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="accept"
+        [documentationPropertyValues]="acceptVariants"
+        documentationPropertyName="accept"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Accept
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="maxFileSize"
+        documentationPropertyName="maxFileSize"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Max file size (bytes)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="maxFilesCount"
+        documentationPropertyName="maxFilesCount"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Max files count
+      </ng-template>
+
+      <!-- <ng-template
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="userContent"
+      >
+        User content
+      </ng-template> -->
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="progress"
+        documentationPropertyType="PrizmFilesProgress"
+        documentationPropertyMode="input"
+      >
+        Progress
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="multiple"
+        documentationPropertyName="multiple"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Multiple
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="retry"
+        documentationPropertyType="File"
+        documentationPropertyMode="output"
+        documentationPropertyType="retry"
+      >
+        Retry
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="beforeFilesChange"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="void"
+      >
+        Before files change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filesChange"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="File[]"
+      >
+        Files change
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filesValidationErrors"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="Map<filename, PrizmFileValidationErrors>"
+      >
+        FilesValidationErrors
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="filesCountError"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="Array<filenames>"
+      >
+        Files count error
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmFileUploadModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

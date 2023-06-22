@@ -1,0 +1,56 @@
+@import '../../../../styles/ui-local';
+
+:host {
+  display: block;
+  border-radius: var(--prizm-radius-m);
+  text-align: left;
+}
+
+.z-hosted {
+  display: block;
+  border-radius: inherit;
+}
+
+.z-textfield {
+  border-radius: inherit;
+  text-align: inherit;
+}
+
+.z-icon {
+  pointer-events: auto;
+}
+
+.z-button {
+  display: flex;
+  height: 2.75rem;
+  justify-content: center;
+  box-shadow: inset 0 1px var(--prizm-base-03);
+}
+
+.time-item {
+  display: flex;
+  align-items: center;
+  padding: var(--prizm-select-item-padding, 8px 16px);
+  background: var(--prizm-select-item-background, var(--prizm-bg-body));
+  cursor: pointer;
+  font-weight: var(--prizm-select-item-font-weight, 400);
+  font-size: var(--prizm-select-item-font-size, 14px);
+  color: var(--prizm-select-item-text, var(--prizm-text-contrast, #20222b));
+
+  .text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &.selected {
+    background: var(--prizm-select-item-selected-background, var(--prizm-lite-b130-20));
+    color: var(--prizm-text-contrast);
+  }
+
+  &:not(.selected):hover {
+    background: var(--prizm-select-item-hover-background, var(--prizm-g2-g11));
+    color: var(--prizm-text-contrast);
+  }
+}

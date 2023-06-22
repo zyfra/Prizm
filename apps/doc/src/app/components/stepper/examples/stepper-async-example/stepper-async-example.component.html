@@ -1,0 +1,63 @@
+<prizm-stepper
+  [currentStep]="currentStep"
+  [title]="'Stepper basic example'"
+  (selectStep)="onSelectStep($event)"
+>
+  <ng-template
+    [prizmStepperStep]="1"
+    [title]="steps[1].title"
+    [status]="steps[1].status"
+    [disabled]="steps[1].disabled"
+  >
+    <h2>Step 1</h2>
+    <div>Status: {{ steps[1].status }}</div>
+  </ng-template>
+
+  <ng-template
+    [prizmStepperStep]="2"
+    [title]="steps[2].title"
+    [status]="steps[2].status"
+    [disabled]="steps[2].disabled"
+  >
+    <h2>Step 2</h2>
+    <div>Status: {{ steps[2].status }}</div>
+  </ng-template>
+
+  <ng-template
+    [prizmStepperStep]="3"
+    [title]="steps[3].title"
+    [status]="steps[3].status"
+    [disabled]="steps[3].disabled"
+  >
+    <h2>Step 3</h2>
+    <div>Status: {{ steps[3].status }}</div>
+  </ng-template>
+
+  <div class="footer" prizmStepperFooter>
+    <button
+      [disabled]="toPrevStepDisabled"
+      (click)="toPrevStep()"
+      prizmButton
+      appearanceType="outline"
+      appearance="primary"
+      size="l"
+    >
+      Предыдущий шаг
+    </button>
+    <button
+      *ngIf="currentStep !== 3"
+      [disabled]="toNextStepDisabled"
+      (click)="toNextStep()"
+      prizmButton
+      appearanceType="outline"
+      appearance="primary"
+      size="l"
+    >
+      Следующий шаг
+    </button>
+
+    <button *ngIf="currentStep === 3" prizmButton appearanceType="outline" appearance="success" size="l">
+      Завершить
+    </button>
+  </div>
+</prizm-stepper>

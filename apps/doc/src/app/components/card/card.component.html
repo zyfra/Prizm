@@ -1,0 +1,52 @@
+<prizm-doc-page header="Card">
+  <div class="page-description" description>
+    Our card component for displaying content in a card-like format.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-card-base-example></prizm-card-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-card #element [prizmDocHostElement]="element" [shadow]="shadow">
+        {{ content }}
+      </prizm-card>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <!-- <ng-template
+        documentationPropertyName="ngContent"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        Content
+      </ng-template> -->
+
+      <ng-template
+        [(documentationPropertyValue)]="shadow"
+        [documentationPropertyValues]="shadowVariants"
+        documentationPropertyName="shadow"
+        documentationPropertyType="PrizmShadowType"
+        documentationPropertyMode="input"
+      >
+        Shadow
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmCardModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,65 @@
+<div class="prizm-navigation-menu">
+  <header class="prizm-navigation-menu__header header">
+    <div class="header__top" (prizmHoveredChange)="headerIsHovered = $event">
+      <div class="header__title">{{ title }}</div>
+      <div class="header__instruments">
+        <ng-container
+          [ngTemplateOutlet]="headerExtraTemplate"
+          [ngTemplateOutletContext]="{ headerIsHovered: headerIsHovered }"
+        ></ng-container>
+        <button
+          *ngIf="headerConfiguration.showSettings"
+          [size]="'m'"
+          [icon]="'settings'"
+          [appearance]="'secondary'"
+          [appearanceType]="'ghost'"
+          (click)="handleSettingsClicked()"
+          prizmIconButton
+        ></button>
+        <button
+          *ngIf="headerConfiguration.showHome"
+          [size]="'m'"
+          [icon]="'social-home'"
+          [appearance]="'secondary'"
+          [appearanceType]="'ghost'"
+          (click)="handleHomeClicked()"
+          prizmIconButton
+        ></button>
+      </div>
+    </div>
+    <prizm-navigation-menu-toolbar
+      class="header__toolbar"
+      [searchConfig]="menuSearchConfig$ | async"
+      [toolbarConfig]="menuToolbarConfig$ | async"
+      [toolbarExtraTemplate]="toolbarExtraTemplate"
+    ></prizm-navigation-menu-toolbar>
+  </header>
+
+  <main class="prizm-navigation-menu__content groups-content" [ngClass]="settingsConfiguration.selectedSize">
+    <ng-container *ngIf="menuGroups.length; else noGroups">
+      <section class="groups-content__top">
+        <ng-content></ng-content>
+        <ng-content select="[top]"></ng-content>
+      </section>
+      <section class="groups-content__bottom">
+        <ng-content select="[bottom]"></ng-content>
+      </section>
+    </ng-container>
+
+    <ng-template #noGroups>
+      <div class="no-groups-content">
+        <prizm-navigation-menu-group
+          [groupId]="'prizm-navigation-menu-default-group'"
+          [hideGroupAppearance]="true"
+          [items]="items"
+          [toolbarExtraTemplate]="toolbarExtraTemplate"
+          [itemExtraTemplate]="itemExtraTemplate"
+          [searchConfig]="menuSearchConfig$ | async"
+          [toolbarConfig]="menuToolbarConfig$ | async"
+          [emptySearchResultMessageConfig]="emptySearchResultMessageConfig$ | async"
+          [emptyDataMessageConfig]="emptyDataMessageConfig$ | async"
+        ></prizm-navigation-menu-group>
+      </div>
+    </ng-template>
+  </main>
+</div>

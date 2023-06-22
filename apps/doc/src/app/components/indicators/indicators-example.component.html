@@ -1,0 +1,60 @@
+<prizm-doc-page header="Indicators">
+  <div class="page-description" description>
+    Our indicators component is a set of visual indicators that can be used to show the status of an object or
+    process.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="indicatorBasicExample" heading="Base">
+      <prizm-indicators-base></prizm-indicators-base>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="withIcon" [content]="indicatorIconExample" heading="With Icon">
+      <prizm-indicators-icons></prizm-indicators-icons>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-indicator
+        #element
+        [prizmDocHostElement]="element"
+        [status]="status"
+        [type]="type"
+      ></prizm-indicator>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="type"
+        [documentationPropertyValues]="typeVariants"
+        documentationPropertyName="type"
+        documentationPropertyType="IndicatorType"
+        documentationPropertyMode="input"
+      >
+        Indicator type
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statusVariants"
+        documentationPropertyName="status"
+        documentationPropertyType="IndicatorStatus"
+        documentationPropertyMode="input"
+      >
+        Indicator status
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmIndicatorModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

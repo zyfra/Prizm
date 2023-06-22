@@ -1,0 +1,122 @@
+<prizm-doc-page header="Line">
+  <div class="page-description" description>
+    Generally, line graphs or line charts are used to track variations over time, which may be long-term or
+    short-term. We can also use line graphs to compare changes over the same period for more than one group.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
+      <prizm-charts-line-example></prizm-charts-line-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Smooth Line">
+      <prizm-charts-line-smooth-example></prizm-charts-line-smooth-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-line
+        #element
+        [prizmDocHostElement]="element"
+        [width]="width"
+        [data]="data"
+        [xField]="xField"
+        [yField]="yField"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [height]="height"
+      ></prizm-charts-line>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="xField"
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="yField"
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Y Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsLineItem[]"
+      >
+        Data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="autoFit"
+        documentationPropertyMode="input"
+        documentationPropertyType="boolean"
+      >
+        Auto Fit
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsLineOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Height
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmLineModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

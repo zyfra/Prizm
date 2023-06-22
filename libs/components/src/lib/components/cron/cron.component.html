@@ -1,0 +1,122 @@
+<div class="block">
+  <div class="title py-none inner-block small-padding">
+    <span class="prizm-font-title-h4">
+      {{ cronI18n$ | async | prizmPluck : ['title'] }}
+    </span>
+    <div class="submit-block" *ngIf="!hideResult || !autoSubmit">
+      <ng-container *ngIf="!hideResult">
+        <prizm-input-layout
+          *prizmLet="valueAsString$ | async as valueStr"
+          [border]="false"
+          [label]="null"
+          [outer]="true"
+          [forceClear]="false"
+          size="m"
+        >
+          <input
+            #elem
+            [prizmHint]="valueStr"
+            [readonly]="true"
+            [prizmHintCanShow]="prizmIsTextOverflow(elem.elementRef.nativeElement)"
+            [ngModel]="valueStr"
+            prizmInput
+            prizmHintDirection="b"
+          />
+
+          <ng-container prizm-input-right>
+            <button
+              class="copy-icon"
+              [interactive]="true"
+              (click)="copy()"
+              prizmInputIconButton="editor-copy"
+            ></button>
+          </ng-container>
+        </prizm-input-layout>
+      </ng-container>
+      <button *ngIf="resetButton" (click)="reset()" prizmButton size="m">
+        {{ cronI18n$ | async | prizmPluck : ['resetText'] }}
+      </button>
+      <button *ngIf="!autoSubmit" [disabled]="disabled" (click)="submit()" prizmButton size="m">
+        {{ cronI18n$ | async | prizmPluck : ['submitText'] }}
+      </button>
+    </div>
+  </div>
+
+  <div class="human-readable-block inner-block" *ngIf="showHumanReadable">
+    <prizm-input-layout
+      *prizmLet="valueAsString$ | async as valueStr"
+      [border]="false"
+      [label]="null"
+      [outer]="true"
+      [forceClear]="false"
+      size="m"
+    >
+      <input
+        #humarReadableElem
+        [prizmHint]="humanReadableStr"
+        [readonly]="true"
+        [prizmHintCanShow]="prizmIsTextOverflow(humarReadableElem.elementRef.nativeElement)"
+        [ngModel]="humanReadableStr"
+        prizmInput
+        prizmHintDirection="b"
+      />
+
+      <ng-container prizm-input-right>
+        <button
+          class="copy-icon"
+          [interactive]="true"
+          (click)="copyHumanReadable()"
+          prizmInputIconButton="editor-copy"
+        ></button>
+      </ng-container>
+    </prizm-input-layout>
+  </div>
+
+  <div class="inner-block border-bottom">
+    <prizm-switcher
+      [fullWidth]="true"
+      [selectedSwitcherIdx]="selectedSwitcherIdx"
+      [switchers]="switchers"
+      (selectedSwitcherIdxChange)="indexChanged($event)"
+    >
+    </prizm-switcher>
+  </div>
+
+  <div class="inner-block date-period border-bottom" *ngIf="!hidePeriod">
+    <div class="date-block">
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']">
+        <prizm-input-layout-date-time
+          [formControl]="startDateControl"
+          [max]="endDateControl.value ?? undefined"
+        >
+        </prizm-input-layout-date-time>
+      </prizm-input-layout>
+
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']">
+        <prizm-input-layout-date-time
+          [min]="startDateControl.value ?? undefined"
+          [disabled]="indefinitely"
+          [formControl]="endDateControl"
+        >
+        </prizm-input-layout-date-time>
+      </prizm-input-layout>
+    </div>
+    <div class="date-footer">
+      <div class="indefinitely-toggle">
+        <prizm-toggle [formControl]="indefinitelyControl" size="m"> </prizm-toggle>
+        {{ cronI18n$ | async | prizmPluck : ['indefinitelyLabel'] }}
+      </div>
+    </div>
+  </div>
+
+  <div class="sub-pages" [ngSwitch]="selectedSwitcherIdx">
+    <prizm-scrollbar>
+      <prizm-cron-second *ngSwitchCase="0" [specifiedList]="specifiedList?.second ?? []"></prizm-cron-second>
+      <prizm-cron-minute *ngSwitchCase="1" [specifiedList]="specifiedList?.minute ?? []"></prizm-cron-minute>
+      <prizm-cron-hour *ngSwitchCase="2" [specifiedList]="specifiedList?.hour ?? []"></prizm-cron-hour>
+      <prizm-cron-day *ngSwitchCase="3" [specifiedList]="specifiedList?.day ?? []"></prizm-cron-day>
+      <prizm-cron-month *ngSwitchCase="4" [specifiedList]="specifiedList?.month ?? []"></prizm-cron-month>
+      <prizm-cron-year *ngSwitchCase="5" [specifiedList]="specifiedList?.year ?? []"></prizm-cron-year>
+    </prizm-scrollbar>
+  </div>
+</div>

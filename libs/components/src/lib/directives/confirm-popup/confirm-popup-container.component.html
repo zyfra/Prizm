@@ -1,0 +1,59 @@
+<div class="box prizm-font-main-body-14" prizmFocusTrap>
+  <div class="content">
+    <div class="title prizm-font-dynamic-title-h4" *ngIf="context.title">
+      <ng-container *polymorphOutlet="context.title as data; context: context">
+        {{ data }}
+      </ng-container>
+    </div>
+    <div class="description prizm-font-main-body-14">
+      <!--      <prizm-scrollbar class='scrollbar' visibility='hidden'>-->
+      <ng-container *polymorphOutlet="content() as data; context: context">
+        {{ data }}
+      </ng-container>
+
+      <div class="footer prizm-font-btn-links-14">
+        <ng-container>
+          <div class="vertical">
+            <div class="top">
+              <ng-container
+                *ngIf="context.confirmButton"
+                [ngTemplateOutlet]="buttonTemplate"
+                [ngTemplateOutletContext]="{ button: context.confirmButton }"
+              >
+              </ng-container>
+              <ng-container
+                *ngIf="context.supportButton"
+                [ngTemplateOutlet]="buttonTemplate"
+                [ngTemplateOutletContext]="{ button: context.supportButton }"
+              >
+              </ng-container>
+            </div>
+            <div class="bottom">
+              <ng-container
+                *ngIf="context.cancelButton"
+                [ngTemplateOutlet]="buttonTemplate"
+                [ngTemplateOutletContext]="{ button: context.cancelButton }"
+              >
+              </ng-container>
+            </div>
+          </div>
+        </ng-container>
+
+        <ng-template #buttonTemplate let-button="button">
+          <button
+            [style]="button.style"
+            [appearance]="button.appearance"
+            [appearanceType]="button.appearanceType ?? 'fill'"
+            [size]="button.size"
+            (click)="button.action(context)"
+            prizmButton
+          >
+            {{ button.text }}
+          </button>
+        </ng-template>
+      </div>
+
+      <!--      </prizm-scrollbar>-->
+    </div>
+  </div>
+</div>

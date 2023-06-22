@@ -1,0 +1,142 @@
+<prizm-doc-page header="Accordion">
+  <div class="page-description" description>
+    Our accordion component for displaying content in a collapsible and expandable format.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicAccordion" heading="Base">
+      <prizm-accordion-basic-example></prizm-accordion-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="instruments"
+      [content]="exampleWithInstrumentsAccordion"
+      heading="With instruments and disabled item"
+    >
+      <prizm-accordion-with-instruments-example></prizm-accordion-with-instruments-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="single" [content]="exampleOneExpandedAccordion" heading="Only one expanded item">
+      <prizm-accordion-single-expand-example></prizm-accordion-single-expand-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="multiple" [content]="exampleMultipleExpandedAccordion" heading="Multiple expanded">
+      <prizm-accordion-multiple-expand-example></prizm-accordion-multiple-expand-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="nested" [content]="accordionNested" heading="Nested">
+      <prizm-accordion-nested-example></prizm-accordion-nested-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="custom-title" [content]="customTitle" heading="custom-title">
+      <prizm-accordion-custom-title-example></prizm-accordion-custom-title-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-accordion
+        #element
+        [prizmDocHostElement]="element"
+        [onlyOneExpanded]="onlyOneExpanded"
+        prizmDocHostElementKey="PrizmAccordionComponent"
+      >
+        <prizm-accordion-item
+          #elementAccordionItem
+          [prizmDocHostElement]="elementAccordionItem"
+          [disabled]="disabled"
+          [title]="title"
+          [isExpanded]="isExpanded"
+          prizmDocHostElementKey="PrizmAccordionItemComponent"
+        >
+          <ng-template prizmAccordionTools>
+            <prizm-checkbox [disabled]="disabled" label="Checkbox label is here"></prizm-checkbox>
+          </ng-template>
+          <ng-template prizmAccordionContent>
+            <span class="inner-text">
+              Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+              стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+              печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки
+              образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
+              перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов
+              Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+              вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum. Не дочитали до конца
+              - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+            </span>
+          </ng-template>
+        </prizm-accordion-item>
+        <prizm-accordion-item [disabled]="disabled" title="Title number 3">
+          <ng-template prizmAccordionTools>
+            <prizm-checkbox [disabled]="disabled" label="Checkbox label is here but..."></prizm-checkbox>
+          </ng-template>
+          <ng-template prizmAccordionContent>
+            <span class="inner-text">
+              Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
+              стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный
+              печатник создал большую коллекцию размеров и форм шрифтов, используя Lorem Ipsum для распечатки
+              образцов. Lorem Ipsum не только успешно пережил без заметных изменений пять веков, но и
+              перешагнул в электронный дизайн. Его популяризации в новое время послужили публикация листов
+              Letraset с образцами Lorem Ipsum в 60-х годах и, в более недавнее время, программы электронной
+              вёрстки типа Aldus PageMaker, в шаблонах которых используется Lorem Ipsum! Не дочитали до конца
+              - ошибка, дочитали и думали, что текст тот же, что и выше - фатальная ошибка.
+            </span>
+          </ng-template>
+        </prizm-accordion-item>
+      </prizm-accordion>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation heading="PrizmAccordionComponent" hostComponentKey="PrizmAccordionComponent">
+      <ng-template
+        [(documentationPropertyValue)]="onlyOneExpanded"
+        documentationPropertyName="onlyOneExpanded"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Only one accordion can be expanded
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      [showValues]="true"
+      hostComponentKey="PrizmAccordionItemComponent"
+      heading="PrizmAccordionItemComponent"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="isExpanded"
+        documentationPropertyName="isExpanded"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input-output"
+      >
+        Is Expanded
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Title
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmAccordion</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

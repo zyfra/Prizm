@@ -1,0 +1,95 @@
+<prizm-doc-page header="InputDateMulti">
+  <div class="page-description" description>It component needs to switch between date components</div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-input-date-multi-base-example></prizm-input-date-multi-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="four" [content]="exampleFour" heading="Four">
+      <prizm-input-date-multi-four-example></prizm-input-date-multi-four-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-date-multi
+        #element
+        [prizmDocHostElement]="element"
+        [currentIdx]="currentIdx"
+        [items]="dateTime | prizmCallFunc : getItems : dateRelativeTime"
+      >
+      </prizm-input-date-multi>
+
+      <ng-template #dateTime let-injector="injector">
+        <prizm-input-layout label="Абсолютное время">
+          <prizm-input-layout-date-time
+            [formControl]="timeControl"
+            [extraButtonInjector]="injector"
+          ></prizm-input-layout-date-time>
+        </prizm-input-layout>
+      </ng-template>
+
+      <ng-template #dateRelativeTime let-injector="injector">
+        <prizm-input-layout label="Относительное время">
+          <prizm-input-layout-date-relative
+            [formControl]="relativeControl"
+            [extraButtonInjector]="injector"
+          ></prizm-input-layout-date-relative>
+        </prizm-input-layout>
+      </ng-template>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="PrizmDateItemTemplate[]"
+        documentationPropertyMode="input"
+      >
+        Items
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="currentIdx"
+        documentationPropertyName="currentIdx"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Selected item idx
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="currentIdxChange"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Selected item index change
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Setup">
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputDateMultiModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
+
+<ng-template #dateTime let-injector="injector">
+  <prizm-input-layout-date-time
+    [formControl]="timeControl"
+    [extraButtonInjector]="injector"
+  ></prizm-input-layout-date-time>
+</ng-template>
+<ng-template #dateRelativeTime let-injector="injector">
+  <prizm-input-layout-date-relative
+    [formControl]="relativeControl"
+    [extraButtonInjector]="injector"
+  ></prizm-input-layout-date-relative>
+</ng-template>

@@ -1,0 +1,126 @@
+<ng-container
+  #prizmLetDirective
+  *prizmLet="{
+    focused: control.focused | prizmToObservable | async,
+    disabled: control.disabled | prizmToObservable | async,
+    empty: control.empty | prizmToObservable | async,
+    touched: control.touched | prizmToObservable | async,
+    invalid: control.invalid | prizmToObservable | async,
+    required: control.required | prizmToObservable | async
+  } as $"
+>
+  <ng-template #labelTemplate>
+    <div
+      class="label-container"
+      *ngIf="label"
+      [ngClass]="[
+        control.nativeElementType ? 'label-container-' + control.nativeElementType : '',
+        'label-container-' + (outer ? 'outer' : 'inner')
+      ]"
+      [class.label-container-focused]="$.focused"
+      [attr.data-size]="size"
+    >
+      <label
+        class="prizm-input-label
+    prizm-input-label-{{ outer ? 'outer' : 'inner' }}
+    prizm-input-label-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+    {{ control.nativeElementType ? 'prizm-input-label-' + control.nativeElementType : '' }}
+"
+        [attr.data-size]="size"
+        [class.prizm-input-label-focused]="$.focused"
+        [class.prizm-input-label-empty]="$.empty"
+      >
+        {{ label }}
+        <span class="prizm-input-label-required" *ngIf="$.required">*</span>
+      </label>
+      <button
+        class="prizm-input-label-clear-btn"
+        [interactive]="true"
+        [disabled]="$.disabled"
+        (click)="onClearClick($event)"
+        prizmInputIconButton="cansel-delete-content"
+      ></button>
+    </div>
+  </ng-template>
+
+  <ng-container *ngIf="!outer; else labelTemplate"></ng-container>
+
+  <div
+    class="prizm-input-form
+  prizm-input-form-status-{{ correctedStatus }}
+  prizm-input-form-{{ outer ? 'outer' : 'inner' }}
+  prizm-input-form-{{ position }}
+  prizm-input-form-{{ outer ? 'outer' : 'inner' }}-{{ position }}
+  {{ control.nativeElementType ? 'prizm-input-form-' + control.nativeElementType : '' }}
+"
+    [class.hide-border]="!border"
+    [attr.data-size]="size"
+    [ngClass]="{
+      'prizm-input-form-focused': !$.disabled && $.focused,
+      'prizm-input-form-empty': $.empty,
+      'prizm-input-form-disabled': $.disabled,
+      'prizm-input-form-touched': $.touched,
+      'prizm-input-form-invalid': $.invalid
+    }"
+  >
+    <div class="prizm-input-form__first">
+      <ng-container>
+        <ng-container *ngIf="control.layoutLeft?.templateRef as template" [ngTemplateOutlet]="template">
+        </ng-container>
+        <ng-content select="[prizm-input-left]"></ng-content>
+      </ng-container>
+
+      <div class="prizm-input-form-inner-container" (click)="innerClick($event)">
+        <div class="prizm-input-form-body">
+          <ng-container *ngIf="outer; else labelTemplate"></ng-container>
+
+          <ng-content></ng-content>
+          <ng-container>
+            <ng-container *ngIf="control.layoutInBody?.templateRef as template" [ngTemplateOutlet]="template">
+            </ng-container>
+            <ng-content select="[prizm-input-in-body]"></ng-content>
+          </ng-container>
+        </div>
+
+        <button
+          class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+          *ngIf="showClearButton"
+          [interactive]="true"
+          [disabled]="$.disabled"
+          (click)="onClearClick($event)"
+          prizmInputIconButton="cansel-delete-content"
+        ></button>
+
+        <button
+          class="prizm-input-form-status-button"
+          #statusButton
+          *ngIf="showStatusButton"
+          [prizmInputIconButton]="statusIcon"
+          [prizmHint]="statusMessage"
+          [prizmHintCanShow]="!!statusMessage"
+          [interactive]="false"
+        ></button>
+      </div>
+
+      <ng-container>
+        <ng-container *ngIf="control.layoutRight?.templateRef as template" [ngTemplateOutlet]="template">
+        </ng-container>
+        <ng-content select="[prizm-input-right]"></ng-content>
+      </ng-container>
+    </div>
+
+    <ng-container>
+      <ng-container *ngIf="control.layoutBottom?.templateRef as template" [ngTemplateOutlet]="template">
+      </ng-container>
+      <ng-content select="[prizm-input-bottom]"></ng-content>
+    </ng-container>
+  </div>
+
+  <div class="prizm-input-form-subtext prizm-input-form-subtext-{{ correctedStatus }}">
+    <ng-container>
+      <ng-container *ngIf="control.layoutSubtext?.templateRef as template" [ngTemplateOutlet]="template">
+      </ng-container>
+      <ng-content select="[prizm-input-subtext]"></ng-content>
+    </ng-container>
+  </div>
+</ng-container>

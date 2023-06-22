@@ -1,0 +1,72 @@
+@import '../../../../styles/ui-local';
+
+:host {
+  display: block;
+}
+
+.host {
+  background: var(--prizm-dialog-background, var(--prizm-bg-body));
+  border: 1px solid var(--prizm-border-widget);
+  border-radius: var(--prizm-dialog-border-radius, 2px);
+  margin: var(--prizm-dialog-margin, 16px);
+  pointer-events: all;
+}
+
+.content {
+  .ellipsis();
+  padding: var(--prizm-dialog-padding, 32px 16px);
+  color: var(--prizm-text-main);
+  max-width: 100%;
+}
+
+.header {
+  border-bottom: 1px solid var(--prizm-border-widget);
+  padding: var(--prizm-dialog-padding, 14px 16px);
+  display: flex;
+  justify-content: space-between;
+
+  font-style: normal;
+  font-weight: 600;
+  font-size: var(--prizm-dialog-font-size, 14px);
+  color: var(--prizm-text-contrast);
+
+  .title {
+    .ellipsis();
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+  }
+
+  .icon {
+    color: var(--prizm-border-icon);
+    font-weight: 300;
+    cursor: pointer;
+    margin-left: 16px;
+  }
+}
+
+.footer {
+  .ellipsis();
+  border-top: 1px solid var(--prizm-border-widget);
+  padding: var(--prizm-dialog-padding, 14px 16px);
+  max-width: 100%;
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    overflow: hidden;
+  }
+}
+
+.scrollbar {
+  max-height: var(--prizm-dialog-max-scrollbar-height, 60vh);
+}
+
+*:focus-visible {
+  outline: none;
+}
+
+[prizmInputIconButton] {
+  width: unset;
+}

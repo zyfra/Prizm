@@ -1,0 +1,230 @@
+<prizm-doc-page header="Table" package="UI">
+  <div class="page-description" description>
+    Our table component is a powerful tool for displaying data in a tabular format.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicTable" heading="Base">
+      <prizm-table-basic-example></prizm-table-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="borderStyle" [content]="exampleBorderStyleTable" heading="Border styles">
+      <prizm-table-border-style-example></prizm-table-border-style-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="status" [content]="exampleStatusTable" heading="Table with row&cell statuses">
+      <prizm-table-status-example></prizm-table-status-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="selectable" [content]="exampleSelectableTable" heading="Selectable">
+      <prizm-table-selectable-example></prizm-table-selectable-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="multi-meta-select"
+      [content]="exampleSelectableMetaTable"
+      heading="Multi select with meta"
+    >
+      <prizm-table-selectable-meta-example></prizm-table-selectable-meta-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="rowGroup" [content]="exampleRowGroupTable" heading="Table row group">
+      <prizm-table-row-group-example></prizm-table-row-group-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="filter" [content]="exampleFilterTable" heading="Filter">
+      <prizm-table-filter-example></prizm-table-filter-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="search" [content]="exampleSearchTable" heading="Search">
+      <prizm-table-search-example></prizm-table-search-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="sort" [content]="exampleSortTable" heading="Base Sort">
+      <prizm-table-sort-example></prizm-table-sort-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="server-sort" [content]="exampleServerSortTable" heading="Server Sort">
+      <prizm-table-server-sort-example></prizm-table-server-sort-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="datasource"
+      [content]="exampleDataSourceTable"
+      heading="Sort, Pagination, Filtering"
+    >
+      <prizm-table-data-source-example></prizm-table-data-source-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="editableCol" [content]="exampleEditableColTable" heading="Editable col">
+      <prizm-table-editable-col-example></prizm-table-editable-col-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="editableRow" [content]="exampleEditableRowTable" heading="Editable row">
+      <prizm-table-editable-row-example></prizm-table-editable-row-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="empty" [content]="exampleEmptyTable" heading="Empty">
+      <prizm-table-empty-example></prizm-table-empty-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="tree" [content]="exampleTreeTable" heading="Tree">
+      <prizm-table-tree-example></prizm-table-tree-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="sticky" [content]="exampleStickyTable" heading="Sticky">
+      <prizm-table-sticky-example></prizm-table-sticky-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo class="remove-sticky">
+      <prizm-scrollbar class="scrollable">
+        <table
+          class="table"
+          [style.--prizm-table-row-odd-background]="prizmTableRowOddBackground"
+          [style.--prizm-table-row-hover-background]="prizmTableRowHoverBackground"
+          [style.--prizm-table-row-background]="prizmTableRowBackground"
+          [style.--prizm-table-row-cursor]="prizmTableRowCursor"
+          [columns]="columns"
+          [size]="size"
+          [tableBorderStyle]="borderStyle"
+          prizmTable
+        >
+          <thead>
+            <tr prizmThGroup>
+              <th prizmTh>Код</th>
+              <th prizmTh>Наименование</th>
+              <th prizmTh>Категория</th>
+              <th prizmTh>Количество</th>
+            </tr>
+          </thead>
+
+          <tbody [data]="products" prizmTbody>
+            <ng-container *prizmRow="let item of products; let i = index">
+              <tr prizmTr>
+                <td class="format__number" *prizmCell="'code'" prizmTd>
+                  {{ item.code | spaceNumber : '0.0-0' }}
+                </td>
+                <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+                <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+                <td class="format__number" *prizmCell="'count'" prizmTd>
+                  {{ item.count | spaceNumber : '0.0-0' }}
+                </td>
+              </tr>
+            </ng-container>
+          </tbody>
+        </table>
+      </prizm-scrollbar>
+    </prizm-doc-demo>
+    <prizm-doc-documentation heading="PrizmTrComponent">
+      <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmTableCellStatus"
+        documentationPropertyMode="input"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="prizmTableRowHoverBackground"
+        documentationPropertyName="prizm-table-row-hover-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Row background on hover
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmTableRowOddBackground"
+        documentationPropertyName="prizm-table-row-odd-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Row background odd
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="prizmTableRowBackground"
+        documentationPropertyName="prizm-table-row-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Row background even
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="prizmTableRowCursor"
+        documentationPropertyName="prizm-table-row-cursor"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Row cursor
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmTbodyComponent">
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyType="Record<string, any>"
+        documentationPropertyMode="input"
+      >
+        Data
+      </ng-template>
+      <ng-template
+        documentationPropertyName="heading"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+      >
+        Heading
+      </ng-template>
+      <ng-template
+        documentationPropertyName="open"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input-output"
+      >
+        Opened
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="borderStyle"
+        [documentationPropertyValues]="borderStyleVariants"
+        documentationPropertyName="tableBorderStyle"
+        documentationPropertyType="PrizmTableBorderStyle"
+        documentationPropertyMode="input"
+      >
+        Border style
+      </ng-template>
+
+      <ng-template
+        *ngIf="false"
+        [(documentationPropertyValue)]="columns"
+        [documentationPropertyValues]="columnsVarians"
+        documentationPropertyName="columns"
+        documentationPropertyType="string[]"
+        documentationPropertyMode="input"
+      >
+        Columns
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmTableModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

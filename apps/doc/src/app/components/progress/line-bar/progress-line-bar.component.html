@@ -1,0 +1,90 @@
+<prizm-doc-page header="Progress Line">
+  <div class="page-description" description>
+    Our progress line bar component is a simple way to show the progress of a task or process. It is a
+    horizontal bar that is filled with a color to indicate the progress of a task. The progress bar can be
+    used to show the progress of a task or process.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-progress-base-example></prizm-progress-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <progress
+        #element
+        [prizmDocHostElement]="element"
+        [size]="size"
+        [trackColor]="trackColor"
+        [max]="max"
+        [color]="color"
+        [value]="value"
+        prizmProgressBar
+      ></progress>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        [documentationPropertyValues]="colorVariants"
+        documentationPropertyName="color"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input"
+      >
+        Color
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="trackColor"
+        [documentationPropertyValues]="trackColorVariants"
+        documentationPropertyName="trackColor"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input"
+      >
+        Track Color
+      </ng-template>
+
+      <!-- <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="value"
+      >
+        Value
+      </ng-template> -->
+
+      <!-- <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="max"
+      >
+        Max
+      </ng-template> -->
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmSizeS | PrizmSizesXl"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmProgressModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

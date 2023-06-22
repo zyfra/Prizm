@@ -1,0 +1,59 @@
+<div class="header">
+  <ng-content select="[header]"></ng-content>
+</div>
+<div class="z-row z-row_weekday prizm-font-main-body-12">
+  <div
+    class="z-cell"
+    *ngFor="let day of weekDays$ | async"
+    [innerText]="day | prizmCallFunc : capitalizeFirstLetter"
+  ></div>
+</div>
+<div *prizmLet="month | prizmCalendarSheet : true as sheet">
+  <div
+    class="z-row"
+    *prizmRepeatTimes="let rowIndex of sheet.length"
+    automation-id="prizm-primitive-calendar__row"
+  >
+    <ng-container *prizmRepeatTimes="let colIndex of sheet[rowIndex].length">
+      <ng-container *prizmLet="sheet[rowIndex][colIndex] as item">
+        <div
+          class="z-cell"
+          *ngIf="!itemIsUnavailable(item) || showAdjacent"
+          [class.z-cell_weekend]="item.isWeekend"
+          [class.z-cell_today]="itemIsToday(item)"
+          [class.z-cell_interval]="itemIsInterval(item)"
+          [attr.data-range]="getItemRange(item)"
+          [attr.data-state]="getItemState(item)"
+          (prizmHoveredChange)="onItemHovered($event && item)"
+          (prizmPressedChange)="onItemPressed($event && item)"
+          (click)="onItemClick(item)"
+          automation-id="prizm-primitive-calendar__cell"
+        >
+          <div
+            class="z-item prizm-font-btn-links-14"
+            [class.z-item_unavailable]="itemIsUnavailable(item)"
+            automation-id="prizm-primitive-calendar__item"
+          >
+            {{ item.day }}
+            <div
+              class="z-status"
+              *ngIf="item | prizmCallFunc : getDayStatus : daysWithStatus as dayStatus"
+              [style.--prizm-status-day-color]="dayStatus"
+              [attr.data-prizm-status]="dayStatus"
+            ></div>
+            <div
+              class="z-dots"
+              *ngIf="item | prizmMapper : toMarkers : itemIsToday(item) : !!getItemRange(item) as markers"
+            >
+              <div class="z-dot"></div>
+              <div class="z-dot" *ngIf="markers.length > 1"></div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+<div class="footer">
+  <ng-content select="[footer]"></ng-content>
+</div>

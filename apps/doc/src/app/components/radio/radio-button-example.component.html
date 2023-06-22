@@ -1,0 +1,134 @@
+<prizm-doc-page header="Radio Button">
+  <div class="page-description" description>
+    Our radio component is a simple wrapper around the native HTML radio input element. It is used to select a
+    single option from a set of options.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicRadio" heading="Base">
+      <prizm-radio-button-basic-example></prizm-radio-button-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="big" [content]="exampleBasicRadio" heading="Big Size">
+      <prizm-radio-button-basic-example size="l"></prizm-radio-button-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="small" [content]="exampleBasicRadio" heading="Small Size">
+      <prizm-radio-button-basic-example size="s"></prizm-radio-button-basic-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-radio-button
+        #element
+        [prizmDocHostElement]="element"
+        [value]="value"
+        [label]="label"
+        [disabled]="disabled"
+        [size]="size"
+        [name]="name"
+        [formControl]="control"
+      ></prizm-radio-button>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="label"
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        documentationPropertyName="value"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="m | l | s"
+        documentationPropertyMode="input"
+      >
+        Type
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="name"
+        documentationPropertyName="name"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="clickEvent"
+        documentationPropertyType="PointerEvent"
+        documentationPropertyMode="output"
+      >
+        Click
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Focus
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="focusOutEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Focus out
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="blurEvent"
+        documentationPropertyType="FocusEvent"
+        documentationPropertyMode="output"
+      >
+        Blur
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="changeEvent"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+      >
+        Change
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmLabelModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

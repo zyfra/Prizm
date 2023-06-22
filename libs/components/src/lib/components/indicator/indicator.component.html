@@ -1,0 +1,8 @@
+<div
+  class="indicator"
+  [class.indicator_with-icon]="type === 'icon'"
+  [attr.status]="status"
+  [attr.type]="type"
+>
+  <span class="indicator__icon prizm-icon {{iconMap?.[status]}}" *ngIf="type === 'icon'"></span>
+</div>

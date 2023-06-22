@@ -1,0 +1,56 @@
+import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { PrizmStepperStatus } from '@prizm-ui/components';
+
+type StepsMap = { [key: number]: { title: string; status: PrizmStepperStatus; disabled: boolean } };
+
+@Component({
+  selector: 'prizm-stepper-basic-example',
+  templateUrl: './stepper-basic-example.component.html',
+  styleUrls: ['./stepper-basic-example.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class PrizmStepperBasicExampleComponent {
+  currentStep: keyof StepsMap = 1;
+
+  readonly statusItems: Array<PrizmStepperStatus> = ['default', 'success', 'warning', 'danger'];
+
+  steps: StepsMap = {
+    1: { title: 'Шаг 1', status: 'default', disabled: false },
+    2: { title: 'Шаг 2', status: 'default', disabled: true },
+    3: { title: 'Шаг 3', status: 'default', disabled: true },
+    4: { title: 'Шаг 4', status: 'default', disabled: true },
+    5: { title: 'Шаг 5', status: 'default', disabled: true },
+  };
+
+  public toPrevStep(): void {
+    this.currentStep--;
+  }
+
+  public toNextStep(): void {
+    this.currentStep++;
+  }
+
+  public get toPrevStepDisabled(): boolean {
+    if (this.currentStep === 1) {
+      return true;
+    }
+
+    if (this.steps[this.currentStep - 1]?.disabled) {
+      return true;
+    }
+
+    return false;
+  }
+
+  public get toNextStepDisabled(): boolean {
+    if (this.currentStep === 5) {
+      return true;
+    }
+
+    if (this.steps[this.currentStep + 1]?.disabled) {
+      return true;
+    }
+
+    return false;
+  }
+}

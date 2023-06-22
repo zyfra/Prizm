@@ -1,0 +1,99 @@
+<prizm-doc-page header="CalendarMonth">
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="example1" i18n-heading heading="Basic">
+      <prizm-calendar-month-example-1></prizm-calendar-month-example-1>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="range" [content]="example2" i18n-heading heading="Range">
+      <prizm-calendar-month-example-2></prizm-calendar-month-example-2>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-calendar-month
+        #element
+        [prizmDocHostElement]="element"
+        [disabledItemHandler]="disabledItemHandler"
+        [min]="min"
+        [max]="max"
+        [year]="year"
+        [value]="value"
+        (monthClick)="onMonthClick($event)"
+      ></prizm-calendar-month>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="disabledItemHandler"
+        [documentationPropertyValues]="disabledItemHandlerVariants"
+        i18n
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmBooleanHandlerWithContext<PrizmMonth, PrizmMonthContext>"
+      >
+        <div>A handler that gets a month and returns true if it is disabled.</div>
+
+        <strong>Must be a pure function</strong>
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="maxVariants"
+        i18n
+        documentationPropertyName="max"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmMonth"
+      >
+        Maximal month
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minVariants"
+        documentationPropertyName="min"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmMonth"
+      >
+        Minimal month
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        [documentationPropertyValues]="valueVariants"
+        i18n
+        documentationPropertyName="value"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmMonth | PrizmMonthRange | null"
+      >
+        A single month or a range of months
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="year"
+        [documentationPropertyValues]="yearVariants"
+        documentationPropertyName="year"
+        documentationPropertyMode="input-output"
+        documentationPropertyType="PrizmYear"
+      >
+        Current year
+      </ng-template>
+      <ng-template
+        documentationPropertyName="monthClick"
+        documentationPropertyMode="output"
+        documentationPropertyType="PrizmMonth"
+      >
+        Selected month
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p i18n>
+          Import
+          <code>PrizmCalendarMonthModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

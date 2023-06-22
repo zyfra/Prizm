@@ -1,0 +1,86 @@
+<div class="container">
+  <div class="table">
+    <div class="table__description">Single selection</div>
+    <div class="table__content">
+      <prizm-table
+        [(selection)]="selectedProduct1"
+        [value]="products"
+        [scrollable]="true"
+        (selectionChange)="selectedRowWasChanged()"
+        selectionMode="single"
+        dataKey="code"
+        scrollHeight="200px"
+      >
+        <ng-template prizmTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Count</th>
+          </tr>
+        </ng-template>
+        <ng-template prizmTableTemplate="body" let-product>
+          <tr [prizmSelectableRow]="product">
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </prizm-table>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="table__description">Multiple selection with meta key</div>
+    <div class="table__content">
+      <prizm-table
+        [(selection)]="selectedProducts1"
+        [value]="products"
+        [metaKeySelection]="true"
+        selectionMode="multiple"
+      >
+        <ng-template prizmTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Count</th>
+          </tr>
+        </ng-template>
+        <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </prizm-table>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="table__description">Multiple selection</div>
+    <div class="table__content">
+      <prizm-table [(selection)]="selectedProducts2" [value]="products" selectionMode="multiple">
+        <ng-template prizmTableTemplate="header">
+          <tr>
+            <th>Code</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Count</th>
+          </tr>
+        </ng-template>
+        <ng-template prizmTableTemplate="body" let-product let-rowIndex="rowIndex">
+          <tr [pSelectableRow]="product" [pSelectableRowIndex]="rowIndex">
+            <td>{{ product.code }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.count }}</td>
+          </tr>
+        </ng-template>
+      </prizm-table>
+    </div>
+  </div>
+</div>

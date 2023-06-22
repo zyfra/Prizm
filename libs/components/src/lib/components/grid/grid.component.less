@@ -1,0 +1,26 @@
+:host {
+  display: block;
+
+  .grid-container {
+    height: 100%;
+    width: 100%;
+
+    display: grid;
+
+    overflow: hidden;
+  }
+
+  &[columns='8'] {
+    .grid-container {
+      padding: 8px;
+      grid-gap: 8px;
+    }
+  }
+
+  &[columns='12'] {
+    .grid-container {
+      padding: 20px;
+      grid-gap: 16px;
+    }
+  }
+}

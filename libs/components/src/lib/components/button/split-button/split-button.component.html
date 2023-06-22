@@ -1,0 +1,31 @@
+<div class="button">
+  <button
+    class="full-width"
+    #buttonRef
+    [size]="size"
+    [appearance]="appearance"
+    [showLoader]="showLoader"
+    [disabled]="disabled"
+    [appearanceType]="appearanceType"
+    (click)="clickButton.emit()"
+    (focusedChange)="updateZIndex(buttonEl, $event)"
+    prizmButton
+  >
+    <ng-content></ng-content>
+  </button>
+</div>
+
+<div class="icon">
+  <button
+    #iconButtonRef
+    [size]="size"
+    [disabled]="disabled"
+    [pseudoState]="showLoader && 'none'"
+    [appearance]="appearance"
+    [appearanceType]="appearanceType"
+    [icon]="icon"
+    (click)="!showLoader && clickIcon.emit()"
+    (focusedChange)="updateZIndex(iconButtonEl, $event)"
+    prizmIconButton
+  ></button>
+</div>

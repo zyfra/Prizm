@@ -1,0 +1,33 @@
+:host {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .button {
+    position: relative;
+    width: 100%;
+    & ::ng-deep button[prizmButton] prizm-wrapper.z-wrapper {
+      border-right: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  .icon,
+  .icon button,
+  .button,
+  .button button {
+    height: 100%;
+  }
+
+  .icon {
+    & ::ng-deep button[prizmIconButton] .z-wrapper {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+}
+
+.full-width {
+  width: 100%;
+}

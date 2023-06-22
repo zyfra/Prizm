@@ -1,0 +1,51 @@
+<prizm-doc-page header="Breadcrumbs">
+  <div class="page-description" description>
+    Our breadcrumb component is a simple way to show the user their current location in the site hierarchy.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="basic" [content]="breadcrumbsBasicExample" heading="Base">
+      <prizm-breadcrumbs-basic></prizm-breadcrumbs-basic>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="icon" [content]="breadcrumbsWithIconExample" heading="With Icon">
+      <prizm-breadcrumbs-example-with-icon></prizm-breadcrumbs-example-with-icon>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-breadcrumbs
+        #element
+        [prizmDocHostElement]="element"
+        [breadcrumbs]="breadcrumbs"
+      ></prizm-breadcrumbs>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="breadcrumbs"
+        documentationPropertyName="breadcrumbs"
+        documentationPropertyType="IBreadcrumb[]"
+        documentationPropertyMode="input"
+      >
+        Breadcrumbs array
+      </ng-template>
+
+      <ng-template documentationPropertyName="breadcrumbChange" documentationPropertyMode="output">
+        Breadcrumb was changed
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmBreadcrumbsModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

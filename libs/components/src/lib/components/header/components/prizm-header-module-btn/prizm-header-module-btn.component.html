@@ -1,0 +1,9 @@
+<div class="icon">
+  <button [icon]="icon" prizmIconButton size="l" appearanceType="ghost" appearance="secondary"></button>
+
+  <div class="indicator indicator_{{ status }}" *ngIf="alertsCount" [prizmHint]="alertsCount">
+    {{ alertsCount }}
+  </div>
+</div>
+
+<span class="title" *ngIf="title">{{ title }}</span>

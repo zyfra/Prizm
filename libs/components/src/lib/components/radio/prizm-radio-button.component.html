@@ -1,0 +1,22 @@
+<div class="container" [class.disabled]="accessorIsDisabled">
+  <label class="label">
+    <input
+      class="native-radio-button"
+      [formControl]="ngControl ? $any(ngControl.control) : formControl"
+      [name]="name"
+      [value]="value"
+      [id]="value"
+      (click)="onClickEventHandler($event)"
+      (change)="onChangeEventHandler($event)"
+      (focus)="onFocusEventHandler($event)"
+      (blur)="onBlurEventHandler($event)"
+      (focusout)="onFocusOutEventHandler($event)"
+      type="radio"
+    />
+
+    <div class="radio-button">
+      <div class="radio-button__mark"></div>
+    </div>
+    <span class="title" *ngIf="!!label"> {{ label }}</span>
+  </label>
+</div>

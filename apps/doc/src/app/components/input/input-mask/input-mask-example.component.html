@@ -1,0 +1,146 @@
+<prizm-doc-page header="Input Mask">
+  <p>We recommend using "ngx-mask" library. It works fine with our inputs.</p>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example [content]="zyfraInputMaskBasicExample" heading="Basic example">
+      <prizm-input-mask-basic-example></prizm-input-mask-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example [content]="zyfraInputPhoneExample" heading="Phone example">
+      <prizm-input-phone-example></prizm-input-phone-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-layout [label]="label" [size]="size" [status]="status" [outer]="outer">
+        <input
+          #element
+          #input
+          [(ngModel)]="value"
+          [prizmDocHostElement]="element"
+          [mask]="mask"
+          [dropSpecialCharacters]="false"
+          [showMaskTyped]="input.focused"
+          [disabled]="disabled"
+          [required]="required"
+          [value]="value"
+          prizmInput
+        />
+        <ng-template prizmInputStatusText>Текст статуса</ng-template>
+      </prizm-input-layout>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        documentationPropertyName="value"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <!-- <ng-template
+        documentationPropertyName="Mask"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="mask"
+      >
+        Mask
+      </ng-template> -->
+
+      <!-- <ng-template
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="label"
+      >
+        Label
+      </ng-template> -->
+
+      <!-- <ng-template
+        documentationPropertyName="status"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="statuses"
+        [(documentationPropertyValue)]="status"
+      >
+        Status
+      </ng-template> -->
+
+      <ng-template
+        [(documentationPropertyValue)]="required"
+        documentationPropertyName="required"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Required
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <!-- <ng-template
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="outer"
+      >
+        Outer
+      </ng-template> -->
+
+      <!-- <ng-template
+        documentationPropertyName="size"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
+        [(documentationPropertyValue)]="size"
+      >
+        Size
+      </ng-template> -->
+
+      <ng-template
+        documentationPropertyName="enter"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Enter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="onClear"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        On Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="valueChanged"
+        documentationPropertyType="any"
+        documentationPropertyMode="output"
+      >
+        Value Changed
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmInputMaskModule</code>
+          в тот модуль, котором хотите использовать компонент
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

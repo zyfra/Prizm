@@ -1,0 +1,14 @@
+<div
+  class="z-loader"
+  [class.z-loader_horizontal]="isHorizontal"
+  [class.z-loader_inherit-color]="inheritColor"
+  [attr.data-prizm-element-size]="size"
+>
+  <svg class="z-icon" focusable="false" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <circle class="z-circle" cx="50" cy="50" r="50" stroke-dasharray="314"></circle>
+  </svg>
+
+  <div class="z-text" *ngIf="hasText" [class.z-text_horizontal]="isHorizontal">
+    <ng-container [ngTemplateOutlet]="textContent"></ng-container>
+  </div>
+</div>

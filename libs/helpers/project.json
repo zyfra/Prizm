@@ -1,0 +1,39 @@
+{
+  "name": "helpers",
+  "projectType": "library",
+  "sourceRoot": "libs/helpers/src",
+  "prefix": "zui",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/helpers"],
+      "options": {
+        "project": "libs/helpers/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/helpers/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/helpers/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/helpers"],
+      "options": {
+        "jestConfig": "libs/helpers/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

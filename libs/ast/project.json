@@ -1,0 +1,52 @@
+{
+  "name": "ast",
+  "projectType": "library",
+  "sourceRoot": "libs/ast/src",
+  "prefix": "prizm",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/ast"],
+      "options": {
+        "project": "libs/ast/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/ast/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/ast/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/ast"],
+      "options": {
+        "jestConfig": "libs/ast/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "libs/ast/src/**/*.ts",
+          "libs/ast/src/**/*.html",
+          "libs/ast/schematics-helpers/**/*.ts",
+          "libs/ast/schematics-helpers/**/*.html",
+          "libs/ast/code/**/*.ts",
+          "libs/ast/code/**/*.html",
+          "libs/ast/from-cb3-to-prizm/**/*.ts",
+          "libs/ast/from-cb3-to-prizm/**/*.html",
+          "libs/ast/cb3-template-examples/**/*.ts",
+          "libs/ast/cb3-template-examples/**/*.html",
+          "libs/ast/cb3-code-examples/**/*.ts",
+          "libs/ast/cb3-code-examples/**/*.html"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

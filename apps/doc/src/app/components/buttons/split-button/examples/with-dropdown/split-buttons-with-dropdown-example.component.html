@@ -1,0 +1,23 @@
+<div class="box">
+  <prizm-dropdown-host [(isOpen)]="open" [content]="dropdown" prizmDropdownHostWidth="100%">
+    <prizm-split-button
+      [icon]="'chevrons-dropdown'"
+      (clickIcon)="open = !open"
+      appearanceType="fill"
+      appearance="primary"
+      size="m"
+    >
+      With Dropdown Button
+    </prizm-split-button>
+  </prizm-dropdown-host>
+</div>
+
+<ng-template #dropdown>
+  <prizm-data-list>
+    <ng-container header>Заголовок блока</ng-container>
+    <div class="val">CONTENT</div>
+    <ng-container footer>
+      <button (click)="open = false; cdRef.markForCheck()" prizmButton>Закрыть</button>
+    </ng-container>
+  </prizm-data-list>
+</ng-template>

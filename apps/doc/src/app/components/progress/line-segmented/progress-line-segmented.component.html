@@ -1,0 +1,76 @@
+<prizm-doc-page header="Progress Segmented Line">
+  <div class="page-description" description>
+    Our line segments are used to show progress through a series of steps.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-progress-base-example></prizm-progress-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-progress-segmented
+        #element
+        [prizmDocHostElement]="element"
+        [size]="size"
+        [max]="max"
+        [colors]="colors"
+        [value]="value"
+      ></prizm-progress-segmented>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="colors"
+        [documentationPropertyValues]="colorsVariants"
+        documentationPropertyName="colors"
+        documentationPropertyType="string | string[]"
+        documentationPropertyMode="input"
+      >
+        Color
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        documentationPropertyName="value"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="max"
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Max
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmSizeS | PrizmSizesXl"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmProgressModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

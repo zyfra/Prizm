@@ -1,0 +1,40 @@
+:host {
+  display: block;
+}
+
+.box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.year-month {
+  color: var(--prizm-text-contrast);
+  display: flex;
+  gap: 8px;
+}
+
+.year-box,
+.month-box {
+  display: flex;
+  justify-content: space-between;
+  color: var(--prizm-text-contrast);
+  gap: 4px;
+  cursor: pointer;
+
+  prizm-icon {
+    color: var(--prizm-border-icon);
+  }
+
+  &:hover,
+  &:hover prizm-icon {
+    color: var(--prizm-index-plan);
+  }
+}
+
+[prizmLink] {
+  --prizm-link: var(--prizm-text-contrast);
+
+  &.active {
+    --prizm-link: var(--prizm-index-plan);
+  }
+}

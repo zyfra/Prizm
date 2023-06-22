@@ -1,0 +1,90 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [content]="dropdown"
+  [closeByEsc]="true"
+  [closeOnOutsideClick]="closeOnOutsideClick"
+  [isOpen]="open && canOpen"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <div
+    class="multiple-input-box"
+    #focusableElementRef="prizmInputZone"
+    [attr.data-placeholder]="placeholder"
+    prizmInputZone
+  >
+    <input
+      class="input-main"
+      [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
+      [placeholder]="placeholder"
+      [mask]="computedSingleMask"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [dropSpecialCharacters]="false"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="fromValue"
+      [size]="computedSingleMask.length"
+      [maxSize]="computedSingleMask.length"
+      (ngModelChange)="onValueFromChange($event || '', true)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+    <span class="delimiter">-</span>
+    <input
+      class="input-time"
+      [mask]="computedSingleMask"
+      [dropSpecialCharacters]="false"
+      [showMaskTyped]="focusableElementRef.focused$ | async"
+      [disabled]="disabled"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="toValue"
+      [size]="computedSingleMask.length"
+      [maxSize]="computedSingleMask.length"
+      (ngModelChange)="onValueFromChange($event || '', false)"
+      style="padding: 0"
+      prizmInput
+      prizmInputInZone
+    />
+  </div>
+
+  <ng-template #dropdown let-zone="zone">
+    <prizm-calendar-range
+      [style.--prizm-input-layout-width]="'100%'"
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [defaultViewedMonth]="defaultViewedMonth"
+      [disabledItemHandler]="disabledItemHandler"
+      [items]="items"
+      [min]="min"
+      [max]="max"
+      [markerHandler]="markerHandler"
+      [minLength]="minLength"
+      [maxLength]="maxLength"
+      [value]="value"
+      (prizmAfterViewInit)="markAsTouched()"
+      (valueChange)="onRangeChange($event)"
+    >
+      <ng-container footerFrom>
+        <ng-template [ngTemplateOutlet]="footerFromTemplate" [ngTemplateOutletContext]="{ zone: zone }">
+          ></ng-template
+        >
+      </ng-container>
+      <ng-container footerTo>
+        <ng-template [ngTemplateOutlet]="footerToTemplate" [ngTemplateOutletContext]="{ zone: zone }">
+          ></ng-template
+        >
+      </ng-container>
+    </prizm-calendar-range>
+  </ng-template>
+</prizm-dropdown-host>
+
+<ng-container *prizmInputLayoutRight>
+  <button
+    [interactive]="true"
+    [disabled]="disabled"
+    (click)="focusableElementRef.focus(); onOpenChange(!open)"
+    prizmInputIconButton="date-calendar-range"
+  ></button>
+</ng-container>

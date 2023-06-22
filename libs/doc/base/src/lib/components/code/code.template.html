@@ -1,0 +1,5 @@
+<p class="t-header" *ngIf="filename">{{ filename }}</p>
+<pre
+  class="t-code"
+  *ngFor="let content of processor$ | async"
+><code [lineNumbers]="true" [highlight]="content"></code></pre>

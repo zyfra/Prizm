@@ -1,0 +1,15 @@
+<prizm-input-layout [label]="'Инпут как карусель'" [size]="'l'" [outer]="true" [position]="'center'">
+  <button
+    [interactive]="true"
+    (click)="prev()"
+    prizmInputIconButton="chevrons-left"
+    prizm-input-left
+  ></button>
+  <input #input [value]="carouselData[currentIndex]" (valueChanged)="setValue($event)" prizmInput />
+  <button
+    [interactive]="true"
+    (click)="next()"
+    prizmInputIconButton="chevrons-right"
+    prizm-input-right
+  ></button>
+</prizm-input-layout>

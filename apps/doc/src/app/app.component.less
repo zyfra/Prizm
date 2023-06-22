@@ -1,0 +1,33 @@
+.app-version {
+  margin: 1em 0;
+}
+
+.prizm-night-mode {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+}
+
+.app-link {
+  display: flex;
+  align-items: center;
+
+  color: var(--tui-text-02);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--tui-text-01);
+  }
+
+  &::ng-deep .t-content {
+    height: 24px;
+  }
+
+  .app-github {
+    height: 24px;
+    width: 24px;
+
+    margin: 0 8px;
+  }
+}

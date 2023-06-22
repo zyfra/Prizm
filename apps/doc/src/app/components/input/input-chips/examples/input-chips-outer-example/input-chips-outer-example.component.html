@@ -1,0 +1,17 @@
+<prizm-input-layout [outer]="true" label="Заголовок" size="l" status="default">
+  <input
+    #input
+    [formControl]="requiredInputControl"
+    (enter)="onEnter($event)"
+    prizmInput
+    placeholder="Введите название"
+  />
+  <prizm-chips
+    #chipsComponent
+    [formControl]="chipsControl"
+    [deletable]="deletable"
+    prizm-input-bottom
+  ></prizm-chips>
+</prizm-input-layout>
+
+<div>Chips form control value: {{ chipsControl.value | json }}</div>

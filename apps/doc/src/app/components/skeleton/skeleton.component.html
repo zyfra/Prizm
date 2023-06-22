@@ -1,0 +1,124 @@
+<prizm-doc-page header="Skeleton">
+  <div class="page-description" description>
+    Our skeleton component can use to show a skeleton loading state.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-skeleton-base-example></prizm-skeleton-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-demo>
+      <div class="example">
+        <div>
+          <button
+            [prizmSkeleton]="active"
+            [prizmSkeletonText]="isText"
+            [prizmSkeletonRounded]="isRounded"
+            [prizmSkeletonShort]="isShort"
+            prizmButton
+          >
+            Test Button
+          </button>
+        </div>
+        <div>
+          <prizm-toggle
+            [formControl]="toggleControl"
+            [prizmSkeleton]="active"
+            [prizmSkeletonText]="isText"
+            [prizmSkeletonRounded]="isRounded"
+            [prizmSkeletonShort]="isShort"
+          >
+            Value
+          </prizm-toggle>
+        </div>
+        <div>
+          <span
+            [prizmSkeleton]="active"
+            [prizmSkeletonText]="isText"
+            [prizmSkeletonRounded]="isRounded"
+            [prizmSkeletonShort]="isShort"
+            >Short Span Element</span
+          >
+        </div>
+        <div>
+          <div
+            [prizmSkeleton]="active"
+            [prizmSkeletonText]="isText"
+            [prizmSkeletonRounded]="isRounded"
+            [prizmSkeletonShort]="isShort"
+          >
+            Block Element
+          </div>
+        </div>
+        <div>
+          <p
+            [prizmSkeleton]="active"
+            [prizmSkeletonText]="isText"
+            [prizmSkeletonRounded]="isRounded"
+            [prizmSkeletonShort]="isShort"
+          >
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been
+            the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of
+            type and scrambled it to make a type specimen book. It has survived not only five centuries, but
+            also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in
+            the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently
+            with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+          </p>
+        </div>
+      </div>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="active"
+        documentationPropertyName="prizmSkeleton"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Active skeleton
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="isText"
+        documentationPropertyName="prizmSkeletonText"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is Text
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="isRounded"
+        documentationPropertyName="prizmSkeletonRounded"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is Rounded
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="isShort"
+        documentationPropertyName="prizmSkeletonShort"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is Short
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmSkeletonModule</code>
+          into a module where you want to use our directive
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

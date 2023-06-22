@@ -1,0 +1,87 @@
+.prizm-toast-info-container {
+  display: flex;
+  gap: 21px;
+  border-style: solid;
+  border-radius: 2px;
+  max-width: 524px;
+  padding: 16px;
+  border-width: 1px 1px 1px 4px;
+
+  &.is-platform {
+    .content-box {
+      .title,
+      .content {
+        color: var(--prizm-grey-g12-g2);
+      }
+    }
+  }
+
+  .content-box {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    justify-content: space-between;
+    gap: 8px;
+
+    .title,
+    .content {
+      color: var(--prizm-text-contrast);
+    }
+
+    .title {
+      font-weight: 800;
+      font-size: 14px;
+      min-height: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &.is-platform {
+    &.info,
+    &.success,
+    &.warning,
+    &.danger {
+      background: var(--prizm-grey-g2-g12);
+    }
+  }
+
+  &.info {
+    border-color: var(--prizm-index-plan);
+    background: var(--prizm-lite-b130-20);
+  }
+
+  &.success {
+    border-color: var(--prizm-index-good);
+    background: var(--prizm-lite-gr130-20);
+  }
+
+  &.warning {
+    border-color: var(--prizm-index-warning);
+    background: var(--prizm-lite-y130-20);
+  }
+
+  &.danger {
+    border-color: var(--prizm-index-danger);
+    background: var(--prizm-lite-r130-20);
+  }
+
+  .control {
+    .close-icon {
+      cursor: pointer;
+      position: relative;
+      // TODO fix icon offset with icon bag
+      top: -5px;
+      font-size: 16px;
+    }
+  }
+}
+
+[prizmInputIconButton] {
+  width: unset;
+}
+
+.title {
+  max-width: 95%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}

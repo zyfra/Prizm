@@ -1,0 +1,24 @@
+{
+  "name": "test",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/test/src",
+  "prefix": "prizm",
+  "targets": {
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/test"],
+      "options": {
+        "jestConfig": "libs/test/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/test/**/*.ts", "libs/test/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

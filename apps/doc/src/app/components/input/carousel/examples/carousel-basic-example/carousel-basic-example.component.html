@@ -1,0 +1,8 @@
+<prizm-input-layout [label]="'Карусель'" [size]="'l'" [outer]="true" [position]="'center'">
+  <prizm-carousel-auxiliary-left [carousel]="carousel" prizm-input-left></prizm-carousel-auxiliary-left>
+  <prizm-carousel #carousel [required]="true" [carouselContent]="carouselContent" [value]="5">
+    {{ carouselContent.currentValue }}
+  </prizm-carousel>
+  <prizm-carousel-auxiliary-right [carousel]="carousel" prizm-input-right></prizm-carousel-auxiliary-right>
+  <ng-template prizmInputStatusText>Текст статуса</ng-template>
+</prizm-input-layout>

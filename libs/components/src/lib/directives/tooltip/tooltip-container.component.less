@@ -1,0 +1,116 @@
+:host {
+  display: inline-block;
+  padding: var(--prizm-tooltip-margin, 8px);
+  color: var(--prizm-tooltip-container-text, var(--prizm-grey-g12-g2));
+  font-size: var(--prizm-tooltip-container-font-size, 12px);
+
+  prizm-scrollbar,
+  .box {
+    max-height: var(--prizm-tooltip-container-max-height, 90vh);
+    max-width: var(--prizm-tooltip-container-max-width, 288px);
+  }
+
+  .box {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    padding: var(--prizm-tooltip-container-padding, 16px);
+    border-radius: var(--prizm-tooltip-container-border-radius, 2px);
+    background-color: var(--prizm-tooltip-container-background, var(--prizm-grey-g3-g11));
+  }
+
+  .arrow-icon {
+    position: absolute;
+    color: var(--prizm-tooltip-container-background, var(--prizm-grey-g3-g11));
+    font-size: 20px;
+    display: block;
+  }
+
+  &[position='t'],
+  &[position='tr'],
+  &[position='tb'] {
+    .arrow-icon {
+      bottom: -14px;
+      transform: translateX(-10px);
+    }
+  }
+
+  &[position='t'],
+  &[position='b'] {
+    .arrow-icon {
+      left: 50%;
+      right: 50%;
+    }
+  }
+
+  &[position='r'],
+  &[position='l'] {
+    .arrow-icon {
+      top: 50%;
+      bottom: 50%;
+    }
+  }
+
+  &[position='tl'],
+  &[position='bl'] {
+    padding-left: 0;
+
+    .arrow-icon {
+      left: 10%;
+    }
+  }
+
+  &[position='lt'],
+  &[position='rt'] {
+    padding-top: 1px;
+
+    .arrow-icon {
+      top: max(10%, 10px);
+    }
+  }
+
+  &[position='lb'],
+  &[position='rb'] {
+    padding-bottom: 1px;
+  }
+
+  &[position='tr'],
+  &[position='br'] {
+    padding-right: 0;
+
+    .arrow-icon {
+      right: 10%;
+    }
+  }
+
+  &[position='b'],
+  &[position='bl'],
+  &[position='br'] {
+    .arrow-icon {
+      top: -12px;
+      transform: translateX(-10px);
+    }
+  }
+
+  &[position='l'],
+  &[position='lt'],
+  &[position='lb'] {
+    .arrow-icon {
+      right: -12px;
+      transform: translateY(-10px);
+    }
+  }
+
+  &[position='r'],
+  &[position='rt'],
+  &[position='rb'] {
+    .arrow-icon {
+      left: -12px;
+      transform: translateY(-10px);
+    }
+  }
+}
+
+prizm-scrollbar {
+  height: 100%;
+}

@@ -1,0 +1,86 @@
+<prizm-doc-page header="Plugin">
+  <div class="page-description" description>Our helpers and executors to help you</div>
+
+  <ng-template prizmDocPageTab>
+    <h2>Для запуска нашего мигратора в вашем проекте</h2>
+    <prizm-doc-code
+      [code]="'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] '"
+      filename="Запуск"
+    ></prizm-doc-code>
+    <prizm-doc-code
+      [code]="
+        'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] --runPrettier true'
+      "
+      filename="Запуск c prettier"
+    ></prizm-doc-code>
+
+    <h2>Для обновление версий публикуемых библиотек</h2>
+    <prizm-doc-code
+      [code]="'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion 2.0.1 --all'"
+      filename="Обновить все проекты"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion 2.0.1 --project=\'[PROJECT-NAME]\''
+      "
+      filename="Обновить один проект"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion up.*.* --project=\'[PROJECT-NAME]\''
+      "
+      filename="Поднять мажорную версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.up.* --project=\'[PROJECT-NAME]\''
+      "
+      filename="Поднять минорную версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.down --project=\'[PROJECT-NAME]\''
+      "
+      filename="Снизить патч версию"
+    ></prizm-doc-code>
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.down --currentVersion=1.1.1 --project=\'[PROJECT-NAME]\''
+      "
+      filename="Обновить версию полученную из вне (не из package.json)"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.*-draft --project=\'[PROJECT-NAME]\''
+      "
+      filename="Добавить пре релиз название <draft>"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion *.*.*-draft.up --project=\'[PROJECT-NAME]\''
+      "
+      filename="Поднять пре релизную версию"
+    ></prizm-doc-code>
+
+    <prizm-doc-code
+      [code]="
+        'npx nx generate @prizm-ui/nx-plugin:update-version --newVersion 2.0.1 --projects=\'[PROJECT-NAME]\' --projects=\'[PROJECT-NAME-2]\''
+      "
+      filename="Обновить несколько конкретных проектов"
+    ></prizm-doc-code>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Setup">
+    <ol class="b-demo-steps">
+      <li>
+        <prizm-doc-code [code]="'npm i @prizm-ui/nx-plugin'" filename="install"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

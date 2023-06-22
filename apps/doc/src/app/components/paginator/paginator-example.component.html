@@ -1,0 +1,182 @@
+<prizm-doc-page header="Paginator">
+  <div class="page-description" description>
+    Our pagination component is a simple way to split up content into multiple pages. It is a great way to
+    reduce the amount of content on a single page and make it easier to navigate.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicPaginator" heading="Base">
+      <prizm-paginator-basic-example></prizm-paginator-basic-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="options" [content]="exampleBasicPaginator" heading="Hidden last/first page">
+      <prizm-paginator-options-example></prizm-paginator-options-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="withLabels" [content]="exampleLabelsPaginator" heading="With Labels">
+      <prizm-paginator-with-labels-example></prizm-paginator-with-labels-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="inf" [content]="exampleInfinitePaginator" heading="Infinite">
+      <prizm-paginator-infinite-example></prizm-paginator-infinite-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <div>
+        <ng-container>
+          Любое содержимое
+          <pre *ngIf="content">{{ content | json }}</pre>
+        </ng-container>
+        <ng-container></ng-container>
+      </div>
+      <prizm-paginator
+        #element
+        [(page)]="initialValue"
+        [disabled]="disabled"
+        [prizmDocHostElement]="element"
+        [totalRecords]="totalRecords"
+        [rows]="rows"
+        [pageLinkSize]="pageLinkSize"
+        [leftButtonLabel]="leftButtonLabel"
+        [rightButtonLabel]="rightButtonLabel"
+        [showMoreDisabled]="showMoreDisabled"
+        [paginatorType]="paginatorType"
+        [paginatorOptions]="paginatorOptions"
+        [rowsCountOptions]="rowsCountOptions"
+        [moreButtonLabel]="moreButtonLabel"
+        (paginatorChange)="content = $event"
+      ></prizm-paginator>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="paginatorType"
+        [documentationPropertyValues]="paginatorTypesVariants"
+        documentationPropertyName="paginatorType"
+        documentationPropertyType="IPaginatorType"
+        documentationPropertyMode="input"
+      >
+        Paginator type
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="paginatorOptions"
+        [documentationPropertyValues]="paginatorOptionsVariants"
+        documentationPropertyName="paginatorOptions"
+        documentationPropertyType="IPaginatorOptions"
+        documentationPropertyMode="input"
+      >
+        Paginator inner content options
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rowsCountOptions"
+        documentationPropertyType="number[]"
+        documentationPropertyMode="input"
+      >
+        Rows count selector inner
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="totalRecords"
+        documentationPropertyName="totalRecords"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Total records
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="initialValue"
+        documentationPropertyName="page"
+        documentationPropertyType="number"
+        documentationPropertyMode="input-output"
+      >
+        Page
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="showMoreDisabled"
+        documentationPropertyName="showMoreDisabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show More Button Disabled on infinite mode
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="rows"
+        (documentationPropertyValueChange)="changeRowValue()"
+        documentationPropertyName="rows"
+        documentationPropertyType="number"
+        documentationPropertyMode="input-output"
+      >
+        Rows
+      </ng-template>
+      <ng-template
+        documentationPropertyName="paginatorChange"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Fire on rows or page changed
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pageLinkSize"
+        documentationPropertyName="pageLinkSize"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Page link size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="leftButtonLabel"
+        documentationPropertyName="leftButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Left button label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="rightButtonLabel"
+        documentationPropertyName="rightButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Right button label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="moreButtonLabel"
+        documentationPropertyName="moreButtonLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        More button label
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmPaginatorModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

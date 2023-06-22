@@ -1,0 +1,87 @@
+<div class="host" prizmFocusTrap prizmThemeInverted>
+  <div class="content">
+    <div class="title prizm-font-title-h4">
+      <ng-container *polymorphOutlet="context.title as data; context: context">
+        {{ data }}
+      </ng-container>
+    </div>
+    <div class="description prizm-font-main-body-14">
+      <prizm-scrollbar class="scrollbar">
+        <ng-container *polymorphOutlet="context.description as data; context: context">
+          {{ data }}
+        </ng-container>
+      </prizm-scrollbar>
+    </div>
+  </div>
+
+  <div class="footer prizm-font-btn-links-14">
+    <ng-container [ngSwitch]="!context.showByVertical">
+      <div class="horizontal" *ngSwitchCase="true">
+        <div class="left">
+          <ng-container
+            *ngIf="context.supportButton"
+            [ngTemplateOutlet]="buttonTemplate"
+            [ngTemplateOutletContext]="{ button: context.supportButton }"
+          >
+          </ng-container>
+        </div>
+        <div class="right">
+          <ng-container
+            *ngIf="context.cancelButton"
+            [ngTemplateOutlet]="buttonTemplate"
+            [ngTemplateOutletContext]="{ button: context.cancelButton }"
+          >
+          </ng-container>
+
+          <ng-container
+            *ngIf="context.confirmButton"
+            [ngTemplateOutlet]="buttonTemplate"
+            [ngTemplateOutletContext]="{ button: context.confirmButton }"
+          >
+          </ng-container>
+        </div>
+      </div>
+      <div class="vertical" *ngSwitchDefault>
+        <div class="top">
+          <ng-container
+            *ngIf="context.confirmButton"
+            [ngTemplateOutlet]="buttonTemplate"
+            [ngTemplateOutletContext]="{ button: context.confirmButton }"
+          >
+          </ng-container>
+          <ng-container
+            *ngIf="context.supportButton"
+            [ngTemplateOutlet]="buttonTemplate"
+            [ngTemplateOutletContext]="{ button: context.supportButton }"
+          >
+          </ng-container>
+        </div>
+        <div class="bottom">
+          <ng-container
+            *ngIf="context.cancelButton"
+            [ngTemplateOutlet]="buttonTemplate"
+            [ngTemplateOutletContext]="{ button: context.cancelButton }"
+          >
+          </ng-container>
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #buttonTemplate let-button="button">
+      <button
+        [style]="button.style"
+        [appearance]="button.appearance"
+        [appearanceType]="button.appearanceType"
+        [size]="button.size"
+        [iconRight]="button.iconRight"
+        [icon]="button.icon"
+        [showLoader]="button.showLoader"
+        [disabled]="button.disabled"
+        (click)="button.action(context)"
+        prizmButton
+      >
+        {{ button.text }}
+      </button>
+    </ng-template>
+  </div>
+</div>

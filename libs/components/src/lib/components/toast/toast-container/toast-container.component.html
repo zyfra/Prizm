@@ -1,0 +1,6 @@
+<div class="prizm-toast-container {{ position }}">
+  <!--  TODO think how to add focusable sub elements [focusTrap] -->
+  <ng-container *ngFor="let ref of refs$ | async; trackBy: trackByHash">
+    <prizm-toast-wrapper [ref]="ref"></prizm-toast-wrapper>
+  </ng-container>
+</div>

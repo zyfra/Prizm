@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+npx nx workspace-lint
+npm run check-branch-name
+git fetch origin main
+npx nx format:check --parallel=3 --base main
+npx nx affected --target=lint --parallel=3 --base main
+npx nx affected --target=test --parallel=3 --configuration=ci --base main
+## TODO remove schematics excluding after update angular ng14
+#npx nx affected --target=build --parallel=3 --configuration=ci --base main

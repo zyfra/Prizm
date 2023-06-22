@@ -1,0 +1,80 @@
+<h3>Grid</h3>
+<prizm-scrollbar class="scrollable">
+  <table class="table" [columns]="columns" prizmTable tableBorderStyle="grid">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Код</th>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+      </tr>
+    </thead>
+
+    <tbody [data]="products" prizmTbody>
+      <ng-container *prizmRow="let item of products; let i = index">
+        <tr prizmTr>
+          <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+          <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+          <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+          <td class="format__number" *prizmCell="'count'" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<h3>Vertical borders</h3>
+<prizm-scrollbar class="scrollable">
+  <table class="table" [columns]="columns" prizmTable tableBorderStyle="vertical">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Код</th>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+      </tr>
+    </thead>
+
+    <tbody [data]="products" prizmTbody>
+      <ng-container *prizmRow="let item of products; let i = index">
+        <tr prizmTr>
+          <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+          <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+          <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+          <td class="format__number" *prizmCell="'count'" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<h3>Horizontal borders</h3>
+<prizm-scrollbar class="scrollable">
+  <table class="table" [columns]="columns" prizmTable tableBorderStyle="horizontal">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Код</th>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+      </tr>
+    </thead>
+
+    <tbody [data]="products" prizmTbody>
+      <ng-container *prizmRow="let item of products; let i = index">
+        <tr prizmTr>
+          <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+          <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+          <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+          <td class="format__number" *prizmCell="'count'" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>

@@ -1,0 +1,292 @@
+<prizm-doc-page header="Hint">
+  <div class="page-description" description>
+    Our hint component is used to provide additional information to the user.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasic" heading="Base">
+      <prizm-hint-base-example></prizm-hint-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" [content]="exampleWithTemplate" heading="With Template">
+      <prizm-hint-with-template-example></prizm-hint-with-template-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" [content]="exampleWithComponent" heading="With Component">
+      <prizm-hint-with-component-example></prizm-hint-with-component-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <button
+        [prizmHint]="content"
+        [prizmAutoReposition]="prizmAutoReposition"
+        [prizmHintCanShow]="prizmHintCanShow"
+        [prizmHintDirection]="prizmHintDirection"
+        [prizmHintId]="prizmHintId"
+        [prizmHintShow]="prizmHintShow"
+        [prizmHintShowDelay]="prizmHintShowDelay"
+        [prizmHintHideDelay]="prizmHintHideDelay"
+        [prizmHintContext]="prizmHintContext"
+        [prizmHintHost]="prizmHintHost"
+        [size]="size"
+        [icon]="icon"
+        [iconRight]="iconRight"
+        [appearanceType]="appearanceType"
+        [appearance]="appearance"
+        [disabled]="disabled"
+        [showLoader]="showLoader"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
+        prizmButton
+      >
+        Button
+      </button>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="content"
+        documentationPropertyName="prizmHint"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmAutoReposition"
+        documentationPropertyName="prizmAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Auto Reposition
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintContext"
+        documentationPropertyName="prizmHintContext"
+        documentationPropertyType="Record<string, unknown>"
+        documentationPropertyMode="input"
+      >
+        User Context
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintCanShow"
+        documentationPropertyName="prizmHintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintShow"
+        documentationPropertyName="prizmHintShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintDirection"
+        [documentationPropertyValues]="prizmHintDirectionVariants"
+        documentationPropertyName="prizmHintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintId"
+        documentationPropertyName="prizmHintId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Hint Id
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintShowDelay"
+        documentationPropertyName="prizmHintShowDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Show Delay
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintHideDelay"
+        documentationPropertyName="prizmHintHideDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Hide Delay
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmHintHost"
+        documentationPropertyType="HtmlElement"
+        documentationPropertyMode="input"
+      >
+        Host
+      </ng-template>
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="size"-->
+      <!--        documentationPropertyType="PrizmDialogSize"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="sizeVariants"-->
+      <!--        [(documentationPropertyValue)]="size"-->
+      <!--      >-->
+      <!--        Size-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="appearance"-->
+      <!--        documentationPropertyType="PrizmAppearance"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="appearanceVariants"-->
+      <!--        [(documentationPropertyValue)]="appearance"-->
+      <!--      >-->
+      <!--        Appearance-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="appearanceType"-->
+      <!--        documentationPropertyType="PrizmAppearanceType"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="appearanceTypeVariants"-->
+      <!--        [(documentationPropertyValue)]="appearanceType"-->
+      <!--      >-->
+      <!--        AppearanceType-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="icon"-->
+      <!--        documentationPropertyType="PrizmContent"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="iconVariants"-->
+      <!--        [(documentationPropertyValue)]="icon"-->
+      <!--      >-->
+      <!--        Icon-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="iconRight"-->
+      <!--        documentationPropertyType="PrizmContent"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="iconVariants"-->
+      <!--        [(documentationPropertyValue)]="iconRight"-->
+      <!--      >-->
+      <!--        Right Icon-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="disabled"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="disabled"-->
+      <!--      >-->
+      <!--        Disabled-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="showLoader"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="showLoader"-->
+      <!--      >-->
+      <!--        Show Loader-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="pseudoHovered"-->
+      <!--        documentationPropertyType="boolean | null"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="pseudoHovered"-->
+      <!--      >-->
+      <!--        Pseudo Hovered-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="pseudoPressed"-->
+      <!--        documentationPropertyType="boolean | null"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="pseudoPressed"-->
+      <!--      >-->
+      <!--        Pseudo Pressed-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="pseudoFocused"-->
+      <!--        documentationPropertyType="boolean | null"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="pseudoFocused"-->
+      <!--      >-->
+      <!--        Pseudo Focused-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="focusable"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="focusable"-->
+      <!--      >-->
+      <!--        Focusable-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="pseudoState"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="pseudoState"-->
+      <!--      >-->
+      <!--        Pseudo State-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="focusedChange"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="output"-->
+      <!--        [(documentationPropertyValue)]="focusedChange"-->
+      <!--      >-->
+      <!--        Focused Change-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="pressedChange"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="output"-->
+      <!--        [(documentationPropertyValue)]="pressedChange"-->
+      <!--      >-->
+      <!--        Pressed Change-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="hoveredChange"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="output"-->
+      <!--        [(documentationPropertyValue)]="hoveredChange"-->
+      <!--      >-->
+      <!--        Hovered Change-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="focusVisibleChange"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="output"-->
+      <!--        [(documentationPropertyValue)]="focusVisibleChange"-->
+      <!--      >-->
+      <!--        Focus Visible Change-->
+      <!--      </ng-template>-->
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmHintModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

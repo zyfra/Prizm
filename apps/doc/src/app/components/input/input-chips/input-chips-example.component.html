@@ -1,0 +1,210 @@
+<prizm-doc-page header="Input Chips">
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="chips" [content]="prizmInputChipsExample" heading="Chips example">
+      <prizm-input-chips-basic-example></prizm-input-chips-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="chips-outer" [content]="prizmInputChipsOuterExample" heading="Chips outer example">
+      <prizm-input-chips-outer-example></prizm-input-chips-outer-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="chips-item" [content]="prizmInputChipsItemExample" heading="Chips item example">
+      <prizm-input-chips-item-example></prizm-input-chips-item-example>
+    </prizm-doc-example>
+  </ng-template>
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <div>
+        <h1>With Chips ITEM</h1>
+        <div>
+          <prizm-chips-item
+            #chipsItem
+            [deletable]="deletable"
+            [disabled]="disabled"
+            [hintText]="hintText"
+            [hintDirection]="hintDirection"
+            [hintCanShow]="hintCanShow"
+            [prizmDocHostElement]="chipsItem"
+            style="width: 100px"
+            prizmDocHostElementKey="PrizmChipsItemComponent"
+          >
+            Отдельный chips
+          </prizm-chips-item>
+        </div>
+      </div>
+      <div>
+        <h1>With Input Layout</h1>
+        <div>
+          <prizm-input-layout label="Заголовок" size="l" status="default">
+            <input
+              [disabled]="control.disabled"
+              (enter)="onEnter($event)"
+              prizmInput
+              placeholder="Введите название"
+            />
+            <prizm-chips
+              #element
+              [formControl]="control"
+              [prizmDocHostElement]="element"
+              [class.single-line]="singleLine"
+              [singleLine]="singleLine"
+              [chips]="chips"
+              [deletable]="deletable"
+              [disabled]="disabled"
+              prizmDocHostElementKey="PrizmChipsComponent"
+              prizm-input-bottom
+            >
+            </prizm-chips>
+          </prizm-input-layout>
+        </div>
+      </div>
+    </prizm-doc-demo>
+    <prizm-doc-documentation heading="PrizmChipsItemComponent" hostComponentKey="PrizmChipsItemComponent">
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="deletable"
+        documentationPropertyName="deletable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Deletable
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="deleted"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Deleted
+      </ng-template>
+
+      <!--  -->
+      <ng-template
+        [(documentationPropertyValue)]="hintCanShow"
+        documentationPropertyName="hintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Hint Can Show
+      </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="hintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="hintText"
+        documentationPropertyName="hintText"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Hint Text
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      [control]="control"
+      heading="PrizmChipsComponent"
+      hostComponentKey="PrizmChipsComponent"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="singleLine"
+        documentationPropertyName="singleLine"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Single Line
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="deletable"
+        documentationPropertyName="deletable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Deletable
+      </ng-template>
+      <!--  -->
+      <ng-template
+        [(documentationPropertyValue)]="chips"
+        documentationPropertyName="chips"
+        documentationPropertyType="string[]"
+        documentationPropertyMode="input"
+      >
+        Chips
+      </ng-template>
+      <!--  -->
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+      <!--  -->
+      <ng-template
+        [(documentationPropertyValue)]="hintCanShow"
+        documentationPropertyName="hintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Hint Can Show
+      </ng-template>
+      <!--  -->
+      <ng-template
+        [(documentationPropertyValue)]="hintDirection"
+        documentationPropertyName="hintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+      <!--  -->
+      <ng-template
+        documentationPropertyName="addChipEvent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Add Chip Event
+      </ng-template>
+      <ng-template
+        documentationPropertyName="removeChipEvent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Remove Chip Event
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clickChipEvent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Click Chip Event
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmInputChipsModule</code> и <code>PrizmInputTextModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

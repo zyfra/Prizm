@@ -1,0 +1,25 @@
+<prizm-tree
+  #treeCtrl="prizmTreeController"
+  *ngFor="let item of items"
+  [prizmTreeController]="false"
+  [map]="expandedItemsMap"
+  [content]="content"
+  [value]="item"
+  [childrenHandler]="menuItemsChildrenHandler"
+  (expandedChanged)="handleExpandedChanged($event)"
+>
+  <ng-template #content let-item>
+    <prizm-navigation-menu-item
+      [item]="item"
+      [mode]="mode"
+      [itemExtraTemplate]="itemExtraTemplate"
+      [isActive]="getItemIsActive(item)"
+      [isExpandable]="menuItemsChildrenHandler(item).length > 0"
+      [isExpanded]="getItemIsExpanded(item)"
+      (toggleExpanded)="treeCtrl.toggleByItemValue($event)"
+      (setActive)="activeItemChanged.emit($event)"
+      (goToParentItem)="goToParentItem.emit($event)"
+      (goToRootItem)="goToRootItem.emit($event)"
+    ></prizm-navigation-menu-item>
+  </ng-template>
+</prizm-tree>

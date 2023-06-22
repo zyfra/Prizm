@@ -1,0 +1,296 @@
+<prizm-doc-page header="InputDateTimeRange" package="deprecated">
+  <div class="page-description" description>
+    It is a deprecated component, instead of this use PrizmInputLayoutDateTimeRange.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-input-date-time-range-base-example></prizm-input-date-time-range-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-date-time-range
+        #element
+        [prizmDocHostElement]="element"
+        [formControl]="value"
+        [min]="min"
+        [forceClear]="forceClear"
+        [max]="max"
+      ></prizm-input-date-time-range>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation [control]="value">
+      <ng-template
+        [(documentationPropertyValue)]="forceClear"
+        [documentationPropertyValues]="forceClearVariants"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Show clear button
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="label"
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="val1"
+        documentationPropertyName="val"
+        documentationPropertyType="any[]"
+        documentationPropertyMode="input-output"
+      >
+        Val
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="placeholder"
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="outer"
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="timeItems"
+        documentationPropertyType="PrizmTime[]"
+        documentationPropertyMode="input"
+      >
+        Time preset for dropdown
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyMode="input"
+      >
+        Min Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyMode="input"
+      >
+        Max Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyMode="input"
+      >
+        Disabled Item Handler
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="timeStrict"
+        documentationPropertyName="timeStrict"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Time Strict
+        <br />
+        (Correct time to nearest from items array)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="PrizmDayRangePeriod[]"
+        documentationPropertyMode="input"
+      >
+        Items preset for dropdown
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxLength"
+        documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
+      >
+        Max Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="minLength"
+        documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
+      >
+        Min Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="markerHandler"
+        documentationPropertyType="PrizmMarkerHandler"
+        documentationPropertyMode="input"
+      >
+        Marker Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="defaultViewedMonth"
+        documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
+      >
+        Default Viewed Month
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="timeMode"
+        [documentationPropertyValues]="timeModeVariants"
+        documentationPropertyName="timeMode"
+        documentationPropertyType="PrizmTimeMode"
+        documentationPropertyMode="input"
+      >
+        Time Mode
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="readOnly"
+        documentationPropertyName="readOnly"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Read Only
+      </ng-template>
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="val"-->
+      <!--        documentationPropertyType="[PrizmDay, PrizmTime]"-->
+      <!--        documentationPropertyMode="input-output"-->
+      <!--        [(documentationPropertyValue)]="val"-->
+      <!--      >-->
+      <!--        Val-->
+      <!--      </ng-template>-->
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoInvalid"
+        documentationPropertyName="pseudoInvalid"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Invalid
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoHovered"
+        documentationPropertyName="pseudoHovered"
+        documentationPropertyType=" boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Hovered
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoPressed"
+        documentationPropertyName="pseudoPressed"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Pressed
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoFocused"
+        documentationPropertyName="pseudoFocused"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Focused
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="focusable"
+        documentationPropertyName="focusable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Focusable
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoState"
+        documentationPropertyName="pseudoState"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Pseudo State
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="focusedChange"
+        documentationPropertyName="focusedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Focused Change
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pressedChange"
+        documentationPropertyName="pressedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Pressed Change
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="hoveredChange"
+        documentationPropertyName="hoveredChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Hovered Change
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="focusVisibleChange"
+        documentationPropertyName="focusVisibleChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Focus Visible Change
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputDateTimeRangeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

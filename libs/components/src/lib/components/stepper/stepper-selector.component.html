@@ -1,0 +1,31 @@
+<ul class="steps">
+  <ng-container *ngFor="let step of steps; last as isLastStep; first as isFirstStep; index as index">
+    <li>
+      <button
+        class="step step--{{ step.status }} step--{{ index }}"
+        [ngClass]="{
+          'step--current': currentStep === step.index,
+          'step--disabled': step.disabled,
+          'step--first': isFirstStep
+        }"
+        [disabled]="step.disabled"
+        [prizmStepperSelectorItem]="step.index"
+        (click)="clickOnStep(step.index)"
+        (keydown)="onKeyDown($event, step.index)"
+      >
+        <span class="step__index" *ngIf="!(currentStep === step.index && step.status !== 'default')" [@inOut]>
+          {{ step.index }}
+        </span>
+        <prizm-icon
+          class="step__icon"
+          *ngIf="currentStep === step.index && step.status !== 'default'"
+          [@inOut]
+          [size]="24"
+          [iconClass]="step.status === 'success' ? 'success-circle-fill' : 'alerts-circle-fill'"
+        ></prizm-icon>
+        <span class="step__title">{{ step.title }}</span>
+      </button>
+    </li>
+    <li class="line" *ngIf="!isLastStep" [ngClass]="{ 'line--first': isFirstStep }"></li>
+  </ng-container>
+</ul>

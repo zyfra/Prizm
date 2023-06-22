@@ -1,0 +1,120 @@
+<prizm-doc-page header="CalendarRange">
+  <div class="page-description" description>
+    Our calendar range component is a simple component that allows you to select a range of dates.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-calendar-range-base-example></prizm-calendar-range-base-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="list" [content]="exampleList" heading="Presets List">
+      <prizm-calendar-range-list-example></prizm-calendar-range-list-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-calendar-range #element [(value)]="value" [prizmDocHostElement]="element"></prizm-calendar-range>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="defaultViewedMonth"
+        documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
+      >
+        Default Viewed Month
+      </ng-template>
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyMode="input"
+      >
+        Disabled Item Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="markerHandler"
+        documentationPropertyType="PrizmMarkerHandler"
+        documentationPropertyMode="input"
+      >
+        Marker Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="PrizmDay"
+        documentationPropertyMode="input"
+      >
+        Min Day
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="PrizmDay"
+        documentationPropertyMode="input"
+      >
+        Max Day
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="minLength"
+        documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
+      >
+        Min Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="maxLength"
+        documentationPropertyType="PrizmDayLike | null"
+        documentationPropertyMode="input"
+      >
+        Max Length
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="value"
+        documentationPropertyType="PrizmDayRange | null"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="items"
+        documentationPropertyType="PrizmDayRangePeriod[]"
+        documentationPropertyMode="input"
+      >
+        Items
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="valueChange"
+        documentationPropertyType="PrizmDayRange | null"
+        documentationPropertyMode="output"
+      >
+        Value Change
+      </ng-template>
+      <ng-template
+        documentationPropertyName="rangeChange"
+        documentationPropertyType="PrizmDayRange | null"
+        documentationPropertyMode="output"
+      >
+        Range Change
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmCalendarRangeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

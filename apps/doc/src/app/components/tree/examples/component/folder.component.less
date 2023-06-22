@@ -1,0 +1,48 @@
+@import '~libs/components/src/styles/ui-local';
+
+:host {
+  .transition(background);
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  background: var(--prizm-base-01);
+  position: var(--example-prizm-folder-position, unset);
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    left: -0.75rem;
+    z-index: -1;
+  }
+
+  &:before {
+    width: 1rem;
+    border-bottom: 1px solid var(--prizm-index-plan);
+  }
+
+  &:after {
+    top: -1rem;
+    bottom: 1rem;
+    border-left: 1px solid var(--prizm-index-plan);
+  }
+
+  &._expandable {
+    &:hover {
+      cursor: pointer;
+      background: var(--prizm-bg-dashboard-forms);
+    }
+  }
+}
+
+:host-context(prizm-tree:last-child > prizm-tree-item > .t-dynamic-content) {
+  position: relative;
+}
+
+prizm-icon {
+  position: relative;
+  background: inherit;
+  z-index: 1;
+}

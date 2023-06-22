@@ -1,0 +1,74 @@
+<div>
+  <h2>Size M</h2>
+  <div class="box prizm-font-main-body-14">
+    <div>
+      simple
+      <prizm-toggle
+        [ngModel]="value"
+        [ngModelOptions]="{ standalone: true }"
+        (ngModelChange)="value = $event"
+        size="m"
+        >Ng Model</prizm-toggle
+      >
+    </div>
+    <div>
+      disabled
+      <prizm-toggle
+        [(ngModel)]="valueDisabled"
+        [disabled]="true"
+        [ngModelOptions]="{ standalone: true }"
+        size="m"
+        >Ng Model</prizm-toggle
+      >
+    </div>
+    <div>
+      with loader
+      <prizm-toggle [(ngModel)]="value" [showLoader]="true" [ngModelOptions]="{ standalone: true }" size="m"
+        >Ng Model</prizm-toggle
+      >
+    </div>
+    <div>
+      with icon
+      <prizm-toggle
+        [(ngModel)]="value"
+        [ngModelOptions]="{ standalone: true }"
+        size="m"
+        iconOn="selection-checkbox-marked-circle"
+        iconOff="selection-checkbox-marked-circle-chanel"
+        >Ng Model</prizm-toggle
+      >
+    </div>
+  </div>
+</div>
+
+<div>
+  <h2>Size L</h2>
+  <div class="box prizm-font-main-body-14">
+    <div>
+      simple
+      <prizm-toggle [formControl]="value2" size="l"></prizm-toggle>
+    </div>
+    <div>
+      disabled
+      <prizm-toggle [formControl]="value2Disabled" size="l"></prizm-toggle>
+    </div>
+    <div>
+      with loader
+      <prizm-toggle [showLoader]="true" [formControl]="value2" size="l"></prizm-toggle>
+    </div>
+    <div>
+      with icon
+      <prizm-toggle
+        [formControl]="value2"
+        size="l"
+        iconOn="arrows-chevron-left"
+        iconOff="arrows-chevron-right"
+      ></prizm-toggle>
+    </div>
+  </div>
+</div>
+
+<br /><br />
+<div>
+  Value: <b>{{ value ? 'TRUE' : 'FALSE' }}</b>
+</div>

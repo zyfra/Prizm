@@ -1,0 +1,71 @@
+<div class="prizm-navigation-menu-toolbar" *ngIf="toolbarIsVisible">
+  <div class="instruments">
+    <ng-container *ngTemplateOutlet="toolbarExtraTemplate"></ng-container>
+
+    <ng-container *ngIf="toolbarService.viewMode$ | async as viewMode">
+      <button
+        class="instruments__btn"
+        *ngIf="toolbarConfig.hierarchyMode ?? true"
+        [class.instruments__btn_active]="viewMode === 'hierarchy'"
+        [size]="'m'"
+        [icon]="'files-mode'"
+        [appearance]="'secondary'"
+        [appearanceType]="'ghost'"
+        (click)="toolbarService.changeViewMode('hierarchy')"
+        prizmIconButton
+      ></button>
+
+      <button
+        class="instruments__btn"
+        *ngIf="toolbarConfig.rubricatorMode"
+        [class.instruments__btn_active]="viewMode === 'rubricator'"
+        [size]="'m'"
+        [icon]="'editor-alfavit'"
+        [appearance]="'secondary'"
+        [appearanceType]="'ghost'"
+        (click)="toolbarService.changeViewMode('rubricator')"
+        prizmIconButton
+      ></button>
+
+      <button
+        class="instruments__btn"
+        *ngIf="toolbarConfig.folderMode"
+        [class.instruments__btn_active]="viewMode === 'folder'"
+        [size]="'m'"
+        [icon]="'files-folder'"
+        [appearance]="'secondary'"
+        [appearanceType]="'ghost'"
+        (click)="toolbarService.changeViewMode('folder')"
+        prizmIconButton
+      ></button>
+
+      <button
+        class="instruments__btn"
+        *ngIf="toolbarConfig.closeAll"
+        [size]="'m'"
+        [icon]="'chevrons-close-all'"
+        [appearance]="'secondary'"
+        [appearanceType]="'ghost'"
+        (click)="toolbarService.closeAll()"
+        prizmIconButton
+      ></button>
+
+      <button
+        class="instruments__btn"
+        *ngIf="toolbarConfig.search"
+        [class.instruments__btn_active]="toolbarService.searchVisible$ | async"
+        [size]="'m'"
+        [icon]="'sort-zoom-in'"
+        [appearance]="'secondary'"
+        [appearanceType]="'ghost'"
+        (click)="toolbarService.toggleSearch()"
+        prizmIconButton
+      ></button>
+    </ng-container>
+  </div>
+</div>
+<prizm-navigation-menu-search
+  *ngIf="toolbarService.searchVisible$ | async"
+  [searchDebounce]="searchConfig.searchDebounce"
+  (searchChange)="toolbarService.changeSearchValue($event)"
+></prizm-navigation-menu-search>

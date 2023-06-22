@@ -1,0 +1,120 @@
+:host {
+  display: inline-flex;
+  cursor: pointer;
+  outline: none;
+  align-items: flex-start;
+}
+
+.checkbox {
+  position: relative;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+
+  background: var(--prizm-bg-dashboard-forms);
+  box-shadow: 0 0 0 2px transparent;
+
+  border: 1px solid var(--prizm-border-forms);
+  border-radius: 2px;
+
+  &--size-s {
+    height: 16px;
+    width: 16px;
+  }
+
+  &--size-l {
+    height: 20px;
+    width: 20px;
+  }
+
+  &--checked,
+  &--indeterminate {
+    border-color: var(--prizm-index-plan);
+    background: var(--prizm-index-plan);
+  }
+
+  &:hover {
+    border-color: var(--prizm-index-plan);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--prizm-exceptions-white);
+    opacity: 0;
+
+    pointer-events: none;
+
+    &--no-icon {
+      &:before {
+        content: '';
+      }
+    }
+
+    &--size-s {
+      height: 9px;
+      width: 9px;
+      font-size: 14px;
+      line-height: 12px;
+    }
+
+    &--size-l {
+      height: 12px;
+      width: 12px;
+      font-size: 16px;
+      line-height: 12px;
+    }
+
+    &--checked,
+    &--indeterminate {
+      opacity: 1;
+      transition: 0.3s;
+    }
+  }
+}
+
+.label {
+  margin-left: 8px;
+  color: var(--prizm-text-contrast);
+
+  max-width: 100%;
+  font-family: Inter;
+
+  &--size-s {
+    font-size: 12px;
+    line-height: 16px;
+  }
+
+  &--size-l {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
+
+:host-context(.prizm-checkbox--disabled) {
+  cursor: not-allowed;
+
+  .checkbox {
+    border-color: var(--prizm-bg-dashboard-forms);
+    &--checked,
+    &--indeterminate {
+      background-color: var(--prizm-index-lock);
+    }
+  }
+}
+
+:host:focus {
+  .checkbox {
+    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+
+    &--checked,
+    &--indeterminate {
+      border-color: var(--prizm-palette-b2);
+      background: var(--prizm-palette-b2);
+    }
+  }
+}

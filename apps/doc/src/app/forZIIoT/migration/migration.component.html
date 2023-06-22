@@ -1,0 +1,23 @@
+<prizm-doc-page header="Migration Guide">
+  <div class="page-description" description>Update cb3 to PRIZM using our library with plugins</div>
+
+  <ng-template prizmDocPageTab>
+    Для запуска нашего мигратора в вашем проекте
+    <prizm-doc-code
+      [code]="'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] '"
+      filename="Запуск"
+    ></prizm-doc-code>
+    <prizm-doc-code
+      [code]="
+        'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] --runPrettier true'
+      "
+      filename="Запуск c prettier"
+    ></prizm-doc-code>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <prizm-doc-code [code]="'npm i @prizm-ui/nx-plugin'" filename="Установка"></prizm-doc-code>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

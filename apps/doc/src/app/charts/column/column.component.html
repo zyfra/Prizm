@@ -1,0 +1,216 @@
+<prizm-doc-page header="Column">
+  <div class="page-description" description>
+    Column charts are useful for showing data changes over a period of time or for illustrating comparisons
+    among items. In column charts, categories are typically organized along the horizontal axis and values
+    along the vertical axis.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-charts-column-base-example></prizm-charts-column-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="group" [content]="exampleColumnGroup" heading="Group">
+      <prizm-charts-column-group-example></prizm-charts-column-group-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="stack" [content]="exampleColumnStack" heading="Stack">
+      <prizm-charts-column-stack-example></prizm-charts-column-stack-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-column
+        #element
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [width]="width"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [height]="height"
+        [options]="options"
+        [xField]="xField"
+        [groupField]="groupField"
+        [seriesField]="seriesField"
+        [yField]="yField"
+      >
+      </prizm-charts-column>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsColumnOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsColumnItem[]"
+      >
+        Data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyMode="input"
+        documentationPropertyType=" PrizmChartsColumnOptions[label]"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="xField"
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="yField"
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Y Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="seriesField"
+        documentationPropertyName="seriesField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Series Field
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="groupField"
+        documentationPropertyName="groupField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Group Field
+      </ng-template>
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="ng-content"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        [(documentationPropertyValue)]="content"-->
+      <!--      >-->
+      <!--        NgContent-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="size"-->
+      <!--        documentationPropertyType="PrizmSize"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="sizeVariants"-->
+      <!--        [(documentationPropertyValue)]="size"-->
+      <!--      >-->
+      <!--        Size-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="appearance"-->
+      <!--        documentationPropertyType="PrizmAppearance"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="appearanceVariants"-->
+      <!--        [(documentationPropertyValue)]="appearance"-->
+      <!--      >-->
+      <!--        Appearance-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="appearanceType"-->
+      <!--        documentationPropertyType="PrizmAppearanceType"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="appearanceTypeVariants"-->
+      <!--        [(documentationPropertyValue)]="appearanceType"-->
+      <!--      >-->
+      <!--        AppearanceType-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="icon"-->
+      <!--        documentationPropertyType="PrizmContent"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="iconVariants"-->
+      <!--        [(documentationPropertyValue)]="icon"-->
+      <!--      >-->
+      <!--        Icon-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="iconRight"-->
+      <!--        documentationPropertyType="PrizmContent"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [documentationPropertyValues]="iconVariants"-->
+      <!--        [(documentationPropertyValue)]="iconRight"-->
+      <!--      >-->
+      <!--        Right Icon-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="disabled"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="disabled"-->
+      <!--      >-->
+      <!--        Disabled-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="showLoader"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--        [(documentationPropertyValue)]="showLoader"-->
+      <!--      >-->
+      <!--        Show Loader-->
+      <!--      </ng-template>-->
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmLineModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

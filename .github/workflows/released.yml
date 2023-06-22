@@ -1,0 +1,23 @@
+name: Released
+on:
+  release:
+    types:
+      - released
+  workflow_dispatch:
+env:
+  npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+jobs:
+  pre_draft_release:
+    uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
+    secrets: inherit
+
+  check_package_install:
+    uses: zyfra/Prizm/.github/workflows/check-build-in-real-project-ng-12.yml@main
+    secrets: inherit
+    needs: pre_draft_release
+
+  release:
+    needs: pre_draft_release
+    uses: zyfra/Prizm/.github/workflows/main-publish.yml@main
+    secrets: inherit

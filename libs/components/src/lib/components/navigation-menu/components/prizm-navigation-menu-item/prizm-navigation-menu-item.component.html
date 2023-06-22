@@ -1,0 +1,55 @@
+<div
+  class="prizm-navigation-menu-item"
+  [class.prizm-navigation-menu-item_active]="isActive"
+  [class.prizm-navigation-menu-item_hovered]="isHovered"
+  [class.prizm-navigation-menu-item_expandable]="isExpandable"
+  [tabindex]="0"
+  (keydown.space)="setActive.emit(item)"
+  (keydown.enter)="setActive.emit(item)"
+  (click)="setActive.emit(item)"
+  (prizmHoveredChange)="isHovered = $event"
+>
+  <prizm-icons-svg
+    class="prizm-navigation-menu-item__icon"
+    *ngIf="item.icon"
+    [name]="item.icon"
+  ></prizm-icons-svg>
+  <p class="prizm-navigation-menu-item__text">
+    {{ item.text }}
+  </p>
+  <div class="prizm-navigation-menu-item__extra">
+    <ng-container
+      [ngTemplateOutlet]="item.extraTemplate || itemExtraTemplate"
+      [ngTemplateOutletContext]="{ $implicit: item, isHovered: isHovered }"
+    ></ng-container>
+  </div>
+  <button
+    *ngIf="goToButtonsVisible"
+    [size]="'m'"
+    [icon]="'arrows-corner-left-up'"
+    [appearance]="'secondary'"
+    [appearanceType]="'ghost'"
+    (click)="$event.stopPropagation(); goToParentItem.emit(item)"
+    prizmIconButton
+  ></button>
+  <button
+    *ngIf="goToButtonsVisible"
+    [size]="'m'"
+    [icon]="'arrows-arrow-up-level'"
+    [appearance]="'secondary'"
+    [appearanceType]="'ghost'"
+    (click)="$event.stopPropagation(); goToRootItem.emit(item)"
+    prizmIconButton
+  ></button>
+  <button
+    class="expand-button"
+    *ngIf="expandButtonVisible"
+    [appearance]="'secondary'"
+    [appearanceType]="'ghost'"
+    [size]="'m'"
+    [icon]="isExpanded ? 'chevrons-down' : 'chevrons-right'"
+    [class.t-button_expanded]="isExpanded"
+    (click)="$event.stopPropagation(); toggleExpanded.emit(item)"
+    prizmIconButton
+  ></button>
+</div>

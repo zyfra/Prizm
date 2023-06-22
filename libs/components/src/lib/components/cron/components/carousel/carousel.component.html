@@ -1,0 +1,15 @@
+<prizm-input-layout [label]="null" [size]="'m'" [outer]="true" [position]="'center'">
+  <prizm-input-carousel
+    [required]="true"
+    [carouselContent]="content"
+    [ngModel]="value"
+    [ngModelOptions]="{ standalone: true }"
+    [lightMode]="true"
+    [ngSwitch]="!!template"
+    (ngModelChange)="valueChange.emit((value = $event))"
+  >
+    <ng-container *polymorphOutlet="template as value; context: { content: content.currentValue }">
+      <div>{{ content.currentValue }}</div>
+    </ng-container>
+  </prizm-input-carousel>
+</prizm-input-layout>

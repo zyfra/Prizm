@@ -1,0 +1,118 @@
+<prizm-doc-page header="Panel">
+  <div class="page-description" description>
+    Our panel component is a container that can be used to group content.
+  </div>
+  <ng-template prizmDocPageTab>
+    <p>Чтобы вставить контент слева от заголовка используйте аттрибут <b>buttons</b></p>
+    <p>Чтобы вставить контент справа от заголовков используйте аттрибут <b>header</b></p>
+    <p>
+      Чтобы вставить различные инструменты, прибитые к правому краю, используйте аттрибут <b>instruments</b>
+    </p>
+
+    <prizm-doc-example id="base" [content]="panelBasicExample" heading="Base">
+      <prizm-panel-example-basic></prizm-panel-example-basic>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="withBack" [content]="panelWithBackExample" heading="Panel with back button">
+      <prizm-panel-with-back></prizm-panel-with-back>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="withTabs" [content]="panelWithTabsExample" heading="Panel with tabs">
+      <prizm-panel-with-tabs></prizm-panel-with-tabs>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="withPages" [content]="panelWithPagesExample" heading="Panel with pages">
+      <prizm-panel-with-pages></prizm-panel-with-pages>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="withBreadcrumbs"
+      [content]="panelWithBreadcrumbsExample"
+      heading="Panel with breadcrumbs"
+    >
+      <prizm-panel-with-breadcrumbs></prizm-panel-with-breadcrumbs>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="withInstruments1"
+      [content]="panelWithInstrumentsSimpleExample"
+      heading="Panel with instruments 1"
+    >
+      <prizm-panel-with-instruments-simple></prizm-panel-with-instruments-simple>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="withInstruments2"
+      [content]="panelWithInstrumentsHardExample"
+      heading="Panel with instruments 2"
+    >
+      <prizm-panel-with-instruments-hard></prizm-panel-with-instruments-hard>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-panel
+        #element
+        [style.--prizm-panel-border-radius]="radius"
+        [prizmDocHostElement]="element"
+        [withBackButton]="withBackButton"
+        [header]="header"
+        [subheader]="subheader"
+      ></prizm-panel>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="withBackButton"
+        documentationPropertyName="withBackButton"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is panel with back button
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="radius"
+        documentationPropertyName="prizm-panel-border-radius"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Panel Border Radius (Default none)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="header"
+        documentationPropertyName="header"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Panel header text
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="subheader"
+        documentationPropertyName="subheader"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Panel subheader text
+      </ng-template>
+
+      <ng-template documentationPropertyName="backClick" documentationPropertyMode="output">
+        Back button click event
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmPanelModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

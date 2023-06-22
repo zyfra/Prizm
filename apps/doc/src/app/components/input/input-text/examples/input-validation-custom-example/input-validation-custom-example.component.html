@@ -1,0 +1,6 @@
+<h4>Custom validation texts</h4>
+<prizm-input-layout label="Заголовок">
+  <input #input [formControl]="requiredInputControl" prizmInput placeholder="Введите текст" />
+  <ng-template [control]="input" prizmInputStatusText></ng-template>
+  <prizm-input-status-subtext [control]="input" prizm-input-subtext></prizm-input-status-subtext>
+</prizm-input-layout>

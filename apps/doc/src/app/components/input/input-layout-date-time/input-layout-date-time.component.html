@@ -1,0 +1,219 @@
+<prizm-doc-page header="InputLayoutDateTime">
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-input-layout-date-time-base-example></prizm-input-layout-date-time-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="min-max" [content]="exampleMinMax" heading="Min Max Day">
+      <prizm-input-layout-date-time-min-max-example></prizm-input-layout-date-time-min-max-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="min-max-time" [content]="exampleMinMaxTime" heading="Min Max Day With Time">
+      <prizm-input-layout-date-time-min-max-time-example></prizm-input-layout-date-time-min-max-time-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="required" [content]="exampleWithRequired" heading="Required">
+      <prizm-input-layout-date-time-required-example></prizm-input-layout-date-time-required-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="with-second" [content]="exampleWithSeconds" heading="With Seconds">
+      <prizm-input-layout-date-time-with-seconds-example></prizm-input-layout-date-time-with-seconds-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="native-date" [content]="exampleNative" heading="Native Date">
+      <prizm-input-layout-date-time-native-example></prizm-input-layout-date-time-native-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
+        [size]="size"
+        [label]="label"
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+      >
+        <prizm-input-layout-date-time
+          #element
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="controlKey"
+          [formControl]="valueControl"
+          [timeStrict]="timeStrict"
+          [placeholder]="placeholder"
+          [timeMode]="timeMode"
+        ></prizm-input-layout-date-time>
+      </prizm-input-layout>
+    </prizm-doc-demo>
+    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey" [heading]="controlKey">
+      <ng-template
+        [(documentationPropertyValue)]="placeholder"
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="timeItems"
+        documentationPropertyType="PrizmTime[]"
+        documentationPropertyMode="input"
+      >
+        Time preset for dropdown
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="extraButtonInjector"
+        documentationPropertyType="Injector"
+        documentationPropertyMode="input"
+      >
+        Injector for nested buttons (use in multi datepicker and similar case)
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="min"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyMode="input"
+      >
+        Min Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="max"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyMode="input"
+      >
+        Max Date
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="disabledItemHandler"
+        documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyMode="input"
+      >
+        Disabled Item Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="defaultActiveYearMonth"
+        documentationPropertyType="PrizmMonth"
+        documentationPropertyMode="input"
+      >
+        Default Active Year Month
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="timeStrict"
+        documentationPropertyName="timeStrict"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Time Strict
+        <br />
+        (Correct time to nearest from items array)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="timeMode"
+        [documentationPropertyValues]="timeModeVariants"
+        documentationPropertyName="timeMode"
+        documentationPropertyType="PrizmTimeMode"
+        documentationPropertyMode="input"
+      >
+        Time Mode
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
+      <ng-template
+        [(documentationPropertyValue)]="forceClear"
+        [documentationPropertyValues]="forceClearVariants"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Show clear button
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="outer"
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="label"
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="border"
+        documentationPropertyName="border"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Border
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+      >
+        Position
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputLayoutDateTimeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

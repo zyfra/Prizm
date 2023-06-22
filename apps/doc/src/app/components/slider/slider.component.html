@@ -1,0 +1,142 @@
+<prizm-doc-page header="Slider">
+  <div class="page-description" description>
+    Our slider component is a simple way to add a slider to your page. It can be used to select a value from a
+    range of values.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="basicExample" heading="Base">
+      <prizm-slider-basic-example></prizm-slider-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="step" [content]="stepExample" heading="Step">
+      <prizm-slider-step-example></prizm-slider-step-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="vertical" [content]="verticalExample" heading="Vertical">
+      <prizm-slider-vertical-example></prizm-slider-vertical-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="range" [content]="rangeExample" heading="Range">
+      <prizm-slider-range-example></prizm-slider-range-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-demo>
+      <prizm-slider
+        [formControl]="fc"
+        [min]="min"
+        [max]="max"
+        [step]="step"
+        [showValue]="showValue"
+        [cnobValuePosition]="cnobValuePosition"
+        [showMinMax]="showMinMax"
+        [orientation]="orientation"
+        [range]="range"
+        [ngStyle]="{ 'min-height': minHeight + 'px' }"
+      >
+      </prizm-slider>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minValues"
+        documentationPropertyName="min"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Min
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="maxValues"
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Max
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="step"
+        [documentationPropertyValues]="stepValues"
+        documentationPropertyName="step"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Step
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="showValue"
+        documentationPropertyName="showValue"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show values
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="cnobValuePosition"
+        [documentationPropertyValues]="cnobValuePositionValues"
+        documentationPropertyName="cnobValuePosition"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Cnob value position
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="showMinMax"
+        documentationPropertyName="showMinMax"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show min max
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="orientation"
+        [documentationPropertyValues]="orientationValues"
+        documentationPropertyName="orientation"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Orientation
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="range"
+        documentationPropertyName="range"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Range
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        [documentationPropertyName]="null"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmSliderModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

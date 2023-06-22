@@ -1,0 +1,19 @@
+<div class="container">
+  <h2>8 columns grid</h2>
+  <prizm-grid [style.height.px]="400" cols="8" rows="8">
+    <prizm-grid-item
+      *ngFor="let grid of grids8"
+      [colPos]="grid.colPos"
+      [rowPos]="grid.rowPos"
+    ></prizm-grid-item>
+  </prizm-grid>
+
+  <h2>12 columns grid</h2>
+  <prizm-grid [style.height.px]="400" cols="12" rows="14">
+    <prizm-grid-item
+      *ngFor="let grid of grids12"
+      [colPos]="grid.colPos"
+      [rowPos]="grid.rowPos"
+    ></prizm-grid-item>
+  </prizm-grid>
+</div>

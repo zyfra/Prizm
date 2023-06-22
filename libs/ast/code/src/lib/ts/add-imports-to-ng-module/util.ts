@@ -1,0 +1,88 @@
+import * as ts from 'typescript';
+
+/**
+ * Adds a new import to the NgModule's imports array if a specific module is found and the new module does not already exist.
+ *
+ * @param context - The transformation context.
+ * @param sourceFile - The source file containing the NgModule.
+ * @param newModule - The name of the new module to be added.
+ * @param comment - The comment to be added before the new module.
+ * @param moduleToFind - The name of the module that should be found in the NgModule for the new module to be added.
+ * @returns The updated source file with the new module added if the specified module is found and the new module does not already exist.
+ */
+export function prizmAstAddImportToNgModule(
+  context: ts.TransformationContext,
+  sourceFile: ts.SourceFile,
+  newModule: string,
+  comment: string,
+  moduleToFind: string
+): ts.SourceFile {
+  let importsArray: ts.ArrayLiteralExpression | undefined;
+  let moduleFound = false;
+
+  const findImportsArray = (node: ts.Node): any => {
+    if (
+      ts.isDecorator(node) &&
+      ts.isCallExpression(node.expression) &&
+      ts.isIdentifier(node.expression.expression) &&
+      node.expression.expression.text === 'NgModule'
+    ) {
+      const arg = node.expression.arguments[0];
+
+      if (ts.isObjectLiteralExpression(arg)) {
+        arg.properties.forEach(property => {
+          if (
+            ts.isPropertyAssignment(property) &&
+            ts.isIdentifier(property.name) &&
+            property.name.text === 'imports'
+          ) {
+            if (ts.isArrayLiteralExpression(property.initializer)) {
+              importsArray = property.initializer;
+              moduleFound = importsArray.elements.some(
+                element => ts.isIdentifier(element) && element.text === moduleToFind
+              );
+            }
+          }
+        });
+      }
+    } else {
+      ts.forEachChild(node, findImportsArray);
+    }
+  };
+
+  findImportsArray(sourceFile);
+
+  if (importsArray && moduleFound) {
+    const newModuleAlreadyExists = importsArray.elements.some(element => {
+      return ts.isIdentifier(element) && element.text === newModule;
+    });
+
+    if (!newModuleAlreadyExists) {
+      // const newModuleNode = ts.createIdentifier(newModule);
+      const newModuleNode = ts.factory.createIdentifier(newModule);
+      const newModuleWithComment = ts.addSyntheticLeadingComment(
+        newModuleNode,
+        ts.SyntaxKind.SingleLineCommentTrivia,
+        comment,
+        true
+      );
+
+      const newImportsArray = context.factory.updateArrayLiteralExpression(importsArray, [
+        ...importsArray.elements,
+        newModuleWithComment,
+      ]);
+
+      const visitor: ts.Visitor = (node: ts.Node): ts.Node => {
+        if (node === importsArray) {
+          return newImportsArray;
+        }
+        return ts.visitEachChild(node, visitor, context);
+      };
+
+      const updatedSourceFile = ts.visitNode(sourceFile, visitor);
+      return updatedSourceFile;
+    }
+  }
+
+  return sourceFile;
+}

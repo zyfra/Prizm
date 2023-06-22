@@ -1,0 +1,159 @@
+@size-xs: 0.75rem;
+@size-s: 1rem;
+@size-m: 1.5rem;
+@size-xm: 2rem;
+@size-l: 2.5rem;
+@size-xl: 3.5rem;
+
+@width-xs: 38;
+@width-s: 25;
+@width-m: 17;
+@width-xm: 38;
+@width-l: 15;
+@width-xl: 14;
+
+@space: 0.25rem;
+
+@keyframes prizmLoaderDashOffset {
+  0% {
+    stroke-dashoffset: -66;
+  }
+
+  50% {
+    stroke-dashoffset: -314;
+  }
+
+  100% {
+    stroke-dashoffset: -66;
+  }
+}
+
+@keyframes prizmLoaderRotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(1turn);
+  }
+
+  100% {
+    transform: rotate(3turn);
+  }
+}
+
+:host {
+  position: relative;
+  display: flex;
+
+  &._loading {
+    overflow: hidden;
+  }
+}
+
+.z-content {
+  z-index: 0;
+  min-width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+  &_has-overlay {
+    opacity: 0.3;
+  }
+
+  &_loading {
+    pointer-events: none;
+  }
+}
+
+.z-loader {
+  position: relative;
+  left: -100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  flex-shrink: 0;
+  align-self: center;
+  color: var(--prizm-text-main);
+  stroke: var(--prizm-exeptions-g1-b1);
+  animation: prizmFadeIn var(--prizm-duration);
+
+  &&_horizontal {
+    flex-direction: row;
+  }
+
+  &&_inherit-color {
+    color: inherit;
+    stroke: currentColor;
+  }
+
+  &[data-prizm-element-size='xm'] {
+    font-size: @size-xm;
+    stroke-width: @width-xm;
+  }
+
+  &[data-prizm-element-size='s'] {
+    font-size: @size-s;
+    stroke-width: @width-s;
+  }
+
+  &[data-prizm-element-size='xs'] {
+    font-size: @size-xs;
+    stroke-width: @width-xs;
+  }
+
+  &[data-prizm-element-size='m'] {
+    font-size: @size-m;
+    stroke-width: @width-m;
+  }
+
+  &[data-prizm-element-size='l'] {
+    font-size: @size-l;
+    stroke-width: @width-l;
+  }
+
+  &[data-prizm-element-size='xl'] {
+    font-size: @size-xl;
+    stroke-width: @width-xl;
+  }
+}
+
+.z-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  margin-top: 1rem;
+  color: inherit;
+  max-width: 100%;
+  text-align: center;
+  stroke-width: 0; // for Safari 11
+
+  &_horizontal {
+    margin: 0 0 0 @space * 4;
+  }
+}
+
+.z-icon {
+  display: block;
+  min-width: 1em;
+  max-width: 1em;
+  min-height: 1em;
+  max-height: 1em;
+  margin: @space -0.5em;
+  border-radius: 100%;
+  overflow: hidden;
+  transform: scale(1, -1);
+  animation: prizmLoaderRotate 3s linear infinite;
+}
+
+.z-circle {
+  fill: none;
+  stroke: inherit;
+  stroke-width: inherit;
+  animation: prizmLoaderDashOffset 3s linear infinite;
+}

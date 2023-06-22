@@ -1,0 +1,45 @@
+<prizm-scrollbar class="z-scrollbar" *ngIf="isYearPickerShown; else monthSelect">
+  <prizm-primitive-year-picker
+    [min]="min"
+    [max]="max"
+    [initialItem]="year"
+    [value]="value"
+    (yearClick)="onPickerYearClick($event)"
+  ></prizm-primitive-year-picker>
+</prizm-scrollbar>
+<ng-template #monthSelect>
+  <prizm-primitive-spin-button
+    [focusable]="false"
+    [leftDisabled]="previousYearDisabled"
+    [rightDisabled]="nextYearDisabled"
+    (leftClick)="onPreviousYear()"
+    (rightClick)="onNextYear()"
+    prizmStopPropagation="mousedown"
+  >
+    <button
+      [prizmFocusable]="false"
+      (click)="onYearClick()"
+      prizmLink
+      automation-id="prizm-calendar-month__active-year"
+    >
+      {{ year.formattedYear }}
+    </button>
+  </prizm-primitive-spin-button>
+  <div class="z-row">
+    <ng-container *ngFor="let month of months$ | async; let index = index">
+      <div
+        class="z-cell"
+        *prizmLet="getPrizmMonth(index, year.year) as item"
+        [class.z-cell_today]="isItemToday(item)"
+        [class.z-cell_interval]="isItemInsideRange(item)"
+        [attr.data-range]="getItemRange(item)"
+        [attr.data-state]="getItemState(item)"
+        (prizmHoveredChange)="onItemHovered($event, item)"
+        (prizmPressedChange)="onItemHovered($event, item)"
+        (click)="onItemClick(item)"
+      >
+        <div class="z-item">{{ month }}</div>
+      </div>
+    </ng-container>
+  </div>
+</ng-template>

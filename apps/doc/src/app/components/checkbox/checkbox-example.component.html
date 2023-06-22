@@ -1,0 +1,108 @@
+<prizm-doc-page header="Checkbox">
+  <div class="page-description" description>
+    Our checkbox component is a simple way to allow users to select one or more options from a list.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicCheckbox" heading="Base">
+      <prizm-checkbox-basic-example></prizm-checkbox-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="group" [content]="checkboxGroup" heading="Group">
+      <prizm-checkbox-group-example></prizm-checkbox-group-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="form" [content]="exampleReactiveFormCheckbox" heading="With Reactive Forms">
+      <prizm-checkbox-form-example></prizm-checkbox-form-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-checkbox
+        #element
+        [prizmDocHostElement]="element"
+        [checked]="checked"
+        [disabled]="disabled"
+        [size]="size"
+        [indeterminate]="indeterminate"
+      >
+        {{ label }}
+      </prizm-checkbox>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template [(documentationPropertyValue)]="label" documentationPropertyMode="ng-content">
+        ng-content
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="checked"
+        documentationPropertyName="checked"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Checked
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="host"
+        documentationPropertyType="HtmlElement | null"
+        documentationPropertyMode="input"
+      >
+        Host (default current element)
+        <br />
+        Which element to listen for click, keyboard events
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="indeterminate"
+        documentationPropertyName="indeterminate"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Indeterminate
+
+        <p>При изменении checked indeterminate устанавливается в false</p>
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="l | s"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="changed"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Changed
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmCheckboxModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="MyComponent.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

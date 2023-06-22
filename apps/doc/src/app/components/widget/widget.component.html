@@ -1,0 +1,95 @@
+<prizm-doc-page header="Widget">
+  <div class="page-description" description>
+    Our widget component can use a variety of different types of content. It can be used to display a single
+    image, a video, or a slideshow of images. It can also be used to display a single piece of text, or a
+    slideshow of text.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-widget-base-example></prizm-widget-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base" [content]="exampleWithButtons" heading="With Buttons">
+      <prizm-widget-with-buttons-example></prizm-widget-with-buttons-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-widget
+        #element
+        [prizmDocHostElement]="element"
+        [header]="header"
+        [title]="title"
+        [icons]="icons"
+      >
+        {{ content }}
+      </prizm-widget>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <!-- <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+        [(documentationPropertyValue)]="content"
+      >
+        NgContent
+      </ng-template> -->
+
+      <ng-template
+        [(documentationPropertyValue)]="header"
+        [documentationPropertyValues]="$any(getHeaderVariants(headerTemplate))"
+        documentationPropertyName="header"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+      >
+        Header ( if passed header, title and icons will be not showed )
+      </ng-template>
+
+      <ng-template #headerTemplate> Отдельный шаблон для реализации своего хедера </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Title
+      </ng-template>
+
+      <ng-template #iconTemplate> Какой то шаблон </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="icons"
+        [documentationPropertyValues]="$any(getIconVariants(iconTemplate))"
+        documentationPropertyName="icons"
+        documentationPropertyType="PolymorphContent | string[]"
+        documentationPropertyMode="input"
+      >
+        Icons
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="iconClick"
+        documentationPropertyType="string"
+        documentationPropertyMode="output"
+      >
+        Click on icon
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmWidgetModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,47 @@
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table class="table" [columns]="columns" prizmTable>
+    <thead>
+      <tr prizmThGroup>
+        <th [resizable]="true" prizmTh>Код</th>
+        <th *prizmHead="'name'" prizmTh>Наименование</th>
+        <th *prizmHead="'category'" prizmTh>
+          Категория
+          <prizm-dropdown-host
+            class="filter"
+            [(isOpen)]="filterOpen"
+            [content]="dropdown"
+            prizmDropdownHostWidth="auto"
+          >
+            <prizm-icon
+              class="filter__category"
+              [class.filter__category_active]="filterOpen || filterOn"
+              (click)="filterOpen = !filterOpen"
+              iconClass="sort-filter"
+            ></prizm-icon>
+          </prizm-dropdown-host>
+        </th>
+        <th *prizmHead="'count'" prizmTh>Количество</th>
+      </tr>
+    </thead>
+
+    <tbody [data]="filteredProducts$ | async" prizmTbody>
+      <tr class="row" *prizmRow="let item of filteredProducts$ | async; let i = index" prizmTr>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+        <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+        <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+        <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<ng-template #dropdown>
+  <div class="filter-container">
+    <form [formGroup]="formGroup">
+      <prizm-checkbox formControlName="control1">Premium</prizm-checkbox>
+      <prizm-checkbox formControlName="control2">Active</prizm-checkbox>
+      <prizm-checkbox formControlName="control3">Sport</prizm-checkbox>
+      <prizm-checkbox formControlName="control4">Sport+</prizm-checkbox>
+    </form>
+  </div>
+</ng-template>

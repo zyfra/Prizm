@@ -1,0 +1,94 @@
+<div class="container">
+  <prizm-panel header="Заголовок">
+    <div class="zoom-control" instruments>
+      <button
+        class="zoom-control__btn"
+        [disabled]="scaleIdx === scalesList.length - 1"
+        (click)="scaleDecrease()"
+        prizmIconButton
+        appearanceType="ghost"
+        icon="sort-zoom-out"
+        appearance="secondary"
+        size="m"
+      ></button>
+      <prizm-dropdown-host [(isOpen)]="openDropdown" [content]="dropdown" prizmDropdownHostWidth="100%">
+        <button class="zoom-control__select" (click)="openDropdown = !openDropdown">
+          {{ currentScale | number : '.0-1' }}%
+          <prizm-icon class="zoom-control__select-icon" iconClass="chevrons-dropdown"></prizm-icon>
+        </button>
+      </prizm-dropdown-host>
+      <button
+        class="zoom-control__btn"
+        [disabled]="scaleIdx === 0"
+        (click)="scaleIncrease()"
+        prizmIconButton
+        appearanceType="ghost"
+        icon="sort-maximize"
+        appearance="secondary"
+        size="m"
+      ></button>
+    </div>
+  </prizm-panel>
+  <div class="content" #content>
+    <div
+      class="scalable-item"
+      [ngStyle]="{
+        'width.px': (250 * currentScale) / 100,
+        'height.px': (250 * currentScale) / 100
+      }"
+    ></div>
+  </div>
+</div>
+
+<ng-template #dropdown>
+  <prizm-data-list class="settings">
+    <div class="settings-group">
+      <div
+        class="settings-group__item"
+        *ngFor="let scale of scalesList; let i = index"
+        (click)="chooseScale(i)"
+      >
+        {{ scale }}%
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group__item" (click)="scaleIncrease()">
+        <prizm-icon class="icon" iconClass="sort-zoom-out"></prizm-icon>
+        Увеличить
+        <span class="key"> F </span>
+      </div>
+      <div class="settings-group__item" (click)="scaleDecrease()">
+        <prizm-icon class="icon" iconClass="sort-maximize"></prizm-icon>
+        Уменьшить
+        <span class="key"> F </span>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group__item" (click)="setScale(100)">
+        <prizm-icon class="icon" iconClass="arrows-expand-all"></prizm-icon>
+        Полный размер
+        <span class="key"> F </span>
+      </div>
+      <div class="settings-group__item">
+        <prizm-icon class="icon" iconClass="editor-border-outer"></prizm-icon>
+        Вписать
+        <span class="key"> F </span>
+      </div>
+    </div>
+
+    <div class="settings-group">
+      <div class="settings-group__item" (click)="setScale((400 / 250) * 100)">
+        <prizm-icon class="icon" iconClass="arrows-arrow-expand-vertical"></prizm-icon>
+        По высоте
+        <span class="key"> F </span>
+      </div>
+      <div class="settings-group__item" (click)="setScale((contentWidth / 250) * 100)">
+        <prizm-icon class="icon" iconClass="arrows-arrow-expand-horizontal"></prizm-icon>
+        По ширине
+        <span class="key"> F </span>
+      </div>
+    </div>
+  </prizm-data-list>
+</ng-template>

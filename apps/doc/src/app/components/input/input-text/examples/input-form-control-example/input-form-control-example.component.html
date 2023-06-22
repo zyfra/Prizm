@@ -1,0 +1,35 @@
+<p>
+  <b>FormControl</b>
+</p>
+
+<prizm-input-layout label="Заголовок">
+  <input [formControl]="control" prizmInput />
+</prizm-input-layout>
+
+<p>
+  <button (click)="changeControl()" prizmButton>Change control form!</button>
+</p>
+
+<p>
+  <b>[value]</b>
+</p>
+
+<prizm-input-layout label="Заголовок">
+  <input [value]="valueText" prizmInput />
+</prizm-input-layout>
+
+<p>
+  <button (click)="changeText()" prizmButton>Change text value!</button>
+</p>
+
+<p>
+  <b>[ngModel]</b>
+</p>
+
+<prizm-input-layout label="Заголовок">
+  <input [(ngModel)]="ngModelText" prizmInput />
+</prizm-input-layout>
+
+<p>
+  <button (click)="changeNgModel()" prizmButton>Change ngModel text!</button>
+</p>

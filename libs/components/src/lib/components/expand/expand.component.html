@@ -1,0 +1,8 @@
+<div class="wrapper" #wrapper>
+  <ng-container *ngIf="contentVisible">
+    <ng-content></ng-content>
+    <prizm-loader *ngIf="this.isLoading; else content" [overlay]="true" [showLoader]="loading" size="l">
+      <ng-container [ngTemplateOutlet]="content"></ng-container>
+    </prizm-loader>
+  </ng-container>
+</div>

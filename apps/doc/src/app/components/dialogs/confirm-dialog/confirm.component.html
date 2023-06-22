@@ -1,0 +1,290 @@
+<prizm-doc-page header="Confirm Dialog">
+  <div class="page-description" description>
+    Our confirm dialog is a simple dialog that is used to confirm an action.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-dialog-service-example></prizm-dialog-service-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="horizontal" [content]="exampleHorizontal" heading="Horizontal">
+      <prizm-dialog-horizontal-example></prizm-dialog-horizontal-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="Custom" [content]="exampleFull" heading="Custom">
+      <prizm-dialog-full-example></prizm-dialog-full-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <button
+        [size]="size"
+        [icon]="icon"
+        [iconRight]="iconRight"
+        [appearanceType]="appearanceType"
+        [appearance]="appearance"
+        [disabled]="disabled"
+        [showLoader]="showLoader"
+        [focusable]="focusable"
+        [pseudoState]="pseudoState"
+        (click)="show()"
+        type="button"
+        prizmButton
+      >
+        Show Dialog
+      </button>
+    </prizm-doc-demo>
+
+    <ng-template #headerTemp> Header из <a href="#">шаблона</a> </ng-template>
+
+    <ng-template #contentTemp>
+      Content из <a href="#">шаблона</a>
+
+      <prizm-select [items]="items"></prizm-select>
+    </ng-template>
+
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        [documentationPropertyValues]="generatePolymorphVariants(defaultTitle)"
+        documentationPropertyName="title"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
+      >
+        Title
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="description"
+        [documentationPropertyValues]="generatePolymorphVariants(defaultDescription, contentTemp)"
+        documentationPropertyName="description"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
+      >
+        Description
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="position"
+        [documentationPropertyValues]="positionVariants"
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmOverlayInsidePlacement"
+      >
+        Position
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmDialogSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="backdrop"
+        documentationPropertyName="backdrop"
+        documentationPropertyType="boolean"
+      >
+        Backdrop
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="string"
+      >
+        Height
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="overscroll"
+        [documentationPropertyValues]="overscrollVariants"
+        documentationPropertyName="overscroll"
+        documentationPropertyType="PrizmOverscrollMode"
+      >
+        Overscroll
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="string"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="closeWord"
+        documentationPropertyName="closeWord"
+        documentationPropertyType="string"
+      >
+        Close Word
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="header"
+        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
+        documentationPropertyName="header"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+      >
+        Header
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="content"
+        [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
+        documentationPropertyName="content"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+      >
+        Content
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="appearance"
+        [documentationPropertyValues]="appearanceVariants"
+        documentationPropertyName="appearance"
+        documentationPropertyType="PrizmAppearance"
+        documentationPropertyMode="input"
+      >
+        Appearance
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="appearanceType"
+        [documentationPropertyValues]="appearanceTypeVariants"
+        documentationPropertyName="appearanceType"
+        documentationPropertyType="PrizmAppearanceType"
+        documentationPropertyMode="input"
+      >
+        AppearanceType
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
+        documentationPropertyName="icon"
+        documentationPropertyType="PrizmContent"
+        documentationPropertyMode="input"
+      >
+        Icon
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="iconRight"
+        [documentationPropertyValues]="iconVariants"
+        documentationPropertyName="iconRight"
+        documentationPropertyType="PrizmContent"
+        documentationPropertyMode="input"
+      >
+        Right Icon
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="showLoader"
+        documentationPropertyName="showLoader"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Show Loader
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="pseudoHovered"
+        documentationPropertyName="pseudoHovered"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Hovered
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="pseudoPressed"
+        documentationPropertyName="pseudoPressed"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Pressed
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="pseudoFocused"
+        documentationPropertyName="pseudoFocused"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Pseudo Focused
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="focusable"
+        documentationPropertyName="focusable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Focusable
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="pseudoState"
+        documentationPropertyName="pseudoState"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Pseudo State
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="focusedChange"
+        documentationPropertyName="focusedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Focused Change
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="pressedChange"
+        documentationPropertyName="pressedChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Pressed Change
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="hoveredChange"
+        documentationPropertyName="hoveredChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Hovered Change
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="focusVisibleChange"
+        documentationPropertyName="focusVisibleChange"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
+      >
+        Focus Visible Change
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmConfirmDialogModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

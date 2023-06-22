@@ -1,0 +1,27 @@
+<div class="container">
+  <prizm-panel>
+    <div class="pages" header>
+      <prizm-tabs (activeTabIndexChange)="activeTabIndexChange()">
+        <prizm-tab
+          *ngFor="let item of pages"
+          [disabled]="item.disabled"
+          [closable]="true"
+          [icon]="item.icon"
+          [content]="item.title"
+          [type]="'contained'"
+          (closeTab)="tabCancelClick(item)"
+        >
+        </prizm-tab>
+      </prizm-tabs>
+    </div>
+  </prizm-panel>
+  <div class="content">
+    <span>
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consequatur delectus dolores magnam
+      quibusdam reiciendis, reprehenderit sapiente sequi sit sunt tempora tenetur vel veritatis? Incidunt modi
+      perferendis quas? Accusantium aut exercitationem id pariatur quisquam, sequi suscipit. A aspernatur
+      atque cum cumque error exercitationem hic id, in ipsa magni nesciunt quam qui, quidem quod ratione rem
+      repudiandae sint sunt suscipit, vitae.
+    </span>
+  </div>
+</div>

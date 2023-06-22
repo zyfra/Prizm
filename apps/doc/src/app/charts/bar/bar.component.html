@@ -1,0 +1,143 @@
+<prizm-doc-page header="Bar">
+  <div class="page-description" description>
+    Bar graphs are good for plotting data that spans many years (or days, weeks . . .), has really big changes
+    from year to year (or day to day . . .), or they can be used for comparing different items in a related
+    category (for example: comparing something between different states).
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
+      <prizm-charts-bar-example></prizm-charts-bar-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="stacked" [content]="exampleOutline" heading="Stacked">
+      <prizm-charts-stacked-bar-example></prizm-charts-stacked-bar-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="group" [content]="exampleGroup" heading="Group">
+      <prizm-charts-bar-group-example></prizm-charts-bar-group-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-bar
+        #element
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [height]="height"
+        [width]="width"
+        [xField]="xField"
+        [yField]="yField"
+        [seriesField]="seriesField"
+        [theme]="prizmTheme.changesTheme$ | async"
+      ></prizm-charts-bar>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="xField"
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="color"
+        documentationPropertyType="PrizmChartsBarOptions['color']"
+        documentationPropertyMode="input"
+      >
+        Manually set callback
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="label"
+        documentationPropertyMode="input"
+        documentationPropertyType=" PrizmChartsBarOptions[label]"
+      >
+        Label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="yField"
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Y Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="seriesField"
+        documentationPropertyName="seriesField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Series Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsAreaItem[]"
+      >
+        Data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="autoFit"
+        documentationPropertyMode="input"
+        documentationPropertyType="boolean"
+      >
+        Auto Fit
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsBarOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Height
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmChartsBarModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

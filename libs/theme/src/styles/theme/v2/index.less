@@ -1,0 +1,17 @@
+@import 'default';
+@import 'dark';
+@import 'table';
+@import 'variables';
+
+:root,
+*[data-prizm-theme='light'] {
+  .prizmThemeVariablesV2();
+  .prizmDefaultThemeV2();
+  .prizmDefaultTableThemeV2();
+}
+
+*[data-prizm-theme='dark'] {
+  .prizmDarkThemeV2();
+  .prizmDefaultTableThemeV2();
+  .prizmDarkTableThemeV2();
+}

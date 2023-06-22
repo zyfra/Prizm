@@ -1,0 +1,39 @@
+{
+  "name": "charts-base",
+  "projectType": "library",
+  "sourceRoot": "libs/charts/base/src",
+  "prefix": "prizm",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/charts/base"],
+      "options": {
+        "project": "libs/charts/base/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/charts/base/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/charts/base/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/charts/base"],
+      "options": {
+        "jestConfig": "libs/charts/base/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/charts/base/src/**/*.ts", "libs/charts/base/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}

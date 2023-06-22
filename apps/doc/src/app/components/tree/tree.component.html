@@ -1,0 +1,140 @@
+<prizm-doc-page header="Tree">
+  <div class="page-description" description>
+    Our tree component is a simple, flexible, and accessible tree view.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-tree-base-example></prizm-tree-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="array" [content]="exampleArray" heading="Array">
+      <prizm-tree-array-example></prizm-tree-array-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="template" [content]="exampleTemplate" heading="Template">
+      <prizm-tree-template-example></prizm-tree-template-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="template-checkbox"
+      [content]="exampleTemplateCheckbox"
+      heading="Template With Checkbox"
+    >
+      <prizm-tree-template-checkbox-example></prizm-tree-template-checkbox-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="template-lazy" [content]="exampleLazy" heading="Lazy Load">
+      <prizm-tree-template-lazy-example></prizm-tree-template-lazy-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="component" [content]="exampleComponent" heading="Component">
+      <prizm-tree-component-example></prizm-tree-component-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="padding-indent" [content]="examplePaddingIndent" heading="Padding indent">
+      <prizm-tree-padding-indent-example></prizm-tree-padding-indent-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <div [hidden]="true">
+        <p>EXAMPLE 1</p>
+        <div>
+          <prizm-tree
+            #element
+            [prizmDocHostElement]="element"
+            [value]="data"
+            prizmDocHostElementKey="PrizmTreeComponent"
+          >
+          </prizm-tree>
+        </div>
+        <br />
+        <br />
+      </div>
+      <div>
+        <ng-container
+          #treeControllerElement="prizmTreeController"
+          [prizmTreeController]="prizmTreeController"
+        >
+          <prizm-tree-item #element="prizmTreeItem">
+            Fruits
+            <prizm-tree-item>
+              Apples
+              <prizm-tree-item>Granny Smith</prizm-tree-item>
+              <prizm-tree-item>Red Delicious</prizm-tree-item>
+            </prizm-tree-item>
+            <prizm-tree-item>Oranges</prizm-tree-item>
+          </prizm-tree-item>
+          <prizm-tree-item>
+            Animals
+            <prizm-tree-item>Cats</prizm-tree-item>
+            <prizm-tree-item>Dogs</prizm-tree-item>
+          </prizm-tree-item>
+        </ng-container>
+      </div>
+      <!--      <prizm-tree #element [prizmDocHostElement]="element" [value]="data"></prizm-tree>-->
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation
+      heading="PrizmTreeItemControllerDirective"
+      hostComponentKey="PrizmTreeItemControllerDirective"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="prizmTreeController"
+        documentationPropertyName="prizmTreeController"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Expand All
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmTreeItemComponent" hostComponentKey="PrizmTreeItemComponent">
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      heading="PrizmTreeChildrenDirective"
+      hostComponentKey="PrizmTreeChildrenDirective"
+    >
+      <ng-template
+        documentationPropertyName="childrenHandler"
+        documentationPropertyType="PrizmHandler<T, readonly T[]>"
+        documentationPropertyMode="input"
+      >
+        Children Handler
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmTreeComponent" hostComponentKey="PrizmTreeComponent">
+      <ng-template
+        [(documentationPropertyValue)]="treeController"
+        documentationPropertyName="value"
+        documentationPropertyType="DeepArray"
+        documentationPropertyMode="input"
+      >
+        Tree Controller
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="content"
+        documentationPropertyType="PolymorhContent"
+        documentationPropertyMode="input"
+      >
+        Content
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmTreeModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

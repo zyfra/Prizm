@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+
+  background-color: var(--prizm-splitter-gutter-bg, var(--prizm-bg-dashboard-forms));
+  touch-action: none;
+  align-items: center;
+  justify-content: center;
+
+  &.horizontal {
+    width: 8px;
+
+    .slider {
+      width: 4px;
+      height: 32px;
+      cursor: col-resize;
+    }
+  }
+
+  &.vertical {
+    height: 8px;
+    .slider {
+      width: 32px;
+      height: 4px;
+      cursor: row-resize;
+    }
+  }
+
+  .slider {
+    border-radius: 2px;
+    background-color: var(--prizm-palette-g6);
+    &:hover,
+    &:focus {
+      background-color: var(--prizm-palette-b2);
+    }
+    &:active {
+      background-color: var(--prizm-palette-b3);
+    }
+  }
+}

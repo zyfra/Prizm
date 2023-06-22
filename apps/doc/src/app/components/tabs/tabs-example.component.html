@@ -1,0 +1,201 @@
+<prizm-doc-page header="Tabs">
+  <div class="page-description" description>
+    Our tabs component is a simple way to organize content on a page.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="tabsExampleBasic" heading="Base">
+      <prizm-tabs-example-basic></prizm-tabs-example-basic>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="component" [content]="tabsExampleComponent" heading="Component">
+      <prizm-tabs-example-component></prizm-tabs-example-component>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="line" [content]="tabsLinedExample" heading="Lined tabs">
+      <prizm-tabs-example-lined></prizm-tabs-example-lined>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="contained" [content]="tabsContainedExample" heading="Contained tabs">
+      <prizm-tabs-example-contained></prizm-tabs-example-contained>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="icon" [content]="tabsIconExample" heading="Icon tabs">
+      <prizm-tabs-example-icon></prizm-tabs-example-icon>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="counter" [content]="tabsWithCounterExample" heading="Tabs with counter">
+      <prizm-tabs-example-counter></prizm-tabs-example-counter>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="closable" [content]="tabsClosableExample" heading="Closable tabs">
+      <prizm-tabs-example-closable></prizm-tabs-example-closable>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <div class="container container__{{ size }}">
+        <prizm-tabs
+          #elementTabs
+          [prizmDocHostElement]="elementTabs"
+          [size]="size"
+          [canOpen]="canOpen"
+          [canShowMenu]="canShowMenu"
+          [activeTabIndex]="activeTabIndex"
+          prizmDocHostElementKey="PrizmTabsComponent"
+        >
+          <prizm-tab
+            #elementTab
+            *ngIf="!removed"
+            [prizmDocHostElement]="elementTab"
+            [icon]="icon"
+            [content]="content"
+            [closable]="closable"
+            [type]="type"
+            [disabled]="disabled"
+            [count]="count"
+            (closeTab)="removeTab()"
+            prizmDocHostElementKey="PrizmTabComponent"
+          >
+          </prizm-tab>
+          <prizm-tab
+            [icon]="icon"
+            [closable]="closable"
+            [type]="type"
+            [closeIcon]="closeIcon"
+            [disabled]="disabled"
+            [count]="count"
+            content="Big Tab 2"
+          >
+          </prizm-tab>
+        </prizm-tabs>
+      </div>
+    </prizm-doc-demo>
+    <prizm-doc-documentation heading="PrizmTabsComponent" hostComponentKey="PrizmTabsComponent">
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmTabSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="canShowMenu"
+        documentationPropertyName="canShowMenu"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show Menu
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="canOpen"
+        [documentationPropertyValues]="canOpenVariants"
+        documentationPropertyName="canOpen"
+        documentationPropertyType="PrizmTabCanOpen"
+        documentationPropertyMode="input"
+      >
+        Can Open Tab
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="activeTabIndex"
+        documentationPropertyName="activeTabIndex"
+        documentationPropertyType="number"
+        documentationPropertyMode="input-output"
+      >
+        Active Tab Index
+      </ng-template>
+    </prizm-doc-documentation>
+    <prizm-doc-documentation heading="PrizmTabComponent" hostComponentKey="PrizmTabComponent">
+      <ng-template
+        [(documentationPropertyValue)]="content"
+        documentationPropertyName="content"
+        documentationPropertyMode="input"
+        documentationPropertyType="PolymorhContent"
+      >
+        PolymorhContent
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="type"
+        [documentationPropertyValues]="typeVariants"
+        documentationPropertyName="type"
+        documentationPropertyType="TabType"
+        documentationPropertyMode="input"
+      >
+        Tab title
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="count"
+        documentationPropertyName="count"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Tab counter
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="closable"
+        documentationPropertyName="closable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is tab closable
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Is tab disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="icon"
+        [documentationPropertyValues]="iconVariants"
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorhContent"
+        documentationPropertyMode="input"
+      >
+        Tab icon
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="closeIcon"
+        documentationPropertyName="closeIcon"
+        documentationPropertyType="PolymorhContent"
+        documentationPropertyMode="input"
+      >
+        Close Icon
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="closeTab"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Close Icon
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmTabsModule</code>
+          в модуль в котором хотите использовать компоненту
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,351 @@
+<div class="blocks">
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.every)">
+    <label
+      class="every value-block block"
+      *prizmLet="cronUiState.TYPES.every as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.setEvery()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content row">
+        {{ cronI18n$ | async | prizmPluck : ['day', 'every'] }}
+      </div>
+    </label>
+  </ng-container>
+
+  <!--  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.between)">-->
+  <!--    <label-->
+  <!--      class="block row"-->
+  <!--      *prizmLet="cronUiState.TYPES.between as currentType"-->
+  <!--      [class.selected]="cronUiState.typeControl.value === currentType"-->
+  <!--    >-->
+  <!--      <div class="radio">-->
+  <!--        <prizm-radio-button-->
+  <!--          [formControl]="cronUiState.typeControl"-->
+  <!--          [label]="null"-->
+  <!--          [value]="currentType"-->
+  <!--          [name]="'type'"-->
+  <!--          (changeEvent)="cronUiState.updateBetween()"-->
+  <!--        ></prizm-radio-button>-->
+  <!--      </div>-->
+  <!--      <div class="content">-->
+  <!--        <span>Каждый день с</span>-->
+  <!--        <prizm-cron-carousel-->
+  <!--          #start-->
+  <!--          [content]="cronUiState.list.between.start"-->
+  <!--          [value]="cronUiState.state$ | async | prizmPluck : ['between', 'start']"-->
+  <!--          (valueChange)="cronUiState.updateBetween({ start: $event })"-->
+  <!--        ></prizm-cron-carousel>-->
+  <!--        <span>до</span>-->
+  <!--        <prizm-cron-carousel-->
+  <!--          #end-->
+  <!--          [content]="cronUiState.list.between.end"-->
+  <!--          [value]="cronUiState.state$ | async | prizmPluck : ['between', 'end']"-->
+  <!--          (valueChange)="cronUiState.updateBetween({ end: $event })"-->
+  <!--        ></prizm-cron-carousel>-->
+  <!--      </div>-->
+  <!--    </label>-->
+  <!--  </ng-container>-->
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.afterDayOfWeek)">
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.afterDayOfWeek as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.updateAfterDayOfWeek()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">
+        Каждый
+        <prizm-cron-carousel
+          [content]="cronUiState.afterDayOfWeekListDays"
+          [value]="cronUiState.afterDayOfWeekListDaysValue"
+          (valueChange)="cronUiState.updateAfterDayOfWeek({ afterDayOfWeekListDaysValue: $event })"
+        ></prizm-cron-carousel>
+        день, начиная с
+        <prizm-cron-carousel
+          [content]="cronUiState.carouselWeekAfterDayOfWeek"
+          [value]="cronUiState.afterDayOfWeekListDayOfWeeksValue"
+          (valueChange)="cronUiState.updateAfterDayOfWeek({ afterDayOfWeekListDayOfWeeksValue: $event })"
+        >
+          <ng-template #content let-value="content">
+            {{ value | prizmCronWeek }}
+          </ng-template>
+        </prizm-cron-carousel>
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.afterDayOfMonth)">
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.afterDayOfMonth as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.updateAfterDayOfMonth()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">
+        Каждый
+        <prizm-cron-carousel
+          [content]="cronUiState.afterDayOfMonthListRepeatDays"
+          [value]="cronUiState.afterDayOfMonthListRepeatDaysValue"
+          (valueChange)="cronUiState.updateAfterDayOfMonth($event)"
+        ></prizm-cron-carousel>
+        день, начиная с
+        <prizm-cron-carousel
+          [content]="cronUiState.afterDayOfMonthListDays"
+          [value]="cronUiState.afterDayOfMonthListDaysValue"
+          (valueChange)="cronUiState.updateAfterDayOfMonth(null, $event)"
+        ></prizm-cron-carousel>
+        числа месяца
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.specifiedDayOfWeek)">
+    <label
+      class="block"
+      *prizmLet="cronUiState.TYPES.specifiedDayOfWeek as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="schedule.emit()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content column">
+        <span>По определённым дням недели (выбор одного или нескольких)</span>
+        <prizm-cron-schedule
+          #schedule
+          [items]="cronUiState.dayOfWeekItems"
+          [selected]="cronUiState.selectedDayOfWeek"
+          (selectedChange)="cronUiState.updateSelectedDayOfWeek($event)"
+        >
+          <ng-template #content let-item="item">
+            {{ item.value | prizmCronWeek : 'E' }}
+          </ng-template>
+        </prizm-cron-schedule>
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.specifiedDayOfMonth)">
+    <label
+      class="block"
+      *prizmLet="cronUiState.TYPES.specifiedDayOfMonth as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="scheduleDayOfMonthItems.emit()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content column">
+        <span>По определённым дням месяца (выбор одного или нескольких)</span>
+        <prizm-cron-schedule
+          #scheduleDayOfMonthItems
+          [items]="cronUiState.dayOfMonthItems"
+          [selected]="cronUiState.selectedDayOfMonth"
+          (selectedChange)="cronUiState.updateSelectedDayOfMonth($event)"
+        ></prizm-cron-schedule>
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.lastDayOfMonth)">
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.lastDayOfMonth as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.setLastDayOfMonth()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">Последний день месяца</div>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.lastWeekDayOfMonth)">
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.lastWeekDayOfMonth as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.setLastWeekDayOfMonth()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">Последний рабочий день месяца</div>
+    </label>
+  </ng-container>
+
+  <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.lastChosenDayOfWeek)">
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.lastChosenDayOfWeek as currentType"
+      [class.selected]="currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.updateLastChosenDayOfWeek(cronUiState.lastChosenDayOfWeekValue)"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">
+        В последний(-яя,-ее)
+        <prizm-cron-carousel
+          #cronCarouselComponent
+          [content]="cronUiState.carouselWeekLastChosenDayOfWeek"
+          [value]="cronUiState.lastChosenDayOfWeekValue"
+          (valueChange)="cronUiState.updateLastChosenDayOfWeek($event)"
+        >
+          <ng-template #content let-value="content">
+            {{ value | prizmCronWeek }}
+          </ng-template>
+        </prizm-cron-carousel>
+        месяца
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container
+    *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.lastChosenDaysOfMonth)"
+  >
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.lastChosenDaysOfMonth as currentType"
+      [class.selected]="currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.updateLastChosenDayOfMonth()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">
+        В последний(-ие)
+        <prizm-cron-carousel
+          [content]="cronUiState.contentLastChosenDayOfMonth"
+          [value]="cronUiState.lastChosenDayOfMonthValue"
+          (valueChange)="cronUiState.updateLastChosenDayOfMonth($event)"
+        ></prizm-cron-carousel>
+        дней(-я, -нь) до конца месяца
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container
+    *ngIf="
+      cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.nearestWeekDayToTheChosenDayOfMonth)
+    "
+  >
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.nearestWeekDayToTheChosenDayOfMonth as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.updateNearestDayOfMonth()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">
+        Ближайший будний день (Понедельник - Пятница) к
+        <prizm-cron-carousel
+          [content]="cronUiState.nearestDayOfMonth"
+          [value]="cronUiState.nearestDayOfMonthValue"
+          (valueChange)="cronUiState.updateNearestDayOfMonth($event)"
+        ></prizm-cron-carousel>
+        числу месяца
+      </div>
+    </label>
+  </ng-container>
+
+  <ng-container
+    *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.onTheChosenDayOfWeek)"
+  >
+    <label
+      class="block row"
+      *prizmLet="cronUiState.TYPES.onTheChosenDayOfWeek as currentType"
+      [class.selected]="cronUiState.typeControl.value === currentType"
+    >
+      <div class="radio">
+        <prizm-radio-button
+          [formControl]="cronUiState.typeControl"
+          [label]="null"
+          [value]="currentType"
+          [name]="'type'"
+          (changeEvent)="cronUiState.updateLastChosenDayOfChosenWeek()"
+        ></prizm-radio-button>
+      </div>
+      <div class="content">
+        В
+        <prizm-cron-carousel
+          [content]="cronUiState.afterNumberOfWeekList"
+          [value]="cronUiState.onNumberOfWeekListValue"
+          (valueChange)="cronUiState.updateLastChosenDayOfChosenWeek($event)"
+        ></prizm-cron-carousel>
+        <prizm-cron-carousel
+          [content]="cronUiState.carouselWeekLastChosenDayOfChosenWeek"
+          [value]="cronUiState.lastChosenDayOfWeekValue2"
+          (valueChange)="cronUiState.updateLastChosenDayOfChosenWeek(null, $event)"
+        >
+          <ng-template #content let-value="content">
+            {{ value | prizmCronWeek }}
+          </ng-template>
+        </prizm-cron-carousel>
+        месяца
+      </div>
+    </label>
+  </ng-container>
+</div>

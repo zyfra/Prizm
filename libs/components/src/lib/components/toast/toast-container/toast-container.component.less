@@ -1,0 +1,24 @@
+.prizm-toast-container {
+  display: flex;
+  flex-flow: column;
+  gap: var(--prizm-toast-gap, 10px);
+  padding: var(--prizm-toast-padding, 10px);
+  max-height: var(--prizm-toast-max-height, 90vh);
+
+  &.tl,
+  &.bl {
+    align-items: flex-start;
+  }
+  &.tm,
+  &.bm {
+    align-items: center;
+  }
+  &.tr,
+  &.br {
+    align-items: flex-end;
+  }
+}
+
+*:focus-visible {
+  outline: none;
+}

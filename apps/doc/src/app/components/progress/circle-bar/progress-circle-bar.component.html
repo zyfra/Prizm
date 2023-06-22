@@ -1,0 +1,88 @@
+<prizm-doc-page header="Progress Circle">
+  <div class="page-description" description>
+    Our progress component is a circular progress indicator that can be used to show the progress of an
+    operation.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleCircle" heading="Circle">
+      <prizm-progress-circle-example></prizm-progress-circle-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-progress-circle
+        #element
+        [prizmDocHostElement]="element"
+        [size]="size"
+        [max]="max"
+        [color]="color"
+        [trackColor]="trackColor"
+        [value]="value"
+      ></prizm-progress-circle>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        [documentationPropertyValues]="colorVariants"
+        documentationPropertyName="color"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input"
+      >
+        Color
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="trackColor"
+        [documentationPropertyValues]="trackColorVariants"
+        documentationPropertyName="trackColor"
+        documentationPropertyType="string | null"
+        documentationPropertyMode="input"
+      >
+        Track Color
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        documentationPropertyName="value"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="max"
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Max
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmSizeS | PrizmSizesXl"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmProgressModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

@@ -1,0 +1,33 @@
+<prizm-dropdown-host
+  class="dropdown-host"
+  [(isOpen)]="openDropdown"
+  [content]="dropdown"
+  prizmDropdownHostWidth="100%"
+>
+  <button
+    class="dropdown"
+    *ngIf="data.length > 0"
+    [class.dropdown_active]="openDropdown"
+    (click)="openDropdown = !openDropdown"
+  >
+    <div class="screen">
+      <prizm-icon
+        class="screen__icon"
+        [iconClass]="data[currentScreenIdx]?.icon || 'files-folder'"
+      ></prizm-icon>
+      <span class="screen__title">{{ data[currentScreenIdx]?.title }}</span>
+    </div>
+    <prizm-icon class="dropdown__icon" iconClass="chevrons-menu-right"></prizm-icon>
+  </button>
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <prizm-data-list class="screen-list">
+    <div class="screen-list__item" *ngFor="let item of data; let i = index" (click)="changeScreen(i)">
+      <div class="screen">
+        <prizm-icon class="screen__icon" [iconClass]="item?.icon || 'files-folder'"></prizm-icon>
+        <span class="screen__title">{{ item?.title }}</span>
+      </div>
+    </div>
+  </prizm-data-list>
+</ng-template>

@@ -1,0 +1,9 @@
+<div class="block">
+  <button (click)="toggle()" prizmButton>Toggle theme</button>
+  <button (click)="light()" prizmButton>Light</button>
+  <button (click)="dark()" prizmButton>Dark</button>
+</div>
+<br /><br />
+<div>
+  Current theme: <b>{{ theme.getByElement(theme.rootElement) }}</b>
+</div>

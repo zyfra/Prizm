@@ -1,0 +1,19 @@
+<div class="header">{{ title }}</div>
+
+<div class="wrapper">
+  <prizm-stepper-selector
+    [steps]="steps$ | async"
+    [currentStep]="currentStep"
+    [ngStyle]="{ 'min-width': vertical ? stepsSize : 'auto', 'min-height': vertical ? 'auto' : stepsSize }"
+    [vertical]="vertical"
+    (selectStep)="onSelectStep($event)"
+  ></prizm-stepper-selector>
+
+  <div class="step-content">
+    <ng-container *ngTemplateOutlet="currentStepTemplate"></ng-container>
+  </div>
+</div>
+
+<div class="footer">
+  <ng-content select="[prizmStepperFooter]"></ng-content>
+</div>

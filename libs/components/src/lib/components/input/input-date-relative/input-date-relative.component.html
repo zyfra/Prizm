@@ -1,0 +1,61 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="canOpen"
+  [content]="dropdown"
+  [isOpen]="isOpen && canOpen"
+  [closeByEsc]="true"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <prizm-input-layout
+    [label]="label"
+    [outer]="outer"
+    [forceClear]="forceClear"
+    [size]="size"
+    (click)="safeOpenModal()"
+  >
+    <input
+      class="input-search"
+      #focusableElementRef
+      [formControl]="value"
+      [placeholder]="placeholder"
+      (onClear)="onClear()"
+      prizmInput
+    />
+    <ng-container prizm-input-right>
+      <button
+        [interactive]="true"
+        (click)="focusableElementRef.focus()"
+        prizmInputIconButton="date-update"
+      ></button>
+      <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+      </ng-container>
+    </ng-container>
+  </prizm-input-layout>
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <ul class="prizm-datepicker-relative-menu" role="listbox">
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
+    <li class="relative-menu-item-divider"></li>
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>
+    <li class="relative-menu-item-divider"></li>
+    <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: periodItems }"></ng-container>
+
+    <ng-template #menuItemsTemplate let-items="items">
+      <li
+        class="relative-menu-item"
+        *ngFor="let item of items"
+        [class.relative-menu-item-active]="item.active"
+        (click)="onMenuItemClick($event, item)"
+        role="button"
+        tabindex="0"
+      >
+        <div class="relative-menu-item-icon">
+          <i class="prizm-icon {{ item.icon }}"></i>
+        </div>
+        <div class="relative-menu-item-label">{{ item.label }}</div>
+      </li>
+    </ng-template>
+  </ul>
+</ng-template>

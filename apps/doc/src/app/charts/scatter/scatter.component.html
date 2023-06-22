@@ -1,0 +1,122 @@
+<prizm-doc-page header="Scatter">
+  <div class="page-description" description>
+    Scatter charts are based on basic line charts with the x axis changed to a linear axis. To use a scatter
+    chart, data must be passed as objects containing X and Y properties. The example below creates a scatter
+    chart with 4 points.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
+      <prizm-charts-scatter-example></prizm-charts-scatter-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-charts-scatter
+        #element
+        [prizmDocHostElement]="element"
+        [data]="data"
+        [xField]="xField"
+        [width]="width"
+        [height]="height"
+        [yField]="yField"
+        [colorField]="colorField"
+        [theme]="prizmTheme.changesTheme$ | async"
+        [options]="{ size: 5, shape: 'circle', appendPadding: 30 }"
+      ></prizm-charts-scatter>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="width"
+        documentationPropertyName="width"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="xField"
+        documentationPropertyName="xField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        X Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="yField"
+        documentationPropertyName="yField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Y Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="colorField"
+        documentationPropertyName="colorField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color Field Name
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="data"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsAreaItem[]"
+      >
+        Data
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="autoFit"
+        documentationPropertyMode="input"
+        documentationPropertyType="boolean"
+      >
+        Auto Fit
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="theme"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartTheme"
+      >
+        Theme
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="options"
+        documentationPropertyMode="input"
+        documentationPropertyType="PrizmChartsScatterOptions"
+      >
+        Options
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="height"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Height
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmChartsScatterModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
