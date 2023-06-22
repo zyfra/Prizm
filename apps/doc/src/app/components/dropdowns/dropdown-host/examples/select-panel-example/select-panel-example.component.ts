@@ -28,6 +28,7 @@ export class PrizmSelectPanelExampleComponent {
 
   public show(): void {
     this.showPanel = true;
+    this.filter('');
   }
 
   public hide(): void {
