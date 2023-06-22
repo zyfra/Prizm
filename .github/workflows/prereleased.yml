@@ -1,26 +1,23 @@
 name: Pre-released
 on:
   release:
-    types: [prereleased]
+    types:
+      - prereleased
   workflow_dispatch:
-permissions:
-  contents: read
-  packages: write
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
-  draft_release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run workflow with draft publish
-        uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
+  pre_draft_release:
+    uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
+    secrets: inherit
 
   pre_release:
-    runs-on: ubuntu-latest
-    needs: draft_release
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run workflow with prerelease publish
-        uses: zyfra/Prizm/.github/workflows/prerelease-publish.yml@main
+    uses: zyfra/Prizm/.github/workflows/prerelease-publish.yml@main
+    secrets: inherit
+    needs: pre_draft_release
+
+  check_package_install:
+    uses: zyfra/Prizm/.github/workflows/check-build-in-real-project-ng-12.yml@main
+    secrets: inherit
+    needs: pre_draft_release

@@ -51,11 +51,11 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_draft_version=$(npm view @prizm-ui/components version --tag draft 2>/dev/null || echo '1.0.0-draft.0')
+          last_draft_version=$(npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.2.0-draft"))] | last // "1.2.0-draft.0")' 2>/dev/null || echo '1.2.0-draft.0')
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
       - name: 'Update draft versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --newVersion="1.*.*-draft.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-draft.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
       - name: 'Build draft versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -71,10 +71,13 @@ jobs:
       - run: cd dist/libs/plugin && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/ast && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/charts && npm publish --tag draft --access public --verbose || exit_code=0
+      - name: 'Build doc app for firebase hosting'
+        run: npx nx build doc
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
-          channelId: draft
+          channelId: live
+          target: draft

@@ -47,7 +47,7 @@ Dependencies:
 ```
 ➜ npm ls @prizm-ui/components
 
-@prizm-ui/components 1.0.0
+@prizm-ui/components 1.2.0
 ```
 
 ```
@@ -79,13 +79,20 @@ Dependencies:
 
 ```
 
-### Проект в котором используется КБ
+### Проект в котором используется Prizm
 
 - _Название проекта_
 
 ### Скрин / Видео проблемы
 
 _Скриншот.jpg_
+
+### Воспроизведение проблемы
+
+_Ссылка на stackblitz с минимальным воспроизведением_
+Пример:
+
+https://stackblitz.com/edit/ngx-14-title-demo-enp5ng?file=src%2Fapp%2Fapp.component.html
 
 ### Описание проблемы
 
