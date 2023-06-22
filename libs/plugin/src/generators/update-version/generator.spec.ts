@@ -18,7 +18,7 @@ describe('nx-plugin:generator update-version', () => {
   beforeEach(() => {
     tree = createTreeWithEmptyWorkspace();
 
-    tree.write('/projects/project1/package.json', JSON.stringify({ version: '1.2.0' }));
+    tree.write('/projects/project1/package.json', JSON.stringify({ version: '1.0.0' }));
     tree.write(
       '/projects/project1/project.json',
       JSON.stringify({
@@ -91,7 +91,7 @@ describe('nx-plugin:generator update-version', () => {
   });
 
   it('should update version in package.json for specific project by command', async () => {
-    const expectedVersion = '1.2.0-draft.0';
+    const expectedVersion = '1.0.0-draft.0';
     await updateVersion(tree, {
       project: 'project1',
       newVersion: '*.*.*-draft.up',
