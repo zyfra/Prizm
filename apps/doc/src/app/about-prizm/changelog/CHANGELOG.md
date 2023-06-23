@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.2-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
 ## [1.2.1](https://github.com/zyfra/Prizm) (23-06-2023)
 
 ### BUG FIXES
@@ -27,7 +33,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/dropdown): added pass current global theme to dropdown [[342](https://github.com/zyfra/Prizm/issues/342)](https://github.com/zyfra/Prizm/issues/342)
 - feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
 - feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
-- feat(components/cron): added ability to show human-readable value in cron #365
+- feat(components/cron): added ability to show human readable value in cron #365
 - feat(helpers/let): added ability to get current context from export via template ref
 
 ### BUG FIXES

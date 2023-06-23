@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/schema",
   "name": "plugin",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "generators": {
     "migrate-from-cb3": {
       "factory": "./src/generators/migrate-from-cb3/index",
