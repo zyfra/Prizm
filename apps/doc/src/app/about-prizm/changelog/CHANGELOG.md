@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.2-next.4](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(doc/sidebar): delete closeWork from doc, add example with confirmButton [352](https://github.com/zyfra/Prizm/issues/352)
+
 ## [1.2.2-next.3](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### FEATURES

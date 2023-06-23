@@ -42,7 +42,6 @@ export class PrizmSidebarTopBottomExampleComponent {
         {
           closeable: true,
           header: 'Header',
-          closeWord: 'Продолжить',
           position: this.position,
           backdrop: this.backdrop,
           height: '40vh',
