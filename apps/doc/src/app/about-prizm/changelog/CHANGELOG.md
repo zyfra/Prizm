@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### BUG FIXES
 
 - fix(components/icon): wrong data-testid [443](https://github.com/zyfra/Prizm/issues/443)
+- fix(chore): added updateBuildableProjectDepsInPackageJson to project configs [448](https://github.com/zyfra/Prizm/issues/448)
 
 ## [1.2.3-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
 
