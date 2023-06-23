@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.1-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
 ## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### Features
