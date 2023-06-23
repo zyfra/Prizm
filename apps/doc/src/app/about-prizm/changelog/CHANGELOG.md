@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.2-next.3](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
 ## [1.2.2-next.2](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### BUG FIXES
