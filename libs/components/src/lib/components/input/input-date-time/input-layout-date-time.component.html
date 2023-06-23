@@ -32,6 +32,7 @@
       [clearIfNotMatch]="false"
       [maxSize]="textMaskOptions.length"
       [ngModel]="computedDateValue()"
+      [ngModelOptions]="{ standalone: true }"
       (click)="referFocusToMain(!computedDateValue())"
       (ngModelChange)="onDateValueChange($event)"
       style="padding: 0"
