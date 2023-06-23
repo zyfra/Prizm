@@ -60,7 +60,7 @@ jobs:
       - name: 'Build draft versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/deprecated && npm publish --tag draft --access public -- --verbose || exit_code=0
+      - run: cd dist/libs/deprecated && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/i18n && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --tag draft --access public --verbose || exit_code=0
