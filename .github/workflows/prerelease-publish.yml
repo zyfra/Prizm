@@ -52,7 +52,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.2.1-next"))] | last // "1.2.1-next.0")' 2>/dev/null || echo '1.2.1-next.0'
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.2.3-next"))] | last // "1.2.3-next.0")' 2>/dev/null || echo '1.2.3-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
