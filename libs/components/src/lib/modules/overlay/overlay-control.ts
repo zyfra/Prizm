@@ -3,6 +3,7 @@ import {
   ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
+  Inject,
   Injector,
   ViewRef,
 } from '@angular/core';
@@ -28,6 +29,7 @@ import {
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { PrizmOverlayComponent } from './overlay.component';
 import { BODY_ELEMENT, EventBus, getContent } from './utils';
+import { WINDOW } from '@ng-web-apis/common';
 
 export class PrizmOverlayControl {
   position: PrizmOverlayAbstractPosition;
@@ -48,7 +50,8 @@ export class PrizmOverlayControl {
   constructor(
     private appRef: ApplicationRef,
     private compResolver: ComponentFactoryResolver,
-    private injector: Injector
+    private injector: Injector,
+    @Inject(WINDOW) private readonly window: Window
   ) {
     this.updateTextContent.pipe(takeUntil(this.destroy$)).subscribe(content => {
       if (this.isOpen) this.comp.updateTextContent(content);
@@ -120,6 +123,7 @@ export class PrizmOverlayControl {
       distinctUntilChanged(),
       tap(() => {
         EventBus.send(this.zid, 'z_dynpos');
+        this.reCalculatePositions();
         this.config.windowResizeCallback();
       })
     );

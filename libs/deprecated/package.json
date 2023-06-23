@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/deprecated",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "license": "MIT",
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "private": false,

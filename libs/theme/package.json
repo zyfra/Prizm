@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/theme",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "peerDependencies": {
     "@angular/common": "^15.2.9",
     "@angular/core": "^15.2.9"
