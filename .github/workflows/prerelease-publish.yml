@@ -52,7 +52,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-           npm view @prizm-ui/components versions --tag next --json next 2>/dev/null || echo '["1.2.2-next.0"]' | jq '([.[] | select(startswith("1.2.2-next"))] | last // "1.2.2-next.0")' 2>/dev/null || echo '1.2.2-next.0'
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.2.1-next"))] | last // "1.2.1-next.0")' 2>/dev/null || echo '1.2.1-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
@@ -62,7 +62,7 @@ jobs:
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/deprecated && npm publish --tag next --access public -- --verbose || exit_code=0
+      - run: cd dist/libs/deprecated && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose || exit_code=0
