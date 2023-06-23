@@ -8,7 +8,8 @@
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/libs/deprecated"],
       "options": {
-        "project": "libs/deprecated/ng-package.json"
+        "project": "libs/deprecated/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {

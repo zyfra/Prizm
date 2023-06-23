@@ -6,7 +6,8 @@
   },
   "assets": ["./src/styles/", "assets", "./src/lib/**/*.less"],
   "allowedNonPeerDependencies": [
-    "@angular/cdk",
+    "@angular/core",
+    "@angular/common",
     "primeicons",
     "primeng",
     "@prizm-ui/helpers",

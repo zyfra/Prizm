@@ -8,7 +8,8 @@
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/libs/ast"],
       "options": {
-        "project": "libs/ast/ng-package.json"
+        "project": "libs/ast/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {

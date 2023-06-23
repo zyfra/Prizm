@@ -8,7 +8,8 @@
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/libs/i18n"],
       "options": {
-        "project": "libs/i18n/ng-package.json"
+        "project": "libs/i18n/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {

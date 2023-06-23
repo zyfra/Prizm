@@ -8,7 +8,8 @@
       "executor": "@nrwl/angular:package",
       "outputs": ["dist/libs/schematics"],
       "options": {
-        "project": "libs/schematics/ng-package.json"
+        "project": "libs/schematics/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
