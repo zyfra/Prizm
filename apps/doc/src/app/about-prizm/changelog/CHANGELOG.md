@@ -14,6 +14,12 @@ All notable changes to this project will be documented in this file.
 - fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
 - fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
 
+## [1.2.2-next.4](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
 ## [1.2.2-next.3](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### FEATURES
