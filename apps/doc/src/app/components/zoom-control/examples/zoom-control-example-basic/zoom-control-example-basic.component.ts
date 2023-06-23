@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ElementRef, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'prizm-zoom-control-example-basic',
@@ -13,6 +13,8 @@ export class ZoomControlExampleBasicComponent {
   public scaleIdx = 3;
   public currentScale = this.scalesList[this.scaleIdx];
 
+  constructor(private cdRef: ChangeDetectorRef) {}
+
   public get contentWidth(): number {
     return this.contentElement.nativeElement.offsetWidth;
   }
@@ -22,6 +24,11 @@ export class ZoomControlExampleBasicComponent {
       this.scaleIdx--;
       this.currentScale = this.scalesList[this.scaleIdx];
     }
+    this.cdRef.markForCheck();
+  }
+
+  public closeDropdown(): void {
+    this.openDropdown = false;
   }
 
   public scaleDecrease(): void {
@@ -29,14 +36,17 @@ export class ZoomControlExampleBasicComponent {
       this.scaleIdx++;
       this.currentScale = this.scalesList[this.scaleIdx];
     }
+    this.cdRef.markForCheck();
   }
 
   public chooseScale(i: number): void {
     this.scaleIdx = i;
     this.currentScale = this.scalesList[this.scaleIdx];
+    this.cdRef.markForCheck();
   }
 
   public setScale(val: number): void {
     this.currentScale = val;
+    this.cdRef.markForCheck();
   }
 }

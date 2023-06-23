@@ -41,7 +41,6 @@ export class PrizmSidebarCustomHeaderTemplateExampleComponent {
           closeable: true,
           width: '400px',
           canClose: () => of(this.canClose),
-          closeWord: 'Продолжить',
           position: this.position,
           dismissible: this.dismissible,
           backdrop: this.backdrop,

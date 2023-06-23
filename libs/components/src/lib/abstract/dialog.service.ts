@@ -65,6 +65,9 @@ export abstract class AbstractPrizmDialogService<
         .config(this.getConfig(dialog))
         .content(dialog.component, {
           context: dialog,
+          getService: () => {
+            return control;
+          },
         })
         .create();
 

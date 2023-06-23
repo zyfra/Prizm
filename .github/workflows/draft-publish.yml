@@ -51,7 +51,9 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_draft_version=$(npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.2.0-draft"))] | last // "1.2.0-draft.0")' 2>/dev/null || echo '1.2.0-draft.0')
+          last_draft_version=$(
+            npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.2.3-draft"))] | last // "1.2.3-draft.0")' 2>/dev/null || echo '1.2.3-draft.0'
+          )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
       - name: 'Update draft versions'
@@ -60,7 +62,7 @@ jobs:
       - name: 'Build draft versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/deprecated && npm publish --tag draft --access public -- --verbose || exit_code=0
+      - run: cd dist/libs/deprecated && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/i18n && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --tag draft --access public --verbose || exit_code=0

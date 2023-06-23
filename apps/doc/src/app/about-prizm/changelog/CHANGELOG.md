@@ -2,6 +2,62 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.3-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
+
+## [1.2.2](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
+### BUG FIXES
+
+- fix(doc/sidebar): delete closeWork from doc, add example with confirmButton [352](https://github.com/zyfra/Prizm/issues/352)
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+- fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
+
+## [1.2.2-next.4](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
+## [1.2.2-next.3](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
+## [1.2.2-next.2](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
+
+## [1.2.2](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
+## [1.2.2-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
+## [1.2.1](https://github.com/zyfra/Prizm) (23-06-2023)
+
+### BUG FIXES
+
+- fix(chore): cannot run project [429](https://github.com/zyfra/Prizm/issues/429)
+- fix(components/toast): in the "template in the header" example, the content does not fit in the toast [422](https://github.com/zyfra/Prizm/issues/422)
+- fix(doc/dropdown-host): items may not be displayed in the list after filtering and calling the panel again [426](https://github.com/zyfra/Prizm/issues/426)
+
 ## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### Features

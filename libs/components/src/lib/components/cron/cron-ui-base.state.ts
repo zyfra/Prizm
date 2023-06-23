@@ -185,7 +185,6 @@ export abstract class PrizmCronUiBaseState<
    * TODO fix type casting
    * */
   public updateLocalState(value: any, type: TYPE): void {
-    console.log('#Mz updateLocalState', type, value);
     switch (type) {
       case this.TYPES.between:
         {

@@ -156,7 +156,7 @@ export class PrizmToastInfoExampleComponent {
 
   public showToastWithHeaderTemplate(headerTemplate: TemplateRef<unknown>): void {
     this.toastService.create('Шаблон в хедере', {
-      timer: 5000,
+      timer: 0,
       appearance: this.appearance,
       title: headerTemplate,
       position: this.formControl.value,
