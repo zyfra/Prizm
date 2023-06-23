@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.3-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
+
 ## [1.2.2](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### FEATURES
