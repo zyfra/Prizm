@@ -1,4 +1,9 @@
-<prizm-dropdown-host [(isOpen)]="showPanel" [content]="dropdown" prizmDropdownHostWidth="auto">
+<prizm-dropdown-host
+  #prizmDropdownHostComponent
+  [(isOpen)]="showPanel"
+  [content]="dropdown"
+  prizmDropdownHostWidth="auto"
+>
   <button (click)="show()" prizmButton type="button">Button</button>
 </prizm-dropdown-host>
 
@@ -23,13 +28,13 @@
           <input
             #input
             [placeholder]="'Введите значение'"
-            (input)="filter(input.value)"
-            (onClear)="filter('')"
+            (input)="filter(input.value); prizmDropdownHostComponent.reCalculatePositions()"
+            (onClear)="filter(''); prizmDropdownHostComponent.reCalculatePositions()"
             prizmInput
           />
           <button
             [interactive]="true"
-            (click)="filter(input.value)"
+            (click)="filter(input.value); prizmDropdownHostComponent.reCalculatePositions()"
             prizmInputIconButton="sort-zoom-in"
             prizm-input-right
           ></button>

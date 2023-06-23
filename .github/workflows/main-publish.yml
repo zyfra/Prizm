@@ -1,4 +1,4 @@
-name: Publish main packages
+name: Publish master packages
 on:
   workflow_dispatch:
   workflow_call:

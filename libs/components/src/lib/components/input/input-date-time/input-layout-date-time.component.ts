@@ -124,7 +124,7 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   override get empty(): Observable<boolean> {
     return combineLatest([this.value$, this.nativeValue$$]).pipe(
       map(([value, nativeValue]) => {
-        return !value.filter(Boolean).join('') && !nativeValue.find(Boolean);
+        return (!value || !value.filter?.(Boolean).join('')) && !nativeValue.find(Boolean);
       })
     ) as Observable<boolean>;
   }

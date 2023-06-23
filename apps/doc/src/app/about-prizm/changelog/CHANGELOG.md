@@ -2,11 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.1-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.2-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### BUG FIXES
 
 - fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
+## [1.2.1](https://github.com/zyfra/Prizm) (23-06-2023)
+
+### BUG FIXES
+
+- fix(chore): cannot run project [429](https://github.com/zyfra/Prizm/issues/429)
+- fix(components/toast): in the "template in the header" example, the content does not fit in the toast [422](https://github.com/zyfra/Prizm/issues/422)
+- fix(doc/dropdown-host): items may not be displayed in the list after filtering and calling the panel again [426](https://github.com/zyfra/Prizm/issues/426)
 
 ## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
 
