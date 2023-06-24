@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.3](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(components/icon): wrong data-testid [443](https://github.com/zyfra/Prizm/issues/443)
+- fix(chore): added updateBuildableProjectDepsInPackageJson to project configs [448](https://github.com/zyfra/Prizm/issues/448)
+- fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
+
 ## [1.2.3-next.2](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### BUG FIXES
