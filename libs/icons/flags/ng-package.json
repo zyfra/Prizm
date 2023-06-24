@@ -4,5 +4,6 @@
   "assets": ["./src/styles/", "./src/lib/**/*.less"],
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["@angular/core", "@angular/common", "@prizm-ui/core"]
 }
