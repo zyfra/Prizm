@@ -3,5 +3,6 @@
   "dest": "../../dist/libs/helpers",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["@angular/core"]
 }
