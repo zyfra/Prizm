@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/core",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "license": "MIT",
   "description": "The main library for creating Angular components and elements using Prizm.",
   "private": false,

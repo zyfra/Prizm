@@ -11,7 +11,7 @@ import {
   prizmConvertDayToType,
 } from './util';
 import { combineLatest, merge } from 'rxjs';
-import { filter, map, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
 
 @Injectable()
@@ -108,7 +108,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
         takeUntil(this.destroy$)
       )
       .subscribe();
-    super.initLocalStateChanger();
+    this.initLocalStateChanger();
   }
 
   public updateLastChosenDayOfMonth(lastChosenDayOfMonthValue?: string): void {
@@ -292,6 +292,10 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
         }
         break;
     }
+  }
+
+  protected override isBaseChanged(a: [string, string], b: [string, string]): boolean {
+    return a && b && a?.[0] === b?.[0] && a?.[1] === b?.[1];
   }
 
   public updateMainState(value: string): void {

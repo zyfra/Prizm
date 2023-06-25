@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   Component,
   forwardRef,
@@ -36,10 +37,10 @@ import { prizmClamp } from '../../../util/math/clamp';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { PrizmInputZoneDirective } from '../../../directives/input-zone';
-import { delay, map } from 'rxjs/operators';
+import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmInputNativeValueNeedChange } from '../../../directives';
 import { DOCUMENT } from '@angular/common';
 
@@ -62,9 +63,10 @@ import { DOCUMENT } from '@angular/common';
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateTimeComponent },
   ],
 })
-export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
-  [PrizmDay | null, PrizmTime | null]
-> {
+export class PrizmInputLayoutDateTimeComponent
+  extends PrizmInputNgControl<[PrizmDay | null, PrizmTime | null]>
+  implements AfterViewInit
+{
   readonly nativeElementType = 'input-date-time';
   readonly hasClearButton = true;
   private month: PrizmMonth | null = null;
@@ -145,6 +147,38 @@ export class PrizmInputLayoutDateTimeComponent extends PrizmInputNgControl<
   ) {
     super(injector, valueTransformer);
     this.extraButtonInjector = injector;
+  }
+
+  ngAfterViewInit(): void {
+    this.focusableElement.blur$
+      .pipe(
+        debounceTime(0),
+        filterTruthy(),
+        tap(() => this.completeDateIfAreNotPending()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  private completeDateIfAreNotPending() {
+    const [dateValue, timeValue] = this.nativeValue$$.value;
+
+    if (!dateValue && !timeValue) return;
+
+    if (dateValue && dateValue.length !== this.textMaskOptions.length) return;
+    if (timeValue && timeValue.length !== this.timeMaskOptions.length) return;
+
+    const parsedDate = dateValue
+      ? PrizmDay.normalizeParse(dateValue, this.dateFormat)
+      : new PrizmDay(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+    const parsedTime = PrizmTime.correctTime(
+      timeValue ? PrizmTime.fromString(timeValue) : new PrizmTime(0, 0)
+    );
+
+    this.nativeValue$$.next([parsedDate.toString(this.dateFormat), parsedTime.toString(this.timeMode)]);
+
+    this.updateWithCorrectDateAndTime([parsedDate, parsedTime]);
   }
 
   @prizmPure
