@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectorRef,
   Component,
   ContentChild,
@@ -13,7 +14,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, combineLatest, Observable, of, timer } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { PrizmDayRange } from '../../../@core/date-time/day-range';
 import { PrizmDay } from '../../../@core/date-time/day';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -33,20 +34,10 @@ import { PRIZM_DATE_TEXTS } from '../../../tokens/i18n';
 import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
-import {
-  debounceTime,
-  delay,
-  distinctUntilChanged,
-  first,
-  map,
-  share,
-  shareReplay,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
+import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
 import {
   prizmCreateDateNgxMask,
   PrizmDateTime,
@@ -59,7 +50,6 @@ import { PrizmDateButton, PrizmTimeMode } from '../../../types';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
 import { PrizmDateTimeMinMax } from './model';
-import { pull, values } from 'lodash';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -80,7 +70,7 @@ import { pull, values } from 'lodash';
 })
 export class PrizmInputLayoutDateTimeRangeComponent
   extends PrizmInputNgControl<PrizmDateTimeRange>
-  implements OnInit
+  implements OnInit, AfterViewInit
 {
   hasClearButton = true;
   nativeElementType = 'input-layout-date-range';
@@ -281,6 +271,52 @@ export class PrizmInputLayoutDateTimeRangeComponent
     this.changeDetectorRef.markForCheck();
   }
 
+  private completeDateIfAreNotPending() {
+    const fromValue = this.nativeValueFrom$$.value;
+    const toValue = this.nativeValueTo$$.value;
+    const fromTimeValue = this.nativeValueTimeFrom$$.value;
+    const toTimeValue = this.nativeValueTimeTo$$.value;
+
+    // stop if empty
+    if (!fromValue && !toValue && !fromTimeValue && !toTimeValue) return;
+
+    // stop if started value
+    if (fromValue && fromValue.length !== this.computedDateMask.length) return;
+    if (toValue && toValue.length !== this.computedDateMask.length) return;
+    if (fromTimeValue && fromTimeValue.length !== this.computedTimeMask.length) return;
+    if (toTimeValue && toTimeValue.length !== this.computedTimeMask.length) return;
+
+    const parsedFrom = fromValue
+      ? PrizmDay.normalizeParse(fromValue, this.dateFormat)
+      : new PrizmDay(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+    const parsedTo = toValue ? PrizmDay.normalizeParse(toValue, this.dateFormat) : parsedFrom.append({});
+
+    const parsedTimeTo = PrizmTime.correctTime(
+      toTimeValue ? PrizmTime.fromString(toTimeValue) : new PrizmTime(23, 59)
+    );
+
+    const parsedTimeFrom = PrizmTime.correctTime(
+      fromTimeValue ? PrizmTime.fromString(fromTimeValue) : new PrizmTime(0, 0)
+    );
+
+    this.nativeValueTo$$.next(parsedTo.toString(this.dateFormat));
+    this.nativeValueFrom$$.next(parsedFrom.toString(this.dateFormat));
+    this.nativeValueTimeTo$$.next(parsedTimeTo.toString(this.timeMode));
+    this.nativeValueTimeFrom$$.next(parsedTimeFrom.toString(this.timeMode));
+  }
+
+  public ngAfterViewInit(): void {
+    this.focusableElement.blur$
+      .pipe(
+        debounceTime(0),
+        filterTruthy(),
+        tap(() => this.completeDateIfAreNotPending()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
   public override ngOnInit() {
     super.ngOnInit();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
@@ -292,6 +328,11 @@ export class PrizmInputLayoutDateTimeRangeComponent
           const toValue = dayRange[1];
           const fromTimeValue = timeRange[0];
           const toTimeValue = timeRange[1];
+
+          if (!fromValue || fromValue.length !== this.computedDateMask.length) return;
+          if (!toValue || toValue.length !== this.computedDateMask.length) return;
+          if (!fromTimeValue || fromTimeValue.length !== this.computedTimeMask.length) return;
+          if (!toTimeValue || toTimeValue.length !== this.computedTimeMask.length) return;
 
           if (
             fromValue === this.value?.dayRange?.from.toString() &&
@@ -319,7 +360,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   public onDateValueChange(value: string, isFormValue: boolean): void {
-    // return;
     if (isFormValue && value === this.fromValue) return;
     if (!isFormValue && value === this.toValue) return;
 
@@ -379,16 +419,16 @@ export class PrizmInputLayoutDateTimeRangeComponent
       }
 
       if (!parsedTo) {
-        const today = new Date();
-        today.setDate(today.getDate() + 1);
-        parsedTo = PrizmDay.fromLocalNativeDate(today);
+        const tomorrow = new Date();
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        parsedTo = PrizmDay.fromLocalNativeDate(tomorrow);
       }
     }
 
     this.updateValue(
       new PrizmDateTimeRange(
-        parsedFrom || parsedTo ? new PrizmDayRange(parsedFrom, parsedTo) : null,
-        parsedTimeFrom || parsedTimeTo ? new PrizmTimeRange(parsedTimeFrom, parsedTimeTo) : null
+        parsedFrom && parsedTo ? new PrizmDayRange(parsedFrom, parsedTo) : null,
+        parsedTimeFrom && parsedTimeTo ? new PrizmTimeRange(parsedTimeFrom, parsedTimeTo) : null
       )
     );
   }
