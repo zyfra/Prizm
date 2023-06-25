@@ -2,7 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.3](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.4.next-1](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- feat(components/input-layout-date-time): filling in data if at least one date or time field is completely filled [452](https://github.com/zyfra/Prizm/issues/452)
+
+### BUG FIXES
+
+- fix(components/navigation): in the navigation in the dropdown, it is not displayed which section is selected. [451](https://github.com/zyfra/Prizm/issues/451)
+
+## [1.2.3](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### BUG FIXES
 
@@ -10,20 +20,20 @@ All notable changes to this project will be documented in this file.
 - fix(chore): added updateBuildableProjectDepsInPackageJson to project configs [448](https://github.com/zyfra/Prizm/issues/448)
 - fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
 
-## [1.2.3-next.2](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.3-next.2](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### BUG FIXES
 
 - fix(components/icon): wrong data-testid [443](https://github.com/zyfra/Prizm/issues/443)
 - fix(chore): added updateBuildableProjectDepsInPackageJson to project configs [448](https://github.com/zyfra/Prizm/issues/448)
 
-## [1.2.3-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.3-next.1](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### BUG FIXES
 
 - fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
 
-## [1.2.2](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.2](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### FEATURES
 
@@ -35,25 +45,25 @@ All notable changes to this project will be documented in this file.
 - fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
 - fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
 
-## [1.2.2-next.4](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.2-next.4](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### FEATURES
 
 - feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
 
-## [1.2.2-next.3](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.2-next.3](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### FEATURES
 
 - feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
 
-## [1.2.2-next.2](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.2-next.2](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### BUG FIXES
 
 - fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
 
-## [1.2.2](https://github.com/zyfra/Prizm) (21-06-2023)
+## [1.2.2](https://github.com/zyfra/Prizm) (25-06-2023)
 
 ### BUG FIXES
 
