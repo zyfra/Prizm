@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.4](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- feat(components/input-layout-date-time): filling in data if at least one date or time field is completely filled [452](https://github.com/zyfra/Prizm/issues/452)
+- feat(components/input-layout-date): filling in data if at least one date or time field is completely filled [453](https://github.com/zyfra/Prizm/issues/453)
+
+### BUG FIXES
+
+- fix(components/navigation): in the navigation in the dropdown, it is not displayed which section is selected. [451](https://github.com/zyfra/Prizm/issues/451)
+- fix(components/cron): cron in days error in "last day before the end of the month" [455](https://github.com/zyfra/Prizm/issues/455)
+- fix(doc/tree): tree jumps when checkbox [457](https://github.com/zyfra/Prizm/issues/457)
+
 ## [1.2.4.next-2](https://github.com/zyfra/Prizm) (26-06-2023)
 
 ### BUG FIXES
