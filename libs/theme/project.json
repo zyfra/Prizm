@@ -1,12 +1,13 @@
 {
   "name": "theme",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/theme/src",
   "prefix": "prizm",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/theme"],
+      "outputs": ["{workspaceRoot}/dist/libs/theme"],
       "options": {
         "project": "libs/theme/ng-package.json",
         "updateBuildableProjectDepsInPackageJson": false
@@ -23,7 +24,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/theme"],
+      "outputs": ["{workspaceRoot}/coverage/libs/theme"],
       "options": {
         "jestConfig": "libs/theme/jest.config.ts",
         "passWithNoTests": true

@@ -1,12 +1,13 @@
 {
   "name": "charts-base",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/charts/base/src",
   "prefix": "prizm",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/charts/base"],
+      "outputs": ["{workspaceRoot}/dist/libs/charts/base"],
       "options": {
         "project": "libs/charts/base/ng-package.json",
         "updateBuildableProjectDepsInPackageJson": false
@@ -23,7 +24,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/charts/base"],
+      "outputs": ["{workspaceRoot}/coverage/libs/charts/base"],
       "options": {
         "jestConfig": "libs/charts/base/jest.config.ts",
         "passWithNoTests": true

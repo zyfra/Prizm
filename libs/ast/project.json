@@ -1,12 +1,13 @@
 {
   "name": "ast",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/ast/src",
   "prefix": "prizm",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["dist/libs/ast"],
+      "outputs": ["{workspaceRoot}/dist/libs/ast"],
       "options": {
         "project": "libs/ast/ng-package.json",
         "updateBuildableProjectDepsInPackageJson": false
@@ -23,7 +24,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/libs/ast"],
+      "outputs": ["{workspaceRoot}/coverage/libs/ast"],
       "options": {
         "jestConfig": "libs/ast/jest.config.ts",
         "passWithNoTests": true
