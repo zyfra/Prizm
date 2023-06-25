@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### FEATURES
 
 - feat(components/input-layout-date-time): filling in data if at least one date or time field is completely filled [452](https://github.com/zyfra/Prizm/issues/452)
+- feat(components/input-layout-date): filling in data if at least one date or time field is completely filled [453](https://github.com/zyfra/Prizm/issues/453)
 
 ### BUG FIXES
 
