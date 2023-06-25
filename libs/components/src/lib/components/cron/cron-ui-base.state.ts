@@ -80,12 +80,15 @@ export abstract class PrizmCronUiBaseState<
     /* add change when base changes */
     this.current$
       .pipe(
-        // distinctUntilChanged((a, b) => a === b || (a && b && a[0] === b[0] && a[1] === b[1])),
-        distinctUntilChanged(),
+        distinctUntilChanged(this.isBaseChanged),
         tap(value => this.updateLocalState(value, this.getTypeByValue(value, this.cron.value))),
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  protected isBaseChanged(a: any, b: any): boolean {
+    return a === b;
   }
 
   protected initLocalTypeChanger(): void {

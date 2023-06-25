@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.4.next-2](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### BUG FIXES
+
+- fix(components/cron): cron in days error in "last day before the end of the month" [455](https://github.com/zyfra/Prizm/issues/455)
+
 ## [1.2.4.next-1](https://github.com/zyfra/Prizm) (26-06-2023)
 
 ### FEATURES
