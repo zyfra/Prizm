@@ -10,15 +10,19 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     baseHref: '',
   },
   {
+    label: '1.2.4',
+    baseHref: 'http://v1-2-4.prizm.site/'
+  },
+  {
+    label: '1.0.1',
+    baseHref: 'http://v1.prizm.site/'
+  },
+  {
     label: 'next',
     link: 'https://prizmui-next.web.app/',
   },
   {
     label: 'draft',
     link: 'https://prizmui-draft.web.app/',
-  },
-  {
-    label: 'LTS (v0.13.9)',
-    link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/zui-sdk/storybook/',
   },
 ];
