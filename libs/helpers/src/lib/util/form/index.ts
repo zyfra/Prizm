@@ -1,5 +1,5 @@
 import { AsyncValidatorFn, UntypedFormControl, ValidatorFn } from '@angular/forms';
-import { concat, EMPTY, merge, Observable, of, timer } from 'rxjs';
+import { concat, EMPTY, mapTo, merge, Observable, of, timer } from 'rxjs';
 import { filter, first, map, tap } from 'rxjs/operators';
 
 export class PrizmFormControlHelpers {
@@ -49,7 +49,7 @@ export class PrizmFormControlHelpers {
     const all = [origin, ...others];
     return concat(
       timer(0).pipe(map(() => origin)),
-      bidirectional ? merge(...all.map(control => of(control))) : of(origin)
+      bidirectional ? merge(...all.map(control => control.statusChanges.pipe(mapTo(control)))) : origin.statusChanges.pipe(mapTo(origin))
     ).pipe(
       map(origin => {
         (bidirectional ? all : others).forEach(control => {
