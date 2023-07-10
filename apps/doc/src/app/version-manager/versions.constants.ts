@@ -11,11 +11,11 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   },
   {
     label: '1.2.4',
-    baseHref: 'http://v1-2-4.prizm.site/'
+    baseHref: 'http://v1-2-4.prizm.site/',
   },
   {
     label: '1.0.1',
-    baseHref: 'http://v1.prizm.site/'
+    baseHref: 'http://v1.prizm.site/',
   },
   {
     label: 'next',

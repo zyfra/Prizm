@@ -49,7 +49,9 @@ export class PrizmFormControlHelpers {
     const all = [origin, ...others];
     return concat(
       timer(0).pipe(map(() => origin)),
-      bidirectional ? merge(...all.map(control => control.statusChanges.pipe(mapTo(control)))) : origin.statusChanges.pipe(mapTo(origin))
+      bidirectional
+        ? merge(...all.map(control => control.statusChanges.pipe(mapTo(control))))
+        : origin.statusChanges.pipe(mapTo(origin))
     ).pipe(
       map(origin => {
         (bidirectional ? all : others).forEach(control => {
