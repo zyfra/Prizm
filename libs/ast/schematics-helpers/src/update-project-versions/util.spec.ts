@@ -21,7 +21,7 @@ describe('prizmAstUpdateProjectVersions', () => {
       '/projects/project1/package.json',
       JSON.stringify({
         name: 'some-test-library-1',
-        version: '1.0.0',
+        version: '1.2.0',
       })
     );
     tree.write(
@@ -37,7 +37,7 @@ describe('prizmAstUpdateProjectVersions', () => {
         name: 'some-test-library-3',
         version: '2.0.0',
         peerDependencies: {
-          'some-test-library-1': '^1.0.0',
+          'some-test-library-1': '^1.2.0',
           'some-test-library-2': '~2.0.0, ^2.0.0, 2.0.0 | 12.0.0, 2.0.0 - 3.0.0, 2.0.5 | 4.0.0',
         },
         devDependencies: {
@@ -45,7 +45,7 @@ describe('prizmAstUpdateProjectVersions', () => {
           'some-test-library-1': '~10.0.0',
         },
         dependencies: {
-          'some-test-library-1': '1.0.0',
+          'some-test-library-1': '1.2.0',
           'some-test-library-2': '2.0.0 - 3.0.5',
         },
       })

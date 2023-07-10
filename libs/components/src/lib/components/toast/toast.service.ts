@@ -34,7 +34,6 @@ export class PrizmToastService implements OnDestroy {
   public create(content: PolymorphContent, options: PrizmToastOptions = {}): PrizmToastRef {
     const id = options.id || generateToastId();
     if (this.refs.has(id)) throw new PrizmToastExistException(id);
-
     const ref = new PrizmToastRef(
       content,
       options.weight ?? 0,

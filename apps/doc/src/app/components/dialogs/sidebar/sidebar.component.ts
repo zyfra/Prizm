@@ -67,7 +67,6 @@ export class SidebarComponent {
   public dismissible = false;
   public height = 'auto';
   public width = '500px';
-  public closeWord = 'Продолжить';
   public sizeVariants: PrizmDialogSize[] = ['m', 'l'];
   public size: PrizmDialogSize = 'm';
   public closeable = true;
@@ -127,7 +126,6 @@ export class SidebarComponent {
         overscroll: this.overscroll,
         position: this.position,
         canClose: () => of(this.canClose),
-        closeWord: this.closeWord,
         size: this.size,
       })
       .subscribe(result => console.log('result from sidebar', { result }));

@@ -14,5 +14,7 @@ export class IconComponent {
   @Input() size: string | number = 16;
 
   @HostBinding('attr.data-testid')
-  readonly testId = 'ui_icon' + this.iconClass;
+  get testId(): string {
+    return 'ui_icon' + this.iconClass;
+  }
 }

@@ -2,6 +2,108 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.4](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- feat(components/input-layout-date-time): filling in data if at least one date or time field is completely filled [452](https://github.com/zyfra/Prizm/issues/452)
+- feat(components/input-layout-date): filling in data if at least one date or time field is completely filled [453](https://github.com/zyfra/Prizm/issues/453)
+
+### BUG FIXES
+
+- fix(components/navigation): in the navigation in the dropdown, it is not displayed which section is selected. [451](https://github.com/zyfra/Prizm/issues/451)
+- fix(components/cron): cron in days error in "last day before the end of the month" [455](https://github.com/zyfra/Prizm/issues/455)
+- fix(doc/tree): tree jumps when checkbox [457](https://github.com/zyfra/Prizm/issues/457)
+
+## [1.2.4.next-2](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### BUG FIXES
+
+- fix(components/cron): cron in days error in "last day before the end of the month" [455](https://github.com/zyfra/Prizm/issues/455)
+- fix(doc/tree): tree jumps when checkbox [457](https://github.com/zyfra/Prizm/issues/457)
+
+## [1.2.4.next-1](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- feat(components/input-layout-date-time): filling in data if at least one date or time field is completely filled [452](https://github.com/zyfra/Prizm/issues/452)
+- feat(components/input-layout-date): filling in data if at least one date or time field is completely filled [453](https://github.com/zyfra/Prizm/issues/453)
+
+### BUG FIXES
+
+- fix(components/navigation): in the navigation in the dropdown, it is not displayed which section is selected. [451](https://github.com/zyfra/Prizm/issues/451)
+
+## [1.2.3](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### BUG FIXES
+
+- fix(components/icon): wrong data-testid [443](https://github.com/zyfra/Prizm/issues/443)
+- fix(chore): added updateBuildableProjectDepsInPackageJson to project configs [448](https://github.com/zyfra/Prizm/issues/448)
+- fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
+
+## [1.2.3-next.2](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### BUG FIXES
+
+- fix(components/icon): wrong data-testid [443](https://github.com/zyfra/Prizm/issues/443)
+- fix(chore): added updateBuildableProjectDepsInPackageJson to project configs [448](https://github.com/zyfra/Prizm/issues/448)
+
+## [1.2.3-next.1](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### BUG FIXES
+
+- fix(doc/input-layout-date-time): ngModel cannot be used to register form [445](https://github.com/zyfra/Prizm/issues/445)
+
+## [1.2.2](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
+### BUG FIXES
+
+- fix(doc/sidebar): delete closeWork from doc, add example with confirmButton [352](https://github.com/zyfra/Prizm/issues/352)
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+- fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
+
+## [1.2.2-next.4](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
+## [1.2.2-next.3](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### FEATURES
+
+- feat(components/overlay): add auto adaptive modal window size on scroll, change [374](https://github.com/zyfra/Prizm/issues/374)
+
+## [1.2.2-next.2](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### BUG FIXES
+
+- fix(doc/zoom-control): stopped work some element from modal view [421](https://github.com/zyfra/Prizm/issues/421)
+
+## [1.2.2](https://github.com/zyfra/Prizm) (25-06-2023)
+
+### BUG FIXES
+
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
+## [1.2.2-next.1](https://github.com/zyfra/Prizm) (21-06-2023)
+
+### BUG FIXES
+
+- fix(components/table): sorting does not work [424](https://github.com/zyfra/Prizm/issues/424)
+
+## [1.2.1](https://github.com/zyfra/Prizm) (23-06-2023)
+
+### BUG FIXES
+
+- fix(chore): cannot run project [429](https://github.com/zyfra/Prizm/issues/429)
+- fix(components/toast): in the "template in the header" example, the content does not fit in the toast [422](https://github.com/zyfra/Prizm/issues/422)
+- fix(doc/dropdown-host): items may not be displayed in the list after filtering and calling the panel again [426](https://github.com/zyfra/Prizm/issues/426)
+
 ## [1.2.0](https://github.com/zyfra/Prizm) (21-06-2023)
 
 ### Features

@@ -72,30 +72,29 @@ Build js image:
     expire_in: 1 day
     paths:
       - /root/.npm/_logs/
-#  needs:
-#    - Build library
+  needs:
+    - Build library
 
-#Build library:
-#  stage: build
-#  # // include after k8s stable work
-#  # cache:
-#  #   paths:
-#  #     - node_modules
-#  #     - /cache/Cypress
-#  #     - node_modules/.cache/nx
-#  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-#  script:
-#    - cat ${NPMRC_CONFIG} > .npmrc
-#    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-#    - cp .npmrc ~/
-#    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
-#    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
-#  artifacts:
-#    expire_in: 1 day
-#    paths:
-#      - dist/
-#  extends: ['.tags_k8s', '.except_skip_ci']
-#
+Build library:
+  stage: build
+  # // include after k8s stable work
+  # cache:
+  #   paths:
+  #     - node_modules
+  #     - /cache/Cypress
+  #     - node_modules/.cache/nx
+  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+  script:
+    - cat ${NPMRC_CONFIG} > .npmrc
+    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+    - cp .npmrc ~/
+    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
+    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - dist/
+  extends: ['.tags_k8s', '.except_skip_ci']
 
 #Release package:
 #  stage: release

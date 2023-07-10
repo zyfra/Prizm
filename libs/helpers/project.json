@@ -1,15 +1,15 @@
 {
   "name": "helpers",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/helpers/src",
   "prefix": "zui",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/libs/helpers"],
+      "outputs": ["dist/libs/helpers"],
       "options": {
-        "project": "libs/helpers/ng-package.json"
+        "project": "libs/helpers/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/helpers"],
+      "outputs": ["coverage/libs/helpers"],
       "options": {
         "jestConfig": "libs/helpers/jest.config.ts",
         "passWithNoTests": true

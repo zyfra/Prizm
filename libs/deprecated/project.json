@@ -1,15 +1,15 @@
 {
   "name": "deprecated",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/deprecated/src",
   "prefix": "prizm",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/libs/deprecated"],
+      "outputs": ["dist/libs/deprecated"],
       "options": {
-        "project": "libs/deprecated/ng-package.json"
+        "project": "libs/deprecated/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/deprecated"],
+      "outputs": ["coverage/libs/deprecated"],
       "options": {
         "jestConfig": "libs/deprecated/jest.config.ts",
         "passWithNoTests": true

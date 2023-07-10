@@ -1,15 +1,15 @@
 {
   "name": "components",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/components/src",
   "prefix": "zui",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/libs/components"],
+      "outputs": ["dist/libs/components"],
       "options": {
-        "project": "libs/components/ng-package.json"
+        "project": "libs/components/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/components"],
+      "outputs": ["coverage/libs/components"],
       "options": {
         "jestConfig": "libs/components/jest.config.ts",
         "passWithNoTests": true

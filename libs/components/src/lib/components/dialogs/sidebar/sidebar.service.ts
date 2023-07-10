@@ -39,7 +39,7 @@ export class PrizmSidebarService<
 
   public override open(
     title: T['title'],
-    options: Omit<Partial<T>, 'title'>,
+    options: Omit<Partial<T>, 'title' | 'closeWord'>,
     cb?: (data: {
       control: PrizmOverlayControl;
       dialog: PrizmBaseDialogContext<PrizmSidebarResult, PrizmSidebarOptions>;

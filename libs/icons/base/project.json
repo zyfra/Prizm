@@ -1,15 +1,15 @@
 {
   "name": "icons",
-  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/icons/base/src",
   "prefix": "prizm",
   "targets": {
     "build": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/libs/icons/base"],
+      "outputs": ["dist/libs/icons/base"],
       "options": {
-        "project": "libs/icons/base/ng-package.json"
+        "project": "libs/icons/base/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
@@ -23,7 +23,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/icons/base"],
+      "outputs": ["coverage/libs/icons/base"],
       "options": {
         "jestConfig": "libs/icons/base/jest.config.ts",
         "passWithNoTests": true

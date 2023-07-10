@@ -40,7 +40,6 @@ export class PrizmSidebarHiddenFooterExampleComponent {
           header: 'Header',
           hideFooter: true,
           width: '400px',
-          closeWord: 'Продолжить',
           position: this.position,
           backdrop: this.backdrop,
           size: 'm',

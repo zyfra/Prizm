@@ -1,15 +1,15 @@
 {
   "name": "schematics",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "library",
   "sourceRoot": "libs/schematics/src",
   "prefix": "prizm",
   "targets": {
     "prebuild": {
       "executor": "@nrwl/angular:package",
-      "outputs": ["{workspaceRoot}/dist/libs/schematics"],
+      "outputs": ["dist/libs/schematics"],
       "options": {
-        "project": "libs/schematics/ng-package.json"
+        "project": "libs/schematics/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
@@ -47,7 +47,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/schematics"],
+      "outputs": ["coverage/libs/schematics"],
       "options": {
         "jestConfig": "libs/schematics/jest.config.ts",
         "passWithNoTests": true
