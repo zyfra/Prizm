@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.0.0](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- chore: update to angular 15
+
 ## [1.2.4](https://github.com/zyfra/Prizm) (26-06-2023)
 
 ### FEATURES

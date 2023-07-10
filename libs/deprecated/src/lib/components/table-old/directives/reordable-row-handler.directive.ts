@@ -5,5 +5,5 @@ import { ReorderableRowHandle } from 'primeng/table';
   selector: '[prizmReordableRowHandler]',
 })
 export class PrizmReordableRowHandlerDirective extends ReorderableRowHandle {
-  @Input('prizmReordableRowHandler') override index: number;
+  @Input('prizmReordableRowHandler') index: number;
 }
