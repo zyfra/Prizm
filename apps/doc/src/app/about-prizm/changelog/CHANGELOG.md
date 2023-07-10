@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.0](https://github.com/zyfra/Prizm) (10-07-2023)
+## [2.1.0-next.1](https://github.com/zyfra/Prizm) (10-07-2023)
 
 ### BUG FIXES
 - fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
