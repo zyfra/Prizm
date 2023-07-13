@@ -40,7 +40,7 @@
       <ng-template
         [(documentationPropertyValue)]="content"
         documentationPropertyName="prizmHint"
-        documentationPropertyType="string"
+        documentationPropertyType="PolymorphContent"
         documentationPropertyMode="input"
       >
         Content
@@ -74,12 +74,11 @@
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="prizmHintShow"
-        documentationPropertyName="prizmHintShow"
+        documentationPropertyName="prizmHintShowed"
         documentationPropertyType="boolean"
-        documentationPropertyMode="input"
+        documentationPropertyMode="output"
       >
-        Show
+        Trigger on hint showed/hidden
       </ng-template>
 
       <ng-template
