@@ -24,7 +24,7 @@ import { PrizmHintOptions } from './hint-options';
     <div class="prizm-font-main-body-12">
       <prizm-scrollbar visibility="hidden">
         <ng-container *polymorphOutlet="content() as data; context: context">
-          {{ data }}
+          <div class="content">{{ data }}</div>
         </ng-container>
       </prizm-scrollbar>
     </div>
