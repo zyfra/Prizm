@@ -94,8 +94,11 @@
       }
     }
 
-    &:focus {
+    &:focus:not(&_active) {
+      border-color: transparent;
+      border-radius: 2px;
       position: relative;
+      box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
     }
 
     &_active {
