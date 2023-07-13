@@ -5,7 +5,6 @@
     "charts-base": "libs/charts/base",
     "components": "libs/components",
     "core": "libs/core",
-    "deprecated": "libs/deprecated",
     "doc": "apps/doc",
     "doc-base": "libs/doc/base",
     "doc-e2e": "apps/doc-e2e",
