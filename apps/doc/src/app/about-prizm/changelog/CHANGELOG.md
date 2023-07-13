@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - fix(doc/confirm-dialog): removed unused property 'header' [338](https://github.com/zyfra/Prizm/issues/338)
 - fix(doc/confirm-dialog): removed unused property 'content' [336](https://github.com/zyfra/Prizm/issues/336)
 - fix(doc/confirm-dialog): removed unused property 'closeword' [310](https://github.com/zyfra/Prizm/issues/310)
+- fix(doc/multi-select): does not work right in modal window [462](https://github.com/zyfra/Prizm/issues/462)
 
 ## [1.2.5-next.1](https://github.com/zyfra/Prizm) (13-07-2023)
 
