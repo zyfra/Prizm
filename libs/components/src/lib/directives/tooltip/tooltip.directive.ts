@@ -67,6 +67,7 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
     this.content = value;
   }
 
+  // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('prizmTooltipShowed')
   override prizmHintShowed = super.prizmHintShowed;
 
