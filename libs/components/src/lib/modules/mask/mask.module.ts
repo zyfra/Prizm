@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { IConfig, NgxMaskDirective, NgxMaskPipe, provideEnvironmentNgxMask } from 'ngx-mask';
+import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 const maskConfig: Partial<IConfig> = {
   validation: false,
@@ -8,8 +8,7 @@ const maskConfig: Partial<IConfig> = {
 };
 
 @NgModule({
-  imports: [NgxMaskDirective, NgxMaskPipe],
-  exports: [NgxMaskDirective, NgxMaskPipe],
-  providers: [provideEnvironmentNgxMask(maskConfig)],
+  imports: [NgxMaskModule.forRoot(maskConfig)],
+  exports: [NgxMaskModule],
 })
 export class PrizmMaskModule {}
