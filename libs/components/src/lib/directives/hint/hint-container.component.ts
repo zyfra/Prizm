@@ -42,16 +42,16 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   @Input()
   content: () => PolymorphContent;
 
-  @Input()
-  mode: () => PrizmHintOptions['mode'];
+  // @Input()
+  // mode: () => PrizmHintOptions['mode'];
 
   @Input()
   @prizmDefaultProp()
   context: CONTEXT = {} as CONTEXT;
 
-  @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
-    return this.mode();
-  }
+  // @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
+  //   return this.mode();
+  // }
 
   constructor(
     protected readonly destroy$: PrizmDestroyService,

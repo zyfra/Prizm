@@ -49,35 +49,42 @@ export class PrizmDocHostElementService implements OnDestroy {
       .subscribe();
   }
 
-  private listComponentInputsOutputs<T>(componentClass: Type<T>) {
-    const inputs: string[] = [];
-    const outputs: string[] = [];
+  private getListComponentInputsOutputs<T>(componentClass: Type<T>) {
+    const inputs = new Map<string, string>();
+    const outputs = new Map<string, string>();
     let selector: string | null = null;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const componentMetadata = componentClass['ɵcmp'] || componentClass['ɵdir'];
     if (componentMetadata) {
+      console.log('#mz componentMetadata', componentMetadata);
       selector = componentMetadata.selectors?.[0]?.[0] as string;
       const inputProperties = componentMetadata.inputs;
       const outputProperties = componentMetadata.outputs;
 
-      for (const input in inputProperties) {
-        inputs.push(inputProperties[input]);
+      for (const inputName in inputProperties) {
+        const classPropertyName = inputProperties[inputName];
+        const inputFromSet = inputs.get(classPropertyName);
+        if (inputFromSet && inputFromSet !== classPropertyName) continue;
+        inputs.set(classPropertyName, inputName);
       }
 
-      for (const output in outputProperties) {
-        outputs.push(outputProperties[output]);
+      for (const outputKey in outputProperties) {
+        const classPropertyName = inputProperties[outputKey];
+        const nameFromSet = outputs.get(classPropertyName);
+        if (nameFromSet && nameFromSet !== classPropertyName) continue;
+        outputs.set(classPropertyName, outputKey);
       }
     } else {
       console.error('The provided class is not an Angular component.');
     }
 
-    return { inputs, outputs, selector };
+    return { inputs: [...inputs.values()], outputs: [...outputs.values()], selector };
   }
 
   private updateComponentInfo(listenerElementKey: string, el: ElementRef): void {
     const currentOutputMap = this.outputMap.get(listenerElementKey) || new Map();
-    const metaComponentData = this.listComponentInputsOutputs(el.nativeElement.constructor);
+    const metaComponentData = this.getListComponentInputsOutputs(el.nativeElement.constructor);
 
     this.outputs.set(
       listenerElementKey,
@@ -192,6 +199,10 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   public setHostElement(key: string, hostElement: ElementRef): void {
+    console.log('#mz setHostElement', {
+      hostElement,
+      key,
+    });
     this.hostElementMap.set(key, new ElementRef<any>(hostElement));
     this.hostElementMap$$.next(this.hostElementMap);
   }

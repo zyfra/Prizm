@@ -32,9 +32,9 @@ import { PrizmHintDirective } from '../hint/hint.directive';
 export class PrizmConfirmPopupDirective<
   T extends Record<string, unknown>
 > extends PrizmHintDirective<PrizmConfirmPopupOptions> {
-  @Input('prizmConfirmPopupMode')
-  @prizmDefaultProp()
-  override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
+  // @Input('prizmConfirmPopupMode')
+  // @prizmDefaultProp()
+  // override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
 
   @Input('prizmAutoReposition')
   @prizmDefaultProp()
@@ -97,7 +97,7 @@ export class PrizmConfirmPopupDirective<
   protected override getContext(): PrizmConfirmPopupContext {
     const context = {
       size: this.size,
-      mode: this.prizmHintMode,
+      // mode: this.prizmHintMode,
       reposition: this.prizmAutoReposition,
       direction: this.prizmHintDirection,
       completeWith: (value: PrizmConfirmPopupButton) => {

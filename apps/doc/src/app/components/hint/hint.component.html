@@ -19,25 +19,18 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <button
+        #element="prizmHint"
+        [prizmDocHostElement]="element"
         [prizmHint]="content"
         [prizmAutoReposition]="prizmAutoReposition"
         [prizmHintCanShow]="prizmHintCanShow"
         [prizmHintDirection]="prizmHintDirection"
         [prizmHintId]="prizmHintId"
-        [prizmHintShow]="prizmHintShow"
         [prizmHintShowDelay]="prizmHintShowDelay"
         [prizmHintHideDelay]="prizmHintHideDelay"
         [prizmHintContext]="prizmHintContext"
         [prizmHintHost]="prizmHintHost"
         [size]="size"
-        [icon]="icon"
-        [iconRight]="iconRight"
-        [appearanceType]="appearanceType"
-        [appearance]="appearance"
-        [disabled]="disabled"
-        [showLoader]="showLoader"
-        [focusable]="focusable"
-        [pseudoState]="pseudoState"
         prizmButton
       >
         Button

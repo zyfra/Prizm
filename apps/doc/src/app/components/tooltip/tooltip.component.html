@@ -7,11 +7,11 @@
       <prizm-tooltip-base-example></prizm-tooltip-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleWithTemplate" heading="With Template">
+    <prizm-doc-example id="with-template" [content]="exampleWithTemplate" heading="With Template">
       <prizm-tooltip-with-template-example></prizm-tooltip-with-template-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleWithComponent" heading="With Component">
+    <prizm-doc-example id="with-component" [content]="exampleWithComponent" heading="With Component">
       <prizm-tooltip-with-component-example></prizm-tooltip-with-component-example>
     </prizm-doc-example>
   </ng-template>
@@ -19,13 +19,14 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <button
-        #element
+        #element="prizmTooltip"
         [prizmDocHostElement]="element"
         [prizmTooltip]="content"
         [prizmAutoReposition]="prizmAutoReposition"
         [prizmTooltipDirection]="prizmTooltipDirection"
         [prizmTooltipId]="prizmTooltipId"
         [prizmTooltipShowDelay]="prizmTooltipShowDelay"
+        [prizmTooltipCanShow]="prizmTooltipCanShow"
         [prizmTooltipHideDelay]="prizmTooltipHideDelay"
         [prizmTooltipHost]="prizmTooltipHost"
         [size]="size"
@@ -43,208 +44,91 @@
       </button>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <!-- <ng-template
+      <ng-template
         documentationPropertyName="prizmTooltip"
-        documentationPropertyType="string"
+        documentationPropertyType="PolymorphContent"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="content"
       >
         Content
-      </ng-template> -->
+      </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="prizmAutoReposition"
+      <ng-template
+        documentationPropertyName="prizmTooltipHost"
+        documentationPropertyType="HTMLElement | null"
+        documentationPropertyMode="input"
+      >
+        Element relative to which the tooltip will appear (default: current)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmTooltipCanShow"
+        documentationPropertyName="prizmTooltipCanShow"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmAutoReposition"
       >
-        Auto Reposition
-      </ng-template> -->
+        Tooltip might appear
+      </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="prizmTooltipDirection"
-        documentationPropertyType="PrizmOverlayOutsidePlacement"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="prizmTooltipDirectionVariants"
-        [(documentationPropertyValue)]="prizmTooltipDirection"
+      <ng-template
+        documentationPropertyName="prizmTooltipShowed"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="output"
       >
-        Tooltip Direction
-      </ng-template> -->
+        Trigger on tooltip showed/hidden
+      </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="prizmTooltipId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmTooltipId"
-      >
-        Tooltip Id
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="prizmTooltipShowDelay"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmTooltipShowDelay"
-      >
-        Show Delay
-      </ng-template> -->
-
-      <!-- <ng-template
+      <ng-template
+        [(documentationPropertyValue)]="prizmTooltipHideDelay"
         documentationPropertyName="prizmTooltipHideDelay"
         documentationPropertyType="number"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmTooltipHideDelay"
       >
-        Hide Delay
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="prizmTooltipHost"
-        documentationPropertyType="HtmlElement"
-        documentationPropertyMode="input"
-      >
-        Host
-      </ng-template> -->
-
-      <ng-template
-        [(documentationPropertyValue)]="appearance"
-        [documentationPropertyValues]="appearanceVariants"
-        documentationPropertyName="appearance"
-        documentationPropertyType="PrizmAppearance"
-        documentationPropertyMode="input"
-      >
-        Appearance
+        Delay to hide tooltip
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="appearanceType"
-        [documentationPropertyValues]="appearanceTypeVariants"
-        documentationPropertyName="appearanceType"
-        documentationPropertyType="PrizmAppearanceType"
+        [(documentationPropertyValue)]="prizmTooltipShowDelay"
+        documentationPropertyName="prizmTooltipShowDelay"
+        documentationPropertyType="number"
         documentationPropertyMode="input"
       >
-        AppearanceType
+        Delay to show tooltip
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmDialogSize"
+        documentationPropertyName="prizmTooltipContext"
+        documentationPropertyType="Record<stiring, unknown>"
         documentationPropertyMode="input"
       >
-        Size
+        Context passed to tooltip
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="icon"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="icon"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-      >
-        Icon
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="iconRight"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="iconRight"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-      >
-        Right Icon
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="disabled"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Disabled
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="showLoader"
-        documentationPropertyName="showLoader"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Show Loader
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="pseudoHovered"
-        documentationPropertyName="pseudoHovered"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Hovered
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoPressed"
-        documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Pressed
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoFocused"
-        documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Focused
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusable"
-        documentationPropertyName="focusable"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Focusable
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoState"
-        documentationPropertyName="pseudoState"
+        [(documentationPropertyValue)]="prizmTooltipId"
+        documentationPropertyName="prizmTooltipId"
         documentationPropertyType="string"
         documentationPropertyMode="input"
       >
-        Pseudo State
+        Tooltip ID
       </ng-template>
+
       <ng-template
-        [(documentationPropertyValue)]="focusedChange"
-        documentationPropertyName="focusedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="prizmTooltipDirection"
+        [documentationPropertyValues]="prizmTooltipDirectionVariants"
+        documentationPropertyName="prizmTooltipDirection"
+        documentationPropertyType="PrizmTooltipOptions['direction']"
+        documentationPropertyMode="input"
       >
-        Focused Change
+        Tooltip direction
       </ng-template>
+
       <ng-template
-        [(documentationPropertyValue)]="pressedChange"
-        documentationPropertyName="pressedChange"
+        [(documentationPropertyValue)]="prizmAutoReposition"
+        documentationPropertyName="prizmAutoReposition"
         documentationPropertyType="boolean"
-        documentationPropertyMode="output"
+        documentationPropertyMode="input"
       >
-        Pressed Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="hoveredChange"
-        documentationPropertyName="hoveredChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Hovered Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusVisibleChange"
-        documentationPropertyName="focusVisibleChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Focus Visible Change
+        Auto recalculate positioning
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

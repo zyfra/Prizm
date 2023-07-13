@@ -22,7 +22,7 @@ import {
 } from '../../modules/overlay';
 import { combineLatest, Observable, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
-import { delay, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { delay, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
 
@@ -38,9 +38,9 @@ export class PrizmHintDirective<
   CONTEXT extends PrizmHintContext = PrizmHintContext
 > implements OnChanges, OnInit, OnDestroy
 {
-  @Input()
-  @prizmDefaultProp()
-  prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
+  // @Input()
+  // @prizmDefaultProp()
+  // prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
 
   @Input()
   @prizmDefaultProp()
@@ -74,16 +74,15 @@ export class PrizmHintDirective<
   @prizmDefaultProp()
   prizmHintCanShow = true;
 
-  @Input()
-  set prizmHintShow(show: boolean) {
+  set show(show: boolean) {
     if (show) this.open();
     else this.close();
   }
-  get prizmHintShow(): boolean {
+  get show(): boolean {
     return this.show_;
   }
 
-  private show_ = false;
+  protected show_ = false;
 
   @Input()
   @prizmRequiredSetter()
@@ -96,8 +95,9 @@ export class PrizmHintDirective<
     this.content = value;
   }
 
+  readonly prizmHoveredChange$$ = new Subject<boolean>();
   @Output()
-  readonly prizmHoveredChange = new EventEmitter<boolean>();
+  readonly prizmHintShowed = new EventEmitter<boolean>();
 
   protected readonly onHoverActive: boolean = true;
 
@@ -131,6 +131,16 @@ export class PrizmHintDirective<
 
   public ngOnInit(): void {
     this.initVisibleController();
+
+    this.prizmHoveredChange$$
+      .pipe(
+        distinctUntilChanged(),
+        tap(state => {
+          this.prizmHintShowed.emit(state);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public ngOnDestroy(): void {
@@ -150,14 +160,14 @@ export class PrizmHintDirective<
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay.open();
-    this.prizmHoveredChange.emit(this.show_);
+    this.prizmHoveredChange$$.next(this.show_);
   }
 
   protected close(): void {
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.close();
-    this.prizmHoveredChange.emit(this.show_);
+    this.prizmHoveredChange$$.next(this.show_);
   }
 
   private initVisibleController(): void {
@@ -190,7 +200,7 @@ export class PrizmHintDirective<
       })
       .content(this.containerComponent, {
         content: () => this.content,
-        mode: () => this.prizmHintMode,
+        // mode: () => this.prizmHintMode,
         id: this.prizmHintId,
         context: this.getContext(),
       })
@@ -211,7 +221,7 @@ export class PrizmHintDirective<
 
   protected getContext(): CONTEXT {
     return {
-      mode: this.prizmHintMode,
+      // mode: this.prizmHintMode,
       reposition: this.prizmAutoReposition,
       direction: this.prizmHintDirection,
       id: this.prizmHintId,
