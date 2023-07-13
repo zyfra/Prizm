@@ -30,7 +30,7 @@
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="fromValue"
       [size]="computedDateMask.length"
-      [maxSize]="computedDateMask.length"
+      [maxLength]="computedDateMask.length + 1"
       (click)="referFocusToMain(!fromValue)"
       (ngModelChange)="onDateValueChange($event || '', true)"
       style="padding: 0"
@@ -47,7 +47,7 @@
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="fromTimeValue"
       [size]="computedTimeMask.length"
-      [maxSize]="computedTimeMask.length"
+      [maxLength]="computedTimeMask.length + 1"
       (ngModelChange)="onTimeValueChange($event, true)"
       style="padding: 0"
       prizmInput
@@ -64,7 +64,7 @@
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="toValue"
       [size]="computedDateMask.length"
-      [maxSize]="computedDateMask.length"
+      [maxLength]="computedDateMask.length + 1"
       (ngModelChange)="onDateValueChange($event || '', false)"
       style="padding: 0"
       prizmInput
@@ -80,7 +80,7 @@
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="toTimeValue"
       [size]="computedTimeMask.length"
-      [maxSize]="computedTimeMask.length"
+      [maxLength]="computedTimeMask.length + 1"
       (ngModelChange)="onTimeValueChange($event, false)"
       style="padding: 0"
       prizmInput

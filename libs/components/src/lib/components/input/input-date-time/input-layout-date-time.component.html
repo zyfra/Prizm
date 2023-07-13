@@ -30,7 +30,7 @@
       [dropSpecialCharacters]="false"
       [size]="textMaskOptions.length"
       [clearIfNotMatch]="false"
-      [maxSize]="textMaskOptions.length"
+      [maxLength]="textMaskOptions.length + 1"
       [ngModel]="computedDateValue()"
       [ngModelOptions]="{ standalone: true }"
       (click)="referFocusToMain(!computedDateValue())"
@@ -50,7 +50,7 @@
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="computedTimeValue()"
       [size]="timeMaskOptions.length"
-      [maxSize]="timeMaskOptions.length"
+      [maxLength]="timeMaskOptions.length + 1"
       (ngModelChange)="onTimeValueChange($event)"
       style="padding: 0"
       prizmInput

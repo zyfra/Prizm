@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - fix(doc/confirm-dialog): removed unused property 'closeword' [310](https://github.com/zyfra/Prizm/issues/310)
 - fix(doc/multi-select): does not work right in modal window [462](https://github.com/zyfra/Prizm/issues/462)
 - fix(components/cron): small test errors [469](https://github.com/zyfra/Prizm/issues/469)
+- fix(components/input-layout-date-range): sometimes date text is truncated in the period input area [467](https://github.com/zyfra/Prizm/issues/467)
 
 ## [1.2.5-next.1](https://github.com/zyfra/Prizm) (13-07-2023)
 
