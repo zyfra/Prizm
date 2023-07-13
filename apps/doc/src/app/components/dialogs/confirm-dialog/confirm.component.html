@@ -116,29 +116,36 @@
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="closeWord"
-        documentationPropertyName="closeWord"
+        [(documentationPropertyValue)]="confirmButton"
+        documentationPropertyName="confirmButton"
         documentationPropertyType="string"
       >
-        Close Word
+        Confirm Button
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="header"
-        [documentationPropertyValues]="generatePolymorphVariants(headerTemp)"
-        documentationPropertyName="header"
-        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
+        [(documentationPropertyValue)]="cancelButton"
+        documentationPropertyName="cancelButton"
+        documentationPropertyType="string"
       >
-        Header
+        Cancel Button
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="content"
+        [(documentationPropertyValue)]="supportButton"
+        documentationPropertyName="supportButton"
+        documentationPropertyType="string"
+      >
+        Support Button
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="description"
         [documentationPropertyValues]="generatePolymorphVariants(contentTemp)"
         documentationPropertyName="content"
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext>"
       >
-        Content
+        Description
       </ng-template>
 
       <ng-template

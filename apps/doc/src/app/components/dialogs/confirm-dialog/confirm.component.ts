@@ -71,8 +71,7 @@ export class ConfirmComponent {
   public size: PrizmDialogSize = 'm';
 
   public readonly defaultTitle = 'Вы уверены, что хотите перейти на следующий этап?';
-  public readonly defaultDescription = `Дальнейшее редактирование этого раздела
-будет недоступно`;
+  public readonly defaultDescription = `Дальнейшее редактирование этого раздела будет недоступно`;
   public title: PolymorphContent<
     PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>
   > = this.defaultTitle;
