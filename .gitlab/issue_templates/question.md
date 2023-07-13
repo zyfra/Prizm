@@ -20,7 +20,7 @@ v16.13.0
 
 Dependencies:
 
-`@prizm-ui/components 1.2.4`
+`@prizm-ui/components 2.1.0`
 
 Операционная ситема:
 

@@ -2,6 +2,41 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.5-next.1](https://github.com/zyfra/Prizm) (13-07-2023)
+
+### BUG FIXES
+
+- fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
+- fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
+- fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+
+### Breaking changes
+
+- BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+
+## [2.1.0-next.1](https://github.com/zyfra/Prizm) (10-07-2023)
+
+### BUG FIXES
+
+- fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
+- fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
+- fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+
+### Breaking changes
+
+- BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+### Closed
+
+- [483](https://github.com/zyfra/Prizm/issues/483)
+
+## [2.0.0](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- chore: update to angular 15
+
 ## [1.2.4](https://github.com/zyfra/Prizm) (26-06-2023)
 
 ### FEATURES

@@ -28,9 +28,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules-
+            ${{ runner.os }}-node_modules_ng_15-
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -51,7 +51,6 @@ jobs:
       - name: 'Build versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/deprecated && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/i18n && npm publish --access public --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --access public --verbose || exit_code=0

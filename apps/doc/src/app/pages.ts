@@ -565,12 +565,6 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
-    title: 'Table old',
-    keywords: 'table, таблица',
-    route: '/components/table-old',
-  },
-  {
-    section: SectionNameEnum.components,
     title: 'Panel',
     keywords: 'panel, панель, header, хэдер',
     route: '/components/panel',
@@ -598,12 +592,6 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Side-menu',
     keywords: 'side-menu, side, menu, меню, боковое меню',
     route: '/components/side-menu',
-  },
-  {
-    section: SectionNameEnum.components,
-    title: 'Navigation menu (deprecated)',
-    keywords: 'nav-menu, nav, menu, меню, навигация',
-    route: '/components/nav-menu',
   },
   {
     section: SectionNameEnum.components,

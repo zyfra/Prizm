@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npx nx workspace-lint
-npm run check-branch-name
-npm run format:staged
+#npm run check-branch-name
+#npm run format:staged
 
 
