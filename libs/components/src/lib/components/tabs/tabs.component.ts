@@ -168,6 +168,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   private focusTabByIdx(idx: number): void {
     if (!this.tabElements?.length) return;
     const selectedTabElement = this.tabElements.find((item, index) => index === idx)?.el.nativeElement;
+    if (!selectedTabElement) return;
     this.tabsContainer.nativeElement.scrollLeft =
       selectedTabElement.offsetLeft -
       this.tabsContainer.nativeElement.offsetWidth / 2 +
