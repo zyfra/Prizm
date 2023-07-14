@@ -1,5 +1,6 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { formatFiles, Tree } from '@nrwl/devkit';
+import isEqual from 'lodash/isEqual';
 import {
   PrizmAstHtmlItem,
   prizmAstHtmlParse,
@@ -45,7 +46,8 @@ export async function prizmAstRunSchematicsByTasks(
         if (entryPath.endsWith('.html')) {
           const parsed = prizmAstHtmlParse(fileContent);
           const nodeProcessor = new PrizmTemplateTaskProcessor(templateTasks);
-          fileContent = prizmAstHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]);
+          const updatedFile = prizmAstHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]);
+          if (!isEqual(parsed, prizmAstHtmlParse(fileContent))) fileContent = updatedFile;
         }
         // Process TypeScript files using the PrizmAstCodeTaskProcessor.
         else if (entryPath.endsWith('.ts')) {
