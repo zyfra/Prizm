@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0-next.3](https://github.com/zyfra/Prizm) (13-07-2023)
+
+### Bracking Changes
+
+- BC(components/hint): remove input prizmHintShow
+- BC(components/tooltip): remove input prizmHintShow
+- BC(components/hint): rename output prizmHoverChange > prizmHintShowed
+- BC(components/tooltip): raname output prizmHoverChange > prizmTooltipShowed
+
+### BUG FIXES
+
+- fix(doc/tooltip): corrected api page
+- fix(doc/hint): corrected api page
+- fix(components/hint): long string without hyphenation is truncated #414
+
+### Features
+
+- feat(doc): now input/output getter can distinguish altered properties
+
 ## [2.1.0-next.2](https://github.com/zyfra/Prizm) (13-07-2023)
 
 ### BUG FIXES
