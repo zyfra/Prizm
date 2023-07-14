@@ -1,4 +1,5 @@
 import { PrizmHtmlAttr, PrizmAstHtmlItem } from './types';
+import { prizmAstHtmlPrettify } from './prettify';
 
 /**
  * Преобразует объект атрибутов в строку атрибутов HTML.
@@ -65,9 +66,12 @@ export function stringify(buff: string, doc: PrizmAstHtmlItem): string {
  * @param {PrizmAstHtmlItem[]} doc - Массив объектов PrizmHtmlItem для преобразования.
  * @returns {string} Строка HTML, представляющая массив объектов PrizmHtmlItem.
  */
-export const prizmAstHtmlStringify = (doc: PrizmAstHtmlItem[]): string => {
-  return doc.reduce(function (token: string, rootEl: PrizmAstHtmlItem) {
+export const prizmAstHtmlStringify = (doc: PrizmAstHtmlItem[], prettier = true): string => {
+  let result = doc.reduce(function (token: string, rootEl: PrizmAstHtmlItem) {
     // Для каждого элемента в массиве вызываем функцию stringify и склеиваем результаты
     return token + stringify('', rootEl);
   }, '');
+
+  if (prettier) result = prizmAstHtmlPrettify(result);
+  return result;
 };

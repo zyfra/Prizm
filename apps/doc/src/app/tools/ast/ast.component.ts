@@ -76,4 +76,8 @@ export class AstComponent {
     TypeScript: import('./examples/tabs/tabs.component?raw'),
     HTML: import('./examples/tabs/tabs.component.html?raw'),
   };
+  readonly inputSelectExample: TuiDocExample = {
+    TypeScript: import('./examples/input-select/input-select.component?raw'),
+    HTML: import('./examples/input-select/input-select.component.html?raw'),
+  };
 }
