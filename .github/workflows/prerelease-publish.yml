@@ -57,7 +57,7 @@ jobs:
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
       - name: 'Update next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
 
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
