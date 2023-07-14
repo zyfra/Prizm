@@ -8,8 +8,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^15.2.9",
-    "@angular/core": "^15.2.9",
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
     "@prizm-ui/core": "^2.0.0"
   },
   "dependencies": {
