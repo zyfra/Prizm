@@ -1,4 +1,4 @@
-import { PrizmHtmlAttr, PrizmHtmlItem } from './types';
+import { PrizmHtmlAttr, PrizmAstHtmlItem } from './types';
 
 /**
  * Преобразует объект атрибутов в строку атрибутов HTML.
@@ -30,10 +30,10 @@ export function attrToString(attrs: PrizmHtmlAttr): string {
  * Рекурсивно преобразует объекты PrizmHtmlItem в строку HTML.
  *
  * @param {string} buff - Буфер для хранения преобразованной строки HTML.
- * @param {PrizmHtmlItem} doc - Объект PrizmHtmlItem для преобразования.
+ * @param {PrizmAstHtmlItem} doc - Объект PrizmHtmlItem для преобразования.
  * @returns {string} Строка HTML, представляющая объект PrizmHtmlItem.
  */
-export function stringify(buff: string, doc: PrizmHtmlItem): string {
+export function stringify(buff: string, doc: PrizmAstHtmlItem): string {
   // Обработка типов элементов
   switch (doc.type) {
     case 'text':
@@ -62,11 +62,11 @@ export function stringify(buff: string, doc: PrizmHtmlItem): string {
 /**
  * Преобразует массив объектов PrizmHtmlItem в строку HTML.
  *
- * @param {PrizmHtmlItem[]} doc - Массив объектов PrizmHtmlItem для преобразования.
+ * @param {PrizmAstHtmlItem[]} doc - Массив объектов PrizmHtmlItem для преобразования.
  * @returns {string} Строка HTML, представляющая массив объектов PrizmHtmlItem.
  */
-export const prizmHtmlStringify = (doc: PrizmHtmlItem[]): string => {
-  return doc.reduce(function (token: string, rootEl: PrizmHtmlItem) {
+export const prizmAstHtmlStringify = (doc: PrizmAstHtmlItem[]): string => {
+  return doc.reduce(function (token: string, rootEl: PrizmAstHtmlItem) {
     // Для каждого элемента в массиве вызываем функцию stringify и склеиваем результаты
     return token + stringify('', rootEl);
   }, '');

@@ -790,6 +790,13 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/ast-html',
+    loadChildren: () => import('./tools/ast-html/ast-html.module').then(i => i.AstHtmlModule),
+    data: {
+      title: 'Ast Html',
+    },
+  },
+  {
     path: 'tools/observable',
     loadChildren: () => import('./tools/observable/observable.module').then(i => i.ObservableModule),
     data: {

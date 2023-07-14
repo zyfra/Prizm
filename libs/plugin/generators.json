@@ -8,6 +8,11 @@
       "schema": "./src/generators/migrate-from-cb3/schema.json",
       "description": "helpers to migrate from cb3 to prizm"
     },
+    "remove-prizm-deprecated-v1-2": {
+      "factory": "./src/generators/remove-prizm-deprecated-v1-2/index",
+      "schema": "./src/generators/remove-prizm-deprecated-v1-2/schema.json",
+      "description": "helpers to remove deprecated prizm"
+    },
     "update-version": {
       "factory": "./src/generators/update-version/index",
       "schema": "./src/generators/update-version/schema.json",

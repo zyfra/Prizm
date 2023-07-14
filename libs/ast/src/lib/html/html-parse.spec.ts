@@ -1,9 +1,9 @@
-import { prizmHtmlParse } from './html-parse';
+import { prizmAstHtmlParse } from './html-parse';
 
 describe('prizmHtmlParse', () => {
   it('should parse an empty string', () => {
     const html = '';
-    const result = prizmHtmlParse(html);
+    const result = prizmAstHtmlParse(html);
     expect(result).toEqual([
       {
         content: '',
@@ -14,19 +14,19 @@ describe('prizmHtmlParse', () => {
 
   it('should parse a text node', () => {
     const html = 'Hello, world!';
-    const result = prizmHtmlParse(html);
+    const result = prizmAstHtmlParse(html);
     expect(result).toEqual([{ type: 'text', content: 'Hello, world!' }]);
   });
 
   it('should parse a comment node', () => {
     const html = '<!-- This is a comment -->';
-    const result = prizmHtmlParse(html);
+    const result = prizmAstHtmlParse(html);
     expect(result).toEqual([{ type: 'comment', comment: ' This is a comment ' }]);
   });
 
   it('should parse a void element', () => {
     const html = '<input type="text" disabled>';
-    const result = prizmHtmlParse(html);
+    const result = prizmAstHtmlParse(html);
     expect(result).toEqual([
       {
         type: 'tag',
@@ -40,7 +40,7 @@ describe('prizmHtmlParse', () => {
 
   it('should parse a non-void element with children', () => {
     const html = '<div id="container">Hello, world!</div>';
-    const result = prizmHtmlParse(html);
+    const result = prizmAstHtmlParse(html);
     expect(result).toEqual([
       {
         type: 'tag',
@@ -54,7 +54,7 @@ describe('prizmHtmlParse', () => {
 
   it('should parse nested elements', () => {
     const html = '<div><p>Hello, <span>world</span>!</p></div>';
-    const result = prizmHtmlParse(html);
+    const result = prizmAstHtmlParse(html);
     expect(result).toEqual([
       {
         type: 'tag',

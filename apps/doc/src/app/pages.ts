@@ -669,6 +669,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'Ast Html',
+    keywords: 'html, parser, парсер',
+    route: '/tools/ast-html',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'ZoneEvents',
     keywords: 'zone, зона, events, события',
     route: '/tools/zone-events',

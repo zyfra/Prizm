@@ -1,9 +1,9 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { formatFiles, Tree } from '@nrwl/devkit';
 import {
-  PrizmHtmlItem,
-  prizmHtmlParse,
-  prizmHtmlStringify,
+  PrizmAstHtmlItem,
+  prizmAstHtmlParse,
+  prizmAstHtmlStringify,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
@@ -43,9 +43,9 @@ export async function prizmAstRunSchematicsByTasks(
       try {
         // Process HTML files using the PrizmHtmlParse and PrizmTemplateTaskProcessor.
         if (entryPath.endsWith('.html')) {
-          const parsed = prizmHtmlParse(fileContent);
+          const parsed = prizmAstHtmlParse(fileContent);
           const nodeProcessor = new PrizmTemplateTaskProcessor(templateTasks);
-          fileContent = prizmHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmHtmlItem[]);
+          fileContent = prizmAstHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]);
         }
         // Process TypeScript files using the PrizmAstCodeTaskProcessor.
         else if (entryPath.endsWith('.ts')) {

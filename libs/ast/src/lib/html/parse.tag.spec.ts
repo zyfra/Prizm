@@ -1,5 +1,5 @@
 import { prizmParseTag } from './parse-tag';
-import { PrizmHtmlItem } from './types';
+import { PrizmAstHtmlItem } from './types';
 
 describe('prizmParseTag', () => {
   test('should parse a regular tag with attributes and children', () => {
@@ -9,7 +9,7 @@ describe('prizmParseTag', () => {
       name: 'div',
       voidElement: false,
       attrs: { class: 'container', id: 'main' },
-      children: [] as PrizmHtmlItem[],
+      children: [] as PrizmAstHtmlItem[],
     };
     const result = prizmParseTag(tag);
     expect(result).toEqual(expected);
@@ -23,7 +23,7 @@ describe('prizmParseTag', () => {
       voidElement: true,
       attrs: { src: 'image.jpg', alt: 'My image' },
       children: [],
-    } as PrizmHtmlItem;
+    } as PrizmAstHtmlItem;
     const result = prizmParseTag(tag);
     expect(result).toEqual(expected);
   });
@@ -46,7 +46,7 @@ describe('prizmParseTag', () => {
       voidElement: true,
       attrs: { disabled: '' },
       children: [],
-    } as PrizmHtmlItem;
+    } as PrizmAstHtmlItem;
     const result = prizmParseTag(tag);
     expect(result).toEqual(expected);
   });
@@ -59,7 +59,7 @@ describe('prizmParseTag', () => {
       voidElement: true,
       attrs: { type: 'text' },
       children: [],
-    } as PrizmHtmlItem;
+    } as PrizmAstHtmlItem;
     const result = prizmParseTag(tag);
     expect(result).toEqual(expected);
   });
@@ -71,7 +71,7 @@ describe('prizmParseTag', () => {
       name: 'a',
       voidElement: false,
       attrs: { href: 'https://example.com', target: '_blank' },
-      children: [] as PrizmHtmlItem[],
+      children: [] as PrizmAstHtmlItem[],
     };
     const result = prizmParseTag(tag);
     expect(result).toEqual(expected);
