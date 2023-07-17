@@ -232,6 +232,8 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
                   searchOutput,
                   ngModel,
                   formControl,
+                  selectAllItem,
+                  isChipsDeletable,
                 ],
               }),
             ],
