@@ -17,7 +17,7 @@
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="(value | prizmCallFunc : getCurrentItem) ?? ''"
     (click)="safeOpenModal()"
-    (focus)="focused$$.next(true); markAsTouched()"
+    (focus)="focused$$.next(true)"
     (blur)="focused$$.next(false)"
     prizmInput
   />

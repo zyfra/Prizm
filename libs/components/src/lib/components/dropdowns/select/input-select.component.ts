@@ -216,6 +216,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public select(item: T): void {
+    this.markAsTouched();
     if (!this.identityMatcher(item, this.value)) {
       this.updateValue(item);
     }
