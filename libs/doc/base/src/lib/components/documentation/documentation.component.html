@@ -103,6 +103,16 @@
               tuiTextfieldSize="m"
             ></tui-primitive-textfield>
 
+            <tui-primitive-textfield
+              *ngIf="propertyConnector.documentationPropertyType.toLowerCase().startsWith('polymorph')"
+              [nativeId]="propertyConnector.attrName"
+              [tuiTextfieldLabelOutside]="true"
+              [tuiTextfieldCleaner]="true"
+              [value]="propertyConnector.documentationPropertyValue || ''"
+              (valueChange)="propertyConnector.onValueChange($event)"
+              tuiTextfieldSize="m"
+            ></tui-primitive-textfield>
+
             <div *ngSwitchCase="'color'" tuiGroup>
               <tui-primitive-textfield
                 [attr.id]="propertyConnector.attrName"
@@ -133,19 +143,19 @@
               tuiTextfieldSize="m"
             ></tui-input-count>
 
-            <ng-container *ngSwitchCase="'PolymorpheusContent'">
-              <tui-primitive-textfield
-                *ngIf="isPrimitivePolymorpheusContent(propertyConnector.documentationPropertyValue)"
-                [nativeId]="propertyConnector.attrName"
-                [tuiTextfieldLabelOutside]="true"
-                [tuiTextfieldCleaner]="true"
-                [value]="propertyConnector.documentationPropertyValue.toString()"
-                (valueChange)="propertyConnector.onValueChange($event)"
-                tuiTextfieldSize="m"
-              >
-                Default content
-              </tui-primitive-textfield>
-            </ng-container>
+            <!--            <ng-container *ngSwitchCase="'PolymorpheusContent'">-->
+            <!--              <tui-primitive-textfield-->
+            <!--                *ngIf="isPrimitivePolymorpheusContent(propertyConnector.documentationPropertyValue)"-->
+            <!--                [nativeId]="propertyConnector.attrName"-->
+            <!--                [tuiTextfieldLabelOutside]="true"-->
+            <!--                [tuiTextfieldCleaner]="true"-->
+            <!--                [value]="propertyConnector.documentationPropertyValue.toString()"-->
+            <!--                (valueChange)="propertyConnector.onValueChange($event)"-->
+            <!--                tuiTextfieldSize="m"-->
+            <!--              >-->
+            <!--                Default content-->
+            <!--              </tui-primitive-textfield>-->
+            <!--            </ng-container>-->
 
             <ng-container *ngSwitchDefault>
               <tui-primitive-textfield
