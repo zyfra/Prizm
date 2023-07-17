@@ -57,7 +57,6 @@ export class PrizmDocHostElementService implements OnDestroy {
     // @ts-ignore
     const componentMetadata = componentClass['ɵcmp'] || componentClass['ɵdir'];
     if (componentMetadata) {
-      console.log('#mz componentMetadata', componentMetadata);
       selector = componentMetadata.selectors?.[0]?.[0] as string;
       const inputProperties = componentMetadata.inputs;
       const outputProperties = componentMetadata.outputs;
@@ -199,10 +198,6 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   public setHostElement(key: string, hostElement: ElementRef): void {
-    console.log('#mz setHostElement', {
-      hostElement,
-      key,
-    });
     this.hostElementMap.set(key, new ElementRef<any>(hostElement));
     this.hostElementMap$$.next(this.hostElementMap);
   }
