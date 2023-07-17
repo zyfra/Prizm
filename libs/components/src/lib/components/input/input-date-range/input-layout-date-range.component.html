@@ -27,6 +27,7 @@
       [ngModel]="fromValue"
       [size]="computedSingleMask.length"
       [maxLength]="computedSingleMask.length + 1"
+      [maxSize]="computedSingleMask.length"
       (ngModelChange)="onValueFromChange($event || '', true)"
       style="padding: 0"
       prizmInput
@@ -43,6 +44,7 @@
       [ngModel]="toValue"
       [size]="computedSingleMask.length"
       [maxLength]="computedSingleMask.length + 1"
+      [maxSize]="computedSingleMask.length"
       (ngModelChange)="onValueFromChange($event || '', false)"
       style="padding: 0"
       prizmInput

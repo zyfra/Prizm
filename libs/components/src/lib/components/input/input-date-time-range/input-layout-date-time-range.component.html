@@ -31,6 +31,7 @@
       [ngModel]="fromValue"
       [size]="computedDateMask.length"
       [maxLength]="computedDateMask.length + 1"
+      [maxSize]="computedDateMask.length"
       (click)="referFocusToMain(!fromValue)"
       (ngModelChange)="onDateValueChange($event || '', true)"
       style="padding: 0"
@@ -48,6 +49,7 @@
       [ngModel]="fromTimeValue"
       [size]="computedTimeMask.length"
       [maxLength]="computedTimeMask.length + 1"
+      [maxSize]="computedTimeMask.length"
       (ngModelChange)="onTimeValueChange($event, true)"
       style="padding: 0"
       prizmInput
@@ -65,6 +67,7 @@
       [ngModel]="toValue"
       [size]="computedDateMask.length"
       [maxLength]="computedDateMask.length + 1"
+      [maxSize]="computedDateMask.length"
       (ngModelChange)="onDateValueChange($event || '', false)"
       style="padding: 0"
       prizmInput
@@ -81,6 +84,7 @@
       [ngModel]="toTimeValue"
       [size]="computedTimeMask.length"
       [maxLength]="computedTimeMask.length + 1"
+      [maxSize]="computedTimeMask.length"
       (ngModelChange)="onTimeValueChange($event, false)"
       style="padding: 0"
       prizmInput
