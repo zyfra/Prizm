@@ -4,6 +4,9 @@
       class="rows rows__count"
       *ngIf="!paginatorOptions?.noRowsSelector && !paginatorOptions?.noRowsSelectorLabel"
     >
+      <ng-container *polymorphOutlet="textOnPage as title">
+        {{ title }}
+      </ng-container>
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
       <prizm-select
