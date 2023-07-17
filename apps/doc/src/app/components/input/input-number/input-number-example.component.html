@@ -63,8 +63,8 @@
           >
             <button
               [inputNumber]="inputCounter"
-              [interactive]="true"
               [disabled]="requiredInputControl.disabled"
+              [interactive]="!requiredInputControl.disabled"
               prizmInputIconButton="delete-minus"
               prizmInputNumberAuxiliaryControl="decrement"
               prizm-input-left
@@ -85,8 +85,8 @@
 
             <button
               [inputNumber]="inputCounter"
-              [interactive]="true"
               [disabled]="requiredInputControl.disabled"
+              [interactive]="!requiredInputControl.disabled"
               prizmInputIconButton="add-plus"
               prizmInputNumberAuxiliaryControl="increment"
               prizm-input-right
@@ -135,22 +135,6 @@
         documentationPropertyMode="output"
       >
         Enter
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="onClear"
-        documentationPropertyType="void"
-        documentationPropertyMode="output"
-      >
-        On Clear
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="valueChanged"
-        documentationPropertyType="any"
-        documentationPropertyMode="output"
-      >
-        Value Changed
       </ng-template>
     </prizm-doc-documentation>
 

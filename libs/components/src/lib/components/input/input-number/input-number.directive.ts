@@ -14,6 +14,9 @@ export class PrizmInputNumberDirective {
   @HostBinding('attr.data-testid')
   readonly testId = 'ui_input_number';
 
+  get disabled() {
+    return this.prizmInputText.disabled;
+  }
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
     @Host() private readonly prizmInputText: PrizmInputTextComponent
