@@ -126,6 +126,16 @@ export class PrizmTemplateTaskProcessor {
     return node;
   }
 
+  public needToChange(obj: any[], tasks: PrizmTemplateTask[] = this.tasks): boolean {
+    return !!obj.find(node => {
+      return this.needToChange(node, tasks);
+    });
+  }
+
+  public clear() {
+    this.storage.clear();
+  }
+
   public processAction(
     node: PrizmTemplateNode,
     task: PrizmTemplateTask,

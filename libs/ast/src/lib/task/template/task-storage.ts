@@ -13,4 +13,7 @@ export class PrizmTemplateTaskStorage {
   public getByType(type: string): Record<string, unknown> | null {
     return this.storageByType.get(type) ?? null;
   }
+  public clear(): void {
+    this.storageByType.clear();
+  }
 }
