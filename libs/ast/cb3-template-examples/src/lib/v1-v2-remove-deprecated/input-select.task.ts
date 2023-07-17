@@ -173,11 +173,11 @@ export const PrizmInputSelectTemplateTasks: PrizmTemplateTask[] = [
       ],
     },
     outputs: {
-      search: [
+      searchChange: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: searchOutput,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'search',
+            newAttrName: 'searchChange',
           }),
         }),
       ],

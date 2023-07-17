@@ -48,10 +48,8 @@ export async function prizmAstRunSchematicsByTasks(
         // Process HTML files using the PrizmHtmlParse and PrizmTemplateTaskProcessor.
         if (entryPath.endsWith('.html')) {
           const parsed = prizmAstHtmlParse(fileContent);
-          // const templateExecutor = new PrizmTemplateTaskProcessor(templateTasks);
-          const updatedFile = prizmAstHtmlStringify(
-            templateExecutor.processTasks(parsed) as PrizmAstHtmlItem[]
-          );
+          const processTasks = templateExecutor.processTasks(parsed) as PrizmAstHtmlItem[];
+          const updatedFile = prizmAstHtmlStringify(processTasks);
           if (!isEqual(parsed, prizmAstHtmlParse(fileContent))) fileContent = updatedFile;
           // clear storage with delayed tasks
           templateExecutor.clear();
