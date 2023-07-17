@@ -127,6 +127,9 @@ export class PrizmTemplateTaskProcessor {
   }
 
   public needToChange(obj: any[], tasks: PrizmTemplateTask[] = this.tasks): boolean {
+    if (!obj || !Array.isArray(obj)) {
+      return false;
+    }
     return !!obj.find(node => {
       return this.needToChange(node, tasks);
     });
