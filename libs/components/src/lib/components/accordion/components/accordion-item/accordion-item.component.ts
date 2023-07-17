@@ -1,20 +1,21 @@
 import {
-  Component,
   ChangeDetectionStrategy,
-  Input,
-  ContentChild,
-  TemplateRef,
-  OnDestroy,
   ChangeDetectorRef,
-  HostBinding,
+  Component,
+  ContentChild,
   EventEmitter,
+  HostBinding,
+  Input,
+  OnDestroy,
   Output,
+  TemplateRef,
 } from '@angular/core';
 import { AccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
 import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
 import { PolymorphContent } from '../../../../directives/polymorph';
+import { PrizmAccordionItemData } from '../../model';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -24,11 +25,21 @@ import { PolymorphContent } from '../../../../directives/polymorph';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent implements OnDestroy {
-  @Input() icon: string;
-  @Input() title: PolymorphContent = '';
+  @Input() icon: PolymorphContent<PrizmAccordionItemData>;
+  @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
   @Input() disabled = false;
   @Output() isExpandedChange = new EventEmitter<boolean>();
+
+  get data() {
+    return {
+      icon: this.icon,
+      title: this.title,
+      isExpanded: this.isExpanded,
+      disabled: this.disabled,
+      focused: this.isAccordionFocused,
+    };
+  }
 
   @HostBinding('attr.data-testid')
   readonly testId = 'ui_accordion_item';
