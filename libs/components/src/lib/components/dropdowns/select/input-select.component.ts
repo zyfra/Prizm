@@ -215,10 +215,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public safeOpenModal(): void {
-    // set touched on open modal
-    this.ngControl.control.markAsTouched();
     this.printing$.next('');
-
     const open = !this.opened$$.value && !this.disabled; // && inputElement && prizmIsNativeFocused(inputElement);
     this.opened$$.next(open);
     this.changeDetectorRef.markForCheck();

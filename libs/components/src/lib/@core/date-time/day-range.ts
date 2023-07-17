@@ -20,7 +20,7 @@ export class PrizmDayRange extends PrizmMonthRange {
   constructor(override readonly from: PrizmDay, override readonly to: PrizmDay) {
     super(from, to);
 
-    prizmAssert.assert(from.daySameOrBefore(to));
+    if (from && to) prizmAssert.assert(from.daySameOrBefore(to));
   }
 
   /**

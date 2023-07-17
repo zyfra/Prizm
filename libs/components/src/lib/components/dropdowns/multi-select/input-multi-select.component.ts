@@ -328,7 +328,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     const inputElement = this.focusableElement.nativeElement;
     const open = !this.opened$$.value && !this.disabled && !!inputElement;
     this.opened$$.next(open);
-    this.changeDetectorRef.markForCheck();
   }
 
   public removeChip(str: string): void {
