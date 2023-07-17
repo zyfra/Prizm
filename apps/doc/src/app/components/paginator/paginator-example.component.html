@@ -35,6 +35,7 @@
         [disabled]="disabled"
         [prizmDocHostElement]="element"
         [totalRecords]="totalRecords"
+        [textOnPage]="textOnPage"
         [rows]="rows"
         [pageLinkSize]="pageLinkSize"
         [leftButtonLabel]="leftButtonLabel"
@@ -56,6 +57,14 @@
         documentationPropertyMode="input"
       >
         Paginator type
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="textOnPage"
+        documentationPropertyName="textOnPage"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Text on page
       </ng-template>
 
       <ng-template

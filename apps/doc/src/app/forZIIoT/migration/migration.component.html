@@ -2,7 +2,26 @@
   <div class="page-description" description>Update cb3 to PRIZM using our library with plugins</div>
 
   <ng-template prizmDocPageTab>
-    Для запуска нашего мигратора в вашем проекте
+    <h3>
+      Что бы запустить наш мигратора в вашем проекте для удаления deprecated версий при обновлении на
+      2.1.0/1.2.5 версий
+    </h3>
+    <prizm-doc-code
+      [code]="'nx generate @prizm-ui/nx-plugin:remove-prizm-deprecated-v1-2 --project=[YOU PROJECT NAME] '"
+      filename="Запуск"
+    ></prizm-doc-code>
+    <prizm-doc-code
+      [code]="
+        'nx generate @prizm-ui/nx-plugin:remove-prizm-deprecated-v1-2 --project=[YOU PROJECT NAME] --runPrettier true'
+      "
+      filename="Запуск c prettier"
+    ></prizm-doc-code>
+
+    <br />
+    <hr />
+    <br />
+
+    <h3>Что бы запустить наш мигратора в вашем проекте для миграции с КБ3</h3>
     <prizm-doc-code
       [code]="'nx generate @prizm-ui/nx-plugin:migrate-from-cb3 --project=[YOU PROJECT NAME] '"
       filename="Запуск"
