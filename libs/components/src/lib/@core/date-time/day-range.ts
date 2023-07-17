@@ -123,8 +123,8 @@ export class PrizmDayRange extends PrizmMonthRange {
     return `${from}${PRIZM_RANGE_SEPARATOR_CHAR}${to}`;
   }
 
-  public toLocalNativeDate(): [Date, Date] {
-    return [this.from.toLocalNativeDate(), this.to.toLocalNativeDate()];
+  public toLocalNativeDate(): [Date | null, Date | null] {
+    return [this.from?.toLocalNativeDate() ?? null, this.to?.toLocalNativeDate() ?? null];
   }
 
   public override toString(dateFormat: PrizmDateMode = `DMY`, dateSeparator: string = `.`): string {
