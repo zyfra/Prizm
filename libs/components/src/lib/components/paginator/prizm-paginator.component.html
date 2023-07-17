@@ -6,17 +6,18 @@
     >
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
-      <prizm-input-layout [forceClear]="false" [label]="null" [outer]="true">
-        <prizm-input-select
-          [disabled]="disabled"
-          [nullContent]="null"
-          [ngModel]="rows"
-          [ngModelOptions]="{ standalone: true }"
-          [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
-          (ngModelChange)="changeRows($event)"
-          size="s"
-        ></prizm-input-select>
-      </prizm-input-layout>
+      <prizm-select
+        [disabled]="disabled"
+        [forceClear]="false"
+        [label]="null"
+        [outer]="true"
+        [nullContent]="null"
+        [ngModel]="rows"
+        [ngModelOptions]="{ standalone: true }"
+        [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
+        (ngModelChange)="changeRows($event)"
+        size="s"
+      ></prizm-select>
     </div>
   </div>
 
