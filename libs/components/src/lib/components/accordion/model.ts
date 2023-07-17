@@ -1,4 +1,4 @@
-import { PolymorphContent } from '@prizm-ui/components';
+import { PolymorphContent } from '../../directives/polymorph/types/content';
 
 export type PrizmAccordionItemData = {
   icon: PolymorphContent<any>;
