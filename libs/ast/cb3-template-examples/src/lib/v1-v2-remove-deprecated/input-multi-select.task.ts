@@ -16,6 +16,7 @@ const nameDropdownWidth = ['prizm-input-multi-select', 'dropdownWidth'].join('::
 const nameEmptyContent = ['prizm-input-multi-select', 'emptyContent'].join('::');
 const nameIcon = ['prizm-input-multi-select', 'icon'].join('::');
 const nameIdentityMatcher = ['prizm-input-multi-select', 'identityMatcher'].join('::');
+const isChipsDeletable = ['prizm-input-multi-select', 'isChipsDeletable'].join('::');
 const nameItems = ['prizm-input-multi-select', 'items'].join('::');
 const nameMaxDropdownHeight = ['prizm-input-multi-select', 'maxDropdownHeight'].join('::');
 const nameMinDropdownHeight = ['prizm-input-multi-select', 'minDropdownHeight'].join('::');
@@ -23,14 +24,15 @@ const nameNullContent = ['prizm-input-multi-select', 'nullContent'].join('::');
 const namePlaceholder = ['prizm-input-multi-select', 'placeholder'].join('::');
 const nameSearchMatcher = ['prizm-input-multi-select', 'searchMatcher'].join('::');
 const searchable = ['prizm-input-multi-select', 'searchable'].join('::');
+const selectAllItem = ['prizm-input-multi-select', 'selectAllItem'].join('::');
 const stringify = ['prizm-input-multi-select', 'stringify'].join('::');
 const valueTemplate = ['prizm-input-multi-select', 'valueTemplate'].join('::');
 const search = ['prizm-input-multi-select', 'search'].join('::');
 const searchOutput = ['prizm-input-multi-select', 'output-search'].join('::');
 
-export const PrizmInputSelectTemplateTasks: PrizmTemplateTask[] = [
+export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
   {
-    selector: 'prizm-select',
+    selector: 'prizm-multi-select',
     tasks: [
       prizmAstCreateActionBy(PrizmChangeNameTemplateTask, {
         name: 'prizm-input-layout',
@@ -94,6 +96,14 @@ export const PrizmInputSelectTemplateTasks: PrizmTemplateTask[] = [
           }),
         }),
       ],
+      isChipsDeletable: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: isChipsDeletable,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'isChipsDeletable',
+          }),
+        }),
+      ],
       items: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: nameItems,
@@ -147,6 +157,14 @@ export const PrizmInputSelectTemplateTasks: PrizmTemplateTask[] = [
           id: searchable,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
             newAttrName: 'searchable',
+          }),
+        }),
+      ],
+      selectAllItem: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: selectAllItem,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'selectAllItem',
           }),
         }),
       ],
