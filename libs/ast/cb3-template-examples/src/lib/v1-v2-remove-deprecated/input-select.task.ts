@@ -42,6 +42,9 @@ export const PrizmInputSelectTemplateTasks: PrizmTemplateTask[] = [
         children: [],
       }),
     ],
+    defaultInputs: {
+      label: 'Выберите из списка',
+    },
     inputs: {
       dropdownWidth: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {

@@ -12,7 +12,7 @@
   <ng-template #labelTemplate>
     <div
       class="label-container"
-      *ngIf="label"
+      *ngIf="label$ | async"
       [ngClass]="[
         control.nativeElementType ? 'label-container-' + control.nativeElementType : '',
         'label-container-' + (outer ? 'outer' : 'inner')
@@ -30,7 +30,7 @@
         [class.prizm-input-label-focused]="$.focused"
         [class.prizm-input-label-empty]="$.empty"
       >
-        {{ label }}
+        {{ label$ | async }}
         <span class="prizm-input-label-required" *ngIf="$.required">*</span>
       </label>
       <button

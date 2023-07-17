@@ -48,6 +48,7 @@ export type PrizmTemplateTask = {
   selector: PrizmTemplateSelector;
   tasks: TPrizmTemplateTaskAction[];
   finishTasks?: TPrizmTemplateTaskAction[];
+  defaultInputs?: Record<string, unknown>;
   inputs: Record<string, TPrizmTemplateTaskAction[]>;
   outputs: Record<string, TPrizmTemplateTaskAction[]>;
 };
@@ -157,6 +158,22 @@ export class PrizmTemplateTaskProcessor {
         );
       });
 
+      if (task.defaultInputs) {
+        Object.entries(task.defaultInputs).forEach(([key, value]) => {
+          if (
+            node.attrs[key] ||
+            node.attrs[`[${key}]`] ||
+            node.attrs[`[(${key})]`] ||
+            node.attrs[`([${key}])`]
+          )
+            return;
+          // if value is not string wrap key for template value
+          if (typeof value !== 'string') {
+            key = `[${key}]`;
+          }
+          node.attrs[key] = value;
+        });
+      }
       if (task.inputs)
         Object.entries(task.inputs).forEach(([key, actions]) => {
           if (

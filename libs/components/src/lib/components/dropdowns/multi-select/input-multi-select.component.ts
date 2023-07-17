@@ -48,6 +48,7 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
   readonly nativeElementType = 'multiselect';
   readonly hasClearButton = true;
+  override defaultLabel = this.options.label;
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLElement>;
 

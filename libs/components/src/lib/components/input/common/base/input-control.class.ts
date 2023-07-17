@@ -28,6 +28,8 @@ export abstract class PrizmInputControl<T> {
   @ViewChild(PrizmInputLayoutSubtextDirective)
   public layoutSubtext: PrizmInputLayoutSubtextDirective | null = null;
 
+  public defaultLabel: string;
+
   /** The value of the control. */
   abstract value: T | null;
 

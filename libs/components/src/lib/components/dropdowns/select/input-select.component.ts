@@ -19,18 +19,8 @@ import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } fro
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  observeOn,
-  shareReplay,
-  skip,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
-import { animationFrameScheduler, BehaviorSubject, concat, Observable, of, Subject, timer } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, concat, Observable, Subject, timer } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
@@ -131,6 +121,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
+  override defaultLabel = this.options.label;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly defaultIcon = 'chevrons-dropdown';
