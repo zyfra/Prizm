@@ -131,7 +131,11 @@ export class PrizmTemplateTaskProcessor {
       return false;
     }
     return !!obj.find(node => {
-      return this.needToChange(node, tasks);
+      // Обработка действий задачи для узла
+      for (const task of this.tasks) {
+        if (this.nodeNeedToChange(node, task)) return true;
+      }
+      return false;
     });
   }
 
