@@ -8,9 +8,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^15.2.9",
-    "@angular/core": "^15.2.9",
-    "@prizm-ui/core": "^1.2.1"
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@prizm-ui/core": "^2.0.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
