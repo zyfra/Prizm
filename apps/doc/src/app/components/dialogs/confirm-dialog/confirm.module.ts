@@ -14,6 +14,7 @@ import { ConfirmComponent } from './confirm.component';
 import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';
 import { PrizmDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
 import { FullExampleModule } from './examples/full/full.module';
+import { PrizmCallFuncModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { FullExampleModule } from './examples/full/full.module';
     PolymorphModule,
     PrizmSelectModule,
     FullExampleModule,
+    PrizmCallFuncModule,
     PrizmButtonModule,
     PrizmConfirmDialogModule,
     PrizmRadioButtonModule,

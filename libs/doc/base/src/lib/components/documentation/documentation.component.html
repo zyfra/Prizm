@@ -79,7 +79,7 @@
           ></tui-data-list-wrapper>
         </tui-select>
         <ng-template #selectContent let-data>
-          <code>{{ inspectAny(data) }}</code>
+          <code>{{ data | prizmCallFunc : inspectAny }}</code>
         </ng-template>
 
         <ng-template #noItems>

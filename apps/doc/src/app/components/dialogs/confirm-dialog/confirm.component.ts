@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import {
+  AfterViewInit,
+  ChangeDetectionStrategy,
+  Component,
+  Inject,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   IconDefs,
@@ -9,11 +16,9 @@ import {
   PrizmConfirmDialogOptions,
   PrizmConfirmDialogResultDefaultType,
   PrizmConfirmDialogService,
-  PrizmContent,
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
-  PrizmSidebarOptions,
   PrizmSize,
 } from '@prizm-ui/components';
 import { prizmPure } from '@prizm-ui/core';
@@ -25,7 +30,8 @@ import { generatePolymorphVariants } from '../../../util';
   styleUrls: ['./confirm.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ConfirmComponent {
+export class ConfirmComponent implements AfterViewInit {
+  @ViewChild('contentTemp') contentTempRef: TemplateRef<any>;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
@@ -59,7 +65,7 @@ export class ConfirmComponent {
   public closeWord = 'Продолжить';
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-
+  descriptionVariants: any[] = [];
   public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = ['scroll', 'all', 'none'];
   public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
@@ -128,5 +134,11 @@ export class ConfirmComponent {
         size: this.size,
       })
       .subscribe(result => console.log('result from dialog', { result }));
+  }
+
+  ngAfterViewInit(): void {
+    this.descriptionVariants = [
+      ...this.generatePolymorphVariants(this.defaultDescription, this.contentTempRef),
+    ];
   }
 }
