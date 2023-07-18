@@ -11,9 +11,12 @@ All notable changes to this project will be documented in this file.
 - feat(components/accordion): added ability to pass context for title, icon #397
 - feat(components/input-select): set touched state only after choose or clear #507
 - feat(components/input-multi-select): set touched state only after choose or clear
+- feat(components/input-select): added ability to visibility control of scrollbar thumb for select components #491
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
-- feat(components/button): add ability to set postfix #465
+- feat(components/button): add ability to set postfix for test-id for button, toggle components #465
+- feat(components/select): add ability to set postfix for test-id for select components #465
+- feat(components/input-\*): add ability to set postfix for test-id for input components #465
 - feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
 - feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader #497
 - feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader #497
@@ -42,7 +45,7 @@ All notable changes to this project will be documented in this file.
 - fix(icons): wrong selectors for icons [487](https://github.com/zyfra/Prizm/issues/487) [501](https://github.com/zyfra/Prizm/issues/501)
 - fix(components/tabs): close tab from manu [518](https://github.com/zyfra/Prizm/issues/487)
 
-### Bracking Changes
+### Breaking changes
 
 - BC(components/hint): remove input prizmHintShow
 - BC(components/tooltip): remove input prizmHintShow
@@ -69,7 +72,7 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.0-next.3](https://github.com/zyfra/Prizm) (13-07-2023)
 
-### Bracking Changes
+### Breaking changes
 
 - BC(components/hint): remove input prizmHintShow
 - BC(components/tooltip): remove input prizmHintShow
@@ -410,7 +413,7 @@ All notable changes to this project will be documented in this file.
 - feat(chore): update nx to 14 version [MR](https://github.com/zyfra/Prizm/pull/232)
 - feat(components/polymorph): add passing injector to template [MR](https://github.com/zyfra/Prizm/pull/232)
 
-### BREAKING CHANGES
+### Breaking changes
 
 - BC(components/dropdown-host): remove parentZone input [MR](https://github.com/zyfra/Prizm/pull/232)
 
@@ -429,7 +432,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/breadcrumbs): added option to show only icon in breadcrumb, removing 8px gap and empty text padding. [MR](https://github.com/zyfra/Prizm/pull/222)
 - fix(components/navigation-menu): removed duplicate template outlet for headerExtraTemplate [MR](https://github.com/zyfra/Prizm/pull/225)
 
-### BREAKING CHANGES
+### Breaking changes
 
 - BREAKING CHANGE(components/splitter): refactored splitter component, removed setAreasSize method, instead of it add new inputs size, minSize to control size [MR](https://github.com/zyfra/Prizm/pull/210) [69](https://github.com/zyfra/Prizm/issues/69)
 
@@ -441,7 +444,7 @@ All notable changes to this project will be documented in this file.
 - feat(doc): new page with info how to use our migrator
 - feat(ast): now our code manipulator support changing in new ts version >4.7
 
-### BREAKING CHANGES
+### Breaking changes
 
 - feat(testid): update data-testid attributes by RFC [MR](https://github.com/zyfra/Prizm/pull/206)
 - feat(cb3-to-prizm): remove @prizm-ui/cb3-to-prizm lib, move to @prizm-ui/nx-plugin
@@ -672,7 +675,7 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(components/text-arrea,input-chips): fix checking NgControl
 - fix(components/overlay): fix disabled/enabled state
 
-### BREAKING CHANGES
+### Breaking changes
 
 - BREAKING CHANGE: Migrate PrizmThemeModule to prizm/theme library
 - fix(components/radio)!: remove formControl input
@@ -715,7 +718,7 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(components/splitter): resize events. bug fix with classes
 - fix(components/stepper): fix a bug with the order of steps
 
-### BREAKING CHANGES
+### Breaking changes
 
 - ref(components/paginator): change initialValue > page
 - ref(components/paginator): change tabChange > pageChange
@@ -757,7 +760,7 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(components/date): display in dark mode
 - fix(theme/switcher): error in global change
 
-### BREAKING CHANGES
+### Breaking changes
 
 - feat(theme): themes moved from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation)
 - feat(components/tabs): change api (PLEASE UPDATE as in doc documentation)
@@ -834,7 +837,7 @@ Migrate PrizmThemeModule > prizm/theme
 - feat(components/table): Добавлен компонент таблиц
 - feat(components/charts): Charts stage 1
 
-### BREAKING CHANGES
+### Breaking changes
 
 - feat(components): rename selectors, prefix for all project ( pzm, zui to prizm ) 1
 - feat(components): rename selectors, prefix for all project ( pzm, zui to prizm ) 2
