@@ -78,8 +78,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     this.stateChanges.next();
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_text';
+  override readonly testId_ = 'ui_input_text';
 
   private _required: boolean | undefined;
 

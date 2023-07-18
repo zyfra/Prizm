@@ -5,11 +5,14 @@
     </button>
     <prizm-dropdown-host
       class="dropdown-host"
+      #dropdownMore="prizm-dropdown-host"
       *ngIf="canShowMenu && !isRightBtnActive"
       [(isOpen)]="openLeft"
       [content]="dropdown"
+      (prizmAfterViewInit)="tabsMoreDropdown = dropdownMore"
       prizmDropdownHostWidth="auto"
     >
+      +
       <prizm-icon
         class="control__settings"
         [class.control__settings_active]="openLeft"
@@ -30,6 +33,7 @@
       #tabsDropdown
       [(isOpen)]="openRight"
       [content]="dropdown"
+      (prizmAfterViewInit)="tabsMoreDropdown = tabsDropdown"
       prizmDropdownHostWidth="auto"
     >
       <prizm-icon
@@ -58,7 +62,7 @@
               [closable]="tab.closable"
               [disabled]="tab.disabled"
               [attr.dropdown-tab]="true"
-              (closeTab)="closeTab(i)"
+              (closeTab)="closeTab(tabElement.idx)"
             >
             </prizm-tab>
           </ng-container>

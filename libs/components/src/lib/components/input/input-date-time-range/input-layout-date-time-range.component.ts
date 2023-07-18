@@ -140,8 +140,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_range';
+  override readonly testId_ = 'ui_input_date_time_range';
 
   testRange = new PrizmDayRange(new PrizmDay(2010, 1, 1), new PrizmDay(2010, 2, 2));
 

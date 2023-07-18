@@ -1,18 +1,18 @@
 import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 @Directive({
   selector: 'input[prizmInputNumber], input[type=number][prizmInput]',
   exportAs: 'prizmInputNumber',
 })
-export class PrizmInputNumberDirective {
+export class PrizmInputNumberDirective extends AbstractPrizmTestId {
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   @Input() step = 1;
   @Input() value!: number;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_number';
+  override readonly testId_ = 'ui_input_number';
 
   get disabled() {
     return this.prizmInputText.disabled;
@@ -22,6 +22,7 @@ export class PrizmInputNumberDirective {
     @Host() private readonly prizmInputText: PrizmInputTextComponent
   ) {
     el.nativeElement.type = 'number';
+    super();
   }
 
   public increment(): void {

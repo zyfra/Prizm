@@ -119,8 +119,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   override hidden = true;
 
   readonly button_layout_width = 64;
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-muilti-select';
+  override readonly testId_ = 'ui-muilti-select';
 
   @HostBinding('style.display')
   get display(): string {

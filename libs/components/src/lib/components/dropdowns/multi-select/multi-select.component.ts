@@ -143,8 +143,7 @@ export class PrizmMultiSelectComponent<T>
   @prizmDefaultProp()
   outer: boolean = this.options.outer;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-muilti-select';
+  override readonly testId_ = 'ui-muilti-select';
 
   public inputTextElement: PrizmInputTextComponent | null;
   public readonly defaultIcon = 'chevrons-dropdown';
