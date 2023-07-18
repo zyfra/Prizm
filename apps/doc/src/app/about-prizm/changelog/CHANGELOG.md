@@ -54,7 +54,7 @@ All notable changes to this project will be documented in this file.
 - BC(components/tooltip): rename output prizmHoverChange > prizmTooltipShowed
 - BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
 
-#### Our migrator support auto breaking changes [read](https://prizm.site//forZIIoT/migration)
+#### Our migrator support auto breaking changes [read](https://prizm.site/forZIIoT/migration)
 
 ## [2.1.0-next.4](https://github.com/zyfra/Prizm) (18-07-2023)
 
