@@ -71,43 +71,16 @@ export class PrizmToastInnerHtmlExampleComponent {
   readonly formControl = new UntypedFormControl(PrizmToastPosition.TOP_RIGHT);
   constructor(private readonly toastService: PrizmToastService) {}
 
-  public showSuccessToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(contentTemplate, {
-      appearance: 'success',
-      position: this.formControl.value,
-      timer: 5000,
-      isPlatform: true,
-      title: 'Большой заголовок очень очень очень очень',
-    });
-  }
-
-  public showWarningToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(contentTemplate, {
-      appearance: 'warning',
-      position: this.formControl.value,
-      timer: 5000,
-      isPlatform: true,
-      title: 'Большой заголовок очень очень очень очень',
-    });
-  }
-
-  public showDangerToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
-    this.toastService.create(contentTemplate, {
-      appearance: 'danger',
-      position: this.formControl.value,
-      timer: 5000,
-      isPlatform: true,
-      title: 'Большой заголовок очень очень очень очень',
-    });
-  }
-
-  public showInfoToastWithContentTemplate(contentTemplate: TemplateRef<unknown>): void {
+  public showWithCustomDataTemplate(contentTemplate: TemplateRef<unknown>): void {
     this.toastService.create(contentTemplate, {
       appearance: 'info',
       position: this.formControl.value,
+      data: {
+        html: '<b>BOLD</b> <i>CURSIVE</i>',
+      },
       timer: 5000,
       isPlatform: true,
-      title: 'Большой заголовок очень очень очень очень',
+      title: 'С HTML разметкой',
     });
   }
 }
