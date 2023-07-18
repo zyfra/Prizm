@@ -115,8 +115,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @prizmDefaultProp()
   valueTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.valueContent;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_select';
+  override readonly testId_ = 'ui_select';
 
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();

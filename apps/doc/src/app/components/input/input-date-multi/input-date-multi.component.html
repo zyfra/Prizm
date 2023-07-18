@@ -16,6 +16,7 @@
         #element
         [prizmDocHostElement]="element"
         [currentIdx]="currentIdx"
+        [testId]="testIdPostfix"
         [items]="dateTime | prizmCallFunc : getItems : dateRelativeTime"
       >
       </prizm-input-date-multi>
@@ -39,6 +40,14 @@
       </ng-template>
     </prizm-doc-demo>
     <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         documentationPropertyName="items"
         documentationPropertyType="PrizmDateItemTemplate[]"

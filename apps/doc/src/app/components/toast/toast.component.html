@@ -22,6 +22,10 @@
     <prizm-doc-example id="toast-platform" [content]="exampleToast" heading="Platform Toast">
       <prizm-toast-example></prizm-toast-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="toast-inner-html" [content]="exampleInnerHtml" heading="Inner Html">
+      <prizm-toast-inner-html-example></prizm-toast-inner-html-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -45,34 +49,6 @@
         Container Id
       </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="timer"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="timer"
-      >
-        Timer expire (0 - it will be never auto closed)
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="id"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="id"
-      >
-        Id for toast (can show only one with same id)
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="appearance"
-        documentationPropertyType="PrizmToastAppearance"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="appearanceVariants"
-        [(documentationPropertyValue)]="appearance"
-      >
-        Appearance toast
-      </ng-template> -->
-
       <ng-template
         [(documentationPropertyValue)]="position"
         [documentationPropertyValues]="positionVariants"
@@ -82,35 +58,6 @@
       >
         Position place
       </ng-template>
-
-      <!-- <ng-template
-        documentationPropertyName="title"
-        documentationPropertyType="PolymorphContent<PrizmToastRef>"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="getContentVariants(template)"
-        [(documentationPropertyValue)]="title"
-      >
-        Title
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="content"
-        documentationPropertyType="PolymorphContent<PrizmToastRef>"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="getContentVariants(template)"
-        [(documentationPropertyValue)]="content"
-      >
-        Content
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="isPlatform"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="isPlatform"
-      >
-        isPlatform
-      </ng-template> -->
 
       <ng-template #template>
         <a href="">Ссылка</a>

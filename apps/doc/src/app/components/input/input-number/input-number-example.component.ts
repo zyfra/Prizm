@@ -13,6 +13,7 @@ export class InputNumberExampleComponent {
   value = 1;
   public requiredInputControl = new UntypedFormControl('', Validators.required);
   public min = 0;
+  public testIdPostfix: string;
   public max = 10;
   public step = 2;
 

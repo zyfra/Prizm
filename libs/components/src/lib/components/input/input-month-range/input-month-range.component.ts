@@ -49,6 +49,8 @@ export class PrizmInputMonthRangeComponent
   extends AbstractPrizmNullableControl<PrizmMonthRange>
   implements PrizmWithOptionalMinMax<PrizmMonth>, PrizmFocusableElementAccessor
 {
+  override readonly testId_ = 'ui_input_month_range';
+
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
 

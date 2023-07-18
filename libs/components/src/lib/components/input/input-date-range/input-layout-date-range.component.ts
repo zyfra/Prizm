@@ -114,8 +114,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
   open = false;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_range';
+  override readonly testId_ = 'ui_input_date_range';
 
   get interactive() {
     return !this.disabled;

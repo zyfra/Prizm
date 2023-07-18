@@ -8,11 +8,11 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { PrizmContent } from '../button-options';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSize } from '../../../util';
 import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PolymorphContent } from '../../../directives';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-split-button',
@@ -21,7 +21,7 @@ import { PolymorphContent } from '../../../directives';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmSplitButtonComponent {
+export class PrizmSplitButtonComponent extends AbstractPrizmTestId {
   @Input()
   @HostBinding('attr.data-size')
   size: PrizmSize;
@@ -50,8 +50,7 @@ export class PrizmSplitButtonComponent {
   @Output()
   clickButton = new EventEmitter<void>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_split_button';
+  override readonly testId_ = 'ui_split_button';
 
   @ViewChild('buttonRef', { static: true, read: ElementRef }) buttonEl: ElementRef;
   @ViewChild('iconButtonRef', { static: true, read: ElementRef }) iconButtonEl: ElementRef;

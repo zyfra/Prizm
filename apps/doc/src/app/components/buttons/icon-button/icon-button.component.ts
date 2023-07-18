@@ -32,6 +32,7 @@ import {
 export class IconButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
+  public testIdPostfix: string;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;

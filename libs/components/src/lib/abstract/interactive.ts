@@ -1,10 +1,29 @@
 import { Directive, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 
+@Directive({})
+export abstract class AbstractPrizmTestId {
+  protected testIdPostfix?: string;
+
+  @Input()
+  @HostBinding('attr.data-testid')
+  get testId() {
+    return this.generateManeTestId + (this.testIdPostfix ? `--${this.testIdPostfix}` : '');
+  }
+  set testId(value: string) {
+    this.testIdPostfix = value;
+  }
+
+  public get generateManeTestId() {
+    return this.testId_;
+  }
+  protected testId_: string;
+}
+
 /**
  * The most basic class for interactive components
  */
 @Directive()
-export abstract class AbstractPrizmInteractive {
+export abstract class AbstractPrizmInteractive extends AbstractPrizmTestId {
   abstract disabled: boolean;
 
   abstract focused: boolean;

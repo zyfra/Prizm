@@ -31,6 +31,7 @@
               [prizmDocHostElement]="prizmInputNumber"
               [formControl]="requiredInputControl"
               [min]="min"
+              [testId]="testIdPostfix"
               [max]="max"
               [step]="step"
               [value]="value"
@@ -72,6 +73,7 @@
 
             <input
               #inputCounter="prizmInputNumber"
+              [testId]="testIdPostfix"
               [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
@@ -102,6 +104,14 @@
       heading="PrizmInputNumberDirective"
       hostComponentKey="PrizmInputNumberDirective"
     >
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="required"
         documentationPropertyName="required"
@@ -136,6 +146,22 @@
         documentationPropertyMode="output"
       >
         Enter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="onClear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        On Clear
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="valueChanged"
+        documentationPropertyType="number"
+        documentationPropertyMode="output"
+      >
+        Value Changed
       </ng-template>
     </prizm-doc-documentation>
 

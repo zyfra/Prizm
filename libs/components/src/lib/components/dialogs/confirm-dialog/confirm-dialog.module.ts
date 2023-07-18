@@ -6,6 +6,7 @@ import { PrizmButtonModule } from '../../button';
 import { PrizmDialogConfirmComponent } from './confirm-dialog.component';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmToObservableModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
     PolymorphModule,
     PrizmOverlayModule,
     PrizmThemeModule,
+    PrizmToObservableModule,
     PrizmButtonModule,
     PrizmFocusTrapModule,
     PrizmScrollbarModule,

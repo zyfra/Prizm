@@ -21,6 +21,7 @@ export class TextareaExampleComponent {
   public disabled = false;
 
   height = null;
+  testIdPostfix: string;
   width = '20rem';
 
   public required = false;

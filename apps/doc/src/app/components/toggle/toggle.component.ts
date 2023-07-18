@@ -15,6 +15,7 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ToggleComponent {
+  testIdPostfix: string;
   public readOnly = false;
   val: boolean;
   public pseudoInvalid = false;

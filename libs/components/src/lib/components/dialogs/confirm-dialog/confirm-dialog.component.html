@@ -75,8 +75,8 @@
         [size]="button.size"
         [iconRight]="button.iconRight"
         [icon]="button.icon"
-        [showLoader]="button.showLoader"
-        [disabled]="button.disabled"
+        [disabled]="button.disabled ?? false | prizmToObservable | async"
+        [showLoader]="button.showLoader ?? false | prizmToObservable | async"
         (click)="button.action(context)"
         prizmButton
       >

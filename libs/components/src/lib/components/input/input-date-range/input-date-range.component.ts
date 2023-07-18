@@ -107,8 +107,7 @@ export class PrizmInputDateRangeComponent
   @prizmDefaultProp()
   maxLength: PrizmDayLike | null = null;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_range';
+  override readonly testId_ = 'ui_input_date_range';
 
   open = false;
 

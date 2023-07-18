@@ -18,6 +18,7 @@ import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, of, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-chips',
@@ -33,7 +34,10 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
     PrizmDestroyService,
   ],
 })
-export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit {
+export class PrizmChipsComponent
+  extends AbstractPrizmTestId
+  implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit
+{
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 'l';
   @Input() set chips(data: string[]) {
     this.chipsList = data;
@@ -47,8 +51,8 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
   @Output() public removeChipEvent: EventEmitter<string> = new EventEmitter();
   @Output() public clickChipEvent: EventEmitter<string> = new EventEmitter();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_chips';
+  override readonly testId_ = 'ui_chips';
+
   public accessorIsDisabled = false;
   public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
 
@@ -59,7 +63,9 @@ export class PrizmChipsComponent implements ControlValueAccessor, OnInit, OnDest
     return Math.max(x, y) > 0;
   };
 
-  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {}
+  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {
+    super();
+  }
 
   // eslint-disable-next-line @typescript-eslint/no-empty-function
   public onChange: (value: unknown) => void = () => {};

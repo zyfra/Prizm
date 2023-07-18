@@ -5,7 +5,7 @@ import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabsComponent } from './tabs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 import { PrizmButtonModule } from '../button';
-import { PolymorphModule, PrizmDropdownControllerModule } from '../../directives';
+import { PolymorphModule, PrizmDropdownControllerModule, PrizmLifecycleModule } from '../../directives';
 import { PrizmDataListModule } from '../data-list';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
@@ -16,6 +16,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     CommonModule,
     PrizmIconModule,
     PolymorphModule,
+    PrizmLifecycleModule,
     PrizmDropdownHostModule,
     PrizmCallFuncModule,
     PrizmLetModule,

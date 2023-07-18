@@ -7,15 +7,15 @@
       <prizm-icons-buttons-example></prizm-icons-buttons-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleFilled" heading="Filled buttons">
+    <prizm-doc-example id="filled" [content]="exampleFilled" heading="Filled buttons">
       <prizm-filled-buttons-example></prizm-filled-buttons-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleOutline" heading="Outline buttons">
+    <prizm-doc-example id="outline" [content]="exampleOutline" heading="Outline buttons">
       <prizm-outline-buttons-example></prizm-outline-buttons-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleGhost" heading="Ghost buttons">
+    <prizm-doc-example id="ghost" [content]="exampleGhost" heading="Ghost buttons">
       <prizm-ghost-buttons-example></prizm-ghost-buttons-example>
     </prizm-doc-example>
   </ng-template>
@@ -26,6 +26,7 @@
         #element
         [prizmDocHostElement]="element"
         [icon]="icon"
+        [testId]="testIdPostfix"
         [iconRight]="iconRight"
         [size]="size"
         [appearanceType]="appearanceType"
@@ -86,6 +87,15 @@
         documentationPropertyMode="input"
       >
         Icon
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
       </ng-template>
 
       <ng-template

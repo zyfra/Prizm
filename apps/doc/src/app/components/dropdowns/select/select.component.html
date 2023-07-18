@@ -61,6 +61,7 @@
         [searchMatcher]="searchMatcher"
         [identityMatcher]="identityMatcher"
         [dropdownWidth]="dropdownWidth"
+        [testId]="testIdPostfix"
         [readOnly]="readOnly"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
@@ -80,7 +81,14 @@
       >
         Icon
       </ng-template>
-
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         documentationPropertyName="search"
         documentationPropertyType="string | null"

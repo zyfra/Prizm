@@ -79,7 +79,7 @@
           ></tui-data-list-wrapper>
         </tui-select>
         <ng-template #selectContent let-data>
-          <code>{{ inspectAny(data) }}</code>
+          <code>{{ data | prizmCallFunc : inspectAny }}</code>
         </ng-template>
 
         <ng-template #noItems>
@@ -106,7 +106,7 @@
             <!--            TODO !ng16 add feature to change defined templates/components/numbers when polymorh does not value-->
             <!--         ngIf trigger move to prizmLet or code for avoid unnecessary invokes   -->
             <tui-primitive-textfield
-              *ngIf="propertyConnector.documentationPropertyType.toLowerCase().startsWith('polymorph')"
+              *ngIf="showPolymorph(propertyConnector)"
               [nativeId]="propertyConnector.attrName"
               [tuiTextfieldLabelOutside]="true"
               [tuiTextfieldCleaner]="true"

@@ -38,10 +38,6 @@ export class PrizmHintDirective<
   CONTEXT extends PrizmHintContext = PrizmHintContext
 > implements OnChanges, OnInit, OnDestroy
 {
-  // @Input()
-  // @prizmDefaultProp()
-  // prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
-
   @Input()
   @prizmDefaultProp()
   prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
@@ -131,7 +127,10 @@ export class PrizmHintDirective<
 
   public ngOnInit(): void {
     this.initVisibleController();
+    this.initShowedChangeListener();
+  }
 
+  protected initShowedChangeListener() {
     this.prizmHoveredChange$$
       .pipe(
         distinctUntilChanged(),
@@ -185,7 +184,7 @@ export class PrizmHintDirective<
 
   private initOverlayController(): void {
     this.destroyListeners$.next();
-    this.show$.next(false);
+    if (this.show_) this.show$.next(false);
     this.overlay?.close();
 
     const position = new PrizmOverlayRelativePosition({

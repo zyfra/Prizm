@@ -76,8 +76,7 @@ export class PrizmInputLayoutDateRelativeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_relative';
+  override readonly testId_ = 'ui_input_date_relative';
 
   public isOpen = false;
 

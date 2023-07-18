@@ -46,6 +46,7 @@ import { PrizmInputControl, PrizmInputNgControl } from '../common';
 export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMonth> {
   readonly hasClearButton = true;
   readonly nativeElementType = 'input-month';
+  override readonly testId_ = 'ui_input_month';
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;

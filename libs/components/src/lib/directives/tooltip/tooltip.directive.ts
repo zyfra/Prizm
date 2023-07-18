@@ -20,10 +20,6 @@ import { PrizmHintDirective } from '../hint/hint.directive';
   exportAs: 'prizmTooltip',
 })
 export class PrizmTooltipDirective extends PrizmHintDirective {
-  // @Input('prizmTooltipMode')
-  // @prizmDefaultProp()
-  // override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
-
   @Input('prizmAutoReposition')
   @prizmDefaultProp()
   override prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
@@ -73,8 +69,11 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
 
   protected override readonly containerComponent = PrizmTooltipContainerComponent;
   protected override readonly onHoverActive = false;
-
+  protected clickedInside = false;
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
-    this.show$.next(this.elementRef.nativeElement.contains(target));
+    const clickOnTooltip = this.elementRef.nativeElement.contains(target);
+    if (clickOnTooltip && !this.clickedInside) this.clickedInside = true;
+    if (!this.clickedInside) return;
+    this.show$.next(clickOnTooltip);
   }
 }

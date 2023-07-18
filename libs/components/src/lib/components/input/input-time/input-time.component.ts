@@ -98,8 +98,7 @@ export class PrizmInputTimeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_time';
+  override readonly testId_ = 'ui_input_time';
 
   public open = false;
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
