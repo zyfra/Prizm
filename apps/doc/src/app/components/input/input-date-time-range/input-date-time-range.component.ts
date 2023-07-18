@@ -25,6 +25,7 @@ export class InputDateTimeRangeComponent {
   readonly min = new PrizmDateTime(new PrizmDay(2000, 2, 20), new PrizmTime(0, 0));
   readonly max = new PrizmDateTime(new PrizmDay(2040, 2, 20), new PrizmTime(0, 0));
   public placeholder = 'Выберите период';
+  public testIdPostfix: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;

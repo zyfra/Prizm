@@ -23,6 +23,7 @@ export class SelectComponent {
   public pseudoPressed = false;
   public pseudoFocused = false;
   public focusable = true;
+  public testIdPostfix: string;
   public pseudoState = '';
   public focusedChange = false;
   public pressedChange = false;

@@ -37,6 +37,7 @@ export class MultiSelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
+  testIdPostfix: string;
   emptyContent = 'Ничего не найдено';
   isChipsDeletable = true;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];

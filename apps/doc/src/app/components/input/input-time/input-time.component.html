@@ -35,11 +35,20 @@
         [strict]="strict"
         [size]="size"
         [readOnly]="readOnly"
+        [testId]="testIdPostfix"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
       ></prizm-input-time>
     </prizm-doc-demo>
     <prizm-doc-documentation [control]="valueControl">
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

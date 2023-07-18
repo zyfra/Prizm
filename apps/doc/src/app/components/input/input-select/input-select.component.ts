@@ -122,6 +122,7 @@ export class InputSelectComponent {
   public valueTemplate: PolymorphContent<any> = '';
 
   public icon: PolymorphContent<PrizmSelectIconContext> = null;
+  public testIdPostfix: string;
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
 

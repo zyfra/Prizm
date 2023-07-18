@@ -38,6 +38,7 @@ export class InputChipsExampleComponent {
   public forceClear = this.forceClearVariants[0];
 
   public chips: string[] = ['Чипс 1', 'Чипс 2', 'Чипс 3'];
+  public testIdPostfix: string;
   public deletable = true;
   public disabled = false;
   public singleLine = false;

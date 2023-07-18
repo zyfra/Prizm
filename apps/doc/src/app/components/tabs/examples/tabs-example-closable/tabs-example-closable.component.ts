@@ -35,7 +35,6 @@ export class TabsExampleClosableComponent {
   }
 
   public removeTab(tab: PrizmTabItem): void {
-    console.log('#mz removeTab', tab);
     if (this.tabs.length < 2) return;
     this.tabs = this.tabs.filter(item => item !== tab);
   }

@@ -34,6 +34,7 @@
         <prizm-input-layout-date-range
           #dateElement
           [prizmDocHostElement]="dateElement"
+          [testId]="testIdPostfix"
           [prizmDocHostElementKey]="dateKey"
           [formControl]="dateControl"
           [placeholder]="placeholder"
@@ -42,6 +43,14 @@
       </prizm-input-layout>
     </prizm-doc-demo>
     <prizm-doc-documentation [control]="dateControl" [hostComponentKey]="dateKey">
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"

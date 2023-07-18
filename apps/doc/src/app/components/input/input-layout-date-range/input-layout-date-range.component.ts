@@ -38,6 +38,7 @@ export class InputLayoutDateRangeComponent {
   public focusVisibleChange = false;
 
   public label = 'Период';
+  public testIdPostfix: string;
   public dateControl = new UntypedFormControl();
   public placeholder = 'Выберите период';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];

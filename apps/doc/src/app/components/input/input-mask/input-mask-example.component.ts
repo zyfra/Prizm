@@ -11,6 +11,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 export class InputMaskExampleComponent {
   public mask = '00:00';
   public value = '';
+  public testIdPostfix: string;
 
   public label = 'Заголовок';
   public placeholder = '';

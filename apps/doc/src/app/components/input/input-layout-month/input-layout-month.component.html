@@ -24,12 +24,21 @@
           [prizmDocHostElement]="element"
           [prizmDocHostElementKey]="controlKey"
           [formControl]="control"
+          [testId]="testIdPostfix"
           [placeholder]="placeholder"
         ></prizm-input-layout-month>
       </prizm-input-layout>
     </prizm-doc-demo>
 
     <prizm-doc-documentation [heading]="controlKey" [hostComponentKey]="controlKey" [control]="control">
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"

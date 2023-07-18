@@ -36,6 +36,7 @@ export class InputLayoutDateComponent {
 
   public label = 'Абсолютное';
   public placeholder = 'Выберите дату';
+  public testIdPostfix: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;

@@ -80,6 +80,7 @@ export class InputInputMultiSelectComponent {
   ];
   readonly valueControl = new UntypedFormControl();
   public items = this.itemsVariants[1];
+  public testIdPostfix: string;
 
   set disabled(state: boolean) {
     if (state) this.control.disable();
