@@ -34,6 +34,7 @@ All notable changes to this project will be documented in this file.
 - fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
 - fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
 - fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+- fix(icons): wrong selectors for icons [487](https://github.com/zyfra/Prizm/issues/487) [501](https://github.com/zyfra/Prizm/issues/501)
 
 ### Bracking Changes
 
