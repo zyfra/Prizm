@@ -15,9 +15,9 @@ All notable changes to this project will be documented in this file.
 - feat(doc): now input/output getter can distinguish altered properties
 - feat(components/button): add ability to set postfix #465
 - feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
-- feat(components/sidebar): add ability pass observable for buttons #497
-- feat(components/confirm-dialog): add ability pass observable for buttons #497
-- feat(components/confirm-popup): add ability pass observable for buttons
+- feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader #497
+- feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader #497
+- feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
 
 ### BUG FIXES
 
