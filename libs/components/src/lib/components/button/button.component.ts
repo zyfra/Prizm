@@ -84,9 +84,18 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
     return this.focusable ? 0 : -1;
   }
 
+  protected testIdPostfix?: string;
+
   @Input()
   @HostBinding('attr.data-testid')
-  readonly testId = this.hasIcon ? 'ui_button' : 'ui_icon_button';
+  get testId() {
+    return (
+      (this.hasIcon ? 'ui_button' : 'ui_icon_button') + (this.testIdPostfix ? `--${this.testIdPostfix}` : '')
+    );
+  }
+  set testId(value: string) {
+    this.testIdPostfix = value;
+  }
 
   @HostListener('focusin', ['true'])
   @HostListener('focusout', ['false'])

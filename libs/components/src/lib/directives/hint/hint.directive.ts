@@ -131,7 +131,10 @@ export class PrizmHintDirective<
 
   public ngOnInit(): void {
     this.initVisibleController();
+    this.initShowedChangeListener();
+  }
 
+  protected initShowedChangeListener() {
     this.prizmHoveredChange$$
       .pipe(
         distinctUntilChanged(),

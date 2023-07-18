@@ -26,6 +26,7 @@
         #element
         [prizmDocHostElement]="element"
         [icon]="icon"
+        [testId]="testIdPostfix"
         [iconRight]="iconRight"
         [size]="size"
         [appearanceType]="appearanceType"
@@ -86,6 +87,15 @@
         documentationPropertyMode="input"
       >
         Icon
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
       </ng-template>
 
       <ng-template

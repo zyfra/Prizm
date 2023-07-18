@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-multi-select): set touched state only after choose or clear
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
+- feat(components/button): add ability to set postfix #465
 
 ### BUG FIXES
 
