@@ -9,3 +9,4 @@ export * from './input-time.task';
 export * from './input-month.task';
 export * from './input-month-range.task';
 export * from './input-date-range.task';
+export * from './input-date-relative.task';

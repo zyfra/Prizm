@@ -10,6 +10,7 @@ import { PrizmInputTimeTemplateTasks } from './input-time.task';
 import { PrizmInputMonthTemplateTasks } from './input-month.task';
 import { PrizmInputMonthRangeTemplateTasks } from './input-month-range.task';
 import { PrizmInputDateRangeTemplateTasks } from './input-date-range.task';
+import { PrizmInputDateRelativeTemplateTasks } from './input-date-relative.task';
 
 export const PRIZM_UPDATE_V2_TEPMLATES_TASKS: PrizmTemplateTask[] = [
   ...PrizmInputSelectTemplateTasks,
@@ -23,4 +24,5 @@ export const PRIZM_UPDATE_V2_TEPMLATES_TASKS: PrizmTemplateTask[] = [
   ...PrizmInputMonthTemplateTasks,
   ...PrizmInputMonthRangeTemplateTasks,
   ...PrizmInputDateRangeTemplateTasks,
+  ...PrizmInputDateRelativeTemplateTasks,
 ];
