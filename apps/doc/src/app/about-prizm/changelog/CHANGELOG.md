@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader #497
 - feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader #497
 - feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
+- feat(doc): now deprecated/new names in navigation stand out nicely
 
 ### BUG FIXES
 
@@ -50,8 +51,10 @@ All notable changes to this project will be documented in this file.
 - BC(components/hint): remove input prizmHintShow
 - BC(components/tooltip): remove input prizmHintShow
 - BC(components/hint): rename output prizmHoverChange > prizmHintShowed
-- BC(components/tooltip): raname output prizmHoverChange > prizmTooltipShowed
+- BC(components/tooltip): rename output prizmHoverChange > prizmTooltipShowed
 - BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+#### Our migrator support auto breaking changes [read](https://prizm.site/forZIIoT/migration)
 
 ## [2.1.0-next.4](https://github.com/zyfra/Prizm) (18-07-2023)
 

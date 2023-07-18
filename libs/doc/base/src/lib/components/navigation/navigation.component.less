@@ -66,6 +66,14 @@
   margin-left: 0.5rem;
   padding-top: 1rem;
 
+  &.deprecated {
+    opacity: 0.5;
+  }
+
+  &.new {
+    color: yellow;
+  }
+
   &_small {
     margin-left: 1rem;
     line-height: 1.5rem;
@@ -96,4 +104,21 @@
   &_active {
     transform: rotate(90deg);
   }
+}
+
+.deprecated-label {
+  background-color: red;
+}
+
+.new-label,
+.deprecated-label {
+  font-size: 12px;
+  border-radius: 5px;
+  padding: 1px 4px;
+
+  color: white;
+}
+
+.new-label {
+  background-color: yellow;
 }
