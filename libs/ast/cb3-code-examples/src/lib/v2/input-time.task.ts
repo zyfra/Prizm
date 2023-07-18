@@ -10,12 +10,12 @@ export const PrizmInputLayoutTimeCodeTasks: IPrizmAstCodeTask[] = [
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmInputLayoutTimeModule'],
     targetImport: '@prizm-ui/components',
-    targetNamedImports: ['PrizmTimeModule'],
-    commentBeforeImport: 'PRIZM:MIGRATOR changed from PrizmTimeModule to PrizmInputLayoutTimeModule',
+    targetNamedImports: ['PrizmInputTimeModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR changed from PrizmInputTimeModule to PrizmInputLayoutTimeModule',
   }),
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
     newModule: 'PrizmInputLayoutTimeModule',
-    moduleToFind: 'PrizmTimeModule',
-    comment: 'PRIZM:MIGRATOR changed from PrizmTimeModule to PrizmInputLayoutTimeModule',
+    moduleToFind: 'PrizmInputTimeModule',
+    comment: 'PRIZM:MIGRATOR changed from PrizmInputTimeModule to PrizmInputLayoutTimeModule',
   }),
 ];
