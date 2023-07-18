@@ -177,6 +177,11 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   }
 
   public reCalculatePositions(): void {
-    this.tabsDropdown.reCalculatePositions();
+    this.tabsDropdown?.reCalculatePositions();
+  }
+
+  public closeTab(idx: number): void {
+    this.tabsService.getTabByIdx(idx)?.closeTab.emit();
+    this.reCalculatePositions();
   }
 }
