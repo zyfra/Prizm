@@ -6,3 +6,4 @@ export * from './tooltip.task';
 export * from './hint.task';
 export * from './input-date-time.task';
 export * from './input-date-time-range.task';
+export * from './input-time.task';

@@ -10,28 +10,27 @@ import {
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
 
-const formControl = ['prizm-input-layout-date', 'formControl'].join('::');
-const ngModel = ['prizm-input-layout-date', 'ngModel'].join('::');
-const defaultActiveYearMonth = ['prizm-input-layout-date', 'defaultActiveYearMonth'].join('::');
-const disabledItemHandler = ['prizm-input-layout-date', 'disabledItemHandler'].join('::');
-const extraButtonInjector = ['prizm-input-layout-date', 'extraButtonInjector'].join('::');
-const items = ['prizm-input-layout-date', 'items'].join('::');
-const markerHandler = ['prizm-input-layout-date', 'markerHandler'].join('::');
-const max = ['prizm-input-layout-date', 'max'].join('::');
-const placeholder = ['prizm-input-layout-date', 'placeholder'].join('::');
-const readOnly = ['prizm-input-layout-date', 'readOnly'].join('::');
-const min = ['prizm-input-layout-date', 'min'].join('::');
-const testId = ['prizm-input-layout-date', 'testId'].join('::');
+const formControl = ['prizm-input-layout-time', 'formControl'].join('::');
+const ngModel = ['prizm-input-layout-time', 'ngModel'].join('::');
+const itemSize = ['prizm-input-layout-time', 'itemSize'].join('::');
+const disabledItemHandler = ['prizm-input-layout-time', 'disabledItemHandler'].join('::');
+const extraButtonInjector = ['prizm-input-layout-time', 'extraButtonInjector'].join('::');
+const items = ['prizm-input-layout-time', 'items'].join('::');
+const mode = ['prizm-input-layout-time', 'mode'].join('::');
+const strict = ['prizm-input-layout-time', 'strict'].join('::');
+const placeholder = ['prizm-input-layout-time', 'placeholder'].join('::');
+const readOnly = ['prizm-input-layout-time', 'readOnly'].join('::');
+const testId = ['prizm-input-layout-time', 'testId'].join('::');
 
-export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
+export const PrizmInputTimeTemplateTasks: PrizmTemplateTask[] = [
   {
-    selector: 'prizm-input-date',
+    selector: 'prizm-input-time',
     tasks: [
       prizmAstCreateActionBy(PrizmChangeNameTemplateTask, {
         name: 'prizm-input-layout',
       }),
       prizmAstCreateActionBy(PrizmAddChildrenTemplateTask, {
-        name: 'prizm-input-layout-date',
+        name: 'prizm-input-layout-time',
         attrs: {},
         voidElement: true,
         children: [],
@@ -41,11 +40,11 @@ export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
       label: 'Выберите из списка',
     },
     inputs: {
-      defaultActiveYearMonth: [
+      itemSize: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
-          id: defaultActiveYearMonth,
+          id: itemSize,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'defaultActiveYearMonth',
+            newAttrName: 'itemSize',
           }),
         }),
       ],
@@ -64,6 +63,15 @@ export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
           }),
         }),
       ],
+      testId: [
+        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
+          id: testId,
+          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
+            newAttrName: 'testId',
+          }),
+        }),
+      ],
+
       ngModel: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: ngModel,
@@ -96,27 +104,19 @@ export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
           }),
         }),
       ],
-      markerHandler: [
+      mode: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
-          id: markerHandler,
+          id: mode,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'markerHandler',
+            newAttrName: 'mode',
           }),
         }),
       ],
-      max: [
+      strict: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
-          id: max,
+          id: strict,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'max',
-          }),
-        }),
-      ],
-      min: [
-        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
-          id: min,
-          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'min',
+            newAttrName: 'strict',
           }),
         }),
       ],
@@ -125,14 +125,6 @@ export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
           id: placeholder,
           action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
             newAttrName: 'placeholder',
-          }),
-        }),
-      ],
-      testId: [
-        prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
-          id: testId,
-          action: prizmAstCreateActionBy(PrizmRenameTemplateTask, {
-            newAttrName: 'testId',
           }),
         }),
       ],
@@ -157,7 +149,7 @@ export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
         runOnChildren: true,
         tasks: [
           {
-            selector: 'prizm-input-layout-date',
+            selector: 'prizm-input-layout-time',
             inputs: {},
             outputs: {},
             tasks: [
@@ -165,15 +157,14 @@ export const PrizmInputDateTemplateTasks: PrizmTemplateTask[] = [
                 id: [
                   formControl,
                   ngModel,
-                  defaultActiveYearMonth,
+                  itemSize,
                   disabledItemHandler,
                   extraButtonInjector,
                   items,
-                  markerHandler,
-                  max,
+                  mode,
+                  strict,
                   placeholder,
                   readOnly,
-                  min,
                   testId,
                 ],
               }),
