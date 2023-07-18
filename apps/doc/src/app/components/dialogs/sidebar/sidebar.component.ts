@@ -104,6 +104,11 @@ export class SidebarComponent {
     HTML: import('./examples/custom-header-template/custom-header-template.component.html?raw'),
   };
 
+  public readonly exampleCustomButton: TuiDocExample = {
+    TypeScript: import('./examples/custom-button/custom-button-template.component.ts?raw'),
+    HTML: import('./examples/custom-button/custom-button-template.component.html?raw'),
+  };
+
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   @prizmPure
