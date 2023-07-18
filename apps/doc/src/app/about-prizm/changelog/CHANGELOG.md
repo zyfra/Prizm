@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.0-next.4](https://github.com/zyfra/Prizm) (18-07-2023)
+
+### Features
+
+- feat(components/paginator): added abilite to change text on page #404
+- feat(nx-plugin/migration): add info how to use migrator to remove deprecated versions
+- feat(components/accordion): added ability to pass context for title, icon #397
+- feat(components/input-select): set touched state only after choose or clear #507
+- feat(components/input-multi-select): set touched state only after choose or clear
+- feat(ast): update only when has changes in file for templates
+
+### BUG FIXES
+
+- fix(components/input-layout-date-range): error when initial select date range #489
+- fix(components/input-layout-date-range): error when manual input only start date #485
+- fix(components/input-number): style on disabled #502
+
 ## [2.1.0-next.3](https://github.com/zyfra/Prizm) (13-07-2023)
 
 ### Bracking Changes
