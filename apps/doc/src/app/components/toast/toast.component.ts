@@ -43,6 +43,11 @@ export class ToastComponent {
     HTML: import('./examples/toast-example/toast-example.component.html?raw'),
   };
 
+  readonly exampleInnerHtml: TuiDocExample = {
+    TypeScript: import('./examples/inner-html/toast-inner-html-example.component.ts?raw'),
+    HTML: import('./examples/inner-html/toast-inner-html-example.component.html?raw'),
+  };
+
   readonly appearanceVariants: ReadonlyArray<PrizmToastAppearance> = ['info', 'success', 'warning', 'danger'];
   appearance: PrizmToastAppearance = this.appearanceVariants[0];
 
