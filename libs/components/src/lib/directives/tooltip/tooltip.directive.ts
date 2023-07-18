@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-input-rename */
-import { Directive, forwardRef, HostListener, Input, Output } from '@angular/core';
+import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
 import { PRIZM_TOOLTIP_OPTIONS } from './tooltip-options';
@@ -50,11 +50,11 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
 
   @Input('prizmTooltipContext')
   @prizmDefaultProp()
-  override prizmHintContext = super.prizmHintContext;
+  override prizmHintContext = {};
 
   @Input('prizmTooltipCanShow')
   @prizmDefaultProp()
-  override prizmHintCanShow = super.prizmHintCanShow;
+  override prizmHintCanShow = true;
 
   @Input('prizmTooltip')
   @prizmRequiredSetter()
@@ -69,7 +69,7 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
 
   // eslint-disable-next-line @angular-eslint/no-output-rename
   @Output('prizmTooltipShowed')
-  override prizmHintShowed = super.prizmHintShowed;
+  override prizmHintShowed = new EventEmitter<boolean>();
 
   protected override readonly containerComponent = PrizmTooltipContainerComponent;
   protected override readonly onHoverActive = false;

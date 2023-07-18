@@ -45,6 +45,7 @@
           [prizmDocHostElement]="elementAccordionItem"
           [disabled]="disabled"
           [title]="title"
+          [icon]="icon"
           [isExpanded]="isExpanded"
           prizmDocHostElementKey="PrizmAccordionItemComponent"
         >
@@ -111,10 +112,18 @@
       <ng-template
         [(documentationPropertyValue)]="title"
         documentationPropertyName="title"
-        documentationPropertyType="string"
+        documentationPropertyType="PolymorphContent<PrizmAccordionItemData>"
         documentationPropertyMode="input"
       >
         Title
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="icon"
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorphContent<PrizmAccordionItemData>"
+        documentationPropertyMode="input"
+      >
+        Icon
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="disabled"
@@ -123,6 +132,14 @@
         documentationPropertyMode="input"
       >
         Disabled
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="icon"
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorphContent<PrizmAccordionItemData>"
+        documentationPropertyMode="input"
+      >
+        Icon
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

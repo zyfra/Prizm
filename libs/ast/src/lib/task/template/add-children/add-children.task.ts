@@ -16,7 +16,7 @@ export class PrizmAddChildrenTemplateTask extends PrizmAstTaskTemplate<IPrizmAdd
 
     const childNode: PrizmTemplateNode = {
       name: payload.name,
-      attrs: payload.attrs ?? {},
+      attrs: { ...(payload.attrs ?? {}) },
       children: payload.children ?? [],
       type: payload.type ?? 'tag',
       voidElement: payload.voidElement ?? false,

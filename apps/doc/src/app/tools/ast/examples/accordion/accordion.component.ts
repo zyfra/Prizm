@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  PrizmHtmlItem,
-  prizmHtmlParse,
-  prizmHtmlStringify,
+  PrizmAstHtmlItem,
+  prizmAstHtmlParse,
+  prizmAstHtmlStringify,
   PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
@@ -113,8 +113,10 @@ export class PrizmAstAccordionExampleComponent implements OnInit {
   }
 
   private parseAccordion(): void {
-    const parsed = prizmHtmlParse(this.zyfraAccordionHtml);
+    const parsed = prizmAstHtmlParse(this.zyfraAccordionHtml);
     const nodeProcessor = new PrizmTemplateTaskProcessor(this.zyfraAccordionTasks);
-    this.resultZyfraAccordionHtml = prizmHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmHtmlItem[]);
+    this.resultZyfraAccordionHtml = prizmAstHtmlStringify(
+      nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]
+    );
   }
 }

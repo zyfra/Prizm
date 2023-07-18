@@ -1,4 +1,4 @@
-import { PrizmHtmlComment, PrizmHtmlItem } from './types';
+import { PrizmHtmlComment, PrizmAstHtmlItem } from './types';
 
 import { prizmHtmlVoidElements } from './element';
 
@@ -8,7 +8,7 @@ const prizmAttrRegular = /\s([^'"/\s><]+?)[\s/>]|([^\s=]+)=\s?(".*?"|'.*?')/g;
  * Функция для разбора тега HTML.
  *
  * @param {string} tag - Тег HTML, который необходимо разобрать.
- * @returns {PrizmHtmlItem | PrizmHtmlComment} - Объект с информацией о теге или комментарии.
+ * @returns {PrizmAstHtmlItem | PrizmHtmlComment} - Объект с информацией о теге или комментарии.
  * В случае тега, объект будет содержать следующие свойства:
  * - type: 'tag'
  * - name: имя тега
@@ -19,9 +19,9 @@ const prizmAttrRegular = /\s([^'"/\s><]+?)[\s/>]|([^\s=]+)=\s?(".*?"|'.*?')/g;
  * - type: 'comment'
  * - comment: текст комментария
  */
-export const prizmParseTag = (tag: string): PrizmHtmlItem | PrizmHtmlComment => {
+export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment => {
   // Создание объекта для хранения информации о теге
-  const res: PrizmHtmlItem = {
+  const res: PrizmAstHtmlItem = {
     type: 'tag',
     name: '',
     voidElement: false,
@@ -71,10 +71,13 @@ export const prizmParseTag = (tag: string): PrizmHtmlItem | PrizmHtmlComment => 
       // Если атрибут содержит символ "=", разбиваем его на ключ и значение
       if (attr.indexOf('=') > -1) {
         arr = attr.split('=');
+        // Сохраняем атрибут и его значение в объекте res
+        res.attrs[arr[0]] = arr[1];
+      } else {
+        // Сохраняем атрибут и его значение в объекте res
+        res.attrs[arr[0]] = null;
       }
 
-      // Сохраняем атрибут и его значение в объекте res
-      res.attrs[arr[0]] = arr[1];
       // Уменьшаем индекс для следующей итерации, чтобы не пропустить символы
       reg.lastIndex--;
     } else if (result[2]) {

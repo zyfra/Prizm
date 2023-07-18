@@ -8,7 +8,7 @@ import { prizmAssert } from '@prizm-ui/core';
  */
 export class PrizmMonthRange {
   constructor(readonly from: PrizmMonth, readonly to: PrizmMonth) {
-    prizmAssert.assert(from.monthSameOrBefore(to));
+    if (from && to) prizmAssert.assert(from.monthSameOrBefore(to));
   }
 
   public static sort(month1: PrizmMonth, month2: PrizmMonth): PrizmMonthRange {

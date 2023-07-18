@@ -3,7 +3,10 @@
     <span
       class="rows rows__count"
       *ngIf="!paginatorOptions?.noRowsSelector && !paginatorOptions?.noRowsSelectorLabel"
-      >Строк на странице
+    >
+      <ng-container *polymorphOutlet="textOnPage as title">
+        {{ title }}
+      </ng-container>
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
       <prizm-select

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  PrizmHtmlItem,
-  prizmHtmlParse,
-  prizmHtmlStringify,
+  PrizmAstHtmlItem,
+  prizmAstHtmlParse,
+  prizmAstHtmlStringify,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
@@ -69,8 +69,10 @@ export class PrizmAstBaseExampleComponent implements OnInit {
   }
 
   private parseButton(): void {
-    const parsed = prizmHtmlParse(this.zyfraButtonHtml);
+    const parsed = prizmAstHtmlParse(this.zyfraButtonHtml);
     const nodeProcessor = new PrizmTemplateTaskProcessor(this.zyfraButtonTasks);
-    this.resultZyfraButtonHtml = prizmHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmHtmlItem[]);
+    this.resultZyfraButtonHtml = prizmAstHtmlStringify(
+      nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]
+    );
   }
 }

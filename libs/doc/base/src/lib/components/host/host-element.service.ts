@@ -57,7 +57,6 @@ export class PrizmDocHostElementService implements OnDestroy {
     // @ts-ignore
     const componentMetadata = componentClass['ɵcmp'] || componentClass['ɵdir'];
     if (componentMetadata) {
-      console.log('#mz componentMetadata', componentMetadata);
       selector = componentMetadata.selectors?.[0]?.[0] as string;
       const inputProperties = componentMetadata.inputs;
       const outputProperties = componentMetadata.outputs;
@@ -70,7 +69,7 @@ export class PrizmDocHostElementService implements OnDestroy {
       }
 
       for (const outputKey in outputProperties) {
-        const classPropertyName = inputProperties[outputKey];
+        const classPropertyName = outputProperties[outputKey];
         const nameFromSet = outputs.get(classPropertyName);
         if (nameFromSet && nameFromSet !== classPropertyName) continue;
         outputs.set(classPropertyName, outputKey);
@@ -79,7 +78,17 @@ export class PrizmDocHostElementService implements OnDestroy {
       console.error('The provided class is not an Angular component.');
     }
 
-    return { inputs: [...inputs.values()], outputs: [...outputs.values()], selector };
+    return {
+      inputs: [...inputs.values()],
+      inputProperties: [...inputs.keys()],
+      outputs: [...outputs.values()],
+      outputProperties: [...outputs.keys()],
+      origin: {
+        inputs: componentMetadata.inputs,
+        outputs: componentMetadata.outputs,
+      },
+      selector,
+    };
   }
 
   private updateComponentInfo(listenerElementKey: string, el: ElementRef): void {
@@ -108,10 +117,10 @@ export class PrizmDocHostElementService implements OnDestroy {
 
     const notSpecifiedKeys = metaComponentData.outputs.map(i => i).filter(key => !currentOutputMap.has(key));
     currentOutputMap.forEach(({ key, type }) => {
-      this.addOutputListener(listenerElementKey, el, type, key);
+      this.addOutputListener(listenerElementKey, el, type, metaComponentData.origin.outputs[key]);
     });
     notSpecifiedKeys.forEach(key => {
-      this.addOutputListener(listenerElementKey, el, 'unknown', key, true);
+      this.addOutputListener(listenerElementKey, el, 'unknown', metaComponentData.origin.outputs[key], true);
     });
   }
 
@@ -199,10 +208,6 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   public setHostElement(key: string, hostElement: ElementRef): void {
-    console.log('#mz setHostElement', {
-      hostElement,
-      key,
-    });
     this.hostElementMap.set(key, new ElementRef<any>(hostElement));
     this.hostElementMap$$.next(this.hostElementMap);
   }

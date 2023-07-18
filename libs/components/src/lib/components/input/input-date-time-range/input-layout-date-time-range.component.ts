@@ -390,8 +390,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
       this.nativeValueFrom$$.next('');
     }
 
-    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange, range, (a, b) => a.daySame(b))) {
-      const newValue = new PrizmDateTimeRange(range, this.value.timeRange ?? null);
+    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange, range, (a, b) => a?.daySame(b))) {
+      const newValue = new PrizmDateTimeRange(range, this.value?.timeRange ?? null);
       this.updateValue(newValue);
       this.open = false;
     }

@@ -1,6 +1,7 @@
 import type { PrizmHtmlAttr, PrizmHtmlOptions } from './types';
 
 import { prizmParseTag } from './parse-tag';
+import { prizmAstHtmlPrettify } from './prettify';
 
 // Регулярные выражения для поиска тегов и пробелов
 const tagRE = /<[a-zA-Z0-9\-!/](?:"[^"]*"|'[^']*'|[^'">])*>/g;
@@ -36,7 +37,9 @@ interface PrizmMaybeHtmlItem {
  * const result = prizmHtmlParse(htmlString);
  * // Результат: массив объектов, представляющих элементы HTML-документа
  */
-export const prizmHtmlParse = (html: string, options: Partial<PrizmHtmlOptions> = {}): any => {
+export const prizmAstHtmlParse = (html: string, options: Partial<PrizmHtmlOptions> = {}): any => {
+  // очищаем от пробелов внтури тегов для правильно работы парсера
+  html = prizmAstHtmlPrettify(html);
   // Инициализация переменных
   options || (options = {});
   options.components || (options.components = empty);

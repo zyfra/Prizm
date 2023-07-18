@@ -7,33 +7,20 @@ import { PrizmInputNumberDirective } from './input-number.directive';
   template: `<div class="container">
     <button
       [size]="size"
-      [interactive]="true"
+      [interactive]="!inputNumber.disabled"
+      [disabled]="inputNumber.disabled"
       (click)="increment()"
       prizmInputIconButton="chevrons-up"
     ></button>
     <button
       [size]="size"
-      [interactive]="true"
+      [interactive]="!inputNumber.disabled"
+      [disabled]="inputNumber.disabled"
       (click)="decrement()"
       prizmInputIconButton="chevrons-down"
     ></button>
   </div> `,
-  styles: [
-    `
-      .container {
-        display: flex;
-        flex-direction: column;
-      }
-
-      :host-context(.prizm-input-form-outer[data-size='m']) {
-        font-size: 15px;
-      }
-
-      :host-context(.prizm-input-form-outer[data-size='s']) {
-        font-size: 11px;
-      }
-    `,
-  ],
+  styleUrls: ['./input-number-auxiliary-controls.component.less'],
 })
 export class PrizmInputNumberDefaultControlsComponent {
   @Input() inputNumber: PrizmInputNumberDirective;

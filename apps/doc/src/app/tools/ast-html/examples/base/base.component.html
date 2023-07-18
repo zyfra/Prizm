@@ -1,0 +1,13 @@
+<prizm-input-layout label="HTML" style="width: 100%">
+  <textarea [(ngModel)]="html" [height]="200" prizmInput></textarea>
+</prizm-input-layout>
+<div class="block">
+  <button (click)="confirm()" prizmButton appearance="primary" size="xl">Подтвердить</button>
+  <button (click)="cancel()" prizmButton appearance="secondary" size="xl">Очистить</button>
+</div>
+<br />
+<br />
+<br />
+
+<h1>Результат</h1>
+<pre>{{ result | json }}</pre>
