@@ -41,7 +41,7 @@ export const PrizmInputDateTimeTemplateTasks: PrizmTemplateTask[] = [
       }),
     ],
     defaultInputs: {
-      label: 'Выберите из списка',
+      label: 'Выберите дату и время',
     },
     inputs: {
       defaultActiveYearMonth: [

@@ -34,7 +34,7 @@ export const PrizmInputDateRelativeTemplateTasks: PrizmTemplateTask[] = [
       }),
     ],
     defaultInputs: {
-      label: 'Выберите из списка',
+      label: 'Относительная дата',
     },
     inputs: {
       disabled: [

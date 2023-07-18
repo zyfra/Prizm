@@ -40,7 +40,7 @@ export const PrizmInputDateRangeTemplateTasks: PrizmTemplateTask[] = [
       }),
     ],
     defaultInputs: {
-      label: 'Выберите из списка',
+      label: 'Выберите даты',
     },
     inputs: {
       defaultViewedMonth: [

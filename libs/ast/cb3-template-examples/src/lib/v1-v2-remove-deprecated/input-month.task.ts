@@ -37,7 +37,7 @@ export const PrizmInputMonthTemplateTasks: PrizmTemplateTask[] = [
       }),
     ],
     defaultInputs: {
-      label: 'Выберите из списка',
+      label: 'Выберите месяц',
     },
     inputs: {
       val: [prizmAstCreateActionBy(PrizmRemoveAttributeTemplateTask, {})],
