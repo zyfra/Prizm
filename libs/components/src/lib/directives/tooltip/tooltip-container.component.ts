@@ -9,7 +9,7 @@ import { PrizmHintContainerComponent } from '../hint/hint-container.component';
     <div class="box prizm-font-main-body-14" prizmFocusTrap>
       <prizm-scrollbar visibility="hidden">
         <ng-container *polymorphOutlet="content() as data; context: context">
-          {{ data }}
+          <div class="content">{{ data }}</div>
         </ng-container>
       </prizm-scrollbar>
 

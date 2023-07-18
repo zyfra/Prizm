@@ -55,6 +55,8 @@ export class TooltipComponent {
 
   public content = 'Тестовое содержимое';
   public prizmAutoReposition = false;
+  public prizmTooltipShow = true;
+  public prizmTooltipCanShow = true;
 
   public readonly prizmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> =
     Object.values(PrizmOverlayOutsidePlacement);
