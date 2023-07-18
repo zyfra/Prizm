@@ -4,11 +4,13 @@ import { PrizmInputMultiSelectTemplateTasks } from './input-multi-select.task';
 import { PrizmHintTemplateTasks } from './hint.task';
 import { PrizmTooltipTemplateTasks } from './tooltip.task';
 import { PrizmInputDateTemplateTasks } from './input-date.task';
+import { PrizmInputDateTimeTemplateTasks } from './input-date-time.task';
 
 export const PRIZM_UPDATE_V2_TEPMLATES_TASKS: PrizmTemplateTask[] = [
-  ...PrizmInputDateTemplateTasks,
   ...PrizmInputSelectTemplateTasks,
   ...PrizmInputMultiSelectTemplateTasks,
   ...PrizmHintTemplateTasks,
   ...PrizmTooltipTemplateTasks,
+  ...PrizmInputDateTemplateTasks,
+  ...PrizmInputDateTimeTemplateTasks,
 ];
