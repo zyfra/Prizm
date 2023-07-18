@@ -7,6 +7,7 @@ import { PrizmInputLayoutDateTimeRangeCodeTasks } from './input-date-time-range.
 import { PrizmInputLayoutTimeCodeTasks } from './input-time.task';
 import { PrizmInputLayoutMonthCodeTasks } from './input-month.task';
 import { PrizmInputLayoutMonthRangeCodeTasks } from './input-month-range.task';
+import { PrizmInputLayoutDateRangeCodeTasks } from './input-date-range.task';
 
 export const PRIZM_UPDATE_V2_CODE_TASKS: IPrizmAstCodeTask[] = [
   ...PrizmInputSelectCodeTasks,
@@ -17,4 +18,5 @@ export const PRIZM_UPDATE_V2_CODE_TASKS: IPrizmAstCodeTask[] = [
   ...PrizmInputLayoutTimeCodeTasks,
   ...PrizmInputLayoutMonthCodeTasks,
   ...PrizmInputLayoutMonthRangeCodeTasks,
+  ...PrizmInputLayoutDateRangeCodeTasks,
 ];
