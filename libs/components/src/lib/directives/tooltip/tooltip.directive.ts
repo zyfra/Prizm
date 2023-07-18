@@ -20,10 +20,6 @@ import { PrizmHintDirective } from '../hint/hint.directive';
   exportAs: 'prizmTooltip',
 })
 export class PrizmTooltipDirective extends PrizmHintDirective {
-  // @Input('prizmTooltipMode')
-  // @prizmDefaultProp()
-  // override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
-
   @Input('prizmAutoReposition')
   @prizmDefaultProp()
   override prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
