@@ -25,13 +25,13 @@ describe('prizmHtmlParse', () => {
   });
 
   it('should parse a void element', () => {
-    const html = '<input type="text" disabled="">';
+    const html = '<input type="text" disabled="" empty>';
     const result = prizmAstHtmlParse(html);
     expect(result).toEqual([
       {
         type: 'tag',
         name: 'input',
-        attrs: { type: 'text', disabled: '' },
+        attrs: { type: 'text', disabled: '', empty: null },
         voidElement: true,
         children: [],
       },
