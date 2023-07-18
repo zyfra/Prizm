@@ -96,6 +96,8 @@
           [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
         >
           <prizm-checkbox
+            [ngModel]="item.checked"
+            [ngModelOptions]="{ standalone: true }"
             [checked]="item.checked"
             [host]="parent"
             [indeterminate]="!!item.indeterminate"

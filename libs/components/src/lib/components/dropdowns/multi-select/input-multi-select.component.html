@@ -51,6 +51,8 @@
         >
           <prizm-checkbox
             [checked]="item.checked"
+            [ngModel]="item.checked"
+            [ngModelOptions]="{ standalone: true }"
             [host]="parent"
             [indeterminate]="!!item.indeterminate"
             (changed)="select(item)"

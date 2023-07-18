@@ -13,6 +13,7 @@
         [outer]="true"
         [nullContent]="null"
         [ngModel]="rows"
+        [ngModelOptions]="{ standalone: true }"
         [items]="this.rowsCountOptions?.length > 0 ? this.rowsCountOptions : [rows]"
         (ngModelChange)="changeRows($event)"
         size="s"
