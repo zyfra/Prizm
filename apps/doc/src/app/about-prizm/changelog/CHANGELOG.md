@@ -11,6 +11,8 @@ All notable changes to this project will be documented in this file.
 - feat(components/accordion): added ability to pass context for title, icon #397
 - feat(components/input-select): set touched state only after choose or clear #507
 - feat(components/input-multi-select): set touched state only after choose or clear
+- feat(components/input-select): added ability to visibility control of scrollbar thumb #491
+- feat(components/input-multi-select): added ability to visibility control of scrollbar thumb #491
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
 - feat(components/button): add ability to set postfix for test-id #465

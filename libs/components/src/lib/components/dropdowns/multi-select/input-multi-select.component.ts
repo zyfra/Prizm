@@ -28,6 +28,7 @@ import {
   PrizmMultiSelectSearchMatcher,
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -61,6 +62,10 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   get items(): T[] {
     return this.items$.value;
   }
+
+  @Input()
+  @prizmDefaultProp()
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   @Input()
   @prizmDefaultProp()

@@ -45,7 +45,7 @@
   </prizm-input-layout>
 
   <ng-template #dropdown>
-    <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
+    <prizm-data-list class="block" [scroll]="dropdownScroll" [style.--prizm-data-list-border]="0">
       <ng-container *ngIf="items?.length; else emptyTemplate">
         <div
           class="item"

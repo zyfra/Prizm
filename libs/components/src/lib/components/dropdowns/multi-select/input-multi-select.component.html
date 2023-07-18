@@ -25,6 +25,7 @@
     <prizm-data-list
       class="block"
       *prizmLet="{ filteredItems: filteredItems$ | async } as $"
+      [scroll]="dropdownScroll"
       [style.--prizm-data-list-border]="0"
     >
       <div class="list-search-item" *ngIf="searchable">

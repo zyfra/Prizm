@@ -80,7 +80,7 @@
   </prizm-input-layout>
 
   <ng-template #dropdown>
-    <prizm-data-list class="block" [style.--prizm-data-list-border]="0">
+    <prizm-data-list class="block" [scroll]="dropdownScroll" [style.--prizm-data-list-border]="0">
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
           <input class="input-search" #input [formControl]="searchInputControl" prizmInput prizmAutoFocus />
