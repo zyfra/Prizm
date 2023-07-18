@@ -25,7 +25,7 @@ describe('prizmHtmlParse', () => {
   });
 
   it('should parse a void element', () => {
-    const html = '<input type="text" disabled>';
+    const html = '<input type="text" disabled="">';
     const result = prizmAstHtmlParse(html);
     expect(result).toEqual([
       {

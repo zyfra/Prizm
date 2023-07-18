@@ -44,7 +44,7 @@ describe('prizmParseTag', () => {
       type: 'tag',
       name: 'input',
       voidElement: true,
-      attrs: { disabled: '' },
+      attrs: { disabled: null },
       children: [],
     } as PrizmAstHtmlItem;
     const result = prizmParseTag(tag);

@@ -1,6 +1,6 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { formatFiles, Tree } from '@nrwl/devkit';
-import isEqual from 'lodash/isEqual';
+import { isEqual } from 'lodash';
 import {
   PrizmAstHtmlItem,
   prizmAstHtmlParse,
