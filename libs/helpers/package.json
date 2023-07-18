@@ -9,9 +9,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^15.2.9",
-    "@angular/forms": "^15.2.9",
-    "@angular/core": "^15.2.9"
+    "@angular/common": "^15.2.0",
+    "@angular/forms": "^15.2.0",
+    "@angular/core": "^15.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
