@@ -15,5 +15,5 @@ jobs:
           issues-labels: 'merged'
           remove-labels: 'in_progress, released'
           issues-comment: |
-            Привет! Этот issue: ${number} cлит в master。
+            Привет! Этот issue: ${number} cлит в main。
           issues-close: false
