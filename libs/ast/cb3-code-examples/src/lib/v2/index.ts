@@ -6,3 +6,4 @@ export * from './input-date.task';
 export * from './input-date-time.task';
 export * from './input-date-time-range.task';
 export * from './input-time.task';
+export * from './input-month.task';

@@ -10,12 +10,12 @@ export const PrizmInputLayoutDateCodeTasks: IPrizmAstCodeTask[] = [
     importToAdd: '@prizm-ui/components',
     namedImports: ['PrizmInputLayoutDateModule'],
     targetImport: '@prizm-ui/components',
-    targetNamedImports: ['PrizmDateModule'],
-    commentBeforeImport: 'PRIZM:MIGRATOR changed from PrizmDateModule to PrizmInputLayoutDateModule',
+    targetNamedImports: ['PrizmInputDateModule'],
+    commentBeforeImport: 'PRIZM:MIGRATOR changed from PrizmInputDateModule to PrizmInputLayoutDateModule',
   }),
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
     newModule: 'PrizmInputLayoutDateModule',
-    moduleToFind: 'PrizmDateModule',
-    comment: 'PRIZM:MIGRATOR changed from PrizmDateModule to PrizmInputLayoutDateModule',
+    moduleToFind: 'PrizmInputDateModule',
+    comment: 'PRIZM:MIGRATOR changed from PrizmInputDateModule to PrizmInputLayoutDateModule',
   }),
 ];
