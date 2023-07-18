@@ -15,6 +15,7 @@ import { PrizmDialogServiceExampleComponent } from './examples/base/base.compone
 import { PrizmDialogHorizontalExampleComponent } from './examples/horizontal/horizontal.component';
 import { FullExampleModule } from './examples/full/full.module';
 import { PrizmCallFuncModule } from '@prizm-ui/helpers';
+import { PrizmDialogCustomButtonExampleComponent } from './examples/custom-button/custom-button.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,12 @@ import { PrizmCallFuncModule } from '@prizm-ui/helpers';
     PrizmRadioButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ConfirmComponent)),
   ],
-  declarations: [PrizmDialogServiceExampleComponent, PrizmDialogHorizontalExampleComponent, ConfirmComponent],
+  declarations: [
+    PrizmDialogCustomButtonExampleComponent,
+    PrizmDialogServiceExampleComponent,
+    PrizmDialogHorizontalExampleComponent,
+    ConfirmComponent,
+  ],
   exports: [ConfirmComponent],
 })
 export class ConfirmModule {}

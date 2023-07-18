@@ -98,6 +98,10 @@ export class ConfirmComponent implements AfterViewInit {
     TypeScript: import('./examples/base/base.component.ts?raw'),
     HTML: import('./examples/base/base.component.html?raw'),
   };
+  public readonly exampleCustomButton: TuiDocExample = {
+    TypeScript: import('./examples/custom-button/custom-button.component.ts?raw'),
+    HTML: import('./examples/custom-button/custom-button.component.html?raw'),
+  };
 
   public readonly exampleHorizontal: TuiDocExample = {
     TypeScript: import('./examples/horizontal/horizontal.component.ts?raw'),
