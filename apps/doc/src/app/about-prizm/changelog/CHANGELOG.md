@@ -13,7 +13,11 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-multi-select): set touched state only after choose or clear
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
-- feat(components/button): add ability to set postfix #465
+- feat(components/button): add ability to set postfix for test-id #465
+- feat(components/toggle): add ability to set postfix for test-id #465
+- feat(components/select): add ability to set postfix for test-id #465
+- feat(components/multiselect): add ability to set postfix for test-id #465
+- feat(components/input-\*): add ability to set postfix for test-id for input components #465
 - feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
 - feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader #497
 - feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader #497
