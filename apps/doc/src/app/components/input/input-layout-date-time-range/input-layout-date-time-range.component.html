@@ -32,11 +32,20 @@
           [timeMode]="timeMode"
           [placeholder]="placeholder"
           [max]="max"
+          [testId]="testIdPostfix"
         ></prizm-input-layout-date-time-range>
       </prizm-input-layout>
     </prizm-doc-demo>
 
     <prizm-doc-documentation [hostComponentKey]="controlKey" [heading]="controlKey" [control]="value">
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"

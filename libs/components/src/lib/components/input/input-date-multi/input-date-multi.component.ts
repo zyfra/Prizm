@@ -20,6 +20,7 @@ import {
 } from '../../../tokens/date-extra-buttons';
 import { BehaviorSubject } from 'rxjs';
 import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-button';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 export type PrizmDateItemTemplate = {
   name: string;
@@ -32,7 +33,7 @@ export type PrizmDateItemTemplate = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [getProviderPrizmDateLeftButtons()],
 })
-export class PrizmInputDateMultiComponent implements OnInit {
+export class PrizmInputDateMultiComponent extends AbstractPrizmTestId implements OnInit {
   @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate: TemplateRef<unknown>;
 
   private readonly _items$ = new BehaviorSubject<PrizmDateItemTemplate[]>([]);
@@ -53,7 +54,7 @@ export class PrizmInputDateMultiComponent implements OnInit {
   readonly currentIdxChange = new EventEmitter<number>();
 
   @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_multi';
+  override readonly testId_ = 'ui_input_date_multi';
 
   public open = false;
 
@@ -67,7 +68,9 @@ export class PrizmInputDateMultiComponent implements OnInit {
     @Inject(PRIZM_DATE_RIGHT_BUTTONS) public readonly leftButtons$: BehaviorSubject<PrizmDateButton[]>,
     private readonly cdRef: ChangeDetectorRef,
     private readonly injector: Injector
-  ) {}
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.leftButtons$.next([

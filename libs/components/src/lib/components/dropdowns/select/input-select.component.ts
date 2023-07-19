@@ -19,23 +19,14 @@ import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } fro
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  observeOn,
-  shareReplay,
-  skip,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
-import { animationFrameScheduler, BehaviorSubject, concat, Observable, of, Subject, timer } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, concat, Observable, Subject, timer } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 @Component({
   selector: 'prizm-input-select',
@@ -66,6 +57,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   get items(): T[] {
     return this.items$.value;
   }
+
+  @Input()
+  @prizmDefaultProp()
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   @Input()
   @prizmDefaultProp()
@@ -125,12 +120,12 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @prizmDefaultProp()
   valueTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.valueContent;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_select';
+  override readonly testId_ = 'ui_select';
 
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
+  override defaultLabel = this.options.label;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly defaultIcon = 'chevrons-dropdown';
@@ -216,6 +211,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public select(item: T): void {
+    this.markAsTouched();
     if (!this.identityMatcher(item, this.value)) {
       this.updateValue(item);
     }
@@ -223,10 +219,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public safeOpenModal(): void {
-    // set touched on open modal
-    this.ngControl.control.markAsTouched();
     this.printing$.next('');
-
     const open = !this.opened$$.value && !this.disabled; // && inputElement && prizmIsNativeFocused(inputElement);
     this.opened$$.next(open);
     this.changeDetectorRef.markForCheck();

@@ -21,6 +21,7 @@ import { PrizmAstTooltipExampleComponent } from './examples/tooltip/tooltip.comp
 import { PrizmAstTabsExampleComponent } from './examples/tabs/tabs.component';
 import { PrizmAstInputExampleComponent } from './examples/input/input.component';
 import { PrizmAstTextareaExampleComponent } from './examples/textarea/textarea.component';
+import { PrizmAstnputSelectExampleComponent } from './examples/input-select/input-select.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { PrizmAstTextareaExampleComponent } from './examples/textarea/textarea.c
     PrizmAstDropdownExampleComponent,
     PrizmAstBreadcrumbExampleComponent,
     PrizmAstBaseExampleComponent,
+    PrizmAstnputSelectExampleComponent,
     AstComponent,
   ],
   exports: [AstComponent],

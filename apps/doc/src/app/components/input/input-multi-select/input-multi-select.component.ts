@@ -73,13 +73,26 @@ export class InputInputMultiSelectComponent {
       'Костя Щербаков',
       'Рустам Гусев',
       'Филип Уваров',
+      'Сергей Сафанов',
+      'Саша Марков',
+      'Катя Петрова',
+      'Маша Ветрова',
+      'Влад Дуров',
+      'Саша Константинов',
+      'Рустам Щербаков',
+      'Костя Гусев',
+      'Борис Уваров',
       'Супер длинный чипс с каким то содержимым',
     ],
     [],
     null,
   ];
+  readonly dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
+
   readonly valueControl = new UntypedFormControl();
   public items = this.itemsVariants[1];
+  public testIdPostfix: string;
 
   set disabled(state: boolean) {
     if (state) this.control.disable();

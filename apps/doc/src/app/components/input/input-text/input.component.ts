@@ -12,6 +12,7 @@ import { default as d } from './examples/input-phone-example/input-phone-example
 })
 export class InputComponent {
   public disabled = false;
+  public testIdPostfix: string;
   public control = new UntypedFormControl();
   public required = false;
   public hidden = false;

@@ -47,8 +47,7 @@ export class PrizmInputCarouselComponent
   extends PrizmInputNgControl<any>
   implements ControlValueAccessor, PrizmInputCarousel
 {
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-area--carousel';
+  override readonly testId_ = 'ui-area--carousel';
   @Input() carouselContent: PrizmInputCarouselContent;
 
   @Input() lightMode = false;

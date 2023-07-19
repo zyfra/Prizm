@@ -1,5 +1,5 @@
 /* eslint-disable @angular-eslint/no-input-rename */
-import { Directive, forwardRef, HostListener, Input } from '@angular/core';
+import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
 import { PRIZM_TOOLTIP_OPTIONS } from './tooltip-options';
@@ -20,10 +20,6 @@ import { PrizmHintDirective } from '../hint/hint.directive';
   exportAs: 'prizmTooltip',
 })
 export class PrizmTooltipDirective extends PrizmHintDirective {
-  @Input('prizmTooltipMode')
-  @prizmDefaultProp()
-  override prizmHintMode: PrizmHintOptions['mode'] = this.options.mode;
-
   @Input('prizmAutoReposition')
   @prizmDefaultProp()
   override prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
@@ -48,6 +44,14 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
   @prizmDefaultProp()
   override prizmHintHost: HTMLElement | null = null;
 
+  @Input('prizmTooltipContext')
+  @prizmDefaultProp()
+  override prizmHintContext = {};
+
+  @Input('prizmTooltipCanShow')
+  @prizmDefaultProp()
+  override prizmHintCanShow = true;
+
   @Input('prizmTooltip')
   @prizmRequiredSetter()
   override set prizmHint(value: PolymorphContent | null) {
@@ -58,10 +62,18 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
 
     this.content = value;
   }
+
+  // eslint-disable-next-line @angular-eslint/no-output-rename
+  @Output('prizmTooltipShowed')
+  override prizmHintShowed = new EventEmitter<boolean>();
+
   protected override readonly containerComponent = PrizmTooltipContainerComponent;
   protected override readonly onHoverActive = false;
-
+  protected clickedInside = false;
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
-    this.show$.next(this.elementRef.nativeElement.contains(target));
+    const clickOnTooltip = this.elementRef.nativeElement.contains(target);
+    if (clickOnTooltip && !this.clickedInside) this.clickedInside = true;
+    if (!this.clickedInside) return;
+    this.show$.next(clickOnTooltip);
   }
 }

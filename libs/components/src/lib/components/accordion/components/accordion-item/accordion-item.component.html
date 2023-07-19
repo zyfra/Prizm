@@ -13,9 +13,16 @@
     (focus)="isAccordionFocused = true"
     (focusout)="isAccordionFocused = false"
   >
-    <prizm-icon class="header-icon" *ngIf="icon" [iconClass]="icon" size="16"></prizm-icon>
+    <ng-container *ngIf="icon">
+      <ng-container *polymorphOutlet="icon as content; context: data">
+        <!-- TODO add type string-->
+        <prizm-icon class="header-icon" [iconClass]="$any(content)" size="16"></prizm-icon>
+      </ng-container>
+    </ng-container>
     <div class="title" *ngIf="title">
-      <ng-container *polymorphOutlet="title as content">{{ content }}</ng-container>
+      <ng-container *polymorphOutlet="title as content; context: data">
+        {{ content }}
+      </ng-container>
     </div>
     <div
       class="accordion__tools"

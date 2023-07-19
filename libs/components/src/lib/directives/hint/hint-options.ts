@@ -5,13 +5,13 @@ export type PrizmHintMode = 'error' | 'dark' | 'light' | null;
 export interface PrizmHintOptions {
   readonly showDelay: number;
   readonly hideDelay: number;
-  readonly mode: PrizmHintMode;
+  // readonly mode: PrizmHintMode;
   readonly autoReposition: boolean;
   readonly direction: PrizmOverlayOutsidePlacement;
 }
 
 export interface PrizmHintContext {
-  mode: PrizmHintOptions['mode'];
+  // mode: PrizmHintOptions['mode'];
   reposition: boolean;
   direction: PrizmHintOptions['direction'];
   id: string;
@@ -26,7 +26,7 @@ export const PRIZM_HINT_DEFAULT_OPTIONS: PrizmHintOptions = {
   showDelay: 500,
   hideDelay: 200,
   autoReposition: true,
-  mode: null,
+  // mode: null,
   direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 

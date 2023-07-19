@@ -29,6 +29,7 @@ export class InputDateRangeComponent {
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;
+  public testIdPostfix: string;
 
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];

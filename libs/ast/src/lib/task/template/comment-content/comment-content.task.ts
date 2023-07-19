@@ -2,8 +2,8 @@ import { IPrizmCommentContentTemplateTask, IPrizmCommentContentTemplateTaskPaylo
 import { PrizmAstTemplateContext } from '../model';
 import { PrizmAstTaskTemplate } from '../abstract';
 import { PrizmTemplateNode } from '../task';
-import { prizmHtmlStringify } from '../../../html/html-stringify';
-import { PrizmHtmlItem } from '../../../html/types';
+import { prizmAstHtmlStringify } from '../../../html/html-stringify';
+import { PrizmAstHtmlItem } from '../../../html/types';
 
 export class PrizmCommentContentTemplateTask extends PrizmAstTaskTemplate<IPrizmCommentContentTemplateTask> {
   readonly type = 'comment-content';
@@ -13,7 +13,7 @@ export class PrizmCommentContentTemplateTask extends PrizmAstTaskTemplate<IPrizm
     payload: IPrizmCommentContentTemplateTaskPayload,
     context: PrizmAstTemplateContext
   ): PrizmTemplateNode {
-    const htmlContent = prizmHtmlStringify((node.children ?? []) as PrizmHtmlItem[]);
+    const htmlContent = prizmAstHtmlStringify((node.children ?? []) as PrizmAstHtmlItem[]);
 
     if (htmlContent) {
       node.children = [

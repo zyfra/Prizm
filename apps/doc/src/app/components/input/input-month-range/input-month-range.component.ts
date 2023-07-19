@@ -19,6 +19,7 @@ export class InputMonthRangeRangeComponent {
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
+  public testIdPostfix: string;
   public focusable = true;
   public readonly = false;
   public pseudoState = '';

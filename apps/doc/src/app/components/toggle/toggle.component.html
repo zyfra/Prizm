@@ -18,6 +18,7 @@
         [showLoader]="showLoader"
         [singleColor]="singleColor"
         [iconOn]="iconOn"
+        [testId]="testIdPostfix"
         [size]="size"
         [iconOff]="iconOff"
         [disabled]="disabled"
@@ -28,24 +29,14 @@
       ></prizm-toggle>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <!-- <ng-template
-        documentationPropertyName="value"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="value"
-      >
-        Value
-      </ng-template>
-
       <ng-template
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="disabled"
       >
-        Disabled
-      </ng-template> -->
-
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="showLoader"
         documentationPropertyName="showLoader"

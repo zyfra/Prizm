@@ -5,7 +5,6 @@ import {
   ElementRef,
   EventEmitter,
   forwardRef,
-  HostBinding,
   Inject,
   Input,
   Optional,
@@ -36,6 +35,7 @@ import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 /**
  * @deprecated
@@ -73,6 +73,10 @@ export class PrizmSelectComponent<T>
   get items(): T[] {
     return this.items$.value;
   }
+
+  @Input()
+  @prizmDefaultProp()
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   @Input()
   @prizmDefaultProp()
@@ -149,8 +153,7 @@ export class PrizmSelectComponent<T>
   @prizmDefaultProp()
   outer: boolean = this.options.outer;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_select';
+  override readonly testId_ = 'ui_select';
 
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();

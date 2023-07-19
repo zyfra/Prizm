@@ -117,6 +117,8 @@ export class PrizmInputDateTimeRangeComponent
   @prizmDefaultProp()
   timeStrict = false;
 
+  override readonly testId_ = 'ui_input_date_time_range';
+
   public dateControl = new UntypedFormControl();
   public timeControlFrom = new UntypedFormControl();
   public timeControlTo = new UntypedFormControl();

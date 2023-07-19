@@ -35,10 +35,6 @@ import { interval } from 'rxjs';
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
 export class PrizmInputTextComponent extends PrizmInputControl<string> implements DoCheck, OnInit, OnDestroy {
-  /**
-   * @deprecated
-   * Disabled input
-   */
   @Input()
   get disabled(): boolean {
     if (this.ngControl && this.ngControl.disabled !== null) {
@@ -46,7 +42,10 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     }
     return this._disabled;
   }
-
+  /**
+   * @deprecated
+   * Disabled input
+   */
   set disabled(value: boolean) {
     this._disabled = value;
 
@@ -79,8 +78,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
     this.stateChanges.next();
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_text';
+  override readonly testId_ = 'ui_input_text';
 
   private _required: boolean | undefined;
 

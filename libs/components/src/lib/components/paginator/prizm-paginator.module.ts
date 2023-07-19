@@ -5,12 +5,14 @@ import { PrizmIconModule } from '../icon';
 import { PrizmSelectModule } from '../dropdowns/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCallFuncModule } from '@prizm-ui/helpers';
+import { PolymorphModule } from '../../directives';
 
 @NgModule({
   declarations: [PrizmPaginatorComponent],
   imports: [
     CommonModule,
     PrizmCallFuncModule,
+    PolymorphModule,
     PrizmIconModule,
     PrizmSelectModule,
     ReactiveFormsModule,

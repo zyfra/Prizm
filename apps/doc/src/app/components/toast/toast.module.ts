@@ -15,6 +15,7 @@ import { PrizmToastSuccessExampleComponent } from './examples/message-success-ex
 import { PrizmToastDangerExampleComponent } from './examples/message-danger-example/message-success-example.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToastExampleComponent } from './examples/toast-example/toast-example.component';
+import { PrizmToastInnerHtmlExampleComponent } from './examples/inner-html/toast-inner-html-example.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { PrizmToastExampleComponent } from './examples/toast-example/toast-examp
   ],
   declarations: [
     PrizmToastInfoExampleComponent,
+    PrizmToastInnerHtmlExampleComponent,
     PrizmToastWarningExampleComponent,
     PrizmToastExampleComponent,
     PrizmToastSuccessExampleComponent,

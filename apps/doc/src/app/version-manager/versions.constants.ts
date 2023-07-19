@@ -6,8 +6,16 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '1.2.4',
-    baseHref: '',
+    label: '2.1.1',
+    baseHref: 'http://prizm.site/',
+  },
+  {
+    label: '1.3.0',
+    baseHref: 'http://v1-2-4.prizm.site/',
+  },
+  {
+    label: '1.0.1',
+    baseHref: 'http://v1.prizm.site/',
   },
   {
     label: 'next',
@@ -16,9 +24,5 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
     label: 'draft',
     link: 'https://prizmui-draft.web.app/',
-  },
-  {
-    label: 'LTS (v0.13.9)',
-    link: 'https://ziiot-dev-07.kube01.yc.ziiot.ru/zui-sdk/storybook/',
   },
 ];

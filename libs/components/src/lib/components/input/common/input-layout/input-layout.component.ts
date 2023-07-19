@@ -15,7 +15,7 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { EMPTY, merge, Subject, timer } from 'rxjs';
+import { BehaviorSubject, EMPTY, merge, ReplaySubject, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
@@ -35,7 +35,12 @@ import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/
   providers: [PrizmDestroyService],
 })
 export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewInit {
-  @Input() label: string;
+  @Input() set label(val: string) {
+    this.label$.next(val);
+  }
+  get label(): string {
+    return this.label$.value;
+  }
 
   @Input() size: PrizmInputSize = 'l';
 
@@ -61,6 +66,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
     return this.control.hidden;
   }
 
+  public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
     return typeof this.forceClear === 'boolean'
       ? this.forceClear
@@ -120,6 +126,10 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
 
   ngAfterViewInit(): void {
     this.actualizeStatusIcon();
+
+    if (this.control.defaultLabel && !this.label) {
+      this.label$.next(this.control.defaultLabel);
+    }
 
     merge(this.inputStatusText ? this.inputStatusText.changed.pipe(map(() => this.inputStatusText)) : EMPTY)
       .pipe(

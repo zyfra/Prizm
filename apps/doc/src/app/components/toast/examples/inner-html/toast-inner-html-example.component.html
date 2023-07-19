@@ -1,0 +1,22 @@
+<div class="box">
+  <button (click)="showWithCustomDataTemplate(contentTemplate)" prizmButton appearance="primary">
+    Info Toast
+  </button>
+
+  <ng-template #contentTemplate let-close="close" let-buttonAppearance="buttonAppearance" let-data="data">
+    <div [innerHTML]="data.html"></div>
+  </ng-template>
+</div>
+
+<br />
+<hr />
+<p>Position</p>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap">
+  <prizm-radio-button
+    *ngFor="let item of data"
+    [formControl]="formControl"
+    [label]="item.label"
+    [name]="'success'"
+    [value]="item.val"
+  ></prizm-radio-button>
+</div>

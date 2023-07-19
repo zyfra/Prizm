@@ -35,6 +35,7 @@ import {
   PrizmMultiSelectSearchMatcher,
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 /**
  * @deprecated
@@ -72,6 +73,10 @@ export class PrizmMultiSelectComponent<T>
   get items(): T[] {
     return this.items$.value;
   }
+
+  @Input()
+  @prizmDefaultProp()
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   @Input()
   @prizmDefaultProp()
@@ -143,8 +148,7 @@ export class PrizmMultiSelectComponent<T>
   @prizmDefaultProp()
   outer: boolean = this.options.outer;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-muilti-select';
+  override readonly testId_ = 'ui-muilti-select';
 
   public inputTextElement: PrizmInputTextComponent | null;
   public readonly defaultIcon = 'chevrons-dropdown';

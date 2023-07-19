@@ -140,8 +140,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_range';
+  override readonly testId_ = 'ui_input_date_time_range';
 
   testRange = new PrizmDayRange(new PrizmDay(2010, 1, 1), new PrizmDay(2010, 2, 2));
 
@@ -390,8 +389,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
       this.nativeValueFrom$$.next('');
     }
 
-    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange, range, (a, b) => a.daySame(b))) {
-      const newValue = new PrizmDateTimeRange(range, this.value.timeRange ?? null);
+    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange, range, (a, b) => a?.daySame(b))) {
+      const newValue = new PrizmDateTimeRange(range, this.value?.timeRange ?? null);
       this.updateValue(newValue);
       this.open = false;
     }

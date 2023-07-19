@@ -50,6 +50,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   @Output() readonly activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;
+  public tabsMoreDropdown: PrizmDropdownHostComponent;
   @ContentChildren(PrizmTabComponent, { descendants: true }) public tabElements: QueryList<PrizmTabComponent>;
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
   public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
@@ -168,6 +169,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   private focusTabByIdx(idx: number): void {
     if (!this.tabElements?.length) return;
     const selectedTabElement = this.tabElements.find((item, index) => index === idx)?.el.nativeElement;
+    if (!selectedTabElement) return;
     this.tabsContainer.nativeElement.scrollLeft =
       selectedTabElement.offsetLeft -
       this.tabsContainer.nativeElement.offsetWidth / 2 +
@@ -176,6 +178,11 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   }
 
   public reCalculatePositions(): void {
-    this.tabsDropdown.reCalculatePositions();
+    (this.tabsDropdown ?? this.tabsMoreDropdown)?.reCalculatePositions();
+  }
+
+  public closeTab(idx: number): void {
+    this.tabsService.getTabByIdx(idx)?.closeTab.emit();
+    this.reCalculatePositions();
   }
 }

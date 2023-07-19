@@ -16,6 +16,9 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SelectComponent {
+  readonly dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
+
   public readOnly = false;
   val1: any;
   public pseudoInvalid = false;
@@ -23,6 +26,7 @@ export class SelectComponent {
   public pseudoPressed = false;
   public pseudoFocused = false;
   public focusable = true;
+  public testIdPostfix: string;
   public pseudoState = '';
   public focusedChange = false;
   public pressedChange = false;

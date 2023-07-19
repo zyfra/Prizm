@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  PrizmHtmlItem,
-  prizmHtmlParse,
-  prizmHtmlStringify,
+  PrizmAstHtmlItem,
+  prizmAstHtmlParse,
+  prizmAstHtmlStringify,
   PrizmTemplateTaskProcessor,
   PrizmTemplateTask,
 } from '@prizm-ui/ast';
@@ -118,8 +118,8 @@ export class PrizmAstDropdownExampleComponent implements OnInit {
   }
 
   private parse(): void {
-    const parsed = prizmHtmlParse(this.html);
+    const parsed = prizmAstHtmlParse(this.html);
     const nodeProcessor = new PrizmTemplateTaskProcessor(this.tasks);
-    this.result = prizmHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmHtmlItem[]);
+    this.result = prizmAstHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]);
   }
 }

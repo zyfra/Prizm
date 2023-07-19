@@ -120,8 +120,11 @@ export class InputSelectComponent {
   };
 
   public valueTemplate: PolymorphContent<any> = '';
+  readonly dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   public icon: PolymorphContent<PrizmSelectIconContext> = null;
+  public testIdPostfix: string;
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
 

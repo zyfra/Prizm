@@ -2,7 +2,7 @@
   <button
     [inputNumber]="inputNumber"
     [disabled]="requiredInputControl.disabled"
-    [interactive]="true"
+    [interactive]="!requiredInputControl.disabled"
     prizmInputIconButton="delete-minus"
     prizmInputNumberAuxiliaryControl="decrement"
     prizm-input-left
@@ -22,7 +22,7 @@
   <button
     [inputNumber]="inputNumber"
     [disabled]="requiredInputControl.disabled"
-    [interactive]="true"
+    [interactive]="!requiredInputControl.disabled"
     prizmInputIconButton="add-plus"
     prizmInputNumberAuxiliaryControl="increment"
     prizm-input-right

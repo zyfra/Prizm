@@ -30,6 +30,7 @@
         [formControl]="dateControl"
         [placeholder]="placeholder"
         [outer]="outer"
+        [testId]="testIdPostfix"
         [size]="size"
         [readOnly]="readOnly"
         [forceClear]="forceClear"
@@ -38,6 +39,14 @@
       ></prizm-input-date-range>
     </prizm-doc-demo>
     <prizm-doc-documentation [control]="dateControl">
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

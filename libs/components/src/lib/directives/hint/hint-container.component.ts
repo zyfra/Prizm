@@ -24,7 +24,7 @@ import { PrizmHintOptions } from './hint-options';
     <div class="prizm-font-main-body-12">
       <prizm-scrollbar visibility="hidden">
         <ng-container *polymorphOutlet="content() as data; context: context">
-          {{ data }}
+          <div class="content">{{ data }}</div>
         </ng-container>
       </prizm-scrollbar>
     </div>
@@ -42,16 +42,16 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   @Input()
   content: () => PolymorphContent;
 
-  @Input()
-  mode: () => PrizmHintOptions['mode'];
+  // @Input()
+  // mode: () => PrizmHintOptions['mode'];
 
   @Input()
   @prizmDefaultProp()
   context: CONTEXT = {} as CONTEXT;
 
-  @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
-    return this.mode();
-  }
+  // @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
+  //   return this.mode();
+  // }
 
   constructor(
     protected readonly destroy$: PrizmDestroyService,

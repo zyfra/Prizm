@@ -18,6 +18,7 @@ import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
 import { prizmWatch } from '../../observables';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-checkbox',
@@ -30,7 +31,10 @@ import { prizmWatch } from '../../observables';
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
+export class PrizmCheckboxComponent
+  extends AbstractPrizmTestId
+  implements ControlValueAccessor, OnDestroy, OnChanges, OnInit
+{
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 's';
 
   @Input() indeterminate = false;
@@ -48,8 +52,7 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
 
   @Output() changed = new EventEmitter<boolean>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_checkbox';
+  override readonly testId_ = 'ui_checkbox';
 
   changeFn: (value: boolean) => void;
   touchedFn: () => void;
@@ -60,6 +63,7 @@ export class PrizmCheckboxComponent implements ControlValueAccessor, OnDestroy, 
     @Optional() @Self() private ngControl: NgControl,
     private cdr: ChangeDetectorRef
   ) {
+    super();
     if (this.ngControl) {
       this.ngControl.valueAccessor = this;
     }

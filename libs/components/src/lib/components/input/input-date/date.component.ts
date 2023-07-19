@@ -121,8 +121,7 @@ export class PrizmInputDateComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_input_date';
+  override readonly testId_ = 'prizm_input_date';
 
   public open = false;
 

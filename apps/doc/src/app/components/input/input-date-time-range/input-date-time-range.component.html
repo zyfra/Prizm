@@ -15,12 +15,21 @@
         [prizmDocHostElement]="element"
         [formControl]="value"
         [min]="min"
+        [testId]="testIdPostfix"
         [forceClear]="forceClear"
         [max]="max"
       ></prizm-input-date-time-range>
     </prizm-doc-demo>
 
     <prizm-doc-documentation [control]="value">
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

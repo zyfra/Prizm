@@ -25,9 +25,11 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
   previousSelectionStart: number;
   @Input() idx?: number;
+
   @HostBinding('style.--prizm-input-in-zone-max-size')
   @Input()
   maxSize: number;
+
   @Output() focused$ = merge(
     fromEvent(this.el.nativeElement, 'focus').pipe(mapTo(true)),
     fromEvent(this.el.nativeElement, 'blur').pipe(mapTo(false))

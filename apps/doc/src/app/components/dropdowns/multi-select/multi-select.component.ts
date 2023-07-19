@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
@@ -8,7 +8,7 @@ import {
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
-import { prizmPure } from '@prizm-ui/core';
+import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-multi-select-example',
@@ -29,6 +29,8 @@ export class MultiSelectComponent {
   public pressedChange = false;
   public hoveredChange = false;
   public focusVisibleChange = false;
+  dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   public icon: PolymorphContent<PrizmSelectIconContext> = null;
 
@@ -37,6 +39,7 @@ export class MultiSelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
+  testIdPostfix: string;
   emptyContent = 'Ничего не найдено';
   isChipsDeletable = true;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
@@ -62,6 +65,15 @@ export class MultiSelectComponent {
       'Костя Щербаков',
       'Рустам Гусев',
       'Филип Уваров',
+      'Сергей Сафанов',
+      'Саша Марков',
+      'Катя Петрова',
+      'Маша Ветрова',
+      'Влад Дуров',
+      'Саша Константинов',
+      'Рустам Щербаков',
+      'Костя Гусев',
+      'Борис Уваров',
     ],
     [],
     null,

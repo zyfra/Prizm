@@ -1,4 +1,4 @@
-import { Observer } from 'rxjs';
+import { Observable, Observer } from 'rxjs';
 import { PolymorphContent } from '../../../directives';
 import { PrizmAppearance, PrizmAppearanceType, PrizmContextWithImplicit } from '../../../types';
 import { Type } from '@angular/core';
@@ -54,8 +54,7 @@ export interface PrizmDialogButton<O = unknown, T = PrizmDialogBaseOptions> {
   text: string;
   icon?: PrizmContent;
   iconRight?: PrizmContent;
-  showLoader?: boolean;
-
-  disabled?: boolean;
+  showLoader?: boolean | Observable<boolean>;
+  disabled?: boolean | Observable<boolean>;
   action: (context: PrizmBaseDialogContext<O, T>) => void;
 }

@@ -25,8 +25,8 @@
     <prizm-data-list
       class="block"
       *prizmLet="{ filteredItems: filteredItems$ | async } as $"
+      [scroll]="dropdownScroll"
       [style.--prizm-data-list-border]="0"
-      (prizmAfterViewInit)="markAsTouched()"
     >
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
@@ -51,6 +51,8 @@
         >
           <prizm-checkbox
             [checked]="item.checked"
+            [ngModel]="item.checked"
+            [ngModelOptions]="{ standalone: true }"
             [host]="parent"
             [indeterminate]="!!item.indeterminate"
             (changed)="select(item)"

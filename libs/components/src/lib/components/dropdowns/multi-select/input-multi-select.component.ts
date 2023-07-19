@@ -28,6 +28,7 @@ import {
   PrizmMultiSelectSearchMatcher,
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -48,6 +49,7 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
   readonly nativeElementType = 'multiselect';
   readonly hasClearButton = true;
+  override defaultLabel = this.options.label;
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLElement>;
 
@@ -60,6 +62,10 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   get items(): T[] {
     return this.items$.value;
   }
+
+  @Input()
+  @prizmDefaultProp()
+  dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   @Input()
   @prizmDefaultProp()
@@ -118,8 +124,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   override hidden = true;
 
   readonly button_layout_width = 64;
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-muilti-select';
+  override readonly testId_ = 'ui-muilti-select';
 
   @HostBinding('style.display')
   get display(): string {
@@ -310,6 +315,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public select(item: PrizmMultiSelectItemWithChecked<T>): void {
     const newItemState = !item.checked;
     let values: T[];
+    this.markAsTouched();
     if (this.isSelectAllItem(item)) {
       values = newItemState ? [...this.items] : [];
     } else {
@@ -326,7 +332,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     const inputElement = this.focusableElement.nativeElement;
     const open = !this.opened$$.value && !this.disabled && !!inputElement;
     this.opened$$.next(open);
-    this.changeDetectorRef.markForCheck();
   }
 
   public removeChip(str: string): void {

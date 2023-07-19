@@ -112,8 +112,7 @@ export class PrizmInputLayoutDateTimeComponent
   @prizmDefaultProp()
   timeMode: PrizmTimeMode = `HH:MM`;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_time';
+  override readonly testId_ = 'ui_input_date_time';
 
   public openTimeTemplate = false;
 

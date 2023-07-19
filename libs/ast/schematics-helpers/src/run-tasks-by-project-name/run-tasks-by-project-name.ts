@@ -1,9 +1,10 @@
 /* eslint-disable @nrwl/nx/enforce-module-boundaries */
 import { formatFiles, Tree } from '@nrwl/devkit';
+import { isEqual } from 'lodash';
 import {
-  PrizmHtmlItem,
-  prizmHtmlParse,
-  prizmHtmlStringify,
+  PrizmAstHtmlItem,
+  prizmAstHtmlParse,
+  prizmAstHtmlStringify,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
@@ -33,19 +34,25 @@ export async function prizmAstRunSchematicsByTasks(
     runPrettier?: boolean;
   }
 ): Promise<any> {
+  const templateExecutor = new PrizmTemplateTaskProcessor(templateTasks);
   // Update all files in the tree when they meet the conditions set by canUpdateFunc.
   prizmAstUpdateAllFilesWhen(
     tree,
     dir,
-    (entryPath: string, _: string) => entryPath.endsWith('.ts') || entryPath.endsWith('.html'),
+    (entryPath: string, fileContent: string) =>
+      entryPath.endsWith('.ts') ||
+      (entryPath.endsWith('.html') && templateExecutor.needToChange(prizmAstHtmlParse(fileContent))),
     (entryPath: string, fileContent: string) => {
       const initialFileContent = fileContent;
       try {
         // Process HTML files using the PrizmHtmlParse and PrizmTemplateTaskProcessor.
         if (entryPath.endsWith('.html')) {
-          const parsed = prizmHtmlParse(fileContent);
-          const nodeProcessor = new PrizmTemplateTaskProcessor(templateTasks);
-          fileContent = prizmHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmHtmlItem[]);
+          const parsed = prizmAstHtmlParse(fileContent);
+          const processTasks = templateExecutor.processTasks(parsed) as PrizmAstHtmlItem[];
+          const updatedFile = prizmAstHtmlStringify(processTasks);
+          if (!isEqual(parsed, prizmAstHtmlParse(fileContent))) fileContent = updatedFile;
+          // clear storage with delayed tasks
+          templateExecutor.clear();
         }
         // Process TypeScript files using the PrizmAstCodeTaskProcessor.
         else if (entryPath.endsWith('.ts')) {
