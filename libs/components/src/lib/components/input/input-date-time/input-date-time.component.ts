@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -49,13 +48,14 @@ import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { prizmI18nInitWithKey } from '../../../services';
 
 @Component({
   selector: `prizm-input-date-time`,
   templateUrl: `./input-date-time.component.html`,
   styleUrls: [`./input-date-time.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: PRIZM_INPUT_DATE_TIME_PROVIDERS,
+  providers: [prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'), ...PRIZM_INPUT_DATE_TIME_PROVIDERS],
 })
 export class PrizmInputDateTimeComponent
   extends AbstractPrizmControl<[PrizmDay | null, PrizmTime | null]>

@@ -8,6 +8,7 @@ import {
   PrizmLanguageCron,
   PrizmLanguageFileUpload,
   PrizmLanguageInputLayoutDateRelative,
+  PrizmLanguageKit,
 } from '@prizm-ui/i18n';
 
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
@@ -26,12 +27,7 @@ export const PRIZM_MONTHS = new InjectionToken<Observable<PrizmLanguageCore['mon
   `Localized months names`
 );
 
-/**
- * @deprecated
- * */
-export const PRIZM_TIME_TEXTS = new InjectionToken(`time i18n texts`, {
-  factory: prizmExtractI18n(`time`),
-});
+export const PRIZM_TIME_TEXTS = new InjectionToken<Observable<PrizmLanguageKit['time']>>(`time i18n texts`);
 
 /**
  * @deprecated

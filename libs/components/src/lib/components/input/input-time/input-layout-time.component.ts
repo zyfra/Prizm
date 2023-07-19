@@ -28,6 +28,7 @@ import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
+import { prizmI18nInitWithKey } from '../../../services';
 
 @Component({
   selector: `prizm-input-layout-time`,
@@ -35,6 +36,7 @@ import { PrizmInputControl, PrizmInputNgControl } from '../common';
   styleUrls: [`./input-layout-time.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutTimeComponent),
