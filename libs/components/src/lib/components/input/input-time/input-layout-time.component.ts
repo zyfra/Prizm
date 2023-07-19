@@ -36,7 +36,7 @@ import { prizmI18nInitWithKey } from '../../../services';
   styleUrls: [`./input-layout-time.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
+    ...prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutTimeComponent),

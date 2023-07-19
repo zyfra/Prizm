@@ -23,6 +23,7 @@ import { PrizmBooleanHandler } from '../../types/handler';
 import { PrizmBooleanHandlerWithContext } from '../../types/handler-with-context';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
+import { prizmI18nInitWithKey } from '../../services';
 
 const TODAY = PrizmDay.currentLocal();
 
@@ -31,6 +32,7 @@ const TODAY = PrizmDay.currentLocal();
   templateUrl: `./calendar-month.component.html`,
   styleUrls: [`./calendar-month.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [...prizmI18nInitWithKey(PRIZM_CALENDAR_MONTHS, 'shortCalendarMonths')],
 })
 export class PrizmCalendarMonthComponent implements PrizmWithOptionalMinMax<PrizmMonth> {
   @Input()

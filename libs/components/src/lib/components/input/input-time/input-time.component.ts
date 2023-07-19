@@ -42,7 +42,7 @@ import { prizmI18nInitWithKey } from '../../../services';
   styleUrls: [`./input-time.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
+    ...prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
     {
       provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputTimeComponent),

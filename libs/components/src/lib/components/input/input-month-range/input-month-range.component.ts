@@ -41,7 +41,7 @@ import { PRIZM_MONTHS } from '../../../tokens';
   styleUrls: [`./input-month-range.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
+    ...prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
     prizmAsFocusableItemAccessor(PrizmInputMonthRangeComponent),
     prizmAsControl(PrizmInputMonthRangeComponent),
     PRIZM_MONTH_FORMATTER_PROVIDER,

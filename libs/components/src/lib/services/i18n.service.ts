@@ -35,3 +35,19 @@ export function prizmI18nInitWithKey<T, K extends keyof PrizmLanguage>(
     },
   ];
 }
+export function prizmI18nInitWithKeys<T, K extends keyof PrizmLanguage>(
+  keys: Record<K, InjectionToken<T>>
+): Provider[] {
+  return [
+    PrizmI18nService,
+    ...Object.keys(keys).map(key => {
+      return {
+        provide: keys[key as K],
+        useFactory: (service: PrizmI18nService) => {
+          return service.extract(key as K);
+        },
+        deps: [PrizmI18nService],
+      };
+    }),
+  ];
+}

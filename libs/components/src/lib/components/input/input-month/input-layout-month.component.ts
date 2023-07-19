@@ -34,7 +34,7 @@ import { PRIZM_MONTHS } from '../../../tokens';
   styleUrls: [`./input-layout-month.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
+    ...prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
     PRIZM_MONTH_FORMATTER_PROVIDER,
     PrizmMonthPipe,
     {

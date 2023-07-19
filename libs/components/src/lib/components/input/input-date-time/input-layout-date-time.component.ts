@@ -54,7 +54,7 @@ import { prizmI18nInitWithKey } from '../../../services';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
+    ...prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
     ...PRIZM_INPUT_DATE_TIME_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,

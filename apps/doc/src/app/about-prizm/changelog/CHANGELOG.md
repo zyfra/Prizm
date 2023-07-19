@@ -9,6 +9,8 @@ All notable changes to this project will be documented in this file.
 - feat(components/sticky): add class with direction #470
 - feat(components/i18n): add new init way to components with time
 - feat(components/i18n): add new init way to components with month
+- feat(components/i18n): add new init way to components with calendar
+-
 
 ### BUG FIXES
 
