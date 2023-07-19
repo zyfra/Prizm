@@ -28,14 +28,8 @@ export const PRIZM_INPUT_LAYOUT_DATE_RELATIVE = new InjectionToken<
   factory: prizmExtractI18n(`inputLayoutDateRelative`),
 });
 
-/**
- * @deprecated
- * */
 export const PRIZM_CRON = new InjectionToken<Observable<PrizmLanguageCron['cron']>>(
-  `Localized for cron component`,
-  {
-    factory: prizmExtractI18n(`cron`),
-  }
+  `Localized for cron component`
 );
 
 /**

@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@angular/core';
+import { Inject, Injectable, InjectionToken, Provider } from '@angular/core';
 import { PRIZM_LANGUAGE, PrizmLanguage } from '@prizm-ui/i18n';
 import { isObservable, Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -18,4 +18,20 @@ export class PrizmI18nService {
       map((lang: PrizmLanguage) => lang[key])
     );
   }
+}
+
+export function prizmI18nInitWithKey<T, K extends keyof PrizmLanguage>(
+  token: InjectionToken<T>,
+  key: K
+): Provider[] {
+  return [
+    PrizmI18nService,
+    {
+      provide: token,
+      useFactory: (service: PrizmI18nService) => {
+        return service.extract(key);
+      },
+      deps: [PrizmI18nService],
+    },
+  ];
 }
