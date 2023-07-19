@@ -8,11 +8,13 @@ import { PrizmIconModule } from '../../components/icon';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmButtonModule } from '../../components/button';
 import { PrizmFocusTrapModule } from '../focus-trap';
+import { PrizmToObservableModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
+    PrizmToObservableModule,
     PrizmFocusTrapModule,
     PrizmHintModule,
     PrizmScrollbarModule,

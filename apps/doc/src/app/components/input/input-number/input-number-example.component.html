@@ -31,6 +31,7 @@
               [prizmDocHostElement]="prizmInputNumber"
               [formControl]="requiredInputControl"
               [min]="min"
+              [testId]="testIdPostfix"
               [max]="max"
               [step]="step"
               [value]="value"
@@ -63,8 +64,8 @@
           >
             <button
               [inputNumber]="inputCounter"
-              [interactive]="true"
               [disabled]="requiredInputControl.disabled"
+              [interactive]="!requiredInputControl.disabled"
               prizmInputIconButton="delete-minus"
               prizmInputNumberAuxiliaryControl="decrement"
               prizm-input-left
@@ -72,6 +73,7 @@
 
             <input
               #inputCounter="prizmInputNumber"
+              [testId]="testIdPostfix"
               [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
@@ -85,8 +87,8 @@
 
             <button
               [inputNumber]="inputCounter"
-              [interactive]="true"
               [disabled]="requiredInputControl.disabled"
+              [interactive]="!requiredInputControl.disabled"
               prizmInputIconButton="add-plus"
               prizmInputNumberAuxiliaryControl="increment"
               prizm-input-right
@@ -103,6 +105,14 @@
       hostComponentKey="PrizmInputNumberDirective"
     >
       <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
+      <ng-template
         [(documentationPropertyValue)]="required"
         documentationPropertyName="required"
         documentationPropertyType="boolean"
@@ -113,11 +123,12 @@
 
       <ng-template
         [(documentationPropertyValue)]="disabled"
+        [documentationPropertyDeprecated]="true"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
       >
-        Disabled
+        Disabled Use form control disabled
       </ng-template>
 
       <ng-template
@@ -139,7 +150,7 @@
 
       <ng-template
         documentationPropertyName="onClear"
-        documentationPropertyType="void"
+        documentationPropertyType="MouseEvent"
         documentationPropertyMode="output"
       >
         On Clear
@@ -147,7 +158,7 @@
 
       <ng-template
         documentationPropertyName="valueChanged"
-        documentationPropertyType="any"
+        documentationPropertyType="number"
         documentationPropertyMode="output"
       >
         Value Changed

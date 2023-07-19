@@ -44,6 +44,7 @@
             />
             <prizm-chips
               #element
+              [testId]="testIdPostfix"
               [formControl]="control"
               [prizmDocHostElement]="element"
               [class.single-line]="singleLine"
@@ -118,6 +119,15 @@
       heading="PrizmChipsComponent"
       hostComponentKey="PrizmChipsComponent"
     >
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
+
       <ng-template
         [(documentationPropertyValue)]="singleLine"
         documentationPropertyName="singleLine"

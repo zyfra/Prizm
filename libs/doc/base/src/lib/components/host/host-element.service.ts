@@ -49,9 +49,9 @@ export class PrizmDocHostElementService implements OnDestroy {
       .subscribe();
   }
 
-  private listComponentInputsOutputs<T>(componentClass: Type<T>) {
-    const inputs: string[] = [];
-    const outputs: string[] = [];
+  private getListComponentInputsOutputs<T>(componentClass: Type<T>) {
+    const inputs = new Map<string, string>();
+    const outputs = new Map<string, string>();
     let selector: string | null = null;
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
@@ -61,23 +61,39 @@ export class PrizmDocHostElementService implements OnDestroy {
       const inputProperties = componentMetadata.inputs;
       const outputProperties = componentMetadata.outputs;
 
-      for (const input in inputProperties) {
-        inputs.push(inputProperties[input]);
+      for (const inputName in inputProperties) {
+        const classPropertyName = inputProperties[inputName];
+        const inputFromSet = inputs.get(classPropertyName);
+        if (inputFromSet && inputFromSet !== classPropertyName) continue;
+        inputs.set(classPropertyName, inputName);
       }
 
-      for (const output in outputProperties) {
-        outputs.push(outputProperties[output]);
+      for (const outputKey in outputProperties) {
+        const classPropertyName = outputProperties[outputKey];
+        const nameFromSet = outputs.get(classPropertyName);
+        if (nameFromSet && nameFromSet !== classPropertyName) continue;
+        outputs.set(classPropertyName, outputKey);
       }
     } else {
       console.error('The provided class is not an Angular component.');
     }
 
-    return { inputs, outputs, selector };
+    return {
+      inputs: [...inputs.values()],
+      inputProperties: [...inputs.keys()],
+      outputs: [...outputs.values()],
+      outputProperties: [...outputs.keys()],
+      origin: {
+        inputs: componentMetadata.inputs,
+        outputs: componentMetadata.outputs,
+      },
+      selector,
+    };
   }
 
   private updateComponentInfo(listenerElementKey: string, el: ElementRef): void {
     const currentOutputMap = this.outputMap.get(listenerElementKey) || new Map();
-    const metaComponentData = this.listComponentInputsOutputs(el.nativeElement.constructor);
+    const metaComponentData = this.getListComponentInputsOutputs(el.nativeElement.constructor);
 
     this.outputs.set(
       listenerElementKey,
@@ -101,10 +117,10 @@ export class PrizmDocHostElementService implements OnDestroy {
 
     const notSpecifiedKeys = metaComponentData.outputs.map(i => i).filter(key => !currentOutputMap.has(key));
     currentOutputMap.forEach(({ key, type }) => {
-      this.addOutputListener(listenerElementKey, el, type, key);
+      this.addOutputListener(listenerElementKey, el, type, metaComponentData.origin.outputs[key]);
     });
     notSpecifiedKeys.forEach(key => {
-      this.addOutputListener(listenerElementKey, el, 'unknown', key, true);
+      this.addOutputListener(listenerElementKey, el, 'unknown', metaComponentData.origin.outputs[key], true);
     });
   }
 

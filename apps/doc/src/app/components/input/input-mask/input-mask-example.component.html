@@ -25,12 +25,21 @@
           [disabled]="disabled"
           [required]="required"
           [value]="value"
+          [testId]="testIdPostfix"
           prizmInput
         />
         <ng-template prizmInputStatusText>Текст статуса</ng-template>
       </prizm-input-layout>
     </prizm-doc-demo>
     <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="testIdPostfix"
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="value"
         documentationPropertyName="value"

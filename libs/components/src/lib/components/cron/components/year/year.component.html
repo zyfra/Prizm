@@ -83,7 +83,12 @@
             [forceClear]="false"
             size="m"
           >
-            <input [ngModel]="joinedStr" (ngModelChange)="saveSpecified($event)" prizmInput />
+            <input
+              [ngModel]="joinedStr"
+              [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="saveSpecified($event)"
+              prizmInput
+            />
           </prizm-input-layout>
         </div>
         <prizm-cron-schedule

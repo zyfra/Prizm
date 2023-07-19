@@ -102,8 +102,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay>
   @prizmDefaultProp()
   extraButtonInjector: Injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_input_date';
+  override readonly testId_ = 'prizm_input_date';
 
   @HostBinding('style.width')
   readonly width = 'auto';

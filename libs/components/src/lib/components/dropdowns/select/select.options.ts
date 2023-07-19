@@ -10,16 +10,19 @@ export interface PrizmSelectOptions<T> {
   readonly searchable: boolean;
   /**
    * @deprecated
+   * before ng16!
    * */
   readonly forceClear: boolean | null;
   readonly icon: PolymorphContent<PrizmSelectIconContext>;
   /**
    * @deprecated
+   * TODO ng16! rename to defaultLabel after remove prizm-select
    * */
   readonly label: string;
   readonly placeholder: string;
   /**
    * @deprecated
+   * before ng16!
    * */
   readonly size: PrizmInputSize;
   readonly search: string | null;
@@ -31,6 +34,7 @@ export interface PrizmSelectOptions<T> {
   readonly minDropdownHeight: number;
   /**
    * @deprecated
+   * before ng16!
    * */
   readonly outer: boolean;
   readonly maxDropdownHeight: number;

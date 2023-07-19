@@ -52,9 +52,11 @@ export class TooltipComponent {
   appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
   disabled = false;
   showLoader = false;
-
+  public testIdPostfix: string;
   public content = 'Тестовое содержимое';
   public prizmAutoReposition = false;
+  public prizmTooltipShow = true;
+  public prizmTooltipCanShow = true;
 
   public readonly prizmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> =
     Object.values(PrizmOverlayOutsidePlacement);

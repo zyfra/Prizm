@@ -12,6 +12,7 @@ import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
 export class PaginatorExampleComponent {
   public disabled = false;
   public totalRecords = 1100;
+  public textOnPage = 'Строк на странице';
   public pageLinkSize = 5;
   public rows = 10;
   public initialValue = 10;

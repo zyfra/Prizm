@@ -29,9 +29,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules-
+            ${{ runner.os }}-node_modules_ng_14-
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -52,7 +52,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.2.4-next"))] | last // "1.2.4-next.0")' 2>/dev/null || echo '1.2.4-next.0'
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.3.0-next"))] | last // "1.3.0-next.0")' 2>/dev/null || echo '1.3.0-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
@@ -62,7 +62,6 @@ jobs:
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/deprecated && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/components && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose || exit_code=0
@@ -81,5 +80,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
-          channelId: live
+          channelId: v1-3-0
           target: next

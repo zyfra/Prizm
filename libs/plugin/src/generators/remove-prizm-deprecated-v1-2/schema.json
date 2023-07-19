@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "remove-prizm-deprecated-v1-2",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "project": {
+      "type": "string",
+      "description": "Name of project"
+    },
+    "runPrettier": {
+      "type": "boolean",
+      "description": "Run prettier for changed files",
+      "default": false
+    }
+  },
+  "required": ["project"],
+  "additionalProperties": false
+}

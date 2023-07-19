@@ -7,12 +7,14 @@ import { PrizmSidebarComponent } from './sidebar.component';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmToObservableModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
     PrizmThemeModule,
+    PrizmToObservableModule,
     PrizmOverlayModule,
     PrizmInputIconButtonModule,
     PrizmButtonModule,

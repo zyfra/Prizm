@@ -16,16 +16,32 @@ export interface PrizmMultiSelectOptions<T> {
   readonly chooseAllItem: T;
   readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
   readonly searchable: boolean;
+  /**
+   * @deprecated
+   * TODO ng16! remove
+   * * */
   readonly forceClear: null | boolean;
   readonly isChipsDeletable: boolean;
+  /**
+   * @deprecated
+   * TODO ng16! rename to defaultLabel after remove prizm-select
+   * */
   readonly label: string;
   readonly placeholder: string;
+  /**
+   * @deprecated
+   * TODO ng16! remove
+   * */
   readonly size: PrizmInputSize;
   readonly stringify: PrizmMultiSelectItemStringifyFunc<T>;
   readonly emptyContent: PolymorphContent;
   readonly searchMatcher: PrizmMultiSelectSearchMatcher<T>;
   readonly identityMatcher: PrizmMultiSelectIdentityMatcher<T>;
   readonly minDropdownHeight: number;
+  /**
+   * @deprecated
+   * TODO ng16! remove
+   * */
   readonly outer: boolean;
   readonly maxDropdownHeight: number;
   readonly dropdownWidth: string;

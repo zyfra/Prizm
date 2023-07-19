@@ -7,9 +7,10 @@ import { PrizmInputLayoutLeftDirective } from '../input-layout/input-layout-left
 import { PrizmInputLayoutRightDirective } from '../input-layout/input-layout-right.directive';
 import { PrizmInputLayoutSubtextDirective } from '../input-layout/input-layout-subtext.directive';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
+import { AbstractPrizmTestId } from '../../../../abstract/interactive';
 
 @Directive()
-export abstract class PrizmInputControl<T> {
+export abstract class PrizmInputControl<T> extends AbstractPrizmTestId {
   // @ViewChild(PrizmInputStatusTextDirective, { static: true })
   statusText?: PrizmInputStatusTextDirective;
 
@@ -27,6 +28,8 @@ export abstract class PrizmInputControl<T> {
 
   @ViewChild(PrizmInputLayoutSubtextDirective)
   public layoutSubtext: PrizmInputLayoutSubtextDirective | null = null;
+
+  public defaultLabel: string;
 
   /** The value of the control. */
   abstract value: T | null;

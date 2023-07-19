@@ -6,14 +6,14 @@ export interface PrizmHtmlComment {
 }
 
 export type PrizmHtmlItemType = 'comment' | 'text' | 'tag';
-export interface PrizmHtmlItem {
+export interface PrizmAstHtmlItem {
   type: PrizmHtmlItemType;
   content?: string;
   voidElement: boolean;
   name: string;
   style?: string[];
   attrs: PrizmHtmlAttr;
-  children: PrizmHtmlItem[];
+  children: PrizmAstHtmlItem[];
   comment?: string;
 }
 

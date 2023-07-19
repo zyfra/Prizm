@@ -34,6 +34,7 @@ export class InputLayoutMonthRangeRangeComponent {
 
   public label = 'Выберите период';
   public placeholder = 'Выберите месяц';
+  public testIdPostfix: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;

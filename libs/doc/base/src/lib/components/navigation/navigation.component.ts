@@ -31,8 +31,8 @@ import {
 
 @Component({
   selector: `prizm-doc-navigation`,
-  templateUrl: `navigation.template.html`,
-  styleUrls: [`navigation.style.less`],
+  templateUrl: `navigation.component.html`,
+  styleUrls: [`navigation.component.less`],
   providers: NAVIGATION_PROVIDERS,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

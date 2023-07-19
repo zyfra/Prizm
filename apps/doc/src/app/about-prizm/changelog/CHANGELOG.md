@@ -2,6 +2,198 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0](https://github.com/zyfra/Prizm) (19-07-2023)
+
+### Features
+
+- feat(components/paginator): added abilite to change text on page [404](https://github.com/zyfra/Prizm/issues/404)
+- feat(nx-plugin/migration): add info how to use migrator to remove deprecated versions
+- feat(components/accordion): added ability to pass context for title, icon [397](https://github.com/zyfra/Prizm/issues/397)
+- feat(components/input-select): set touched state only after choose or clear [507](https://github.com/zyfra/Prizm/issues/507)
+- feat(components/input-multi-select): set touched state only after choose or clear
+- feat(components/input-select): added ability to visibility control of scrollbar thumb for select components [491](https://github.com/zyfra/Prizm/issues/491)
+- feat(ast): update only when has changes in file for templates
+- feat(doc): now input/output getter can distinguish altered properties
+- feat(components/button): add ability to set postfix for test-id for button, toggle components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/select): add ability to set postfix for test-id for select components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/input-\*): add ability to set postfix for test-id for input components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
+- feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
+- feat(doc): now deprecated/new names in navigation stand out nicely
+
+### BUG FIXES
+
+- fix(components/input-layout-date-range): error when initial select date range [489](https://github.com/zyfra/Prizm/issues/489)
+- fix(components/input-layout-date-range): error when manual input only start date [485](https://github.com/zyfra/Prizm/issues/485)
+- fix(components/input-number): style on disabled [502](https://github.com/zyfra/Prizm/issues/502)
+- fix(doc/tooltip): corrected api page
+- fix(doc/hint): corrected api page
+- fix(components/hint): long string without hyphenation is truncated [414](https://github.com/zyfra/Prizm/issues/414)
+- fix(components/switcher): remove border for active item [279](https://github.com/zyfra/Prizm/issues/279)
+- fix(doc/confirm-dialog): removed unused property 'header' [338](https://github.com/zyfra/Prizm/issues/338)
+- fix(doc/confirm-dialog): removed unused property 'content' [336](https://github.com/zyfra/Prizm/issues/336)
+- fix(doc/confirm-dialog): removed unused property 'closeword' [310](https://github.com/zyfra/Prizm/issues/310)
+- fix(doc/multi-select): does not work right in modal window [462](https://github.com/zyfra/Prizm/issues/462)
+- fix(components/cron): small test errors [469](https://github.com/zyfra/Prizm/issues/469)
+- fix(components/input-layout-date-range): sometimes date text is truncated in the period input area [467](https://github.com/zyfra/Prizm/issues/467)
+- fix(components/cron): fix error when click last day of month
+- fix(components/panel): style variable is not set [498](https://github.com/zyfra/Prizm/issues/498)
+- fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
+- fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
+- fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+- fix(icons): wrong selectors for icons [487](https://github.com/zyfra/Prizm/issues/487) [501](https://github.com/zyfra/Prizm/issues/501)
+- fix(components/tabs): close tab from manu [518](https://github.com/zyfra/Prizm/issues/487)
+
+### Breaking changes
+
+- BC(components/hint): remove input prizmHintShow
+- BC(components/tooltip): remove input prizmHintShow
+- BC(components/hint): rename output prizmHoverChange > prizmHintShowed
+- BC(components/tooltip): rename output prizmHoverChange > prizmTooltipShowed
+- BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+#### Our migrator support auto breaking changes [read](https://prizm.site/forZIIoT/migration)
+
+## [2.1.1](https://github.com/zyfra/Prizm) (18-07-2023)
+
+### Features
+
+- feat(components/paginator): added abilite to change text on page [404](https://github.com/zyfra/Prizm/issues/404)
+- feat(nx-plugin/migration): add info how to use migrator to remove deprecated versions
+- feat(components/accordion): added ability to pass context for title, icon [397](https://github.com/zyfra/Prizm/issues/397)
+- feat(components/input-select): set touched state only after choose or clear [507](https://github.com/zyfra/Prizm/issues/507)
+- feat(components/input-multi-select): set touched state only after choose or clear
+- feat(components/input-select): added ability to visibility control of scrollbar thumb for select components [491](https://github.com/zyfra/Prizm/issues/491)
+- feat(ast): update only when has changes in file for templates
+- feat(doc): now input/output getter can distinguish altered properties
+- feat(components/button): add ability to set postfix for test-id for button, toggle components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/select): add ability to set postfix for test-id for select components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/input-\*): add ability to set postfix for test-id for input components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
+- feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
+- feat(doc): now deprecated/new names in navigation stand out nicely
+
+### BUG FIXES
+
+- fix(components/input-layout-date-range): error when initial select date range [489](https://github.com/zyfra/Prizm/issues/489)
+- fix(components/input-layout-date-range): error when manual input only start date [485](https://github.com/zyfra/Prizm/issues/485)
+- fix(components/input-number): style on disabled [502](https://github.com/zyfra/Prizm/issues/502)
+- fix(doc/tooltip): corrected api page
+- fix(doc/hint): corrected api page
+- fix(components/hint): long string without hyphenation is truncated [414](https://github.com/zyfra/Prizm/issues/414)
+- fix(components/switcher): remove border for active item [279](https://github.com/zyfra/Prizm/issues/279)
+- fix(doc/confirm-dialog): removed unused property 'header' [338](https://github.com/zyfra/Prizm/issues/338)
+- fix(doc/confirm-dialog): removed unused property 'content' [336](https://github.com/zyfra/Prizm/issues/336)
+- fix(doc/confirm-dialog): removed unused property 'closeword' [310](https://github.com/zyfra/Prizm/issues/310)
+- fix(doc/multi-select): does not work right in modal window [462](https://github.com/zyfra/Prizm/issues/462)
+- fix(components/cron): small test errors [469](https://github.com/zyfra/Prizm/issues/469)
+- fix(components/input-layout-date-range): sometimes date text is truncated in the period input area [467](https://github.com/zyfra/Prizm/issues/467)
+- fix(components/cron): fix error when click last day of month
+- fix(components/panel): style variable is not set [498](https://github.com/zyfra/Prizm/issues/498)
+- fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
+- fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
+- fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+- fix(icons): wrong selectors for icons [487](https://github.com/zyfra/Prizm/issues/487) [501](https://github.com/zyfra/Prizm/issues/501)
+- fix(components/tabs): close tab from manu [518](https://github.com/zyfra/Prizm/issues/487)
+
+### Breaking changes
+
+- BC(components/hint): remove input prizmHintShow
+- BC(components/tooltip): remove input prizmHintShow
+- BC(components/hint): rename output prizmHoverChange > prizmHintShowed
+- BC(components/tooltip): rename output prizmHoverChange > prizmTooltipShowed
+- BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+#### Our migrator support auto breaking changes [read](https://prizm.site/forZIIoT/migration)
+
+## [2.1.0-next.4](https://github.com/zyfra/Prizm) (18-07-2023)
+
+### Features
+
+- feat(components/paginator): added abilite to change text on page [404](https://github.com/zyfra/Prizm/issues/404)
+- feat(nx-plugin/migration): add info how to use migrator to remove deprecated versions
+- feat(components/accordion): added ability to pass context for title, icon [397](https://github.com/zyfra/Prizm/issues/397)
+- feat(components/input-select): set touched state only after choose or clear [507](https://github.com/zyfra/Prizm/issues/507)
+- feat(components/input-multi-select): set touched state only after choose or clear
+- feat(ast): update only when has changes in file for templates
+
+### BUG FIXES
+
+- fix(components/input-layout-date-range): error when initial select date range [489](https://github.com/zyfra/Prizm/issues/489)
+- fix(components/input-layout-date-range): error when manual input only start date [485](https://github.com/zyfra/Prizm/issues/485)
+- fix(components/input-number): style on disabled [502](https://github.com/zyfra/Prizm/issues/502)
+
+## [2.1.0-next.3](https://github.com/zyfra/Prizm) (13-07-2023)
+
+### Breaking changes
+
+- BC(components/hint): remove input prizmHintShow
+- BC(components/tooltip): remove input prizmHintShow
+- BC(components/hint): rename output prizmHoverChange > prizmHintShowed
+- BC(components/tooltip): raname output prizmHoverChange > prizmTooltipShowed
+
+### BUG FIXES
+
+- fix(doc/tooltip): corrected api page
+- fix(doc/hint): corrected api page
+- fix(components/hint): long string without hyphenation is truncated [414](https://github.com/zyfra/Prizm/issues/414)
+
+### Features
+
+- feat(doc): now input/output getter can distinguish altered properties
+
+## [2.1.0-next.2](https://github.com/zyfra/Prizm) (13-07-2023)
+
+### BUG FIXES
+
+- fix(components/switcher): remove border for active item [279](https://github.com/zyfra/Prizm/issues/279)
+- fix(doc/confirm-dialog): removed unused property 'header' [338](https://github.com/zyfra/Prizm/issues/338)
+- fix(doc/confirm-dialog): removed unused property 'content' [336](https://github.com/zyfra/Prizm/issues/336)
+- fix(doc/confirm-dialog): removed unused property 'closeword' [310](https://github.com/zyfra/Prizm/issues/310)
+- fix(doc/multi-select): does not work right in modal window [462](https://github.com/zyfra/Prizm/issues/462)
+- fix(components/cron): small test errors [469](https://github.com/zyfra/Prizm/issues/469)
+- fix(components/input-layout-date-range): sometimes date text is truncated in the period input area [467](https://github.com/zyfra/Prizm/issues/467)
+- fix(components/cron): fix error when click last day of month
+- fix(components/panel): style variable is not set [498](https://github.com/zyfra/Prizm/issues/498)
+
+## [1.2.5-next.1](https://github.com/zyfra/Prizm) (13-07-2023)
+
+### BUG FIXES
+
+- fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
+- fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
+- fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+
+### Breaking changes
+
+- BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+## [2.1.0-next.1](https://github.com/zyfra/Prizm) (10-07-2023)
+
+### BUG FIXES
+
+- fix(doc/navigation): change info on api page [476](https://github.com/zyfra/Prizm/issues/476)
+- fix(doc/sticky): remove empty class [250](https://github.com/zyfra/Prizm/issues/250)
+- fix(components/input-date-time-range): disabled state did not work [269](https://github.com/zyfra/Prizm/issues/269)
+
+### Breaking changes
+
+- BC: remove prizm-ui/deprecated [474](https://github.com/zyfra/Prizm/issues/474) [339](https://github.com/zyfra/Prizm/issues/339)
+
+### Closed
+
+- [483](https://github.com/zyfra/Prizm/issues/483)
+
+## [2.0.0](https://github.com/zyfra/Prizm) (26-06-2023)
+
+### FEATURES
+
+- chore: update to angular 15
+
 ## [1.2.4](https://github.com/zyfra/Prizm) (26-06-2023)
 
 ### FEATURES
@@ -121,7 +313,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/dropdown): added pass current global theme to dropdown [[342](https://github.com/zyfra/Prizm/issues/342)](https://github.com/zyfra/Prizm/issues/342)
 - feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
 - feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
-- feat(components/cron): added ability to show human readable value in cron #365
+- feat(components/cron): added ability to show human readable value in cron [365](https://github.com/zyfra/Prizm/issues/365)
 - feat(helpers/let): added ability to get current context from export via template ref
 
 ### BUG FIXES
@@ -154,7 +346,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/dropdown): added pass current global theme to dropdown [[342](https://github.com/zyfra/Prizm/issues/342)](https://github.com/zyfra/Prizm/issues/342)
 - feat(components/tab): added ability to prevent tab open [195]((https://github.com/zyfra/Prizm/issues/195)
 - feat(components/navigation): added the ability to hide the "hierarchical" view button [358](https://github.com/zyfra/Prizm/issues/358)
-- feat(components/cron): added ability to show human readable value in cron #365
+- feat(components/cron): added ability to show human readable value in cron [365](https://github.com/zyfra/Prizm/issues/365)
 - feat(helpers/let): added ability to get current context from export via template ref
 
 ### BUG FIXES
@@ -278,7 +470,7 @@ All notable changes to this project will be documented in this file.
 - feat(chore): update nx to 14 version [MR](https://github.com/zyfra/Prizm/pull/232)
 - feat(components/polymorph): add passing injector to template [MR](https://github.com/zyfra/Prizm/pull/232)
 
-### BREAKING CHANGES
+### Breaking changes
 
 - BC(components/dropdown-host): remove parentZone input [MR](https://github.com/zyfra/Prizm/pull/232)
 
@@ -297,7 +489,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/breadcrumbs): added option to show only icon in breadcrumb, removing 8px gap and empty text padding. [MR](https://github.com/zyfra/Prizm/pull/222)
 - fix(components/navigation-menu): removed duplicate template outlet for headerExtraTemplate [MR](https://github.com/zyfra/Prizm/pull/225)
 
-### BREAKING CHANGES
+### Breaking changes
 
 - BREAKING CHANGE(components/splitter): refactored splitter component, removed setAreasSize method, instead of it add new inputs size, minSize to control size [MR](https://github.com/zyfra/Prizm/pull/210) [69](https://github.com/zyfra/Prizm/issues/69)
 
@@ -309,7 +501,7 @@ All notable changes to this project will be documented in this file.
 - feat(doc): new page with info how to use our migrator
 - feat(ast): now our code manipulator support changing in new ts version >4.7
 
-### BREAKING CHANGES
+### Breaking changes
 
 - feat(testid): update data-testid attributes by RFC [MR](https://github.com/zyfra/Prizm/pull/206)
 - feat(cb3-to-prizm): remove @prizm-ui/cb3-to-prizm lib, move to @prizm-ui/nx-plugin
@@ -482,11 +674,11 @@ All notable changes to this project will be documented in this file.
 
 ### BUG FIXES
 
-- fix(components/tooltip): recalc on left and right position [#34](https://github.com/zyfra/Prizm/issues/34)
+- fix(components/tooltip): recalc on left and right position [[34](https://github.com/zyfra/Prizm/issues/34)](https://github.com/zyfra/Prizm/issues/34)
 - chore: correct old helper issues templates
-- fix(components/overlay): fix case with not correct display overlay [#4](https://github.com/zyfra/Prizm/issues/4)
-- fix(components/confirm): fix console errors [#31](https://github.com/zyfra/Prizm/issues/31)
-- feat(components/dialogs): invert theme inside dialog and confirm dialog [#74](https://github.com/zyfra/Prizm/issues/74)
+- fix(components/overlay): fix case with not correct display overlay [[4](https://github.com/zyfra/Prizm/issues/4)](https://github.com/zyfra/Prizm/issues/4)
+- fix(components/confirm): fix console errors [[31](https://github.com/zyfra/Prizm/issues/31)](https://github.com/zyfra/Prizm/issues/31)
+- feat(components/dialogs): invert theme inside dialog and confirm dialog [[74](https://github.com/zyfra/Prizm/issues/74)](https://github.com/zyfra/Prizm/issues/74)
 
 ### Features
 
@@ -540,7 +732,7 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(components/text-arrea,input-chips): fix checking NgControl
 - fix(components/overlay): fix disabled/enabled state
 
-### BREAKING CHANGES
+### Breaking changes
 
 - BREAKING CHANGE: Migrate PrizmThemeModule to prizm/theme library
 - fix(components/radio)!: remove formControl input
@@ -583,7 +775,7 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(components/splitter): resize events. bug fix with classes
 - fix(components/stepper): fix a bug with the order of steps
 
-### BREAKING CHANGES
+### Breaking changes
 
 - ref(components/paginator): change initialValue > page
 - ref(components/paginator): change tabChange > pageChange
@@ -625,7 +817,7 @@ Migrate PrizmThemeModule > prizm/theme
 - fix(components/date): display in dark mode
 - fix(theme/switcher): error in global change
 
-### BREAKING CHANGES
+### Breaking changes
 
 - feat(theme): themes moved from the package @prizm-ui/components to @prizm-ui/theme library (PLEASE UPDATE as in doc documentation)
 - feat(components/tabs): change api (PLEASE UPDATE as in doc documentation)
@@ -702,7 +894,7 @@ Migrate PrizmThemeModule > prizm/theme
 - feat(components/table): Добавлен компонент таблиц
 - feat(components/charts): Charts stage 1
 
-### BREAKING CHANGES
+### Breaking changes
 
 - feat(components): rename selectors, prefix for all project ( pzm, zui to prizm ) 1
 - feat(components): rename selectors, prefix for all project ( pzm, zui to prizm ) 2

@@ -747,14 +747,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/table-old',
-    loadChildren: () =>
-      import('./components/table-old/table-example-old.module').then(i => i.TableExampleOldModule),
-    data: {
-      title: 'Table',
-    },
-  },
-  {
     path: 'components/accordion',
     loadChildren: () =>
       import('./components/accordion/accordion-example.module').then(i => i.AccordionExampleModule),
@@ -795,6 +787,13 @@ export const ROUTES: Routes = [
     loadChildren: () => import('./tools/to-observable/to-observable.module').then(i => i.ToObservableModule),
     data: {
       title: 'To Observable',
+    },
+  },
+  {
+    path: 'tools/ast-html',
+    loadChildren: () => import('./tools/ast-html/ast-html.module').then(i => i.AstHtmlModule),
+    data: {
+      title: 'Ast Html',
     },
   },
   {
@@ -917,14 +916,6 @@ export const ROUTES: Routes = [
       import('./components/side-menu/side-menu-example.module').then(i => i.SideMenuExampleModule),
     data: {
       title: 'Side menu',
-    },
-  },
-  {
-    path: 'components/nav-menu',
-    loadChildren: () =>
-      import('./components/nav-menu/nav-menu-example.module').then(i => i.NavMenuExampleModule),
-    data: {
-      title: 'Navigation menu (deprecated)',
     },
   },
   {

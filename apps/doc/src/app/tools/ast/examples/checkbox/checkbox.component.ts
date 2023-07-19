@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {
-  PrizmHtmlItem,
-  prizmHtmlParse,
-  prizmHtmlStringify,
+  PrizmAstHtmlItem,
+  prizmAstHtmlParse,
+  prizmAstHtmlStringify,
   PrizmTemplateTask,
   PrizmTemplateTaskProcessor,
 } from '@prizm-ui/ast';
@@ -72,8 +72,8 @@ export class PrizmAstCheckboxExampleComponent implements OnInit {
   }
 
   private parseAccordion(): void {
-    const parsed = prizmHtmlParse(this.html);
+    const parsed = prizmAstHtmlParse(this.html);
     const nodeProcessor = new PrizmTemplateTaskProcessor(this.tasks);
-    this.result = prizmHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmHtmlItem[]);
+    this.result = prizmAstHtmlStringify(nodeProcessor.processTasks(parsed) as PrizmAstHtmlItem[]);
   }
 }

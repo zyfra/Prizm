@@ -115,11 +115,12 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     this.lastChosenDayOfMonthValue = lastChosenDayOfMonthValue ?? this.lastChosenDayOfMonthValue;
     this.cron.updateWith({
       dayOfWeek: `?`,
-      dayOfMonth: `L-${lastChosenDayOfMonthValue}`,
+      dayOfMonth: `L-${lastChosenDayOfMonthValue || 1}`,
     });
   }
   public updateLastChosenDayOfWeek(lastChosenDayOfWeekValue: string, addEnding = true): void {
-    const newValue = addEnding ? lastChosenDayOfWeekValue : lastChosenDayOfWeekValue.replace(/L$/g, '');
+    const newValue =
+      (addEnding ? lastChosenDayOfWeekValue : lastChosenDayOfWeekValue.replace(/L$/g, '')) || '2';
     this.lastChosenDayOfWeekValue = newValue;
     this.cron.updateWith({
       dayOfMonth: `?`,

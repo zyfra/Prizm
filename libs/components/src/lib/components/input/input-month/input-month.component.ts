@@ -87,6 +87,7 @@ export class PrizmInputMonthComponent
   public open = false;
 
   public activeYear: PrizmYear = this.value || PrizmDay.currentLocal();
+  override readonly testId_ = 'ui_input_month';
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 

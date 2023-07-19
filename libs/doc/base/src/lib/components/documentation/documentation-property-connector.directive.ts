@@ -8,6 +8,7 @@ import {
   OnInit,
   Optional,
   Output,
+  SimpleChanges,
   TemplateRef,
 } from '@angular/core';
 import { ActivatedRoute, Params, UrlSerializer } from '@angular/router';
@@ -17,6 +18,7 @@ import { prizmCoerceValue } from '../../utils/coerce-value';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { PrizmDocHostElementService } from '../host';
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
+import { isEqual } from 'lodash';
 
 const SERIALIZED_SUFFIX = `$`;
 
@@ -96,7 +98,15 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
     return this.documentationPropertyMode !== `output`;
   }
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    // guard for getters/setters
+    if (
+      !Object.keys(changes).find(key => {
+        return !isEqual(changes[key].previousValue, changes[key].currentValue);
+      })
+    )
+      return;
+
     this.changed$.next();
     this.hostElementService?.addListener(
       this.prizmHostComponentInfo.value?.key,

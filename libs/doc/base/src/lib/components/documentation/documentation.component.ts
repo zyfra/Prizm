@@ -299,4 +299,11 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     if (newValue) control.setValidators(Validators.required);
     else control.clearValidators();
   }
+
+  public showPolymorph(propertyConnector: PrizmDocDocumentationPropertyConnectorDirective<any>): boolean {
+    return (
+      'documentationPropertyValue' in propertyConnector &&
+      propertyConnector.documentationPropertyType.toLowerCase().startsWith('polymorph')
+    );
+  }
 }

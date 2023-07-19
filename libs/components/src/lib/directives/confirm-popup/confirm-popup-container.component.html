@@ -45,6 +45,8 @@
             [appearance]="button.appearance"
             [appearanceType]="button.appearanceType ?? 'fill'"
             [size]="button.size"
+            [disabled]="button.disabled ?? false | prizmToObservable | async"
+            [showLoader]="button.showLoader ?? false | prizmToObservable | async"
             (click)="button.action(context)"
             prizmButton
           >
@@ -52,8 +54,6 @@
           </button>
         </ng-template>
       </div>
-
-      <!--      </prizm-scrollbar>-->
     </div>
   </div>
 </div>

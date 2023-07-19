@@ -1,7 +1,7 @@
 export type PrizmIconSvgsId =
   | 'charts-diagrams_bar-axis'
   | 'charts-diagrams_bar-basic'
-  | 'charts-diagrams_bar-columns-axis x'
+  | 'charts-diagrams_bar-columns-axis_x'
   | 'charts-diagrams_bar-columns'
   | 'charts-diagrams_bar-square'
   | 'charts-diagrams_bar-stacked-axis'
@@ -14,18 +14,18 @@ export type PrizmIconSvgsId =
   | 'charts-diagrams_hexagon-axis'
   | 'charts-diagrams_hexagon'
   | 'charts-diagrams_histogram-axis'
-  | 'charts-diagrams_line-axis x'
-  | 'charts-diagrams_line-axis-arrow down'
+  | 'charts-diagrams_line-axis_x'
+  | 'charts-diagrams_line-axis-arrow_down'
   | 'charts-diagrams_line-axis'
   | 'charts-diagrams_line-down'
-  | 'charts-diagrams_line-multiple y axis -x'
-  | 'charts-diagrams_line-multiple y axis'
+  | 'charts-diagrams_line-multiple_y_axis-x'
+  | 'charts-diagrams_line-multiple_y_axis'
   | 'charts-diagrams_line-up'
   | 'charts-diagrams_line'
   | 'charts-diagrams_pie-line-nested'
   | 'charts-diagrams_pie-line'
   | 'charts-diagrams_pie-pentagon'
-  | 'charts-diagrams_pie-several parts'
+  | 'charts-diagrams_pie-several_parts'
   | 'charts-diagrams_pie-simple'
   | 'charts-diagrams_pie'
   | 'charts-diagrams_range'
@@ -74,7 +74,7 @@ export type PrizmIconSvgsId =
   | 'communication-connection_wifi'
   | 'data-network_database-chek'
   | 'data-network_database-json'
-  | 'data-network_database-magnifying glass'
+  | 'data-network_database-magnifying_glass'
   | 'data-network_database-minus'
   | 'data-network_database-plus'
   | 'data-network_database-sql'
@@ -135,55 +135,55 @@ export type PrizmIconSvgsId =
   | 'documents-folders_book_stack'
   | 'documents-folders_box-open-arrow-down'
   | 'documents-folders_box'
-  | 'documents-folders_cloud arrow_down'
-  | 'documents-folders_cloud arrow_up_inside'
-  | 'documents-folders_cloud arrow_up'
-  | 'documents-folders_cloud check'
+  | 'documents-folders_cloud_arrow_down'
+  | 'documents-folders_cloud_arrow_up_inside'
+  | 'documents-folders_cloud_arrow_up'
+  | 'documents-folders_cloud_check'
   | 'documents-folders_cloud'
   | 'documents-folders_collection-2'
-  | 'documents-folders_file arrow_down_left'
-  | 'documents-folders_file arrow_down'
-  | 'documents-folders_file arrow_up'
-  | 'documents-folders_file arrow'
-  | 'documents-folders_file arrows_up_right'
-  | 'documents-folders_file camera'
-  | 'documents-folders_file cross_out'
-  | 'documents-folders_file cross'
-  | 'documents-folders_file doc'
-  | 'documents-folders_file docx'
-  | 'documents-folders_file dot'
-  | 'documents-folders_file empty'
-  | 'documents-folders_file exclamatioâ'
-  | 'documents-folders_file eye'
-  | 'documents-folders_file filled'
-  | 'documents-folders_file image'
-  | 'documents-folders_file magnifying_glass'
-  | 'documents-folders_file minus'
-  | 'documents-folders_file pdf'
-  | 'documents-folders_file pen'
-  | 'documents-folders_file play'
-  | 'documents-folders_file plus'
-  | 'documents-folders_file ppt'
-  | 'documents-folders_file pptx'
-  | 'documents-folders_file txt'
-  | 'documents-folders_file up_right'
-  | 'documents-folders_file xls'
-  | 'documents-folders_file xlsx'
-  | 'documents-folders_floppy cross_out'
-  | 'documents-folders_floppy cross'
-  | 'documents-folders_floppy pen'
-  | 'documents-folders_floppy star'
+  | 'documents-folders_file_arrow_down_left'
+  | 'documents-folders_file_arrow_down'
+  | 'documents-folders_file_arrow_up'
+  | 'documents-folders_file_arrow'
+  | 'documents-folders_file_arrows_up_right'
+  | 'documents-folders_file_camera'
+  | 'documents-folders_file_cross_out'
+  | 'documents-folders_file_cross'
+  | 'documents-folders_file_doc'
+  | 'documents-folders_file_docx'
+  | 'documents-folders_file_dot'
+  | 'documents-folders_file_empty'
+  | 'documents-folders_file-exclamatio'
+  | 'documents-folders_file_eye'
+  | 'documents-folders_file_filled'
+  | 'documents-folders_file_image'
+  | 'documents-folders_file_magnifying_glass'
+  | 'documents-folders_file_minus'
+  | 'documents-folders_file_pdf'
+  | 'documents-folders_file_pen'
+  | 'documents-folders_file_play'
+  | 'documents-folders_file_plus'
+  | 'documents-folders_file_ppt'
+  | 'documents-folders_file_pptx'
+  | 'documents-folders_file_txt'
+  | 'documents-folders_file_up_right'
+  | 'documents-folders_file_xls'
+  | 'documents-folders_file_xlsx'
+  | 'documents-folders_floppy_cross_out'
+  | 'documents-folders_floppy_cross'
+  | 'documents-folders_floppy_pen'
+  | 'documents-folders_floppy_star'
   | 'documents-folders_floppy'
-  | 'documents-folders_folder arrow_down_left'
-  | 'documents-folders_folder arrow_down'
-  | 'documents-folders_folder arrow_up_right'
-  | 'documents-folders_folder cross'
-  | 'documents-folders_folder dot'
-  | 'documents-folders_folder minus'
-  | 'documents-folders_folder plus'
+  | 'documents-folders_folder_arrow_down_left'
+  | 'documents-folders_folder_arrow_down'
+  | 'documents-folders_folder_arrow_up_right'
+  | 'documents-folders_folder_cross'
+  | 'documents-folders_folder_dot'
+  | 'documents-folders_folder_minus'
+  | 'documents-folders_folder_plus'
   | 'documents-folders_folder_open'
-  | 'documents-folders_folder_underline minus'
-  | 'documents-folders_folder_underline plus'
+  | 'documents-folders_folder_underline_minus'
+  | 'documents-folders_folder_underline_plus'
   | 'documents-folders_folder_underline'
   | 'documents-folders_folder'
   | 'documents-folders_list_square'
@@ -192,11 +192,11 @@ export type PrizmIconSvgsId =
   | 'documents-folders_list'
   | 'documents-folders_ontology'
   | 'documents-folders_specification'
-  | 'documents-folders_square arrows_curve_right_down'
-  | 'documents-folders_square arrows_curve_up_right'
-  | 'documents-folders_square excel'
-  | 'documents-folders_square powerpoint'
-  | 'documents-folders_square word'
+  | 'documents-folders_square_arrows_curve_right_down'
+  | 'documents-folders_square_arrows_curve_up_right'
+  | 'documents-folders_square_excel'
+  | 'documents-folders_square_powerpoint'
+  | 'documents-folders_square_word'
   | 'documents-folders_tablet'
   | 'editor-decor_agenda-fill'
   | 'editor-decor_align-bottom'
@@ -248,10 +248,10 @@ export type PrizmIconSvgsId =
   | 'editor-decor_grid'
   | 'editor-decor_hashtag'
   | 'editor-decor_headline-fill'
-  | 'editor-decor_indent arrow-left'
-  | 'editor-decor_indent arrow-right'
+  | 'editor-decor_indent_arrow-left'
+  | 'editor-decor_indent_arrow-right'
   | 'editor-decor_italic'
-  | 'editor-decor_keyboard close'
+  | 'editor-decor_keyboard_close'
   | 'editor-decor_keyboard'
   | 'editor-decor_layer-group-slash'
   | 'editor-decor_layer-group'
@@ -259,7 +259,7 @@ export type PrizmIconSvgsId =
   | 'editor-decor_list-fill'
   | 'editor-decor_list-ol'
   | 'editor-decor_list-ul'
-  | 'editor-decor_magic wand'
+  | 'editor-decor_magic_wand'
   | 'editor-decor_module-fill'
   | 'editor-decor_npm'
   | 'editor-decor_object-down-subtract'
@@ -302,15 +302,15 @@ export type PrizmIconSvgsId =
   | 'editor-decor_subskrit-down'
   | 'editor-decor_subskrit-up'
   | 'editor-decor_table-down'
-  | 'editor-decor_table-magnifying glass'
+  | 'editor-decor_table-magnifying_glass'
   | 'editor-decor_table-right'
   | 'editor-decor_table-transpose'
   | 'editor-decor_table'
   | 'editor-decor_text-color'
   | 'editor-decor_text'
   | 'editor-decor_underlined'
-  | 'editor-decor_vector-circle-one point'
-  | 'editor-decor_vector-circle-two point'
+  | 'editor-decor_vector-circle-one-point'
+  | 'editor-decor_vector-circle-two-point'
   | 'editor-decor_vector-circle'
   | 'editor-decor_vector-line'
   | 'editor-decor_vector-point'
@@ -322,27 +322,27 @@ export type PrizmIconSvgsId =
   | 'editor-decor_window'
   | 'editor-decor_xmark-column-right'
   | 'editor-decor_xmark-column-top'
-  | 'logistics-transportation_airplane-side view'
-  | 'logistics-transportation_airplane-top view'
-  | 'logistics-transportation_ambulance-side view'
-  | 'logistics-transportation_car-jeep-side view'
-  | 'logistics-transportation_car-light-side view'
-  | 'logistics-transportation_concrete-mixer-side view'
-  | 'logistics-transportation_helicopter-side view'
-  | 'logistics-transportation_minibus-side view'
-  | 'logistics-transportation_paver-side view'
-  | 'logistics-transportation_pipe-node-side view'
-  | 'logistics-transportation_railcar-hopper-side view'
-  | 'logistics-transportation_railcar-side view'
-  | 'logistics-transportation_ship-front view'
-  | 'logistics-transportation_ship-side view'
-  | 'logistics-transportation_tankcar-oil-side view'
-  | 'logistics-transportation_tankcar-side view'
-  | 'logistics-transportation_truck-dump-side view'
-  | 'logistics-transportation_truck-empty-side view'
-  | 'logistics-transportation_truck-garbage-side view'
-  | 'logistics-transportation_truck-gasoline-side view'
-  | 'logistics-transportation_truck-side view'
+  | 'logistics-transportation_airplane-side-view'
+  | 'logistics-transportation_airplane-top-view'
+  | 'logistics-transportation_ambulance-side-view'
+  | 'logistics-transportation_car-jeep-side-view'
+  | 'logistics-transportation_car-light-side-view'
+  | 'logistics-transportation_concrete-mixer-side-view'
+  | 'logistics-transportation_helicopter-side-view'
+  | 'logistics-transportation_minibus-side-view'
+  | 'logistics-transportation_paver-side-view'
+  | 'logistics-transportation_pipe-node-side-view'
+  | 'logistics-transportation_railcar-hopper-side-view'
+  | 'logistics-transportation_railcar-side-view'
+  | 'logistics-transportation_ship-front-view'
+  | 'logistics-transportation_ship-side-view'
+  | 'logistics-transportation_tankcar-oil-side-view'
+  | 'logistics-transportation_tankcar-side-view'
+  | 'logistics-transportation_truck-dump-side-view'
+  | 'logistics-transportation_truck-empty-side-view'
+  | 'logistics-transportation_truck-garbage-side-view'
+  | 'logistics-transportation_truck-gasoline-side-view'
+  | 'logistics-transportation_truck-side-view'
   | 'map-location_compass'
   | 'map-location_crosshairs-dot'
   | 'map-location_crosshairs-simple'
@@ -478,7 +478,7 @@ export type PrizmIconSvgsId =
   | 'other_umbrella'
   | 'power-energy_battery-bolt'
   | 'power-energy_battery-empty'
-  | 'power-energy_battery-exclametion mark'
+  | 'power-energy_battery-exclametion_mark'
   | 'power-energy_battery-full'
   | 'power-energy_battery-half'
   | 'power-energy_battery-minus'
@@ -495,7 +495,7 @@ export type PrizmIconSvgsId =
   | 'production-industry_burn'
   | 'production-industry_carbon'
   | 'production-industry_cart-flatbed-container'
-  | 'production-industry_container 2'
+  | 'editor-decor_table-magnifying_2'
   | 'production-industry_container'
   | 'production-industry_containers'
   | 'production-industry_crane'
@@ -531,7 +531,7 @@ export type PrizmIconSvgsId =
   | 'production-industry_oil-tank'
   | 'production-industry_pipe-sensor'
   | 'production-industry_pipe-valve'
-  | 'production-industry_pipeline 2'
+  | 'production-industry_pipeline_2'
   | 'production-industry_pipeline'
   | 'production-industry_press'
   | 'production-industry_pump-triangle-down'
@@ -548,7 +548,7 @@ export type PrizmIconSvgsId =
   | 'production-industry_seedling'
   | 'production-industry_separator'
   | 'production-industry_snake-cup'
-  | 'production-industry_snowflake-up-to bracket'
+  | 'production-industry_snowflake-up-to-bracket'
   | 'production-industry_snowflake'
   | 'production-industry_speed-reduction-cooling'
   | 'production-industry_steam-boiler'
@@ -594,13 +594,13 @@ export type PrizmIconSvgsId =
   | 'settings-tools_link-simple'
   | 'settings-tools_loader'
   | 'settings-tools_lock'
-  | 'settings-tools_magnifying glass-exclamation'
-  | 'settings-tools_magnifying glass-minus'
-  | 'settings-tools_magnifying glass-plus'
-  | 'settings-tools_magnifying glass-top-from bracket'
-  | 'settings-tools_magnifying glass-triangle-down'
-  | 'settings-tools_magnifying glass-xmark'
-  | 'settings-tools_magnifying glass'
+  | 'settings-tools_magnifying_glass-exclamation'
+  | 'settings-tools_magnifying_glass-minus'
+  | 'settings-tools_magnifying_glass-plus'
+  | 'settings-tools_magnifying_glass-top-from_bracket'
+  | 'settings-tools_magnifying_glass-triangle-down'
+  | 'settings-tools_magnifying_glass-xmark'
+  | 'settings-tools_magnifying_glass'
   | 'settings-tools_minus-circle-fill'
   | 'settings-tools_minus-circle'
   | 'settings-tools_minus'
@@ -608,9 +608,9 @@ export type PrizmIconSvgsId =
   | 'settings-tools_paperclip-vertical'
   | 'settings-tools_paperclip'
   | 'settings-tools_pen-hammer'
-  | 'settings-tools_pencil arrow-right'
-  | 'settings-tools_pencil triangle-down'
-  | 'settings-tools_pencil triangle-left'
+  | 'settings-tools_pencil_arrow-right'
+  | 'settings-tools_pencil_triangle-down'
+  | 'settings-tools_pencil_triangle-left'
   | 'settings-tools_pencil-line-bottom'
   | 'settings-tools_pencil'
   | 'settings-tools_pipette'
@@ -630,12 +630,12 @@ export type PrizmIconSvgsId =
   | 'settings-tools_xmark'
   | 'shape-geometry_arrange-send-to-back'
   | 'shape-geometry_checkerboard'
-  | 'shape-geometry_circle square- in square'
-  | 'shape-geometry_circle square-fill-1'
-  | 'shape-geometry_circle square-fill'
-  | 'shape-geometry_circle- in hexagon'
-  | 'shape-geometry_circles-line-left-up circle-right-down-fill'
-  | 'shape-geometry_circles-line-left-up circle-right-down'
+  | 'shape-geometry_circle_square-in-square'
+  | 'shape-geometry_circle_square-fill-1'
+  | 'shape-geometry_circle_square-fill'
+  | 'shape-geometry_circle-in-hexagon'
+  | 'shape-geometry_circles-line-left-up_circle-right-down-fill'
+  | 'shape-geometry_circles-line-left-up_circle-right-down'
   | 'shape-geometry_collector'
   | 'shape-geometry_discrete-set'
   | 'shape-geometry_hexagon-fill'
@@ -644,25 +644,25 @@ export type PrizmIconSvgsId =
   | 'shape-geometry_pentagon'
   | 'shape-geometry_rhombus-fill'
   | 'shape-geometry_rhombus'
-  | 'shape-geometry_ring- in square'
+  | 'shape-geometry_ring-in-square'
   | 'shape-geometry_shape-4-f'
   | 'shape-geometry_shape-4'
   | 'shape-geometry_shape-6'
   | 'shape-geometry_shape-7'
   | 'shape-geometry_shape-plus'
-  | 'shape-geometry_square circle plus triangle-fill'
-  | 'shape-geometry_square circle triangle cross-fill'
-  | 'shape-geometry_square circle triangle cross'
-  | 'shape-geometry_square hexagon circle-fill'
-  | 'shape-geometry_square hexagon circle'
-  | 'shape-geometry_square triangle circle triangle-fill-1'
-  | 'shape-geometry_square triangle circle triangle-fill'
-  | 'shape-geometry_square-in square'
-  | 'shape-geometry_triangle circle square-fill-1'
-  | 'shape-geometry_triangle circle square-fill'
+  | 'shape-geometry_square_circle_plus_triangle-fill'
+  | 'shape-geometry_square_circle_triangle_cross-fill'
+  | 'shape-geometry_square_circle_triangle_cross'
+  | 'shape-geometry_square_hexagon_circle-fill'
+  | 'shape-geometry_square_hexagon_circle'
+  | 'shape-geometry_square_triangle_circle_triangle-fill-1'
+  | 'shape-geometry_square_triangle_circle_triangle-fill'
+  | 'shape-geometry_square-in_square'
+  | 'shape-geometry_triangle_circle_square-fill-1'
+  | 'shape-geometry_triangle_circle_square-fill'
   | 'shape-geometry_triangle-fill'
   | 'shape-geometry_triangle'
-  | 'user-account_user-arrows swap'
+  | 'user-account_user-arrows_swap'
   | 'user-account_user-card'
   | 'user-account_user-check'
   | 'user-account_user-circle'
@@ -675,7 +675,7 @@ export type PrizmIconSvgsId =
   | 'user-account_user-shield'
   | 'user-account_user-worker'
   | 'user-account_user'
-  | 'user-account_users-arrow right'
+  | 'user-account_users-arrow_right'
   | 'user-account_users-gear'
   | 'user-account_users-key'
   | 'user-account_users-location'
@@ -1371,7 +1371,7 @@ export type PrizmIconSvgsKey =
 export enum PrizmIconType {
   ChartsDiagramsBarAxis = 'charts-diagrams_bar-axis',
   ChartsDiagramsBarBasic = 'charts-diagrams_bar-basic',
-  ChartsDiagramsBarColumnsAxisX = 'charts-diagrams_bar-columns-axis x',
+  ChartsDiagramsBarColumnsAxisX = 'charts-diagrams_bar-columns-axis_x',
   ChartsDiagramsBarColumns = 'charts-diagrams_bar-columns',
   ChartsDiagramsBarSquare = 'charts-diagrams_bar-square',
   ChartsDiagramsBarStackedAxis = 'charts-diagrams_bar-stacked-axis',
@@ -1384,18 +1384,18 @@ export enum PrizmIconType {
   ChartsDiagramsHexagonAxis = 'charts-diagrams_hexagon-axis',
   ChartsDiagramsHexagon = 'charts-diagrams_hexagon',
   ChartsDiagramsHistogramAxis = 'charts-diagrams_histogram-axis',
-  ChartsDiagramsLineAxisX = 'charts-diagrams_line-axis x',
-  ChartsDiagramsLineAxisArrowDown = 'charts-diagrams_line-axis-arrow down',
+  ChartsDiagramsLineAxisX = 'charts-diagrams_line-axis_x',
+  ChartsDiagramsLineAxisArrowDown = 'charts-diagrams_line-axis-arrow_down',
   ChartsDiagramsLineAxis = 'charts-diagrams_line-axis',
   ChartsDiagramsLineDown = 'charts-diagrams_line-down',
-  ChartsDiagramsLineMultipleYAxisX = 'charts-diagrams_line-multiple y axis -x',
-  ChartsDiagramsLineMultipleYAxis = 'charts-diagrams_line-multiple y axis',
+  ChartsDiagramsLineMultipleYAxisX = 'charts-diagrams_line-multiple_y_axis-x',
+  ChartsDiagramsLineMultipleYAxis = 'charts-diagrams_line-multiple_y_axis',
   ChartsDiagramsLineUp = 'charts-diagrams_line-up',
   ChartsDiagramsLine = 'charts-diagrams_line',
   ChartsDiagramsPieLineNested = 'charts-diagrams_pie-line-nested',
   ChartsDiagramsPieLine = 'charts-diagrams_pie-line',
   ChartsDiagramsPiePentagon = 'charts-diagrams_pie-pentagon',
-  ChartsDiagramsPieSeveralParts = 'charts-diagrams_pie-several parts',
+  ChartsDiagramsPieSeveralParts = 'charts-diagrams_pie-several_parts',
   ChartsDiagramsPieSimple = 'charts-diagrams_pie-simple',
   ChartsDiagramsPie = 'charts-diagrams_pie',
   ChartsDiagramsRange = 'charts-diagrams_range',
@@ -1444,7 +1444,7 @@ export enum PrizmIconType {
   CommunicationConnectionWifi = 'communication-connection_wifi',
   DataNetworkDatabaseChek = 'data-network_database-chek',
   DataNetworkDatabaseJson = 'data-network_database-json',
-  DataNetworkDatabaseMagnifyingGlass = 'data-network_database-magnifying glass',
+  DataNetworkDatabaseMagnifyingGlass = 'data-network_database-magnifying_glass',
   DataNetworkDatabaseMinus = 'data-network_database-minus',
   DataNetworkDatabasePlus = 'data-network_database-plus',
   DataNetworkDatabaseSql = 'data-network_database-sql',
@@ -1505,55 +1505,55 @@ export enum PrizmIconType {
   DocumentsFoldersBookStack = 'documents-folders_book_stack',
   DocumentsFoldersBoxOpenArrowDown = 'documents-folders_box-open-arrow-down',
   DocumentsFoldersBox = 'documents-folders_box',
-  DocumentsFoldersCloudArrowDown = 'documents-folders_cloud arrow_down',
-  DocumentsFoldersCloudArrowUpInside = 'documents-folders_cloud arrow_up_inside',
-  DocumentsFoldersCloudArrowUp = 'documents-folders_cloud arrow_up',
-  DocumentsFoldersCloudCheck = 'documents-folders_cloud check',
+  DocumentsFoldersCloudArrowDown = 'documents-folders_cloud_arrow_down',
+  DocumentsFoldersCloudArrowUpInside = 'documents-folders_cloud_arrow_up_inside',
+  DocumentsFoldersCloudArrowUp = 'documents-folders_cloud_arrow_up',
+  DocumentsFoldersCloudCheck = 'documents-folders_cloud_check',
   DocumentsFoldersCloud = 'documents-folders_cloud',
   DocumentsFoldersCollection_2 = 'documents-folders_collection-2',
-  DocumentsFoldersFileArrowDownLeft = 'documents-folders_file arrow_down_left',
-  DocumentsFoldersFileArrowDown = 'documents-folders_file arrow_down',
-  DocumentsFoldersFileArrowUp = 'documents-folders_file arrow_up',
-  DocumentsFoldersFileArrow = 'documents-folders_file arrow',
-  DocumentsFoldersFileArrowsUpRight = 'documents-folders_file arrows_up_right',
-  DocumentsFoldersFileCamera = 'documents-folders_file camera',
-  DocumentsFoldersFileCrossOut = 'documents-folders_file cross_out',
-  DocumentsFoldersFileCross = 'documents-folders_file cross',
-  DocumentsFoldersFileDoc = 'documents-folders_file doc',
-  DocumentsFoldersFileDocx = 'documents-folders_file docx',
-  DocumentsFoldersFileDot = 'documents-folders_file dot',
-  DocumentsFoldersFileEmpty = 'documents-folders_file empty',
-  DocumentsFoldersFileExclamatio = 'documents-folders_file exclamatioâ',
-  DocumentsFoldersFileEye = 'documents-folders_file eye',
-  DocumentsFoldersFileFilled = 'documents-folders_file filled',
-  DocumentsFoldersFileImage = 'documents-folders_file image',
-  DocumentsFoldersFileMagnifyingGlass = 'documents-folders_file magnifying_glass',
-  DocumentsFoldersFileMinus = 'documents-folders_file minus',
-  DocumentsFoldersFilePdf = 'documents-folders_file pdf',
-  DocumentsFoldersFilePen = 'documents-folders_file pen',
-  DocumentsFoldersFilePlay = 'documents-folders_file play',
-  DocumentsFoldersFilePlus = 'documents-folders_file plus',
-  DocumentsFoldersFilePpt = 'documents-folders_file ppt',
-  DocumentsFoldersFilePptx = 'documents-folders_file pptx',
-  DocumentsFoldersFileTxt = 'documents-folders_file txt',
-  DocumentsFoldersFileUpRight = 'documents-folders_file up_right',
-  DocumentsFoldersFileXls = 'documents-folders_file xls',
-  DocumentsFoldersFileXlsx = 'documents-folders_file xlsx',
-  DocumentsFoldersFloppyCrossOut = 'documents-folders_floppy cross_out',
-  DocumentsFoldersFloppyCross = 'documents-folders_floppy cross',
-  DocumentsFoldersFloppyPen = 'documents-folders_floppy pen',
-  DocumentsFoldersFloppyStar = 'documents-folders_floppy star',
+  DocumentsFoldersFileArrowDownLeft = 'documents-folders_file_arrow_down_left',
+  DocumentsFoldersFileArrowDown = 'documents-folders_file_arrow_down',
+  DocumentsFoldersFileArrowUp = 'documents-folders_file_arrow_up',
+  DocumentsFoldersFileArrow = 'documents-folders_file_arrow',
+  DocumentsFoldersFileArrowsUpRight = 'documents-folders_file_arrows_up_right',
+  DocumentsFoldersFileCamera = 'documents-folders_file_camera',
+  DocumentsFoldersFileCrossOut = 'documents-folders_file_cross_out',
+  DocumentsFoldersFileCross = 'documents-folders_file_cross',
+  DocumentsFoldersFileDoc = 'documents-folders_file_doc',
+  DocumentsFoldersFileDocx = 'documents-folders_file_docx',
+  DocumentsFoldersFileDot = 'documents-folders_file_dot',
+  DocumentsFoldersFileEmpty = 'documents-folders_file_empty',
+  DocumentsFoldersFileExclamatio = 'documents-folders_file-exclamatio',
+  DocumentsFoldersFileEye = 'documents-folders_file_eye',
+  DocumentsFoldersFileFilled = 'documents-folders_file_filled',
+  DocumentsFoldersFileImage = 'documents-folders_file_image',
+  DocumentsFoldersFileMagnifyingGlass = 'documents-folders_file_magnifying_glass',
+  DocumentsFoldersFileMinus = 'documents-folders_file_minus',
+  DocumentsFoldersFilePdf = 'documents-folders_file_pdf',
+  DocumentsFoldersFilePen = 'documents-folders_file_pen',
+  DocumentsFoldersFilePlay = 'documents-folders_file_play',
+  DocumentsFoldersFilePlus = 'documents-folders_file_plus',
+  DocumentsFoldersFilePpt = 'documents-folders_file_ppt',
+  DocumentsFoldersFilePptx = 'documents-folders_file_pptx',
+  DocumentsFoldersFileTxt = 'documents-folders_file_txt',
+  DocumentsFoldersFileUpRight = 'documents-folders_file_up_right',
+  DocumentsFoldersFileXls = 'documents-folders_file_xls',
+  DocumentsFoldersFileXlsx = 'documents-folders_file_xlsx',
+  DocumentsFoldersFloppyCrossOut = 'documents-folders_floppy_cross_out',
+  DocumentsFoldersFloppyCross = 'documents-folders_floppy_cross',
+  DocumentsFoldersFloppyPen = 'documents-folders_floppy_pen',
+  DocumentsFoldersFloppyStar = 'documents-folders_floppy_star',
   DocumentsFoldersFloppy = 'documents-folders_floppy',
-  DocumentsFoldersFolderArrowDownLeft = 'documents-folders_folder arrow_down_left',
-  DocumentsFoldersFolderArrowDown = 'documents-folders_folder arrow_down',
-  DocumentsFoldersFolderArrowUpRight = 'documents-folders_folder arrow_up_right',
-  DocumentsFoldersFolderCross = 'documents-folders_folder cross',
-  DocumentsFoldersFolderDot = 'documents-folders_folder dot',
-  DocumentsFoldersFolderMinus = 'documents-folders_folder minus',
-  DocumentsFoldersFolderPlus = 'documents-folders_folder plus',
+  DocumentsFoldersFolderArrowDownLeft = 'documents-folders_folder_arrow_down_left',
+  DocumentsFoldersFolderArrowDown = 'documents-folders_folder_arrow_down',
+  DocumentsFoldersFolderArrowUpRight = 'documents-folders_folder_arrow_up_right',
+  DocumentsFoldersFolderCross = 'documents-folders_folder_cross',
+  DocumentsFoldersFolderDot = 'documents-folders_folder_dot',
+  DocumentsFoldersFolderMinus = 'documents-folders_folder_minus',
+  DocumentsFoldersFolderPlus = 'documents-folders_folder_plus',
   DocumentsFoldersFolderOpen = 'documents-folders_folder_open',
-  DocumentsFoldersFolderUnderlineMinus = 'documents-folders_folder_underline minus',
-  DocumentsFoldersFolderUnderlinePlus = 'documents-folders_folder_underline plus',
+  DocumentsFoldersFolderUnderlineMinus = 'documents-folders_folder_underline_minus',
+  DocumentsFoldersFolderUnderlinePlus = 'documents-folders_folder_underline_plus',
   DocumentsFoldersFolderUnderline = 'documents-folders_folder_underline',
   DocumentsFoldersFolder = 'documents-folders_folder',
   DocumentsFoldersListSquare = 'documents-folders_list_square',
@@ -1562,11 +1562,11 @@ export enum PrizmIconType {
   DocumentsFoldersList = 'documents-folders_list',
   DocumentsFoldersOntology = 'documents-folders_ontology',
   DocumentsFoldersSpecification = 'documents-folders_specification',
-  DocumentsFoldersSquareArrowsCurveRightDown = 'documents-folders_square arrows_curve_right_down',
-  DocumentsFoldersSquareArrowsCurveUpRight = 'documents-folders_square arrows_curve_up_right',
-  DocumentsFoldersSquareExcel = 'documents-folders_square excel',
-  DocumentsFoldersSquarePowerpoint = 'documents-folders_square powerpoint',
-  DocumentsFoldersSquareWord = 'documents-folders_square word',
+  DocumentsFoldersSquareArrowsCurveRightDown = 'documents-folders_square_arrows_curve_right_down',
+  DocumentsFoldersSquareArrowsCurveUpRight = 'documents-folders_square_arrows_curve_up_right',
+  DocumentsFoldersSquareExcel = 'documents-folders_square_excel',
+  DocumentsFoldersSquarePowerpoint = 'documents-folders_square_powerpoint',
+  DocumentsFoldersSquareWord = 'documents-folders_square_word',
   DocumentsFoldersTablet = 'documents-folders_tablet',
   EditorDecorAgendaFill = 'editor-decor_agenda-fill',
   EditorDecorAlignBottom = 'editor-decor_align-bottom',
@@ -1618,10 +1618,10 @@ export enum PrizmIconType {
   EditorDecorGrid = 'editor-decor_grid',
   EditorDecorHashtag = 'editor-decor_hashtag',
   EditorDecorHeadlineFill = 'editor-decor_headline-fill',
-  EditorDecorIndentArrowLeft = 'editor-decor_indent arrow-left',
-  EditorDecorIndentArrowRight = 'editor-decor_indent arrow-right',
+  EditorDecorIndentArrowLeft = 'editor-decor_indent_arrow-left',
+  EditorDecorIndentArrowRight = 'editor-decor_indent_arrow-right',
   EditorDecorItalic = 'editor-decor_italic',
-  EditorDecorKeyboardClose = 'editor-decor_keyboard close',
+  EditorDecorKeyboardClose = 'editor-decor_keyboard_close',
   EditorDecorKeyboard = 'editor-decor_keyboard',
   EditorDecorLayerGroupSlash = 'editor-decor_layer-group-slash',
   EditorDecorLayerGroup = 'editor-decor_layer-group',
@@ -1629,7 +1629,7 @@ export enum PrizmIconType {
   EditorDecorListFill = 'editor-decor_list-fill',
   EditorDecorListOl = 'editor-decor_list-ol',
   EditorDecorListUl = 'editor-decor_list-ul',
-  EditorDecorMagicWand = 'editor-decor_magic wand',
+  EditorDecorMagicWand = 'editor-decor_magic_wand',
   EditorDecorModuleFill = 'editor-decor_module-fill',
   EditorDecorNpm = 'editor-decor_npm',
   EditorDecorObjectDownSubtract = 'editor-decor_object-down-subtract',
@@ -1672,15 +1672,15 @@ export enum PrizmIconType {
   EditorDecorSubskritDown = 'editor-decor_subskrit-down',
   EditorDecorSubskritUp = 'editor-decor_subskrit-up',
   EditorDecorTableDown = 'editor-decor_table-down',
-  EditorDecorTableMagnifyingGlass = 'editor-decor_table-magnifying glass',
+  EditorDecorTableMagnifyingGlass = 'editor-decor_table-magnifying_glass',
   EditorDecorTableRight = 'editor-decor_table-right',
   EditorDecorTableTranspose = 'editor-decor_table-transpose',
   EditorDecorTable = 'editor-decor_table',
   EditorDecorTextColor = 'editor-decor_text-color',
   EditorDecorText = 'editor-decor_text',
   EditorDecorUnderlined = 'editor-decor_underlined',
-  EditorDecorVectorCircleOnePoint = 'editor-decor_vector-circle-one point',
-  EditorDecorVectorCircleTwoPoint = 'editor-decor_vector-circle-two point',
+  EditorDecorVectorCircleOnePoint = 'editor-decor_vector-circle-one-point',
+  EditorDecorVectorCircleTwoPoint = 'editor-decor_vector-circle-two-point',
   EditorDecorVectorCircle = 'editor-decor_vector-circle',
   EditorDecorVectorLine = 'editor-decor_vector-line',
   EditorDecorVectorPoint = 'editor-decor_vector-point',
@@ -1692,27 +1692,27 @@ export enum PrizmIconType {
   EditorDecorWindow = 'editor-decor_window',
   EditorDecorXmarkColumnRight = 'editor-decor_xmark-column-right',
   EditorDecorXmarkColumnTop = 'editor-decor_xmark-column-top',
-  LogisticsTransportationAirplaneSideView = 'logistics-transportation_airplane-side view',
-  LogisticsTransportationAirplaneTopView = 'logistics-transportation_airplane-top view',
-  LogisticsTransportationAmbulanceSideView = 'logistics-transportation_ambulance-side view',
-  LogisticsTransportationCarJeepSideView = 'logistics-transportation_car-jeep-side view',
-  LogisticsTransportationCarLightSideView = 'logistics-transportation_car-light-side view',
-  LogisticsTransportationConcreteMixerSideView = 'logistics-transportation_concrete-mixer-side view',
-  LogisticsTransportationHelicopterSideView = 'logistics-transportation_helicopter-side view',
-  LogisticsTransportationMinibusSideView = 'logistics-transportation_minibus-side view',
-  LogisticsTransportationPaverSideView = 'logistics-transportation_paver-side view',
-  LogisticsTransportationPipeNodeSideView = 'logistics-transportation_pipe-node-side view',
-  LogisticsTransportationRailcarHopperSideView = 'logistics-transportation_railcar-hopper-side view',
-  LogisticsTransportationRailcarSideView = 'logistics-transportation_railcar-side view',
-  LogisticsTransportationShipFrontView = 'logistics-transportation_ship-front view',
-  LogisticsTransportationShipSideView = 'logistics-transportation_ship-side view',
-  LogisticsTransportationTankcarOilSideView = 'logistics-transportation_tankcar-oil-side view',
-  LogisticsTransportationTankcarSideView = 'logistics-transportation_tankcar-side view',
-  LogisticsTransportationTruckDumpSideView = 'logistics-transportation_truck-dump-side view',
-  LogisticsTransportationTruckEmptySideView = 'logistics-transportation_truck-empty-side view',
-  LogisticsTransportationTruckGarbageSideView = 'logistics-transportation_truck-garbage-side view',
-  LogisticsTransportationTruckGasolineSideView = 'logistics-transportation_truck-gasoline-side view',
-  LogisticsTransportationTruckSideView = 'logistics-transportation_truck-side view',
+  LogisticsTransportationAirplaneSideView = 'logistics-transportation_airplane-side-view',
+  LogisticsTransportationAirplaneTopView = 'logistics-transportation_airplane-top-view',
+  LogisticsTransportationAmbulanceSideView = 'logistics-transportation_ambulance-side-view',
+  LogisticsTransportationCarJeepSideView = 'logistics-transportation_car-jeep-side-view',
+  LogisticsTransportationCarLightSideView = 'logistics-transportation_car-light-side-view',
+  LogisticsTransportationConcreteMixerSideView = 'logistics-transportation_concrete-mixer-side-view',
+  LogisticsTransportationHelicopterSideView = 'logistics-transportation_helicopter-side-view',
+  LogisticsTransportationMinibusSideView = 'logistics-transportation_minibus-side-view',
+  LogisticsTransportationPaverSideView = 'logistics-transportation_paver-side-view',
+  LogisticsTransportationPipeNodeSideView = 'logistics-transportation_pipe-node-side-view',
+  LogisticsTransportationRailcarHopperSideView = 'logistics-transportation_railcar-hopper-side-view',
+  LogisticsTransportationRailcarSideView = 'logistics-transportation_railcar-side-view',
+  LogisticsTransportationShipFrontView = 'logistics-transportation_ship-front-view',
+  LogisticsTransportationShipSideView = 'logistics-transportation_ship-side-view',
+  LogisticsTransportationTankcarOilSideView = 'logistics-transportation_tankcar-oil-side-view',
+  LogisticsTransportationTankcarSideView = 'logistics-transportation_tankcar-side-view',
+  LogisticsTransportationTruckDumpSideView = 'logistics-transportation_truck-dump-side-view',
+  LogisticsTransportationTruckEmptySideView = 'logistics-transportation_truck-empty-side-view',
+  LogisticsTransportationTruckGarbageSideView = 'logistics-transportation_truck-garbage-side-view',
+  LogisticsTransportationTruckGasolineSideView = 'logistics-transportation_truck-gasoline-side-view',
+  LogisticsTransportationTruckSideView = 'logistics-transportation_truck-side-view',
   MapLocationCompass = 'map-location_compass',
   MapLocationCrosshairsDot = 'map-location_crosshairs-dot',
   MapLocationCrosshairsSimple = 'map-location_crosshairs-simple',
@@ -1848,7 +1848,7 @@ export enum PrizmIconType {
   OtherUmbrella = 'other_umbrella',
   PowerEnergyBatteryBolt = 'power-energy_battery-bolt',
   PowerEnergyBatteryEmpty = 'power-energy_battery-empty',
-  PowerEnergyBatteryExclametionMark = 'power-energy_battery-exclametion mark',
+  PowerEnergyBatteryExclametionMark = 'power-energy_battery-exclametion_mark',
   PowerEnergyBatteryFull = 'power-energy_battery-full',
   PowerEnergyBatteryHalf = 'power-energy_battery-half',
   PowerEnergyBatteryMinus = 'power-energy_battery-minus',
@@ -1865,7 +1865,7 @@ export enum PrizmIconType {
   ProductionIndustryBurn = 'production-industry_burn',
   ProductionIndustryCarbon = 'production-industry_carbon',
   ProductionIndustryCartFlatbedContainer = 'production-industry_cart-flatbed-container',
-  ProductionIndustryContainer_2 = 'production-industry_container 2',
+  ProductionIndustryContainer_2 = 'editor-decor_table-magnifying_2',
   ProductionIndustryContainer = 'production-industry_container',
   ProductionIndustryContainers = 'production-industry_containers',
   ProductionIndustryCrane = 'production-industry_crane',
@@ -1901,7 +1901,7 @@ export enum PrizmIconType {
   ProductionIndustryOilTank = 'production-industry_oil-tank',
   ProductionIndustryPipeSensor = 'production-industry_pipe-sensor',
   ProductionIndustryPipeValve = 'production-industry_pipe-valve',
-  ProductionIndustryPipeline_2 = 'production-industry_pipeline 2',
+  ProductionIndustryPipeline_2 = 'production-industry_pipeline_2',
   ProductionIndustryPipeline = 'production-industry_pipeline',
   ProductionIndustryPress = 'production-industry_press',
   ProductionIndustryPumpTriangleDown = 'production-industry_pump-triangle-down',
@@ -1918,7 +1918,7 @@ export enum PrizmIconType {
   ProductionIndustrySeedling = 'production-industry_seedling',
   ProductionIndustrySeparator = 'production-industry_separator',
   ProductionIndustrySnakeCup = 'production-industry_snake-cup',
-  ProductionIndustrySnowflakeUpToBracket = 'production-industry_snowflake-up-to bracket',
+  ProductionIndustrySnowflakeUpToBracket = 'production-industry_snowflake-up-to-bracket',
   ProductionIndustrySnowflake = 'production-industry_snowflake',
   ProductionIndustrySpeedReductionCooling = 'production-industry_speed-reduction-cooling',
   ProductionIndustrySteamBoiler = 'production-industry_steam-boiler',
@@ -1964,13 +1964,13 @@ export enum PrizmIconType {
   SettingsToolsLinkSimple = 'settings-tools_link-simple',
   SettingsToolsLoader = 'settings-tools_loader',
   SettingsToolsLock = 'settings-tools_lock',
-  SettingsToolsMagnifyingGlassExclamation = 'settings-tools_magnifying glass-exclamation',
-  SettingsToolsMagnifyingGlassMinus = 'settings-tools_magnifying glass-minus',
-  SettingsToolsMagnifyingGlassPlus = 'settings-tools_magnifying glass-plus',
-  SettingsToolsMagnifyingGlassTopFromBracket = 'settings-tools_magnifying glass-top-from bracket',
-  SettingsToolsMagnifyingGlassTriangleDown = 'settings-tools_magnifying glass-triangle-down',
-  SettingsToolsMagnifyingGlassXmark = 'settings-tools_magnifying glass-xmark',
-  SettingsToolsMagnifyingGlass = 'settings-tools_magnifying glass',
+  SettingsToolsMagnifyingGlassExclamation = 'settings-tools_magnifying_glass-exclamation',
+  SettingsToolsMagnifyingGlassMinus = 'settings-tools_magnifying_glass-minus',
+  SettingsToolsMagnifyingGlassPlus = 'settings-tools_magnifying_glass-plus',
+  SettingsToolsMagnifyingGlassTopFromBracket = 'settings-tools_magnifying_glass-top-from_bracket',
+  SettingsToolsMagnifyingGlassTriangleDown = 'settings-tools_magnifying_glass-triangle-down',
+  SettingsToolsMagnifyingGlassXmark = 'settings-tools_magnifying_glass-xmark',
+  SettingsToolsMagnifyingGlass = 'settings-tools_magnifying_glass',
   SettingsToolsMinusCircleFill = 'settings-tools_minus-circle-fill',
   SettingsToolsMinusCircle = 'settings-tools_minus-circle',
   SettingsToolsMinus = 'settings-tools_minus',
@@ -1978,9 +1978,9 @@ export enum PrizmIconType {
   SettingsToolsPaperclipVertical = 'settings-tools_paperclip-vertical',
   SettingsToolsPaperclip = 'settings-tools_paperclip',
   SettingsToolsPenHammer = 'settings-tools_pen-hammer',
-  SettingsToolsPencilArrowRight = 'settings-tools_pencil arrow-right',
-  SettingsToolsPencilTriangleDown = 'settings-tools_pencil triangle-down',
-  SettingsToolsPencilTriangleLeft = 'settings-tools_pencil triangle-left',
+  SettingsToolsPencilArrowRight = 'settings-tools_pencil_arrow-right',
+  SettingsToolsPencilTriangleDown = 'settings-tools_pencil_triangle-down',
+  SettingsToolsPencilTriangleLeft = 'settings-tools_pencil_triangle-left',
   SettingsToolsPencilLineBottom = 'settings-tools_pencil-line-bottom',
   SettingsToolsPencil = 'settings-tools_pencil',
   SettingsToolsPipette = 'settings-tools_pipette',
@@ -2000,12 +2000,12 @@ export enum PrizmIconType {
   SettingsToolsXmark = 'settings-tools_xmark',
   ShapeGeometryArrangeSendToBack = 'shape-geometry_arrange-send-to-back',
   ShapeGeometryCheckerboard = 'shape-geometry_checkerboard',
-  ShapeGeometryCircleSquareInSquare = 'shape-geometry_circle square- in square',
-  ShapeGeometryCircleSquareFill_1 = 'shape-geometry_circle square-fill-1',
-  ShapeGeometryCircleSquareFill = 'shape-geometry_circle square-fill',
-  ShapeGeometryCircleInHexagon = 'shape-geometry_circle- in hexagon',
-  ShapeGeometryCirclesLineLeftUpCircleRightDownFill = 'shape-geometry_circles-line-left-up circle-right-down-fill',
-  ShapeGeometryCirclesLineLeftUpCircleRightDown = 'shape-geometry_circles-line-left-up circle-right-down',
+  ShapeGeometryCircleSquareInSquare = 'shape-geometry_circle_square-in-square',
+  ShapeGeometryCircleSquareFill_1 = 'shape-geometry_circle_square-fill-1',
+  ShapeGeometryCircleSquareFill = 'shape-geometry_circle_square-fill',
+  ShapeGeometryCircleInHexagon = 'shape-geometry_circle-in-hexagon',
+  ShapeGeometryCirclesLineLeftUpCircleRightDownFill = 'shape-geometry_circles-line-left-up_circle-right-down-fill',
+  ShapeGeometryCirclesLineLeftUpCircleRightDown = 'shape-geometry_circles-line-left-up_circle-right-down',
   ShapeGeometryCollector = 'shape-geometry_collector',
   ShapeGeometryDiscreteSet = 'shape-geometry_discrete-set',
   ShapeGeometryHexagonFill = 'shape-geometry_hexagon-fill',
@@ -2014,25 +2014,25 @@ export enum PrizmIconType {
   ShapeGeometryPentagon = 'shape-geometry_pentagon',
   ShapeGeometryRhombusFill = 'shape-geometry_rhombus-fill',
   ShapeGeometryRhombus = 'shape-geometry_rhombus',
-  ShapeGeometryRingInSquare = 'shape-geometry_ring- in square',
+  ShapeGeometryRingInSquare = 'shape-geometry_ring-in-square',
   ShapeGeometryShape_4F = 'shape-geometry_shape-4-f',
   ShapeGeometryShape_4 = 'shape-geometry_shape-4',
   ShapeGeometryShape_6 = 'shape-geometry_shape-6',
   ShapeGeometryShape_7 = 'shape-geometry_shape-7',
   ShapeGeometryShapePlus = 'shape-geometry_shape-plus',
-  ShapeGeometrySquareCirclePlusTriangleFill = 'shape-geometry_square circle plus triangle-fill',
-  ShapeGeometrySquareCircleTriangleCrossFill = 'shape-geometry_square circle triangle cross-fill',
-  ShapeGeometrySquareCircleTriangleCross = 'shape-geometry_square circle triangle cross',
-  ShapeGeometrySquareHexagonCircleFill = 'shape-geometry_square hexagon circle-fill',
-  ShapeGeometrySquareHexagonCircle = 'shape-geometry_square hexagon circle',
-  ShapeGeometrySquareTriangleCircleTriangleFill_1 = 'shape-geometry_square triangle circle triangle-fill-1',
-  ShapeGeometrySquareTriangleCircleTriangleFill = 'shape-geometry_square triangle circle triangle-fill',
-  ShapeGeometrySquareInSquare = 'shape-geometry_square-in square',
-  ShapeGeometryTriangleCircleSquareFill_1 = 'shape-geometry_triangle circle square-fill-1',
-  ShapeGeometryTriangleCircleSquareFill = 'shape-geometry_triangle circle square-fill',
+  ShapeGeometrySquareCirclePlusTriangleFill = 'shape-geometry_square_circle_plus_triangle-fill',
+  ShapeGeometrySquareCircleTriangleCrossFill = 'shape-geometry_square_circle_triangle_cross-fill',
+  ShapeGeometrySquareCircleTriangleCross = 'shape-geometry_square_circle_triangle_cross',
+  ShapeGeometrySquareHexagonCircleFill = 'shape-geometry_square_hexagon_circle-fill',
+  ShapeGeometrySquareHexagonCircle = 'shape-geometry_square_hexagon_circle',
+  ShapeGeometrySquareTriangleCircleTriangleFill_1 = 'shape-geometry_square_triangle_circle_triangle-fill-1',
+  ShapeGeometrySquareTriangleCircleTriangleFill = 'shape-geometry_square_triangle_circle_triangle-fill',
+  ShapeGeometrySquareInSquare = 'shape-geometry_square-in_square',
+  ShapeGeometryTriangleCircleSquareFill_1 = 'shape-geometry_triangle_circle_square-fill-1',
+  ShapeGeometryTriangleCircleSquareFill = 'shape-geometry_triangle_circle_square-fill',
   ShapeGeometryTriangleFill = 'shape-geometry_triangle-fill',
   ShapeGeometryTriangle = 'shape-geometry_triangle',
-  UserAccountUserArrowsSwap = 'user-account_user-arrows swap',
+  UserAccountUserArrowsSwap = 'user-account_user-arrows_swap',
   UserAccountUserCard = 'user-account_user-card',
   UserAccountUserCheck = 'user-account_user-check',
   UserAccountUserCircle = 'user-account_user-circle',
@@ -2045,7 +2045,7 @@ export enum PrizmIconType {
   UserAccountUserShield = 'user-account_user-shield',
   UserAccountUserWorker = 'user-account_user-worker',
   UserAccountUser = 'user-account_user',
-  UserAccountUsersArrowRight = 'user-account_users-arrow right',
+  UserAccountUsersArrowRight = 'user-account_users-arrow_right',
   UserAccountUsersGear = 'user-account_users-gear',
   UserAccountUsersKey = 'user-account_users-key',
   UserAccountUsersLocation = 'user-account_users-location',

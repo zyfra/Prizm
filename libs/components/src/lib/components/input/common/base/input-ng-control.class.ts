@@ -184,11 +184,13 @@ export abstract class PrizmInputNgControl<T>
   }
 
   private fromControlValue(controlValue: unknown): T {
-    return this.valueTransformer ? this.valueTransformer.fromControlValue(controlValue) : (controlValue as T);
+    return this.valueTransformer
+      ? this.valueTransformer?.fromControlValue(controlValue)
+      : (controlValue as T);
   }
 
   private toControlValue(componentValue: T): unknown {
-    return this.valueTransformer ? this.valueTransformer.toControlValue(componentValue) : componentValue;
+    return this.valueTransformer ? this.valueTransformer?.toControlValue(componentValue) : componentValue;
   }
 
   public markAsTouched(): void {

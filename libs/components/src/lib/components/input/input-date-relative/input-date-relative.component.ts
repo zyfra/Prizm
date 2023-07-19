@@ -38,6 +38,7 @@ import { prizmIsNativeFocused } from '../../../util';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
@@ -56,6 +57,7 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmInputDateRelativeComponent
+  extends AbstractPrizmTestId
   implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy
 {
   @ViewChild('focusableElementRef', { read: ElementRef })
@@ -112,8 +114,7 @@ export class PrizmInputDateRelativeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_date_relative';
+  override readonly testId_ = 'ui_input_date_relative';
 
   public isOpen = false;
 
@@ -134,7 +135,9 @@ export class PrizmInputDateRelativeComponent
 
   public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
 
-  constructor(public readonly injector: Injector, private readonly cdr: ChangeDetectorRef) {}
+  constructor(public readonly injector: Injector, private readonly cdr: ChangeDetectorRef) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);

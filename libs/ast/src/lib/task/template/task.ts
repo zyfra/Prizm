@@ -48,6 +48,7 @@ export type PrizmTemplateTask = {
   selector: PrizmTemplateSelector;
   tasks: TPrizmTemplateTaskAction[];
   finishTasks?: TPrizmTemplateTaskAction[];
+  defaultInputs?: Record<string, unknown>;
   inputs: Record<string, TPrizmTemplateTaskAction[]>;
   outputs: Record<string, TPrizmTemplateTaskAction[]>;
 };
@@ -126,6 +127,23 @@ export class PrizmTemplateTaskProcessor {
     return node;
   }
 
+  public needToChange(obj: any[], tasks: PrizmTemplateTask[] = this.tasks): boolean {
+    if (!obj || !Array.isArray(obj)) {
+      return false;
+    }
+    return !!obj.find(node => {
+      // Обработка действий задачи для узла
+      for (const task of this.tasks) {
+        if (this.nodeNeedToChange(node, task)) return true;
+      }
+      return false;
+    });
+  }
+
+  public clear() {
+    this.storage.clear();
+  }
+
   public processAction(
     node: PrizmTemplateNode,
     task: PrizmTemplateTask,
@@ -140,6 +158,22 @@ export class PrizmTemplateTaskProcessor {
         );
       });
 
+      if (task.defaultInputs) {
+        Object.entries(task.defaultInputs).forEach(([key, value]) => {
+          if (
+            node.attrs[key] ||
+            node.attrs[`[${key}]`] ||
+            node.attrs[`[(${key})]`] ||
+            node.attrs[`([${key}])`]
+          )
+            return;
+          // if value is not string wrap key for template value
+          if (typeof value !== 'string') {
+            key = `[${key}]`;
+          }
+          node.attrs[key] = value;
+        });
+      }
       if (task.inputs)
         Object.entries(task.inputs).forEach(([key, actions]) => {
           if (

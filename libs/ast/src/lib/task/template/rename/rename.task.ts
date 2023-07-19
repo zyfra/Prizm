@@ -42,6 +42,7 @@ export class PrizmRenameTemplateTask extends PrizmAstTaskTemplate<IPrizmRenameTe
         ? [PrizmAstTemplateAttributeType.output]
         : [PrizmAstTemplateAttributeType.input, PrizmAstTemplateAttributeType.inputVar]
     );
+
     if (!attrWithType) return node;
     attr = attrWithType.attrName;
 

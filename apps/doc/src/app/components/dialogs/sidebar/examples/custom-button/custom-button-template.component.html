@@ -1,0 +1,18 @@
+<ng-template #headerTemplate let-completeWith="completeWith">
+  Full template header
+
+  <button
+    [size]="16"
+    [interactive]="true"
+    (click)="completeWith(false)"
+    prizmInputIconButton="cancel-close-circle-fill"
+  ></button>
+</ng-template>
+
+<ng-template #outerTemplate>
+  <prizm-scrollbar class="scrollbar full-height">
+    Кнопка confirm активируется только после 5 секунд
+  </prizm-scrollbar>
+</ng-template>
+
+<button (click)="show()" type="button" prizmButton>Show SideBar</button>
