@@ -10,6 +10,7 @@ import { PrizmCronSpecifiedTabsExampleComponent } from './examples/specified-tab
 import { PrizmCronFullwidthExampleComponent } from './examples/fullwidth/cron-fullwidth-example.component';
 import { PrizmCronFilteredListExampleComponent } from './examples/filtered-list/cron-filtered-list-example.component';
 import { PrizmCronResetExampleComponent } from './examples/reset/cron-reset-example.component';
+import { PrizmCronI18nExampleComponent } from './examples/i18n/cron-i18n-example.component';
 
 @NgModule({
   imports: [
@@ -20,9 +21,11 @@ import { PrizmCronResetExampleComponent } from './examples/reset/cron-reset-exam
     ReactiveFormsModule,
     PolymorphModule,
     PrizmCronModule,
+    PrizmCronModule,
     RouterModule.forChild(prizmDocGenerateRoutes(CronComponent)),
   ],
   declarations: [
+    PrizmCronI18nExampleComponent,
     PrizmCronBaseExampleComponent,
     PrizmCronResetExampleComponent,
     PrizmCronFilteredListExampleComponent,

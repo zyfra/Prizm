@@ -10,7 +10,7 @@ import {
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmCronService } from '../../services';
+import { PrizmCronService, PrizmI18nService } from '../../services';
 import { distinctUntilChanged, filter, first, map, skip, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
@@ -43,6 +43,7 @@ import './human-readable/i18n/locales/ru';
     PrizmCronUiDayState,
     PrizmCronUiYearState,
     PrizmCronUiMinuteState,
+    PrizmI18nService,
   ],
 })
 export class PrizmCronComponent implements OnInit {
@@ -160,10 +161,11 @@ export class PrizmCronComponent implements OnInit {
   public indefinitely = false;
   public selectedSwitcherIdx = 0;
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;
+  public readonly cronI18n$!: Observable<PrizmLanguageCron['cron']>;
 
   constructor(
     public readonly cron: PrizmCronService,
-    @Inject(PRIZM_CRON) public readonly cronI18n$: Observable<PrizmLanguageCron['cron']>,
+    public readonly i18n: PrizmI18nService,
     private readonly destroy$: PrizmDestroyService,
     private readonly cronUiSecondState: PrizmCronUiSecondState,
     private readonly cronUiHourState: PrizmCronUiHourState,
@@ -171,7 +173,9 @@ export class PrizmCronComponent implements OnInit {
     private readonly cronUiMonthState: PrizmCronUiMonthState,
     private readonly cronUiMinuteState: PrizmCronUiMinuteState,
     private readonly cronUiDayState: PrizmCronUiDayState
-  ) {}
+  ) {
+    this.cronI18n$ = this.i18n.extract('cron');
+  }
 
   public ngOnInit(): void {
     this.initAutoSubmiter();
