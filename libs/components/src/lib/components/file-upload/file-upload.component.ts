@@ -14,7 +14,6 @@ import {
 } from '@angular/core';
 
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { DomSanitizer } from '@angular/platform-browser';
 import { PrizmFilesProgress, PrizmFileValidationErrors } from './types';
 import {
   PRIZM_FILEUPLOAD_OPTIONS,
@@ -24,13 +23,14 @@ import {
 import { PRIZM_FILE_UPLOAD } from '../../tokens';
 import { Observable } from 'rxjs';
 import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
+import { prizmI18nInitWithKey } from '../../services';
 
 @Component({
   selector: 'prizm-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PrizmDestroyService],
+  providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
 })
 export class PrizmFileUploadComponent implements AfterViewInit, OnDestroy {
   @ViewChild('dropzone') dropzoneElementRef!: ElementRef<HTMLDivElement>;

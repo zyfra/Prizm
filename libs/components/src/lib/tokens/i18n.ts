@@ -4,40 +4,27 @@ import { PrizmDateMode } from '../types/date-mode';
 
 import {
   prizmExtractI18n,
+  PrizmLanguageCore,
   PrizmLanguageCron,
   PrizmLanguageFileUpload,
   PrizmLanguageInputLayoutDateRelative,
 } from '@prizm-ui/i18n';
 
-/**
- * @deprecated
- * */
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
-  `Localized for file upload component`,
-  {
-    factory: prizmExtractI18n(`fileUpload`),
-  }
+  `Localized for file upload component`
 );
 
-/**
- * @deprecated
- * */
 export const PRIZM_INPUT_LAYOUT_DATE_RELATIVE = new InjectionToken<
   Observable<PrizmLanguageInputLayoutDateRelative['inputLayoutDateRelative']>
->(`Localized for input layout date relative component`, {
-  factory: prizmExtractI18n(`inputLayoutDateRelative`),
-});
+>(`Localized for input layout date relative component`);
 
 export const PRIZM_CRON = new InjectionToken<Observable<PrizmLanguageCron['cron']>>(
   `Localized for cron component`
 );
 
-/**
- * @deprecated
- * */
-export const PRIZM_MONTHS = new InjectionToken(`Localized months names`, {
-  factory: prizmExtractI18n(`months`),
-});
+export const PRIZM_MONTHS = new InjectionToken<Observable<PrizmLanguageCore['months']>>(
+  `Localized months names`
+);
 
 /**
  * @deprecated

@@ -32,6 +32,8 @@ import { PrizmInputDateOptions, PRIZM_INPUT_DATE_OPTIONS } from '../../../tokens
 import { PRIZM_CHAR_EN_DASH } from '../../../constants/unicode-chars';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PrizmInputSize } from '../common/models/prizm-input.models';
+import { prizmI18nInitWithKey } from '../../../services';
+import { PRIZM_MONTHS } from '../../../tokens';
 
 @Component({
   selector: `prizm-input-month-range`,
@@ -39,6 +41,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
   styleUrls: [`./input-month-range.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
     prizmAsFocusableItemAccessor(PrizmInputMonthRangeComponent),
     prizmAsControl(PrizmInputMonthRangeComponent),
     PRIZM_MONTH_FORMATTER_PROVIDER,

@@ -13,6 +13,8 @@ import { prizmInRange } from '../../../util/math/in-range';
 import { PrizmInteractiveState } from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
 import { prizmPure, prizmDefaultProp } from '@prizm-ui/core';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { PRIZM_MONTHS } from '../../../tokens/i18n';
 
 const ITEMS_IN_ROW = 3;
 const ROWS = 4;
@@ -22,6 +24,7 @@ const ROWS = 4;
   templateUrl: `./primitive-month-picker.component.html`,
   styleUrls: [`./primitive-month-picker.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],
 })
 export class PrizmPrimitiveMonthPickerComponent {
   private hoveredItem: number | null = null;

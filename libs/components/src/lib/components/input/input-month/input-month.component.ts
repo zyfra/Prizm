@@ -31,6 +31,8 @@ import { PrizmBooleanHandler, PrizmHandler } from '../../../types/handler';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PrizmInputSize } from '../common/models/prizm-input.models';
+import { prizmI18nInitWithKey } from '../../../services';
+import { PRIZM_MONTHS } from '../../../tokens';
 
 @Component({
   selector: `prizm-input-month`,
@@ -38,6 +40,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
   styleUrls: [`./input-month.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
     prizmAsFocusableItemAccessor(PrizmInputMonthComponent),
     prizmAsControl(PrizmInputMonthComponent),
     PRIZM_MONTH_FORMATTER_PROVIDER,
