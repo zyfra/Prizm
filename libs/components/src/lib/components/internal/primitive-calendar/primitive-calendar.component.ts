@@ -18,6 +18,7 @@ import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmInteractiveState } from '../../../directives/wrapper';
 import {
+  getShortWeekDays,
   PRIZM_ORDERED_SHORT_WEEK_DAYS,
   PRIZM_WEEK_DAYS_NAMES,
 } from '../../../tokens/ordered-short-week-days';
@@ -25,12 +26,24 @@ import { PrizmColor } from '../../../types/color';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
+import { PRIZM_SHORT_WEEK_DAYS, prizmI18nInitWithKey } from '@prizm-ui/components';
+import { PrizmLanguageCore } from '@prizm-ui/i18n';
 
 @Component({
   selector: `prizm-primitive-calendar`,
   templateUrl: `./primitive-calendar.component.html`,
   styleUrls: [`./primitive-calendar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [
+    ...prizmI18nInitWithKey(PRIZM_SHORT_WEEK_DAYS, 'shortWeekDays'),
+    {
+      provide: PRIZM_ORDERED_SHORT_WEEK_DAYS,
+      useFactory: (days: Observable<PrizmLanguageCore['shortWeekDays']>) => {
+        return getShortWeekDays(days);
+      },
+      deps: [PRIZM_SHORT_WEEK_DAYS],
+    },
+  ],
 })
 export class PrizmPrimitiveCalendarComponent {
   pressedItem: PrizmDay | null = null;

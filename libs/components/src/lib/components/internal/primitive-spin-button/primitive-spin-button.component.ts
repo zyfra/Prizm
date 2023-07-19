@@ -15,6 +15,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_SPIN_TEXTS } from '../../../tokens/i18n';
 import { PrizmAppearanceTypeGhost } from '../../../types/appearance.types';
 import { prizmIsNativeFocused } from '../../../util/is-native-focused';
+import { prizmI18nInitWithKey } from '@prizm-ui/components';
 
 // @dynamic
 @Component({
@@ -22,6 +23,7 @@ import { prizmIsNativeFocused } from '../../../util/is-native-focused';
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: `./primitive-spin-button.template.html`,
   styleUrls: [`./primitive-spin-button.component.less`],
+  providers: [...prizmI18nInitWithKey(PRIZM_SPIN_TEXTS, 'spinTexts')],
 })
 export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive {
   @ViewChild(`wrapper`)

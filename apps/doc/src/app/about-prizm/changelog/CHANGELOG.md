@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/i18n): add new init way to components with time
 - feat(components/i18n): add new init way to components with month
 - feat(components/i18n): add new init way to components with calendar
--
+- feat(components/i18n): add new init way to components with weeks
 
 ### BUG FIXES
 

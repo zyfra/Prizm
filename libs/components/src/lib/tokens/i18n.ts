@@ -41,16 +41,10 @@ export const PRIZM_DATE_TEXTS = new InjectionToken<Observable<PrizmLanguageKit['
   `date format i18n texts`
 );
 
-/**
- * @deprecated
- * */
-export const PRIZM_SPIN_TEXTS = new InjectionToken(`spin i18n texts`, {
-  factory: prizmExtractI18n(`spinTexts`),
-});
+export const PRIZM_SPIN_TEXTS = new InjectionToken<Observable<PrizmLanguageCore['spinTexts']>>(
+  `spin i18n texts`
+);
 
-/**
- * @deprecated
- * */
-export const PRIZM_SHORT_WEEK_DAYS = new InjectionToken(`calendars i18n texts`, {
-  factory: prizmExtractI18n(`shortWeekDays`),
-});
+export const PRIZM_SHORT_WEEK_DAYS = new InjectionToken<Observable<PrizmLanguageCore['shortWeekDays']>>(
+  `calendars i18n texts`
+);
