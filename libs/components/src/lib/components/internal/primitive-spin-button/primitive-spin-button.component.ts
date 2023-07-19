@@ -15,7 +15,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_SPIN_TEXTS } from '../../../tokens/i18n';
 import { PrizmAppearanceTypeGhost } from '../../../types/appearance.types';
 import { prizmIsNativeFocused } from '../../../util/is-native-focused';
-import { prizmI18nInitWithKey } from '@prizm-ui/components';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 
 // @dynamic
 @Component({

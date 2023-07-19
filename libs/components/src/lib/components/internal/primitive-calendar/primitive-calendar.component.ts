@@ -26,8 +26,9 @@ import { PrizmColor } from '../../../types/color';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { PRIZM_SHORT_WEEK_DAYS, prizmI18nInitWithKey } from '@prizm-ui/components';
 import { PrizmLanguageCore } from '@prizm-ui/i18n';
+import { PRIZM_SHORT_WEEK_DAYS } from '../../../tokens/i18n';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 
 @Component({
   selector: `prizm-primitive-calendar`,
