@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - chore: update CONTRIBUTING.md file
+- feat(doc): add ability to automatically add testId to apiPage
 - feat(components/icon): add input ot control color #524
 - feat(components/tabs): add ability to edit testId postfix
 - feat(components/accordion): add ability to edit testId postfix
