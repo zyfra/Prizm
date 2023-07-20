@@ -30,7 +30,7 @@ import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
 import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PrizmDateMode } from '../../../types/date-mode';
-import { PRIZM_DATE_TEXTS } from '../../../tokens/i18n';
+import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
 import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
@@ -50,6 +50,7 @@ import { PrizmDateButton, PrizmTimeMode } from '../../../types';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
 import { PrizmDateTimeMinMax } from './model';
+import { prizmI18nInitWithKeys } from '../../../services';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -59,6 +60,10 @@ import { PrizmDateTimeMinMax } from './model';
     './../input-date/input-layout-date-shared.component.less',
   ],
   providers: [
+    ...prizmI18nInitWithKeys({
+      time: PRIZM_TIME_TEXTS,
+      dateTexts: PRIZM_DATE_TEXTS,
+    }),
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutDateTimeRangeComponent),
