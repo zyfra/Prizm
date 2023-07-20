@@ -80,7 +80,7 @@ export class PrizmCronComponent extends AbstractPrizmTestId implements OnInit {
   @prizmDefaultProp()
   resetButton = false;
 
-  override readonly testId_ = 'prizm_cron';
+  override readonly testId_ = 'ui_cron';
 
   @Input()
   @prizmDefaultProp()

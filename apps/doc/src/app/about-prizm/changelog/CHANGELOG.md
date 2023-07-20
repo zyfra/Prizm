@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
+
+### BREAKING CHANGES
+
+- fix(components/tree): correct testId to standart prizm_tree > ui_tree
+- fix(components/toast): correct testId to standart prizm_toast_single > ui_toast_single
+- fix(components/paginator): correct testId to standart prizm_paginator > ui_paginator
+- fix(components/indicator): correct testId to standart prizm_paginator > ui_paginator
+- fix(components/dropdown-host): correct testId to standart prizm_dropdown_host > ui_dropdown_host
+- fix(components/data-list): correct testId to standart prizm_data_list > ui_data_list
+- fix(components/calendar-range): correct testId to standart prizm_calendar_range > ui_calendar_range
+- fix(components/breadcrumbs): correct testId to standart prizm_breadcrumbs > ui_breadcrumbs
+- fix(components/scroll-controls): correct testId to standart prizm_scroll_controls > ui_scroll_controls
+- fix(components/scrollbar): correct testId to standart prizm_scrollbar > ui_scrollbar
+- fix(components/spinner): correct testId to standart prizm_loader > ui_spinner
+- fix(components/switcher): correct testId to standart prizm_switcher > ui_switcher
+- fix(components/toast-single): correct testId to standart prizm_toast_single > ui_toast_single
+- fix(components/tree-item-content): correct testId to standart prizm_tree_item_content > prizm_tree_item_content
+- fix(components/tree-item): correct testId to standart prizm_tree_item > ui_tree--item
+- fix(components/tree): correct testId to standart prizm_tree > ui_tree
+- fix(components/cron): correct testId to standart prizm_cron > ui_cron
+- fix(components/input-date): correct testId to standart prizm_input_date > ui_input_date
+- fix(components/input-layout-date): correct testId to standart prizm_input_date > ui_input_date
+
 ## [2.1.2.next-1](https://github.com/zyfra/Prizm) (19-07-2023)
 
 ### Features
