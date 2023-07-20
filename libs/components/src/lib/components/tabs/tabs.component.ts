@@ -73,7 +73,9 @@ export class PrizmTabsComponent extends AbstractPrizmTestId implements OnInit, O
     private readonly cdRef: ChangeDetectorRef,
     private readonly destroy$: PrizmDestroyService,
     private readonly tabsService: PrizmTabsService
-  ) {}
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.mutationObserver = new MutationObserver(() => this.mutationDetector$.next());
