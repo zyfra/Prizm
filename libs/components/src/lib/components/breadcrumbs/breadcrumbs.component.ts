@@ -38,7 +38,7 @@ export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   }
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_breadcrumbs';
+  readonly testId = 'ui_breadcrumbs';
 
   @Output() public breadcrumbChange: EventEmitter<Breadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef: ElementRef;

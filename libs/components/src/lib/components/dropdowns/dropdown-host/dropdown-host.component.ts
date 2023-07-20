@@ -76,7 +76,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   prizmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_dropdown_host';
+  readonly testId = 'ui_dropdown_host';
 
   readonly itemForListener = new Set<HTMLElement>();
 

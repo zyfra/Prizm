@@ -53,7 +53,7 @@ export class PrizmTreeItemComponent implements DoCheck {
   );
 
   @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_tree_item';
+  readonly testId = 'ui_tree_item';
 
   @HostBinding('class._expandable')
   get isExpandable(): boolean {

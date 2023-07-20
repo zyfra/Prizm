@@ -44,7 +44,7 @@ export class PrizmDataListComponent implements OnInit {
   scroll: PrizmScrollbarVisibility = 'auto';
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_data_list';
+  readonly testId = 'ui_data_list';
 
   constructor(
     @Inject(PRIZM_DROPDOWN_CONTROLLER)

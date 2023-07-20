@@ -87,7 +87,7 @@ export class PrizmPaginatorComponent implements OnInit {
   @Output() public rowsChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_paginator';
+  readonly testId = 'ui_paginator';
 
   /**
    * The 1-based page index of the displayed list of items.

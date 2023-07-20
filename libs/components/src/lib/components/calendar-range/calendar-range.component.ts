@@ -83,7 +83,7 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
   readonly rangeChange = new EventEmitter<PrizmDayRange | null>();
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_calendar_range';
+  readonly testId = 'ui_calendar_range';
 
   readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
 

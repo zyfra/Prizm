@@ -33,7 +33,7 @@ export class SwitcherComponent {
   @Output() public selectedSwitcherIdxChange: EventEmitter<number> = new EventEmitter();
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_switcher';
+  readonly testId = 'ui_switcher';
 
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
     if (item.disabled) return;

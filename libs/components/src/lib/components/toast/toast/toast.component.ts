@@ -10,7 +10,7 @@ import { PrizmToastRef } from '../toast-ref';
 })
 export class ToastComponent {
   @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_toast_single';
+  readonly testId = 'ui_toast_single';
 
   // TODO remove record to context type
   get context(): Record<string, any> {

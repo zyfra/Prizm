@@ -51,7 +51,7 @@ export class PrizmTreeComponent<T> implements DoCheck {
   );
 
   @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_tree';
+  readonly testId = 'ui_tree';
 
   @Input()
   usePaddingIndent: boolean;

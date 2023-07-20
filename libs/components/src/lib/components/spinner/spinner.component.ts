@@ -31,7 +31,7 @@ export class PrizmSpinnerComponent {
   loading = true;
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_loader';
+  readonly testId = 'ui_spinner';
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,

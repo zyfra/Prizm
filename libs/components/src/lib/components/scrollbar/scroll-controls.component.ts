@@ -25,7 +25,7 @@ import { AnimationOptions } from '@angular/animations';
 })
 export class PrizmScrollControlsComponent {
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_scroll_controls';
+  readonly testId = 'ui_scroll_controls';
 
   readonly refresh$ = this.animationFrame$.pipe(
     throttleTime(300),

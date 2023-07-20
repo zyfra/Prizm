@@ -12,7 +12,7 @@ export class IndicatorComponent {
   @Input() public status: IndicatorStatus = 'info';
 
   @HostBinding('attr.testId')
-  readonly testId = 'prizm_indicator';
+  readonly testId = 'ui_indicator';
 
   public readonly iconMap = {
     info: 'alerts-information-variant',

@@ -13,7 +13,7 @@ import { PRIZM_TREE_CONTROLLER } from '../../misc/tree.tokens';
 })
 export class PrizmTreeItemContentComponent {
   @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_tree_item_content';
+  readonly testId = 'ui_tree_item_content';
 
   constructor(
     @Inject(POLYMORPH_CONTEXT) readonly context: PrizmTreeItemContext,
