@@ -17,10 +17,12 @@
 3. Прислать PR
 
 #### Как получить доступ в GitHub
+
 Это публичный проект, доступ есть у всех
 Ссылка: https://github.com/zyfra/Prizm
 
 #### Создание issue
+
 1. Зайти в https://github.com/zyfra/Prizm/issues/new/choose
 2. Выбрать шаблон из предложенного
 3. Добавить заголовок

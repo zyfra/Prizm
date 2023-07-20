@@ -3,7 +3,8 @@ on:
   pull_request_target:
     branches:
       - main
-      - v1
+      - v14
+      - v15
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
