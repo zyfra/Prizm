@@ -4,6 +4,48 @@ All notable changes to this project will be documented in this file.
 
 ## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
 
+### Features
+
+- feat(components/icon): add input ot control color #524
+- feat(components/tabs): add ability to edit testId postfix
+- feat(components/accordion): add ability to edit testId postfix
+- feat(components/grid-item): add ability to edit testId postfix
+- feat(components/calendar-range): add ability to edit testId postfix
+- feat(components/calendar): add ability to edit testId postfix
+- feat(components/card): add ability to edit testId postfix
+- feat(components/data-list): add ability to edit testId postfix
+- feat(components/confirm-dialog): add ability to edit testId postfix
+- feat(components/dialog): add ability to edit testId postfix
+- feat(components/sidebar): add ability to edit testId postfix
+- feat(components/dropdown-host): add ability to edit testId postfix
+- feat(components/expand): add ability to edit testId postfix
+- feat(components/grid): add ability to edit testId postfix
+- feat(components/indicator): add ability to edit testId postfix
+- feat(components/input-icon-button): add ability to edit testId postfix
+- feat(components/primitive-calendar-range): add ability to edit testId postfix
+- feat(components/primitive-calendar): add ability to edit testId postfix
+- feat(components/primitive-month-picker): add ability to edit testId postfix
+- feat(components/primitive-year-month-pagination): add ability to edit testId postfix
+- feat(components/primitive-year-picker): add ability to edit testId postfix
+- feat(components/link): add ability to edit testId postfix
+- feat(components/loader): add ability to edit testId postfix
+- feat(components/paginator): add ability to edit testId postfix
+- feat(components/panel): add ability to edit testId postfix
+- feat(components/radio-button): add ability to edit testId postfix
+- feat(components/scroll-controlls): add ability to edit testId postfix
+- feat(components/scrollbar): add ability to edit testId postfix
+- feat(components/spinner): add ability to edit testId postfix
+- feat(components/switcher-item): add ability to edit testId postfix
+- feat(components/switcher): add ability to edit testId postfix
+- feat(components/tab): add ability to edit testId postfix
+- feat(components/toast-container): add ability to edit testId postfix
+- feat(components/toast-single): add ability to edit testId postfix
+- feat(components/toast-wrapper): add ability to edit testId postfix
+- feat(components/tree-item-content): add ability to edit testId postfix
+- feat(components/tree-item): add ability to edit testId postfix
+- feat(components/tree): add ability to edit testId postfix
+- feat(components/widget): add ability to edit testId postfix
+
 ### BREAKING CHANGES
 
 - fix(components/tree): correct testId to standart prizm_tree > ui_tree
@@ -30,7 +72,6 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- feat(components/icon): add input ot control color #524
 - feat(components/sticky): add class with direction #470
 - feat(components/i18n): add new init way to components with time
 - feat(components/i18n): add new init way to components with month
