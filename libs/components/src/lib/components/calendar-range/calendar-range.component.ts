@@ -29,13 +29,14 @@ import { PrizmMarkerHandler } from '../../types/marker-handler';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
+import { prizmI18nInitWithKey } from '../../services';
 
 @Component({
   selector: `prizm-calendar-range`,
   templateUrl: `./calendar-range.component.html`,
   styleUrls: [`./calendar-range.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PrizmDestroyService],
+  providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
 })
 export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<PrizmDay> {
   @Input()

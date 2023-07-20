@@ -44,6 +44,7 @@ import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { map } from 'rxjs/operators';
 import { prizmCreateDateNgxMask, PrizmTime } from '../../../@core';
 import { PrizmInputZoneDirective } from '../../../directives/input-zone';
+import { prizmI18nInitWithKey } from '../../../services';
 
 @Component({
   selector: `prizm-input-layout-date-range`,
@@ -53,6 +54,7 @@ import { PrizmInputZoneDirective } from '../../../directives/input-zone';
     './../input-date/input-layout-date-shared.component.less',
   ],
   providers: [
+    ...prizmI18nInitWithKey(PRIZM_DATE_TEXTS, 'dateTexts'),
     ...PRIZM_INPUT_DATE_RANGE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,

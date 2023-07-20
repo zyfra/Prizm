@@ -10,7 +10,7 @@ import {
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmCronService } from '../../services';
+import { PrizmCronService, prizmI18nInitWithKey } from '../../services';
 import { distinctUntilChanged, filter, first, map, skip, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
@@ -22,11 +22,12 @@ import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { combineLatest, concat, Observable, timer } from 'rxjs';
-import { PRIZM_CRON } from '../../tokens';
 import { PrizmLanguageCron } from '@prizm-ui/i18n';
 import { prizmCronHRToString } from './human-readable/crons-i18n';
 // TODO move later add i18n
 import './human-readable/i18n/locales/ru';
+import { PRIZM_CRON } from '../../tokens';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-cron',
@@ -43,9 +44,10 @@ import './human-readable/i18n/locales/ru';
     PrizmCronUiDayState,
     PrizmCronUiYearState,
     PrizmCronUiMinuteState,
+    ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
   ],
 })
-export class PrizmCronComponent implements OnInit {
+export class PrizmCronComponent extends AbstractPrizmTestId implements OnInit {
   @Input() public set value(value: string) {
     if (!value) return;
     this.cron.updateWith(value);
@@ -77,6 +79,8 @@ export class PrizmCronComponent implements OnInit {
   @Input()
   @prizmDefaultProp()
   resetButton = false;
+
+  override readonly testId_ = 'prizm_cron';
 
   @Input()
   @prizmDefaultProp()
@@ -171,7 +175,9 @@ export class PrizmCronComponent implements OnInit {
     private readonly cronUiMonthState: PrizmCronUiMonthState,
     private readonly cronUiMinuteState: PrizmCronUiMinuteState,
     private readonly cronUiDayState: PrizmCronUiDayState
-  ) {}
+  ) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.initAutoSubmiter();

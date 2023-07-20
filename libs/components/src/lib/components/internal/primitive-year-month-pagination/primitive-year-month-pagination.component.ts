@@ -5,11 +5,14 @@ import { PrizmYear } from '../../../@core/date-time/year';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmMonthLike } from '../../../types/month-like';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { PRIZM_MONTHS } from '../../../tokens/i18n';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,
   templateUrl: `./primitive-year-month-pagination.component.html`,
   styleUrls: [`./primitive-year-month-pagination.component.less`],
+  providers: [...prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],
 })
 export class PrizmPrimitiveYearMonthPaginationComponent implements PrizmWithOptionalMinMax<PrizmMonth> {
   @Input()

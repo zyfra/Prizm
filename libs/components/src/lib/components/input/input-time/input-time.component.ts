@@ -4,7 +4,6 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  HostBinding,
   Inject,
   Injector,
   Input,
@@ -35,6 +34,7 @@ import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { prizmIsNativeFocused } from '../../../util';
+import { prizmI18nInitWithKey } from '../../../services';
 
 @Component({
   selector: `prizm-input-time`,
@@ -42,6 +42,7 @@ import { prizmIsNativeFocused } from '../../../util';
   styleUrls: [`./input-time.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    ...prizmI18nInitWithKey(PRIZM_TIME_TEXTS, 'time'),
     {
       provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputTimeComponent),
