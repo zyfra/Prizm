@@ -26,7 +26,8 @@
     class="t-row"
     *ngFor="
       let propertyConnector of propertiesConnectors
-        | prizmMapper : sortConnectors : propertiesInnerConnectors;
+        | prizmCallFunc : updateOnChanges : propertiesInnerConnectors
+        | async;
       let idx = index
     "
     [class.t-deprecated]="propertyConnector.documentationPropertyDeprecated"
@@ -145,20 +146,6 @@
               tuiTextfieldSize="m"
             ></tui-input-count>
 
-            <!--            <ng-container *ngSwitchCase="'PolymorpheusContent'">-->
-            <!--              <tui-primitive-textfield-->
-            <!--                *ngIf="isPrimitivePolymorpheusContent(propertyConnector.documentationPropertyValue)"-->
-            <!--                [nativeId]="propertyConnector.attrName"-->
-            <!--                [tuiTextfieldLabelOutside]="true"-->
-            <!--                [tuiTextfieldCleaner]="true"-->
-            <!--                [value]="propertyConnector.documentationPropertyValue.toString()"-->
-            <!--                (valueChange)="propertyConnector.onValueChange($event)"-->
-            <!--                tuiTextfieldSize="m"-->
-            <!--              >-->
-            <!--                Default content-->
-            <!--              </tui-primitive-textfield>-->
-            <!--            </ng-container>-->
-
             <ng-container *ngSwitchDefault>
               <tui-primitive-textfield
                 *ngIf="propertyConnector.documentationPropertyMode === 'ng-content'"
@@ -184,15 +171,16 @@
 </table>
 
 <ng-container *ngIf="hasTestId">
-  <!--  <ng-template-->
-  <!--    [documentationPropertyValue]="testIdPostfix"-->
-  <!--    (documentationPropertyValue)="changeTestIdPostfix($event)"-->
-  <!--    documentationPropertyName="testId"-->
-  <!--    documentationPropertyType="string"-->
-  <!--    documentationPropertyMode="input"-->
-  <!--  >-->
-  <!--    Postfix for testId-->
-  <!--  </ng-template>-->
+  <ng-template
+    #testIdTemplate="documentationProperty"
+    [documentationPropertyValue]="testIdPostfix"
+    [documentationPropertyName]="testIdName"
+    (documentationPropertyValueChange)="changeTestIdPostfix($event, testIdTemplate.host)"
+    documentationPropertyType="string"
+    documentationPropertyMode="input"
+  >
+    Postfix for testId
+  </ng-template>
 </ng-container>
 <ng-container *ngIf="control">
   <ng-template

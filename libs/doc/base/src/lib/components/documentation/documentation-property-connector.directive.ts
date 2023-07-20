@@ -1,6 +1,7 @@
 import { Location } from '@angular/common';
 import {
   Directive,
+  ElementRef,
   EventEmitter,
   Inject,
   Input,
@@ -54,8 +55,8 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
 
   readonly emits$ = new BehaviorSubject(1);
 
-  getComponent() {
-    return this.hostElementService.componentInfo;
+  get host(): ElementRef<any> | null {
+    return this.hostElementService.getHostElement(this.prizmHostComponentInfo.value?.key);
   }
 
   constructor(
@@ -76,7 +77,11 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   get attrName(): string {
     switch (this.documentationPropertyMode) {
       case `input`:
-        return `[${this.documentationPropertyName}]`;
+        let name = this.documentationPropertyName;
+        if (name.endsWith('.testId')) {
+          name = 'testId';
+        }
+        return `[${name}]`;
       case `output`:
         return `(${this.documentationPropertyName})`;
       case `input-output`:
@@ -116,7 +121,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
       this.prizmHostComponentInfo.value?.key,
       this.documentationPropertyMode,
       this.documentationPropertyType,
-      this.documentationPropertyName
+      this.documentationPropertyName.endsWith('.testId') ? 'testId' : this.documentationPropertyName
     );
   }
 

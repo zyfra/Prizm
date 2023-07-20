@@ -212,6 +212,10 @@ export class PrizmDocHostElementService implements OnDestroy {
     this.hostElementMap$$.next(this.hostElementMap);
   }
 
+  public getHostElement(key: string): ElementRef<any> | null {
+    return this.hostElementMap.get(key) ?? null;
+  }
+
   constructor(
     private readonly prizmPageService: PrizmPageService,
     private readonly componentFactoryResolver: ComponentFactoryResolver,

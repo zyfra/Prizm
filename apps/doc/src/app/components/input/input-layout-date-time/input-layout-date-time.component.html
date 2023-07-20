@@ -47,19 +47,15 @@
           [timeStrict]="timeStrict"
           [placeholder]="placeholder"
           [timeMode]="timeMode"
-          [testId]="testIdPostfix"
         ></prizm-input-layout-date-time>
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="valueControl" [hostComponentKey]="controlKey" [heading]="controlKey">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation
+      [hasTestId]="true"
+      [control]="valueControl"
+      [hostComponentKey]="controlKey"
+      [heading]="controlKey"
+    >
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"

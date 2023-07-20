@@ -21,19 +21,10 @@
         [disabled]="disabled"
         [showClear]="showClear"
         [size]="size"
-        [testId]="testIdPostfix"
         [canOpen]="canOpen"
       ></prizm-input-date-relative>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="valueControl">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [control]="valueControl" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

@@ -22,6 +22,7 @@ import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
 import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { AbstractPrizmTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-input-layout',
@@ -34,7 +35,10 @@ import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/
   },
   providers: [PrizmDestroyService],
 })
-export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewInit {
+export class PrizmInputLayoutComponent
+  extends AbstractPrizmTestId
+  implements OnInit, OnChanges, AfterViewInit
+{
   @Input() set label(val: string) {
     this.label$.next(val);
   }
@@ -65,6 +69,8 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   @HostBinding('class.has-hidden-control') get hasHiddenControl() {
     return this.control.hidden;
   }
+
+  override testId_ = 'ui_input_layout';
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
@@ -109,7 +115,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
     );
   }
 
-  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {}
+  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {
+    super();
+  }
 
   ngOnInit(): void {
     this.control.stateChanges

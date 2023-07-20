@@ -2,6 +2,7 @@ import { PrizmDocPage, PrizmDocPageGroup } from '../interfaces/page';
 
 export type PrizmDocPages = ReadonlyArray<PrizmDocPage | PrizmDocPageGroup>;
 export type PrizmDocumentationPropertyType =
+  | 'testId'
   | 'input'
   | 'output'
   | 'input-output'

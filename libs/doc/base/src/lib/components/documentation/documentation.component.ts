@@ -5,6 +5,7 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChildren,
+  ElementRef,
   Inject,
   Input,
   QueryList,
@@ -29,7 +30,7 @@ import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token
 import { PrizmDocHostElementListenerService } from '../host';
 import * as _ from 'lodash';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
-import { UntypedFormControl, Validators } from '@angular/forms';
+import { FormControl, UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
@@ -56,7 +57,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   heading = ``;
 
   @Input() control?: UntypedFormControl;
-  @Input() hasTestId = false;
+  @Input() hasTestId = true;
 
   success$ = combineLatest([
     this.prizmHostComponentInfo,
@@ -101,7 +102,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
   constructor(
     private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
-    @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) private readonly prizmHostComponentInfo: PrizmHostComponentInfo,
+    @Inject(PRIZM_HOST_COMPONENT_INFO_TOKEN) public readonly prizmHostComponentInfo: PrizmHostComponentInfo,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef,
     @Inject(PRIZM_DOC_DOCUMENTATION_TEXTS)
     readonly texts: [string, string, string, string, string]
@@ -118,6 +119,15 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
 
   get type(): string {
     return this.isAPI ? this.texts[0] : this.texts[1];
+  }
+
+  get testIdName(): string {
+    const names: string[] = [];
+    if (this.prizmHostComponentInfo.value?.key) {
+      names.push(this.prizmHostComponentInfo.value.key, '.');
+    }
+    names.push('testId');
+    return names.join('');
   }
 
   public getColor(color: string): string {
@@ -216,7 +226,23 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     return prizmInspectAny(data, 2);
   }
 
-  public sortConnectors = (
+  public updateOnChanges(
+    connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>,
+    propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
+  ): Observable<PrizmDocDocumentationPropertyConnectorDirective<any>[]> {
+    const flows$: Observable<any>[] = [];
+    if (connectors) flows$.push(connectors.changes);
+    if (propertiesInnerConnectors) flows$.push(propertiesInnerConnectors.changes);
+    return merge(...flows$).pipe(
+      startWith([]),
+      debounceTime(0),
+      map(() => {
+        return this.sortConnectors(connectors, propertiesInnerConnectors);
+      })
+    );
+  }
+
+  private sortConnectors = (
     connectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>,
     propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>>
   ): PrizmDocDocumentationPropertyConnectorDirective<any>[] => {
@@ -229,7 +255,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
       'output',
     ];
     const allConnectors = [...connectors.toArray()];
-    if (this.control && propertiesInnerConnectors?.length) {
+    if ((this.control || this.hasTestId) && propertiesInnerConnectors?.length) {
       allConnectors.push(...propertiesInnerConnectors.toArray());
     }
 
@@ -308,5 +334,9 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     );
   }
 
-  public changeTestIdPostfix(postfix: string): void {}
+  public changeTestIdPostfix(postfix: string, element: ElementRef<any>): void {
+    if ('testId' in element.nativeElement) {
+      element.nativeElement.testId = postfix;
+    }
+  }
 }

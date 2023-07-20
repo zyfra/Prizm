@@ -33,22 +33,18 @@
           [prizmDocHostElement]="dateElement"
           [prizmDocHostElementKey]="dateKey"
           [formControl]="control"
-          [testId]="testIdPostfix"
           [placeholder]="placeholder"
         >
         </prizm-input-layout-date>
       </prizm-input-layout>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]="control" [heading]="dateKey" [hostComponentKey]="dateKey">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation
+      [hasTestId]="true"
+      [control]="control"
+      [heading]="dateKey"
+      [hostComponentKey]="dateKey"
+    >
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"
