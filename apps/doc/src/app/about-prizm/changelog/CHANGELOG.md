@@ -48,6 +48,10 @@ All notable changes to this project will be documented in this file.
 - feat(components/tree): add ability to edit testId postfix
 - feat(components/widget): add ability to edit testId postfix
 
+### Bug fixes
+
+- fix(components/input-layout): too long header overlap the "asterisk" #493
+
 ### BREAKING CHANGES
 
 - fix(components/tree): correct testId to standart prizm_tree > ui_tree
