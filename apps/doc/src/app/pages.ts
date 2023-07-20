@@ -423,6 +423,7 @@ export const pages: PrizmOrderedDocPage = [
       {
         title: 'Carousel',
         keywords: 'carousel',
+        deprecated: true,
         route: 'components/carousel',
       },
       {
