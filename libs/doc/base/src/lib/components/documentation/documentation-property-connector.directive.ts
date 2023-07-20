@@ -54,6 +54,10 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
 
   readonly emits$ = new BehaviorSubject(1);
 
+  getComponent() {
+    return this.hostElementService.componentInfo;
+  }
+
   constructor(
     @Inject(TemplateRef) readonly template: TemplateRef<Record<string, unknown>>,
     @Inject(Location) private readonly locationRef: Location,

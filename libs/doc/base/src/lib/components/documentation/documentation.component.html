@@ -183,6 +183,17 @@
   </tr>
 </table>
 
+<ng-container *ngIf="hasTestId">
+  <!--  <ng-template-->
+  <!--    [documentationPropertyValue]="testIdPostfix"-->
+  <!--    (documentationPropertyValue)="changeTestIdPostfix($event)"-->
+  <!--    documentationPropertyName="testId"-->
+  <!--    documentationPropertyType="string"-->
+  <!--    documentationPropertyMode="input"-->
+  <!--  >-->
+  <!--    Postfix for testId-->
+  <!--  </ng-template>-->
+</ng-container>
 <ng-container *ngIf="control">
   <ng-template
     [documentationPropertyValue]="control | prizmCallFunc : isTouchedFromControl$ | async"

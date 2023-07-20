@@ -56,6 +56,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   heading = ``;
 
   @Input() control?: UntypedFormControl;
+  @Input() hasTestId = false;
 
   success$ = combineLatest([
     this.prizmHostComponentInfo,
@@ -93,7 +94,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
 
   activeItemIndex = 0;
-
+  testIdPostfix = '';
   public getType(connector: PrizmDocDocumentationPropertyConnectorDirective<any>): string {
     if (connector.documentationPropertyMode === 'ng-content') return 'HtmlNode';
     return connector.documentationPropertyType;
@@ -306,4 +307,6 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
       propertyConnector.documentationPropertyType.toLowerCase().startsWith('polymorph')
     );
   }
+
+  public changeTestIdPostfix(postfix: string): void {}
 }
