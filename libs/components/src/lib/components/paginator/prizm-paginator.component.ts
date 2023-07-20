@@ -17,7 +17,7 @@ import {
   PrizmPaginatorType,
 } from './interfaces/prizm-paginator.interface';
 import { PolymorphContent } from '../../directives';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-paginator',
@@ -25,7 +25,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: ['./prizm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmPaginatorComponent extends AbstractPrizmTestId implements OnInit {
+export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
   @Input() textOnPage: PolymorphContent = 'Строк на странице';
   /** The length of the total number of items that are being paginated. Defaulted to 0. */

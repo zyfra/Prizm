@@ -10,7 +10,7 @@ import {
 import { DOCUMENT } from '@angular/common';
 import { PrizmIconsSvgRegistry } from './prizm-icons.registry';
 
-import { prizmPx } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-icons-svg',
@@ -29,7 +29,7 @@ import { prizmPx } from '@prizm-ui/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmIconsSvgComponent {
+export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
   private svgIcon: SVGElement;
 
   @Input()
@@ -41,6 +41,14 @@ export class PrizmIconsSvgComponent {
     if (!svgData) return;
     this.svgIcon = this.svgElementFromString(svgData);
     this.element.nativeElement.appendChild(this.svgIcon);
+  }
+
+  @HostBinding('style.color')
+  @Input()
+  color: string;
+
+  override get generateManeTestId(): string {
+    return 'ui_icon--' + this.name;
   }
 
   @HostBinding('style.width')
@@ -55,7 +63,9 @@ export class PrizmIconsSvgComponent {
     private element: ElementRef,
     private iconRegistry: PrizmIconsSvgRegistry,
     @Optional() @Inject(DOCUMENT) private document: Document
-  ) {}
+  ) {
+    super();
+  }
 
   private svgElementFromString(svgContent: string): SVGElement {
     const div = this.document.createElement('DIV');

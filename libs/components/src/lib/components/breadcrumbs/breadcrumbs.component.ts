@@ -18,7 +18,7 @@ import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-breadcrumbs',
@@ -28,7 +28,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   providers: [PrizmDestroyService],
 })
 export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
-  extends AbstractPrizmTestId
+  extends PrizmAbstractTestId
   implements OnInit, OnDestroy, AfterViewInit
 {
   @Input() set breadcrumbs(data: Breadcrumb[]) {

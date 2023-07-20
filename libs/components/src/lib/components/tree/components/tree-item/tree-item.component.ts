@@ -22,7 +22,7 @@ import {
 } from '../../misc/tree.tokens';
 import { PRIZM_TREE_ITEM_PROVIDERS } from './tree-item.providers';
 import { PRIZM_EMPTY_QUERY } from '@prizm-ui/core';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tree-item',
@@ -36,7 +36,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
   },
   exportAs: 'prizmTreeItem',
 })
-export class PrizmTreeItemComponent extends AbstractPrizmTestId implements DoCheck {
+export class PrizmTreeItemComponent extends PrizmAbstractTestId implements DoCheck {
   @ContentChildren(PRIZM_TREE_NODE as any)
   private readonly nested: QueryList<unknown> = PRIZM_EMPTY_QUERY;
 

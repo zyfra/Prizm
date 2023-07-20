@@ -16,7 +16,7 @@ import { PrizmHoveredService } from '../../services';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
 import { PrizmScrollbarVisibility } from './scrollbar.model';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent): ElementRef<HTMLElement> {
   return browserScrollRef;
@@ -35,7 +35,7 @@ export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent):
     },
   ],
 })
-export class PrizmScrollbarComponent extends AbstractPrizmTestId {
+export class PrizmScrollbarComponent extends PrizmAbstractTestId {
   @Input()
   set visibility(visibility: PrizmScrollbarVisibility) {
     this.visibility$.next(visibility);

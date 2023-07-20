@@ -4,7 +4,7 @@ import { POLYMORPH_CONTEXT } from '../../../../directives';
 import { PRIZM_DEFAULT_TREE_CONTROLLER } from '../../misc/tree.constants';
 import { PrizmTreeController, PrizmTreeItemContext } from '../../misc/tree.interfaces';
 import { PRIZM_TREE_CONTROLLER } from '../../misc/tree.tokens';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tree-item-content',
@@ -12,7 +12,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
   styleUrls: ['./tree-item-content.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmTreeItemContentComponent extends AbstractPrizmTestId {
+export class PrizmTreeItemContentComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_tree_item_content';
 
   constructor(

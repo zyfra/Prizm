@@ -11,7 +11,7 @@ import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PrizmToastPosition } from '../types';
 import { PrizmToastService } from '../toast.service';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-toast-container',
@@ -20,7 +20,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class PrizmToastContainerComponent extends AbstractPrizmTestId implements OnChanges {
+export class PrizmToastContainerComponent extends PrizmAbstractTestId implements OnChanges {
   /* get from overlay service after add this component */
   refs$: Observable<PrizmToastRef[]>;
 

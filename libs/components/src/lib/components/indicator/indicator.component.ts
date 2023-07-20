@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 import { IndicatorStatus, IndicatorType } from './indicator.models';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-indicator',
@@ -8,7 +8,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: ['./indicator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IndicatorComponent extends AbstractPrizmTestId {
+export class IndicatorComponent extends PrizmAbstractTestId {
   @Input() public type: IndicatorType = 'simple';
   @Input() public status: IndicatorStatus = 'info';
 

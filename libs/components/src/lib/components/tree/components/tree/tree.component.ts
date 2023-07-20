@@ -15,7 +15,7 @@ import { PRIZM_TREE_NODE } from '../../misc/tree.tokens';
 import { PrizmTreeItemComponent } from '../tree-item/tree-item.component';
 import { PrizmHandler } from '../../../../types';
 import { PolymorphContent } from '../../../../directives';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tree[value]',
@@ -33,7 +33,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
     role: 'tree',
   },
 })
-export class PrizmTreeComponent<T> extends AbstractPrizmTestId implements DoCheck {
+export class PrizmTreeComponent<T> extends PrizmAbstractTestId implements DoCheck {
   private readonly check$ = new Subject<void>();
 
   @Input()

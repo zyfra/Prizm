@@ -16,7 +16,7 @@ import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
 import { PolymorphContent } from '../../../../directives/polymorph';
 import { PrizmAccordionItemData } from '../../model';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -25,7 +25,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
   animations: [expandAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmAccordionItemComponent extends AbstractPrizmTestId implements OnDestroy {
+export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
   @Input() icon: PolymorphContent<PrizmAccordionItemData>;
   @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;

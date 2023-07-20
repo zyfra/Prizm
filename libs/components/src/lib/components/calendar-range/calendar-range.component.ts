@@ -30,7 +30,7 @@ import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../services';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: `prizm-calendar-range`,
@@ -40,7 +40,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
 })
 export class PrizmCalendarRangeComponent
-  extends AbstractPrizmTestId
+  extends PrizmAbstractTestId
   implements PrizmWithOptionalMinMax<PrizmDay>
 {
   @Input()

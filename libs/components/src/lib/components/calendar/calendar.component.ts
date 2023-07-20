@@ -13,7 +13,7 @@ import { PrizmMarkerHandler } from '../../types/marker-handler';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PrizmDayWithStatus } from '../../@core';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: `prizm-calendar`,
@@ -21,7 +21,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: [`./calendar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmCalendarComponent extends AbstractPrizmTestId implements PrizmWithOptionalMinMax<PrizmDay> {
+export class PrizmCalendarComponent extends PrizmAbstractTestId implements PrizmWithOptionalMinMax<PrizmDay> {
   @Input()
   @prizmDefaultProp()
   month: PrizmMonth = PrizmMonth.currentLocal();

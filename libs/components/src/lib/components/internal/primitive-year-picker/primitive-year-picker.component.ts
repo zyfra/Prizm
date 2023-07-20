@@ -8,7 +8,7 @@ import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-hand
 import { prizmInRange } from '../../../util/math/in-range';
 import { PrizmInteractiveState } from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
@@ -19,7 +19,7 @@ const ITEMS_IN_ROW = 3;
   styleUrls: [`./primitive-year-picker.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmPrimitiveYearPickerComponent extends AbstractPrizmTestId {
+export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   private hoveredItem: number | null = null;
   private pressedItem: number | null = null;
   private readonly currentYear = PrizmMonth.currentLocal().year;

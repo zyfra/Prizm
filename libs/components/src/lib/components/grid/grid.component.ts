@@ -10,7 +10,7 @@ import {
   HostBinding,
 } from '@angular/core';
 import { GridItemComponent } from './components/grid-item/grid-item.component';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-grid',
@@ -18,7 +18,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: ['./grid.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GridComponent extends AbstractPrizmTestId implements AfterContentInit {
+export class GridComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() @HostBinding('attr.columns') public cols: '8' | '12' = '12';
   @Input() public rows = '10';
 

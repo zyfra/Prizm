@@ -8,7 +8,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmSidebarOptions, PrizmSidebarResultDefaultType } from './sidebar.models';
 import { invokeIfCanCloseSidebar } from './util';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-sidebar',
@@ -18,7 +18,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
 })
-export class PrizmSidebarComponent<DATA = unknown> extends AbstractPrizmTestId {
+export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
   @Input()
   public context!: PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>;
 

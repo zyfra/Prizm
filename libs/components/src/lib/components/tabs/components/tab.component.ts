@@ -18,7 +18,7 @@ import { combineLatest, Observable } from 'rxjs';
 import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tab',
@@ -27,7 +27,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmTabComponent extends AbstractPrizmTestId implements OnInit, OnDestroy {
+export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
   @Input() icon: PolymorphContent<PrizmTabContext> = null;
   @Input() content: PolymorphContent<PrizmTabContext> = null;

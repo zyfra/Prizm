@@ -9,7 +9,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { PrizmToastRef } from '../toast-ref';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-toast-wrapper',
@@ -18,7 +18,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ToastWrapperComponent extends AbstractPrizmTestId implements OnInit {
+export class ToastWrapperComponent extends PrizmAbstractTestId implements OnInit {
   @Input() ref!: PrizmToastRef;
 
   override readonly testId_ = 'ui_toast_wrapper';

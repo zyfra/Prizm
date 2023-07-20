@@ -28,7 +28,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
 import { PrizmDropdownHostContext, PrizmDropdownHostCustomContext, PrizmDropdownHostWidth } from './models';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -38,7 +38,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   providers: [PrizmDestroyService],
   exportAs: 'prizm-dropdown-host',
 })
-export class PrizmDropdownHostComponent extends AbstractPrizmTestId implements AfterViewInit {
+export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit {
   @Input() content: PolymorphContent<PrizmDropdownHostContext>;
 
   @Input()

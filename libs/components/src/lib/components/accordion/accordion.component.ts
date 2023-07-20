@@ -11,7 +11,7 @@ import { PrizmAccordionItemComponent } from './components/accordion-item/accordi
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-accordion',
@@ -20,7 +20,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmAccordionComponent extends AbstractPrizmTestId implements AfterContentInit {
+export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
   accordionItems: QueryList<PrizmAccordionItemComponent>;

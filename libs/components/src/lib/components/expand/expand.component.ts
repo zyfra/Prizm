@@ -17,7 +17,7 @@ import { prizmIsCurrentTarget } from '../../util/dom';
 
 import { PrizmExpandContentDirective } from './expand-content.directive';
 import { PRIZM_EXPAND_LOADED } from './expand.const';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 enum State {
   Idle,
@@ -34,7 +34,7 @@ const LOADER_HEIGHT = 48;
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./expand.component.less'],
 })
-export class PrizmExpandComponent extends AbstractPrizmTestId {
+export class PrizmExpandComponent extends PrizmAbstractTestId {
   @ViewChild('wrapper')
   private readonly contentWrapper?: ElementRef<HTMLDivElement>;
 

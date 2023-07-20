@@ -21,7 +21,7 @@ import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmHorizontalDirection } from '../../types/direction';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -39,7 +39,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: `prizmLink`,
 })
-export class PrizmLinkComponent extends AbstractPrizmTestId implements PrizmFocusableElementAccessor {
+export class PrizmLinkComponent extends PrizmAbstractTestId implements PrizmFocusableElementAccessor {
   @Input()
   @HostBinding(`class._pseudo`)
   @prizmDefaultProp()

@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-grid-item',
@@ -7,7 +7,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
   styleUrls: ['./grid-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GridItemComponent extends AbstractPrizmTestId {
+export class GridItemComponent extends PrizmAbstractTestId {
   @Input() public colPos = '0';
   @Input() public rowPos = '0';
 

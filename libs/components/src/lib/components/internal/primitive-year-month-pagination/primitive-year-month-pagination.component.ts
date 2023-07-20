@@ -5,7 +5,7 @@ import { PrizmYear } from '../../../@core/date-time/year';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmMonthLike } from '../../../types/month-like';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,
@@ -13,7 +13,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   styleUrls: [`./primitive-year-month-pagination.component.less`],
 })
 export class PrizmPrimitiveYearMonthPaginationComponent
-  extends AbstractPrizmTestId
+  extends PrizmAbstractTestId
   implements PrizmWithOptionalMinMax<PrizmMonth>
 {
   @Input()

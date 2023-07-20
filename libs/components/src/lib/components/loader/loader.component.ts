@@ -11,7 +11,7 @@ import {
 import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { prizmBlurNativeFocused } from '../../util/blur-native-focused';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-loader',
@@ -19,7 +19,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: ['./loader.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmLoaderComponent extends AbstractPrizmTestId {
+export class PrizmLoaderComponent extends PrizmAbstractTestId {
   @Input()
   size: PrizmSize = 's';
 

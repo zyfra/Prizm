@@ -19,7 +19,7 @@ import {
 } from '../../directives/dropdown-controller';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-data-list',
@@ -33,7 +33,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
     '[class.default]': 'defaultStyle',
   },
 })
-export class PrizmDataListComponent extends AbstractPrizmTestId implements OnInit {
+export class PrizmDataListComponent extends PrizmAbstractTestId implements OnInit {
   @Input() defaultStyle = true;
 
   @Input()

@@ -15,7 +15,7 @@ import { prizmFadeIn } from '../../animations';
 import { prizmZoneOptimized } from '../../observables';
 import { PRIZM_ANIMATION_OPTIONS, PRIZM_SCROLL_REF } from '../../tokens';
 import { AnimationOptions } from '@angular/animations';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-scroll-controls',
@@ -24,7 +24,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [prizmFadeIn],
 })
-export class PrizmScrollControlsComponent extends AbstractPrizmTestId {
+export class PrizmScrollControlsComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_scroll_controls';
 
   readonly refresh$ = this.animationFrame$.pipe(

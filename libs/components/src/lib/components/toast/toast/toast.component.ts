@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { PolymorphContent } from '../../../directives/polymorph';
 import { PrizmToastRef } from '../toast-ref';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-toast-single',
@@ -9,7 +9,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   styleUrls: ['./toast.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ToastComponent extends AbstractPrizmTestId {
+export class ToastComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_toast_single';
 
   // TODO remove record to context type

@@ -8,7 +8,7 @@ import {
   ElementRef,
   HostBinding,
 } from '@angular/core';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-panel',
@@ -16,7 +16,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: ['./panel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PanelComponent extends AbstractPrizmTestId {
+export class PanelComponent extends PrizmAbstractTestId {
   @Input() withBackButton = false;
   @Input() header: string = null;
   @Input() subheader: string = null;

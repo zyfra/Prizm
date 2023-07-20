@@ -29,7 +29,7 @@ import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmLanguageCore } from '@prizm-ui/i18n';
 import { PRIZM_SHORT_WEEK_DAYS } from '../../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: `prizm-primitive-calendar`,
@@ -47,7 +47,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
     },
   ],
 })
-export class PrizmPrimitiveCalendarComponent extends AbstractPrizmTestId {
+export class PrizmPrimitiveCalendarComponent extends PrizmAbstractTestId {
   pressedItem: PrizmDay | null = null;
   private readonly today = PrizmDay.currentLocal();
 

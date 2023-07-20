@@ -13,7 +13,7 @@ import {
   PrizmDialogSize,
 } from './dialog.models';
 import { PolymorphContent } from '../../../directives';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-dialog',
@@ -23,7 +23,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
 })
-export class PrizmDialogComponent<O = unknown, DATA = unknown> extends AbstractPrizmTestId {
+export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbstractTestId {
   @Input()
   public context!: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>;
 

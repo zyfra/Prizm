@@ -22,7 +22,7 @@ import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
 import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-input-layout',
@@ -36,7 +36,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
   providers: [PrizmDestroyService],
 })
 export class PrizmInputLayoutComponent
-  extends AbstractPrizmTestId
+  extends PrizmAbstractTestId
   implements OnInit, OnChanges, AfterViewInit
 {
   @Input() set label(val: string) {

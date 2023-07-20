@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './../../switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-switcher-item',
@@ -9,7 +9,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwitcherItemComponent extends AbstractPrizmTestId {
+export class SwitcherItemComponent extends PrizmAbstractTestId {
   @Input()
   @prizmDefaultProp()
   @HostBinding('attr.data-size')

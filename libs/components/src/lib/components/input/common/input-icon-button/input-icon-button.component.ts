@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { AbstractPrizmTestId } from '../../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -13,7 +13,7 @@ import { AbstractPrizmTestId } from '../../../../abstract/interactive';
     '[attr.tabindex]': 'tabindex',
   },
 })
-export class PrizmInputIconButtonComponent extends AbstractPrizmTestId {
+export class PrizmInputIconButtonComponent extends PrizmAbstractTestId {
   @Input() size = 16;
   @Input() prizmInputIconButton: string;
   @Input() interactive = false;

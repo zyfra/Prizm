@@ -9,7 +9,7 @@ import { PrizmRangeState } from '../../../@core/enums/range-state';
 import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PRIZM_MONTHS } from '../../../tokens/i18n';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 const ITEMS_IN_ROW = 3;
 const ROWS = 4;
@@ -21,7 +21,7 @@ const ROWS = 4;
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],
 })
-export class PrizmPrimitiveMonthPickerComponent extends AbstractPrizmTestId {
+export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
   private hoveredItem: number | null = null;
   private pressedItem: number | null = null;
   private readonly currentMonth = PrizmMonth.currentLocal().month;

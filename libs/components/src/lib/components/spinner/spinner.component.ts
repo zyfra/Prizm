@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-spinner',
@@ -18,7 +18,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   styleUrls: ['./spinner.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmSpinnerComponent extends AbstractPrizmTestId {
+export class PrizmSpinnerComponent extends PrizmAbstractTestId {
   @Input()
   size: PrizmSize = 's';
 

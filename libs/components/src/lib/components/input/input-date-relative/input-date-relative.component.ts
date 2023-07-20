@@ -38,7 +38,7 @@ import { prizmIsNativeFocused } from '../../../util';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?';
@@ -57,7 +57,7 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmInputDateRelativeComponent
-  extends AbstractPrizmTestId
+  extends PrizmAbstractTestId
   implements AfterViewInit, OnInit, ControlValueAccessor, OnDestroy
 {
   @ViewChild('focusableElementRef', { read: ElementRef })

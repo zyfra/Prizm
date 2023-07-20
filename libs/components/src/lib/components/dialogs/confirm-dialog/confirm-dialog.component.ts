@@ -7,7 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-confirm-dialog',
@@ -17,7 +17,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
 })
-export class PrizmDialogConfirmComponent<DATA = unknown> extends AbstractPrizmTestId {
+export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTestId {
   @Input()
   public context!: PrizmBaseDialogContext<
     PrizmConfirmDialogResultDefaultType,
