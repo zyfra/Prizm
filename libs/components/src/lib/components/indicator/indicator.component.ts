@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 import { IndicatorStatus, IndicatorType } from './indicator.models';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-indicator',
@@ -7,12 +8,11 @@ import { IndicatorStatus, IndicatorType } from './indicator.models';
   styleUrls: ['./indicator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class IndicatorComponent {
+export class IndicatorComponent extends AbstractPrizmTestId {
   @Input() public type: IndicatorType = 'simple';
   @Input() public status: IndicatorStatus = 'info';
 
-  @HostBinding('attr.testId')
-  readonly testId = 'ui_indicator';
+  override readonly testId_ = 'ui_indicator';
 
   public readonly iconMap = {
     info: 'alerts-information-variant',

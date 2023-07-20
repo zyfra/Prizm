@@ -16,6 +16,7 @@ import { PrizmHoveredService } from '../../services';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
 import { PrizmScrollbarVisibility } from './scrollbar.model';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent): ElementRef<HTMLElement> {
   return browserScrollRef;
@@ -34,7 +35,7 @@ export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent):
     },
   ],
 })
-export class PrizmScrollbarComponent {
+export class PrizmScrollbarComponent extends AbstractPrizmTestId {
   @Input()
   set visibility(visibility: PrizmScrollbarVisibility) {
     this.visibility$.next(visibility);
@@ -43,8 +44,7 @@ export class PrizmScrollbarComponent {
     return this.visibility$.value;
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_scrollbar';
+  override readonly testId_ = 'ui_scrollbar';
 
   private delegated = false;
 
@@ -81,7 +81,9 @@ export class PrizmScrollbarComponent {
     private readonly elementRef: ElementRef,
     @Inject(USER_AGENT) private readonly userAgent: string,
     @Inject(PRIZM_IS_IOS) private readonly isIos: boolean
-  ) {}
+  ) {
+    super();
+  }
 
   @HostBinding('class._legacy')
   public get showNative(): boolean {

@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-spinner',
@@ -17,7 +18,7 @@ import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
   styleUrls: ['./spinner.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmSpinnerComponent {
+export class PrizmSpinnerComponent extends AbstractPrizmTestId {
   @Input()
   size: PrizmSize = 's';
 
@@ -30,13 +31,14 @@ export class PrizmSpinnerComponent {
   @HostBinding('class._loading')
   loading = true;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'ui_spinner';
+  override readonly testId_ = 'ui_spinner';
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>
-  ) {}
+  ) {
+    super();
+  }
 
   get hasText(): boolean {
     return !!this.textContent;

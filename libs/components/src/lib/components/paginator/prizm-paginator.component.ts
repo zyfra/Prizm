@@ -17,6 +17,7 @@ import {
   PrizmPaginatorType,
 } from './interfaces/prizm-paginator.interface';
 import { PolymorphContent } from '../../directives';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-paginator',
@@ -24,7 +25,7 @@ import { PolymorphContent } from '../../directives';
   styleUrls: ['./prizm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmPaginatorComponent implements OnInit {
+export class PrizmPaginatorComponent extends AbstractPrizmTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
   @Input() textOnPage: PolymorphContent = 'Строк на странице';
   /** The length of the total number of items that are being paginated. Defaulted to 0. */
@@ -86,8 +87,7 @@ export class PrizmPaginatorComponent implements OnInit {
   @Output() public pageChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() public rowsChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'ui_paginator';
+  override readonly testId_ = 'ui_paginator';
 
   /**
    * The 1-based page index of the displayed list of items.
@@ -101,7 +101,9 @@ export class PrizmPaginatorComponent implements OnInit {
 
   public readonly initialized = this.initialized$$.asObservable();
 
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {}
+  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
+    super();
+  }
 
   ngOnInit(): void {
     this.paginationGenerator();

@@ -14,10 +14,12 @@ import {
 import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
-import { concat, last, Observable, combineLatest } from 'rxjs';
+import { combineLatest, Observable } from 'rxjs';
 import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
-import { filter, first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
+
 @Component({
   selector: 'prizm-tab',
   templateUrl: './tab.component.html',
@@ -25,7 +27,7 @@ import { filter, first, map, switchMap, takeUntil, tap } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmTabComponent implements OnInit, OnDestroy {
+export class PrizmTabComponent extends AbstractPrizmTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
   @Input() icon: PolymorphContent<PrizmTabContext> = null;
   @Input() content: PolymorphContent<PrizmTabContext> = null;
@@ -43,8 +45,7 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
   }
   @Output() public closeTab = new EventEmitter<void>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_tab';
+  override readonly testId_ = 'ui_tab';
   readonly isActiveTab$: Observable<boolean> = combineLatest([
     this.idx$,
     this.tabsService.activeTabIdx$,
@@ -60,7 +61,9 @@ export class PrizmTabComponent implements OnInit, OnDestroy {
     public readonly tabsService: PrizmTabsService,
     public readonly destroy: PrizmDestroyService,
     public readonly el: ElementRef<HTMLElement>
-  ) {}
+  ) {
+    super();
+  }
 
   @HostListener('click')
   public onClick(): void {

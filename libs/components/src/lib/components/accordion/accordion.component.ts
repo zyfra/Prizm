@@ -11,6 +11,7 @@ import { PrizmAccordionItemComponent } from './components/accordion-item/accordi
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-accordion',
@@ -19,15 +20,16 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmAccordionComponent implements AfterContentInit {
+export class PrizmAccordionComponent extends AbstractPrizmTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
   accordionItems: QueryList<PrizmAccordionItemComponent>;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_accordion';
+  override readonly testId_ = 'ui_accordion';
 
-  constructor(private readonly destroy$: PrizmDestroyService) {}
+  constructor(private readonly destroy$: PrizmDestroyService) {
+    super();
+  }
 
   public ngAfterContentInit(): void {
     const accordionItemsToggleStreams = this.accordionItems.map((item, idx) => item.toggle$.pipe(mapTo(idx)));

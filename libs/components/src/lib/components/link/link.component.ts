@@ -21,6 +21,7 @@ import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmHorizontalDirection } from '../../types/direction';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -38,7 +39,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: `prizmLink`,
 })
-export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
+export class PrizmLinkComponent extends AbstractPrizmTestId implements PrizmFocusableElementAccessor {
   @Input()
   @HostBinding(`class._pseudo`)
   @prizmDefaultProp()
@@ -66,8 +67,7 @@ export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
   @HostBinding(`class._focus-visible`)
   focusVisible = false;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_link';
+  override readonly testId_ = 'ui_link';
 
   readonly focusedChange = merge(
     prizmTypedFromEvent(this.elementRef.nativeElement, `focusin`).pipe(mapTo(true)),
@@ -81,6 +81,7 @@ export class PrizmLinkComponent implements PrizmFocusableElementAccessor {
     @Inject(PrizmFocusVisibleService)
     focusVisible$: PrizmFocusVisibleService
   ) {
+    super();
     focusVisible$.subscribe(visible => {
       this.focusVisible = visible;
     });

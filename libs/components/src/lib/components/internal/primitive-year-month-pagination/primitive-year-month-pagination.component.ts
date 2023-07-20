@@ -5,13 +5,17 @@ import { PrizmYear } from '../../../@core/date-time/year';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmMonthLike } from '../../../types/month-like';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,
   templateUrl: `./primitive-year-month-pagination.component.html`,
   styleUrls: [`./primitive-year-month-pagination.component.less`],
 })
-export class PrizmPrimitiveYearMonthPaginationComponent implements PrizmWithOptionalMinMax<PrizmMonth> {
+export class PrizmPrimitiveYearMonthPaginationComponent
+  extends AbstractPrizmTestId
+  implements PrizmWithOptionalMinMax<PrizmMonth>
+{
   @Input()
   @prizmDefaultProp()
   value = PrizmMonth.currentLocal();
@@ -45,8 +49,7 @@ export class PrizmPrimitiveYearMonthPaginationComponent implements PrizmWithOpti
   @Output()
   readonly monthClick = new EventEmitter<PrizmMonth>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_primitive_year_month_pagination';
+  override readonly testId_ = 'ui_primitive_year_month_pagination';
 
   public get prevMonthDisabled(): boolean {
     return this.value.monthSameOrBefore?.(this.min);

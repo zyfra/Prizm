@@ -29,6 +29,7 @@ import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmLanguageCore } from '@prizm-ui/i18n';
 import { PRIZM_SHORT_WEEK_DAYS } from '../../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: `prizm-primitive-calendar`,
@@ -46,7 +47,7 @@ import { prizmI18nInitWithKey } from '../../../services/i18n.service';
     },
   ],
 })
-export class PrizmPrimitiveCalendarComponent {
+export class PrizmPrimitiveCalendarComponent extends AbstractPrizmTestId {
   pressedItem: PrizmDay | null = null;
   private readonly today = PrizmDay.currentLocal();
 
@@ -84,13 +85,14 @@ export class PrizmPrimitiveCalendarComponent {
   @Output()
   readonly dayClick = new EventEmitter<PrizmDay>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_primitive_calendar';
+  override readonly testId_ = 'ui_primitive_calendar';
 
   constructor(
     @Inject(PRIZM_ORDERED_SHORT_WEEK_DAYS)
     readonly weekDays$: Observable<PRIZM_WEEK_DAYS_NAMES>
-  ) {}
+  ) {
+    super();
+  }
 
   @HostBinding(`class._single`)
   get isSingle(): boolean {

@@ -9,6 +9,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { PrizmToastRef } from '../toast-ref';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-toast-wrapper',
@@ -17,11 +18,10 @@ import { PrizmToastRef } from '../toast-ref';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
 })
-export class ToastWrapperComponent implements OnInit {
+export class ToastWrapperComponent extends AbstractPrizmTestId implements OnInit {
   @Input() ref!: PrizmToastRef;
 
-  @HostBinding('attr.data-test-id')
-  readonly testId = 'ui_toast_wrapper';
+  override readonly testId_ = 'ui_toast_wrapper';
 
   @HostBinding('attr.id') get getRefId(): string {
     return 'prizm-toast-id' + this.ref.id;
@@ -41,7 +41,9 @@ export class ToastWrapperComponent implements OnInit {
   }
   tempInjector: Injector;
 
-  constructor(private readonly injector: Injector) {}
+  constructor(private readonly injector: Injector) {
+    super();
+  }
 
   public ngOnInit(): void {
     this.createInjectorForChild();

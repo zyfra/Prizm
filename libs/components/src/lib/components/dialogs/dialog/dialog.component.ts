@@ -13,6 +13,7 @@ import {
   PrizmDialogSize,
 } from './dialog.models';
 import { PolymorphContent } from '../../../directives';
+import { AbstractPrizmTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-dialog',
@@ -22,7 +23,7 @@ import { PolymorphContent } from '../../../directives';
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
 })
-export class PrizmDialogComponent<O = unknown, DATA = unknown> {
+export class PrizmDialogComponent<O = unknown, DATA = unknown> extends AbstractPrizmTestId {
   @Input()
   public context!: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>;
 
@@ -45,8 +46,7 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     return this.animation;
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_overlay';
+  override readonly testId_ = 'ui_overlay';
 
   @HostBinding('style.width')
   readonly width = '100%';
@@ -86,6 +86,7 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> {
     @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
     private readonly destroy$: PrizmDestroyService
   ) {
+    super();
     close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.close();
     });

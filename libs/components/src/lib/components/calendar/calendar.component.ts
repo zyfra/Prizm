@@ -13,6 +13,7 @@ import { PrizmMarkerHandler } from '../../types/marker-handler';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PrizmDayWithStatus } from '../../@core';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: `prizm-calendar`,
@@ -20,7 +21,7 @@ import { PrizmDayWithStatus } from '../../@core';
   styleUrls: [`./calendar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay> {
+export class PrizmCalendarComponent extends AbstractPrizmTestId implements PrizmWithOptionalMinMax<PrizmDay> {
   @Input()
   @prizmDefaultProp()
   month: PrizmMonth = PrizmMonth.currentLocal();
@@ -74,8 +75,7 @@ export class PrizmCalendarComponent implements PrizmWithOptionalMinMax<PrizmDay>
   @Output()
   readonly hoveredItemChange = new EventEmitter<PrizmDay | null>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_calendar';
+  override readonly testId_ = 'ui_calendar';
 
   year: PrizmYear | null = null;
   clickedMonth: PrizmMonth | null = null;

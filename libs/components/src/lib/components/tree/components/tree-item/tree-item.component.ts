@@ -22,6 +22,7 @@ import {
 } from '../../misc/tree.tokens';
 import { PRIZM_TREE_ITEM_PROVIDERS } from './tree-item.providers';
 import { PRIZM_EMPTY_QUERY } from '@prizm-ui/core';
+import { AbstractPrizmTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tree-item',
@@ -35,7 +36,7 @@ import { PRIZM_EMPTY_QUERY } from '@prizm-ui/core';
   },
   exportAs: 'prizmTreeItem',
 })
-export class PrizmTreeItemComponent implements DoCheck {
+export class PrizmTreeItemComponent extends AbstractPrizmTestId implements DoCheck {
   @ContentChildren(PRIZM_TREE_NODE as any)
   private readonly nested: QueryList<unknown> = PRIZM_EMPTY_QUERY;
 
@@ -52,8 +53,7 @@ export class PrizmTreeItemComponent implements DoCheck {
     distinctUntilChanged()
   );
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_tree_item';
+  override readonly testId_ = 'ui_tree_item';
 
   @HostBinding('class._expandable')
   get isExpandable(): boolean {
@@ -77,7 +77,9 @@ export class PrizmTreeItemComponent implements DoCheck {
     readonly level: number,
     @Inject(forwardRef(() => PRIZM_TREE_CONTENT))
     readonly content: PolymorphContent
-  ) {}
+  ) {
+    super();
+  }
 
   ngDoCheck(): void {
     this.change$.next();

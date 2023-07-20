@@ -23,6 +23,7 @@ import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tabs',
@@ -31,7 +32,7 @@ import { PrizmTabCanOpen } from './tabs.model';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmTabsService, PrizmDestroyService],
 })
-export class PrizmTabsComponent implements OnInit, OnDestroy {
+export class PrizmTabsComponent extends AbstractPrizmTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';
   @Input() public set activeTabIndex(idx: number) {
     if (idx === this.tabsService.activeTabIdx) return;
@@ -55,8 +56,7 @@ export class PrizmTabsComponent implements OnInit, OnDestroy {
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
   public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_tabs';
+  override readonly testId_ = 'ui_tabs';
 
   public openLeft = false;
   public openRight = false;

@@ -10,6 +10,7 @@ import {
   HostBinding,
 } from '@angular/core';
 import { GridItemComponent } from './components/grid-item/grid-item.component';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-grid',
@@ -17,7 +18,7 @@ import { GridItemComponent } from './components/grid-item/grid-item.component';
   styleUrls: ['./grid.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class GridComponent implements AfterContentInit {
+export class GridComponent extends AbstractPrizmTestId implements AfterContentInit {
   @Input() @HostBinding('attr.columns') public cols: '8' | '12' = '12';
   @Input() public rows = '10';
 
@@ -25,8 +26,7 @@ export class GridComponent implements AfterContentInit {
   @ContentChildren(GridItemComponent, { read: ElementRef }) public gridItems: QueryList<ElementRef>;
   @ContentChildren(GridItemComponent) public gridItemsData: QueryList<GridItemComponent>;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-area--grid';
+  override readonly testId_ = 'ui-area--grid';
 
   public ngAfterContentInit(): void {
     const containerElement = this.container.nativeElement;

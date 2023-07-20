@@ -8,6 +8,7 @@ import {
   ElementRef,
   HostBinding,
 } from '@angular/core';
+import { AbstractPrizmTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-panel',
@@ -15,7 +16,7 @@ import {
   styleUrls: ['./panel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PanelComponent {
+export class PanelComponent extends AbstractPrizmTestId {
   @Input() withBackButton = false;
   @Input() header: string = null;
   @Input() subheader: string = null;
@@ -23,8 +24,7 @@ export class PanelComponent {
   @Output() backClick: EventEmitter<void> = new EventEmitter<void>();
   @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_panel';
+  override readonly testId_ = 'ui_panel';
 
   public back(): void {
     this.backClick.emit();

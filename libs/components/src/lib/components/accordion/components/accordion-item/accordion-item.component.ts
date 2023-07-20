@@ -16,6 +16,7 @@ import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
 import { PolymorphContent } from '../../../../directives/polymorph';
 import { PrizmAccordionItemData } from '../../model';
+import { AbstractPrizmTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -24,7 +25,7 @@ import { PrizmAccordionItemData } from '../../model';
   animations: [expandAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmAccordionItemComponent implements OnDestroy {
+export class PrizmAccordionItemComponent extends AbstractPrizmTestId implements OnDestroy {
   @Input() icon: PolymorphContent<PrizmAccordionItemData>;
   @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
@@ -41,15 +42,16 @@ export class PrizmAccordionItemComponent implements OnDestroy {
     };
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_accordion_item';
+  override readonly testId_ = 'ui_accordion_item';
 
   @ContentChild(AccordionContentDirective, { read: TemplateRef })
   public readonly accordionContent: TemplateRef<AccordionContentDirective>;
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
   public readonly accordionTools: TemplateRef<AccordionToolsDirective>;
 
-  constructor(private readonly cdRef: ChangeDetectorRef) {}
+  constructor(private readonly cdRef: ChangeDetectorRef) {
+    super();
+  }
 
   public toggle$: Subject<void> = new Subject<void>();
   public isAccordionFocused = false;
