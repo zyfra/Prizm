@@ -21,7 +21,11 @@ import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { BehaviorSubject, concat, Observable, Subject, timer } from 'rxjs';
-import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
+import {
+  PrizmSelectIdentityMatcher,
+  PrizmSelectSearchMatcher,
+  PrizmSelectValueTransformver,
+} from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
@@ -89,6 +93,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Input()
   @prizmDefaultProp()
   search: string | null = this.options.search;
+
+  @Input()
+  @prizmDefaultProp()
+  transformer: PrizmSelectValueTransformver<T> = this.options.transformer;
 
   @Input()
   @prizmDefaultProp()
@@ -212,8 +220,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public select(item: T): void {
     this.markAsTouched();
-    if (!this.identityMatcher(item, this.value)) {
-      this.updateValue(item);
+    const selectedValue = item && this.transformer(item);
+    if (!this.identityMatcher(selectedValue, this.value)) {
+      this.updateValue(selectedValue);
     }
     this.opened$$.next(false);
   }
@@ -250,7 +259,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public getCurrentItem(value: T): string {
-    const newItem = this.items.find(i => this.identityMatcher(i, this.value));
+    const newItem = this.items.find(i => this.identityMatcher(this.transformer(i), this.value));
     return this.stringify(newItem ?? value);
   }
 }

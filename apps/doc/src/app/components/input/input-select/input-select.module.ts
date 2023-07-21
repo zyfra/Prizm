@@ -19,6 +19,7 @@ import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-ba
 import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/select-full-width-example.component';
 import { PrizmSelectValidatorsExampleComponent } from './examples/validators/select-validators-example.component';
 import { PrizmSelectStringifyExampleComponent } from './examples/stringify/select-stringify-example.component';
+import { PrizmSelectWithTransformerExampleComponent } from './examples/with-transformer/select-with-transformer-example.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { PrizmSelectStringifyExampleComponent } from './examples/stringify/selec
     RouterModule.forChild(prizmDocGenerateRoutes(InputSelectComponent)),
   ],
   declarations: [
+    PrizmSelectWithTransformerExampleComponent,
     PrizmSelectFullWidthExampleComponent,
     PrizmSelectValidatorsExampleComponent,
     PrizmSelectBaseExampleComponent,

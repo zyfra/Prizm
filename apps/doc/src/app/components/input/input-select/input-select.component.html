@@ -1,6 +1,6 @@
 <prizm-doc-page header="InputSelect">
   <div class="page-description" description>
-    Our select component is a wrapper around the native select element.
+    Our select component is a wrapper around the input select element.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
@@ -36,6 +36,9 @@
 
     <prizm-doc-example id="validators" [content]="exampleValidators" heading="Validators">
       <prizm-select-validators-example></prizm-select-validators-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="with-transformer" [content]="exampleWithTransformer" heading="With Transformer">
+      <prizm-select-with-transformer-example></prizm-select-with-transformer-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -113,6 +116,14 @@
         documentationPropertyMode="input"
       >
         Identity Matcher
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="transformer"
+        documentationPropertyType="PrizmSelectSelectorMatcher"
+        documentationPropertyMode="input"
+      >
+        Value Transformer (get value from object)
       </ng-template>
 
       <ng-template

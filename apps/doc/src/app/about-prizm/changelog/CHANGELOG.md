@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2.next-3](https://github.com/zyfra/Prizm) (21-07-2023)
+
+### Features
+
+- feat(components/input-select): added ability to transform value #514
+
 ## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
 
 ### Features
