@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   HostBinding,
@@ -58,7 +59,10 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
 
   override readonly testId_ = 'ui_switcher';
 
-  constructor(public readonly injector: Injector, @Optional() @Self() public readonly ngControl: NgControl) {
+  constructor(
+    public readonly cdRef: ChangeDetectorRef,
+    @Optional() @Self() public readonly ngControl: NgControl
+  ) {
     super();
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
@@ -79,5 +83,9 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
   }
   public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
+  }
+
+  public setDisabledState(isDisabled: boolean): void {
+    this.cdRef.markForCheck();
   }
 }
