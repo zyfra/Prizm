@@ -8,13 +8,14 @@ import {
   TemplateRef,
 } from '@angular/core';
 import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 @Component({
   selector: 'prizm-navigation-menu-item',
   templateUrl: './prizm-navigation-menu-item.component.html',
   styleUrls: ['./prizm-navigation-menu-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmNavigationMenuItemComponent<T> {
+export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Output() setActive = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() toggleExpanded = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
@@ -37,6 +38,9 @@ export class PrizmNavigationMenuItemComponent<T> {
   get goToButtonsVisible(): boolean {
     return this.mode === 'folder' && this.item.breadcrumbs.length > 1;
   }
+  override readonly testId_ = 'ui_navigation_menu_item';
 
-  constructor(public cdr: ChangeDetectorRef) {}
+  constructor(public cdr: ChangeDetectorRef) {
+    super();
+  }
 }

@@ -56,7 +56,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   readonly emits$ = new BehaviorSubject(1);
 
   get host(): ElementRef<any> | null {
-    return this.hostElementService.getHostElement(this.prizmHostComponentInfo.value?.key);
+    return this.hostElementService?.getHostElement(this.prizmHostComponentInfo.value?.key) ?? null;
   }
 
   constructor(
@@ -76,12 +76,13 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
 
   get attrName(): string {
     switch (this.documentationPropertyMode) {
-      case `input`:
+      case `input`: {
         let name = this.documentationPropertyName;
-        if (name.endsWith('.testId')) {
+        if (name && name.endsWith('.testId')) {
           name = 'testId';
         }
         return `[${name}]`;
+      }
       case `output`:
         return `(${this.documentationPropertyName})`;
       case `input-output`:
@@ -117,12 +118,13 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
       return;
 
     this.changed$.next();
-    this.hostElementService?.addListener(
-      this.prizmHostComponentInfo.value?.key,
-      this.documentationPropertyMode,
-      this.documentationPropertyType,
-      this.documentationPropertyName.endsWith('.testId') ? 'testId' : this.documentationPropertyName
-    );
+    if (this.documentationPropertyName)
+      this.hostElementService?.addListener(
+        this.prizmHostComponentInfo.value?.key,
+        this.documentationPropertyMode,
+        this.documentationPropertyType,
+        this.documentationPropertyName.endsWith('.testId') ? 'testId' : this.documentationPropertyName
+      );
   }
 
   public onValueChange(value: T): void {

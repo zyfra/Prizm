@@ -54,6 +54,7 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
   }
 
   public readonly name = 'line';
+  override readonly testId_ = 'ui_charts_line';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

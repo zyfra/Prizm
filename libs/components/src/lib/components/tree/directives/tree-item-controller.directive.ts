@@ -15,14 +15,12 @@ import { PRIZM_TREE_CONTROLLER } from '../misc/tree.tokens';
     },
   ],
 })
-export class PrizmTreeItemControllerDirective extends PrizmAbstractTestId implements PrizmTreeController {
+export class PrizmTreeItemControllerDirective implements PrizmTreeController {
   private readonly map = new WeakMap<PrizmTreeItemComponent, boolean>();
 
   @Input()
   @prizmDefaultProp()
   prizmTreeController = true;
-
-  override readonly testId_ = 'ui_tree--controller';
 
   public isExpanded(item: PrizmTreeItemComponent): boolean {
     return this.map.get(item) ?? this.prizmTreeController;

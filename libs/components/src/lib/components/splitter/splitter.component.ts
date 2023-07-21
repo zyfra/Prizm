@@ -35,6 +35,7 @@ import { PrizmSplitterAreaComponent } from './area/area.component';
 
 import { PrizmSplitterService } from './splitter.service';
 import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 type AreaRealSize = { area: PrizmSplitterAreaComponent; realSize: number; realMinSize: number };
 type GutterData = { areaBefore: number; areaAfter: number; order: number };
@@ -49,7 +50,7 @@ type GutterData = { areaBefore: number; areaAfter: number; order: number };
     '[class]': "'prizm-spliiter ' + orientation",
   },
 })
-export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
+export class PrizmSplitterComponent extends PrizmAbstractTestId implements AfterViewInit, AfterContentInit {
   @Input() orientation: PrizmSplitterOrientation = 'horizontal';
 
   @Output() areasSizeChange = new EventEmitter<Array<number>>();
@@ -64,6 +65,7 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
   @ViewChildren(PrizmSplitterGutterComponent)
   splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent>;
 
+  override readonly testId_ = 'ui_splitter';
   get gutterElementSize(): number {
     return this.customGutter ? this.customGutter.size : 8;
   }
@@ -80,7 +82,9 @@ export class PrizmSplitterComponent implements AfterViewInit, AfterContentInit {
     private cdr: ChangeDetectorRef,
     private destroy$: PrizmDestroyService,
     private splitterService: PrizmSplitterService
-  ) {}
+  ) {
+    super();
+  }
 
   public ngAfterContentInit(): void {
     this.areas$ = merge(

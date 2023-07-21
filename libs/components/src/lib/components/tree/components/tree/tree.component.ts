@@ -32,6 +32,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
   host: {
     role: 'tree',
   },
+  exportAs: 'prizmTree',
 })
 export class PrizmTreeComponent<T> extends PrizmAbstractTestId implements DoCheck {
   private readonly check$ = new Subject<void>();

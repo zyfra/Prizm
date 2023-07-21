@@ -41,6 +41,8 @@ export class PrizmChartsWaterfallComponent<
   get origin(): PrizmChartsWaterfallOrigin {
     return this.origin_;
   }
+  override readonly testId_ = 'ui_charts_waterfall';
+
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.init();

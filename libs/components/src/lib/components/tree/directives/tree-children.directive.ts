@@ -5,12 +5,10 @@ import { PrizmHandler } from '../../../types';
 @Directive({
   selector: 'prizm-tree[childrenHandler]',
 })
-export class PrizmTreeChildrenDirective<T> extends PrizmAbstractTestId {
+export class PrizmTreeChildrenDirective<T> {
   @Input()
   @prizmDefaultProp()
   childrenHandler: PrizmHandler<T, readonly T[]> = PrizmTreeChildrenDirective.defaultHandler;
-
-  override readonly testId_ = 'ui_tree--children';
 
   public static defaultHandler<G>(item: G): readonly G[] {
     return Array.isArray(item) ? item : [];

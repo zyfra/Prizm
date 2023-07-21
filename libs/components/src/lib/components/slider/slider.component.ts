@@ -21,6 +21,7 @@ import { fromEvent, merge, Observable } from 'rxjs';
 import { distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmSliderCnobComponent } from './slider-cnob.component';
 import { PrizmSliderCnobValuePosition, PrizmSliderOrientation, PrizmSliderValue } from './types';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-slider',
@@ -39,7 +40,10 @@ import { PrizmSliderCnobValuePosition, PrizmSliderOrientation, PrizmSliderValue 
     PrizmDestroyService,
   ],
 })
-export class PrizmSliderComponent implements ControlValueAccessor, AfterViewInit, OnChanges {
+export class PrizmSliderComponent
+  extends PrizmAbstractTestId
+  implements ControlValueAccessor, AfterViewInit, OnChanges
+{
   @Input() min = 0;
   @Input() max = 100;
   @Input() step = 1;
@@ -62,6 +66,7 @@ export class PrizmSliderComponent implements ControlValueAccessor, AfterViewInit
 
   public isDisabled = false;
 
+  override readonly testId_ = 'ui_slider';
   touchedFn!: () => void;
   changedFn!: (obj: number | [number, number] | null) => void;
 
@@ -77,7 +82,9 @@ export class PrizmSliderComponent implements ControlValueAccessor, AfterViewInit
     private cdr: ChangeDetectorRef,
     private destroy$: PrizmDestroyService,
     @Inject(DOCUMENT) private document: Document
-  ) {}
+  ) {
+    super();
+  }
 
   public ngAfterViewInit(): void {
     this.initCnobMoveHandler();
