@@ -27,7 +27,7 @@
 
     <ng-template #headerTemp> Header из <a href="#">шаблона</a> </ng-template>
 
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [hasTestId]="false">
       <ng-template
         [(documentationPropertyValue)]="title"
         [documentationPropertyValues]="defaultTitle | prizmCallFunc : generatePolymorphVariants"

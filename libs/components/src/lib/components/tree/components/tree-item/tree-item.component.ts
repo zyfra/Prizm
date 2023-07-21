@@ -53,7 +53,7 @@ export class PrizmTreeItemComponent extends PrizmAbstractTestId implements DoChe
     distinctUntilChanged()
   );
 
-  override readonly testId_ = 'ui_tree_item';
+  override readonly testId_ = 'ui_tree--item';
 
   @HostBinding('class._expandable')
   get isExpandable(): boolean {
