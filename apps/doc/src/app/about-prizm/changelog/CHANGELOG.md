@@ -79,7 +79,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/spinner): correct testId to standart prizm_loader > ui_spinner
 - fix(components/switcher): correct testId to standart prizm_switcher > ui_switcher
 - fix(components/toast-single): correct testId to standart prizm_toast_single > ui_toast_single
-- fix(components/tree-item-content): correct testId to standart prizm_tree_item_content > prizm_tree_item_content
+- fix(components/tree-item-content): correct testId to standart prizm_tree_item_content > ui_tree_item_content
 - fix(components/tree-item): correct testId to standart prizm_tree_item > ui_tree--item
 - fix(components/tree): correct testId to standart prizm_tree > ui_tree
 - fix(components/cron): correct testId to standart prizm_cron > ui_cron
