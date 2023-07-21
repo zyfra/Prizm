@@ -48,7 +48,7 @@ export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
   color: string;
 
   override get generateManeTestId(): string {
-    return 'ui_icon--' + this.name;
+    return 'ui_icon--' + (this.name ?? '');
   }
 
   @HostBinding('style.width')
