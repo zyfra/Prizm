@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 import { prizmIsString } from '../../../util/common/is-string';
 
 @Component({
@@ -8,7 +8,7 @@ import { prizmIsString } from '../../../util/common/is-string';
   styleUrls: [`./progress-segmented.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmProgressSegmentedComponent {
+export class PrizmProgressSegmentedComponent extends PrizmAbstractTestId {
   @Input()
   @prizmDefaultProp(
     (value: number) => Number.isInteger(value) && value >= 0,
@@ -27,6 +27,8 @@ export class PrizmProgressSegmentedComponent {
   @Input()
   @prizmDefaultProp()
   colors: string | readonly string[] = `var(--prizm-primary)`;
+
+  override readonly testId_ = 'ui_progress_segmented';
 
   public getActiveColor(index: number = 0): string | null {
     return prizmIsString(this.colors)

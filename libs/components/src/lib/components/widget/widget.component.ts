@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PolymorphContent } from '../../directives';
 import { PrizmShadowType } from '../../directives/shadow';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-widget',
@@ -9,13 +10,12 @@ import { PrizmShadowType } from '../../directives/shadow';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [],
 })
-export class PrizmWidgetComponent {
+export class PrizmWidgetComponent extends PrizmAbstractTestId {
   @Input() public header: PolymorphContent = '';
   @Input() public title: PolymorphContent = '';
   @Input() public icons: PolymorphContent[] = [];
   @Output() public iconClick: EventEmitter<string> = new EventEmitter();
   readonly shadow: PrizmShadowType = 'none';
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_area--widget';
+  override readonly testId_ = 'ui_area--widget';
 }

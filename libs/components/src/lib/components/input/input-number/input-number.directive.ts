@@ -1,12 +1,12 @@
 import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Directive({
   selector: 'input[prizmInputNumber], input[type=number][prizmInput]',
   exportAs: 'prizmInputNumber',
 })
-export class PrizmInputNumberDirective extends AbstractPrizmTestId {
+export class PrizmInputNumberDirective extends PrizmAbstractTestId {
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   @Input() step = 1;

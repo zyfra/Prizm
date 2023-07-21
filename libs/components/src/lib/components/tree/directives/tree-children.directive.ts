@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmHandler } from '../../../types';
 
 @Directive({

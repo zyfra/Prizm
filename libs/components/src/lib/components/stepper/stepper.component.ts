@@ -12,6 +12,7 @@ import {
 import { merge, Observable } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-stepper',
@@ -23,7 +24,7 @@ import { PrizmStepperStepDirective } from './stepper-step.directive';
     '[class.vertical]': 'vertical',
   },
 })
-export class PrizmStepperComponent implements AfterContentInit {
+export class PrizmStepperComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() title = '';
 
   @Input() currentStep = 1;
@@ -38,7 +39,7 @@ export class PrizmStepperComponent implements AfterContentInit {
   prizmStepperStepDirectiveQL!: QueryList<PrizmStepperStepDirective>;
 
   steps$!: Observable<PrizmStepperStepDirective[]>;
-
+  override readonly testId_ = 'ui_stepper';
   get currentStepTemplate(): TemplateRef<any> {
     const currentStep = this.prizmStepperStepDirectiveQL.find(
       stepDirective => stepDirective.index === this.currentStep

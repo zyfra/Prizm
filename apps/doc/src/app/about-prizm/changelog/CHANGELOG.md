@@ -2,6 +2,90 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
+
+### Features
+
+- feat(charts/area): add testId with ability to change postfix
+- feat(charts/bar): add testId with ability to change postfix
+- feat(charts/column): add testId with ability to change postfix
+- feat(charts/line): add testId with ability to change postfix
+- feat(charts/gauge): add testId with ability to change postfix
+- feat(charts/pie): add testId with ability to change postfix
+- feat(charts/radar): add testId with ability to change postfix
+- feat(charts/radial-bar): add testId with ability to change postfix
+- feat(charts/scatter): add testId with ability to change postfix
+- feat(charts/treemap): add testId with ability to change postfix
+- feat(charts/waterfall): add testId with ability to change postfix
+
+- chore: update CONTRIBUTING.md file
+- feat(doc): add ability to automatically add testId to apiPage
+- feat(components/icon): add input ot control color #524
+- feat(components/tabs): add ability to edit testId postfix
+- feat(components/accordion): add ability to edit testId postfix
+- feat(components/grid-item): add ability to edit testId postfix
+- feat(components/calendar-range): add ability to edit testId postfix
+- feat(components/calendar): add ability to edit testId postfix
+- feat(components/card): add ability to edit testId postfix
+- feat(components/data-list): add ability to edit testId postfix
+- feat(components/confirm-dialog): add ability to edit testId postfix
+- feat(components/dialog): add ability to edit testId postfix
+- feat(components/sidebar): add ability to edit testId postfix
+- feat(components/dropdown-host): add ability to edit testId postfix
+- feat(components/expand): add ability to edit testId postfix
+- feat(components/grid): add ability to edit testId postfix
+- feat(components/indicator): add ability to edit testId postfix
+- feat(components/input-icon-button): add ability to edit testId postfix
+- feat(components/primitive-calendar-range): add ability to edit testId postfix
+- feat(components/primitive-calendar): add ability to edit testId postfix
+- feat(components/primitive-month-picker): add ability to edit testId postfix
+- feat(components/primitive-year-month-pagination): add ability to edit testId postfix
+- feat(components/primitive-year-picker): add ability to edit testId postfix
+- feat(components/link): add ability to edit testId postfix
+- feat(components/loader): add ability to edit testId postfix
+- feat(components/paginator): add ability to edit testId postfix
+- feat(components/panel): add ability to edit testId postfix
+- feat(components/radio-button): add ability to edit testId postfix
+- feat(components/scroll-controlls): add ability to edit testId postfix
+- feat(components/scrollbar): add ability to edit testId postfix
+- feat(components/spinner): add ability to edit testId postfix
+- feat(components/switcher-item): add ability to edit testId postfix
+- feat(components/switcher): add ability to edit testId postfix
+- feat(components/tab): add ability to edit testId postfix
+- feat(components/toast-container): add ability to edit testId postfix
+- feat(components/toast-single): add ability to edit testId postfix
+- feat(components/toast-wrapper): add ability to edit testId postfix
+- feat(components/tree-item-content): add ability to edit testId postfix
+- feat(components/tree-item): add ability to edit testId postfix
+- feat(components/tree): add ability to edit testId postfix
+- feat(components/widget): add ability to edit testId postfix
+
+### Bug fixes
+
+- fix(components/input-layout): too long header overlap the "asterisk" #493
+
+### BREAKING CHANGES
+
+- fix(components/tree): correct testId to standart prizm_tree > ui_tree
+- fix(components/toast): correct testId to standart prizm_toast_single > ui_toast_single
+- fix(components/paginator): correct testId to standart prizm_paginator > ui_paginator
+- fix(components/indicator): correct testId to standart prizm_paginator > ui_paginator
+- fix(components/dropdown-host): correct testId to standart prizm_dropdown_host > ui_dropdown_host
+- fix(components/data-list): correct testId to standart prizm_data_list > ui_data_list
+- fix(components/calendar-range): correct testId to standart prizm_calendar_range > ui_calendar_range
+- fix(components/breadcrumbs): correct testId to standart prizm_breadcrumbs > ui_breadcrumbs
+- fix(components/scroll-controls): correct testId to standart prizm_scroll_controls > ui_scroll_controls
+- fix(components/scrollbar): correct testId to standart prizm_scrollbar > ui_scrollbar
+- fix(components/spinner): correct testId to standart prizm_loader > ui_spinner
+- fix(components/switcher): correct testId to standart prizm_switcher > ui_switcher
+- fix(components/toast-single): correct testId to standart prizm_toast_single > ui_toast_single
+- fix(components/tree-item-content): correct testId to standart prizm_tree_item_content > ui_tree_item_content
+- fix(components/tree-item): correct testId to standart prizm_tree_item > ui_tree--item
+- fix(components/tree): correct testId to standart prizm_tree > ui_tree
+- fix(components/cron): correct testId to standart prizm_cron > ui_cron
+- fix(components/input-date): correct testId to standart prizm_input_date > ui_input_date
+- fix(components/input-layout-date): correct testId to standart prizm_input_date > ui_input_date
+
 ## [2.1.2.next-1](https://github.com/zyfra/Prizm) (19-07-2023)
 
 ### Features

@@ -56,6 +56,7 @@ export class PrizmChartsScatterComponent<
   get data(): PrizmChartsScatterItem[] {
     return this.options?.data ?? [];
   }
+  override readonly testId_ = 'ui_charts_scatter';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

@@ -3,6 +3,7 @@ import { INavigationTree, StatusDictionary } from './navigation.interfaces';
 import { IndicatorStatus } from '../indicator';
 import { ActiveNavigationItemService } from './services/active-navigation-item.service';
 import { skip } from 'rxjs/operators';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-navigation',
@@ -10,7 +11,7 @@ import { skip } from 'rxjs/operators';
   styleUrls: ['./prizm-navigation.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmNavigationComponent {
+export class PrizmNavigationComponent extends PrizmAbstractTestId {
   @Input() public set data(tree: INavigationTree[]) {
     tree.forEach(treeItem => this.calculateStatuses(treeItem));
 
@@ -23,7 +24,10 @@ export class PrizmNavigationComponent {
 
   public menuItems: INavigationTree[] = [];
 
-  constructor(private readonly activeItemService: ActiveNavigationItemService) {}
+  override readonly testId_ = 'ui_navigation';
+  constructor(private readonly activeItemService: ActiveNavigationItemService) {
+    super();
+  }
 
   public calculateStatuses(data: INavigationTree): void {
     if (data?.children?.length > 0) {

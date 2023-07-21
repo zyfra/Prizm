@@ -1,6 +1,7 @@
 import { ControlValueAccessor } from '@angular/forms';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
-export abstract class PrizmAccessorImplClass implements ControlValueAccessor {
+export abstract class PrizmAccessorImplClass extends PrizmAbstractTestId implements ControlValueAccessor {
   public accessorValue: unknown;
   public accessorOnChangeFn: (_: unknown) => unknown;
   public accessorOnTouchedFn: VoidFunction;

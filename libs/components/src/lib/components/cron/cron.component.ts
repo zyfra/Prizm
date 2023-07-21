@@ -27,7 +27,7 @@ import { prizmCronHRToString } from './human-readable/crons-i18n';
 // TODO move later add i18n
 import './human-readable/i18n/locales/ru';
 import { PRIZM_CRON } from '../../tokens';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-cron',
@@ -47,7 +47,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
     ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
   ],
 })
-export class PrizmCronComponent extends AbstractPrizmTestId implements OnInit {
+export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public set value(value: string) {
     if (!value) return;
     this.cron.updateWith(value);
@@ -80,7 +80,7 @@ export class PrizmCronComponent extends AbstractPrizmTestId implements OnInit {
   @prizmDefaultProp()
   resetButton = false;
 
-  override readonly testId_ = 'prizm_cron';
+  override readonly testId_ = 'ui_cron';
 
   @Input()
   @prizmDefaultProp()

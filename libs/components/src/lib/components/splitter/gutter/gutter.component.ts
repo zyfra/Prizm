@@ -1,5 +1,6 @@
 import { Component, ElementRef, HostBinding, Input, TemplateRef } from '@angular/core';
 import { PrizmSplitterOrientation } from '../types';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-splitter-gutter',
@@ -10,7 +11,7 @@ import { PrizmSplitterOrientation } from '../types';
     '[class]': 'orientation',
   },
 })
-export class PrizmSplitterGutterComponent {
+export class PrizmSplitterGutterComponent extends PrizmAbstractTestId {
   @Input() areaBefore: number;
   @Input() areaAfter: number;
 
@@ -19,6 +20,8 @@ export class PrizmSplitterGutterComponent {
   @Input() template: TemplateRef<any>;
 
   position: number;
-
-  constructor(public elementRef: ElementRef<HTMLElement>) {}
+  override readonly testId_ = 'ui_splitter--gutter';
+  constructor(public elementRef: ElementRef<HTMLElement>) {
+    super();
+  }
 }

@@ -62,7 +62,6 @@
         [searchMatcher]="searchMatcher"
         [identityMatcher]="identityMatcher"
         [dropdownWidth]="dropdownWidth"
-        [testId]="testIdPostfix"
         [readOnly]="readOnly"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
@@ -72,7 +71,7 @@
         [pseudoFocused]="pseudoFocused"
       ></prizm-select>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="control">
+    <prizm-doc-documentation [control]="control" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="dropdownScroll"
         [documentationPropertyValues]="dropdownScrollVariants"
@@ -91,14 +90,6 @@
         documentationPropertyMode="input"
       >
         Icon
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
       </ng-template>
       <ng-template
         documentationPropertyName="search"

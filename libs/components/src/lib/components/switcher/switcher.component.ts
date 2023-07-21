@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-switcher',
@@ -8,7 +9,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
   styleUrls: ['./switcher.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwitcherComponent {
+export class SwitcherComponent extends PrizmAbstractTestId {
   @Input()
   @prizmDefaultProp()
   public size: PrizmSwitcherSize = 'l';
@@ -32,8 +33,7 @@ export class SwitcherComponent {
 
   @Output() public selectedSwitcherIdxChange: EventEmitter<number> = new EventEmitter();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_switcher';
+  override readonly testId_ = 'ui_switcher';
 
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
     if (item.disabled) return;

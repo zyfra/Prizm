@@ -18,7 +18,7 @@ import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, of, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { AbstractPrizmTestId } from '../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-chips',
@@ -35,7 +35,7 @@ import { AbstractPrizmTestId } from '../../abstract/interactive';
   ],
 })
 export class PrizmChipsComponent
-  extends AbstractPrizmTestId
+  extends PrizmAbstractTestId
   implements ControlValueAccessor, OnInit, OnDestroy, AfterViewInit
 {
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 'l';

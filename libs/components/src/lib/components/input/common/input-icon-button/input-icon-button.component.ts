@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -12,7 +13,7 @@ import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular
     '[attr.tabindex]': 'tabindex',
   },
 })
-export class PrizmInputIconButtonComponent {
+export class PrizmInputIconButtonComponent extends PrizmAbstractTestId {
   @Input() size = 16;
   @Input() prizmInputIconButton: string;
   @Input() interactive = false;
@@ -24,8 +25,7 @@ export class PrizmInputIconButtonComponent {
   @HostBinding('attr.type')
   type: 'button' | 'reset' | 'submit' = 'button';
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_input_icon_button';
+  override readonly testId_ = 'ui_input_icon_button';
 
   get tabindex(): number {
     return this.interactive ? 0 : -1;

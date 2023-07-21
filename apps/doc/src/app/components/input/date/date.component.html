@@ -19,7 +19,6 @@
         [prizmDocHostElement]="element"
         [formControl]="control"
         [label]="label"
-        [testId]="testIdPostfix"
         [placeholder]="placeholder"
         [forceClear]="forceClear"
         [outer]="outer"
@@ -29,15 +28,7 @@
         [pseudoState]="pseudoState"
       ></prizm-input-date>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="control">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [control]="control" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

@@ -30,6 +30,7 @@ import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../services';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: `prizm-calendar-range`,
@@ -38,7 +39,10 @@ import { prizmI18nInitWithKey } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
 })
-export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<PrizmDay> {
+export class PrizmCalendarRangeComponent
+  extends PrizmAbstractTestId
+  implements PrizmWithOptionalMinMax<PrizmDay>
+{
   @Input()
   @prizmDefaultProp()
   defaultViewedMonth: PrizmMonth = PrizmMonth.currentLocal();
@@ -82,8 +86,7 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
   @Output()
   readonly rangeChange = new EventEmitter<PrizmDayRange | null>();
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_calendar_range';
+  override readonly testId_ = 'ui_calendar_range';
 
   readonly maxLengthMapper: PrizmMapper<PrizmDay, PrizmDay> = PRIZM_MAX_DAY_RANGE_LENGTH_MAPPER;
 
@@ -95,6 +98,7 @@ export class PrizmCalendarRangeComponent implements PrizmWithOptionalMinMax<Priz
     @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
     @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>
   ) {
+    super();
     if (!valueChanges) {
       return;
     }

@@ -10,7 +10,7 @@
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleSvg" heading="Svg">
+    <prizm-doc-example id="svg" [content]="exampleSvg" heading="Svg">
       <prizm-icon-svg-example></prizm-icon-svg-example>
     </prizm-doc-example>
 
@@ -30,7 +30,13 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-icons-svg #element [prizmDocHostElement]="element" [name]="name" [size]="size"></prizm-icons-svg>
+      <prizm-icons-svg
+        #element
+        [prizmDocHostElement]="element"
+        [name]="name"
+        [color]="color"
+        [size]="size"
+      ></prizm-icons-svg>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
@@ -41,6 +47,15 @@
         documentationPropertyMode="input"
       >
         Icon
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Css Color
       </ng-template>
 
       <ng-template

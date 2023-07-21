@@ -1,12 +1,14 @@
 import { Component, HostBinding, Injector, Input, OnDestroy } from '@angular/core';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmChartsThemeService } from '../service/charts-theme.service';
 import { PrizmChartTheme } from '../theme/types';
 @Component({ template: '' })
 export abstract class PrizmChartsAbstractComponent<
-  ORIGIN extends Record<string, any>,
-  OPTIONS extends Record<string, any>
-> implements OnDestroy
+    ORIGIN extends Record<string, any>,
+    OPTIONS extends Record<string, any>
+  >
+  extends PrizmAbstractTestId
+  implements OnDestroy
 {
   @HostBinding('style.width.px')
   @Input()
@@ -58,6 +60,7 @@ export abstract class PrizmChartsAbstractComponent<
   readonly prizmChartThemeService: PrizmChartsThemeService;
   abstract get origin(): ORIGIN;
   constructor(injector: Injector) {
+    super();
     this.prizmChartThemeService = injector.get(PrizmChartsThemeService);
     this.prizmChartThemeService.initIfNecessary();
   }

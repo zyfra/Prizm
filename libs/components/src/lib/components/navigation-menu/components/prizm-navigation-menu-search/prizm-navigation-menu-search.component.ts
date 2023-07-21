@@ -11,6 +11,7 @@ import {
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil } from 'rxjs/operators';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-navigation-menu-search',
@@ -19,7 +20,7 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmNavigationMenuSearchComponent implements AfterViewInit {
+export class PrizmNavigationMenuSearchComponent extends PrizmAbstractTestId implements AfterViewInit {
   @ViewChild('searchInput', {
     read: ElementRef,
   })
@@ -30,10 +31,13 @@ export class PrizmNavigationMenuSearchComponent implements AfterViewInit {
   @Input() searchDebounce: number;
 
   @Input() placeholder: string;
+  override readonly testId_ = 'ui_navigation_menu_search';
 
   public searchFormControl: UntypedFormControl = new UntypedFormControl('');
 
-  constructor(private destroy$: PrizmDestroyService) {}
+  constructor(private destroy$: PrizmDestroyService) {
+    super();
+  }
 
   ngAfterViewInit(): void {
     this.searchFormControl.valueChanges

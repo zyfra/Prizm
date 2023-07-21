@@ -42,7 +42,6 @@
         [dropdownScroll]="dropdownScroll"
         [maxDropdownHeight]="maxDropdownHeight"
         [label]="label"
-        [testId]="testIdPostfix"
         [placeholder]="placeholder"
         [searchMatcher]="searchMatcher"
         [identityMatcher]="identityMatcher"
@@ -52,16 +51,7 @@
       ></prizm-multi-select>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]="control">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
-
+    <prizm-doc-documentation [control]="control" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="dropdownScroll"
         [documentationPropertyValues]="dropdownScrollVariants"

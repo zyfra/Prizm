@@ -19,6 +19,7 @@ import {
 } from '../../directives/dropdown-controller';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-data-list',
@@ -32,7 +33,7 @@ import { takeUntil, tap } from 'rxjs/operators';
     '[class.default]': 'defaultStyle',
   },
 })
-export class PrizmDataListComponent implements OnInit {
+export class PrizmDataListComponent extends PrizmAbstractTestId implements OnInit {
   @Input() defaultStyle = true;
 
   @Input()
@@ -43,8 +44,7 @@ export class PrizmDataListComponent implements OnInit {
   @prizmDefaultProp()
   scroll: PrizmScrollbarVisibility = 'auto';
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_data_list';
+  override readonly testId_ = 'ui_data_list';
 
   constructor(
     @Inject(PRIZM_DROPDOWN_CONTROLLER)
@@ -54,7 +54,9 @@ export class PrizmDataListComponent implements OnInit {
     public readonly options: PrizmDataListOptions,
     private readonly destroy$: PrizmDestroyService,
     private readonly cdRef: ChangeDetectorRef
-  ) {}
+  ) {
+    super();
+  }
 
   get minDropdownHeight(): string {
     return (this.controller?.minHeight ?? PRIZM_DROPDOWN_DEFAULT_MIN_HEIGHT) + 'px';

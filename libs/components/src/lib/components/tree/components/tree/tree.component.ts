@@ -15,6 +15,7 @@ import { PRIZM_TREE_NODE } from '../../misc/tree.tokens';
 import { PrizmTreeItemComponent } from '../tree-item/tree-item.component';
 import { PrizmHandler } from '../../../../types';
 import { PolymorphContent } from '../../../../directives';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-tree[value]',
@@ -31,8 +32,9 @@ import { PolymorphContent } from '../../../../directives';
   host: {
     role: 'tree',
   },
+  exportAs: 'prizmTree',
 })
-export class PrizmTreeComponent<T> implements DoCheck {
+export class PrizmTreeComponent<T> extends PrizmAbstractTestId implements DoCheck {
   private readonly check$ = new Subject<void>();
 
   @Input()
@@ -50,8 +52,7 @@ export class PrizmTreeComponent<T> implements DoCheck {
     distinctUntilChanged()
   );
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'prizm_tree';
+  override readonly testId_ = 'ui_tree';
 
   @Input()
   usePaddingIndent: boolean;
@@ -63,7 +64,9 @@ export class PrizmTreeComponent<T> implements DoCheck {
     @Optional()
     @Inject(PrizmTreeChildrenDirective)
     readonly directive: PrizmTreeChildrenDirective<T> | null
-  ) {}
+  ) {
+    super();
+  }
 
   ngDoCheck(): void {
     this.check$.next();

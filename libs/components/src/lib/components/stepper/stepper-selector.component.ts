@@ -2,6 +2,7 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, EventEmitter, HostBinding, Input, Output, QueryList, ViewChildren } from '@angular/core';
 import { PrizmStepperSelectorItemDirective } from './stepper-selector-item.directive';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-stepper-selector',
@@ -13,7 +14,7 @@ import { PrizmStepperStepDirective } from './stepper-step.directive';
     ]),
   ],
 })
-export class PrizmStepperSelectorComponent {
+export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
   @Input() steps: Array<PrizmStepperStepDirective> = [];
 
   @Input() currentStep!: number;
@@ -24,6 +25,7 @@ export class PrizmStepperSelectorComponent {
 
   @ViewChildren(PrizmStepperSelectorItemDirective)
   selectorItems: QueryList<PrizmStepperSelectorItemDirective>;
+  override readonly testId_ = 'ui_stepper--selector';
 
   public clickOnStep(index: number): void {
     if (this.currentStep !== index) {

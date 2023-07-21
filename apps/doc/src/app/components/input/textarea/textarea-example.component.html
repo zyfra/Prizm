@@ -27,21 +27,12 @@
           [placeholder]="placeholder"
           [required]="required"
           [height]="height"
-          [testId]="testIdPostfix"
           prizmInput
         ></textarea>
       </prizm-input-layout>
     </prizm-doc-demo>
 
     <prizm-doc-documentation>
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"

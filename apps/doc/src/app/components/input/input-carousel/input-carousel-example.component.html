@@ -49,7 +49,6 @@
           [prizmDocHostElementKey]="controlKey"
           [disabled]="disabled"
           [formControl]="control"
-          [testId]="testIdPostfix"
           [required]="required"
           [carouselContent]="carouselContent"
           [lightMode]="lightMode"
@@ -61,15 +60,7 @@
         <ng-template prizmInputStatusText>Текст статуса</ng-template>
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"
