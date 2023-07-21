@@ -10,7 +10,7 @@ import {
 import { DOCUMENT } from '@angular/common';
 import { PrizmFlagIconsRegistry } from './prizm-flag-icons.registry';
 
-import { prizmPx } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-flag-icons',
@@ -29,11 +29,12 @@ import { prizmPx } from '@prizm-ui/core';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmFlagIconsComponent {
+export class PrizmFlagIconsComponent extends PrizmAbstractTestId {
   private svgIcon: SVGElement;
-
+  private name_: string;
   @Input()
   set name(iconName: string) {
+    this.name_ = iconName;
     if (this.svgIcon) {
       this.element.nativeElement.removeChild(this.svgIcon);
     }
@@ -41,6 +42,9 @@ export class PrizmFlagIconsComponent {
     if (!svgData) return;
     this.svgIcon = this.svgElementFromString(svgData);
     this.element.nativeElement.appendChild(this.svgIcon);
+  }
+  get name() {
+    return this.name_;
   }
 
   @HostBinding('style.width')
@@ -51,11 +55,17 @@ export class PrizmFlagIconsComponent {
     this._size = typeof size === 'number' ? prizmPx(size) : size;
   }
 
+  override get generateManeTestId(): string {
+    return 'ui_flag_icons' + (this.name ? `--${this.name}` : '');
+  }
+
   constructor(
     private element: ElementRef,
     private iconRegistry: PrizmFlagIconsRegistry,
     @Optional() @Inject(DOCUMENT) private document: Document
-  ) {}
+  ) {
+    super();
+  }
 
   private svgElementFromString(svgContent: string): SVGElement {
     const div = this.document.createElement('DIV');
