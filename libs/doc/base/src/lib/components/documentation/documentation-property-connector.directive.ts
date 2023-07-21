@@ -76,12 +76,13 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
 
   get attrName(): string {
     switch (this.documentationPropertyMode) {
-      case `input`:
+      case `input`: {
         let name = this.documentationPropertyName;
         if (name && name.endsWith('.testId')) {
           name = 'testId';
         }
         return `[${name}]`;
+      }
       case `output`:
         return `(${this.documentationPropertyName})`;
       case `input-output`:
