@@ -335,7 +335,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
   public changeTestIdPostfix(postfix: string, element: ElementRef<any>): void {
-    if ('testId' in element.nativeElement) {
+    if (element && 'testId' in element.nativeElement) {
       element.nativeElement.testId = postfix;
     }
   }
