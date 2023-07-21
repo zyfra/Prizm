@@ -41,6 +41,7 @@
       <prizm-switcher
         #element
         [(selectedSwitcherIdx)]="selectedSwitcherIdx"
+        [formControl]="control"
         [prizmDocHostElement]="element"
         [switchers]="switchers"
         [type]="type"
@@ -48,7 +49,7 @@
         [size]="size"
       ></prizm-switcher>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [control]="control" [hasTestId]="true">
       <ng-template
         documentationPropertyName="switchers"
         documentationPropertyType="PrizmSwitcherItem[]"

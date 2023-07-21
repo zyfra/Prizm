@@ -28,9 +28,17 @@ export class SwitcherItemComponent extends PrizmAbstractTestId {
   public isActive = false;
 
   @Input()
+  @prizmDefaultProp()
+  public disabled = false;
+
+  @Input()
   @HostBinding('class.full-width')
   @prizmDefaultProp()
   public fullWidth = false;
 
   override readonly testId_ = 'ui_switcher_item';
+
+  get isDisabled(): boolean {
+    return this.disabled || this.data?.disabled;
+  }
 }

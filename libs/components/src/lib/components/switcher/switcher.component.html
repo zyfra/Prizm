@@ -6,6 +6,7 @@
       [attr.first-child]="i === 0"
       [attr.last-child]="i === switchers.length - 1"
       [data]="switcher"
+      [disabled]="ngControl?.disabled"
       [isActive]="selectedSwitcherIdx === i"
       [type]="type"
       [size]="size"

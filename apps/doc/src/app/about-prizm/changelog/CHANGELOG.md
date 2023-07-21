@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - feat(components/input-select): added new input transformer to transform value #514
+- feat(components/switcher): added support form controllers #508
 
 ### Bug fixes
 
