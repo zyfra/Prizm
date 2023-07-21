@@ -6,6 +6,18 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(charts/area): add testId with ability to change postfix
+- feat(charts/bar): add testId with ability to change postfix
+- feat(charts/column): add testId with ability to change postfix
+- feat(charts/line): add testId with ability to change postfix
+- feat(charts/gauge): add testId with ability to change postfix
+- feat(charts/pie): add testId with ability to change postfix
+- feat(charts/radar): add testId with ability to change postfix
+- feat(charts/radial-bar): add testId with ability to change postfix
+- feat(charts/scatter): add testId with ability to change postfix
+- feat(charts/treemap): add testId with ability to change postfix
+- feat(charts/waterfall): add testId with ability to change postfix
+
 - chore: update CONTRIBUTING.md file
 - feat(doc): add ability to automatically add testId to apiPage
 - feat(components/icon): add input ot control color #524

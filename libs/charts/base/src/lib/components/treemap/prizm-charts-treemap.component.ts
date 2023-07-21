@@ -29,6 +29,7 @@ export class PrizmChartsTreemapComponent<
   public get colorField(): string {
     return this.options?.colorField;
   }
+  override readonly testId_ = 'ui_charts_treemap';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

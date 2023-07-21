@@ -26,6 +26,7 @@ export class PrizmChartsGaugeComponent<
   get percent(): number {
     return this.origin?.options.percent;
   }
+  override readonly testId_ = 'ui_charts_gauge';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

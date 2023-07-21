@@ -67,6 +67,7 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
   public get color(): PrizmChartsBarOptions['color'] {
     return this.options.color;
   }
+  override readonly testId_ = 'ui_charts_bar';
 
   private origin_: Bar;
 
