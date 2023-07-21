@@ -243,7 +243,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public isMostRelevant(idx: number, items: T[]): boolean {
     const wroteInputValue = this.printing$.value;
-    const itIsNotCurrentValue = wroteInputValue && !this.identityMatcher(wroteInputValue as T, this.value);
+    const valueFromItems = this.value && this.getValueFromItems(this.value);
+    const itIsNotCurrentValue =
+      valueFromItems && wroteInputValue && !this.searchMatcher(wroteInputValue, valueFromItems);
     const isCanSearch = this.searchable;
     const hasNullValue = items[0] === null;
     const result =
@@ -258,8 +260,13 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     this.searchChange.emit(value);
   }
 
+  public getValueFromItems(value: T) {
+    const newItem = this.items.find(i => this.identityMatcher(this.transformer(i), value));
+    return newItem;
+  }
+
   public getCurrentItem(value: T): string {
-    const newItem = this.items.find(i => this.identityMatcher(this.transformer(i), this.value));
+    const newItem = this.getValueFromItems(this.value);
     return this.stringify(newItem ?? value);
   }
 }

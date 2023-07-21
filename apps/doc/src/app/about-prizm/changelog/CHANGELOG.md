@@ -6,7 +6,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- feat(components/input-select): added ability to transform value #514
+- feat(components/input-select): added new input transformer to transform value #514
+
+### Bug fixes
+
+- fix(components/input-select): select most relevant when you passed object
 
 ## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
 
