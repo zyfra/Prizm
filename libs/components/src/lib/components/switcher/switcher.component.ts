@@ -69,6 +69,7 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
     }
   }
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
+    if (this.ngControl?.disabled) return;
     if (item.disabled) return;
     if (this.selectedSwitcherIdx === idx) return;
     this.selectedSwitcherIdxChange.emit((this.selectedSwitcherIdx_ = idx));
