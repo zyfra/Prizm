@@ -5,6 +5,7 @@ on:
       - main
       - v14
       - v15
+      - v16
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
