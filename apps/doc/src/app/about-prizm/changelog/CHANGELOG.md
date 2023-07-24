@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - feat(components/input-select): added new input transformer to transform value #514
 - feat(components/switcher): added support form controllers #508
+- feat(components/tooltip): added ability to close on exc pressed #307
 
 ### Bug fixes
 
