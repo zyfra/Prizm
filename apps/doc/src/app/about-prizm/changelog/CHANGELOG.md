@@ -6,66 +6,68 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(components/file-upload): test-id was added with ability to change post fix
+- feat(components/error-page): test-id was added with ability to change post fix
 - feat(components/input-select): added new input transformer to transform value #514
 - feat(components/switcher): added support form controllers #508
 - feat(components/tooltip): added ability to close on esc pressed #307
-- feat(charts/area): add testId with ability to change postfix
-- feat(charts/bar): add testId with ability to change postfix
-- feat(charts/column): add testId with ability to change postfix
-- feat(charts/line): add testId with ability to change postfix
-- feat(charts/gauge): add testId with ability to change postfix
-- feat(charts/pie): add testId with ability to change postfix
-- feat(charts/radar): add testId with ability to change postfix
-- feat(charts/radial-bar): add testId with ability to change postfix
-- feat(charts/scatter): add testId with ability to change postfix
-- feat(charts/treemap): add testId with ability to change postfix
-- feat(charts/waterfall): add testId with ability to change postfix
+- feat(charts/area): test-id was added with ability to change postfix
+- feat(charts/bar): test-id was added with ability to change postfix
+- feat(charts/column): test-id was added with ability to change postfix
+- feat(charts/line): test-id was added with ability to change postfix
+- feat(charts/gauge): test-id was added with ability to change postfix
+- feat(charts/pie): test-id was added with ability to change postfix
+- feat(charts/radar): test-id was added with ability to change postfix
+- feat(charts/radial-bar): test-id was added with ability to change postfix
+- feat(charts/scatter): test-id was added with ability to change postfix
+- feat(charts/treemap): test-id was added with ability to change postfix
+- feat(charts/waterfall): test-id was added with ability to change postfix
 - chore: update CONTRIBUTING.md file
-- feat(doc): add ability to automatically add testId to apiPage
+- feat(doc): ability was added to automatically test-id was added to apiPage
 - feat(components/icon): add input ot control color #524
-- feat(components/tabs): add ability to edit testId postfix
-- feat(components/accordion): add ability to edit testId postfix
-- feat(components/grid-item): add ability to edit testId postfix
-- feat(components/calendar-range): add ability to edit testId postfix
-- feat(components/calendar): add ability to edit testId postfix
-- feat(components/card): add ability to edit testId postfix
-- feat(components/data-list): add ability to edit testId postfix
-- feat(components/confirm-dialog): add ability to edit testId postfix
-- feat(components/dialog): add ability to edit testId postfix
-- feat(components/sidebar): add ability to edit testId postfix
-- feat(components/dropdown-host): add ability to edit testId postfix
-- feat(components/expand): add ability to edit testId postfix
-- feat(components/grid): add ability to edit testId postfix
-- feat(components/indicator): add ability to edit testId postfix
-- feat(components/input-icon-button): add ability to edit testId postfix
-- feat(components/primitive-calendar-range): add ability to edit testId postfix
-- feat(components/primitive-calendar): add ability to edit testId postfix
-- feat(components/primitive-month-picker): add ability to edit testId postfix
-- feat(components/primitive-year-month-pagination): add ability to edit testId postfix
-- feat(components/primitive-year-picker): add ability to edit testId postfix
-- feat(components/link): add ability to edit testId postfix
-- feat(components/loader): add ability to edit testId postfix
-- feat(components/paginator): add ability to edit testId postfix
-- feat(components/panel): add ability to edit testId postfix
-- feat(components/radio-button): add ability to edit testId postfix
-- feat(components/scroll-controlls): add ability to edit testId postfix
-- feat(components/scrollbar): add ability to edit testId postfix
-- feat(components/spinner): add ability to edit testId postfix
-- feat(components/switcher-item): add ability to edit testId postfix
-- feat(components/switcher): add ability to edit testId postfix
-- feat(components/tab): add ability to edit testId postfix
-- feat(components/toast-container): add ability to edit testId postfix
-- feat(components/toast-single): add ability to edit testId postfix
-- feat(components/toast-wrapper): add ability to edit testId postfix
-- feat(components/tree-item-content): add ability to edit testId postfix
-- feat(components/tree-item): add ability to edit testId postfix
-- feat(components/tree): add ability to edit testId postfix
-- feat(components/widget): add ability to edit testId postfix
-- feat(components/sticky): add class with direction #470
-- feat(components/i18n): add new init way to components with time
-- feat(components/i18n): add new init way to components with month
-- feat(components/i18n): add new init way to components with calendar
-- feat(components/i18n): add new init way to components with weeks
+- feat(components/tabs): ability was added to edit testId postfix
+- feat(components/accordion): ability was added to edit testId postfix
+- feat(components/grid-item): ability was added to edit testId postfix
+- feat(components/calendar-range): ability was added to edit testId postfix
+- feat(components/calendar): ability was added to edit testId postfix
+- feat(components/card): ability was added to edit testId postfix
+- feat(components/data-list): ability was added to edit testId postfix
+- feat(components/confirm-dialog): ability was added to edit testId postfix
+- feat(components/dialog): ability was added to edit testId postfix
+- feat(components/sidebar): ability was added to edit testId postfix
+- feat(components/dropdown-host): ability was added to edit testId postfix
+- feat(components/expand): ability was added to edit testId postfix
+- feat(components/grid): ability was added to edit testId postfix
+- feat(components/indicator): ability was added to edit testId postfix
+- feat(components/input-icon-button): ability was added to edit testId postfix
+- feat(components/primitive-calendar-range): ability was added to edit testId postfix
+- feat(components/primitive-calendar): ability was added to edit testId postfix
+- feat(components/primitive-month-picker): ability was added to edit testId postfix
+- feat(components/primitive-year-month-pagination): ability was added to edit testId postfix
+- feat(components/primitive-year-picker): ability was added to edit testId postfix
+- feat(components/link): ability was added to edit testId postfix
+- feat(components/loader): ability was added to edit testId postfix
+- feat(components/paginator): ability was added to edit testId postfix
+- feat(components/panel): ability was added to edit testId postfix
+- feat(components/radio-button): ability was added to edit testId postfix
+- feat(components/scroll-controls): ability was added to edit testId postfix
+- feat(components/scrollbar): ability was added to edit testId postfix
+- feat(components/spinner): ability was added to edit testId postfix
+- feat(components/switcher-item): ability was added to edit testId postfix
+- feat(components/switcher): ability was added to edit testId postfix
+- feat(components/tab): ability was added to edit testId postfix
+- feat(components/toast-container): ability was added to edit testId postfix
+- feat(components/toast-single): ability was added to edit testId postfix
+- feat(components/toast-wrapper): ability was added to edit testId postfix
+- feat(components/tree-item-content): ability was added to edit testId postfix
+- feat(components/tree-item): ability was added to edit testId postfix
+- feat(components/tree): ability was added to edit testId postfix
+- feat(components/widget): ability was added to edit testId postfix
+- feat(components/sticky): class was added with direction #470
+- feat(components/i18n): new way to init was added to components with time
+- feat(components/i18n): new way to init was added to components with month
+- feat(components/i18n): new way to init was added to components with calendar
+- feat(components/i18n): new way to init was added to components with weeks
 
 ### Bug fixes
 
@@ -117,59 +119,59 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- feat(charts/area): add testId with ability to change postfix
-- feat(charts/bar): add testId with ability to change postfix
-- feat(charts/column): add testId with ability to change postfix
-- feat(charts/line): add testId with ability to change postfix
-- feat(charts/gauge): add testId with ability to change postfix
-- feat(charts/pie): add testId with ability to change postfix
-- feat(charts/radar): add testId with ability to change postfix
-- feat(charts/radial-bar): add testId with ability to change postfix
-- feat(charts/scatter): add testId with ability to change postfix
-- feat(charts/treemap): add testId with ability to change postfix
-- feat(charts/waterfall): add testId with ability to change postfix
+- feat(charts/area): test-id was added with ability to change postfix
+- feat(charts/bar): test-id was added with ability to change postfix
+- feat(charts/column): test-id was added with ability to change postfix
+- feat(charts/line): test-id was added with ability to change postfix
+- feat(charts/gauge): test-id was added with ability to change postfix
+- feat(charts/pie): test-id was added with ability to change postfix
+- feat(charts/radar): test-id was added with ability to change postfix
+- feat(charts/radial-bar): test-id was added with ability to change postfix
+- feat(charts/scatter): test-id was added with ability to change postfix
+- feat(charts/treemap): test-id was added with ability to change postfix
+- feat(charts/waterfall): test-id was added with ability to change postfix
 
 - chore: update CONTRIBUTING.md file
-- feat(doc): add ability to automatically add testId to apiPage
+- feat(doc): ability was added to automatically test-id was added to apiPage
 - feat(components/icon): add input ot control color #524
-- feat(components/tabs): add ability to edit testId postfix
-- feat(components/accordion): add ability to edit testId postfix
-- feat(components/grid-item): add ability to edit testId postfix
-- feat(components/calendar-range): add ability to edit testId postfix
-- feat(components/calendar): add ability to edit testId postfix
-- feat(components/card): add ability to edit testId postfix
-- feat(components/data-list): add ability to edit testId postfix
-- feat(components/confirm-dialog): add ability to edit testId postfix
-- feat(components/dialog): add ability to edit testId postfix
-- feat(components/sidebar): add ability to edit testId postfix
-- feat(components/dropdown-host): add ability to edit testId postfix
-- feat(components/expand): add ability to edit testId postfix
-- feat(components/grid): add ability to edit testId postfix
-- feat(components/indicator): add ability to edit testId postfix
-- feat(components/input-icon-button): add ability to edit testId postfix
-- feat(components/primitive-calendar-range): add ability to edit testId postfix
-- feat(components/primitive-calendar): add ability to edit testId postfix
-- feat(components/primitive-month-picker): add ability to edit testId postfix
-- feat(components/primitive-year-month-pagination): add ability to edit testId postfix
-- feat(components/primitive-year-picker): add ability to edit testId postfix
-- feat(components/link): add ability to edit testId postfix
-- feat(components/loader): add ability to edit testId postfix
-- feat(components/paginator): add ability to edit testId postfix
-- feat(components/panel): add ability to edit testId postfix
-- feat(components/radio-button): add ability to edit testId postfix
-- feat(components/scroll-controlls): add ability to edit testId postfix
-- feat(components/scrollbar): add ability to edit testId postfix
-- feat(components/spinner): add ability to edit testId postfix
-- feat(components/switcher-item): add ability to edit testId postfix
-- feat(components/switcher): add ability to edit testId postfix
-- feat(components/tab): add ability to edit testId postfix
-- feat(components/toast-container): add ability to edit testId postfix
-- feat(components/toast-single): add ability to edit testId postfix
-- feat(components/toast-wrapper): add ability to edit testId postfix
-- feat(components/tree-item-content): add ability to edit testId postfix
-- feat(components/tree-item): add ability to edit testId postfix
-- feat(components/tree): add ability to edit testId postfix
-- feat(components/widget): add ability to edit testId postfix
+- feat(components/tabs): ability was added to edit testId postfix
+- feat(components/accordion): ability was added to edit testId postfix
+- feat(components/grid-item): ability was added to edit testId postfix
+- feat(components/calendar-range): ability was added to edit testId postfix
+- feat(components/calendar): ability was added to edit testId postfix
+- feat(components/card): ability was added to edit testId postfix
+- feat(components/data-list): ability was added to edit testId postfix
+- feat(components/confirm-dialog): ability was added to edit testId postfix
+- feat(components/dialog): ability was added to edit testId postfix
+- feat(components/sidebar): ability was added to edit testId postfix
+- feat(components/dropdown-host): ability was added to edit testId postfix
+- feat(components/expand): ability was added to edit testId postfix
+- feat(components/grid): ability was added to edit testId postfix
+- feat(components/indicator): ability was added to edit testId postfix
+- feat(components/input-icon-button): ability was added to edit testId postfix
+- feat(components/primitive-calendar-range): ability was added to edit testId postfix
+- feat(components/primitive-calendar): ability was added to edit testId postfix
+- feat(components/primitive-month-picker): ability was added to edit testId postfix
+- feat(components/primitive-year-month-pagination): ability was added to edit testId postfix
+- feat(components/primitive-year-picker): ability was added to edit testId postfix
+- feat(components/link): ability was added to edit testId postfix
+- feat(components/loader): ability was added to edit testId postfix
+- feat(components/paginator): ability was added to edit testId postfix
+- feat(components/panel): ability was added to edit testId postfix
+- feat(components/radio-button): ability was added to edit testId postfix
+- feat(components/scroll-controls): ability was added to edit testId postfix
+- feat(components/scrollbar): ability was added to edit testId postfix
+- feat(components/spinner): ability was added to edit testId postfix
+- feat(components/switcher-item): ability was added to edit testId postfix
+- feat(components/switcher): ability was added to edit testId postfix
+- feat(components/tab): ability was added to edit testId postfix
+- feat(components/toast-container): ability was added to edit testId postfix
+- feat(components/toast-single): ability was added to edit testId postfix
+- feat(components/toast-wrapper): ability was added to edit testId postfix
+- feat(components/tree-item-content): ability was added to edit testId postfix
+- feat(components/tree-item): ability was added to edit testId postfix
+- feat(components/tree): ability was added to edit testId postfix
+- feat(components/widget): ability was added to edit testId postfix
 
 ### Bug fixes
 
@@ -201,11 +203,11 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- feat(components/sticky): add class with direction #470
-- feat(components/i18n): add new init way to components with time
-- feat(components/i18n): add new init way to components with month
-- feat(components/i18n): add new init way to components with calendar
-- feat(components/i18n): add new init way to components with weeks
+- feat(components/sticky): class was added with direction #470
+- feat(components/i18n): new way to init was added to components with time
+- feat(components/i18n): new way to init was added to components with month
+- feat(components/i18n): new way to init was added to components with calendar
+- feat(components/i18n): new way to init was added to components with weeks
 
 ### BUG FIXES
 
@@ -223,13 +225,13 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-select): added ability to visibility control of scrollbar thumb for select components [491](https://github.com/zyfra/Prizm/issues/491)
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
-- feat(components/button): add ability to set postfix for test-id for button, toggle components [465](https://github.com/zyfra/Prizm/issues/465)
-- feat(components/select): add ability to set postfix for test-id for select components [465](https://github.com/zyfra/Prizm/issues/465)
-- feat(components/input-\*): add ability to set postfix for test-id for input components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/button): ability was added to set postfix for test-id for button, toggle components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/select): ability was added to set postfix for test-id for select components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/input-\*): ability was added to set postfix for test-id for input components [465](https://github.com/zyfra/Prizm/issues/465)
 - feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
-- feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
-- feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
-- feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
+- feat(components/sidebar): ability was added pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-dialog): ability was added pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-popup): ability was added pass observable for buttons to control disabled, showLoader
 - feat(doc): now deprecated/new names in navigation stand out nicely
 
 ### BUG FIXES
@@ -277,13 +279,13 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-select): added ability to visibility control of scrollbar thumb for select components [491](https://github.com/zyfra/Prizm/issues/491)
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
-- feat(components/button): add ability to set postfix for test-id for button, toggle components [465](https://github.com/zyfra/Prizm/issues/465)
-- feat(components/select): add ability to set postfix for test-id for select components [465](https://github.com/zyfra/Prizm/issues/465)
-- feat(components/input-\*): add ability to set postfix for test-id for input components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/button): ability was added to set postfix for test-id for button, toggle components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/select): ability was added to set postfix for test-id for select components [465](https://github.com/zyfra/Prizm/issues/465)
+- feat(components/input-\*): ability was added to set postfix for test-id for input components [465](https://github.com/zyfra/Prizm/issues/465)
 - feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
-- feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
-- feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
-- feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
+- feat(components/sidebar): ability was added pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-dialog): ability was added pass observable for buttons to control disabled, showLoader [497](https://github.com/zyfra/Prizm/issues/497)
+- feat(components/confirm-popup): ability was added pass observable for buttons to control disabled, showLoader
 - feat(doc): now deprecated/new names in navigation stand out nicely
 
 ### BUG FIXES
@@ -331,13 +333,13 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-select): added ability to visibility control of scrollbar thumb for select components #491
 - feat(ast): update only when has changes in file for templates
 - feat(doc): now input/output getter can distinguish altered properties
-- feat(components/button): add ability to set postfix for test-id for button, toggle components #465
-- feat(components/select): add ability to set postfix for test-id for select components #465
-- feat(components/input-\*): add ability to set postfix for test-id for input components #465
+- feat(components/button): ability was added to set postfix for test-id for button, toggle components #465
+- feat(components/select): ability was added to set postfix for test-id for select components #465
+- feat(components/input-\*): ability was added to set postfix for test-id for input components #465
 - feat(doc): add example with passing innerHTML/customData [516](https://github.com/zyfra/Prizm/issues/516)
-- feat(components/sidebar): add ability pass observable for buttons to control disabled, showLoader #497
-- feat(components/confirm-dialog): add ability pass observable for buttons to control disabled, showLoader #497
-- feat(components/confirm-popup): add ability pass observable for buttons to control disabled, showLoader
+- feat(components/sidebar): ability was added pass observable for buttons to control disabled, showLoader #497
+- feat(components/confirm-dialog): ability was added pass observable for buttons to control disabled, showLoader #497
+- feat(components/confirm-popup): ability was added pass observable for buttons to control disabled, showLoader
 - feat(doc): now deprecated/new names in navigation stand out nicely
 
 ### BUG FIXES
@@ -672,9 +674,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- feat(input-layout): add ability to show status messages from controls
+- feat(input-layout): ability was added to show status messages from controls
 - chore: splitted angular file to seperated project
-- feat(components/dropdown-host): add ability to control auto close on outside click
+- feat(components/dropdown-host): ability was added to control auto close on outside click
 - feat(components/select-input): we deprecated old prizm-select, and created new prizm-select-input which you can use with our layout
 - feat(components/input-layout): add support directives from control to support components with dropdown
 - feat(doc/select-input): update api page
@@ -827,7 +829,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/navigation-menu): replace deprecated menu
 - feat(components/button): now you can pass polymorph content as icon to use any icon set [151](https://github.com/zyfra/Prizm/issues/151)
 - feat(doc/icon-button): add example with you custom icon [151](https://github.com/zyfra/Prizm/issues/151)
-- feat(components/sidebar): add ability to hide footer [153](https://github.com/zyfra/Prizm/issues/153)
+- feat(components/sidebar): ability was added to hide footer [153](https://github.com/zyfra/Prizm/issues/153)
 
 ### BUG FIXES
 
@@ -845,7 +847,7 @@ All notable changes to this project will be documented in this file.
 
 - feat(ast): new library for help to write you migrator and code updater
 - feat(cb3-to-prizm): new migrator for help to migrate to prizm from pervious component base 3
-- feat(ci): add ability for work with forked pull requests
+- feat(ci): ability was added for work with forked pull requests
 - feat(doc/dialog): add example with close in template buttons [123](https://github.com/zyfra/Prizm/issues/123)
 - feat(components/table): added example with new `PrizmTableDataSource`  [133](https://github.com/zyfra/Prizm/issues/133)
 - feat(components/table): added  `PrizmTableDataSource` class [133](https://github.com/zyfra/Prizm/issues/133)
@@ -1219,7 +1221,7 @@ Migrate PrizmThemeModule > prizm/theme
 
 ### BUG FIXES
 
-- fix(components): add testId
+- fix(components): test-id was added
 - fix(components/textarea) Textarea fix
 
 ### Features
