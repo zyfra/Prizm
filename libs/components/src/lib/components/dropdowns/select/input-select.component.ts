@@ -266,6 +266,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public getCurrentItem(value: T): string {
+    if (Compare.isNullish(value)) return '';
     const newItem = this.getValueFromItems(this.value);
     return this.stringify(newItem ?? value);
   }
