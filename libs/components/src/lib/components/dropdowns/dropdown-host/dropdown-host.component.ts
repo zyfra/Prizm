@@ -28,6 +28,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
 import { PrizmDropdownHostContext, PrizmDropdownHostCustomContext, PrizmDropdownHostWidth } from './models';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -37,7 +38,7 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
   providers: [PrizmDestroyService],
   exportAs: 'prizm-dropdown-host',
 })
-export class PrizmDropdownHostComponent implements AfterViewInit {
+export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit {
   @Input() content: PolymorphContent<PrizmDropdownHostContext>;
 
   @Input()
@@ -75,8 +76,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   @prizmDefaultProp()
   prizmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_dropdown_host';
+  override readonly testId_ = 'ui_dropdown_host';
 
   readonly itemForListener = new Set<HTMLElement>();
 
@@ -100,6 +100,11 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
   @Input() set isOpen(state: boolean) {
     this.isOpen$.next(state);
   }
+  get isOpen(): boolean {
+    return this.isOpen$.value;
+  }
+
+  private lastEmittedState: boolean;
 
   @Input() dropdownStyles: Record<string, string | number> = {};
 
@@ -127,6 +132,7 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
     public readonly injector: Injector,
     private readonly destroy$: PrizmDestroyService
   ) {
+    super();
     this.destroy$.addCallback(() => this.close());
   }
 
@@ -166,12 +172,12 @@ export class PrizmDropdownHostComponent implements AfterViewInit {
 
   public close(): void {
     this.overlay?.close();
-    this.isOpenChange.emit(false);
+    if (this.lastEmittedState) this.isOpenChange.emit((this.lastEmittedState = false));
   }
 
   public open(): void {
     this.overlay?.open();
-    this.isOpenChange.emit(true);
+    if (!this.lastEmittedState) this.isOpenChange.emit((this.lastEmittedState = true));
   }
 
   private initOverlay(): void {

@@ -1,13 +1,14 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input } from '@angular/core';
-import { defer, Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
-import { filter, takeUntil, tap } from 'rxjs/operators';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
+import { takeUntil, tap } from 'rxjs/operators';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmSidebarOptions, PrizmSidebarResultDefaultType } from './sidebar.models';
 import { invokeIfCanCloseSidebar } from './util';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-sidebar',
@@ -17,7 +18,7 @@ import { invokeIfCanCloseSidebar } from './util';
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
 })
-export class PrizmSidebarComponent<DATA = unknown> {
+export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
   @Input()
   public context!: PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>;
 
@@ -50,8 +51,7 @@ export class PrizmSidebarComponent<DATA = unknown> {
     return this.animation;
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_area--sidebar';
+  override readonly testId_ = 'ui_area--sidebar';
 
   private readonly animation = {
     value: '',
@@ -66,6 +66,7 @@ export class PrizmSidebarComponent<DATA = unknown> {
     @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
     private readonly destroy$: PrizmDestroyService
   ) {
+    super();
     close$
       .pipe(takeUntil(this.destroy$))
       .pipe(

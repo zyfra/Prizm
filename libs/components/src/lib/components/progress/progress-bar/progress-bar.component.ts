@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmSizeM, PrizmSizeS } from '../../../util/size-bigger';
 
 @Component({
@@ -9,7 +9,7 @@ import { PrizmSizeM, PrizmSizeS } from '../../../util/size-bigger';
   styleUrls: [`./progress-bar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmProgressBarComponent {
+export class PrizmProgressBarComponent extends PrizmAbstractTestId {
   @Input()
   @HostBinding(`style.--prizm-progress-color`)
   color?: string;
@@ -23,4 +23,6 @@ export class PrizmProgressBarComponent {
   @HostBinding(`attr.data-size`)
   @prizmDefaultProp()
   size: PrizmSizeS | PrizmSizeM = `m`;
+
+  override readonly testId_ = 'ui_progress_bar';
 }

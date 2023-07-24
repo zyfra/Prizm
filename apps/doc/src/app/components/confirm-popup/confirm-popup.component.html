@@ -29,7 +29,7 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <button
-        #element
+        #element="prizmConfirmPopup"
         [prizmDocHostElement]="element"
         [prizmConfirmPopup]="content"
         [prizmAutoReposition]="prizmAutoReposition"
@@ -39,220 +39,145 @@
         [prizmConfirmPopupHideDelay]="prizmConfirmPopupHideDelay"
         [prizmConfirmPopupHost]="prizmConfirmPopupHost"
         [size]="size"
-        [icon]="icon"
-        [iconRight]="iconRight"
-        [appearanceType]="appearanceType"
-        [appearance]="appearance"
-        [disabled]="disabled"
-        [showLoader]="showLoader"
-        [focusable]="focusable"
-        [pseudoState]="pseudoState"
         prizmButton
       >
         Button
       </button>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
-      <!-- <ng-template
-        documentationPropertyName="prizmConfirmPopup"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
+    <prizm-doc-documentation [hasTestId]="false">
+      <ng-template
         [(documentationPropertyValue)]="content"
+        documentationPropertyName="prizmConfirmPopup"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
       >
         Content
-      </ng-template> -->
+      </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="prizmAutoReposition"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmAutoReposition"
-      >
-        Auto Reposition
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="prizmConfirmPopupDirection"
-        documentationPropertyType="PrizmOverlayOutsidePlacement"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="prizmConfirmPopupDirectionVariants"
-        [(documentationPropertyValue)]="prizmConfirmPopupDirection"
-      >
-        ConfirmPopup Direction
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="prizmConfirmPopupId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmConfirmPopupId"
-      >
-        ConfirmPopup Id
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="prizmConfirmPopupShowDelay"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmConfirmPopupShowDelay"
-      >
-        Show Delay
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="prizmConfirmPopupHideDelay"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="prizmConfirmPopupHideDelay"
-      >
-        Hide Delay
-      </ng-template> -->
-
-      <!-- <ng-template
+      <ng-template
         documentationPropertyName="prizmConfirmPopupHost"
-        documentationPropertyType="HtmlElement"
+        documentationPropertyType="HTMLElement | null"
         documentationPropertyMode="input"
       >
-        Host
-      </ng-template> -->
-
-      <ng-template
-        [(documentationPropertyValue)]="appearance"
-        [documentationPropertyValues]="appearanceVariants"
-        documentationPropertyName="appearance"
-        documentationPropertyType="PrizmAppearance"
-        documentationPropertyMode="input"
-      >
-        Appearance
+        Element relative to which the tooltip will appear (default: current)
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="appearanceType"
-        [documentationPropertyValues]="appearanceTypeVariants"
-        documentationPropertyName="appearanceType"
-        documentationPropertyType="PrizmAppearanceType"
-        documentationPropertyMode="input"
-      >
-        AppearanceType
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
         documentationPropertyName="size"
-        documentationPropertyType="PrizmDialogSize"
+        documentationPropertyType=" PrizmSizeM | PrizmSizeL"
         documentationPropertyMode="input"
       >
         Size
       </ng-template>
+
       <ng-template
-        [(documentationPropertyValue)]="icon"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="icon"
-        documentationPropertyType="PrizmContent"
+        documentationPropertyName="prizmConfirmPopupContext"
+        documentationPropertyType="Record<stiring, unknown>"
         documentationPropertyMode="input"
       >
-        Icon
+        Context which will be passed to popup
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="iconRight"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="iconRight"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-      >
-        Right Icon
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="disabled"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Disabled
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="showLoader"
-        documentationPropertyName="showLoader"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Show Loader
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="pseudoHovered"
-        documentationPropertyName="pseudoHovered"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Hovered
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoPressed"
-        documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Pressed
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoFocused"
-        documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Focused
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusable"
-        documentationPropertyName="focusable"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Focusable
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoState"
-        documentationPropertyName="pseudoState"
+        documentationPropertyName="prizmConfirmPopupTitle"
         documentationPropertyType="string"
         documentationPropertyMode="input"
       >
-        Pseudo State
+        Title
       </ng-template>
+
       <ng-template
-        [(documentationPropertyValue)]="focusedChange"
-        documentationPropertyName="focusedChange"
+        documentationPropertyName="confirmButton"
+        documentationPropertyType="PrizmConfirmPopupButton | string"
+        documentationPropertyMode="input"
+      >
+        Confirm Button
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmConfirmPopupCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can popup show
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="supportButton"
+        documentationPropertyType="PrizmConfirmPopupButton | string"
+        documentationPropertyMode="input"
+      >
+        Support Button
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="cancelButton"
+        documentationPropertyType="PrizmConfirmPopupButton | string"
+        documentationPropertyMode="input"
+      >
+        Cancel Button
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmConfirmPopupHideDelay"
+        documentationPropertyName="prizmConfirmPopupHideDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Delay to hide popup
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmConfirmPopupShowDelay"
+        documentationPropertyName="prizmConfirmPopupShowDelay"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Delay to show popup
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmConfirmPopupId"
+        documentationPropertyName="prizmConfirmPopupId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Popup ID
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmConfirmPopupDirection"
+        [documentationPropertyValues]="prizmConfirmPopupDirectionVariants"
+        documentationPropertyName="prizmConfirmPopupDirection"
+        documentationPropertyType="PrizmTooltipOptions['direction']"
+        documentationPropertyMode="input"
+      >
+        Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmAutoReposition"
+        documentationPropertyName="prizmAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Auto recalculate positioning
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="completeWith"
+        documentationPropertyType="unknown"
+        documentationPropertyMode="output"
+      >
+        On complete Can pass any value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="prizmConfirmPopupShowed"
         documentationPropertyType="boolean"
         documentationPropertyMode="output"
       >
-        Focused Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pressedChange"
-        documentationPropertyName="pressedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Pressed Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="hoveredChange"
-        documentationPropertyName="hoveredChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Hovered Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusVisibleChange"
-        documentationPropertyName="focusVisibleChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Focus Visible Change
+        Trigger when popup was showed
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

@@ -26,6 +26,8 @@ import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
+import { prizmI18nInitWithKey } from '../../../services';
+import { PRIZM_MONTHS } from '../../../tokens';
 
 @Component({
   selector: `prizm-input-layout-month-range`,
@@ -33,6 +35,7 @@ import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
   styleUrls: [`./input-layout-month-range.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    ...prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
     PRIZM_MONTH_FORMATTER_PROVIDER,
     PrizmMonthPipe,
     {

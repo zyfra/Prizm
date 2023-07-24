@@ -20,7 +20,7 @@ import {
 } from '../../../tokens/date-extra-buttons';
 import { BehaviorSubject } from 'rxjs';
 import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-button';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 export type PrizmDateItemTemplate = {
   name: string;
@@ -33,7 +33,7 @@ export type PrizmDateItemTemplate = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [getProviderPrizmDateLeftButtons()],
 })
-export class PrizmInputDateMultiComponent extends AbstractPrizmTestId implements OnInit {
+export class PrizmInputDateMultiComponent extends PrizmAbstractTestId implements OnInit {
   @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate: TemplateRef<unknown>;
 
   private readonly _items$ = new BehaviorSubject<PrizmDateItemTemplate[]>([]);

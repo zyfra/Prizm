@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 
 import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { PrizmTreeController } from '../misc/tree.interfaces';

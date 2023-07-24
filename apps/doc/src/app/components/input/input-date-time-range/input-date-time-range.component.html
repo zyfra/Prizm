@@ -1,4 +1,4 @@
-<prizm-doc-page header="InputDateTimeRange" package="deprecated">
+<prizm-doc-page header="InputDateTimeRange">
   <div class="page-description" description>
     It is a deprecated component, instead of this use PrizmInputLayoutDateTimeRange.
   </div>
@@ -15,21 +15,12 @@
         [prizmDocHostElement]="element"
         [formControl]="value"
         [min]="min"
-        [testId]="testIdPostfix"
         [forceClear]="forceClear"
         [max]="max"
       ></prizm-input-date-time-range>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation [control]="value">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [control]="value" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

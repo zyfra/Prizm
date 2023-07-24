@@ -21,15 +21,34 @@ import { result } from 'lodash';
   providers: [PrizmDestroyService, ResizeObserverService],
 })
 export class PrizmStickyDirective implements OnChanges {
-  @Input() prizmStickyLeft: boolean;
-  @Input() prizmStickyRight: boolean;
-  @Input() prizmStickyTop: boolean;
-  @Input() prizmStickyBottom: boolean;
-  @Input() prizmStikyRelative?: HTMLElement;
+  @HostBinding('class.prizm-sticky-left')
+  @Input()
+  prizmStickyLeft: boolean;
+
+  @HostBinding('class.prizm-sticky-right')
+  @Input()
+  prizmStickyRight: boolean;
+
+  @HostBinding('class.prizm-sticky-top')
+  @Input()
+  prizmStickyTop: boolean;
+
+  @HostBinding('class.prizm-sticky-bottom')
+  @Input()
+  prizmStickyBottom: boolean;
 
   @Input()
-  @HostBinding('style.position')
+  prizmStikyRelative?: HTMLElement;
+
+  @Input()
   position = 'sticky';
+
+  @HostBinding('style.position')
+  get applySticky() {
+    return this.prizmStickyLeft || this.prizmStickyRight || this.prizmStickyTop || this.prizmStickyBottom
+      ? this.position
+      : '';
+  }
 
   private readonly rect$ = this.entries$.pipe(map(() => this.elRef.nativeElement.getBoundingClientRect()));
   private readonly destroyPrevious$ = new Subject<void>();
@@ -51,12 +70,7 @@ export class PrizmStickyDirective implements OnChanges {
 
     const parent = this.prizmStikyRelative ?? this.relativeService?.element;
 
-    merge(
-      // parent ? prizmElementResized$(
-      //   parent
-      // ) : of(null),
-      this.rect$
-    )
+    merge(this.rect$)
       .pipe(
         observeOn(animationFrameScheduler),
         filter(i => Boolean(i.width || i.height)),

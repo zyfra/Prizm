@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
-  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -52,6 +51,7 @@ import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { prizmIsNativeFocusedIn } from '../../../util';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
+import { prizmI18nInitWithKey } from '../../../services';
 
 /**
  * @deprecated
@@ -62,7 +62,7 @@ import { PrizmDateButton } from '../../../types/date-button';
   templateUrl: `./date.component.html`,
   styleUrls: [`./date.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: PRIZM_INPUT_DATE_PROVIDERS,
+  providers: [...prizmI18nInitWithKey(PRIZM_DATE_TEXTS, 'dateTexts'), ...PRIZM_INPUT_DATE_PROVIDERS],
 })
 export class PrizmInputDateComponent
   extends AbstractPrizmNullableControl<PrizmDay>
@@ -121,7 +121,7 @@ export class PrizmInputDateComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector = this.injector;
 
-  override readonly testId_ = 'prizm_input_date';
+  override readonly testId_ = 'ui_input_date';
 
   public open = false;
 

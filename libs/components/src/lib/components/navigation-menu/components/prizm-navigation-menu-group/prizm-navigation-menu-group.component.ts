@@ -1,12 +1,12 @@
 import {
-  Component,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
+  Component,
+  EventEmitter,
   Input,
-  TemplateRef,
   OnInit,
   Output,
-  EventEmitter,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -25,6 +25,7 @@ import { PrizmNavigationMenuGroupService } from '../../services/prizm-navigation
 import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigation-menu-toolbar.service';
 import { PrizmNavigationMenuItemsComponent } from '../prizm-navigation-menu-items/prizm-navigation-menu-items.component';
 import { PrizmHandler } from '../../../../../lib/types';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-navigation-menu-group',
@@ -34,8 +35,10 @@ import { PrizmHandler } from '../../../../../lib/types';
   providers: [PrizmNavigationMenuToolbarService, PrizmNavigationMenuGroupService],
 })
 export class PrizmNavigationMenuGroupComponent<
-  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
-> implements OnInit
+    UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
+  >
+  extends PrizmAbstractTestId
+  implements OnInit
 {
   @ViewChild(PrizmNavigationMenuItemsComponent)
   private menuItemsComponent: PrizmNavigationMenuItemsComponent<UserItem>;
@@ -82,6 +85,7 @@ export class PrizmNavigationMenuGroupComponent<
     readonly InternalPrizmNavigationMenuItem<UserItem>[]
   >;
 
+  override readonly testId_ = 'ui_navigation_menu_group';
   groupIsExpanded: boolean;
 
   groupItems$: Observable<InternalPrizmNavigationMenuItem<UserItem>[]> = this.groupService.groupItems$;
@@ -115,7 +119,9 @@ export class PrizmNavigationMenuGroupComponent<
     private destroy$: PrizmDestroyService,
     private groupService: PrizmNavigationMenuGroupService<UserItem>,
     private menuService: PrizmNavigationMenuService<UserItem>
-  ) {}
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
     this.registerItems();

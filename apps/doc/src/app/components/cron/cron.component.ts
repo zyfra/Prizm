@@ -55,4 +55,9 @@ export class CronComponent {
     TypeScript: import('./examples/reset/cron-reset-example.component.ts?raw'),
     HTML: import('./examples/reset/cron-reset-example.component.html?raw'),
   };
+
+  readonly exampleI18n: TuiDocExample = {
+    TypeScript: import('./examples/i18n/cron-i18n-example.component.ts?raw'),
+    HTML: import('./examples/i18n/cron-i18n-example.component.html?raw'),
+  };
 }

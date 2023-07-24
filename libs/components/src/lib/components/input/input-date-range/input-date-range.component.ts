@@ -50,11 +50,12 @@ import { PRIZM_DATE_RANGE_FILLER_LENGTH } from '../../../@core/date-time/date-fi
 import { PRIZM_RANGE_SEPARATOR_CHAR } from '../../../@core/date-time/date-time';
 import { prizmSetNativeFocused } from '../../../util/set-native-focused';
 import { prizmIsNativeFocusedIn } from '../../../util';
+import { prizmI18nInitWithKey } from '../../../services';
 @Component({
   selector: `prizm-input-date-range`,
   templateUrl: `./input-date-range.component.html`,
   styleUrls: [`./input-date-range.component.less`],
-  providers: PRIZM_INPUT_DATE_RANGE_PROVIDERS,
+  providers: [...prizmI18nInitWithKey(PRIZM_DATE_TEXTS, 'dateTexts'), ...PRIZM_INPUT_DATE_RANGE_PROVIDERS],
 })
 export class PrizmInputDateRangeComponent
   extends AbstractPrizmNullableControl<PrizmDayRange>

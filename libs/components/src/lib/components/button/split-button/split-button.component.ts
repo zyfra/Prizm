@@ -12,7 +12,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmSize } from '../../../util';
 import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PolymorphContent } from '../../../directives';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-split-button',
@@ -21,7 +21,7 @@ import { AbstractPrizmTestId } from '../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmSplitButtonComponent extends AbstractPrizmTestId {
+export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
   @Input()
   @HostBinding('attr.data-size')
   size: PrizmSize;

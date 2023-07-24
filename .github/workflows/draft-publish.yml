@@ -52,12 +52,12 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.3.0-draft"))] | last // "1.3.0-draft.0")' 2>/dev/null || echo '1.3.0-draft.0'
+            npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("2.1.2-draft"))] | last // "2.1.2-draft.0")' 2>/dev/null || echo '2.1.2-draft.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
       - name: 'Update draft versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-draft.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-draft.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
       - name: 'Build draft versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -80,5 +80,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
-          channelId: v1-3-0
+          channelId: v1-4-0
           target: draft

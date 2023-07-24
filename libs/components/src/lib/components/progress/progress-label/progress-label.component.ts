@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -7,4 +8,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrls: [`./progress-label.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmProgressLabelComponent {}
+export class PrizmProgressLabelComponent extends PrizmAbstractTestId {
+  override readonly testId_ = 'ui_progress_label';
+}

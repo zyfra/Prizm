@@ -24,6 +24,7 @@ import { PRIZM_CALENDAR_DATA_STREAM } from '../../../tokens/calendar-data-stream
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmMapper } from '../../../types/mapper';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 /**
  * @internal
@@ -35,7 +36,7 @@ import { PrizmMarkerHandler } from '../../../types/marker-handler';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
+export class PrizmPrimitiveCalendarRangeComponent extends PrizmAbstractTestId implements OnInit {
   @Input()
   @prizmDefaultProp()
   disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
@@ -67,8 +68,7 @@ export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
   @Output()
   readonly dayClick = new EventEmitter<PrizmDay>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_primitive_calendar_range';
+  override readonly testId_ = 'ui_primitive_calendar_range';
 
   hoveredItem: PrizmDay | null = null;
 
@@ -82,6 +82,7 @@ export class PrizmPrimitiveCalendarRangeComponent implements OnInit {
     @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
     @Inject(PrizmDestroyService) destroy$: PrizmDestroyService
   ) {
+    super();
     if (!valueChanges) {
       return;
     }

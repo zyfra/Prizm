@@ -43,6 +43,7 @@ import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common';
+import { prizmI18nInitWithKey } from '../../../services';
 
 @Component({
   selector: `prizm-input-layout-date`,
@@ -50,6 +51,7 @@ import { PrizmInputControl } from '../common';
   styleUrls: [`./input-layout-date.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    ...prizmI18nInitWithKey(PRIZM_DATE_TEXTS, 'dateTexts'),
     ...PRIZM_INPUT_DATE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,
@@ -102,7 +104,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay>
   @prizmDefaultProp()
   extraButtonInjector: Injector;
 
-  override readonly testId_ = 'prizm_input_date';
+  override readonly testId_ = 'ui_input_date';
 
   @HostBinding('style.width')
   readonly width = 'auto';

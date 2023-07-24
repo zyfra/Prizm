@@ -59,6 +59,7 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
   public get label(): PrizmChartsPieOptions['label'] {
     return this.options?.label;
   }
+  override readonly testId_ = 'ui_charts_pie';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

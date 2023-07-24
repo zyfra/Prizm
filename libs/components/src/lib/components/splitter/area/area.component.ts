@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 
 import { PrizmSplitterService } from '../splitter.service';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-splitter-area',
@@ -18,9 +19,9 @@ import { PrizmSplitterService } from '../splitter.service';
 
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmSplitterAreaComponent {
+export class PrizmSplitterAreaComponent extends PrizmAbstractTestId {
   static id = 0;
-
+  override readonly testId_ = 'ui_splitter--area';
   id = ++PrizmSplitterAreaComponent.id;
 
   private _size: number | null;
@@ -79,5 +80,7 @@ export class PrizmSplitterAreaComponent {
     public elementRef: ElementRef<HTMLElement>,
     private cdr: ChangeDetectorRef,
     private splitterService: PrizmSplitterService
-  ) {}
+  ) {
+    super();
+  }
 }

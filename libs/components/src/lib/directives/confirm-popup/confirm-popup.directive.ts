@@ -83,9 +83,21 @@ export class PrizmConfirmPopupDirective<
   @prizmDefaultProp()
   prizmConfirmPopupTitle = '';
 
+  @Input('prizmConfirmPopupContext')
+  @prizmDefaultProp()
+  override prizmHintContext: Record<string, unknown> = {};
+
+  @Input('prizmConfirmPopupCanShow')
+  @prizmDefaultProp()
+  override prizmHintCanShow = true;
+
   @Input() confirmButton?: PrizmConfirmPopupButton | string;
   @Input() supportButton?: PrizmConfirmPopupButton | string;
   @Input() cancelButton?: PrizmConfirmPopupButton | string;
+
+  // eslint-disable-next-line @angular-eslint/no-output-rename
+  @Output('prizmConfirmPopupShowed')
+  override prizmHintShowed = new EventEmitter<boolean>();
 
   protected override readonly containerComponent = PrizmConfirmPopupContainerComponent;
   protected override readonly onHoverActive = false;

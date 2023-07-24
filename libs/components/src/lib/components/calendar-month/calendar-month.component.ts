@@ -7,7 +7,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 import { Observable } from 'rxjs';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../@core/date-time/days.const';
@@ -23,6 +23,7 @@ import { PrizmBooleanHandler } from '../../types/handler';
 import { PrizmBooleanHandlerWithContext } from '../../types/handler-with-context';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
+import { prizmI18nInitWithKey } from '../../services';
 
 const TODAY = PrizmDay.currentLocal();
 
@@ -31,8 +32,12 @@ const TODAY = PrizmDay.currentLocal();
   templateUrl: `./calendar-month.component.html`,
   styleUrls: [`./calendar-month.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [...prizmI18nInitWithKey(PRIZM_CALENDAR_MONTHS, 'shortCalendarMonths')],
 })
-export class PrizmCalendarMonthComponent implements PrizmWithOptionalMinMax<PrizmMonth> {
+export class PrizmCalendarMonthComponent
+  extends PrizmAbstractTestId
+  implements PrizmWithOptionalMinMax<PrizmMonth>
+{
   @Input()
   @prizmDefaultProp()
   value: PrizmMonthRange | PrizmMonth | null = null;
@@ -66,8 +71,11 @@ export class PrizmCalendarMonthComponent implements PrizmWithOptionalMinMax<Priz
 
   hoveredItem: PrizmMonth | null = null;
   pressedItem: PrizmMonth | null = null;
+  override readonly testId_ = 'ui_calendar_month';
 
-  constructor(@Inject(PRIZM_CALENDAR_MONTHS) readonly months$: Observable<readonly string[]>) {}
+  constructor(@Inject(PRIZM_CALENDAR_MONTHS) readonly months$: Observable<readonly string[]>) {
+    super();
+  }
 
   @HostBinding(`class._single`)
   get isSingle(): boolean {
