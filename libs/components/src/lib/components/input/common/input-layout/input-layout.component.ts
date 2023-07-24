@@ -15,13 +15,14 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { BehaviorSubject, EMPTY, merge, ReplaySubject, Subject, timer } from 'rxjs';
+import { BehaviorSubject, EMPTY, merge, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
-import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-input-layout',
@@ -34,8 +35,11 @@ import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/
   },
   providers: [PrizmDestroyService],
 })
-export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewInit {
-  @Input() set label(val: string) {
+export class PrizmInputLayoutComponent
+  extends PrizmAbstractTestId
+  implements OnInit, OnChanges, AfterViewInit
+{
+  @Input() set label(val: string | null) {
     this.label$.next(val);
   }
   get label(): string {
@@ -65,6 +69,8 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   @HostBinding('class.has-hidden-control') get hasHiddenControl() {
     return this.control.hidden;
   }
+
+  override testId_ = 'ui_input_layout';
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
@@ -109,7 +115,9 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
     );
   }
 
-  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {}
+  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {
+    super();
+  }
 
   ngOnInit(): void {
     this.control.stateChanges
@@ -127,7 +135,7 @@ export class PrizmInputLayoutComponent implements OnInit, OnChanges, AfterViewIn
   ngAfterViewInit(): void {
     this.actualizeStatusIcon();
 
-    if (this.control.defaultLabel && !this.label) {
+    if (this.control.defaultLabel && Compare.isNullish(this.label)) {
       this.label$.next(this.control.defaultLabel);
     }
 

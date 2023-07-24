@@ -11,6 +11,7 @@ import {
 import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { prizmBlurNativeFocused } from '../../util/blur-native-focused';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-loader',
@@ -18,7 +19,7 @@ import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
   styleUrls: ['./loader.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmLoaderComponent {
+export class PrizmLoaderComponent extends PrizmAbstractTestId {
   @Input()
   size: PrizmSize = 's';
 
@@ -43,13 +44,14 @@ export class PrizmLoaderComponent {
   @HostBinding('class._loading')
   loading = true;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_loader';
+  override readonly testId_ = 'ui_loader';
 
   constructor(
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>
-  ) {}
+  ) {
+    super();
+  }
 
   get hasOverlay(): boolean {
     return this.overlay && this.loading;

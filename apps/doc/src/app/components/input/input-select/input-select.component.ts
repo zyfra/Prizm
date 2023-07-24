@@ -104,6 +104,11 @@ export class InputSelectComponent {
     HTML: import('./examples/with-object/select-with-object-example.component.html?raw'),
   };
 
+  readonly exampleWithTransformer: TuiDocExample = {
+    TypeScript: import('./examples/with-transformer/select-with-transformer-example.component.ts?raw'),
+    HTML: import('./examples/with-transformer/select-with-transformer-example.component.html?raw'),
+  };
+
   readonly exampleWithSearch: TuiDocExample = {
     TypeScript: import('./examples/with-search/select-with-search-example.component.ts?raw'),
     HTML: import('./examples/with-search/select-with-search-example.component.html?raw'),
@@ -113,7 +118,6 @@ export class InputSelectComponent {
     TypeScript: import('./examples/validators/select-validators-example.component.ts?raw'),
     HTML: import('./examples/validators/select-validators-example.component.html?raw'),
   };
-
   readonly exampleWithBackendSearch: TuiDocExample = {
     TypeScript: import('./examples/with-backend-search/select-with-backend-search-example.component.ts?raw'),
     HTML: import('./examples/with-backend-search/select-with-backend-search-example.component.html?raw'),

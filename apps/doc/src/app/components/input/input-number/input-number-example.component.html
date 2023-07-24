@@ -31,7 +31,6 @@
               [prizmDocHostElement]="prizmInputNumber"
               [formControl]="requiredInputControl"
               [min]="min"
-              [testId]="testIdPostfix"
               [max]="max"
               [step]="step"
               [value]="value"
@@ -73,7 +72,6 @@
 
             <input
               #inputCounter="prizmInputNumber"
-              [testId]="testIdPostfix"
               [formControl]="requiredInputControl"
               [min]="min"
               [max]="max"
@@ -100,18 +98,11 @@
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation
+      [hasTestId]="true"
       [control]="requiredInputControl"
       heading="PrizmInputNumberDirective"
       hostComponentKey="PrizmInputNumberDirective"
     >
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="required"
         documentationPropertyName="required"

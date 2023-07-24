@@ -2,16 +2,22 @@ import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/co
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmYear } from '../../../@core/date-time/year';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmMonthLike } from '../../../types/month-like';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { PRIZM_MONTHS } from '../../../tokens/i18n';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,
   templateUrl: `./primitive-year-month-pagination.component.html`,
   styleUrls: [`./primitive-year-month-pagination.component.less`],
+  providers: [...prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],
 })
-export class PrizmPrimitiveYearMonthPaginationComponent implements PrizmWithOptionalMinMax<PrizmMonth> {
+export class PrizmPrimitiveYearMonthPaginationComponent
+  extends PrizmAbstractTestId
+  implements PrizmWithOptionalMinMax<PrizmMonth>
+{
   @Input()
   @prizmDefaultProp()
   value = PrizmMonth.currentLocal();
@@ -45,8 +51,7 @@ export class PrizmPrimitiveYearMonthPaginationComponent implements PrizmWithOpti
   @Output()
   readonly monthClick = new EventEmitter<PrizmMonth>();
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_primitive_year_month_pagination';
+  override readonly testId_ = 'ui_primitive_year_month_pagination';
 
   public get prevMonthDisabled(): boolean {
     return this.value.monthSameOrBefore?.(this.min);

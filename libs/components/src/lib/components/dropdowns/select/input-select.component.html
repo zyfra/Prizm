@@ -49,7 +49,7 @@
           *ngFor="let item of items; let idx = index"
           [class.most-relevant]="isMostRelevant(idx, items)"
           [class.selected]="
-            item === value || (item && value && (item | prizmCallFunc : identityMatcher : value))
+            item === value || (item && value && (transformer(item) | prizmCallFunc : identityMatcher : value))
           "
           (click)="select(item)"
         >

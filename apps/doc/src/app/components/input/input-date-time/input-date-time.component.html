@@ -1,4 +1,4 @@
-<prizm-doc-page header="InputDateTime" package="deprecated">
+<prizm-doc-page header="InputDateTime">
   <div class="page-description" description>
     It is a deprecated component, instead of this use PrizmInputLayoutDateTime.
   </div>
@@ -32,7 +32,6 @@
         [label]="label"
         [placeholder]="placeholder"
         [outer]="outer"
-        [testId]="testIdPostfix"
         [timeMode]="timeMode"
         [size]="size"
         [readOnly]="readOnly"
@@ -40,15 +39,7 @@
         [pseudoState]="pseudoState"
       ></prizm-input-date-time>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="valueControl">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [control]="valueControl" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

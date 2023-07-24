@@ -1,12 +1,12 @@
 import { Directive, ElementRef, Host, HostBinding } from '@angular/core';
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
-import { AbstractPrizmTestId } from '../../../abstract/interactive';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Directive({
   selector: 'input[prizmInputPassword]',
   exportAs: 'prizmInputPassword',
 })
-export class PrizmInputPasswordDirective extends AbstractPrizmTestId {
+export class PrizmInputPasswordDirective extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_input_password';
 
   constructor(

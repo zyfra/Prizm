@@ -43,6 +43,7 @@ import { PrizmInputZoneDirective } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmInputNativeValueNeedChange } from '../../../directives';
 import { DOCUMENT } from '@angular/common';
+import { prizmI18nInitWithKey, prizmI18nInitWithKeys } from '../../../services';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -53,6 +54,10 @@ import { DOCUMENT } from '@angular/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
+    ...prizmI18nInitWithKeys({
+      time: PRIZM_TIME_TEXTS,
+      dateTexts: PRIZM_DATE_TEXTS,
+    }),
     ...PRIZM_INPUT_DATE_TIME_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,

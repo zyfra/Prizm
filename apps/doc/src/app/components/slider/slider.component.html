@@ -21,9 +21,11 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab>
+  <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <prizm-slider
+        #element
+        [prizmDocHostElement]="element"
         [formControl]="fc"
         [min]="min"
         [max]="max"

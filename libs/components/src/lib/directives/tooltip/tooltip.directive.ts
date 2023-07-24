@@ -76,4 +76,9 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
     if (!this.clickedInside) return;
     this.show$.next(clickOnTooltip);
   }
+
+  @HostListener('document:keydown.esc', ['$event'])
+  public closeOnEsc(): void {
+    if (this.show) this.show = false;
+  }
 }

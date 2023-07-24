@@ -1,4 +1,4 @@
-<prizm-doc-page header="InputMonthRange" package="deprecated">
+<prizm-doc-page header="InputMonthRange">
   <div class="page-description" description>
     This component is not longer supported.<br />
     Use PrizmInputLayoutMonthRange.<br />
@@ -22,19 +22,10 @@
         [outer]="outer"
         [size]="size"
         [focusable]="focusable"
-        [testId]="testIdPostfix"
         [pseudoState]="pseudoState"
       ></prizm-input-month-range>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="control">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [hasTestId]="true" [control]="control">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

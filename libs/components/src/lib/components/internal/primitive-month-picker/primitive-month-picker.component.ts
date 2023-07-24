@@ -1,18 +1,15 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmMonthRange } from '../../../@core/date-time/month-range';
-import {
-  PRIZM_FIRST_DAY,
-  PRIZM_LAST_DAY,
-  PrizmDay,
-  PrizmDayRange,
-  PrizmMonth,
-} from '../../../@core/date-time';
+import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY, PrizmDayRange, PrizmMonth } from '../../../@core/date-time';
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { prizmInRange } from '../../../util/math/in-range';
 import { PrizmInteractiveState } from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
-import { prizmPure, prizmDefaultProp } from '@prizm-ui/core';
+import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { PRIZM_MONTHS } from '../../../tokens/i18n';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 const ITEMS_IN_ROW = 3;
 const ROWS = 4;
@@ -22,8 +19,9 @@ const ROWS = 4;
   templateUrl: `./primitive-month-picker.component.html`,
   styleUrls: [`./primitive-month-picker.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],
 })
-export class PrizmPrimitiveMonthPickerComponent {
+export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
   private hoveredItem: number | null = null;
   private pressedItem: number | null = null;
   private readonly currentMonth = PrizmMonth.currentLocal().month;
@@ -63,8 +61,7 @@ export class PrizmPrimitiveMonthPickerComponent {
     return !!value && this.isRange(value) && value.from.monthSame(value.to);
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_primitive_month_picker';
+  override readonly testId_ = 'ui_primitive_month_picker';
 
   get rows(): number {
     return ROWS;

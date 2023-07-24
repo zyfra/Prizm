@@ -42,7 +42,7 @@
         <p>EXAMPLE 1</p>
         <div>
           <prizm-tree
-            #element
+            #element="prizmTree"
             [prizmDocHostElement]="element"
             [value]="data"
             prizmDocHostElementKey="PrizmTreeComponent"
@@ -73,10 +73,10 @@
           </prizm-tree-item>
         </ng-container>
       </div>
-      <!--      <prizm-tree #element [prizmDocHostElement]="element" [value]="data"></prizm-tree>-->
     </prizm-doc-demo>
 
     <prizm-doc-documentation
+      [hasTestId]="false"
       heading="PrizmTreeItemControllerDirective"
       hostComponentKey="PrizmTreeItemControllerDirective"
     >
@@ -93,6 +93,7 @@
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
+      [hasTestId]="false"
       heading="PrizmTreeChildrenDirective"
       hostComponentKey="PrizmTreeChildrenDirective"
     >
@@ -104,7 +105,11 @@
         Children Handler
       </ng-template>
     </prizm-doc-documentation>
-    <prizm-doc-documentation heading="PrizmTreeComponent" hostComponentKey="PrizmTreeComponent">
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      heading="PrizmTreeComponent"
+      hostComponentKey="PrizmTreeComponent"
+    >
       <ng-template
         [(documentationPropertyValue)]="treeController"
         documentationPropertyName="value"
@@ -112,6 +117,20 @@
         documentationPropertyMode="input"
       >
         Tree Controller
+      </ng-template>
+      <ng-template
+        documentationPropertyName="usePaddingIndent"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Use Padding Indent
+      </ng-template>
+      <ng-template
+        documentationPropertyName="testId"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Postfix for testId
       </ng-template>
 
       <ng-template

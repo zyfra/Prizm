@@ -423,6 +423,7 @@ export const pages: PrizmOrderedDocPage = [
       {
         title: 'Carousel',
         keywords: 'carousel',
+        deprecated: true,
         route: 'components/carousel',
       },
       {
@@ -482,18 +483,19 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Icons',
     subPages: [
       {
-        title: 'Old Icon',
+        title: 'Icon',
         keywords: 'иконка, old-icon, deprecated',
         route: '/components/old-icon',
+        deprecated: true,
       },
       {
-        title: 'Icon Flags',
+        title: 'Icon',
         keywords: 'иконка, флаги. flags',
         route: '/components/flag-icons',
       },
       {
-        title: 'Icon',
-        keywords: 'иконка, icon',
+        title: 'Svg Icon',
+        keywords: 'иконка, icon, svg',
         route: '/components/icon',
       },
     ],

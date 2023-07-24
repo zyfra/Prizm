@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { prizmGetShadow, PrizmShadowType } from '../../directives/shadow';
 import { PrizmShadowValue } from '../../directives/shadow/models';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-card',
@@ -9,7 +10,7 @@ import { PrizmShadowValue } from '../../directives/shadow/models';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [],
 })
-export class PrizmCardComponent {
+export class PrizmCardComponent extends PrizmAbstractTestId {
   @Input() shadow: PrizmShadowType = 'mini-bottom';
 
   @HostBinding('style.box-shadow')
@@ -17,6 +18,5 @@ export class PrizmCardComponent {
     return prizmGetShadow(this.shadow);
   }
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_card';
+  override readonly testId_ = 'ui_card';
 }

@@ -1,4 +1,4 @@
-<prizm-doc-page header="InputDateRange" package="deprecated">
+<prizm-doc-page header="InputDateRange">
   <div class="page-description" description>
     It is a deprecated component, instead of this use PrizmInputLayoutDateRange.
   </div>
@@ -30,7 +30,6 @@
         [formControl]="dateControl"
         [placeholder]="placeholder"
         [outer]="outer"
-        [testId]="testIdPostfix"
         [size]="size"
         [readOnly]="readOnly"
         [forceClear]="forceClear"
@@ -38,15 +37,7 @@
         [pseudoState]="pseudoState"
       ></prizm-input-date-range>
     </prizm-doc-demo>
-    <prizm-doc-documentation [control]="dateControl">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation [control]="dateControl" [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="forceClear"
         [documentationPropertyValues]="forceClearVariants"

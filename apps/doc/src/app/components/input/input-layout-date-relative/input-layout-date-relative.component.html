@@ -24,21 +24,17 @@
           [prizmDocHostElement]="element"
           [prizmDocHostElementKey]="controlKey"
           [formControl]="valueControl"
-          [testId]="testIdPostfix"
           [placeholder]="placeholder"
           [canOpen]="canOpen"
         ></prizm-input-layout-date-relative>
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [heading]="controlKey" [hostComponentKey]="controlKey" [control]="valueControl">
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
-      </ng-template>
+    <prizm-doc-documentation
+      [heading]="controlKey"
+      [hostComponentKey]="controlKey"
+      [control]="valueControl"
+      [hasTestId]="true"
+    >
       <ng-template
         [(documentationPropertyValue)]="placeholder"
         documentationPropertyName="placeholder"

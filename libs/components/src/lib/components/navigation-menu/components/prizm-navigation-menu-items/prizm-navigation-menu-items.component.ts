@@ -14,6 +14,7 @@ import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmNavigationMenuItemComponent } from '../prizm-navigation-menu-item/prizm-navigation-menu-item.component';
 import { findItem } from '../../helpers/prizm-navigation-menu-items-helpers';
 import { PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER, PrizmNavigationMenuChildrenHandler } from '../../tokens';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-navigation-menu-items',
@@ -21,7 +22,9 @@ import { PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER, PrizmNavigationMenuChildrenHand
   styleUrls: ['./prizm-navigation-menu-items.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmNavigationMenuItemsComponent<T extends { children?: unknown[] }> {
+export class PrizmNavigationMenuItemsComponent<
+  T extends { children?: unknown[] }
+> extends PrizmAbstractTestId {
   @ViewChildren(PrizmNavigationMenuItemComponent) private menuItemsList: QueryList<
     PrizmNavigationMenuItemComponent<T>
   >;
@@ -50,12 +53,15 @@ export class PrizmNavigationMenuItemsComponent<T extends { children?: unknown[] 
   get menuItemsChildrenHandler(): PrizmNavigationMenuChildrenHandler<T> {
     return this.childrenHandler || this.childrenHandlerToken;
   }
+  override readonly testId_ = 'ui_navigation_menu_items';
 
   constructor(
     @Inject(PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER)
     private childrenHandlerToken: PrizmNavigationMenuChildrenHandler<T>,
     public cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    super();
+  }
 
   public handleExpandedChanged({
     value,

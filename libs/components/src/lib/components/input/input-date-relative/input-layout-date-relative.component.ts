@@ -31,8 +31,9 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { PrizmInputStatusTextDirective } from '../common';
-import { PRIZM_INPUT_LAYOUT_DATE_RELATIVE } from '../../../tokens';
+import { PRIZM_CRON, PRIZM_INPUT_LAYOUT_DATE_RELATIVE } from '../../../tokens';
 import { PrizmLanguageInputLayoutDateRelative } from '@prizm-ui/i18n';
+import { prizmI18nInitWithKey } from '../../../services';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -48,6 +49,7 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateRelativeComponent },
+    ...prizmI18nInitWithKey(PRIZM_INPUT_LAYOUT_DATE_RELATIVE, 'inputLayoutDateRelative'),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })

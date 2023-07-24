@@ -69,6 +69,8 @@ export class PrizmChartsColumnComponent<
     return this.options?.xField;
   }
   @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
+  override readonly testId_ = 'ui_charts_column';
+
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.init();

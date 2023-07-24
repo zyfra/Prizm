@@ -26,7 +26,6 @@
         #element
         [prizmDocHostElement]="element"
         [icon]="icon"
-        [testId]="testIdPostfix"
         [iconRight]="iconRight"
         [size]="size"
         [appearanceType]="appearanceType"
@@ -40,7 +39,7 @@
         {{ content }}
       </button>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="content"
         documentationPropertyName="ng-content"
@@ -87,15 +86,6 @@
         documentationPropertyMode="input"
       >
         Icon
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
       </ng-template>
 
       <ng-template

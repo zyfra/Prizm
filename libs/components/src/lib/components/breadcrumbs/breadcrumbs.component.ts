@@ -18,6 +18,7 @@ import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
   selector: 'prizm-breadcrumbs',
@@ -27,6 +28,7 @@ import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
   providers: [PrizmDestroyService],
 })
 export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
+  extends PrizmAbstractTestId
   implements OnInit, OnDestroy, AfterViewInit
 {
   @Input() set breadcrumbs(data: Breadcrumb[]) {
@@ -37,8 +39,7 @@ export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
     return this.breadcrumbs$.getValue();
   }
 
-  @HostBinding('attr.testId')
-  readonly testId = 'prizm_breadcrumbs';
+  override readonly testId_ = 'ui_breadcrumbs';
 
   @Output() public breadcrumbChange: EventEmitter<Breadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef: ElementRef;
@@ -60,7 +61,9 @@ export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   private resizeObserver: ResizeObserver;
   private mutationDetector$: Subject<void> = new Subject<void>();
 
-  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy: PrizmDestroyService) {}
+  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy: PrizmDestroyService) {
+    super();
+  }
 
   public changeBreadcrumb(idx: number): void {
     this.breadcrumbs = this.breadcrumbs.filter((item, i) => i <= idx);

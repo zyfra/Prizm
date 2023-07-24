@@ -21,7 +21,6 @@
             [prizmDocHostElement]="element"
             [icon]="icon"
             [size]="size"
-            [testId]="testIdPostfix"
             [appearanceType]="appearanceType"
             [appearance]="appearance"
             [disabled]="disabled"
@@ -33,7 +32,7 @@
         </div>
       </div>
     </prizm-doc-demo>
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [hasTestId]="true">
       <ng-template
         [(documentationPropertyValue)]="size"
         [documentationPropertyValues]="sizeVariants"
@@ -62,15 +61,6 @@
         documentationPropertyMode="input"
       >
         AppearanceType
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="testIdPostfix"
-        documentationPropertyName="testId"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Postfix for testId
       </ng-template>
 
       <ng-template

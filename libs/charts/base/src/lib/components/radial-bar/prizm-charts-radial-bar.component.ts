@@ -50,6 +50,7 @@ export class PrizmChartsRadialBarComponent<
   public get yField(): string {
     return this.options?.yField;
   }
+  override readonly testId_ = 'ui_charts_radar_bar';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

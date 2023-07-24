@@ -52,7 +52,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.3.0-draft"))] | last // "1.3.0-draft.0")' 2>/dev/null || echo '1.3.0-draft.0'
+            npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("1.4.0-draft"))] | last // "1.4.0-draft.0")' 2>/dev/null || echo '1.4.0-draft.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
@@ -80,5 +80,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
-          channelId: v1-3-0
+          channelId: v1-4-0
           target: draft

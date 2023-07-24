@@ -17,6 +17,7 @@ import { prizmIsCurrentTarget } from '../../util/dom';
 
 import { PrizmExpandContentDirective } from './expand-content.directive';
 import { PRIZM_EXPAND_LOADED } from './expand.const';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 enum State {
   Idle,
@@ -33,7 +34,7 @@ const LOADER_HEIGHT = 48;
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./expand.component.less'],
 })
-export class PrizmExpandComponent {
+export class PrizmExpandComponent extends PrizmAbstractTestId {
   @ViewChild('wrapper')
   private readonly contentWrapper?: ElementRef<HTMLDivElement>;
 
@@ -70,8 +71,7 @@ export class PrizmExpandComponent {
   @HostBinding('attr.aria-expanded')
   private expanded_: boolean | null = null;
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui-area--expand';
+  override readonly testId_ = 'ui-area--expand';
 
   @HostListener('transitionend', ['$event'])
   public onTransitionEnd(event: TransitionEvent): void {
@@ -89,7 +89,9 @@ export class PrizmExpandComponent {
     }
   }
 
-  constructor(@Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef) {}
+  constructor(@Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef) {
+    super();
+  }
 
   @HostBinding('class._overflow')
   get overflow(): boolean {

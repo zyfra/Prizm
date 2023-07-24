@@ -8,7 +8,7 @@ import {
   QueryList,
   TemplateRef,
 } from '@angular/core';
-import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
+import { PRIZM_EMPTY_ARRAY, PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmHandler } from '../../../../types';
 import { PrizmNavigationMenuGroupComponent } from '../prizm-navigation-menu-group/prizm-navigation-menu-group.component';
 import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigation-menu-toolbar.service';
@@ -37,7 +37,7 @@ import { DEFAULT_HEADER_CONFIG } from '../../defaults';
 })
 export class PrizmNavigationMenuComponent<
   UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
-> {
+> extends PrizmAbstractTestId {
   @ContentChildren(PrizmNavigationMenuGroupComponent)
   menuGroups: QueryList<PrizmNavigationMenuGroupComponent<UserItem>>;
 
@@ -86,6 +86,7 @@ export class PrizmNavigationMenuComponent<
     this.menuService.setToolbarConfig(config);
   }
 
+  override testId_ = 'ui_navigation_menu';
   menuToolbarConfig$: Observable<PrizmNavigationMenuToolbarConfig> = this.menuService.toolbarConfig$;
 
   menuSearchConfig$: Observable<PrizmNavigationMenuSearchConfig> = this.menuService.searchConfig$;
@@ -106,6 +107,7 @@ export class PrizmNavigationMenuComponent<
     private menuService: PrizmNavigationMenuService<UserItem>,
     private destroy$: PrizmDestroyService
   ) {
+    super();
     this.forwardEvents();
   }
 

@@ -7,6 +7,7 @@ import { takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
+import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
   selector: 'prizm-confirm-dialog',
@@ -16,7 +17,7 @@ import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from '
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
 })
-export class PrizmDialogConfirmComponent<DATA = unknown> {
+export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTestId {
   @Input()
   public context!: PrizmBaseDialogContext<
     PrizmConfirmDialogResultDefaultType,
@@ -45,8 +46,7 @@ export class PrizmDialogConfirmComponent<DATA = unknown> {
   @HostBinding('style.width')
   readonly width = '100%';
 
-  @HostBinding('attr.data-testid')
-  readonly testId = 'ui_form_submit';
+  override readonly testId_ = 'ui_form_submit';
 
   private readonly animation = {
     value: '',
@@ -62,6 +62,7 @@ export class PrizmDialogConfirmComponent<DATA = unknown> {
     private readonly destroy$: PrizmDestroyService,
     private readonly elRef: ElementRef
   ) {
+    super();
     close$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.close();
     });
