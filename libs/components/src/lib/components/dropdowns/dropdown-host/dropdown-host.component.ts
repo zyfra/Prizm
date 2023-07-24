@@ -104,6 +104,8 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     return this.isOpen$.value;
   }
 
+  opened: boolean;
+
   @Input() dropdownStyles: Record<string, string | number> = {};
 
   @ViewChild('temp') temp: TemplateRef<HTMLDivElement>;
@@ -170,12 +172,12 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   public close(): void {
     this.overlay?.close();
-    if (this.isOpen) this.isOpenChange.emit(false);
+    if (this.opened) this.isOpenChange.emit((this.opened = false));
   }
 
   public open(): void {
     this.overlay?.open();
-    if (!this.isOpen) this.isOpenChange.emit(true);
+    if (!this.opened) this.isOpenChange.emit((this.opened = true));
   }
 
   private initOverlay(): void {
