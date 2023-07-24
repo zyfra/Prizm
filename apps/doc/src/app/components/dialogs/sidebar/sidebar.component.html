@@ -57,8 +57,7 @@
 
     <ng-template #footerTemp let-observer> Footer из <i (click)="observer.next(1)">шаблона</i> </ng-template>
 
-    <prizm-doc-documentation [hasTestId]="false"
-      >>
+    <prizm-doc-documentation [hasTestId]="false">
       <ng-template
         [(documentationPropertyValue)]="position"
         [documentationPropertyValues]="positionVariants"

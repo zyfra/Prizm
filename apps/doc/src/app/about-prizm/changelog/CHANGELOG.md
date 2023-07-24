@@ -80,6 +80,8 @@ All notable changes to this project will be documented in this file.
 
 ### BREAKING CHANGES
 
+- fix(components/confirm-popup): prizmHintContext was renamed to prizmConfirmPopupContext
+- fix(components/confirm-popup): prizmHintCanShow was renamed to prizmConfirmPopupCanShow
 - fix(components/tree): testId corrected to standart prizm_tree > ui_tree
 - fix(components/toast): testId corrected to standart prizm_toast_single > ui_toast_single
 - fix(components/paginator): testId corrected to standart prizm_paginator > ui_paginator
