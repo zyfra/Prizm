@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/input-select): select most relevant when you passed object
 - fix(components/input-select): select most relevant when you passed object
 - fix(components/tooltip): color of arrows on dark theme #479
+- fix(components/breadcrumbs): color of dots on dark theme #480
 
 ## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
 
