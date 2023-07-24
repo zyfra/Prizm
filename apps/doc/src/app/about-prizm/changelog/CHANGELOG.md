@@ -14,7 +14,6 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/input-layout): set empty value to input with default label #527
 - fix(components/input-select): select most relevant when you passed object
-- fix(components/input-select): select most relevant when you passed object
 - fix(components/tooltip): color of arrows on dark theme #479
 - fix(components/breadcrumbs): color of dots on dark theme #480
 
