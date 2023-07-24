@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SwitcherComponent } from './switcher.component';
+import { PrizmSwitcherComponent } from './switcher.component';
 
 describe('SwitcherComponent', () => {
-  let component: SwitcherComponent;
-  let fixture: ComponentFixture<SwitcherComponent>;
+  let component: PrizmSwitcherComponent;
+  let fixture: ComponentFixture<PrizmSwitcherComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [SwitcherComponent],
+      declarations: [PrizmSwitcherComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SwitcherComponent);
+    fixture = TestBed.createComponent(PrizmSwitcherComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

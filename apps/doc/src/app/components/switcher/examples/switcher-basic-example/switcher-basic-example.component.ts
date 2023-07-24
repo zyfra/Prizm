@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-switcher-basic-example',
@@ -20,4 +21,5 @@ export class SwitcherBasicExampleComponent {
       title: 'Дашборды',
     },
   ];
+  public readonly control = new FormControl(1);
 }

@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from '@prizm-ui/components';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-switcher-example',
@@ -23,6 +24,7 @@ export class SwitcherExampleComponent {
       icon: 'view-dashboard',
     },
   ];
+  public control = new FormControl();
   public size: PrizmSwitcherSize = 'l';
   public sizeVariants: PrizmSwitcherSize[] = ['l', 'm', 's'];
   public type: PrizmSwitcherType = 'inner';

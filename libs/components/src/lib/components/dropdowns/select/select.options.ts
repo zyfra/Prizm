@@ -2,7 +2,11 @@ import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
 import { PrizmInputSize } from '../../input';
 import { PrizmContextWithImplicit } from '../../../types';
-import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
+import {
+  PrizmSelectIdentityMatcher,
+  PrizmSelectSearchMatcher,
+  PrizmSelectValueTransformver,
+} from './select.model';
 
 export type PrizmSelectIconContext = { opened: boolean; disabled: boolean };
 export interface PrizmSelectOptions<T> {
@@ -31,6 +35,7 @@ export interface PrizmSelectOptions<T> {
   readonly nullContent: PolymorphContent;
   readonly searchMatcher: PrizmSelectSearchMatcher<T>;
   readonly identityMatcher: PrizmSelectIdentityMatcher<T>;
+  readonly transformer: PrizmSelectValueTransformver<T>;
   readonly minDropdownHeight: number;
   /**
    * @deprecated
@@ -59,6 +64,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   maxDropdownHeight: 342,
   emptyContent: 'Ничего не найдено',
   nullContent: 'Не выбрано',
+  transformer: item => item,
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },

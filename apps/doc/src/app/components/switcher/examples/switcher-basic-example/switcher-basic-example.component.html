@@ -1,1 +1,5 @@
-<prizm-switcher [switchers]="switchers" [selectedSwitcherIdx]="1"></prizm-switcher>
+<prizm-switcher [formControl]="control" [switchers]="switchers"></prizm-switcher>
+
+<div>
+  Value: <b>{{ control.value }}</b>
+</div>

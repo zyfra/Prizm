@@ -12,6 +12,7 @@ import { SwitcherOuterLExampleComponent } from './examples/switcher-outer-l-exam
 import { SwitcherOuterSExampleComponent } from './examples/switcher-outer-s-example/switcher-outer-s-example.component';
 import { SwitcherWithIconExampleComponent } from './examples/switcher-with-icon-example/switcher-with-icon-example.component';
 import { SwitcherOnlyIconExampleComponent } from './examples/switcher-only-icon-example/switcher-only-icon-example.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { SwitcherOnlyIconExampleComponent } from './examples/switcher-only-icon-
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SwitcherExampleComponent)),
     PrizmSwitcherModule,
+    ReactiveFormsModule,
   ],
 })
 export class SwitcherExampleModule {}
