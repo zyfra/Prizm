@@ -82,25 +82,25 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/confirm-popup): prizmHintContext was renamed to prizmConfirmPopupContext
 - fix(components/confirm-popup): prizmHintCanShow was renamed to prizmConfirmPopupCanShow
-- fix(components/tree): testId corrected to standart prizm_tree > ui_tree
-- fix(components/toast): testId corrected to standart prizm_toast_single > ui_toast_single
-- fix(components/paginator): testId corrected to standart prizm_paginator > ui_paginator
-- fix(components/indicator): testId corrected to standart prizm_paginator > ui_paginator
-- fix(components/dropdown-host): testId corrected to standart prizm_dropdown_host > ui_dropdown_host
-- fix(components/data-list): testId corrected to standart prizm_data_list > ui_data_list
-- fix(components/calendar-range): testId corrected to standart prizm_calendar_range > ui_calendar_range
-- fix(components/breadcrumbs): testId corrected to standart prizm_breadcrumbs > ui_breadcrumbs
-- fix(components/scroll-controls): testId corrected to standart prizm_scroll_controls > ui_scroll_controls
-- fix(components/scrollbar): testId corrected to standart prizm_scrollbar > ui_scrollbar
-- fix(components/spinner): testId corrected to standart prizm_loader > ui_spinner
-- fix(components/switcher): testId corrected to standart prizm_switcher > ui_switcher
-- fix(components/toast-single): testId corrected to standart prizm_toast_single > ui_toast_single
-- fix(components/tree-item-content): testId corrected to standart prizm_tree_item_content > ui_tree_item_content
-- fix(components/tree-item): testId corrected to standart prizm_tree_item > ui_tree--item
-- fix(components/tree): testId corrected to standart prizm_tree > ui_tree
-- fix(components/cron): testId corrected to standart prizm_cron > ui_cron
-- fix(components/input-date): testId corrected to standart prizm_input_date > ui_input_date
-- fix(components/input-layout-date): testId corrected to standart prizm_input_date > ui_input_date
+- fix(components/tree): testId was corrected to standart prizm_tree > ui_tree
+- fix(components/toast): testId was corrected to standart prizm_toast_single > ui_toast_single
+- fix(components/paginator): testId was corrected to standart prizm_paginator > ui_paginator
+- fix(components/indicator): testId was corrected to standart prizm_paginator > ui_paginator
+- fix(components/dropdown-host): testId was corrected to standart prizm_dropdown_host > ui_dropdown_host
+- fix(components/data-list): testId was corrected to standart prizm_data_list > ui_data_list
+- fix(components/calendar-range): testId was corrected to standart prizm_calendar_range > ui_calendar_range
+- fix(components/breadcrumbs): testId was corrected to standart prizm_breadcrumbs > ui_breadcrumbs
+- fix(components/scroll-controls): testId was corrected to standart prizm_scroll_controls > ui_scroll_controls
+- fix(components/scrollbar): testId was corrected to standart prizm_scrollbar > ui_scrollbar
+- fix(components/spinner): testId was corrected to standart prizm_loader > ui_spinner
+- fix(components/switcher): testId was corrected to standart prizm_switcher > ui_switcher
+- fix(components/toast-single): testId was corrected to standart prizm_toast_single > ui_toast_single
+- fix(components/tree-item-content): testId was corrected to standart prizm_tree_item_content > ui_tree_item_content
+- fix(components/tree-item): testId was corrected to standart prizm_tree_item > ui_tree--item
+- fix(components/tree): testId was corrected to standart prizm_tree > ui_tree
+- fix(components/cron): testId was corrected to standart prizm_cron > ui_cron
+- fix(components/input-date): testId was corrected to standart prizm_input_date > ui_input_date
+- fix(components/input-layout-date): testId was corrected to standart prizm_input_date > ui_input_date
 
 ## [2.1.2.next-3](https://github.com/zyfra/Prizm) (24-07-2023)
 
@@ -181,25 +181,25 @@ All notable changes to this project will be documented in this file.
 
 ### BREAKING CHANGES
 
-- fix(components/tree): testId corrected to standart prizm_tree > ui_tree
-- fix(components/toast): testId corrected to standart prizm_toast_single > ui_toast_single
-- fix(components/paginator): testId corrected to standart prizm_paginator > ui_paginator
-- fix(components/indicator): testId corrected to standart prizm_paginator > ui_paginator
-- fix(components/dropdown-host): testId corrected to standart prizm_dropdown_host > ui_dropdown_host
-- fix(components/data-list): testId corrected to standart prizm_data_list > ui_data_list
-- fix(components/calendar-range): testId corrected to standart prizm_calendar_range > ui_calendar_range
-- fix(components/breadcrumbs): testId corrected to standart prizm_breadcrumbs > ui_breadcrumbs
-- fix(components/scroll-controls): testId corrected to standart prizm_scroll_controls > ui_scroll_controls
-- fix(components/scrollbar): testId corrected to standart prizm_scrollbar > ui_scrollbar
-- fix(components/spinner): testId corrected to standart prizm_loader > ui_spinner
-- fix(components/switcher): testId corrected to standart prizm_switcher > ui_switcher
-- fix(components/toast-single): testId corrected to standart prizm_toast_single > ui_toast_single
-- fix(components/tree-item-content): testId corrected to standart prizm_tree_item_content > ui_tree_item_content
-- fix(components/tree-item): testId corrected to standart prizm_tree_item > ui_tree--item
-- fix(components/tree): testId corrected to standart prizm_tree > ui_tree
-- fix(components/cron): testId corrected to standart prizm_cron > ui_cron
-- fix(components/input-date): testId corrected to standart prizm_input_date > ui_input_date
-- fix(components/input-layout-date): testId corrected to standart prizm_input_date > ui_input_date
+- fix(components/tree): testId was corrected to standart prizm_tree > ui_tree
+- fix(components/toast): testId was corrected to standart prizm_toast_single > ui_toast_single
+- fix(components/paginator): testId was corrected to standart prizm_paginator > ui_paginator
+- fix(components/indicator): testId was corrected to standart prizm_paginator > ui_paginator
+- fix(components/dropdown-host): testId was corrected to standart prizm_dropdown_host > ui_dropdown_host
+- fix(components/data-list): testId was corrected to standart prizm_data_list > ui_data_list
+- fix(components/calendar-range): testId was corrected to standart prizm_calendar_range > ui_calendar_range
+- fix(components/breadcrumbs): testId was corrected to standart prizm_breadcrumbs > ui_breadcrumbs
+- fix(components/scroll-controls): testId was corrected to standart prizm_scroll_controls > ui_scroll_controls
+- fix(components/scrollbar): testId was corrected to standart prizm_scrollbar > ui_scrollbar
+- fix(components/spinner): testId was corrected to standart prizm_loader > ui_spinner
+- fix(components/switcher): testId was corrected to standart prizm_switcher > ui_switcher
+- fix(components/toast-single): testId was corrected to standart prizm_toast_single > ui_toast_single
+- fix(components/tree-item-content): testId was corrected to standart prizm_tree_item_content > ui_tree_item_content
+- fix(components/tree-item): testId was corrected to standart prizm_tree_item > ui_tree--item
+- fix(components/tree): testId was corrected to standart prizm_tree > ui_tree
+- fix(components/cron): testId was corrected to standart prizm_cron > ui_cron
+- fix(components/input-date): testId was corrected to standart prizm_input_date > ui_input_date
+- fix(components/input-layout-date): testId was corrected to standart prizm_input_date > ui_input_date
 
 ## [2.1.2.next-1](https://github.com/zyfra/Prizm) (19-07-2023)
 
