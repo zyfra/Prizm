@@ -15,13 +15,13 @@ import {
   SimpleChanges,
   ViewChild,
 } from '@angular/core';
-import { BehaviorSubject, EMPTY, merge, ReplaySubject, Subject, timer } from 'rxjs';
+import { BehaviorSubject, EMPTY, merge, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../../directives/polymorph';
-import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Component({
@@ -39,7 +39,7 @@ export class PrizmInputLayoutComponent
   extends PrizmAbstractTestId
   implements OnInit, OnChanges, AfterViewInit
 {
-  @Input() set label(val: string) {
+  @Input() set label(val: string | null) {
     this.label$.next(val);
   }
   get label(): string {
@@ -135,7 +135,7 @@ export class PrizmInputLayoutComponent
   ngAfterViewInit(): void {
     this.actualizeStatusIcon();
 
-    if (this.control.defaultLabel && !this.label) {
+    if (this.control.defaultLabel && Compare.isNullish(this.label)) {
       this.label$.next(this.control.defaultLabel);
     }
 

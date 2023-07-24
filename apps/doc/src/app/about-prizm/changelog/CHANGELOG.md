@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(components/input-layout): set empty value to input with default label #527
 - fix(components/input-select): select most relevant when you passed object
 
 ## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
