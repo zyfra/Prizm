@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.2.next-3](https://github.com/zyfra/Prizm) (21-07-2023)
+## [2.1.2.next-3](https://github.com/zyfra/Prizm) (24-07-2023)
 
 ### Features
 
@@ -17,7 +17,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/tooltip): color of arrows on dark theme #479
 - fix(components/breadcrumbs): color of dots on dark theme #480
 
-## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
+## [2.1.2.next-2](https://github.com/zyfra/Prizm) (21-07-2023)
 
 ### Features
 
