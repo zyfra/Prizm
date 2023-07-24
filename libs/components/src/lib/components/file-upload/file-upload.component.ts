@@ -24,6 +24,7 @@ import { PRIZM_FILE_UPLOAD } from '../../tokens';
 import { Observable } from 'rxjs';
 import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 import { prizmI18nInitWithKey } from '../../services';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -32,8 +33,10 @@ import { prizmI18nInitWithKey } from '../../services';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
 })
-export class PrizmFileUploadComponent implements AfterViewInit, OnDestroy {
+export class PrizmFileUploadComponent extends PrizmAbstractTestId implements AfterViewInit, OnDestroy {
   @ViewChild('dropzone') dropzoneElementRef!: ElementRef<HTMLDivElement>;
+
+  override readonly testId_ = 'ui_file_upload';
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
   constructor(
@@ -41,6 +44,7 @@ export class PrizmFileUploadComponent implements AfterViewInit, OnDestroy {
     @Inject(PRIZM_FILE_UPLOAD) public readonly fileUpload$: Observable<PrizmLanguageFileUpload['fileUpload']>,
     @Optional() @Inject(PRIZM_FILEUPLOAD_OPTIONS) customOptions: PrizmFileUploadOptions
   ) {
+    super();
     this.options = { ...this.options, ...customOptions };
   }
 

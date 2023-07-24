@@ -100,6 +100,11 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   @Input() set isOpen(state: boolean) {
     this.isOpen$.next(state);
   }
+  get isOpen(): boolean {
+    return this.isOpen$.value;
+  }
+
+  private lastEmittedState: boolean;
 
   @Input() dropdownStyles: Record<string, string | number> = {};
 
@@ -167,12 +172,12 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   public close(): void {
     this.overlay?.close();
-    this.isOpenChange.emit(false);
+    if (this.lastEmittedState) this.isOpenChange.emit((this.lastEmittedState = false));
   }
 
   public open(): void {
     this.overlay?.open();
-    this.isOpenChange.emit(true);
+    if (!this.lastEmittedState) this.isOpenChange.emit((this.lastEmittedState = true));
   }
 
   private initOverlay(): void {
