@@ -8,12 +8,14 @@ All notable changes to this project will be documented in this file.
 
 - feat(components/input-select): added new input transformer to transform value #514
 - feat(components/switcher): added support form controllers #508
-- feat(components/tooltip): added ability to close on exc pressed #307
+- feat(components/tooltip): added ability to close on esc pressed #307
 
 ### Bug fixes
 
 - fix(components/input-layout): set empty value to input with default label #527
 - fix(components/input-select): select most relevant when you passed object
+- fix(components/input-select): select most relevant when you passed object
+- fix(components/tooltip): color of arrows on dark theme #479
 
 ## [2.1.2.next-2](https://github.com/zyfra/Prizm) (20-07-2023)
 
