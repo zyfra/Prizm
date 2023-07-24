@@ -71,6 +71,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(components/dropdown-host): when the component was destroyed, the extra method was called #532
 - fix(components/input-layout): set empty value to input with default label #527
 - fix(components/input-select): select most relevant when you passed object
 - fix(components/tooltip): color of arrows on dark theme #479
