@@ -7,16 +7,18 @@ import {
   Injector,
   ViewRef,
 } from '@angular/core';
-import { animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject } from 'rxjs';
+import { animationFrameScheduler, fromEvent, merge, merge as mergeObs, Observable, Subject } from 'rxjs';
 import {
   debounceTime,
   distinctUntilChanged,
   filter,
   map,
+  mapTo,
   observeOn,
   skipWhile,
   takeUntil,
   tap,
+  throttleTime,
 } from 'rxjs/operators';
 import {
   PrizmOverlayConfig,
@@ -100,16 +102,35 @@ export class PrizmOverlayControl {
   }
 
   public onDocumentClick(): Observable<any> {
-    return fromEvent(this.viewEl, 'click').pipe(
-      takeUntil(this.destroy$),
-      map((e: any) => e.target),
+    const insideClick = fromEvent<MouseEvent>(this.viewEl.querySelector('.z-overlay-wrapper'), 'click');
+    const outsideClick = fromEvent<MouseEvent>(this.viewEl, 'click');
+
+    // For detect dynamic html elements
+    return merge<[[MouseEvent, boolean], [MouseEvent, boolean]]>(
+      insideClick.pipe(map((e: MouseEvent) => [e, false])),
+      outsideClick.pipe(map((e: MouseEvent) => [e, true]))
+    ).pipe(
+      throttleTime(100),
+      filter(([, isOtsideClick]) => isOtsideClick),
+      map(([e]: [MouseEvent, boolean]) => e.target),
       skipWhile(() => !this.config.closeOnDocClick),
-      filter(this.isNotHostElement.bind(this)),
       tap(() => {
         this.config.docClickCallback();
         this.close();
       })
     );
+
+    // return fromEvent(this.viewEl, 'click').pipe(
+    //   takeUntil(this.destroy$),
+    //   map((e: any) => e.target),
+    //   skipWhile(() => !this.config.closeOnDocClick),
+    //   filter(this.isNotHostElement.bind(this)),
+    //   tap(() => {
+    //     console.log('#mz onDocumentClick');
+    //     this.config.docClickCallback();
+    //     this.close();
+    //   })
+    // );
   }
 
   public onWindowResize(): Observable<any> {

@@ -54,6 +54,7 @@ export class PrizmZoneEventService {
     }
   }
 
+  // TODO need refactoring (think about detect as in overlay-control)
   public getInsideListenedEvents(eventName: string): Observable<UIEvent> {
     return (
       this.insideListenedEvents$ ??

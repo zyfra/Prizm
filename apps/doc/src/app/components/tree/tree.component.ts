@@ -67,5 +67,9 @@ export class TreeComponent {
     'folder.less': import('./examples/component/folder.component.less?raw'),
   };
 
+  public readonly exampleInModal: TuiDocExample = {
+    TypeScript: import('./examples/in-modal/tree-in-modal-example.component.ts?raw'),
+    HTML: import('./examples/in-modal/tree-in-modal-example.component.html?raw'),
+  };
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
 }

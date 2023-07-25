@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(components/overlay): added new logic for detecting events from dynamic elements #411
+
 ### Bug fixes
 
 - fix(components/table): prizmThGroup throws an error together with structure directives #510
