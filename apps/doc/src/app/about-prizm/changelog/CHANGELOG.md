@@ -6,6 +6,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+### Bug fixes
+
 - fix(components/table): prizmThGroup throws an error together with structure directives #510
 - fix(doc/select): set default value in example with transformer
 
