@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(doc/select): set default value in example with transformer
 
 ## [2.1.2](https://github.com/zyfra/Prizm) (24-07-2023)
 

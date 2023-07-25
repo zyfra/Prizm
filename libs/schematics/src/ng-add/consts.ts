@@ -11,21 +11,21 @@ interface ImportingModule {
 export const MAIN_PACKAGES: ReadonlyArray<Package> = [
   {
     name: '@prizm-ui/core',
-    version: '2.1.2',
+    version: '2.1.3',
   },
   {
     name: '@prizm-ui/components',
-    version: '2.1.2',
+    version: '2.1.3',
   },
   {
     name: '@prizm-ui/helpers',
-    version: '2.1.2',
+    version: '2.1.3',
   },
 ];
 
 export const INSTALL_PACKAGE: Readonly<Package> = {
   name: '@prizm-ui/install',
-  version: '2.1.2',
+  version: '2.1.3',
 };
 
 export const MAIN_MODULES: ReadonlyArray<ImportingModule> = [
