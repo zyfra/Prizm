@@ -1,3 +1,8 @@
+<div>
+  Показать поиск:
+  <prizm-toggle [formControl]="control"></prizm-toggle>
+</div>
+<br />
 <prizm-scrollbar class="scrollable" visibility="hidden">
   <table class="table" [columns]="columns" prizmTable>
     <thead>
@@ -7,7 +12,7 @@
         <th *prizmHead="'category'" rowspan="2" prizmTh>Категория</th>
         <th *prizmHead="'count'" rowspan="2" prizmTh>Количество</th>
       </tr>
-      <tr prizmThGroup>
+      <tr *ngIf="control.value" prizmThGroup>
         <th class="extra-border search-cell" [resizable]="true" prizmTh>
           <input #input (enter)="search($event, 'name')" prizmInput placeholder="Поиск" />
           <button

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3-next.1](https://github.com/zyfra/Prizm) (25-07-2023)
+
+### Features
+
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+
 ## [2.1.2](https://github.com/zyfra/Prizm) (24-07-2023)
 
 ### Features

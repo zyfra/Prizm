@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 import { TABLE_EXAMPLE_DATA_SEARCH } from '../../table-example.const';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-table-search-example',
@@ -13,7 +14,7 @@ export class TableSearchExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_SEARCH;
   public searchString: string = null;
   public searchAllowedProducts: ITableProduct[] = this.products;
-
+  public readonly control = new FormControl(false);
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
     this.searchString = value.toLowerCase();
     this.searchAllowedProducts = this.products.filter(product =>
