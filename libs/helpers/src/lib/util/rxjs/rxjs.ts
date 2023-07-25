@@ -1,9 +1,16 @@
 import { Compare } from '../compare/compare';
-import { filter, map } from 'rxjs/operators';
-import { MonoTypeOperatorFunction, Observable, OperatorFunction, Subscriber } from 'rxjs';
+import { filter, map, throttleTime } from 'rxjs/operators';
+import { merge, MonoTypeOperatorFunction, Observable, OperatorFunction, Subscriber } from 'rxjs';
 
 export function filterFalsy<T>(): MonoTypeOperatorFunction<T> {
   return filter(Compare.isFalsy);
+}
+
+/**
+ * The observable that will be emitted first in the transmitted time interval is used
+ * */
+export function raceEmit<R = any>(time: number, ...sources: Observable<any>[]): Observable<R> {
+  return merge(...sources).pipe(throttleTime(time));
 }
 
 export function prizmElementResized$(...elements: Element[]): Observable<ResizeObserverEntry[]> {
