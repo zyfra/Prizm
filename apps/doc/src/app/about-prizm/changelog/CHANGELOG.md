@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(components/input-layout): problems with layout in outer #537
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
 - fix(components/table): prizmThGroup throws an error together with structure directives #510
 - fix(doc/select): set default value in example with transformer
 
