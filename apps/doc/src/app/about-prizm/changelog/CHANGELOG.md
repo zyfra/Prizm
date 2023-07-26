@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/breadcrumbs): added ability to work with projections #464
 - feat(components/overlay): added new logic for detecting events from dynamic elements #411
 - feat(helpers/rxjs): 'raceEmit' operator was added to detect first emit in the transmitted time interval between source streams
+- feat(components/tabs): add full width underline #539
 
 ### Bug fixes
 
