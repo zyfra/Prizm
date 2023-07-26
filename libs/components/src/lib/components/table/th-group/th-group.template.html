@@ -1,4 +1,6 @@
 <ng-content selector="th[prizmTh]"></ng-content>
 <ng-container *ngIf="heads$ | async as headings">
-  <ng-container *ngFor="let head of headings" [ngTemplateOutlet]=" head.template"> </ng-container>
+  <ng-container *ngFor="let head of headings">
+    <ng-container *ngIf="head?.template" [ngTemplateOutlet]="head.template"></ng-container>
+  </ng-container>
 </ng-container>

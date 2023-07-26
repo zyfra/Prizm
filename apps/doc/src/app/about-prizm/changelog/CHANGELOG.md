@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3-next.1](https://github.com/zyfra/Prizm) (25-07-2023)
+
+### Features
+
+- feat(components/breadcrumbs): added ability to work with projections #464
+- feat(components/overlay): added new logic for detecting events from dynamic elements #411
+- feat(helpers/rxjs): 'raceEmit' operator was added to detect first emit in the transmitted time interval between source streams
+- feat(components/tabs): add full width underline #539
+
+### Bug fixes
+
+- fix(components/input-layout): problems with layout in outer #537
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(doc/select): set default value in example with transformer
+
+### For testers
+
+- !!! need check all overlay elements (sidebars, dialogs, confirms and so on) and overlay in tools. We changed core logic
+
 ## [2.1.2](https://github.com/zyfra/Prizm) (24-07-2023)
 
 ### Features

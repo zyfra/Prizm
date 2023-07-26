@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BreadcrumbsComponent } from './breadcrumbs.component';
+import { PrizmBreadcrumbsComponent } from './breadcrumbs.component';
 import { PrizmIconModule } from '../icon';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
+import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
 
 @NgModule({
-  declarations: [BreadcrumbsComponent],
-  imports: [CommonModule, PrizmIconModule, PrizmDropdownHostModule],
-  exports: [BreadcrumbsComponent],
+  declarations: [PrizmBreadcrumbsComponent, PrizmBreadcrumbDirective],
+  imports: [
+    CommonModule,
+    // TODO !ng16 change all icon module to svg module
+    PrizmIconModule,
+    PrizmDropdownHostModule,
+  ],
+  exports: [PrizmBreadcrumbsComponent, PrizmBreadcrumbDirective],
 })
 export class PrizmBreadcrumbsModule {}

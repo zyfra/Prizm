@@ -1,4 +1,30 @@
 <div class="container" #container>
+  <div class="breadcrumbs" *ngFor="let item of breadcrumbsItem; let i = index">
+    <prizm-icon
+      class="breadcrumbs__chevron"
+      *ngIf="i !== 0"
+      [size]="16"
+      iconClass="chevrons-right"
+    ></prizm-icon>
+
+    <div class="breadcrumb breadcrumb__name">
+      <ng-container [ngTemplateOutlet]="item.template" [ngTemplateOutletContext]="{ idx: i }"></ng-container>
+    </div>
+
+    <prizm-dropdown-host
+      class="breadcrumbs__dots"
+      *ngIf="i === 0 && this.isContainerOverflowed"
+      [(isOpen)]="isDropdownOpened"
+      [content]="dropdown"
+      prizmDropdownHostWidth="auto"
+    >
+      <div class="dropdown-inner">
+        <prizm-icon class="breadcrumbs__chevron" [size]="16" iconClass="chevrons-right"></prizm-icon>
+        <button class="dots-buttons" (click)="isDropdownOpened = !isDropdownOpened">...</button>
+      </div>
+    </prizm-dropdown-host>
+  </div>
+
   <ng-container>
     <div class="breadcrumbs" #breadcrumb *ngFor="let breadcrumb of breadcrumbsToShow$ | async; let i = index">
       <prizm-icon
