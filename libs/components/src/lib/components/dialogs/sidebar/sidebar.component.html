@@ -2,6 +2,7 @@
   <div
     class="header prizm-font-title-h4"
     *ngIf="context.headerTemplate ?? context.header"
+    [style]="context.headerWrapperStyle ?? ''"
     [ngSwitch]="!!context.headerTemplate"
   >
     <ng-container *ngSwitchCase="true">
@@ -25,7 +26,7 @@
     </ng-container>
   </div>
 
-  <div class="content prizm-font-main-body-14">
+  <div class="content prizm-font-main-body-14" [style]="context.contentWrapperStyle ?? ''">
     <ng-container *polymorphOutlet="context.outerContent as outerContent">
       <ng-container *ngIf="outerContent; else innerTemplate">
         {{ outerContent }}
@@ -40,7 +41,11 @@
     </ng-container>
   </div>
 
-  <div class="footer prizm-font-btn-links-14" *ngIf="!context.hideFooter">
+  <div
+    class="footer prizm-font-btn-links-14"
+    *ngIf="!context.hideFooter"
+    [style]="context.footerWrapperStyle"
+  >
     <ng-container *ngIf="context.footer; else notFooter">
       <div *polymorphOutlet="context.footer as footer; context: context">
         {{ footer }}

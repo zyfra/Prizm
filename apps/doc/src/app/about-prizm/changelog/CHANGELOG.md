@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3-next.2](https://github.com/zyfra/Prizm) (26-07-2023)
+
+### Features
+
+- feat(components/sidebar): add ability to control styles of wrapper elements #541
+
 ## [2.1.3-next.1](https://github.com/zyfra/Prizm) (25-07-2023)
 
 ### Features
