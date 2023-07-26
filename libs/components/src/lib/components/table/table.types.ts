@@ -11,7 +11,7 @@ export type PrizmTableCellStatus = 'default' | 'success' | 'warning' | 'danger';
 
 export type PrizmTableBorderStyle = 'grid' | 'horizontal' | 'vertical';
 
-export interface PrizmTableRowContext<T> extends PrizmContextWithImplicit<T> {
+export interface PrizmTableRowContext<T = Record<string, unknown>> extends PrizmContextWithImplicit<T> {
   readonly index: number;
   readonly first: boolean;
   readonly last: boolean;
