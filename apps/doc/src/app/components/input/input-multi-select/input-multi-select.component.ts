@@ -3,6 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
   PrizmContextWithImplicit,
+  PrizmDropdownHostStyles,
   PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
@@ -19,6 +20,22 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputInputMultiSelectComponent {
+  dropdownStylesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
+    null,
+    {
+      '--prizm-data-list-background': 'gray',
+      '--prizm-select-item-background': 'gray',
+      '--prizm-data-list-header-text': 'white',
+    },
+  ];
+  public dropdownStyles: PrizmDropdownHostStyles;
+  public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
+    null,
+    {
+      blackBackground: true,
+    },
+  ];
+  public dropdownClasses: PrizmDropdownHostStyles;
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly selectKey = 'PrizmMultiSelectInputComponent';
   public border = false;

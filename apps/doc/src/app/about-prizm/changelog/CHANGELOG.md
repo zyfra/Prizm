@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file.
 
 - feat(components/sidebar): ability was added to control styles of wrapper elements #541
 - feat(components/table): ability was added to control tree rows #366
+- feat(components/dropdown-host): ability was added to control classes for dropdown #536
+- feat(components/input-select): ability was added to control classes and styles for dropdown #536
+- feat(components/input-multi-select): ability was added to control classes and styles for dropdown #536
 
 ### Bug fixes
 

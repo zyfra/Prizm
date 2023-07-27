@@ -65,6 +65,8 @@
           [searchMatcher]="searchMatcher"
           [formControl]="control"
           [searchable]="searchable"
+          [dropdownStyles]="dropdownStyles"
+          [dropdownClasses]="dropdownClasses"
           [dropdownScroll]="dropdownScroll"
           [emptyContent]="emptyContent"
           [minDropdownHeight]="minDropdownHeight"
@@ -82,6 +84,26 @@
       [hostComponentKey]="selectKey"
       [control]="control"
     >
+      <ng-template
+        [(documentationPropertyValue)]="dropdownStyles"
+        [documentationPropertyValues]="dropdownStylesVariants"
+        documentationPropertyName="dropdownStyles"
+        documentationPropertyType="PrizmDropdownHostStyles"
+        documentationPropertyMode="input"
+      >
+        Styles for dropdown modal window
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="dropdownClasses"
+        [documentationPropertyValues]="dropdownClassesVariants"
+        documentationPropertyName="dropdownClasses"
+        documentationPropertyType="PrizmDropdownHostClasses"
+        documentationPropertyMode="input"
+      >
+        Classes for dropdown modal window
+      </ng-template>
+
       <ng-template
         [(documentationPropertyValue)]="dropdownScroll"
         [documentationPropertyValues]="dropdownScrollVariants"

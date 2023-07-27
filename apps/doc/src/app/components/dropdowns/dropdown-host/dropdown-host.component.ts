@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, TemplateRef, ViewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PolymorphContent, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
+import {
+  PolymorphContent,
+  PrizmDropdownHostClasses,
+  PrizmDropdownHostStyles,
+  PrizmOverlayOutsidePlacement,
+} from '@prizm-ui/components';
 import { prizmGenerateId } from '@prizm-ui/helpers';
 
 @Component({
@@ -10,6 +15,21 @@ import { prizmGenerateId } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
+  public dropdownStylesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
+    null,
+    {
+      '--prizm-data-list-background': 'gray',
+      '--prizm-data-list-header-text': 'white',
+    },
+  ];
+  public dropdownStyles: PrizmDropdownHostStyles;
+  public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
+    null,
+    {
+      blackBackground: true,
+    },
+  ];
+  public dropdownClasses: PrizmDropdownHostClasses;
   public prizmDropdownHostId = 'dropdownHostId_' + prizmGenerateId();
   public delay = 0;
   public canOpen = true;
