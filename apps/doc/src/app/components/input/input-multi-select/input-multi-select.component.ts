@@ -32,7 +32,7 @@ export class InputInputMultiSelectComponent {
   public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
     {
-      blackBackground: true,
+      extraDropdownClass: true,
     },
   ];
   public dropdownClasses: PrizmDropdownHostStyles;

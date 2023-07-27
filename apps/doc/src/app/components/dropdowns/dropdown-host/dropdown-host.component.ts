@@ -26,7 +26,7 @@ export class DropdownHostComponent {
   public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
     {
-      blackBackground: true,
+      extraDropdownClass: true,
     },
   ];
   public dropdownClasses: PrizmDropdownHostClasses;
