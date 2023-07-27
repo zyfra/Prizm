@@ -113,23 +113,27 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
+  private updatePos(): void {
+    const positions = this.position.getPositions(this.wrapperEl);
+    const { extra, ...coords } = positions;
+    if (this.extra !== extra) {
+      this.extra = extra;
+      this.cd.detectChanges();
+    }
+    Object.assign(coords, { visibility: 'visible', opacity: '1' });
+    this.wrapperEl.style = objToCss(coords);
+    this.position.savePosition(positions);
+    EventBus.send(this.zid, 'z_posupdate');
+
+    this.cd.markForCheck();
+  }
+
   private setPos(): void {
+    this.updatePos();
+
     timer(0)
       .pipe(
-        tap(() => {
-          const positions = this.position.getPositions(this.wrapperEl);
-          const { extra, ...coords } = positions;
-          if (this.extra !== extra) {
-            this.extra = extra;
-            this.cd.detectChanges();
-          }
-          Object.assign(coords, { visibility: 'visible', opacity: '1' });
-          this.wrapperEl.style = objToCss(coords);
-          this.position.savePosition(positions);
-          EventBus.send(this.zid, 'z_posupdate');
-
-          this.cd.markForCheck();
-        }),
+        tap(() => this.updatePos()),
         takeUntil(this.destroy$)
       )
       .subscribe();
