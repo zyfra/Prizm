@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 ### Bug fixes
 
 - fix(components/tabs): after build the color changes #543
+- fix(components/overlay): the initial positioning of the window does not take right place #387
 
 ## [2.1.3-next.1](https://github.com/zyfra/Prizm) (26-07-2023)
 
