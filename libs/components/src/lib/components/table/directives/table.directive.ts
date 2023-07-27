@@ -17,10 +17,12 @@ import { AbstractPrizmController } from '../abstract/controller';
 import { Observable } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
+import { PrizmTableTreeService } from '../service/tree.service';
+import { PrizmTableRowService } from '../service/row.service';
 
 @Directive({
   selector: `table[prizmTable]`,
-  providers: PRIZM_TABLE_PROVIDERS,
+  providers: [...PRIZM_TABLE_PROVIDERS, PrizmTableTreeService, PrizmTableRowService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     style: `border-collapse: separate; border-spacing: 0`,
@@ -70,6 +72,7 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   readonly sortChange: Observable<PrizmTableCellSorter<T>[]> = this.sorterService.changes$;
 
   constructor(
+    public readonly tree: PrizmTableTreeService,
     public readonly sorterService: PrizmTableSorterService<T>,
     @Inject(IntersectionObserverService)
     readonly entries$: Observable<IntersectionObserverEntry[]>,

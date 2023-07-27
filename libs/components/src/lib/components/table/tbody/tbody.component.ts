@@ -40,7 +40,7 @@ import { PrizmTableRowService } from '../service/row.service';
   templateUrl: `./tbody.component.html`,
   styleUrls: [`./tbody.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [...PRIZM_TABLE_PROVIDER, PrizmTableTreeService, PrizmTableRowService],
+  providers: PRIZM_TABLE_PROVIDER,
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   implements CollectionViewer, AfterViewInit, OnDestroy

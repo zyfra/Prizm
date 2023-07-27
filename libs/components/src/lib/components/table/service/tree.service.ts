@@ -6,47 +6,30 @@ import { Compare } from '@prizm-ui/helpers';
 @Injectable()
 export class PrizmTableTreeService {
   private readonly showDirectChildrenMap = new Map<number, boolean>();
-  private readonly showAllChildrenMap = new Map<number, boolean>([[0, true]]);
+  private readonly showAllChildrenMap = new Map<number, boolean>();
   private readonly changes$$ = new ReplaySubject(1);
   public readonly changes$ = this.changes$$.asObservable();
   private readonly nestedStructure = new Map<number, number>();
-  /**
-   * показать всех детей потомков
-   * показать всех
-   * parent: child,
-   * parent: [child1, child2]
-   * child1: [child3]
-   *
-   * true > показать
-   * false > скрыть
-   *
-   * Показать все
-   * показ всех потомков текущих
-   *
-   * */
   public canShowChild(idx: number): Observable<boolean> {
     return this.changes$.pipe(
-      // map(() => Boolean(this.map.get(idx))),
       startWith(null),
-      map(() => {
-        let result = this.showDirectChildrenMap.get(idx);
-
-        if (Compare.isNullish(result)) {
-          const parents = this.findAllParents(idx);
-          for (const parent of [idx, ...parents]) {
-            const parentResult = this.showAllChildrenMap.get(parent);
-            if (typeof parentResult === 'boolean') {
-              result = parentResult;
-              break;
-            }
-          }
-        }
-
-        console.log('#mz flipNestedStructure', idx, this.flipNestedStructure());
-        console.log('#mz findAllChildren', idx, this.findAllChildren(idx));
-        return Boolean(result);
-      })
+      map(() => this.isChildrenOpened(idx))
     );
+  }
+
+  public isChildrenOpened(idx: number): boolean {
+    let result = this.showDirectChildrenMap.get(idx);
+    if (Compare.isNullish(result)) {
+      const parents = this.findAllParents(idx);
+      for (const parent of [idx, ...parents]) {
+        const parentResult = this.showAllChildrenMap.get(parent);
+        if (typeof parentResult === 'boolean') {
+          result = parentResult;
+          break;
+        }
+      }
+    }
+    return Boolean(result);
   }
 
   private findAllParents(childIdx: number): number[] {
@@ -71,7 +54,6 @@ export class PrizmTableTreeService {
   }
 
   private findAllChildren(idx: number, flipped = this.flipNestedStructure()): number[] {
-    console.log('#mz flipped', [...flipped]);
     const allCurrentIdChildren = Array.from(flipped.get(idx) ?? []);
     return [
       ...allCurrentIdChildren,
@@ -90,12 +72,26 @@ export class PrizmTableTreeService {
     this.showAllChildrenMap.set(idx, show);
   }
 
-  public openAllChildren(idx: number) {
-    this.showHideAllNested(idx, true);
+  private showHideAll(show: boolean, idx?: number | null) {
+    let children: number[];
+    if (typeof idx === 'number') {
+      children = [...this.findAllChildren(idx), idx];
+    } else {
+      children = [...this.showDirectChildrenMap.keys()];
+    }
+    for (const child of children) {
+      this.showHideAllNested(child, show);
+      this.showDirectChildrenMap.set(child, show);
+    }
+    this.changes$$.next(this.showDirectChildrenMap);
   }
 
-  public closeAllChildren(idx: number) {
-    this.showHideAllNested(idx, false);
+  public showAllChildren(idx?: number | null) {
+    this.showHideAll(true, idx);
+  }
+
+  public hideAllChildren(idx?: number | null) {
+    this.showHideAll(false, idx);
   }
 
   public showChildren(idx: number): void {
@@ -115,7 +111,7 @@ export class PrizmTableTreeService {
     this.changes$$.next(this.showDirectChildrenMap);
   }
 
-  public isChildrenOpened(idx: number): boolean {
-    return Boolean(this.showDirectChildrenMap.get(idx));
+  public init(idx: number): void {
+    this.showDirectChildrenMap.set(idx, null);
   }
 }

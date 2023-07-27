@@ -34,6 +34,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
   public ngOnInit(): void {
     this.generateIdx();
     this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, this.getContext());
+    this.treeService.init(this.idx);
   }
 
   private generateIdx(): void {
