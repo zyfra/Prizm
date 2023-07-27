@@ -131,6 +131,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   private setPos(): void {
     this.updatePos();
 
+    /** if change position after render > we re-update position */
     timer(0)
       .pipe(
         tap(() => this.updatePos()),
