@@ -29,6 +29,18 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   closeWord: string;
   readonly content?: any;
   readonly outerContent?: any;
+  /**
+   * style for content wrapper element
+   * */
+  readonly contentWrapperStyle?: string;
+  /**
+   * style for header wrapper element
+   * */
+  readonly headerWrapperStyle?: string;
+  /**
+   * style for footer wrapper element
+   * */
+  readonly footerWrapperStyle?: string;
   readonly closeable: boolean;
   /**
    * header (not include close button)

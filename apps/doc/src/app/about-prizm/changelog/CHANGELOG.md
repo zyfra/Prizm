@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.3-next.1](https://github.com/zyfra/Prizm) (25-07-2023)
+## [2.1.3-next.2](https://github.com/zyfra/Prizm) (27-07-2023)
+
+### Features
+
+- feat(components/sidebar): ability was added to control styles of wrapper elements #541
+- feat(components/table): ability was added to control tree rows #366
+- feat(components/dropdown-host): ability was added to control classes for dropdown #536
+- feat(components/input-select): ability was added to control classes and styles for dropdown #536
+- feat(components/input-multi-select): ability was added to control classes and styles for dropdown #536
+
+### Bug fixes
+
+- fix(components/tabs): after build the color changes #543
+- fix(components/overlay): the initial positioning of the window does not take right place #387
+
+## [2.1.3-next.1](https://github.com/zyfra/Prizm) (26-07-2023)
 
 ### Features
 

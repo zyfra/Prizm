@@ -27,7 +27,11 @@ import {
   PrizmSelectValueTransformver,
 } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDropdownHostComponent } from '../dropdown-host';
+import {
+  PrizmDropdownHostClasses,
+  PrizmDropdownHostComponent,
+  PrizmDropdownHostStyles,
+} from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
 import { PrizmScrollbarVisibility } from '../../scrollbar';
@@ -65,6 +69,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Input()
   @prizmDefaultProp()
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
+
+  @Input() dropdownStyles: PrizmDropdownHostStyles;
+  @Input() dropdownClasses: PrizmDropdownHostClasses;
 
   @Input()
   @prizmDefaultProp()

@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
 import { PrizmOverlayAbstractPosition } from './position/position';
@@ -113,7 +113,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  private setPos(): void {
+  private updatePos(): void {
     const positions = this.position.getPositions(this.wrapperEl);
     const { extra, ...coords } = positions;
     if (this.extra !== extra) {
@@ -124,5 +124,19 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     this.wrapperEl.style = objToCss(coords);
     this.position.savePosition(positions);
     EventBus.send(this.zid, 'z_posupdate');
+
+    this.cd.markForCheck();
+  }
+
+  private setPos(): void {
+    this.updatePos();
+
+    /** if position will be changed after render > we re-update position */
+    timer(0)
+      .pipe(
+        tap(() => this.updatePos()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 }

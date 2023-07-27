@@ -48,6 +48,8 @@
         [canOpen]="canOpen"
         [closeOnOutsideClick]="closeOnOutsideClick"
         [closeByEsc]="closeByEsc"
+        [dropdownClasses]="dropdownClasses"
+        [dropdownStyles]="dropdownStyles"
         [prizmDropdownHostCloseOnBackdropClick]="prizmDropdownHostCloseOnBackdropClick"
         style="display: inline-block; width: auto"
       >
@@ -59,8 +61,8 @@
           <prizm-data-list>
             <ng-container header>Заголовок блока</ng-container>
             <div class="box">
-              <button prizmButton appearanceType="outline">Кнопка 1</button>
-              <button prizmButton appearanceType="outline">Кнопка 2</button>
+              <button prizmButton appearanceType="fill">Кнопка 1</button>
+              <button prizmButton appearanceType="fill">Кнопка 2</button>
             </div>
             <ng-container footer>
               <button (click)="isOpen = false; cdRef.markForCheck()" prizmButton>Закрыть</button>
@@ -72,8 +74,8 @@
       <ng-template #withHeader>
         <prizm-data-list>
           <div class="box">
-            <button prizmButton appearanceType="outline">Кнопка 1</button>
-            <button prizmButton appearanceType="outline">Кнопка 2</button>
+            <button prizmButton appearanceType="fill">Кнопка 1</button>
+            <button prizmButton appearanceType="fill">Кнопка 2</button>
           </div>
           <ng-container footer>
             <button (click)="isOpen = false; cdRef.markForCheck()" prizmButton>Закрыть</button>
@@ -85,8 +87,8 @@
         <prizm-data-list>
           <ng-container header>Заголовок блока</ng-container>
           <div class="box">
-            <button prizmButton appearanceType="outline">Кнопка 1</button>
-            <button prizmButton appearanceType="outline">Кнопка 2</button>
+            <button prizmButton appearanceType="fill">Кнопка 1</button>
+            <button prizmButton appearanceType="fill">Кнопка 2</button>
           </div>
         </prizm-data-list>
       </ng-template>
@@ -94,8 +96,8 @@
       <ng-template #onlyContent>
         <prizm-data-list>
           <div class="box">
-            <button prizmButton appearanceType="outline">Кнопка 1</button>
-            <button prizmButton appearanceType="outline">Кнопка 2</button>
+            <button prizmButton appearanceType="fill">Кнопка 1</button>
+            <button prizmButton appearanceType="fill">Кнопка 2</button>
           </div>
         </prizm-data-list>
       </ng-template>
@@ -107,7 +109,7 @@
         documentationPropertyType="string"
         documentationPropertyMode="input"
       >
-        Host Witdh
+        Host Width
       </ng-template>
       <ng-template
         documentationPropertyName="prizmDropdownCustomContext"
@@ -127,11 +129,23 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="dropdownStyles"
+        [documentationPropertyValues]="dropdownStylesVariants"
         documentationPropertyName="dropdownStyles"
-        documentationPropertyType="Record<string, string | number>"
+        documentationPropertyType="PrizmDropdownHostStyles"
         documentationPropertyMode="input"
       >
         Styles for dropdown modal window
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="dropdownClasses"
+        [documentationPropertyValues]="dropdownClassesVariants"
+        documentationPropertyName="dropdownClasses"
+        documentationPropertyType="PrizmDropdownHostClasses"
+        documentationPropertyMode="input"
+      >
+        Classes for dropdown modal window
       </ng-template>
 
       <ng-template

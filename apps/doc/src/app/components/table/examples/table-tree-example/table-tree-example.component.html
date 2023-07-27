@@ -4,9 +4,34 @@
   <prizm-toggle [(ngModel)]="showFormatNumber" [ngModelOptions]="{ standalone: true }" size="m">
   </prizm-toggle>
 </div>
+<div>
+  show/hide all columns
+  <prizm-toggle
+    [ngModel]="false"
+    [ngModelOptions]="{ standalone: true }"
+    (ngModelChange)="
+      $event ? prizmTableElement.tree.showAllChildren() : prizmTableElement.tree.hideAllChildren()
+    "
+    size="m"
+  >
+  </prizm-toggle>
+</div>
+
+<div>
+  show/hide by idx 0
+  <prizm-toggle
+    [ngModel]="false"
+    [ngModelOptions]="{ standalone: true }"
+    (ngModelChange)="
+      $event ? prizmTableElement.tree.showAllChildren(0) : prizmTableElement.tree.hideAllChildren(0)
+    "
+    size="m"
+  >
+  </prizm-toggle>
+</div>
 <br />
 <prizm-scrollbar class="scrollable">
-  <table class="table" prizmTable size="s">
+  <table class="table" #prizmTableElement="prizmTable" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
         <th prizmTh>Наименование</th>
