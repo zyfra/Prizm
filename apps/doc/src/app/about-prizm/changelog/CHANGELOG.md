@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3-next.3](https://github.com/zyfra/Prizm) (28-07-2023)
+
+### Features
+
+- feat(components/autoresize): added directive and example how to use in textarea #544
+
+### Bug fixes
+
+- fix(components/dropdown-host): wrong position of dropdown #394
+- fix(components/dropdown-host): flickering on scroll #495
+- fix(components/tabs): automatically close after select from menu #482
+- fix(components/input-number): block not number symbols #486
+
 ## [2.1.3-next.2](https://github.com/zyfra/Prizm) (27-07-2023)
 
 ### Features

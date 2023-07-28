@@ -28,3 +28,4 @@ export * from './value-accessor';
 export * from './wrapper';
 export * from './sticky';
 export * from './native-value';
+export * from './auto-resize';
