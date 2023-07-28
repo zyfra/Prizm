@@ -18,7 +18,7 @@ import { UntypedFormControl, NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
-import { interval } from 'rxjs';
+import { interval, timer } from 'rxjs';
 
 @Component({
   selector:

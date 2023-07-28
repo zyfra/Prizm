@@ -193,4 +193,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.tabsService.getTabByIdx(idx)?.closeTab.emit();
     this.reCalculatePositions();
   }
+
+  public clickTab(idx: number): void {
+    this.openLeft = this.openRight = false;
+  }
 }
