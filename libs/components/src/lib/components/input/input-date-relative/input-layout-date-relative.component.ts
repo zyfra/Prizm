@@ -104,6 +104,9 @@ export class PrizmInputLayoutDateRelativeComponent
     super(injector);
   }
 
+  public override isEmpty(value: any): boolean {
+    return !value && !this.nativeFocusableElement?.value;
+  }
   public override ngOnInit(): void {
     super.ngOnInit();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
@@ -176,6 +179,7 @@ export class PrizmInputLayoutDateRelativeComponent
       period: this.activePeriodId,
     });
 
+    this.controlMarkAsTouched();
     this.updateValue(stringValue);
   }
 
@@ -183,6 +187,7 @@ export class PrizmInputLayoutDateRelativeComponent
     this.parseInputValue('');
     this.updateValue(null);
     this.actualizeMenu();
+    if (this.nativeFocusableElement) this.nativeFocusableElement.value = '';
   }
 
   /**
