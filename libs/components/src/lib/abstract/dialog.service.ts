@@ -92,6 +92,7 @@ export abstract class AbstractPrizmDialogService<
   protected getConfig(dialog: PrizmBaseDialogContext<any, any>): Partial<PrizmOverlayConfig> {
     return {
       backdrop: dialog.backdrop ?? true,
+      styleVars: dialog.styleVars,
       containerClass: dialog.containerClass ?? '',
       backdropClass: [dialog.backdrop && PRIZM_OVERLAY_BACKDROP_NO_POINTERS, dialog.backdropClass]
         .filter(Boolean)

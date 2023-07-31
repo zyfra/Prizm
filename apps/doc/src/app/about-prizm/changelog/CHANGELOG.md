@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.3](https://github.com/zyfra/Prizm) (21-07-2023)
+
+### Features
+
+- feat(components/autoresize): added directive and example how to use in textarea #544
+- feat(components/sidebar): ability was added to control styles of wrapper elements #541
+- feat(components/table): ability was added to control tree rows #366
+- feat(components/dropdown-host): ability was added to control classes for dropdown #536
+- feat(components/input-select): ability was added to control classes and styles for dropdown #536
+- feat(components/input-multi-select): ability was added to control classes and styles for dropdown #536
+- feat(components/breadcrumbs): added ability to work with projections #464
+- feat(components/overlay): added new logic for detecting events from dynamic elements #411
+- feat(helpers/rxjs): 'raceEmit' operator was added to detect first emit in the transmitted time interval between source streams
+- feat(components/tabs): add full width underline #539
+
+### Bug fixes
+
+- fix(components/input-layout): problems with layout in outer #537
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(components/tabs): after build the color changes #543
+- fix(components/overlay): the initial positioning of the window does not take right place #387
+- fix(components/dropdown-host): wrong position of dropdown #394
+- fix(components/dropdown-host): flickering on scroll #495
+- fix(components/tabs): automatically close after select from menu #482
+- fix(components/input-number): block not number symbols #486
+- fix(components/widget): fixed the height in component prizm-widget-base-example #484
+- fix(components/skeleton): styles are not removed when the skeleton is disabled #304
+- fix(doc): font fixes #280 #302 #303 #460
+
 ## [2.1.3-next.3](https://github.com/zyfra/Prizm) (28-07-2023)
 
 ### Features

@@ -33,6 +33,7 @@ import {
   PRIZM_DATE_TEXTS,
   PRIZM_IS_MOBILE,
   PRIZM_MOBILE_CALENDAR,
+  PRIZM_TIME_TEXTS,
 } from '../../../tokens';
 import { PrizmDialogService } from '../../dialogs/dialog';
 import { PRIZM_DATE_FORMAT, PRIZM_DATE_SEPARATOR, PrizmDayRange, PrizmTime } from '../../../@core';
@@ -41,12 +42,20 @@ import { Observable } from 'rxjs';
 import { PrizmInputSize } from '../common/models/prizm-input.models';
 import { takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { prizmI18nInitWithKeys } from '../../../services';
 
 @Component({
   selector: `prizm-input-date-time-range`,
   templateUrl: `./input-date-range-time.component.html`,
   styleUrls: [`./input-date-range-time.component.less`],
-  providers: [...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS, PrizmDestroyService],
+  providers: [
+    ...prizmI18nInitWithKeys({
+      time: PRIZM_TIME_TEXTS,
+      dateTexts: PRIZM_DATE_TEXTS,
+    }),
+    ...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
+    PrizmDestroyService,
+  ],
 })
 export class PrizmInputDateTimeRangeComponent
   extends AbstractPrizmNullableControl<PrizmDateTimeRange>

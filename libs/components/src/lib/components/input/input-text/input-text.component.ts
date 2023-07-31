@@ -1,11 +1,9 @@
 import {
-  Attribute,
   ChangeDetectorRef,
   Component,
   DoCheck,
   ElementRef,
   EventEmitter,
-  HostBinding,
   HostListener,
   Input,
   OnDestroy,
@@ -14,11 +12,10 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { UntypedFormControl, NgControl, Validators } from '@angular/forms';
+import { NgControl, UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
-import { interval, timer } from 'rxjs';
 
 @Component({
   selector:
@@ -143,7 +140,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
-    private readonly prizmDestroyService: PrizmDestroyService,
+    private readonly destroy: PrizmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
@@ -199,7 +196,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
           this.updateErrorState();
           this.cdr.markForCheck();
         }),
-        takeUntil(this.prizmDestroyService)
+        takeUntil(this.destroy)
       )
       .subscribe();
 
@@ -210,7 +207,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
           this.updateErrorState();
           this.stateChanges.next();
         }),
-        takeUntil(this.prizmDestroyService)
+        takeUntil(this.destroy)
       )
       .subscribe();
 
@@ -219,7 +216,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
         tap(() => {
           this.stateChanges.next();
         }),
-        takeUntil(this.prizmDestroyService)
+        takeUntil(this.destroy)
       )
       .subscribe();
   }
