@@ -46,7 +46,6 @@
 }
 
 .prizm-input-label {
-  display: block;
   font-weight: 600;
   font-size: 12px;
   color: var(--prizm-text-subscript);
@@ -55,6 +54,9 @@
   margin-bottom: 4px;
   transition: top 200ms ease 0s;
   pointer-events: none;
+  width: 100%;
+  display: flex;
+  gap: 4px;
 
   &-required {
     color: var(--prizm-index-danger);
@@ -95,6 +97,7 @@
     &-center {
       padding: 0;
       left: 50%;
+      justify-content: center;
       transform: translateX(-50%);
     }
   }

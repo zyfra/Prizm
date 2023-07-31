@@ -10,18 +10,21 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { PrizmTableRowService } from '../service/row.service';
+import { PrizmTableTreeService } from '../service/tree.service';
+import { PrizmTableRowContext } from '../table.types';
 
 @Directive({
   selector: `ng-template[prizmTableRowInit]`,
 })
 export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges {
-  @Input() context: Record<string, unknown>;
+  @Input() context: PrizmTableRowContext;
   @Input() template: TemplateRef<any>;
   public embeddedRef: EmbeddedViewRef<any>;
   private idx: number;
   constructor(
     public readonly viewContainer: ViewContainerRef,
-    public readonly tableRowService: PrizmTableRowService
+    public readonly tableRowService: PrizmTableRowService,
+    public readonly treeService: PrizmTableTreeService
   ) {}
 
   public ngOnDestroy(): void {
@@ -31,11 +34,16 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
   public ngOnInit(): void {
     this.generateIdx();
     this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, this.getContext());
+    this.treeService.init(this.idx);
   }
 
   private generateIdx(): void {
     this.tableRowService.incrementIdx();
     this.idx = this.tableRowService.getIdx();
+
+    if ('parentIdx' in this.context) {
+      this.treeService.addChildToParent(this.idx, this.context.parentIdx);
+    }
   }
 
   public updateContextIfCan() {
@@ -46,7 +54,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
     this.embeddedRef.markForCheck();
   }
 
-  private getContext(): Record<string, any> {
+  private getContext(): PrizmTableRowContext {
     const odd = this.idx % 2 !== 0;
     return {
       ...this.context,

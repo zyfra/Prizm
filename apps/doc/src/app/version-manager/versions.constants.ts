@@ -6,7 +6,7 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '2.1.2',
+    label: '1.4.1',
     baseHref: 'http://prizm.site/',
   },
   {

@@ -7,12 +7,21 @@
 
   .container {
     height: 100%;
-
+    width: 100%;
     display: flex;
     align-items: center;
 
     position: relative;
     overflow: hidden;
+
+    .line {
+      position: absolute;
+      height: 2px;
+      background-color: var(--prizm-grey-g10-g4);
+      width: 100%;
+      z-index: 1;
+      bottom: 0;
+    }
 
     .tabs {
       height: 100%;

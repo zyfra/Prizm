@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
+  PrizmDropdownHostClasses,
+  PrizmDropdownHostStyles,
   PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
@@ -18,6 +20,23 @@ import { prizmPure } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputSelectComponent {
+  public dropdownStylesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
+    null,
+    {
+      '--prizm-data-list-background': 'gray',
+      '--prizm-select-item-background': 'gray',
+      '--prizm-data-list-header-text': 'white',
+    },
+  ];
+  public dropdownStyles: PrizmDropdownHostStyles;
+  public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
+    null,
+    {
+      extraDropdownClass: true,
+    },
+  ];
+  public dropdownClasses: PrizmDropdownHostClasses;
+
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly selectKey = 'PrizmSelectInputComponent';
   public readOnly = false;

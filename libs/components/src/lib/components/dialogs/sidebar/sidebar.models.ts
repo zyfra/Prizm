@@ -17,6 +17,8 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   confirmButton?: PrizmSidebarButton | string;
   supportButton?: PrizmSidebarButton | string;
   cancelButton?: PrizmSidebarButton | string;
+  styleVars?: Record<string, unknown>;
+  overlayStyleVars?: Record<string, unknown>;
   showByVertical?: boolean;
   data?: DATA;
   size?: PrizmDialogSize;

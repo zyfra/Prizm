@@ -6,17 +6,14 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 })
 export class PrizmSkeletonDirective {
   @Input('prizmSkeletonText')
-  @HostBinding('class.prizm-skeleton_text')
   @prizmDefaultProp()
   isText = false;
 
   @Input('prizmSkeletonRounded')
-  @HostBinding('class.prizm-skeleton_rounded')
   @prizmDefaultProp()
   isRounded = false;
 
   @Input('prizmSkeletonShort')
-  @HostBinding('class.prizm-skeleton_short')
   @prizmDefaultProp()
   isShort = false;
 
@@ -24,4 +21,14 @@ export class PrizmSkeletonDirective {
   @HostBinding('class.prizm-skeleton')
   @prizmDefaultProp()
   active = true;
+
+  @HostBinding('class.prizm-skeleton_text') get prizmSkeletonText() {
+    return this.active && this.isText;
+  }
+  @HostBinding('class.prizm-skeleton_rounded') get prizmSkeletonRounded() {
+    return this.active && this.isRounded;
+  }
+  @HostBinding('class.prizm-skeleton_short') get prizmSkeletonShort() {
+    return this.active && this.isShort;
+  }
 }

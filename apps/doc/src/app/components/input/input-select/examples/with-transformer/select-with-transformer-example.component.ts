@@ -45,6 +45,6 @@ export class PrizmSelectWithTransformerExampleComponent {
   };
 
   public setDefaultValue(): void {
-    this.valueControl.setValue(this.items[0]);
+    this.valueControl.setValue(this.items[0].id);
   }
 }

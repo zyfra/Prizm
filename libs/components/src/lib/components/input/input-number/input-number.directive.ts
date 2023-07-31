@@ -1,6 +1,8 @@
 import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { timer } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 @Directive({
   selector: 'input[prizmInputNumber], input[type=number][prizmInput]',
@@ -17,11 +19,21 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
   get disabled() {
     return this.prizmInputText.disabled;
   }
+
+  @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
+    if ((ev.ctrlKey || ev.metaKey) && ['c', 'v', 'a', 'x'].includes(ev.key)) return true;
+    if (
+      ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
+    )
+      return true;
+    return !ev.key.match(/[^0-9]/);
+  }
+
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
     @Host() private readonly prizmInputText: PrizmInputTextComponent
   ) {
-    el.nativeElement.type = 'number';
+    el.nativeElement.type = 'text';
     super();
   }
 

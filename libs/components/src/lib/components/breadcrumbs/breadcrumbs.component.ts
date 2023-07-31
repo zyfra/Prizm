@@ -1,24 +1,25 @@
 import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  Output,
-  EventEmitter,
-  OnDestroy,
-  ViewChild,
-  ElementRef,
-  ViewChildren,
-  QueryList,
-  ChangeDetectorRef,
-  OnInit,
   AfterViewInit,
-  HostBinding,
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ContentChildren,
+  ElementRef,
+  EventEmitter,
+  Input,
+  OnDestroy,
+  OnInit,
+  Output,
+  QueryList,
+  ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
 
 @Component({
   selector: 'prizm-breadcrumbs',
@@ -27,7 +28,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
 })
-export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
+export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   extends PrizmAbstractTestId
   implements OnInit, OnDestroy, AfterViewInit
 {
@@ -45,6 +46,7 @@ export class BreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   @ViewChild('container', { static: true }) public containerRef: ElementRef;
   @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer: ElementRef;
   @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList: QueryList<ElementRef>;
+  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem: QueryList<PrizmBreadcrumbDirective>;
 
   public breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);

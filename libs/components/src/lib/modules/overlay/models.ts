@@ -78,6 +78,7 @@ export interface PrizmOverlayContainerSize {
 
 export interface PrizmOverlayConfig {
   backdrop: boolean;
+  styleVars?: Record<string, unknown>;
   containerClass: string;
   wrapperClass: string;
   backdropClass: string;
