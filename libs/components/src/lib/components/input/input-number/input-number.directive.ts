@@ -21,6 +21,7 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
   }
 
   @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
+    if ((ev.ctrlKey || ev.metaKey) && ['c', 'v', 'a', 'x'].includes(ev.key)) return true;
     if (
       ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
     )
