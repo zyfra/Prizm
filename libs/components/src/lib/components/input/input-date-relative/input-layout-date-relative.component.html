@@ -22,7 +22,7 @@
 </prizm-dropdown-host>
 
 <ng-template #dropdown>
-  <ul class="prizm-datepicker-relative-menu" (prizmAfterViewInit)="markAsTouched()" role="listbox">
+  <ul class="prizm-datepicker-relative-menu" role="listbox">
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: timeItems }"></ng-container>
     <li class="relative-menu-item-divider"></li>
     <ng-container *ngTemplateOutlet="menuItemsTemplate; context: { items: directionItems }"></ng-container>

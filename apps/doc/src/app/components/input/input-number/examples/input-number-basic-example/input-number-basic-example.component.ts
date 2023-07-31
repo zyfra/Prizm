@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -8,5 +8,5 @@ import { UntypedFormControl, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputNumberBasicExampleComponent {
-  public requiredInputControl = new UntypedFormControl('', Validators.required);
+  public requiredInputControl = new UntypedFormControl(2, Validators.required);
 }

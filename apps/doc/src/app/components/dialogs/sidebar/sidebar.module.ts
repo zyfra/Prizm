@@ -18,6 +18,7 @@ import { PrizmSidebarHiddenFooterExampleComponent } from './examples/hidden-foot
 import { PrizmSidebarCustomCloseGuardExampleComponent } from './examples/custom-close-guard/custom-close-guard.component';
 import { PrizmSidebarCustomHeaderTemplateExampleComponent } from './examples/custom-header-template/custom-header-template.component';
 import { PrizmSidebarCustomButtonTemplateExampleComponent } from './examples/custom-button/custom-button-template.component';
+import { PrizmSidebarCustomWrapperStyleExampleComponent } from './examples/custom-wrapper-style/custom-wrapper-style.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { PrizmSidebarCustomButtonTemplateExampleComponent } from './examples/cus
     RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
   ],
   declarations: [
+    PrizmSidebarCustomWrapperStyleExampleComponent,
     PrizmSidebarCustomHeaderTemplateExampleComponent,
     PrizmSidebarCustomCloseGuardExampleComponent,
     PrizmSidebarCustomButtonTemplateExampleComponent,

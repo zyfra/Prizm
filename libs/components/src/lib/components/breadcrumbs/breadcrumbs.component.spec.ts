@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BreadcrumbsComponent } from './breadcrumbs.component';
+import { PrizmBreadcrumbsComponent } from './breadcrumbs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
 import { PrizmIconModule } from '../icon/icon.module';
 
 describe('BreadcrumbsComponent', () => {
-  let component: BreadcrumbsComponent<any>;
-  let fixture: ComponentFixture<BreadcrumbsComponent<any>>;
+  let component: PrizmBreadcrumbsComponent<any>;
+  let fixture: ComponentFixture<PrizmBreadcrumbsComponent<any>>;
   class ResizeObserver {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     public disconnect(): void {}
@@ -20,13 +20,13 @@ describe('BreadcrumbsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [BreadcrumbsComponent],
+      declarations: [PrizmBreadcrumbsComponent],
       imports: [PrizmDropdownHostModule, PrizmIconModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BreadcrumbsComponent);
+    fixture = TestBed.createComponent(PrizmBreadcrumbsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

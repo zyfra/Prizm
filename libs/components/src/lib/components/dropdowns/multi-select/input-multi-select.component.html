@@ -6,6 +6,8 @@
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
+  [dropdownStyles]="dropdownStyles"
+  [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent.outer"
   (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
 >
