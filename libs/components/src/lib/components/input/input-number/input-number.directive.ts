@@ -21,14 +21,18 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
   }
 
   @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
-    return !['e', '-', '+'].includes(ev.key?.toLowerCase());
+    if (
+      ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
+    )
+      return true;
+    return !ev.key.match(/[^0-9]/);
   }
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
     @Host() private readonly prizmInputText: PrizmInputTextComponent
   ) {
-    el.nativeElement.type = 'number';
+    el.nativeElement.type = 'text';
     super();
   }
 

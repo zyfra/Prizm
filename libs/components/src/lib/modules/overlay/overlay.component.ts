@@ -12,7 +12,7 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmStyleGetVars } from '@prizm-ui/helpers';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { Observable, timer } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
@@ -51,13 +51,13 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly cd: ChangeDetectorRef,
     private readonly destroy$: PrizmDestroyService,
     private readonly compResolver: ComponentFactoryResolver,
-    private readonly elRef: ElementRef
+    private readonly overlayElRef: ElementRef<HTMLElement>
   ) {
     this.parentInjector = Injector;
   }
 
   public ngOnInit(): void {
-    this.el = this.elRef.nativeElement;
+    this.el = this.overlayElRef.nativeElement;
     this.wrapperEl = this.el.querySelector('.z-overlay-wrapper');
     let cls = [
       'z-container',
@@ -70,6 +70,8 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     this.el.setAttribute('data-zid', this.zid);
     cssClass('add', cls, `[data-zid='${[this.zid]}']`);
     cssClass('add', [this.config.bodyClass]);
+
+    this.initStyleVars();
   }
 
   ngAfterViewInit(): void {
@@ -77,6 +79,14 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.content.type === PrizmOverlayContentType.COMPONENT) {
       this.compInstance = this.setComponent(this.content.props);
       EventBus.send(this.zid, 'z_compins', this.compInstance);
+    }
+  }
+
+  private initStyleVars(): void {
+    if (this.config.styleVars) {
+      Object.entries(prizmStyleGetVars(this.config.styleVars)).forEach(([key, value]) => {
+        this.overlayElRef.nativeElement.style.setProperty(key, value);
+      });
     }
   }
 

@@ -1,5 +1,5 @@
 import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
-import { PrizmSidebarService } from '@prizm-ui/components';
+import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-sidebar-custom-wrapper-style-example',
@@ -18,12 +18,13 @@ export class PrizmSidebarCustomWrapperStyleExampleComponent {
         closeable: true,
         header: 'Header',
         width: '400px',
-        contentWrapperStyle: 'padding: 0',
-        headerWrapperStyle: '',
-        footerWrapperStyle: '',
         cancelButton: 'Закрыть',
+        position: PrizmOverlayInsidePlacement.LEFT,
         confirmButton: 'OK',
         backdrop: this.backdrop,
+        styleVars: {
+          sidebarContentPadding: 0,
+        },
         dismissible: this.dismissible,
         size: 'm',
       })

@@ -1,15 +1,25 @@
-import { Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
+import { PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
+import { takeUntil, tap, throttleTime } from 'rxjs/operators';
 
 @Directive({
   selector: `[prizmAutoResize]`,
 })
 export class PrizmAutoResizeDirective implements OnInit {
   @Input() prizmAutoResize = true;
-
-  constructor(private elementRef: ElementRef) {}
+  private readonly subject = new Subject<void>();
+  get scrollHeight(): number {
+    return this.elementRef.nativeElement.scrollHeight;
+  }
+  constructor(private elementRef: ElementRef, private destroy: PrizmDestroyService) {}
 
   @HostListener(':input')
   private onInput() {
+    this.resizeIfActive();
+  }
+
+  private resizeIfActive(): void {
     if (!this.prizmAutoResize) return;
     this.resize();
   }
@@ -19,10 +29,24 @@ export class PrizmAutoResizeDirective implements OnInit {
     if (this.elementRef.nativeElement.scrollHeight) {
       setTimeout(() => this.resize());
     }
+
+    prizmFromMutationObserver$(this.elementRef.nativeElement, {
+      attributes: true,
+      characterData: true,
+    })
+      .pipe(
+        // guard for infinite re invokes
+        throttleTime(100),
+        tap(() => {
+          this.resizeIfActive();
+        }),
+        takeUntil(this.destroy)
+      )
+      .subscribe();
   }
 
   public resize(): void {
     this.elementRef.nativeElement.style.height = '0';
-    this.elementRef.nativeElement.style.height = this.elementRef.nativeElement.scrollHeight + 'px';
+    this.elementRef.nativeElement.style.height = this.scrollHeight + 'px';
   }
 }
