@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styles: [
     `
       prizm-widget {
-        padding: 16px;
         color: var(--prizm-text-main);
         font-style: normal;
         font-weight: 400;

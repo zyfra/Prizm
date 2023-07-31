@@ -28,6 +28,9 @@ All notable changes to this project will be documented in this file.
 - fix(components/dropdown-host): flickering on scroll #495
 - fix(components/tabs): automatically close after select from menu #482
 - fix(components/input-number): block not number symbols #486
+- fix(components/widget): fixed the height in component prizm-widget-base-example #484
+- fix(components/skeleton): styles are not removed when the skeleton is disabled #304
+- fix(doc): font fixes #280 #302 #303 #460
 
 ## [2.1.3-next.3](https://github.com/zyfra/Prizm) (28-07-2023)
 
