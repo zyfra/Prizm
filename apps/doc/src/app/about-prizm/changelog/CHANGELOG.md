@@ -2,11 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.4-next.1](https://github.com/zyfra/Prizm) (31-07-2023)
+## [2.1.4-next.1](https://github.com/zyfra/Prizm) (01-08-2023)
 
 ### Features
 
 - feat(components/textarea): resizable was added #559
+- feat(components/polymorph): added new input to add injector [demo](https://prizm.site/tools/polymorph#injector)
 
 ### Bugfixes
 

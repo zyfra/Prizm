@@ -9,6 +9,7 @@ import { PrizmPolymorphFunctionModule } from './examples/function/function.modul
 import { PrizmPolymorphBaseModule } from './examples/base/base.module';
 import { PrizmPolymorphTemplateModule } from './examples/template/template.module';
 import { PrizmPolymorphComponentModule } from './examples/component/component.module';
+import { PrizmPolymorphInjectorComponentModule } from './examples/injector/injector.module';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PrizmPolymorphComponentModule } from './examples/component/component.mo
     PrizmPolymorphBaseModule,
     PrizmPolymorphComponentModule,
     PrizmPolymorphTemplateModule,
+    PrizmPolymorphInjectorComponentModule,
     RouterModule.forChild(prizmDocGenerateRoutes(PolymorphComponent)),
   ],
   declarations: [PolymorphComponent],
