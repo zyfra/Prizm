@@ -24,7 +24,12 @@
 
 <ng-template #dropdown>
   <prizm-data-list class="screen-list">
-    <div class="screen-list__item" *ngFor="let item of data; let i = index" (click)="changeScreen(i)">
+    <div
+      class="screen-list__item"
+      *ngFor="let item of data; let i = index"
+      [class.selected]="i === currentScreenIdx"
+      (click)="changeScreen(i)"
+    >
       <div class="screen">
         <prizm-icon class="screen__icon" [iconClass]="item?.icon || 'files-folder'"></prizm-icon>
         <span class="screen__title">{{ item?.title }}</span>
