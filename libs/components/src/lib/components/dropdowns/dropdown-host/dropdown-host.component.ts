@@ -195,7 +195,9 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
       .position(this.position)
       .config({ wrapperClass: this.wrapper_class })
       .content(this.temp)
-      .create();
+      .create({
+        parentInjector: this.injector,
+      });
 
     this.initPositionListener(this.position);
   }
