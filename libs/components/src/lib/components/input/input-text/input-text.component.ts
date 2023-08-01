@@ -28,7 +28,7 @@ import { PrizmInputControl } from '../common/base/input-control.class';
     '[disabled]': 'disabled',
   },
   exportAs: 'prizmInput',
-  styleUrls: ['input-text.component.less'],
+  styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
 export class PrizmInputTextComponent extends PrizmInputControl<string> implements DoCheck, OnInit, OnDestroy {

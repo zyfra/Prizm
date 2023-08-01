@@ -8,6 +8,7 @@ import { TextareaBasicExampleComponent } from './examples/textarea-basic-example
 import { TextareaExampleComponent } from './textarea-example.component';
 import { PrizmInputTextModule } from '@prizm-ui/components';
 import { TextareaAutosizeExampleModule } from './examples/textarea-autosize-example/textarea-autosize-example.module';
+import { TextareaResizableExampleComponent } from './examples/textarea-resizable-example/textarea-resizable-example.component';
 
 @NgModule({
   imports: [
@@ -19,7 +20,7 @@ import { TextareaAutosizeExampleModule } from './examples/textarea-autosize-exam
     PrizmInputTextModule,
     TextareaAutosizeExampleModule,
   ],
-  declarations: [TextareaExampleComponent, TextareaBasicExampleComponent],
+  declarations: [TextareaExampleComponent, TextareaResizableExampleComponent, TextareaBasicExampleComponent],
   exports: [TextareaExampleComponent],
 })
 export class TextareaExampleModule {}

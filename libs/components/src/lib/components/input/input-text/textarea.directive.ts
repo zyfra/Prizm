@@ -17,6 +17,9 @@ import { debounceTime, takeUntil } from 'rxjs/operators';
 })
 export class PrizmTextareaDirective implements AfterViewInit {
   @Input() @HostBinding('style.height.px') height: number | null = null;
+  @Input()
+  @HostBinding('class.resizable')
+  resizable = false;
 
   private clone: HTMLTextAreaElement | null = null;
   constructor(

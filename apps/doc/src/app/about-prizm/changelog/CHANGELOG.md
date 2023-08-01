@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.3-next.1](https://github.com/zyfra/Prizm) (31-07-2023)
+## [2.1.4-next.1](https://github.com/zyfra/Prizm) (31-07-2023)
+
+### Features
+
+- feat(components/textarea): resizable was added #559
 
 ### Bugfixes
 
