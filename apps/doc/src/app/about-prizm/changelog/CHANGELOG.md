@@ -7,7 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - feat(components/textarea): resizable was added #559
-- feat(components/polymorph): added new input to add injector [demo](https://prizm.site/tools/polymorph#injector)
+- feat(components/polymorph): added new input to add custom injector [demo](https://prizm.site/tools/polymorph#injector)
 
 ### Bugfixes
 

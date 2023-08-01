@@ -71,11 +71,8 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
         get: (_, key): unknown => this.context[key as keyof C],
       });
       const injector = this.content.createInjector(this.injector, proxy);
-      const componentFactory = injector
-        .get(ComponentFactoryResolver)
-        .resolveComponentFactory(this.content.component);
       this.componentRef = this.viewContainerRef.createComponent(this.content.component, {
-        injector: this.injector,
+        injector: injector,
       });
     } else {
       this.viewRef = this.viewContainerRef.createEmbeddedView(this.template, this.getContext(), {
