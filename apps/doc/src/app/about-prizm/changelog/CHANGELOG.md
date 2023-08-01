@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/textarea): resizable was added #559
 - feat(components/polymorph): added new input to add custom injector [demo](https://prizm.site/tools/polymorph#injector)
 - feat(components/dropdown-host): now we pass injector to overlay
+- feat(theme): use DI to pass parent theme #478
 
 ### Bugfixes
 
