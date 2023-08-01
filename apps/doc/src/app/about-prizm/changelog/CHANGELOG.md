@@ -16,6 +16,11 @@ All notable changes to this project will be documented in this file.
 - fix(components/navigation): select current item #477
 - fix(doc): anchor links do not work on pages that have not loaded #560
 
+### Closed
+
+- #268
+- #533
+
 ## [1.4.1](https://github.com/zyfra/Prizm) (31-07-2023)
 
 ### Features
