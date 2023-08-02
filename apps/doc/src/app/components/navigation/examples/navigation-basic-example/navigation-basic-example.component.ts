@@ -29,4 +29,8 @@ export class NavigationBasicExampleComponent {
   public changeNavElement(idx: number): void {
     this.currentNavElementIdx = idx;
   }
+
+  public saveActiveIdx(item: INavigationTree): void {
+    this.currentNavElementIdx = this.data.indexOf(item);
+  }
 }
