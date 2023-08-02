@@ -10,7 +10,7 @@
     <prizm-header-dropdown
       class="screens"
       [data]="data"
-      [currentScreenIdx]="currentNavElementIdx"
+      [currentScreenIdx]="parentActiveIdx"
       (screenIdxChange)="changeNavElement($event)"
     ></prizm-header-dropdown>
 
@@ -40,7 +40,7 @@
     >
       <prizm-navigation
         [data]="data"
-        [activeElement]="data[currentNavElementIdx]"
+        [activeElement]="activeElement ?? data[parentActiveIdx]"
         (activeItemChange)="saveActiveIdx($event)"
       ></prizm-navigation>
     </prizm-scrollbar>

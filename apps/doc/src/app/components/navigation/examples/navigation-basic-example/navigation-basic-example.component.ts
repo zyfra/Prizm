@@ -16,7 +16,8 @@ export class NavigationBasicExampleComponent {
   public data: INavigationTree[] = NAVIGATION_EXAMPLE;
   public openDropdown = false;
   public openNavigation = true;
-  public currentNavElementIdx = 0;
+  public parentActiveIdx = 0;
+  public activeElement: INavigationTree;
 
   public readonly logo = 'assets/example/logo-dark.png';
 
@@ -27,10 +28,18 @@ export class NavigationBasicExampleComponent {
   }
 
   public changeNavElement(idx: number): void {
-    this.currentNavElementIdx = idx;
+    this.parentActiveIdx = idx;
   }
 
   public saveActiveIdx(item: INavigationTree): void {
-    this.currentNavElementIdx = this.data.indexOf(item);
+    this.activeElement = null;
+    const idx = this.data.findIndex(dataItem => {
+      return dataItem === item || dataItem.children?.indexOf(item) !== -1;
+    });
+    if (idx === -1) return;
+    if (this.data.indexOf(item) === -1) {
+      this.activeElement = item;
+    }
+    this.parentActiveIdx = idx;
   }
 }
