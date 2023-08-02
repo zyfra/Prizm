@@ -1,4 +1,4 @@
-import { Directive, OnInit } from '@angular/core';
+import { Directive } from '@angular/core';
 import { PrizmTdService } from '../td/td.service';
 
 @Directive({
@@ -6,8 +6,4 @@ import { PrizmTdService } from '../td/td.service';
   selector: `tr:not([prizmTr])`,
   providers: [PrizmTdService],
 })
-export class PrizmTrDirective implements OnInit {
-  public ngOnInit(): void {
-    console.log('#mz PrizmTrDirective');
-  }
-}
+export class PrizmTrDirective {}
