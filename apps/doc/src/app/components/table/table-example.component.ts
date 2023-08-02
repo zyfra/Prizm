@@ -87,6 +87,18 @@ export class TableExampleComponent {
     LESS: import('./examples/table-row-group-example/table-row-group-example.component.less?raw'),
   };
 
+  public exampleDynamicRowGroupTable: TuiDocExample = {
+    TypeScript: import(
+      './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component?raw'
+    ),
+    HTML: import(
+      './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component.html?raw'
+    ),
+    LESS: import(
+      './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component.less?raw'
+    ),
+  };
+
   public readonly exampleSelectableTable: TuiDocExample = {
     TypeScript: import('./examples/table-selectable-example/table-selectable-example.component?raw'),
     HTML: import('./examples/table-selectable-example/table-selectable-example.component.html?raw'),

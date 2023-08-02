@@ -34,6 +34,7 @@ import { TableEmptyExampleComponent } from './examples/table-empty-example/table
 import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
 import { TableStickyExampleComponent } from './examples/table-sticky-example/table-sticky-example.component';
 import { TableDataSourceExampleComponent } from './examples/table-data-source-example/table-data-source-example.component';
+import { TableDynamicDynamicRowGroupExampleComponent } from './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TableDataSourceExampleComponent } from './examples/table-data-source-ex
     TableTreeExampleComponent,
     TableStickyExampleComponent,
     TableSelectableMetaExampleComponent,
+    TableDynamicDynamicRowGroupExampleComponent,
   ],
   imports: [
     CommonModule,

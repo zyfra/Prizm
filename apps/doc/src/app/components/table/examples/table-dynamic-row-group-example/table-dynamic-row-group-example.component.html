@@ -1,0 +1,66 @@
+<prizm-scrollbar class="scrollable">
+  <table class="table" prizmTable size="l">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Код</th>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+        <th prizmTh>Наименование 2</th>
+        <th prizmTh>Категория 2</th>
+      </tr>
+    </thead>
+
+    <tbody [data]="products" prizmTbody heading="Группа 1 (5-6 колонок))">
+      <ng-container
+        *prizmRow="
+          let item of products;
+          let i = index;
+          let odd = odd;
+          let even = even;
+          let first = first;
+          let last = last
+        "
+      >
+        <tr prizmTr>
+          <td class="format__number" prizmTd>
+            {{ item.code | spaceNumber : '0.0-0' }}
+          </td>
+          <td prizmTd>{{ item.name }}<br /></td>
+          <td prizmTd>{{ item.category }}</td>
+          <ng-container [ngSwitch]="i % 2 === 0">
+            <ng-container *ngSwitchCase="true">
+              <td prizmTd>{{ item.name }}</td>
+              <td prizmTd>{{ item.category }}</td>
+            </ng-container>
+            <ng-container *ngSwitchCase="false">
+              <td [colspan]="2" prizmTd>{{ item.name }}</td>
+            </ng-container>
+          </ng-container>
+          <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+
+    <tbody [data]="products" prizmTbody heading="Группа (3 колонки) ">
+      <ng-container
+        *prizmRow="
+          let item of products;
+          let i = index;
+          let odd = odd;
+          let even = even;
+          let first = first;
+          let last = last
+        "
+      >
+        <tr prizmTr>
+          <td class="format__number" prizmTd>
+            {{ item.code | spaceNumber : '0.0-0' }}
+          </td>
+          <td [colspan]="2" prizmTd>{{ item.name }}<br /></td>
+          <td [colspan]="3" prizmTd>{{ item.category }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>

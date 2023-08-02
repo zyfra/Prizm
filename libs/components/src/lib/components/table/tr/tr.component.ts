@@ -9,7 +9,7 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-import { debounceTime, map, observeOn, startWith } from 'rxjs/operators';
+import { debounceTime, map, startWith } from 'rxjs/operators';
 import { animationFrameScheduler, merge, Observable } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
@@ -21,6 +21,7 @@ import { PrizmTableCellStatus } from '../table.types';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmCellService } from '../directives/cell.service';
+import { PrizmTdService } from '../td/td.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -30,7 +31,7 @@ import { PrizmCellService } from '../directives/cell.service';
   exportAs: 'prizmTr',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  providers: [PRIZM_TABLE_PROVIDER, PrizmCellService],
+  providers: [PRIZM_TABLE_PROVIDER, PrizmCellService, PrizmTdService],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
@@ -59,6 +60,14 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     })
   );
 
+  get cols(): number {
+    return this.td.count;
+  }
+
+  get cols$(): Observable<number> {
+    return this.td.count$;
+  }
+
   readonly item$: Observable<T> = this.body.rows.changes.pipe(
     startWith(null),
     map(() => this.body.view[this.body.rows.toArray().indexOf(this)])
@@ -72,6 +81,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     @Inject(forwardRef(() => PrizmTbodyComponent))
     private readonly body: PrizmTbodyComponent<T>,
     private readonly cellService: PrizmCellService,
+    private readonly td: PrizmTdService,
     private readonly tableTreeService: PrizmTableTreeService,
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
   ) {}
