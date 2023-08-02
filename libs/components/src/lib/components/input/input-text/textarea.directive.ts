@@ -31,13 +31,17 @@ export class PrizmTextareaDirective implements AfterViewInit {
 
   @HostBinding('class.add-base-resize')
   get baseResizeClass() {
+    console.log('#mz - baseResizeClass [1]', this.resizable);
     if (!this.resizable) return false;
+
+    console.log('#mz - baseResizeClass [2]', this.resizable);
     if (!this.elementRef.nativeElement) return false;
+
     const currentStyle = this.windowRef
       .getComputedStyle(this.elementRef.nativeElement, null)
       .getPropertyValue('resize');
-    if (!currentStyle || currentStyle === 'none') return true;
-    return false;
+
+    return !currentStyle || currentStyle === 'none' || currentStyle === 'both';
   }
 
   private _resizable = false;

@@ -1,3 +1,9 @@
 <prizm-input-layout label="Заголовок">
-  <textarea [height]="70" [resizable]="true" prizmInput></textarea>
+  <textarea
+    [prizmAutoResize]="true"
+    [height]="70"
+    [resizable]="true"
+    autoResizeMode="only-increase"
+    prizmInput
+  ></textarea>
 </prizm-input-layout>

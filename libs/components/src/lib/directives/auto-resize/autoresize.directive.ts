@@ -1,18 +1,19 @@
-import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
-import { skip, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { PrizmAutoResizeMode } from './model';
 
 @Directive({
   selector: `[prizmAutoResize]`,
 })
 export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   @Input() prizmAutoResize = true;
-  private readonly subject = new Subject<void>();
+  @Input() autoResizeMode: PrizmAutoResizeMode = 'both';
   get scrollHeight(): number {
     return this.elementRef.nativeElement.scrollHeight;
   }
-  constructor(private elementRef: ElementRef, private destroy: PrizmDestroyService) {}
+  constructor(private elementRef: ElementRef<HTMLTextAreaElement>, private destroy: PrizmDestroyService) {}
 
   @HostListener(':input')
   private onInput() {
@@ -32,8 +33,12 @@ export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   }
 
   public resize(): void {
+    const previousElementHeight = this.elementRef.nativeElement.clientHeight;
     this.elementRef.nativeElement.style.height = '0';
-    this.elementRef.nativeElement.style.height = this.scrollHeight + 'px';
+    this.elementRef.nativeElement.style.height =
+      (this.autoResizeMode === 'only-increase' && previousElementHeight >= this.scrollHeight
+        ? previousElementHeight
+        : this.scrollHeight) + 'px';
   }
 
   ngAfterViewInit(): void {
