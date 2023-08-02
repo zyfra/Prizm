@@ -33,8 +33,13 @@ export class NavigationBasicExampleComponent {
 
   public saveActiveIdx(item: INavigationTree): void {
     this.activeElement = null;
+    // TODO create recursive func
     const idx = this.data.findIndex(dataItem => {
-      return dataItem === item || dataItem.children?.indexOf(item) !== -1;
+      return (
+        dataItem === item ||
+        dataItem.children?.includes(item) ||
+        dataItem.children?.find(subChild => subChild?.children?.includes(item))
+      );
     });
     if (idx === -1) return;
     if (this.data.indexOf(item) === -1) {
