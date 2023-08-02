@@ -2,6 +2,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   ContentChild,
+  ElementRef,
   HostBinding,
   Input,
   OnDestroy,
@@ -22,20 +23,26 @@ export class PrizmTdComponent implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @Input()
-  @HostBinding('attr.colspan')
-  colspan: string | number = 1;
+  colspan: string | number;
 
   @HostBinding(`class._editable`)
   @ContentChild(NgControl)
   readonly control: unknown;
 
-  constructor(private readonly tdService: PrizmTdService) {}
+  get realColspan(): number | string {
+    return this.colspan ?? this.elementRef?.nativeElement?.getAttribute('colspan') ?? 1;
+  }
+
+  constructor(
+    private readonly tdService: PrizmTdService,
+    private readonly elementRef: ElementRef<HTMLTableCellElement>
+  ) {}
 
   public ngOnInit(): void {
-    this.tdService.increment(parseInt(this.colspan.toString(), 10));
+    this.tdService.increment(parseInt(this.realColspan.toString(), 10));
   }
 
   public ngOnDestroy(): void {
-    this.tdService.decrement(parseInt(this.colspan.toString(), 10));
+    this.tdService.decrement(parseInt(this.realColspan.toString(), 10));
   }
 }
