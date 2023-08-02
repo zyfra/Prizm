@@ -1,8 +1,8 @@
 import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
-import { switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
-import { PrizmAutoResizeMode } from './model';
+import { filter, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { PrizmAutoResizeMode, PrizmAutoResizeOn } from './model';
 
 @Directive({
   selector: `[prizmAutoResize]`,
@@ -10,6 +10,7 @@ import { PrizmAutoResizeMode } from './model';
 export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   @Input() prizmAutoResize = true;
   @Input() autoResizeMode: PrizmAutoResizeMode = 'both';
+  @Input() autoResizeOn: PrizmAutoResizeOn = 'any';
   get scrollHeight(): number {
     return this.elementRef.nativeElement.scrollHeight;
   }
@@ -34,11 +35,9 @@ export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
 
   public resize(): void {
     const previousElementHeight = this.elementRef.nativeElement.clientHeight;
-    this.elementRef.nativeElement.style.height = '0';
-    this.elementRef.nativeElement.style.height =
-      (this.autoResizeMode === 'only-increase' && previousElementHeight >= this.scrollHeight
-        ? previousElementHeight
-        : this.scrollHeight) + 'px';
+    if (this.autoResizeMode === 'both') this.elementRef.nativeElement.style.height = '0';
+    if (this.autoResizeMode === 'only-increase' && previousElementHeight >= this.scrollHeight) return;
+    this.elementRef.nativeElement.style.height = this.scrollHeight + 'px';
   }
 
   ngAfterViewInit(): void {
@@ -49,6 +48,7 @@ export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
             attributes: true,
             characterData: true,
           }).pipe(
+            filter(() => this.autoResizeOn === 'any'),
             // guard for infinite re invokes
             throttleTime(100),
             tap(() => {
