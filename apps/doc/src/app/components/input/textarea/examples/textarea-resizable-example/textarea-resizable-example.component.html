@@ -1,3 +1,4 @@
+<h2>AutoResize + resizable</h2>
 <prizm-input-layout label="Заголовок">
   <textarea
     [prizmAutoResize]="true"
@@ -6,4 +7,11 @@
     autoResizeMode="only-increase"
     prizmInput
   ></textarea>
+</prizm-input-layout>
+
+<br />
+<br />
+<h2>Resizable</h2>
+<prizm-input-layout label="Заголовок">
+  <textarea [height]="70" [resizable]="true" prizmInput></textarea>
 </prizm-input-layout>
