@@ -29,6 +29,7 @@ export class PrizmTdComponent implements OnInit, OnDestroy {
   @ContentChild(NgControl)
   readonly control: unknown;
 
+  @HostBinding('attr.colspan')
   get realColspan(): number | string {
     return this.colspan ?? this.elementRef?.nativeElement?.getAttribute('colspan') ?? 1;
   }
