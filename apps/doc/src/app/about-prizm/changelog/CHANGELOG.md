@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - feat(components/table): add support dynamic amount of columns in group #259
+- feat(components/input-select): update doc example and now we passed transformed value to template #564
 
 ### Bug fixes
 

@@ -14,6 +14,18 @@ import { UntypedFormControl } from '@angular/forms';
   ],
 })
 export class PrizmSelectWithTemplateExampleComponent {
-  readonly items = ['One', 'Two', 'Three'];
+  readonly items = ['Красный', 'Зеленый', 'Синий'];
   readonly control = new UntypedFormControl();
+
+  public getColor(item: string): string {
+    switch (item) {
+      case 'Красный':
+        return 'red';
+      case 'Зеленый':
+        return 'green';
+      case 'Синий':
+      default:
+        return 'blue';
+    }
+  }
 }

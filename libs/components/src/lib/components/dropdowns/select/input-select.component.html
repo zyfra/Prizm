@@ -70,6 +70,7 @@
                   valueTemplate as content;
                   context: {
                     $implicit: item,
+                    value: item | prizmCallFunc : transformer,
                     stringify: text
                   }
                 "
