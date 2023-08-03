@@ -37,8 +37,11 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @Input()
-  @prizmDefaultProp()
-  columns: ReadonlyArray<keyof T | string> = this.table.columns;
+  columns: ReadonlyArray<keyof T | string>;
+
+  get realColumns(): ReadonlyArray<keyof T | string> {
+    return (this.columns && Array.isArray(this.columns) ? this.columns : this.table.columns) ?? [];
+  }
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
   readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
@@ -50,7 +53,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     startWith(null),
     map(() => {
       const cells = this.cells.toArray();
-      const columns = this.columns;
+      const columns = this.realColumns;
       if (!columns || columns.length === 0) {
         return cells;
       }
@@ -60,11 +63,11 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     })
   );
 
-  get cols(): number {
+  get colCount(): number {
     return this.td.count;
   }
 
-  get cols$(): Observable<number> {
+  get colCount$(): Observable<number> {
     return this.td.count$;
   }
 

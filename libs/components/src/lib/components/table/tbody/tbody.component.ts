@@ -164,7 +164,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
         startWith(this.rows),
         map(({ first }: QueryList<PrizmTrComponent<T>>) => first),
         filter((first: PrizmTrComponent<T>) => !!first),
-        map(({ cols }) => cols),
+        map(({ colCount }) => colCount),
         takeUntil(this.destroy$)
       )
       .subscribe((columnsCount: number) => {

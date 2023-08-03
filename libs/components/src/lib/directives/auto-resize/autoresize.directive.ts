@@ -1,5 +1,5 @@
 import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
-import { Subject, timer } from 'rxjs';
+import { timer } from 'rxjs';
 import { PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
 import { filter, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
 import { PrizmAutoResizeMode, PrizmAutoResizeOn } from './model';
