@@ -25,6 +25,7 @@ import { PrizmTableTreeLoadingDirective } from './directives/tree-loading.direct
 import { PrizmTableLoadingDirective } from './directives/loading.directive';
 import { PrizmTableEmptyDirective } from './directives/empty.directive';
 import { PrizmTableRowInitDirective } from './directives/row-init.directive';
+import { PrizmTrDirective } from './tr/tr.directive';
 
 @NgModule({
   imports: [
@@ -56,10 +57,12 @@ import { PrizmTableRowInitDirective } from './directives/row-init.directive';
     PrizmTableSortPipe,
     SearchableContentComponent,
     SpaceNumberPipe,
+    PrizmTrDirective,
   ],
   exports: [
     PrizmTableLoadingDirective,
     PrizmTableEmptyDirective,
+    PrizmTrDirective,
     PrizmTreeButtonModule,
     PrizmTableTreeLoadingDirective,
     PrizmTableDirective,

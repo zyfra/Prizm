@@ -2,7 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.4-next.1](https://github.com/zyfra/Prizm) (01-08-2023)
+## [2.1.4-next.2](https://github.com/zyfra/Prizm) (03-08-2023)
+
+### Features
+
+- feat(components/table): add support dynamic amount of columns in group #259
+- feat(components/input-select): update doc example and now we passed transformed value to template #564
+
+### Bug fixes
+
+- fix(components/table): order of [columns] not inherited from table #359
+
+## [2.1.4-next.1](https://github.com/zyfra/Prizm) (02-08-2023)
 
 ### Features
 

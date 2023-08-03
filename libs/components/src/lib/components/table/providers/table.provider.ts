@@ -15,7 +15,6 @@ function prizmWatch<T>(changeDetectorRef: ChangeDetectorRef): MonoTypeOperatorFu
 export const PRIZM_TABLE_PROVIDER: Provider[] = [
   PrizmDestroyService,
   PrizmTableSortPipe,
-
   {
     provide: PrizmTableDirective,
     deps: [[new SkipSelf(), PrizmTableDirective], ChangeDetectorRef, PrizmDestroyService],

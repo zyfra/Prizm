@@ -69,7 +69,7 @@
             >
               <ng-container
                 *polymorphOutlet="
-                  valueTemplate as content;
+                  $any(valueTemplate) as content;
                   context: {
                     $implicit: item,
                     stringify: text
