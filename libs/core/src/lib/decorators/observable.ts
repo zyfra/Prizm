@@ -7,14 +7,17 @@ export function prizmObservable<T>(
      * default name it is `${name}$$`
      * */
     name?: string | symbol;
-    subject?: BehaviorSubject<T> | ReplaySubject<T> | AsyncSubject<T> | Subject<T>;
+    subject?:
+      | (BehaviorSubject<T> | ReplaySubject<T> | AsyncSubject<T> | Subject<T>)
+      | (() => BehaviorSubject<T> | ReplaySubject<T> | AsyncSubject<T> | Subject<T>);
     attributes?: PropertyDescriptor;
   } = {}
 ): PropertyDecorator {
-  return (target: any, key): void => {
+  return (rTarget: any, key): void => {
     const postfix = options.postfix ?? '$$';
     const defaultValue = options.defaultValue ?? null;
-    const subject = options.subject ?? new Subject<T>();
+    const subject =
+      typeof options.subject === 'function' ? options.subject() : options.subject ?? new Subject<T>();
     const memberName = key as string;
     let lastValue: T;
     const hiddenPropertyName = options.name ?? `${memberName}${postfix}`;
@@ -26,16 +29,16 @@ export function prizmObservable<T>(
       });
     }
 
-    Object.defineProperty(target, memberName, {
+    Object.defineProperty(rTarget, memberName, {
       set(newValue: T) {
         const value = (lastValue = newValue ?? defaultValue);
 
         let method = this[hiddenPropertyName] as Subject<T>;
+
         if (!method?.next) {
           createBaseProperty(this);
           method = this[hiddenPropertyName];
         }
-
         method.next(value);
       },
       get() {

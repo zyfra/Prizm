@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { prizmObservable } from '@prizm-ui/core';
-import { BehaviorSubject, Observable, ReplaySubject } from 'rxjs';
+import { BehaviorSubject, Observable, ReplaySubject, Subject } from 'rxjs';
+import { tap } from 'rxjs/operators';
 
 const symbol = Symbol('test symbol');
 
@@ -19,10 +20,11 @@ const symbol = Symbol('test symbol');
 export class PrizmObservableBaseExampleComponent {
   @prizmObservable()
   test1: number;
-  test1$$!: ReplaySubject<number>;
+  test1$$!: Subject<number>;
 
   @prizmObservable({
     name: 'secondTest$$',
+    subject: new ReplaySubject(),
   })
   test2: number;
   secondTest$$!: ReplaySubject<number>;
@@ -36,6 +38,7 @@ export class PrizmObservableBaseExampleComponent {
 
   @prizmObservable({
     name: 'enumerable$$',
+    subject: new ReplaySubject(),
     attributes: {
       enumerable: true,
     },
@@ -45,6 +48,7 @@ export class PrizmObservableBaseExampleComponent {
 
   @prizmObservable({
     name: symbol,
+    subject: new ReplaySubject(),
     attributes: {
       enumerable: true,
     },
