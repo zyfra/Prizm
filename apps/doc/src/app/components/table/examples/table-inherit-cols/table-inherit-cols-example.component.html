@@ -1,16 +1,16 @@
 <table class="table" [columns]="columns" prizmTable>
   <thead>
     <tr prizmThGroup>
-      <th *prizmHead="'c1'" prizmTh>Head 1 [c1]</th>
-      <th *prizmHead="'c2'" prizmTh>Head 2 [c2]</th>
+      <th *prizmHead="'c1'" prizmTh>Head 1</th>
+      <th *prizmHead="'c2'" prizmTh>Head 2</th>
     </tr>
   </thead>
 
   <tbody [data]="[{}]" prizmTbody>
     <ng-container *prizmRow>
       <tr prizmTr>
-        <td *prizmCell="'c1'" prizmTd>{{ 'value 1' }} [c1]</td>
-        <td *prizmCell="'c2'" prizmTd>{{ 'value 2' }} [c2]</td>
+        <td *prizmCell="'c1'" prizmTd>{{ 'value 1' }}</td>
+        <td *prizmCell="'c2'" prizmTd>{{ 'value 2' }}</td>
       </tr>
     </ng-container>
   </tbody>
