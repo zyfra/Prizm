@@ -1,18 +1,20 @@
-import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, HostListener, Input, OnInit } from '@angular/core';
 import { Subject, timer } from 'rxjs';
 import { PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
-import { skip, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { filter, switchMap, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { PrizmAutoResizeMode, PrizmAutoResizeOn } from './model';
 
 @Directive({
   selector: `[prizmAutoResize]`,
 })
 export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   @Input() prizmAutoResize = true;
-  private readonly subject = new Subject<void>();
+  @Input() autoResizeMode: PrizmAutoResizeMode = 'both';
+  @Input() autoResizeOn: PrizmAutoResizeOn = 'any';
   get scrollHeight(): number {
     return this.elementRef.nativeElement.scrollHeight;
   }
-  constructor(private elementRef: ElementRef, private destroy: PrizmDestroyService) {}
+  constructor(private elementRef: ElementRef<HTMLTextAreaElement>, private destroy: PrizmDestroyService) {}
 
   @HostListener(':input')
   private onInput() {
@@ -32,7 +34,9 @@ export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   }
 
   public resize(): void {
-    this.elementRef.nativeElement.style.height = '0';
+    const previousElementHeight = this.elementRef.nativeElement.clientHeight;
+    if (this.autoResizeMode === 'both') this.elementRef.nativeElement.style.height = '0';
+    if (this.autoResizeMode === 'only-increase' && previousElementHeight >= this.scrollHeight) return;
     this.elementRef.nativeElement.style.height = this.scrollHeight + 'px';
   }
 
@@ -44,6 +48,7 @@ export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
             attributes: true,
             characterData: true,
           }).pipe(
+            filter(() => this.autoResizeOn === 'any'),
             // guard for infinite re invokes
             throttleTime(100),
             tap(() => {

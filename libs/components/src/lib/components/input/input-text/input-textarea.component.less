@@ -1,19 +1,16 @@
 :host-context(textarea) {
   margin-bottom: 4px;
   resize: none;
+  min-height: 42px;
 
-  &.resizable {
+  &.add-base-resize {
     resize: both;
   }
-
-  // &::-webkit-scrollbar {
-  //   display: none;
-  // }
 
   padding-right: 0 !important;
 
   &::-webkit-scrollbar {
-    width: 6px;
+    width: 10px;
   }
 
   &::-webkit-scrollbar-thumb {
@@ -25,9 +22,11 @@
       border-radius: var(--prizm-scrollbar-thumb-border-radius, 8px);
       background-color: var(--prizm-scrollbar-thumb-color, var(--grey-g10-g4, #bfc6d7));
       opacity: var(--prizm-scrollbar-thumb-opacity, 0.4);
+      width: 6px;
       height: 20%;
       background-clip: content-box;
       transition: opacity 0.3s;
+      border: 2px solid transparent;
     }
   }
 }
