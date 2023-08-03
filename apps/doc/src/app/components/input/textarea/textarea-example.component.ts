@@ -43,5 +43,10 @@ export class TextareaExampleComponent {
     HTML: import('./examples/textarea-autosize-example/textarea-autosize-example.component.html?raw'),
   };
 
+  public readonly textareaResizableExample: TuiDocExample = {
+    TypeScript: import('./examples/textarea-resizable-example/textarea-resizable-example.component.ts?raw'),
+    HTML: import('./examples/textarea-resizable-example/textarea-resizable-example.component.html?raw'),
+  };
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

@@ -36,4 +36,10 @@ export class PolymorphComponent {
     Module: import('./examples/component/component.module?raw'),
     HTML: import('./examples/component/component.component.html?raw'),
   };
+  readonly injectorExample: TuiDocExample = {
+    TypeScript: import('./examples/injector/injector.component?raw'),
+    SubComponent: import('./examples/injector/sub-component?raw'),
+    Module: import('./examples/injector/injector.module?raw'),
+    HTML: import('./examples/injector/injector.component.html?raw'),
+  };
 }

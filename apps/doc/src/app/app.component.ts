@@ -1,12 +1,12 @@
 import { AfterViewInit, Component, HostBinding, Inject, ViewChild } from '@angular/core';
 import { PrizmToastService } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, delay, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { TuiBrightness } from '@taiga-ui/core';
 import { PRIZM_DOC_TITLE, PrizmDocHostElementListenerService } from '@prizm-ui/doc';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
-import { ActivationEnd, Router } from '@angular/router';
+import { ActivationEnd, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 
 /**
@@ -67,7 +67,7 @@ export class AppComponent implements AfterViewInit {
 
   public ngAfterViewInit(): void {
     this.onMode(this.docEl.night);
-
+    this.initAnchorScroller();
     this.prizmDocHostElementListenerService.event$
       .pipe(
         tap(event => {
@@ -121,9 +121,25 @@ export class AppComponent implements AfterViewInit {
       .subscribe();
   }
 
+  private initAnchorScroller(): void {
+    this.router.events
+      .pipe(
+        debounceTime(100),
+        filter(() => !!location.hash),
+        delay(1000),
+        tap(() => {
+          if (location.hash)
+            document.querySelector(location.hash as string)?.scrollIntoView({
+              behavior: 'smooth',
+            });
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
   public onMode(isNight: boolean): void {
     this.themeSwitcher.update(isNight ? 'dark' : 'light', this.element);
-    console.log(this.docEl);
     /* update taiga doc theme */
     this.docEl.onMode(isNight);
   }
