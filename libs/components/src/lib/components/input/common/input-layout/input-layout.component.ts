@@ -27,7 +27,11 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 @Component({
   selector: 'prizm-input-layout',
   templateUrl: './input-layout.component.html',
-  styleUrls: ['./input-layout.component.less', './input-layout-hidden-control.component.less'],
+  styleUrls: [
+    './input-layout.component.less',
+    './input-layout-hidden-control.component.less',
+    './input-layout-textarea.component.less',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -68,6 +72,10 @@ export class PrizmInputLayoutComponent
 
   @HostBinding('class.has-hidden-control') get hasHiddenControl() {
     return this.control.hidden;
+  }
+
+  @HostBinding('class.has-textarea') get hasTextarea() {
+    return this.control.nativeElementType === 'textarea';
   }
 
   override testId_ = 'ui_input_layout';

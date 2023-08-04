@@ -27,8 +27,11 @@ import { PrizmThComponent } from '../th/th.component';
 })
 export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> implements AfterContentInit {
   @Input()
-  @prizmDefaultProp()
-  columns: ReadonlyArray<keyof T | string> = this.table.columns;
+  columns: ReadonlyArray<keyof T | string>;
+
+  get cols(): ReadonlyArray<keyof T | string> {
+    return (this.columns && Array.isArray(this.columns) ? this.columns : this.table.columns) ?? [];
+  }
 
   @ContentChild(forwardRef(() => PrizmThComponent))
   readonly th!: PrizmThComponent<T>;
@@ -48,7 +51,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
       startWith(null),
       map(() => {
         const heads = this.heads.toArray();
-        const columns = this.columns;
+        const columns = this.cols;
         if (!columns || columns.length === 0) {
           return heads;
         }

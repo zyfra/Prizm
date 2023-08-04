@@ -33,9 +33,12 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
   @Input('polymorphOutletContext')
   context!: C;
 
+  @Input('polymorphOutletInjector')
+  injector: Injector = this.currentInjector;
+
   constructor(
     private readonly viewContainerRef: ViewContainerRef,
-    private readonly injector: Injector,
+    private readonly currentInjector: Injector,
     private readonly templateRef: TemplateRef<PrimitiveContext>
   ) {}
 
@@ -68,11 +71,9 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
         get: (_, key): unknown => this.context[key as keyof C],
       });
       const injector = this.content.createInjector(this.injector, proxy);
-      const componentFactory = injector
-        .get(ComponentFactoryResolver)
-        .resolveComponentFactory(this.content.component);
-
-      this.componentRef = this.viewContainerRef.createComponent(componentFactory, 0, injector);
+      this.componentRef = this.viewContainerRef.createComponent(this.content.component, {
+        injector: injector,
+      });
     } else {
       this.viewRef = this.viewContainerRef.createEmbeddedView(this.template, this.getContext(), {
         injector: this.injector,

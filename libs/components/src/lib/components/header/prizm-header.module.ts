@@ -8,12 +8,14 @@ import { PrizmDataListModule } from '../data-list';
 import { PrizmHeaderModuleBtnComponent } from './components/prizm-header-module-btn/prizm-header-module-btn.component';
 import { PrizmButtonModule } from '../button';
 import { PrizmHintModule } from '../../directives';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
   declarations: [PrizmHeaderComponent, PrizmHeaderDropdownComponent, PrizmHeaderModuleBtnComponent],
   imports: [
     CommonModule,
     PrizmIconModule,
+    PrizmThemeModule,
     PrizmDropdownHostModule,
     PrizmDataListModule,
     PrizmButtonModule,

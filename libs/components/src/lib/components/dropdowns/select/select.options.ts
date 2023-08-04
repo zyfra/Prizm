@@ -48,7 +48,7 @@ export interface PrizmSelectOptions<T> {
 }
 
 export type PrizmSelectStringify<T> = (i: T, nullContent?: string) => string;
-export type PrizmSelectValueContext<T> = PrizmContextWithImplicit<T> & { stringify: string };
+export type PrizmSelectValueContext<T> = PrizmContextWithImplicit<T> & { stringify: string; value: any };
 
 /** Default values for dropdown-host options */
 export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {

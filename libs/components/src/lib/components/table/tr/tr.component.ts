@@ -9,7 +9,7 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-import { debounceTime, map, observeOn, startWith } from 'rxjs/operators';
+import { debounceTime, map, startWith } from 'rxjs/operators';
 import { animationFrameScheduler, merge, Observable } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 
@@ -21,6 +21,7 @@ import { PrizmTableCellStatus } from '../table.types';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmCellService } from '../directives/cell.service';
+import { PrizmTdService } from '../td/td.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -30,14 +31,17 @@ import { PrizmCellService } from '../directives/cell.service';
   exportAs: 'prizmTr',
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  providers: [PRIZM_TABLE_PROVIDER, PrizmCellService],
+  providers: [PRIZM_TABLE_PROVIDER, PrizmCellService, PrizmTdService],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @Input()
-  @prizmDefaultProp()
-  columns: ReadonlyArray<keyof T | string> = this.table.columns;
+  columns: ReadonlyArray<keyof T | string>;
+
+  get realColumns(): ReadonlyArray<keyof T | string> {
+    return (this.columns && Array.isArray(this.columns) ? this.columns : this.table.columns) ?? [];
+  }
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
   readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
@@ -49,7 +53,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     startWith(null),
     map(() => {
       const cells = this.cells.toArray();
-      const columns = this.columns;
+      const columns = this.realColumns;
       if (!columns || columns.length === 0) {
         return cells;
       }
@@ -58,6 +62,14 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
       return columns.map(column => cells.find(c => c.prizmCell === column));
     })
   );
+
+  get colCount(): number {
+    return this.td.count;
+  }
+
+  get colCount$(): Observable<number> {
+    return this.td.count$;
+  }
 
   readonly item$: Observable<T> = this.body.rows.changes.pipe(
     startWith(null),
@@ -72,6 +84,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     @Inject(forwardRef(() => PrizmTbodyComponent))
     private readonly body: PrizmTbodyComponent<T>,
     private readonly cellService: PrizmCellService,
+    private readonly td: PrizmTdService,
     private readonly tableTreeService: PrizmTableTreeService,
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
   ) {}

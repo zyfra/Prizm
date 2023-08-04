@@ -2,7 +2,67 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.3](https://github.com/zyfra/Prizm) (21-07-2023)
+## [2.1.4-next.2](https://github.com/zyfra/Prizm) (03-08-2023)
+
+### Features
+
+- feat(components/table): add support dynamic amount of columns in group #259
+- feat(components/input-select): update doc example and now we passed transformed value to template #564
+
+### Bug fixes
+
+- fix(components/table): order of [columns] not inherited from table #359
+
+## [2.1.4-next.1](https://github.com/zyfra/Prizm) (02-08-2023)
+
+### Features
+
+- feat(components/textarea): resizable was added #559
+- feat(components/polymorph): added new input to add custom injector [demo](https://prizm.site/tools/polymorph#injector)
+- feat(components/dropdown-host): now we pass injector to overlay
+- feat(theme): use DI to pass parent theme #478
+
+### Bugfixes
+
+- fix(components/navigation): select current item #477
+- fix(doc): anchor links do not work on pages that have not loaded #560
+
+### Closed
+
+- #268
+- #533
+
+## [1.4.1](https://github.com/zyfra/Prizm) (31-07-2023)
+
+### Features
+
+- feat(components/autoresize): added directive and example how to use in textarea #544
+- feat(components/sidebar): ability was added to control styles of wrapper elements #541
+- feat(components/table): ability was added to control tree rows #366
+- feat(components/dropdown-host): ability was added to control classes for dropdown #536
+- feat(components/input-select): ability was added to control classes and styles for dropdown #536
+- feat(components/input-multi-select): ability was added to control classes and styles for dropdown #536
+- feat(components/breadcrumbs): added ability to work with projections #464
+- feat(components/overlay): added new logic for detecting events from dynamic elements #411
+- feat(helpers/rxjs): 'raceEmit' operator was added to detect first emit in the transmitted time interval between source streams
+- feat(components/tabs): add full width underline #539
+
+### Bug fixes
+
+- fix(components/input-layout): problems with layout in outer #537
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(components/table): prizmThGroup throws an error together with structure directives #510
+- fix(components/tabs): after build the color changes #543
+- fix(components/overlay): the initial positioning of the window does not take right place #387
+- fix(components/dropdown-host): wrong position of dropdown #394
+- fix(components/dropdown-host): flickering on scroll #495
+- fix(components/tabs): automatically close after select from menu #482
+- fix(components/input-number): block not number symbols #486
+- fix(components/widget): fixed the height in component prizm-widget-base-example #484
+- fix(components/skeleton): styles are not removed when the skeleton is disabled #304
+- fix(doc): font fixes #280 #302 #303 #460
+
+## [2.1.3](https://github.com/zyfra/Prizm) (31-07-2023)
 
 ### Features
 
@@ -79,6 +139,107 @@ All notable changes to this project will be documented in this file.
 ### For testers
 
 - !!! need check all overlay elements (sidebars, dialogs, confirms and so on) and overlay in tools. We changed core logic
+
+## [1.4.0](https://github.com/zyfra/Prizm) (24-07-2023)
+
+### Features
+
+- feat(components/file-upload): test-id was added with ability to change post fix
+- feat(components/error-page): test-id was added with ability to change post fix
+- feat(components/input-select): added new input transformer to transform value #514
+- feat(components/switcher): added support form controllers #508
+- feat(components/tooltip): added ability to close on esc pressed #307
+- feat(charts/area): test-id was added with ability to change postfix
+- feat(charts/bar): test-id was added with ability to change postfix
+- feat(charts/column): test-id was added with ability to change postfix
+- feat(charts/line): test-id was added with ability to change postfix
+- feat(charts/gauge): test-id was added with ability to change postfix
+- feat(charts/pie): test-id was added with ability to change postfix
+- feat(charts/radar): test-id was added with ability to change postfix
+- feat(charts/radial-bar): test-id was added with ability to change postfix
+- feat(charts/scatter): test-id was added with ability to change postfix
+- feat(charts/treemap): test-id was added with ability to change postfix
+- feat(charts/waterfall): test-id was added with ability to change postfix
+- chore: update CONTRIBUTING.md file
+- feat(doc): ability was added to automatically test-id was added to apiPage
+- feat(components/icon): add input ot control color #524
+- feat(components/tabs): ability was added to edit testId postfix
+- feat(components/accordion): ability was added to edit testId postfix
+- feat(components/grid-item): ability was added to edit testId postfix
+- feat(components/calendar-range): ability was added to edit testId postfix
+- feat(components/calendar): ability was added to edit testId postfix
+- feat(components/card): ability was added to edit testId postfix
+- feat(components/data-list): ability was added to edit testId postfix
+- feat(components/confirm-dialog): ability was added to edit testId postfix
+- feat(components/dialog): ability was added to edit testId postfix
+- feat(components/sidebar): ability was added to edit testId postfix
+- feat(components/dropdown-host): ability was added to edit testId postfix
+- feat(components/expand): ability was added to edit testId postfix
+- feat(components/grid): ability was added to edit testId postfix
+- feat(components/indicator): ability was added to edit testId postfix
+- feat(components/input-icon-button): ability was added to edit testId postfix
+- feat(components/primitive-calendar-range): ability was added to edit testId postfix
+- feat(components/primitive-calendar): ability was added to edit testId postfix
+- feat(components/primitive-month-picker): ability was added to edit testId postfix
+- feat(components/primitive-year-month-pagination): ability was added to edit testId postfix
+- feat(components/primitive-year-picker): ability was added to edit testId postfix
+- feat(components/link): ability was added to edit testId postfix
+- feat(components/loader): ability was added to edit testId postfix
+- feat(components/paginator): ability was added to edit testId postfix
+- feat(components/panel): ability was added to edit testId postfix
+- feat(components/radio-button): ability was added to edit testId postfix
+- feat(components/scroll-controls): ability was added to edit testId postfix
+- feat(components/scrollbar): ability was added to edit testId postfix
+- feat(components/spinner): ability was added to edit testId postfix
+- feat(components/switcher-item): ability was added to edit testId postfix
+- feat(components/switcher): ability was added to edit testId postfix
+- feat(components/tab): ability was added to edit testId postfix
+- feat(components/toast-container): ability was added to edit testId postfix
+- feat(components/toast-single): ability was added to edit testId postfix
+- feat(components/toast-wrapper): ability was added to edit testId postfix
+- feat(components/tree-item-content): ability was added to edit testId postfix
+- feat(components/tree-item): ability was added to edit testId postfix
+- feat(components/tree): ability was added to edit testId postfix
+- feat(components/widget): ability was added to edit testId postfix
+- feat(components/sticky): class was added with direction #470
+- feat(components/i18n): new way to init was added to components with time
+- feat(components/i18n): new way to init was added to components with month
+- feat(components/i18n): new way to init was added to components with calendar
+- feat(components/i18n): new way to init was added to components with weeks
+
+### Bug fixes
+
+- fix(components/dropdown-host): when the component was destroyed, the extra method was called #532
+- fix(components/input-layout): set empty value to input with default label #527
+- fix(components/input-select): select most relevant when you passed object
+- fix(components/tooltip): color of arrows on dark theme #479
+- fix(components/breadcrumbs): color of dots on dark theme #480
+- fix(components/input-layout): too long header overlap the "asterisk" #493
+- fix(components/sticky): component becomes sticky even if it has all positions false #470
+
+### BREAKING CHANGES
+
+- fix(components/confirm-popup): prizmHintContext was renamed to prizmConfirmPopupContext
+- fix(components/confirm-popup): prizmHintCanShow was renamed to prizmConfirmPopupCanShow
+- fix(components/tree): testId was corrected to standart prizm_tree > ui_tree
+- fix(components/toast): testId was corrected to standart prizm_toast_single > ui_toast_single
+- fix(components/paginator): testId was corrected to standart prizm_paginator > ui_paginator
+- fix(components/indicator): testId was corrected to standart prizm_paginator > ui_paginator
+- fix(components/dropdown-host): testId was corrected to standart prizm_dropdown_host > ui_dropdown_host
+- fix(components/data-list): testId was corrected to standart prizm_data_list > ui_data_list
+- fix(components/calendar-range): testId was corrected to standart prizm_calendar_range > ui_calendar_range
+- fix(components/breadcrumbs): testId was corrected to standart prizm_breadcrumbs > ui_breadcrumbs
+- fix(components/scroll-controls): testId was corrected to standart prizm_scroll_controls > ui_scroll_controls
+- fix(components/scrollbar): testId was corrected to standart prizm_scrollbar > ui_scrollbar
+- fix(components/spinner): testId was corrected to standart prizm_loader > ui_spinner
+- fix(components/switcher): testId was corrected to standart prizm_switcher > ui_switcher
+- fix(components/toast-single): testId was corrected to standart prizm_toast_single > ui_toast_single
+- fix(components/tree-item-content): testId was corrected to standart prizm_tree_item_content > ui_tree_item_content
+- fix(components/tree-item): testId was corrected to standart prizm_tree_item > ui_tree--item
+- fix(components/tree): testId was corrected to standart prizm_tree > ui_tree
+- fix(components/cron): testId was corrected to standart prizm_cron > ui_cron
+- fix(components/input-date): testId was corrected to standart prizm_input_date > ui_input_date
+- fix(components/input-layout-date): testId was corrected to standart prizm_input_date > ui_input_date
 
 ## [2.1.2](https://github.com/zyfra/Prizm) (24-07-2023)
 
