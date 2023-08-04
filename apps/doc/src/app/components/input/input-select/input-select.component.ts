@@ -141,6 +141,14 @@ export class InputSelectComponent {
     TypeScript: import('./examples/with-backend-search/select-with-backend-search-example.component.ts?raw'),
     HTML: import('./examples/with-backend-search/select-with-backend-search-example.component.html?raw'),
   };
+  readonly exampleWithListItemTemplate: TuiDocExample = {
+    TypeScript: import(
+      './examples/with-list-item-template/select-with-list-item-template-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/with-list-item-template/select-with-list-item-template-example.component.html?raw'
+    ),
+  };
 
   public valueTemplate: PolymorphContent<any> = '';
   public listItemTemplate: PolymorphContent<any> = null;
