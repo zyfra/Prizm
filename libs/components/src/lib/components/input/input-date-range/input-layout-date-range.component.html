@@ -52,7 +52,7 @@
     />
   </div>
 
-  <ng-template #dropdown let-zone="zone">
+  <ng-template #dropdown>
     <prizm-calendar-range
       [style.--prizm-input-layout-width]="'100%'"
       [style.--prizm-dropdown-host-width]="'100%'"
@@ -69,14 +69,10 @@
       (valueChange)="onRangeChange($event)"
     >
       <ng-container footerFrom>
-        <ng-template [ngTemplateOutlet]="footerFromTemplate" [ngTemplateOutletContext]="{ zone: zone }">
-          ></ng-template
-        >
+        <ng-template [ngTemplateOutlet]="footerFromTemplate"> ></ng-template>
       </ng-container>
       <ng-container footerTo>
-        <ng-template [ngTemplateOutlet]="footerToTemplate" [ngTemplateOutletContext]="{ zone: zone }">
-          ></ng-template
-        >
+        <ng-template [ngTemplateOutlet]="footerToTemplate"> ></ng-template>
       </ng-container>
     </prizm-calendar-range>
   </ng-template>
