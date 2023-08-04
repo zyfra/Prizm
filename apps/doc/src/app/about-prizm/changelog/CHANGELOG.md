@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.4-next.3](https://github.com/zyfra/Prizm) (03-08-2023)
+
+### Features
+
+- feat(components/input-select): add new input listItemTemplate to control template in item from dropdown #564
+
 ## [2.1.4-next.2](https://github.com/zyfra/Prizm) (03-08-2023)
 
 ### Features

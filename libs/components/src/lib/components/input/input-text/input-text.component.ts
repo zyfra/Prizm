@@ -4,6 +4,7 @@ import {
   DoCheck,
   ElementRef,
   EventEmitter,
+  HostBinding,
   HostListener,
   Input,
   OnDestroy,
@@ -12,7 +13,7 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { NgControl, UntypedFormControl, Validators } from '@angular/forms';
+import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
@@ -115,6 +116,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   /**
    * Empty state
    */
+  @HostBinding('class.empty')
   public empty: boolean;
 
   /**
@@ -224,7 +226,8 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   private updateEmptyState(): void {
     this.empty = !(
       (this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length) ||
-      (this.ngControl && this.ngControl.value)
+      (this.ngControl && this.ngControl.value) ||
+      (this.ngControl instanceof NgModel && this.ngControl.model)
     );
   }
 

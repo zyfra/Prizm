@@ -143,6 +143,7 @@ export class InputSelectComponent {
   };
 
   public valueTemplate: PolymorphContent<any> = '';
+  public listItemTemplate: PolymorphContent<any> = null;
   readonly dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
