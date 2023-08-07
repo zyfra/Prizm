@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [3.0.1-rc.1](https://github.com/zyfra/Prizm) (03-08-2023)
+
+### Features
+
+- chore: update ng to 16
+
 ## [2.1.4-next.2](https://github.com/zyfra/Prizm) (03-08-2023)
 
 ### Features
