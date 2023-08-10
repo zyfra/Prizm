@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "update-structure",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "all": {
+      "type": "boolean",
+      "description": "update all "
+    },
+    "extension": {
+      "type": "string",
+      "description": "extension for update",
+      "default": false,
+      "required": true
+    },
+    "project": {
+      "type": "string",
+      "description": "Name of project"
+    }
+  },
+  "required": ["extension"],
+  "additionalProperties": false
+}

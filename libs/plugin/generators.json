@@ -17,6 +17,11 @@
       "factory": "./src/generators/update-version/index",
       "schema": "./src/generators/update-version/schema.json",
       "description": "helpers to update version for publishable version"
+    },
+    "update-structure": {
+      "factory": "./src/generators/update-structure/index",
+      "schema": "./src/generators/update-structure/schema.json",
+      "description": "helpers to update structure with replace extension"
     }
   }
 }
