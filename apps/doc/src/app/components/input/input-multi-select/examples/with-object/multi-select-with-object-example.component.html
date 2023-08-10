@@ -19,3 +19,18 @@
   </div>
   <ng-template #allTemplate> Выбрать все </ng-template>
 </ng-template>
+
+
+<prizm-input-layout label="Выберите из списка">
+  <prizm-input-tree-multi-select
+    [items]="items"
+    [selectAllItem]="selectAllItem"
+    [valueTemplate]="valueTemplate"
+    [formControl]="valueTreeControl"
+    [searchMatcher]="searchMatcher"
+    [identityMatcher]="identityMatcher"
+    [stringify]="stringify"
+    [searchable]="false"
+  >
+  </prizm-input-tree-multi-select>
+</prizm-input-layout>

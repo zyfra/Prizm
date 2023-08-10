@@ -14,6 +14,9 @@ import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmCheckboxModule } from '../../checkbox';
 import { PrizmIconModule } from '../../icon';
 import { PrizmInputMultiSelectComponent } from './input-multi-select.component';
+import {PrizmInputTreeMultiselectComponent} from "./input-tree-multiselect/input-tree-multiselect.component";
+import {PrizmTreeModule} from "../../tree";
+import {PrizmMapperPipeModule} from "../../../pipes";
 
 @NgModule({
   imports: [
@@ -35,8 +38,10 @@ import { PrizmInputMultiSelectComponent } from './input-multi-select.component';
     PrizmCheckboxModule,
     PrizmLifecycleModule,
     PrizmDropdownHostModule,
+    PrizmTreeModule,
+    PrizmMapperPipeModule,
   ],
-  declarations: [PrizmInputMultiSelectComponent],
-  exports: [PrizmInputMultiSelectComponent, PrizmInputTextModule],
+  declarations: [PrizmInputMultiSelectComponent, PrizmInputTreeMultiselectComponent],
+  exports: [PrizmInputMultiSelectComponent, PrizmInputTreeMultiselectComponent, PrizmInputTextModule],
 })
 export class PrizmInputMultiSelectModule {}

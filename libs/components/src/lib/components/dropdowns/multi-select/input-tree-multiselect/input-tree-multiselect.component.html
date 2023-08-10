@@ -1,0 +1,81 @@
+<prizm-dropdown-host
+  #dropdownHostRef
+  [content]="dropdown"
+  [isOpen]="opened$ | async"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHostWidth]="dropdownWidth"
+  [prizmDropdownMinHeight]="minDropdownHeight"
+  [prizmDropdownMaxHeight]="maxDropdownHeight"
+  [dropdownStyles]="dropdownStyles"
+  [dropdownClasses]="dropdownClasses"
+  [ngSwitch]="layoutComponent.outer"
+  (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
+>
+  <input
+    #focusableElementRef
+    [style.display]="layoutComponent.outer && value?.length ? 'none' : ''"
+    [style.visibility]="!layoutComponent.outer && value?.length ? 'hidden' : ''"
+    [disabled]="disabled"
+    [readonly]="true"
+    [placeholder]="placeholder"
+    [ngModelOptions]="{ standalone: true }"
+    [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
+    prizmInput
+  />
+
+  <ng-template #dropdown>
+    <prizm-tree
+      *ngFor="let item of data.children"
+      [prizmTreeController]="true"
+      [value]="item"
+      [content]="content"
+      [childrenHandler]="handler"
+    ></prizm-tree>
+
+    <ng-template #content let-item>
+      <prizm-checkbox [ngModel]="item | prizmMapper : getValue : map" (ngModelChange)="onChecked(item, $event)">
+        <span>{{ item.name }}</span>
+      </prizm-checkbox>
+    </ng-template>
+  </ng-template>
+</prizm-dropdown-host>
+
+<ng-container *prizmInputLayoutRight>
+  <ng-container
+    *polymorphOutlet="
+      icon || defaultIcon as iconName;
+      context: { opened: opened$ | async, disabled: disabled }
+    "
+  >
+    <prizm-icon
+      [class.opened]="opened$ | async"
+      [class.active]="(focused$ | async) || (opened$ | async)"
+      [class.icon-dropdown]="iconName === defaultIcon"
+      [iconClass]="$any(iconName)"
+      [class.disabled]="disabled"
+      (click)="safeOpenModal()"
+    >
+    </prizm-icon>
+  </ng-container>
+</ng-container>
+
+<ng-container *prizmInputLayoutInBody>
+  <div class="in-body-chips-box" *ngIf="value?.length">
+    <ng-container [ngTemplateOutlet]="chipsTemplate"> </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #chipsTemplate>
+  <ng-container *prizmLet="selectedItemsChips$ | async as chips">
+    <prizm-chips
+      [style.max-width.px]="layoutComponent.el.nativeElement.clientWidth - button_layout_width"
+      [class.empty]="!chips.length"
+      [size]="$any(size)"
+      [class.inner]="inner"
+      [singleLine]="true"
+      [deletable]="!disabled && isChipsDeletable"
+      [chips]="chips"
+      (removeChipEvent)="removeChip($event)"
+    ></prizm-chips>
+  </ng-container>
+</ng-template>

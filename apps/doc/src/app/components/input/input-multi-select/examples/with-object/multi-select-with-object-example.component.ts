@@ -24,13 +24,16 @@ type PrizmItem = {
   ],
 })
 export class PrizmInputMultiSelectWithObjectExampleComponent {
-  readonly items: PrizmItem[] = [
-    { id: 1, name: 'Россия' },
-    { id: 2, name: 'США' },
-    { id: 3, name: 'ОАЭ' },
+  readonly items: (PrizmItem & any)[] = [
+    { id: 1, name: 'Россия', parentId: '0' },
+    { id: 2, name: 'США', parentId: '0' },
+    { id: 3, name: 'ОАЭ', parentId: '0' },
+    { id: 4, name: 'Москва', parentId: 1 },
   ];
+
   readonly selectAllItem = { id: -1, name: 'Выбрать все' };
   readonly valueControl = new UntypedFormControl([{ id: 3 }]);
+  readonly valueTreeControl = new UntypedFormControl([{ id: 3 }]);
   readonly searchMatcher: PrizmMultiSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
     return item.name?.toLowerCase().includes(search.toLowerCase());
   };
