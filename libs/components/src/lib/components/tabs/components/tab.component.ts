@@ -14,7 +14,7 @@ import {
 import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
-import { combineLatest, Observable } from 'rxjs';
+import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
 import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
@@ -65,12 +65,6 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
     super();
   }
 
-  @HostListener('click')
-  public onClick(): void {
-    if (this.disabled) return;
-    this.selectTab();
-  }
-
   public ngOnDestroy(): void {
     this.tab$
       .pipe(
@@ -104,17 +98,25 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         takeUntil(this.destroy)
       )
       .subscribe();
-  }
 
-  public selectTab(): void {
-    this.tab$
+    fromEvent(this.el.nativeElement, 'click')
       .pipe(
-        tap(tab => {
-          this.tabsService?.selectTab(tab);
+        switchMap(() => {
+          if (this.disabled) return of(null);
+          return this.selectTab$();
         }),
         takeUntil(this.destroy)
       )
       .subscribe();
+  }
+
+  public selectTab$(): Observable<unknown> {
+    return this.tab$.pipe(
+      first(),
+      tap(tab => {
+        this.tabsService?.selectTab(tab);
+      })
+    );
   }
 
   public onClose(event: MouseEvent): void {
