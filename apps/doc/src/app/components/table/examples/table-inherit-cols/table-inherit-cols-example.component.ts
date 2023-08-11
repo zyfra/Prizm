@@ -20,4 +20,8 @@ export interface ITableProduct {
 })
 export class TableInheritColsExampleComponent {
   columns = ['c2', 'c1'];
+
+  public changeOrder(): void {
+    this.columns = [...this.columns].reverse();
+  }
 }

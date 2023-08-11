@@ -9,9 +9,9 @@ import {
   QueryList,
   ViewEncapsulation,
 } from '@angular/core';
-import { debounceTime, map, startWith } from 'rxjs/operators';
-import { animationFrameScheduler, merge, Observable } from 'rxjs';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
+import { animationFrameScheduler, BehaviorSubject, merge, Observable, of } from 'rxjs';
+import { prizmAutoEmit, prizmDefaultProp } from '@prizm-ui/core';
 
 import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
@@ -35,12 +35,20 @@ import { PrizmTdService } from '../td/td.service';
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
+  private readonly columns$$ = new BehaviorSubject<ReadonlyArray<keyof T | string> | null>(null);
 
   @Input()
+  @prizmAutoEmit({
+    name: 'columns$$',
+  })
   columns: ReadonlyArray<keyof T | string>;
 
-  get realColumns(): ReadonlyArray<keyof T | string> {
-    return (this.columns && Array.isArray(this.columns) ? this.columns : this.table.columns) ?? [];
+  get realColumns$(): Observable<ReadonlyArray<keyof T | string>> {
+    return this.columns$$.pipe(
+      switchMap(columns => {
+        return (columns && Array.isArray(columns) ? of(columns) : this.table.columns$) ?? of([]);
+      })
+    );
   }
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
@@ -51,9 +59,10 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     this.cellService.changes$$.pipe(debounceTime(0, animationFrameScheduler))
   ).pipe(
     startWith(null),
-    map(() => {
+    switchMap(() => this.realColumns$),
+    map(realColumns => {
       const cells = this.cells.toArray();
-      const columns = this.realColumns;
+      const columns = realColumns;
       if (!columns || columns.length === 0) {
         return cells;
       }
