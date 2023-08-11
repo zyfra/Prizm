@@ -10,7 +10,10 @@ All notable changes to this project will be documented in this file.
 - feat(components/table): ability to sort children was added #583
 - feat(doc/dialog): dismissible option was added to example #582
 - feat(doc/accordion): update example #575
-- feat(components/table): change order after rendered #359
+
+### Bug fixes
+
+- fix(components/table): change order after rendered #359
 
 ## [2.1.4-next.3](https://github.com/zyfra/Prizm) (11-08-2023)
 
