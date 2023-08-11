@@ -39,7 +39,9 @@
       <tr prizmThGroup>
         <th *prizmHead="'name'" [sorter]="sorter" prizmTh>Наименование</th>
         <th *prizmHead="'category'" prizmTh>Категория</th>
-        <th *prizmHead="'amount'" prizmTh>Количество</th>
+        <ng-container *ngIf="showFormatNumber">
+          <th *prizmHead="'amount'" prizmTh>Количество</th>
+        </ng-container>
       </tr>
     </thead>
 
