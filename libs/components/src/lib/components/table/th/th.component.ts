@@ -21,7 +21,7 @@ import { Observable } from 'rxjs';
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: `th[prizmTh]`,
-  templateUrl: `./th.template.html`,
+  templateUrl: `./th.component.html`,
   styleUrls: [`./th.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [

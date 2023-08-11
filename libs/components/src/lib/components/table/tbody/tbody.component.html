@@ -36,6 +36,7 @@
             index: index,
             odd: odd,
             even: even,
+            getRowId: row.prizmRowGetRowId,
             first: first,
             last: last,
             count: count,
@@ -141,6 +142,7 @@
           $any({
             item: childItem,
             parentIdx: index,
+            getRowId: row.prizmRowGetRowId,
             parentItem: item,
             deepLevel: (deepLevel ?? 0) + 1,
             first: childFirst,

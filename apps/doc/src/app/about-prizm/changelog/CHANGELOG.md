@@ -2,7 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [2.1.4-next.3](https://github.com/zyfra/Prizm) (03-08-2023)
+## [2.1.4-next.4](https://github.com/zyfra/Prizm) (11-08-2023)
+
+### Features
+
+- feat(components/table): add new input to control detect unique row id #584
+
+## [2.1.4-next.3](https://github.com/zyfra/Prizm) (11-08-2023)
 
 ### Features
 
