@@ -17,6 +17,7 @@ export class PrizmDialogServiceExampleComponent {
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
+  public dismissible = true;
 
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
@@ -30,6 +31,7 @@ export class PrizmDialogServiceExampleComponent {
           width: 500,
           closeWord: 'Продолжить',
           position: this.position,
+          dismissible: this.dismissible,
           backdrop: this.backdrop,
           size: 'm',
         }
