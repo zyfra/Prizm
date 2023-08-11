@@ -9,6 +9,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/table): add new input to control detect unique row id #584
 - feat(components/table): ability to sort children was added #583
 - feat(doc/dialog): dismissible option was added to example #582
+- feat(doc/accordion): update example #575
 
 ## [2.1.4-next.3](https://github.com/zyfra/Prizm) (11-08-2023)
 
