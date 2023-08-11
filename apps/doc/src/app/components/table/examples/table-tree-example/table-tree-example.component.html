@@ -34,12 +34,12 @@
 </div>
 <br />
 <prizm-scrollbar class="scrollable">
-  <table class="table" #prizmTableElement="prizmTable" prizmTable size="s">
+  <table class="table" #prizmTableElement="prizmTable" [columns]="columns" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
-        <th prizmTh>Наименование</th>
-        <th prizmTh>Категория</th>
-        <th *ngIf="showFormatNumber" prizmTh>Количество</th>
+        <th *prizmHead="'name'" [sorter]="sorter" prizmTh>Наименование</th>
+        <th *prizmHead="'category'" prizmTh>Категория</th>
+        <th *prizmHead="'amount'" prizmTh>Количество</th>
       </tr>
     </thead>
 
@@ -59,7 +59,7 @@
         "
       >
         <tr #trElement prizmTr>
-          <td *prizmCell prizmTd>
+          <td *prizmCell="'name'" prizmTd>
             <div class="col-tree">
               <prizm-tree-button
                 #treeButton
@@ -90,7 +90,7 @@
               ></button>
             </div>
           </td>
-          <td *prizmCell prizmTd>
+          <td *prizmCell="'category'" prizmTd>
             {{ item.category }}<br />
             #{{ i }}
             {{ odd ? '#odd' : '#even' }}
@@ -98,7 +98,7 @@
             {{ last ? '#last' : '' }}
           </td>
           <ng-container *ngIf="showFormatNumber">
-            <td class="format__number" *prizmCell prizmTd>
+            <td class="format__number" *prizmCell="'amount'" prizmTd>
               {{ item.count | spaceNumber : '0.0-0' }}
             </td>
           </ng-container>

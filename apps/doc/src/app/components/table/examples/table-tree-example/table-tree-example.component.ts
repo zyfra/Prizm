@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PrizmTableCellStatus } from '@prizm-ui/components';
+import { PrizmTableCellStatus, prizmTableDefaultColumnSort } from '@prizm-ui/components';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { TABLE_EXAMPLE_TREE_DATA_1 } from '../../table-example.const';
@@ -22,8 +22,9 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableTreeExampleComponent {
+  sorter = prizmTableDefaultColumnSort;
   showFormatNumber = true;
-  public columns: string[] = ['code', 'name', 'category', 'count'];
+  public columns: string[] = ['name', 'category', 'amount'];
 
   public products: ITableProduct[] = cloneDeep(TABLE_EXAMPLE_TREE_DATA_1);
 
