@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-
 import { NgxMaskModule, IConfig } from 'ngx-mask';
 
 const maskConfig: Partial<IConfig> = {

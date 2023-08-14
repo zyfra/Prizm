@@ -26,7 +26,7 @@ describe('nx-plugin:generator update-version', () => {
         projectType: 'library',
       })
     );
-    tree.write('/projects/project2/package.json', JSON.stringify({ version: '1.4.0' }));
+    tree.write('/projects/project2/package.json', JSON.stringify({ version: '1.4.1' }));
     tree.write(
       '/projects/project2/project.json',
       JSON.stringify({
