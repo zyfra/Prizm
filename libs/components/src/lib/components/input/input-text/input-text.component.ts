@@ -1,5 +1,4 @@
 import {
-  Attribute,
   ChangeDetectorRef,
   Component,
   DoCheck,
@@ -14,11 +13,10 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { UntypedFormControl, NgControl, Validators } from '@angular/forms';
+import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
-import { interval } from 'rxjs';
 
 @Component({
   selector:
@@ -31,7 +29,7 @@ import { interval } from 'rxjs';
     '[disabled]': 'disabled',
   },
   exportAs: 'prizmInput',
-  styleUrls: ['input-text.component.less'],
+  styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
 export class PrizmInputTextComponent extends PrizmInputControl<string> implements DoCheck, OnInit, OnDestroy {
@@ -118,6 +116,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   /**
    * Empty state
    */
+  @HostBinding('class.empty')
   public empty: boolean;
 
   /**
@@ -143,7 +142,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
-    private readonly prizmDestroyService: PrizmDestroyService,
+    private readonly destroy: PrizmDestroyService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
@@ -199,7 +198,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
           this.updateErrorState();
           this.cdr.markForCheck();
         }),
-        takeUntil(this.prizmDestroyService)
+        takeUntil(this.destroy)
       )
       .subscribe();
 
@@ -210,7 +209,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
           this.updateErrorState();
           this.stateChanges.next();
         }),
-        takeUntil(this.prizmDestroyService)
+        takeUntil(this.destroy)
       )
       .subscribe();
 
@@ -219,7 +218,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
         tap(() => {
           this.stateChanges.next();
         }),
-        takeUntil(this.prizmDestroyService)
+        takeUntil(this.destroy)
       )
       .subscribe();
   }
@@ -227,7 +226,8 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   private updateEmptyState(): void {
     this.empty = !(
       (this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length) ||
-      (this.ngControl && this.ngControl.value)
+      (this.ngControl && this.ngControl.value) ||
+      (this.ngControl instanceof NgModel && this.ngControl.model)
     );
   }
 

@@ -7,6 +7,7 @@ import { Injectable } from '@angular/core';
 export class PrizmInputValidationTexts {
   private readonly invalidTextMap = new Map<string, string>([
     ['required', 'Обязательное поле'],
+    ['pattern', 'Неправильный формат'],
     ['min', 'Значение слишком маленькое'],
     ['max', 'Значение слишком большое'],
   ]);

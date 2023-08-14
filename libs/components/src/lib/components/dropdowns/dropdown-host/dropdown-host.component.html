@@ -13,6 +13,7 @@
     <div
       class="prizm-dropdown-host-modal"
       [ngStyle]="dropdownStyles"
+      [ngClass]="dropdownClasses"
       [id]="prizmDropdownHostId"
       [attr.position]="position$ | async"
       (zoneOutsideEvent)="outsideClick()"

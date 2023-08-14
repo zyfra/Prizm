@@ -1,0 +1,11 @@
+<prizm-accordion>
+  <prizm-accordion-item class="custom" *ngFor="let item of items" [title]="title">
+    <ng-template #title>
+      <span [prizmHint]="item.hint"> {{ item.title }} </span>
+    </ng-template>
+
+    <ng-template prizmAccordionContent>
+      {{ item.description }}
+    </ng-template>
+  </prizm-accordion-item>
+</prizm-accordion>

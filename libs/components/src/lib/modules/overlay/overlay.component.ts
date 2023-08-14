@@ -12,9 +12,9 @@ import {
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmStyleGetVars } from '@prizm-ui/helpers';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { Observable } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
 import { PrizmOverlayAbstractPosition } from './position/position';
@@ -51,13 +51,13 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     private readonly cd: ChangeDetectorRef,
     private readonly destroy$: PrizmDestroyService,
     private readonly compResolver: ComponentFactoryResolver,
-    private readonly elRef: ElementRef
+    private readonly overlayElRef: ElementRef<HTMLElement>
   ) {
     this.parentInjector = Injector;
   }
 
   public ngOnInit(): void {
-    this.el = this.elRef.nativeElement;
+    this.el = this.overlayElRef.nativeElement;
     this.wrapperEl = this.el.querySelector('.z-overlay-wrapper');
     let cls = [
       'z-container',
@@ -70,6 +70,8 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     this.el.setAttribute('data-zid', this.zid);
     cssClass('add', cls, `[data-zid='${[this.zid]}']`);
     cssClass('add', [this.config.bodyClass]);
+
+    this.initStyleVars();
   }
 
   ngAfterViewInit(): void {
@@ -77,6 +79,14 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.content.type === PrizmOverlayContentType.COMPONENT) {
       this.compInstance = this.setComponent(this.content.props);
       EventBus.send(this.zid, 'z_compins', this.compInstance);
+    }
+  }
+
+  private initStyleVars(): void {
+    if (this.config.styleVars) {
+      Object.entries(prizmStyleGetVars(this.config.styleVars)).forEach(([key, value]) => {
+        this.overlayElRef.nativeElement.style.setProperty(key, value);
+      });
     }
   }
 
@@ -113,7 +123,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     );
   }
 
-  private setPos(): void {
+  private updatePos(): void {
     const positions = this.position.getPositions(this.wrapperEl);
     const { extra, ...coords } = positions;
     if (this.extra !== extra) {
@@ -124,5 +134,19 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     this.wrapperEl.style = objToCss(coords);
     this.position.savePosition(positions);
     EventBus.send(this.zid, 'z_posupdate');
+
+    this.cd.markForCheck();
+  }
+
+  private setPos(): void {
+    this.updatePos();
+
+    /** if position will be changed after render > we re-update position */
+    timer(0)
+      .pipe(
+        tap(() => this.updatePos()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 }

@@ -30,6 +30,7 @@ import { PrizmOverlayAbstractPosition } from './position/position';
 import { PrizmOverlayComponent } from './overlay.component';
 import { BODY_ELEMENT, EventBus, getContent } from './utils';
 import { WINDOW } from '@ng-web-apis/common';
+import { raceEmit } from '@prizm-ui/helpers';
 
 export class PrizmOverlayControl {
   position: PrizmOverlayAbstractPosition;
@@ -100,11 +101,17 @@ export class PrizmOverlayControl {
   }
 
   public onDocumentClick(): Observable<any> {
-    return fromEvent(this.viewEl, 'click').pipe(
-      takeUntil(this.destroy$),
-      map((e: any) => e.target),
+    const insideClick = fromEvent<MouseEvent>(this.viewEl.querySelector('.z-overlay-wrapper'), 'click');
+    const outsideClick = fromEvent<MouseEvent>(this.viewEl, 'click');
+
+    return raceEmit<[MouseEvent, boolean]>(
+      100,
+      insideClick.pipe(map((e: MouseEvent) => [e, false])),
+      outsideClick.pipe(map((e: MouseEvent) => [e, true]))
+    ).pipe(
+      filter(([, isOutsideClick]) => isOutsideClick),
+      map(([e]: [MouseEvent, boolean]) => e.target),
       skipWhile(() => !this.config.closeOnDocClick),
-      filter(this.isNotHostElement.bind(this)),
       tap(() => {
         this.config.docClickCallback();
         this.close();

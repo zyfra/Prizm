@@ -9,9 +9,9 @@ import {
   Input,
   QueryList,
 } from '@angular/core';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
+import { prizmAutoEmit, prizmDefaultProp, prizmObservable } from '@prizm-ui/core';
+import { BehaviorSubject, Observable, of, ReplaySubject } from 'rxjs';
+import { map, startWith, switchMap } from 'rxjs/operators';
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
@@ -26,9 +26,21 @@ import { PrizmThComponent } from '../th/th.component';
   providers: [PRIZM_TABLE_PROVIDER],
 })
 export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> implements AfterContentInit {
+  private readonly columns$$ = new BehaviorSubject<ReadonlyArray<keyof T | string> | null>(null);
   @Input()
-  @prizmDefaultProp()
-  columns: ReadonlyArray<keyof T | string> = this.table.columns;
+  @prizmAutoEmit({
+    name: 'columns$$',
+  })
+  columns: ReadonlyArray<keyof T | string>;
+
+  get cols$(): Observable<ReadonlyArray<keyof T | string>> {
+    return this.columns$$.pipe(
+      switchMap(currentCols => {
+        if (currentCols && Array.isArray(currentCols)) return of(currentCols);
+        return this.table.columns$;
+      })
+    );
+  }
 
   @ContentChild(forwardRef(() => PrizmThComponent))
   readonly th!: PrizmThComponent<T>;
@@ -46,9 +58,10 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
   ngAfterContentInit(): void {
     this.heads$ = this.heads.changes.pipe(
       startWith(null),
-      map(() => {
+      switchMap(() => this.cols$),
+      map(cols => {
         const heads = this.heads.toArray();
-        const columns = this.columns;
+        const columns = cols;
         if (!columns || columns.length === 0) {
           return heads;
         }

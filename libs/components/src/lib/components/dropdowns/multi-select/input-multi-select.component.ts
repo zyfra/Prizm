@@ -20,7 +20,11 @@ import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDropdownHostComponent } from '../dropdown-host';
+import {
+  PrizmDropdownHostClasses,
+  PrizmDropdownHostComponent,
+  PrizmDropdownHostStyles,
+} from '../dropdown-host';
 import {
   PrizmMultiSelectIdentityMatcher,
   PrizmMultiSelectItemStringifyFunc,
@@ -66,7 +70,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   @Input()
   @prizmDefaultProp()
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
-
+  @Input() dropdownStyles: PrizmDropdownHostStyles;
+  @Input() dropdownClasses: PrizmDropdownHostClasses;
   @Input()
   @prizmDefaultProp()
   icon = this.options.icon;

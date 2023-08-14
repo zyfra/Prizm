@@ -18,12 +18,6 @@
     .prizm-input-button-default {
       display: block;
     }
-
-    .label-container-textarea.label-container-outer {
-      .prizm-input-label-clear-btn {
-        display: block;
-      }
-    }
   }
 }
 
@@ -37,16 +31,9 @@
     width: auto;
     padding-left: 5px;
   }
-
-  &-focused.label-container-textarea.label-container-outer {
-    .prizm-input-label-clear-btn {
-      display: block;
-    }
-  }
 }
 
 .prizm-input-label {
-  display: block;
   font-weight: 600;
   font-size: 12px;
   color: var(--prizm-text-subscript);
@@ -55,6 +42,9 @@
   margin-bottom: 4px;
   transition: top 200ms ease 0s;
   pointer-events: none;
+  width: 100%;
+  display: flex;
+  gap: 4px;
 
   &-required {
     color: var(--prizm-index-danger);
@@ -95,45 +85,12 @@
     &-center {
       padding: 0;
       left: 50%;
+      justify-content: center;
       transform: translateX(-50%);
     }
   }
 
   @label: prizm-input-label;
-
-  &-textarea {
-    &.@{label}-inner {
-      background-color: var(--prizm-bg-dashboard-forms);
-      width: 100%;
-      &[data-size='l'] {
-        top: 0;
-        padding-top: 5px;
-
-        &.prizm-input-label-empty {
-          top: 0;
-          padding-top: 13px;
-        }
-        &.prizm-input-label-focused {
-          top: 0;
-          padding-top: 5px;
-        }
-      }
-
-      &[data-size='m'] {
-        top: 0;
-        padding-top: 1px;
-
-        &.prizm-input-label-empty {
-          top: 0;
-          padding-top: 9px;
-        }
-        &.prizm-input-label-focused {
-          top: 0;
-          padding-top: 1px;
-        }
-      }
-    }
-  }
 }
 
 .prizm-input-form {
@@ -295,72 +252,6 @@
   }
 
   @form: prizm-input-form;
-
-  &-textarea {
-    height: 100%;
-
-    .prizm-input-button-default {
-      height: auto;
-    }
-
-    .@{form}__first {
-      align-items: flex-start;
-    }
-
-    .@{form}-inner-container {
-      align-self: stretch;
-    }
-
-    .@{form}-body {
-      height: 100%;
-    }
-
-    .@{form}-inner-container {
-      align-items: flex-start;
-    }
-
-    &.@{form}-inner {
-      .prizm-input-button-default {
-        position: absolute;
-        right: 0;
-      }
-      &[data-size='m'] {
-        .prizm-input-button-default {
-          padding-top: 1px;
-        }
-      }
-
-      &[data-size='l'] {
-        .prizm-input-button-default {
-          padding-top: 5px;
-        }
-      }
-    }
-
-    &.@{form}-outer {
-      .prizm-input-button-default {
-        display: none;
-      }
-
-      &[data-size='l'] {
-        .prizm-input-button-default {
-          padding-top: 11px;
-        }
-      }
-
-      &[data-size='m'] {
-        .prizm-input-button-default {
-          padding-top: 7px;
-        }
-      }
-
-      &[data-size='s'] {
-        .prizm-input-button-default {
-          padding-top: 4px;
-        }
-      }
-    }
-  }
 }
 
 .prizm-input-form-subtext {

@@ -27,7 +27,11 @@ import {
   PrizmSelectValueTransformver,
 } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDropdownHostComponent } from '../dropdown-host';
+import {
+  PrizmDropdownHostClasses,
+  PrizmDropdownHostComponent,
+  PrizmDropdownHostStyles,
+} from '../dropdown-host';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
 import { PrizmScrollbarVisibility } from '../../scrollbar';
@@ -65,6 +69,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Input()
   @prizmDefaultProp()
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
+
+  @Input() dropdownStyles: PrizmDropdownHostStyles;
+  @Input() dropdownClasses: PrizmDropdownHostClasses;
 
   @Input()
   @prizmDefaultProp()
@@ -127,6 +134,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Input()
   @prizmDefaultProp()
   valueTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.valueContent;
+
+  @Input()
+  @prizmDefaultProp()
+  listItemTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.listItemTemplate;
 
   override readonly testId_ = 'ui_select';
 
@@ -265,9 +276,15 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     return newItem;
   }
 
-  public getCurrentItem(value: T): string {
-    if (Compare.isNullish(value)) return '';
-    const newItem = this.getValueFromItems(this.value);
+  public getCurrentValue(value: T): string {
+    const newItem = this.getFullObjectOfCurrent(this.value);
+    if (Compare.isNullish(newItem)) return '';
     return this.stringify(newItem ?? value);
+  }
+
+  public getFullObjectOfCurrent(value: T): T {
+    if (Compare.isNullish(value)) return null;
+    const newItem = this.getValueFromItems(this.value);
+    return newItem;
   }
 }

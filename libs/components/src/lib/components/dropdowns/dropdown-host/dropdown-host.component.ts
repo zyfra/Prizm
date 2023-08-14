@@ -5,7 +5,6 @@ import {
   Component,
   ElementRef,
   EventEmitter,
-  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -26,7 +25,13 @@ import { BehaviorSubject, Observable, Subject, timer } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PRIZM_DROPDOWN_HOST_OPTIONS, PrizmDropdownHostOptions } from './dropdown-host.options';
-import { PrizmDropdownHostContext, PrizmDropdownHostCustomContext, PrizmDropdownHostWidth } from './models';
+import {
+  PrizmDropdownHostClasses,
+  PrizmDropdownHostContext,
+  PrizmDropdownHostCustomContext,
+  PrizmDropdownHostStyles,
+  PrizmDropdownHostWidth,
+} from './models';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
@@ -106,12 +111,11 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   private lastEmittedState: boolean;
 
-  @Input() dropdownStyles: Record<string, string | number> = {};
-
+  @Input() dropdownStyles: PrizmDropdownHostStyles;
+  @Input() dropdownClasses: PrizmDropdownHostClasses;
   @ViewChild('temp') temp: TemplateRef<HTMLDivElement>;
 
   @Output() readonly isOpenChange = new EventEmitter<boolean>();
-
   private overlay: PrizmOverlayControl;
   protected isOpen$ = new BehaviorSubject(false);
 
@@ -191,7 +195,9 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
       .position(this.position)
       .config({ wrapperClass: this.wrapper_class })
       .content(this.temp)
-      .create();
+      .create({
+        parentInjector: this.injector,
+      });
 
     this.initPositionListener(this.position);
   }

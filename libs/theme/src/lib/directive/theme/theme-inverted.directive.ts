@@ -1,12 +1,10 @@
 import { Directive, ElementRef, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { debounceTime, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmThemeService } from '../../services/theme.service';
 import { PrizmTheme } from '../../types/theme';
 import { prizmObservable } from '@prizm-ui/core';
-import { combineLatest, Observable } from 'rxjs';
-
-const a = Symbol('dd');
+import { combineLatest, Observable, ReplaySubject } from 'rxjs';
 
 @Directive({
   selector: '[prizmThemeInverted]',
@@ -19,17 +17,17 @@ export class PrizmThemeInvertedDirective implements OnInit {
   @Input()
   @prizmObservable({
     name: 'invertedValues$$',
+    subject: () => new ReplaySubject(1),
   })
   public invertedValues = {
     dark: 'light',
     light: 'dark',
   };
 
-  a = true;
-
   @Input()
   @prizmObservable({
     name: 'themeElement$$',
+    subject: () => new ReplaySubject(1),
   })
   public themeElement = this.themeService.rootElement;
 

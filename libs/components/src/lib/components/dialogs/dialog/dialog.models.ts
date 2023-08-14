@@ -32,6 +32,7 @@ export interface PrizmDialogBaseOptions {
   readonly overscroll?: PrizmOverscrollMode;
   readonly dismissible?: boolean;
   readonly position: PrizmOverlayInsidePlacement;
+  readonly styleVars?: Record<string, unknown>;
 }
 
 export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDialogBaseOptions {

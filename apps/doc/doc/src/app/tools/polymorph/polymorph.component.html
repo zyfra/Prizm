@@ -1,0 +1,54 @@
+<prizm-doc-page header="Polymorph">
+  <div class="page-description" description>
+    PolymorphModule makes it possible to work with dynamic type of values
+  </div>
+
+  <ng-template prizmDocPageTab>
+    <div>
+      Polymorph directive can accept:<br />
+      1) primitive values such as string or number<br />
+      2) functions that take context as argument and return a primitive<br />
+      3) templates that get instantiated with given context<br />
+      4) components that would get context injected through DI
+    </div>
+
+    <prizm-doc-example id="base" [content]="baseExample" heading="Base">
+      <prizm-polymorph-base-example></prizm-polymorph-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="number" [content]="numberExample" heading="Number">
+      <prizm-polymorph-number-example></prizm-polymorph-number-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="function" [content]="functionExample" heading="Function">
+      <prizm-polymorph-function-example></prizm-polymorph-function-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="template" [content]="templateExample" heading="Template">
+      <prizm-polymorph-template-example></prizm-polymorph-template-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="component" [content]="componentExample" heading="Component">
+      <prizm-polymorph-component-example></prizm-polymorph-component-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="injector" [content]="injectorExample" heading="Injector">
+      <prizm-polymorph-injector-example></prizm-polymorph-injector-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Setup"
+    >>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmOverlayModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="exampleModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

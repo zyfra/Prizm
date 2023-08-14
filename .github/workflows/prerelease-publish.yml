@@ -29,9 +29,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_14-
+            ${{ runner.os }}-node_modules_ng_15-
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -52,7 +52,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.4.0-next"))] | last // "1.4.0-next.0")' 2>/dev/null || echo '1.4.0-next.0'
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.4.2-next"))] | last // "1.4.2-next.0")' 2>/dev/null || echo '1.4.2-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
@@ -80,5 +80,5 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
-          channelId: v1-4-0
+          channelId: live
           target: next
