@@ -2,34 +2,6 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.4.2](https://github.com/zyfra/Prizm) (14-08-2023)
-
-### Features
-
-- feat(components/table): add new input to control detect unique row id #584
-- feat(components/table): ability to sort children was added #583
-- feat(doc/dialog): dismissible option was added to example #582
-- feat(doc/accordion): update example #575
-- feat(components/input-select): add new input listItemTemplate to control template in item from dropdown #564
-- feat(components/table): add support dynamic amount of columns in group #259
-- feat(components/input-select): update doc example and now we passed transformed value to template #564
-- feat(components/textarea): resizable was added #559
-- feat(components/polymorph): added new input to add custom injector [demo](https://prizm.site/tools/polymorph#injector)
-- feat(components/dropdown-host): now we pass injector to overlay
-- feat(theme): use DI to pass parent theme #478
-
-### Bug fixes
-
-- fix(components/table): order of [columns] not inherited from table #359
-- fix(components/table): change order after rendered #359
-- fix(components/navigation): select current item #477
-- fix(doc): anchor links do not work on pages that have not loaded #560
-
-### Closed
-
-- #268
-- #533
-
 ## [2.1.4](https://github.com/zyfra/Prizm) (14-08-2023)
 
 ### Features
