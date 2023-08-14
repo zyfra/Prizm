@@ -7,11 +7,19 @@ import { Compare } from '@prizm-ui/helpers';
 @Injectable()
 export class PrizmTableRowService {
   private idxCount = -1;
+  private readonly map = new Map<unknown, number>();
+
+  public saveId(id: unknown, idx: number): void {
+    this.map.set(id, idx);
+  }
+  public getIdxById(id: unknown): number | null {
+    return this.map.get(id) ?? null;
+  }
 
   public incrementIdx(): void {
     this.idxCount++;
   }
-  public getIdx(): number {
+  public getLastIncrementedIdx(): number {
     return this.idxCount;
   }
 }

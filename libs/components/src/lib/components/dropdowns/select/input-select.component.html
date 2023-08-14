@@ -10,19 +10,38 @@
   [dropdownClasses]="dropdownClasses"
   (isOpenChange)="opened$$.next($event)"
 >
-  <input
-    class="input-search"
+  <div
     #focusableElementRef
-    [placeholder]="placeholder"
-    [disabled]="disabled"
-    [readonly]="true"
+    *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent as val"
     [ngModelOptions]="{ standalone: true }"
-    [ngModel]="(value | prizmCallFunc : getCurrentItem) ?? ''"
+    [ngModel]="(value | prizmCallFunc : getCurrentValue) ?? ''"
+    [attr.contenteditable]="false"
+    [disabled]="disabled"
     (click)="safeOpenModal()"
     (focus)="focused$$.next(true)"
     (blur)="focused$$.next(false)"
     prizmInput
-  />
+  >
+    <ng-container *ngIf="val; else placeholderTemplate">
+      <ng-container
+        *polymorphOutlet="
+          valueTemplate as content;
+          context: {
+            $implicit: val,
+            value: val | prizmCallFunc : transformer,
+            stringify: val | prizmCallFunc : stringify : $any(nullContent)
+          }
+        "
+      >
+        <ng-container *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) as text">
+          {{ text }}
+        </ng-container>
+      </ng-container>
+    </ng-container>
+    <ng-template #placeholderTemplate>
+      <div class="placeholder">{{ placeholder }}</div>
+    </ng-template>
+  </div>
 
   <ng-template #dropdown>
     <prizm-data-list
@@ -67,9 +86,10 @@
             >
               <ng-container
                 *polymorphOutlet="
-                  valueTemplate as content;
+                  listItemTemplate ?? valueTemplate as content;
                   context: {
                     $implicit: item,
+                    value: item | prizmCallFunc : transformer,
                     stringify: text
                   }
                 "

@@ -138,6 +138,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   @ContentChildren(forwardRef(() => PrizmTrComponent))
   readonly rows: QueryList<PrizmTrComponent<T>> = new QueryList<PrizmTrComponent<T>>();
 
+  columnsCount = 0;
   /**
    * Stream containing the latest information on what rows are being displayed on screen.
    *
@@ -147,8 +148,6 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
     start: 0,
     end: Number.MAX_VALUE,
   });
-
-  public columnsCount = 0;
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
@@ -165,8 +164,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
         startWith(this.rows),
         map(({ first }: QueryList<PrizmTrComponent<T>>) => first),
         filter((first: PrizmTrComponent<T>) => !!first),
-        map(({ cells }: PrizmTrComponent<T>) => cells),
-        map(({ length }: QueryList<PrizmCellDirective>) => length),
+        map(({ colCount }) => colCount),
         takeUntil(this.destroy$)
       )
       .subscribe((columnsCount: number) => {
@@ -213,5 +211,9 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
         this._data = data || [];
       })
     );
+  }
+
+  public sortChildren(children$: Observable<T[]>): Observable<readonly T[]> {
+    return children$.pipe(switchMap(children => this.sorterService.sort$(children)));
   }
 }

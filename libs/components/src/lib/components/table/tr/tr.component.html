@@ -1,4 +1,6 @@
 <ng-content selector="td[prizmTd]"></ng-content>
 <ng-container *ngIf="cells$ | async as cells">
-  <ng-container *ngFor="let cell of cells" [ngTemplateOutlet]="cell.template"> </ng-container>
+  <ng-container *ngFor="let cell of cells">
+    <ng-container *ngIf="cell?.template" [ngTemplateOutlet]="cell.template"></ng-container>
+  </ng-container>
 </ng-container>

@@ -5,9 +5,10 @@
     [formControl]="control"
   ></prizm-input-select>
 </prizm-input-layout>
+
 <ng-template #valueTemplate let-value let-nullContent="nullContent">
   <div class="item" *ngIf="value; else empty">
-    <prizm-icon iconClass="account-done"></prizm-icon>
+    <prizm-icon [style.color]="getColor(value)" iconClass="account-done"></prizm-icon>
     <span>{{ value }}</span>
   </div>
   <ng-template #empty>

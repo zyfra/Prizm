@@ -1,5 +1,8 @@
 <h3>Base example</h3>
 <div>
+  <button (click)="updateProducts()" prizmButton size="s">Refresh</button>
+</div>
+<div>
   show amount column
   <prizm-toggle [(ngModel)]="showFormatNumber" [ngModelOptions]="{ standalone: true }" size="m">
   </prizm-toggle>
@@ -31,12 +34,14 @@
 </div>
 <br />
 <prizm-scrollbar class="scrollable">
-  <table class="table" #prizmTableElement="prizmTable" prizmTable size="s">
+  <table class="table" #prizmTableElement="prizmTable" [columns]="columns" prizmTable size="s">
     <thead>
       <tr prizmThGroup>
-        <th prizmTh>Наименование</th>
-        <th prizmTh>Категория</th>
-        <th *ngIf="showFormatNumber" prizmTh>Количество</th>
+        <th *prizmHead="'name'" [sorter]="sorter" prizmTh>Наименование</th>
+        <th *prizmHead="'category'" prizmTh>Категория</th>
+        <ng-container *ngIf="showFormatNumber">
+          <th *prizmHead="'amount'" prizmTh>Количество</th>
+        </ng-container>
       </tr>
     </thead>
 
@@ -45,6 +50,7 @@
         *prizmRow="
           let item of products;
           getChildren: getTableChildren;
+          getRowId: getRowId;
           let i = index;
           let parentItem = parentItem;
           let odd = odd;
@@ -55,7 +61,7 @@
         "
       >
         <tr #trElement prizmTr>
-          <td *prizmCell prizmTd>
+          <td *prizmCell="'name'" prizmTd>
             <div class="col-tree">
               <prizm-tree-button
                 #treeButton
@@ -65,10 +71,28 @@
                 (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
               >
               </prizm-tree-button>
+              <button
+                *ngIf="item.code === '1_1_2' && item.name === '* Name 1_1_2'"
+                (click)="updateProduct(false)"
+                appearance="danger"
+                size="s"
+                appearanceType="ghost"
+                prizmIconButton
+                icon="account-remove"
+              ></button>
               <span>{{ item.name }}</span>
+              <button
+                *ngIf="item.code === '1_1_2' && item.name === 'Name 1_1_2'"
+                (click)="updateProduct(true)"
+                appearance="secondary"
+                size="s"
+                appearanceType="ghost"
+                prizmIconButton
+                icon="account-plus"
+              ></button>
             </div>
           </td>
-          <td *prizmCell prizmTd>
+          <td *prizmCell="'category'" prizmTd>
             {{ item.category }}<br />
             #{{ i }}
             {{ odd ? '#odd' : '#even' }}
@@ -76,7 +100,7 @@
             {{ last ? '#last' : '' }}
           </td>
           <ng-container *ngIf="showFormatNumber">
-            <td class="format__number" *prizmCell prizmTd>
+            <td class="format__number" *prizmCell="'amount'" prizmTd>
               {{ item.count | spaceNumber : '0.0-0' }}
             </td>
           </ng-container>

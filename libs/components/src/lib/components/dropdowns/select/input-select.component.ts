@@ -135,6 +135,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @prizmDefaultProp()
   valueTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.valueContent;
 
+  @Input()
+  @prizmDefaultProp()
+  listItemTemplate: PolymorphContent<PrizmSelectValueContext<T>> = this.options.listItemTemplate;
+
   override readonly testId_ = 'ui_select';
 
   @Output()
@@ -272,9 +276,15 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     return newItem;
   }
 
-  public getCurrentItem(value: T): string {
-    if (Compare.isNullish(value)) return '';
-    const newItem = this.getValueFromItems(this.value);
+  public getCurrentValue(value: T): string {
+    const newItem = this.getFullObjectOfCurrent(this.value);
+    if (Compare.isNullish(newItem)) return '';
     return this.stringify(newItem ?? value);
+  }
+
+  public getFullObjectOfCurrent(value: T): T {
+    if (Compare.isNullish(value)) return null;
+    const newItem = this.getValueFromItems(this.value);
+    return newItem;
   }
 }

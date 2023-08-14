@@ -12,6 +12,7 @@ import {
 import { PrizmTableRowService } from '../service/row.service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowContext } from '../table.types';
+import { Compare } from '@prizm-ui/helpers';
 
 @Directive({
   selector: `ng-template[prizmTableRowInit]`,
@@ -21,6 +22,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
   @Input() template: TemplateRef<any>;
   public embeddedRef: EmbeddedViewRef<any>;
   private idx: number;
+  private idxFromMap: number;
   constructor(
     public readonly viewContainer: ViewContainerRef,
     public readonly tableRowService: PrizmTableRowService,
@@ -34,12 +36,27 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
   public ngOnInit(): void {
     this.generateIdx();
     this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, this.getContext());
-    this.treeService.init(this.idx);
+    this.initChildrenVisibleStateOnce();
+  }
+
+  private initChildrenVisibleStateOnce(): void {
+    if (Compare.isNullish(this.idxFromMap)) this.treeService.init(this.idx);
   }
 
   private generateIdx(): void {
-    this.tableRowService.incrementIdx();
-    this.idx = this.tableRowService.getIdx();
+    let rowId: unknown;
+
+    if (typeof this.context.getRowId === 'function') {
+      rowId = this.context.getRowId(this.context.item);
+      this.idxFromMap = this.tableRowService.getIdxById(rowId);
+    }
+
+    if (Compare.isNullish(this.idxFromMap)) this.tableRowService.incrementIdx();
+    this.idx = this.idxFromMap ?? this.tableRowService.getLastIncrementedIdx();
+
+    if (Compare.isNullish(this.idxFromMap) && !Compare.isNullish(rowId)) {
+      this.tableRowService.saveId(rowId, this.idx);
+    }
 
     if ('parentIdx' in this.context) {
       this.treeService.addChildToParent(this.idx, this.context.parentIdx);

@@ -1,0 +1,27 @@
+<prizm-input-layout label="Выберите из списка">
+  <prizm-input-select
+    [items]="items"
+    [valueTemplate]="valueTemplate"
+    [listItemTemplate]="listItemTemplate"
+    [formControl]="control"
+  ></prizm-input-select>
+</prizm-input-layout>
+
+<ng-template #valueTemplate let-value let-nullContent="nullContent">
+  <div class="item" *ngIf="value; else empty">
+    <b [style.color]="getColor(value)">{{ value }}</b>
+  </div>
+  <ng-template #empty>
+    {{ nullContent }}
+  </ng-template>
+</ng-template>
+
+<ng-template #listItemTemplate let-value let-nullContent="nullContent">
+  <div class="item" *ngIf="value; else empty">
+    <div class="circle" [style.background-color]="getColor(value)" iconClass="account-done"></div>
+    <span>{{ value }}</span>
+  </div>
+  <ng-template #empty>
+    {{ nullContent }}
+  </ng-template>
+</ng-template>

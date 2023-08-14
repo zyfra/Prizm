@@ -14,11 +14,13 @@ export type PrizmTableBorderStyle = 'grid' | 'horizontal' | 'vertical';
 export interface PrizmTableRowContext<T = Record<string, unknown>> extends PrizmContextWithImplicit<T> {
   readonly index: number;
   readonly first: boolean;
+  readonly getRowId?: (item: T) => unknown;
   readonly last: boolean;
   readonly deepLevel?: number;
   readonly odd: boolean;
   readonly even: boolean;
   readonly count: number;
   readonly parentItem?: T;
+  readonly item: T;
   readonly parentIdx?: number;
 }

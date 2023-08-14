@@ -40,6 +40,13 @@
     <prizm-doc-example id="with-transformer" [content]="exampleWithTransformer" heading="With Transformer">
       <prizm-select-with-transformer-example></prizm-select-with-transformer-example>
     </prizm-doc-example>
+    <prizm-doc-example
+      id="with-list-item-template"
+      [content]="exampleWithListItemTemplate"
+      heading="With List Item Template"
+    >
+      <prizm-select-with-list-item-template-example></prizm-select-with-list-item-template-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -62,6 +69,7 @@
           [prizmDocHostElementKey]="selectKey"
           [placeholder]="placeholder"
           [valueTemplate]="valueTemplate"
+          [listItemTemplate]="listItemTemplate"
           [searchMatcher]="searchMatcher"
           [formControl]="control"
           [searchable]="searchable"
@@ -178,10 +186,19 @@
         [(documentationPropertyValue)]="valueTemplate"
         [documentationPropertyValues]="getValueTemplate(valueTemp)"
         documentationPropertyName="valueTemplate"
-        documentationPropertyType="PolymorphContent"
+        documentationPropertyType="PolymorphContent<PrizmSelectValueContext<T>>"
         documentationPropertyMode="input"
       >
-        Value Template
+        Template for current selected item (not for element in dropdown)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="listItemTemplate"
+        documentationPropertyName="listItemTemplate"
+        documentationPropertyType="PolymorphContent<PrizmSelectValueContext<T>>"
+        documentationPropertyMode="input"
+      >
+        Template for item from list (in dropdown) (if null use valueTemplate)
       </ng-template>
 
       <ng-template #valueTemp let-value let-nullContent="nullContent">

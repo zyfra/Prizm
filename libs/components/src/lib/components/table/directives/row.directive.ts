@@ -21,7 +21,9 @@ export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> implemen
   prizmRowOf: readonly T[] = [];
 
   @Input()
-  @prizmDefaultProp()
+  prizmRowGetRowId: (i: T) => unknown;
+
+  @Input()
   prizmRowGetChildren: (element: T) => Observable<T[]>;
 
   public static ngTemplateContextGuard<T>(
