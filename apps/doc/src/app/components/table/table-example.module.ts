@@ -5,6 +5,7 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { TableBasicExampleComponent } from './examples/table-basic-example/table-basic-example.component';
 import {
+  PrizmButtonModule,
   PrizmCheckboxModule,
   PrizmDropdownHostModule,
   PrizmIconModule,
@@ -77,6 +78,7 @@ import { TableInheritColsExampleComponent } from './examples/table-inherit-cols/
     PrizmScrollbarModule,
     PrizmDropdownHostModule,
     PrizmCheckboxModule,
+    PrizmButtonModule,
   ],
 })
 export class TableExampleModule {}

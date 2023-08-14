@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [2.1.4-next.4](https://github.com/zyfra/Prizm) (11-08-2023)
+
+### Features
+
+- feat(components/table): add new input to control detect unique row id #584
+- feat(components/table): ability to sort children was added #583
+- feat(doc/dialog): dismissible option was added to example #582
+- feat(doc/accordion): update example #575
+
+### Bug fixes
+
+- fix(components/table): change order after rendered #359
+
+## [2.1.4-next.3](https://github.com/zyfra/Prizm) (11-08-2023)
+
+### Features
+
+- feat(components/input-select): add new input listItemTemplate to control template in item from dropdown #564
+
 ## [2.1.4-next.2](https://github.com/zyfra/Prizm) (03-08-2023)
 
 ### Features

@@ -14,8 +14,8 @@ import { PRIZM_TABLE_PROVIDERS } from '../providers/table.providers';
 import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../../util';
 import { PrizmComparator, PrizmTableBorderStyle } from '../table.types';
 import { AbstractPrizmController } from '../abstract/controller';
-import { Observable } from 'rxjs';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { prizmAutoEmit, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowService } from '../service/row.service';
@@ -33,9 +33,15 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   extends AbstractPrizmController
   implements AfterViewInit
 {
+  private readonly columns$$ = new BehaviorSubject<ReadonlyArray<keyof T | string>>([]);
+
   @Input()
-  @prizmDefaultProp()
+  @prizmAutoEmit({
+    name: 'columns$$',
+  })
   columns: ReadonlyArray<keyof T | string> = [];
+
+  public columns$ = this.columns$$.asObservable();
 
   @Input()
   @HostBinding(`attr.data-size`)

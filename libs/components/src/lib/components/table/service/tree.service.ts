@@ -5,7 +5,7 @@ import { Compare } from '@prizm-ui/helpers';
 
 @Injectable()
 export class PrizmTableTreeService {
-  private readonly showDirectChildrenMap = new Map<number, boolean>();
+  public readonly showDirectChildrenMap = new Map<number, boolean>();
   private readonly showAllChildrenMap = new Map<number, boolean>();
   private readonly changes$$ = new ReplaySubject(1);
   public readonly changes$ = this.changes$$.asObservable();

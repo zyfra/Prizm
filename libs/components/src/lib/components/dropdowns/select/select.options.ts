@@ -45,6 +45,7 @@ export interface PrizmSelectOptions<T> {
   readonly maxDropdownHeight: number;
   readonly dropdownWidth: string;
   readonly valueContent: PolymorphContent<PrizmSelectValueContext<T>>;
+  readonly listItemTemplate: PolymorphContent<PrizmSelectValueContext<T>>;
 }
 
 export type PrizmSelectStringify<T> = (i: T, nullContent?: string) => string;
@@ -76,6 +77,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
     return a === b;
   },
   valueContent: '',
+  listItemTemplate: null,
   placeholder: '',
   size: 'l',
   label: 'Выберите из списка',

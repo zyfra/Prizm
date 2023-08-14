@@ -212,4 +212,8 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
       })
     );
   }
+
+  public sortChildren(children$: Observable<T[]>): Observable<readonly T[]> {
+    return children$.pipe(switchMap(children => this.sorterService.sort$(children)));
+  }
 }

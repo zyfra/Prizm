@@ -1,10 +1,10 @@
 <button class="sorter" *ngIf="isSortable && table; else content" type="button">
   <ng-container [ngTemplateOutlet]="content"></ng-container>
   {{ table.change$ | async }}
-  <span class="sort__block" (click)="updateSorter($event)" [class.sort__block_active]="isCurrent">
-    <span class="sorter__number" [style.visibility]="(count > 1 && num) ? 'visible' : 'hidden'"
-      >{{num ?? '0'}}</span
-    >
+  <span class="sort__block" [class.sort__block_active]="isCurrent" (click)="updateSorter($event)">
+    <span class="sorter__number" [style.visibility]="count > 1 && num ? 'visible' : 'hidden'">{{
+      num ?? '0'
+    }}</span>
     <prizm-icon class="sorter__icon" [iconClass]="icon$ | async"></prizm-icon>
   </span>
 </button>

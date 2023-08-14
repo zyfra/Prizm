@@ -36,6 +36,7 @@
             index: index,
             odd: odd,
             even: even,
+            getRowId: row.prizmRowGetRowId,
             first: first,
             last: last,
             count: count,
@@ -121,7 +122,10 @@
 
     <ng-container
       *ngIf="
-        row.prizmRowGetChildren && item | prizmCallFunc : row.prizmRowGetChildren | async as children;
+        row.prizmRowGetChildren && item
+          | prizmCallFunc : row.prizmRowGetChildren
+          | prizmCallFunc : sortChildren
+          | async as children;
         else treeLoadingTemplateRef
       "
     >
@@ -141,6 +145,7 @@
           $any({
             item: childItem,
             parentIdx: index,
+            getRowId: row.prizmRowGetRowId,
             parentItem: item,
             deepLevel: (deepLevel ?? 0) + 1,
             first: childFirst,
