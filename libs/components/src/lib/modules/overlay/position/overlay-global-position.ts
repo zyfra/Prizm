@@ -26,11 +26,11 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
     });
   }
 
-  public getPositions(hostEl?: HTMLElement): any {
+  public getPositions(hostEl?: HTMLElement, parent?: HTMLElement): any {
     const host = hostEl.getBoundingClientRect() as any;
     const src = {
-      width: window['innerWidth'],
-      height: window['innerHeight'],
+      width: parent?.offsetWidth ?? window['innerWidth'],
+      height: parent?.offsetHeight ?? window['innerHeight'],
     };
     let { width: w, height: h } = this.config;
 
@@ -42,7 +42,7 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
       ...props,
       width: w,
       height: h,
-      position: 'fixed',
+      position: parent ? 'absolute' : 'fixed',
       extra: this.config.placement,
     };
   }

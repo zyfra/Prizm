@@ -44,6 +44,12 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   extra: string;
   parentInjector: any;
   compInstance: any;
+  parentContainer: HTMLElement;
+
+  @HostBinding('style.position')
+  get stylePosition(): string {
+    return this.parentContainer ? 'absolute' : 'fixed';
+  }
 
   constructor(
     public readonly inj: Injector,
@@ -124,7 +130,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   private updatePos(): void {
-    const positions = this.position.getPositions(this.wrapperEl);
+    const positions = this.position.getPositions(this.wrapperEl, this.parentContainer);
     const { extra, ...coords } = positions;
     if (this.extra !== extra) {
       this.extra = extra;

@@ -129,5 +129,6 @@ export interface PrizmOverlayInputs {
   position: PrizmOverlayAbstractPosition | null;
   config: PrizmOverlayConfig;
   content: PrizmOverlayContent;
+  parentContainer: HTMLElement | undefined;
   zid: PrizmOverlayId;
 }

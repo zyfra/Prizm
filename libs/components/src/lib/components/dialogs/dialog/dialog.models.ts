@@ -33,6 +33,7 @@ export interface PrizmDialogBaseOptions {
   readonly dismissible?: boolean;
   readonly position: PrizmOverlayInsidePlacement;
   readonly styleVars?: Record<string, unknown>;
+  readonly parentContainer?: HTMLElement;
 }
 
 export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDialogBaseOptions {

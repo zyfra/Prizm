@@ -33,7 +33,7 @@ export function prizmDialogCloseStreamFactory(
   destroy$: PrizmDestroyService,
   content: PrizmOverlayContent
 ): Observable<unknown> {
-  const { dismissible } = content.props.context;
+  const { dismissible, parentContainer } = content.props.context;
   return dismissible
     ? merge(
         /* on click esc */
@@ -52,7 +52,9 @@ export function prizmDialogCloseStreamFactory(
           filter(
             ({ target, clientX }) =>
               target instanceof Element &&
-              windowRef.innerWidth - clientX > SCROLLBAR_PLACEHOLDER &&
+              (parentContainer && parentContainer instanceof HTMLElement
+                ? prizmContainsOrAfter(parentContainer, target)
+                : windowRef.innerWidth - clientX > SCROLLBAR_PLACEHOLDER) &&
               !prizmContainsOrAfter(nativeElement, target)
           ),
           switchMapTo(

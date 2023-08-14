@@ -17,7 +17,7 @@ export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any>
     if (this.zid) EventBus.send(this.zid, 'z_dynpos');
   }
 
-  public abstract getPositions(host: HTMLElement): Record<string, any>;
+  public abstract getPositions(host: HTMLElement, parentElement?: HTMLElement): Record<string, any>;
 
   public getClassName(): string {
     return this.constructor.name.replace('Pos', '-pos').toLowerCase();

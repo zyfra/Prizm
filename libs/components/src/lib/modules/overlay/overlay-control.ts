@@ -41,6 +41,7 @@ export class PrizmOverlayControl {
   comp: PrizmOverlayComponent;
   updateTextContent: Subject<string> = new Subject();
   hostView: ViewRef;
+  parentContainer: HTMLElement;
   compRef: ComponentRef<PrizmOverlayComponent>;
 
   public viewEl: HTMLElement;
@@ -148,6 +149,10 @@ export class PrizmOverlayControl {
     this.content = getContent(content, { ...this.content.props, ...props });
   }
 
+  public updateParentContainer(node: HTMLElement): void {
+    this.parentContainer = node instanceof HTMLElement ? node : undefined;
+  }
+
   public listen<T = any>(eventName: PrizmOverlayEventName): Observable<T> {
     return EventBus.listen(this.zid, eventName);
   }
@@ -168,15 +173,15 @@ export class PrizmOverlayControl {
     this.comp = this.compRef.instance;
 
     /* assign props */
-    const { position, content, config, zid, zIndex } = this;
+    const { position, content, config, zid, zIndex, parentContainer } = this;
     content.props.close = this.close.bind(this);
-    Object.assign(this.comp, { position, content, config, zid: zid, zIndex: zIndex });
+    Object.assign(this.comp, { position, content, config, zid: zid, zIndex: zIndex, parentContainer });
 
     /* attach view */
     this.hostView = this.compRef.hostView;
     this.appRef.attachView(this.hostView);
     this.viewEl = (this.hostView as any).rootNodes[0];
-    BODY_ELEMENT.appendChild(this.viewEl);
+    (parentContainer ?? BODY_ELEMENT).appendChild(this.viewEl);
   }
 
   private detach(): void {

@@ -69,6 +69,7 @@ export abstract class AbstractPrizmDialogService<
             return control;
           },
         })
+        .parentContainer(options.parentContainer)
         .create();
 
       if (typeof options.zIndex === 'number') control.zIndex = options.zIndex;

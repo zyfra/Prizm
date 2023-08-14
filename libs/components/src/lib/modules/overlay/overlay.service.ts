@@ -28,6 +28,7 @@ export class PrizmOverlayService {
     config: PrizmOverlayDefaultConfig,
     content: { type: PrizmOverlayContentType.STRING, data: '', props: {} },
     zid: null,
+    parentContainer: undefined,
   };
 
   constructor(private injector: Injector) {
@@ -46,6 +47,11 @@ export class PrizmOverlayService {
 
   public content(data: PrizmOverlayContentData, props: PrizmOverlayContentProps = {}): PrizmOverlayService {
     this.inputs.content = getContent(data, props);
+    return this;
+  }
+
+  public parentContainer(node: HTMLElement | undefined): PrizmOverlayService {
+    this.inputs.parentContainer = node instanceof HTMLElement ? node : undefined;
     return this;
   }
 
