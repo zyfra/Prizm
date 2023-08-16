@@ -1,0 +1,13 @@
+{
+  "name": "@prizm-ui/ast",
+  "version": "1.4.2",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {},
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}
