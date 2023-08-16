@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Publish next packages 14
+name: Publish next packages 16
 on:
   workflow_dispatch:
   workflow_call:
@@ -29,14 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_14-
+            ${{ runner.os }}-node_modules_ng_16-
 
-      - name: 'Initial changes 14'
+      - name: 'Initial changes 16'
         run: |
-          cp -f package.json.ng14 package.json
-          cp -f package-lock.json.ng14 package-lock.json
+          cp -f package.json.ng16 package.json
+          cp -f package-lock.json.ng16 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -57,15 +57,15 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.4.3-next"))] | last // "1.4.3-next.0")' 2>/dev/null || echo '1.4.3-next.0'
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("3.0.0-next"))] | last // "3.0.0-next.0")' 2>/dev/null || echo '2.1.4-next.0'
           )
           echo "LAST_next_VERSION=${last_next_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 14'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v14
+      - name: 'Set version 16'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
 
       - name: 'Update next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-next.up" --all --currentVersion="${{ env.LAST_next_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-next.up" --all --currentVersion="${{ env.LAST_next_VERSION }}"
 
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -84,7 +84,6 @@ jobs:
 
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
-
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -92,4 +91,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: v1-next
+          target: v2-next

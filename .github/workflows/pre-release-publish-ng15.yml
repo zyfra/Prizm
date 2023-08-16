@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Publish prerelease packages 15
+name: Publish next packages 15
 on:
   workflow_dispatch:
   workflow_call:
@@ -10,14 +10,14 @@ permissions:
   contents: read
   packages: write
 jobs:
-  pre_publish:
+  next_release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
-        uses: nrwl/nx-set-shas@v2
+        uses: nrwl/nx-set-shas@v3
 
       - uses: actions/setup-node@v3
         with:
@@ -57,12 +57,15 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("2.1.5-next"))] | last // "2.1.5-next.0")' 2>/dev/null || echo '2.1.5-next.0'
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("2.1.5-next"))] | last // "2.1.5-next.0")' 2>/dev/null || echo '2.1.4-next.0'
           )
-          echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
+          echo "LAST_next_VERSION=${last_next_version}" >> $GITHUB_ENV
+
+      - name: 'Set version 15'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
       - name: 'Update next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-next.up" --all --currentVersion="${{ env.LAST_next_VERSION }}"
 
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -77,9 +80,9 @@ jobs:
       - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/charts && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose || exit_code=0
 
-      - name: 'Build doc app for firebase hosting (NG15)'
+      - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
