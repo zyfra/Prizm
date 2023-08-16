@@ -1,0 +1,41 @@
+{
+  "name": "icons",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/icons/base/src",
+  "prefix": "prizm",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["{workspaceRoot}/dist/libs/icons/base"],
+      "options": {
+        "project": "libs/icons/base/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/icons/base/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/icons/base/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/icons/base"],
+      "options": {
+        "jestConfig": "libs/icons/base/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
+      }
+    }
+  },
+  "tags": []
+}
