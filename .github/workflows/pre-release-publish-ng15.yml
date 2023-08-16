@@ -33,6 +33,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
+      - name: 'Initial changes 15'
+        run: |
+          cp -f package.json.ng15 package.json
+          cp -f package-lock.json.ng15 package-lock.json
+
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
@@ -72,7 +77,9 @@ jobs:
       - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
       - run: cd dist/libs/charts && npm publish --tag next --access public --verbose || exit_code=0
-      - name: 'Build doc app for firebase hosting'
+      - run: cd dist/libs/nxmv && npm publish --tag draft --access public --verbose || exit_code=0
+
+      - name: 'Build doc app for firebase hosting (NG15)'
         run: npx nx build doc
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -81,4 +88,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: next
+          target: v2-next

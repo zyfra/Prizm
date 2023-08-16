@@ -22,6 +22,24 @@
         ],
         "v3": [
           "prizm-v3"
+        ],
+        "v1-draft": [
+          "prizm-v1-draft"
+        ],
+        "v2-draft": [
+          "prizm-v2-draft"
+        ],
+        "v3-draft": [
+          "prizm-v3-draft"
+        ],
+        "v3-next": [
+          "prizm-v3-next"
+        ],
+        "v2-next": [
+          "prizm-v2-next"
+        ],
+        "v1-next": [
+          "prizm-v1-next"
         ]
       }
     }

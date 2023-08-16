@@ -33,7 +33,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: 'Base change 14'
+      - name: 'Initial changes 14'
         run: |
           cp -f package.json.ng14 package.json
           cp -f package-lock.json.ng14 package-lock.json
@@ -80,8 +80,11 @@ jobs:
       - run: cd dist/libs/plugin && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/ast && npm publish --tag draft --access public --verbose || exit_code=0
       - run: cd dist/libs/charts && npm publish --tag draft --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag draft --access public --verbose || exit_code=0
+
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
+
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -89,4 +92,4 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: draft
+          target: v1-draft

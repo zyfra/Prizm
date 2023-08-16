@@ -8,16 +8,25 @@ env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
-  pre_draft_release:
-    uses: zyfra/Prizm/.github/workflows/draft-publish.yml@main
+  pre_draft_release_v1:
+    uses: zyfra/Prizm/.github/workflows/draft-publish-ng14.yml@main
     secrets: inherit
 
-  check_package_install:
-    uses: zyfra/Prizm/.github/workflows/check-build-in-real-project-ng-15.yml@main
+  pre_draft_release_v2:
+    uses: zyfra/Prizm/.github/workflows/draft-publish-ng15.yml@main
     secrets: inherit
-    needs: pre_draft_release
 
-  release:
-    needs: pre_draft_release
-    uses: zyfra/Prizm/.github/workflows/main-publish.yml@main
+  #  check_package_install:
+  #    uses: zyfra/Prizm/.github/workflows/check-build-in-real-project-ng-15.yml@main
+  #    secrets: inherit
+  #    needs: pre_draft_release
+
+  release_v1:
+    needs: pre_draft_release_v1
+    uses: zyfra/Prizm/.github/workflows/main-publish-ng14.yml@main
+    secrets: inherit
+
+  release_v2:
+    needs: pre_draft_release_v2
+    uses: zyfra/Prizm/.github/workflows/main-publish-ng15.yml@main
     secrets: inherit
