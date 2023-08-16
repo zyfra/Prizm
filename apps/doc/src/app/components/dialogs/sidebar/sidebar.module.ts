@@ -19,6 +19,7 @@ import { PrizmSidebarCustomCloseGuardExampleComponent } from './examples/custom-
 import { PrizmSidebarCustomHeaderTemplateExampleComponent } from './examples/custom-header-template/custom-header-template.component';
 import { PrizmSidebarCustomButtonTemplateExampleComponent } from './examples/custom-button/custom-button-template.component';
 import { PrizmSidebarCustomWrapperStyleExampleComponent } from './examples/custom-wrapper-style/custom-wrapper-style.component';
+import { PrizmSidebarWithParentExampleComponent } from './examples/with-parent/with-parent.component';
 
 @NgModule({
   imports: [
@@ -42,6 +43,7 @@ import { PrizmSidebarCustomWrapperStyleExampleComponent } from './examples/custo
     PrizmSidebarServiceExampleComponent,
     PrizmSidebarTopBottomExampleComponent,
     PrizmSidebarHiddenFooterExampleComponent,
+    PrizmSidebarWithParentExampleComponent,
     SidebarComponent,
   ],
   exports: [SidebarComponent],

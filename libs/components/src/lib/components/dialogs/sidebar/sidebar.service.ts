@@ -52,7 +52,7 @@ export class PrizmSidebarService<
       title,
       dismissible: options.dismissible ?? false,
       backdrop: options.backdrop,
-      containerClass: options.backdrop ? '' : 'no-width no-height',
+      containerClass: options.backdrop || options.parentContainer ? '' : 'no-width no-height',
     };
 
     this.safeUpdateButtonsWithDefaultStyles(options as Partial<T>);

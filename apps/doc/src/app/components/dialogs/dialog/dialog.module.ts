@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogComponent } from './dialog.component';
 import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';
 import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-buttons/with-buttons.component';
+import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-parent/with-parent.component';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-b
   declarations: [
     PrizmDialogServiceExampleComponent,
     PrizmDialogServiceWithButtonsExampleComponent,
+    PrizmDialogServiceWithParentExampleComponent,
     DialogComponent,
   ],
   exports: [DialogComponent],
