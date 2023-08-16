@@ -115,6 +115,7 @@
     "@nrwl/nx-cloud": "^16.0.5",
     "@nrwl/workspace": "14.8.6",
     "@playwright/test": "^1.29.2",
+    "@prizm-ui/nx-mv": "^1.4.2",
     "@schematics/angular": "14.2.11",
     "@swc-node/register": "^1.4.2",
     "@swc/core": "^1.2.173",
