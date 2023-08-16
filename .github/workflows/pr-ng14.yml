@@ -90,6 +90,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
+      - name: 'Initial changes 14'
+        run: |
+          cp -f package.json.ng14 package.json
+          cp -f package-lock.json.ng14 package-lock.json
+
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
