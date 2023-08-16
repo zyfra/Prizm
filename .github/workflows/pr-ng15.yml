@@ -51,6 +51,9 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
+      - name: 'Set version 15'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v15
+
       - name: 'Clears all the cached Nx artifacts and metadata '
         run: npx nx reset
 
@@ -116,6 +119,10 @@ jobs:
 
       #      - run: npx nx workspace-lint
       #      - run: npx nx clear-cache
+
+      - name: 'Set version 14'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v15
+
       - name: 'Clears all the cached Nx artifacts and metadata '
         run: npx nx reset
 
