@@ -65,10 +65,15 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
         sourceRoot,
         filePath => {
           const fileName = filePath.split('/').pop();
-          if (fileName.endsWith(version.extFile)) {
-            // if we found file that to change file
-            const newFileName = filePath.replace(new RegExp(version.extFile + '$', 'g'), '');
-            tree.write(newFileName, tree.read(filePath));
+          const extFiles = Array.isArray(version.extFile) ? version.extFile : [version.extFile];
+
+          for (const extFile of extFiles) {
+            if (fileName.endsWith(extFile)) {
+              // if we found file that to change file
+              const newFileName = filePath.replace(new RegExp(extFile + '$', 'g'), '');
+              tree.write(newFileName, tree.read(filePath));
+              break;
+            }
           }
         },
         (filePath: string) => {
@@ -87,29 +92,32 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
 
           // copy folder
           const fileName = filePath.split('/').pop();
-          if (fileName.endsWith(version.extFolder)) {
-            const newFileName = filePath.replace(new RegExp(version.extFolder + '$', 'g'), '');
+          const extFolders = Array.isArray(version.extFolder) ? version.extFolder : [version.extFolder];
 
-            // need remove only not files
-            // get current files
-            const oldFiles = [];
-            visitAllFiles(tree, newFileName, oldFilePath => {
-              oldFiles.push(oldFilePath);
-            });
+          for (const extFolder of extFolders) {
+            if (fileName.endsWith(extFolder)) {
+              const newFileName = filePath.replace(new RegExp(extFolder + '$', 'g'), '');
 
-            const newFiles = [];
-            visitAllFiles(tree, filePath, oldFilePath => {
-              newFiles.push(oldFilePath);
-            });
+              // need remove only not files
+              // get current files
+              const oldFiles = [];
+              visitAllFiles(tree, newFileName, oldFilePath => {
+                oldFiles.push(oldFilePath);
+              });
 
-            // remove unnecessary files
-            difference(oldFiles, newFiles).forEach(i => tree.delete(i));
+              const newFiles = [];
+              visitAllFiles(tree, filePath, oldFilePath => {
+                newFiles.push(oldFilePath);
+              });
 
-            copyFolder(tree, filePath, newFileName);
+              // remove unnecessary files
+              difference(oldFiles, newFiles).forEach(i => tree.delete(i));
 
-            return false;
+              copyFolder(tree, filePath, newFileName);
+
+              return false;
+            }
           }
-
           return true;
         }
       );

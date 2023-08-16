@@ -1,0 +1,11 @@
+{
+  "name": "@prizm-ui/i18n",
+  "version": "3.0.0",
+  "peerDependencies": {
+    "@angular/common": "^16.1.8",
+    "@angular/core": "^16.1.8"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

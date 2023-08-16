@@ -1,0 +1,20 @@
+{
+  "name": "@prizm-ui/charts",
+  "version": "3.0.0",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.1.8",
+    "@angular/core": "^16.1.8",
+    "@prizm-ui/theme": "^3.0.0",
+    "@prizm-ui/helpers": "^3.0.0",
+    "@antv/g2plot": "^2.4.22"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

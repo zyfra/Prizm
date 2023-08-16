@@ -1,4 +1,4 @@
-name: PR 15
+name: PR NG 15
 on:
   pull_request_target:
     branches:
@@ -96,10 +96,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: 'Initial changes 14'
+      - name: 'Initial changes 15'
         run: |
-          cp -f package.json.ng14 package.json
-          cp -f package-lock.json.ng14 package-lock.json
+          cp -f package.json.ng15 package.json
+          cp -f package-lock.json.ng15 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
