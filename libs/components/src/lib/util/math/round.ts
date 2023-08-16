@@ -2,15 +2,15 @@ import { prizmAssert } from '@prizm-ui/core';
 
 const MAX_PRECISION = 292;
 
-export function prizmRound(value: number, precision: number = 0): number {
+export function prizmRound(value: number, precision = 0): number {
   return calculate(value, precision, Math.round);
 }
 
-export function prizmCeil(value: number, precision: number = 0): number {
+export function prizmCeil(value: number, precision = 0): number {
   return calculate(value, precision, Math.ceil);
 }
 
-export function prizmFloor(value: number, precision: number = 0): number {
+export function prizmFloor(value: number, precision = 0): number {
   return calculate(value, precision, Math.floor);
 }
 

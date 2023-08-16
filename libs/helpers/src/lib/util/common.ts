@@ -1,7 +1,7 @@
 /**
  * sort number, string, date by asc or desc
  * */
-export function prizmSort<T>(x: T, y: T, asc: boolean = true): number {
+export function prizmSort<T>(x: T, y: T, asc = true): number {
   const a = x instanceof Date ? Number(x) : x;
   const b = y instanceof Date ? Number(y) : y;
   let result = 0;

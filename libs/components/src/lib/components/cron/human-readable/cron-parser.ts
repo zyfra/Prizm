@@ -10,11 +10,7 @@ export class PrizmCronHRParser {
   dayOfWeekStartIndexZero: boolean;
   monthStartIndexZero: boolean;
 
-  constructor(
-    expression: string,
-    dayOfWeekStartIndexZero: boolean = true,
-    monthStartIndexZero: boolean = false
-  ) {
+  constructor(expression: string, dayOfWeekStartIndexZero = true, monthStartIndexZero = false) {
     this.expression = expression;
     this.dayOfWeekStartIndexZero = dayOfWeekStartIndexZero;
     this.monthStartIndexZero = monthStartIndexZero;

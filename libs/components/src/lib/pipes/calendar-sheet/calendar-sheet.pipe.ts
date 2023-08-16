@@ -21,7 +21,7 @@ export class PrizmCalendarSheetPipe implements PipeTransform {
     private readonly firstDayOfWeek: PrizmDayOfWeek
   ) {}
 
-  public transform(month: PrizmMonth, showAdjacentDays: boolean = false): ReadonlyArray<readonly PrizmDay[]> {
+  public transform(month: PrizmMonth, showAdjacentDays = false): ReadonlyArray<readonly PrizmDay[]> {
     if (this.currentMonth?.monthSame(month)) {
       return this.currentSheet;
     }

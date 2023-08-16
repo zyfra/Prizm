@@ -52,7 +52,7 @@ export class PrizmDocPageComponent implements OnChanges {
     return !!this.seeAlso.length && this.activeItemIndex === 0;
   }
 
-  public getRouterLink(tab: string = ``): string {
+  public getRouterLink(tab = ``): string {
     return `./${tab.replace(/ /g, `_`)}`;
   }
 

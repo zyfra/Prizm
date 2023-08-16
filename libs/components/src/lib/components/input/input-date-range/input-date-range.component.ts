@@ -306,7 +306,7 @@ export class PrizmInputDateRangeComponent
     this.open = !this.open;
   }
 
-  private focusInput(preventScroll: boolean = false): void {
+  private focusInput(preventScroll = false): void {
     if (this.nativeFocusableElement) {
       prizmSetNativeFocused(this.nativeFocusableElement, true, preventScroll);
     }

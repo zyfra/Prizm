@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/install",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Package installer @prizm-ui/* , Angular schematic ng-add",
   "schematics": "./src/collection.json",
   "private": false,

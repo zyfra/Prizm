@@ -1,7 +1,7 @@
 /**
  * Finds the nearest parent with scroll in it
  */
-export function prizmGetScrollParent(element: Element | null, vertical: boolean = true): Element | null {
+export function prizmGetScrollParent(element: Element | null, vertical = true): Element | null {
   if (element === null) {
     return null;
   }

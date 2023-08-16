@@ -188,7 +188,7 @@ export class ru implements PrizmCronHRLocale {
   public daysOfTheWeek() {
     return ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'];
   }
-  public daysOfTheWeekInCase(f: number = 2) {
+  public daysOfTheWeekInCase(f = 2) {
     return f == 1
       ? ['воскресенья', 'понедельника', 'вторника', 'среды', 'четверга', 'пятницы', 'субботы']
       : ['воскресенье', 'понедельник', 'вторник', 'среду', 'четверг', 'пятницу', 'субботу'];

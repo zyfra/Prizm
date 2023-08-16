@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/helpers",
-  "version": "2.1.4",
+  "version": "2.1.5",
   "license": "MIT",
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "private": false,

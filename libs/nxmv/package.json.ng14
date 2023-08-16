@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/nx-mv",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "main": "src/index.js",
   "private": false,
   "publishConfig": {
@@ -8,8 +8,5 @@
     "registry": "https://registry.npmjs.org/"
   },
   "generators": "./generators.json",
-  "executors": "./executors.json",
-  "peerDependencies": {
-    "@prizm-ui/ast": "^1.4.2"
-  }
+  "executors": "./executors.json"
 }

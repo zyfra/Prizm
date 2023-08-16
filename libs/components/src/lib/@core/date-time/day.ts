@@ -240,7 +240,7 @@ export class PrizmDay extends PrizmMonth {
    * @param startFromMonday whether week starts from Monday and not from Sunday
    * @return day of week (from 0 to 6)
    */
-  public dayOfWeek(startFromMonday: boolean = true): number {
+  public dayOfWeek(startFromMonday = true): number {
     const dayOfWeek = startFromMonday
       ? this.toLocalNativeDate().getDay() - 1
       : this.toLocalNativeDate().getDay();
@@ -314,10 +314,7 @@ export class PrizmDay extends PrizmMonth {
    * @param backwards shift date backwards
    * @return new date object as a result of offsetting current
    */
-  public override append(
-    { year = 0, month = 0, day = 0 }: PrizmDayLike,
-    backwards: boolean = false
-  ): PrizmDay {
+  public override append({ year = 0, month = 0, day = 0 }: PrizmDayLike, backwards = false): PrizmDay {
     if (backwards) {
       year *= -1;
       month *= -1;
@@ -376,7 +373,7 @@ export class PrizmDay extends PrizmMonth {
     }
   }
 
-  public override toString(dateFormat: PrizmDateMode = `DMY`, separator: string = `.`): string {
+  public override toString(dateFormat: PrizmDateMode = `DMY`, separator = `.`): string {
     return this.getFormattedDay(dateFormat, separator);
   }
 

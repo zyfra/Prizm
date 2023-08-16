@@ -14,8 +14,8 @@
       "remove": ["angular.json"]
     },
     "v16": {
-      "extFolder": ".ng16",
-      "extFile": ".ng16",
+      "extFolder": [".ng16", ".ng15"],
+      "extFile": [".ng16", ".ng15"],
       "all": true,
       "rootChange": true,
       "remove": ["angular.json"]
