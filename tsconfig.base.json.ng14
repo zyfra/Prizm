@@ -34,7 +34,7 @@
       "@prizm-ui/nx-plugin": ["libs/plugin/src/index.ts"],
       "@prizm-ui/theme": ["libs/theme/src/index.ts"],
       "@prizm/test": ["libs/test/src/index.ts"],
-      "@prizm-ui/nx-mv": ["libs/nxmv/src/index.ts"]
+      "nx-mv": ["libs/nxmv/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
