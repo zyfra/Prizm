@@ -33,6 +33,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
+      - name: 'Base change 15'
+        run: |
+          cp -f package.json.ng15 package.json
+          cp -f package-lock.json.ng15 package-lock.json
+
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
@@ -55,6 +60,9 @@ jobs:
             npm view @prizm-ui/components versions --tag draft --json | jq '([.[] | select(startswith("2.1.4-draft"))] | last // "2.1.4-draft.0")' 2>/dev/null || echo '2.1.4-draft.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
+
+      - name: 'Set version 15'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
       - name: 'Update draft versions'
         run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-draft.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"

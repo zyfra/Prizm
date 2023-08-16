@@ -29,9 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_15-
+            ${{ runner.os }}-node_modules_ng_14-
+
+      - name: 'Base change 14'
+        run: |
+          cp -f package.json.ng14 package.json
+          cp -f package-lock.json.ng14 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -83,9 +88,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_15-
+            ${{ runner.os }}-node_modules_ng_14-
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'

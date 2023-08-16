@@ -13,7 +13,8 @@
     },
     "name": {
       "type": ["string"],
-      "description": "name of project"
+      "description": "name of project",
+      "aliases": ["n"]
     }
   },
   "required": ["config", "name"],
