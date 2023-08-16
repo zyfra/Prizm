@@ -9,6 +9,7 @@ export type PrizmNxMvConfigVersion = {
   rootChange: boolean;
   all: boolean;
   projects: string[];
+  remove?: string[];
   project: string;
 };
 export interface PrizmNxMvConfig {

@@ -54,6 +54,10 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
 
     const allRoot = [...(version.rootChange ? ['/'] : []), ...projects];
 
+    const remove = version.remove ?? [];
+
+    remove.forEach(rmFile => tree.delete(rmFile));
+
     for (const sourceRoot of allRoot) {
       visitAllFiles(
         tree,
