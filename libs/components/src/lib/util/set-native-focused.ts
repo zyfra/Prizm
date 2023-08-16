@@ -1,7 +1,7 @@
 export function prizmSetNativeFocused(
   element: HTMLOrSVGElement,
-  focused: boolean = true,
-  preventScroll: boolean = false
+  focused = true,
+  preventScroll = false
 ): void {
   if (focused) {
     element.focus({ preventScroll });

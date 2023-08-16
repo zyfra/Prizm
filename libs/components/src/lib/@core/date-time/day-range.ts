@@ -127,7 +127,7 @@ export class PrizmDayRange extends PrizmMonthRange {
     return [this.from?.toLocalNativeDate() ?? null, this.to?.toLocalNativeDate() ?? null];
   }
 
-  public override toString(dateFormat: PrizmDateMode = `DMY`, dateSeparator: string = `.`): string {
+  public override toString(dateFormat: PrizmDateMode = `DMY`, dateSeparator = `.`): string {
     const from = this.from.getFormattedDay(dateFormat, dateSeparator);
     const to = this.to.getFormattedDay(dateFormat, dateSeparator);
 

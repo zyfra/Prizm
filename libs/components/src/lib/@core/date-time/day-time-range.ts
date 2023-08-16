@@ -41,7 +41,7 @@ export class PrizmDateTimeRange {
   public toString(
     dateFormat: PrizmDateMode = `DMY`,
     timeFormat: PrizmTimeMode = `HH:MM`,
-    dateSeparator: string = `.`
+    dateSeparator = `.`
   ): string {
     if (!this.dayRange?.from || !this.dayRange?.to || !this.timeRange?.from || !this.timeRange?.to) return '';
 

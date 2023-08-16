@@ -4,6 +4,6 @@ import { distinctUntilChanged, mapTo, startWith, switchMapTo } from 'rxjs/operat
 /**
  * Operator to set lifespan after which current value is considered obsolete
  */
-export function prizmIsAlive(lifespan: number = 0): OperatorFunction<any, boolean> {
+export function prizmIsAlive(lifespan = 0): OperatorFunction<any, boolean> {
   return pipe(switchMapTo(timer(lifespan).pipe(mapTo(false), startWith(true))), distinctUntilChanged());
 }

@@ -6,11 +6,7 @@
  * @param minResultLength
  * @param padString string to pad with
  */
-export function prizmPadStart(
-  sourceString: string,
-  minResultLength: number,
-  padString: string = ` `
-): string {
+export function prizmPadStart(sourceString: string, minResultLength: number, padString = ` `): string {
   const padSize = minResultLength - sourceString.length;
 
   if (padSize <= 0) {

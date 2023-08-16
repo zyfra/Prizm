@@ -42,7 +42,7 @@ export class PrizmTime implements PrizmTimeLike {
   /**
    * Checks if time is valid
    */
-  public static isValidTime(hours: number, minutes: number, seconds: number = 0, ms: number = 0): boolean {
+  public static isValidTime(hours: number, minutes: number, seconds = 0, ms = 0): boolean {
     return (
       Number.isInteger(hours) &&
       prizmInRange(hours, 0, PRIZM_HOURS_IN_DAY) &&
@@ -183,7 +183,7 @@ export class PrizmTime implements PrizmTimeLike {
     );
   }
 
-  private formatTime(time: number, digits: number = 2): string {
+  private formatTime(time: number, digits = 2): string {
     return prizmPadStart(String(time), digits, `0`);
   }
 

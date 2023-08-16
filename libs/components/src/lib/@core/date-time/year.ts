@@ -142,7 +142,7 @@ export class PrizmYear implements PrizmYearLike {
   /**
    * Immutably offsets year
    */
-  public append({ year = 0 }: PrizmYearLike, backwards: boolean = false): PrizmYear {
+  public append({ year = 0 }: PrizmYearLike, backwards = false): PrizmYear {
     prizmAssert.assert(Number.isInteger(year));
 
     if (backwards) {

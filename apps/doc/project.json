@@ -36,7 +36,6 @@
           "apps/doc/src/styles.less",
           "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
           "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-          "node_modules/primeicons/primeicons.css",
           "libs/components/src/styles/styles.less",
           "libs/theme/src/styles/styles.less",
           "libs/icons/flags/src/styles/styles.less",

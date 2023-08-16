@@ -172,7 +172,7 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
    * @param backwards shift date backwards
    * @return new month and year object as a result of offsetting current
    */
-  public override append({ year = 0, month = 0 }: PrizmMonthLike, backwards: boolean = false): PrizmMonth {
+  public override append({ year = 0, month = 0 }: PrizmMonthLike, backwards = false): PrizmMonth {
     if (backwards) {
       year *= -1;
       month *= -1;

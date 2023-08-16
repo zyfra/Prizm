@@ -7,9 +7,9 @@ import { prizmIsNativeMouseFocusable } from './is-native-mouse-focusable';
  */
 export function prizmGetClosestFocusable(
   initial: HTMLElement,
-  prev: boolean = false,
+  prev = false,
   root: Node,
-  keyboard: boolean = true
+  keyboard = true
 ): HTMLElement | null {
   if (!root.ownerDocument) {
     return null;

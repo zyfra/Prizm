@@ -11,7 +11,7 @@ import { Tree, joinPathFragments } from '@nrwl/devkit';
  */
 export function prizmAstUpdateAllFilesWhen(
   tree: Tree,
-  dir: string = '',
+  dir = '',
   canUpdateFunc: (entryPath: string, content: string) => boolean,
   updaterFunc: (entryPath: string, fileContent: string) => string
 ): void {

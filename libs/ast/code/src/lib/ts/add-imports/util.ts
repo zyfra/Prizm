@@ -109,7 +109,6 @@ export function prizmAstAddImportIfNeeded(
     );
     const importDeclaration = context.factory.createImportDeclaration(
       undefined,
-      undefined,
       context.factory.createImportClause(
         false,
         undefined,

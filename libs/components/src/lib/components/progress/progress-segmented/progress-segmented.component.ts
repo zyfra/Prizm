@@ -30,7 +30,7 @@ export class PrizmProgressSegmentedComponent extends PrizmAbstractTestId {
 
   override readonly testId_ = 'ui_progress_segmented';
 
-  public getActiveColor(index: number = 0): string | null {
+  public getActiveColor(index = 0): string | null {
     return prizmIsString(this.colors)
       ? this.colors
       : this.colors[index] || this.colors[this.colors.length - 1];
