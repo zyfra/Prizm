@@ -14,6 +14,7 @@
     "i18n": "libs/i18n",
     "icons": "libs/icons/base",
     "plugin": "libs/plugin",
+    "nxmv": "libs/nxmv",
     "plugin-e2e": "apps/plugin-e2e",
     "schematics": "libs/schematics",
     "test": "libs/test",
