@@ -51,6 +51,9 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
+      - name: 'Clears all the cached Nx artifacts and metadata '
+        run: npx nx reset
+
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
 
@@ -90,6 +93,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
+      - name: 'Initial changes 14'
+        run: |
+          cp -f package.json.ng14 package.json
+          cp -f package-lock.json.ng14 package-lock.json
+
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
         run: npm ci --ignore-scripts
@@ -108,6 +116,10 @@ jobs:
 
       #      - run: npx nx workspace-lint
       #      - run: npx nx clear-cache
+
+      - name: 'Clears all the cached Nx artifacts and metadata '
+        run: npx nx reset
+
       - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
       - run: npx nx affected --target=lint --base=origin/main
       #      - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
