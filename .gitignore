@@ -8,6 +8,9 @@
 
 # dependencies
 /node_modules
+/node_modules.ng14
+/node_modules.ng15
+/node_modules.ng16
 
 # IDEs and editors
 /.idea

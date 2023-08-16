@@ -25,6 +25,12 @@
     "project": {
       "type": "string",
       "description": "Name of project"
+    },
+    "projects": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
     }
   },
   "required": ["newVersion"],
