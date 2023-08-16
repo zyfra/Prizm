@@ -113,7 +113,7 @@
     "@nrwl/node": "15.9.4",
     "@nrwl/nx-cloud": "16.0.5",
     "@nrwl/workspace": "15.9.4",
-    "@prizm-ui/nx-mv": "^2.1.5",
+    "@prizm-ui/nx-mv": "^2.1.4",
     "@schematics/angular": "15.2.8",
     "@swc-node/register": "^1.4.3",
     "@swc/core": "^1.2.173",
