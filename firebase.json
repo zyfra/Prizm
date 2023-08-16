@@ -1,6 +1,39 @@
 {
   "hosting": [
     {
+      "target": "v3",
+      "public": "dist/apps/doc",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "v2",
+      "public": "dist/apps/doc",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "v1",
+      "public": "dist/apps/doc",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "main",
       "public": "dist/apps/doc",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
