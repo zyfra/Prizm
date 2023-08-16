@@ -15,6 +15,10 @@ jobs:
   pre_draft_release_v2:
     uses: zyfra/Prizm/.github/workflows/draft-publish-ng15.yml@main
     secrets: inherit
+
+  pre_draft_release_v3:
+    uses: zyfra/Prizm/.github/workflows/draft-publish-ng16.yml@main
+    secrets: inherit
 #  check_package_install:
 #    uses: zyfra/Prizm/.github/workflows/check-build-in-real-project-ng-15.yml@main
 #    secrets: inherit
