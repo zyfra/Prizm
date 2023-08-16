@@ -1,0 +1,24 @@
+{
+  "versions": {
+    "v14": {
+      "extFolder": ".ng14",
+      "extFile": ".ng14",
+      "all": true,
+      "rootChange": true
+    },
+    "v15": {
+      "extFolder": ".ng15",
+      "extFile": ".ng15",
+      "all": true,
+      "rootChange": true,
+      "remove": ["angular.json"]
+    },
+    "v16": {
+      "extFolder": ".ng16",
+      "extFile": ".ng16",
+      "all": true,
+      "rootChange": true,
+      "remove": ["angular.json"]
+    }
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "name": "components",
+  "projectType": "library",
+  "sourceRoot": "libs/components/src",
+  "prefix": "zui",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": ["dist/libs/components"],
+      "options": {
+        "project": "libs/components/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/components/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/components/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/libs/components"],
+      "options": {
+        "jestConfig": "libs/components/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["libs/components/src/**/*.ts", "libs/components/src/**/*.html"]
+      }
+    },
+    "build-icons": {
+      "executor": "./tools/executors/icon-font-builder:build",
+      "options": {
+        "fontFileName": "ZuiIcons",
+        "fontName": "Zui Icons",
+        "iconClassName": ".zui-icon",
+        "inputPath": "./libs/components/assets/icons",
+        "outputPath": "./libs/components/src/styles/icons",
+        "outputStyleFile": "icons.less",
+        "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-definitions.ts",
+        "outputDefinitionsVar": "IconDefs"
+      }
+    },
+    "build-icons-16": {
+      "executor": "./tools/executors/icon-font-builder:build",
+      "options": {
+        "fontFileName": "ZuiIcons16",
+        "fontName": "Zui Icons 16",
+        "iconClassName": ".zui-icon-16",
+        "inputPath": "./libs/components/assets/icons-16",
+        "outputPath": "./libs/components/src/styles/icons-16",
+        "outputStyleFile": "icons-16.less",
+        "outputDefinitionsTs": "./libs/components/src/lib/components/icon/icon-16-definitions.ts",
+        "outputDefinitionsVar": "Icon16Defs"
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,122 @@
+name: PR 14
+on:
+  pull_request_target:
+    branches:
+      - main
+jobs:
+  doc_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_14-
+
+      - name: 'Initial changes 14'
+        run: |
+          cp -f package.json.ng14 package.json
+          cp -f package-lock.json.ng14 package-lock.json
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+
+      - name: 'Build doc app for firebase hosting'
+        run: npx nx build doc
+
+      - name: 'Upload to Firebase HOSTING (NG14)'
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          expires: 5d
+          target: v1
+          projectId: prizmui
+
+  lint_build_test:
+    needs: doc_deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_14-
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+
+      #      - run: npx nx workspace-lint
+      #      - run: npx nx clear-cache
+      - run: npx nx affected --target=test --base=origin/main --parallel --max-parallel=3
+      - run: npx nx affected --target=lint --base=origin/main
+      #      - run: npx nx affected --target=lint --base=origin/main --parallel --max-parallel=3
+      #        TODO remove schematics excluding after fix
+      - run: npx nx affected --target=build --base=origin/main --prod
+      - run: npx nx format:check --base=origin/main
+# TODO LATER fix playwright test
+#      - name: Install Cypress
+#        run: npx cypress install
+
+#      - name: Run e2e cypress test
+#        run: npx nx affected --target=e2e --base=main --prod --parallel --max-parallel=3

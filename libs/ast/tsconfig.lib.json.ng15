@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../dist/out-tsc",
+    "esModuleInterop": true,
+    "module": "commonjs",
+    "types": ["node"],
+    "declaration": true,
+    "declarationMap": true,
+    "inlineSources": true,
+    "target": "ES2022",
+    "useDefineForClassFields": false
+  },
+  "exclude": ["src/test-setup.ts", "**/*.spec.ts", "jest.config.ts"],
+  "include": ["**/*.ts"]
+}

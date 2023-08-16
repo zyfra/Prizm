@@ -1,0 +1,91 @@
+# TODO: later change tag by input variable ${{ inputs.tag }}
+name: Publish prerelease packages 15
+on:
+  workflow_dispatch:
+  workflow_call:
+env:
+  npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+permissions:
+  contents: read
+  packages: write
+jobs:
+  pre_publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: 'Initial changes 15'
+        run: |
+          cp -f package.json.ng15 package.json
+          cp -f package-lock.json.ng15 package-lock.json
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+
+      - name: Set up environment variables
+        run: |
+          last_next_version=$(
+            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("2.1.4-next"))] | last // "2.1.4-next.0")' 2>/dev/null || echo '2.1.4-next.0'
+          )
+          echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
+
+      - name: 'Update next versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
+
+      - name: 'Build next versions'
+        run: npx nx run-many --target=build --all --parallel --max-parallel=3
+
+      - run: cd dist/libs/components && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag draft --access public --verbose || exit_code=0
+
+      - name: 'Build doc app for firebase hosting (NG15)'
+        run: npx nx build doc
+      - name: Deploy doc to firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
+          target: v2-next

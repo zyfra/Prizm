@@ -1,0 +1,15 @@
+{
+  "name": "@prizm-ui/nx-mv",
+  "version": "1.4.2",
+  "main": "src/index.js",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "generators": "./generators.json",
+  "executors": "./executors.json",
+  "peerDependencies": {
+    "@prizm-ui/ast": "^1.4.2"
+  }
+}

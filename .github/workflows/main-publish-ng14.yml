@@ -1,0 +1,71 @@
+name: Publish main packages 15
+on:
+  workflow_dispatch:
+  workflow_call:
+env:
+  npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v2
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_14-
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=4096"
+
+      - name: 'Build versions'
+        run: npx nx run-many --target=build --all --parallel --max-parallel=3
+
+      - run: cd dist/libs/components && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
+      - name: Deploy doc to firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
+          target: main

@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "$id": "apply",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "config": {
+      "type": "string",
+      "description": "path to config",
+      "default": "nxmv.json",
+      "aliases": ["c"]
+    },
+    "name": {
+      "type": ["string"],
+      "description": "name of project",
+      "aliases": ["n"]
+    }
+  },
+  "required": ["config", "name"],
+  "additionalProperties": false
+}

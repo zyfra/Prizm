@@ -1,0 +1,11 @@
+node_modules
+dist
+.firebase
+.github
+.gitlab
+.husky
+.swc
+.vscode
+helm
+tmp
+tools

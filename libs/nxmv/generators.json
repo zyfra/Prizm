@@ -1,0 +1,12 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "name": "nxmv",
+  "version": "2.1.4",
+  "generators": {
+    "apply": {
+      "factory": "./src/generators/apply/index",
+      "schema": "./src/generators/apply/schema.json",
+      "description": ""
+    }
+  }
+}
