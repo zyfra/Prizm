@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.3.next-1](https://github.com/zyfra/Prizm) (16-08-2023)
+
+## [2.1.4.next-1](https://github.com/zyfra/Prizm) (16-08-2023)
+
+### Features
+
+- feat(nxmv): published new library to support multiple dependencies (ng) #595
+- feat: overlay with parent #576
+
 ## [1.4.2](https://github.com/zyfra/Prizm) (14-08-2023)
 
 ### Features
