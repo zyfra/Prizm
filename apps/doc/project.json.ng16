@@ -1,0 +1,127 @@
+{
+  "name": "doc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/doc/src",
+  "prefix": "prizm",
+  "targets": {
+    "build": {
+      "executor": "@angular-builders/custom-webpack:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "customWebpackConfig": {
+          "path": "apps/doc/webpack.config.ts"
+        },
+        "outputPath": "dist/apps/doc",
+        "index": "apps/doc/src/index.html",
+        "main": "apps/doc/src/main.ts",
+        "polyfills": "apps/doc/src/polyfills.ts",
+        "tsConfig": "apps/doc/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "apps/doc/src/favicon.ico",
+          "apps/doc/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/@taiga-ui/icons/src",
+            "output": "assets/taiga-ui/icons"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/icons/base/src/styles/icons",
+            "output": "assets/prizm-icons/fonts"
+          }
+        ],
+        "styles": [
+          "apps/doc/src/styles.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+          "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+          "libs/components/src/styles/styles.less",
+          "libs/theme/src/styles/styles.less",
+          "libs/icons/flags/src/styles/styles.less",
+          "libs/components/src/styles/icons/icons.less",
+          "libs/components/src/styles/icons-16/icons-16.less",
+          "node_modules/prismjs/themes/prism-okaidia.css",
+          "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+          "libs/icons/base/src/styles/styles.less"
+        ],
+        "scripts": [
+          "node_modules/marked/bin/marked.js",
+          "node_modules/prismjs/prism.js",
+          "node_modules/prismjs/components/prism-less.min.js",
+          "node_modules/prismjs/components/prism-markup.min.js",
+          "node_modules/prismjs/components/prism-typescript.min.js",
+          "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+          "node_modules/clipboard/dist/clipboard.min.js"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "deployUrl": "/",
+          "baseHref": "/",
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "10kb",
+              "maximumError": "200kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/doc/src/environments/environment.ts",
+              "with": "apps/doc/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-builders/custom-webpack:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "doc:build:production"
+        },
+        "development": {
+          "browserTarget": "doc:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "doc:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/doc"],
+      "options": {
+        "jestConfig": "apps/doc/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
