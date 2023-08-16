@@ -1,4 +1,4 @@
-name: Publish main packages
+name: Publish main packages 15
 on:
   workflow_dispatch:
   workflow_call:
@@ -28,9 +28,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_15-
+            ${{ runner.os }}-node_modules_ng_14-
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'

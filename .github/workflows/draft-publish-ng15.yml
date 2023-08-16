@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Publish draft packages
+name: Publish draft packages 15
 on:
   workflow_dispatch:
   workflow_call:
