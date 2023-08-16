@@ -9,7 +9,4 @@
   },
   "generators": "./generators.json",
   "executors": "./executors.json",
-  "peerDependencies": {
-    "@prizm-ui/ast": "^1.4.3"
-  }
 }
