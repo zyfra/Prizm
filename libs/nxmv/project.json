@@ -1,21 +1,21 @@
 {
-  "name": "plugin",
+  "name": "nxmv",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "libs/plugin/src",
+  "sourceRoot": "libs/nxmv/src",
   "projectType": "library",
   "targets": {
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["libs/plugin/**/*.ts"]
+        "lintFilePatterns": ["libs/nxmv/**/*.ts"]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/libs/plugin"],
+      "outputs": ["{workspaceRoot}/coverage/libs/nxmv"],
       "options": {
-        "jestConfig": "libs/plugin/jest.config.ts",
+        "jestConfig": "libs/nxmv/jest.config.ts",
         "passWithNoTests": true
       }
     },
@@ -23,29 +23,29 @@
       "executor": "@nrwl/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/libs/plugin",
-        "tsConfig": "libs/plugin/tsconfig.lib.json",
-        "packageJson": "libs/plugin/package.json",
-        "main": "libs/plugin/src/index.ts",
+        "outputPath": "dist/libs/nxmv",
+        "tsConfig": "libs/nxmv/tsconfig.lib.json",
+        "packageJson": "libs/nxmv/package.json",
+        "main": "libs/nxmv/src/index.ts",
         "assets": [
-          "libs/plugin/*.md",
+          "libs/nxmv/*.md",
           {
-            "input": "./libs/plugin/src",
+            "input": "./libs/nxmv/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./libs/plugin/src",
+            "input": "./libs/nxmv/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./libs/plugin",
+            "input": "./libs/nxmv",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./libs/plugin",
+            "input": "./libs/nxmv",
             "glob": "executors.json",
             "output": "."
           }
