@@ -51,7 +51,7 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=4096"
 
-      - name: 'Set version 15'
+      - name: 'Set version 16'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v16
 
       - name: 'Clears all the cached Nx artifacts and metadata '
