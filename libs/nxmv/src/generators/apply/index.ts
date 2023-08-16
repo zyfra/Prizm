@@ -17,6 +17,7 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
   let config = schema.config;
   if (!config.startsWith('/')) config = `${projectRoot}/${config}`;
 
+  // eslint-disable-next-line @typescript-eslint/no-var-requires
   const file = require(config) as PrizmNxMvConfig;
   if (!file) {
     throw new Error('Can nog get config file');
@@ -71,8 +72,8 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
           }
         },
         (filePath: string) => {
-          // trim start //
-          const filePathWithoutPrefix = filePath.replace(/^[\/]+/g, '');
+          // trim start
+          const filePathWithoutPrefix = filePath.replace(/^[/]+/g, '');
 
           // if it is source root > except project folders
           if (sourceRoot === '/' && projects.includes(filePathWithoutPrefix)) {
