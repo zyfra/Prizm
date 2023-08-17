@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { PrizmButtonModule } from '../button';
 import { PrizmSwitcherModule } from '../switcher';
 import {
-  PrizmCarouselModule,
   PrizmInputCarouselModule,
   PrizmInputDateTimeModule,
   PrizmInputLayoutDateTimeModule,
@@ -26,6 +25,7 @@ import { PolymorphModule, PrizmHintModule } from '../../directives';
 import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
 import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
 import { PrizmScrollbarModule } from '../scrollbar';
+import { PrizmCronHumanReadableModule } from '../cron-human-readable';
 
 @NgModule({
   declarations: [
@@ -43,6 +43,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
   ],
   imports: [
     CommonModule,
+    PrizmCronHumanReadableModule,
     PolymorphModule,
     PrizmInputLayoutDateTimeModule,
     PrizmCallFuncModule,

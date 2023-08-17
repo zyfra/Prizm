@@ -54,7 +54,7 @@
     >
       <input
         #humarReadableElem
-        *prizmLet="humanReadableStr$ | async as humanReadableStr"
+        *prizmLet="valueAsString$ | prizmCronHumanReadable : (cronLanguage$ | async) as humanReadableStr"
         [prizmHint]="humanReadableStr"
         [readonly]="true"
         [prizmHintCanShow]="prizmIsTextOverflow(humarReadableElem.elementRef.nativeElement)"
