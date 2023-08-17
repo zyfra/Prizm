@@ -56,6 +56,12 @@ export class InputLayoutDateTimeRangeComponent {
     TypeScript: import('./examples/base/input-layout-date-time-range-base-example.component.ts?raw'),
     HTML: import('./examples/base/input-layout-date-time-range-base-example.component.html?raw'),
   };
+  readonly exampleFormGroup: TuiDocExample = {
+    TypeScript: import(
+      './examples/form-group/input-layout-date-time-range-form-group-example.component.ts?raw'
+    ),
+    HTML: import('./examples/form-group/input-layout-date-time-range-form-group-example.component.html?raw'),
+  };
 
   readonly exampleDisabled: TuiDocExample = {
     TypeScript: import('./examples/disabled/input-layout-date-time-range-disabled-example.component.ts?raw'),

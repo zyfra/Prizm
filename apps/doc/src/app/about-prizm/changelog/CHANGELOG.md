@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.3-next.2, 2.1.5-next.2, 3.0.0-next.2](https://github.com/zyfra/Prizm) (17-08-2023)
+
+### Bug fixes
+
+- fix(components/tabs): opening a dropdown with tabs, it switches back to a tab that was not selected through the dropdown.
+- fix(components/icon): icon name doesn't show in test id #589
+
 ## [1.4.3-next.1, 2.1.5-next.1, 3.0.0-next.1](https://github.com/zyfra/Prizm) (17-08-2023)
 
 ### Features

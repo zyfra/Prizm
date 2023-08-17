@@ -31,9 +31,11 @@ import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
 })
 export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
   private svgIcon: SVGElement;
-
+  private iconName: string;
   @Input()
   set name(iconName: string) {
+    this.iconName = iconName;
+
     if (this.svgIcon) {
       this.element.nativeElement.removeChild(this.svgIcon);
     }
@@ -48,7 +50,7 @@ export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
   color: string;
 
   override get generateManeTestId(): string {
-    return 'ui_icon' + (this.name ? `--${this.name}` : '');
+    return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');
   }
 
   @HostBinding('style.width')
