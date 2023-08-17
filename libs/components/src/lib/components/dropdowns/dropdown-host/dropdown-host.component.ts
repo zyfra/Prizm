@@ -137,12 +137,12 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     private readonly destroy$: PrizmDestroyService
   ) {
     super();
-    this.destroy$.addCallback(() => this.close());
+    this.destroy$.addCallback(() => this.closeOverlay());
   }
 
   @HostListener('window:keyup.esc')
   public closeIfNeed(): void {
-    if (this.closeByEsc) this.close();
+    if (this.closeByEsc) this.closeOverlay();
   }
 
   public ngAfterViewInit(): void {
@@ -164,9 +164,9 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
         distinctUntilChanged(),
         tap(state => {
           if (state) {
-            this.open();
+            this.openOverlay();
           } else {
-            this.close();
+            this.closeOverlay();
           }
         }),
         takeUntil(this.destroy$)
@@ -174,14 +174,26 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
       .subscribe();
   }
 
-  public close(): void {
+  private closeOverlay(): void {
     this.overlay?.close();
     if (this.lastEmittedState) this.isOpenChange.emit((this.lastEmittedState = false));
   }
 
-  public open(): void {
+  private openOverlay(): void {
     this.overlay?.open();
     if (!this.lastEmittedState) this.isOpenChange.emit((this.lastEmittedState = true));
+  }
+
+  public open(): void {
+    this.isOpen$.next(true);
+  }
+
+  public close(): void {
+    this.isOpen$.next(false);
+  }
+
+  public toggle(): void {
+    this.isOpen$.next(!this.isOpen$.value);
   }
 
   private initOverlay(): void {
