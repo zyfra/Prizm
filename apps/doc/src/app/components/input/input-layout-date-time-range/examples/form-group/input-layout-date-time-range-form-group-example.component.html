@@ -1,0 +1,13 @@
+<div [formGroup]="formGroup">
+  <prizm-input-layout label="Период действия расписания">
+    <prizm-input-layout-date-time-range
+      size="l"
+      formControlName="period"
+    ></prizm-input-layout-date-time-range>
+  </prizm-input-layout>
+</div>
+
+<h3>
+  Value:
+  <b>{{ formGroup.get('period')?.value }}</b>
+</h3>
