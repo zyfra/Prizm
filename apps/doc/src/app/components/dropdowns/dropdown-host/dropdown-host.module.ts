@@ -22,6 +22,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmDropdownHostExampleWithCustomContextComponent } from './examples/with-custom-context/with-custom-context.component';
 import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list-with-nested/date-list.component';
 import { PrizmDropdownHostCustomStyleComponent } from './examples/custom-style/custom-style-example.component';
+import { PrizmDropdownHostExampleByMethodComponent } from './examples/by-method/by-method-example.component';
 
 @NgModule({
   imports: [
@@ -45,6 +46,7 @@ import { PrizmDropdownHostCustomStyleComponent } from './examples/custom-style/c
     FormsModule,
   ],
   declarations: [
+    PrizmDropdownHostExampleByMethodComponent,
     PrizmDropdownHostCustomStyleComponent,
     PrizmDropdownHostExampleWithTemplateComponent,
     PrizmDropdownHostDateListEditExampleComponent,

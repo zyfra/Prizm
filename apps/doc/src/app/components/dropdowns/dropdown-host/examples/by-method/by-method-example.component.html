@@ -1,0 +1,26 @@
+<div class="buttons">
+  <button (click)="dropdownHostComponent.open()" prizmButton size="s" appearanceType="outline">Open</button>
+  <button (click)="dropdownHostComponent.close()" prizmButton size="s" appearanceType="outline">Close</button>
+  <button (click)="dropdownHostComponent.toggle()" prizmButton size="s" appearanceType="outline">
+    Toggle
+  </button>
+</div>
+
+<prizm-dropdown-host
+  #dropdownHostComponent
+  [(isOpen)]="open"
+  [content]="dropdown"
+  prizmDropdownHostWidth="auto"
+>
+  <button (click)="open = !open" prizmButton type="button">Button</button>
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <button
+    [icon]="'account-card-details'"
+    prizmIconButton
+    appearanceType="fill"
+    appearance="primary"
+    size="m"
+  ></button>
+</ng-template>
