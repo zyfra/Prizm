@@ -89,7 +89,6 @@ export class PrizmCheckboxComponent
     }
 
     this._checked = !this._checked;
-    this.indeterminate = false;
 
     if (this.ngControl) {
       this.touchedFn();
@@ -112,7 +111,6 @@ export class PrizmCheckboxComponent
   }
 
   private setValue(value: boolean): void {
-    this.indeterminate = false;
     this._checked = value;
     this.cdr.markForCheck();
   }
