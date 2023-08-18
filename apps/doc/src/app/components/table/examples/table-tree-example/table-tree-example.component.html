@@ -54,6 +54,7 @@
           let i = index;
           let parentItem = parentItem;
           let odd = odd;
+          let rowIdx = rowIdx;
           let first = first;
           let last = last;
           let deepLevel = deepLevel;
@@ -94,7 +95,7 @@
           </td>
           <td *prizmCell="'category'" prizmTd>
             {{ item.category }}<br />
-            #{{ i }}
+            #idx:{{ i }} #rowIdx:{{ rowIdx }}
             {{ odd ? '#odd' : '#even' }}
             {{ first ? '#first' : '' }}
             {{ last ? '#last' : '' }}

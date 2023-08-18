@@ -12,7 +12,16 @@ export type PrizmTableCellStatus = 'default' | 'success' | 'warning' | 'danger';
 export type PrizmTableBorderStyle = 'grid' | 'horizontal' | 'vertical';
 
 export interface PrizmTableRowContext<T = Record<string, unknown>> extends PrizmContextWithImplicit<T> {
+  /**
+   * it is initial getted index
+   * it is unique (even in tree case), but number is not sequential
+   * */
   readonly index: number;
+  /**
+   * it is index of row
+   * can duplicate in tree
+   * */
+  readonly rowIdx?: number;
   readonly first: boolean;
   readonly getRowId?: (item: T) => unknown;
   readonly last: boolean;
