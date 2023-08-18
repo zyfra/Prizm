@@ -13,7 +13,7 @@ export class PrizmCronHumanReadablePipe implements PipeTransform {
   readonly language$ = inject(PRIZM_LANGUAGE);
   readonly asyncPipe = new AsyncPipe(this.cdRef);
 
-  transform(expression: string): string {
+  public transform(expression: string): string {
     const lang = this.asyncPipe.transform(this.language$.pipe(map(i => i.shortName)));
 
     if (!lang) return '';
