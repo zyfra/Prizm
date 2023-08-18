@@ -1,5 +1,5 @@
 import { PrizmCountryIsoCode } from '../enums/country-iso-code';
-import { PrizmLanguageName } from './language-names';
+import { PrizmLanguageName, PrizmLanguageShortName } from './language-names';
 
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
@@ -179,6 +179,7 @@ export type PrizmLanguagePreview = {
 
 export interface PrizmLanguageMeta {
   name: PrizmLanguageName;
+  shortName: PrizmLanguageShortName;
 }
 
 export interface PrizmLanguage

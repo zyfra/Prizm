@@ -38,26 +38,8 @@ export class CronHumanReadableComponent {
     TypeScript: import('./examples/base/cron-base-example.component.ts?raw'),
     HTML: import('./examples/base/cron-base-example.component.html?raw'),
   };
-
-  readonly exampleSpecifiedTabs: TuiDocExample = {
-    TypeScript: import('./examples/specified-tabs/cron-specified-tabs-example.component.ts?raw'),
-    HTML: import('./examples/specified-tabs/cron-specified-tabs-example.component.html?raw'),
-  };
-  readonly exampleFullwidthCron: TuiDocExample = {
-    TypeScript: import('./examples/fullwidth/cron-fullwidth-example.component.ts?raw'),
-    HTML: import('./examples/fullwidth/cron-fullwidth-example.component.html?raw'),
-  };
-  readonly exampleFilteredListCron: TuiDocExample = {
-    TypeScript: import('./examples/filtered-list/cron-filtered-list-example.component.ts?raw'),
-    HTML: import('./examples/filtered-list/cron-filtered-list-example.component.html?raw'),
-  };
-  readonly exampleReset: TuiDocExample = {
-    TypeScript: import('./examples/reset/cron-reset-example.component.ts?raw'),
-    HTML: import('./examples/reset/cron-reset-example.component.html?raw'),
-  };
-
-  readonly exampleI18n: TuiDocExample = {
-    TypeScript: import('./examples/i18n/cron-i18n-example.component.ts?raw'),
-    HTML: import('./examples/i18n/cron-i18n-example.component.html?raw'),
+  readonly exampleFunc: TuiDocExample = {
+    TypeScript: import('./examples/func/cron-func-example.component.ts?raw'),
+    HTML: import('./examples/func/cron-func-example.component.html?raw'),
   };
 }

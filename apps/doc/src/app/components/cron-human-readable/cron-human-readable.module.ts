@@ -3,9 +3,14 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { CronHumanReadableComponent } from './cron-human-readable.component';
-import { PolymorphModule, PrizmCronModule, PrizmMutationObserveModule } from '@prizm-ui/components';
+import {
+  PolymorphModule,
+  PrizmCronHumanReadableModule,
+  PrizmMutationObserveModule,
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example.component';
+import { PrizmCronFuncExampleComponent } from './examples/func/cron-func-example.component';
 
 @NgModule({
   imports: [
@@ -15,11 +20,10 @@ import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmCronModule,
-    PrizmCronModule,
+    PrizmCronHumanReadableModule,
     RouterModule.forChild(prizmDocGenerateRoutes(CronHumanReadableComponent)),
   ],
-  declarations: [PrizmCronBaseExampleComponent, CronHumanReadableComponent],
+  declarations: [PrizmCronBaseExampleComponent, PrizmCronFuncExampleComponent, CronHumanReadableComponent],
   exports: [CronHumanReadableComponent],
 })
 export class CronHumanReadableModule {}

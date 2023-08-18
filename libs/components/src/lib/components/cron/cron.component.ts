@@ -100,7 +100,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   readonly cronLanguage$ = this.language$.pipe(
     map(lang => {
-      return lang.name === 'russian' ? 'ru' : 'en';
+      return lang.shortName;
     })
   );
 
