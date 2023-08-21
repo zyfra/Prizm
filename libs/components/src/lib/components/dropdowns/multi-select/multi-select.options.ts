@@ -15,6 +15,10 @@ export interface PrizmMultiSelectOptions<T> {
   readonly items: T[];
   readonly chooseAllItem: T;
   readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
+  readonly itemsTemplate: PolymorphContent<{
+    selected: T[];
+    filteredItems: PrizmMultiSelectItemWithChecked<T>[];
+  }> | null;
   readonly searchable: boolean;
   /**
    * @deprecated
@@ -52,6 +56,7 @@ export interface PrizmMultiSelectOptions<T> {
 export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
+  itemsTemplate: null,
   icon: null,
   searchable: false,
   forceClear: null,

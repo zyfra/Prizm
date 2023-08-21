@@ -44,46 +44,53 @@
         </prizm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
-        <div
-          class="item"
-          #parent
-          *ngFor="let item of $.filteredItems; let idx = index"
-          [class.selected]="item.checked"
-          [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
+        <ng-container
+          *polymorphOutlet="itemsTemplate, context: {
+          selected: selectedItems$ | async,
+          filteredItems: $.filteredItems,
+        }"
         >
-          <prizm-checkbox
-            [checked]="item.checked"
-            [ngModel]="item.checked"
-            [ngModelOptions]="{ standalone: true }"
-            [host]="parent"
-            [indeterminate]="!!item.indeterminate"
-            (changed)="select(item)"
+          <div
+            class="item"
+            #parent
+            *ngFor="let item of $.filteredItems; let idx = index"
+            [class.selected]="item.checked"
+            [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
           >
-            <div
-              class="text"
-              #elem
-              *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
-              [prizmHint]="text"
-              [prizmHintDirection]="direction"
-              [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
+            <prizm-checkbox
+              [checked]="item.checked"
+              [ngModel]="item.checked"
+              [ngModelOptions]="{ standalone: true }"
+              [host]="parent"
+              [indeterminate]="!!item.indeterminate"
+              (changed)="selectItem(item)"
             >
-              <ng-container
-                *polymorphOutlet="
-                  valueTemplate as content;
-                  context: {
-                    $implicit: {
-                      obj: item.obj,
-                      checked: item.checked,
-                      stringify: item | prizmCallFunc : stringify
-                    }
-                  } as context
-                "
+              <div
+                class="text"
+                #elem
+                *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
+                [prizmHint]="text"
+                [prizmHintDirection]="direction"
+                [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
               >
-                {{ text }}
-              </ng-container>
-            </div>
-          </prizm-checkbox>
-        </div>
+                <ng-container
+                  *polymorphOutlet="
+                    valueTemplate as content;
+                    context: {
+                      $implicit: {
+                        obj: item.obj,
+                        checked: item.checked,
+                        stringify: item | prizmCallFunc : stringify
+                      }
+                    } as context
+                  "
+                >
+                  {{ text }}
+                </ng-container>
+              </div>
+            </prizm-checkbox>
+          </div>
+        </ng-container>
       </ng-container>
       <ng-template #emptyTemplate>
         <ng-container *polymorphOutlet="emptyContent as data">

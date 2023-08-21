@@ -36,21 +36,21 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
-  selector: 'prizm-input-multi-select',
-  templateUrl: './input-multi-select.component.html',
-  styleUrls: ['./input-multi-select.component.less'],
+  selector: 'prizm-input-tree-select',
+  templateUrl: './tree-select.component.html',
+  styleUrls: ['./tree-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => PrizmInputMultiSelectComponent),
+      useExisting: forwardRef(() => PrizmInputTreeSelectComponent),
       multi: true,
     },
     PrizmDestroyService,
-    { provide: PrizmInputControl, useExisting: PrizmInputMultiSelectComponent },
+    { provide: PrizmInputControl, useExisting: PrizmInputTreeSelectComponent },
   ],
 })
-export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
+export class PrizmInputTreeSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
   readonly nativeElementType = 'multiselect';
   readonly hasClearButton = true;
   override defaultLabel = this.options.label;
