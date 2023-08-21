@@ -3,8 +3,8 @@
 .content {
   .ellipsis();
   flex: 1 1 0;
-  padding: var(--prizm-sidebar-padding, var(--prizm-sidebar-content-padding, 32px 16px));
-  color: var(--prizm-text-main);
+  padding: var(--prizm-sidebar-content-padding, var(--prizm-sidebar-padding, 32px 16px));
+  color: var(--prizm-sidebar-content-text, var(--prizm-text-main));
   overflow: hidden;
   max-width: 100%;
 }
@@ -12,15 +12,15 @@
 .header {
   flex: 0 0 auto;
   border-bottom: 1px solid var(--prizm-border-widget);
-  padding: var(--prizm-sidebar-padding, var(--prizm-sidebar-header-padding, 14px 16px));
+  padding: var(--prizm-sidebar-header-padding, var(--prizm-sidebar-padding, 14px 16px));
   display: flex;
   justify-content: space-between;
   max-width: 100%;
   overflow: hidden;
-  font-style: var(--prizm-sidebar-header-font-style, var(--prizm-text-contrast, normal));
-  font-weight: var(--prizm-sidebar-header-font-size, var(--prizm-text-contrast, 600));
-  font-size: var(--prizm-sidebar-header-font-size, var(--prizm-text-contrast, 14px));
-  color: var(--prizm-sidebar-header-color, var(--prizm-text-contrast, 200px));
+  font-style: var(--prizm-sidebar-header-font-style, normal);
+  font-weight: var(--prizm-sidebar-header-font-size, 600);
+  font-size: var(--prizm-sidebar-header-font-size, 14px);
+  color: var(--prizm-sidebar-header-color, var(--prizm-text-contrast));
 
   prizm-scrollbar {
     max-height: 150px;
@@ -88,11 +88,12 @@
 
 .footer {
   border-top: 1px solid var(--prizm-border-widget);
-  padding: var(--prizm-sidebar-padding, var(--prizm-sidebar-footer-padding, 14px 16px));
+  padding: var(--prizm-sidebar-footer-padding, var(--prizm-sidebar-padding, 14px 16px));
   max-width: 100%;
   max-height: var(--prizm-sidebar-footer-max-height, 200px);
   overflow: hidden;
   text-overflow: ellipsis;
+  color: var(--prizm-sidebar-footer-color, var(--prizm-text-contrast));
 
   .buttons {
     display: flex;
