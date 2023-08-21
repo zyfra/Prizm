@@ -1,0 +1,28 @@
+<prizm-doc-page header="Cron Human Readable">
+  <div class="page-description" description>
+    Our cron human readable module to transform cron value to human readable text
+  </div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-cron-base-example></prizm-cron-base-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="func" [content]="exampleFunc" heading="Func">
+      <prizm-cron-func-example></prizm-cron-func-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Setup">
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmCronHumanReadableModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

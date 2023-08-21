@@ -22,10 +22,8 @@ import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { combineLatest, concat, Observable, timer } from 'rxjs';
-import { PrizmLanguageCron } from '@prizm-ui/i18n';
-import { prizmCronHRToString } from './human-readable/crons-i18n';
-// TODO move later add i18n
-import './human-readable/i18n/locales/ru';
+import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n';
+import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
 import { PRIZM_CRON } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 
@@ -100,12 +98,19 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     };
   }
 
-  get humanReadableStr() {
-    return prizmCronHRToString(this.value, {
-      // TODO add move to i18n
-      locale: 'ru',
-    });
-  }
+  readonly cronLanguage$ = this.language$.pipe(
+    map(lang => {
+      return lang.shortName;
+    })
+  );
+
+  readonly humanReadableStr$ = combineLatest([this.cronLanguage$, this.cron.valueAsString$]).pipe(
+    map(([lang, val]) => {
+      return prizmCronHRToString(val, {
+        locale: lang,
+      });
+    })
+  );
 
   @Output() valueChange = new EventEmitter<string>();
   @Output() periodChange = new EventEmitter<PrizmCronPeriod>();
@@ -166,6 +171,8 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   constructor(
+    @Inject(PRIZM_LANGUAGE)
+    readonly language$: Observable<PrizmLanguage>,
     public readonly cron: PrizmCronService,
     @Inject(PRIZM_CRON) public readonly cronI18n$: Observable<PrizmLanguageCron['cron']>,
     private readonly destroy$: PrizmDestroyService,
@@ -274,8 +281,14 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   }
 
   public copyHumanReadable(): void {
-    // TODO safe with injection
-    navigator.clipboard.writeText(this.humanReadableStr);
+    this.humanReadableStr$
+      .pipe(
+        first(),
+        tap(humanReadableStr => {
+          navigator.clipboard.writeText(humanReadableStr);
+        })
+      )
+      .subscribe();
   }
 
   public indexChanged(index: number): void {

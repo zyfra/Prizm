@@ -12,3 +12,5 @@ export type PrizmLanguageName =
   | 'turkish'
   | 'ukrainian'
   | 'vietnamese';
+
+export type PrizmLanguageShortName = 'ru' | 'en';

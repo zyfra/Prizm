@@ -662,6 +662,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Cron Human Readable',
+    keywords: 'Cron,Human,Readable',
+    route: '/components/cron-human-readable',
+  },
+
+  {
+    section: SectionNameEnum.components,
     title: 'Error page',
     keywords: 'error-page',
     route: '/components/error-page',

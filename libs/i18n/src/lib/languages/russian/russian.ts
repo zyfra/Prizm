@@ -7,6 +7,7 @@ import { PRIZM_RUSSIAN_INPUT_LAYOUT_DATE_RELATIVE } from './input-date-layout-re
 
 export const PRIZM_RUSSIAN_LANGUAGE = {
   name: `russian`,
+  shortName: `ru`,
   ...PRIZM_RUSSIAN_LANGUAGE_CORE,
   ...PRIZM_RUSSIAN_LANGUAGE_KIT,
   ...PRIZM_RUSSIAN_FILE_UPLOAD,
