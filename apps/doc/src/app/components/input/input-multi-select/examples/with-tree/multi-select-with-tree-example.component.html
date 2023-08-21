@@ -1,0 +1,38 @@
+<prizm-input-layout label="Промышленность">
+  <prizm-input-multi-select
+    [items]="items"
+    [selectAllItem]="selectAllItem"
+    [valueTemplate]="valueTemplate"
+    [formControl]="valueControl"
+    [itemsTemplate]="itemsTemplate"
+    [searchMatcher]="searchMatcher"
+    [identityMatcher]="identityMatcher"
+    [stringify]="stringify"
+    [searchable]="true"
+  >
+  </prizm-input-multi-select>
+</prizm-input-layout>
+
+<ng-template #valueTemplate let-value>
+  <div class="item" *ngIf="value.obj.id !== -1; else allTemplate">
+    <prizm-icon iconClass="account-done"></prizm-icon>
+    <span>{{ value.stringify }}</span>
+  </div>
+  <ng-template #allTemplate> Выбрать все </ng-template>
+</ng-template>
+
+<ng-template #itemsTemplate>
+  <prizm-tree
+    *ngFor="let item of items"
+    [prizmTreeController]="true"
+    [value]="item"
+    [content]="content"
+    [childrenHandler]="handler"
+  ></prizm-tree>
+
+  <ng-template #content let-item>
+    <prizm-checkbox [ngModel]="item | prizmMapper : getValue : map" (ngModelChange)="onChecked(item, $event)">
+      <span>{{ item.name }}</span>
+    </prizm-checkbox>
+  </ng-template>
+</ng-template>
