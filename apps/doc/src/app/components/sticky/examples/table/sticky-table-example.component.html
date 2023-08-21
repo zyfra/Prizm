@@ -81,7 +81,6 @@
     </tbody>
   </table>
 </prizm-scrollbar>
-
 <h3>Sticky Bottom</h3>
 <prizm-scrollbar class="scrollable">
   <table class="table" prizmTable size="m" prizmStickyRelative>
@@ -95,8 +94,8 @@
     </thead>
 
     <tbody [data]="products" prizmTbody>
-      <ng-container *prizmRow="let item of products; let i = index">
-        <ng-container *ngIf="products?.length !== i + 1; else footerTemplate">
+      <ng-container *prizmRow="let item of products; let i = rowIdx">
+        <ng-container>
           <tr prizmTr>
             <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
             <td prizmTd>{{ item.name }}</td>
@@ -107,7 +106,7 @@
           </tr>
         </ng-container>
 
-        <ng-template #footerTemplate>
+        <ng-container #footerTemplate *ngIf="i + 1 === products.length">
           <tr prizmTr>
             <td class="format__number" [prizmStickyBottom]="true" prizmTd></td>
             <td [prizmStickyBottom]="true" prizmTd></td>
@@ -116,7 +115,7 @@
               {{ sum }}
             </td>
           </tr>
-        </ng-template>
+        </ng-container>
       </ng-container>
     </tbody>
   </table>
