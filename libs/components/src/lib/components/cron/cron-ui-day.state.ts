@@ -111,6 +111,16 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
     this.initLocalStateChanger();
   }
 
+  /**
+   * set every *
+   * */
+  public override setEvery(): void {
+    this.cron.updateWith({
+      dayOfWeek: `*`,
+      dayOfMonth: `?`,
+    });
+  }
+
   public updateLastChosenDayOfMonth(lastChosenDayOfMonthValue?: string): void {
     this.lastChosenDayOfMonthValue = lastChosenDayOfMonthValue ?? this.lastChosenDayOfMonthValue;
     this.cron.updateWith({

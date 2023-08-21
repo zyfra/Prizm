@@ -34,6 +34,7 @@
           $any({
             item: item,
             index: index,
+            rowIdx: index,
             odd: odd,
             even: even,
             getRowId: row.prizmRowGetRowId,
@@ -81,11 +82,13 @@
   let-deepLevel="deepLevel"
   let-parentItem="parentItem"
   let-parentIdx="parentIdx"
+  let-rowIdx="rowIdx"
 >
   <ng-container
     [ngTemplateOutlet]="row.template"
     [ngTemplateOutletContext]="{
       $implicit: item,
+      rowIdx: rowIdx,
       parentIdx: parentIdx,
       parentItem: parentItem,
       index: index,
@@ -145,6 +148,7 @@
         [context]="
           $any({
             item: childItem,
+            rowIdx: childIndex,
             parentIdx: index,
             getRowId: row.prizmRowGetRowId,
             parentItem: item,

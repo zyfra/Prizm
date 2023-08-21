@@ -1015,6 +1015,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/cron-human-readable',
+    loadChildren: () =>
+      import('./components/cron-human-readable/cron-human-readable.module').then(
+        i => i.CronHumanReadableModule
+      ),
+    data: {
+      title: 'Cron Human Readable',
+    },
+  },
+  {
     path: 'components/error-page',
     loadChildren: () =>
       import('./components/error-page/error-page.module').then(i => i.PrizmErrorPageExampleModule),
