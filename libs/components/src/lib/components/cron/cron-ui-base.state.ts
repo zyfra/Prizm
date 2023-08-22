@@ -130,12 +130,12 @@ export abstract class PrizmCronUiBaseState<
   public updateMainIfChanged(newState: string): void {
     this.current$
       .pipe(
+        first(),
         tap(old => {
           if (old !== newState) {
             this.updateMainState(newState);
           }
-        }),
-        first()
+        })
       )
       .subscribe();
   }

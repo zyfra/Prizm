@@ -37,9 +37,11 @@ import { TableStickyExampleComponent } from './examples/table-sticky-example/tab
 import { TableDataSourceExampleComponent } from './examples/table-data-source-example/table-data-source-example.component';
 import { TableDynamicDynamicRowGroupExampleComponent } from './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component';
 import { TableInheritColsExampleComponent } from './examples/table-inherit-cols/table-inherit-cols-example.component';
+import { TableIndexExampleComponent } from './examples/table-index-example/table-index-example.component';
 
 @NgModule({
   declarations: [
+    TableIndexExampleComponent,
     TableInheritColsExampleComponent,
     TableExampleComponent,
     TableBasicExampleComponent,

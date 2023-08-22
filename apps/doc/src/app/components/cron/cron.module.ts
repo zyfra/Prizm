@@ -21,7 +21,6 @@ import { PrizmCronI18nExampleComponent } from './examples/i18n/cron-i18n-example
     ReactiveFormsModule,
     PolymorphModule,
     PrizmCronModule,
-    PrizmCronModule,
     RouterModule.forChild(prizmDocGenerateRoutes(CronComponent)),
   ],
   declarations: [
