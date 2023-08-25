@@ -94,7 +94,7 @@ jobs:
           channelId: live
           target: v3
 
-      - name: Deploy doc to firebase
+      - name: Deploy doc to firebase (LATEST)
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
