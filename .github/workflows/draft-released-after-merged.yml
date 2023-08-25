@@ -1,0 +1,25 @@
+name: Draft Releases After Merge
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+  workflow_dispatch:
+env:
+  npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+jobs:
+  pre_draft_release_v1:
+    if: github.event.pull_request.merged == true
+    uses: zyfra/Prizm/.github/workflows/draft-publish-ng14.yml@main
+    secrets: inherit
+
+  pre_draft_release_v2:
+    if: github.event.pull_request.merged == true
+    uses: zyfra/Prizm/.github/workflows/draft-publish-ng15.yml@main
+    secrets: inherit
+
+  pre_draft_release_v3:
+    if: github.event.pull_request.merged == true
+    uses: zyfra/Prizm/.github/workflows/draft-publish-ng16.yml@main
+    secrets: inherit
