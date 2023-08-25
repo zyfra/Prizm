@@ -10,10 +10,10 @@ permissions:
   contents: read
   packages: write
 jobs:
-  v1_release:
+  v3_release:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
@@ -56,31 +56,31 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_v1_version=$(
-            npm view @prizm-ui/components versions --tag v1 --json | jq '([.[] | select(startswith("3.0.0-v1"))] | last // "3.0.0-v1.0")' 2>/dev/null || echo '2.1.4-v1.0'
+          last_v3_version=$(
+            npm view @prizm-ui/components versions --json | jq '([.[] | select(startswith("3.0.0-v3"))] | last // "3.0.0-v3.0")' 2>/dev/null || echo '2.1.4-v3.0'
           )
-          echo "LAST_v1_VERSION=${last_v1_version}" >> $GITHUB_ENV
+          echo "LAST_v3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
       - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v36
 
-      - name: 'Update v1 versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-v1.up" --all --currentVersion="${{ env.LAST_v1_VERSION }}"
+      - name: 'Update v3 versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-v3.up" --all --currentVersion="${{ env.LAST_v3_VERSION }}"
 
-      - name: 'Build v1 versions'
+      - name: 'Build v3 versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/components && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/plugin && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/ast && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --tag v1 --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag v1 --access public --verbose || exit_code=0
+      - run: cd dist/libs/components && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --access public --verbose || exit_code=0
 
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
@@ -92,4 +92,13 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: v1
+          target: v3
+
+      - name: Deploy doc to firebase
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
+          target: main
