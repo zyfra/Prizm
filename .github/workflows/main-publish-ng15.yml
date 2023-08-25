@@ -57,11 +57,11 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v2_version=$(
-            npm view @prizm-ui/components versions --tag v2 --json | jq '([.[] | select(startswith("3.0.0-v2"))] | last // "3.0.0-v2.0")' 2>/dev/null || echo '2.1.4-v2.0'
+            npm view @prizm-ui/components versions --tag ng15 --json | jq '([.[] | select(startswith("3.0.0-v2"))] | last // "3.0.0-v2.0")' 2>/dev/null || echo '2.1.4-v2.0'
           )
           echo "LAST_V2_VERSION=${last_v2_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 16'
+      - name: 'Set version 15'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
       #      - name: 'Update v2 versions'
@@ -70,17 +70,17 @@ jobs:
       - name: 'Build v2 versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/components && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/plugin && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/ast && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --tag v2 --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag v2 --access public --verbose || exit_code=0
+      - run: cd dist/libs/components && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --tag ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag ng15 --access public --verbose || exit_code=0
 
       - name: 'Build doc app for firebase hosting'
         run: npx nx build doc
