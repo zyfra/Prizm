@@ -43,4 +43,22 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     link: new URL('https://prizm-v1-next.web.app'),
     otherLinks: [],
   },
+  {
+    label: '3.0.0-draft (ng16)',
+    version: '3.0.0-draft',
+    link: new URL('https://prizm-v3-draft.web.app'),
+    otherLinks: [],
+  },
+  {
+    label: '2.1.5-draft (ng15)',
+    version: '2.1.5-draft',
+    link: new URL('https://prizm-v2-draft.web.app'),
+    otherLinks: [],
+  },
+  {
+    label: '1.4.3-draft (ng14)',
+    version: '1.4.3-draft',
+    link: new URL('https://prizm-v1-draft.web.app'),
+    otherLinks: [],
+  },
 ];
