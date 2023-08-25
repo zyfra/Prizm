@@ -17,18 +17,31 @@ export class VersionManagerComponent {
   readonly versions = PRIZM_VERSIONS_META;
 
   constructor(
-    @Inject(SELECTED_VERSION_META) readonly initialVersion: PrizmVersionMeta | null,
+    @Inject(SELECTED_VERSION_META) public initialVersion: PrizmVersionMeta | null,
     @Inject(LOCATION) private readonly locationRef: Location,
     @Inject(Router) private readonly router: Router
   ) {
+    this.initByVersion();
+    this.initIfItIsNotLocal();
+  }
+
+  private initByVersion(): void {
     this.initialVersion = this.versions.find(i => i.version === PRIZM_CURRENT_VERSION);
+  }
+
+  private initIfItIsNotLocal(): void {
+    if (this.locationRef.hostname !== 'localhost') {
+      this.initialVersion = this.versions.find(i =>
+        [i.link, ...i.otherLinks].find(i => (this.locationRef.hostname = i.hostname))
+      );
+    }
   }
 
   public getVersionHref(version: PrizmVersionMeta): string {
     if (version.baseHref) {
       return `${this.locationRef.origin}/${version.baseHref}${this.router.url}${this.locationRef.search}`;
     } else {
-      return version.link;
+      return version.link?.href;
     }
   }
 }
