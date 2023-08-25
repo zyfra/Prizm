@@ -1,4 +1,4 @@
-name: Draft-released
+name: Draft released
 on:
   release:
     types:
