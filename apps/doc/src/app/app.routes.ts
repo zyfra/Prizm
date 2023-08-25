@@ -442,7 +442,17 @@ export const ROUTES: Routes = [
         i => i.InputMultiSelectModule
       ),
     data: {
-      title: 'Input Date',
+      title: 'Input Multi Select',
+    },
+  },
+  {
+    path: 'components/input-tree-multi-select',
+    loadChildren: () =>
+      import('./components/input/input-tree-multi-select/input-tree-multi-select.module').then(
+        i => i.InputTreeMultiSelectModule
+      ),
+    data: {
+      title: 'Input Tree Multi Select',
     },
   },
   {

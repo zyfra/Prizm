@@ -16,7 +16,7 @@ type PrizmItem = {
 };
 @Component({
   selector: 'prizm-multi-select-with-tree-example',
-  templateUrl: './multi-select-with-tree-example.component.html',
+  templateUrl: './tree-multi-select-with-tree-example.component.html',
   styles: [
     `
       .item {
@@ -26,7 +26,7 @@ type PrizmItem = {
     `,
   ],
 })
-export class PrizmInputMultiSelectWithTreeExampleComponent {
+export class PrizmInputTreeMultiSelectWithTreeExampleComponent {
   map = new Map<PrizmItem, boolean>();
   readonly items: PrizmItem[] = [
     {

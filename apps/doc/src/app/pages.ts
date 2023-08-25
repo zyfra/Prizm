@@ -292,6 +292,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-multi-select',
       },
       {
+        title: 'InputTreeMultiSelect',
+        keywords: 'input-tree-multi-select, tree,tree-multi-select, form',
+        route: '/components/input-tree-multi-select',
+      },
+      {
         title: 'InputDateTime',
         deprecated: true,
         keywords: 'input-date-time, deprecated, date-time, form',

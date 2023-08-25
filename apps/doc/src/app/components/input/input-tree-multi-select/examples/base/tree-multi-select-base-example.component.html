@@ -1,0 +1,15 @@
+<prizm-input-layout label="Промышленность">
+  <prizm-input-tree-multi-select
+    [formControl]="valueControl"
+    [items]="items"
+    selectAllItem="Выбрать все"
+    placeholder="Выберите из списка"
+  >
+  </prizm-input-tree-multi-select>
+</prizm-input-layout>
+
+<br />
+<br />
+<div style="display: flex; flex-flow: column; gap: 1rem; width: 20rem">
+  <button (click)="setDefaultValue()" prizmButton>Set Default Value</button>
+</div>

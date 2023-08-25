@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import {
-  PrizmMultiSelectIdentityMatcher,
-  PrizmMultiSelectItemStringifyFunc,
-  PrizmMultiSelectItemStringifyItem,
-  PrizmMultiSelectSearchMatcher,
+  PrizmTreeMultiSelectIdentityMatcher,
+  PrizmTreeMultiSelectItemStringifyFunc,
+  PrizmTreeMultiSelectItemStringifyItem,
+  PrizmTreeMultiSelectSearchMatcher,
 } from '@prizm-ui/components';
 
 type PrizmItem = {
@@ -31,14 +31,17 @@ export class PrizmMultiSelectWithObjectExampleComponent {
   ];
   readonly selectAllItem = { id: -1, name: 'Выбрать все' };
   readonly valueControl = new UntypedFormControl([{ id: 3 }]);
-  readonly searchMatcher: PrizmMultiSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
+  readonly searchMatcher: PrizmTreeMultiSelectSearchMatcher<PrizmItem> = (
+    search: string,
+    item: PrizmItem
+  ) => {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
-  readonly identityMatcher: PrizmMultiSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
+  readonly identityMatcher: PrizmTreeMultiSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
     return a.id === b.id;
   };
-  readonly stringify: PrizmMultiSelectItemStringifyFunc<PrizmItem> = (
-    item: PrizmMultiSelectItemStringifyItem<PrizmItem>
+  readonly stringify: PrizmTreeMultiSelectItemStringifyFunc<PrizmItem> = (
+    item: PrizmTreeMultiSelectItemStringifyItem<PrizmItem>
   ) => {
     return item.obj.name;
   };

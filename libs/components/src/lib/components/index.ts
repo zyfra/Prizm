@@ -33,6 +33,7 @@ export * from './breadcrumbs';
 export * from './dropdowns/dropdown-host';
 export * from './dropdowns/select';
 export * from './dropdowns/multi-select';
+export * from './dropdowns/tree-multi-select';
 export * from './toggle';
 export * from './checkbox';
 export * from './stepper';

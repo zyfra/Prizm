@@ -13,7 +13,7 @@ type PrizmItem = {
 };
 @Component({
   selector: 'prizm-multi-select-with-object-example',
-  templateUrl: './multi-select-with-object-example.component.html',
+  templateUrl: './tree-multi-select-with-object-example.component.html',
   styles: [
     `
       .item {
@@ -23,7 +23,7 @@ type PrizmItem = {
     `,
   ],
 })
-export class PrizmInputMultiSelectWithObjectExampleComponent {
+export class PrizmInputTreeMultiSelectWithObjectExampleComponent {
   readonly items: PrizmItem[] = [
     { id: 1, name: 'Россия' },
     { id: 2, name: 'США' },

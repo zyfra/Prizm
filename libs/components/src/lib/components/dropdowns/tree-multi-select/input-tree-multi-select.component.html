@@ -1,0 +1,142 @@
+<prizm-dropdown-host
+  #dropdownHostRef
+  [content]="dropdown"
+  [isOpen]="opened$ | async"
+  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHostWidth]="dropdownWidth"
+  [prizmDropdownMinHeight]="minDropdownHeight"
+  [prizmDropdownMaxHeight]="maxDropdownHeight"
+  [dropdownStyles]="dropdownStyles"
+  [dropdownClasses]="dropdownClasses"
+  [ngSwitch]="layoutComponent.outer"
+  (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
+>
+  <input
+    #focusableElementRef
+    [style.display]="layoutComponent.outer && value?.length ? 'none' : ''"
+    [style.visibility]="!layoutComponent.outer && value?.length ? 'hidden' : ''"
+    [disabled]="disabled"
+    [readonly]="true"
+    [placeholder]="placeholder"
+    [ngModelOptions]="{ standalone: true }"
+    [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
+    prizmInput
+  />
+
+  <ng-template #dropdown>
+    <prizm-data-list
+      class="block"
+      *prizmLet="{ filteredItems: filteredItems$ | async } as $"
+      [scroll]="dropdownScroll"
+      [style.--prizm-data-list-border]="0"
+    >
+      <div class="list-search-item" *ngIf="searchable">
+        <prizm-input-layout size="m" label="Поиск">
+          <input
+            class="input-search"
+            #input
+            [formControl]="searchInputControl"
+            (input)="dropdownHostRef.reCalculatePositions(1000 / 16)"
+            prizmInput
+            prizmAutoFocus
+          />
+          <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
+        </prizm-input-layout>
+      </div>
+      <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
+        <ng-container
+          *polymorphOutlet="itemsTemplate, context: {
+          selected: selectedItems$ | async,
+          filteredItems: $.filteredItems,
+        }"
+        >
+          <div
+            class="item"
+            #parent
+            *ngFor="let item of $.filteredItems; let idx = index"
+            [class.selected]="item.checked"
+            [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
+          >
+            <prizm-checkbox
+              [checked]="item.checked"
+              [ngModel]="item.checked"
+              [ngModelOptions]="{ standalone: true }"
+              [host]="parent"
+              [indeterminate]="!!item.indeterminate"
+              (changed)="selectItem(item)"
+            >
+              <div
+                class="text"
+                #elem
+                *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
+                [prizmHint]="text"
+                [prizmHintDirection]="direction"
+                [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
+              >
+                <ng-container
+                  *polymorphOutlet="
+                    valueTemplate as content;
+                    context: {
+                      $implicit: {
+                        obj: item.obj,
+                        checked: item.checked,
+                        stringify: item | prizmCallFunc : stringify
+                      }
+                    } as context
+                  "
+                >
+                  {{ text }}
+                </ng-container>
+              </div>
+            </prizm-checkbox>
+          </div>
+        </ng-container>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <ng-container *polymorphOutlet="emptyContent as data">
+          <div class="empty-template">{{ emptyContent }}</div>
+        </ng-container>
+      </ng-template>
+    </prizm-data-list>
+  </ng-template>
+</prizm-dropdown-host>
+
+<ng-container *prizmInputLayoutRight>
+  <ng-container
+    *polymorphOutlet="
+      icon || defaultIcon as iconName;
+      context: { opened: opened$ | async, disabled: disabled }
+    "
+  >
+    <prizm-icon
+      [class.opened]="opened$ | async"
+      [class.active]="(focused$ | async) || (opened$ | async)"
+      [class.icon-dropdown]="iconName === defaultIcon"
+      [iconClass]="$any(iconName)"
+      [class.disabled]="disabled"
+      (click)="safeOpenModal()"
+    >
+    </prizm-icon>
+  </ng-container>
+</ng-container>
+
+<ng-container *prizmInputLayoutInBody>
+  <div class="in-body-chips-box" *ngIf="value?.length">
+    <ng-container [ngTemplateOutlet]="chipsTemplate"> </ng-container>
+  </div>
+</ng-container>
+
+<ng-template #chipsTemplate>
+  <ng-container *prizmLet="selectedItemsChips$ | async as chips">
+    <prizm-chips
+      [style.max-width.px]="layoutComponent.el.nativeElement.clientWidth - button_layout_width"
+      [class.empty]="!chips.length"
+      [size]="$any(size)"
+      [class.inner]="inner"
+      [singleLine]="true"
+      [deletable]="!disabled && isChipsDeletable"
+      [chips]="chips"
+      (removeChipEvent)="removeChip($event)"
+    ></prizm-chips>
+  </ng-container>
+</ng-template>

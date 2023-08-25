@@ -51,7 +51,7 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
   ],
 })
 export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
-  readonly nativeElementType = 'multiselect';
+  readonly nativeElementType = 'multiselect' as string;
   readonly hasClearButton = true;
   override defaultLabel = this.options.label;
   @ViewChild('focusableElementRef', { read: ElementRef })
