@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.3, 2.1.5, 3.0.0](https://github.com/zyfra/Prizm) (22-08-2023)
+
+### Features
+
+- feat(components/table): added row idx and example #598
+- feat(components/cron-human-readable): new independent module #577
+- feat(components/dialog): added new css vars #616
+- feat(components/input-layout-date-time-range): example with formGroup was added #565'
+- feat(nxmv): published new library to support multiple dependencies (ng) #595
+- feat(components/sidebar): overlay with parent #576
+
+### Bug fixes
+
+- fix(doc/table): last element does not render in sticky footer #596
+- fix(components/cron): fix error with changes in day zone #579
+- fix(components/dropdown): control with public methods #586
+- fix(components/sidebar): var name #587
+- fix(components/checkbox): indeterminate state #608
+- fix(components/tabs): opening a dropdown with tabs, it switches back to a tab that was not selected through the dropdown.
+- fix(components/icon): icon name doesn't show in test id #589
+
 ## [1.4.3-next.2, 2.1.5-next.2, 3.0.0-next.2](https://github.com/zyfra/Prizm) (17-08-2023)
 
 ### Bug fixes
