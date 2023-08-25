@@ -83,7 +83,7 @@ jobs:
       - run: cd dist/libs/nxmv && npm publish --tag draft --access public --verbose || exit_code=0
 
       - name: 'Build doc app for firebase hosting'
-        run: npx nx build doc
+        run: npm run build:doc
 
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
