@@ -32,7 +32,7 @@ export class VersionManagerComponent {
   private initIfItIsNotLocal(): void {
     if (this.locationRef.hostname !== 'localhost') {
       this.initialVersion = this.versions.find(i =>
-        [i.link, ...i.otherLinks].find(i => (this.locationRef.hostname = i.hostname))
+        [i.link, ...i.otherLinks].find(i => this.locationRef.hostname === i.hostname)
       );
     }
   }
