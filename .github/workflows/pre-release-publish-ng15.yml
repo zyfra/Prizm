@@ -59,13 +59,13 @@ jobs:
           last_next_version=$(
             npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("2.1.5-next"))] | last // "2.1.5-next.0")' 2>/dev/null || echo '2.1.4-next.0'
           )
-          echo "LAST_next_VERSION=${last_next_version}" >> $GITHUB_ENV
+          echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
       - name: 'Set version 15'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
       - name: 'Update next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-next.up" --all --currentVersion="${{ env.LAST_next_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
 
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
