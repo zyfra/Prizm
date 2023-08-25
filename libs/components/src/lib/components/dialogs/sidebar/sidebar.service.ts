@@ -54,7 +54,6 @@ export class PrizmSidebarService<
       backdrop: options.backdrop,
       containerClass: options.backdrop || options.parentContainer ? '' : 'no-width no-height',
     };
-
     this.safeUpdateButtonsWithDefaultStyles(options as Partial<T>);
     return super.open<PrizmSidebarResult, unknown>(title, options as Partial<T>, cb);
   }
@@ -69,7 +68,7 @@ export class PrizmSidebarService<
 
   private safeUpdateButtonsWithDefaultStyles(options: Partial<T>): void {
     const supportButton =
-      options.supportButton &&
+      options.supportButton !== null &&
       this.generateButton(
         options,
         options.supportButton,
@@ -87,14 +86,16 @@ export class PrizmSidebarService<
       'primary'
     );
 
-    const cancelButton = this.generateButton(
-      options,
-      options.cancelButton,
-      'Отмена',
-      PrizmSidebarResultDefaultType.cancel,
-      'secondary',
-      'ghost'
-    );
+    const cancelButton =
+      options.cancelButton !== null &&
+      this.generateButton(
+        options,
+        options.cancelButton,
+        'Отмена',
+        PrizmSidebarResultDefaultType.cancel,
+        'secondary',
+        'ghost'
+      );
 
     options.confirmButton = confirmButton;
     options.cancelButton = cancelButton;
