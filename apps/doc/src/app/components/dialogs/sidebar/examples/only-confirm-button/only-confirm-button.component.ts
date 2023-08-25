@@ -29,7 +29,7 @@ export class PrizmSidebarOnlyConfirmButtonExampleComponent {
     this.sidebarService
       .open(this.contentExample, {
         closeable: true,
-        header: 'Header',
+        headerTemplate: 'Header',
         width: '400px',
         cancelButton: '',
         supportButton: '',
