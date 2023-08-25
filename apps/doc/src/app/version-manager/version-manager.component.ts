@@ -13,7 +13,7 @@ import { PRIZM_CURRENT_VERSION } from './current.const';
   providers: VERSION_MANAGER_PROVIDERS,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class VersionManagerComponent implements OnInit {
+export class VersionManagerComponent {
   readonly versions = PRIZM_VERSIONS_META;
 
   constructor(
@@ -30,13 +30,5 @@ export class VersionManagerComponent implements OnInit {
     } else {
       return version.link;
     }
-  }
-
-  ngOnInit(): void {
-    console.log('#mz initialVersion', {
-      i: this.initialVersion,
-      cv: PRIZM_CURRENT_VERSION,
-      v: this.versions,
-    });
   }
 }
