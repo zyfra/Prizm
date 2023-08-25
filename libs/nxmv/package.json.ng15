@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/nx-mv",
-  "version": "2.1.5",
+  "version": "2.1.6",
   "main": "src/index.js",
   "private": false,
   "publishConfig": {

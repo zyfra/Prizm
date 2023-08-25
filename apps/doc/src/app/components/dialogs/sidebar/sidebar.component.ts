@@ -83,6 +83,10 @@ export class SidebarComponent {
     TypeScript: import('./examples/base/base.component.ts?raw'),
     HTML: import('./examples/base/base.component.html?raw'),
   };
+  public readonly exampleOnlyConfirmButton: TuiDocExample = {
+    TypeScript: import('./examples/only-confirm-button/only-confirm-button.component.ts?raw'),
+    HTML: import('./examples/only-confirm-button/only-confirm-button.component.html?raw'),
+  };
 
   public readonly exampleCustomClose: TuiDocExample = {
     TypeScript: import('./examples/custom-close-guard/custom-close-guard.component.ts?raw'),
