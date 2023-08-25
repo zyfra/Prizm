@@ -29,14 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_14-
 
-      - name: 'Initial changes 16'
+      - name: 'Initial changes 14'
         run: |
-          cp -f package.json.ng16 package.json
-          cp -f package-lock.json.ng16 package-lock.json
+          cp -f package.json.ng14 package.json
+          cp -f package-lock.json.ng14 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -59,13 +59,13 @@ jobs:
           last_v1_version=$(
             npm view @prizm-ui/components versions --tag v1 --json | jq '([.[] | select(startswith("3.0.0-v1"))] | last // "3.0.0-v1.0")' 2>/dev/null || echo '2.1.4-v1.0'
           )
-          echo "LAST_v1_VERSION=${last_v1_version}" >> $GITHUB_ENV
+          echo "LAST_V1_VERSION=${last_v1_version}" >> $GITHUB_ENV
 
       - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v14
 
-      - name: 'Update v1 versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-v1.up" --all --currentVersion="${{ env.LAST_v1_VERSION }}"
+      #      - name: 'Update v1 versions'
+      #        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-v1.up" --all --currentVersion="${{ env.LAST_V1_VERSION }}"
 
       - name: 'Build v1 versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
