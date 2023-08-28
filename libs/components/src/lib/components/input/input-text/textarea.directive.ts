@@ -61,8 +61,8 @@ export class PrizmTextareaDirective implements AfterViewInit {
         .subscribe(() => {
           this.setClone();
           this.elementRef.nativeElement.style.height = this.height
-            ? Math.max(this.height, this.clone.scrollHeight) + 'px'
-            : this.clone.scrollHeight + 'px';
+            ? Math.max(this.height, this.clone?.scrollHeight ?? 0) + 'px'
+            : (this.clone?.scrollHeight ?? 0) + 'px';
         });
     }
   }
@@ -89,6 +89,6 @@ export class PrizmTextareaDirective implements AfterViewInit {
     this.clone.style.height = 'auto';
     this.clone.style.visibility = 'hidden';
 
-    this.elementRef.nativeElement.parentElement.appendChild(this.clone);
+    this.elementRef.nativeElement.parentElement?.appendChild(this.clone);
   }
 }

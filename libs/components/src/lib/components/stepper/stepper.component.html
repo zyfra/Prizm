@@ -2,7 +2,7 @@
 
 <div class="wrapper">
   <prizm-stepper-selector
-    [steps]="steps$ | async"
+    [steps]="$any(steps$ | async)"
     [currentStep]="currentStep"
     [ngStyle]="{ 'min-width': vertical ? stepsSize : 'auto', 'min-height': vertical ? 'auto' : stepsSize }"
     [vertical]="vertical"

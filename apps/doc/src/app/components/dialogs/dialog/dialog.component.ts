@@ -37,7 +37,7 @@ export class DialogComponent {
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+    ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
   ];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
@@ -68,7 +68,7 @@ export class DialogComponent {
   public closeable = true;
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
-  public footer: PolymorphContent<PrizmBaseDialogContext<any, PrizmDialogOptions<any, any>>> = null;
+  public footer: PolymorphContent<PrizmBaseDialogContext<any, PrizmDialogOptions<any, any>>> | null = null;
 
   public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

@@ -108,7 +108,7 @@ export class PrizmNavigationMenuGroupComponent<
       })
     );
 
-  activeItem$: Observable<InternalPrizmNavigationMenuItem<UserItem>> = this.menuService.activeItem$;
+  activeItem$: Observable<InternalPrizmNavigationMenuItem<UserItem> | null> = this.menuService.activeItem$;
 
   mode$: Observable<ViewMode> = this.groupService.viewMode$;
 

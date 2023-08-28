@@ -15,7 +15,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   ],
 })
 export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
-  @Input() steps: Array<PrizmStepperStepDirective> = [];
+  @Input() steps: PrizmStepperStepDirective[] = [];
 
   @Input() currentStep!: number;
 

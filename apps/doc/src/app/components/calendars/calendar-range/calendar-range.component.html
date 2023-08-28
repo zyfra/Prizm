@@ -13,7 +13,11 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-calendar-range #element [(value)]="value" [prizmDocHostElement]="element"></prizm-calendar-range>
+      <prizm-calendar-range
+        #element
+        [(value)]="$any(value)"
+        [prizmDocHostElement]="element"
+      ></prizm-calendar-range>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template

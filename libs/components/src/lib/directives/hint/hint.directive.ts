@@ -205,7 +205,10 @@ export class PrizmHintDirective<
       })
       .create();
     if (this.onHoverActive) {
-      combineLatest([this.hoveredService.createHovered$(this.host), this.hintService.childHovered(this.id)])
+      combineLatest([
+        this.hoveredService.createHovered$(this.host),
+        this.hintService.childHovered(this.id as string),
+      ])
         .pipe(
           map(([thisHovered, containerHovered]) => {
             return thisHovered || containerHovered;

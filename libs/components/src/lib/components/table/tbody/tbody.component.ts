@@ -206,6 +206,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
       dataStream = this.sorterService.sort$(dataSource);
     }
 
+    // @ts-ignore
     this.renderData$ = dataStream.pipe(
       tap(data => {
         this._data = data || [];

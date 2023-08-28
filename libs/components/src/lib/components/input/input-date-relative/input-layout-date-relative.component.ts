@@ -54,7 +54,7 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmInputLayoutDateRelativeComponent
-  extends PrizmInputNgControl<string>
+  extends PrizmInputNgControl<string | null>
   implements OnInit, OnDestroy
 {
   readonly nativeElementType = 'input-layout-date-relative';
@@ -164,7 +164,7 @@ export class PrizmInputLayoutDateRelativeComponent
   }
 
   public get focused(): boolean {
-    return (
+    return !!(
       this.focusableElement?.nativeElement && prizmIsNativeFocusedIn(this.focusableElement?.nativeElement)
     );
   }

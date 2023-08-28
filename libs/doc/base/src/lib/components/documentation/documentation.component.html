@@ -175,7 +175,7 @@
     #testIdTemplate="documentationProperty"
     [documentationPropertyValue]="testIdPostfix"
     [documentationPropertyName]="testIdName"
-    (documentationPropertyValueChange)="changeTestIdPostfix($event, testIdTemplate.host)"
+    (documentationPropertyValueChange)="changeTestIdPostfix($event, $any(testIdTemplate.host))"
     documentationPropertyType="string"
     documentationPropertyMode="input"
   >

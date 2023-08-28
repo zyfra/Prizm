@@ -143,7 +143,7 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
     return null;
   }
 
-  public get realTotalRecord(): number {
+  public get realTotalRecord(): number | null {
     return this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords;
   }
 

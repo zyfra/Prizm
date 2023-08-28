@@ -22,13 +22,13 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
   public isExpanded = false;
   override readonly testId_ = 'ui_navigation--item-expandable';
 
-  public data$: BehaviorSubject<INavigationTree> = new BehaviorSubject<INavigationTree>(null);
+  public data$ = new BehaviorSubject<INavigationTree | null>(null);
   public isActive$: Observable<boolean> = combineLatest([
     this.activeItemService.activeItem$,
     this.data$,
   ]).pipe(map(([activeItem, data]) => activeItem === data));
 
-  public get menuItem(): INavigationTree {
+  public get menuItem(): INavigationTree | null {
     return this.data$.getValue();
   }
 

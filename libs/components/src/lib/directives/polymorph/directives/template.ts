@@ -22,6 +22,7 @@ export class PolymorphTemplate<C extends Record<any, any>> {
   ) {}
 
   public static ngTemplateContextGuard<T>(
+    // @ts-ignore
     _dir: PolymorphTemplate<T>,
     _ctx: any
   ): _ctx is T extends string ? any : T {

@@ -68,7 +68,7 @@
                 #treeButton
                 [visibilityIcon]="!!item.children?.length"
                 [open]="trElement.isChildrenOpened(i)"
-                [level]="deepLevel"
+                [level]="deepLevel ?? 0"
                 (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
               >
               </prizm-tree-button>
@@ -194,7 +194,7 @@
               <prizm-tree-button
                 [removeIcon]="!item.children?.length"
                 [open]="trElement.isChildrenOpened(i)"
-                [level]="deepLevel"
+                [level]="deepLevel ?? 0"
                 (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
               >
               </prizm-tree-button>

@@ -1,7 +1,7 @@
 import { PolymorphContent, PrizmToastService } from '@prizm-ui/components';
 import { Clipboard } from '@angular/cdk/clipboard';
 
-export function generatePolymorphVariants(...content: PolymorphContent[]): PolymorphContent[] {
+export function generatePolymorphVariants(...content: PolymorphContent[]): (PolymorphContent | null)[] {
   return [
     new Array(200).fill('ОченьДлинныйТекст').join(''),
     null,

@@ -19,7 +19,7 @@
         [xField]="xField"
         [height]="height"
         [width]="width"
-        [theme]="prizmTheme.changesTheme$ | async"
+        [theme]="$any(prizmTheme.changesTheme$ | async)"
         [yField]="yField"
         [options]="options"
       ></prizm-charts-radar>

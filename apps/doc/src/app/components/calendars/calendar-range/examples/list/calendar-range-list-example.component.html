@@ -1,4 +1,4 @@
-<prizm-calendar-range [(value)]="value" [items]="items"></prizm-calendar-range>
+<prizm-calendar-range [(value)]="$any(value)" [items]="items"></prizm-calendar-range>
 
 <h4>
   Current value: <b>{{ value?.toString() | json }}</b>

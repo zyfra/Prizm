@@ -212,7 +212,7 @@ export class PrizmInputDateTimeRangeComponent
       ($event: PrizmDayRange) => {
         const value = PrizmFormControlHelpers.getValue<PrizmDateTimeRange>(origin);
         value?.updateDayRange($event);
-        return this.value?.copy();
+        return this.value?.copy() as any;
       },
       this.dateControl
     )
@@ -221,9 +221,11 @@ export class PrizmInputDateTimeRangeComponent
 
     PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmTime>(
       origin,
+      // @ts-ignore
       (value: PrizmDateTimeRange) => value?.timeRange?.from,
       ($event: PrizmTime) => {
         const value = PrizmFormControlHelpers.getValue<PrizmDateTimeRange>(origin);
+        // @ts-ignore
         value.timeRange.from = $event;
         return this.value?.copy();
       },
@@ -234,9 +236,11 @@ export class PrizmInputDateTimeRangeComponent
 
     PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmTime>(
       origin,
+      // @ts-ignore
       (value: PrizmDateTimeRange) => value?.timeRange?.to,
       ($event: PrizmTime) => {
         const value = PrizmFormControlHelpers.getValue<PrizmDateTimeRange>(origin);
+        // @ts-ignore
         value.timeRange.to = $event;
         return this.value?.copy();
       },

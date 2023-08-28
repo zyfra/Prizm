@@ -32,9 +32,12 @@ export class MultiSelectComponent {
   dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
-  public icon: PolymorphContent<PrizmSelectIconContext> = null;
+  public icon: PolymorphContent<PrizmSelectIconContext> | null = null;
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
+    null as PolymorphContent<any>,
+    'sort-zoom-in',
+  ];
   readonly control = new UntypedFormControl();
   searchable = false;
   outer = false;
@@ -122,7 +125,7 @@ export class MultiSelectComponent {
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
+    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {

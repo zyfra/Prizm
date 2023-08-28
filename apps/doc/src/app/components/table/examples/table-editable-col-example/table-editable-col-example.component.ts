@@ -14,7 +14,7 @@ export class TableEditableColExampleComponent {
 
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
 
-  public currentEditableProduct: { product: ITableProduct; key: keyof ITableProduct } = null;
+  public currentEditableProduct: { product: ITableProduct; key: keyof ITableProduct } | null = null;
 
   public changeItemName<T extends keyof ITableProduct>(
     e: FocusEvent,

@@ -158,7 +158,7 @@ export class PrizmConfirmPopupDirective<
   private safeUpdateButtonsWithDefaultStyles(options: PrizmConfirmPopupContext): void {
     const supportButton = this.generateButton(
       options,
-      options.supportButton,
+      options.supportButton as string,
       'Выйти без сохранения',
       PrizmConfirmDialogResultDefaultType.support,
       'danger',
@@ -167,7 +167,7 @@ export class PrizmConfirmPopupDirective<
 
     const confirmButton = this.generateButton(
       options,
-      options.confirmButton,
+      options.confirmButton as string,
       'Подтвердить',
       PrizmConfirmDialogResultDefaultType.confirmed,
       'primary'
@@ -175,7 +175,7 @@ export class PrizmConfirmPopupDirective<
 
     const cancelButton = this.generateButton(
       options,
-      options.cancelButton,
+      options.cancelButton as string,
       'Отмена',
       PrizmConfirmDialogResultDefaultType.cancel,
       'secondary',

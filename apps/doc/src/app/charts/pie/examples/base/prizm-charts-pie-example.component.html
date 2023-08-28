@@ -5,5 +5,5 @@
   [angleField]="angleField"
   [interactions]="interactions"
   [label]="label"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
 ></prizm-charts-pie>

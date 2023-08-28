@@ -32,10 +32,11 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   isHovered = false;
 
   get expandButtonVisible(): boolean {
-    return this.mode === 'rubricator' ? this.item.isRubricator : this.isExpandable;
+    return this.mode === 'rubricator' ? !!this.item.isRubricator : this.isExpandable;
   }
 
   get goToButtonsVisible(): boolean {
+    this.item.breadcrumbs = this.item.breadcrumbs ?? [];
     return this.mode === 'folder' && this.item.breadcrumbs.length > 1;
   }
   override readonly testId_ = 'ui_navigation_menu_item';

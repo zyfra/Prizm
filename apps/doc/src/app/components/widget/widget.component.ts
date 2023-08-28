@@ -13,10 +13,9 @@ export class WidgetComponent {
   public header = 'Содержимое виджета';
   public title = 'Заголовок виджета';
   public icons: string[] = [];
-  public iconVariants: ReadonlyArray<PolymorphContent> = [
+  public iconVariants: ReadonlyArray<PolymorphContent | null> = [
     ['account-circle', 'account-circle', 'account-key'],
     '',
-    null,
     ['account-key'],
   ];
   public content = 'Содержимое виджета';
@@ -34,11 +33,11 @@ export class WidgetComponent {
   };
 
   @prizmPure
-  public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
+  public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent | null> {
     return [...templates, ...this.iconVariants];
   }
   @prizmPure
-  public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
+  public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent | null> {
     return [null, ...templates];
   }
 }

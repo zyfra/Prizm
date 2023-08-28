@@ -12,8 +12,8 @@ export class TableEditableRowExampleComponent {
   public selectedItemsCodes: string[] = [];
   public columns: string[] = ['code', 'name', 'category', 'count', 'actions'];
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
-  public updatedRow: ITableProduct = null;
-  public currentEditableRow: ITableProduct = null;
+  public updatedRow: ITableProduct | null = null;
+  public currentEditableRow: ITableProduct | null = null;
 
   public onRowEditInit(item: ITableProduct): void {
     this.currentEditableRow = item;
@@ -21,7 +21,8 @@ export class TableEditableRowExampleComponent {
   }
 
   public onRowEditSave(): void {
-    this.products = this.products.map(item => (item === this.currentEditableRow ? this.updatedRow : item));
+    this.products =
+      (this.products?.map(item => (item === this.currentEditableRow ? this.updatedRow : item)) as any) ?? [];
     this.currentEditableRow = null;
     this.updatedRow = null;
   }
@@ -40,7 +41,7 @@ export class TableEditableRowExampleComponent {
 
   public changeItemName<T extends keyof ITableProduct>(e: FocusEvent, key: T): void {
     const val = (e.target as HTMLInputElement).value;
-    this.updatedRow = { ...this.updatedRow, [key]: val };
+    this.updatedRow = { ...this.updatedRow, [key]: val } as any;
   }
 
   public selectRow(e: MouseEvent, clickedProductCode: string, disabled = false): void {

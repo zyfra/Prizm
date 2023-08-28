@@ -1,14 +1,14 @@
 export interface PrizmPaginatorData {
-  left: number;
+  left: number | null;
   mid: number[];
-  right: number;
+  right: number | null;
 }
 
 export interface PrizmPaginatorOutput {
   page: number;
   first: number;
   rows: number;
-  pagesCount: number;
+  pagesCount: number | null;
 }
 
 export interface PrizmPaginatorOptions {

@@ -38,13 +38,13 @@ export class PrizmOverlayControl {
   content: PrizmOverlayContent;
   zid: PrizmOverlayId;
   zIndex = 9999;
-  comp: PrizmOverlayComponent;
+  comp: PrizmOverlayComponent | null;
   updateTextContent: Subject<string> = new Subject();
-  hostView: ViewRef;
-  parentContainer: HTMLElement;
+  hostView: ViewRef | null;
+  parentContainer: HTMLElement | null;
   compRef: ComponentRef<PrizmOverlayComponent>;
 
-  public viewEl: HTMLElement;
+  public viewEl: HTMLElement | null;
   isOpen = false;
   private compFac: ComponentFactory<PrizmOverlayComponent>;
   private destroy$ = new Subject<void>();
@@ -56,7 +56,7 @@ export class PrizmOverlayControl {
     @Inject(WINDOW) private readonly window: Window
   ) {
     this.updateTextContent.pipe(takeUntil(this.destroy$)).subscribe(content => {
-      if (this.isOpen) this.comp.updateTextContent(content);
+      if (this.isOpen) this.comp?.updateTextContent(content);
     });
   }
 
@@ -87,7 +87,7 @@ export class PrizmOverlayControl {
   }
 
   public onEscClick(): Observable<any> {
-    return fromEvent<KeyboardEvent>(BODY_ELEMENT, 'keydown').pipe(
+    return fromEvent<KeyboardEvent>(BODY_ELEMENT as any, 'keydown').pipe(
       takeUntil(this.destroy$),
       skipWhile(() => !this.config.closeOnEsc),
       filter(
@@ -102,8 +102,11 @@ export class PrizmOverlayControl {
   }
 
   public onDocumentClick(): Observable<any> {
-    const insideClick = fromEvent<MouseEvent>(this.viewEl.querySelector('.z-overlay-wrapper'), 'click');
-    const outsideClick = fromEvent<MouseEvent>(this.viewEl, 'click');
+    const insideClick = fromEvent<MouseEvent>(
+      this.viewEl?.querySelector('.z-overlay-wrapper') as any,
+      'click'
+    );
+    const outsideClick = fromEvent<MouseEvent>(this.viewEl as any, 'click');
 
     return raceEmit<[MouseEvent, boolean]>(
       100,
@@ -150,7 +153,7 @@ export class PrizmOverlayControl {
   }
 
   public updateParentContainer(node: HTMLElement): void {
-    this.parentContainer = node instanceof HTMLElement ? node : undefined;
+    this.parentContainer = node instanceof HTMLElement ? node : null;
   }
 
   public listen<T = any>(eventName: PrizmOverlayEventName): Observable<T> {
@@ -162,8 +165,8 @@ export class PrizmOverlayControl {
   }
 
   private isNotHostElement(el: HTMLElement): boolean {
-    const wrapperEl = this.viewEl.querySelector('.z-overlay-wrapper');
-    return el !== wrapperEl && !wrapperEl.contains(el);
+    const wrapperEl = this.viewEl?.querySelector('.z-overlay-wrapper');
+    return el !== wrapperEl && !wrapperEl?.contains(el);
   }
 
   private attach(): void {
@@ -181,7 +184,7 @@ export class PrizmOverlayControl {
     this.hostView = this.compRef.hostView;
     this.appRef.attachView(this.hostView);
     this.viewEl = (this.hostView as any).rootNodes[0];
-    (parentContainer ?? BODY_ELEMENT).appendChild(this.viewEl);
+    (parentContainer ?? (BODY_ELEMENT as HTMLElement)).appendChild(this.viewEl as any);
   }
 
   private detach(): void {

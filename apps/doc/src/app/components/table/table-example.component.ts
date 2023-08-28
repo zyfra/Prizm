@@ -12,10 +12,10 @@ import { TABLE_EXAMPLE_DATA_1 } from './table-example.const';
 })
 export class TableExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
-  public prizmTableRowOddBackground: string = null;
-  public prizmTableRowBackground: string = null;
+  public prizmTableRowOddBackground: string | null = null;
+  public prizmTableRowBackground: string | null = null;
   public prizmTableRowCursor = 'pointer';
-  public prizmTableRowHoverBackground: string = null;
+  public prizmTableRowHoverBackground: string | null = null;
   public columns: string[] = ['code', 'name', 'category', 'count'];
   public columnsVarians: string[][] = [
     ['code', 'name'],
@@ -30,7 +30,7 @@ export class TableExampleComponent {
   public sizeVariants: (PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS)[] = ['xs', 'l', 'm', 's'];
   public scrollable = false;
   public scrollHeight = null;
-  public scrollHeightVariants: string[] = [null, '160px', '200px', '300px', '500px'];
+  public scrollHeightVariants: string[] = [null as any, '160px', '200px', '300px', '500px'];
   public responsiveLayout: 'stack' | 'scroll' = 'scroll';
   public layoutVariants: ('stack' | 'scroll')[] = ['scroll', 'stack'];
 

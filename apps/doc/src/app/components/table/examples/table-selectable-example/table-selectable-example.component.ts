@@ -9,7 +9,7 @@ import { TABLE_EXAMPLE_DATA_1, TABLE_EXAMPLE_DATA_2 } from '../../table-example.
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableSelectableExampleComponent {
-  public singleSelectedItemCode: string = null;
+  public singleSelectedItemCode: string | null = null;
   public selectedItemsCodes: string[] = [];
   public selectedMetaItemsCodes: string[] = [];
 

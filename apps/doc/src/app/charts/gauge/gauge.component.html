@@ -18,7 +18,7 @@
         [width]="width"
         [height]="height"
         [options]="options"
-        [theme]="prizmTheme.changesTheme$ | async"
+        [theme]="$any(prizmTheme.changesTheme$ | async)"
       ></prizm-charts-gauge>
     </prizm-doc-demo>
     <prizm-doc-documentation>

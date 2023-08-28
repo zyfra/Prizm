@@ -59,8 +59,8 @@ export class BarComponent {
     HTML: import('./examples/group/prizm-charts-group-bar-example.component.html?raw'),
   };
   height = 300;
-  width: number = null;
+  width: number | null = null;
 
-  seriesField: string = null;
+  seriesField: string | null = null;
   constructor(public readonly prizmTheme: PrizmThemeService) {}
 }

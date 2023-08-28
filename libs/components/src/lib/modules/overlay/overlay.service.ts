@@ -82,7 +82,7 @@ export class PrizmOverlayService {
     if (PrizmOverlayService.controls[this.zid]) {
       this.zid = prizmGenerateId();
     }
-    this.inputs.position.init(this.zid);
+    this.inputs.position?.init(this.zid);
     PrizmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
     return tc;
   }

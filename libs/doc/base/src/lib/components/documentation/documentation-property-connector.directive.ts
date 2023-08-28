@@ -31,7 +31,7 @@ const SERIALIZED_SUFFIX = `$`;
 })
 export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnInit, OnChanges {
   @Input()
-  documentationPropertyName = ``;
+  documentationPropertyName: string | null = ``;
 
   @Input()
   documentationPropertyMode: PrizmDocumentationPropertyType = null;
@@ -56,7 +56,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   readonly emits$ = new BehaviorSubject(1);
 
   get host(): ElementRef<any> | null {
-    return this.hostElementService?.getHostElement(this.prizmHostComponentInfo.value?.key) ?? null;
+    return this.hostElementService?.getHostElement(this.prizmHostComponentInfo.value?.key as string) ?? null;
   }
 
   constructor(
@@ -96,7 +96,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
           this.documentationPropertyName ? ` select="${this.documentationPropertyName}"` : ''
         }>`;
       default:
-        return this.documentationPropertyName;
+        return this.documentationPropertyName ?? '';
     }
   }
 
@@ -120,7 +120,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
     this.changed$.next();
     if (this.documentationPropertyName)
       this.hostElementService?.addListener(
-        this.prizmHostComponentInfo.value?.key,
+        this.prizmHostComponentInfo.value?.key as string,
         this.documentationPropertyMode,
         this.documentationPropertyType,
         this.documentationPropertyName.endsWith('.testId') ? 'testId' : this.documentationPropertyName
@@ -142,7 +142,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   }
 
   private parseParams(params: Params): void {
-    const propertyValue: string | undefined = params[this.documentationPropertyName];
+    const propertyValue: string | undefined = params[this.documentationPropertyName as string];
     const propertyValueWithSuffix: string | number | undefined =
       params[`${this.documentationPropertyName}${SERIALIZED_SUFFIX}`];
 

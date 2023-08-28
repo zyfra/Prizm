@@ -124,7 +124,7 @@ export class PrizmInputDateTimeComponent
 
   override readonly testId_ = 'ui_input_date_time';
 
-  public openTimeTemplate = false;
+  public openTimeTemplate: any = false;
 
   open = false;
 
@@ -309,7 +309,7 @@ export class PrizmInputDateTimeComponent
 
     this.updateValue([
       parsedDate,
-      match || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime) : parsedTime),
+      match || (this.timeStrict ? this.findNearestTimeFromItems(parsedTime as any) : parsedTime),
     ]);
     this.open = false;
   }

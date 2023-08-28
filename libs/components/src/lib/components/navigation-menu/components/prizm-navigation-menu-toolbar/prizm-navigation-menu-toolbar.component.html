@@ -66,6 +66,6 @@
 </div>
 <prizm-navigation-menu-search
   *ngIf="toolbarService.searchVisible$ | async"
-  [searchDebounce]="searchConfig.searchDebounce"
+  [searchDebounce]="searchConfig.searchDebounce ?? 0"
   (searchChange)="toolbarService.changeSearchValue($event)"
 ></prizm-navigation-menu-search>

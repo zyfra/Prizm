@@ -7,7 +7,7 @@ export class PrizmEventZoneService implements OnDestroy {
   private readonly eventSource$ = new BehaviorSubject<number>(Date.now());
   public readonly event$ = this.eventSource$.asObservable();
   private el_: HTMLElement;
-  private parent: PrizmEventZoneService;
+  private parent?: PrizmEventZoneService;
   get el(): HTMLElement {
     return this.el_;
   }

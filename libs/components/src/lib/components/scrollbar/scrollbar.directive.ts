@@ -137,7 +137,8 @@ export class PrizmScrollbarDirective {
   }
 
   private get computedContainer(): Element {
-    return this.container ? this.container.nativeElement : this.documentRef.scrollingElement;
+    const el = this.container ? this.container.nativeElement : this.documentRef.scrollingElement;
+    return el as Element;
   }
 
   private getScrolled(

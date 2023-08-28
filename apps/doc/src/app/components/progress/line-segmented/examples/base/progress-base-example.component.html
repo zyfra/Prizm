@@ -4,7 +4,7 @@
     <prizm-progress-segmented
       class="progress"
       [max]="max"
-      [value]="value$ | async"
+      [value]="$any(value$ | async)"
       size="m"
     ></prizm-progress-segmented>
   </div>
@@ -17,7 +17,7 @@
     <prizm-progress-segmented
       class="progress"
       [max]="max"
-      [value]="value$ | async"
+      [value]="$any(value$ | async)"
       size="s"
     ></prizm-progress-segmented>
   </div>

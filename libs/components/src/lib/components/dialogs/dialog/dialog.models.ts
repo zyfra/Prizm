@@ -42,7 +42,7 @@ export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDi
   readonly closeWord?: string;
   readonly closeable: boolean;
   readonly header: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
-  readonly footer?: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
+  readonly footer?: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>> | null;
   readonly footerStyle?: string;
   readonly content?: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
   readonly data?: DATA;

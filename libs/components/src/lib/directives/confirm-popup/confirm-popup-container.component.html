@@ -24,7 +24,7 @@
               <ng-container
                 *ngIf="context.supportButton"
                 [ngTemplateOutlet]="buttonTemplate"
-                [ngTemplateOutletContext]="{ button: context.supportButton }"
+                [ngTemplateOutletContext]="$any({ button: context.supportButton })"
               >
               </ng-container>
             </div>
@@ -45,8 +45,8 @@
             [appearance]="button.appearance"
             [appearanceType]="button.appearanceType ?? 'fill'"
             [size]="button.size"
-            [disabled]="button.disabled ?? false | prizmToObservable | async"
-            [showLoader]="button.showLoader ?? false | prizmToObservable | async"
+            [disabled]="$any(button.disabled ?? false | prizmToObservable | async)"
+            [showLoader]="$any(button.showLoader ?? false | prizmToObservable | async)"
             (click)="button.action(context)"
             prizmButton
           >

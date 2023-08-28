@@ -100,7 +100,10 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
               for (const file of this.files) {
                 this.progress$$.next({
                   ...this.progress$$.value,
-                  [file.name]: { progress: Math.round((event.loaded / event.total) * 100), error: false },
+                  [file.name]: {
+                    progress: Math.round((event.loaded / (event?.total ?? 0)) * 100),
+                    error: false,
+                  },
                 });
               }
 
@@ -150,7 +153,10 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
             case HttpEventType.UploadProgress: {
               this.progress$$.next({
                 ...this.progress$$.value,
-                [file.name]: { progress: Math.round((event.loaded / event.total) * 100), error: false },
+                [file.name]: {
+                  progress: Math.round((event.loaded / (event.total ?? 0)) * 100),
+                  error: false,
+                },
               });
 
               break;

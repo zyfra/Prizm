@@ -24,7 +24,7 @@
     <prizm-doc-demo>
       <prizm-input-time
         #element
-        [(val)]="val"
+        [(val)]="$any(val)"
         [prizmDocHostElement]="element"
         [formControl]="valueControl"
         [label]="label"

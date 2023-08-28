@@ -6,7 +6,7 @@
           {{ title }}
         </ng-container>
       </div>
-      <div class="icons" [class.divider]="icons?.length > 1">
+      <div class="icons" [class.divider]="icons?.length && icons.length > 1">
         <ng-container *polymorphOutlet="icons">
           <ng-container *ngFor="let icon of $any(icons)">
             <button

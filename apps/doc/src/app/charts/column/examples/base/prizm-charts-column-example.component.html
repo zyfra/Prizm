@@ -2,7 +2,7 @@
   [data]="data"
   [label]="label"
   [options]="options"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
   xField="type"
   yField="sales"
 >

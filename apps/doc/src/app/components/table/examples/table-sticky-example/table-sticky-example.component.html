@@ -107,7 +107,7 @@
           </tr>
         </ng-container>
 
-        <ng-container #footerTemplate *ngIf="i + 1 === products.length">
+        <ng-container #footerTemplate *ngIf="(i ?? 0) + 1 === products.length">
           <tr prizmTr>
             <td class="format__number" [prizmStickyBottom]="true" prizmTd></td>
             <td [prizmStickyBottom]="true" prizmTd></td>

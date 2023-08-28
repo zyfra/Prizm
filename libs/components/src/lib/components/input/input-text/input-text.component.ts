@@ -32,7 +32,10 @@ import { PrizmInputControl } from '../common/base/input-control.class';
   styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
-export class PrizmInputTextComponent extends PrizmInputControl<string> implements DoCheck, OnInit, OnDestroy {
+export class PrizmInputTextComponent
+  extends PrizmInputControl<string | null>
+  implements DoCheck, OnInit, OnDestroy
+{
   @Input()
   get disabled(): boolean {
     if (this.ngControl && this.ngControl.disabled !== null) {
@@ -96,7 +99,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   set value(value: any) {
     if (this.ngControl && this.ngControl.value !== value) {
       queueMicrotask(() => {
-        this.ngControl.control.patchValue(value);
+        this.ngControl.control?.patchValue(value);
       });
     } else {
       this._inputValue.value = value;
@@ -130,7 +133,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   public _touched: boolean;
 
   get touched(): boolean {
-    return this.ngControl ? this.ngControl.touched : this._touched;
+    return !!(this.ngControl ? this.ngControl.touched : this._touched);
   }
 
   public hasClearButton = true;
@@ -192,7 +195,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
 
   private initControlListener(): void {
     this.ngControl?.statusChanges
-      .pipe(
+      ?.pipe(
         tap(result => {
           this.updateEmptyState();
           this.updateErrorState();
@@ -203,7 +206,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
       .subscribe();
 
     this.ngControl?.valueChanges
-      .pipe(
+      ?.pipe(
         tap(() => {
           this.updateEmptyState();
           this.updateErrorState();
@@ -214,7 +217,7 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
       .subscribe();
 
     this.ngControl.statusChanges
-      .pipe(
+      ?.pipe(
         tap(() => {
           this.stateChanges.next();
         }),
@@ -232,16 +235,16 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
   }
 
   private updateErrorState(): void {
-    this.invalid = this.ngControl && this.ngControl.invalid;
+    this.invalid = Boolean(this.ngControl && this.ngControl.invalid);
   }
 
   public clear(event: MouseEvent): void {
     if (this.disabled) return;
 
-    this.ngControl?.control.setValue('');
+    this.ngControl?.control?.setValue('');
 
     // this._touched = true;
-    this.ngControl?.control.markAsDirty();
+    this.ngControl?.control?.markAsDirty();
 
     this._inputValue.value = '';
 
@@ -271,11 +274,11 @@ export class PrizmInputTextComponent extends PrizmInputControl<string> implement
 
     if (touched) {
       this._touched = true;
-      this.ngControl?.control.markAsTouched();
+      this.ngControl?.control?.markAsTouched();
     }
 
     if (dirty) {
-      this.ngControl?.control.markAsDirty();
+      this.ngControl?.control?.markAsDirty();
     }
 
     this.stateChanges.next();

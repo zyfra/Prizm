@@ -58,9 +58,12 @@ export class InputInputMultiSelectComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  public icon: PolymorphContent<PrizmSelectIconContext> = null;
+  public icon: PolymorphContent<PrizmSelectIconContext> | null = null;
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
+    null as any,
+    'sort-zoom-in',
+  ];
   readonly control = new UntypedFormControl();
   searchable = false;
   outer = false;
@@ -157,7 +160,7 @@ export class InputInputMultiSelectComponent {
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
+    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {

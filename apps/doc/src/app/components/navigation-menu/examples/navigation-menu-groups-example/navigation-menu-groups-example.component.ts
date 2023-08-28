@@ -38,7 +38,7 @@ export class NavigationMenuGroupsExampleComponent {
   musicalInstrumentsGroup$: Observable<CustomGroupConfig> = this.itemGroupsService.musicalInstruments$;
   longNamesGroup$: Observable<CustomGroupConfig> = this.itemGroupsService.longNames$;
 
-  activeItem$: Observable<CustomItem> = this.activeItemId$$.pipe(
+  activeItem$: Observable<CustomItem | null> = this.activeItemId$$.pipe(
     switchMap(activeItemId => {
       return combineLatest([
         this.fruitsGroup$,
@@ -72,11 +72,11 @@ export class NavigationMenuGroupsExampleComponent {
 
   public activeItemChanged(item: CustomItem | null): void {
     this.logMenuEvent('activeItemChanged', item);
-    this.activeItemId$$.next(item?.id);
+    this.activeItemId$$.next(item?.id as any);
   }
 
   public breadcrumbChange(breadcrumb: IBreadcrumb): void {
-    this.activeItemId$$.next(breadcrumb.link);
+    this.activeItemId$$.next(breadcrumb.link as any);
   }
 
   public menuBreadcrumbsChanged(breadcrumbs: CustomItem[]): void {

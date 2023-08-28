@@ -14,7 +14,7 @@ export function attrToString(attrs: PrizmHtmlAttr): string {
   // Итерация по объекту атрибутов и добавление пар атрибут-значение в массив
   for (const key in attrs) {
     if (attrs[key] === null) {
-      buff.push(key);
+      buff.push(key as string);
     } else buff.push(key + '="' + attrs[key] + '"');
   }
 

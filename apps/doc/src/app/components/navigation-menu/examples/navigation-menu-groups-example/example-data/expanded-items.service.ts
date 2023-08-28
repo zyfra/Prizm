@@ -1,14 +1,18 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { CustomItem, PersistentExpandedValue } from './interfaces';
+import { LOCAL_STORAGE } from '@ng-web-apis/common';
 
 @Injectable()
 export class ExpandedItemsService {
+  readonly localStorage = inject(LOCAL_STORAGE) as Storage;
   public getItemsExpandedKeys(): PersistentExpandedValue | null {
-    return JSON.parse(localStorage.getItem('EXPANDED_ITEMS_EXAMPLE'));
+    const item = localStorage.getItem('EXPANDED_ITEMS_EXAMPLE') ?? null;
+    return item && JSON.parse(item);
   }
 
   public getGroupsExpandedKeys(): PersistentExpandedValue | null {
-    return JSON.parse(localStorage.getItem('EXPANDED_GROUPS_EXAMPLE'));
+    const item = localStorage.getItem('EXPANDED_GROUPS_EXAMPLE') ?? null;
+    return item && JSON.parse(item);
   }
 
   public setItemsExpandedKeys(expandedItemsMap: Map<CustomItem, boolean>): void {

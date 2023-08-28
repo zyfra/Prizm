@@ -30,7 +30,7 @@ export class PrizmNavigationComponent extends PrizmAbstractTestId {
   }
 
   public calculateStatuses(data: INavigationTree): void {
-    if (data?.children?.length > 0) {
+    if (data?.children?.length && data.children.length > 0) {
       data.children.forEach(child => this.calculateStatuses(child));
 
       let maxStatus = -1;
@@ -39,8 +39,8 @@ export class PrizmNavigationComponent extends PrizmAbstractTestId {
         .filter(child => child?.indicatorStatus)
         .forEach(child => {
           maxStatus =
-            StatusDictionary[child.indicatorStatus] > maxStatus
-              ? StatusDictionary[child.indicatorStatus]
+            StatusDictionary[child.indicatorStatus as IndicatorStatus] > maxStatus
+              ? StatusDictionary[child.indicatorStatus as IndicatorStatus]
               : maxStatus;
         });
 

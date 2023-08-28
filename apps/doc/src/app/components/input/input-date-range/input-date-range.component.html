@@ -24,7 +24,7 @@
     <prizm-doc-demo>
       <prizm-input-date-range
         #element
-        [(val)]="val"
+        [(val)]="$any(val)"
         [prizmDocHostElement]="element"
         [label]="label"
         [formControl]="dateControl"

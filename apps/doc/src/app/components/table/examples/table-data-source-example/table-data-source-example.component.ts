@@ -103,7 +103,7 @@ export class TableDataSourceExampleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator as any;
     this.dataSource.sorter = this.table.sorterService;
   }
 

@@ -36,7 +36,7 @@ export class TreemapComponent {
   };
   public colorField = 'name';
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
-  public width: number = null;
+  public width: number | null = null;
   public height = 300;
   readonly exampleOutline: TuiDocExample = {
     TypeScript: import('./examples/base/prizm-charts-treemap-example.component.ts?raw'),

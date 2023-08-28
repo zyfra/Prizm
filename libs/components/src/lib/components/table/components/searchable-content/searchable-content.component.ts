@@ -7,8 +7,8 @@ import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SearchableContentComponent {
-  @Input() public searchString: string = null;
-  @Input() public contentString: string = null;
+  @Input() public searchString: string | null = null;
+  @Input() public contentString: string | null = null;
   @HostBinding('attr.focused') @Input() public focused = false;
 
   get content(): { substr: string; marked: boolean }[] {
@@ -43,6 +43,6 @@ export class SearchableContentComponent {
         pos = foundPos + 1;
       }
     }
-    return markedString.length > 0 ? markedString : [{ substr: this.contentString, marked: false }];
+    return markedString.length > 0 ? markedString : [{ substr: this.contentString as string, marked: false }];
   }
 }

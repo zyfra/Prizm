@@ -8,12 +8,12 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root',
 })
 export class PrizmThemeService implements OnDestroy {
-  private rootElement_: HTMLElement;
-  public set rootElement(el: HTMLElement) {
+  private rootElement_: HTMLElement | null;
+  public set rootElement(el: HTMLElement | null) {
     this.rootElement_ = el;
   }
   public get rootElement(): HTMLElement {
-    return this.rootElement_ ?? this.document.querySelector('body');
+    return (this.rootElement_ as HTMLElement) ?? this.document.querySelector('body');
   }
   private readonly themeStorage = new Map<HTMLElement, string>();
 
@@ -23,7 +23,9 @@ export class PrizmThemeService implements OnDestroy {
   }>({
     theme: 'light',
   });
-  readonly change$ = this.changeSource$.pipe(tap(data => this.themeStorage.set(data.el, data.theme)));
+  readonly change$ = this.changeSource$.pipe(
+    tap(data => data.el && this.themeStorage.set(data.el, data.theme))
+  );
   public get value(): string {
     return this.changeSource$.value.theme;
   }
@@ -36,7 +38,7 @@ export class PrizmThemeService implements OnDestroy {
   }
 
   public getLastThemeForElement(el: HTMLElement = this.rootElement): string {
-    return this.themeStorage.get(el);
+    return this.themeStorage.get(el) as string;
   }
 
   public getLastThemeForElement$(el: HTMLElement = this.rootElement): Observable<string> {
@@ -57,7 +59,7 @@ export class PrizmThemeService implements OnDestroy {
   }
 
   public getByElement(el?: HTMLElement): PrizmTheme {
-    return (el ?? this.rootElement)?.getAttribute(this.attThemeKey);
+    return (el ?? this.rootElement)?.getAttribute(this.attThemeKey) as PrizmTheme;
   }
 
   private setToHtml(theme: PrizmTheme, el?: HTMLElement): void {

@@ -340,7 +340,7 @@ export class PrizmInputTimeComponent
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     if (!this.open && !this.disabled && inputElement && prizmIsNativeFocused(inputElement)) {
       this.open = true;
       this.cdr.markForCheck();

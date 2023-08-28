@@ -75,7 +75,7 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
         res.attrs[arr[0]] = arr[1];
       } else {
         // Сохраняем атрибут и его значение в объекте res
-        res.attrs[arr[0]] = null;
+        res.attrs[arr[0]] = null as any;
       }
 
       // Уменьшаем индекс для следующей итерации, чтобы не пропустить символы

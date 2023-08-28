@@ -62,7 +62,7 @@ import { prizmI18nInitWithKey } from '../../../services';
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateComponent },
   ],
 })
-export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay> {
+export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay | null> {
   readonly nativeElementType = 'input-date';
   readonly hasClearButton = true;
   @ViewChild('focusableElementRef', { read: ElementRef })

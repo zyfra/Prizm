@@ -60,7 +60,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   readonly showLine$: Observable<boolean> = this.tabsService.tabs$.pipe(
     map(tabMap => {
       const last = [...tabMap.values()].pop();
-      return last.type === 'line';
+      return last?.type === 'line';
     })
   );
 
