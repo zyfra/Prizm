@@ -337,9 +337,10 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
-    const modifiedTime =
-      time ?? (this.value[1] && this.prizmClampTime(this.value[1], day)) ?? new PrizmTime(0, 0);
-    this.updateValue([day, modifiedTime]);
+    // const modifiedTime =
+    //   time ?? (this.value[1] && this.prizmClampTime(this.value[1], day)) ?? new PrizmTime(0, 0);
+    // this.updateValue([day, modifiedTime]);
+    this.onDateValueChange(day.toString(this.dateFormat));
     this.open = false;
     this.changeDetectorRef.markForCheck();
   }
@@ -418,8 +419,10 @@ export class PrizmInputLayoutDateTimeComponent
     ev.preventDefault();
     ev.stopPropagation();
 
-    if (!(this.value[1] && item.isSameTime(this.value[1])))
-      this.onDayClick(this.value[0] ?? PrizmDay.currentLocal(), item);
+    // if (!(this.value[1] && item.isSameTime(this.value[1])))
+    //   this.onDayClick(this.value[0] ?? PrizmDay.currentLocal(), item);
+
+    this.onTimeValueChange(item.toString(this.timeMode));
 
     this.openTimeTemplate = this.open = false;
     this.changeDetectorRef.markForCheck();
