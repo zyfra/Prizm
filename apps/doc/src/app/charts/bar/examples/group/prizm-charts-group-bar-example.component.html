@@ -1,7 +1,7 @@
 <prizm-charts-bar
   [data]="data"
   [label]="label"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
   xField="value"
   yField="label"
   seriesField="type"

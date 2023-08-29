@@ -25,7 +25,7 @@ export function prizmAstUpdateAllFilesWhen(
 
     // If the entry is a file, check if it can be updated and update if necessary
     if (tree.isFile(entryPath)) {
-      const content = tree.read(entryPath, 'utf-8');
+      const content = tree.read(entryPath, 'utf-8') as any;
 
       // Check if the file meets the condition for updating
       if (!canUpdateFunc(entryPath, content)) continue;

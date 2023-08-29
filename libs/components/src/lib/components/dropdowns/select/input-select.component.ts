@@ -60,7 +60,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data);
+    this.items$.next(data as any);
   }
   get items(): T[] {
     return this.items$.value;
@@ -141,6 +141,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   override readonly testId_ = 'ui_select';
 
+  readonly isNotNullish = Compare.isNotNullish;
+
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
@@ -183,6 +185,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
           }),
           map(items => {
             if (this.nullContent && items?.length && items[0] !== null) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               items = [null, ...items];
             }
             return items;
@@ -214,7 +218,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     timer(0)
       .pipe(
         tap(() => {
-          this.select(null);
+          this.select(null as any);
           this.changeDetectorRef.markForCheck();
         })
       )
@@ -223,7 +227,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
-    this.updateValue(null);
+    this.updateValue(null as any);
     this.markAsTouched();
 
     this.changeDetectorRef.markForCheck();
@@ -249,7 +253,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     super.updateValue(value);
 
     // set touched on change value
-    this.ngControl.control.markAsTouched();
+    this.ngControl.control?.markAsTouched();
   }
 
   public isMostRelevant(idx: number, items: T[]): boolean {
@@ -262,7 +266,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     const result =
       isCanSearch && itIsNotCurrentValue && ((hasNullValue && idx === 1) || (!hasNullValue && idx === 0));
 
-    return result;
+    return !!result;
   }
 
   private searchEmit(value: string): void {
@@ -283,8 +287,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public getFullObjectOfCurrent(value: T): T {
-    if (Compare.isNullish(value)) return null;
+    if (Compare.isNullish(value)) return null as any;
     const newItem = this.getValueFromItems(this.value);
-    return newItem;
+    return newItem as any;
   }
 }

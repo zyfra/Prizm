@@ -39,10 +39,10 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     const h = this.getCoords(targetEl);
     let { width: w, height: ht } = this.config;
 
-    w = setWidthHeight(s, h, 'width', w);
-    ht = setWidthHeight(s, h, 'height', ht);
+    w = setWidthHeight(s, h, 'width', w as any);
+    ht = setWidthHeight(s, h, 'height', ht as any);
 
-    const { pos, props } = this.calculatePos(this.config.placement, s, h);
+    const { pos, props } = this.calculatePos(this.config.placement as any, s, h);
 
     // Try to keep hint host within viewport.
     const { innerHeight, innerWidth } = window;

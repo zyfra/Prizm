@@ -1,5 +1,5 @@
 <prizm-charts-area
   [autoFit]="true"
   [data]="data"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
 ></prizm-charts-area>

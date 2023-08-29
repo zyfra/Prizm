@@ -1,13 +1,13 @@
 <div class="host" prizmFocusTrap prizmTheme>
   <div class="content">
     <div class="title prizm-font-title-h4">
-      <ng-container *polymorphOutlet="context.title as data; context: context">
+      <ng-container *polymorphOutlet="$any(context.title) as data; context: context">
         {{ data }}
       </ng-container>
     </div>
     <div class="description prizm-font-main-body-14">
       <prizm-scrollbar class="scrollbar">
-        <ng-container *polymorphOutlet="context.description as data; context: context">
+        <ng-container *polymorphOutlet="$any(context.description) as data; context: $any(context)">
           {{ data }}
         </ng-container>
       </prizm-scrollbar>
@@ -75,8 +75,8 @@
         [size]="button.size"
         [iconRight]="button.iconRight"
         [icon]="button.icon"
-        [disabled]="button.disabled ?? false | prizmToObservable | async"
-        [showLoader]="button.showLoader ?? false | prizmToObservable | async"
+        [disabled]="$any(button.disabled ?? false | prizmToObservable | async)"
+        [showLoader]="$any(button.showLoader ?? false | prizmToObservable | async)"
         (click)="button.action(context)"
         prizmButton
       >

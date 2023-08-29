@@ -5,7 +5,7 @@
   [yField]="yField"
   [seriesField]="seriesField"
   [options]="options"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
   xField="product_type"
   yField="order_amt"
   seriesField="product_sub_type"

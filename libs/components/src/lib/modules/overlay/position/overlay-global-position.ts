@@ -27,17 +27,17 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
   }
 
   public getPositions(hostEl?: HTMLElement, parent?: HTMLElement): any {
-    const host = hostEl.getBoundingClientRect() as any;
+    const host = hostEl?.getBoundingClientRect() as any;
     const src = {
       width: parent?.offsetWidth ?? window['innerWidth'],
       height: parent?.offsetHeight ?? window['innerHeight'],
     };
     let { width: w, height: h } = this.config;
 
-    w = setWidthHeight(src, host, 'width', w);
-    h = setWidthHeight(src, host, 'height', h);
+    w = setWidthHeight(src, host, 'width', w as any);
+    h = setWidthHeight(src, host, 'height', h as any);
 
-    const props = this.calc(this.config.placement, src, host);
+    const props = this.calc(this.config.placement as any, src, host);
     return {
       ...props,
       width: w,

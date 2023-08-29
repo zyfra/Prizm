@@ -80,7 +80,7 @@ export class PrizmCalendarRangeComponent
   value: PrizmDayRange | null = null;
 
   @Output()
-  readonly valueChange = new EventEmitter<PrizmDayRange | null>();
+  readonly valueChange = new EventEmitter<PrizmDayRange>();
 
   /** @deprecated TODO: 2.0 remove */
   @Output()
@@ -171,7 +171,7 @@ export class PrizmCalendarRangeComponent
 
   public updateValue(value: PrizmDayRange | null): void {
     this.value = value;
-    this.valueChange.emit(value);
+    this.valueChange.emit(value as PrizmDayRange);
     this.rangeChange.emit(value);
   }
 

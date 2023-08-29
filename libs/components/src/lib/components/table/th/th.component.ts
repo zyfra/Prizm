@@ -109,7 +109,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
 
   public updateSorter(event: MouseEvent): void {
     event.preventDefault();
-    const newOrder = this.sorterService.nextOrder(this.key as string);
+    const newOrder = this.sorterService.nextOrder(this.key as string) as any;
     if (event.ctrlKey || event.metaKey) {
       this.sorterService.remove(this.key as string);
     } else
@@ -119,7 +119,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
             id: this.key as string,
             order: newOrder,
           },
-          sorter: this.sorter,
+          sorter: this.sorter as any,
         },
         !event.shiftKey
       );

@@ -30,7 +30,7 @@ export class TabsExampleComponent {
   public canOpen: PrizmTabCanOpen = this.canOpenVariants[0];
   public sizeVariants: PrizmTabSize[] = ['s', 'adaptive'];
   public content = 'Big Tab #1';
-  iconVariants: string[] = ['', ...IconDefs.reduce((a, c) => a.concat(c.data), [])];
+  iconVariants: string[] = ['', ...IconDefs.reduce((a: any[], c) => a.concat(c.data), [])];
   icon: string = this.iconVariants[0];
   closeIcon: string | null = null;
   public closable = false;

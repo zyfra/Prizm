@@ -42,6 +42,8 @@ function foo() {
 
     const result = ts.transform(sourceFile, [transformer]);
     const printer = ts.createPrinter();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
 
     expect(transformedCode.trim()).toContain('new import');

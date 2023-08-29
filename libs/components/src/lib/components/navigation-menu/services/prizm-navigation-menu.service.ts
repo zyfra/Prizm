@@ -140,11 +140,11 @@ export class PrizmNavigationMenuService<
   }
 
   public getUserItem(internalItem: InternalPrizmNavigationMenuItem<UserItem>): UserItem {
-    return this.internalToUserMap.get(internalItem);
+    return this.internalToUserMap.get(internalItem) as UserItem;
   }
 
   public getInternalItem(userItem: UserItem): InternalPrizmNavigationMenuItem<UserItem> {
-    return this.userToInternalMap.get(userItem);
+    return this.userToInternalMap.get(userItem) as InternalPrizmNavigationMenuItem<UserItem>;
   }
 
   /** EXPANDED RELATED */
@@ -158,7 +158,7 @@ export class PrizmNavigationMenuService<
   }
 
   public getGroupIsExpanded(groupId: string): boolean {
-    return this.expandedGroupsMap$$.value.get(groupId);
+    return Boolean(this.expandedGroupsMap$$.value.get(groupId));
   }
 
   public handleExpandedChanged(event: {
@@ -206,10 +206,11 @@ export class PrizmNavigationMenuService<
   public handleActiveItemChange(internalItem: InternalPrizmNavigationMenuItem<UserItem>): void {
     if (internalItem.isRubricator) return;
 
-    const userItem = internalItem.breadcrumbs[internalItem.breadcrumbs.length - 1];
+    const breadcrumbs = internalItem.breadcrumbs ?? [];
+    const userItem = breadcrumbs[breadcrumbs.length - 1];
     this.activeItem$$.next(internalItem);
     this.activeItemChangedEvent$.next(userItem);
-    this.breadCrumbsChangedEvent$.next(internalItem.breadcrumbs);
+    this.breadCrumbsChangedEvent$.next(internalItem.breadcrumbs ?? []);
   }
 
   /** CONFIGURATION RELATED */
@@ -268,7 +269,7 @@ export class PrizmNavigationMenuService<
         original: item,
         groupId,
         parent,
-        breadcrumbs: parent ? [...parent.breadcrumbs, item] : [item],
+        breadcrumbs: parent ? [...(parent.breadcrumbs ?? []), item] : [item],
         children: undefined,
       };
 
@@ -282,7 +283,7 @@ export class PrizmNavigationMenuService<
       original: item,
       groupId,
       parent,
-      breadcrumbs: parent ? [...parent.breadcrumbs, item] : [item],
+      breadcrumbs: parent ? [...(parent.breadcrumbs ?? []), item] : [item],
       children: [],
     };
     internalWithMappedChildren.children = item.children.map(child =>

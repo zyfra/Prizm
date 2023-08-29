@@ -30,7 +30,7 @@ export class PrizmAddAttributeTemplateTask extends PrizmAstTaskTemplate<IPrizmAd
 
     const newValue =
       payload.passValue && context.originName
-        ? prizmAstFindAttributeWithType(context.attrName, node.attrs)?.value
+        ? prizmAstFindAttributeWithType(context.attrName as any, node.attrs)?.value
         : null;
 
     // Return a new PrizmNode object with the added attribute

@@ -3,12 +3,12 @@
     <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? 8 + 16 * deep : 0">
       <prizm-icon [iconClass]="menuItem?.icon || 'files-folder'"></prizm-icon>
     </div>
-    <span class="nav__title">{{ menuItem.title }}</span>
+    <span class="nav__title">{{ menuItem?.title }}</span>
 
     <div class="nav__status">
       <div
         class="indicator {{
-          menuItem?.indicatorStatus && !isExpanded ? 'indicator_' + menuItem.indicatorStatus : ''
+          menuItem?.indicatorStatus && !isExpanded ? 'indicator_' + menuItem?.indicatorStatus : ''
         }}"
       ></div>
     </div>
@@ -25,7 +25,7 @@
       [deep]="deep + 1"
     ></prizm-navigation-item> -->
 
-    <ng-container *ngFor="let item of menuItem.children">
+    <ng-container *ngFor="let item of menuItem?.children ?? []">
       <prizm-navigation-item-simple
         *ngIf="!item?.children"
         [data]="item"
@@ -33,7 +33,7 @@
       ></prizm-navigation-item-simple>
 
       <prizm-navigation-item-expandable
-        *ngIf="item?.children?.length > 0"
+        *ngIf="$any(item?.children?.length) > 0"
         [data]="item"
         [deep]="deep + 1"
       ></prizm-navigation-item-expandable>

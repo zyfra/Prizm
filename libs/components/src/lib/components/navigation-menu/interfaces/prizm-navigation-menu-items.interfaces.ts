@@ -9,16 +9,16 @@ export interface PrizmNavigationMenuGroup {
 
 export interface PrizmNavigationMenuItem {
   text: string;
-  extraTemplate?: TemplateRef<unknown>;
-  icon?: string;
+  extraTemplate?: TemplateRef<unknown> | null;
+  icon?: string | null;
   children?: PrizmNavigationMenuItem[];
 }
 
 export interface InternalPrizmNavigationMenuItem<T = any> extends PrizmNavigationMenuItem {
-  groupId: string;
+  groupId: string | null;
   parent: InternalPrizmNavigationMenuItem | null;
-  breadcrumbs: T[];
-  original: T;
+  breadcrumbs: T[] | null;
+  original: T | null;
   isRubricator?: boolean;
   children?: InternalPrizmNavigationMenuItem[];
 }

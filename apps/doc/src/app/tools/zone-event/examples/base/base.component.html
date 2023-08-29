@@ -3,7 +3,7 @@
 <div
   class="zone"
   #prizmZoneEvent1="prizmZoneEvent"
-  [zoneActive]="activeControl.value"
+  [zoneActive]="!!activeControl.value"
   (zoneInsideEvent)="log('Клик внутри зоны 1')"
   (zoneOutsideEvent)="log('Клик вне зоны 1', true)"
   prizmZoneEvent
@@ -15,7 +15,7 @@
 
 <div
   class="zone"
-  [zoneActive]="activeControl.value"
+  [zoneActive]="!!activeControl.value"
   [parentZone]="prizmZoneEvent1"
   (zoneInsideEvent)="log('Клик внутри зоны 2')"
   (zoneOutsideEvent)="log('Клик вне зоны 2', true)"

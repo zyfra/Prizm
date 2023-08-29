@@ -28,7 +28,7 @@ export class PrizmSplitterAreaComponent extends PrizmAbstractTestId {
   @Input() set size(value: number | null) {
     if (value === null) {
       this.hide();
-      this.setSize(value);
+      this.setSize(value ?? 0);
       this.setCurrentSize(0);
     }
 

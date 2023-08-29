@@ -1,8 +1,8 @@
 <prizm-select
-  [items]="items$ | async"
+  [items]="$any(items$ | async)"
   [searchable]="true"
   [searchMatcher]="searchMatcher"
   [formControl]="control"
-  (searchChange)="search($event)"
+  (searchChange)="search($any($event))"
   icon="sort-zoom-in"
 ></prizm-select>

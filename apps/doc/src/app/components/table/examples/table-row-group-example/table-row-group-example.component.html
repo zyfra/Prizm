@@ -10,7 +10,7 @@
     </thead>
 
     <tbody [data]="products1" prizmTbody heading="Группа 1">
-      <tr class="row" *prizmRow="let item of products1; let i = index" [status]="item.status" prizmTr>
+      <tr class="row" *prizmRow="let item of products1; let i = index" [status]="$any(item.status)" prizmTr>
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" [status]="i === 8 ? 'danger' : 'default'" prizmTd>{{ item.category }}</td>
@@ -19,7 +19,7 @@
     </tbody>
 
     <tbody [data]="products2" prizmTbody heading="Группа 2">
-      <tr class="row" *prizmRow="let item of products2; let i = index" [status]="item.status" prizmTr>
+      <tr class="row" *prizmRow="let item of products2; let i = index" [status]="$any(item.status)" prizmTr>
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>

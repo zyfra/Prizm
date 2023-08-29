@@ -37,7 +37,7 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
 
   @HostBinding('attr.prizm-dialog-id')
   public get id(): string {
-    return this.context.id;
+    return this.context.id as string;
   }
 
   @HostBinding('@prizmSlideInTop')
@@ -60,17 +60,15 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
   public get footer():
     | PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>
     | PrizmDialogButton<O, PrizmDialogOptions<O, DATA>>[] {
-    return (
-      this.context.footer ?? [
-        {
-          size: this.context.size,
-          action: (ctx: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>): void => {
-            ctx.completeWith(null);
-          },
-          text: this.context.closeWord,
+    return (this.context.footer ?? [
+      {
+        size: this.context.size,
+        action: (ctx: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>): void => {
+          ctx.completeWith(null as any);
         },
-      ]
-    );
+        text: this.context.closeWord,
+      },
+    ]) as any;
   }
 
   private readonly animation = {

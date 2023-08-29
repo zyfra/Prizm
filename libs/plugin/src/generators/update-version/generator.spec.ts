@@ -49,6 +49,9 @@ describe('nx-plugin:generator update-version', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       expect(packageJson.version).toBe(newVersion);
     });
@@ -63,6 +66,9 @@ describe('nx-plugin:generator update-version', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       if (project.name === 'project1') {
         expect(packageJson.version).toBe(expectedVersion);
@@ -81,6 +87,9 @@ describe('nx-plugin:generator update-version', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       if (project.name === 'project1') {
         expect(packageJson.version).toBe(expectedVersion);
@@ -99,6 +108,9 @@ describe('nx-plugin:generator update-version', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       if (project.name === 'project1') {
         expect(packageJson.version).toBe(expectedVersion);
@@ -117,6 +129,9 @@ describe('nx-plugin:generator update-version', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       if (project.name === 'project1') {
         expect(packageJson.version).toBe(newVersion);
@@ -135,6 +150,8 @@ describe('nx-plugin:generator update-version', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       if (project.name === 'project2') {
         expect(packageJson.version).toBe(newVersion);

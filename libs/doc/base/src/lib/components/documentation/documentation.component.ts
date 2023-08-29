@@ -45,7 +45,7 @@ import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
       useFactory: (): PrizmHostComponentInfo =>
         new BehaviorSubject({
           key: 'index',
-        }),
+        }) as PrizmHostComponentInfo,
     },
   ],
   animations: [
@@ -63,7 +63,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
     this.prizmHostComponentInfo,
     this.prizmDocHostElementListenerService.checkInfo$,
   ]).pipe(
-    filter(([key, event]) => event.key === key.key),
+    filter(([key, event]) => event.key === key?.key),
     map(([, event]) => {
       return (
         event.unnecessaryOutputs.length === 0 &&
@@ -79,7 +79,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
   public get hostComponentKey(): string {
-    return this.prizmHostComponentInfo.value?.key;
+    return this.prizmHostComponentInfo.value?.key as string;
   }
 
   @Input()

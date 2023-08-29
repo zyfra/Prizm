@@ -61,7 +61,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data ?? []);
+    this.items$.next((data as any) ?? []);
   }
   get items(): T[] {
     return this.items$.value;
@@ -309,7 +309,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
-    this.updateValue(null);
+    this.updateValue(null as any);
     this.markAsTouched();
   }
 
@@ -334,7 +334,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     const open = !this.opened$$.value && !this.disabled && !!inputElement;
     this.opened$$.next(open);
   }

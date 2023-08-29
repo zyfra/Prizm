@@ -5,7 +5,7 @@ import { Compare } from '@prizm-ui/helpers';
 
 @Injectable()
 export class PrizmTableTreeService {
-  public readonly showDirectChildrenMap = new Map<number, boolean>();
+  public readonly showDirectChildrenMap = new Map<number, boolean | null>();
   private readonly showAllChildrenMap = new Map<number, boolean>();
   private readonly changes$$ = new ReplaySubject(1);
   public readonly changes$ = this.changes$$.asObservable();
@@ -58,6 +58,8 @@ export class PrizmTableTreeService {
     return [
       ...allCurrentIdChildren,
       ...allCurrentIdChildren.reduce((base, idx) => {
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         base.push(...this.findAllChildren(idx, flipped));
         return base;
       }, []),

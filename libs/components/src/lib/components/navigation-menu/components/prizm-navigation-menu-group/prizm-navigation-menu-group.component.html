@@ -1,8 +1,8 @@
 <div class="prizm-navigation-menu-group">
   <prizm-accordion *ngIf="!hideGroupAppearance; else noGroupAppearanceTemplate">
     <prizm-accordion-item
-      [icon]="icon"
-      [title]="title"
+      [icon]="$any(icon)"
+      [title]="$any(title)"
       [isExpanded]="groupIsExpanded"
       (isExpandedChange)="handleGroupExpandedChanged($event)"
     >
@@ -19,19 +19,19 @@
 
 <ng-template #itemsTemplate>
   <prizm-navigation-menu-toolbar
-    [searchConfig]="searchConfig$ | async"
-    [toolbarConfig]="toolbarConfig$ | async"
+    [searchConfig]="$any(searchConfig$ | async)"
+    [toolbarConfig]="$any(toolbarConfig$ | async)"
     [toolbarExtraTemplate]="toolbarExtraTemplate"
-    [hideGroupAppearance]="hideGroupAppearance"
+    [hideGroupAppearance]="$any(hideGroupAppearance)"
   ></prizm-navigation-menu-toolbar>
   <ng-container *ngIf="groupItems$ | async as groupItems">
     <prizm-navigation-menu-items
       [items]="groupItems"
-      [itemExtraTemplate]="itemExtraTemplate"
+      [itemExtraTemplate]="$any(itemExtraTemplate)"
       [childrenHandler]="childrenHandler"
-      [expandedItemsMap]="expandedItemsMap$ | async"
-      [activeItem]="activeItem$ | async"
-      [mode]="mode$ | async"
+      [expandedItemsMap]="$any(expandedItemsMap$ | async)"
+      [activeItem]="$any(activeItem$ | async)"
+      [mode]="$any(mode$ | async)"
       (activeItemChanged)="handleActiveItemChange($event)"
       (itemExpandedChanged)="handleItemExpandedChanged($event)"
       (goToParentItem)="handleGoToParentItem($event)"

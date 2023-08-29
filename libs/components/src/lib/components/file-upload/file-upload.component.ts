@@ -61,7 +61,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   @Input() set progress(progress: PrizmFilesProgress) {
     for (const key of Object.keys(progress)) {
       if (this.filesMap.has(key)) {
-        this.filesMap.set(key, { ...this.filesMap.get(key), ...progress[key] });
+        this.filesMap.set(key, { ...this.filesMap.get(key), ...progress[key] } as any);
       }
     }
   }
@@ -106,7 +106,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     event.preventDefault();
 
     if (this.disabled === false) {
-      const { files } = event.dataTransfer;
+      const { files } = event.dataTransfer as any;
       this.selectFiles(Array.from(files));
     }
 
@@ -114,7 +114,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   }
 
   public onFileInputChange(event: Event): void {
-    const inputFile = event.target as HTMLInputElement;
+    const inputFile = event.target as HTMLInputElement as any;
 
     if (inputFile.files.length > 0) {
       this.selectFiles(Array.from(inputFile.files));
@@ -130,7 +130,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     if (options.emitEvent) {
       this.beforeFilesChange.next();
     }
-    const fileData = this.filesMap.get(filename);
+    const fileData = this.filesMap.get(filename) as any;
     if (fileData.url) {
       URL.revokeObjectURL(fileData.url);
     }
@@ -172,7 +172,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   }
 
   public getStage(filename: string): { cssClass: keyof PrizmFileUploadOptions['statusNames']; name: string } {
-    const { error, progress } = this.filesMap.get(filename);
+    const { error, progress } = this.filesMap.get(filename) as any;
 
     if (error) {
       return { cssClass: 'warning', name: this.options.statusNames.warning };
@@ -190,15 +190,21 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   }
 
   public retryUpload(filename: string): void {
-    this.retry.emit(this.filesMap.get(filename).file);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    this.retry.emit(this.filesMap.get(filename).file) as any;
   }
 
   private dropzoneDragOverListener(event: DragEvent): void {
     event.preventDefault();
     if (this.disabled === false) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       event.dataTransfer.dropEffect = 'copy';
       this.dropzoneElementRef.nativeElement.classList.add('active');
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       event.dataTransfer.dropEffect = 'none';
     }
   }
@@ -231,7 +237,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
         file,
         progress: 0,
         error: false,
-        url: this.isImage(file) ? URL.createObjectURL(file) : null,
+        url: this.isImage(file) ? URL.createObjectURL(file) : (null as any),
       });
     }
 

@@ -45,7 +45,7 @@ export class ConfirmComponent implements AfterViewInit {
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+    ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
   ];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];

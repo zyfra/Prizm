@@ -3,5 +3,5 @@
   [xField]="xField"
   [yField]="yField"
   [options]="options"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
 ></prizm-charts-radar>

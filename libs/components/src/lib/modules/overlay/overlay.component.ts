@@ -100,9 +100,9 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     const compRef = this.compOutlet.createComponent(
       this.compResolver.resolveComponentFactory(this.content.data as any)
     );
-    Object.assign(compRef.instance, props);
+    Object.assign(compRef.instance as any, props);
     compRef.changeDetectorRef.detectChanges();
-    return compRef.instance;
+    return compRef.instance as any;
   }
 
   public updateTextContent(data: string): void {

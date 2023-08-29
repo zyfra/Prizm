@@ -13,7 +13,7 @@
     "lib": ["es2017", "dom", "ES2021.String"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "noImplicitOverride": true,
     "strictPropertyInitialization": false,
     "baseUrl": ".",
@@ -36,6 +36,12 @@
       "@prizm/test": ["libs/test/src/index.ts"],
       "nx-mv": ["libs/nxmv/src/index.ts"]
     }
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true
   },
   "exclude": ["node_modules", "tmp"]
 }

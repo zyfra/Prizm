@@ -8,7 +8,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
 })
 export class AreaComponent {
   height = 300;
-  width: number = null;
+  width: number | null = null;
   xField = 'x';
   yField = 'y';
   data = [

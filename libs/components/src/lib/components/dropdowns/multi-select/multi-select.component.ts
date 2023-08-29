@@ -68,7 +68,7 @@ export class PrizmMultiSelectComponent<T>
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data ?? []);
+    this.items$.next((data as any) ?? []);
   }
   get items(): T[] {
     return this.items$.value;
@@ -162,6 +162,8 @@ export class PrizmMultiSelectComponent<T>
   public readonly chipsControl = new UntypedFormControl([] as string[]);
 
   readonly filteredItems$: Observable<PrizmMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     switchMap(() =>
       combineLatest([
         this.searchInputControl.valueChanges.pipe(startWith('')),
@@ -342,7 +344,7 @@ export class PrizmMultiSelectComponent<T>
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     this.searchInputControl.setValue('');
     this.open =
       !this.open &&

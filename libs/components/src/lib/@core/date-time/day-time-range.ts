@@ -7,7 +7,7 @@ import { PrizmTime } from './time';
 export class PrizmDateTimeRange {
   constructor(
     public dayRange: PrizmDayRange,
-    public timeRange: PrizmTimeRange = new PrizmTimeRange(new PrizmTime(0, 0), new PrizmTime(0, 0))
+    public timeRange: PrizmTimeRange | null = new PrizmTimeRange(new PrizmTime(0, 0), new PrizmTime(0, 0))
   ) {}
 
   public static safeUpdateTimeFrom(origin: PrizmDateTimeRange | null, time: PrizmTime): PrizmDateTimeRange {

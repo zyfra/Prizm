@@ -11,7 +11,7 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class InputDateTimeTimeComponent {
   public readOnly = false;
-  val: [PrizmDay, PrizmTime];
+  val: any; //[PrizmDay, PrizmTime];
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;

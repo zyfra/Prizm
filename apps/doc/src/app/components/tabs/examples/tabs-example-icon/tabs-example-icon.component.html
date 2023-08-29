@@ -5,10 +5,10 @@
   <prizm-tabs (activeTabIndexChange)="tabClick()" type="contained">
     <prizm-tab
       *ngFor="let item of tabs"
-      [count]="item.count"
-      [icon]="item.icon"
-      [closable]="item.closable"
-      [disabled]="item.disabled"
+      [count]="$any(item.count)"
+      [icon]="$any(item.icon)"
+      [closable]="!!item.closable"
+      [disabled]="!!item.disabled"
     ></prizm-tab>
   </prizm-tabs>
 </div>

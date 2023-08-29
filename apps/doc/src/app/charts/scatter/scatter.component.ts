@@ -255,7 +255,7 @@ export class ScatterComponent {
       Result: '3',
     },
   ];
-  public width: number = null;
+  public width: number | null = null;
   public height = 300;
   public yField = 'Shot conceded';
   public xField = 'xG conceded';

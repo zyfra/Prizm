@@ -40,11 +40,11 @@ export class PrizmStepperComponent extends PrizmAbstractTestId implements AfterC
 
   steps$!: Observable<PrizmStepperStepDirective[]>;
   override readonly testId_ = 'ui_stepper';
-  get currentStepTemplate(): TemplateRef<any> {
+  get currentStepTemplate(): TemplateRef<any> | null {
     const currentStep = this.prizmStepperStepDirectiveQL.find(
       stepDirective => stepDirective.index === this.currentStep
     );
-    return currentStep.template;
+    return currentStep?.template ?? null;
   }
 
   public ngAfterContentInit(): void {

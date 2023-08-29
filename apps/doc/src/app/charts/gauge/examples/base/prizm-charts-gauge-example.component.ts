@@ -43,7 +43,10 @@ export class PrizmChartsGaugeExampleComponent {
     },
     statistic: {
       content: {
-        formatter: ({ percent }): string => `Rate: ${(percent * 100).toFixed(0)}%`,
+        formatter: (data): string => {
+          const percent = data?.percent ?? 0;
+          return `Rate: ${(percent * 100).toFixed(0)}%`;
+        },
         style: {
           color: 'var(--prizm-index-good)',
           fontSize: '24px',

@@ -10,7 +10,7 @@ import { IBreadcrumb } from '@prizm-ui/components';
 export class BreadcrumbsExampleBasicComponent {
   public breadcrumbs: IBreadcrumb[] = [{ name: 'Home' }, { name: 'Sweet' }, { name: 'Home' }];
 
-  private currentBreadcrumb: IBreadcrumb = null;
+  private currentBreadcrumb: IBreadcrumb | null = null;
 
   public breadcrumbChange(current: IBreadcrumb): void {
     this.currentBreadcrumb = current;

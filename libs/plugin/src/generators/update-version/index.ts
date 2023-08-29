@@ -22,7 +22,7 @@ export default async function (tree: Tree, schema: PluginUpdateVersionSchema): P
 
   // Получаем публикуемые проекты и фильтруем их на основе схемы (все проекты или указанные)
   const projectNamesWithPackageJson = prizmAstGetPublishableProjects(tree).filter(
-    i => schema.all || needProjects.includes(i.name)
+    i => schema.all || needProjects.includes(i.name as any)
   );
 
   // Обновляем версию выбранных проектов

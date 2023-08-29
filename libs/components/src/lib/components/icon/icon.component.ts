@@ -11,7 +11,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent extends PrizmAbstractTestId {
-  @Input() iconClass: string = null;
+  @Input() iconClass: string | null = null;
   @Input() size: string | number = 16;
 
   override get generateManeTestId(): string {

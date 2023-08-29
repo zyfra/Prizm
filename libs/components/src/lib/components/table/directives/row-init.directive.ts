@@ -48,7 +48,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
 
     if (typeof this.context.getRowId === 'function') {
       rowId = this.context.getRowId(this.context.item);
-      this.idxFromMap = this.tableRowService.getIdxById(rowId);
+      this.idxFromMap = this.tableRowService.getIdxById(rowId) as number;
     }
 
     if (Compare.isNullish(this.idxFromMap)) this.tableRowService.incrementIdx();
@@ -59,7 +59,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
     }
 
     if ('parentIdx' in this.context) {
-      this.treeService.addChildToParent(this.idx, this.context.parentIdx);
+      this.treeService.addChildToParent(this.idx, this.context.parentIdx as number);
     }
   }
 

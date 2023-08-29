@@ -74,7 +74,7 @@ export class PrizmSliderComponent
     if (Array.isArray(this._value)) {
       return [...this._value].sort((a, b) => a - b).map(item => Math.round(item)) as [number, number];
     } else {
-      return Math.round(this._value);
+      return Math.round(this._value ?? 0);
     }
   }
 
@@ -229,7 +229,7 @@ export class PrizmSliderComponent
         this.cnobPositions[i] = (currentStep / this.stepsCount) * 100;
       }
     } else {
-      const currentStep = Math.abs(this._value - this.min) / this.step;
+      const currentStep = Math.abs((this._value ?? 0) - this.min) / this.step;
       this.cnobPositions[1] = (currentStep / this.stepsCount) * 100;
     }
   }

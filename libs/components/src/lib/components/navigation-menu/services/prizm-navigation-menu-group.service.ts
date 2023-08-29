@@ -52,7 +52,7 @@ export class PrizmNavigationMenuGroupService<
 
   private viewMode$$ = new BehaviorSubject<ViewMode>('hierarchy');
 
-  private folderItem$$ = new BehaviorSubject<InternalPrizmNavigationMenuItem<UserItem | null>>(null);
+  private folderItem$$ = new BehaviorSubject<InternalPrizmNavigationMenuItem<UserItem | null> | null>(null);
 
   private persistentExpandedItemsMap$$ = new BehaviorSubject<
     Map<InternalPrizmNavigationMenuItem<UserItem>, boolean>
@@ -62,7 +62,7 @@ export class PrizmNavigationMenuGroupService<
 
   private internalItems$: Observable<InternalPrizmNavigationMenuItem<UserItem>[]> = this.groupId$$.pipe(
     filter(groupId => !!groupId),
-    switchMap(groupId => this.menuService.getGroupItems(groupId))
+    switchMap(groupId => this.menuService.getGroupItems(groupId as string))
   );
 
   private modeBasedItems$: Observable<InternalPrizmNavigationMenuItem<UserItem>[]> = combineLatest([
@@ -143,7 +143,7 @@ export class PrizmNavigationMenuGroupService<
   emptyDataMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
     this.menuService.emptyDataMessageConfig$;
 
-  get groupId(): string {
+  get groupId(): string | null {
     return this.groupId$$.value;
   }
 
@@ -170,6 +170,7 @@ export class PrizmNavigationMenuGroupService<
   }
 
   public goToParentFolder(item: InternalPrizmNavigationMenuItem<UserItem>): void {
+    item.breadcrumbs = item.breadcrumbs ?? [];
     const parentUserItem = item.breadcrumbs[item.breadcrumbs.length - 3];
     const parent = this.menuService.getInternalItem(parentUserItem);
 
@@ -226,20 +227,20 @@ export class PrizmNavigationMenuGroupService<
               return this.groupToolbarService.searchState$;
 
             case 'menu':
-              return this.menuToolbarService.searchState$;
+              return this.menuToolbarService?.searchState$ as any;
 
             case 'hierarchical':
             default:
               return combineLatest([
                 this.groupToolbarService.searchState$,
-                this.menuToolbarService.searchState$,
+                ...(this.menuToolbarService?.searchState$ ? [this.menuToolbarService?.searchState$] : []),
               ]).pipe(
                 map(([groupValue, menuValue]) => {
-                  if (groupValue.enabled) {
+                  if (groupValue?.enabled) {
                     return groupValue;
                   }
 
-                  if (menuValue.enabled) {
+                  if (menuValue?.enabled) {
                     return menuValue;
                   }
 
@@ -254,11 +255,11 @@ export class PrizmNavigationMenuGroupService<
         distinctUntilChanged(),
         takeUntil(this.destroy$)
       )
-      .subscribe(v => this.applySearchState(v));
+      .subscribe(v => this.applySearchState(v as any));
   }
 
   private configureViewMode(): void {
-    const menuViewMode$ = this.menuToolbarService.viewMode$.pipe(
+    const menuViewMode$ = this.menuToolbarService?.viewMode$.pipe(
       filter(menuViewMode => {
         if (menuViewMode === 'folder' && !this.toolbarConfig$$.value.folderMode) return false;
         if (menuViewMode === 'rubricator' && !this.toolbarConfig$$.value.rubricatorMode) return false;
@@ -267,7 +268,7 @@ export class PrizmNavigationMenuGroupService<
     );
 
     menuViewMode$
-      .pipe(
+      ?.pipe(
         withLatestFrom(this.viewMode$$),
         filter(([menuViewMode, currentViewMode]) => menuViewMode !== currentViewMode),
         takeUntil(this.destroy$)
@@ -288,7 +289,7 @@ export class PrizmNavigationMenuGroupService<
   }
 
   private clearExpandedItemsOnToolbarAction(): void {
-    this.menuToolbarService.closeAll$.pipe(takeUntil(this.destroy$)).subscribe(() => {
+    this.menuToolbarService?.closeAll$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.temporaryExpandedItemsMap.clear();
       this.menuService.clearExpandedItemsMap();
       this.closeAll$.next();
@@ -296,7 +297,7 @@ export class PrizmNavigationMenuGroupService<
 
     this.groupToolbarService.closeAll$.pipe(takeUntil(this.destroy$)).subscribe(() => {
       this.temporaryExpandedItemsMap.clear();
-      this.menuService.clearExpandedItemsMap(this.groupId);
+      this.menuService.clearExpandedItemsMap(this.groupId as string);
       this.closeAll$.next();
     });
   }

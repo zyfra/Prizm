@@ -92,7 +92,7 @@ export class PrizmTemplateTaskProcessor {
     }
 
     if (Array.isArray(task.selector)) {
-      return (
+      return Boolean(
         task.selector.find(item => {
           if (item.type === 'byAttr') {
             const result = Object.entries(item.attrs).map(([key, value]) => {
@@ -213,6 +213,8 @@ export class PrizmTemplateTaskProcessor {
 
     node.children = node.children?.map(childNode => this.processAction(childNode, task, newContext)) ?? [];
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (newNode)
       task.finishTasks?.forEach(action => {
         newNode = this.runAction(newNode, action, ({ task, sourceNode }) =>
@@ -255,7 +257,7 @@ export class PrizmTemplateTaskProcessor {
       storage: this.storage,
       task,
       processor: this,
-      type: key && prizmAstGetTypeOfAttribute(key),
+      type: key && (prizmAstGetTypeOfAttribute(key) as any),
       ...(newContext ?? {}),
     };
   }

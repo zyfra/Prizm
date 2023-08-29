@@ -24,8 +24,8 @@
       </tr>
     </thead>
 
-    <tbody [data]="filteredProducts$ | async" prizmTbody>
-      <tr class="row" *prizmRow="let item of filteredProducts$ | async; let i = index" prizmTr>
+    <tbody [data]="$any(filteredProducts$ | async)" prizmTbody>
+      <tr class="row" *prizmRow="let item of $any(filteredProducts$ | async); let i = index" prizmTr>
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>

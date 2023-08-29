@@ -18,7 +18,7 @@
         [options]="options"
         [xField]="xField"
         [yField]="yField"
-        [theme]="prizmTheme.changesTheme$ | async"
+        [theme]="$any(prizmTheme.changesTheme$ | async)"
       ></prizm-charts-waterfall>
     </prizm-doc-demo>
     <prizm-doc-documentation>

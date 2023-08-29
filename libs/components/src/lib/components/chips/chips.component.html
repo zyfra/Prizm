@@ -2,7 +2,7 @@
   class="chips-list"
   #prizmElementReady="prizmElementReady"
   #parent
-  *ngIf="(chipsList$ | async).length"
+  *ngIf="!!(chipsList$ | async)?.length"
   [class.hidden]="singleLine"
   [checker]="ready"
   prizmElementReady
@@ -14,7 +14,7 @@
       [ngTemplateOutletContext]="{
         item: item,
         idx: i,
-        allChipsCount: (chipsList$ | async).length,
+        allChipsCount: (chipsList$ | async)?.length ?? 0,
         parent: parent,
         singleLine: singleLine
       }"

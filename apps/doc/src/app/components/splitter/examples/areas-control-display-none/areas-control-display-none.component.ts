@@ -7,10 +7,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSplitterAreasControlDisplayNoneExampleComponent {
-  area1Size = 25;
+  area1Size: number | null = 25;
   area2Size = 25;
   area3Size = 25;
-  area4Size = 25;
+  area4Size: number | null = 25;
 
   public change(): void {
     if (this.area1Size !== null) {

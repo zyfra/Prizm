@@ -81,16 +81,16 @@ export class NavigationMenuExampleComponent {
     closeAll: true,
   };
 
-  toolbarExtraTemplate: TemplateRef<any> = null;
-  itemExtraTemplate: TemplateRef<any> = null;
-  headerExtraTemplate: TemplateRef<any> = null;
+  toolbarExtraTemplate: TemplateRef<any> | null = null;
+  itemExtraTemplate: TemplateRef<any> | null = null;
+  headerExtraTemplate: TemplateRef<any> | null = null;
   activeItem: any = null;
   itemKeyName = 'id';
   expandedItemsMap = new Map<any, boolean>();
   expandedGroupsMap = new Map<string, boolean>();
-  emptySearchResultMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
-  emptyDataMessageConfig: PrizmNavigationMenuEmptyMessageConfig = null;
-  searchConfig: PrizmNavigationMenuSearchConfig = null;
+  emptySearchResultMessageConfig: PrizmNavigationMenuEmptyMessageConfig | null = null;
+  emptyDataMessageConfig: PrizmNavigationMenuEmptyMessageConfig | null = null;
+  searchConfig: PrizmNavigationMenuSearchConfig | null = null;
   settingsConfig: PrizmNavigationMenuSettingsConfig = {};
-  headerConfig: PrizmNavigationMenuHeaderConfig = null;
+  headerConfig: PrizmNavigationMenuHeaderConfig | null = null;
 }

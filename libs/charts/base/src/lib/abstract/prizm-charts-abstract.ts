@@ -19,7 +19,7 @@ export abstract class PrizmChartsAbstractComponent<
     } as unknown as OPTIONS);
   }
   get width(): number | null {
-    return this.options.width;
+    return this.options.width ?? null;
   }
 
   @HostBinding('style.height.px')
@@ -31,7 +31,7 @@ export abstract class PrizmChartsAbstractComponent<
     } as unknown as OPTIONS);
   }
   get height(): number {
-    return this.options.height;
+    return this.options.height as number;
   }
 
   public abstract readonly name: string;

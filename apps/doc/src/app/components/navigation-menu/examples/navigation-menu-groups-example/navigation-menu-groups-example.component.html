@@ -32,7 +32,7 @@
       [groupId]="group.title"
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
-      [toolbarConfig]="group.toolbarConfig"
+      [toolbarConfig]="$any(group.toolbarConfig)"
       top
     ></prizm-navigation-menu-group>
     <prizm-navigation-menu-group
@@ -42,7 +42,7 @@
       [groupId]="group.title"
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
-      [toolbarConfig]="group.toolbarConfig"
+      [toolbarConfig]="$any(group.toolbarConfig)"
       [searchConfig]="{ searchSource: 'group' }"
       [emptySearchResultMessageConfig]="{
         title: 'This could be configured',
@@ -57,7 +57,7 @@
       [groupId]="group.title"
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
-      [toolbarConfig]="group.toolbarConfig"
+      [toolbarConfig]="$any(group.toolbarConfig)"
       top
     ></prizm-navigation-menu-group>
     <prizm-navigation-menu-group
@@ -66,7 +66,7 @@
       [groupId]="group.title"
       [items]="group.items"
       [itemExtraTemplate]="itemExtraTemplate"
-      [toolbarConfig]="group.toolbarConfig"
+      [toolbarConfig]="$any(group.toolbarConfig)"
       bottom
     ></prizm-navigation-menu-group>
   </prizm-navigation-menu>

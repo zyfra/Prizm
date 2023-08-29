@@ -2,5 +2,5 @@
   [autoFit]="true"
   [data]="data"
   [options]="{ smooth: true, xAxis: { tickCount: 5 } }"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
 ></prizm-charts-line>

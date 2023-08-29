@@ -69,7 +69,7 @@ import { prizmI18nInitWithKey, prizmI18nInitWithKeys } from '../../../services';
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
-  extends PrizmInputNgControl<[PrizmDay | null, PrizmTime | null]>
+  extends PrizmInputNgControl<[PrizmDay | null, PrizmTime | null] | null>
   implements AfterViewInit
 {
   readonly nativeElementType = 'input-date-time';
@@ -147,14 +147,14 @@ export class PrizmInputLayoutDateTimeComponent
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     @Optional()
     @Inject(PRIZM_DATE_TIME_VALUE_TRANSFORMER)
-    valueTransformer: PrizmControlValueTransformer<[PrizmDay | null, PrizmTime | null]> | null
+    valueTransformer: PrizmControlValueTransformer<[PrizmDay | null, PrizmTime | null] | null> | null
   ) {
     super(injector, valueTransformer);
     this.extraButtonInjector = injector;
   }
 
   ngAfterViewInit(): void {
-    this.focusableElement.blur$
+    this.focusableElement?.blur$
       .pipe(
         debounceTime(0),
         filterTruthy(),
@@ -196,7 +196,7 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   public get focused(): Observable<boolean> {
-    return this.focusableElement?.focused$;
+    return this.focusableElement?.focused$ ?? of(false);
   }
 
   get fillerLength(): number {
@@ -247,7 +247,7 @@ export class PrizmInputLayoutDateTimeComponent
   };
 
   get calendarValue(): PrizmDay | null {
-    return this.value[0];
+    return this.value?.[0] as any;
   }
 
   get calendarMinDay(): PrizmDay {
@@ -259,7 +259,7 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   get computedActiveYearMonth(): PrizmMonth {
-    return this.month || this.value[0] || this.defaultActiveYearMonth;
+    return this.month || this.value?.[0] || this.defaultActiveYearMonth;
   }
 
   public onDateValueChange(value: string): void {
@@ -286,7 +286,7 @@ export class PrizmInputLayoutDateTimeComponent
         this.max instanceof PrizmDay ? this.max : this.max && this.max[0]
       );
 
-    if (time) time = this.timeLimit([date, time]);
+    if (time) time = this.timeLimit([date as any, time]);
 
     this.updateValue([date, time]);
   }
@@ -296,7 +296,7 @@ export class PrizmInputLayoutDateTimeComponent
     this.nativeValue$$.next([this.nativeValue$$.value[0], value]);
 
     if (!value || value.length < this.timeMaskOptions.length) {
-      if (!value) this.updateValue([this.value[0] ?? null, null]);
+      if (!value) this.updateValue([this.value?.[0] ?? null, null]);
       return;
     }
 
@@ -338,7 +338,7 @@ export class PrizmInputLayoutDateTimeComponent
 
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
     const modifiedTime =
-      time ?? (this.value[1] && this.prizmClampTime(this.value[1], day)) ?? new PrizmTime(0, 0);
+      time ?? (this.value?.[1] && this.prizmClampTime(this.value?.[1] as any, day)) ?? new PrizmTime(0, 0);
     this.updateValue([day, modifiedTime]);
     this.open = false;
     this.changeDetectorRef.markForCheck();
@@ -347,7 +347,7 @@ export class PrizmInputLayoutDateTimeComponent
   public getTemplate(
     openTimeTemplate: TemplateRef<unknown>,
     dropdownTimeTemplate: TemplateRef<unknown>
-  ): TemplateRef<any> {
+  ): TemplateRef<any> | null {
     if (!this.open && !this.openTimeTemplate) return null;
     if (this.openTimeTemplate) return openTimeTemplate;
     return dropdownTimeTemplate;
@@ -363,7 +363,7 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
-    super.writeValue(value);
+    super.writeValue(value as any);
     this.nativeValue$$.next(['', '']);
   }
 
@@ -418,8 +418,8 @@ export class PrizmInputLayoutDateTimeComponent
     ev.preventDefault();
     ev.stopPropagation();
 
-    if (!(this.value[1] && item.isSameTime(this.value[1])))
-      this.onDayClick(this.value[0] ?? PrizmDay.currentLocal(), item);
+    if (!(this.value?.[1] && item.isSameTime(this.value?.[1])))
+      this.onDayClick(this.value?.[0] ?? PrizmDay.currentLocal(), item);
 
     this.openTimeTemplate = this.open = false;
     this.changeDetectorRef.markForCheck();

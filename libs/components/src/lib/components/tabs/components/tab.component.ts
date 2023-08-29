@@ -29,8 +29,8 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 })
 export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
-  @Input() icon: PolymorphContent<PrizmTabContext> = null;
-  @Input() content: PolymorphContent<PrizmTabContext> = null;
+  @Input() icon: PolymorphContent<PrizmTabContext> | null = null;
+  @Input() content: PolymorphContent<PrizmTabContext> | null = null;
   @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
   @Input() count = 0;
   @Input() closable: boolean;
@@ -90,7 +90,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
       .pipe(
         filter(() => this.isMainProjectedTab()),
         tap(() => {
-          const currentDomIdx = Array.from(this.el.nativeElement.parentElement.children).indexOf(
+          const currentDomIdx = Array.from(this.el.nativeElement.parentElement?.children ?? []).indexOf(
             this.el.nativeElement
           );
           this.tabsService.updateTab(this, currentDomIdx);

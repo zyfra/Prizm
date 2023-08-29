@@ -77,7 +77,7 @@ export class PrizmNavigationMenuItemsComponent<
   }
 
   public getItemIsExpanded(item: InternalPrizmNavigationMenuItem<T>): boolean {
-    return this.expandedItemsMap.get(item);
+    return this.expandedItemsMap.get(item) ?? false;
   }
 
   public getItemIsActive(item: InternalPrizmNavigationMenuItem<T>): boolean {
