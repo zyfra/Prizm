@@ -42,6 +42,7 @@ function foo() {
 
     const result = ts.transform(sourceFile, [transformer]);
     const printer = ts.createPrinter();
+    // @ts-ignore
     const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
 
     expect(transformedCode.trim()).toContain('new import');

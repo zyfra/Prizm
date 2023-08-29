@@ -22,6 +22,7 @@ xdescribe('PrizmDialog', () => {
     const r = await result.toPromise();
 
     expect(r).toBeTruthy();
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
@@ -53,6 +54,7 @@ xdescribe('PrizmDialog', () => {
     const r = await result.pipe(take(1)).toPromise();
 
     expect(r).toBe(h);
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
@@ -67,6 +69,7 @@ xdescribe('PrizmDialog', () => {
     const r = await result.pipe(take(1)).toPromise();
 
     expect(r).toBe(content);
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
