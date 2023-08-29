@@ -33,7 +33,7 @@
       ></prizm-navigation-item-simple>
 
       <prizm-navigation-item-expandable
-        *ngIf="(item?.children?.length ?? 0) > 0"
+        *ngIf="$any(item?.children?.length) > 0"
         [data]="item"
         [deep]="deep + 1"
       ></prizm-navigation-item-expandable>
