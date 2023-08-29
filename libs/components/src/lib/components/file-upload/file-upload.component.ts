@@ -190,6 +190,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   }
 
   public retryUpload(filename: string): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.retry.emit(this.filesMap.get(filename).file) as any;
   }
@@ -197,10 +198,12 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   private dropzoneDragOverListener(event: DragEvent): void {
     event.preventDefault();
     if (this.disabled === false) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       event.dataTransfer.dropEffect = 'copy';
       this.dropzoneElementRef.nativeElement.classList.add('active');
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       event.dataTransfer.dropEffect = 'none';
     }

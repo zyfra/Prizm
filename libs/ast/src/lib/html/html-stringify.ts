@@ -14,9 +14,11 @@ export function attrToString(attrs: PrizmHtmlAttr): string {
   // Итерация по объекту атрибутов и добавление пар атрибут-значение в массив
   for (const key in attrs) {
     if (attrs[key] === null) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       buff.push(key as any);
-      //@ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
     } else buff.push(key + '="' + attrs[key] + '"');
   }
 

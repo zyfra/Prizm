@@ -348,6 +348,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
           }
 
           this.updateWithCorrectDateAndTime(
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             fromValue && fromValue.length === this.computedDateMask.length && fromValue,
             toValue && toValue.length === this.computedDateMask.length && toValue,

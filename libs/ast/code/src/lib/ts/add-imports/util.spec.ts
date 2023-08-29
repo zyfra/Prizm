@@ -1,3 +1,4 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
 import * as ts from 'typescript';
 import { prizmAstAddImportIfNeeded } from './util';
@@ -44,6 +45,7 @@ function foo() {
 
     const result = ts.transform(sourceFile, [transformer]);
     const printer = ts.createPrinter() as any;
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     const transformedCode = printer.printNode(ts.EmitHint.Unspecified, result.transformed[0], sourceFile);
 

@@ -183,6 +183,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
           }),
           map(items => {
             if (this.nullContent && items?.length && items[0] !== null) {
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
               items = [null, ...items];
             }

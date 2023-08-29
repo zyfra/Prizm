@@ -213,6 +213,7 @@ export class PrizmTemplateTaskProcessor {
 
     node.children = node.children?.map(childNode => this.processAction(childNode, task, newContext)) ?? [];
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     if (newNode)
       task.finishTasks?.forEach(action => {

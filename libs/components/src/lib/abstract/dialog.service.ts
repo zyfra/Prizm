@@ -117,6 +117,7 @@ export abstract class AbstractPrizmDialogService<
     control: PrizmOverlayControl,
     destroy$: Observable<void>
   ): void {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     control.viewEl.style.pointerEvents = 'unset';
     this.overscrollService

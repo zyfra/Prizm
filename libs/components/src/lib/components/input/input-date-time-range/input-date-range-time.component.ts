@@ -221,10 +221,12 @@ export class PrizmInputDateTimeRangeComponent
 
     PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmTime>(
       origin,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       (value: PrizmDateTimeRange) => value?.timeRange?.from,
       ($event: PrizmTime) => {
         const value = PrizmFormControlHelpers.getValue<PrizmDateTimeRange>(origin);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         value.timeRange.from = $event;
         return this.value?.copy();
@@ -236,10 +238,12 @@ export class PrizmInputDateTimeRangeComponent
 
     PrizmFormControlHelpers.syncValues<PrizmDateTimeRange, PrizmTime>(
       origin,
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       (value: PrizmDateTimeRange) => value?.timeRange?.to,
       ($event: PrizmTime) => {
         const value = PrizmFormControlHelpers.getValue<PrizmDateTimeRange>(origin);
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         value.timeRange.to = $event;
         return this.value?.copy();

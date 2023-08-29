@@ -208,6 +208,7 @@ export class PrizmInputLayoutComponent
       statusIcon = 'alerts-info-circle-fill';
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     this.statusIcon = statusIcon;
   }

@@ -65,6 +65,7 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
     return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
 
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   stringify: (i: Omit<PrizmMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
     if (i.obj == null && nullContent) return nullContent;

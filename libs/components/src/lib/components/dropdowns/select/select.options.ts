@@ -69,6 +69,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   stringify: (i: unknown, nullContent: string) => {
     if (i == null && nullContent) return nullContent;

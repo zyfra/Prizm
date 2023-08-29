@@ -162,6 +162,7 @@ export class PrizmMultiSelectComponent<T>
   public readonly chipsControl = new UntypedFormControl([] as string[]);
 
   readonly filteredItems$: Observable<PrizmMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     switchMap(() =>
       combineLatest([

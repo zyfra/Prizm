@@ -64,6 +64,7 @@ describe('prizmAstUpdateProjectVersions', () => {
 
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       expect(packageJson.version).toBe(newVersion);
@@ -77,6 +78,7 @@ describe('prizmAstUpdateProjectVersions', () => {
     expect(!!projects.find(i => i.root === '/projects/project3')).toBeTruthy();
     projects.forEach(project => {
       const packageJsonPath = `${project.root}/package.json`;
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const packageJson = JSON.parse(tree.read(packageJsonPath).toString());
       expect(packageJson.version).toBe(newVersion);
