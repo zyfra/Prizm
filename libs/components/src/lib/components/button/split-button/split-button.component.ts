@@ -24,7 +24,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
   @Input()
   @HostBinding('attr.data-size')
-  size: PrizmSize;
+  size!: PrizmSize;
 
   /** can pass template or icon class */
   @Input()
@@ -32,11 +32,11 @@ export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
 
   @Input()
   @HostBinding('attr.data-appearance')
-  appearance: PrizmAppearance;
+  appearance!: PrizmAppearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
-  appearanceType: PrizmAppearanceType;
+  appearanceType!: PrizmAppearanceType;
 
   @Input()
   disabled = false;
@@ -52,8 +52,8 @@ export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
 
   override readonly testId_ = 'ui_split_button';
 
-  @ViewChild('buttonRef', { static: true, read: ElementRef }) buttonEl: ElementRef;
-  @ViewChild('iconButtonRef', { static: true, read: ElementRef }) iconButtonEl: ElementRef;
+  @ViewChild('buttonRef', { static: true, read: ElementRef }) buttonEl!: ElementRef;
+  @ViewChild('iconButtonRef', { static: true, read: ElementRef }) iconButtonEl!: ElementRef;
 
   public updateZIndex(el: ElementRef, focused: boolean): void {
     el.nativeElement.style.zIndex = focused ? '1' : '';

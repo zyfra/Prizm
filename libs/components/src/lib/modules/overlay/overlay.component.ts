@@ -28,23 +28,23 @@ import { cssClass, EventBus, objToCss } from './utils';
   providers: [PrizmDestroyService],
 })
 export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;
+  @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet!: ViewContainerRef;
   content: PrizmOverlayContent = {
     type: PrizmOverlayContentType.STRING,
     data: '',
     props: {},
   };
-  config: PrizmOverlayConfig;
-  position: PrizmOverlayAbstractPosition;
-  zid: PrizmOverlayId;
+  config!: PrizmOverlayConfig;
+  position!: PrizmOverlayAbstractPosition;
+  zid!: PrizmOverlayId;
   @HostBinding('style.zIndex')
-  zIndex: number;
+  zIndex!: number;
   el: HTMLElement | any;
   wrapperEl: HTMLElement | any;
-  extra: string;
+  extra!: string;
   parentInjector: any;
   compInstance: any;
-  parentContainer: HTMLElement;
+  parentContainer!: HTMLElement;
 
   @HostBinding('style.position')
   get stylePosition(): string {

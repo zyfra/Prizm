@@ -27,7 +27,7 @@ export class PrizmRadioButtonComponent extends PrizmWrappedFormComponent {
   }
 
   @Input() value: unknown;
-  @Input() name: string;
+  @Input() name!: string;
   @Input() public label: string | null = null;
   @Input() set disabled(isDisabled: boolean) {
     this.accessorIsDisabled = isDisabled;

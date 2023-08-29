@@ -157,7 +157,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   filteredItems$!: any;
 
   public filteredItems: T[] = [];
-  private searchValue: string;
+  private searchValue!: string;
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();

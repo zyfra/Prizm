@@ -57,7 +57,7 @@ export abstract class AbstractPrizmControl<T>
    * */
   @Input()
   @prizmDefaultProp()
-  val: T;
+  val!: T;
 
   @Input()
   @prizmDefaultProp()

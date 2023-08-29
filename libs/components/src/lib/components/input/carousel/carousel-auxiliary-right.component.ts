@@ -34,5 +34,5 @@ import { PrizmInputCarouselComponent } from './input-carousel.component';
   ],
 })
 export class PrizmCarouselAuxiliaryRightComponent {
-  @Input() carousel: PrizmCarouselComponent;
+  @Input() carousel!: PrizmCarouselComponent;
 }

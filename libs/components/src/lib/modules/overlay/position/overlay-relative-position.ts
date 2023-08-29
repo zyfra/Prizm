@@ -14,7 +14,7 @@ export interface PrizmOverlayRelativePositionConfig {
 const HINT_DIRECTIONS = ['t', 'b', 'l', 'r', 'tl', 'bl', 'tr', 'br', 'lt', 'rt', 'lb', 'rb'] as const;
 
 export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<PrizmOverlayRelativePositionConfig> {
-  obs: MutationObserver;
+  obs!: MutationObserver;
   constructor(config: PrizmOverlayRelativePositionConfig) {
     super();
     this.updateConfig({

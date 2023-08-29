@@ -22,9 +22,9 @@ export class GridComponent extends PrizmAbstractTestId implements AfterContentIn
   @Input() @HostBinding('attr.columns') public cols: '8' | '12' = '12';
   @Input() public rows = '10';
 
-  @ViewChild('container', { static: true }) container: ElementRef;
-  @ContentChildren(GridItemComponent, { read: ElementRef }) public gridItems: QueryList<ElementRef>;
-  @ContentChildren(GridItemComponent) public gridItemsData: QueryList<GridItemComponent>;
+  @ViewChild('container', { static: true }) container!: ElementRef;
+  @ContentChildren(GridItemComponent, { read: ElementRef }) public gridItems!: QueryList<ElementRef>;
+  @ContentChildren(GridItemComponent) public gridItemsData!: QueryList<GridItemComponent>;
 
   override readonly testId_ = 'ui-area--grid';
 

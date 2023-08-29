@@ -17,7 +17,7 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
-  @Input() public deep: number;
+  @Input() public deep!: number;
 
   public isExpanded = false;
   override readonly testId_ = 'ui_navigation--item-expandable';

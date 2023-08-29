@@ -54,8 +54,8 @@ export class PrizmCheckboxComponent
 
   override readonly testId_ = 'ui_checkbox';
 
-  changeFn: (value: boolean) => void;
-  touchedFn: () => void;
+  changeFn!: (value: boolean) => void;
+  touchedFn!: () => void;
   private readonly destroyElement$ = new Subject<void>();
 
   constructor(

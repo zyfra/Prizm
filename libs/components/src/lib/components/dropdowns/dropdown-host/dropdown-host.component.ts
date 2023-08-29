@@ -44,7 +44,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
   exportAs: 'prizm-dropdown-host',
 })
 export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit {
-  @Input() content: PolymorphContent<PrizmDropdownHostContext>;
+  @Input() content!: PolymorphContent<PrizmDropdownHostContext>;
 
   @Input()
   @prizmDefaultProp()
@@ -71,7 +71,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   closeOnOutsideClick = true;
 
   @Input()
-  prizmDropdownHost: HTMLElement;
+  prizmDropdownHost!: HTMLElement;
 
   @Input()
   @prizmDefaultProp()
@@ -109,23 +109,23 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     return this.isOpen$.value;
   }
 
-  private lastEmittedState: boolean;
+  private lastEmittedState!: boolean;
 
   @Input() dropdownStyles: PrizmDropdownHostStyles;
   @Input() dropdownClasses: PrizmDropdownHostClasses;
-  @ViewChild('temp') temp: TemplateRef<HTMLDivElement>;
+  @ViewChild('temp') temp!: TemplateRef<HTMLDivElement>;
 
   @Output() readonly isOpenChange = new EventEmitter<boolean>();
-  private overlay: PrizmOverlayControl;
+  private overlay!: PrizmOverlayControl;
   protected isOpen$ = new BehaviorSubject(false);
 
   private readonly positionSource$ = new BehaviorSubject<string>('');
   readonly position$: Observable<string> = this.positionSource$.pipe(delay(0));
 
-  private position: PrizmOverlayRelativePosition;
+  private position!: PrizmOverlayRelativePosition;
   readonly wrapper_class = 'prizm-overlay-dropdown-host no-overflow';
 
-  @ViewChild('contentBlockRef') contentBlockRef: ElementRef;
+  @ViewChild('contentBlockRef') contentBlockRef!: ElementRef;
 
   constructor(
     private readonly prizmOverlayService: PrizmOverlayService,

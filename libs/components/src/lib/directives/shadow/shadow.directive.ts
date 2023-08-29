@@ -7,7 +7,7 @@ import { prizmGetShadow } from './shadow.util';
 })
 export class PrizmShadowDirective {
   @Input('prizmShadow')
-  type: PrizmShadowType;
+  type!: PrizmShadowType;
 
   @HostBinding('style.box-shadow')
   private get boxShadow(): PrizmShadowValue {

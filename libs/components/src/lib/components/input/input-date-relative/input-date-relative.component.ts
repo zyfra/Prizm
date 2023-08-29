@@ -96,7 +96,7 @@ export class PrizmInputDateRelativeComponent
 
   @Input()
   @prizmDefaultProp()
-  public showClear: boolean;
+  public showClear!: boolean;
 
   @Input()
   @prizmDefaultProp()
@@ -123,17 +123,17 @@ export class PrizmInputDateRelativeComponent
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];
   public periodItems: RelativeDateMenuItem<RelativeDatePeriodId>[] = [...MenuItems.period];
 
-  private activeTimeId: RelativeDateTimeId | null;
-  private activeDirectionId: RelativeDateDirectionId;
-  private activePeriodId: RelativeDatePeriodId;
+  private activeTimeId!: RelativeDateTimeId | null;
+  private activeDirectionId!: RelativeDateDirectionId;
+  private activePeriodId!: RelativeDatePeriodId;
   private activeNumber = '';
 
-  public onChangeFn: (_: unknown) => unknown;
-  public onTouched: VoidFunction;
+  public onChangeFn!: (_: unknown) => unknown;
+  public onTouched!: VoidFunction;
 
   private readonly subscriptions = new Subscription();
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(public readonly injector: Injector, private readonly cdr: ChangeDetectorRef) {
     super();

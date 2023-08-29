@@ -22,7 +22,7 @@ export class PanelComponent extends PrizmAbstractTestId {
   @Input() subheader: string | null = null;
 
   @Output() backClick: EventEmitter<void> = new EventEmitter<void>();
-  @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
+  @ViewChild('headerElement', { static: true }) public headerRef!: ElementRef;
 
   override readonly testId_ = 'ui_panel';
 

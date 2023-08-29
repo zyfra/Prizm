@@ -15,7 +15,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 })
 export class PrizmInputIconButtonComponent extends PrizmAbstractTestId {
   @Input() size = 16;
-  @Input() prizmInputIconButton: string;
+  @Input() prizmInputIconButton!: string;
   @Input() interactive = false;
 
   @HostBinding('class.disabled')

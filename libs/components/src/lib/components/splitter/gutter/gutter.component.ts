@@ -12,14 +12,14 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   },
 })
 export class PrizmSplitterGutterComponent extends PrizmAbstractTestId {
-  @Input() areaBefore: number;
-  @Input() areaAfter: number;
+  @Input() areaBefore!: number;
+  @Input() areaAfter!: number;
 
-  @Input() orientation: PrizmSplitterOrientation;
-  @Input() @HostBinding('style.order') order: number;
-  @Input() template: TemplateRef<any>;
+  @Input() orientation!: PrizmSplitterOrientation;
+  @Input() @HostBinding('style.order') order!: number;
+  @Input() template!: TemplateRef<any>;
 
-  position: number;
+  position!: number;
   override readonly testId_ = 'ui_splitter--gutter';
   constructor(public elementRef: ElementRef<HTMLElement>) {
     super();

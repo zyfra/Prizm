@@ -160,15 +160,15 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public readonly searchInputControl = new UntypedFormControl();
   public readonly chipsControl = new UntypedFormControl([] as string[]);
 
-  public filteredItems$: Observable<PrizmMultiSelectItemWithChecked<T>[]>;
+  public filteredItems$!: Observable<PrizmMultiSelectItemWithChecked<T>[]>;
 
-  selectedItems$: Observable<T[]>;
+  selectedItems$!: Observable<T[]>;
   readonly chipsSet = new Map<string, T>();
-  selectedItemsChips$: Observable<string[]>;
+  selectedItemsChips$!: Observable<string[]>;
 
   override fallbackValue = [] as T[];
   public filteredItems: PrizmMultiSelectItemWithChecked<T>[] = [];
-  private searchValue: string;
+  private searchValue!: string;
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();

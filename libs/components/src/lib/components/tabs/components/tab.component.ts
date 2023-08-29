@@ -33,7 +33,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   @Input() content: PolymorphContent<PrizmTabContext> | null = null;
   @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
   @Input() count = 0;
-  @Input() closable: boolean;
+  @Input() closable!: boolean;
   @Input() disabled = false;
   private idx_: number | null = null;
   public readonly idx$ = this.tabsService.tabs$.pipe(

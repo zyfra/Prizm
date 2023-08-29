@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "strictNullChecks": true,
     "noImplicitOverride": true,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": true,
     "baseUrl": ".",
     "paths": {
       "@prizm-ui/ast": ["libs/ast/src/index.ts"],

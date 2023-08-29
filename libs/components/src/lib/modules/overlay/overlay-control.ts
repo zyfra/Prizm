@@ -33,20 +33,20 @@ import { WINDOW } from '@ng-web-apis/common';
 import { raceEmit } from '@prizm-ui/helpers';
 
 export class PrizmOverlayControl {
-  position: PrizmOverlayAbstractPosition;
-  readonly config: PrizmOverlayConfig;
-  content: PrizmOverlayContent;
-  zid: PrizmOverlayId;
+  position!: PrizmOverlayAbstractPosition;
+  readonly config!: PrizmOverlayConfig;
+  content!: PrizmOverlayContent;
+  zid!: PrizmOverlayId;
   zIndex = 9999;
-  comp: PrizmOverlayComponent | null;
+  comp!: PrizmOverlayComponent | null;
   updateTextContent: Subject<string> = new Subject();
-  hostView: ViewRef | null;
-  parentContainer: HTMLElement | null;
-  compRef: ComponentRef<PrizmOverlayComponent>;
+  hostView!: ViewRef | null;
+  parentContainer!: HTMLElement | null;
+  compRef!: ComponentRef<PrizmOverlayComponent>;
 
-  public viewEl: HTMLElement | null;
+  public viewEl!: HTMLElement | null;
   isOpen = false;
-  private compFac: ComponentFactory<PrizmOverlayComponent>;
+  private compFac!: ComponentFactory<PrizmOverlayComponent>;
   private destroy$ = new Subject<void>();
 
   constructor(

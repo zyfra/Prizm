@@ -93,7 +93,7 @@ export class PrizmNavigationMenuService<
   emptyDataMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig> =
     this.emptyDataMessageConfig$$.asObservable();
 
-  toolbarIsNotEmpty: boolean;
+  toolbarIsNotEmpty!: boolean;
 
   /** FORWARD EVENTS */
 

@@ -120,17 +120,17 @@ export class PrizmInputTextComponent
    * Empty state
    */
   @HostBinding('class.empty')
-  public empty: boolean;
+  public empty!: boolean;
 
   /**
    * Focus state
    */
-  public focused: boolean;
+  public focused!: boolean;
 
   /**
    * Touched state
    */
-  public _touched: boolean;
+  public _touched!: boolean;
 
   get touched(): boolean {
     return !!(this.ngControl ? this.ngControl.touched : this._touched);

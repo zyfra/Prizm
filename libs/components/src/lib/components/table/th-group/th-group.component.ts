@@ -31,7 +31,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
   @prizmAutoEmit({
     name: 'columns$$',
   })
-  columns: ReadonlyArray<keyof T | string>;
+  columns!: ReadonlyArray<keyof T | string>;
 
   get cols$(): Observable<ReadonlyArray<keyof T | string>> {
     return this.columns$$.pipe(

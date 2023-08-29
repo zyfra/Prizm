@@ -6,7 +6,7 @@ import { PrizmInputNumberDirective } from './input-number.directive';
 })
 export class PrizmInputNumberAuxiliaryControlDirective {
   @Input('prizmInputNumberAuxiliaryControl') type!: 'increment' | 'decrement';
-  @Input() inputNumber: PrizmInputNumberDirective;
+  @Input() inputNumber!: PrizmInputNumberDirective;
 
   @HostListener('click') public action(): void {
     this.inputNumber[this.type]();

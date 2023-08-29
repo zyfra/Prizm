@@ -53,9 +53,9 @@ export class PrizmSliderComponent
   @Input() showValue = true;
   @Input() cnobValuePosition: PrizmSliderCnobValuePosition = 'top';
 
-  @ViewChild('track') scrollbar: ElementRef<HTMLDivElement>;
+  @ViewChild('track') scrollbar!: ElementRef<HTMLDivElement>;
 
-  @ViewChildren(PrizmSliderCnobComponent) private _cnobs: QueryList<PrizmSliderCnobComponent>;
+  @ViewChildren(PrizmSliderCnobComponent) private _cnobs!: QueryList<PrizmSliderCnobComponent>;
 
   private get cnobs(): Observable<QueryList<PrizmSliderCnobComponent>> {
     return this._cnobs.changes.pipe(startWith(this._cnobs));

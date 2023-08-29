@@ -41,7 +41,7 @@ export class ToastWrapperComponent extends PrizmAbstractTestId implements OnInit
         return this.ref.options.templateInfo;
     }
   }
-  tempInjector: Injector;
+  tempInjector!: Injector;
 
   constructor(private readonly injector: Injector) {
     super();

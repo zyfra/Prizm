@@ -18,13 +18,13 @@ import { PrizmCarouselContent } from '../../../input/carousel';
 })
 export class PrizmCronCarouselComponent {
   @Input()
-  public content: PrizmCarouselContent;
+  public content!: PrizmCarouselContent;
 
   @Input()
-  public value: string;
+  public value!: string;
 
   @ContentChild('content', { read: TemplateRef })
-  public template: PolymorphContent<{ content: number }>;
+  public template!: PolymorphContent<{ content: number }>;
 
   @Output()
   public valueChange = new EventEmitter<string>();

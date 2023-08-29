@@ -58,7 +58,7 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
 
     this.changeDetectorRef.markForCheck();
   }
-  private _rows: number;
+  private _rows!: number;
 
   /** The 1-based page index of the displayed list of items. Defaulted to 1. */
   @Input()

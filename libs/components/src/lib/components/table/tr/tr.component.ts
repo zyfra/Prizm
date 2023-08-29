@@ -41,7 +41,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @prizmAutoEmit({
     name: 'columns$$',
   })
-  columns: ReadonlyArray<keyof T | string>;
+  columns!: ReadonlyArray<keyof T | string>;
 
   get realColumns$(): Observable<ReadonlyArray<keyof T | string>> {
     return this.columns$$.pipe(

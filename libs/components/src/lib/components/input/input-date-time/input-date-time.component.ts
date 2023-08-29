@@ -154,7 +154,7 @@ export class PrizmInputDateTimeComponent
     this.timeTexts$.pipe(pluck(this.timeMode)),
   ]).pipe(map(fillers => this.getDateTimeString(...fillers)));
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
   public readonly innerControl = new UntypedFormControl();
   constructor(
     @Optional()

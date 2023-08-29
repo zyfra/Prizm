@@ -102,15 +102,15 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
     this.writeValue(value);
   }
 
-  @Input() carouselContent: PrizmCarouselContent;
+  @Input() carouselContent!: PrizmCarouselContent;
 
   @Input() lightMode = false;
 
   hasClearButton = false;
   nativeElementType = 'carousel';
 
-  changeFn: (value: number) => void;
-  touchedFn: () => void;
+  changeFn!: (value: number) => void;
+  touchedFn!: () => void;
 
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,

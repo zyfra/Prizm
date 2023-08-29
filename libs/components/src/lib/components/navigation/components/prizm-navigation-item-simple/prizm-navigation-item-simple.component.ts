@@ -15,7 +15,7 @@ export class PrizmNavigationItemSimpleComponent extends PrizmAbstractTestId {
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
-  @Input() public deep: number;
+  @Input() public deep!: number;
   override readonly testId_ = 'ui_navigation--item-simple';
 
   public data$: BehaviorSubject<INavigationTree | null> = new BehaviorSubject<INavigationTree | null>(null);

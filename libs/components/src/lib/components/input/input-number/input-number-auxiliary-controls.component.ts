@@ -23,7 +23,7 @@ import { PrizmInputNumberDirective } from './input-number.directive';
   styleUrls: ['./input-number-auxiliary-controls.component.less'],
 })
 export class PrizmInputNumberDefaultControlsComponent {
-  @Input() inputNumber: PrizmInputNumberDirective;
+  @Input() inputNumber!: PrizmInputNumberDirective;
 
   constructor(private readonly layout: PrizmInputLayoutComponent) {}
 

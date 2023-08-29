@@ -150,7 +150,7 @@ export class PrizmMultiSelectComponent<T>
 
   override readonly testId_ = 'ui-muilti-select';
 
-  public inputTextElement: PrizmInputTextComponent | null;
+  public inputTextElement!: PrizmInputTextComponent | null;
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
@@ -246,7 +246,7 @@ export class PrizmMultiSelectComponent<T>
   );
 
   public filteredItems: PrizmMultiSelectItemWithChecked<T>[] = [];
-  private searchValue: string;
+  private searchValue!: string;
 
   constructor(
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,

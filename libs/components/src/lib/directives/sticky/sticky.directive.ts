@@ -23,19 +23,19 @@ import { result } from 'lodash';
 export class PrizmStickyDirective implements OnChanges {
   @HostBinding('class.prizm-sticky-left')
   @Input()
-  prizmStickyLeft: boolean;
+  prizmStickyLeft!: boolean;
 
   @HostBinding('class.prizm-sticky-right')
   @Input()
-  prizmStickyRight: boolean;
+  prizmStickyRight!: boolean;
 
   @HostBinding('class.prizm-sticky-top')
   @Input()
-  prizmStickyTop: boolean;
+  prizmStickyTop!: boolean;
 
   @HostBinding('class.prizm-sticky-bottom')
   @Input()
-  prizmStickyBottom: boolean;
+  prizmStickyBottom!: boolean;
 
   @Input()
   prizmStikyRelative?: HTMLElement;

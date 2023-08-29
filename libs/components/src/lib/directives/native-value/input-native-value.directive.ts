@@ -14,7 +14,7 @@ export class PrizmInputNativeValueDirective<T = any> implements OnInit {
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('prizmInputNativeValue')
   @prizmObservable()
-  value: T;
+  value!: T;
 
   value$$ = new ReplaySubject<T>();
 
