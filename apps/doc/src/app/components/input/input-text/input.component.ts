@@ -12,7 +12,7 @@ import { default as d } from './examples/input-phone-example/input-phone-example
 })
 export class InputComponent {
   public disabled = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public control = new UntypedFormControl();
   public required = false;
   public hidden = false;
@@ -24,7 +24,7 @@ export class InputComponent {
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
-  public outer: false;
+  public outer!: false;
 
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];

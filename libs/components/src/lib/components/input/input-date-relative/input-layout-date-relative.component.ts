@@ -61,7 +61,7 @@ export class PrizmInputLayoutDateRelativeComponent
   readonly hasClearButton = true;
 
   @ViewChild(PrizmInputStatusTextDirective, { static: true })
-  override statusText: PrizmInputStatusTextDirective;
+  override statusText!: PrizmInputStatusTextDirective;
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public readonly focusableElement?: ElementRef<HTMLInputElement>;
@@ -87,14 +87,14 @@ export class PrizmInputLayoutDateRelativeComponent
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];
   public periodItems: RelativeDateMenuItem<RelativeDatePeriodId>[] = [...MenuItems.period];
 
-  private activeTimeId: RelativeDateTimeId;
-  private activeDirectionId: RelativeDateDirectionId;
-  private activePeriodId: RelativeDatePeriodId;
+  private activeTimeId!: RelativeDateTimeId;
+  private activeDirectionId!: RelativeDateDirectionId;
+  private activePeriodId!: RelativeDatePeriodId;
   private activeNumber = '';
 
   private readonly subscriptions = new Subscription();
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
     @Inject(Injector) injector: Injector,

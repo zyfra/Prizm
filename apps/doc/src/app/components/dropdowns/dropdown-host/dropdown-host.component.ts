@@ -38,20 +38,20 @@ export class DropdownHostComponent {
   public isOpenChange = false;
   isOpen = false;
   prizmDropdownHostWidth = 'auto';
-  content: PolymorphContent;
+  content!: PolymorphContent;
 
-  autoReposition: boolean;
+  autoReposition!: boolean;
   closeOnOutsideClick = true;
 
   placementVariants: ReadonlyArray<PrizmOverlayOutsidePlacement> = [
     ...Object.values(PrizmOverlayOutsidePlacement),
   ];
-  placement: PrizmOverlayOutsidePlacement;
+  placement!: PrizmOverlayOutsidePlacement;
 
-  @ViewChild('withHeaderAndFooter') withHeaderAndFooter: TemplateRef<unknown>;
-  @ViewChild('withHeader') withHeader: TemplateRef<unknown>;
-  @ViewChild('withFooter') withFooter: TemplateRef<unknown>;
-  @ViewChild('onlyContent') onlyContent: TemplateRef<unknown>;
+  @ViewChild('withHeaderAndFooter') withHeaderAndFooter!: TemplateRef<unknown>;
+  @ViewChild('withHeader') withHeader!: TemplateRef<unknown>;
+  @ViewChild('withFooter') withFooter!: TemplateRef<unknown>;
+  @ViewChild('onlyContent') onlyContent!: TemplateRef<unknown>;
 
   readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

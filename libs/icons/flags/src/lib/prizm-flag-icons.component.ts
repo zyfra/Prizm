@@ -30,8 +30,8 @@ import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmFlagIconsComponent extends PrizmAbstractTestId {
-  private svgIcon: SVGElement;
-  private name_: string;
+  private svgIcon!: SVGElement;
+  private name_!: string;
   @Input()
   set name(iconName: string) {
     this.name_ = iconName;

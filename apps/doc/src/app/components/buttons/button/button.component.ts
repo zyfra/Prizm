@@ -32,7 +32,7 @@ export class ButtonComponent {
     '',
     ...IconDefs.reduce((a: any[], c) => a.concat(c?.data), []),
   ];
-  testIdPostfix: string;
+  testIdPostfix!: string;
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [

@@ -48,7 +48,7 @@ export class PrizmInputCarouselComponent
   implements ControlValueAccessor, PrizmInputCarousel
 {
   override readonly testId_ = 'ui-area--carousel';
-  @Input() carouselContent: PrizmInputCarouselContent;
+  @Input() carouselContent!: PrizmInputCarouselContent;
 
   @Input() lightMode = false;
 

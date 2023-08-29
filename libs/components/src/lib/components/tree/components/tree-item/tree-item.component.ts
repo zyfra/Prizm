@@ -66,7 +66,7 @@ export class PrizmTreeItemComponent extends PrizmAbstractTestId implements DoChe
 
   @HostBinding('class.use-padding-indent')
   @Input()
-  usePaddingIndent: boolean;
+  usePaddingIndent!: boolean;
 
   constructor(
     @Inject(ElementRef)

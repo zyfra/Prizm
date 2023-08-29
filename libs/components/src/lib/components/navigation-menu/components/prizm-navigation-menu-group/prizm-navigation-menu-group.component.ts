@@ -41,7 +41,7 @@ export class PrizmNavigationMenuGroupComponent<
   implements OnInit
 {
   @ViewChild(PrizmNavigationMenuItemsComponent)
-  private menuItemsComponent: PrizmNavigationMenuItemsComponent<UserItem>;
+  private menuItemsComponent!: PrizmNavigationMenuItemsComponent<UserItem>;
 
   @Output() itemExpandedChanged = new EventEmitter<{
     item: UserItem;
@@ -53,11 +53,11 @@ export class PrizmNavigationMenuGroupComponent<
     isExpanded: boolean;
   }>();
 
-  @Input() groupId: string;
-  @Input() title: string;
+  @Input() groupId!: string;
+  @Input() title!: string;
   @Input() hideGroupAppearance?: boolean;
   @Input() icon?: string;
-  @Input() toolbarExtraTemplate: TemplateRef<unknown>;
+  @Input() toolbarExtraTemplate!: TemplateRef<unknown>;
   @Input() itemExtraTemplate?: TemplateRef<unknown>;
 
   @Input() set items(items: UserItem[]) {
@@ -80,13 +80,13 @@ export class PrizmNavigationMenuGroupComponent<
     this.groupService.setSearchConfig(config);
   }
 
-  @Input() childrenHandler: PrizmHandler<
+  @Input() childrenHandler!: PrizmHandler<
     InternalPrizmNavigationMenuItem<UserItem>,
     readonly InternalPrizmNavigationMenuItem<UserItem>[]
   >;
 
   override readonly testId_ = 'ui_navigation_menu_group';
-  groupIsExpanded: boolean;
+  groupIsExpanded!: boolean;
 
   groupItems$: Observable<InternalPrizmNavigationMenuItem<UserItem>[]> = this.groupService.groupItems$;
 

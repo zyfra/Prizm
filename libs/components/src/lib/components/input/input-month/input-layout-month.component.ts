@@ -77,7 +77,7 @@ export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMon
 
   public activeYear: PrizmYear = this.value || PrizmDay.currentLocal();
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   get interactive() {
     return !this.disabled;

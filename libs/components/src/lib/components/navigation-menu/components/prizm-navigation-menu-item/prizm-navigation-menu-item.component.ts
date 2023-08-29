@@ -21,13 +21,13 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() goToRootItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
-  @Input() itemExtraTemplate: TemplateRef<unknown>;
-  @Input() isExpandable: boolean;
-  @Input() isExpanded: boolean;
-  @Input() isActive: boolean;
-  @Input() item: InternalPrizmNavigationMenuItem<T>;
-  @Input() mode: ViewMode;
-  @Input() showGoToButtons: boolean;
+  @Input() itemExtraTemplate!: TemplateRef<unknown>;
+  @Input() isExpandable!: boolean;
+  @Input() isExpanded!: boolean;
+  @Input() isActive!: boolean;
+  @Input() item!: InternalPrizmNavigationMenuItem<T>;
+  @Input() mode!: ViewMode;
+  @Input() showGoToButtons!: boolean;
 
   isHovered = false;
 

@@ -1,6 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -15,7 +18,7 @@
     "skipDefaultLibCheck": true,
     "strictNullChecks": true,
     "noImplicitOverride": true,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": true,
     "baseUrl": ".",
     "paths": {
       "@prizm-ui/ast": ["libs/ast/src/index.ts"],

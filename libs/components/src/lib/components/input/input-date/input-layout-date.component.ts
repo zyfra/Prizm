@@ -113,7 +113,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
 
   readonly type!: PrizmContextWithImplicit<unknown>;
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
     @Inject(Injector) injector: Injector,

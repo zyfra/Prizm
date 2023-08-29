@@ -70,7 +70,7 @@ export class PrizmAstInputSwitchExampleComponent implements OnInit {
 [mini]='true'
 [(ngModel)]="checked"></zyfra-input-switch>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

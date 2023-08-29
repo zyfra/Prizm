@@ -158,7 +158,7 @@ export class PrizmSelectComponent<T>
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
-  public inputTextElement: PrizmInputTextComponent | null;
+  public inputTextElement!: PrizmInputTextComponent | null;
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
@@ -194,7 +194,7 @@ export class PrizmSelectComponent<T>
   );
 
   public filteredItems: T[] = [];
-  private searchValue: string;
+  private searchValue!: string;
   readonly isNullish = Compare.isNullish;
 
   constructor(

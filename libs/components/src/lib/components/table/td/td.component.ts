@@ -23,7 +23,7 @@ export class PrizmTdComponent implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
 
   @Input()
-  colspan: string | number;
+  colspan!: string | number;
 
   @HostBinding(`class._editable`)
   @ContentChild(NgControl)

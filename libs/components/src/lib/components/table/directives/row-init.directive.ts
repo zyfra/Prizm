@@ -18,11 +18,11 @@ import { Compare } from '@prizm-ui/helpers';
   selector: `ng-template[prizmTableRowInit]`,
 })
 export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges {
-  @Input() context: PrizmTableRowContext;
-  @Input() template: TemplateRef<any>;
-  public embeddedRef: EmbeddedViewRef<any>;
-  private idx: number;
-  private idxFromMap: number;
+  @Input() context!: PrizmTableRowContext;
+  @Input() template!: TemplateRef<any>;
+  public embeddedRef!: EmbeddedViewRef<any>;
+  private idx!: number;
+  private idxFromMap!: number;
   constructor(
     public readonly viewContainer: ViewContainerRef,
     public readonly tableRowService: PrizmTableRowService,

@@ -153,7 +153,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return !this.disabled;
   }
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   get calendarMinDay(): PrizmDay {
     return this.getDayFromMinMax(this.min);

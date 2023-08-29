@@ -24,13 +24,13 @@ export class PrizmNavigationMenuSearchComponent extends PrizmAbstractTestId impl
   @ViewChild('searchInput', {
     read: ElementRef,
   })
-  public searchInput: ElementRef<HTMLInputElement>;
+  public searchInput!: ElementRef<HTMLInputElement>;
 
   @Output() searchChange = new EventEmitter<string>();
 
-  @Input() searchDebounce: number;
+  @Input() searchDebounce!: number;
 
-  @Input() placeholder: string;
+  @Input() placeholder!: string;
   override readonly testId_ = 'ui_navigation_menu_search';
 
   public searchFormControl: UntypedFormControl = new UntypedFormControl('');

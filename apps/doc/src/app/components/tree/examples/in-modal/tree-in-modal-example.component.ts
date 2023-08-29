@@ -33,9 +33,9 @@ export interface TreeNode {
 })
 export class TreeInModalExampleComponent {
   @ViewChild('someTemplate', { read: TemplateRef, static: true })
-  templateRef: TemplateRef<unknown>;
+  templateRef!: TemplateRef<unknown>;
 
-  private control: PrizmOverlayControl;
+  private control!: PrizmOverlayControl;
   constructor(private readonly overlay: PrizmOverlayService) {}
 
   ngOnInit() {

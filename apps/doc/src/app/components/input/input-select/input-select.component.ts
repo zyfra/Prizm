@@ -156,7 +156,7 @@ export class InputSelectComponent {
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
   public icon: PolymorphContent<PrizmSelectIconContext> | null = null;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
     null as any,

@@ -32,7 +32,7 @@ export class PrizmThemeInvertedDirective implements OnInit {
   public themeElement = this.themeService.rootElement;
 
   private readonly invertedValues$$!: Observable<Record<string, string>>;
-  private readonly themeElement$$: Observable<HTMLElement>;
+  private readonly themeElement$$!: Observable<HTMLElement>;
 
   constructor(
     private readonly themeService: PrizmThemeService,

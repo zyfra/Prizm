@@ -23,7 +23,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
-  accordionItems: QueryList<PrizmAccordionItemComponent>;
+  accordionItems!: QueryList<PrizmAccordionItemComponent>;
 
   override readonly testId_ = 'ui_accordion';
 

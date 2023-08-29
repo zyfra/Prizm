@@ -1,6 +1,9 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -13,9 +16,9 @@
     "lib": ["es2017", "dom", "ES2021.String"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "strictNullChecks": false,
+    "strictNullChecks": true,
     "noImplicitOverride": true,
-    "strictPropertyInitialization": false,
+    "strictPropertyInitialization": true,
     "baseUrl": ".",
     "paths": {
       "@prizm-ui/ast": ["libs/ast/src/index.ts"],
@@ -36,6 +39,12 @@
       "@prizm/test": ["libs/test/src/index.ts"],
       "nx-mv": ["libs/nxmv/src/index.ts"]
     }
+  },
+  "angularCompilerOptions": {
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true
   },
   "exclude": ["node_modules", "tmp"]
 }

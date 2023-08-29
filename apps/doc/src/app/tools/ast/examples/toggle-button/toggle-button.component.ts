@@ -75,7 +75,7 @@ export class PrizmAstToggleButtonExampleComponent implements OnInit {
   styleClass="p-button-info"
 ></zyfra-toggle-button>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

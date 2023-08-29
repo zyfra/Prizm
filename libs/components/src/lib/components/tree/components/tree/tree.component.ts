@@ -55,7 +55,7 @@ export class PrizmTreeComponent<T> extends PrizmAbstractTestId implements DoChec
   override readonly testId_ = 'ui_tree';
 
   @Input()
-  usePaddingIndent: boolean;
+  usePaddingIndent!: boolean;
 
   @Input()
   content: PolymorphContent = ({ $implicit }: any) => String($implicit);

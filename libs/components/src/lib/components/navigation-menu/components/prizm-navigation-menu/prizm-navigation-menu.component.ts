@@ -39,7 +39,7 @@ export class PrizmNavigationMenuComponent<
   UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
 > extends PrizmAbstractTestId {
   @ContentChildren(PrizmNavigationMenuGroupComponent)
-  menuGroups: QueryList<PrizmNavigationMenuGroupComponent<UserItem>>;
+  menuGroups!: QueryList<PrizmNavigationMenuGroupComponent<UserItem>>;
 
   @Output() homeClicked = new EventEmitter<void>();
   @Output() activeItemChanged = new EventEmitter<UserItem>();
@@ -49,11 +49,11 @@ export class PrizmNavigationMenuComponent<
   @Output() itemExpandedChanged = new EventEmitter<ItemExpandedChangedEvent<UserItem>>();
   @Output() groupExpandedChanged = new EventEmitter<GroupExpandedChangedEvent>();
 
-  @Input() title: string;
-  @Input() items: UserItem[];
-  @Input() toolbarExtraTemplate: TemplateRef<unknown>;
-  @Input() itemExtraTemplate: TemplateRef<unknown>;
-  @Input() headerExtraTemplate: TemplateRef<unknown>;
+  @Input() title!: string;
+  @Input() items!: UserItem[];
+  @Input() toolbarExtraTemplate!: TemplateRef<unknown>;
+  @Input() itemExtraTemplate!: TemplateRef<unknown>;
+  @Input() headerExtraTemplate!: TemplateRef<unknown>;
 
   @Input() set activeItem(activeItem: UserItem | null) {
     this.menuService.setActiveItem(activeItem as UserItem);
@@ -101,7 +101,7 @@ export class PrizmNavigationMenuComponent<
 
   headerConfiguration: PrizmNavigationMenuHeaderConfig = DEFAULT_HEADER_CONFIG;
 
-  headerIsHovered: boolean;
+  headerIsHovered!: boolean;
 
   constructor(
     private menuService: PrizmNavigationMenuService<UserItem>,

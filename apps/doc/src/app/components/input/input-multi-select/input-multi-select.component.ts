@@ -46,7 +46,7 @@ export class InputInputMultiSelectComponent {
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public readOnly = false;
-  val1: any[];
+  val1!: any[];
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -112,7 +112,7 @@ export class InputInputMultiSelectComponent {
 
   readonly valueControl = new UntypedFormControl();
   public items = this.itemsVariants[1];
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   set disabled(state: boolean) {
     if (state) this.control.disable();

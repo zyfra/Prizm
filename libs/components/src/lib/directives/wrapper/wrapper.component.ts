@@ -24,7 +24,7 @@ export class PrizmWrapperComponent {
   readOnly = false;
 
   @Input()
-  pseudoState: string;
+  pseudoState!: string;
 
   @Input()
   hovered: boolean | null = null;

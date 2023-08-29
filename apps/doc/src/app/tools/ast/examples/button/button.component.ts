@@ -62,7 +62,7 @@ export class PrizmAstBaseExampleComponent implements OnInit {
   <zyfra-button label='123' iconPos='left'></zyfra-button>
   <zyfra-button (onFocus)='null'>Test</zyfra-button>
 `;
-  resultZyfraButtonHtml: string;
+  resultZyfraButtonHtml!: string;
 
   public ngOnInit(): void {
     this.parseButton();

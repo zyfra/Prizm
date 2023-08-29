@@ -79,7 +79,7 @@ export function prizmAstAddImportToNgModule(
         return ts.visitEachChild(node, visitor, context);
       };
 
-      const updatedSourceFile = ts.visitNode(sourceFile, visitor).getSourceFile();
+      const updatedSourceFile = ts.visitNode(sourceFile as any, visitor).getSourceFile();
       return updatedSourceFile;
     }
   }

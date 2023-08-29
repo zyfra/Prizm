@@ -61,7 +61,7 @@ export class PrizmInputLayoutComponent
   @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
-  @ViewChild(PrizmLetDirective) letDirective: PrizmLetDirective<{
+  @ViewChild(PrizmLetDirective) letDirective!: PrizmLetDirective<{
     focused: boolean;
     disabled: boolean;
     empty: boolean;
@@ -89,12 +89,12 @@ export class PrizmInputLayoutComponent
           !this.letDirective?.context?.empty;
   }
 
-  @ContentChild(PrizmInputControl, { static: true }) control: PrizmInputControl<any>;
+  @ContentChild(PrizmInputControl, { static: true }) control!: PrizmInputControl<any>;
   @ContentChild(PrizmInputStatusTextDirective, { static: false })
-  inputStatusText: PrizmInputStatusTextDirective;
+  inputStatusText!: PrizmInputStatusTextDirective;
 
-  public statusIcon: string;
-  public statusMessage: PolymorphContent | null;
+  public statusIcon!: string;
+  public statusMessage!: PolymorphContent | null;
 
   @HostBinding('class.disabled') get disabled() {
     return this.letDirective?.context?.disabled;
@@ -108,7 +108,7 @@ export class PrizmInputLayoutComponent
   public readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
-  private foundStatusDirective: PrizmInputStatusTextDirective;
+  private foundStatusDirective!: PrizmInputStatusTextDirective;
 
   get correctedStatus() {
     return this.foundStatusDirective?.status && this.foundStatusDirective.enable

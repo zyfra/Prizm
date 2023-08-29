@@ -75,7 +75,7 @@ export class PrizmAstRadioExampleComponent implements OnInit {
    (onBlur)="onBlur($event)"
 ></zyfra-radio-button>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parseAccordion();

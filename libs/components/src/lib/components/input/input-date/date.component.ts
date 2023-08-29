@@ -130,7 +130,7 @@ export class PrizmInputDateComponent
   readonly filler$: Observable<string> = this.dateTexts$.pipe(
     map(dateTexts => prizmChangeDateSeparator(dateTexts[this.dateFormat], this.dateSeparator))
   );
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   @HostListener(`click`)
   public onClick(): void {

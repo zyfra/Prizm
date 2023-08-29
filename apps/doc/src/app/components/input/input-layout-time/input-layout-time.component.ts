@@ -32,7 +32,7 @@ export class InputLayoutTimeTimeComponent {
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public readOnly = false;
-  val: PrizmTime;
+  val!: PrizmTime;
 
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
@@ -58,7 +58,7 @@ export class InputLayoutTimeTimeComponent {
 
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public outer = false;
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

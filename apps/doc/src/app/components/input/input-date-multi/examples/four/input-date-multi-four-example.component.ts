@@ -18,10 +18,10 @@ import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components
   ],
 })
 export class PrizmInputDateMultiFourExampleComponent implements OnInit {
-  @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
-  @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime: TemplateRef<unknown>;
-  @ViewChild('time', { static: true }) time: TemplateRef<unknown>;
-  @ViewChild('date', { static: true }) date: TemplateRef<unknown>;
+  @ViewChild('dateTime', { static: true }) dateTime!: TemplateRef<unknown>;
+  @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime!: TemplateRef<unknown>;
+  @ViewChild('time', { static: true }) time!: TemplateRef<unknown>;
+  @ViewChild('date', { static: true }) date!: TemplateRef<unknown>;
   public readonly dateTimeControl = new UntypedFormControl([
     new PrizmDay(2017, 2, 15),
     new PrizmTime(12, 30),

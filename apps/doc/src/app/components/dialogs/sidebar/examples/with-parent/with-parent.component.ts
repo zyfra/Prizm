@@ -14,8 +14,8 @@ import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/comp
   ],
 })
 export class PrizmSidebarWithParentExampleComponent {
-  @ViewChild('contentExample') contentExample: TemplateRef<any>;
-  @ViewChild('parentPanel') parentPanel: ElementRef<any>;
+  @ViewChild('contentExample') contentExample!: TemplateRef<any>;
+  @ViewChild('parentPanel') parentPanel!: ElementRef<any>;
   public positionVariants: PrizmOverlayInsidePlacement[] = [
     PrizmOverlayInsidePlacement.LEFT,
     PrizmOverlayInsidePlacement.RIGHT,

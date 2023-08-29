@@ -31,7 +31,7 @@ import { generatePolymorphVariants } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ConfirmComponent implements AfterViewInit {
-  @ViewChild('contentTemp') contentTempRef: TemplateRef<any>;
+  @ViewChild('contentTemp') contentTempRef!: TemplateRef<any>;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;

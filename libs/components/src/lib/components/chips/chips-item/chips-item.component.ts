@@ -15,7 +15,7 @@ export class PrizmChipsItemComponent {
   @Input() deletable = true;
   @Output() deleted = new EventEmitter<MouseEvent>();
   @Input() hintCanShow = true;
-  @Input() hintText: string;
+  @Input() hintText!: string;
   @Input() hintDirection: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 
   readonly prizmIsTextOverflow$ = (

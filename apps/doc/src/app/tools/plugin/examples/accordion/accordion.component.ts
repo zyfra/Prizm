@@ -106,7 +106,7 @@ export class PrizmAstAccordionExampleComponent implements OnInit {
   </zyfra-accordion-tab>
 </zyfra-accordion>
 `;
-  resultZyfraAccordionHtml: string;
+  resultZyfraAccordionHtml!: string;
 
   public ngOnInit(): void {
     this.parseAccordion();

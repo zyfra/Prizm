@@ -97,8 +97,8 @@ export class PrizmHintDirective<
 
   protected readonly onHoverActive: boolean = true;
 
-  content: PolymorphContent;
-  overlay: PrizmOverlayControl;
+  content!: PolymorphContent;
+  overlay!: PrizmOverlayControl;
   protected readonly containerComponent: Type<unknown> = PrizmHintContainerComponent;
   protected readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();

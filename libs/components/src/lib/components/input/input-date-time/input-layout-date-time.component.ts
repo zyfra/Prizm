@@ -135,7 +135,7 @@ export class PrizmInputLayoutDateTimeComponent
     ) as Observable<boolean>;
   }
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
   constructor(
     @Optional() @Inject(DOCUMENT) private document: Document,
     @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,

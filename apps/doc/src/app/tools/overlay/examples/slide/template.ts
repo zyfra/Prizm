@@ -24,10 +24,10 @@ import {
   ],
 })
 export class PrizmOverlayExampleSlideComponent implements OnInit {
-  @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
-  @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef: TemplateRef<unknown>;
+  @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef!: ElementRef;
+  @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef!: TemplateRef<unknown>;
 
-  private control: PrizmOverlayControl;
+  private control!: PrizmOverlayControl;
   constructor(private readonly overlay: PrizmOverlayService) {}
 
   public ngOnInit(): void {

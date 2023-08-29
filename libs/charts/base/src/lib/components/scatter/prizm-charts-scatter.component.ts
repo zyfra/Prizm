@@ -19,7 +19,7 @@ export class PrizmChartsScatterComponent<
     return this.origin_;
   }
 
-  origin_: PrizmChartsScatterOrigin;
+  origin_!: PrizmChartsScatterOrigin;
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });

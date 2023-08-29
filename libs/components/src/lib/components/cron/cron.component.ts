@@ -160,7 +160,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     },
   ];
 
-  initialValue: string;
+  initialValue!: string;
   public readonly value$ = this.cron.value$;
   public readonly valueAsString$ = this.cron.valueAsString$;
   public readonly startDateControl = new UntypedFormControl();

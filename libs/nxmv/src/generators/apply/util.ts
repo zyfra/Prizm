@@ -6,11 +6,11 @@ export function getProjectConfigurations(tree: Tree): ProjectConfiguration[] {
   // Получаем имена всех проектов
   const projectNames = [...projects.keys()];
 
-  return projectNames.map(i => projects.get(i));
+  return projectNames.map(i => projects.get(i)) as any;
 }
 export function getProjectRoots(tree: Tree, names: string[]): string[] {
   return getProjectConfigurations(tree)
-    .filter(i => names.includes(i.name))
+    .filter(i => names.includes(i.name as string))
     .map(i => i.root);
 }
 
@@ -40,6 +40,8 @@ export function copyFolder(tree: Tree, path: string, newPath: string) {
     (filePath: string) => {
       const newPathToFile = filePath.replace(path, newPath);
 
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       tree.write(newPathToFile, tree.read(filePath));
     },
     () => true

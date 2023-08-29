@@ -37,10 +37,10 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
 {
   @Input()
   @HostListener('attr.id')
-  id: string;
+  id!: string;
 
   @Input()
-  content: () => PolymorphContent;
+  content!: () => PolymorphContent;
 
   // @Input()
   // mode: () => PrizmHintOptions['mode'];

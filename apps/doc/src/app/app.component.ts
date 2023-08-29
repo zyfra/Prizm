@@ -23,8 +23,8 @@ prizmAssert.enabled = [PRIZM_LOG_LEVEL.error, PRIZM_LOG_LEVEL.log, PRIZM_LOG_LEV
 })
 export class AppComponent implements AfterViewInit {
   public title = 'doc';
-  public element: HTMLElement;
-  @ViewChild('docRef') docEl: { night: boolean; onMode: (isNight: boolean) => void };
+  public element!: HTMLElement;
+  @ViewChild('docRef') docEl!: { night: boolean; onMode: (isNight: boolean) => void };
 
   readonly isNight$ = this.themeSwitcher.change$.pipe(map(i => i.theme === 'dark'));
 

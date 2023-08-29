@@ -58,19 +58,19 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
   @Output() areasSplitEnd = new EventEmitter<Array<number>>();
 
   @ViewChild('container', { static: true }) private containerElement!: ElementRef<HTMLElement>;
-  @ContentChild(PrizmSplitterCustomGutterDirective) customGutter: PrizmSplitterCustomGutterDirective;
+  @ContentChild(PrizmSplitterCustomGutterDirective) customGutter!: PrizmSplitterCustomGutterDirective;
 
-  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList: QueryList<PrizmSplitterAreaComponent>;
+  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList!: QueryList<PrizmSplitterAreaComponent>;
 
   @ViewChildren(PrizmSplitterGutterComponent)
-  splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent>;
+  splitterGutterQueryList!: QueryList<PrizmSplitterGutterComponent>;
 
   override readonly testId_ = 'ui_splitter';
   get gutterElementSize(): number {
     return this.customGutter ? this.customGutter.size : 8;
   }
 
-  areas$: Observable<PrizmSplitterAreaComponent[]>;
+  areas$!: Observable<PrizmSplitterAreaComponent[]>;
 
   guttersData: Array<GutterData> = [];
 

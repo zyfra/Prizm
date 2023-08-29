@@ -102,7 +102,7 @@ export class PrizmInputTimeComponent
   override readonly testId_ = 'ui_input_time';
 
   public open = false;
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
     @Optional()

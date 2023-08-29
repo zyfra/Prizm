@@ -13,7 +13,7 @@ export class InputChipsExampleBaseComponent {
   public requiredInputControl = new UntypedFormControl('');
   public chipsControl = new UntypedFormControl(['Чипс 1', 'Чипс 2']);
 
-  @ViewChild(PrizmChipsComponent, { static: true }) chipsComponent: PrizmChipsComponent;
+  @ViewChild(PrizmChipsComponent, { static: true }) chipsComponent!: PrizmChipsComponent;
 
   public onEnter(value: string): void {
     if (value === '') return;

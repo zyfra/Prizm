@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root',
 })
 export class PrizmThemeService implements OnDestroy {
-  private rootElement_: HTMLElement | null;
+  private rootElement_!: HTMLElement | null;
   public set rootElement(el: HTMLElement | null) {
     this.rootElement_ = el;
   }

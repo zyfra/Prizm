@@ -8,7 +8,7 @@ export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any>
   readonly config$ = this.configSource$.asObservable();
   private readonly positionSource$ = new ReplaySubject<PrizmOverlayPositionMeta>();
   readonly pos$ = this.positionSource$.asObservable();
-  private _zid: string;
+  private _zid!: string;
   public get zid(): string {
     return this._zid;
   }

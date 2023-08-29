@@ -22,7 +22,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 })
 export class PrizmToastContainerComponent extends PrizmAbstractTestId implements OnChanges {
   /* get from overlay service after add this component */
-  refs$: Observable<PrizmToastRef[]>;
+  refs$!: Observable<PrizmToastRef[]>;
 
   @Input() containerId?: string;
   @Input() position?: PrizmToastPosition;

@@ -30,8 +30,8 @@ import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
-  private svgIcon: SVGElement;
-  private iconName: string;
+  private svgIcon!: SVGElement;
+  private iconName!: string;
   @Input()
   set name(iconName: string) {
     this.iconName = iconName;
@@ -47,7 +47,7 @@ export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
 
   @HostBinding('style.color')
   @Input()
-  color: string;
+  color!: string;
 
   override get generateManeTestId(): string {
     return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');

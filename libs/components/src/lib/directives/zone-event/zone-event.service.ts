@@ -17,8 +17,8 @@ export class PrizmZoneEventService {
   public readonly inside$$ = new Subject<PrizmZoneEvent>();
   public readonly outside$$ = new Subject<PrizmZoneEvent>();
   public hostElement$$ = new BehaviorSubject<HTMLElement | null>(null);
-  private inOutSideEvents$: Observable<{ event: UIEvent; inside: boolean }>;
-  private insideListenedEvents$: Observable<UIEvent>;
+  private inOutSideEvents$!: Observable<{ event: UIEvent; inside: boolean }>;
+  private insideListenedEvents$!: Observable<UIEvent>;
   private needUpdateListeners$ = merge(this.hostElement$$, this.childrenChanges$);
   get children(): PrizmZoneEventService[] {
     return [...this.childrenSet];

@@ -16,7 +16,7 @@ export abstract class InputInvalidTextBaseClass {
 export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass implements OnInit {
   @Input() control?: PrizmInputControl<unknown>;
 
-  public invalidText: string;
+  public invalidText!: string;
 
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);

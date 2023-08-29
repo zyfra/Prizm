@@ -18,7 +18,7 @@ import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 })
 export class MultiSelectComponent {
   public readOnly = false;
-  val1: any[];
+  val1!: any[];
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -42,7 +42,7 @@ export class MultiSelectComponent {
   searchable = false;
   outer = false;
   label = 'Выберите участника';
-  testIdPostfix: string;
+  testIdPostfix!: string;
   emptyContent = 'Ничего не найдено';
   isChipsDeletable = true;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
