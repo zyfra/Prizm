@@ -18,6 +18,7 @@ import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PrizmSize } from '../../../util';
 import { invokeIfCanCloseSidebar } from './util';
 import { take, takeUntil } from 'rxjs/operators';
+import { Compare } from '@prizm-ui/helpers';
 
 const DEFAULT_OPTIONS = {
   position: PrizmOverlayInsidePlacement.CENTER,
@@ -66,9 +67,10 @@ export class PrizmSidebarService<
     });
   }
 
+  // TODO add i18n support for default cases
   private safeUpdateButtonsWithDefaultStyles(options: Partial<T>): void {
     const supportButton =
-      options.supportButton !== null &&
+      Compare.isNotNullish(options.supportButton) &&
       this.generateButton(
         options,
         options.supportButton as any,
