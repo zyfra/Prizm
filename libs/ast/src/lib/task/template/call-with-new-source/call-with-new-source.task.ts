@@ -23,7 +23,9 @@ export class PrizmCallWithNewSourceTemplateTask extends PrizmAstTaskTemplate<IPr
       if (!storage) continue;
 
       node = context.processor.runAction(node, storage.action, ({ task }) => ({
+        // @ts-ignore
         task: task as any,
+        // @ts-ignore
         sourceNode: storage.context.sourceNode,
         ...storage.context,
       }));

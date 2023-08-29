@@ -52,7 +52,7 @@ export interface PrizmMultiSelectOptions<T> {
 export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
-  icon: null,
+  icon: null as any,
   searchable: false,
   forceClear: null,
   isChipsDeletable: true,
@@ -62,8 +62,10 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
   maxDropdownHeight: 342,
   emptyContent: 'Ничего не найдено',
   searchMatcher: (searchValue: string, item: unknown): boolean => {
-    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
+    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
+
+  // @ts-ignore
   stringify: (i: Omit<PrizmMultiSelectItemWithChecked<unknown>, 'stringify'>, nullContent: string) => {
     if (i.obj == null && nullContent) return nullContent;
     return i.obj?.toString?.();

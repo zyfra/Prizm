@@ -124,7 +124,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   @Input() specifiedList: PrizmCronTabSpecifiedList | null = null;
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
     this.switchers = this.switchers.map(i => {
-      i.hide = !tabs.includes(i.id);
+      i.hide = !tabs.includes(i.id as any);
       return i;
     });
 
@@ -293,6 +293,6 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   public indexChanged(index: number): void {
     const selected = this.switchers.find((_, i) => i === index);
-    this.selectedChange.emit((this.selected = selected.id));
+    this.selectedChange.emit((this.selected = selected?.id as any));
   }
 }

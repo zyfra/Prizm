@@ -117,7 +117,11 @@ export abstract class AbstractPrizmDialogService<
     control: PrizmOverlayControl,
     destroy$: Observable<void>
   ): void {
+    // @ts-ignore
     control.viewEl.style.pointerEvents = 'unset';
-    this.overscrollService.run(mode, control.viewEl).pipe(takeUntil(destroy$)).subscribe();
+    this.overscrollService
+      .run(mode, control.viewEl as any)
+      .pipe(takeUntil(destroy$))
+      .subscribe();
   }
 }

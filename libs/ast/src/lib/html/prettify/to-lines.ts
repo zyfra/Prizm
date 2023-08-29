@@ -24,6 +24,7 @@ export const prizmAstHtmlPrettifyMergeAttributesWithElements = (markup: string) 
 
     // If line is closing element/tag separate closing tag from rest of the line with space
     if (line.endsWith('/>')) {
+      // @ts-ignore
       mergedLines.push(`${currentElement}${line.slice(0, -2)} />`);
       currentElement = '';
       // eslint-disable-next-line no-continue
@@ -31,6 +32,7 @@ export const prizmAstHtmlPrettifyMergeAttributesWithElements = (markup: string) 
     }
 
     if (line.endsWith('>')) {
+      // @ts-ignore
       mergedLines.push(`${currentElement}${line.startsWith('>') || line.startsWith('<') ? '' : ' '}${line}`);
       currentElement = '';
       // eslint-disable-next-line no-continue

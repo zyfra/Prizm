@@ -35,7 +35,7 @@ export function prizmSemVerParse(
   semVer.patch = patch;
 
   if (!prereleaseAndBuildMetadata)
-    prereleaseAndBuildMetadata = versionPart.split(/[^.]+.[^.]+.[^.+]+/g)?.pop();
+    prereleaseAndBuildMetadata = versionPart.split(/[^.]+.[^.]+.[^.+]+/g)?.pop() as any;
   if (prereleaseAndBuildMetadata) {
     const [prereleasePart, buildMetadata] = prereleaseAndBuildMetadata.split('+');
     semVer.buildMetadata = buildMetadata ?? null;

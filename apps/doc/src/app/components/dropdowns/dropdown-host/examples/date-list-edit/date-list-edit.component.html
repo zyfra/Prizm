@@ -67,7 +67,7 @@
           <prizm-input-layout-date-time
             #from
             [prizmEventZoneParent]="zone"
-            [ngModel]="selection.range[0]"
+            [ngModel]="selection?.range?.[0]"
             (ngModelChange)="changeDate($any($event), $any(to.value))"
           ></prizm-input-layout-date-time>
         </prizm-input-layout>
@@ -75,7 +75,7 @@
         <prizm-input-layout label="До">
           <prizm-input-layout-date-time
             #to
-            [ngModel]="selection.range[1]"
+            [ngModel]="selection?.range?.[1]"
             [prizmEventZoneParent]="zone"
             (ngModelChange)="changeDate($any(from.value), $any($event))"
           ></prizm-input-layout-date-time>

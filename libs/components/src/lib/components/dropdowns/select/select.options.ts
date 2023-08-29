@@ -67,8 +67,9 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   nullContent: 'Не выбрано',
   transformer: item => item,
   searchMatcher: (searchValue: string, item: unknown): boolean => {
-    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
+    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
+  // @ts-ignore
   stringify: (i: unknown, nullContent: string) => {
     if (i == null && nullContent) return nullContent;
     return i?.toString?.();
@@ -77,7 +78,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
     return a === b;
   },
   valueContent: '',
-  listItemTemplate: null,
+  listItemTemplate: null as any,
   placeholder: '',
   size: 'l',
   label: 'Выберите из списка',

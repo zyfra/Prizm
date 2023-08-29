@@ -25,7 +25,7 @@ import { PrizmLocalThemeService } from './local-theme.service';
 })
 export class PrizmThemeDirective implements OnInit {
   @Output()
-  public readonly prizmThemeChange = new EventEmitter<PrizmTheme | null>();
+  public readonly prizmThemeChange = new EventEmitter<PrizmTheme>();
 
   @Input()
   @prizmObservable({

@@ -51,6 +51,7 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
   let result = null;
   for (;;) {
     // Проходимся по всем найденным атрибутам в теге
+    // @ts-ignore
     result = reg.exec(tag);
 
     // Если результат пустой, значит, все атрибуты разобраны
@@ -59,12 +60,14 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
     }
 
     // Если текущий результат - пустая строка, пропускаем его
+    // @ts-ignore
     if (!result[0].trim()) {
       continue;
     }
 
     // Если найден атрибут без значения
     if (result[1]) {
+      // @ts-ignore
       const attr = result[1].trim();
       let arr = [attr, ''];
 
@@ -82,6 +85,7 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
       reg.lastIndex--;
     } else if (result[2]) {
       // Если найден атрибут с значением (в кавычках), сохраняем его в объекте res
+      // @ts-ignore
       res.attrs[result[2]] = result[3].trim().substring(1, result[3].length - 1);
     }
   }

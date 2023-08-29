@@ -29,12 +29,12 @@ export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTe
 
   @HostBinding('attr.prizm-size')
   public get size(): PrizmDialogSize {
-    return this.context.size;
+    return this.context.size as PrizmDialogSize;
   }
 
   @HostBinding('attr.prizm-dialog-id')
   public get id(): string {
-    return this.context.id;
+    return this.context.id as string;
   }
 
   @HostBinding('@prizmSlideInTop')

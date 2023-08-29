@@ -30,7 +30,7 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options?.xField;
+    return this.options?.xField as string;
   }
 
   @Input() set autoFit(value: boolean) {
@@ -42,7 +42,7 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options?.yField;
+    return this.options?.yField as string;
   }
 
   @Input()
@@ -50,7 +50,7 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
     this.updateOptions({ seriesField: value });
   }
   public get seriesField(): string {
-    return this.options.seriesField;
+    return this.options.seriesField as string;
   }
   @Input()
   public set label(value: PrizmChartsBarOptions['label']) {

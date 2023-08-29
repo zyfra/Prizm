@@ -24,7 +24,7 @@
     <prizm-doc-demo>
       <prizm-input-time
         #element
-        [(val)]="$any(val)"
+        [(val)]="val"
         [prizmDocHostElement]="element"
         [formControl]="valueControl"
         [label]="label"
@@ -79,7 +79,7 @@
 
       <ng-template
         [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
+        [documentationPropertyValues]="$any(sizeVariants)"
         documentationPropertyName="size"
         documentationPropertyType="PrizmInputSize"
         documentationPropertyMode="input"
@@ -259,7 +259,7 @@
           into a module where you want to use our component
         </p>
 
-        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+        <prizm-doc-code [code]="$any(setupModule)" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
   </ng-template>

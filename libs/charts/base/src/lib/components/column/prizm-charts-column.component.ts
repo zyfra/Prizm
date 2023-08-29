@@ -34,7 +34,7 @@ export class PrizmChartsColumnComponent<
     this.updateOptions({ seriesField: value });
   }
   public get seriesField(): string {
-    return this.options.seriesField;
+    return this.options.seriesField as string;
   }
 
   @Input()
@@ -42,7 +42,7 @@ export class PrizmChartsColumnComponent<
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options?.yField;
+    return this.options?.yField as string;
   }
 
   @Input()
@@ -50,7 +50,7 @@ export class PrizmChartsColumnComponent<
     this.updateOptions({ groupField: value });
   }
   public get groupField(): string {
-    return this.options?.groupField;
+    return this.options?.groupField as string;
   }
 
   @Input()
@@ -66,7 +66,7 @@ export class PrizmChartsColumnComponent<
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options?.xField;
+    return this.options?.xField as string;
   }
   @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
   override readonly testId_ = 'ui_charts_column';

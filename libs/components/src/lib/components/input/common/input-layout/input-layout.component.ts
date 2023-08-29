@@ -47,7 +47,7 @@ export class PrizmInputLayoutComponent
     this.label$.next(val);
   }
   get label(): string {
-    return this.label$.value;
+    return this.label$.value as string;
   }
 
   @Input() size: PrizmInputSize = 'l';
@@ -117,9 +117,9 @@ export class PrizmInputLayoutComponent
   }
 
   get showStatusButton(): boolean {
-    return (
+    return Boolean(
       this.status !== 'default' ||
-      (this.letDirective?.context?.invalid && this.letDirective?.context?.touched)
+        (this.letDirective?.context?.invalid && this.letDirective?.context?.touched)
     );
   }
 
@@ -208,6 +208,7 @@ export class PrizmInputLayoutComponent
       statusIcon = 'alerts-info-circle-fill';
     }
 
+    // @ts-ignore
     this.statusIcon = statusIcon;
   }
 

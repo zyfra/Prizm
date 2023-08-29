@@ -26,7 +26,7 @@ const DEFAULT_OPTIONS = {
   confirmButton: null,
   supportButton: null,
   cancelButton: null,
-} as PrizmSidebarOptions<PrizmSidebarResult>;
+} as unknown as PrizmSidebarOptions<PrizmSidebarResult>;
 
 @Injectable({
   providedIn: 'root',
@@ -71,7 +71,7 @@ export class PrizmSidebarService<
       options.supportButton !== null &&
       this.generateButton(
         options,
-        options.supportButton,
+        options.supportButton as any,
         'Продолжить',
         PrizmSidebarResultDefaultType.confirmed,
         'danger',
@@ -80,7 +80,7 @@ export class PrizmSidebarService<
 
     const confirmButton = this.generateButton(
       options,
-      options.confirmButton,
+      options.confirmButton as any,
       'Подтвердить',
       PrizmSidebarResultDefaultType.confirmed,
       'primary'
@@ -90,7 +90,7 @@ export class PrizmSidebarService<
       options.cancelButton !== null &&
       this.generateButton(
         options,
-        options.cancelButton,
+        options.cancelButton as any,
         'Отмена',
         PrizmSidebarResultDefaultType.cancel,
         'secondary',
@@ -98,8 +98,8 @@ export class PrizmSidebarService<
       );
 
     options.confirmButton = confirmButton;
-    options.cancelButton = cancelButton;
-    options.supportButton = supportButton;
+    options.cancelButton = cancelButton as any;
+    options.supportButton = supportButton as any;
   }
 
   private generateButton(

@@ -13,7 +13,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
+import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { PRIZM_INPUT_DATE_RANGE_PROVIDERS } from './input-date-range.providers';
 import { PrizmDayRange } from '../../../@core/date-time/day-range';
 import { PrizmDay } from '../../../@core/date-time/day';
@@ -65,7 +65,7 @@ import { prizmI18nInitWithKey } from '../../../services';
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateRangeComponent },
   ],
 })
-export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<PrizmDayRange> {
+export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<PrizmDayRange | null> {
   hasClearButton = true;
   nativeElementType = 'input-layout-date-range';
 
@@ -149,7 +149,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   }
 
   public get focused(): Observable<boolean> {
-    return this.focusableElement?.focused$;
+    return this.focusableElement?.focused$ ?? of(false);
   }
 
   public get canOpen(): boolean {
@@ -213,8 +213,8 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
     const parsedValue = PrizmDay.normalizeParse(value, this.dateFormat);
     this.updateWithCorrectDateAndTime(
-      isFormValue ? parsedValue : this.value?.from,
-      isFormValue ? this.value?.to : parsedValue
+      isFormValue ? parsedValue : (this.value?.from as any),
+      isFormValue ? this.value?.to : (parsedValue as any)
     );
   }
 
@@ -252,7 +252,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   private updateWithCorrectDateAndTime(from: PrizmDay | null, to: PrizmDay | null): void {
     if (from) from = this.dayLimit(from);
     if (to) to = this.dayLimit(to);
-    this.updateValue(new PrizmDayRange(from, to));
+    this.updateValue(new PrizmDayRange(from as any, to as any));
   }
 
   private dayLimit(value: PrizmDay): PrizmDay {
@@ -261,7 +261,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
   public override writeValue(value: PrizmDayRange | null): void {
     super.writeValue(value);
-    this.nativeValue$$.next([value?.from?.toString(), value?.to?.toString()]);
+    this.nativeValue$$.next([value?.from?.toString() as string, value?.to?.toString() as string]);
   }
 
   private toggle(): void {

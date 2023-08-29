@@ -12,14 +12,14 @@ import { PrizmInputCarouselComponent } from './input-carousel.component';
     <button
       *ngIf="!carousel.disabled"
       [interactive]="true"
-      [disabled]="carousel.carouselContent?.controlsState.stepRightCtrlDisabled"
+      [disabled]="!!carousel.carouselContent?.controlsState?.stepRightCtrlDisabled"
       (click)="carousel.stepRight()"
       prizmInputIconButton="chevrons-right"
     ></button>
     <button
       *ngIf="!carousel.disabled && !carousel.lightMode"
       [interactive]="true"
-      [disabled]="carousel.carouselContent?.controlsState.rightCtrlDisabled"
+      [disabled]="!!carousel.carouselContent?.controlsState?.rightCtrlDisabled"
       (click)="carousel.right()"
       prizmInputIconButton="chevrons-double-right"
     ></button>

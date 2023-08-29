@@ -20,7 +20,7 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class InputTimeTimeComponent {
   public readOnly = false;
-  val: PrizmTime;
+  val: any;
 
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];

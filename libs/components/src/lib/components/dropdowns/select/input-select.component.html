@@ -1,7 +1,7 @@
 <prizm-dropdown-host
   #dropdownHostRef
   [content]="dropdown"
-  [isOpen]="opened$ | async"
+  [isOpen]="$any(opened$ | async)"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
@@ -82,7 +82,7 @@
               [prizmHint]="text"
               [prizmHintHost]="hostHint"
               [prizmHintDirection]="direction"
-              [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
+              [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
             >
               <ng-container
                 *polymorphOutlet="
@@ -123,7 +123,7 @@
   <ng-container
     *polymorphOutlet="
       icon || defaultIcon as iconName;
-      context: { opened: opened$ | async, disabled: disabled }
+      context: $any({ opened: opened$ | async, disabled: disabled })
     "
   >
     <prizm-icon
@@ -132,7 +132,7 @@
       [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [iconClass]="$any(iconName)"
-      (click)="!disabled && focusableElement?.nativeElement.click()"
+      (click)="!disabled && focusableElement?.nativeElement?.click()"
     >
     </prizm-icon>
   </ng-container>

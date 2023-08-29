@@ -41,7 +41,7 @@ export class PrizmChartsRadarComponent<
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options?.xField;
+    return this.options?.xField as string;
   }
 
   @Input()
@@ -49,7 +49,7 @@ export class PrizmChartsRadarComponent<
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options?.yField;
+    return this.options?.yField as string;
   }
   override readonly testId_ = 'ui_charts_radar';
 

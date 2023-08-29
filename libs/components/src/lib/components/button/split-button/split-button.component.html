@@ -20,7 +20,7 @@
     #iconButtonRef
     [size]="size"
     [disabled]="disabled"
-    [pseudoState]="showLoader && 'none'"
+    [pseudoState]="$any(showLoader && 'none')"
     [appearance]="appearance"
     [appearanceType]="appearanceType"
     [icon]="icon"
