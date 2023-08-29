@@ -82,7 +82,9 @@ export function prizmAstAddImportIfNeeded(
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             context.factory.updateImportClause(
+              // @ts-ignore
               node.importClause,
+              // @ts-ignore
               node.importClause.isTypeOnly,
               undefined,
               context.factory.createNamedImports(importSpecifiers)
