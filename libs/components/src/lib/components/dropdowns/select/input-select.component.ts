@@ -141,6 +141,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   override readonly testId_ = 'ui_select';
 
+  readonly isNotNullish = Compare.isNotNullish;
+
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 

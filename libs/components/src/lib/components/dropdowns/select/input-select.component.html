@@ -22,12 +22,12 @@
     (blur)="focused$$.next(false)"
     prizmInput
   >
-    <ng-container *ngIf="val; else placeholderTemplate">
+    <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
       <ng-container
         *polymorphOutlet="
           valueTemplate as content;
           context: {
-            $implicit: val,
+            $implicit: $any(val),
             value: val | prizmCallFunc : transformer,
             stringify: val | prizmCallFunc : stringify : $any(nullContent)
           }
