@@ -1,12 +1,24 @@
-<tui-select
-  class="select"
-  [ngModel]="initialVersion"
-  [valueContent]="'label' | tuiStringify | tuiStringifyContent"
-  tuiTextfieldSize="s"
->
+<tui-select class="select" [ngModel]="initialVersion" [valueContent]="vt" tuiTextfieldSize="s">
   <tui-data-list *tuiDataList>
-    <a *ngFor="let version of versions" [value]="version" [href]="getVersionHref(version)" tuiOption size="s">
-      {{ version.label }}
-    </a>
+    <button *ngFor="let version of versions" [value]="version" tuiOption>
+      <ng-container [ngTemplateOutlet]="vt" [ngTemplateOutletContext]="{ $implicit: version }">
+      </ng-container>
+    </button>
   </tui-data-list>
 </tui-select>
+
+<ng-template #vt let-version>
+  <div class="item">
+    <div
+      class="icon"
+      [hidden]="version.stackblitz"
+      (click)="openStackblitz(version)"
+      title="Open empty project with Prizm UI on stackblitz"
+    >
+      <img src="assets/logos/sb.png" />
+    </div>
+    <a class="version-link" [href]="getVersionHref(version)">
+      {{ version.label }}
+    </a>
+  </div>
+</ng-template>

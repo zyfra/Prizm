@@ -44,4 +44,12 @@ export class VersionManagerComponent {
       return version.link?.href;
     }
   }
+
+  public openStackblitz(version: PrizmVersionMeta): string {
+    if (version.baseHref) {
+      return `${this.locationRef.origin}/${version.baseHref}${this.router.url}${this.locationRef.search}`;
+    } else {
+      return version.link?.href;
+    }
+  }
 }

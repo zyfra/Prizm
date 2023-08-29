@@ -6,3 +6,37 @@
 .select {
   width: 90%;
 }
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.icon {
+  height: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &:hover img {
+    max-height: 24px;
+    max-width: 28px;
+  }
+
+  img {
+    max-height: 20px;
+    max-width: 24px;
+    transition: all linear 250ms;
+  }
+}
+
+.version-link {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  text-decoration: none;
+  color: var(--prizm-text-contrast);
+}
