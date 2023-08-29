@@ -14,7 +14,7 @@
 
   <div class="content prizm-font-main-body-14">
     <prizm-scrollbar class="scrollbar">
-      <div *polymorphOutlet="context.content as text; context: context">
+      <div *polymorphOutlet="$any(context.content) as text; context: $any(context)">
         {{ text }}
       </div>
     </prizm-scrollbar>

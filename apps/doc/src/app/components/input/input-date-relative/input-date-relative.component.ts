@@ -16,7 +16,7 @@ export class InputDateRelativeRelativeComponent {
   public placeholder = 'Выберите дату';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public outer = false;
   public disabled = false;
   public showClear = false;

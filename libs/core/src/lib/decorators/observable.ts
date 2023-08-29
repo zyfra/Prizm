@@ -31,7 +31,7 @@ export function prizmObservable<T>(
 
     Object.defineProperty(rTarget, memberName, {
       set(newValue: T) {
-        const value = (lastValue = newValue ?? defaultValue);
+        const value = (lastValue = (newValue ?? defaultValue) as T);
 
         let method = this[hiddenPropertyName] as Subject<T>;
 
@@ -45,7 +45,7 @@ export function prizmObservable<T>(
         const method = this[hiddenPropertyName] as Subject<T>;
         if (!method?.next) {
           createBaseProperty(this);
-          subject.next((lastValue = defaultValue));
+          subject.next((lastValue = defaultValue as T));
         }
         return lastValue;
       },

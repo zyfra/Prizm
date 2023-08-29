@@ -10,13 +10,13 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmNavigationMenuToolbarComponent extends PrizmAbstractTestId {
-  @Input() toolbarExtraTemplate: TemplateRef<unknown>;
+  @Input() toolbarExtraTemplate!: TemplateRef<unknown>;
 
-  @Input() toolbarConfig: PrizmNavigationMenuToolbarConfig;
+  @Input() toolbarConfig!: PrizmNavigationMenuToolbarConfig;
 
-  @Input() searchConfig: PrizmNavigationMenuSearchConfig;
+  @Input() searchConfig!: PrizmNavigationMenuSearchConfig;
 
-  @Input() hideGroupAppearance: boolean;
+  @Input() hideGroupAppearance!: boolean;
 
   get toolbarIsVisible(): boolean {
     return !this.hideGroupAppearance && this.toolbarConfig && Object.values(this.toolbarConfig).some(Boolean);

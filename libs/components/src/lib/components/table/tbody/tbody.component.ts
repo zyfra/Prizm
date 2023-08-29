@@ -89,7 +89,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   get data(): PrizmTableDataSourceInput<T> {
     return this._dataSource;
   }
-  private _dataSource: PrizmTableDataSourceInput<T>;
+  private _dataSource!: PrizmTableDataSourceInput<T>;
 
   /**
    * Currently displayed set of data.
@@ -108,9 +108,9 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   }
 
   /** Latest data provided by the data source. */
-  protected _data: readonly T[];
+  protected _data!: readonly T[];
 
-  /* protected */ renderData$: Observable<readonly T[]>;
+  /* protected */ renderData$!: Observable<readonly T[]>;
 
   @Input()
   @prizmDefaultProp()
@@ -206,6 +206,8 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
       dataStream = this.sorterService.sort$(dataSource);
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     this.renderData$ = dataStream.pipe(
       tap(data => {
         this._data = data || [];

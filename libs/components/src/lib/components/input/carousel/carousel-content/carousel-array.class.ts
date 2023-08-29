@@ -6,7 +6,7 @@ import { prizmDefaultCarouselControlsState, PrizmCarouselContent } from './carou
  * */
 export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
   private currentIndex = -1;
-  currentValue: T = undefined;
+  currentValue: T = undefined as any;
 
   public controlsState = { ...prizmDefaultCarouselControlsState };
 
@@ -25,7 +25,7 @@ export class PrizmCarouselArrayContent<T> implements PrizmCarouselContent {
 
   public setCurrentValue(element: T): void {
     this.currentIndex = this.set.findIndex(item => this.searchFn(item, element));
-    this.currentValue = this.currentIndex === -1 ? undefined : this.set[this.currentIndex];
+    this.currentValue = this.currentIndex === -1 ? undefined : (this.set[this.currentIndex] as any);
 
     this.updateControlsState();
   }

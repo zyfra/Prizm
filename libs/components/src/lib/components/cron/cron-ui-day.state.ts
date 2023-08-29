@@ -139,7 +139,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
   }
 
   public updateLastChosenDayOfChosenWeek(
-    onNumberOfWeekListValue?: string,
+    onNumberOfWeekListValue?: string | null,
     lastChosenDayOfWeekValue2?: string
   ): void {
     this.onNumberOfWeekListValue = onNumberOfWeekListValue ?? this.onNumberOfWeekListValue;
@@ -183,7 +183,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
   }
 
   public updateAfterDayOfMonth(
-    afterDayOfMonthListRepeatDaysValue?: string,
+    afterDayOfMonthListRepeatDaysValue?: string | null,
     afterDayOfMonthListDaysValue?: string
   ): void {
     this.afterDayOfMonthListRepeatDaysValue =

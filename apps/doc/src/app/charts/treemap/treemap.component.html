@@ -18,7 +18,7 @@
         [width]="width"
         [height]="height"
         [colorField]="colorField"
-        [theme]="prizmTheme.changesTheme$ | async"
+        [theme]="$any($any(prizmTheme.changesTheme$ | async))"
       ></prizm-charts-treemap>
     </prizm-doc-demo>
     <prizm-doc-documentation>

@@ -96,7 +96,7 @@ export class PrizmInputDateRelativeComponent
 
   @Input()
   @prizmDefaultProp()
-  public showClear: boolean;
+  public showClear!: boolean;
 
   @Input()
   @prizmDefaultProp()
@@ -123,17 +123,17 @@ export class PrizmInputDateRelativeComponent
   public directionItems: RelativeDateMenuItem<RelativeDateDirectionId>[] = [...MenuItems.direction];
   public periodItems: RelativeDateMenuItem<RelativeDatePeriodId>[] = [...MenuItems.period];
 
-  private activeTimeId: RelativeDateTimeId;
-  private activeDirectionId: RelativeDateDirectionId;
-  private activePeriodId: RelativeDatePeriodId;
+  private activeTimeId!: RelativeDateTimeId | null;
+  private activeDirectionId!: RelativeDateDirectionId;
+  private activePeriodId!: RelativeDatePeriodId;
   private activeNumber = '';
 
-  public onChangeFn: (_: unknown) => unknown;
-  public onTouched: VoidFunction;
+  public onChangeFn!: (_: unknown) => unknown;
+  public onTouched!: VoidFunction;
 
   private readonly subscriptions = new Subscription();
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(public readonly injector: Injector, private readonly cdr: ChangeDetectorRef) {
     super();
@@ -145,7 +145,7 @@ export class PrizmInputDateRelativeComponent
 
   public ngAfterViewInit(): void {
     const control = this.injector.get(NgControl) as unknown as UntypedFormControl;
-    this.value.addValidators(control.validator);
+    this.value.addValidators(control.validator as any);
 
     this.subscriptions.add(
       this.value.valueChanges.subscribe(() => {
@@ -240,7 +240,7 @@ export class PrizmInputDateRelativeComponent
   }
 
   public get focused(): boolean {
-    return prizmIsNativeFocusedIn(this.focusableElement.nativeElement);
+    return prizmIsNativeFocusedIn(this.focusableElement?.nativeElement as any);
   }
 
   /**
@@ -248,7 +248,7 @@ export class PrizmInputDateRelativeComponent
    */
   private actualizeInput(): void {
     const stringValue = RenderText({
-      time: this.activeTimeId,
+      time: this.activeTimeId as any,
       number: this.activeNumber,
       direction: this.activeDirectionId,
       period: this.activePeriodId,
@@ -266,7 +266,7 @@ export class PrizmInputDateRelativeComponent
    * Actualize menu items, as radio group button
    */
   private actualizeMenu(): void {
-    this.timeItems = UpdateActiveItem(this.timeItems, this.activeTimeId);
+    this.timeItems = UpdateActiveItem(this.timeItems, this.activeTimeId) as any;
     this.directionItems = UpdateActiveItem(this.directionItems, this.activeDirectionId);
     this.periodItems = UpdateActiveItem(this.periodItems, this.activePeriodId);
   }
@@ -276,7 +276,7 @@ export class PrizmInputDateRelativeComponent
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     if (!this.isOpen && !this.disabled && inputElement && prizmIsNativeFocused(inputElement)) {
       this.isOpen = true;
       this.cdr.markForCheck();

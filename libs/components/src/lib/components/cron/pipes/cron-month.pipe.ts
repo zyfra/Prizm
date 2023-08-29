@@ -11,6 +11,6 @@ export class PrizmCronMonthPipe implements PipeTransform {
   public transform(month: number, day = 1, format = 'LLLL'): string {
     const date = new Date();
     date.setMonth(month ?? 1, day);
-    return prizmCapitalizeFirstLetter(this.datePipe.transform(date, format));
+    return prizmCapitalizeFirstLetter(this.datePipe.transform(date, format) as string);
   }
 }

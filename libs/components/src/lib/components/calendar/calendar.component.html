@@ -27,7 +27,7 @@
         <prizm-primitive-month-picker
           [min]="min"
           [max]="max"
-          [initialItem]="clickedMonth"
+          [initialItem]="$any(clickedMonth)"
           [value]="value"
           [currentYear]="month.year"
           (monthClick)="onPickerMonthClick($event)"

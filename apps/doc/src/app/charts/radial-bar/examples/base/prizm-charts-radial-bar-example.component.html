@@ -1,7 +1,7 @@
 <prizm-charts-radial-bar
   [data]="data"
   [options]="options"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
   xField="name"
   yField="star"
 ></prizm-charts-radial-bar>

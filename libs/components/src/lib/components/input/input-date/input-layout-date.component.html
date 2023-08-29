@@ -15,7 +15,7 @@
     [showMaskTyped]="focusableElementRef.focused"
     [dropSpecialCharacters]="false"
     [placeholder]="placeholder"
-    [disabled]="disabled"
+    [disabled]="!!disabled"
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="stringValue"
     (ngModelChange)="onValueChange($event || '')"
@@ -45,7 +45,7 @@
 
 <ng-container *prizmInputLayoutRight>
   <button
-    [disabled]="disabled"
+    [disabled]="!!disabled"
     [interactive]="true"
     (click)="onOpenChange(!open)"
     prizmInputIconButton="date-calendar-blank"

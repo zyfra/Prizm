@@ -12,7 +12,7 @@ export class TextareaExampleComponent {
   public label = 'Заголовок';
   public placeholder = '';
 
-  public outer: false;
+  public outer!: false;
 
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
@@ -21,7 +21,7 @@ export class TextareaExampleComponent {
   public disabled = false;
 
   height = null;
-  testIdPostfix: string;
+  testIdPostfix!: string;
   width = '20rem';
 
   public required = false;

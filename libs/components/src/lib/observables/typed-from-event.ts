@@ -31,5 +31,5 @@ export function prizmTypedFromEvent<E extends Event>(
   event: string,
   options: AddEventListenerOptions = {}
 ): Observable<E> {
-  return fromEvent(target, event, options);
+  return fromEvent(target as any, event, options);
 }

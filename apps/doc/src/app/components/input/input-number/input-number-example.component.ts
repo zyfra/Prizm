@@ -13,7 +13,7 @@ export class InputNumberExampleComponent {
   value = 1;
   public requiredInputControl = new UntypedFormControl('', Validators.required);
   public min = 0;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public max = 10;
   public step = 2;
 
@@ -22,7 +22,7 @@ export class InputNumberExampleComponent {
 
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
-  public outer: false;
+  public outer!: false;
 
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];

@@ -171,17 +171,17 @@ export class TuiDocNavigationComponent {
   private openActivePageGroup(): void {
     this.items.forEach((pages, pagesIndex) => {
       pages.forEach((page, pageIndex) => {
-        if (`route` in page && this.isActiveRoute(page.route)) {
+        if (`route` in page && this.isActiveRoute(page.route as string)) {
           this.openPagesArr[pagesIndex] = true;
-          this.active = page.route;
+          this.active = page.route as string;
         }
 
         if (`subPages` in page) {
           page.subPages.forEach(subPage => {
-            if (this.isActiveRoute(subPage.route)) {
+            if (this.isActiveRoute(subPage.route as string)) {
               this.openPagesArr[pagesIndex] = true;
               this.openPagesGroupsArr[pagesIndex * 100 + pageIndex] = true;
-              this.active = subPage.route;
+              this.active = subPage.route as string;
             }
           });
         }

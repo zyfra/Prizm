@@ -49,18 +49,19 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     return this.tabsService.canOpenTab;
   }
   @Output() readonly activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
-  @ViewChild('tabsContainer', { static: true }) public tabsContainer: ElementRef;
-  @ViewChild('tabsDropdown', { static: true }) public tabsDropdown: PrizmDropdownHostComponent;
-  public tabsMoreDropdown: PrizmDropdownHostComponent;
-  @ContentChildren(PrizmTabComponent, { descendants: true }) public tabElements: QueryList<PrizmTabComponent>;
+  @ViewChild('tabsContainer', { static: true }) public tabsContainer!: ElementRef;
+  @ViewChild('tabsDropdown', { static: true }) public tabsDropdown!: PrizmDropdownHostComponent;
+  public tabsMoreDropdown!: PrizmDropdownHostComponent;
+  @ContentChildren(PrizmTabComponent, { descendants: true })
+  public tabElements!: QueryList<PrizmTabComponent>;
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
-  public menuElements: QueryList<TemplateRef<PrizmTabComponent>>;
+  public menuElements!: QueryList<TemplateRef<PrizmTabComponent>>;
 
   override readonly testId_ = 'ui_tabs';
   readonly showLine$: Observable<boolean> = this.tabsService.tabs$.pipe(
     map(tabMap => {
       const last = [...tabMap.values()].pop();
-      return last.type === 'line';
+      return last?.type === 'line';
     })
   );
 
@@ -70,8 +71,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   public isLeftBtnActive = false;
   public isRightBtnActive = false;
 
-  private mutationObserver: MutationObserver;
-  private resizeObserver: ResizeObserver;
+  private mutationObserver!: MutationObserver;
+  private resizeObserver!: ResizeObserver;
   private mutationDetector$: Subject<void> = new Subject<void>();
   private subscription: Subscription = new Subscription();
 

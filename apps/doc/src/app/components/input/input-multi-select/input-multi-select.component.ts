@@ -46,7 +46,7 @@ export class InputInputMultiSelectComponent {
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public readOnly = false;
-  val1: any[];
+  val1!: any[];
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -58,9 +58,12 @@ export class InputInputMultiSelectComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  public icon: PolymorphContent<PrizmSelectIconContext> = null;
+  public icon: PolymorphContent<PrizmSelectIconContext> | null = null;
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
+    null as any,
+    'sort-zoom-in',
+  ];
   readonly control = new UntypedFormControl();
   searchable = false;
   outer = false;
@@ -109,7 +112,7 @@ export class InputInputMultiSelectComponent {
 
   readonly valueControl = new UntypedFormControl();
   public items = this.itemsVariants[1];
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   set disabled(state: boolean) {
     if (state) this.control.disable();
@@ -157,7 +160,7 @@ export class InputInputMultiSelectComponent {
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
+    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {

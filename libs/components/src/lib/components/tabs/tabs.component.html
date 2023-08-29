@@ -57,13 +57,13 @@
             <prizm-tab
               *prizmLet="{ inMenuIdx: i }"
               [type]="tab.type"
-              [content]="tab.content"
+              [content]="$any(tab.content)"
               [icon]="tab.icon"
-              [closable]="tab.closable"
-              [disabled]="tab.disabled"
+              [closable]="$any(tab.closable)"
+              [disabled]="$any(tab.disabled)"
               [attr.dropdown-tab]="true"
               (click)="clickTab()"
-              (closeTab)="closeTab(tabElement.idx)"
+              (closeTab)="closeTab($any(tabElement.idx))"
             >
             </prizm-tab>
           </ng-container>

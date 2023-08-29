@@ -97,8 +97,8 @@ export class PrizmHintDirective<
 
   protected readonly onHoverActive: boolean = true;
 
-  content: PolymorphContent;
-  overlay: PrizmOverlayControl;
+  content!: PolymorphContent;
+  overlay!: PrizmOverlayControl;
   protected readonly containerComponent: Type<unknown> = PrizmHintContainerComponent;
   protected readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();
@@ -205,7 +205,10 @@ export class PrizmHintDirective<
       })
       .create();
     if (this.onHoverActive) {
-      combineLatest([this.hoveredService.createHovered$(this.host), this.hintService.childHovered(this.id)])
+      combineLatest([
+        this.hoveredService.createHovered$(this.host),
+        this.hintService.childHovered(this.id as string),
+      ])
         .pipe(
           map(([thisHovered, containerHovered]) => {
             return thisHovered || containerHovered;

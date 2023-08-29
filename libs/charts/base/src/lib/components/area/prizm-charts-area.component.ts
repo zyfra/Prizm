@@ -34,7 +34,7 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options.xField;
+    return this.options.xField as string;
   }
 
   @Input()
@@ -42,7 +42,7 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options.yField;
+    return this.options.yField as string;
   }
   get origin(): Area {
     return this.origin_;
@@ -50,7 +50,7 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends
   @prizmDefaultProp()
   private _data: PrizmChartsAreaItem[] = [];
   public readonly name = 'area';
-  private origin_: PrizmChartsAreaOrigin;
+  private origin_!: PrizmChartsAreaOrigin;
   override readonly testId_ = 'ui_charts_area';
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

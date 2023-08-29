@@ -2,7 +2,7 @@
 <p>Для отмены сортировки на колонке нажмите на нее удерживая ctrl</p>
 
 <prizm-scrollbar class="scrollable" visibility="hidden">
-  <prizm-loader [showLoader]="showLoader$ | async" [overlay]="true">
+  <prizm-loader [showLoader]="$any(showLoader$ | async)" [overlay]="true">
     <table class="table" [columns]="columns" (sortChange)="updateSort($event)" prizmTable>
       <thead>
         <tr prizmThGroup>

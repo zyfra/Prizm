@@ -25,7 +25,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 export class PrizmNavigationMenuItemsComponent<
   T extends { children?: unknown[] }
 > extends PrizmAbstractTestId {
-  @ViewChildren(PrizmNavigationMenuItemComponent) private menuItemsList: QueryList<
+  @ViewChildren(PrizmNavigationMenuItemComponent) private menuItemsList!: QueryList<
     PrizmNavigationMenuItemComponent<T>
   >;
 
@@ -40,15 +40,15 @@ export class PrizmNavigationMenuItemsComponent<
 
   @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
-  @Input() items: InternalPrizmNavigationMenuItem<T>[];
-  @Input() mode: ViewMode;
-  @Input() activeItem: InternalPrizmNavigationMenuItem<T>;
-  @Input() itemExtraTemplate: TemplateRef<unknown>;
+  @Input() items!: InternalPrizmNavigationMenuItem<T>[];
+  @Input() mode!: ViewMode;
+  @Input() activeItem!: InternalPrizmNavigationMenuItem<T>;
+  @Input() itemExtraTemplate!: TemplateRef<unknown>;
   @Input() expandedItemsMap: Map<InternalPrizmNavigationMenuItem<T>, boolean> = new Map<
     InternalPrizmNavigationMenuItem<T>,
     boolean
   >();
-  @Input() childrenHandler: PrizmNavigationMenuChildrenHandler<T>;
+  @Input() childrenHandler!: PrizmNavigationMenuChildrenHandler<T>;
 
   get menuItemsChildrenHandler(): PrizmNavigationMenuChildrenHandler<T> {
     return this.childrenHandler || this.childrenHandlerToken;
@@ -77,7 +77,7 @@ export class PrizmNavigationMenuItemsComponent<
   }
 
   public getItemIsExpanded(item: InternalPrizmNavigationMenuItem<T>): boolean {
-    return this.expandedItemsMap.get(item);
+    return this.expandedItemsMap.get(item) ?? false;
   }
 
   public getItemIsActive(item: InternalPrizmNavigationMenuItem<T>): boolean {

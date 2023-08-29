@@ -33,12 +33,12 @@ export class PrizmInputCarouselExampleComponent {
   formControl = new UntypedFormControl();
   public label = 'Заголовок';
   public placeholder = '';
-  public outer: false;
+  public outer!: false;
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
   public disabled = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public control = new UntypedFormControl();
   public required = false;
   carouselContent = new PrizmCarouselArrayContent([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], (item, el) => item === el);

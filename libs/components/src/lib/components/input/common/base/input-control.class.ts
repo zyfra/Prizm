@@ -15,21 +15,21 @@ export abstract class PrizmInputControl<T> extends PrizmAbstractTestId {
   statusText?: PrizmInputStatusTextDirective;
 
   @ViewChild(PrizmInputLayoutBottomDirective)
-  public layoutBottom: PrizmInputLayoutBottomDirective | null;
+  public layoutBottom!: PrizmInputLayoutBottomDirective | null;
 
   @ViewChild(PrizmInputLayoutInBodyDirective)
-  public layoutInBody: PrizmInputLayoutInBodyDirective | null;
+  public layoutInBody!: PrizmInputLayoutInBodyDirective | null;
 
   @ViewChild(PrizmInputLayoutLeftDirective)
-  public layoutLeft: PrizmInputLayoutLeftDirective | null;
+  public layoutLeft!: PrizmInputLayoutLeftDirective | null;
 
   @ViewChild(PrizmInputLayoutRightDirective)
-  public layoutRight: PrizmInputLayoutRightDirective | null;
+  public layoutRight!: PrizmInputLayoutRightDirective | null;
 
   @ViewChild(PrizmInputLayoutSubtextDirective)
   public layoutSubtext: PrizmInputLayoutSubtextDirective | null = null;
 
-  public defaultLabel: string;
+  public defaultLabel!: string;
 
   /** The value of the control. */
   abstract value: T | null;

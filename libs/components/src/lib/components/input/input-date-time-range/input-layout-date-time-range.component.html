@@ -62,7 +62,7 @@
       [dropSpecialCharacters]="false"
       [clearIfNotMatch]="false"
       [showMaskTyped]="(focusableElementRef.focused$ | async) || (hasNativeValue$ | async)"
-      [disabled]="disabled"
+      [disabled]="!!disabled"
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="toValue"
       [size]="computedDateMask.length"
@@ -79,7 +79,7 @@
       [dropSpecialCharacters]="false"
       [clearIfNotMatch]="false"
       [showMaskTyped]="(focusableElementRef.focused$ | async) || (hasNativeValue$ | async)"
-      [disabled]="disabled"
+      [disabled]="!!disabled"
       [ngModelOptions]="{ standalone: true }"
       [ngModel]="toTimeValue"
       [size]="computedTimeMask.length"
@@ -128,7 +128,7 @@
       [markerHandler]="markerHandler"
       [minLength]="minLength"
       [maxLength]="maxLength"
-      [value]="value?.dayRange"
+      [value]="$any(value?.dayRange)"
       (prizmAfterViewInit)="markAsTouched()"
       (valueChange)="onRangeChange($event)"
     >
@@ -168,7 +168,7 @@
 <ng-container *prizmInputLayoutRight>
   <button
     [interactive]="true"
-    [disabled]="disabled"
+    [disabled]="!!disabled"
     (click)="focusableElementRef.focus(); onOpenChange(!open)"
     prizmInputIconButton="date-calendar-range"
   ></button>

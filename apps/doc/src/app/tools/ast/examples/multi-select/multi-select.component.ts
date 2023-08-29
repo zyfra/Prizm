@@ -124,7 +124,7 @@ export class PrizmAstMultiSelectExampleComponent implements OnInit {
   [optionLabel]="name"
   [placeholder]="Select a City"
 ></zyfra-multiselect>`;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

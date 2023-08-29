@@ -23,7 +23,11 @@ export class PrizmCallWithNewSourceTemplateTask extends PrizmAstTaskTemplate<IPr
       if (!storage) continue;
 
       node = context.processor.runAction(node, storage.action, ({ task }) => ({
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         task: task as any,
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-ignore
         sourceNode: storage.context.sourceNode,
         ...storage.context,
       }));

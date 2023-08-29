@@ -14,7 +14,7 @@ export class PrizmCarouselExampleComponent {
   formControl = new UntypedFormControl();
   public label = 'Заголовок';
   public placeholder = '';
-  public outer: false;
+  public outer!: false;
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];

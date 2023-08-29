@@ -69,10 +69,10 @@
       (valueChange)="onRangeChange($event)"
     >
       <ng-container footerFrom>
-        <ng-template [ngTemplateOutlet]="footerFromTemplate"> ></ng-template>
+        <ng-template [ngTemplateOutlet]="$any(footerFromTemplate)"> ></ng-template>
       </ng-container>
       <ng-container footerTo>
-        <ng-template [ngTemplateOutlet]="footerToTemplate"> ></ng-template>
+        <ng-template [ngTemplateOutlet]="$any(footerToTemplate)"> ></ng-template>
       </ng-container>
     </prizm-calendar-range>
   </ng-template>

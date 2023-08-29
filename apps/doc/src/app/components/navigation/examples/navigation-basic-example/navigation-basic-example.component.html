@@ -41,7 +41,7 @@
       <prizm-navigation
         [data]="data"
         [activeElement]="activeElement ?? data[parentActiveIdx]"
-        (activeItemChange)="saveActiveIdx($event)"
+        (activeItemChange)="saveActiveIdx($any($event))"
       ></prizm-navigation>
     </prizm-scrollbar>
 

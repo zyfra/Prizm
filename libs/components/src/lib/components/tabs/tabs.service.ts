@@ -33,7 +33,7 @@ export class PrizmTabsService implements OnDestroy {
   }
 
   public getTabByIdx(idx: number): PrizmTabComponent {
-    return this.tabs.get(idx);
+    return this.tabs.get(idx) as PrizmTabComponent;
   }
 
   public updateTab(tab: PrizmTabComponent, idx?: number): void {

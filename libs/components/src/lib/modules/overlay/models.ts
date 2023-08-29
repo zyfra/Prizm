@@ -130,5 +130,5 @@ export interface PrizmOverlayInputs {
   config: PrizmOverlayConfig;
   content: PrizmOverlayContent;
   parentContainer: HTMLElement | undefined;
-  zid: PrizmOverlayId;
+  zid: PrizmOverlayId | null;
 }

@@ -13,7 +13,7 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
   PrizmChartsPieOrigin,
   PrizmChartsPieOptions
 > {
-  private origin_: Pie;
+  private origin_!: Pie;
   get origin(): Pie {
     return this.origin_;
   }
@@ -33,7 +33,7 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
     this.updateOptions({ angleField: value });
   }
   public get groupField(): string {
-    return this.options?.angleField;
+    return this.options?.angleField as string;
   }
 
   @Input()
@@ -41,7 +41,7 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
     this.updateOptions({ colorField: value });
   }
   public get colorField(): string {
-    return this.options?.colorField;
+    return this.options?.colorField as string;
   }
 
   @Input()

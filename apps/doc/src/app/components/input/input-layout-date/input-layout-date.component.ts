@@ -20,7 +20,7 @@ export class InputLayoutDateComponent {
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly dateKey = 'PrizmInputLayoutDateComponent';
   public readOnly = false;
-  val: PrizmDay;
+  val!: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -36,7 +36,7 @@ export class InputLayoutDateComponent {
 
   public label = 'Абсолютное';
   public placeholder = 'Выберите дату';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;

@@ -14,7 +14,7 @@ import { copyToClipboard } from '../../../util';
 export class IconComponent implements OnInit {
   readonly nameVariants = Object.values(PrizmIconSvgEnum);
   public name = this.nameVariants[0];
-  public color: string;
+  public color!: string;
 
   readonly sizeVariants = ['32px', 24, 16];
   public size = this.sizeVariants[0];

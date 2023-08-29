@@ -1,12 +1,12 @@
 <prizm-file-upload
   [multiple]="true"
   [accept]="'image/*'"
-  [progress]="progress$$ | async"
+  [progress]="$any(progress$$ | async)"
   [maxFilesCount]="3"
   [maxFileSize]="1000000"
   [disabled]="disabled"
   (filesChange)="onFilesChange($event)"
-  (filesValidationErrors)="onfilesValidationErrors($event)"
+  (filesValidationErrors)="onfilesValidationErrors($any($event))"
   (filesCountError)="onFilesCountError($event)"
   (retry)="retry($event)"
 >

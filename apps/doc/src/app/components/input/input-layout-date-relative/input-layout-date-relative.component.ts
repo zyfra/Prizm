@@ -23,7 +23,7 @@ export class InputLayoutDateRelativeRelativeComponent {
   public canOpen = true;
   public readonly valueControl = new UntypedFormControl();
   public label = 'Относительное';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public placeholder = 'Выберите дату';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';

@@ -25,7 +25,7 @@ export class InputLayoutDateRangeComponent {
 
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly dateKey = 'PrizmLayoutInputDateRangeComponent';
-  val: PrizmDayRange;
+  val!: PrizmDayRange;
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -38,7 +38,7 @@ export class InputLayoutDateRangeComponent {
   public focusVisibleChange = false;
 
   public label = 'Период';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public dateControl = new UntypedFormControl();
   public placeholder = 'Выберите период';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];

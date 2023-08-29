@@ -47,7 +47,7 @@ export class PrizmInputLayoutComponent
     this.label$.next(val);
   }
   get label(): string {
-    return this.label$.value;
+    return this.label$.value as string;
   }
 
   @Input() size: PrizmInputSize = 'l';
@@ -61,7 +61,7 @@ export class PrizmInputLayoutComponent
   @Input() forceClear: boolean | null = null;
   @Output() clear = new EventEmitter<MouseEvent>();
 
-  @ViewChild(PrizmLetDirective) letDirective: PrizmLetDirective<{
+  @ViewChild(PrizmLetDirective) letDirective!: PrizmLetDirective<{
     focused: boolean;
     disabled: boolean;
     empty: boolean;
@@ -89,12 +89,12 @@ export class PrizmInputLayoutComponent
           !this.letDirective?.context?.empty;
   }
 
-  @ContentChild(PrizmInputControl, { static: true }) control: PrizmInputControl<any>;
+  @ContentChild(PrizmInputControl, { static: true }) control!: PrizmInputControl<any>;
   @ContentChild(PrizmInputStatusTextDirective, { static: false })
-  inputStatusText: PrizmInputStatusTextDirective;
+  inputStatusText!: PrizmInputStatusTextDirective;
 
-  public statusIcon: string;
-  public statusMessage: PolymorphContent | null;
+  public statusIcon!: string;
+  public statusMessage!: PolymorphContent | null;
 
   @HostBinding('class.disabled') get disabled() {
     return this.letDirective?.context?.disabled;
@@ -108,7 +108,7 @@ export class PrizmInputLayoutComponent
   public readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
-  private foundStatusDirective: PrizmInputStatusTextDirective;
+  private foundStatusDirective!: PrizmInputStatusTextDirective;
 
   get correctedStatus() {
     return this.foundStatusDirective?.status && this.foundStatusDirective.enable
@@ -117,9 +117,9 @@ export class PrizmInputLayoutComponent
   }
 
   get showStatusButton(): boolean {
-    return (
+    return Boolean(
       this.status !== 'default' ||
-      (this.letDirective?.context?.invalid && this.letDirective?.context?.touched)
+        (this.letDirective?.context?.invalid && this.letDirective?.context?.touched)
     );
   }
 
@@ -208,6 +208,8 @@ export class PrizmInputLayoutComponent
       statusIcon = 'alerts-info-circle-fill';
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     this.statusIcon = statusIcon;
   }
 

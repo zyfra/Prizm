@@ -43,10 +43,10 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   override readonly testId_ = 'ui_breadcrumbs';
 
   @Output() public breadcrumbChange: EventEmitter<Breadcrumb> = new EventEmitter();
-  @ViewChild('container', { static: true }) public containerRef: ElementRef;
-  @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer: ElementRef;
-  @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList: QueryList<ElementRef>;
-  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem: QueryList<PrizmBreadcrumbDirective>;
+  @ViewChild('container', { static: true }) public containerRef!: ElementRef;
+  @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer!: ElementRef;
+  @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList!: QueryList<ElementRef>;
+  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem!: QueryList<PrizmBreadcrumbDirective>;
 
   public breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
@@ -54,13 +54,13 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
 
   public isDropdownOpened = false;
   public isContainerOverflowed = false;
-  public breadcrumbsElementsWidth: number;
+  public breadcrumbsElementsWidth!: number;
 
   public get activeBreadcrumbIdx(): number {
     return this.breadcrumbsToShow$.getValue().length - 1;
   }
 
-  private resizeObserver: ResizeObserver;
+  private resizeObserver!: ResizeObserver;
   private mutationDetector$: Subject<void> = new Subject<void>();
 
   constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy: PrizmDestroyService) {

@@ -174,7 +174,7 @@ export abstract class PrizmCronUiBaseState<
    * update on
    * */
   public updateSpecified(specified?: string[]): void {
-    this.updateMainIfChanged(`${specified.join(',') ?? 0}`);
+    this.updateMainIfChanged(`${specified?.join(',') ?? 0}`);
   }
 
   /**

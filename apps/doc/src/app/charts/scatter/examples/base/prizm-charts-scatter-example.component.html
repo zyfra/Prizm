@@ -1,6 +1,6 @@
 <prizm-charts-scatter
   [data]="data"
-  [theme]="prizmTheme.changesTheme$ | async"
+  [theme]="$any($any(prizmTheme.changesTheme$ | async))"
   [options]="{ size: 5, shape: 'circle', appendPadding: 30 }"
   xField="xG conceded"
   colorField="Result"

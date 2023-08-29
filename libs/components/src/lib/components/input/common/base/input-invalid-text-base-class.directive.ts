@@ -16,7 +16,7 @@ export abstract class InputInvalidTextBaseClass {
 export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass implements OnInit {
   @Input() control?: PrizmInputControl<unknown>;
 
-  public invalidText: string;
+  public invalidText!: string;
 
   private readonly cdr: ChangeDetectorRef = this.injector.get(ChangeDetectorRef);
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
@@ -37,14 +37,14 @@ export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass impl
   }
 
   public getText(firstInvalidKey: string): string {
-    return firstInvalidKey && this.validationTexts.getText(firstInvalidKey);
+    return firstInvalidKey && (this.validationTexts.getText(firstInvalidKey) as any);
   }
 
   private actualizeText(): void {
     // By default show only touched
     if (!this.control?.touched) return;
 
-    const errors = this.control.ngControl.errors || {};
+    const errors = this.control.ngControl?.errors || {};
 
     const firstInvalidKey = Object.keys(errors)?.[0];
     const errorText = this.getText(firstInvalidKey);

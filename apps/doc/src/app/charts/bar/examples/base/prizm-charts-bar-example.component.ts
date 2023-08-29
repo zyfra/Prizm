@@ -15,7 +15,7 @@ import { PrizmChartsBarComponent, PrizmChartsBarOptions } from '@prizm-ui/charts
   ],
 })
 export class PrizmChartsBarExampleComponent implements AfterViewInit {
-  @ViewChild('bar') bar: PrizmChartsBarComponent<any>;
+  @ViewChild('bar') bar!: PrizmChartsBarComponent<any>;
   public data = [
     {
       type: 'Установка 1',

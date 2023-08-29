@@ -18,7 +18,7 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
     return this.origin_;
   }
 
-  private origin_: PrizmChartsLineOrigin;
+  private origin_!: PrizmChartsLineOrigin;
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });
@@ -32,7 +32,7 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options.xField;
+    return this.options.xField as string;
   }
 
   @Input()
@@ -40,7 +40,7 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options.yField;
+    return this.options.yField as string;
   }
 
   @Input()

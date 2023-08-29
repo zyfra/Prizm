@@ -119,8 +119,8 @@ function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageG
 
   return [...pages]
     .sort((a, b) => {
-      const sectionWeightA = orderingLength - ordering[a.section];
-      const sectionWeightB = orderingLength - ordering[b.section];
+      const sectionWeightA = orderingLength - ordering[a?.section ?? 0];
+      const sectionWeightB = orderingLength - ordering[b?.section ?? 0];
       const localOrderA = a.order || 0;
       const localOrderB = b.order || 0;
 

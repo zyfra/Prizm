@@ -1,11 +1,11 @@
 <div class="container container--{{ orientation }}" #container>
   <prizm-splitter-gutter
     *ngFor="let gutter of guttersData"
-    [areaBefore]="gutter.areaBefore"
-    [areaAfter]="gutter.areaAfter"
-    [order]="gutter.order"
+    [areaBefore]="$any(gutter.areaBefore)"
+    [areaAfter]="$any(gutter.areaAfter)"
+    [order]="$any(gutter.order)"
     [orientation]="orientation"
-    [template]="customGutter?.template"
+    [template]="$any(customGutter?.template)"
   >
   </prizm-splitter-gutter>
   <ng-content select="prizm-splitter-area"></ng-content>

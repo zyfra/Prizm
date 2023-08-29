@@ -35,7 +35,7 @@ export class TooltipComponent {
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+    ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
   ];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
@@ -52,7 +52,7 @@ export class TooltipComponent {
   appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
   disabled = false;
   showLoader = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public content = 'Тестовое содержимое';
   public prizmAutoReposition = false;
   public prizmTooltipShow = true;

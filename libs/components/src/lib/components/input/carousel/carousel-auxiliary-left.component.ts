@@ -12,14 +12,14 @@ import { PrizmCarouselComponent } from './carousel.component';
     <button
       *ngIf="!carousel.lightMode && !carousel.disabled"
       [interactive]="true"
-      [disabled]="carousel.carouselContent?.controlsState.leftCtrlDisabled"
+      [disabled]="!!carousel.carouselContent?.controlsState?.leftCtrlDisabled"
       (click)="carousel.left()"
       prizmInputIconButton="chevrons-double-left"
     ></button>
     <button
       *ngIf="!carousel.disabled"
       [interactive]="true"
-      [disabled]="carousel.carouselContent?.controlsState.stepleftCtrlDisabled"
+      [disabled]="!!carousel.carouselContent?.controlsState?.stepleftCtrlDisabled"
       (click)="carousel.stepLeft()"
       prizmInputIconButton="chevrons-left"
     ></button>
@@ -34,5 +34,5 @@ import { PrizmCarouselComponent } from './carousel.component';
   ],
 })
 export class PrizmCarouselAuxiliaryLeftComponent {
-  @Input() carousel: PrizmCarouselComponent;
+  @Input() carousel!: PrizmCarouselComponent;
 }

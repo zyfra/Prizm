@@ -31,7 +31,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
   @prizmAutoEmit({
     name: 'columns$$',
   })
-  columns: ReadonlyArray<keyof T | string>;
+  columns!: ReadonlyArray<keyof T | string>;
 
   get cols$(): Observable<ReadonlyArray<keyof T | string>> {
     return this.columns$$.pipe(
@@ -69,6 +69,6 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
         // Display heads in order as specified by table's `column` property.
         return columns.map(c => heads.find(h => h.prizmHead === c));
       })
-    );
+    ) as any;
   }
 }

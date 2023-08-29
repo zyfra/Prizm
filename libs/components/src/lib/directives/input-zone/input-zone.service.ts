@@ -31,7 +31,7 @@ export class PrizmInputZoneService {
   }
 
   public getByIdx(idx: number): PrizmInputInZoneDirective | null {
-    return this.map.get(idx);
+    return this.map.get(idx) ?? null;
   }
 
   public add(input: PrizmInputInZoneDirective): number {

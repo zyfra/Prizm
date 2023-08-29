@@ -11,7 +11,7 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class InputDateRangeComponent {
   public readOnly = false;
-  val: PrizmDayRange;
+  val: any; // PrizmDayRange;
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -29,7 +29,7 @@ export class InputDateRangeComponent {
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];

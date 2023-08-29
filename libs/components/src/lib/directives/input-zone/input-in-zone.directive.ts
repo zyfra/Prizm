@@ -23,12 +23,12 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   providers: [PrizmDestroyService],
 })
 export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
-  previousSelectionStart: number;
+  previousSelectionStart!: number;
   @Input() idx?: number;
 
   @HostBinding('style.--prizm-input-in-zone-max-size')
   @Input()
-  maxSize: number;
+  maxSize!: number;
 
   @Output() focused$ = merge(
     fromEvent(this.el.nativeElement, 'focus').pipe(mapTo(true)),
@@ -51,7 +51,7 @@ export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
     timer(0)
       .pipe(
         tap(() => {
-          this.previousSelectionStart = this.el.nativeElement.selectionStart;
+          this.previousSelectionStart = this.el.nativeElement.selectionStart as number;
         }),
         takeUntil(this.destroy$)
       )
@@ -98,7 +98,7 @@ export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
           .selectionTo(0, 1);
       }
     }
-    this.previousSelectionStart = selectionStart;
+    this.previousSelectionStart = selectionStart as number;
   }
 
   constructor(
@@ -110,7 +110,7 @@ export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
   ) {}
 
   ngOnDestroy(): void {
-    this.inputZoneService.delete(this.idx);
+    this.inputZoneService.delete(this.idx as number);
   }
 
   ngOnInit(): void {

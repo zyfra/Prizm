@@ -29,12 +29,12 @@ export function ParseTextInput(text: string): RelativeDateModel {
   const result: RelativeDateModel = {} as RelativeDateModel;
 
   const regexMatch = new RegExp(MatchPattern);
-  const match = regexMatch.exec(text);
+  const match = regexMatch.exec(text) ?? [];
 
-  result.time = timeMap.get(match[1]);
-  result.direction = directionMap.get(match[2]);
-  result.period = periodMap.get(match[4]);
-  result.number = match[3] || '';
+  result.time = timeMap.get(match[1]) as any;
+  result.direction = directionMap.get(match[2]) as any;
+  result.period = periodMap.get(match[4]) as any;
+  result.number = (match[3] as any) || '';
 
   return result;
 }

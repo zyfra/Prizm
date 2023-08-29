@@ -20,7 +20,7 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class InputTimeTimeComponent {
   public readOnly = false;
-  val: PrizmTime;
+  val: any;
 
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
@@ -43,7 +43,7 @@ export class InputTimeTimeComponent {
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public strict = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;

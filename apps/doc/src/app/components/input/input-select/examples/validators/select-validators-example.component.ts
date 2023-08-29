@@ -14,7 +14,7 @@ import { UntypedFormControl, Validators } from '@angular/forms';
   ],
 })
 export class PrizmSelectValidatorsExampleComponent {
-  value: string = null;
+  value: string | null = null;
   readonly items = [
     'One',
     'Two',

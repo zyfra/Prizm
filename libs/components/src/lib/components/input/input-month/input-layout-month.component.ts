@@ -46,7 +46,7 @@ import { PRIZM_MONTHS } from '../../../tokens';
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutMonthComponent },
   ],
 })
-export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMonth> {
+export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMonth | null> {
   readonly hasClearButton = true;
   readonly nativeElementType = 'input-month';
   override readonly testId_ = 'ui_input_month';
@@ -77,7 +77,7 @@ export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMon
 
   public activeYear: PrizmYear = this.value || PrizmDay.currentLocal();
 
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   get interactive() {
     return !this.disabled;

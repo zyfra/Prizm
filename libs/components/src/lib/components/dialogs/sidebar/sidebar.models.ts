@@ -15,8 +15,8 @@ export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> &
 
 export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOptions {
   confirmButton?: PrizmSidebarButton | string;
-  supportButton?: PrizmSidebarButton | string;
-  cancelButton?: PrizmSidebarButton | string;
+  supportButton?: PrizmSidebarButton | string | null;
+  cancelButton?: PrizmSidebarButton | string | null;
   styleVars?: Record<string, unknown>;
   overlayStyleVars?: Record<string, unknown>;
   showByVertical?: boolean;
@@ -45,7 +45,7 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   readonly hideFooter?: boolean;
   readonly footer: PolymorphContent<
     PrizmBaseDialogContext<PrizmSidebarResultDefaultType, PrizmSidebarOptions<DATA>>
-  >;
+  > | null;
 }
 
 export enum PrizmSidebarResultDefaultType {

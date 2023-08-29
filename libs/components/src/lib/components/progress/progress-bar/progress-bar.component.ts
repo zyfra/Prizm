@@ -12,7 +12,7 @@ import { PrizmSizeM, PrizmSizeS } from '../../../util/size-bigger';
 export class PrizmProgressBarComponent extends PrizmAbstractTestId {
   @Input()
   @HostBinding(`style.--prizm-progress-color`)
-  color?: string;
+  color?: string | null;
 
   @Input()
   @HostBinding(`style.--prizm-progress-track-color`)

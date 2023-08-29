@@ -62,7 +62,7 @@ export class PrizmAstBreadcrumbExampleComponent implements OnInit {
   (onItemClick)="onItemClickHandler($event)">
 </zyfra-breadcrumb>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parseAccordion();

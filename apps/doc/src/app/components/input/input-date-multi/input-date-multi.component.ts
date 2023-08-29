@@ -11,10 +11,10 @@ import { PrizmDateItemTemplate, PrizmDay, PrizmTime } from '@prizm-ui/components
 })
 export class InputDateMultiRelativeComponent implements OnInit {
   public readonly valueControl = new UntypedFormControl();
-  @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime: TemplateRef<unknown>;
-  @ViewChild('dateTime', { static: true }) dateTime: TemplateRef<unknown>;
+  @ViewChild('dateRelativeTime', { static: true }) dateRelativeTime!: TemplateRef<unknown>;
+  @ViewChild('dateTime', { static: true }) dateTime!: TemplateRef<unknown>;
 
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public currentIdx = 0;
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

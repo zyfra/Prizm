@@ -31,7 +31,7 @@ export class PrizmThemeDirective implements OnInit {
   @prizmObservable({
     name: 'theme$$',
   })
-  public prizmTheme: PrizmTheme;
+  public prizmTheme!: PrizmTheme;
 
   private readonly theme$$: ReplaySubject<PrizmTheme> = new ReplaySubject(1);
 
@@ -57,9 +57,13 @@ export class PrizmThemeDirective implements OnInit {
         distinctUntilChanged(),
         tap(theme => {
           this.localThemeService.setTheme(theme);
-          this.renderer2.setAttribute(this.element.nativeElement, this.themeService.attThemeKey, theme);
+          this.renderer2.setAttribute(
+            this.element.nativeElement,
+            this.themeService.attThemeKey,
+            theme as PrizmTheme
+          );
         }),
-        tap(theme => this.prizmThemeChange.next((this.prizmTheme = theme))),
+        tap(theme => this.prizmThemeChange.next((this.prizmTheme = theme as PrizmTheme))),
         takeUntil(this.destroy$)
       )
       .subscribe();

@@ -18,11 +18,11 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 })
 export class PanelComponent extends PrizmAbstractTestId {
   @Input() withBackButton = false;
-  @Input() header: string = null;
-  @Input() subheader: string = null;
+  @Input() header: string | null = null;
+  @Input() subheader: string | null = null;
 
   @Output() backClick: EventEmitter<void> = new EventEmitter<void>();
-  @ViewChild('headerElement', { static: true }) public headerRef: ElementRef;
+  @ViewChild('headerElement', { static: true }) public headerRef!: ElementRef;
 
   override readonly testId_ = 'ui_panel';
 

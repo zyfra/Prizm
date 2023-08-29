@@ -110,7 +110,7 @@ export class PrizmDocHostElementService implements OnDestroy {
       }))
     );
     this.componentInfo.set(listenerElementKey, {
-      selector: metaComponentData.selector,
+      selector: metaComponentData.selector as string,
       type: el.nativeElement.constructor.name,
       name: el.nativeElement.constructor.name,
     });
@@ -186,10 +186,10 @@ export class PrizmDocHostElementService implements OnDestroy {
   }
 
   private emitInfoSingle(key: string): void {
-    const allOutputs = this.outputs.get(key).map(i => i.propName);
-    const allInputs = this.inputs.get(key).map(i => i.propName);
+    const allOutputs = this.outputs.get(key)?.map(i => i.propName) ?? [];
+    const allInputs = this.inputs.get(key)?.map(i => i.propName) ?? [];
     const allListenerInputs = this.inputMap.get(key)?.values()
-      ? [...this.inputMap.get(key).values()].map(i => i.key)
+      ? [...(this.inputMap.get(key)?.values() ?? [])].map(i => i.key)
       : [];
     const allListenerOutputs = this.outputMap.get(key)?.values()
       ? [...(this.outputMap.get(key)?.values() ?? [])].map(i => i.key)
@@ -197,7 +197,7 @@ export class PrizmDocHostElementService implements OnDestroy {
 
     this.prizmDocHostElementListenerService.emitInfo({
       key,
-      selector: this.componentInfo.get(key).selector,
+      selector: this.componentInfo.get(key)?.selector as string,
       allOutputs,
       allInputs,
       unnecessaryInputs: allListenerInputs.filter(i => !allInputs.includes(i)),

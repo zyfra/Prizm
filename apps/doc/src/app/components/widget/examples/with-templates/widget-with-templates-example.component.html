@@ -1,0 +1,39 @@
+<prizm-widget [icons]="[iconBtnTemplate, iconBtnTemplate]" title="Заголовок виджета">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+  dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+  ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+  nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+  anim id est laborum.
+</prizm-widget>
+
+<ng-template #iconBtnTemplate let-idx="idx">
+  <button
+    [icon]="iconTemplate"
+    prizmIconButton
+    appearanceType="ghost"
+    appearance="secondary"
+    size="s"
+  ></button>
+
+  <ng-template #iconTemplate>
+    <prizm-icons-svg
+      [size]="16"
+      [name]="idx === 0 ? PrizmIconSvgEnum.SETTINGS_TOOLS_BAN : PrizmIconSvgEnum.DATE_TIME_CALENDAR_PLUS"
+    >
+    </prizm-icons-svg>
+  </ng-template>
+</ng-template>
+
+<ng-template #iconBtnTemplate>
+  <button
+    [icon]="iconTemplate"
+    prizmIconButton
+    appearanceType="ghost"
+    appearance="secondary"
+    size="m"
+  ></button>
+
+  <ng-template #iconTemplate>
+    <prizm-icons-svg [size]="16" [name]="PrizmIconSvgEnum.SETTINGS_TOOLS_BAN"> </prizm-icons-svg>
+  </ng-template>
+</ng-template>

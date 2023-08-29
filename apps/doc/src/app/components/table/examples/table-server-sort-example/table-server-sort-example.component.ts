@@ -97,7 +97,7 @@ export class TableServerSortExampleComponent {
   public sorter = prizmTableDefaultColumnSort;
   public products: ITableProduct[] = TABLE_EXAMPLE_SORT;
 
-  public searchString: string = null;
+  public searchString: string | null = null;
   public searchAllowedProducts: ITableProduct[] = this.products;
   public sorter$$ = new BehaviorSubject<PrizmTableCellSorter<ITableProduct>[]>([]);
   public readonly data$ = this.sorter$$.pipe(
@@ -124,7 +124,7 @@ export class TableServerSortExampleComponent {
     this.searchString = value.toLowerCase();
 
     this.searchAllowedProducts = this.products.filter(product =>
-      (product[key] as string).toLowerCase().includes(this.searchString)
+      (product[key] as string).toLowerCase().includes(this.searchString as string)
     );
   }
 

@@ -14,7 +14,7 @@ import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/comp
   ],
 })
 export class PrizmSidebarOnlyConfirmButtonExampleComponent {
-  @ViewChild('contentExample') contentExample: TemplateRef<any>;
+  @ViewChild('contentExample') contentExample!: TemplateRef<any>;
   public positionVariants: PrizmOverlayInsidePlacement[] = [
     PrizmOverlayInsidePlacement.LEFT,
     PrizmOverlayInsidePlacement.RIGHT,

@@ -24,13 +24,13 @@ export abstract class PrizmInputNgControl<T>
   onTouched = PRIZM_EMPTY_FUNCTION;
 
   get value(): T {
-    return this.previousInternalValue$$.value ?? this.fallbackValue;
+    return this.previousInternalValue$$.value ?? (this.fallbackValue as T);
   }
 
   public fallbackValue: T | null = null;
 
   get safeCurrentValue(): T {
-    return this.rawValue ?? this.fallbackValue;
+    return this.rawValue ?? (this.fallbackValue as T);
   }
 
   get empty(): boolean | Observable<boolean> {
@@ -38,7 +38,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get value$(): Observable<T> {
-    return this.previousInternalValue$$.asObservable().pipe(map(i => i ?? this.fallbackValue));
+    return this.previousInternalValue$$.asObservable().pipe(map(i => i ?? this.fallbackValue)) as any;
   }
 
   public isEmpty(value: T): boolean {
@@ -47,7 +47,7 @@ export abstract class PrizmInputNgControl<T>
 
   get required() {
     // for work Validators.required
-    if (this.ngControl.control.hasValidator(Validators.required)) return true;
+    if (this.ngControl.control?.hasValidator(Validators.required)) return true;
 
     // for work [required] attributes
     const validator = this.ngControl?.validator;
@@ -57,11 +57,11 @@ export abstract class PrizmInputNgControl<T>
 
     const validation = validator({} as AbstractControl);
     // eslint-disable-next-line no-prototype-builtins
-    return validation && validation.hasOwnProperty('required');
+    return Boolean(validation && validation.hasOwnProperty('required'));
   }
 
   get disabled() {
-    return this.ngControl?.disabled;
+    return !!this.ngControl?.disabled;
   }
 
   /** Whether the control is validity. */
@@ -116,7 +116,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public clear(ev: MouseEvent) {
-    this.updateValue(null);
+    this.updateValue(null as any);
     this.markAsDirty();
   }
 
@@ -194,10 +194,10 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public markAsTouched(): void {
-    this.ngControl.control.markAsTouched();
+    this.ngControl.control?.markAsTouched();
   }
 
   public markAsDirty(): void {
-    this.ngControl.control.markAsDirty();
+    this.ngControl.control?.markAsDirty();
   }
 }

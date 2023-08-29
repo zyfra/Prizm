@@ -19,7 +19,7 @@ export class PrizmToastService implements OnDestroy {
   private readonly refs: ToastRefMap = new Map();
   private readonly changesSource$ = new Subject<void>();
   readonly changes$ = this.changesSource$.pipe(
-    map(() => [...this.refs.values()].sort((a, b) => b.weight - a.weight)),
+    map(() => [...this.refs.values()].sort((a, b) => (b?.weight ?? 0) - (a?.weight ?? 0))),
     shareReplay(1)
   );
 
@@ -60,20 +60,20 @@ export class PrizmToastService implements OnDestroy {
 
   public updateContent(id: PRIZM_TOAST_ID, content: PolymorphContent): void {
     if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
-    this.refs.get(id).updateContent(content);
+    this.refs.get(id)?.updateContent(content);
   }
 
   public updateTitle(id: PRIZM_TOAST_ID, title: PrizmToastOptions['title']): PrizmToastRef {
     if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
     const ref = this.refs.get(id);
-    ref.updateTitle(title);
+    ref?.updateTitle(title);
 
-    return ref;
+    return ref as PrizmToastRef;
   }
 
   public delete(id: PRIZM_TOAST_ID): void {
     if (!this.refs.has(id)) throw new PrizmToastNotExistException(id);
-    this.refs.get(id).destroy();
+    this.refs.get(id)?.destroy();
     this.refs.delete(id);
     this.detect();
   }

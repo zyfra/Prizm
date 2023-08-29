@@ -15,7 +15,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   ],
 })
 export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
-  @Input() steps: Array<PrizmStepperStepDirective> = [];
+  @Input() steps: PrizmStepperStepDirective[] = [];
 
   @Input() currentStep!: number;
 
@@ -24,7 +24,7 @@ export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
   @Output() selectStep = new EventEmitter<number>();
 
   @ViewChildren(PrizmStepperSelectorItemDirective)
-  selectorItems: QueryList<PrizmStepperSelectorItemDirective>;
+  selectorItems!: QueryList<PrizmStepperSelectorItemDirective>;
   override readonly testId_ = 'ui_stepper--selector';
 
   public clickOnStep(index: number): void {

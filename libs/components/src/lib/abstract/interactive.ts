@@ -13,7 +13,7 @@ export abstract class AbstractPrizmInteractive extends PrizmAbstractTestId {
 
   abstract focused: boolean;
 
-  private readonly autoIdString: string;
+  private readonly autoIdString!: string;
 
   @Input()
   pseudoHovered: boolean | null = null;
@@ -28,7 +28,7 @@ export abstract class AbstractPrizmInteractive extends PrizmAbstractTestId {
   focusable = true;
 
   @Input()
-  pseudoState: string;
+  pseudoState!: string;
 
   @Output()
   readonly focusedChange = new EventEmitter<boolean>();

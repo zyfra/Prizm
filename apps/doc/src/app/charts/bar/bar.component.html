@@ -26,8 +26,8 @@
         [width]="width"
         [xField]="xField"
         [yField]="yField"
-        [seriesField]="seriesField"
-        [theme]="prizmTheme.changesTheme$ | async"
+        [seriesField]="$any(seriesField)"
+        [theme]="$any(prizmTheme.changesTheme$ | async)"
       ></prizm-charts-bar>
     </prizm-doc-demo>
 

@@ -21,21 +21,22 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() goToRootItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
 
-  @Input() itemExtraTemplate: TemplateRef<unknown>;
-  @Input() isExpandable: boolean;
-  @Input() isExpanded: boolean;
-  @Input() isActive: boolean;
-  @Input() item: InternalPrizmNavigationMenuItem<T>;
-  @Input() mode: ViewMode;
-  @Input() showGoToButtons: boolean;
+  @Input() itemExtraTemplate!: TemplateRef<unknown>;
+  @Input() isExpandable!: boolean;
+  @Input() isExpanded!: boolean;
+  @Input() isActive!: boolean;
+  @Input() item!: InternalPrizmNavigationMenuItem<T>;
+  @Input() mode!: ViewMode;
+  @Input() showGoToButtons!: boolean;
 
   isHovered = false;
 
   get expandButtonVisible(): boolean {
-    return this.mode === 'rubricator' ? this.item.isRubricator : this.isExpandable;
+    return this.mode === 'rubricator' ? !!this.item.isRubricator : this.isExpandable;
   }
 
   get goToButtonsVisible(): boolean {
+    this.item.breadcrumbs = this.item.breadcrumbs ?? [];
     return this.mode === 'folder' && this.item.breadcrumbs.length > 1;
   }
   override readonly testId_ = 'ui_navigation_menu_item';

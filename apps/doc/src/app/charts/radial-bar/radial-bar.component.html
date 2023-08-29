@@ -15,7 +15,7 @@
         [prizmDocHostElement]="element"
         [data]="data"
         [xField]="xField"
-        [theme]="prizmTheme.changesTheme$ | async"
+        [theme]="$any(prizmTheme.changesTheme$ | async)"
         [height]="height"
         [width]="width"
         [yField]="yField"

@@ -11,7 +11,7 @@ export class LineComponent {
   height = 300;
   xField = 'x';
   yField = 'y';
-  width: number = null;
+  width: number | null = null;
   data: any = [
     {
       x: '2010-01',

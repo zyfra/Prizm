@@ -2,7 +2,7 @@
   class="block"
   [zoneElement]="prizmDropdownHost"
   [prizmMutationObserverHost]="el.nativeElement"
-  [zoneActive]="isOpen$ | async"
+  [zoneActive]="$any(isOpen$ | async)"
   (zoneOutsideEvent)="outsideClick()"
   (prizmMutationObserver)="updateWidth()"
   prizmZoneEvent

@@ -36,7 +36,7 @@ export class PrizmRenameTemplateTask extends PrizmAstTaskTemplate<IPrizmRenameTe
     if (!context.runIn) return node;
 
     const attrWithType = prizmAstFindAttributeWithType(
-      attr,
+      attr as any,
       context.sourceNode.attrs,
       context.runIn === 'outputs'
         ? [PrizmAstTemplateAttributeType.output]
