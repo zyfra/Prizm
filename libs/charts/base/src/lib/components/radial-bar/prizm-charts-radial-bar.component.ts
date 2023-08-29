@@ -12,7 +12,7 @@ import { PrizmChartsRadialBarItem, PrizmChartsRadialBarOptions, PrizmChartsRadia
 export class PrizmChartsRadialBarComponent<
   T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsRadialBarOrigin, PrizmChartsRadialBarOptions> {
-  private origin_: PrizmChartsRadialBarOrigin;
+  private origin_!: PrizmChartsRadialBarOrigin;
   get origin(): PrizmChartsRadialBarOrigin {
     return this.origin_;
   }

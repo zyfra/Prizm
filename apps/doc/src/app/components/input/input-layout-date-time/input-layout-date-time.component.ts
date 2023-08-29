@@ -53,7 +53,7 @@ export class InputLayoutDateTimeTimeComponent {
 
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

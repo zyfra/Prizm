@@ -17,7 +17,7 @@ export class NavigationBasicExampleComponent {
   public openDropdown = false;
   public openNavigation = true;
   public parentActiveIdx = 0;
-  public activeElement: INavigationTree | null;
+  public activeElement!: INavigationTree | null;
 
   public readonly logo = 'assets/example/logo-dark.png';
 

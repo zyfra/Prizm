@@ -18,7 +18,7 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
     return this.origin_;
   }
 
-  private origin_: PrizmChartsLineOrigin;
+  private origin_!: PrizmChartsLineOrigin;
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });

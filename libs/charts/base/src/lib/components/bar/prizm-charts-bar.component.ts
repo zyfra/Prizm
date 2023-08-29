@@ -69,7 +69,7 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
   }
   override readonly testId_ = 'ui_charts_bar';
 
-  private origin_: Bar;
+  private origin_!: Bar;
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

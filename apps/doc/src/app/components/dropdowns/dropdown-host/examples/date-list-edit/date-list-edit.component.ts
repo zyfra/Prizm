@@ -16,8 +16,8 @@ type DateItem = {
 })
 export class PrizmDropdownHostDateListEditExampleComponent {
   open = false;
-  selection: DateItem | null;
-  addItem: DateItem | null;
+  selection!: DateItem | null;
+  addItem!: DateItem | null;
   data: DateItem[] = [
     {
       range: [

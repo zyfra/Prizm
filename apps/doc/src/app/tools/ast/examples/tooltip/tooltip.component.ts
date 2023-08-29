@@ -86,7 +86,7 @@ export class PrizmAstTooltipExampleComponent implements OnInit {
     Right
 </button>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

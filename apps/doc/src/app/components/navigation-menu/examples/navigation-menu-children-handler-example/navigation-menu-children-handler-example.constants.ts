@@ -1,8 +1,8 @@
 import { PrizmNavigationMenuItem } from '@prizm-ui/components';
 
 export class GrandParentItem implements PrizmNavigationMenuItem {
-  public text: string;
-  public children: PrizmNavigationMenuItem[];
+  public text!: string;
+  public children!: PrizmNavigationMenuItem[];
 
   constructor(data: { text: string; children: PrizmNavigationMenuItem[] }) {
     Object.assign(this, data);
@@ -10,8 +10,8 @@ export class GrandParentItem implements PrizmNavigationMenuItem {
 }
 
 export class ParentItem implements PrizmNavigationMenuItem {
-  public text: string;
-  public children: PrizmNavigationMenuItem[];
+  public text!: string;
+  public children!: PrizmNavigationMenuItem[];
 
   constructor(data: { text: string; children: PrizmNavigationMenuItem[] }) {
     Object.assign(this, data);
@@ -19,8 +19,8 @@ export class ParentItem implements PrizmNavigationMenuItem {
 }
 
 export class ChildItem implements PrizmNavigationMenuItem {
-  public text: string;
-  public children: PrizmNavigationMenuItem[];
+  public text!: string;
+  public children!: PrizmNavigationMenuItem[];
 
   constructor(data: { text: string; children: PrizmNavigationMenuItem[] }) {
     Object.assign(this, data);

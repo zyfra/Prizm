@@ -50,7 +50,7 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends
   @prizmDefaultProp()
   private _data: PrizmChartsAreaItem[] = [];
   public readonly name = 'area';
-  private origin_: PrizmChartsAreaOrigin;
+  private origin_!: PrizmChartsAreaOrigin;
   override readonly testId_ = 'ui_charts_area';
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);

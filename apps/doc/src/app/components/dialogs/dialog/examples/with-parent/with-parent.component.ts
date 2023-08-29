@@ -14,8 +14,8 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
   ],
 })
 export class PrizmDialogServiceWithParentExampleComponent {
-  @ViewChild('contentExample') contentExample: TemplateRef<any>;
-  @ViewChild('parentPanel') parentPanel: ElementRef<any>;
+  @ViewChild('contentExample') contentExample!: TemplateRef<any>;
+  @ViewChild('parentPanel') parentPanel!: ElementRef<any>;
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;

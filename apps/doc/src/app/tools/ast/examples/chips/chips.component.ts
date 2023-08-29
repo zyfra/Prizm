@@ -60,7 +60,7 @@ export class PrizmAstChipsExampleComponent implements OnInit {
   readonly html = `
 <zyfra-chip label="Removable" icon="zyfra-icon location-compass" [removable]="true" (onRemove)='null'></zyfra-chip>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

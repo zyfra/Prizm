@@ -13,7 +13,7 @@ export class PrizmChartsWaterfallComponent<
   T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsWaterfallOrigin, PrizmChartsWaterfallOptions> {
   readonly name = 'waterfall';
-  private origin_: PrizmChartsWaterfallOrigin;
+  private origin_!: PrizmChartsWaterfallOrigin;
 
   @Input()
   set data(data: PrizmChartsWaterfallItem[]) {

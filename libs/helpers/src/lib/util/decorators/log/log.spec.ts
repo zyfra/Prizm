@@ -81,7 +81,7 @@ describe('PrizmLogExecution with options', () => {
 
   it('should log only arguments for a class setter', () => {
     class TestClass {
-      private _myProperty: number;
+      private _myProperty!: number;
 
       @PrizmLogExecution({ logArguments: true, logResult: false, logExecutionTime: false })
       set myProperty(value: number) {

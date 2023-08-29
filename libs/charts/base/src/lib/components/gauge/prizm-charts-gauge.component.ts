@@ -12,7 +12,7 @@ import { Gauge } from '@antv/g2plot';
 export class PrizmChartsGaugeComponent<
   T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsGaugeOrigin, PrizmChartsGaugeOptions> {
-  private origin_: PrizmChartsGaugeOrigin;
+  private origin_!: PrizmChartsGaugeOrigin;
   get origin(): PrizmChartsGaugeOrigin {
     return this.origin_;
   }

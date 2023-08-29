@@ -16,5 +16,5 @@ export abstract class PrizmAbstractTestId {
   public get generateManeTestId() {
     return this.testId_;
   }
-  protected testId_: string;
+  protected testId_!: string;
 }

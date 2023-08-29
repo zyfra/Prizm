@@ -13,7 +13,7 @@ import { PrizmChartsAreaItem } from '../area';
 export class PrizmChartsColumnComponent<
   T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsColumnOrigin, PrizmChartsColumnOptions> {
-  private origin_: Column;
+  private origin_!: Column;
   get origin(): Column {
     return this.origin_;
   }
@@ -68,7 +68,7 @@ export class PrizmChartsColumnComponent<
   public get xField(): string {
     return this.options?.xField as string;
   }
-  @ViewChild('container', { static: true, read: ElementRef }) container: ElementRef<HTMLElement>;
+  @ViewChild('container', { static: true, read: ElementRef }) container!: ElementRef<HTMLElement>;
   override readonly testId_ = 'ui_charts_column';
 
   constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {

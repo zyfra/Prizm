@@ -19,21 +19,21 @@ const symbol = Symbol('test symbol');
 })
 export class PrizmObservableBaseExampleComponent {
   @prizmObservable()
-  test1: number;
+  test1!: number;
   test1$$!: Subject<number>;
 
   @prizmObservable({
     name: 'secondTest$$',
     subject: new ReplaySubject(),
   })
-  test2: number;
+  test2!: number;
   secondTest$$!: ReplaySubject<number>;
 
   @prizmObservable({
     defaultValue: null,
     subject: new BehaviorSubject(null),
   })
-  test3: number;
+  test3!: number;
   test3$$!: BehaviorSubject<number>;
 
   @prizmObservable({
@@ -43,7 +43,7 @@ export class PrizmObservableBaseExampleComponent {
       enumerable: true,
     },
   })
-  test4: number;
+  test4!: number;
   enumerable$$!: ReplaySubject<number>;
 
   @prizmObservable({
@@ -53,7 +53,7 @@ export class PrizmObservableBaseExampleComponent {
       enumerable: true,
     },
   })
-  test5: number;
+  test5!: number;
 
   public getFromSymbol(): Observable<any> {
     return this[symbol];

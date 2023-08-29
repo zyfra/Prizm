@@ -31,7 +31,7 @@ export class PrizmThemeDirective implements OnInit {
   @prizmObservable({
     name: 'theme$$',
   })
-  public prizmTheme: PrizmTheme;
+  public prizmTheme!: PrizmTheme;
 
   private readonly theme$$: ReplaySubject<PrizmTheme> = new ReplaySubject(1);
 

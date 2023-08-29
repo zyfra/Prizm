@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, View
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ZoomControlExampleBasicComponent {
-  @ViewChild('content', { static: true }) contentElement: ElementRef;
+  @ViewChild('content', { static: true }) contentElement!: ElementRef;
   public openDropdown = false;
   public scalesList: number[] = [200, 150, 100, 50];
   public scaleIdx = 3;

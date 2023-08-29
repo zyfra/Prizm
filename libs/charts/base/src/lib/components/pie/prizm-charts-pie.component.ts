@@ -13,7 +13,7 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
   PrizmChartsPieOrigin,
   PrizmChartsPieOptions
 > {
-  private origin_: Pie;
+  private origin_!: Pie;
   get origin(): Pie {
     return this.origin_;
   }

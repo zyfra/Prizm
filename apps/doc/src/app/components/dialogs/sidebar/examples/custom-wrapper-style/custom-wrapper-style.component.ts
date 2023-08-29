@@ -6,7 +6,7 @@ import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/comp
   templateUrl: './custom-wrapper-style.component.html',
 })
 export class PrizmSidebarCustomWrapperStyleExampleComponent {
-  @ViewChild('contentExample') contentExample: TemplateRef<any>;
+  @ViewChild('contentExample') contentExample!: TemplateRef<any>;
   public backdrop = false;
   public dismissible = false;
 

@@ -20,7 +20,7 @@ export class PrizmChartsTreemapComponent<
     return this.options?.data ?? {};
   }
   readonly name = 'treemap';
-  private origin_: PrizmChartsTreemapOrigin;
+  private origin_!: PrizmChartsTreemapOrigin;
 
   @Input()
   public set colorField(value: string) {

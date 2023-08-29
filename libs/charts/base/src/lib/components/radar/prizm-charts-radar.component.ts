@@ -12,7 +12,7 @@ import { PrizmChartsRadarItem, PrizmChartsRadarOptions, PrizmChartsRadarOrigin }
 export class PrizmChartsRadarComponent<
   T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsRadarOrigin, PrizmChartsRadarOptions> {
-  private origin_: PrizmChartsRadarOrigin;
+  private origin_!: PrizmChartsRadarOrigin;
   get origin(): PrizmChartsRadarOrigin {
     return this.origin_;
   }

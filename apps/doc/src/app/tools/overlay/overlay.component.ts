@@ -9,20 +9,20 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 })
 export class OverlayComponent {
   // List inputs
-  styleClass: string;
+  styleClass!: string;
   label = 'Button Name';
 
   // list
   readonly typeVariants: ReadonlyArray<'button' | 'submit' | 'reset'> = ['submit', 'reset', 'button'];
   type = this.typeVariants[0];
 
-  icon: string;
+  icon!: string;
 
   readonly iconPosVariants: ReadonlyArray<unknown> = ['left', 'right', 'top', 'bottom'];
   iconPos: unknown = this.iconPosVariants[0];
   disabled = false;
-  badge: string;
-  style: string;
+  badge!: string;
+  style!: string;
 
   readonly exampleModule: RawLoaderContent = import('./examples/import-module.md?raw');
 
