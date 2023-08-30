@@ -20,6 +20,7 @@ export interface TreeNode {
       .box {
         height: 100%;
         padding: 1rem;
+        width: 100%;
         min-width: 300px;
         background-color: var(--prizm-bg-body);
         border-right: 1px solid var(--prizm-border-widget);
