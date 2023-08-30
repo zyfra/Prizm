@@ -22,11 +22,6 @@ export class PrizmDocHostElementDirective implements OnInit {
     for (const idx in elementsKeys) {
       const hostElement = elementsHost[idx];
       const key = elementsKeys[idx];
-      console.log('#mz idx', {
-        key,
-        hostElement,
-        idx,
-      });
       this.hostElementService.setHostElement(key, hostElement);
     }
   }
