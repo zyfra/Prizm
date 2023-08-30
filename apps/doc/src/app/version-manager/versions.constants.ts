@@ -5,6 +5,7 @@ export interface PrizmVersionMeta {
   otherLinks: URL[];
   version?: string;
   baseHref?: string;
+  cb?: (hostName: string, current: PrizmVersionMeta) => boolean;
 }
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
@@ -14,6 +15,9 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
     link: new URL('http://prizm.site'),
     otherLinks: [new URL('https://prizm-v3.web.app')],
+    cb: (hostName: string, current: PrizmVersionMeta) => {
+      return !!hostName.startsWith('prizm-v3--');
+    },
   },
   {
     label: '2.1.6 (ng15)',
@@ -21,6 +25,9 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     stackblitz: 'https://stackblitz.com/edit/prizm-v2-demo',
     link: new URL('https://prizm-v2.web.app'),
     otherLinks: [],
+    cb: (hostName: string, current: PrizmVersionMeta) => {
+      return !!hostName.startsWith('prizm-v2--');
+    },
   },
   {
     label: '1.4.4 (ng14)',
@@ -28,6 +35,9 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-demo',
     link: new URL('https://prizm-v1.web.app'),
     otherLinks: [],
+    cb: (hostName: string, current: PrizmVersionMeta) => {
+      return hostName.startsWith('prizm-v1--');
+    },
   },
   {
     label: '3.0.1-next (ng16)',
