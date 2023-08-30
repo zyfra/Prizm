@@ -5,15 +5,24 @@ import { PrizmDocHostElementService } from './host-element.service';
   selector: '[prizmDocHostElement]',
 })
 export class PrizmDocHostElementDirective implements OnInit {
-  @Input() prizmDocHostElement: any;
-  @Input() prizmDocHostElementKey = 'index';
+  @Input() prizmDocHostElement: any | any[];
+  @Input() prizmDocHostElementKey: string | string[] = 'index';
 
-  constructor(
-    private readonly el: ElementRef,
-    private readonly hostElementService: PrizmDocHostElementService
-  ) {}
+  constructor(private readonly hostElementService: PrizmDocHostElementService) {}
 
   public ngOnInit(): void {
-    this.hostElementService.setHostElement(this.prizmDocHostElementKey, this.prizmDocHostElement);
+    const elementsKeys = Array.isArray(this.prizmDocHostElementKey)
+      ? this.prizmDocHostElementKey
+      : [this.prizmDocHostElementKey];
+
+    const elementsHost = Array.isArray(this.prizmDocHostElement)
+      ? this.prizmDocHostElement
+      : [this.prizmDocHostElement];
+
+    for (const idx in elementsKeys) {
+      const hostElement = elementsHost[idx];
+      const key = elementsKeys[idx];
+      this.hostElementService.setHostElement(key, hostElement);
+    }
   }
 }
