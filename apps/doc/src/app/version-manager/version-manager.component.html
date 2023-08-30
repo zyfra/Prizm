@@ -1,6 +1,6 @@
 <div class="select-block">
-  <div class="icon-block" *prizmLet="initialVersion as version">
-    <a [hidden]="!version.stackblitz" [href]="version.stackblitz" target="_blank">
+  <div class="icon-block" *prizmLet="initialVersion as version" [hidden]="!version.stackblitz">
+    <a [href]="version.stackblitz" target="_blank">
       <div class="icon" title="Open empty project with Prizm UI on stackblitz">
         <img src="assets/logos/sb.png" />
       </div>
