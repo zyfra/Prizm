@@ -16,7 +16,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     link: new URL('http://prizm.site'),
     otherLinks: [new URL('https://prizm-v3.web.app')],
     cb: (hostName: string, current: PrizmVersionMeta) => {
-      return !!hostName.startsWith('prizm-v3--');
+      return hostName.startsWith('prizm-v3--');
     },
   },
   {
@@ -26,7 +26,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     link: new URL('https://prizm-v2.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
-      return !!hostName.startsWith('prizm-v2--');
+      return hostName.startsWith('prizm-v2--');
     },
   },
   {
