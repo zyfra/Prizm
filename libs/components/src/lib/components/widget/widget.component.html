@@ -6,20 +6,22 @@
           {{ title }}
         </ng-container>
       </div>
-      <div class="icons" [class.divider]="icons?.length && icons.length > 1">
-        <ng-container *polymorphOutlet="icons">
-          <ng-container *ngFor="let icon of $any(icons)">
-            <button
-              [icon]="icon"
-              (click)="iconClick.emit(icon)"
-              prizmIconButton
-              appearanceType="ghost"
-              appearance="secondary"
-              size="s"
-            ></button>
+      <ng-container *polymorphOutlet="icons">
+        <div class="icons" [class.divider]="hasLine">
+          <ng-container *ngFor="let icon of $any(icons); let idx = index">
+            <ng-container *polymorphOutlet="icon; context: { idx: idx }">
+              <button
+                [icon]="$any(icon)"
+                (click)="iconClick.emit(icon)"
+                prizmIconButton
+                appearanceType="ghost"
+                appearance="secondary"
+                size="s"
+              ></button>
+            </ng-container>
           </ng-container>
-        </ng-container>
-      </div>
+        </div>
+      </ng-container>
     </ng-container>
   </div>
   <div class="body prizm-font-main-body-14">

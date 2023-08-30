@@ -9,8 +9,12 @@
       <prizm-widget-base-example></prizm-widget-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleWithButtons" heading="With Buttons">
+    <prizm-doc-example id="with-buttons" [content]="exampleWithButtons" heading="With Buttons">
       <prizm-widget-with-buttons-example></prizm-widget-with-buttons-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="with-templates" [content]="exampleWithTemplates" heading="With Templates">
+      <prizm-widget-with-templates-example></prizm-widget-with-templates-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -63,7 +67,7 @@
         [(documentationPropertyValue)]="icons"
         [documentationPropertyValues]="$any(getIconVariants(iconTemplate))"
         documentationPropertyName="icons"
-        documentationPropertyType="PolymorphContent | string[]"
+        documentationPropertyType="PrizmWidgetIcons"
         documentationPropertyMode="input"
       >
         Icons
