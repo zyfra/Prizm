@@ -10,7 +10,7 @@ permissions:
   contents: read
   packages: write
 jobs:
-  draft_release:
+  beta_release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -56,10 +56,10 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_draft_version=$(
+          last_beta_version=$(
             npm view @prizm-ui/components versions --tag beta-ng15 --json | jq '([.[] | select(startswith("2.1.7-beta-ng15"))] | last // "2.1.7-beta-ng15.0")' 2>/dev/null || echo '2.1.7-beta-ng15.0'
           )
-          echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
+          echo "LAST_DRAFT_VERSION=${last_beta_version}" >> $GITHUB_ENV
 
       - name: 'Set version 15'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v15
