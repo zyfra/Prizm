@@ -56,31 +56,31 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_next_version=$(
-            npm view @prizm-ui/components versions --tag next --json | jq '([.[] | select(startswith("1.4.4-next"))] | last // "1.4.4-next.0")' 2>/dev/null || echo '1.4.4-next.0'
+          last_next-ng14_version=$(
+            npm view @prizm-ui/components versions --tag next-ng14 --json | jq '([.[] | select(startswith("1.4.4-next-ng14"))] | last // "1.4.4-next-ng14.0")' 2>/dev/null || echo '1.4.4-next-ng14.0'
           )
-          echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
+          echo "LAST_next-ng14_VERSION=${last_next-ng14_version}" >> $GITHUB_ENV
 
       - name: 'Set version 14'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v14
 
-      - name: 'Update next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
+      - name: 'Update next-ng14 versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-next-ng14.up" --all --currentVersion="${{ env.LAST_next-ng14_VERSION }}"
 
-      - name: 'Build next versions'
+      - name: 'Build next-ng14 versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/components && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/components && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --tag next-ng14 --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag next-ng14 --access public --verbose || exit_code=0
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
