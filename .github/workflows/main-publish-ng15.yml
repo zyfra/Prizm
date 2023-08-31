@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v2_version=$(
-            npm view @prizm-ui/components versions --tag ng15 --json | jq '([.[] | select(startswith("3.0.1-v2"))] | last // "3.0.1-v2.0")' 2>/dev/null || echo '2.1.4-v2.0'
+            npm view @prizm-ui/components versions --tag ng15 --json | jq '([.[] | select(startswith("3.0.2-v2"))] | last // "3.0.2-v2.0")' 2>/dev/null || echo '2.1.7-v2.0'
           )
           echo "LAST_V2_VERSION=${last_v2_version}" >> $GITHUB_ENV
 

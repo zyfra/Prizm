@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            npm view @prizm-ui/components versions --tag beta-ng14 --json | jq '([.[] | select(startswith("1.4.4-beta-ng14"))] | last // "1.4.4-beta-ng14.0")' 2>/dev/null || echo '1.4.4-beta-ng14.0'
+            npm view @prizm-ui/components versions --tag beta-ng14 --json | jq '([.[] | select(startswith("1.4.5-beta-ng14"))] | last // "1.4.5-beta-ng14.0")' 2>/dev/null || echo '1.4.5-beta-ng14.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
