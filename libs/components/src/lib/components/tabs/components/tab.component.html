@@ -1,17 +1,17 @@
 <button class="page" [class.page_active]="isActiveTab$ | async" [disabled]="disabled">
   <div class="page__icon" *ngIf="icon">
-    <ng-container *polymorphOutlet="icon; context: { idx: idx$ | async, tab: this }">
+    <ng-container *polymorphOutlet="icon; context: $any({ idx: idx$ | async, tab: this })">
       <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
     </ng-container>
   </div>
   <span class="page__title" *ngIf="content">
-    <ng-container *polymorphOutlet="content; context: { idx: idx$ | async, tab: this }">
+    <ng-container *polymorphOutlet="content; context: $any({ idx: idx$ | async, tab: this })">
       {{ content }}
     </ng-container>
   </span>
   <div class="page__counter" *ngIf="!!count">{{ count }}</div>
   <div class="page__cancel" *ngIf="closable && !disabled" (click)="onClose($event)">
-    <ng-container *polymorphOutlet="closeIcon; context: { idx: idx$ | async, tab: this }">
+    <ng-container *polymorphOutlet="closeIcon; context: $any({ idx: idx$ | async, tab: this })">
       <prizm-icon class="icon" [iconClass]="$any(closeIcon)" [size]="16"> </prizm-icon>
     </ng-container>
   </div>

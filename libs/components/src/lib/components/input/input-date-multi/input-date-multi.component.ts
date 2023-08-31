@@ -34,7 +34,7 @@ export type PrizmDateItemTemplate = {
   providers: [getProviderPrizmDateLeftButtons()],
 })
 export class PrizmInputDateMultiComponent extends PrizmAbstractTestId implements OnInit {
-  @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate: TemplateRef<unknown>;
+  @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate!: TemplateRef<unknown>;
 
   private readonly _items$ = new BehaviorSubject<PrizmDateItemTemplate[]>([]);
   @Input()

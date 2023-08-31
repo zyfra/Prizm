@@ -90,8 +90,8 @@ export const TABLE_EXAMPLE_SORT: ITableProduct[] = [
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableDataSourceExampleComponent implements OnInit {
-  @ViewChild(PrizmTableDirective, { static: true }) table: PrizmTableDirective<ITableProduct>;
-  @ViewChild(PrizmPaginatorComponent, { static: true }) paginator: PrizmPaginatorComponent;
+  @ViewChild(PrizmTableDirective, { static: true }) table!: PrizmTableDirective<ITableProduct>;
+  @ViewChild(PrizmPaginatorComponent, { static: true }) paginator!: PrizmPaginatorComponent;
 
   public columns: string[] = ['code', 'name', 'category', 'count'];
   public sorter = prizmTableDefaultColumnSort;
@@ -103,7 +103,7 @@ export class TableDataSourceExampleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataSource.paginator = this.paginator;
+    this.dataSource.paginator = this.paginator as any;
     this.dataSource.sorter = this.table.sorterService;
   }
 

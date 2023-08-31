@@ -22,6 +22,8 @@ xdescribe('PrizmDialog', () => {
     const r = await result.toPromise();
 
     expect(r).toBeTruthy();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
@@ -53,6 +55,8 @@ xdescribe('PrizmDialog', () => {
     const r = await result.pipe(take(1)).toPromise();
 
     expect(r).toBe(h);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
@@ -67,6 +71,8 @@ xdescribe('PrizmDialog', () => {
     const r = await result.pipe(take(1)).toPromise();
 
     expect(r).toBe(content);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 

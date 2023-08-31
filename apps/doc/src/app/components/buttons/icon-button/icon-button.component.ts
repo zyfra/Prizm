@@ -32,7 +32,7 @@ import {
 export class IconButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
@@ -46,7 +46,7 @@ export class IconButtonComponent {
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     'account-card-details',
-    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+    ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
   ];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];

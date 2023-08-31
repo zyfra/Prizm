@@ -582,7 +582,7 @@ export class PrizmCronHRExpressionDescriptor {
           );
 
           if (isSegmentRangeWithoutIncrement) {
-            currentDescriptionContent = currentDescriptionContent?.replace(', ', '');
+            currentDescriptionContent = currentDescriptionContent?.replace(', ', '') as any;
           }
 
           descriptionContent += currentDescriptionContent;

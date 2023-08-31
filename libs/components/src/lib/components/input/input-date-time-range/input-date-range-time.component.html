@@ -10,8 +10,8 @@
   [outer]="outer"
   [formControl]="dateControl"
   [placeholder]="placeholder"
-  [min]="min?.day"
-  [max]="max?.day"
+  [min]="$any(min?.day)"
+  [max]="$any(max?.day)"
 >
   <ng-template #footerTo let-zone="zone">
     <prizm-input-time

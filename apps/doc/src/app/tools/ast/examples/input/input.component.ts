@@ -33,7 +33,7 @@ export class PrizmAstInputExampleComponent implements OnInit {
   [tooltipPosition]="tooltipPosition"
   [label]="label"
 ></zyfra-input>`;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

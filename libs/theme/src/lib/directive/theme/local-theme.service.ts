@@ -4,10 +4,10 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class PrizmLocalThemeService {
-  private readonly theme$$ = new BehaviorSubject<PrizmTheme>(null);
+  private readonly theme$$ = new BehaviorSubject<PrizmTheme | null>(null);
   readonly theme$ = this.theme$$.asObservable();
 
-  public setTheme(theme: PrizmTheme): void {
+  public setTheme(theme: PrizmTheme | null): void {
     this.theme$$.next(theme);
   }
 }

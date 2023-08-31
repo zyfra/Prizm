@@ -46,7 +46,7 @@ describe('prizmParseTag', () => {
       voidElement: true,
       attrs: { disabled: null },
       children: [],
-    } as PrizmAstHtmlItem;
+    } as any as PrizmAstHtmlItem;
     const result = prizmParseTag(tag);
     expect(result).toEqual(expected);
   });

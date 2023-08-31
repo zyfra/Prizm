@@ -27,12 +27,12 @@ export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
 
   @HostBinding('attr.prizm-size')
   public get size(): PrizmDialogSize {
-    return this.context.size;
+    return this.context.size as PrizmDialogSize;
   }
 
   @HostBinding('attr.prizm-sidebar-id')
   public get id(): string {
-    return this.context.id;
+    return this.context.id as string;
   }
 
   @HostBinding('class.full-width')

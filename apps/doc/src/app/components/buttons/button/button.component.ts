@@ -30,9 +30,9 @@ export class ButtonComponent {
   public focusVisibleChange = false;
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a, c) => a.concat(c.data), []),
+    ...IconDefs.reduce((a: any[], c) => a.concat(c?.data), []),
   ];
-  testIdPostfix: string;
+  testIdPostfix!: string;
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [

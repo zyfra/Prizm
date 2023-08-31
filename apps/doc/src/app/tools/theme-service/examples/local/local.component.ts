@@ -19,7 +19,7 @@ import { PrizmThemeService } from '@prizm-ui/theme';
   ],
 })
 export class PrizmThemeLocalExampleComponent {
-  @ViewChild('zone', { static: true, read: ElementRef }) el: ElementRef;
+  @ViewChild('zone', { static: true, read: ElementRef }) el!: ElementRef;
   constructor(public readonly theme: PrizmThemeService) {}
 
   public light(): void {

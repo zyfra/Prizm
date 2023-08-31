@@ -4,10 +4,10 @@
       <prizm-tabs (activeTabIndexChange)="activeTabIndexChange()">
         <prizm-tab
           *ngFor="let item of pages"
-          [disabled]="item.disabled"
+          [disabled]="!!item.disabled"
           [closable]="true"
-          [icon]="item.icon"
-          [content]="item.title"
+          [icon]="$any(item.icon)"
+          [content]="$any(item.title)"
           [type]="'contained'"
           (closeTab)="tabCancelClick(item)"
         >

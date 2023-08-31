@@ -12,5 +12,5 @@ import { PrizmSplitterOrientation } from '../types';
   },
 })
 export class PrizmSplitterGutterDefaultComponent {
-  @Input() orientation: PrizmSplitterOrientation;
+  @Input() orientation!: PrizmSplitterOrientation;
 }

@@ -22,6 +22,8 @@ export class PolymorphTemplate<C extends Record<any, any>> {
   ) {}
 
   public static ngTemplateContextGuard<T>(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     _dir: PolymorphTemplate<T>,
     _ctx: any
   ): _ctx is T extends string ? any : T {

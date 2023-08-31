@@ -17,9 +17,10 @@ export function filterItems<Item extends SimpleItem<Item>>(
     }
 
     if (Array.isArray(item.children)) {
-      const children: Item[] = item.children.reduce((acc, item) => {
-        return getChildren(acc, item);
-      }, []);
+      const children: Item[] =
+        item.children?.reduce((acc: Item[], item: Item) => {
+          return getChildren(acc, item) as Item[];
+        }, []) ?? [];
 
       if (children.length) acc.push({ ...item, children });
     }

@@ -25,7 +25,7 @@ export function getContent(
 
 /* html dom utils */
 export function cssClass(method: 'add' | 'remove', cls: string[], target = 'body'): void {
-  document.querySelector(target).classList[method](...cls);
+  document.querySelector(target)?.classList[method](...cls);
 }
 
 export function objToCss(styleObj: Record<string, any>): string {

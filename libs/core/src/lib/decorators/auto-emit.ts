@@ -19,7 +19,7 @@ export function prizmAutoEmit<T>(
     let lastValue: T;
     Object.defineProperty(target, memberName, {
       set(newValue: T) {
-        const value = (lastValue = newValue ?? defaultValue);
+        const value = (lastValue = newValue ?? (defaultValue as T));
         const method = this[hiddenPropertyName] as Subject<T>;
         if (typeof method?.next !== 'function') {
           console.error('prizmAutoEmit: Can find subject', {
@@ -32,7 +32,7 @@ export function prizmAutoEmit<T>(
         }
         method.next(
           (typeof options?.calculate === 'function' ? (options?.calculate?.(value, this) as T) : value) ??
-            defaultValue
+            (defaultValue as T)
         );
       },
       get() {

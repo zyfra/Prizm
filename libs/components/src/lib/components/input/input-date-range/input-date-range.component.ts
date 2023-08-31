@@ -94,11 +94,11 @@ export class PrizmInputDateRangeComponent
 
   @Input()
   @prizmDefaultProp()
-  min = PRIZM_FIRST_DAY;
+  min: PrizmDay | null = PRIZM_FIRST_DAY;
 
   @Input()
   @prizmDefaultProp()
-  max = PRIZM_LAST_DAY;
+  max: PrizmDay | null = PRIZM_LAST_DAY;
 
   @Input()
   @prizmDefaultProp()
@@ -322,8 +322,8 @@ export class PrizmInputDateRangeComponent
       ? clampedBottom.from.append(this.maxLength).append({ day: -1 })
       : this.max;
 
-    return clampedBottom.to.dayAfter(availableMax)
-      ? new PrizmDayRange(clampedBottom.from, availableMax)
+    return clampedBottom.to.dayAfter(availableMax as any)
+      ? new PrizmDayRange(clampedBottom.from, availableMax as any)
       : clampedBottom;
   }
 

@@ -80,7 +80,7 @@ describe('PrizmMoveContentToComponentTemplateTask', () => {
           name: 'p',
           attrs: {},
           children: [],
-        } as PrizmTemplateNode,
+        } as any as PrizmTemplateNode,
       ],
     } as unknown as PrizmTemplateNode;
 

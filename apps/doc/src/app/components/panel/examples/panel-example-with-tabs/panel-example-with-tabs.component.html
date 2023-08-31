@@ -4,9 +4,9 @@
       <prizm-tabs (activeTabIndexChange)="activeTabIndexChange()" (closeClick)="tabCancelClick()">
         <prizm-tab
           *ngFor="let item of tabs"
-          [disabled]="item.disabled"
-          [icon]="item.icon"
-          [content]="item.title"
+          [disabled]="!!item.disabled"
+          [icon]="$any(item.icon)"
+          [content]="$any(item.title)"
           [type]="'line'"
         >
         </prizm-tab>

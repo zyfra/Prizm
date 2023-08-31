@@ -14,7 +14,7 @@ import { PrizmDay, PrizmDayRange, PrizmDayRangePeriod } from '@prizm-ui/componen
   ],
 })
 export class PrizmCalendarRangeListExampleComponent {
-  public value = new PrizmDayRange(new PrizmDay(2022, 1, 7), new PrizmDay(2022, 2, 14));
+  public value: PrizmDayRange = new PrizmDayRange(new PrizmDay(2022, 1, 7), new PrizmDay(2022, 2, 14));
   readonly items = [
     new PrizmDayRangePeriod(new PrizmDayRange(new PrizmDay(2022, 1, 1), new PrizmDay(2022, 1, 10)), '1-10'),
     new PrizmDayRangePeriod(new PrizmDayRange(new PrizmDay(2022, 1, 10), new PrizmDay(2022, 1, 20)), '10-20'),

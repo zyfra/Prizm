@@ -3,6 +3,7 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules';
 import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { prizmIsTextOverflow$ } from '../../../util/dom/is-textoverflow';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-chips-item',
@@ -10,13 +11,15 @@ import { prizmIsTextOverflow$ } from '../../../util/dom/is-textoverflow';
   styleUrls: ['./chips-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmChipsItemComponent {
+export class PrizmChipsItemComponent extends PrizmAbstractTestId {
   @Input() disabled = false;
   @Input() deletable = true;
   @Output() deleted = new EventEmitter<MouseEvent>();
   @Input() hintCanShow = true;
-  @Input() hintText: string;
+  @Input() hintText!: string;
   @Input() hintDirection: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
+
+  override readonly testId_ = 'ui_chips_item';
 
   readonly prizmIsTextOverflow$ = (
     elem: HTMLElement,
@@ -37,9 +40,7 @@ export class PrizmChipsItemComponent {
       })
     );
   };
-  constructor(public readonly el: ElementRef) {}
-
-  public typeOf(val: unknown): string {
-    return typeof val;
+  constructor(public readonly el: ElementRef) {
+    super();
   }
 }

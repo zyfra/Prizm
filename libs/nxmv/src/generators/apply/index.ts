@@ -50,7 +50,7 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
 
     // get folder projects
     const projects = getProjectConfigurations(tree)
-      .filter(i => version.all || needProjects.includes(i.name))
+      .filter(i => version.all || needProjects.includes(i.name as any))
       .map(i => i.root);
 
     const allRoot = [...(version.rootChange ? ['/'] : []), ...projects];
@@ -68,9 +68,13 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
           const extFiles = Array.isArray(version.extFile) ? version.extFile : [version.extFile];
 
           for (const extFile of extFiles) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             if (fileName.endsWith(extFile)) {
               // if we found file that to change file
               const newFileName = filePath.replace(new RegExp(extFile + '$', 'g'), '');
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               tree.write(newFileName, tree.read(filePath));
               break;
             }
@@ -91,7 +95,7 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
           }
 
           // copy folder
-          const fileName = filePath.split('/').pop();
+          const fileName = filePath.split('/').pop() as any;
           const extFolders = Array.isArray(version.extFolder) ? version.extFolder : [version.extFolder];
 
           for (const extFolder of extFolders) {
@@ -102,11 +106,15 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
               // get current files
               const oldFiles = [];
               visitAllFiles(tree, newFileName, oldFilePath => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 oldFiles.push(oldFilePath);
               });
 
               const newFiles = [];
               visitAllFiles(tree, filePath, oldFilePath => {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                // @ts-ignore
                 newFiles.push(oldFilePath);
               });
 

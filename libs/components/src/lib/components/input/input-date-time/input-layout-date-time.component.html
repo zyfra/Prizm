@@ -4,7 +4,7 @@
   [style.--prizm-dropdown-host-width]="'100%'"
   [canOpen]="!disabled"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
-  [content]="getTemplate(dropdownTimeTemplate, dropdownDateTemplate)"
+  [content]="$any(getTemplate(dropdownTimeTemplate, dropdownDateTemplate))"
   [prizmDropdownHostWidth]="openTimeTemplate ? '100%' : 'auto'"
   [isOpen]="!disabled && (openTimeTemplate || open)"
   [closeByEsc]="true"
@@ -107,7 +107,7 @@
       <div
         class="time-item"
         *ngFor="let item of timeItems; let idx = index"
-        [class.selected]="value?.[1] && item.isSameTime(value[1])"
+        [class.selected]="value?.[1] && item.isSameTime($any(value?.[1]))"
         (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
       >
         <span class="text">

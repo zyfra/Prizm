@@ -14,7 +14,7 @@ export class PrizmToastRef {
     return this.hash_;
   }
   get buttonAppearance(): string {
-    return this.appearance === 'info' ? 'primary' : this.appearance;
+    return this.appearance === 'info' ? 'primary' : (this.appearance as string);
   }
   constructor(
     public content: PolymorphContent,
@@ -41,7 +41,7 @@ export class PrizmToastRef {
   public readonly close = (closeAfterMs?: number): void => {
     this.destroy();
     if (!closeAfterMs) {
-      this.toastService.delete(this.id);
+      this.toastService.delete(this.id as string);
     }
 
     if (!closeAfterMs) return void this.changeVisibleState(false);

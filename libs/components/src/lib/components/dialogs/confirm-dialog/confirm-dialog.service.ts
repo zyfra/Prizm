@@ -19,7 +19,7 @@ const DEFAULT_OPTIONS = {
   confirmButton: null,
   supportButton: null,
   cancelButton: null,
-} as PrizmConfirmDialogOptions<PrizmConfirmDialogResult>;
+} as unknown as PrizmConfirmDialogOptions<PrizmConfirmDialogResult>;
 
 @Injectable({
   providedIn: 'root',
@@ -64,7 +64,7 @@ export class PrizmConfirmDialogService<
 
     const confirmButton = this.generateButton(
       options,
-      options.confirmButton,
+      options.confirmButton as any,
       'Подтвердить',
       PrizmConfirmDialogResultDefaultType.confirmed,
       'primary'
@@ -72,7 +72,7 @@ export class PrizmConfirmDialogService<
 
     const cancelButton = this.generateButton(
       options,
-      options.cancelButton,
+      options.cancelButton as any,
       'Отмена',
       PrizmConfirmDialogResultDefaultType.cancel,
       'secondary',

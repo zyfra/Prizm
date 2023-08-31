@@ -6,9 +6,9 @@ import { PrizmToObservableOperator } from './model';
 
 @Pipe({ name: 'prizmToObservable' })
 export class PrizmToObservablePipe<T> implements PipeTransform, OnDestroy {
-  private subject$$: BehaviorSubject<T | unknown>;
-  private lastObservable$$: Observable<T | unknown>;
-  private lastOperators: PrizmToObservableOperator[];
+  private subject$$!: BehaviorSubject<T | unknown>;
+  private lastObservable$$!: Observable<T | unknown>;
+  private lastOperators!: PrizmToObservableOperator[];
   public transform(
     value: T | Observable<T> | Promise<T>,
     operators: PrizmToObservableOperator[] = []

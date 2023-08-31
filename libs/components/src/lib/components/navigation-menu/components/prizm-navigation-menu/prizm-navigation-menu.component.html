@@ -29,8 +29,8 @@
     </div>
     <prizm-navigation-menu-toolbar
       class="header__toolbar"
-      [searchConfig]="menuSearchConfig$ | async"
-      [toolbarConfig]="menuToolbarConfig$ | async"
+      [searchConfig]="$any(menuSearchConfig$ | async)"
+      [toolbarConfig]="$any(menuToolbarConfig$ | async)"
       [toolbarExtraTemplate]="toolbarExtraTemplate"
     ></prizm-navigation-menu-toolbar>
   </header>
@@ -54,10 +54,10 @@
           [items]="items"
           [toolbarExtraTemplate]="toolbarExtraTemplate"
           [itemExtraTemplate]="itemExtraTemplate"
-          [searchConfig]="menuSearchConfig$ | async"
-          [toolbarConfig]="menuToolbarConfig$ | async"
-          [emptySearchResultMessageConfig]="emptySearchResultMessageConfig$ | async"
-          [emptyDataMessageConfig]="emptyDataMessageConfig$ | async"
+          [searchConfig]="$any(menuSearchConfig$ | async)"
+          [toolbarConfig]="$any(menuToolbarConfig$ | async)"
+          [emptySearchResultMessageConfig]="$any(emptySearchResultMessageConfig$ | async)"
+          [emptyDataMessageConfig]="$any(emptyDataMessageConfig$ | async)"
         ></prizm-navigation-menu-group>
       </div>
     </ng-template>

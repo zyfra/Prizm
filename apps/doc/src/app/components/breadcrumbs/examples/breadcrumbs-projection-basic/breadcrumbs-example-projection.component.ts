@@ -14,7 +14,7 @@ export class BreadcrumbsExampleProjectionComponent {
     { link: '/components/icon-button', name: 'Icon' },
   ];
 
-  private currentBreadcrumb: IBreadcrumb = null;
+  private currentBreadcrumb: IBreadcrumb | null = null;
 
   public breadcrumbChange(current: IBreadcrumb): void {
     this.currentBreadcrumb = current;

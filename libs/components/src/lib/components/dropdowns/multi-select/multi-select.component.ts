@@ -68,7 +68,7 @@ export class PrizmMultiSelectComponent<T>
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data ?? []);
+    this.items$.next((data as any) ?? []);
   }
   get items(): T[] {
     return this.items$.value;
@@ -150,7 +150,7 @@ export class PrizmMultiSelectComponent<T>
 
   override readonly testId_ = 'ui-muilti-select';
 
-  public inputTextElement: PrizmInputTextComponent | null;
+  public inputTextElement!: PrizmInputTextComponent | null;
   public readonly defaultIcon = 'chevrons-dropdown';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
@@ -162,6 +162,8 @@ export class PrizmMultiSelectComponent<T>
   public readonly chipsControl = new UntypedFormControl([] as string[]);
 
   readonly filteredItems$: Observable<PrizmMultiSelectItemWithChecked<T>[]> = this.controlReady$.pipe(
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     switchMap(() =>
       combineLatest([
         this.searchInputControl.valueChanges.pipe(startWith('')),
@@ -244,7 +246,7 @@ export class PrizmMultiSelectComponent<T>
   );
 
   public filteredItems: PrizmMultiSelectItemWithChecked<T>[] = [];
-  private searchValue: string;
+  private searchValue!: string;
 
   constructor(
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
@@ -342,7 +344,7 @@ export class PrizmMultiSelectComponent<T>
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     this.searchInputControl.setValue('');
     this.open =
       !this.open &&

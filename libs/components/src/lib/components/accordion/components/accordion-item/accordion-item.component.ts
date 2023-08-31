@@ -26,7 +26,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
-  @Input() icon: PolymorphContent<PrizmAccordionItemData>;
+  @Input() icon!: PolymorphContent<PrizmAccordionItemData>;
   @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
   @Input() disabled = false;
@@ -45,9 +45,9 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   override readonly testId_ = 'ui_accordion_item';
 
   @ContentChild(AccordionContentDirective, { read: TemplateRef })
-  public readonly accordionContent: TemplateRef<AccordionContentDirective>;
+  public readonly accordionContent!: TemplateRef<AccordionContentDirective>;
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
-  public readonly accordionTools: TemplateRef<AccordionToolsDirective>;
+  public readonly accordionTools!: TemplateRef<AccordionToolsDirective>;
 
   constructor(private readonly cdRef: ChangeDetectorRef) {
     super();

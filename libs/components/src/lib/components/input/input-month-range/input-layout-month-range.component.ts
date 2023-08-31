@@ -47,7 +47,7 @@ import { PRIZM_MONTHS } from '../../../tokens';
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutMonthRangeComponent },
   ],
 })
-export class PrizmInputLayoutMonthRangeComponent extends PrizmInputNgControl<PrizmMonthRange> {
+export class PrizmInputLayoutMonthRangeComponent extends PrizmInputNgControl<PrizmMonthRange | null> {
   readonly nativeElementType = 'input-month-range';
   readonly hasClearButton = true;
   override readonly testId_ = 'ui_input_month_range';

@@ -6,7 +6,7 @@ import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
 type DateRangeItem = [PrizmDay, PrizmTime];
 
 type DateItem = {
-  range: [DateRangeItem, DateRangeItem];
+  range: [DateRangeItem | null, DateRangeItem | null];
 };
 
 @Component({
@@ -16,8 +16,8 @@ type DateItem = {
 })
 export class PrizmDropdownHostDateListEditExampleComponent {
   open = false;
-  selection: DateItem;
-  addItem: DateItem;
+  selection!: DateItem | null;
+  addItem!: DateItem | null;
   data: DateItem[] = [
     {
       range: [
@@ -78,7 +78,7 @@ export class PrizmDropdownHostDateListEditExampleComponent {
     this.endControl.setValue(item.range[1]);
   }
 
-  public convertDate([start, end]: DateItem['range']): [Date, Date] {
+  public convertDate([start, end]: DateItem['range']): [Date, Date] | null {
     if (!start?.[0] || !end?.[0]) return null;
     return [
       new PrizmDateTime(start[0], start[1] ?? new PrizmTime(0, 0)).toLocalNativeDate(),
@@ -115,7 +115,7 @@ export class PrizmDropdownHostDateListEditExampleComponent {
   }
 
   public changeDate(from: DateRangeItem, to: DateRangeItem): void {
-    this.selection.range = [from, to];
+    if (this.selection) this.selection.range = [from, to];
   }
 
   public add(): void {

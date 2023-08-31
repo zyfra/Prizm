@@ -24,11 +24,11 @@ export class PrizmSplitterAreaComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_splitter--area';
   id = ++PrizmSplitterAreaComponent.id;
 
-  private _size: number | null;
+  private _size!: number | null;
   @Input() set size(value: number | null) {
     if (value === null) {
       this.hide();
-      this.setSize(value);
+      this.setSize(value ?? 0);
       this.setCurrentSize(0);
     }
 
@@ -47,8 +47,8 @@ export class PrizmSplitterAreaComponent extends PrizmAbstractTestId {
   @Input() minSize = 0;
   @Output() areaMinSize = new EventEmitter();
 
-  @HostBinding('style.order') order: number;
-  @HostBinding('style.flex-basis') currentSize: string;
+  @HostBinding('style.order') order!: number;
+  @HostBinding('style.flex-basis') currentSize!: string;
 
   markForUpdate = false;
 

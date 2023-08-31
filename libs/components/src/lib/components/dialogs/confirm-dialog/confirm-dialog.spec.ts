@@ -26,12 +26,14 @@ xdescribe('PrizmConfirmDialog', () => {
     const r = await result.toPromise();
 
     expect(r).toBeTruthy();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
   it('pass data and not close', async () => {
     let c: PrizmOverlayControl;
-    const result = service.open(null, {}, async ({ control, dialog }) => {
+    const result = service.open(null as any, {}, async ({ control, dialog }) => {
       c = control;
       dialog.$implicit.next(true);
       const r = await result.pipe(first()).toPromise();
@@ -57,6 +59,8 @@ xdescribe('PrizmConfirmDialog', () => {
     const r = await result.pipe(take(1)).toPromise();
 
     expect(r).toBe(h);
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     expect(c.isOpen).toBeFalsy();
   });
 
@@ -71,7 +75,9 @@ xdescribe('PrizmConfirmDialog', () => {
     const r = await result.pipe(take(1)).toPromise();
 
     expect(r).toBe(content);
-    expect(c.isOpen).toBeFalsy();
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    expect(c?.isOpen).toBeFalsy();
   });
 
   it('close after unsubscribe', async () => {

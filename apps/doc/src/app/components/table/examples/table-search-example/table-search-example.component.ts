@@ -13,13 +13,13 @@ import { tap } from 'rxjs/operators';
 export class TableSearchExampleComponent implements OnInit {
   public columns: string[] = ['code', 'name', 'category', 'count'];
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_SEARCH;
-  public searchString: string = null;
+  public searchString: string | null = null;
   public searchAllowedProducts: ITableProduct[] = this.products;
   public readonly control = new FormControl(false);
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
     this.searchString = value.toLowerCase();
     this.searchAllowedProducts = this.products.filter(product =>
-      (product[key] as string).toLowerCase().includes(this.searchString)
+      (product[key] as string).toLowerCase().includes(this.searchString as any)
     );
   }
 

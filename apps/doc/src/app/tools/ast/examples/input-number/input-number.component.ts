@@ -34,7 +34,7 @@ export class PrizmAstInputNumberExampleComponent implements OnInit {
     mode="currency"
     currency="USD"
 ></zyfra-input-number>`;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

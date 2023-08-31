@@ -17,18 +17,18 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
-  @Input() public deep: number;
+  @Input() public deep!: number;
 
   public isExpanded = false;
   override readonly testId_ = 'ui_navigation--item-expandable';
 
-  public data$: BehaviorSubject<INavigationTree> = new BehaviorSubject<INavigationTree>(null);
+  public data$ = new BehaviorSubject<INavigationTree | null>(null);
   public isActive$: Observable<boolean> = combineLatest([
     this.activeItemService.activeItem$,
     this.data$,
   ]).pipe(map(([activeItem, data]) => activeItem === data));
 
-  public get menuItem(): INavigationTree {
+  public get menuItem(): INavigationTree | null {
     return this.data$.getValue();
   }
 

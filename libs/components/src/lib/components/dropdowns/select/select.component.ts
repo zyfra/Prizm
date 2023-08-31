@@ -68,7 +68,7 @@ export class PrizmSelectComponent<T>
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data);
+    this.items$.next(data as any);
   }
   get items(): T[] {
     return this.items$.value;
@@ -158,7 +158,7 @@ export class PrizmSelectComponent<T>
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
-  public inputTextElement: PrizmInputTextComponent | null;
+  public inputTextElement!: PrizmInputTextComponent | null;
   public open = false;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
@@ -177,6 +177,8 @@ export class PrizmSelectComponent<T>
         }),
         map(items => {
           if (this.nullContent && items?.length && items[0] !== null) {
+            // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+            // @ts-ignore
             items = [null, ...items];
           }
           return items;
@@ -192,7 +194,7 @@ export class PrizmSelectComponent<T>
   );
 
   public filteredItems: T[] = [];
-  private searchValue: string;
+  private searchValue!: string;
   readonly isNullish = Compare.isNullish;
 
   constructor(
@@ -270,11 +272,11 @@ export class PrizmSelectComponent<T>
   }
 
   public onClear(): void {
-    this.select(null);
+    this.select(null as any);
   }
 
   protected getFallbackValue(): T {
-    return null;
+    return null as any;
   }
 
   public select(item: T): void {
@@ -288,10 +290,10 @@ export class PrizmSelectComponent<T>
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     // if (this.stop$.value) return
     const open = !this.open && this.interactive && inputElement && prizmIsNativeFocused(inputElement);
-    this.open = open;
+    this.open = !!open;
     this.changeDetectorRef.markForCheck();
   }
 
@@ -309,7 +311,7 @@ export class PrizmSelectComponent<T>
     const result =
       isCanSearch && itIsNotCurrentValue && ((hasNullValue && idx === 1) || (!hasNullValue && idx === 0));
 
-    return result;
+    return !!result;
   }
 
   private searchEmit(value: string): void {

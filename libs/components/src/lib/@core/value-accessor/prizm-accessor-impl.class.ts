@@ -3,9 +3,9 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 export abstract class PrizmAccessorImplClass extends PrizmAbstractTestId implements ControlValueAccessor {
   public accessorValue: unknown;
-  public accessorOnChangeFn: (_: unknown) => unknown;
-  public accessorOnTouchedFn: VoidFunction;
-  public accessorIsDisabled: boolean;
+  public accessorOnChangeFn!: (_: unknown) => unknown;
+  public accessorOnTouchedFn!: VoidFunction;
+  public accessorIsDisabled!: boolean;
 
   public writeValue(obj: unknown): void {
     this.accessorValue = obj;

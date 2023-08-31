@@ -24,7 +24,7 @@ export class InputChipsExampleComponent {
 
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
-  public outer: false;
+  public outer!: false;
   public readonly control = new UntypedFormControl([]);
   public readonly control2 = new UntypedFormControl([]);
   public size: PrizmInputSize = 'l';
@@ -38,13 +38,13 @@ export class InputChipsExampleComponent {
   public forceClear = this.forceClearVariants[0];
 
   public chips: string[] = ['Чипс 1', 'Чипс 2', 'Чипс 3'];
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public deletable = true;
   public disabled = false;
   public singleLine = false;
 
-  @ViewChild(PrizmInputTextComponent, { static: false }) input: PrizmInputTextComponent;
-  @ViewChild(PrizmChipsComponent, { static: false }) chipsComponent: PrizmChipsComponent;
+  @ViewChild(PrizmInputTextComponent, { static: false }) input!: PrizmInputTextComponent;
+  @ViewChild(PrizmChipsComponent, { static: false }) chipsComponent!: PrizmChipsComponent;
 
   public readonly prizmInputChipsExample: TuiDocExample = {
     TypeScript: import('./examples/input-chips-basic-example/input-chips-basic-example.component.ts?raw'),

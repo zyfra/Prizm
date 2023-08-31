@@ -85,7 +85,7 @@ export class PrizmAstSplitButtonExampleComponent implements OnInit {
   (onDropdownClick)="onDropdownClick($event)"
 ></zyfra-split-button>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

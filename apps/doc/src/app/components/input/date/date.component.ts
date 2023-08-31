@@ -11,7 +11,7 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class DateComponent {
   public readOnly = false;
-  val: PrizmDay;
+  val!: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
@@ -26,7 +26,7 @@ export class DateComponent {
   public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
 
   public label = 'Абсолютное';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public placeholder = 'Выберите дату';
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';

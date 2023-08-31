@@ -82,7 +82,11 @@ export function prizmAstAddImportIfNeeded(
             // eslint-disable-next-line @typescript-eslint/ban-ts-comment
             // @ts-ignore
             context.factory.updateImportClause(
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               node.importClause,
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+              // @ts-ignore
               node.importClause.isTypeOnly,
               undefined,
               context.factory.createNamedImports(importSpecifiers)
@@ -165,8 +169,8 @@ function createImportSpecifierWithFixBreakingChanges(context: ts.TransformationC
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return context.factory.createImportSpecifier(undefined, context.factory.createIdentifier(name));
-  // FIX FOR BC https://github.com/microsoft/TypeScript/wiki/API-Breaking-Changes#typescript-45
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // FIX FOR BC https://github.com/microsoft/TypeScript/wiki/API-Breaking-Changes#typescript-45
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore
   else return context.factory.createImportSpecifier(false, undefined, context.factory.createIdentifier(name));
 }

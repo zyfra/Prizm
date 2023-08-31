@@ -29,7 +29,7 @@
       >
         <tr prizmTr>
           <td class="format__number" prizmTd>
-            {{ rowIdx + 1 }}
+            {{ $any(rowIdx) + 1 }}
           </td>
           <td class="format__number" prizmTd>
             {{ item.code | spaceNumber : '0.0-0' }}

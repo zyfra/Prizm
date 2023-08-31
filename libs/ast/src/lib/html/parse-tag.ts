@@ -51,6 +51,8 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
   let result = null;
   for (;;) {
     // Проходимся по всем найденным атрибутам в теге
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     result = reg.exec(tag);
 
     // Если результат пустой, значит, все атрибуты разобраны
@@ -59,12 +61,16 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
     }
 
     // Если текущий результат - пустая строка, пропускаем его
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     if (!result[0].trim()) {
       continue;
     }
 
     // Если найден атрибут без значения
     if (result[1]) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const attr = result[1].trim();
       let arr = [attr, ''];
 
@@ -75,13 +81,15 @@ export const prizmParseTag = (tag: string): PrizmAstHtmlItem | PrizmHtmlComment 
         res.attrs[arr[0]] = arr[1];
       } else {
         // Сохраняем атрибут и его значение в объекте res
-        res.attrs[arr[0]] = null;
+        res.attrs[arr[0]] = null as any;
       }
 
       // Уменьшаем индекс для следующей итерации, чтобы не пропустить символы
       reg.lastIndex--;
     } else if (result[2]) {
       // Если найден атрибут с значением (в кавычках), сохраняем его в объекте res
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       res.attrs[result[2]] = result[3].trim().substring(1, result[3].length - 1);
     }
   }

@@ -20,7 +20,7 @@ export class InputLayoutMonthRangeRangeComponent {
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public readOnly = false;
-  val: PrizmDay;
+  val!: PrizmDay;
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly controlKey = 'PrizmInputLayoutMonthRangeComponent';
   public border = false;
@@ -34,7 +34,7 @@ export class InputLayoutMonthRangeRangeComponent {
 
   public label = 'Выберите период';
   public placeholder = 'Выберите месяц';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;

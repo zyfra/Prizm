@@ -27,7 +27,7 @@ export class PrizmCronScheduleComponent {
   @Output()
   public selectedChange = new EventEmitter<string[]>();
 
-  @ContentChild('content', { read: TemplateRef }) template: PolymorphContent<{
+  @ContentChild('content', { read: TemplateRef }) template!: PolymorphContent<{
     item: PrizmCronUiListItem;
     idx: number;
   }>;

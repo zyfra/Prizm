@@ -8,7 +8,7 @@ import { PrizmShadowValue, PrizmShadowType, PrizmShadowTypeEnum } from './models
 })
 class TestShadowComponent {
   @Input() value: PrizmShadowType = PrizmShadowTypeEnum.miniLeft;
-  @ViewChild('element') elementRef: ElementRef<HTMLDivElement>;
+  @ViewChild('element') elementRef!: ElementRef<HTMLDivElement>;
 }
 
 describe('IndicatorComponent', () => {

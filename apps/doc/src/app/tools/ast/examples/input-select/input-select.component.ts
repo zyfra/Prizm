@@ -249,7 +249,7 @@ export class PrizmAstnputSelectExampleComponent implements OnInit {
   </div>
 </prizm-stepper>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

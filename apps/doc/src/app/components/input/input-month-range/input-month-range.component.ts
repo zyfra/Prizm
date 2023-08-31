@@ -14,12 +14,12 @@ export class InputMonthRangeRangeComponent {
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public readOnly = false;
-  val: PrizmDay;
+  val!: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
   public focusable = true;
   public readonly = false;
   public pseudoState = '';

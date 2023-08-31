@@ -90,16 +90,16 @@ export class PrizmToastControl {
       .subscribe();
   }
 
-  private destroy(control: PrizmOverlayControl): void {
+  private destroy(control: PrizmOverlayControl | null): void {
     this.close(control);
     control = null;
   }
 
-  private close(control: PrizmOverlayControl): void {
+  private close(control: PrizmOverlayControl | null): void {
     control?.close();
   }
 
-  private open(control: PrizmOverlayControl): void {
+  private open(control: PrizmOverlayControl | null): void {
     control?.open();
   }
 }

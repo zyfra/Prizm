@@ -12,7 +12,7 @@
     <tr
       class="row"
       *prizmRow="let item of products; let i = index"
-      [status]="item.status"
+      [status]="$any(item.status)"
       [active]="selectedItemsCodes.includes(item.code)"
       (click)="multiSelection($event, item.code)"
       prizmTr

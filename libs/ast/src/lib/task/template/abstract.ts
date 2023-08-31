@@ -5,7 +5,7 @@ export abstract class PrizmAstTaskTemplate<T extends PrizmTemplateTaskAction<any
   implements IPrizmAstTaskTemplate<T>
 {
   abstract type: T['type'];
-  public readonly payload: T['payload'];
+  public readonly payload!: T['payload'];
 
   // @PrizmLogExecution({
   //   logArguments: true,

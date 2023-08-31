@@ -6,7 +6,7 @@ export const PRIZM_DATE_RIGHT_BUTTONS = new InjectionToken<BehaviorSubject<Prizm
   `Stream that emits right buttons`,
   {
     factory: (): BehaviorSubject<PrizmDateButton[]> => {
-      return new BehaviorSubject([]);
+      return new BehaviorSubject<PrizmDateButton[]>([]);
     },
   }
 );

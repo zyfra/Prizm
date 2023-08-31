@@ -28,23 +28,23 @@ import { cssClass, EventBus, objToCss } from './utils';
   providers: [PrizmDestroyService],
 })
 export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
-  @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet: ViewContainerRef;
+  @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet!: ViewContainerRef;
   content: PrizmOverlayContent = {
     type: PrizmOverlayContentType.STRING,
     data: '',
     props: {},
   };
-  config: PrizmOverlayConfig;
-  position: PrizmOverlayAbstractPosition;
-  zid: PrizmOverlayId;
+  config!: PrizmOverlayConfig;
+  position!: PrizmOverlayAbstractPosition;
+  zid!: PrizmOverlayId;
   @HostBinding('style.zIndex')
-  zIndex: number;
+  zIndex!: number;
   el: HTMLElement | any;
   wrapperEl: HTMLElement | any;
-  extra: string;
+  extra!: string;
   parentInjector: any;
   compInstance: any;
-  parentContainer: HTMLElement;
+  parentContainer!: HTMLElement;
 
   @HostBinding('style.position')
   get stylePosition(): string {
@@ -100,9 +100,9 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     const compRef = this.compOutlet.createComponent(
       this.compResolver.resolveComponentFactory(this.content.data as any)
     );
-    Object.assign(compRef.instance, props);
+    Object.assign(compRef.instance as any, props);
     compRef.changeDetectorRef.detectChanges();
-    return compRef.instance;
+    return compRef.instance as any;
   }
 
   public updateTextContent(data: string): void {

@@ -111,7 +111,7 @@ export class PrizmAstDropdownExampleComponent implements OnInit {
   placeholder="Select a City"
   [showClear]="true"
 ></zyfra-dropdown>`;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

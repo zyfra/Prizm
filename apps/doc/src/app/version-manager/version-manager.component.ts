@@ -26,14 +26,17 @@ export class VersionManagerComponent {
   }
 
   private initByVersion(): void {
-    this.initialVersion = this.versions.find(i => i.version === PRIZM_CURRENT_VERSION);
+    this.initialVersion = this.versions.find(i => i.version === PRIZM_CURRENT_VERSION) ?? null;
   }
 
   private initIfItIsNotLocal(): void {
     if (this.locationRef.hostname !== 'localhost') {
-      this.initialVersion = this.versions.find(i =>
-        [i.link, ...i.otherLinks].find(i => this.locationRef.hostname === i.hostname)
-      );
+      this.initialVersion =
+        this.versions.find(version =>
+          [version.link, ...version.otherLinks].find(
+            i => this.locationRef.hostname === i.hostname || version.cb?.(this.locationRef.hostname, version)
+          )
+        ) ?? null;
     }
   }
 

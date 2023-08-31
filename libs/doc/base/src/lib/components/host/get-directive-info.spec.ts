@@ -9,7 +9,7 @@ import { prizmGetListDirectiveInputsOutputs } from './get-directive-info';
   template: '',
 })
 class TestComponent {
-  @Input() inputProp: string;
+  @Input() inputProp!: string;
   @Output() outputProp = new EventEmitter<void>();
 }
 
@@ -17,7 +17,7 @@ class TestComponent {
   selector: '[appTestDirective]',
 })
 class TestDirective {
-  @Input() directiveInput: string;
+  @Input() directiveInput!: string;
   @Output() directiveOutput = new EventEmitter<void>();
 }
 

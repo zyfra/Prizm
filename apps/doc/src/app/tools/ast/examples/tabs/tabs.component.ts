@@ -121,7 +121,7 @@ export class PrizmAstTabsExampleComponent implements OnInit {
   </ng-container>
 </zyfra-tab-view>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

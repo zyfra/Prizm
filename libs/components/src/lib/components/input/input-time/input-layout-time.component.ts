@@ -47,7 +47,7 @@ import { prizmI18nInitWithKey } from '../../../services';
     PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
   ],
 })
-export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime> {
+export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime | null> {
   readonly hasClearButton = true;
   readonly nativeElementType = 'input-layout-time';
 
@@ -85,7 +85,7 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   override readonly testId_ = 'ui_input_time';
 
   public open = false;
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
     @Inject(PRIZM_TIME_TEXTS)
@@ -285,7 +285,7 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
-    this.nativeFocusableElement.value = '';
+    if (this.nativeFocusableElement) this.nativeFocusableElement.value = '';
     this.updateValue(null);
   }
 }

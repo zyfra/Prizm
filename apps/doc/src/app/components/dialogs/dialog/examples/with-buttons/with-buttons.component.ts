@@ -14,7 +14,7 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
   ],
 })
 export class PrizmDialogServiceWithButtonsExampleComponent {
-  @ViewChild('footerTemp', { read: TemplateRef }) footerTemp: TemplateRef<any>;
+  @ViewChild('footerTemp', { read: TemplateRef }) footerTemp!: TemplateRef<any>;
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;

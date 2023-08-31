@@ -19,7 +19,7 @@ export class PrizmChartsScatterComponent<
     return this.origin_;
   }
 
-  origin_: PrizmChartsScatterOrigin;
+  origin_!: PrizmChartsScatterOrigin;
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });
@@ -30,7 +30,7 @@ export class PrizmChartsScatterComponent<
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options?.yField;
+    return this.options?.yField as string;
   }
 
   @Input()
@@ -38,7 +38,7 @@ export class PrizmChartsScatterComponent<
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options.xField;
+    return this.options.xField as string;
   }
 
   @Input()
@@ -46,7 +46,7 @@ export class PrizmChartsScatterComponent<
     this.updateOptions({ colorField: value });
   }
   public get colorField(): string {
-    return this.options.colorField;
+    return this.options.colorField as string;
   }
   @Input()
   @prizmDefaultProp()

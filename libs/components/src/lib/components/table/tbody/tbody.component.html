@@ -85,7 +85,7 @@
   let-rowIdx="rowIdx"
 >
   <ng-container
-    [ngTemplateOutlet]="row.template"
+    [ngTemplateOutlet]="$any(row?.template)"
     [ngTemplateOutletContext]="{
       $implicit: item,
       rowIdx: rowIdx,
@@ -126,8 +126,8 @@
 
     <ng-container
       *ngIf="
-        row.prizmRowGetChildren && item
-          | prizmCallFunc : row.prizmRowGetChildren
+        row?.prizmRowGetChildren && item
+          | prizmCallFunc : $any(row?.prizmRowGetChildren)
           | prizmCallFunc : sortChildren
           | async as children;
         else treeLoadingTemplateRef
@@ -142,7 +142,7 @@
           first as childFirst;
           last as childLast;
           count as childCount;
-          trackBy: row.prizmRowTrackBy
+          trackBy: $any(row?.prizmRowTrackBy)
         "
         [template]="templateRowElement"
         [context]="
@@ -150,7 +150,7 @@
             item: childItem,
             rowIdx: childIndex,
             parentIdx: index,
-            getRowId: row.prizmRowGetRowId,
+            getRowId: $any(row?.prizmRowGetRowId),
             parentItem: item,
             deepLevel: (deepLevel ?? 0) + 1,
             first: childFirst,

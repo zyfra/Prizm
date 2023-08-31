@@ -83,7 +83,7 @@ export class InputSelectComponent {
     ],
     null,
   ];
-  readonly valVariants: ReadonlyArray<string | null> = [...this.itemsVariants[0], null];
+  readonly valVariants: ReadonlyArray<string | null> = [...(this.itemsVariants[0] ?? []), null];
   public items: string[] | null = this.itemsVariants[0];
 
   public set disabled(state: boolean) {
@@ -155,10 +155,13 @@ export class InputSelectComponent {
   readonly dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
 
-  public icon: PolymorphContent<PrizmSelectIconContext> = null;
-  public testIdPostfix: string;
+  public icon: PolymorphContent<PrizmSelectIconContext> | null = null;
+  public testIdPostfix!: string;
 
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [null, 'sort-zoom-in'];
+  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
+    null as any,
+    'sort-zoom-in',
+  ];
 
   @prizmPure
   public getValueTemplate(...temps: PolymorphContent[]): PolymorphContent<any>[] {
@@ -166,7 +169,7 @@ export class InputSelectComponent {
   }
 
   public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
+    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   };
 
   public identityMatcher = (a: unknown, b: unknown): boolean => {

@@ -25,9 +25,9 @@ import { PrizmOverlaySomeComponent } from './some-component';
   ],
 })
 export class PrizmOverlayExampleWithViewComponent implements OnInit {
-  @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef: ElementRef;
+  @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef!: ElementRef;
 
-  private control: PrizmOverlayControl;
+  private control!: PrizmOverlayControl;
   constructor(private readonly overlay: PrizmOverlayService) {}
 
   public ngOnInit(): void {

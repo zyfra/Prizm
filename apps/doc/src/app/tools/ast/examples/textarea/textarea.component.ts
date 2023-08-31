@@ -77,7 +77,7 @@ export class PrizmAstTextareaExampleComponent implements OnInit {
   (onResize)="onResizeTextAreaHandler($event)"
 ></zyfra-textarea>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

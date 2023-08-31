@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-theme-base-example',
@@ -18,7 +19,7 @@ import { Component } from '@angular/core';
   ],
 })
 export class PrizmThemeBaseExampleComponent {
-  themeValue = 'light';
+  themeValue: PrizmTheme = 'light';
 
   public light(): void {
     this.themeValue = 'light';

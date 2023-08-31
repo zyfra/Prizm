@@ -3,8 +3,8 @@
     <prizm-tab
       *ngFor="let item of tabs"
       [closable]="true"
-      [disabled]="item.disabled"
-      [content]="item.title"
+      [disabled]="!!item.disabled"
+      [content]="$any(item.title)"
       [type]="'line'"
       (closeTab)="removeTab(item)"
     >

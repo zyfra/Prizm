@@ -15,7 +15,7 @@ export const prizmAstHtmlAddIndentation = (
 
   return splittedHtml
     .reverse()
-    .reduce((indented, elTag) => {
+    .reduce((indented: any[], elTag) => {
       if (
         opened.length &&
         level &&

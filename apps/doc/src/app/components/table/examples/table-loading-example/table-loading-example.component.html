@@ -9,8 +9,8 @@
       </tr>
     </thead>
 
-    <tbody [data]="products$ | async" prizmTbody>
-      <ng-container *prizmRow="let item of products$ | async; let i = index; let count = count">
+    <tbody [data]="$any(products$ | async)" prizmTbody>
+      <ng-container *prizmRow="let item of $any(products$ | async); let i = index; let count = count">
         <tr prizmTr>
           <td prizmTd>
             <div class="col-tree">
@@ -38,8 +38,8 @@
       </tr>
     </thead>
 
-    <tbody [data]="products$ | async" prizmTbody>
-      <ng-container *prizmRow="let item of products$ | async; let i = index; let count = count">
+    <tbody [data]="$any(products$ | async)" prizmTbody>
+      <ng-container *prizmRow="let item of $any(products$ | async); let i = index; let count = count">
         <tr prizmTr>
           <td prizmTd>
             <div class="col-tree">

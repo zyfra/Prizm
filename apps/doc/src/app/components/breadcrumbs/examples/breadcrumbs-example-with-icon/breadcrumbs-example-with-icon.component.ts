@@ -31,7 +31,7 @@ export class BreadcrumbsExampleWithIconComponent {
     },
   ];
 
-  private currentBreadcrumb: IBreadcrumb = null;
+  private currentBreadcrumb: IBreadcrumb | null = null;
 
   public breadcrumbChange(current: IBreadcrumb): void {
     this.currentBreadcrumb = current;

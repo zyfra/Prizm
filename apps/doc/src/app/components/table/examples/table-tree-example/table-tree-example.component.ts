@@ -47,8 +47,12 @@ export class TableTreeExampleComponent {
   public updateProduct(add: boolean): void {
     const products = cloneDeep(this.products);
     if (add) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       products[0].children[0].children[1].name = '* ' + products[0].children[0].children[1].name;
     } else {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       products[0].children[0].children[1].name = products[0].children[0].children[1].name.replace('* ', '');
     }
     this.products = products;

@@ -24,6 +24,6 @@ export function prizmAstGetPublishableProjects(tree: Tree): ProjectConfiguration
         return tree.exists(packageJsonPath);
       })
       // Маппим имена проектов обратно в конфигурации проектов
-      .map(i => projects.get(i))
+      .map(i => projects.get(i)) as any
   );
 }

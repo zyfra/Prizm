@@ -15,16 +15,16 @@ export class PrizmNavigationItemSimpleComponent extends PrizmAbstractTestId {
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
-  @Input() public deep: number;
+  @Input() public deep!: number;
   override readonly testId_ = 'ui_navigation--item-simple';
 
-  public data$: BehaviorSubject<INavigationTree> = new BehaviorSubject<INavigationTree>(null);
+  public data$: BehaviorSubject<INavigationTree | null> = new BehaviorSubject<INavigationTree | null>(null);
   public isActive$: Observable<boolean> = combineLatest([
     this.activeItemService.activeItem$,
     this.data$,
   ]).pipe(map(([activeItem, data]) => activeItem === data));
 
-  public get menuItem(): INavigationTree {
+  public get menuItem(): INavigationTree | null {
     return this.data$.getValue();
   }
 

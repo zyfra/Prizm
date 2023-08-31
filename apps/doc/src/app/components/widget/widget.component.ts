@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PolymorphContent } from '@prizm-ui/components';
+import { PolymorphContent, PrizmWidgetIcons } from '@prizm-ui/components';
 import { prizmPure } from '@prizm-ui/core';
 
 @Component({
@@ -12,11 +12,10 @@ import { prizmPure } from '@prizm-ui/core';
 export class WidgetComponent {
   public header = 'Содержимое виджета';
   public title = 'Заголовок виджета';
-  public icons: string[] = [];
-  public iconVariants: ReadonlyArray<PolymorphContent> = [
+  public icons: PrizmWidgetIcons[] = [];
+  public iconVariants: ReadonlyArray<PolymorphContent | null> = [
     ['account-circle', 'account-circle', 'account-key'],
     '',
-    null,
     ['account-key'],
   ];
   public content = 'Содержимое виджета';
@@ -33,12 +32,17 @@ export class WidgetComponent {
     HTML: import('./examples/with-buttons/widget-with-buttons-example.component.html?raw'),
   };
 
+  public readonly exampleWithTemplates: TuiDocExample = {
+    TypeScript: import('./examples/with-templates/widget-with-templates-example.component.ts?raw'),
+    HTML: import('./examples/with-templates/widget-with-templates-example.component.html?raw'),
+  };
+
   @prizmPure
-  public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
+  public getIconVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent | null> {
     return [...templates, ...this.iconVariants];
   }
   @prizmPure
-  public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent> {
+  public getHeaderVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent | null> {
     return [null, ...templates];
   }
 }

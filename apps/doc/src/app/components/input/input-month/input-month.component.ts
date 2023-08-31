@@ -15,7 +15,7 @@ export class InputMonthComponent {
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
-  val: PrizmDay;
+  val!: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;
   public readonly = false;
@@ -35,7 +35,7 @@ export class InputMonthComponent {
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';
   public outer = false;
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

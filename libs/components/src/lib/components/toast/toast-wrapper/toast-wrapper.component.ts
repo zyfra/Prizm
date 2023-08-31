@@ -31,15 +31,17 @@ export class ToastWrapperComponent extends PrizmAbstractTestId implements OnInit
     switch (this.ref.appearance) {
       case 'danger':
         return this.ref.options.templateDanger;
-      case 'success':
-        return this.ref.options.templateSuccess;
-      case 'info':
-        return this.ref.options.templateInfo;
       case 'warning':
         return this.ref.options.templateWarning;
+      case 'success':
+        return this.ref.options.templateSuccess;
+
+      default:
+      case 'info':
+        return this.ref.options.templateInfo;
     }
   }
-  tempInjector: Injector;
+  tempInjector!: Injector;
 
   constructor(private readonly injector: Injector) {
     super();

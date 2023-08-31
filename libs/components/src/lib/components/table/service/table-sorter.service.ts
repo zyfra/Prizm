@@ -47,13 +47,13 @@ export class PrizmTableSorterService<T> {
   }
 
   public cell(id: string): PrizmTableCellSorter<T> {
-    return this.map.get(id);
+    return this.map.get(id) as PrizmTableCellSorter<T>;
   }
 
   public cellOrder(id: string): PrizmTableCellSortOrder {
     return this.cell(id)?.options.order;
   }
-  public nextOrder(id: string): PrizmTableCellSortOrder {
+  public nextOrder(id: string): PrizmTableCellSortOrder | null {
     const current = this.cellOrder(id);
     switch (current) {
       case 'asc':

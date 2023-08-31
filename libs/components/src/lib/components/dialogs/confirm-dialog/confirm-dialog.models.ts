@@ -12,7 +12,7 @@ export type PrizmConfirmDialogButton = Omit<PrizmDialogButton, 'action'> &
 
 export interface PrizmConfirmDialogOptions<DATA = unknown> extends PrizmDialogBaseOptions {
   confirmButton?: PrizmConfirmDialogButton | string;
-  supportButton?: PrizmConfirmDialogButton | string;
+  supportButton?: PrizmConfirmDialogButton | string | null;
   cancelButton?: PrizmConfirmDialogButton | string;
   showByVertical?: boolean;
   data?: DATA;

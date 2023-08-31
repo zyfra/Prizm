@@ -56,7 +56,7 @@ export class PrizmAstSpinnerExampleComponent implements OnInit {
   [style]="{ opacity: 0.5 }"
 ></zyfra-spinner>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parse();

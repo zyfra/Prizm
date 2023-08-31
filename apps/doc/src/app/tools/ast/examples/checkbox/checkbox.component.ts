@@ -65,7 +65,7 @@ export class PrizmAstCheckboxExampleComponent implements OnInit {
   readonly html = `
 <zyfra-checkbox name="checked" [binary]="true" label="checkbox" [(model)]="model"> ></zyfra-checkbox>
 `;
-  result: string;
+  result!: string;
 
   public ngOnInit(): void {
     this.parseAccordion();

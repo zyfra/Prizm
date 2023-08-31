@@ -34,7 +34,7 @@ export class ConfirmPopupComponent {
 
   public prizmConfirmPopupHideDelay: number = PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS.hideDelay;
 
-  public prizmConfirmPopupHost: HTMLElement = null;
+  public prizmConfirmPopupHost: HTMLElement | null = null;
 
   public readonly prizmConfirmPopupVariants = ['ConfirmPopup'];
 

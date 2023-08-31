@@ -109,7 +109,7 @@
               *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
               [prizmHint]="text"
               [prizmHintDirection]="direction"
-              [prizmHintCanShow]="elem | prizmCallFunc : prizmIsTextOverflow$ | async"
+              [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
             >
               <ng-container
                 *polymorphOutlet="

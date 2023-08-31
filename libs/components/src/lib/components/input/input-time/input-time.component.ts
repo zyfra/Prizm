@@ -102,7 +102,7 @@ export class PrizmInputTimeComponent
   override readonly testId_ = 'ui_input_time';
 
   public open = false;
-  public rightButtons$: BehaviorSubject<PrizmDateButton[]>;
+  public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
     @Optional()
@@ -340,7 +340,7 @@ export class PrizmInputTimeComponent
   }
 
   public safeOpenModal(): void {
-    const inputElement = this.focusableElement.nativeElement;
+    const inputElement = this.focusableElement?.nativeElement;
     if (!this.open && !this.disabled && inputElement && prizmIsNativeFocused(inputElement)) {
       this.open = true;
       this.cdr.markForCheck();

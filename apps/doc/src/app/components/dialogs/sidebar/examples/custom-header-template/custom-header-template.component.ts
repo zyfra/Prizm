@@ -24,8 +24,8 @@ export class PrizmSidebarCustomHeaderTemplateExampleComponent {
   public dismissible = false;
   public canClose = true;
 
-  @ViewChild('headerTemplate') headerTemplate: TemplateRef<any>;
-  @ViewChild('outerTemplate') outerTemplate: TemplateRef<any>;
+  @ViewChild('headerTemplate') headerTemplate!: TemplateRef<any>;
+  @ViewChild('outerTemplate') outerTemplate!: TemplateRef<any>;
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 

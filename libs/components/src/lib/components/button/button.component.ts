@@ -49,11 +49,11 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
 
   /** can pass template or icon class */
   @Input()
-  icon: PolymorphContent<{ size: PrizmSize }>;
+  icon!: PolymorphContent<{ size: PrizmSize }>;
 
   /** can pass template or icon class */
   @Input()
-  iconRight: PolymorphContent<{ size: PrizmSize }>;
+  iconRight!: PolymorphContent<{ size: PrizmSize }>;
 
   @Input()
   @HostBinding('attr.data-appearance')

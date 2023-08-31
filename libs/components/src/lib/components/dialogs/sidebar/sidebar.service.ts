@@ -18,6 +18,7 @@ import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PrizmSize } from '../../../util';
 import { invokeIfCanCloseSidebar } from './util';
 import { take, takeUntil } from 'rxjs/operators';
+import { Compare } from '@prizm-ui/helpers';
 
 const DEFAULT_OPTIONS = {
   position: PrizmOverlayInsidePlacement.CENTER,
@@ -26,7 +27,7 @@ const DEFAULT_OPTIONS = {
   confirmButton: null,
   supportButton: null,
   cancelButton: null,
-} as PrizmSidebarOptions<PrizmSidebarResult>;
+} as unknown as PrizmSidebarOptions<PrizmSidebarResult>;
 
 @Injectable({
   providedIn: 'root',
@@ -66,12 +67,13 @@ export class PrizmSidebarService<
     });
   }
 
+  // TODO add i18n support for default cases
   private safeUpdateButtonsWithDefaultStyles(options: Partial<T>): void {
     const supportButton =
-      options.supportButton !== null &&
+      Compare.isNotNullish(options.supportButton) &&
       this.generateButton(
         options,
-        options.supportButton,
+        options.supportButton as any,
         'Продолжить',
         PrizmSidebarResultDefaultType.confirmed,
         'danger',
@@ -80,7 +82,7 @@ export class PrizmSidebarService<
 
     const confirmButton = this.generateButton(
       options,
-      options.confirmButton,
+      options.confirmButton as any,
       'Подтвердить',
       PrizmSidebarResultDefaultType.confirmed,
       'primary'
@@ -90,7 +92,7 @@ export class PrizmSidebarService<
       options.cancelButton !== null &&
       this.generateButton(
         options,
-        options.cancelButton,
+        options.cancelButton as any,
         'Отмена',
         PrizmSidebarResultDefaultType.cancel,
         'secondary',
@@ -98,8 +100,8 @@ export class PrizmSidebarService<
       );
 
     options.confirmButton = confirmButton;
-    options.cancelButton = cancelButton;
-    options.supportButton = supportButton;
+    options.cancelButton = cancelButton as any;
+    options.supportButton = supportButton as any;
   }
 
   private generateButton(

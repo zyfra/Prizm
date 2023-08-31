@@ -4,7 +4,7 @@
   prizmTheme
 >
   <div class="icon-block">
-    <prizm-indicator [status]="toastRef.appearance" type="icon"></prizm-indicator>
+    <prizm-indicator [status]="$any(toastRef.appearance)" type="icon"></prizm-indicator>
   </div>
   <div class="content-box">
     <span class="title prizm-font-dynamic-title-h4" *ngIf="toastRef.title">

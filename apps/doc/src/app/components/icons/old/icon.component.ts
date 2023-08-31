@@ -12,7 +12,7 @@ import { copyToClipboard } from '../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent {
-  readonly iconVariants = IconDefs.reduce((a, c) => a.concat(c.data), []);
+  readonly iconVariants = IconDefs.reduce((a: any[], c) => a.concat(c.data), []);
   public icon = this.iconVariants[0];
 
   readonly iconSizes = [24, 16];

@@ -56,7 +56,7 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
         this.ngControl.control.enable();
       }
     } else {
-      this.setDisabledState(value);
+      this.setDisabledState?.(value);
     }
   }
 
@@ -102,15 +102,15 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
     this.writeValue(value);
   }
 
-  @Input() carouselContent: PrizmCarouselContent;
+  @Input() carouselContent!: PrizmCarouselContent;
 
   @Input() lightMode = false;
 
   hasClearButton = false;
   nativeElementType = 'carousel';
 
-  changeFn: (value: number) => void;
-  touchedFn: () => void;
+  changeFn!: (value: number) => void;
+  touchedFn!: () => void;
 
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
@@ -130,7 +130,7 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   private _touched = false;
   get touched(): boolean {
     if (this.ngControl) {
-      return this.ngControl.touched;
+      return !!this.ngControl?.touched;
     }
 
     return this._touched;

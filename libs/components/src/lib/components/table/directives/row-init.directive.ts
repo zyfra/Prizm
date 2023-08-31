@@ -18,11 +18,11 @@ import { Compare } from '@prizm-ui/helpers';
   selector: `ng-template[prizmTableRowInit]`,
 })
 export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges {
-  @Input() context: PrizmTableRowContext;
-  @Input() template: TemplateRef<any>;
-  public embeddedRef: EmbeddedViewRef<any>;
-  private idx: number;
-  private idxFromMap: number;
+  @Input() context!: PrizmTableRowContext;
+  @Input() template!: TemplateRef<any>;
+  public embeddedRef!: EmbeddedViewRef<any>;
+  private idx!: number;
+  private idxFromMap!: number;
   constructor(
     public readonly viewContainer: ViewContainerRef,
     public readonly tableRowService: PrizmTableRowService,
@@ -48,7 +48,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
 
     if (typeof this.context.getRowId === 'function') {
       rowId = this.context.getRowId(this.context.item);
-      this.idxFromMap = this.tableRowService.getIdxById(rowId);
+      this.idxFromMap = this.tableRowService.getIdxById(rowId) as number;
     }
 
     if (Compare.isNullish(this.idxFromMap)) this.tableRowService.incrementIdx();
@@ -59,7 +59,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
     }
 
     if ('parentIdx' in this.context) {
-      this.treeService.addChildToParent(this.idx, this.context.parentIdx);
+      this.treeService.addChildToParent(this.idx, this.context.parentIdx as number);
     }
   }
 

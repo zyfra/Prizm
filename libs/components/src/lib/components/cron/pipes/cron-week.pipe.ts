@@ -11,6 +11,6 @@ export class PrizmCronWeekPipe implements PipeTransform {
   public transform(day = 2, format = 'EEEE'): string {
     const date = new Date(1990, 0, day - 1);
 
-    return prizmCapitalizeFirstLetter(this.datePipe.transform(date, format));
+    return prizmCapitalizeFirstLetter(this.datePipe.transform(date, format) as string);
   }
 }

@@ -13,7 +13,7 @@ export class PrizmChartsWaterfallComponent<
   T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsWaterfallOrigin, PrizmChartsWaterfallOptions> {
   readonly name = 'waterfall';
-  private origin_: PrizmChartsWaterfallOrigin;
+  private origin_!: PrizmChartsWaterfallOrigin;
 
   @Input()
   set data(data: PrizmChartsWaterfallItem[]) {
@@ -28,7 +28,7 @@ export class PrizmChartsWaterfallComponent<
     this.updateOptions({ xField: value });
   }
   public get xField(): string {
-    return this.options?.xField;
+    return this.options?.xField as string;
   }
 
   @Input()
@@ -36,7 +36,7 @@ export class PrizmChartsWaterfallComponent<
     this.updateOptions({ yField: value });
   }
   public get yField(): string {
-    return this.options?.yField;
+    return this.options?.yField as string;
   }
   get origin(): PrizmChartsWaterfallOrigin {
     return this.origin_;

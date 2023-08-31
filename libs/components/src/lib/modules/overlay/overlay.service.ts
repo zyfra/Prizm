@@ -22,7 +22,7 @@ import { prizmGenerateId } from '@prizm-ui/helpers';
 })
 export class PrizmOverlayService {
   static controls: { [key: string]: PrizmOverlayControl } = {};
-  private zid: PrizmOverlayId;
+  private zid!: PrizmOverlayId;
   private inputs: PrizmOverlayInputs = {
     position: null,
     config: PrizmOverlayDefaultConfig,
@@ -82,7 +82,7 @@ export class PrizmOverlayService {
     if (PrizmOverlayService.controls[this.zid]) {
       this.zid = prizmGenerateId();
     }
-    this.inputs.position.init(this.zid);
+    this.inputs.position?.init(this.zid);
     PrizmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
     return tc;
   }

@@ -14,9 +14,9 @@ export class InputPasswordExampleComponent {
   public control = new UntypedFormControl();
   public placeholder = '';
   public value = '';
-  public testIdPostfix: string;
+  public testIdPostfix!: string;
 
-  public outer: false;
+  public outer!: false;
 
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];

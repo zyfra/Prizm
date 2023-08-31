@@ -21,7 +21,7 @@ export class SwitcherItemComponent extends PrizmAbstractTestId {
   public type: PrizmSwitcherType = 'inner';
 
   @Input()
-  public data: PrizmSwitcherItem = null;
+  public data: PrizmSwitcherItem | null = null;
 
   @Input()
   @prizmDefaultProp()
@@ -39,6 +39,6 @@ export class SwitcherItemComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_switcher_item';
 
   get isDisabled(): boolean {
-    return this.disabled || this.data?.disabled;
+    return Boolean(this.disabled || this.data?.disabled);
   }
 }
