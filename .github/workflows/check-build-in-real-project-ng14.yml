@@ -41,7 +41,7 @@ jobs:
         run: npm ci --ignore-scripts
 
       - name: Install last prizm-ui dev dependencies
-        run: npm i @prizm-ui/{components,core,helpers,i18n,icons,theme}@draft
+        run: npm i @prizm-ui/{components,core,helpers,i18n,icons,theme}@beta
 
       - name: Save cache...
         id: cache-save

@@ -9,15 +9,15 @@ env:
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   #  pre_draft_release_v1:
-  #    uses: zyfra/Prizm/.github/workflows/draft-publish-ng14.yml@main
+  #    uses: zyfra/Prizm/.github/workflows/beta-publish-ng14.yml@main
   #    secrets: inherit
   #
   #  pre_draft_release_v2:
-  #    uses: zyfra/Prizm/.github/workflows/draft-publish-ng15.yml@main
+  #    uses: zyfra/Prizm/.github/workflows/beta-publish-ng15.yml@main
   #    secrets: inherit
   #
   #  pre_draft_release_v3:
-  #    uses: zyfra/Prizm/.github/workflows/draft-publish-ng16.yml@main
+  #    uses: zyfra/Prizm/.github/workflows/beta-publish-ng16.yml@main
   #    secrets: inherit
 
   pre_release_v1:
