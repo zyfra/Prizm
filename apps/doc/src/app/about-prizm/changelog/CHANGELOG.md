@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.3, 2.1.6, 3.0.1](https://github.com/zyfra/Prizm) (31-08-2023)
+
+### Features
+
+- feat(doc/sidebar): example was added with only confirm button #630
+- chore: small fixes and moved all projects to full strict mode #377 #554
+- feat(doc): add stackblitz switcher #665
+- feat(doc): a ability to accept multiple hosts for tracker was add #657
+
+### Bug fixes
+
+- fix(components/widget): fix error with template #660
+- fix(components/scrollbar): thumb color #664
+- fix(doc/chips): add testId to api page #657
+- fix(doc/tree): in modal style for dark theme #624
+- fix(component/input-layout-date-time): fix on manual time change #594
+- fix(doc/slider): property name #656
+
 ## [1.4.3, 2.1.5, 3.0.0](https://github.com/zyfra/Prizm) (22-08-2023)
 
 ### Features
