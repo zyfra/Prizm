@@ -45,7 +45,7 @@
       ]
     },
     {
-      "target": "v1-draft",
+      "target": "v1-beta",
       "public": "dist/apps/doc",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
@@ -56,7 +56,7 @@
       ]
     },
     {
-      "target": "v2-draft",
+      "target": "v2-beta",
       "public": "dist/apps/doc",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
@@ -67,7 +67,7 @@
       ]
     },
     {
-      "target": "v3-draft",
+      "target": "v3-beta",
       "public": "dist/apps/doc",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [
@@ -78,7 +78,7 @@
       ]
     },
     {
-      "target": "draft",
+      "target": "beta",
       "public": "dist/apps/doc",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
       "rewrites": [

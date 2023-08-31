@@ -8,9 +8,6 @@
         "main": [
           "prizmui"
         ],
-        "draft": [
-          "prizmui-draft"
-        ],
         "next": [
           "prizmui-next"
         ],
@@ -23,15 +20,6 @@
         "v3": [
           "prizm-v3"
         ],
-        "v1-draft": [
-          "prizm-v1-draft"
-        ],
-        "v2-draft": [
-          "prizm-v2-draft"
-        ],
-        "v3-draft": [
-          "prizm-v3-draft"
-        ],
         "v3-next": [
           "prizm-v3-next"
         ],
@@ -40,6 +28,18 @@
         ],
         "v1-next": [
           "prizm-v1-next"
+        ],
+        "v1-beta": [
+          "prizm-v1-beta"
+        ],
+        "v2-beta": [
+          "prizm-v2-beta"
+        ],
+        "v3-beta": [
+          "prizm-v3-beta"
+        ],
+        "beta": [
+          "prizmui-beta"
         ]
       }
     }
