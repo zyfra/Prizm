@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmShadowType, PrizmShadowTypeEnum } from '@prizm-ui/components';
+import { PrizmDocCodeDemoService } from '../../code-demo/code-demo.service';
 
 @Component({
   selector: 'prizm-card-example',
@@ -30,4 +31,6 @@ export class CardComponent {
     TypeScript: import('./examples/base/card-base-example.component.ts?raw'),
     HTML: import('./examples/base/card-base-example.component.html?raw'),
   };
+
+  constructor(public readonly docCodeDemoService: PrizmDocCodeDemoService) {}
 }

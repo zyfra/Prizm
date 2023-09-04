@@ -11,12 +11,6 @@
     "e2e": "ng e2e"
   },
   "dependencies": {
-    "@prizm-ui/components": "1.4.3",
-    "@prizm-ui/core": "^1.4.3",
-    "@prizm-ui/helpers": "^1.4.3",
-    "@prizm-ui/i18n": "^1.4.3",
-    "@prizm-ui/icons": "1.4.3",
-    "@prizm-ui/theme": "^1.4.3",
     "@angular-extensions/svg-icons-builder": "^3.0.0",
     "@angular/animations": "14.2.12",
     "@angular/cdk": "14.2.7",
