@@ -2,7 +2,7 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  Inject,
+  inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -20,7 +20,7 @@ import {
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../modules/overlay';
-import { combineLatest, Observable, of, Subject } from 'rxjs';
+import { combineLatest, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
 import { delay, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
@@ -38,6 +38,8 @@ export class PrizmHintDirective<
   CONTEXT extends PrizmHintContext = PrizmHintContext
 > implements OnChanges, OnInit, OnDestroy
 {
+  protected readonly options = inject(PRIZM_HINT_OPTIONS) as OPTIONS;
+
   @Input()
   @prizmDefaultProp()
   prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
@@ -103,15 +105,14 @@ export class PrizmHintDirective<
   protected readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();
 
-  constructor(
-    private readonly prizmOverlayService: PrizmOverlayService,
-    @Inject(Renderer2) private readonly renderer: Renderer2,
-    @Inject(ElementRef) protected readonly elementRef: ElementRef<HTMLElement>,
-    @Inject(PrizmDestroyService) private readonly destroy$: PrizmDestroyService,
-    @Inject(PRIZM_HINT_OPTIONS) protected readonly options: OPTIONS,
-    @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService,
-    @Inject(PrizmHintService) private readonly hintService: PrizmHintService
-  ) {}
+  private readonly prizmOverlayService: PrizmOverlayService = inject(PrizmOverlayService);
+
+  private readonly renderer: Renderer2 = inject(Renderer2);
+  protected readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
+  private readonly destroy$: PrizmDestroyService = inject(PrizmDestroyService);
+  private readonly hoveredService: PrizmHoveredService = inject(PrizmHoveredService);
+
+  private readonly hintService: PrizmHintService = inject(PrizmHintService);
 
   get id(): string | null {
     return this.prizmHintId ?? null;
