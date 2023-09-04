@@ -35,7 +35,7 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules';
   styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
-export class PrizmInputTextComponent<VALUE = any>
+export class PrizmInputTextComponent<VALUE extends string | number | null = string>
   extends PrizmInputControl<VALUE>
   implements DoCheck, OnInit, OnDestroy
 {
@@ -48,6 +48,7 @@ export class PrizmInputTextComponent<VALUE = any>
   @Input()
   set prizmHintDirection(value: PrizmOverlayOutsidePlacement) {
     this.prizmHint_.prizmHintDirection = value;
+    this.hintSyncChanges();
   }
   get prizmHintDirection(): PrizmOverlayOutsidePlacement {
     return this.prizmHint_.prizmHintDirection;
@@ -122,13 +123,13 @@ export class PrizmInputTextComponent<VALUE = any>
    * @deprecated
    * */
   @Input()
-  set value(value: any) {
+  set value(value: VALUE) {
     if (this.ngControl && this.ngControl.value !== value) {
       queueMicrotask(() => {
         this.ngControl.control?.patchValue(value);
       });
     } else {
-      this._inputValue.value = value;
+      this._inputValue.value = value as string;
       this.updateEmptyState();
       this.stateChanges.next();
     }
@@ -264,12 +265,15 @@ export class PrizmInputTextComponent<VALUE = any>
     this.invalid = Boolean(this.ngControl && this.ngControl.invalid);
   }
 
-  private updateValue(value: any): void {
-    this.ngControl?.control?.setValue(value);
-    this._inputValue.value = value;
+  private updateValue(value: VALUE): void {
+    if (value !== this.ngControl?.value) this.ngControl?.control?.setValue(value);
+    if (value !== this.value) this._inputValue.value = value as string;
     this.updateHint();
   }
 
+  private hintSyncChanges(): void {
+    this.prizmHint_.ngOnChanges();
+  }
   private updateHint(): void {
     if (!this.prizmHintCanShow_) {
       this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_;
@@ -277,7 +281,7 @@ export class PrizmInputTextComponent<VALUE = any>
       this.prizmHint_.prizmHintCanShow = prizmIsTextOverflow(this._inputValue);
       this.prizmHint_.prizmHint = this.value as any;
     }
-    this.prizmHint_.ngOnChanges();
+    this.hintSyncChanges();
   }
 
   public clear(event: MouseEvent): void {
@@ -285,7 +289,7 @@ export class PrizmInputTextComponent<VALUE = any>
 
     // this.ngControl?.control?.setValue('');
 
-    this.updateValue('');
+    this.updateValue('' as VALUE);
 
     // this._touched = true;
     this.ngControl?.control?.markAsDirty();
