@@ -287,14 +287,9 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public clear(event: MouseEvent): void {
     if (this.disabled) return;
 
-    // this.ngControl?.control?.setValue('');
-
     this.updateValue('' as VALUE);
 
-    // this._touched = true;
     this.ngControl?.control?.markAsDirty();
-
-    // this._inputValue.value = '';
 
     this.updateEmptyState();
     this.updateErrorState();
