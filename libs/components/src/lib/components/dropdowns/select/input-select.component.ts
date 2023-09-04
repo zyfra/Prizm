@@ -15,7 +15,12 @@ import {
 import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PolymorphContent } from '../../../directives';
-import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
+import {
+  PRIZM_SELECT_OPTIONS,
+  PrizmSelectOptions,
+  PrizmSelectStringify,
+  PrizmSelectValueContext,
+} from './select.options';
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
@@ -125,7 +130,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
    * */
   @Input()
   @prizmDefaultProp()
-  stringify: (i: T, content?: string) => string = this.options.stringify;
+  stringify: PrizmSelectStringify<T> = this.options.stringify;
 
   @Input()
   @prizmDefaultProp()
@@ -280,7 +285,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     return newItem;
   }
 
-  public getCurrentValue(value: T): string {
+  public getCurrentValue(value: T): string | Observable<string> {
     const newItem = this.getFullObjectOfCurrent(this.value);
     if (Compare.isNullish(newItem)) return '';
     return this.stringify(newItem ?? value);

@@ -108,6 +108,12 @@ export class InputSelectComponent {
     TypeScript: import('./examples/stringify/select-stringify-example.component.ts?raw'),
     HTML: import('./examples/stringify/select-stringify-example.component.html?raw'),
   };
+  readonly exampleStringifyObservable: TuiDocExample = {
+    TypeScript: import(
+      './examples/stringify-observable/select-stringify-observable-example.component.ts?raw'
+    ),
+    HTML: import('./examples/stringify-observable/select-stringify-observable-example.component.html?raw'),
+  };
   readonly exampleFullWidth: TuiDocExample = {
     TypeScript: import('./examples/full-width/select-full-width-example.component.ts?raw'),
     HTML: import('./examples/full-width/select-full-width-example.component.html?raw'),
