@@ -59,13 +59,13 @@ jobs:
           last_next-ng14_version=$(
             (npm view @prizm-ui/components versions --tag ng14next --json 2>/dev/null || echo '1.4.5-ng14next.0') | jq '([.[] | select(startswith("1.4.5-ng14next"))] | last // "1.4.5-ng14next.0")' 2>/dev/null || echo '1.4.5-ng14next.0'
           )
-          echo "LAST_next-ng14_VERSION=${last_next-ng14_version}" >> $GITHUB_ENV
+          echo "LAST_NEXT_VERSION=${last_next-ng14_version}" >> $GITHUB_ENV
 
       - name: 'Set version 14'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v14
 
       - name: 'Update ng14next versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-ng14next.up" --all --currentVersion="${{ env.LAST_next-ng14_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-ng14next.up" --all --currentVersion="${{ env.LAST_NEXT_VERSION }}"
 
       - name: 'Build ng14next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
