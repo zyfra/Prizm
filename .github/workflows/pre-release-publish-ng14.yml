@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next-ng14_version=$(
-            npm view @prizm-ui/components versions --tag next-ng14 --json | jq '([.[] | select(startswith("1.4.5-next-ng14"))] | last // "1.4.5-next-ng14.0")' 2>/dev/null || echo '1.4.5-next-ng14.0'
+            (npm view @prizm-ui/components versions --tag next-ng14 --json 2>/dev/null || echo '1.4.5-next-ng14.0') | jq '([.[] | select(startswith("1.4.5-next-ng14"))] | last // "1.4.5-next-ng14.0")' 2>/dev/null || echo '1.4.5-next-ng14.0'
           )
           echo "LAST_next-ng14_VERSION=${last_next-ng14_version}" >> $GITHUB_ENV
 
