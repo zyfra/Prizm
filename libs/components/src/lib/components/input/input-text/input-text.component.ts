@@ -17,6 +17,9 @@ import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/for
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
+import { PrizmHintDirective } from '../../../directives';
+import { prizmIsTextOverflow } from '../../../util';
+import { PrizmOverlayOutsidePlacement } from '../../../modules';
 
 @Component({
   selector:
@@ -32,10 +35,34 @@ import { PrizmInputControl } from '../common/base/input-control.class';
   styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
-export class PrizmInputTextComponent
-  extends PrizmInputControl<string | null>
+export class PrizmInputTextComponent<VALUE extends string | number | null = string>
+  extends PrizmInputControl<VALUE>
   implements DoCheck, OnInit, OnDestroy
 {
+  readonly prizmHint_ = new PrizmHintDirective();
+
+  @HostBinding('attr.prizmHint') get prizmHint(): VALUE {
+    return this.value;
+  }
+
+  @Input()
+  set prizmHintDirection(value: PrizmOverlayOutsidePlacement) {
+    this.prizmHint_.prizmHintDirection = value;
+    this.hintSyncChanges();
+  }
+  get prizmHintDirection(): PrizmOverlayOutsidePlacement {
+    return this.prizmHint_.prizmHintDirection;
+  }
+
+  private prizmHintCanShow_ = true;
+  @Input()
+  set prizmHintCanShow(value: boolean) {
+    this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_ = value;
+  }
+  get prizmHintCanShow(): boolean {
+    return this.prizmHintCanShow_;
+  }
+
   @Input()
   get disabled(): boolean {
     if (this.ngControl && this.ngControl.disabled !== null) {
@@ -88,34 +115,36 @@ export class PrizmInputTextComponent
   /**
    * Input value input
    */
-  get value(): any {
-    return this.ngControl?.value || this._inputValue.value;
+  get value(): VALUE {
+    return (this.ngControl?.value || this._inputValue.value) as VALUE;
   }
 
   /**
    * @deprecated
    * */
   @Input()
-  set value(value: any) {
+  set value(value: VALUE) {
     if (this.ngControl && this.ngControl.value !== value) {
       queueMicrotask(() => {
         this.ngControl.control?.patchValue(value);
       });
     } else {
-      this._inputValue.value = value;
+      this._inputValue.value = value as string;
       this.updateEmptyState();
       this.stateChanges.next();
     }
 
     this.valueChanged.next(this.value);
   }
-  private _inputValue: { value: unknown };
+  private get _inputValue() {
+    return this.elementRef.nativeElement as HTMLInputElement;
+  }
 
   @Output() enter = new EventEmitter<any>();
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onClear = new EventEmitter<MouseEvent>();
 
-  @Output() valueChanged = new EventEmitter<any>();
+  @Output() valueChanged = new EventEmitter<VALUE>();
   /**
    * Empty state
    */
@@ -149,14 +178,13 @@ export class PrizmInputTextComponent
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
-
-    this._inputValue = elementRef.nativeElement;
-
     this.nativeElementType = elementRef.nativeElement.type;
   }
 
   public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
+    this.prizmHint_.ngOnInit();
+    this.updateHint();
   }
 
   public ngDoCheck(): void {
@@ -166,12 +194,14 @@ export class PrizmInputTextComponent
 
   ngOnDestroy(): void {
     this.stateChanges.complete();
+    this.prizmHint_.ngOnDestroy();
   }
 
   @HostListener('input', ['$event'])
   private onInput(): void {
     this.updateEmptyState();
     this.stateChanges.next();
+    this.updateValue(this.value);
     this.valueChanged.next(this.value);
   }
 
@@ -201,23 +231,20 @@ export class PrizmInputTextComponent
           this.updateErrorState();
           this.cdr.markForCheck();
         }),
-        takeUntil(this.destroy)
-      )
-      .subscribe();
-
-    this.ngControl?.valueChanges
-      ?.pipe(
         tap(() => {
-          this.updateEmptyState();
-          this.updateErrorState();
           this.stateChanges.next();
         }),
         takeUntil(this.destroy)
       )
       .subscribe();
 
-    this.ngControl.statusChanges
+    this.ngControl?.valueChanges
       ?.pipe(
+        tap(value => {
+          this.updateEmptyState();
+          this.updateErrorState();
+          this.updateValue(value);
+        }),
         tap(() => {
           this.stateChanges.next();
         }),
@@ -238,15 +265,31 @@ export class PrizmInputTextComponent
     this.invalid = Boolean(this.ngControl && this.ngControl.invalid);
   }
 
+  private updateValue(value: VALUE): void {
+    if (value !== this.ngControl?.value) this.ngControl?.control?.setValue(value);
+    if (value !== this.value) this._inputValue.value = value as string;
+    this.updateHint();
+  }
+
+  private hintSyncChanges(): void {
+    this.prizmHint_.ngOnChanges();
+  }
+  private updateHint(): void {
+    if (!this.prizmHintCanShow_) {
+      this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_;
+    } else {
+      this.prizmHint_.prizmHintCanShow = prizmIsTextOverflow(this._inputValue);
+      this.prizmHint_.prizmHint = this.value as any;
+    }
+    this.hintSyncChanges();
+  }
+
   public clear(event: MouseEvent): void {
     if (this.disabled) return;
 
-    this.ngControl?.control?.setValue('');
+    this.updateValue('' as VALUE);
 
-    // this._touched = true;
     this.ngControl?.control?.markAsDirty();
-
-    this._inputValue.value = '';
 
     this.updateEmptyState();
     this.updateErrorState();
@@ -255,7 +298,7 @@ export class PrizmInputTextComponent
 
     this.stateChanges.next();
     this.onClear.emit(event);
-    this.valueChanged.next('');
+    this.valueChanged.next('' as VALUE);
 
     this.elementRef.nativeElement.dispatchEvent(
       new KeyboardEvent('keydown', {

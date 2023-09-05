@@ -57,30 +57,30 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            npm view @prizm-ui/components versions --tag beta-ng15 --json | jq '([.[] | select(startswith("2.1.7-beta-ng15"))] | last // "2.1.7-beta-ng15.0")' 2>/dev/null || echo '2.1.7-beta-ng15.0'
+            (npm view @prizm-ui/components versions --tag ng15beta --json 2>/dev/null || echo '2.1.7-ng15beta.0') | jq '([.[] | select(startswith("2.1.7-ng15beta"))] | last // "2.1.7-ng15beta.0")' 2>/dev/null || echo '2.1.7-ng15beta.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
       - name: 'Set version 15'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
-      - name: 'Update beta-ng15 versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-beta-ng15.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+      - name: 'Update ng15beta versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-ng15beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
-      - name: 'Build beta-ng15 versions'
+      - name: 'Build ng15beta versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/components && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/plugin && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/ast && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag beta-ng15 --access public --verbose || exit_code=0
+      - run: cd dist/libs/components && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/helpers && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/core && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/base && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/plugin && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/charts && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag ng15beta --access public --verbose || exit_code=0
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
