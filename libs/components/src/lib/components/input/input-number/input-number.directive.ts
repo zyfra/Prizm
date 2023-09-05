@@ -31,7 +31,7 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
 
   constructor(
     @Host() private readonly el: ElementRef<HTMLInputElement>,
-    @Host() private readonly prizmInputText: PrizmInputTextComponent
+    @Host() private readonly prizmInputText: PrizmInputTextComponent<number>
   ) {
     el.nativeElement.type = 'text';
     super();
