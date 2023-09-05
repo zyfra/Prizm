@@ -126,7 +126,7 @@
             </tr>
           </thead>
 
-          <tbody [data]="products" prizmTbody>
+          <tbody [(open)]="open" [data]="products" prizmTbody>
             <ng-container *prizmRow="let item of products; let i = index">
               <tr prizmTr>
                 <td class="format__number" *prizmCell="'code'" prizmTd>
@@ -201,6 +201,7 @@
         Heading
       </ng-template>
       <ng-template
+        [(documentationPropertyValue)]="open"
         documentationPropertyName="open"
         documentationPropertyType="boolean"
         documentationPropertyMode="input-output"

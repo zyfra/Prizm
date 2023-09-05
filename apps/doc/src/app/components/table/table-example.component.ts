@@ -26,6 +26,7 @@ export class TableExampleComponent {
   borderStyle: PrizmTableBorderStyle = 'grid';
   borderStyleVariants: Array<PrizmTableBorderStyle> = ['grid', 'horizontal', 'vertical'];
 
+  public open = true;
   public size: PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS = 'l';
   public sizeVariants: (PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS)[] = ['xs', 'l', 'm', 's'];
   public scrollable = false;
