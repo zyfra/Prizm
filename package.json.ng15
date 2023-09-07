@@ -42,6 +42,7 @@
   },
   "private": true,
   "dependencies": {
+    "@stackblitz/sdk": "^1.9.0",
     "@angular-extensions/svg-icons-builder": "^3.0.0",
     "@angular/animations": "15.2.9",
     "@angular/cdk": "15.2.9",
