@@ -1,2 +1,10 @@
 //@import './assets/theme.less';
 //@import './assets/icons.less';
+
+//@import "@prizm-ui/theme/src/styles/styles.less";
+@import "@prizm-ui/flag-icons/src/styles/styles.less";
+@import "@prizm-ui/components/src/styles/icons/icons.less";
+@import "@prizm-ui/components/src/styles/icons-16/icons-16.less";
+@import "prismjs/themes/prism-okaidia.css";
+@import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+@import "@prizm-ui/icons/src/styles/styles.less";

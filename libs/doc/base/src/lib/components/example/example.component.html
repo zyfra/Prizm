@@ -3,14 +3,41 @@
   <button
     class="t-link-icon"
     *ngIf="id"
+    [title]="copy$ | async"
+    (click)="copyExampleLink()"
     tuiIconButton
     type="button"
     size="xs"
     icon="tuiIconLinkLarge"
     appearance="icon"
-    [title]="copy$ | async"
-    (click)="copyExampleLink()"
   ></button>
+
+  <ng-container *ngIf="hasStackblitz">
+    <prizm-dropdown-host [content]="dropdown" [isOpen]="isOpen" prizmDropdownHostWidth="auto">
+      <button
+        [icon]="icon"
+        (click)="isOpen = !isOpen"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
+
+      <ng-template #icon>
+        <img class="icon-stackblitz" src="assets/logos/sb.png" />
+      </ng-template>
+    </prizm-dropdown-host>
+
+    <ng-template #dropdown>
+      <prizm-data-list>
+        <div class="box">
+          <button (click)="open('1')" prizmButton appearanceType="outline" size="s">NG 14</button>
+          <button (click)="open('2')" prizmButton appearanceType="outline" size="s">NG 15</button>
+          <button (click)="open('3')" prizmButton appearanceType="outline" size="s">NG 16</button>
+        </div>
+      </prizm-data-list>
+    </ng-template>
+  </ng-container>
 </h3>
 
 <h4 class="t-description" *ngIf="description">
@@ -20,8 +47,8 @@
 </h4>
 
 <ng-container class="t-example" *ngIf="processor$ | async as files">
-  <ng-container *ngIf="files | prizmDocExampleGetTabs: defaultTab as tabs">
-    <div class="tabs" *ngIf="files | prizmDocExampleGetTabs: defaultTab as tabs">
+  <ng-container *ngIf="files | prizmDocExampleGetTabs : defaultTab as tabs">
+    <div class="tabs" *ngIf="files | prizmDocExampleGetTabs : defaultTab as tabs">
       <prizm-switcher
         [(selectedSwitcherIdx)]="activeItemIndex"
         [switchers]="tabs | tuiMapper : tabsMap"
@@ -41,7 +68,7 @@
         <ng-template #anotherTab>
           <ng-container
             [ngTemplateOutlet]="codeSection"
-            [ngTemplateOutletContext]="{$implicit: files[tabs[activeItemIndex]] || ''}"
+            [ngTemplateOutletContext]="{ $implicit: files[tabs[activeItemIndex]] || '' }"
           ></ng-container>
         </ng-template>
       </div>
@@ -58,7 +85,7 @@
 <ng-template #codeSection let-code>
   <section class="t-code-actions">
     <ng-container *ngFor="let action of codeActions">
-      <ng-container *polymorpheusOutlet="action as text; context: {$implicit: code}">
+      <ng-container *polymorpheusOutlet="action as text; context: { $implicit: code }">
         {{ text }}
       </ng-container>
     </ng-container>

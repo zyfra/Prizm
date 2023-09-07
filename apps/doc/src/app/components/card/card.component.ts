@@ -31,6 +31,4 @@ export class CardComponent {
     TypeScript: import('./examples/base/card-base-example.component.ts?raw'),
     HTML: import('./examples/base/card-base-example.component.html?raw'),
   };
-
-  constructor(public readonly docCodeDemoService: PrizmDocCodeDemoService) {}
 }

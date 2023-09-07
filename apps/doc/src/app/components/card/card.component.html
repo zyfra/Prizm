@@ -1,7 +1,6 @@
 <prizm-doc-page header="Card">
   <div class="page-description" description>
     Our card component for displaying content in a card-like format.
-    <button (click)="docCodeDemoService.open('Prizm Angular 14')">#mz</button>
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
@@ -16,15 +15,6 @@
       </prizm-card>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <!-- <ng-template
-        documentationPropertyName="ngContent"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="content"
-      >
-        Content
-      </ng-template> -->
-
       <ng-template
         [(documentationPropertyValue)]="shadow"
         [documentationPropertyValues]="shadowVariants"

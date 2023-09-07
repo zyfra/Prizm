@@ -5,7 +5,7 @@ import { PrizmChartsLineModule } from '@prizm-ui/charts';
 @NgModule({
   imports: [
     // ...
-    PrizmLineModule,
+    PrizmChartsLineModule,
   ],
 })
 export class MyModule {}

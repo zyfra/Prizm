@@ -10,23 +10,25 @@ import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { PrizmCodeEditor } from '../../interfaces/code-editor';
-import { TuiDocExample } from '../../interfaces/page';
+import { TUI_EXAMPLE_PRIMARY_FILE_NAME, TuiDocExample } from '../../interfaces/page';
 import { PRIZM_DOC_CODE_ACTIONS } from '../../tokens/code-actions';
 import { PRIZM_DOC_CODE_EDITOR } from '../../tokens/code-editor';
 import { PRIZM_DOC_EXAMPLE_CONTENT_PROCESSOR } from '../../tokens/example-content-processor';
 import { PRIZM_DOC_EXAMPLE_TEXTS } from '../../tokens/i18n';
 import { prizmRawLoadRecord } from '../../utils/raw-load-record';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
+import { PrizmDocDemoAbstractService, PrizmDocDemoMainVersion, PrizmDocDemoVersion } from '../../services';
 
 @Component({
   selector: `prizm-doc-example`,
-  templateUrl: `./example.template.html`,
-  styleUrls: [`./example.style.less`],
+  templateUrl: `./example.component.html`,
+  styleUrls: [`./example.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmDocExampleComponent {
   private readonly rawLoader$$ = new BehaviorSubject<TuiDocExample>({});
 
+  isOpen = false;
   @Input()
   heading: PolymorpheusContent = ``;
 
@@ -36,6 +38,9 @@ export class PrizmDocExampleComponent {
   @Input()
   set content(content: TuiDocExample) {
     this.rawLoader$$.next(content);
+  }
+  get content() {
+    return this.rawLoader$$.value;
   }
 
   @Input()
@@ -56,6 +61,19 @@ export class PrizmDocExampleComponent {
 
   readonly loading$ = new Subject<boolean>();
 
+  public get hasStackblitz(): boolean {
+    const keys = Object.keys(this.content ?? {}).filter(
+      key =>
+        ![
+          TUI_EXAMPLE_PRIMARY_FILE_NAME.TS,
+          TUI_EXAMPLE_PRIMARY_FILE_NAME.HTML,
+          TUI_EXAMPLE_PRIMARY_FILE_NAME.LESS,
+        ].includes(key as any)
+    );
+
+    return !keys.length;
+  }
+
   constructor(
     @Attribute(`id`)
     readonly id: string | null,
@@ -75,7 +93,8 @@ export class PrizmDocExampleComponent {
     readonly codeActions: Array<PolymorpheusContent<TuiContextWithImplicit<string>>>,
     @Inject(Router) private readonly router: Router,
     @Inject(ActivatedRoute) private readonly route: ActivatedRoute,
-    @Inject(NgLocation) private readonly ngLocation: NgLocation
+    @Inject(NgLocation) private readonly ngLocation: NgLocation,
+    private readonly docDemoService: PrizmDocDemoAbstractService
   ) {}
 
   public copyExampleLink(): void {
@@ -110,6 +129,24 @@ export class PrizmDocExampleComponent {
       return {
         title: item,
       };
+    });
+  }
+
+  public async open(version: PrizmDocDemoMainVersion): Promise<void> {
+    const title = `${[this.heading, version].filter(Boolean).join(' ')}`;
+    const TypeScript = this.content?.TypeScript as any;
+    const HTML = this.content?.HTML as any;
+    const LESS = this.content?.LESS as any;
+
+    if (!TypeScript) return;
+    const ts = (await TypeScript)['default'] ?? '';
+    const html = (HTML ? await HTML['default'] : '') ?? '';
+    const less = (LESS ? await LESS['default'] : '') ?? '';
+
+    this.docDemoService.open(`PRIZM UI (${version}): ${title}`, version, {
+      ts,
+      html,
+      less,
     });
   }
 }
