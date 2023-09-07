@@ -84,7 +84,7 @@ export function getPrizmOtherDeps(version: PrizmDocDemoMainVersion) {
 
 export function getAllDeps(version: PrizmDocDemoMainVersion): Record<string, unknown> {
   return {
-    // ...getPrizmOtherDeps(version),
+    ...getPrizmOtherDeps(version),
     ...getPrizmNgDeps(version),
     ...getPrizmDeps(version),
   };

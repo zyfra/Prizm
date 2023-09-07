@@ -18,6 +18,7 @@ import { PRIZM_DOC_EXAMPLE_TEXTS } from '../../tokens/i18n';
 import { prizmRawLoadRecord } from '../../utils/raw-load-record';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
 import { PrizmDocDemoAbstractService, PrizmDocDemoMainVersion, PrizmDocDemoVersion } from '../../services';
+import { PrizmPageService } from '../page/page.service';
 
 @Component({
   selector: `prizm-doc-example`,
@@ -94,7 +95,8 @@ export class PrizmDocExampleComponent {
     @Inject(Router) private readonly router: Router,
     @Inject(ActivatedRoute) private readonly route: ActivatedRoute,
     @Inject(NgLocation) private readonly ngLocation: NgLocation,
-    private readonly docDemoService: PrizmDocDemoAbstractService
+    private readonly docDemoService: PrizmDocDemoAbstractService,
+    private readonly pageService: PrizmPageService
   ) {}
 
   public copyExampleLink(): void {
@@ -133,17 +135,17 @@ export class PrizmDocExampleComponent {
   }
 
   public async open(version: PrizmDocDemoMainVersion): Promise<void> {
-    const title = `${[this.heading, version].filter(Boolean).join(' ')}`;
+    const title = `${[this.pageService.info.header, this.heading].filter(Boolean).join(' ')}`;
     const TypeScript = this.content?.TypeScript as any;
     const HTML = this.content?.HTML as any;
     const LESS = this.content?.LESS as any;
 
     if (!TypeScript) return;
     const ts = (await TypeScript)['default'] ?? '';
-    const html = (HTML ? await HTML['default'] : '') ?? '';
-    const less = (LESS ? await LESS['default'] : '') ?? '';
+    const html = (HTML ? (await HTML)['default'] : '') ?? '';
+    const less = (LESS ? (await LESS)['default'] : '') ?? '';
 
-    this.docDemoService.open(`PRIZM UI (${version}): ${title}`, version, {
+    this.docDemoService.open(`PRIZM UI (V${version}): ${title}`, version, {
       ts,
       html,
       less,
