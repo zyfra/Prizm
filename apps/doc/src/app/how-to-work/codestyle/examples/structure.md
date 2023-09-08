@@ -1,0 +1,14 @@
+```html
+<some-element
+  class="element-class"
+  #myElement
+  *ngIf="condition"
+  [myAttrDirective]="someName"
+  [label]="label"
+  [attr.alt]="alt"
+  [ngClass]="'some'"
+  [class.my-class-name]="ifTrue"
+  [style.width.px]="width"
+>
+</some-element>
+```

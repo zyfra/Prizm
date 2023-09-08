@@ -11,7 +11,7 @@ import { tuiTryParseMarkdownCodeBlock } from './parse-code-block';
   templateUrl: `./code.template.html`,
   styleUrls: [`./code.style.less`],
 })
-export class TuiDocCodeComponent {
+export class PrizmDocCodeComponent {
   private readonly rawLoader$$ = new BehaviorSubject<RawLoaderContent>(``);
 
   @Input()

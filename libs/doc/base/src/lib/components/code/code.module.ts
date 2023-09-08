@@ -2,11 +2,11 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HighlightModule } from 'ngx-highlightjs';
 
-import { TuiDocCodeComponent } from './code.component';
+import { PrizmDocCodeComponent } from './code.component';
 
 @NgModule({
   imports: [CommonModule, HighlightModule],
-  declarations: [TuiDocCodeComponent],
-  exports: [TuiDocCodeComponent],
+  declarations: [PrizmDocCodeComponent],
+  exports: [PrizmDocCodeComponent],
 })
 export class PrizmDocCodeModule {}
