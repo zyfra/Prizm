@@ -17,6 +17,9 @@ export class TuiDocCodeComponent {
   @Input()
   filename = ``;
 
+  @Input()
+  lineNumbers = true;
+
   readonly processor$ = this.rawLoader$$.pipe(switchMap(prizmRawLoad), map(tuiTryParseMarkdownCodeBlock));
 
   @Input()
