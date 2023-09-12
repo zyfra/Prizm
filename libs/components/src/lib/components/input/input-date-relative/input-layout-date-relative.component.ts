@@ -88,6 +88,7 @@ export class PrizmInputLayoutDateRelativeComponent
   private activeDirectionId!: RelativeDateDirectionId;
   private activePeriodId!: RelativeDatePeriodId;
   private activeNumber = '';
+  private activeWrongFormat = false;
 
   private readonly subscriptions = new Subscription();
 
@@ -112,6 +113,13 @@ export class PrizmInputLayoutDateRelativeComponent
   public valueChange(value: string) {
     this.parseInputValue(value);
     this.actualizeMenu();
+    if (!this.activeWrongFormat) {
+      if (this.activePeriodId && !this.activeNumber) {
+        this.activeNumber = '1';
+        this.actualizeInput();
+        return;
+      }
+    }
     this.updateTouchedAndValue(value);
   }
 
@@ -153,6 +161,7 @@ export class PrizmInputLayoutDateRelativeComponent
     this.activeDirectionId = model.direction;
     this.activeNumber = model.number;
     this.activePeriodId = model.period;
+    this.activeWrongFormat = !!model.wrongFormat;
   }
 
   public get nativeFocusableElement(): HTMLInputElement | null {

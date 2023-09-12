@@ -22,11 +22,13 @@ export function UpdateActiveItem<T>(items: RelativeDateMenuItem<T>[], id: T): Re
   });
 }
 
+type ExtendedRelativeDateModel = RelativeDateModel & { wrongFormat?: boolean };
+
 /**
  * Parse input text to model
  */
-export function ParseTextInput(text: string): RelativeDateModel {
-  const result: RelativeDateModel = {} as RelativeDateModel;
+export function ParseTextInput(text: string): ExtendedRelativeDateModel {
+  const result: ExtendedRelativeDateModel = {} as ExtendedRelativeDateModel;
 
   const regexMatch = new RegExp(MatchPattern);
   const match = regexMatch.exec(text) ?? [];
@@ -35,6 +37,7 @@ export function ParseTextInput(text: string): RelativeDateModel {
   result.direction = directionMap.get(match[2]) as any;
   result.period = periodMap.get(match[4]) as any;
   result.number = (match[3] as any) || '';
+  result.wrongFormat = text !== match[0];
 
   return result;
 }
