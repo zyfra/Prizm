@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  HostBinding,
   Inject,
   Injector,
   Input,
@@ -12,9 +11,11 @@ import {
   ViewChild,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmLanguageInputLayoutDateRelative } from '@prizm-ui/i18n';
+import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+
 import {
   getDefaultRelativeDateMenuItems,
   IdByGroup,
@@ -25,15 +26,11 @@ import {
   RelativeDateTimeId,
 } from './input-date-relative.models';
 import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relative.utils';
-import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
-import { PrizmDateButton } from '../../../types/date-button';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmInputControl } from '../common/base/input-control.class';
-import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
-import { PrizmInputStatusTextDirective } from '../common';
-import { PRIZM_CRON, PRIZM_INPUT_LAYOUT_DATE_RELATIVE } from '../../../tokens';
-import { PrizmLanguageInputLayoutDateRelative } from '@prizm-ui/i18n';
+import { PrizmInputStatusTextDirective, PrizmInputNgControl, PrizmInputControl } from '../common';
+import { PRIZM_DATE_RIGHT_BUTTONS, PRIZM_INPUT_LAYOUT_DATE_RELATIVE } from '../../../tokens';
+import { PrizmDateButton } from '../../../types';
 import { prizmI18nInitWithKey } from '../../../services';
+import { prizmIsNativeFocusedIn } from '../../../util';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -115,7 +112,7 @@ export class PrizmInputLayoutDateRelativeComponent
   public valueChange(value: string) {
     this.parseInputValue(value);
     this.actualizeMenu();
-    this.actualizeInput();
+    this.updateTouchedAndValue(value);
   }
 
   public ngOnDestroy(): void {
@@ -135,6 +132,9 @@ export class PrizmInputLayoutDateRelativeComponent
 
       case 'period':
         this.activePeriodId = <IdByGroup<'period'>>item.id;
+        if (!this.activeNumber) {
+          this.activeNumber = '1';
+        }
         break;
     }
 
@@ -147,9 +147,7 @@ export class PrizmInputLayoutDateRelativeComponent
    * Parses control input value
    */
   private parseInputValue(value: string): void {
-    const textInput = value;
-
-    const model = ParseTextInput(textInput);
+    const model = ParseTextInput(value);
 
     this.activeTimeId = model.time;
     this.activeDirectionId = model.direction;
@@ -165,7 +163,7 @@ export class PrizmInputLayoutDateRelativeComponent
 
   public get focused(): boolean {
     return !!(
-      this.focusableElement?.nativeElement && prizmIsNativeFocusedIn(this.focusableElement?.nativeElement)
+      this.focusableElement?.nativeElement && prizmIsNativeFocusedIn(this.focusableElement!.nativeElement)
     );
   }
 
@@ -179,9 +177,7 @@ export class PrizmInputLayoutDateRelativeComponent
       direction: this.activeDirectionId,
       period: this.activePeriodId,
     });
-
-    this.markAsTouched();
-    this.updateValue(stringValue);
+    this.updateTouchedAndValue(stringValue);
   }
 
   public override clear(ev: MouseEvent): void {
@@ -211,5 +207,10 @@ export class PrizmInputLayoutDateRelativeComponent
     } else {
       this.isOpen = false;
     }
+  }
+
+  private updateTouchedAndValue(value: string | null): void {
+    this.markAsTouched();
+    this.updateValue(value);
   }
 }
