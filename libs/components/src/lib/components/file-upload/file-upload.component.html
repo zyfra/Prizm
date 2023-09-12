@@ -27,7 +27,7 @@
     appearance="secondary"
     size="m"
   >
-    Выбрать
+    {{ fileUpload$ | async | prizmPluck : ['btn__select'] }}
   </button>
 </div>
 

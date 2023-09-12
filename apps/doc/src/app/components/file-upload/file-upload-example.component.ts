@@ -21,6 +21,11 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
     HTML: import('./examples/auto-upload/auto-upload.component.html?raw'),
   };
 
+  readonly exampleI18n: TuiDocExample = {
+    TypeScript: import('./examples/i18n/file-upload-i18n-example.component.ts?raw'),
+    HTML: import('./examples/i18n/file-upload-i18n-example.component.html?raw'),
+  };
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   userContent = 'текст пользователя';

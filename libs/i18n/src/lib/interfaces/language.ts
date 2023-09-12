@@ -8,6 +8,7 @@ export interface PrizmLanguageFileUpload {
   fileUpload: {
     dropzone__title: string;
     dropzone__description: string;
+    btn__select: string;
   };
 }
 export interface PrizmLanguageInputLayoutDateRelative {
