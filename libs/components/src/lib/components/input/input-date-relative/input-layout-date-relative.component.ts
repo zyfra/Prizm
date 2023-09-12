@@ -172,7 +172,7 @@ export class PrizmInputLayoutDateRelativeComponent
 
   public get focused(): boolean {
     return !!(
-      this.focusableElement?.nativeElement && prizmIsNativeFocusedIn(this.focusableElement!.nativeElement)
+      this.focusableElement?.nativeElement && prizmIsNativeFocusedIn(this.focusableElement.nativeElement)
     );
   }
 
