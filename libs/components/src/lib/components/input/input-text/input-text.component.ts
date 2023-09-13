@@ -6,6 +6,7 @@ import {
   EventEmitter,
   HostBinding,
   HostListener,
+  inject,
   Input,
   OnDestroy,
   OnInit,
@@ -18,8 +19,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmHintDirective } from '../../../directives';
-import { prizmIsTextOverflow } from '../../../util';
-import { PrizmOverlayOutsidePlacement } from '../../../modules';
+import { PrizmInputHintDirective } from '../common';
 
 @Component({
   selector:
@@ -43,24 +43,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   @HostBinding('attr.prizmHint') get prizmHint(): VALUE {
     return this.value;
-  }
-
-  @Input()
-  set prizmHintDirection(value: PrizmOverlayOutsidePlacement) {
-    this.prizmHint_.prizmHintDirection = value;
-    this.hintSyncChanges();
-  }
-  get prizmHintDirection(): PrizmOverlayOutsidePlacement {
-    return this.prizmHint_.prizmHintDirection;
-  }
-
-  private prizmHintCanShow_ = true;
-  @Input()
-  set prizmHintCanShow(value: boolean) {
-    this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_ = value;
-  }
-  get prizmHintCanShow(): boolean {
-    return this.prizmHintCanShow_;
   }
 
   @Input()
@@ -168,6 +150,11 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public hasClearButton = true;
   public nativeElementType: string;
 
+  private readonly inputHint: PrizmInputHintDirective | null = inject(PrizmInputHintDirective, {
+    optional: true,
+    host: true,
+  });
+
   /**
    * Create instance
    */
@@ -184,7 +171,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
     this.prizmHint_.ngOnInit();
-    this.updateHint();
+    this.inputHint?.updateHint();
   }
 
   public ngDoCheck(): void {
@@ -268,20 +255,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   private updateValue(value: VALUE): void {
     if (value !== this.ngControl?.value) this.ngControl?.control?.setValue(value);
     if (value !== this.value) this._inputValue.value = value as string;
-    this.updateHint();
-  }
-
-  private hintSyncChanges(): void {
-    this.prizmHint_.ngOnChanges();
-  }
-  private updateHint(): void {
-    if (!this.prizmHintCanShow_) {
-      this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_;
-    } else {
-      this.prizmHint_.prizmHintCanShow = prizmIsTextOverflow(this._inputValue);
-      this.prizmHint_.prizmHint = this.value as any;
-    }
-    this.hintSyncChanges();
+    this.inputHint?.updateHint();
   }
 
   public clear(event: MouseEvent): void {
