@@ -14,12 +14,5 @@ export function prizmLoadLanguage(
   language: PrizmLanguageName,
   loader: PrizmLanguageLoader
 ): Observable<PrizmLanguage> {
-  return from(normalizeCommonJSImport(loader(language))).pipe(
-    map((module: any) => module?.[`PRIZM_${language.toUpperCase()}_LANGUAGE`])
-  );
-}
-
-// CommonJS `module.exports` is wrapped as `default` in ESModule.
-async function normalizeCommonJSImport<T>(importPromise: Promise<T>): Promise<T> {
-  return importPromise.then((m: any) => m.default || m);
+  return from(loader(language)) as Observable<PrizmLanguage>;
 }
