@@ -38,15 +38,6 @@ import { AddComponentModule } from './how-to-work/add-component/add-component.mo
 import { SetTaskModule } from './how-to-work/set-task/set-task.module';
 import { IntroductionModule } from './forZIIoT/introduction/introduction.module';
 import { LibraryRequirementsModule } from './forZIIoT/library-requirements/library-requirements.module';
-import {
-  PRIZM_LANGUAGE,
-  PRIZM_RUSSIAN_LANGUAGE,
-  PrizmLanguageName,
-  PrizmLanguageSwitcher,
-  prizmLanguageSwitcher,
-} from '@prizm-ui/i18n';
-import { of } from 'rxjs';
-import { PRIZM_ENGLISH_FILE_UPLOAD } from './components/file-upload/examples/i18n/file-upload-i18n-example.component';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -91,28 +82,10 @@ registerLocaleData(localeRu);
     }),
   ],
   declarations: [AppComponent],
-  providers: [
-    { provide: LOCALE_ID, useValue: 'ru-RU' },
-    {
-      provide: PRIZM_LANGUAGE,
-      useValue: of(PRIZM_RUSSIAN_LANGUAGE),
-    },
-    ...prizmLanguageSwitcher(async lang => {
-      if (lang === ('ru' as PrizmLanguageName)) return PRIZM_RUSSIAN_LANGUAGE;
-      if (lang === ('en' as PrizmLanguageName))
-        return { ...PRIZM_RUSSIAN_LANGUAGE, ...PRIZM_ENGLISH_FILE_UPLOAD };
-
-      return PRIZM_RUSSIAN_LANGUAGE;
-    }),
-    ...APP_PROVIDERS,
-  ],
+  providers: [{ provide: LOCALE_ID, useValue: 'ru-RU' }, ...APP_PROVIDERS],
 })
 export class AppModule {
-  constructor(
-    private readonly themeSwitcher: PrizmThemeService,
-    private readonly prizmLanguageSwitcher: PrizmLanguageSwitcher
-  ) {
+  constructor(private readonly themeSwitcher: PrizmThemeService) {
     this.themeSwitcher.rootElement = null;
-    this.prizmLanguageSwitcher.setLanguage('ru' as PrizmLanguageName);
   }
 }
