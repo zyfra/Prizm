@@ -1,0 +1,11 @@
+import { Component, VERSION } from '@angular/core';
+
+@Component({
+  selector: 'my-app',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.less'],
+})
+export class AppComponent {
+  angular = 'Angular ' + VERSION.full;
+  prizm = 'Prizm ' + '1.4.3';
+}

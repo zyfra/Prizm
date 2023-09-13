@@ -14,10 +14,26 @@
 .t-title {
   font: var(--tui-font-heading-5);
   margin: 0 0 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+
+  :first-child {
+    width: 100%;
+  }
 
   :host-context(tui-root._mobile) & {
     font: var(--tui-font-heading-6);
   }
+
+  prizm-dropdown-host {
+    width: 32px;
+  }
+}
+
+.icon-stackblitz {
+  max-height: 24px;
+  max-width: 24px;
 }
 
 .t-description {
@@ -97,4 +113,11 @@
   height: auto;
   visibility: visible;
   opacity: 1;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin: 1rem;
 }

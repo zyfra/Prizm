@@ -33,6 +33,8 @@
               [min]="min"
               [max]="max"
               [step]="step"
+              [prizmHintDirection]="prizmHintDirection"
+              [prizmHintCanShow]="prizmHintCanShow"
               [value]="value"
               [disabled]="disabled"
               [placeholder]="placeholder"
@@ -78,6 +80,8 @@
               [step]="step"
               [value]="value"
               [disabled]="disabled"
+              [prizmHintDirection]="prizmHintDirection"
+              [prizmHintCanShow]="prizmHintCanShow"
               [placeholder]="placeholder"
               [required]="required"
               prizmInputNumber
@@ -97,6 +101,27 @@
         </div>
       </div>
     </prizm-doc-demo>
+    <prizm-doc-documentation [hasTestId]="false" heading="PrizmInputHintDirective">
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintDirection"
+        [documentationPropertyValues]="prizmHintDirectionVariants"
+        documentationPropertyName="prizmHintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintCanShow"
+        documentationPropertyName="prizmHintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show
+      </ng-template>
+    </prizm-doc-documentation>
+
     <prizm-doc-documentation
       [hasTestId]="true"
       [control]="requiredInputControl"

@@ -1,6 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
-import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import {
+  PRIZM_HINT_DEFAULT_OPTIONS,
+  PrizmHintOptions,
+  PrizmInputPosition,
+  PrizmInputSize,
+  PrizmInputStatus,
+  PrizmOverlayOutsidePlacement,
+} from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
@@ -16,6 +23,11 @@ export class InputNumberExampleComponent {
   public testIdPostfix!: string;
   public max = 10;
   public step = 2;
+  public prizmHintCanShow = true;
+  public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
+    PrizmOverlayOutsidePlacement
+  );
 
   public label = 'Заголовок';
   public placeholder = '';

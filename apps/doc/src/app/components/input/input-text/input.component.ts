@@ -1,6 +1,13 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import {
+  PRIZM_HINT_DEFAULT_OPTIONS,
+  PrizmHintOptions,
+  PrizmInputPosition,
+  PrizmInputSize,
+  PrizmInputStatus,
+  PrizmOverlayOutsidePlacement,
+} from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { default as d } from './examples/input-phone-example/input-phone-example.component.less?raw';
 
@@ -35,6 +42,12 @@ export class InputComponent {
 
   public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   public forceClear = this.forceClearVariants[0];
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
+    PrizmOverlayOutsidePlacement
+  );
+
+  public prizmHintCanShow = true;
+  public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
   public readonly zyfraInputBasicExample: TuiDocExample = {
     TypeScript: import('./examples/input-basic-example/input-basic-example.component.ts?raw'),

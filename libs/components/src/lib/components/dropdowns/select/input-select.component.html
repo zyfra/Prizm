@@ -29,11 +29,13 @@
           context: {
             $implicit: $any(val),
             value: val | prizmCallFunc : transformer,
-            stringify: val | prizmCallFunc : stringify : $any(nullContent)
+            stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
           }
         "
       >
-        <ng-container *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) as text">
+        <ng-container
+          *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text"
+        >
           {{ text }}
         </ng-container>
       </ng-container>
@@ -78,7 +80,9 @@
             <span
               class="text"
               #elem
-              *prizmLet="item | prizmCallFunc : stringify : $any(nullContent) as text"
+              *prizmLet="
+                item | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
+              "
               [prizmHint]="text"
               [prizmHintHost]="hostHint"
               [prizmHintDirection]="direction"

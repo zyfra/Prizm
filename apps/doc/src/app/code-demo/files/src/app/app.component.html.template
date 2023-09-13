@@ -1,0 +1,4 @@
+<p>{{ angular }}</p>
+<p>{{ prizm }}</p>
+
+<button prizmButton [icon]="'account-card-details'">Hello Prizm!</button>

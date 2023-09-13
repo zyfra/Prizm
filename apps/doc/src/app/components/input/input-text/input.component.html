@@ -173,6 +173,8 @@
           [prizmDocHostElement]="prizmInputElement"
           [formControl]="control"
           [disabled]="disabled"
+          [prizmHintDirection]="prizmHintDirection"
+          [prizmHintCanShow]="prizmHintCanShow"
           [required]="required"
           [value]="value"
           prizmInput
@@ -258,6 +260,27 @@
         documentationPropertyMode="input"
       >
         Force Clear
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation [hasTestId]="false" heading="PrizmInputHintDirective">
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintDirection"
+        [documentationPropertyValues]="prizmHintDirectionVariants"
+        documentationPropertyName="prizmHintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintCanShow"
+        documentationPropertyName="prizmHintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show
       </ng-template>
     </prizm-doc-documentation>
 
