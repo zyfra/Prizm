@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { prizmAssert } from '@prizm-ui/core';
 
 @Pipe({
   name: 'prizmPluck',
@@ -71,7 +72,7 @@ export class PrizmPluckPipe implements PipeTransform {
     defaultValue: any = null
   ): any {
     if (!input || typeof input !== 'object') {
-      console.error('prizmPluck in input instead of object or array, get ' + input);
+      prizmAssert.assert(false, 'prizmPluck in input instead of object or array, get ' + input);
       return null;
     }
     if (key == null) {
