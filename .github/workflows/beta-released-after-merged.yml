@@ -9,17 +9,17 @@ env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
-  pre_draft_release_v1:
+  pre_beta_release_v1:
     if: github.event.pull_request.merged == true
     uses: zyfra/Prizm/.github/workflows/beta-publish-ng14.yml@main
     secrets: inherit
 
-  pre_draft_release_v2:
+  pre_beta_release_v2:
     if: github.event.pull_request.merged == true
     uses: zyfra/Prizm/.github/workflows/beta-publish-ng15.yml@main
     secrets: inherit
 
-  pre_draft_release_v3:
+  pre_beta_release_v3:
     if: github.event.pull_request.merged == true
     uses: zyfra/Prizm/.github/workflows/beta-publish-ng16.yml@main
     secrets: inherit
