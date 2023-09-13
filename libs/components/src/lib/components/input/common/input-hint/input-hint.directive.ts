@@ -1,5 +1,7 @@
-import { PrizmHintDirective, prizmIsTextOverflow, PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 import { Directive, ElementRef, HostBinding, Input } from '@angular/core';
+import { PrizmHintDirective } from '../../../../directives/hint';
+import { PrizmOverlayOutsidePlacement } from '../../../../modules/overlay/models';
+import { prizmIsTextOverflow } from '../../../../util/dom/is-textoverflow';
 
 @Directive({
   selector: 'input[prizmHintDirection], input[prizmHintCanShow]',
