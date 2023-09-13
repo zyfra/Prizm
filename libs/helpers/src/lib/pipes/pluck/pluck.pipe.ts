@@ -5,7 +5,6 @@ import { prizmAssert } from '@prizm-ui/core';
   name: 'prizmPluck',
 })
 export class PrizmPluckPipe implements PipeTransform {
-  // TODO remove this type after fix type error in templates
   public transform<T, K extends keyof T & string>(
     input: T | null,
     arr: K,
