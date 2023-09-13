@@ -23,6 +23,8 @@
           [dropSpecialCharacters]="false"
           [showMaskTyped]="input.focused"
           [disabled]="disabled"
+          [prizmHintDirection]="prizmHintDirection"
+          [prizmHintCanShow]="prizmHintCanShow"
           [required]="required"
           [value]="value"
           prizmInput
@@ -84,6 +86,25 @@
         documentationPropertyMode="input"
       >
         Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintDirection"
+        [documentationPropertyValues]="prizmHintDirectionVariants"
+        documentationPropertyName="prizmHintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintCanShow"
+        documentationPropertyName="prizmHintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show
       </ng-template>
 
       <!-- <ng-template
