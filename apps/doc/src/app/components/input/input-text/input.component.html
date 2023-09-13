@@ -263,7 +263,7 @@
       </ng-template>
     </prizm-doc-documentation>
 
-    <prizm-doc-documentation [control]="control" hostComponentKey="PrizmInput" heading="PrizmInput">
+    <prizm-doc-documentation [hasTestId]="false" heading="PrizmInputHintDirective">
       <ng-template
         [(documentationPropertyValue)]="prizmHintDirection"
         [documentationPropertyValues]="prizmHintDirectionVariants"
@@ -282,7 +282,9 @@
       >
         Can Show
       </ng-template>
+    </prizm-doc-documentation>
 
+    <prizm-doc-documentation [control]="control" hostComponentKey="PrizmInput" heading="PrizmInput">
       <ng-template
         [(documentationPropertyValue)]="disabled"
         documentationPropertyName="disabled"
