@@ -9,6 +9,13 @@
     <prizm-doc-example id="stringify" [content]="exampleStringify" heading="Stringify">
       <prizm-select-stringify-example></prizm-select-stringify-example>
     </prizm-doc-example>
+    <prizm-doc-example
+      id="stringify-observable"
+      [content]="exampleStringifyObservable"
+      heading="Stringify Observable"
+    >
+      <prizm-select-stringify-observable-example></prizm-select-stringify-observable-example>
+    </prizm-doc-example>
 
     <prizm-doc-example id="with-search" [content]="exampleWithSearch" heading="With Search">
       <prizm-select-with-search-example></prizm-select-with-search-example>
@@ -158,7 +165,7 @@
 
       <ng-template
         documentationPropertyName="stringify"
-        documentationPropertyType="PrizmSelectIdentityMatcher"
+        documentationPropertyType="PrizmSelectStringify"
         documentationPropertyMode="input"
       >
         Stringify

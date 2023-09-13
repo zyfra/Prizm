@@ -139,7 +139,7 @@ export class PrizmSelectComponent<T>
    * */
   @Input()
   @prizmDefaultProp()
-  stringify: (i: T, content?: string) => string = this.options.stringify;
+  stringify: (i: T, content?: string) => any = this.options.stringify as any;
 
   @Input()
   @prizmDefaultProp()
