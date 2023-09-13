@@ -7,12 +7,12 @@
   type="file"
 />
 
-<div class="dropzone" #dropzone (drop)="onDrop($event)">
+<div class="dropzone" #dropzone *prizmLet="fileUpload$ | async as translations" (drop)="onDrop($event)">
   <div class="dropzone__title">
-    {{ fileUpload$ | async | prizmPluck : ['dropzone__title'] }}
+    {{ translations | prizmPluck : ['dropzone__title'] }}
   </div>
   <div class="dropzone__description">
-    {{ fileUpload$ | async | prizmPluck : ['dropzone__description'] }}
+    {{ translations | prizmPluck : ['dropzone__description'] }}
   </div>
   <div class="dropzone__user-content">
     <ng-content></ng-content>
@@ -27,7 +27,7 @@
     appearance="secondary"
     size="m"
   >
-    {{ fileUpload$ | async | prizmPluck : ['btn__select'] }}
+    {{ translations | prizmPluck : ['btn__select'] }}
   </button>
 </div>
 
