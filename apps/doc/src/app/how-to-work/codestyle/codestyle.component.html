@@ -1,3 +1,214 @@
 <prizm-doc-page class="info-page" header="CodeStyle">
-  <markdown [data]="(text | async) || ''" lineNumbers></markdown>
+  <div>
+    <h3 class="prizm-space_top-0">Базовые</h3>
+
+    <p class="prizm-space_top-0">Мы придерживаемся следующих CodeStyle:</p>
+    <ol class="disc">
+      <li><a href="https://google.github.io/styleguide/htmlcssguide.html">HTML CSS Style Guide</a></li>
+      <li><a href="https://google.github.io/styleguide/tsguide.html">TypeScript Style Guide</a></li>
+      <li><a href="https://angular.io/guide/styleguide">Angular coding style guide</a></li>
+    </ol>
+  </div>
+
+  <div>
+    <h4>Исключения TypeScript Style Guide:</h4>
+
+    <p class="prizm-space_top-0">
+      В пункте <a href="https://google.github.io/styleguide/tsguide.html#type-system">TypeSystem</a>
+    </p>
+    <p class="prizm-space_top-0">Разрешено и рекомендовано:</p>
+    <p class="prizm-space_top-0"><code>const x: boolean = true;</code></p>
+  </div>
+
+  <div>
+    <h4>Базовые форматтеры кода, линтеры</h4>
+
+    <p class="prizm-space_top-0">Репозитории с установленными правилами содержит правила в файлах</p>
+    <p class="prizm-space_top-0">
+      <prizm-doc-code [code]="linters" [lineNumbers]="false"></prizm-doc-code>
+    </p>
+  </div>
+
+  <h3>Best Practices</h3>
+
+  <div>
+    <h4>Angular.</h4>
+
+    <ol class="disc">
+      <li>Короткие заметки по Angular - <a href="https://angular.io/guide/cheatsheet">Cheat Sheet</a></li>
+      <li>
+        Сниппеты для улучшения кода на Angular -
+        <a href="https://github.com/fetis/30-seconds-of-angular">30-seconds-of-angular</a>
+      </li>
+    </ol>
+  </div>
+
+  <div>
+    <h4>Angular Performance.</h4>
+
+    <p class="prizm-space_top-0">
+      Необходимо понимать как устроен Angular, и за счет чего работает “реактиваность” и обновление контента.
+      <a href="https://blog.angular-university.io/how-does-angular-2-change-detection-really-work/"
+        >Почитать</a
+      >
+    </p>
+    <ol class="disc">
+      <li>
+        OnPush - желательно всегда использовать. -
+        <a href="https://blog.angular-university.io/onpush-change-detection-how-it-works/">Почитать</a>
+      </li>
+      <li>Подписался - отпишись, unsubscribe, takeWhile (никак не take(1))</li>
+      <li>Не использовать в приложениях “impure” pipe.</li>
+      <li>
+        Помнить о zonejs, правильно оборачивать NgZone. -
+        <a href="https://indepth.dev/posts/1434/running-event-listeners-outside-of-the-ngzone">Почитать</a> и
+        <a
+          href="https://blog.thoughtram.io/angular/2017/02/21/using-zones-in-angular-for-better-performance.html"
+          >Почитать2</a
+        >
+      </li>
+      <li>Хак setTimeOut(func,0), это прежде всего хак, и это уже означает что что то делаете не так.</li>
+      <li>
+        Нужно понимать как работает DI. Провайдить безумно все в рут не следует.
+        <a href="https://christiankohler.net/2c07040f5b28e2b086aab313309719a6/angular-di-infographic.pdf"
+          >Посмотреть схему</a
+        >
+      </li>
+      <li>Максимум в модули, а лучше в lazy.</li>
+      <li>
+        Роутинг организовывать стандартными методами, RouterModule. Помнить что большинство state можно
+        пробросить через него, и то что бывает различные способы их получить (QueryParams, Params,
+        MatrixParams)
+      </li>
+      <li>Помнить о существовании HttpContext, особенно для interceptor</li>
+      <li>Angular шаблоны.</li>
+    </ol>
+  </div>
+
+  <div>
+    <h4>Структура и чистота.</h4>
+
+    <p class="prizm-space_top-0">
+      Следует придерживать следующего CodeStyle в element-name, в самих секциях группировки - сортировка по
+      смыслу и алфавиту:
+    </p>
+
+    <ol class="disc">
+      <li>якорь шаблона (#myId)</li>
+      <li>управляющие директивы, чаще структурные директивы</li>
+      <li>структурные директивы</li>
+      <li>аттрибутные директивы</li>
+      <li>input</li>
+      <li>динамические аттрибуты html</li>
+      <li>output</li>
+      <li>статичные аттрибуты html</li>
+    </ol>
+
+    <p class="prizm-space_top-0">Пример:</p>
+    <prizm-doc-code [code]="structure"></prizm-doc-code>
+  </div>
+
+  <div>
+    <h4>Функции в шаблонах.</h4>
+
+    <p class="prizm-space_top-0">
+      Не следует <code>[color]="getControlColor('selectedValueField')"</code>, допустимо если это обычный
+      getter, без какой либо нагруженной логики.
+    </p>
+  </div>
+
+  <div>
+    <h4>Дублирование в шаблоне.</h4>
+
+    <p class="prizm-space_top-0">
+      Простота - лучшее решение. Если виден повторяющийся кусок вынесите в ng-template.
+    </p>
+  </div>
+
+  <div>
+    <h4>Решение дублей в стилях.</h4>
+
+    <prizm-doc-code [code]="styles"></prizm-doc-code>
+    <p class="prizm-space_top-0">можно через css vars и отдать остальное в css:</p>
+    <prizm-doc-code [code]="stylesVariableHtml" filename="template.html"></prizm-doc-code>
+    <prizm-doc-code [code]="stylesVariableCss" filename=".component.css"></prizm-doc-code>
+    <p class="prizm-space_top-0">А еще можно и</p>
+    <p class="prizm-space_top-0"><code>[style.height.px]="iconSize"</code></p>
+  </div>
+
+  <h3>TS:</h3>
+
+  <div>
+    <h4>Чистота класса</h4>
+
+    <p class="prizm-space_top-0">
+      Сперва должны идти блоки public, затем private, причем если есть свойство readonly то оно выше, и
+      сортировку в блоках лучше делать по алфавиту, если между членами нет какой либо смысловой связи или же
+      если свойство является gettter/setter.
+    </p>
+    <p class="prizm-space_top-0">Пример:</p>
+    <prizm-doc-code [code]="pureClass"></prizm-doc-code>
+  </div>
+
+  <div>
+    <h4>Название методов, свойств.</h4>
+
+    <p class="prizm-space_top-0">Пишите названия честно, правильно. Методы - глаголы, прилагательные.</p>
+    <p class="prizm-space_top-0">Хорошо если в проекте будет заданы одни и те же глаголы.</p>
+    <p class="prizm-space_top-0">
+      Правильно используйте антонимы <code>add/remove</code>, <code>increment/decrement</code>,
+      <code>open/close</code>, <code>begin/end</code>, <code>subscribe/unsubscribe</code>
+    </p>
+    <p class="prizm-space_top-0">Подчеркивание не обязательно для указания приватности:</p>
+    <prizm-doc-code [code]="privateVariables"></prizm-doc-code>
+  </div>
+
+  <div>
+    <h4>Методы, функции.</h4>
+
+    <p class="prizm-space_top-0">
+      Не следует держать чистые функции в классах. Если можно метод выделить в чистую функцию - делайте.
+    </p>
+  </div>
+
+  <div>
+    <h3>Общее.</h3>
+
+    <p class="prizm-space_top-0">
+      Если ваш код напоминает вам какой либо паттерн → реализуйте его и зовите свойства своими именами.
+    </p>
+    <p class="prizm-space_top-0">
+      Отнеситесь к написанию кода как к технической статье, ожидая что ваш код будут читать. Правильно
+      употребляйте переносы, заголовки и “знаки препинания”
+    </p>
+    <p class="prizm-space_top-0">Не используемые методы, пустые методы следует убрать.</p>
+    <p class="prizm-space_top-0">
+      действия производимые из шаблона (output) события, следует называть как обработчик например:
+      <code>(click)="dictionariesFilter()"</code> → <code>(click)="onDictionaryFilterClick()"</code>
+    </p>
+    <p class="prizm-space_top-0">Дубли порождают доп баги и сложность сопровождения. Избавляйтесь от них.</p>
+  </div>
+
+  <div>
+    <h3>Promise vs Observable</h3>
+
+    <p class="prizm-space_top-0">
+      Рекомендуем использовать в большинстве случаев для работы с потоками данных Observable. Исключение
+      утилитный функционал (Напр: работа с файловой системой, генераторы,..), и если эта библиотека без
+      внешних зависимостей.
+    </p>
+    <p class="prizm-space_top-0">Почему:</p>
+    <ol class="disc">
+      <li>Promise является нетерпеливым, в то время как Observable - ленивым,</li>
+      <li>
+        Promise всегда асинхронный, в то время как Observable может быть как асинхронным, так и синхронным,
+      </li>
+      <li>
+        Promise может предоставить одно значение, в то время как Observable - поток значений (от 0 до
+        нескольких значений),
+      </li>
+      <li>Вы можете применить операторы RxJS к Observable, чтобы получить новый поток значений.</li>
+      <li>Для Promise необходимо придумывать механизмы отмены.</li>
+    </ol>
+  </div>
 </prizm-doc-page>

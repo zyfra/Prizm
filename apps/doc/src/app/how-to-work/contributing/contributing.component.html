@@ -1,3 +1,244 @@
 <prizm-doc-page class="info-page" header="Contributing">
-  <markdown [data]="(text | async) || ''" lineNumbers></markdown>
+  <div>
+    <h2 class="prizm-space_top-0">Issue</h2>
+
+    <p class="prizm-space_top-0">
+      <strong>Любое обращение начинается с создания issue</strong>
+    </p>
+  </div>
+
+  <div>
+    <h4>Увидели проблему</h4>
+
+    <ol class="disc">
+      <li>Найти похожий issue или создать новый issue</li>
+    </ol>
+
+    <h4>Хочу исправить проблему</h4>
+
+    <ol class="disc">
+      <li>Найти или создать issue</li>
+      <li>Получить апрув от участников команды на выполнение</li>
+      <li>Прислать PR</li>
+    </ol>
+  </div>
+
+  <div>
+    <h4>Как получить доступ в GitHub</h4>
+
+    <p class="prizm-space_top-0">
+      Это публичный проект, доступ есть у всех Ссылка:
+      <a href="https://github.com/zyfra/Prizm">https://github.com/zyfra/Prizm</a>
+    </p>
+  </div>
+
+  <div>
+    <h4>Создание issue</h4>
+
+    <ol class="disc">
+      <li>
+        Зайти в
+        <a href="https://github.com/zyfra/Prizm/issues/new/choose"
+          >https://github.com/zyfra/Prizm/issues/new/choose</a
+        >
+      </li>
+      <li>Выбрать шаблон из предложенного</li>
+      <li>Добавить заголовок</li>
+      <li>Оформить и отправить на рассмотрение</li>
+    </ol>
+  </div>
+
+  <div>
+    <h2>Требования к заголовку PR, Issue</h2>
+
+    <p class="prizm-space_top-0">Заголовок сообщения коммитов и PR должны состоять из:</p>
+    <p lass="prizm-space_top-0">
+      <code>&lt;type&gt;(&lt;scope&gt;/(component?)): &lt;short summary&gt;</code>
+    </p>
+  </div>
+
+  <div>
+    <h4>type</h4>
+
+    <p class="prizm-space_top-0">Тип коммита</p>
+    <p class="prizm-space_top-0">Должен быть одним из:</p>
+
+    <ol class="disc">
+      <li><strong>build</strong>: Изменения в способе сборки, например nx</li>
+      <li><strong>ci</strong>: Изменения в pipeline .gitlab-ci.yml/li></li>
+      <li><strong>docs</strong>: Документация</li>
+      <li><strong>feat</strong>: Новая фича</li>
+      <li><strong>fix</strong>: Фикс бага</li>
+      <li><strong>perf</strong>: Повышение производительности</li>
+      <li>
+        <strong>refactor</strong>: Изменения, которые не исправляют баги и не добавляют новую фичу, а лишь
+        изменяют качество кодовой базы.
+      </li>
+      <li><strong>test</strong>: Добавление теста</li>
+    </ol>
+  </div>
+
+  <div>
+    <h4>scope</h4>
+
+    <p class="prizm-space_top-0">Окружение npm библиотека или же приложение</p>
+    <p class="prizm-space_top-0">Должны быть одним из:</p>
+
+    <ol class="disc">
+      <li>core</li>
+      <li>components - КБ</li>
+      <li>charts</li>
+      <li>helpers - библиотека хелперов</li>
+      <li>schematics - библиотека схематиков, установщиков</li>
+      <li>executors - инструменты для самой работы sdk</li>
+      <li>generators - схематики для самой sdk</li>
+      <li>doc - приложение витрины компонентов</li>
+    </ol>
+  </div>
+
+  <div>
+    <h4>component</h4>
+
+    <p class="prizm-space_top-0">Часть непосредственно самого scope.</p>
+    <p class="prizm-space_top-0">Для components может быть:</p>
+    <p class="prizm-space_top-0">
+      <code>`button`</code>, <code>`calendar`</code>, <code> `input`</code> и т.д.
+    </p>
+  </div>
+
+  <div>
+    <h2>Стиль написания кода</h2>
+
+    <p class="prizm-space_top-0">
+      Данный документ наследует общий codestyle для разработки - <a href="/codestyle">CodeStyle</a>
+    </p>
+  </div>
+
+  <div>
+    <h2>Структура проекта docs:</h2>
+
+    <p class="prizm-space_top-0">Проект для ведения документации.</p>
+    <p class="prizm-space_top-0"><code>./input</code> - наименование компонента</p>
+    <p class="prizm-space_top-0">
+      <prizm-doc-code [code]="structure" [lineNumbers]="false"></prizm-doc-code>
+    </p>
+  </div>
+
+  <div>
+    <h4>Документация компонента:</h4>
+
+    <p class="prizm-space_top-0">Разделы</p>
+  </div>
+
+  <div>
+    <h4>Description and examples</h4>
+
+    <p class="prizm-space_top-0">
+      Раздел с информацией о том как использовать компонент. Примеры должны начинаться с
+      <code>&lt;component&gt;</code>-basic-example
+    </p>
+  </div>
+
+  <div>
+    <h4>API</h4>
+
+    <p class="prizm-space_top-0">Исчерпывающие возможности компонента Input параметров</p>
+  </div>
+
+  <div>
+    <h4>Разделы:</h4>
+
+    <p class="prizm-space_top-0">Базовый - включает только input и output</p>
+    <p class="prizm-space_top-0">Дополнительный - включает сторонний контент (ng-content)</p>
+  </div>
+
+  <div>
+    <h4>Setup:</h4>
+
+    <p class="prizm-space_top-0">Информация об установке компонента</p>
+  </div>
+
+  <div>
+    <h4>Examples</h4>
+
+    <p class="prizm-space_top-0">Именование:</p>
+    <p class="prizm-space_top-0">import-module.md - всегда про setup компонента</p>
+    <p class="prizm-space_top-0">
+      <code>&lt;component&gt;</code>-basic-example - базовый пример без лишней конфигурации
+    </p>
+    <p class="prizm-space_top-0">
+      <code>&lt;component&gt;-&lt;custom&gt;</code>-example - дополнительный пример
+    </p>
+  </div>
+
+  <div>
+    <h4>Naming</h4>
+
+    <p class="prizm-space_top-0">
+      Модули, компоненты, директивы, pipe и все что выступает в public через
+      <code>{{ importing }}</code> Должны иметь префикс - <code>prizm</code>
+    </p>
+    <p class="prizm-space_top-0">Пример: <code>PrizmInputModule</code></p>
+    <p class="prizm-space_top-0">
+      <prizm-doc-code [code]="naming" [lineNumbers]="false"> </prizm-doc-code>
+    </p>
+
+    <p class="prizm-space_top-0"><strong>Cтили публикуемые наружу (styles.less).</strong></p>
+    <p class="prizm-space_top-0">
+      Стили не должны попадать в глобальную область видимости. ViewEncapsulation - всегда Emulated (то что по
+      дефолту).
+    </p>
+
+    <p class="prizm-space_top-0"><strong>Subscribers</strong></p>
+    <p class="prizm-space_top-0">Отписка - всегда сопровождается отпиской. Для отписок используем</p>
+    <p class="prizm-space_top-0"><code>providers: [PrizmDestroyService]</code></p>
+
+    <p class="prizm-space_top-0"><strong>Переменные (css)</strong></p>
+    <p class="prizm-space_top-0"><code>--prizm-&lt;name&gt;</code></p>
+    <p class="prizm-space_top-0">name - название переменной</p>
+
+    <p class="prizm-space_top-0"><strong>Exceptions</strong></p>
+    <p class="prizm-space_top-0">
+      Ошибки вызываемые в runtime необходимо описывать стандартными механизмами, наследуя от Error
+    </p>
+    <p class="prizm-space_top-0">Расположение</p>
+    <p class="prizm-space_top-0"><code>libs/components/src/lib/exceptions</code></p>
+    <p class="prizm-space_top-0">Пример:</p>
+    <p class="prizm-space_top-0">
+      <prizm-doc-code [code]="pureException"></prizm-doc-code>
+    </p>
+  </div>
+
+  <div>
+    <h2>Icons</h2>
+    <h4>Форматы</h4>
+
+    <p class="prizm-space_top-0">В базе имеются форматы иконок: 24, 16,</p>
+    <p class="prizm-space_top-0">24 - базовый</p>
+    <p class="prizm-space_top-0">
+      16, 8 - дополнительные, специально перерисованы для случаев когда scale иконки не удачный вариант.
+    </p>
+
+    <h4>Требования к иконкам</h4>
+
+    <ol class="disc">
+      <li>Иконки должны быть с квадратной рамкой</li>
+      <li>Отцентрированы</li>
+      <li>Изображение не выходит за рамки квадрата</li>
+      <li>Для экспорта изображение подготовлено в формате path а не линии.</li>
+      <li>
+        Fill-rule правильно обозначен (<a href="https://github.com/jaywcjlove/svgtofont/issues/79"
+          >https://github.com/jaywcjlove/svgtofont/issues/79</a
+        >) прогнан через плагин фигмы Fill Rule Editor plug-in,
+      </li>
+    </ol>
+
+    <h4>Как добавить новую иконку в Prizm:</h4>
+
+    <ol class="disc">
+      <li>Экспортировать иконку из Figma в формате svg</li>
+      <li>Положить в SDK /libs/components/assets/icons</li>
+      <li>Выполнить сборку шрифтов nx run components:build-icons</li>
+    </ol>
+  </div>
 </prizm-doc-page>
