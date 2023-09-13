@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmShadowType, PrizmShadowTypeEnum } from '@prizm-ui/components';
+import { PrizmDocCodeDemoService } from '../../code-demo/code-demo.service';
 
 @Component({
   selector: 'prizm-card-example',

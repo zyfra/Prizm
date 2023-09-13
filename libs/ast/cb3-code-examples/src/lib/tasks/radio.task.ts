@@ -8,13 +8,13 @@ import {
 export const ZyfraRadioCodeTasks: IPrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
-    namedImports: ['PrizmLabelModule'],
+    namedImports: ['PrizmRadioButtonModule'],
     targetImport: '@digital-plant/zyfra-components',
     targetNamedImports: ['ZyfraRadioButtonModule'],
     commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraRadioButtonModule',
   }),
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
-    newModule: 'PrizmLabelModule',
+    newModule: 'PrizmRadioButtonModule',
     moduleToFind: 'ZyfraRadioButtonModule',
     comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraRadioButtonModule',
   }),
