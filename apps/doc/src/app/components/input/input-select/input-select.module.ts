@@ -21,6 +21,7 @@ import { PrizmSelectValidatorsExampleComponent } from './examples/validators/sel
 import { PrizmSelectStringifyExampleComponent } from './examples/stringify/select-stringify-example.component';
 import { PrizmSelectWithTransformerExampleComponent } from './examples/with-transformer/select-with-transformer-example.component';
 import { PrizmSelectWithListItemTemplateExampleComponent } from './examples/with-list-item-template/select-with-list-item-template-example.component';
+import { PrizmSelectStringifyObservableExampleComponent } from './examples/stringify-observable/select-stringify-observable-example.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,7 @@ import { PrizmSelectWithListItemTemplateExampleComponent } from './examples/with
     PrizmSelectWithTemplateExampleComponent,
     PrizmSelectWithListItemTemplateExampleComponent,
     InputSelectComponent,
+    PrizmSelectStringifyObservableExampleComponent,
   ],
   exports: [InputSelectComponent],
 })

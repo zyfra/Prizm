@@ -1,8 +1,6 @@
-import { Directive, ElementRef, Host, HostBinding, HostListener, Input } from '@angular/core';
+import { Directive, ElementRef, Host, HostListener, Input } from '@angular/core';
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
-import { timer } from 'rxjs';
-import { tap } from 'rxjs/operators';
 
 @Directive({
   selector: 'input[prizmInputNumber], input[type=number][prizmInput]',

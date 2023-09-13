@@ -1,5 +1,11 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import {
+  PRIZM_HINT_DEFAULT_OPTIONS,
+  PrizmHintOptions,
+  PrizmInputSize,
+  PrizmInputStatus,
+  PrizmOverlayOutsidePlacement,
+} from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
@@ -23,6 +29,12 @@ export class InputMaskExampleComponent {
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
 
   public disabled = false;
+
+  public prizmHintCanShow = true;
+  public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
+    PrizmOverlayOutsidePlacement
+  );
 
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];

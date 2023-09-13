@@ -23,6 +23,8 @@
           [dropSpecialCharacters]="false"
           [showMaskTyped]="input.focused"
           [disabled]="disabled"
+          [prizmHintDirection]="prizmHintDirection"
+          [prizmHintCanShow]="prizmHintCanShow"
           [required]="required"
           [value]="value"
           prizmInput
@@ -86,6 +88,25 @@
         Disabled
       </ng-template>
 
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintDirection"
+        [documentationPropertyValues]="prizmHintDirectionVariants"
+        documentationPropertyName="prizmHintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintCanShow"
+        documentationPropertyName="prizmHintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show
+      </ng-template>
+
       <!-- <ng-template
         documentationPropertyName="outer"
         documentationPropertyType="boolean"
@@ -135,7 +156,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>PrizmInputMaskModule</code>
+          Импортируйте <code>PrizmMaskModule</code>
           в тот модуль, котором хотите использовать компонент
         </p>
 

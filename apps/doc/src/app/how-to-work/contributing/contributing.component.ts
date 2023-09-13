@@ -1,7 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
-import { of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
-import { prizmRawLoad } from '@prizm-ui/doc';
+import { RawLoaderContent } from '@prizm-ui/doc';
 
 @Component({
   selector: `prizm-codestyle`,
@@ -11,5 +9,8 @@ import { prizmRawLoad } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ContributingComponent {
-  readonly text = of(import(`../../../../../../CONTRIBUTING.md?raw`)).pipe(switchMap(prizmRawLoad));
+  public readonly structure: RawLoaderContent = import('./examples/structure.md?raw');
+  public readonly naming: RawLoaderContent = import('./examples/naming.md?raw');
+  public readonly pureException: RawLoaderContent = import('./examples/pure-exception.md?raw');
+  public readonly importing = `import {...} from "@prizm-ui/,,,"`;
 }

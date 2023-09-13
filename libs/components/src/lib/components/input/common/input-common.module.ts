@@ -13,10 +13,12 @@ import { PrizmInputLayoutInBodyDirective } from './input-layout/input-layout-in-
 import { PrizmInputLayoutSubtextDirective } from './input-layout/input-layout-subtext.directive';
 import { PrizmZoneEventModule } from '../../../directives';
 import { PrizmLetModule, PrizmToObservableModule } from '@prizm-ui/helpers';
+import { PrizmInputHintModule } from './input-hint/input-hint.module';
 
 @NgModule({
   imports: [
     CommonModule,
+    PrizmInputHintModule,
     PrizmToObservableModule,
     PrizmLetModule,
     PrizmIconModule,
@@ -36,6 +38,7 @@ import { PrizmLetModule, PrizmToObservableModule } from '@prizm-ui/helpers';
   ],
   exports: [
     CommonModule,
+    PrizmInputHintModule,
     PrizmInputLayoutComponent,
     PrizmInputStatusSubtextComponent,
     PrizmInputIconButtonModule,

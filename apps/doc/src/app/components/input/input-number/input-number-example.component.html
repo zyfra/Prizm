@@ -101,12 +101,7 @@
         </div>
       </div>
     </prizm-doc-demo>
-    <prizm-doc-documentation
-      [hasTestId]="true"
-      [control]="requiredInputControl"
-      heading="PrizmInputNumberDirective"
-      hostComponentKey="PrizmInputNumberDirective"
-    >
+    <prizm-doc-documentation [hasTestId]="false" heading="PrizmInputHintDirective">
       <ng-template
         [(documentationPropertyValue)]="prizmHintDirection"
         [documentationPropertyValues]="prizmHintDirectionVariants"
@@ -125,7 +120,14 @@
       >
         Can Show
       </ng-template>
+    </prizm-doc-documentation>
 
+    <prizm-doc-documentation
+      [hasTestId]="true"
+      [control]="requiredInputControl"
+      heading="PrizmInputNumberDirective"
+      hostComponentKey="PrizmInputNumberDirective"
+    >
       <ng-template
         [(documentationPropertyValue)]="required"
         documentationPropertyName="required"

@@ -3,11 +3,16 @@ import { PrizmToastService } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { debounceTime, delay, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import { TuiBrightness } from '@taiga-ui/core';
-import { PRIZM_DOC_TITLE, PrizmDocHostElementListenerService } from '@prizm-ui/doc';
+import {
+  PRIZM_DOC_TITLE,
+  PrizmDocDemoAbstractService,
+  PrizmDocHostElementListenerService,
+} from '@prizm-ui/doc';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
 import { ActivationEnd, NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
+import { DocDemoService } from './doc-demo.service';
 
 /**
  * Show all assert logg as warning
@@ -19,7 +24,13 @@ prizmAssert.enabled = [PRIZM_LOG_LEVEL.error, PRIZM_LOG_LEVEL.log, PRIZM_LOG_LEV
   selector: 'prizm-doc-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.less'],
-  providers: [PrizmDestroyService],
+  providers: [
+    PrizmDestroyService,
+    {
+      provide: PrizmDocDemoAbstractService,
+      useClass: DocDemoService,
+    },
+  ],
 })
 export class AppComponent implements AfterViewInit {
   public title = 'doc';

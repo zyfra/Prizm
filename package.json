@@ -61,6 +61,7 @@
     "@ng-web-apis/resize-observer": "^3.0.1",
     "@nrwl/angular": "16.6.0",
     "@nrwl/nx-plugin": "16.6.0",
+    "@stackblitz/sdk": "^1.9.0",
     "@taiga-ui/addon-doc": "^3.13.0",
     "@taiga-ui/addon-mobile": "^3.13.0",
     "@taiga-ui/cdk": "^3.13.0",

@@ -7,6 +7,7 @@ import {
   PrizmSelectSearchMatcher,
   PrizmSelectValueTransformver,
 } from './select.model';
+import { Observable } from 'rxjs';
 
 export type PrizmSelectIconContext = { opened: boolean; disabled: boolean };
 export interface PrizmSelectOptions<T> {
@@ -48,7 +49,7 @@ export interface PrizmSelectOptions<T> {
   readonly listItemTemplate: PolymorphContent<PrizmSelectValueContext<T>>;
 }
 
-export type PrizmSelectStringify<T> = (i: T, nullContent?: string) => string;
+export type PrizmSelectStringify<T> = (i: T, nullContent?: string) => string | Observable<string>;
 export type PrizmSelectValueContext<T> = PrizmContextWithImplicit<T> & { stringify: string; value: any };
 
 /** Default values for dropdown-host options */
