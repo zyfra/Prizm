@@ -20,7 +20,7 @@
     </prizm-scrollbar>
   </div>
 
-  <div class="footer" *ngIf="footer" [style]="context.footerStyle">
+  <div class="footer prizm-font-btn-links-14" *ngIf="footer" [style]="context.footerStyle">
     <ng-container *polymorphOutlet="$any(footer) as data; context: context">
       <div class="buttons" *ngIf="isFooterArray; else temp">
         <button
