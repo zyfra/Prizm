@@ -57,7 +57,7 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
 
   public onFilesCountError(fileNames: Array<string>): void {
     this.toastService.create(`Файлы ${fileNames.join(' ,')} не были добавлены`, {
-      title: `Максимальное колчество файлов превышено`,
+      title: `Максимальное количество файлов превышено`,
       appearance: 'warning',
       timer: 5000,
     });
