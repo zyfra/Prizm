@@ -1,6 +1,5 @@
 <prizm-input-layout label="Заголовок" size="l" status="default">
   <input
-    #inputText
     #inputNumber="prizmInputNumber"
     [step]="2"
     [formControl]="requiredInputControl"
@@ -8,7 +7,7 @@
     prizmInput
     placeholder="Введите название"
   />
-  <ng-template [control]="inputText" prizmInputStatusText></ng-template>
+  <ng-template [control]="inputNumber" prizmInputStatusText></ng-template>
   <prizm-input-number-auxiliary-controls
     [inputNumber]="inputNumber"
     prizm-input-right

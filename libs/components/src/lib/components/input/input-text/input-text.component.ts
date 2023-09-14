@@ -24,7 +24,7 @@ import { PrizmInputHintDirective } from '../common';
 @Component({
   selector:
     // eslint-disable-next-line @angular-eslint/component-selector
-    'input[prizmInput], textarea[prizmInput], input[prizmInputNumber], input[prizmInputPassword], input[prizmInput][type=number]',
+    'input[prizmInput]:not([type=number]), textarea[prizmInput], input[prizmInputPassword]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {

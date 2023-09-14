@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-input-number-basic-example',
