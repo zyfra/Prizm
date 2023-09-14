@@ -5,7 +5,7 @@ include:
 
 variables:
   ZUI_BUILD_IMAGE_NAME: node
-  ZUI_BUILD_IMAGE_TAG: 14-alpine
+  ZUI_BUILD_IMAGE_TAG: 16-alpine
   LANGUAGE: 'typescript'
   GIT_SUBMODULE_STRATEGY: recursive
   RUN_TESTS: 'false'
