@@ -24,7 +24,7 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
       ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
     )
       return true;
-    return !ev.key.match(/[^0-9]/);
+    return !ev.key.match(/[^-,0-9]/);
   }
 
   constructor(
@@ -36,7 +36,7 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
   }
 
   public increment(): void {
-    if (this.prizmInputText.disabled) return;
+    if (this.prizmInputText.disabled || isNaN(this.hostValue)) return;
 
     if (this.max === null || this.hostValue < this.max) {
       const devider = this.hostValue % this.step;
@@ -47,7 +47,7 @@ export class PrizmInputNumberDirective extends PrizmAbstractTestId {
   }
 
   public decrement(): void {
-    if (this.prizmInputText.disabled) return;
+    if (this.prizmInputText.disabled || isNaN(this.hostValue)) return;
 
     if (this.min === null || this.hostValue > this.min) {
       const devider = this.hostValue % this.step;
