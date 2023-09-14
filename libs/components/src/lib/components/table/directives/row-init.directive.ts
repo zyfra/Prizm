@@ -46,8 +46,11 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
   private generateIdx(): void {
     let rowId: unknown;
 
-    if (typeof this.context.getRowId === 'function') {
-      rowId = this.context.getRowId(this.context.item);
+    if (typeof this.context.getRowId === 'function' || this.context.getRowId) {
+      rowId =
+        typeof this.context.getRowId === 'function'
+          ? this.context.getRowId(this.context.item)
+          : this.context.item[this.context.getRowId];
       this.idxFromMap = this.tableRowService.getIdxById(rowId) as number;
     }
 

@@ -25,7 +25,7 @@ export class TableTreeExampleComponent {
   sorter = prizmTableDefaultColumnSort;
   showFormatNumber = true;
   public columns: string[] = ['name', 'category', 'amount'];
-
+  public readonly getRowId = 'code';
   public products: ITableProduct[] = cloneDeep(TABLE_EXAMPLE_TREE_DATA_1);
 
   public readonly getTableChildrenWithLazy = (item: ITableProduct): Observable<ITableProduct[]> => {
@@ -36,9 +36,9 @@ export class TableTreeExampleComponent {
     return of(item.children ?? []);
   };
 
-  public readonly getRowId = (item: ITableProduct): ITableProduct['code'] => {
-    return item.code;
-  };
+  // public readonly getRowId =  (item: ITableProduct): ITableProduct['code'] => {
+  //  return item.code;
+  // };
 
   public updateProducts(): void {
     this.products = cloneDeep(TABLE_EXAMPLE_TREE_DATA_1);
