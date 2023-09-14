@@ -79,6 +79,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     private readonly destroy$: PrizmDestroyService
   ) {
     super();
+    this.el.nativeElement.type = 'number';
   }
 
   public clear(ev: MouseEvent): void {
