@@ -4,7 +4,7 @@ import { AbstractControl, NgControl, Validators } from '@angular/forms';
 import { prizmIsNativeFocused } from '../../../util';
 import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
 import { fromEvent, merge, of, Subject } from 'rxjs';
-import { map, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -49,6 +49,8 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
 
   @Input() min: number | null = null;
   @Input() max: number | null = null;
+  @Input() allowNegative = true;
+  @Input() allowFloat = true;
   @Input() step = 1;
   get value() {
     return this.el.nativeElement.valueAsNumber;
@@ -60,21 +62,22 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     return this.el.nativeElement.disabled;
   }
 
-  @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
-    if ((ev.ctrlKey || ev.metaKey) && ['c', 'v', 'a', 'x'].includes(ev.key)) return true;
-    if (
-      ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
-    )
-      return true;
-    return !ev.key.match(/[^0-9 ,.-]/);
-  }
+  /* block e symbol TODO think about it with another way*/
+  // @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
+  //   if ((ev.ctrlKey || ev.metaKey) && ['c', 'v', 'a', 'x'].includes(ev.key)) return true;
+  //   if (
+  //     ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
+  //   )
+  //     return true;
+  //
+  //   return !ev.key.match(/[^0-9 ,.-]/);
+  // }
 
   constructor(
     @Optional() @Self() public readonly ngControl: NgControl,
     @Host() private readonly el: ElementRef<HTMLInputElement>,
     private readonly destroy$: PrizmDestroyService
   ) {
-    el.nativeElement.type = 'text';
     super();
   }
 
@@ -136,10 +139,15 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     return (this.ngControl && extractor(this.ngControl)) ?? defaultFieldValue;
   }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.initEmptyListener();
+  }
+
+  private initEmptyListener(): void {
     merge(of(this.ngControl.value), this.ngControl?.valueChanges as any)
       .pipe(
         map(() => Compare.isNullish(this.ngControl.value) || isNaN(this.ngControl.value)),
+        distinctUntilChanged(),
         tap(isEmpty => this.empty.next(isEmpty)),
         takeUntil(this.destroy$)
       )
