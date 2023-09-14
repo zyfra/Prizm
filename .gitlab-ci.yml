@@ -73,8 +73,8 @@ Build js image:
     expire_in: 1 day
     paths:
       - /root/.npm/_logs/
-  needs:
-    - Build library
+  # needs:
+  #   - Build library
 
 # Build library:
 #   stage: build
