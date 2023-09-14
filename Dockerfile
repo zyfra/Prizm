@@ -29,6 +29,9 @@ RUN set -eu && \
     npm --userconfig /project/.npmrc --color=false --loglevel=$NPM_BUILD_LOGLEVEL --no-progress --parseable \
         install --fetch-retries=4
     # --only=production
+
+RUN mkdir node_modules/.cache && chmod -R 777 node_modules/.cache
+
 # Set separate cache layers, build from sources
 COPY ./ /project/
 RUN set -eu && \
