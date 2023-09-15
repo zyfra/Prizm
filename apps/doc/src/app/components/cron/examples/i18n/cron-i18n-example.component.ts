@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PrizmCronPeriod, PrizmDay, PrizmTime } from '@prizm-ui/components';
+import { PrizmCronPeriod } from '@prizm-ui/components';
 import { PRIZM_LANGUAGE, PRIZM_RUSSIAN_LANGUAGE } from '@prizm-ui/i18n';
 import { of } from 'rxjs';
 
