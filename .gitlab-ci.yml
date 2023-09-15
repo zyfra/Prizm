@@ -135,7 +135,7 @@ Deploy:
         $CI_OPEN_MERGE_REQUESTS != null
   script:
     - mkdir -p $HOME/.kube
-    - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
+    - cat /builds/public-group/prizm.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
     - cat ~/.kube/config
 
     - export HELM_EXPERIMENTAL_OCI=1
