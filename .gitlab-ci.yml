@@ -5,11 +5,12 @@ include:
 
 variables:
   ZUI_BUILD_IMAGE_NAME: node
-  ZUI_BUILD_IMAGE_TAG: 14-alpine
+  ZUI_BUILD_IMAGE_TAG: '16.20.0'
   LANGUAGE: 'typescript'
   GIT_SUBMODULE_STRATEGY: recursive
   RUN_TESTS: 'false'
   SKIP_FRONTEND_IMAGE_TEST: 'true'
+  NX_NO_CLOUD: 'true'
   ENABLE_APP_REGISTRATION: 'false'
   ZIF_HELM_REGISTRY: '${FCI_HELM_REGISTRY}'
   ZIF_DOCKER_REGISTRY: '${FCI_DOCKER_REGISTRY}'
@@ -55,7 +56,7 @@ Build js image:
         KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/'
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
       variables:
-        KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/'
+        KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/'
     - if: >-
         $CI_COMMIT_BRANCH != null &&
         $CI_PIPELINE_SOURCE == 'push' &&
@@ -72,29 +73,29 @@ Build js image:
     expire_in: 1 day
     paths:
       - /root/.npm/_logs/
-  needs:
-    - Build library
+  # needs:
+  #   - Build library
 
-Build library:
-  stage: build
-  # // include after k8s stable work
-  # cache:
-  #   paths:
-  #     - node_modules
-  #     - /cache/Cypress
-  #     - node_modules/.cache/nx
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  script:
-    - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    - cp .npmrc ~/
-    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
-    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - dist/
-  extends: ['.tags_k8s', '.except_skip_ci']
+# Build library:
+#   stage: build
+#   # // include after k8s stable work
+#   # cache:
+#   #   paths:
+#   #     - node_modules
+#   #     - /cache/Cypress
+#   #     - node_modules/.cache/nx
+#   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+#   script:
+#     - cat ${NPMRC_CONFIG} > .npmrc
+#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+#     - cp .npmrc ~/
+#     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
+#     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
+#   artifacts:
+#     expire_in: 1 day
+#     paths:
+#       - dist/
+#   extends: ['.tags_k8s', '.except_skip_ci']
 
 #Release package:
 #  stage: release
