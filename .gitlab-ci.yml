@@ -56,7 +56,7 @@ Build js image:
         KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/'
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
       variables:
-        KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/'
+        KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/'
     - if: >-
         $CI_COMMIT_BRANCH != null &&
         $CI_PIPELINE_SOURCE == 'push' &&
