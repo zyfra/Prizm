@@ -27,67 +27,14 @@
           [prizmHintCanShow]="prizmHintCanShow"
           [required]="required"
           [value]="value"
+          prizmDocHostElementKey="PrizmInputText"
           prizmInput
         />
         <ng-template prizmInputStatusText>Текст статуса</ng-template>
       </prizm-input-layout>
     </prizm-doc-demo>
-    <prizm-doc-documentation [hasTestId]="true">
-      <ng-template
-        [(documentationPropertyValue)]="value"
-        documentationPropertyName="value"
-        documentationPropertyType="any"
-        documentationPropertyMode="input"
-      >
-        Value
-      </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="Mask"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="mask"
-      >
-        Mask
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="label"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [(documentationPropertyValue)]="label"
-      >
-        Label
-      </ng-template> -->
-
-      <!-- <ng-template
-        documentationPropertyName="status"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-        [documentationPropertyValues]="statuses"
-        [(documentationPropertyValue)]="status"
-      >
-        Status
-      </ng-template> -->
-
-      <ng-template
-        [(documentationPropertyValue)]="required"
-        documentationPropertyName="required"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Required
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="disabled"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Disabled
-      </ng-template>
-
+    <prizm-doc-documentation [hasTestId]="false" heading="PrizmInputHintDirective">
       <ng-template
         [(documentationPropertyValue)]="prizmHintDirection"
         [documentationPropertyValues]="prizmHintDirectionVariants"
@@ -106,25 +53,35 @@
       >
         Can Show
       </ng-template>
+    </prizm-doc-documentation>
 
-      <!-- <ng-template
-        documentationPropertyName="outer"
+    <prizm-doc-documentation [hasTestId]="true" heading="PrizmInputText" hostComponentKey="PrizmInputText">
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        documentationPropertyName="value"
+        documentationPropertyType="any"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="required"
+        documentationPropertyName="required"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [(documentationPropertyValue)]="outer"
       >
-        Outer
-      </ng-template> -->
+        Required
+      </ng-template>
 
-      <!-- <ng-template
-        documentationPropertyName="size"
-        documentationPropertyType="string"
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
         documentationPropertyMode="input"
-        [documentationPropertyValues]="outer ? sizesOuter : sizesInner"
-        [(documentationPropertyValue)]="size"
       >
-        Size
-      </ng-template> -->
+        Disabled
+      </ng-template>
 
       <ng-template
         documentationPropertyName="enter"

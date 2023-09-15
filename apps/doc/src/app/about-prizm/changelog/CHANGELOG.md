@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.5-next.2, 2.1.7-next.2, 3.0.2-next.2](https://github.com/zyfra/Prizm) (07-09-2023)
+
+### Feautes
+
+- feat(doc/example): open example in stackblitz in v1 #700
+- feat(doc/example): open example in stackblitz in v2 #701
+- feat(doc/example): open example in stackblitz in v3 #702
+- feat(doc/example): open base demo from list #675 #676 #677
+- feat(components/input-select): it was added observable support for stringify input #682
+
+### Bug fixes
+
+- fix(docs/input-mask): description for inputMask hint options added to documentation #253
+- fix(docs/carousel): description for carousel updated in documentation #253
+- fix(doc/version-manager): fix colors for version manager in dark mode #683
+- fix(icons): class names for font usage icons logistics was changed #650
+- fix(doc): contributing page markup changed #651
+- fix(doc): codestyle page markup changed #651
+- fix(components/dialog): default text styles for footer in dialog changed, #626
+
+## [1.4.5-next.1, 2.1.7-next.1, 3.0.2-next.1](https://github.com/zyfra/Prizm) (07-09-2023)
+
+### Features
+
+- feat(doc/input-number): it was added new api params #615
+- feat(doc/input): it was added new api params #615
+- feat(components/input-number): it was added new api to control hint #615
+- feat(components/input): it was added new api to control hint #615
+
 ## [1.4.4, 2.1.6, 3.0.1](https://github.com/zyfra/Prizm) (31-08-2023)
 
 ### Features
