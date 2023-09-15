@@ -25,7 +25,6 @@ export class TableTreeExampleComponent {
   sorter = prizmTableDefaultColumnSort;
   showFormatNumber = true;
   public columns: string[] = ['name', 'category', 'amount'];
-
   public products: ITableProduct[] = cloneDeep(TABLE_EXAMPLE_TREE_DATA_1);
 
   public readonly getTableChildrenWithLazy = (item: ITableProduct): Observable<ITableProduct[]> => {

@@ -1,0 +1,51 @@
+<button (click)="toggleActiveFirstPage()" prizmButton>
+  {{ 'на ' + (activeFirstPage$.value ? 'вторую' : 'первую') + ' страницу' }}
+</button>
+
+<br />
+
+<ng-container *ngIf="entities$ | async as entities">
+  <table class="table" #prizmTableElement="prizmTable" [columns]="['name']" prizmTable size="s">
+    <thead>
+      <tr prizmThGroup>
+        <th *prizmHead="'name'" prizmTh>Наименование</th>
+      </tr>
+    </thead>
+
+    <tbody [data]="entities" prizmTbody>
+      <ng-container
+        *prizmRow="
+          let item of entities;
+          getChildren: getTableChildren;
+          getRowId: 'id';
+          trackBy: trackBy;
+          let i = index;
+          let parentItem = parentItem;
+          let odd = odd;
+          let rowIdx = rowIdx;
+          let first = first;
+          let last = last;
+          let deepLevel = deepLevel;
+          let count = count
+        "
+      >
+        <tr #trElement prizmTr>
+          <td *prizmCell="'name'" prizmTd>
+            <div class="col-tree">
+              <prizm-tree-button
+                #treeButton
+                [visibilityIcon]="!!item.children?.length"
+                [open]="trElement.isChildrenOpened(i)"
+                [level]="deepLevel ?? 0"
+                (openChange)="$event ? trElement.showChildren(i) : trElement.hideChildren(i)"
+              >
+              </prizm-tree-button>
+
+              <span>{{ item.name }}</span>
+            </div>
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</ng-container>

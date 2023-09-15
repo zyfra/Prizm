@@ -23,7 +23,10 @@ export interface PrizmTableRowContext<T = Record<string, unknown>> extends Prizm
    * */
   readonly rowIdx?: number;
   readonly first: boolean;
-  readonly getRowId?: (item: T) => unknown;
+  /**
+   * get row id for use as tree index
+   * */
+  readonly getRowId?: ((item: T) => unknown) | 'string';
   readonly last: boolean;
   readonly deepLevel?: number;
   readonly odd: boolean;

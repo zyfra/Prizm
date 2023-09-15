@@ -21,7 +21,7 @@ export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> implemen
   prizmRowOf: readonly T[] = [];
 
   @Input()
-  prizmRowGetRowId!: (i: T) => unknown;
+  prizmRowGetRowId!: string | ((i: T) => unknown);
 
   @Input()
   prizmRowGetChildren!: (element: T) => Observable<T[]>;
