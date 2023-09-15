@@ -61,6 +61,14 @@ export class TableExampleComponent {
     LESS: import('./examples/table-tree-example/table-tree-example.component.less?raw'),
   };
 
+  public readonly exampleTreePaginationTable: TuiDocExample = {
+    TypeScript: import(
+      './examples/table-tree-pagination-example/table-tree-pagination-example.component?raw'
+    ),
+    HTML: import('./examples/table-tree-pagination-example/table-tree-pagination-example.component.html?raw'),
+    LESS: import('./examples/table-tree-pagination-example/table-tree-pagination-example.component.less?raw'),
+  };
+
   public readonly exampleEmptyTable: TuiDocExample = {
     TypeScript: import('./examples/table-empty-example/table-empty-example.component?raw'),
     HTML: import('./examples/table-empty-example/table-empty-example.component.html?raw'),
