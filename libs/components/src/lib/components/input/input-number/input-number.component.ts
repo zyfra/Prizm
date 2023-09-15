@@ -10,7 +10,7 @@ import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
   // eslint-disable-next-line @angular-eslint/component-selector
   selector: 'input[prizmInputNumber], input[type=number][prizmInput]',
   exportAs: 'prizmInputNumber',
-  styleUrls: ['input-text.component.less'],
+  styleUrls: ['../common/styles/input.component.less'],
   template: '',
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputNumberComponent }],
 })
@@ -30,9 +30,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     // eslint-disable-next-line no-prototype-builtins
     return Boolean(validation && validation.hasOwnProperty('required'));
   }
-  focused = merge(fromEvent(this.el.nativeElement, 'blur'), fromEvent(this.el.nativeElement, 'focus')).pipe(
-    map(() => prizmIsNativeFocused(this.el.nativeElement))
-  );
+  public focused = merge(
+    fromEvent(this.el.nativeElement, 'blur'),
+    fromEvent(this.el.nativeElement, 'focus')
+  ).pipe(map(() => prizmIsNativeFocused(this.el.nativeElement)));
   get invalid(): boolean {
     return this.safeNgControlData<boolean>(({ invalid }) => invalid, false);
   }
@@ -44,13 +45,12 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   get touched(): boolean {
     return this.safeNgControlData<boolean>(({ touched }) => touched, false);
   }
-  nativeElementType = 'number';
-  hasClearButton = true;
+  public nativeElementType = 'number';
+  public hasClearButton = true;
 
   @Input() min: number | null = null;
   @Input() max: number | null = null;
-  @Input() allowNegative = true;
-  @Input() allowFloat = true;
+
   @Input() step = 1;
   get value() {
     return this.el.nativeElement.valueAsNumber;
@@ -74,7 +74,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   // }
 
   constructor(
-    @Optional() @Self() public readonly ngControl: NgControl,
+    @Self() public readonly ngControl: NgControl,
     @Host() private readonly el: ElementRef<HTMLInputElement>,
     private readonly destroy$: PrizmDestroyService
   ) {

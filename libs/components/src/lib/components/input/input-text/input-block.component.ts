@@ -16,7 +16,11 @@ import { PrizmInputTextComponent } from './input-text.component';
     '[disabled]': 'disabled',
   },
   exportAs: 'prizmInputBlock',
-  styleUrls: ['input-block.component.less', 'input-text.component.less', 'input-textarea.component.less'],
+  styleUrls: [
+    'input-block.component.less',
+    '../common/styles/input.component.less',
+    'input-textarea.component.less',
+  ],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputBlockComponent }, PrizmDestroyService],
 })
 export class PrizmInputBlockComponent extends PrizmInputTextComponent implements ControlValueAccessor {

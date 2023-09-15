@@ -32,7 +32,7 @@ import { PrizmInputHintDirective } from '../common';
     '[disabled]': 'disabled',
   },
   exportAs: 'prizmInput',
-  styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
+  styleUrls: ['../common/styles/input.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
 export class PrizmInputTextComponent<VALUE extends string | number | null = string>
