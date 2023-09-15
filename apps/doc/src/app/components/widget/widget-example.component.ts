@@ -5,11 +5,11 @@ import { prizmPure } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-widget-example',
-  templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.less'],
+  templateUrl: './widget-example.component.html',
+  styleUrls: ['./widget-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WidgetComponent {
+export class WidgetExampleComponent {
   public header = 'Содержимое виджета';
   public title = 'Заголовок виджета';
   public icons: PrizmWidgetIcons[] = [];
