@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/ast",
-  "version": "2.1.7",
+  "version": "2.1.8",
   "private": false,
   "publishConfig": {
     "access": "public",
