@@ -8,6 +8,7 @@ import { PrizmFileUploadBasicExampleComponent } from './examples/basic/basic.com
 import { HttpClientModule } from '@angular/common/http';
 import { fakeFileUploadProvider } from './interceptor';
 import { PrizmFileAutoUploadExampleComponent } from './examples/auto-upload/auto-upload.component';
+import { PrizmFileUploadI18nExampleComponent } from './examples/i18n/file-upload-i18n-example.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { PrizmFileAutoUploadExampleComponent } from './examples/auto-upload/auto
     PrizmFileUploadExampleComponent,
     PrizmFileUploadBasicExampleComponent,
     PrizmFileAutoUploadExampleComponent,
+    PrizmFileUploadI18nExampleComponent,
   ],
   providers: [fakeFileUploadProvider],
 })

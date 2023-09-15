@@ -21,6 +21,11 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
     HTML: import('./examples/auto-upload/auto-upload.component.html?raw'),
   };
 
+  readonly exampleI18n: TuiDocExample = {
+    TypeScript: import('./examples/i18n/file-upload-i18n-example.component.ts?raw'),
+    HTML: import('./examples/i18n/file-upload-i18n-example.component.html?raw'),
+  };
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   userContent = 'текст пользователя';
@@ -52,7 +57,7 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
 
   public onFilesCountError(fileNames: Array<string>): void {
     this.toastService.create(`Файлы ${fileNames.join(' ,')} не были добавлены`, {
-      title: `Максимальное колчество файлов превышено`,
+      title: `Максимальное количество файлов превышено`,
       appearance: 'warning',
       timer: 5000,
     });
