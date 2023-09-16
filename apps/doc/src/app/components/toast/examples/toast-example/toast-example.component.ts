@@ -1,5 +1,5 @@
 import { Component, TemplateRef } from '@angular/core';
-import { PrizmToastService, PrizmToastAppearance, PrizmToastPosition } from '@prizm-ui/components';
+import { PrizmToastService, PrizmToastPosition } from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
