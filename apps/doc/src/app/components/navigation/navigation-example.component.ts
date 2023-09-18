@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
-import { IconDefs, INavigationTree, IndicatorStatus, PrizmContent } from '@prizm-ui/components';
+import { INavigationTree } from '@prizm-ui/components';
 import { NAVIGATION_EXAMPLE } from './navigation-example.const';
 
 @Component({
