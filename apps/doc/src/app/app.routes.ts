@@ -292,7 +292,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/widget',
-    loadChildren: () => import('./components/widget/widget.module').then(i => i.WidgetModule),
+    loadChildren: () => import('./components/widget/widget-example.module').then(i => i.WidgetExampleModule),
     data: {
       title: 'Widget',
     },

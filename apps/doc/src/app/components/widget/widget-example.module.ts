@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { WidgetComponent } from './widget.component';
+import { WidgetExampleComponent } from './widget-example.component';
 import { PrizmWidgetBaseExampleComponent } from './examples/base/widget-base-example.component';
 import { PrizmButtonModule, PrizmWidgetModule } from '@prizm-ui/components';
 import { PrizmWidgetWithButtonsExampleComponent } from './examples/with-buttons/widget-with-buttons-example.component';
@@ -16,14 +16,14 @@ import { PrizmIconsSvgModule } from '@prizm-ui/icons';
     PrizmWidgetModule,
     PrizmIconsSvgModule,
     PrizmButtonModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(WidgetComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(WidgetExampleComponent)),
   ],
   declarations: [
     PrizmWidgetWithTemplatesExampleComponent,
     PrizmWidgetBaseExampleComponent,
     PrizmWidgetWithButtonsExampleComponent,
-    WidgetComponent,
+    WidgetExampleComponent,
   ],
-  exports: [WidgetComponent],
+  exports: [WidgetExampleComponent],
 })
-export class WidgetModule {}
+export class WidgetExampleModule {}

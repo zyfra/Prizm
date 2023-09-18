@@ -8,10 +8,6 @@ prizm-card {
   height: 100%;
 }
 
-.header {
-  min-height: var(--prizm-widget-header-min-height, 16px);
-}
-
 .title {
   font-weight: var(--prizm-widget-title-weight, 600);
   font-size: var(--prizm-widget-title-size, 14px);
@@ -22,10 +18,12 @@ prizm-card {
 }
 
 .header {
+  height: var(--prizm-widget-header-height, 48px);
   padding: var(--prizm-widget-header-padding, 14px 16px);
   border-bottom: 1px solid var(--prizm-widget-header-border-color, var(--prizm-border-widget));
   display: var(--prizm-widget-header-display, flex);
   justify-content: space-between;
+  align-items: center;
   background-color: var(--prizm-widget-header-bg, var(--prizm-bg-header));
   gap: 16px;
 }
