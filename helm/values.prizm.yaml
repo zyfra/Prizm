@@ -1,6 +1,6 @@
 # -- Name of application
 # @default -- name of the image
-serviceName: 'zui-sdk'
+serviceName: 'prizm'
 
 # -- Deploy as StatefulSet: true/false
 statefulSetDeployment: false
@@ -57,7 +57,7 @@ image:
   # -- Image registry path (optional)
   namespace: digital-plant
   # -- Image name
-  name: zui-sdk
+  name: prizm
   # -- Image tag
   tag: latest
   # -- Image pull secrets (optional)
@@ -224,7 +224,7 @@ ingress:
 
   # -- Publish path for service (https://hostname/path)
   # @default -- image name or custom service name (serviceName)
-  path: '/zui-sdk'
+  path: '/prizm'
 
   # -- Ingress class name (required, for Ingress objects only)
   ingressClassName: nginx
