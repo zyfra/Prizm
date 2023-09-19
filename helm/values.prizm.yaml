@@ -220,11 +220,11 @@ ingress:
   port: 'http'
 
   # -- Ingress/Route hostname (required for correct route/ingress work)
-  host: 'ziiot-dev-11.kube01.yc.ziiot.ru'
+  host: '${DEPLOY_VERSION}.prizm.site'
 
   # -- Publish path for service (https://hostname/path)
   # @default -- image name or custom service name (serviceName)
-  path: '/prizm'
+  path: '/'
 
   # -- Ingress class name (required, for Ingress objects only)
   ingressClassName: nginx
@@ -249,7 +249,7 @@ ingress:
 
     # -- Hostname for TLS certificate (optional, for Ingress objects only)
     # @default -- ingress.host
-    tlsHost: 'ziiot-dev-11.kube01.yc.ziiot.ru'
+    tlsHost: '${DEPLOY_VERSION}.prizm.site'
 
     # -- Secret with certificate (for Ingress objects only)
     secret: 'zif-tls-ingress-secret'
