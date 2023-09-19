@@ -220,7 +220,7 @@ ingress:
   port: 'http'
 
   # -- Ingress/Route hostname (required for correct route/ingress work)
-  host: '${DEPLOY_VERSION}.prizm.site'
+  host: 'v1.2.4.prizm.site'
 
   # -- Publish path for service (https://hostname/path)
   # @default -- image name or custom service name (serviceName)
@@ -238,7 +238,7 @@ ingress:
   # -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
   tls:
     # -- TLS enabled/disabled (default - enabled, termination 'edge')
-    enabled: true
+    enabled: false
 
     # -- TLS termination type: edge, reencrypt, passthrough (required)
     termination: edge
@@ -249,7 +249,7 @@ ingress:
 
     # -- Hostname for TLS certificate (optional, for Ingress objects only)
     # @default -- ingress.host
-    tlsHost: '${DEPLOY_VERSION}.prizm.site'
+    tlsHost: 'v1.2.4.prizm.site'
 
     # -- Secret with certificate (for Ingress objects only)
     secret: 'zif-tls-ingress-secret'
