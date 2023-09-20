@@ -1,5 +1,5 @@
 import { Directive, Input } from '@angular/core';
-import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 import { PrizmTreeItemComponent } from '../components/tree-item/tree-item.component';
 import { PrizmTreeController } from '../misc/tree.interfaces';
@@ -16,14 +16,18 @@ import { PRIZM_TREE_CONTROLLER } from '../misc/tree.tokens';
   ],
 })
 export class PrizmTreeItemControllerDirective implements PrizmTreeController {
-  private readonly map = new WeakMap<PrizmTreeItemComponent, boolean>();
+  private map = new WeakMap<PrizmTreeItemComponent, boolean>();
+  private _prizmTreeController = true;
 
   @Input()
   @prizmDefaultProp()
-  prizmTreeController = true;
+  set prizmTreeController(value: boolean) {
+    this._prizmTreeController = value ?? true;
+    this.map = new WeakMap<PrizmTreeItemComponent, boolean>();
+  }
 
   public isExpanded(item: PrizmTreeItemComponent): boolean {
-    return this.map.get(item) ?? this.prizmTreeController;
+    return this.map.get(item) ?? this._prizmTreeController;
   }
 
   public toggle(item: PrizmTreeItemComponent): void {
