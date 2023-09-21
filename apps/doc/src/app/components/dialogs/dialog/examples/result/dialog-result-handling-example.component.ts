@@ -38,6 +38,7 @@ export class PrizmDialogServiceResultHandlingExampleComponent {
       })
       .subscribe(result => {
         this.result = result;
+        this.control.reset();
       });
   }
 }
