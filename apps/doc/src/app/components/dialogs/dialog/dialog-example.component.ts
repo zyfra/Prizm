@@ -86,6 +86,11 @@ export class DialogExampleComponent {
     HTML: import('./examples/with-parent/dialog-with-parent-example.component.html?raw'),
   };
 
+  public readonly exampleResulthandling: TuiDocExample = {
+    TypeScript: import('./examples/result/dialog-result-handling-example.component.ts?raw'),
+    HTML: import('./examples/result/dialog-result-handling-example.component.html?raw'),
+  };
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   @prizmPure
