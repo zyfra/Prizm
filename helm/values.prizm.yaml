@@ -220,11 +220,11 @@ ingress:
   port: 'http'
 
   # -- Ingress/Route hostname (required for correct route/ingress work)
-  host: 'ziiot-dev-11.kube01.yc.ziiot.ru'
+  host: 'v1.2.4.prizm.site'
 
   # -- Publish path for service (https://hostname/path)
   # @default -- image name or custom service name (serviceName)
-  path: '/prizm'
+  path: '/'
 
   # -- Ingress class name (required, for Ingress objects only)
   ingressClassName: nginx
@@ -238,7 +238,7 @@ ingress:
   # -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
   tls:
     # -- TLS enabled/disabled (default - enabled, termination 'edge')
-    enabled: true
+    enabled: false
 
     # -- TLS termination type: edge, reencrypt, passthrough (required)
     termination: edge
@@ -249,7 +249,7 @@ ingress:
 
     # -- Hostname for TLS certificate (optional, for Ingress objects only)
     # @default -- ingress.host
-    tlsHost: 'ziiot-dev-11.kube01.yc.ziiot.ru'
+    tlsHost: 'v1.2.4.prizm.site'
 
     # -- Secret with certificate (for Ingress objects only)
     secret: 'zif-tls-ingress-secret'
