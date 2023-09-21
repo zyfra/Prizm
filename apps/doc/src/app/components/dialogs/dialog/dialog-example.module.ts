@@ -6,6 +6,7 @@ import {
   PolymorphModule,
   PrizmButtonModule,
   PrizmDialogModule,
+  PrizmInputTextModule,
   PrizmRadioButtonModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -13,6 +14,7 @@ import { DialogExampleComponent } from './dialog-example.component';
 import { PrizmDialogServiceExampleComponent } from './examples/base/dialog-base-example.component';
 import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-buttons/dialog-with-buttons-example.component';
 import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-parent/dialog-with-parent-example.component';
+import { PrizmDialogServiceResultHandlingExampleComponent } from './examples/result/dialog-result-handling-example.component';
 
 @NgModule({
   imports: [
@@ -20,6 +22,7 @@ import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-pa
     PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
+    PrizmInputTextModule,
     PolymorphModule,
     PrizmButtonModule,
     PrizmDialogModule,
@@ -30,6 +33,7 @@ import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-pa
     PrizmDialogServiceExampleComponent,
     PrizmDialogServiceWithButtonsExampleComponent,
     PrizmDialogServiceWithParentExampleComponent,
+    PrizmDialogServiceResultHandlingExampleComponent,
     DialogExampleComponent,
   ],
   exports: [DialogExampleComponent],
