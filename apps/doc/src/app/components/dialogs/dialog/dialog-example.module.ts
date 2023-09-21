@@ -9,10 +9,10 @@ import {
   PrizmRadioButtonModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { DialogComponent } from './dialog.component';
-import { PrizmDialogServiceExampleComponent } from './examples/base/base.component';
-import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-buttons/with-buttons.component';
-import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-parent/with-parent.component';
+import { DialogExampleComponent } from './dialog-example.component';
+import { PrizmDialogServiceExampleComponent } from './examples/base/dialog-base-example.component';
+import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-buttons/dialog-with-buttons-example.component';
+import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-parent/dialog-with-parent-example.component';
 
 @NgModule({
   imports: [
@@ -24,14 +24,14 @@ import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-pa
     PrizmButtonModule,
     PrizmDialogModule,
     PrizmRadioButtonModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(DialogComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(DialogExampleComponent)),
   ],
   declarations: [
     PrizmDialogServiceExampleComponent,
     PrizmDialogServiceWithButtonsExampleComponent,
     PrizmDialogServiceWithParentExampleComponent,
-    DialogComponent,
+    DialogExampleComponent,
   ],
-  exports: [DialogComponent],
+  exports: [DialogExampleComponent],
 })
-export class DialogModule {}
+export class DialogExampleModule {}
