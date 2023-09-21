@@ -659,7 +659,8 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/dialogs/dialog',
-    loadChildren: () => import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),
+    loadChildren: () =>
+      import('./components/dialogs/dialog/dialog-example.module').then(i => i.DialogExampleModule),
     data: {
       title: 'Dialog',
     },
