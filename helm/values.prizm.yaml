@@ -238,7 +238,7 @@ ingress:
   # -- TLS parameters on Route/Ingress (tls enabled by default, set tls.enabled = false to disable)
   tls:
     # -- TLS enabled/disabled (default - enabled, termination 'edge')
-    enabled: true
+    enabled: false
 
     # -- TLS termination type: edge, reencrypt, passthrough (required)
     termination: edge
