@@ -6,6 +6,7 @@ import { PrizmSelectModule } from '../dropdowns/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PolymorphModule } from '../../directives';
+import { PrizmButtonModule } from '../button/button.module';
 
 @NgModule({
   declarations: [PrizmPaginatorComponent],
@@ -18,6 +19,7 @@ import { PolymorphModule } from '../../directives';
     PrizmSelectModule,
     ReactiveFormsModule,
     FormsModule,
+    PrizmButtonModule,
   ],
   exports: [PrizmPaginatorComponent],
 })
