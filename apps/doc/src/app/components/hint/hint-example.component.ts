@@ -14,11 +14,11 @@ import {
 
 @Component({
   selector: 'prizm-hint-example',
-  templateUrl: './hint.component.html',
-  styleUrls: ['./hint.component.less'],
+  templateUrl: './hint-example.component.html',
+  styleUrls: ['./hint-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HintComponent {
+export class HintExampleComponent {
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;

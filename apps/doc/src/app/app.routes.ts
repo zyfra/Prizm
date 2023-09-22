@@ -344,7 +344,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/hint',
-    loadChildren: () => import('./components/hint/hint.module').then(i => i.HintModule),
+    loadChildren: () => import('./components/hint/hint-example.module').then(i => i.HintExampleModule),
     data: {
       title: 'Hint',
     },
