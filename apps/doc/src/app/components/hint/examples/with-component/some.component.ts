@@ -15,6 +15,7 @@ import { Component } from '@angular/core';
         display: grid;
         grid-template-rows: 1fr;
         gap: 8px;
+        padding: 8px;
       }
 
       button {
