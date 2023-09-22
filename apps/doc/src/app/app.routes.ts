@@ -351,7 +351,8 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/tooltip',
-    loadChildren: () => import('./components/tooltip/tooltip.module').then(i => i.TooltipModule),
+    loadChildren: () =>
+      import('./components/tooltip/tooltip-example.module').then(i => i.TooltipExampleModule),
     data: {
       title: 'Tooltip',
     },
