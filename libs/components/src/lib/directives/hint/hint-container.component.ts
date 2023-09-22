@@ -104,6 +104,7 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   }
 
   private setLocalTheme() {
+    // TODO:  overlay theme absctraction needed
     const globalTheme = this.theme.getByElement();
     const localTheme = globalTheme.includes('dark')
       ? globalTheme.replace('dark', 'light')
