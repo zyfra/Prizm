@@ -2,6 +2,7 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  ContentChild,
   ElementRef,
   forwardRef,
   HostBinding,
@@ -17,7 +18,7 @@ import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-sel
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl, PrizmInputNgControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, filter, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import {
@@ -33,6 +34,8 @@ import {
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmMultiSelectItemService } from './multi-select-item.service';
+import { PrizmDataListDirective } from '../../data-list';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -46,6 +49,7 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
       useExisting: forwardRef(() => PrizmInputMultiSelectComponent),
       multi: true,
     },
+    PrizmMultiSelectItemService,
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputMultiSelectComponent },
   ],
@@ -61,6 +65,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
+    if (this.dataList) return;
     this.items$.next((data as any) ?? []);
   }
   get items(): T[] {
@@ -131,6 +136,9 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   readonly button_layout_width = 64;
   override readonly testId_ = 'ui-muilti-select';
 
+  @ContentChild(PrizmDataListDirective)
+  public readonly dataList?: PrizmDataListDirective;
+
   @HostBinding('style.display')
   get display(): string {
     return this.value?.length ? 'none' : '';
@@ -155,7 +163,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 
-  public readonly items$ = new BehaviorSubject([]);
+  public readonly items$ = new BehaviorSubject<T[]>([]);
   public readonly requiredInputControl = new UntypedFormControl();
   public readonly searchInputControl = new UntypedFormControl();
   public readonly chipsControl = new UntypedFormControl([] as string[]);
@@ -180,9 +188,11 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
   constructor(
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
-    @Inject(Injector) injector: Injector
+    @Inject(Injector) injector: Injector,
+    private readonly multiSelectItemService: PrizmMultiSelectItemService
   ) {
     super(injector);
+    this.multiSelectItemService.initComp(this);
   }
 
   public ngAfterViewInit(): void {
@@ -197,6 +207,11 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.initParentClickListener();
     this.initFilteredItemsObservables();
     this.initSelectedItemsObservables();
+    this.initChipsSyncListener();
+    // this.initMultiSelectItemListener();
+  }
+
+  private initChipsSyncListener(): void {
     this.selectedItems$
       .pipe(
         tap(items => {
@@ -207,6 +222,29 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
       )
       .subscribe();
   }
+
+  // private initMultiSelectItemListener(): void {
+  //   this.multiSelectItemService.items$$
+  //     .pipe(
+  //       filter(() => !!this.dataList),
+  //       tap(
+  //         (items) => {
+  //           console.log('#mz items', 1, items);
+  //         }
+  //       ),
+  //       tap(items => this.items$.next(items.map(
+  //         i => i.value
+  //       ))),
+  //       tap(
+  //         (items) => {
+  //           console.log('#mz items', 2, this.items);
+  //         }
+  //       ),
+  //       tap(() => this.changeDetectorRef.markForCheck()),
+  //       takeUntil(this.destroy$)
+  //     )
+  //     .subscribe();
+  // }
 
   protected initParentClickListener(): void {
     this.layoutComponent.innerClick$
@@ -313,22 +351,43 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.markAsTouched();
   }
 
-  private isSelectAllItem(item: PrizmMultiSelectItemWithChecked<T>): boolean {
-    return Boolean(this.selectAllItem && this.identityMatcher(this.selectAllItem, item.obj));
+  public override updateValue(items: T[]) {
+    super.updateValue(items);
+    this.multiSelectItemService.select(items);
   }
 
-  public select(item: PrizmMultiSelectItemWithChecked<T>): void {
-    const newItemState = !item.checked;
+  private isSelectAllItem(item: T): boolean {
+    return Boolean(this.selectAllItem && this.identityMatcher(this.selectAllItem, item));
+  }
+
+  public select(item: T): void {
+    this.selectByState(item, true);
+  }
+
+  public selectByState(item: T, state: boolean): void {
+    this.selectItem(item, state);
+  }
+
+  public unselect(item: T): void {
+    this.selectByState(item, false);
+  }
+
+  public isSelected(item: T) {
+    return !!this.value.find(i => !this.identityMatcher(i, item));
+  }
+
+  protected selectItem(item: T, newItemState: boolean): void {
     let values: T[];
     this.markAsTouched();
     if (this.isSelectAllItem(item)) {
       values = newItemState ? [...this.items] : [];
     } else {
       values = newItemState
-        ? [...(this.value ?? []), item.obj]
-        : this.value.filter(i => !this.identityMatcher(i, item.obj));
+        ? [...(this.value ?? []), item]
+        : this.value.filter(i => !this.identityMatcher(i, item));
     }
 
+    console.log('#mz selectItem', this.value);
     this.updateValue(values);
     this.dropdownHostElement?.reCalculatePositions();
   }
@@ -341,9 +400,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   public removeChip(str: string): void {
     const item = this.chipsSet.get(str);
-    this.select({
-      checked: true,
-      obj: item,
-    } as PrizmMultiSelectItemWithChecked<T>);
+    this.selectItem(item as T, true);
   }
 }

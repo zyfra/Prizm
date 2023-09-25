@@ -1,6 +1,7 @@
 <prizm-dropdown-host
   #dropdownHostRef
-  [content]="dropdown"
+  *prizmLet="{ filteredItems: filteredItems$ | async } as $"
+  [content]="dataList?.temp ?? dropdown"
   [isOpen]="$any(opened$ | async)"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"
@@ -24,12 +25,7 @@
   />
 
   <ng-template #dropdown>
-    <prizm-data-list
-      class="block"
-      *prizmLet="{ filteredItems: filteredItems$ | async } as $"
-      [scroll]="dropdownScroll"
-      [style.--prizm-data-list-border]="0"
-    >
+    <prizm-data-list class="block" [scroll]="dropdownScroll" [style.--prizm-data-list-border]="0">
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout size="m" label="Поиск">
           <input
@@ -57,7 +53,7 @@
             [ngModelOptions]="{ standalone: true }"
             [host]="parent"
             [indeterminate]="!!item.indeterminate"
-            (changed)="select(item)"
+            (changed)="item.checked ? unselect(item) : select(item)"
           >
             <div
               class="text"

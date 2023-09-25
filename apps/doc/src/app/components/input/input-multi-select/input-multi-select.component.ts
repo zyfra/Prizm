@@ -134,6 +134,13 @@ export class InputInputMultiSelectComponent {
     HTML: import('./examples/with-template/multi-select-with-template-example.component.html?raw'),
   };
 
+  readonly exampleDropdownTemplate: TuiDocExample = {
+    TypeScript: import(
+      './examples/dropdown-template/multi-select-dropdown-template-example.component.ts?raw'
+    ),
+    HTML: import('./examples/dropdown-template/multi-select-dropdown-template-example.component.html?raw'),
+  };
+
   readonly exampleWithObject: TuiDocExample = {
     TypeScript: import('./examples/with-object/multi-select-with-object-example.component.ts?raw'),
     HTML: import('./examples/with-object/multi-select-with-object-example.component.html?raw'),
