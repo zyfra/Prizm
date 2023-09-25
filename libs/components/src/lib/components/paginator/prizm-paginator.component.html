@@ -38,15 +38,40 @@
       <button
         class="control control_left"
         *ngIf="paginatorOptions.noToFirstPageBtn ?? true"
+        [icon]="'chevrons-double-left'"
         [disabled]="disabled || currentPage === 1"
         (click)="toFirstPage()"
-      >
-        <prizm-icon size="16" iconClass="chevrons-double-left"></prizm-icon>
-      </button>
-      <button class="control control_left" [disabled]="disabled || currentPage === 1" (click)="decrease()">
-        <prizm-icon size="16" iconClass="arrows-chevron-left"></prizm-icon>
-        <span *ngIf="!!leftButtonLabel">{{ leftButtonLabel }}</span>
-      </button>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
+      <button
+        class="control control_left"
+        *ngIf="!leftButtonLabel; else leftLabelBtn"
+        [icon]="'arrows-chevron-left'"
+        [disabled]="disabled || currentPage === 1"
+        (click)="decrease()"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
+      <ng-template #leftLabelBtn>
+        <button
+          class="control control_left"
+          *ngIf="leftButtonLabel"
+          [icon]="'arrows-chevron-left'"
+          [disabled]="disabled || currentPage === 1"
+          (click)="decrease()"
+          prizmButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="m"
+        >
+          {{ leftButtonLabel }}
+        </button>
+      </ng-template>
 
       <ng-container *ngIf="!paginatorOptions?.noPages">
         <ng-container *ngIf="pagingData.left">
@@ -55,7 +80,10 @@
             [disabled]="disabled"
             [class.page_disabled]="disabled"
             (click)="changePage(pagingData.left)"
-            type="button"
+            prizmButton
+            appearanceType="ghost"
+            appearance="secondary"
+            size="m"
           >
             {{ pagingData.left }}
           </button>
@@ -75,7 +103,10 @@
           [class.page_disabled]="disabled"
           [class.page_selected]="page === currentPage"
           (click)="changePage(page)"
-          type="button"
+          prizmButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="m"
         >
           {{ page }}
         </button>
@@ -91,9 +122,11 @@
           <button
             class="page"
             [disabled]="disabled"
-            [class.page_disabled]="disabled"
             (click)="changePage(pagingData.right)"
-            type="button"
+            prizmButton
+            appearanceType="ghost"
+            appearance="secondary"
+            size="m"
           >
             {{ pagingData.right }}
           </button>
@@ -102,21 +135,41 @@
 
       <button
         class="control control_right"
+        *ngIf="!rightButtonLabel; else rightLabelBtn"
+        [icon]="'arrows-chevron-right'"
         [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
         (click)="increase()"
-      >
-        <span *ngIf="!!rightButtonLabel">{{ rightButtonLabel }}</span>
-        <prizm-icon size="16" iconClass="arrows-chevron-right"></prizm-icon>
-      </button>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
+      <ng-template #rightLabelBtn>
+        <button
+          class="control_right"
+          [iconRight]="'arrows-chevron-right'"
+          [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
+          (click)="increase()"
+          prizmButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="m"
+        >
+          {{ rightButtonLabel }}
+        </button>
+      </ng-template>
 
       <button
         class="control control_right"
         *ngIf="paginatorOptions.noToLastPageBtn ?? true"
+        [icon]="'chevrons-double-right'"
         [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
         (click)="toLastPage()"
-      >
-        <prizm-icon size="16" iconClass="chevrons-double-right"></prizm-icon>
-      </button>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
     </div>
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
