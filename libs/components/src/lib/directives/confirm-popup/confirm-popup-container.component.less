@@ -1,7 +1,7 @@
 :host {
   display: inline-block;
   padding: var(--prizm-confirm-popup-margin, 8px);
-  color: var(--prizm-confirm-popup-container-text, var(--prizm-grey-g12-g2));
+  color: var(--prizm-confirm-popup-container-text, var(--prizm-grey-g2-g12));
   font-size: var(--prizm-confirm-popup-container-font-size, 12px);
   min-width: var(--prizm-confirm-popup-container-min-width, 350px);
 
@@ -9,6 +9,9 @@
   .box {
     max-height: var(--prizm-confirm-popup-container-max-height, 60vh);
     max-width: var(--prizm-confirm-popup-container-max-width, 388px);
+    &:focus {
+      outline: none;
+    }
   }
 
   .box {
@@ -17,7 +20,7 @@
     position: relative;
     padding: var(--prizm-confirm-popup-container-padding, 16px 14px);
     border-radius: var(--prizm-confirm-popup-container-border-radius, 2px);
-    background-color: var(--prizm-confirm-popup-container-background, var(--prizm-grey-g3-g11));
+    background-color: var(--prizm-confirm-popup-container-background, var(--prizm-grey-g11-g3));
   }
 
   .arrow-icon {

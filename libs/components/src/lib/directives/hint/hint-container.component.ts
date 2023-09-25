@@ -7,6 +7,7 @@ import {
   Input,
   OnInit,
   Renderer2,
+  ViewChild,
 } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -16,7 +17,7 @@ import { PrizmHintService } from './hint.service';
 import { PrizmOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
-import { PrizmHintOptions } from './hint-options';
+import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-hint-container',
@@ -58,9 +59,12 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
     protected readonly prizmOverlayControl: PrizmOverlayControl,
+    public readonly theme: PrizmThemeService,
     @Inject(PrizmHintService) private readonly hintService: PrizmHintService,
     @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService
-  ) {}
+  ) {
+    this.setLocalTheme();
+  }
 
   public ngOnInit(): void {
     this.initPositionListener();
@@ -97,5 +101,15 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  private setLocalTheme() {
+    // TODO:  overlay theme absctraction needed
+    const globalTheme = this.theme.getByElement();
+    const localTheme = globalTheme.includes('dark')
+      ? globalTheme.replace('dark', 'light')
+      : globalTheme.replace('light', 'dark');
+
+    this.theme.update(localTheme, this.el.nativeElement);
   }
 }
