@@ -17,22 +17,32 @@ import { PrizmOverlayControl } from './overlay-control';
 import { PrizmOverlayContentToken } from './token';
 import { prizmGenerateId } from '@prizm-ui/helpers';
 
+const DEFAULT_PRIZM_OVERLAY_INPUTS = {
+  position: null,
+  config: PrizmOverlayDefaultConfig,
+  content: { type: PrizmOverlayContentType.STRING, data: '', props: {} },
+  zid: null,
+  parentContainer: undefined,
+};
+
 @Injectable({
   providedIn: 'root',
 })
 export class PrizmOverlayService {
   static controls: { [key: string]: PrizmOverlayControl } = {};
   private zid!: PrizmOverlayId;
-  private inputs: PrizmOverlayInputs = {
-    position: null,
-    config: PrizmOverlayDefaultConfig,
-    content: { type: PrizmOverlayContentType.STRING, data: '', props: {} },
-    zid: null,
-    parentContainer: undefined,
-  };
+  private inputs: PrizmOverlayInputs = { ...DEFAULT_PRIZM_OVERLAY_INPUTS };
 
   constructor(private injector: Injector) {
-    this.inputs.position = new PrizmOverlayGlobalPosition({ placement: PrizmOverlayInsidePlacement.TOP });
+    this.clearCache();
+  }
+
+  public clearCache(): PrizmOverlayService {
+    this.inputs = {
+      ...DEFAULT_PRIZM_OVERLAY_INPUTS,
+      position: new PrizmOverlayGlobalPosition({ placement: PrizmOverlayInsidePlacement.TOP }),
+    };
+    return this;
   }
 
   public position<T extends PrizmOverlayAbstractPosition<any>>(position: T): PrizmOverlayService {
@@ -63,12 +73,13 @@ export class PrizmOverlayService {
     parentInjector?: Injector;
   } = {}): PrizmOverlayControl {
     this.zid = this.inputs.zid = key ?? prizmGenerateId();
+    const inputsClone = { ...this.inputs };
 
     const injector = Injector.create({
       providers: [
         {
           provide: PrizmOverlayContentToken,
-          useFactory: (): PrizmOverlayContent => this.inputs.content,
+          useFactory: (): PrizmOverlayContent => inputsClone.content,
         },
         {
           provide: PrizmOverlayControl,
@@ -83,7 +94,8 @@ export class PrizmOverlayService {
       this.zid = prizmGenerateId();
     }
     this.inputs.position?.init(this.zid);
-    PrizmOverlayService.controls[this.zid] = Object.assign(tc, this.inputs);
+    PrizmOverlayService.controls[this.zid] = Object.assign(tc, { ...this.inputs });
+    this.clearCache();
     return tc;
   }
 
