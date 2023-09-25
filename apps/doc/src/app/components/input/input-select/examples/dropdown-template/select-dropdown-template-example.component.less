@@ -1,0 +1,34 @@
+.title {
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--prizm-text-contrast);
+}
+
+.item,
+.title {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+}
+
+.item {
+  background: var(--prizm-bg-body);
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  color: var(--prizm-text-contrast);
+
+  &:empty {
+    display: none;
+  }
+
+  &.selected {
+    background: var(--prizm-select-item-selected-background, var(--prizm-lite-b130-20));
+    color: var(--prizm-text-contrast);
+  }
+
+  &:not(.selected):hover {
+    background: var(--prizm-select-item-hover-background, var(--prizm-g2-g11));
+    color: var(--prizm-text-contrast);
+  }
+}

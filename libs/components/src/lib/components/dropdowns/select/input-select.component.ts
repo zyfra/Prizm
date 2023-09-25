@@ -1,10 +1,10 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
   forwardRef,
-  HostBinding,
   Inject,
   Injector,
   Input,
@@ -24,7 +24,15 @@ import {
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import { debounceTime, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs/operators';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  map,
+  shareReplay,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { BehaviorSubject, concat, Observable, Subject, timer } from 'rxjs';
 import {
   PrizmSelectIdentityMatcher,
@@ -40,6 +48,8 @@ import {
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
 import { PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmDataListDirective } from '../../data-list/data-list.directive';
+import { PrizmSelectItemService } from './select-item.service';
 
 @Component({
   selector: 'prizm-input-select',
@@ -52,6 +62,7 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
       useExisting: forwardRef(() => PrizmSelectInputComponent),
       multi: true,
     },
+    PrizmSelectItemService,
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
   ],
@@ -63,6 +74,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
+
+  @ContentChild(PrizmDataListDirective)
+  public readonly dataList?: PrizmDataListDirective;
 
   @Input() set items(data: T[]) {
     this.items$.next(data as any);
@@ -171,13 +185,19 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
-    @Inject(Injector) injector: Injector
+    @Inject(Injector) injector: Injector,
+    private readonly selectItemService: PrizmSelectItemService
   ) {
     super(injector);
   }
 
   public override ngOnInit() {
     super.ngOnInit();
+    this.initFilteredItemsListener();
+    this.initSelectItemListener();
+  }
+
+  private initFilteredItemsListener(): void {
     this.filteredItems$ = concat(this.printing$.pipe()).pipe(
       tap(value => this.searchEmit(value as string)),
       distinctUntilChanged(),
@@ -205,6 +225,15 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
         );
       })
     );
+  }
+
+  private initSelectItemListener(): void {
+    this.selectItemService.selected$
+      .pipe(
+        tap(item => this.select(item)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public override get empty(): Observable<boolean> {
@@ -257,6 +286,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public override updateValue(value: T) {
     super.updateValue(value);
 
+    this.selectItemService.select(value);
+
     // set touched on change value
     this.ngControl.control?.markAsTouched();
   }
@@ -281,7 +312,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public getValueFromItems(value: T) {
-    const newItem = this.items.find(i => this.identityMatcher(this.transformer(i), value));
+    const newItem = this.dataList
+      ? value
+      : this.items.find(i => this.identityMatcher(this.transformer(i), value));
     return newItem;
   }
 
@@ -294,6 +327,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public getFullObjectOfCurrent(value: T): T {
     if (Compare.isNullish(value)) return null as any;
     const newItem = this.getValueFromItems(this.value);
-    return newItem as any;
+    return newItem as T;
   }
 }

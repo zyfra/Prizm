@@ -12,7 +12,6 @@ import { PrizmInputTextModule } from '../../input/input-text/input-text.module';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmIconModule } from '../../icon';
-import { PrizmSelectInputComponent } from './input-select.component';
 import { PrizmSelectComponent } from './select.component';
 
 /**
