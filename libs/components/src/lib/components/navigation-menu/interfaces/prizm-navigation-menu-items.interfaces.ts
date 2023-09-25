@@ -11,6 +11,8 @@ export interface PrizmNavigationMenuItem {
   text: string;
   extraTemplate?: TemplateRef<unknown> | null;
   icon?: string | null;
+  /** If set to true - interaction with item will toggle it's expanded state */
+  isGroup?: boolean;
   children?: PrizmNavigationMenuItem[];
 }
 

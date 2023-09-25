@@ -4,9 +4,9 @@
   [class.prizm-navigation-menu-item_hovered]="isHovered"
   [class.prizm-navigation-menu-item_expandable]="isExpandable"
   [tabindex]="0"
-  (keydown.space)="setActive.emit(item)"
-  (keydown.enter)="setActive.emit(item)"
-  (click)="setActive.emit(item)"
+  (keydown.space)="interaction.emit(item)"
+  (keydown.enter)="interaction.emit(item)"
+  (click)="interaction.emit(item)"
   (prizmHoveredChange)="isHovered = $event"
 >
   <prizm-icons-svg

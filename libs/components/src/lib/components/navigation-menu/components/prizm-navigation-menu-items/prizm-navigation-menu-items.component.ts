@@ -15,6 +15,7 @@ import { PrizmNavigationMenuItemComponent } from '../prizm-navigation-menu-item/
 import { findItem } from '../../helpers/prizm-navigation-menu-items-helpers';
 import { PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER, PrizmNavigationMenuChildrenHandler } from '../../tokens';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { PrizmTreeControllerDirective } from '../../../tree';
 
 @Component({
   selector: 'prizm-navigation-menu-items',
@@ -61,6 +62,17 @@ export class PrizmNavigationMenuItemsComponent<
     public cdr: ChangeDetectorRef
   ) {
     super();
+  }
+
+  public handleInteraction(
+    item: InternalPrizmNavigationMenuItem<T>,
+    treeCtrl: PrizmTreeControllerDirective<InternalPrizmNavigationMenuItem<T>>
+  ): void {
+    if (item.isGroup) {
+      treeCtrl.toggleByItemValue(item);
+    } else {
+      this.activeItemChanged.emit(item);
+    }
   }
 
   public handleExpandedChanged({
