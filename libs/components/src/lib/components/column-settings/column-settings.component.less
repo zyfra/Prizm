@@ -1,0 +1,103 @@
+@import '../../../styles/ui-local.less';
+
+.container {
+  width: 360px;
+  color: var(--prizm-text-contrast);
+
+  .header {
+    border-bottom: 1px solid var(--prizm-border-widget);
+    padding: var(--prizm-column-settings-header-padding, 14px 16px);
+    display: flex;
+    justify-content: space-between;
+
+    font-style: var(--prizm-column-settings-header-font-style, normal);
+    font-weight: var(--prizm-column-settings-header-font-weight, 600);
+    font-size: var(--prizm-column-settings-header-font-size, var(--prizm-dialog-font-size, 14px));
+    color: var(--prizm-column-settings-header-text, var(--prizm-text-contrast));
+
+    .title {
+      .ellipsis();
+      max-width: 70%;
+      display: flex;
+      align-items: center;
+    }
+  }
+  .section {
+    border-bottom: 1px solid var(--prizm-border-widget);
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      padding: var(--prizm-column-settings-header-padding, 14px 16px);
+    }
+
+    &-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+    }
+
+    .column-list {
+      min-height: 40px;
+      max-height: 287px;
+
+      .column-box {
+        .mixin-column-box();
+        cursor: pointer;
+        &:hover {
+          background-color: var(--prizm-v2-table-background-default-hover);
+        }
+
+        button {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  .dropzone {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-top: 1px dashed var(--prizm-border-forms);
+    border-bottom: 1px dashed var(--prizm-border-forms);
+    border-radius: 2px;
+    background-color: var(--prizm-g2-g11);
+    height: 40px;
+    margin-bottom: 16px;
+  }
+
+  .footer {
+    border-top: 1px solid var(--prizm-border-widget);
+    padding: var(--prizm-column-settings-footer-padding, 14px 16px);
+    max-width: 100%;
+    color: var(--prizm-column-settings-footer-text, var(--prizm-text-main));
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      button {
+        flex-grow: 1;
+      }
+    }
+  }
+}
+
+.cdk-drag-preview {
+  .mixin-column-box();
+  background-color: var(--prizm-bg-body);
+  box-shadow: 0px 8px 32px 0px var(--prizm-shadow);
+  border-radius: 2px;
+  border: 1px solid var(--prizm-border-widget);
+  cursor: grabbing;
+}
+
+.mixin-column-box {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  padding: 0px 16px;
+}

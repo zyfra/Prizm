@@ -165,5 +165,13 @@ export class TableExampleComponent {
     LESS: import('./examples/table-data-source-example/table-data-source-example.component.less?raw'),
   };
 
+  public exampleColumnSettingsTable: TuiDocExample = {
+    TypeScript: import(
+      './examples/table-column-settings-example/table-column-settings-example.component?raw'
+    ),
+    HTML: import('./examples/table-column-settings-example/table-column-settings-example.component.html?raw'),
+    LESS: import('./examples/table-column-settings-example/table-column-settings-example.component.less?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

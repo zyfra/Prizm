@@ -1,0 +1,110 @@
+<div class="container">
+  <div class="header prizm-font-title-h4">
+    <div class="title">Title</div>
+    <button
+      *ngIf="defaultSettings"
+      (click)="resetToDeafault()"
+      prizmButton
+      appearanceType="ghost"
+      appearance="danger"
+      size="m"
+    >
+      Сбросить
+    </button>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">Заголовок списка</div>
+    </div>
+    <div class="section-toggle">
+      <prizm-toggle size="m"></prizm-toggle>
+      <span class="prizm-font-main-body-14">Фиксировать шапку при скролле</span>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">Фиксированные колонки слева</div>
+    </div>
+    <prizm-scrollbar>
+      <div
+        class="column-list"
+        #stickyLeftList="cdkDropList"
+        [cdkDropListData]="stickyLeftColumns"
+        [cdkDropListConnectedTo]="[columnList, stickyRightList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropList
+      >
+        <ng-container *ngIf="stickyLeftColumns.length; else dropZone">
+          <div class="column-box prizm-font-main-body-14" *ngFor="let column of stickyLeftColumns" cdkDrag>
+            <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </prizm-scrollbar>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">Незафиксированные колонки</div>
+      <button prizmButton appearanceType="ghost" appearance="secondary" size="m">Показать все</button>
+    </div>
+    <prizm-scrollbar>
+      <div
+        class="column-list"
+        #columnList="cdkDropList"
+        [cdkDropListData]="columns"
+        [cdkDropListConnectedTo]="[stickyLeftList, stickyRightList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropList
+      >
+        <ng-container *ngIf="columns.length; else dropZone">
+          <div class="column-box prizm-font-main-body-14" *ngFor="let column of columns" cdkDrag>
+            <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </prizm-scrollbar>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">Фиксированные колонки справа</div>
+    </div>
+    <prizm-scrollbar>
+      <div
+        class="column-list"
+        #stickyRightList="cdkDropList"
+        [cdkDropListData]="stickyRightColumns"
+        [cdkDropListConnectedTo]="[columnList, stickyLeftList]"
+        (cdkDropListDropped)="drop($event)"
+        cdkDropList
+      >
+        <ng-container *ngIf="stickyRightColumns.length; else dropZone">
+          <div class="column-box prizm-font-main-body-14" *ngFor="let column of stickyRightColumns" cdkDrag>
+            <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+          </div>
+        </ng-container>
+      </div>
+    </prizm-scrollbar>
+  </div>
+  <div class="footer prizm-font-btn-links-14">
+    <div class="buttons">
+      <button appearance="secondary" appearanceType="ghost" size="m" prizmButton>Отменить</button>
+      <button appearance="primary" size="m" prizmButton>Сохранить</button>
+    </div>
+  </div>
+</div>
+
+<ng-template #columnItem let-column="column">
+  <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
+  <span>{{ column.name }}</span>
+  <button
+    [icon]="column.status | prizmColumnIcon"
+    prizmIconButton
+    appearanceType="ghost"
+    appearance="secondary"
+    size="m"
+  ></button>
+</ng-template>
+
+<ng-template #dropZone>
+  <div class="dropzone">Перетащите колонку</div>
+</ng-template>
