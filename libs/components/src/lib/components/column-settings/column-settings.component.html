@@ -1,6 +1,6 @@
-<div class="container">
+<div class="container" *prizmLet="columnSettings$ | async as translations">
   <div class="header prizm-font-title-h4">
-    <div class="title">Title</div>
+    <div class="title">{{ translations | prizmPluck : ['title'] }}</div>
     <button
       *ngIf="defaultSettings"
       (click)="resetToDeafault()"
@@ -9,21 +9,21 @@
       appearance="danger"
       size="m"
     >
-      Сбросить
+      {{ translations | prizmPluck : ['resetBtn'] }}
     </button>
   </div>
   <div class="section">
     <div class="section-header">
-      <div class="prizm-font-title-h4">Заголовок списка</div>
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['subTitle'] }}</div>
     </div>
     <div class="section-toggle">
       <prizm-toggle size="m"></prizm-toggle>
-      <span class="prizm-font-main-body-14">Фиксировать шапку при скролле</span>
+      <span class="prizm-font-main-body-14">{{ translations | prizmPluck : ['fixHeaderToggle'] }}</span>
     </div>
   </div>
   <div class="section">
     <div class="section-header">
-      <div class="prizm-font-title-h4">Фиксированные колонки слева</div>
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyLeft'] }}</div>
     </div>
     <prizm-scrollbar>
       <div
@@ -44,8 +44,10 @@
   </div>
   <div class="section">
     <div class="section-header">
-      <div class="prizm-font-title-h4">Незафиксированные колонки</div>
-      <button prizmButton appearanceType="ghost" appearance="secondary" size="m">Показать все</button>
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['mainColumns'] }}</div>
+      <button prizmButton appearanceType="ghost" appearance="secondary" size="m">
+        {{ translations | prizmPluck : ['showAllBtn'] }}
+      </button>
     </div>
     <prizm-scrollbar>
       <div
@@ -66,7 +68,7 @@
   </div>
   <div class="section">
     <div class="section-header">
-      <div class="prizm-font-title-h4">Фиксированные колонки справа</div>
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyRight'] }}</div>
     </div>
     <prizm-scrollbar>
       <div
@@ -87,24 +89,26 @@
   </div>
   <div class="footer prizm-font-btn-links-14">
     <div class="buttons">
-      <button appearance="secondary" appearanceType="ghost" size="m" prizmButton>Отменить</button>
-      <button appearance="primary" size="m" prizmButton>Сохранить</button>
+      <button appearance="secondary" appearanceType="ghost" size="m" prizmButton>
+        {{ translations | prizmPluck : ['cancelBtn'] }}
+      </button>
+      <button appearance="primary" size="m" prizmButton>{{ translations | prizmPluck : ['saveBtn'] }}</button>
     </div>
   </div>
+
+  <ng-template #columnItem let-column="column">
+    <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
+    <span>{{ column.name }}</span>
+    <button
+      [icon]="column.status | prizmColumnIcon"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="m"
+    ></button>
+  </ng-template>
+
+  <ng-template #dropZone>
+    <div class="dropzone">{{ translations | prizmPluck : ['dropzone'] }}</div>
+  </ng-template>
 </div>
-
-<ng-template #columnItem let-column="column">
-  <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
-  <span>{{ column.name }}</span>
-  <button
-    [icon]="column.status | prizmColumnIcon"
-    prizmIconButton
-    appearanceType="ghost"
-    appearance="secondary"
-    size="m"
-  ></button>
-</ng-template>
-
-<ng-template #dropZone>
-  <div class="dropzone">Перетащите колонку</div>
-</ng-template>

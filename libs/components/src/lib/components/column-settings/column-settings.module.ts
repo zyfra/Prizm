@@ -8,6 +8,7 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
 import { PrizmIconModule } from '../icon/icon.module';
 import { PrizmScrollbarModule } from '../scrollbar';
+import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -18,6 +19,8 @@ import { PrizmScrollbarModule } from '../scrollbar';
     DragDropModule,
     PrizmIconModule,
     PrizmScrollbarModule,
+    PrizmLetModule,
+    PrizmPluckPipeModule,
   ],
   declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe],
   exports: [PrizmColumnSettingsComponent],

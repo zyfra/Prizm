@@ -1,14 +1,18 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { PrizmColumnSettings } from './column-settings.model';
+import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
+import { Observable } from 'rxjs';
+import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
+import { prizmI18nInitWithKey } from '../../services';
 
 @Component({
   selector: 'prizm-column-settings',
   templateUrl: './column-settings.component.html',
   styleUrls: ['./column-settings.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [],
+  providers: [...prizmI18nInitWithKey(PRIZM_COLUMN_SETTINGS, 'columnSettings')],
 })
 export class PrizmColumnSettingsComponent extends PrizmAbstractTestId {
   @Input() defaultSettings: unknown = true;
@@ -97,10 +101,14 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId {
     //   status: 'sticky',
     // },
   ];
-
-  public done = ['Get up', 'Brush teeth', 'Take a shower', 'Check e-mail', 'Walk dog'];
-
   override readonly testId_ = 'ui_column_settings';
+
+  constructor(
+    @Inject(PRIZM_COLUMN_SETTINGS)
+    public readonly columnSettings$: Observable<PrizmLanguageColumnSettings['columnSettings']>
+  ) {
+    super();
+  }
 
   public resetToDeafault(): void {
     // TODO: implement;

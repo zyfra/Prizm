@@ -30,6 +30,22 @@ export interface PrizmLanguageCron {
   };
 }
 
+export interface PrizmLanguageColumnSettings {
+  columnSettings: {
+    title: string;
+    subTitle: string;
+    resetBtn: string;
+    showAllBtn: string;
+    cancelBtn: string;
+    saveBtn: string;
+    fixHeaderToggle: string;
+    stickyLeft: string;
+    stickyRight: string;
+    dropzone: string;
+    mainColumns: string;
+  };
+}
+
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -191,4 +207,5 @@ export interface PrizmLanguage
     PrizmLanguageMeta,
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
-    PrizmLanguageFileUpload {}
+    PrizmLanguageFileUpload,
+    PrizmLanguageColumnSettings {}
