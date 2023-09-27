@@ -1,6 +1,6 @@
 <div class="container" *prizmLet="columnSettings$ | async as translations">
-  <div class="header prizm-font-title-h4">
-    <div class="title">{{ translations | prizmPluck : ['title'] }}</div>
+  <div class="header">
+    <div class="title prizm-font-title-h4">{{ translations | prizmPluck : ['title'] }}</div>
     <button
       *ngIf="defaultSettings"
       (click)="resetToDeafault()"
@@ -12,7 +12,7 @@
       {{ translations | prizmPluck : ['resetBtn'] }}
     </button>
   </div>
-  <div class="section">
+  <!-- <div class="section">
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['subTitle'] }}</div>
     </div>
@@ -20,7 +20,7 @@
       <prizm-toggle size="m"></prizm-toggle>
       <span class="prizm-font-main-body-14">{{ translations | prizmPluck : ['fixHeaderToggle'] }}</span>
     </div>
-  </div>
+  </div> -->
   <div class="section">
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyLeft'] }}</div>
@@ -29,13 +29,13 @@
       <div
         class="column-list"
         #stickyLeftList="cdkDropList"
-        [cdkDropListData]="stickyLeftColumns"
+        [cdkDropListData]="_settings.stickyLeft"
         [cdkDropListConnectedTo]="[columnList, stickyRightList]"
         (cdkDropListDropped)="drop($event)"
         cdkDropList
       >
-        <ng-container *ngIf="stickyLeftColumns.length; else dropZone">
-          <div class="column-box prizm-font-main-body-14" *ngFor="let column of stickyLeftColumns" cdkDrag>
+        <ng-container *ngIf="_settings.stickyLeft.length; else dropZone">
+          <div class="column-box prizm-font-main-body-14" *ngFor="let column of _settings.stickyLeft" cdkDrag>
             <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
           </div>
         </ng-container>
@@ -44,8 +44,8 @@
   </div>
   <div class="section">
     <div class="section-header">
-      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['mainColumns'] }}</div>
-      <button prizmButton appearanceType="ghost" appearance="secondary" size="m">
+      <div class="title prizm-font-title-h4">{{ translations | prizmPluck : ['mainColumns'] }}</div>
+      <button (click)="showAll()" prizmButton appearanceType="ghost" appearance="secondary" size="m">
         {{ translations | prizmPluck : ['showAllBtn'] }}
       </button>
     </div>
@@ -53,13 +53,13 @@
       <div
         class="column-list"
         #columnList="cdkDropList"
-        [cdkDropListData]="columns"
+        [cdkDropListData]="_settings.columns"
         [cdkDropListConnectedTo]="[stickyLeftList, stickyRightList]"
         (cdkDropListDropped)="drop($event)"
         cdkDropList
       >
-        <ng-container *ngIf="columns.length; else dropZone">
-          <div class="column-box prizm-font-main-body-14" *ngFor="let column of columns" cdkDrag>
+        <ng-container *ngIf="_settings.columns.length; else dropZone">
+          <div class="column-box prizm-font-main-body-14" *ngFor="let column of _settings.columns" cdkDrag>
             <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
           </div>
         </ng-container>
@@ -74,13 +74,17 @@
       <div
         class="column-list"
         #stickyRightList="cdkDropList"
-        [cdkDropListData]="stickyRightColumns"
+        [cdkDropListData]="_settings.stickyRight"
         [cdkDropListConnectedTo]="[columnList, stickyLeftList]"
         (cdkDropListDropped)="drop($event)"
         cdkDropList
       >
-        <ng-container *ngIf="stickyRightColumns.length; else dropZone">
-          <div class="column-box prizm-font-main-body-14" *ngFor="let column of stickyRightColumns" cdkDrag>
+        <ng-container *ngIf="_settings.stickyRight.length; else dropZone">
+          <div
+            class="column-box prizm-font-main-body-14"
+            *ngFor="let column of _settings.stickyRight"
+            cdkDrag
+          >
             <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
           </div>
         </ng-container>
@@ -89,10 +93,12 @@
   </div>
   <div class="footer prizm-font-btn-links-14">
     <div class="buttons">
-      <button appearance="secondary" appearanceType="ghost" size="m" prizmButton>
+      <button (click)="close(null)" appearance="secondary" appearanceType="ghost" size="m" prizmButton>
         {{ translations | prizmPluck : ['cancelBtn'] }}
       </button>
-      <button appearance="primary" size="m" prizmButton>{{ translations | prizmPluck : ['saveBtn'] }}</button>
+      <button (click)="close(_settings)" appearance="primary" size="m" prizmButton>
+        {{ translations | prizmPluck : ['saveBtn'] }}
+      </button>
     </div>
   </div>
 
@@ -101,6 +107,8 @@
     <span>{{ column.name }}</span>
     <button
       [icon]="column.status | prizmColumnIcon"
+      [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
+      (click)="toggleColumnStatus(column)"
       prizmIconButton
       appearanceType="ghost"
       appearance="secondary"

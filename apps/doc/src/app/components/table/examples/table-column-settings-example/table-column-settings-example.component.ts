@@ -1,5 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmTableCellStatus } from '@prizm-ui/components';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { PrizmTableCellStatus, PrizmTableSettings } from '@prizm-ui/components';
 import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
 
 export interface ITableProduct {
@@ -19,12 +19,119 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableColumnSettingsExampleComponent {
-  public columns: string[] = ['code', 'name', 'category', 'count'];
+  public columns: string[] = ['code', 'name', 'category', 'count', 'nameTwin', 'categoryTwin', 'countTwin'];
+
+  public settings: PrizmTableSettings = {
+    columns: [
+      {
+        id: 'code',
+        name: 'Код',
+        status: 'default',
+      },
+      {
+        id: 'name',
+        name: 'Наименование',
+        status: 'default',
+      },
+      {
+        id: 'category',
+        name: 'Категория',
+        status: 'default',
+      },
+      {
+        id: 'count',
+        name: 'Количество',
+        status: 'default',
+      },
+      {
+        id: 'nameTwin',
+        name: 'Наименование 2',
+        status: 'default',
+      },
+      {
+        id: 'categoryTwin',
+        name: 'Категория 2',
+        status: 'default',
+      },
+      {
+        id: 'countTwin',
+        name: 'Количество 2',
+        status: 'default',
+      },
+    ],
+    stickyLeft: [],
+    stickyRight: [],
+  };
+
+  public defaultSettings: PrizmTableSettings = {
+    columns: [
+      {
+        id: 'code',
+        name: 'Код',
+        status: 'default',
+      },
+      {
+        id: 'name',
+        name: 'Наименование',
+        status: 'default',
+      },
+      {
+        id: 'category',
+        name: 'Категория',
+        status: 'default',
+      },
+      {
+        id: 'count',
+        name: 'Количество',
+        status: 'default',
+      },
+      {
+        id: 'nameTwin',
+        name: 'Наименование 2',
+        status: 'hidden',
+      },
+      {
+        id: 'categoryTwin',
+        name: 'Категория 2',
+        status: 'hidden',
+      },
+      {
+        id: 'countTwin',
+        name: 'Количество 2',
+        status: 'hidden',
+      },
+    ],
+    stickyLeft: [],
+    stickyRight: [],
+  };
+
+  public columnSettings = {
+    columns: [],
+    stickyLeft: [],
+    stickyRight: [],
+    useSticy: true,
+    fixTableHead: true,
+  };
 
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
   public showColumnSettings = false;
 
+  constructor(public readonly cdr: ChangeDetectorRef) {}
+
   public toggleColumnSettings(): void {
     this.showColumnSettings = !this.showColumnSettings;
+  }
+
+  public updateTableSettings(settings: PrizmTableSettings | null) {
+    this.showColumnSettings = false;
+    if (settings) {
+      this.columns = [
+        ...settings.stickyLeft.map(el => el.id),
+        ...settings.columns.filter(el => el.status === 'default').map(el => el.id),
+        ...settings.stickyRight.map(el => el.id),
+      ];
+      this.settings = settings;
+    }
+    this.cdr.markForCheck();
   }
 }

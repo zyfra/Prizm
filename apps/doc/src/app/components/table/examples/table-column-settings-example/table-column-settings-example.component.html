@@ -1,43 +1,32 @@
 <prizm-widget [icons]="[iconBtnTemplate]" title="Управление колонками">
   <prizm-scrollbar class="scrollable">
-    <table class="table" prizmTable size="l">
+    <table class="table" [columns]="columns" prizmTable>
       <thead>
         <tr prizmThGroup>
-          <th prizmTh>Код</th>
-          <th prizmTh>Наименование</th>
-          <th prizmTh>Категория</th>
-          <th prizmTh>Количество</th>
-          <th prizmTh>Наименование 2</th>
-          <th prizmTh>Категория 2</th>
-          <th prizmTh>Количество 2</th>
+          <th *prizmHead="'code'" prizmTh>Код</th>
+          <th *prizmHead="'name'" prizmTh>Наименование</th>
+          <th *prizmHead="'category'" prizmTh>Категория</th>
+          <th *prizmHead="'count'" prizmTh>Количество</th>
+          <th *prizmHead="'nameTwin'" prizmTh>Наименование 2</th>
+          <th *prizmHead="'categoryTwin'" prizmTh>Категория 2</th>
+          <th *prizmHead="'countTwin'" prizmTh>Количество 2</th>
         </tr>
       </thead>
 
       <tbody [data]="products" prizmTbody>
-        <ng-container
-          *prizmRow="
-            let item of products;
-            let i = index;
-            let odd = odd;
-            let even = even;
-            let first = first;
-            let last = last
-          "
-        >
-          <tr prizmTr>
-            <td class="format__number" prizmTd>
-              {{ item.code | spaceNumber : '0.0-0' }}
-            </td>
-            <td prizmTd>
-              {{ item.name }}
-            </td>
-            <td prizmTd>{{ item.category }}</td>
-            <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
-            <td prizmTd>{{ item.name }}</td>
-            <td prizmTd>{{ item.category }}</td>
-            <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
-          </tr>
-        </ng-container>
+        <tr class="row" *prizmRow="let item of products; let i = index" prizmTr>
+          <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+          <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+          <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
+          <td class="format__number" *prizmCell="'count'" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+          <td *prizmCell="'nameTwin'" prizmTd>{{ item.name }}</td>
+          <td *prizmCell="'categoryTwin'" prizmTd>{{ item.category }}</td>
+          <td class="format__number" *prizmCell="'countTwin'" prizmTd>
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
       </tbody>
     </table>
   </prizm-scrollbar>
@@ -57,5 +46,10 @@
 </ng-template>
 
 <ng-template #dropdown>
-  <prizm-column-settings></prizm-column-settings>
+  <prizm-column-settings
+    [defaultSettings]="defaultSettings"
+    [settings]="settings"
+    (isSettingsChanged)="updateTableSettings($event)"
+    use
+  ></prizm-column-settings>
 </ng-template>

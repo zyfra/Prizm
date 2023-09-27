@@ -14,13 +14,13 @@
     font-weight: var(--prizm-column-settings-header-font-weight, 600);
     font-size: var(--prizm-column-settings-header-font-size, var(--prizm-dialog-font-size, 14px));
     color: var(--prizm-column-settings-header-text, var(--prizm-text-contrast));
+  }
 
-    .title {
-      .ellipsis();
-      max-width: 70%;
-      display: flex;
-      align-items: center;
-    }
+  .title {
+    .ellipsis();
+    max-width: 70%;
+    display: flex;
+    align-items: center;
   }
   .section {
     border-bottom: 1px solid var(--prizm-border-widget);
@@ -28,6 +28,7 @@
     &-header {
       display: flex;
       justify-content: space-between;
+      align-items: center;
       gap: 16px;
       padding: var(--prizm-column-settings-header-padding, 14px 16px);
     }
@@ -93,6 +94,9 @@
   border-radius: 2px;
   border: 1px solid var(--prizm-border-widget);
   cursor: grabbing;
+  button {
+    margin-left: auto;
+  }
 }
 
 .mixin-column-box {

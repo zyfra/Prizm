@@ -1,11 +1,12 @@
-import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { PrizmColumnSettings } from './column-settings.model';
+import { PrizmColumnSettings, PrizmTableSettings } from './column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
 import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
+import { cloneDeep } from 'lodash';
 
 @Component({
   selector: 'prizm-column-settings',
@@ -15,92 +16,15 @@ import { prizmI18nInitWithKey } from '../../services';
   providers: [...prizmI18nInitWithKey(PRIZM_COLUMN_SETTINGS, 'columnSettings')],
 })
 export class PrizmColumnSettingsComponent extends PrizmAbstractTestId {
-  @Input() defaultSettings: unknown = true;
+  public _settings!: PrizmTableSettings;
+  @Input() set settings(value: PrizmTableSettings) {
+    this._settings = cloneDeep(value);
+  }
+  @Input() defaultSettings: PrizmTableSettings | undefined;
   @Input() useSticky = true;
+  @Output() isSettingsChanged = new EventEmitter<PrizmTableSettings | null>();
+  public isLastColumnShown = false;
 
-  public columns: PrizmColumnSettings[] = [
-    {
-      id: 'item',
-      name: 'колонка 1',
-      status: 'hidden',
-    },
-    {
-      id: 'count',
-      name: 'колонка 2',
-      status: 'default',
-    },
-    {
-      id: 'country',
-      name: 'колонка 3',
-      status: 'default',
-    },
-    {
-      id: 'item',
-      name: 'колонка 1',
-      status: 'hidden',
-    },
-    {
-      id: 'count',
-      name: 'колонка 2',
-      status: 'default',
-    },
-    {
-      id: 'country',
-      name: 'колонка 3',
-      status: 'default',
-    },
-    {
-      id: 'item',
-      name: 'колонка 1',
-      status: 'hidden',
-    },
-    {
-      id: 'count',
-      name: 'колонка 2',
-      status: 'default',
-    },
-    {
-      id: 'country',
-      name: 'колонка 3',
-      status: 'default',
-    },
-  ];
-
-  public stickyLeftColumns: PrizmColumnSettings[] = [
-    // {
-    //   id: 'item',
-    //   name: 'колонка 6',
-    //   status: 'sticky',
-    // },
-    // {
-    //   id: 'count',
-    //   name: 'колонка 7',
-    //   status: 'sticky',
-    // },
-    // {
-    //   id: 'country',
-    //   name: 'колонка 8',
-    //   status: 'sticky',
-    // },
-  ];
-
-  public stickyRightColumns: PrizmColumnSettings[] = [
-    // {
-    //   id: 'item',
-    //   name: 'колонка 6',
-    //   status: 'sticky',
-    // },
-    // {
-    //   id: 'count',
-    //   name: 'колонка 7',
-    //   status: 'sticky',
-    // },
-    // {
-    //   id: 'country',
-    //   name: 'колонка 8',
-    //   status: 'sticky',
-    // },
-  ];
   override readonly testId_ = 'ui_column_settings';
 
   constructor(
@@ -111,14 +35,13 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId {
   }
 
   public resetToDeafault(): void {
-    // TODO: implement;
+    this._settings = cloneDeep(this.defaultSettings as PrizmTableSettings);
   }
 
   public drop(event: CdkDragDrop<any[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      console.log(event);
       transferArrayItem(
         event.previousContainer.data,
         event.container.data,
@@ -126,5 +49,27 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId {
         event.currentIndex
       );
     }
+  }
+
+  public toggleColumnStatus(column: PrizmColumnSettings): void {
+    if (column.status === 'default') {
+      column.status = 'hidden';
+    } else if (column.status === 'hidden') {
+      column.status = 'default';
+    }
+
+    this.isLastColumnShown = this.checkIsLastShown();
+  }
+
+  public showAll() {
+    this._settings.columns.forEach(el => (el.status = 'default'));
+  }
+
+  public close(settings: PrizmTableSettings | null): void {
+    this.isSettingsChanged.emit(settings);
+  }
+
+  private checkIsLastShown(): boolean {
+    return this._settings.columns.filter(el => el.status === 'default').length <= 1;
   }
 }
