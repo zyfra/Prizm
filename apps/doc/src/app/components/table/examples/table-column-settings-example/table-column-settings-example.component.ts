@@ -105,14 +105,6 @@ export class TableColumnSettingsExampleComponent {
     stickyRight: [],
   };
 
-  public columnSettings = {
-    columns: [],
-    stickyLeft: [],
-    stickyRight: [],
-    useSticy: true,
-    fixTableHead: true,
-  };
-
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
   public showColumnSettings = false;
 

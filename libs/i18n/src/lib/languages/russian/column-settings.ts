@@ -10,7 +10,7 @@ export const PRIZM_RUSSIAN_COLUMN_SETTINGS: PrizmLanguageColumnSettings = {
     saveBtn: 'Сохранить',
     fixHeaderToggle: 'Фиксировать шапку при скролле',
     stickyLeft: 'Фиксированные колонки слева',
-    mainColumns: 'Незафиксированные колонки',
+    mainColumns: 'Колонки',
     stickyRight: 'Фиксированные колонки справа',
     dropzone: 'Перетащите колонку',
     disabledHint: 'Нельзя скрыть последнюю колонку',
