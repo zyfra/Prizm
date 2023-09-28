@@ -7,6 +7,9 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
   templateUrl: './dialog-result-handling-example.component.html',
   styles: [
     `
+      .content {
+        padding: 8px;
+      }
       .box {
         display: flex;
         justify-content: flex-end;
