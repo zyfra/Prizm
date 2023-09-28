@@ -108,6 +108,9 @@
     <button
       [icon]="column.status | prizmColumnIcon"
       [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
+      [prizmHint]="
+        isLastColumnShown && column.status === 'default' ? (translations | prizmPluck : ['disabledHint']) : ''
+      "
       (click)="toggleColumnStatus(column)"
       prizmIconButton
       appearanceType="ghost"

@@ -43,6 +43,7 @@ export interface PrizmLanguageColumnSettings {
     stickyRight: string;
     dropzone: string;
     mainColumns: string;
+    disabledHint: string;
   };
 }
 

@@ -9,6 +9,7 @@ import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
 import { PrizmIconModule } from '../icon/icon.module';
 import { PrizmScrollbarModule } from '../scrollbar';
 import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { PrizmHintModule } from '../../directives/hint';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
     PrizmScrollbarModule,
     PrizmLetModule,
     PrizmPluckPipeModule,
+    PrizmHintModule,
   ],
   declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe],
   exports: [PrizmColumnSettingsComponent],
