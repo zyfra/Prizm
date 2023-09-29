@@ -25,30 +25,17 @@
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyLeft'] }}</div>
     </div>
-    <prizm-scrollbar>
-      <div
-        class="column-list"
-        #stickyLeftList="cdkDropList"
-        [cdkDropListData]="_settings.stickyLeft"
-        [cdkDropListConnectedTo]="connectedLeft"
-        (cdkDropListDropped)="drop($event, 'sticky')"
-        cdkDropList
-      >
-        <ng-container *ngIf="_settings.stickyLeft.length; else dropZone">
-          <div
-            class="column-box prizm-font-main-body-14"
-            *ngFor="let column of _settings.stickyLeft"
-            [cdkDragPreviewContainer]="themeRootElement"
-            cdkDrag
-          >
-            <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
-            <ng-container *cdkDragPlaceholder>
-              <ng-container *ngTemplateOutlet="dropZone"></ng-container>
-            </ng-container>
-          </div>
-        </ng-container>
-      </div>
-    </prizm-scrollbar>
+    <prizm-column-drop-list
+      class="column-list"
+      #stickyLeftList="cdkDropList"
+      [cdkDropListData]="_settings.stickyLeft"
+      [cdkDropListConnectedTo]="connectedLeft"
+      [columns]="_settings.stickyLeft"
+      [themeRootElement]="themeRootElement"
+      [translations]="translations"
+      (cdkDropListDropped)="drop($event, 'sticky')"
+      cdkDropList
+    ></prizm-column-drop-list>
   </div>
   <div class="section">
     <div class="section-header">
@@ -57,59 +44,31 @@
         {{ translations | prizmPluck : ['showAllBtn'] }}
       </button>
     </div>
-    <prizm-scrollbar>
-      <div
-        class="column-list"
-        #columnList="cdkDropList"
-        [cdkDropListData]="_settings.columns"
-        [cdkDropListConnectedTo]="connectedColumns"
-        (cdkDropListDropped)="drop($event, 'default')"
-        cdkDropList
-      >
-        <ng-container *ngIf="_settings.columns.length; else dropZone">
-          <div
-            class="column-box prizm-font-main-body-14"
-            *ngFor="let column of _settings.columns"
-            [cdkDragPreviewContainer]="themeRootElement"
-            cdkDrag
-          >
-            <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
-            <ng-container *cdkDragPlaceholder>
-              <ng-container *ngTemplateOutlet="dropZone"></ng-container>
-            </ng-container>
-          </div>
-        </ng-container>
-      </div>
-    </prizm-scrollbar>
+    <prizm-column-drop-list
+      #columnList="cdkDropList"
+      [cdkDropListData]="_settings.columns"
+      [cdkDropListConnectedTo]="connectedColumns"
+      [columns]="_settings.columns"
+      [themeRootElement]="themeRootElement"
+      [translations]="translations"
+      (cdkDropListDropped)="drop($event, 'default')"
+      cdkDropList
+    ></prizm-column-drop-list>
   </div>
   <div class="section" *ngIf="useSticky">
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyRight'] }}</div>
     </div>
-    <prizm-scrollbar>
-      <div
-        class="column-list"
-        #stickyRightList="cdkDropList"
-        [cdkDropListData]="_settings.stickyRight"
-        [cdkDropListConnectedTo]="connectedRight"
-        (cdkDropListDropped)="drop($event, 'sticky')"
-        cdkDropList
-      >
-        <ng-container *ngIf="_settings.stickyRight.length; else dropZone">
-          <div
-            class="column-box prizm-font-main-body-14"
-            *ngFor="let column of _settings.stickyRight"
-            [cdkDragPreviewContainer]="themeRootElement"
-            cdkDrag
-          >
-            <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
-            <ng-container *cdkDragPlaceholder>
-              <ng-container *ngTemplateOutlet="dropZone"></ng-container>
-            </ng-container>
-          </div>
-        </ng-container>
-      </div>
-    </prizm-scrollbar>
+    <prizm-column-drop-list
+      #stickyRightList="cdkDropList"
+      [cdkDropListData]="_settings.stickyRight"
+      [cdkDropListConnectedTo]="connectedRight"
+      [columns]="_settings.stickyRight"
+      [themeRootElement]="themeRootElement"
+      [translations]="translations"
+      (cdkDropListDropped)="drop($event, 'sticky')"
+      cdkDropList
+    ></prizm-column-drop-list>
   </div>
   <div class="footer prizm-font-btn-links-14">
     <div class="buttons">
@@ -121,25 +80,4 @@
       </button>
     </div>
   </div>
-
-  <ng-template #columnItem let-column="column">
-    <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
-    <span>{{ column.name }}</span>
-    <button
-      [icon]="column.status | prizmColumnIcon"
-      [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
-      [prizmHint]="
-        isLastColumnShown && column.status === 'default' ? (translations | prizmPluck : ['disabledHint']) : ''
-      "
-      (click)="toggleColumnStatus(column)"
-      prizmIconButton
-      appearanceType="ghost"
-      appearance="secondary"
-      size="m"
-    ></button>
-  </ng-template>
-
-  <ng-template #dropZone>
-    <div class="dropzone">{{ translations | prizmPluck : ['dropzone'] }}</div>
-  </ng-template>
 </div>

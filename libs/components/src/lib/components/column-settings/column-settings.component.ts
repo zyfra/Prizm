@@ -1,6 +1,7 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
   Inject,
@@ -36,23 +37,22 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   }
   @Input() defaultSettings: PrizmTableSettings | undefined;
   @Input() useSticky = false;
+  @Input() fixHeader = false;
   @Output() isSettingsChanged = new EventEmitter<PrizmTableSettings | null>();
 
   public themeRootElement!: HTMLElement;
   public isLastColumnShown = false;
-  public connectedColumns: any[] = [];
-  public connectedLeft: any[] = [];
-  public connectedRight: any[] = [];
-
-  // TODO: convert to input
-  public fixHeader = false;
+  public connectedColumns: CdkDropList[] = [];
+  public connectedLeft: CdkDropList[] = [];
+  public connectedRight: CdkDropList[] = [];
 
   override readonly testId_ = 'ui_column_settings';
 
   constructor(
     @Inject(PRIZM_COLUMN_SETTINGS)
     public readonly columnSettings$: Observable<PrizmLanguageColumnSettings['columnSettings']>,
-    public readonly theme: PrizmThemeService
+    public readonly theme: PrizmThemeService,
+    private readonly cdr: ChangeDetectorRef
   ) {
     super();
   }
@@ -60,9 +60,9 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   ngAfterViewInit(): void {
     this.themeRootElement = this.theme.rootElement;
     if (this.useSticky) {
-      this.connectedColumns = [this.stickyLeftList, this.stickyRightList];
-      this.connectedLeft = [this.columnList, this.stickyRightList];
-      this.connectedRight = [this.columnList, this.stickyLeftList];
+      this.connectedColumns = [this.stickyLeftList as CdkDropList, this.stickyRightList as CdkDropList];
+      this.connectedLeft = [this.columnList as CdkDropList, this.stickyRightList as CdkDropList];
+      this.connectedRight = [this.columnList as CdkDropList, this.stickyLeftList as CdkDropList];
     }
   }
 
@@ -84,18 +84,9 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
     }
   }
 
-  public toggleColumnStatus(column: PrizmColumnSettings): void {
-    if (column.status === 'default') {
-      column.status = 'hidden';
-    } else if (column.status === 'hidden') {
-      column.status = 'default';
-    }
-
-    this.isLastColumnShown = this.checkIsLastShown();
-  }
-
   public showAll() {
     this._settings.columns.forEach(el => (el.status = 'default'));
+    this.cdr.markForCheck();
   }
 
   public close(settings: PrizmTableSettings | null): void {

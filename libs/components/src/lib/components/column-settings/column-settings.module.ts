@@ -10,6 +10,7 @@ import { PrizmIconModule } from '../icon/icon.module';
 import { PrizmScrollbarModule } from '../scrollbar';
 import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../directives/hint';
+import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
 
 @NgModule({
   imports: [
@@ -24,7 +25,7 @@ import { PrizmHintModule } from '../../directives/hint';
     PrizmPluckPipeModule,
     PrizmHintModule,
   ],
-  declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe],
+  declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe, PrizmColumnDropListComponent],
   exports: [PrizmColumnSettingsComponent],
 })
 export class PrizmColumnSettingsModule {}
