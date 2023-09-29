@@ -36,8 +36,8 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
     this._settings = cloneDeep(value);
   }
   @Input() defaultSettings: PrizmTableSettings | undefined;
-  @Input() useSticky = false;
-  @Input() fixHeader = false;
+  @Input() stickySettings = false;
+  @Input() headerSettings = false;
   @Output() isSettingsChanged = new EventEmitter<PrizmTableSettings | null>();
 
   public themeRootElement!: HTMLElement;
@@ -59,7 +59,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   ngAfterViewInit(): void {
     this.themeRootElement = this.theme.rootElement;
-    if (this.useSticky) {
+    if (this.stickySettings) {
       this.connectedColumns = [this.stickyLeftList as CdkDropList, this.stickyRightList as CdkDropList];
       this.connectedLeft = [this.columnList as CdkDropList, this.stickyRightList as CdkDropList];
       this.connectedRight = [this.columnList as CdkDropList, this.stickyLeftList as CdkDropList];

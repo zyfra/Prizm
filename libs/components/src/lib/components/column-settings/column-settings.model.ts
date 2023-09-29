@@ -2,7 +2,7 @@ export interface PrizmTableSettings {
   columns: PrizmColumnSettings[];
   stickyLeft: PrizmColumnSettings[];
   stickyRight: PrizmColumnSettings[];
-  useSticky?: boolean;
+  fixHeader?: boolean;
 }
 
 export interface PrizmColumnSettings {

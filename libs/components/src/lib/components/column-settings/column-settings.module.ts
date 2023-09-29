@@ -11,6 +11,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
 import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../directives/hint';
 import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { PrizmColumnDropListComponent } from './components/column-drop-list/colu
     PrizmLetModule,
     PrizmPluckPipeModule,
     PrizmHintModule,
+    FormsModule,
   ],
   declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe, PrizmColumnDropListComponent],
   exports: [PrizmColumnSettingsComponent],

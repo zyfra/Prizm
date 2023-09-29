@@ -12,16 +12,16 @@
       {{ translations | prizmPluck : ['resetBtn'] }}
     </button>
   </div>
-  <div class="section" *ngIf="fixHeader">
+  <div class="section" *ngIf="headerSettings">
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['subTitle'] }}</div>
     </div>
     <div class="section-toggle">
-      <prizm-toggle size="m"></prizm-toggle>
+      <prizm-toggle [(ngModel)]="_settings.fixHeader" size="m"></prizm-toggle>
       <span class="prizm-font-main-body-14">{{ translations | prizmPluck : ['fixHeaderToggle'] }}</span>
     </div>
   </div>
-  <div class="section" *ngIf="useSticky">
+  <div class="section" *ngIf="stickySettings">
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyLeft'] }}</div>
     </div>
@@ -55,7 +55,7 @@
       cdkDropList
     ></prizm-column-drop-list>
   </div>
-  <div class="section" *ngIf="useSticky">
+  <div class="section" *ngIf="stickySettings">
     <div class="section-header">
       <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyRight'] }}</div>
     </div>
