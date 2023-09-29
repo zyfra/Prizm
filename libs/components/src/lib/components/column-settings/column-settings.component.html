@@ -35,8 +35,16 @@
         cdkDropList
       >
         <ng-container *ngIf="_settings.stickyLeft.length; else dropZone">
-          <div class="column-box prizm-font-main-body-14" *ngFor="let column of _settings.stickyLeft" cdkDrag>
+          <div
+            class="column-box prizm-font-main-body-14"
+            *ngFor="let column of _settings.stickyLeft"
+            [cdkDragPreviewContainer]="themeRootElement"
+            cdkDrag
+          >
             <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+            <ng-container *cdkDragPlaceholder>
+              <ng-container *ngTemplateOutlet="dropZone"></ng-container>
+            </ng-container>
           </div>
         </ng-container>
       </div>
@@ -59,8 +67,16 @@
         cdkDropList
       >
         <ng-container *ngIf="_settings.columns.length; else dropZone">
-          <div class="column-box prizm-font-main-body-14" *ngFor="let column of _settings.columns" cdkDrag>
+          <div
+            class="column-box prizm-font-main-body-14"
+            *ngFor="let column of _settings.columns"
+            [cdkDragPreviewContainer]="themeRootElement"
+            cdkDrag
+          >
             <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+            <ng-container *cdkDragPlaceholder>
+              <ng-container *ngTemplateOutlet="dropZone"></ng-container>
+            </ng-container>
           </div>
         </ng-container>
       </div>
@@ -83,9 +99,13 @@
           <div
             class="column-box prizm-font-main-body-14"
             *ngFor="let column of _settings.stickyRight"
+            [cdkDragPreviewContainer]="themeRootElement"
             cdkDrag
           >
             <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+            <ng-container *cdkDragPlaceholder>
+              <ng-container *ngTemplateOutlet="dropZone"></ng-container>
+            </ng-container>
           </div>
         </ng-container>
       </div>

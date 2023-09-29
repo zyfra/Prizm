@@ -37,7 +37,7 @@ export class PrizmOverlayControl {
   readonly config!: PrizmOverlayConfig;
   content!: PrizmOverlayContent;
   zid!: PrizmOverlayId;
-  zIndex = 999;
+  zIndex = 9999;
   comp!: PrizmOverlayComponent | null;
   updateTextContent: Subject<string> = new Subject();
   hostView!: ViewRef | null;

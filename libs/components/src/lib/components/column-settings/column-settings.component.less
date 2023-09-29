@@ -50,10 +50,6 @@
         &:hover {
           background-color: var(--prizm-v2-table-background-default-hover);
         }
-
-        button {
-          margin-left: auto;
-        }
       }
     }
   }
@@ -89,19 +85,21 @@
 
 .cdk-drag-preview {
   .mixin-column-box();
-  background-color: var(--prizm-bg-body);
+  color: var(--prizm-text-contrast);
   box-shadow: 0px 8px 32px 0px var(--prizm-shadow);
   border-radius: 2px;
   border: 1px solid var(--prizm-border-widget);
   cursor: grabbing;
-  button {
-    margin-left: auto;
-  }
+  z-index: 9999;
 }
 
 .mixin-column-box {
+  background-color: var(--prizm-bg-body);
   display: flex;
   align-items: center;
   height: 40px;
   padding: 0px 16px;
+  button {
+    margin-left: auto;
+  }
 }
