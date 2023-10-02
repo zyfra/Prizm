@@ -30,22 +30,6 @@ const valueTemplate = ['prizm-input-multi-select', 'valueTemplate'].join('::');
 const search = ['prizm-input-multi-select', 'search'].join('::');
 const searchOutput = ['prizm-input-multi-select', 'output-search'].join('::');
 
-export const HtmlTaskTemplates: PrizmTemplateTask[] = [
-  {
-    // Какой элемент искать
-    selector: 'prizm-multi-select',
-    // Список задач которые запустятся ТОЛЬКО при наличии
-    // указанных INPUT параметров
-    inputs: {},
-    // Список задач которые запустятся ТОЛЬКО при наличии
-    // указанных OUTPUT параметров
-    outputs: {},
-    // Массив задач с общими изменениями которые запустятся
-    // в любом случае
-    tasks: [],
-  },
-];
-
 export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
   {
     // Найти элемент по селектору
@@ -73,7 +57,7 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
           }),
         }),
       ],
-      // ... другой процессоры для и
+      // ... перенести при наличии formControl созданному потомку
       formControl: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: formControl,
