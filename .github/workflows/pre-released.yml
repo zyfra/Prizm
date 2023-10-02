@@ -26,11 +26,13 @@ jobs:
   #    needs: pre_beta_release_v1
 
   pre_release_v2:
+    needs: pre_release_v1
     uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng15.yml@main
     secrets: inherit
   #    needs: pre_beta_release_v2
 
   pre_release_v3:
+    needs: pre_release_v2
     uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng16.yml@main
     secrets: inherit
 #    needs: pre_beta_release_v3

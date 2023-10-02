@@ -10,7 +10,7 @@ import {
 } from '@prizm-ui/doc';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
-import { ActivationEnd, NavigationEnd, NavigationStart, Router } from '@angular/router';
+import { ActivationEnd, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { DocDemoService } from './doc-demo.service';
 
