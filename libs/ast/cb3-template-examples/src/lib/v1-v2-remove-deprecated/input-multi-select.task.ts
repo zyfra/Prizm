@@ -30,13 +30,32 @@ const valueTemplate = ['prizm-input-multi-select', 'valueTemplate'].join('::');
 const search = ['prizm-input-multi-select', 'search'].join('::');
 const searchOutput = ['prizm-input-multi-select', 'output-search'].join('::');
 
+export const HtmlTaskTemplates: PrizmTemplateTask[] = [
+  {
+    // Какой элемент искать
+    selector: 'prizm-multi-select',
+    // Список задач которые запустятся ТОЛЬКО при наличии
+    // указанных INPUT параметров
+    inputs: {},
+    // Список задач которые запустятся ТОЛЬКО при наличии
+    // указанных OUTPUT параметров
+    outputs: {},
+    // Массив задач с общими изменениями которые запустятся
+    // в любом случае
+    tasks: [],
+  },
+];
+
 export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
   {
+    // Найти элемент по селектору
     selector: 'prizm-multi-select',
     tasks: [
+      // Заменить селектор
       prizmAstCreateActionBy(PrizmChangeNameTemplateTask, {
         name: 'prizm-input-layout',
       }),
+      // Добавить потомка нового
       prizmAstCreateActionBy(PrizmAddChildrenTemplateTask, {
         name: 'prizm-input-multi-select',
         attrs: {},
@@ -44,10 +63,8 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
         children: [],
       }),
     ],
-    defaultInputs: {
-      label: 'Выберите из списка',
-    },
     inputs: {
+      // при наличии input параметра перенести его потомку созданному
       dropdownWidth: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: nameDropdownWidth,
@@ -56,6 +73,7 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
           }),
         }),
       ],
+      // ... другой процессоры для и
       formControl: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: formControl,
@@ -193,6 +211,10 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
         }),
       ],
     },
+    defaultInputs: {
+      label: 'Выберите из списка',
+    },
+
     outputs: {
       searchChange: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {

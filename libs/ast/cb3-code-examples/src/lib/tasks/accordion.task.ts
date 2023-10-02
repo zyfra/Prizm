@@ -14,7 +14,7 @@ export const ZyfraAccordionCodeTasks: IPrizmAstCodeTask[] = [
     commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from PrizmAccordionModule',
   }),
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
-    newModule: 'ZyfraAccordionModule',
+    newModule: 'PrizmAccordionModule',
     moduleToFind: 'ZyfraAccordionModule',
     comment: 'PRIZM:MIGRATOR: Our added module for migrate from PrizmAccordionModule',
   }),
