@@ -192,6 +192,7 @@ export class PrizmNavigationMenuService<
       this.internalExpandedItemsMap.clear();
       this.userExpandedItemsMap$$.value.clear();
     }
+    this.expandedItemsMapChangedEvent$.next(this.userExpandedItemsMap$$.value);
   }
 
   /** ACTIVE RELATED */

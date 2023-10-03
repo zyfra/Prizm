@@ -8,7 +8,6 @@ import {
   PrizmTooltipOptions,
   PrizmAppearanceType,
   PrizmAppearance,
-  PrizmContent,
   IconDefs,
   PrizmDialogSize,
   PrizmSize,
@@ -16,11 +15,11 @@ import {
 
 @Component({
   selector: 'prizm-tooltip-example',
-  templateUrl: './tooltip.component.html',
-  styleUrls: ['./tooltip.component.less'],
+  templateUrl: './tooltip-example.component.html',
+  styleUrls: ['./tooltip-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TooltipComponent {
+export class TooltipExampleComponent {
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;

@@ -2,9 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.6, 2.1.8, 3.0.3](https://github.com/zyfra/Prizm) (25-09-2023)
+
+### Features
+
+- feat(components/table): it was added support string for getRowId #692
+- feat(components/navigation-menu): it was added group support #711
+
+### Bug fixes
+
+- fix(components/widget): widget header height #251
+- fix(components/toast): toast styles #305
+- fix(doc/dropdown): color for example with context small style fix
+- fix(components/confirm-popup/tooltip/hint) styles for tooltip and hint with other components #340
+- refactor(doc/tooltip/hint) file names for tooltip and hint example has been changed #340
+- fix(components/confirm-popup/tooltip/hint) outline on focuse removed #658
+- fix(components/paginator): custom buttons replaced by prizm ones #743
+- fix(components/tree): tree expand all feature has been changed #739
+- fix(components/input-layout-date-relative): relative date input validation #566
+- fix(components/navigation-menu): emit expandedItemsMapChanged on "class all" #709
+- fix(components/overlay): clear cache cached inputs #697
+
 ## [1.4.5-next.2, 2.1.7-next.2, 3.0.2-next.2](https://github.com/zyfra/Prizm) (07-09-2023)
 
-### Feautes
+### Features
 
 - feat(doc/example): open example in stackblitz in v1 #700
 - feat(doc/example): open example in stackblitz in v2 #701

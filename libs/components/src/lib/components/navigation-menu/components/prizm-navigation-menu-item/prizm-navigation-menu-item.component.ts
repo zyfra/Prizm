@@ -16,7 +16,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
-  @Output() setActive = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
+  @Output() interaction = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() toggleExpanded = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() goToParentItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();
   @Output() goToRootItem = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();

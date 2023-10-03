@@ -32,11 +32,14 @@ const searchOutput = ['prizm-input-multi-select', 'output-search'].join('::');
 
 export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
   {
+    // Найти элемент по селектору
     selector: 'prizm-multi-select',
     tasks: [
+      // Заменить селектор
       prizmAstCreateActionBy(PrizmChangeNameTemplateTask, {
         name: 'prizm-input-layout',
       }),
+      // Добавить потомка нового
       prizmAstCreateActionBy(PrizmAddChildrenTemplateTask, {
         name: 'prizm-input-multi-select',
         attrs: {},
@@ -44,10 +47,8 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
         children: [],
       }),
     ],
-    defaultInputs: {
-      label: 'Выберите из списка',
-    },
     inputs: {
+      // при наличии input параметра перенести его потомку созданному
       dropdownWidth: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: nameDropdownWidth,
@@ -56,6 +57,7 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
           }),
         }),
       ],
+      // ... перенести при наличии formControl созданному потомку
       formControl: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {
           id: formControl,
@@ -193,6 +195,10 @@ export const PrizmInputMultiSelectTemplateTasks: PrizmTemplateTask[] = [
         }),
       ],
     },
+    defaultInputs: {
+      label: 'Выберите из списка',
+    },
+
     outputs: {
       searchChange: [
         prizmAstCreateActionBy(PrizmSaveToCallOnDemandTemplateTask, {

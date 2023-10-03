@@ -17,7 +17,7 @@
       [isExpandable]="menuItemsChildrenHandler(item).length > 0"
       [isExpanded]="getItemIsExpanded(item)"
       (toggleExpanded)="treeCtrl.toggleByItemValue($event)"
-      (setActive)="activeItemChanged.emit($event)"
+      (interaction)="handleInteraction($event, treeCtrl)"
       (goToParentItem)="goToParentItem.emit($event)"
       (goToRootItem)="goToRootItem.emit($event)"
     ></prizm-navigation-menu-item>

@@ -6,6 +6,8 @@ import {
   PolymorphModule,
   PrizmButtonModule,
   PrizmDialogModule,
+  PrizmInputCommonModule,
+  PrizmInputSelectModule,
   PrizmRadioButtonModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -25,6 +27,8 @@ import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-pa
     PrizmDialogModule,
     PrizmRadioButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(DialogComponent)),
+    PrizmInputCommonModule,
+    PrizmInputSelectModule,
   ],
   declarations: [
     PrizmDialogServiceExampleComponent,
