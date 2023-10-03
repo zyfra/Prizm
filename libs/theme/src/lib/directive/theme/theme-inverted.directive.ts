@@ -4,8 +4,8 @@ import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmThemeService } from '../../services/theme.service';
 import { PrizmTheme } from '../../types/theme';
 import { prizmObservable } from '@prizm-ui/core';
-import { combineLatest, Observable, ReplaySubject } from 'rxjs';
-import { PrizmThemeInvertedValues } from './model';
+import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
+import { PrizmThemeInvertedValuesService } from './theme-inverted-values.service';
 
 @Directive({
   selector: '[prizmThemeInverted]',
@@ -15,19 +15,12 @@ export class PrizmThemeInvertedDirective implements OnInit {
   readonly themeService: PrizmThemeService = inject(PrizmThemeService);
   readonly elementRef: ElementRef = inject(ElementRef);
   readonly destroy$: PrizmDestroyService = inject(PrizmDestroyService);
+  readonly themeInvertedValuesService: PrizmThemeInvertedValuesService = inject(
+    PrizmThemeInvertedValuesService
+  );
 
   @Output()
   public readonly prizmThemeChange = new EventEmitter<PrizmTheme>();
-
-  @Input()
-  @prizmObservable({
-    name: 'invertedValues$$',
-    subject: () => new ReplaySubject(1),
-  })
-  public invertedValues: PrizmThemeInvertedValues = {
-    dark: 'light',
-    light: 'dark',
-  };
 
   @Input()
   @prizmObservable({
@@ -36,16 +29,15 @@ export class PrizmThemeInvertedDirective implements OnInit {
   })
   public themeElement = this.themeService.rootElement;
 
-  private readonly invertedValues$$!: Observable<Record<string, string>>;
   private readonly themeElement$$!: Observable<HTMLElement>;
 
   public ngOnInit(): void {
-    combineLatest([this.invertedValues$$, this.themeElement$$])
+    combineLatest([this.themeInvertedValuesService.value$$, this.themeElement$$])
       .pipe(
-        switchMap(
-          ([invertedValues, themeElement]) =>
-            invertedValues?.['*'] ??
-            this.themeService.getInvertedThemeByElement$(themeElement, invertedValues)
+        switchMap(([invertedValues, themeElement]) =>
+          invertedValues?.['*']
+            ? of(invertedValues?.['*'])
+            : this.themeService.getInvertedThemeByElement$(themeElement, invertedValues)
         ),
         tap(newTheme => this.themeService.update(newTheme, this.elementRef.nativeElement)),
         tap(newTheme => this.prizmThemeChange.next(newTheme)),

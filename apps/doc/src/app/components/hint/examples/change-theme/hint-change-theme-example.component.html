@@ -1,0 +1,17 @@
+<button
+  [prizmHintShowDelay]="500"
+  [prizmHintHideDelay]="5000"
+  [prizmHint]="hintText"
+  prizmHintTheme="dark"
+  type="button"
+  prizmButton
+>
+  Button
+</button>
+
+<div>
+  <p>Update Value</p>
+  <button (click)="amount = amount + 1" type="button" prizmButton appearance="success">
+    Update Hint Text
+  </button>
+</div>

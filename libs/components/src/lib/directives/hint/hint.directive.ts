@@ -3,6 +3,7 @@ import {
   ElementRef,
   EventEmitter,
   inject,
+  Injector,
   Input,
   NgZone,
   OnChanges,
@@ -21,11 +22,12 @@ import {
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../modules/overlay';
-import { animationFrameScheduler, asyncScheduler, combineLatest, of, Subject } from 'rxjs';
+import { combineLatest, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
-import { delay, distinctUntilChanged, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { delay, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 
@@ -39,8 +41,8 @@ export class PrizmHintDirective<
   CONTEXT extends PrizmHintContext = PrizmHintContext
 > implements OnChanges, OnInit, OnDestroy
 {
-  private readonly zone = inject(NgZone);
   protected readonly options = inject(PRIZM_HINT_OPTIONS) as OPTIONS;
+  protected readonly injector = inject(Injector);
 
   @Input()
   @prizmDefaultProp()
@@ -53,6 +55,10 @@ export class PrizmHintDirective<
   @Input()
   @prizmDefaultProp()
   prizmHintId: string = 'hintId_' + prizmGenerateId();
+
+  @Input()
+  @prizmDefaultProp()
+  prizmHintTheme: PrizmTheme | null = null;
 
   @Input()
   @prizmDefaultProp()
@@ -203,9 +209,12 @@ export class PrizmHintDirective<
       .content(this.containerComponent, {
         content: () => this.content,
         id: this.prizmHintId,
+        hintTheme: this.prizmHintTheme,
         context: this.getContext(),
       })
-      .create();
+      .create({
+        parentInjector: this.injector,
+      });
     if (this.onHoverActive) {
       combineLatest([
         this.hoveredService.createHovered$(this.host),
@@ -225,7 +234,6 @@ export class PrizmHintDirective<
 
   protected getContext(): CONTEXT {
     return {
-      // mode: this.prizmHintMode,
       reposition: this.prizmAutoReposition,
       direction: this.prizmHintDirection,
       id: this.prizmHintId,

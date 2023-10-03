@@ -16,7 +16,7 @@ import { PrizmHintService } from './hint.service';
 import { PrizmOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
-import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeService } from '@prizm-ui/theme';
+import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeInvertedValuesService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-hint-container',
@@ -48,9 +48,10 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
 
   @Input()
   set hintTheme(theme: PrizmTheme) {
-    this.themeInvertedDirective.invertedValues = {
-      '*': theme,
-    };
+    this.themeInvertedValuesService.value$$.next({
+      ...this.themeInvertedValuesService.value$$.value,
+      '*': theme ?? null,
+    });
   }
 
   readonly themeInvertedDirective = new PrizmThemeInvertedDirective();
@@ -60,12 +61,10 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
     protected readonly prizmOverlayControl: PrizmOverlayControl,
-    public readonly themeService: PrizmThemeService,
+    public readonly themeInvertedValuesService: PrizmThemeInvertedValuesService,
     @Inject(PrizmHintService) private readonly hintService: PrizmHintService,
     @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService
-  ) {
-    // this.setLocalTheme();
-  }
+  ) {}
 
   public ngOnInit(): void {
     this.initPositionListener();
@@ -103,15 +102,5 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
         takeUntil(this.destroy$)
       )
       .subscribe();
-  }
-
-  private setLocalTheme() {
-    // TODO:  overlay theme absctraction needed
-    const globalTheme = this.themeService.getByElement();
-    const localTheme = globalTheme.includes('dark')
-      ? globalTheme.replace('dark', 'light')
-      : globalTheme.replace('light', 'dark');
-
-    this.themeService.update(localTheme, this.el.nativeElement);
   }
 }
