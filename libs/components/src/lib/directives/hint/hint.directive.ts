@@ -4,6 +4,7 @@ import {
   EventEmitter,
   inject,
   Input,
+  NgZone,
   OnChanges,
   OnDestroy,
   OnInit,
@@ -20,9 +21,9 @@ import {
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../modules/overlay';
-import { combineLatest, of, Subject } from 'rxjs';
+import { animationFrameScheduler, asyncScheduler, combineLatest, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
-import { delay, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { delay, distinctUntilChanged, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
 
@@ -38,6 +39,7 @@ export class PrizmHintDirective<
   CONTEXT extends PrizmHintContext = PrizmHintContext
 > implements OnChanges, OnInit, OnDestroy
 {
+  private readonly zone = inject(NgZone);
   protected readonly options = inject(PRIZM_HINT_OPTIONS) as OPTIONS;
 
   @Input()
@@ -160,7 +162,7 @@ export class PrizmHintDirective<
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay.open();
-    this.prizmHoveredChange$$.next(this.show_);
+    this.prizmHoveredChange$$.next(!this.show_);
   }
 
   protected close(): void {
@@ -200,7 +202,6 @@ export class PrizmHintDirective<
       })
       .content(this.containerComponent, {
         content: () => this.content,
-        // mode: () => this.prizmHintMode,
         id: this.prizmHintId,
         context: this.getContext(),
       })
