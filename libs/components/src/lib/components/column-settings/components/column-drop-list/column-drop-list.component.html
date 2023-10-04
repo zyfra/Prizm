@@ -5,6 +5,7 @@
       *ngFor="let column of columns"
       [cdkDragPreviewContainer]="themeRootElement"
       cdkDrag
+      cdkDragPreviewClass="prizm-high-index"
     >
       <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
       <ng-container *cdkDragPlaceholder>

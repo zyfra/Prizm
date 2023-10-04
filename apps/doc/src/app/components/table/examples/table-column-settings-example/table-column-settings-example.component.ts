@@ -105,6 +105,8 @@ export class TableColumnSettingsExampleComponent {
     stickyRight: [],
   };
 
+  private stickyLeftIds: string[] = [];
+  private stickyRightCols: string[] = [];
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
   public showColumnSettings = false;
 
@@ -114,16 +116,27 @@ export class TableColumnSettingsExampleComponent {
     this.showColumnSettings = !this.showColumnSettings;
   }
 
+  public isStickyLeft(id: string): boolean {
+    return this.stickyLeftIds.includes(id);
+  }
+
+  public isStickyRight(id: string): boolean {
+    return this.stickyRightCols.includes(id);
+  }
+
   public updateTableSettings(settings: PrizmTableSettings | null) {
     this.showColumnSettings = false;
     if (settings) {
+      this.stickyLeftIds = settings.stickyLeft.map(el => el.id);
+      this.stickyRightCols = settings.stickyRight.map(el => el.id);
       this.columns = [
-        ...settings.stickyLeft.map(el => el.id),
+        ...this.stickyLeftIds,
         ...settings.columns.filter(el => el.status === 'default').map(el => el.id),
-        ...settings.stickyRight.map(el => el.id),
+        ...this.stickyRightCols,
       ];
       this.settings = settings;
     }
+
     this.cdr.markForCheck();
   }
 }

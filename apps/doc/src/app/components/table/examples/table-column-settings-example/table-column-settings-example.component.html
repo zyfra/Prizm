@@ -1,22 +1,52 @@
 <prizm-widget [icons]="[iconBtnTemplate]" title="Управление колонками">
   <prizm-scrollbar class="scrollable">
-    <table class="table" [columns]="columns" prizmTable>
+    <table class="table" [columns]="columns" prizmStickyRelative prizmTable>
       <thead>
         <tr prizmThGroup>
-          <th *prizmHead="'code'" prizmTh>Код</th>
-          <th *prizmHead="'name'" prizmTh>Наименование</th>
+          <th
+            *prizmHead="'code'"
+            [prizmStickyLeft]="isStickyLeft('code')"
+            [style.z-index]="isStickyLeft('code') ? 22 : ''"
+            prizmTh
+          >
+            Код
+          </th>
+          <th
+            *prizmHead="'name'"
+            [prizmStickyLeft]="isStickyLeft('name')"
+            [style.z-index]="isStickyLeft('name') ? 22 : ''"
+            prizmTh
+          >
+            Наименование
+          </th>
           <th *prizmHead="'category'" prizmTh>Категория</th>
           <th *prizmHead="'count'" prizmTh>Количество</th>
           <th *prizmHead="'nameTwin'" prizmTh>Наименование 2</th>
-          <th *prizmHead="'categoryTwin'" prizmTh>Категория 2</th>
-          <th *prizmHead="'countTwin'" prizmTh>Количество 2</th>
+          <th
+            *prizmHead="'categoryTwin'"
+            [prizmStickyRight]="isStickyRight('categoryTwin')"
+            [style.z-index]="22"
+            prizmTh
+          >
+            Категория 2
+          </th>
+          <th
+            *prizmHead="'countTwin'"
+            [prizmStickyRight]="isStickyRight('countTwin')"
+            [style.z-index]="22"
+            prizmTh
+          >
+            Количество 2
+          </th>
         </tr>
       </thead>
 
       <tbody [data]="products" prizmTbody>
         <tr class="row" *prizmRow="let item of products; let i = index" prizmTr>
-          <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
-          <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
+          <td class="format__number" *prizmCell="'code'" [prizmStickyLeft]="isStickyLeft('code')" prizmTd>
+            {{ item.code | spaceNumber : '0.0-0' }}
+          </td>
+          <td *prizmCell="'name'" [prizmStickyLeft]="isStickyLeft('name')" prizmTd>{{ item.name }}</td>
           <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
           <td class="format__number" *prizmCell="'count'" prizmTd>
             {{ item.count | spaceNumber : '0.0-0' }}

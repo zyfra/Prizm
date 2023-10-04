@@ -2,13 +2,18 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
+import { CDK_DRAG_CONFIG, DragDropConfig } from '@angular/cdk/drag-drop';
+
+const DragConfig: DragDropConfig = {
+  zIndex: 9999,
+};
 
 @Component({
   selector: 'prizm-column-drop-list',
   templateUrl: './column-drop-list.component.html',
   styleUrls: ['./column-drop-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [],
+  providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }],
 })
 export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
   @Input() columns!: PrizmColumnSettings[];

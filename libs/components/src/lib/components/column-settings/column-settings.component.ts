@@ -58,7 +58,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   }
 
   ngAfterViewInit(): void {
-    this.themeRootElement = this.theme.rootElement;
+    this.themeRootElement = document.body; //this.theme.rootElement;
     if (this.stickySettings) {
       this.connectedColumns = [this.stickyLeftList as CdkDropList, this.stickyRightList as CdkDropList];
       this.connectedLeft = [this.columnList as CdkDropList, this.stickyRightList as CdkDropList];
