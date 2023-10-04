@@ -6,7 +6,7 @@
           <th
             *prizmHead="'code'"
             [prizmStickyLeft]="isStickyLeft('code')"
-            [style.z-index]="isStickyLeft('code') ? 22 : ''"
+            [stylesOnSticky]="{ 'z-index': 22 }"
             prizmTh
           >
             Код
@@ -14,7 +14,7 @@
           <th
             *prizmHead="'name'"
             [prizmStickyLeft]="isStickyLeft('name')"
-            [style.z-index]="isStickyLeft('name') ? 22 : ''"
+            [stylesOnSticky]="{ 'z-index': 22 }"
             prizmTh
           >
             Наименование
@@ -52,8 +52,15 @@
             {{ item.count | spaceNumber : '0.0-0' }}
           </td>
           <td *prizmCell="'nameTwin'" prizmTd>{{ item.name }}</td>
-          <td *prizmCell="'categoryTwin'" prizmTd>{{ item.category }}</td>
-          <td class="format__number" *prizmCell="'countTwin'" prizmTd>
+          <td *prizmCell="'categoryTwin'" [prizmStickyLeft]="isStickyRight('categoryTwin')" prizmTd>
+            {{ item.category }}
+          </td>
+          <td
+            class="format__number"
+            *prizmCell="'countTwin'"
+            [prizmStickyLeft]="isStickyRight('countTwin')"
+            prizmTd
+          >
             {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>

@@ -43,6 +43,9 @@ export class PrizmStickyDirective implements OnChanges {
   @Input()
   position = 'sticky';
 
+  @Input()
+  stylesOnSticky?: Record<string, unknown>;
+
   @HostBinding('style.position')
   get applySticky() {
     return this.prizmStickyLeft || this.prizmStickyRight || this.prizmStickyTop || this.prizmStickyBottom
@@ -50,6 +53,7 @@ export class PrizmStickyDirective implements OnChanges {
       : '';
   }
 
+  private setActiveStyle = false;
   private readonly rect$ = this.entries$.pipe(map(() => this.elRef.nativeElement.getBoundingClientRect()));
   private readonly destroyPrevious$ = new Subject<void>();
   private readonly changedSides = {
@@ -70,6 +74,32 @@ export class PrizmStickyDirective implements OnChanges {
     this.init();
   }
 
+  private setStylesIfExist(): void {
+    if (!this.prizmStickyRight && !this.prizmStickyLeft && !this.prizmStickyBottom && !this.prizmStickyTop)
+      return;
+
+    const keys = this.stylesOnSticky && Object.keys(this.stylesOnSticky);
+    if (!keys?.length) return;
+
+    keys.forEach((key: any) => {
+      this.elRef.nativeElement.style[key] = (this.stylesOnSticky?.[key] as string) ?? '';
+    });
+
+    this.setActiveStyle = true;
+  }
+
+  private clearStylesIfSet(): void {
+    if (!this.setActiveStyle) return;
+
+    const keys = this.stylesOnSticky && Object.keys(this.stylesOnSticky);
+    if (!keys?.length) return;
+    keys.forEach((key: any) => {
+      this.elRef.nativeElement.style[key] = '';
+    });
+
+    this.setActiveStyle = false;
+  }
+
   private init(): void {
     this.destroyPrevious$.next();
 
@@ -79,8 +109,9 @@ export class PrizmStickyDirective implements OnChanges {
         observeOn(animationFrameScheduler),
         filter(i => Boolean(i.width || i.height)),
         switchMap(result => {
-          if (this.prizmStickyRight || this.changedSides.right)
+          if (this.prizmStickyRight || this.changedSides.right) {
             this.renderer.removeStyle(this.elRef.nativeElement, 'right');
+          }
           if (this.prizmStickyLeft || this.changedSides.left)
             this.renderer.removeStyle(this.elRef.nativeElement, 'left');
           if (this.prizmStickyTop || this.changedSides.top)
@@ -88,17 +119,21 @@ export class PrizmStickyDirective implements OnChanges {
           if (this.prizmStickyBottom || this.changedSides.bottom)
             this.renderer.removeStyle(this.elRef.nativeElement, 'bottom');
 
+          this.clearStylesIfSet();
           return of(result).pipe(debounceTime(0));
         }),
         tap(() => {
           const parentRect = parent?.getBoundingClientRect();
           const elRect = this.elRef.nativeElement.getBoundingClientRect();
           let styleRight = 0;
+
+          this.setStylesIfExist();
+
           if (this.prizmStickyLeft) {
             const left = parentRect?.left ? elRect.left - parentRect.left : elRect.left;
             this.renderer.setStyle(this.elRef.nativeElement, 'left', prizmToPx(left));
             this.changedSides.left = true;
-          }
+          } else this.changedSides.left = true;
           if (this.prizmStickyRight) {
             styleRight = parseInt(this.elRef.nativeElement.style.right || '0');
             const parentRect = parent?.getBoundingClientRect();
@@ -114,17 +149,19 @@ export class PrizmStickyDirective implements OnChanges {
             }
             this.renderer.setStyle(this.elRef.nativeElement, 'right', prizmToPx(right));
             this.changedSides.right = true;
-          }
+          } else this.changedSides.right = true;
           if (this.prizmStickyTop) {
             const top = parentRect?.top ? elRect.top - parentRect.top : elRect.top;
             this.renderer.setStyle(this.elRef.nativeElement, 'top', prizmToPx(top));
             this.changedSides.top = true;
-          }
+          } else this.changedSides.top = true;
           if (this.prizmStickyBottom) {
             const bottom = parentRect?.bottom ? elRect.bottom - parentRect.bottom : elRect.bottom;
             this.renderer.setStyle(this.elRef.nativeElement, 'bottom', prizmToPx(bottom));
             this.changedSides.bottom = true;
-          }
+          } else this.changedSides.bottom = true;
+
+          this.setStylesIfExist();
         }),
 
         takeUntil(this.destroyPrevious$),
