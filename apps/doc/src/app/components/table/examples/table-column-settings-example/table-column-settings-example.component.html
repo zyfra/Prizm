@@ -5,7 +5,8 @@
         <tr prizmThGroup>
           <th
             *prizmHead="'code'"
-            [prizmStickyLeft]="isStickyLeft('code')"
+            [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="{ 'z-index': 22 }"
             prizmTh
           >
@@ -13,18 +14,41 @@
           </th>
           <th
             *prizmHead="'name'"
-            [prizmStickyLeft]="isStickyLeft('name')"
+            [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="{ 'z-index': 22 }"
             prizmTh
           >
             Наименование
           </th>
-          <th *prizmHead="'category'" prizmTh>Категория</th>
-          <th *prizmHead="'count'" prizmTh>Количество</th>
-          <th *prizmHead="'nameTwin'" prizmTh>Наименование 2</th>
+          <th
+            *prizmHead="'category'"
+            [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
+            prizmTh
+          >
+            Категория
+          </th>
+          <th
+            *prizmHead="'count'"
+            [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
+            prizmTh
+          >
+            Количество
+          </th>
+          <th
+            *prizmHead="'nameTwin'"
+            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
+            prizmTh
+          >
+            Наименование 2
+          </th>
           <th
             *prizmHead="'categoryTwin'"
-            [prizmStickyRight]="isStickyRight('categoryTwin')"
+            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
             [style.z-index]="22"
             prizmTh
           >
@@ -32,7 +56,8 @@
           </th>
           <th
             *prizmHead="'countTwin'"
-            [prizmStickyRight]="isStickyRight('countTwin')"
+            [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
             [style.z-index]="22"
             prizmTh
           >
@@ -43,22 +68,61 @@
 
       <tbody [data]="products" prizmTbody>
         <tr class="row" *prizmRow="let item of products; let i = index" prizmTr>
-          <td class="format__number" *prizmCell="'code'" [prizmStickyLeft]="isStickyLeft('code')" prizmTd>
+          <td
+            class="format__number"
+            *prizmCell="'code'"
+            [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
+            prizmTd
+          >
             {{ item.code | spaceNumber : '0.0-0' }}
           </td>
-          <td *prizmCell="'name'" [prizmStickyLeft]="isStickyLeft('name')" prizmTd>{{ item.name }}</td>
-          <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
-          <td class="format__number" *prizmCell="'count'" prizmTd>
+          <td
+            *prizmCell="'name'"
+            [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
+            prizmTd
+          >
+            {{ item.name }}
+          </td>
+          <td
+            *prizmCell="'category'"
+            [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
+            prizmTd
+          >
+            {{ item.category }}
+          </td>
+          <td
+            class="format__number"
+            *prizmCell="'count'"
+            [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
+            prizmTd
+          >
             {{ item.count | spaceNumber : '0.0-0' }}
           </td>
-          <td *prizmCell="'nameTwin'" prizmTd>{{ item.name }}</td>
-          <td *prizmCell="'categoryTwin'" [prizmStickyLeft]="isStickyRight('categoryTwin')" prizmTd>
+          <td
+            *prizmCell="'nameTwin'"
+            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
+            prizmTd
+          >
+            {{ item.name }}
+          </td>
+          <td
+            *prizmCell="'categoryTwin'"
+            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
+            prizmTd
+          >
             {{ item.category }}
           </td>
           <td
             class="format__number"
             *prizmCell="'countTwin'"
-            [prizmStickyLeft]="isStickyRight('countTwin')"
+            [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
             prizmTd
           >
             {{ item.count | spaceNumber : '0.0-0' }}

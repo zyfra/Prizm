@@ -42,6 +42,7 @@ import { TableIndexExampleComponent } from './examples/table-index-example/table
 import { TableTreePaginationExampleComponent } from './examples/table-tree-pagination-example/table-tree-pagination-example.component';
 import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
 import { TableColumnSettingsExampleComponent } from './examples/table-column-settings-example/table-column-settings-example.component';
+import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/column-sticky-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { TableColumnSettingsExampleComponent } from './examples/table-column-set
     TableSelectableMetaExampleComponent,
     TableDynamicDynamicRowGroupExampleComponent,
     TableColumnSettingsExampleComponent,
+    PrizmStickyColumnPipe,
   ],
   imports: [
     CommonModule,
