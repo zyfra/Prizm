@@ -19,6 +19,7 @@ export interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableColumnSettingsExampleComponent {
+  public stickyStyle = { 'z-index': 22 };
   public columns: string[] = ['code', 'name', 'category', 'count', 'nameTwin', 'categoryTwin', 'countTwin'];
 
   public settings: PrizmTableSettings = {
