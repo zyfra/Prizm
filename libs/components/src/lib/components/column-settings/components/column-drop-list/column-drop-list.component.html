@@ -3,9 +3,9 @@
     <div
       class="column-box prizm-font-main-body-14"
       *ngFor="let column of columns"
-      [cdkDragPreviewContainer]="themeRootElement"
       cdkDrag
       cdkDragPreviewClass="prizm-high-index"
+      prizmTheme
     >
       <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
       <ng-container *cdkDragPlaceholder>

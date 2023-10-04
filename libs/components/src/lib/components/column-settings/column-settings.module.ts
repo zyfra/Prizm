@@ -12,6 +12,7 @@ import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
 import { PrizmHintModule } from '../../directives/hint';
 import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
 import { FormsModule } from '@angular/forms';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { FormsModule } from '@angular/forms';
     PrizmPluckPipeModule,
     PrizmHintModule,
     FormsModule,
+    PrizmThemeModule,
   ],
   declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe, PrizmColumnDropListComponent],
   exports: [PrizmColumnSettingsComponent],

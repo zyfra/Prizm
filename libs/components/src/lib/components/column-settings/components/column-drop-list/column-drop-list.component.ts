@@ -17,7 +17,6 @@ const DragConfig: DragDropConfig = {
 })
 export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
   @Input() columns!: PrizmColumnSettings[];
-  @Input() themeRootElement!: HTMLElement;
   @Input() translations!: PrizmLanguageColumnSettings['columnSettings'];
 
   public isLastColumnShown = false;

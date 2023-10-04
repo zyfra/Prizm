@@ -17,7 +17,6 @@ import { Observable } from 'rxjs';
 import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
 import { cloneDeep } from 'lodash';
-import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-column-settings',
@@ -40,7 +39,6 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   @Input() headerSettings = false;
   @Output() isSettingsChanged = new EventEmitter<PrizmTableSettings | null>();
 
-  public themeRootElement!: HTMLElement;
   public isLastColumnShown = false;
   public connectedColumns: CdkDropList[] = [];
   public connectedLeft: CdkDropList[] = [];
@@ -51,14 +49,12 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   constructor(
     @Inject(PRIZM_COLUMN_SETTINGS)
     public readonly columnSettings$: Observable<PrizmLanguageColumnSettings['columnSettings']>,
-    public readonly theme: PrizmThemeService,
     private readonly cdr: ChangeDetectorRef
   ) {
     super();
   }
 
   ngAfterViewInit(): void {
-    this.themeRootElement = document.body; //this.theme.rootElement;
     if (this.stickySettings) {
       this.connectedColumns = [this.stickyLeftList as CdkDropList, this.stickyRightList as CdkDropList];
       this.connectedLeft = [this.columnList as CdkDropList, this.stickyRightList as CdkDropList];
