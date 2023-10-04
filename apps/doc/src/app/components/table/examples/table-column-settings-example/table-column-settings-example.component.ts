@@ -20,6 +20,7 @@ export interface ITableProduct {
 })
 export class TableColumnSettingsExampleComponent {
   public stickyStyle = { 'z-index': 22 };
+  public stickyHeaderStyle = { 'z-index': 23 };
   public columns: string[] = ['code', 'name', 'category', 'count', 'nameTwin', 'categoryTwin', 'countTwin'];
 
   public settings: PrizmTableSettings = {
