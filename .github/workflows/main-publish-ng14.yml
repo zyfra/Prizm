@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v1_version=$(
-            npm view @prizm-ui/components versions --tag ng14 --json | jq '([.[] | select(startswith("1.4.6-v1"))] | last // "1.4.6-v1.0")' 2>/dev/null || echo '1.4.6-v1.0'
+            npm view @prizm-ui/components versions --tag ng14 --json | jq '([.[] | select(startswith("1.4.7-v1"))] | last // "1.4.7-v1.0")' 2>/dev/null || echo '1.4.7-v1.0'
           )
           echo "LAST_V1_VERSION=${last_v1_version}" >> $GITHUB_ENV
 

@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/flag-icons",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "description": "Prizm UI flags icon pack library http://prizm.zyfra.com",
   "private": false,
   "publishConfig": {
@@ -10,7 +10,7 @@
   "peerDependencies": {
     "@angular/common": "^16.1.8",
     "@angular/core": "^16.1.8",
-    "@prizm-ui/core": "^3.0.3"
+    "@prizm-ui/core": "^3.0.4"
   },
   "dependencies": {
     "tslib": "^2.3.0"
