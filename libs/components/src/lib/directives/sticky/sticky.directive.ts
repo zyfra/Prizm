@@ -11,10 +11,9 @@ import {
 import { ResizeObserverService } from '@ng-web-apis/resize-observer';
 import { debounceTime, filter, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { prizmToPx } from '../../util';
-import { PrizmDestroyService, prizmElementResized$ } from '@prizm-ui/helpers';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmStickyRelativeService } from './sticky-relative.service';
-import { animationFrameScheduler, combineLatest, merge, of, Subject } from 'rxjs';
-import { result } from 'lodash';
+import { animationFrameScheduler, merge, of, Subject } from 'rxjs';
 
 @Directive({
   selector: '[prizmStickyLeft], [prizmStickyRight], [prizmStickyTop], [prizmStickyBottom]',
