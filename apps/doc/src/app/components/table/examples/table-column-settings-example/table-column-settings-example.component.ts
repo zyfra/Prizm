@@ -63,6 +63,7 @@ export class TableColumnSettingsExampleComponent {
     ],
     stickyLeft: [],
     stickyRight: [],
+    fixHeader: false,
   };
 
   public defaultSettings: PrizmTableSettings = {
@@ -105,6 +106,7 @@ export class TableColumnSettingsExampleComponent {
     ],
     stickyLeft: [],
     stickyRight: [],
+    fixHeader: true,
   };
 
   public stickyLeftIds: string[] = [];

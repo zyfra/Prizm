@@ -8,6 +8,7 @@
             [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Код
@@ -17,6 +18,7 @@
             [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Наименование
@@ -26,6 +28,7 @@
             [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Категория
@@ -35,6 +38,7 @@
             [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Количество
@@ -44,6 +48,7 @@
             [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Наименование 2
@@ -53,6 +58,7 @@
             [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Категория 2
@@ -62,6 +68,7 @@
             [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
             [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
           >
             Количество 2
@@ -161,6 +168,7 @@
     [defaultSettings]="defaultSettings"
     [settings]="settings"
     [stickySettings]="true"
+    [headerSettings]="true"
     (isSettingsChanged)="updateTableSettings($event)"
   ></prizm-column-settings>
 </ng-template>
