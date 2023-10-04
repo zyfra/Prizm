@@ -81,15 +81,12 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   }
 
   public showAll() {
-    this._settings.columns.forEach(el => (el.status = 'default'));
-    this.cdr.markForCheck();
+    this._settings.columns = this._settings.columns.map(el => {
+      return { ...el, status: 'default' };
+    });
   }
 
   public close(settings: PrizmTableSettings | null): void {
     this.isSettingsChanged.emit(settings);
-  }
-
-  private checkIsLastShown(): boolean {
-    return this._settings.columns.filter(el => el.status === 'default').length <= 1;
   }
 }
