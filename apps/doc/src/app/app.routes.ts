@@ -360,7 +360,9 @@ export const ROUTES: Routes = [
   {
     path: 'components/confirm-popup',
     loadChildren: () =>
-      import('./components/confirm-popup/confirm-popup.module').then(i => i.ConfirmPopupModule),
+      import('./components/confirm-popup/confirm-popup-example.module').then(
+        i => i.ConfirmPopupExampleModule
+      ),
     data: {
       title: 'Confirm Popup',
     },
