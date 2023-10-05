@@ -5,7 +5,6 @@ import {
   inject,
   Injector,
   Input,
-  NgZone,
   OnChanges,
   OnDestroy,
   OnInit,

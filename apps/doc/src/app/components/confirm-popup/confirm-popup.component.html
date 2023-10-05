@@ -33,6 +33,7 @@
         [prizmDocHostElement]="element"
         [prizmConfirmPopup]="content"
         [prizmAutoReposition]="prizmAutoReposition"
+        [prizmHintTheme]="prizmConfirmPopupTheme"
         [prizmConfirmPopupDirection]="prizmConfirmPopupDirection"
         [prizmConfirmPopupId]="prizmConfirmPopupId"
         [prizmConfirmPopupShowDelay]="prizmConfirmPopupShowDelay"
@@ -153,6 +154,16 @@
         documentationPropertyMode="input"
       >
         Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmConfirmPopupTheme"
+        [documentationPropertyValues]="prizmConfirmPopupThemeVariants"
+        documentationPropertyName="prizmHintTheme"
+        documentationPropertyType="PrizmTheme | null"
+        documentationPropertyMode="input"
+      >
+        ConfirmPopup Theme (set theme for modal container)
       </ng-template>
 
       <ng-template

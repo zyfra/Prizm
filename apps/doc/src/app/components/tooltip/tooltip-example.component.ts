@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
-  PRIZM_HINT_DEFAULT_OPTIONS,
   PRIZM_TOOLTIP_DEFAULT_OPTIONS,
   PrizmOverlayOutsidePlacement,
   PrizmTooltipOptions,
@@ -60,7 +59,14 @@ export class TooltipExampleComponent {
   public readonly prizmTooltipDirectionVariants: ReadonlyArray<PrizmTooltipOptions['direction']> =
     Object.values(PrizmOverlayOutsidePlacement);
 
-  public prizmTooltipDirection: PrizmTooltipOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
+  public prizmTooltipDirection: PrizmTooltipOptions['direction'] = PRIZM_TOOLTIP_DEFAULT_OPTIONS.direction;
+
+  public readonly prizmTooltipThemeVariants: ReadonlyArray<PrizmTooltipOptions['theme']> = [
+    null,
+    'dark',
+    'light',
+  ];
+  public prizmTooltipTheme: PrizmTooltipOptions['theme'] = PRIZM_TOOLTIP_DEFAULT_OPTIONS.theme;
 
   public prizmTooltipId = 'tooltip-id';
 

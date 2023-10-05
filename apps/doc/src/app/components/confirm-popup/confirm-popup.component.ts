@@ -25,6 +25,14 @@ export class ConfirmPopupComponent {
   public prizmConfirmPopupDirection: PrizmConfirmPopupOptions['direction'] =
     PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
+  public readonly prizmConfirmPopupThemeVariants: ReadonlyArray<PrizmConfirmPopupOptions['theme']> = [
+    null,
+    'dark',
+    'light',
+  ];
+  public prizmConfirmPopupTheme: PrizmConfirmPopupOptions['theme'] =
+    PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS.theme;
+
   public content = 'Тестовое содержимое';
   public prizmAutoReposition = false;
 
