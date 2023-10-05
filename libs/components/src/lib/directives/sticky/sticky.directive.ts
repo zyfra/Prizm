@@ -9,9 +9,9 @@ import {
   Renderer2,
 } from '@angular/core';
 import { ResizeObserverService } from '@ng-web-apis/resize-observer';
-import { debounceTime, filter, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { filter, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { prizmToPx } from '../../util';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { moveInEventLoopIteration, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmStickyRelativeService } from './sticky-relative.service';
 import { animationFrameScheduler, merge, of, Subject } from 'rxjs';
 
@@ -111,15 +111,17 @@ export class PrizmStickyDirective implements OnChanges {
           if (this.prizmStickyRight || this.changedSides.right) {
             this.renderer.removeStyle(this.elRef.nativeElement, 'right');
           }
-          if (this.prizmStickyLeft || this.changedSides.left)
+          if (this.prizmStickyLeft || this.changedSides.left) {
             this.renderer.removeStyle(this.elRef.nativeElement, 'left');
+          }
           if (this.prizmStickyTop || this.changedSides.top)
             this.renderer.removeStyle(this.elRef.nativeElement, 'top');
           if (this.prizmStickyBottom || this.changedSides.bottom)
             this.renderer.removeStyle(this.elRef.nativeElement, 'bottom');
 
           this.clearStylesIfSet();
-          return of(result).pipe(debounceTime(0));
+
+          return of(result).pipe(moveInEventLoopIteration(1));
         }),
         tap(() => {
           const parentRect = parent?.getBoundingClientRect();
