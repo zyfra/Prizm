@@ -69,7 +69,10 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
         }
 
         // Display heads in order as specified by table's `column` property.
-        return of(columns.map(c => heads.find(h => h.prizmHead === c))).pipe(moveInEventLoopIteration(2));
+        return concat(
+          of(new Array(columns.length).fill(null)),
+          of(columns.map(c => heads.find(h => h.prizmHead === c))).pipe(moveInEventLoopIteration(2))
+        );
       })
     ) as any;
   }
