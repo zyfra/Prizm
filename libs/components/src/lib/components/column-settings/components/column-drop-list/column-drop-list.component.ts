@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
@@ -15,7 +15,13 @@ const DragConfig: DragDropConfig = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }],
 })
-export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
+export class PrizmColumnDropListComponent extends PrizmAbstractTestId implements OnChanges {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.columns) {
+      this.isLastColumnShown = this.checkIsLastShown();
+    }
+  }
+
   @Input() columns!: PrizmColumnSettings[];
   @Input() translations!: PrizmLanguageColumnSettings['columnSettings'];
 
