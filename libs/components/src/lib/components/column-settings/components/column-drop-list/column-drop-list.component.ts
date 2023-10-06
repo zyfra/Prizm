@@ -16,18 +16,18 @@ const DragConfig: DragDropConfig = {
   providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }],
 })
 export class PrizmColumnDropListComponent extends PrizmAbstractTestId implements OnChanges {
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.columns) {
-      this.isLastColumnShown = this.checkIsLastShown();
-    }
-  }
-
   @Input() columns!: PrizmColumnSettings[];
   @Input() translations!: PrizmLanguageColumnSettings['columnSettings'];
 
   public isLastColumnShown = false;
 
   override readonly testId_ = 'ui_column_drop-list';
+
+  public ngOnChanges(changes: SimpleChanges): void {
+    if (changes.columns) {
+      this.isLastColumnShown = this.checkIsLastShown();
+    }
+  }
 
   public toggleColumnStatus(column: PrizmColumnSettings): void {
     if (column.status === 'default') {
