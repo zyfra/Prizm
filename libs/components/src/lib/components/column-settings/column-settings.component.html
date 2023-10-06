@@ -48,8 +48,10 @@
       [cdkDropListData]="_settings.columns"
       [cdkDropListConnectedTo]="connectedColumns"
       [columns]="_settings.columns"
+      [isLastColumnShown]="isLastColumnShown"
       [translations]="translations"
       (cdkDropListDropped)="drop($event, 'default')"
+      (statusChanged)="checkIsLastShown()"
       cdkDropList
     ></prizm-column-drop-list>
   </div>
