@@ -48,8 +48,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   constructor(
     @Inject(PRIZM_COLUMN_SETTINGS)
-    public readonly columnSettings$: Observable<PrizmLanguageColumnSettings['columnSettings']>,
-    private readonly cdr: ChangeDetectorRef
+    public readonly columnSettings$: Observable<PrizmLanguageColumnSettings['columnSettings']>
   ) {
     super();
   }
@@ -64,6 +63,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   public resetToDeafault(): void {
     this._settings = cloneDeep(this.defaultSettings as PrizmTableSettings);
+    this.checkIsLastShown();
   }
 
   public drop(event: CdkDragDrop<PrizmColumnSettings[]>, status: PrizmColumnStatus) {
@@ -77,6 +77,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
         event.previousIndex,
         event.currentIndex
       );
+      this.checkIsLastShown();
     }
   }
 
@@ -84,9 +85,16 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
     this._settings.columns = this._settings.columns.map(el => {
       return { ...el, status: 'default' };
     });
+    this.checkIsLastShown();
   }
 
   public close(settings: PrizmTableSettings | null): void {
     this.isSettingsChanged.emit(settings);
+  }
+
+  public checkIsLastShown(): void {
+    this.isLastColumnShown =
+      this._settings.columns.filter(el => el.status === 'default').length <= 1 &&
+      !(this._settings.stickyLeft.length || this._settings.stickyRight.length);
   }
 }

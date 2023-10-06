@@ -9,6 +9,7 @@ import { PrizmHintWithTemplateExampleComponent } from './examples/with-template/
 import { PrizmHintWithComponentExampleComponent } from './examples/with-component/hint-with-component-example.component';
 import { PrizmHintBaseExampleComponent } from './examples/base/hint-base-example.component';
 import { PrizmHintSomeComponent } from './examples/with-component/some.component';
+import { PrizmHintChangeThemeExampleComponent } from './examples/change-theme/hint-change-theme-example.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { PrizmHintSomeComponent } from './examples/with-component/some.component
     PrizmHintSomeComponent,
     PrizmHintBaseExampleComponent,
     HintExampleComponent,
+    PrizmHintChangeThemeExampleComponent,
   ],
   exports: [HintExampleComponent],
 })

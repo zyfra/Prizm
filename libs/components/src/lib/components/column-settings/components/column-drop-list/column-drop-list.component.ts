@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
@@ -15,19 +15,13 @@ const DragConfig: DragDropConfig = {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }],
 })
-export class PrizmColumnDropListComponent extends PrizmAbstractTestId implements OnChanges {
+export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
   @Input() columns!: PrizmColumnSettings[];
   @Input() translations!: PrizmLanguageColumnSettings['columnSettings'];
-
-  public isLastColumnShown = false;
+  @Input() isLastColumnShown = false;
+  @Output() statusChanged = new EventEmitter<void>();
 
   override readonly testId_ = 'ui_column_drop-list';
-
-  public ngOnChanges(changes: SimpleChanges): void {
-    if (changes.columns) {
-      this.isLastColumnShown = this.checkIsLastShown();
-    }
-  }
 
   public toggleColumnStatus(column: PrizmColumnSettings): void {
     if (column.status === 'default') {
@@ -35,11 +29,6 @@ export class PrizmColumnDropListComponent extends PrizmAbstractTestId implements
     } else if (column.status === 'hidden') {
       column.status = 'default';
     }
-
-    this.isLastColumnShown = this.checkIsLastShown();
-  }
-
-  private checkIsLastShown(): boolean {
-    return this.columns.filter(el => el.status === 'default').length <= 1;
+    this.statusChanged.emit();
   }
 }

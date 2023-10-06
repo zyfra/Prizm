@@ -1,0 +1,19 @@
+<button
+  [prizmHintShowDelay]="500"
+  [prizmHintHideDelay]="5000"
+  [prizmHint]="hintText"
+  [prizmHintTheme]="prizmHintTheme"
+  type="button"
+  prizmButton
+>
+  Button
+</button>
+
+<div>
+  <p>Change Theme</p>
+  <div class="box">
+    <button (click)="setTheme(null)" type="button" prizmButton appearance="primary">Default</button>
+    <button (click)="setTheme('dark')" type="button" prizmButton appearance="primary">Dark</button>
+    <button (click)="setTheme('light')" type="button" prizmButton appearance="primary">Light</button>
+  </div>
+</div>

@@ -63,6 +63,9 @@ export class HintExampleComponent {
 
   public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
 
+  public readonly prizmHintThemeVariants: ReadonlyArray<PrizmHintOptions['theme']> = [null, 'dark', 'light'];
+  public prizmHintTheme: PrizmHintOptions['theme'] = PRIZM_HINT_DEFAULT_OPTIONS.theme;
+
   public prizmHintId = 'hint-id';
 
   public prizmHintShowDelay: number = PRIZM_HINT_DEFAULT_OPTIONS.showDelay;
@@ -81,6 +84,11 @@ export class HintExampleComponent {
   readonly exampleBasic: TuiDocExample = {
     TypeScript: import('./examples/base/hint-base-example.component.ts?raw'),
     HTML: import('./examples/base/hint-base-example.component.html?raw'),
+  };
+
+  readonly exampleChangeTheme: TuiDocExample = {
+    TypeScript: import('./examples/change-theme/hint-change-theme-example.component.ts?raw'),
+    HTML: import('./examples/change-theme/hint-change-theme-example.component.html?raw'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {
