@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.5.0.next.1, 2.2.0.next.1, 3.1.0.next.1](https://github.com/zyfra/Prizm) (25-09-2023)
+## [1.5.0.next.1, 2.2.0.next.1, 3.1.0.next.1](https://github.com/zyfra/Prizm) (06-10-2023)
 
 ### Features
 
