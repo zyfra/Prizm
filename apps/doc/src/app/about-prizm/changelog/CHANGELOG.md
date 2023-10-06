@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0.next.1, 2.2.0.next.1, 3.1.0.next.1](https://github.com/zyfra/Prizm) (25-09-2023)
+
+### Features
+
+- feat(components/column-settings): add new component #82
+- feat(components/column-settings): add show, hide and reoder, add-all, reset settings features #82
+- feat(components/column-settings): add localization to new component #82
+- feat(components/column-settings): add sticky columns settings and example #82
+- feat(components/column-settings): add header settings and example #82
+- feat(ci): splitted steps
+- feat(theme): add new themes v3
+- feat(doc/dialog): dialog result handling demo IDPPRIZM-915
+- refactor(doc/dialog): dialog docs file name and selector for page has been changed
+- feat(theme): new inveted-theme-values directive IDPPRIZM-1817
+- feat(components/hint): new input to set theme for modal window if need specific IDPPRIZM-1817
+- feat(doc/hint/tooltip/cinfirm-popup): example for new input for modal window IDPPRIZM-1817
+- feat(doc/confirm-popup): refactor files names for doc example IDPPRIZM-1817
+
+### Bug fixes
+
+- fix(doc/live-demo): litle dark theme color fix #758
+- fix(doc/repo): outdated links removed #732
+
 ## [1.4.6, 2.1.8, 3.0.3](https://github.com/zyfra/Prizm) (25-09-2023)
 
 ### Features
