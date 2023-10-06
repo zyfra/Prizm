@@ -4,7 +4,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { PolymorphModule, PrizmButtonModule, PrizmConfirmPopupModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ConfirmPopupComponent } from './confirm-popup.component';
+import { ConfirmPopupExampleComponent } from './confirm-popup-example.component';
 import { PrizmConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';
 import { PrizmConfirmPopupSomeComponent } from './examples/with-component/some.component';
 import { PrizmConfirmPopupWithTemplateExampleComponent } from './examples/with-template/confirm-popup-with-template-example.component';
@@ -19,15 +19,15 @@ import { PrizmConfirmPopupWithComponentExampleComponent } from './examples/with-
     PolymorphModule,
     PrizmConfirmPopupModule,
     PrizmButtonModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(ConfirmPopupComponent)),
+    RouterModule.forChild(prizmDocGenerateRoutes(ConfirmPopupExampleComponent)),
   ],
   declarations: [
     PrizmConfirmPopupWithTemplateExampleComponent,
     PrizmConfirmPopupWithComponentExampleComponent,
     PrizmConfirmPopupSomeComponent,
     PrizmConfirmPopupBaseExampleComponent,
-    ConfirmPopupComponent,
+    ConfirmPopupExampleComponent,
   ],
-  exports: [ConfirmPopupComponent],
+  exports: [ConfirmPopupExampleComponent],
 })
-export class ConfirmPopupModule {}
+export class ConfirmPopupExampleModule {}

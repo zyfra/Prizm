@@ -23,6 +23,7 @@
         [prizmDocHostElement]="element"
         [prizmTooltip]="content"
         [prizmAutoReposition]="prizmAutoReposition"
+        [prizmHintTheme]="prizmTooltipTheme"
         [prizmTooltipDirection]="prizmTooltipDirection"
         [prizmTooltipId]="prizmTooltipId"
         [prizmTooltipShowDelay]="prizmTooltipShowDelay"
@@ -121,6 +122,16 @@
         documentationPropertyMode="input"
       >
         Tooltip direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmTooltipTheme"
+        [documentationPropertyValues]="prizmTooltipThemeVariants"
+        documentationPropertyName="prizmHintTheme"
+        documentationPropertyType="PrizmTheme | null"
+        documentationPropertyMode="input"
+      >
+        Tooltip Theme (set theme for modal container)
       </ng-template>
 
       <ng-template

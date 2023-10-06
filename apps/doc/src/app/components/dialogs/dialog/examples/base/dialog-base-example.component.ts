@@ -3,7 +3,7 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
 
 @Component({
   selector: 'prizm-dialog-service-example',
-  templateUrl: './base.component.html',
+  templateUrl: './dialog-base-example.component.html',
   styles: [
     `
       .box {

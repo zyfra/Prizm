@@ -4,7 +4,15 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
 
 @Component({
   selector: 'prizm-dialog-service-with-parent-example',
-  templateUrl: './with-parent.component.html',
+  templateUrl: './dialog-with-parent-example.component.html',
+  styles: [
+    `
+      .box {
+        display: flex;
+        gap: 1rem;
+      }
+    `,
+  ],
 })
 export class PrizmDialogServiceWithParentExampleComponent {
   @ViewChild('contentExample') contentExample!: TemplateRef<never>;
