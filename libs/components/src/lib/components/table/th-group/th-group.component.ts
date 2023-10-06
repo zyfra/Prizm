@@ -9,14 +9,15 @@ import {
   Input,
   QueryList,
 } from '@angular/core';
-import { prizmAutoEmit, prizmDefaultProp, prizmObservable } from '@prizm-ui/core';
-import { BehaviorSubject, Observable, of, ReplaySubject } from 'rxjs';
-import { map, startWith, switchMap } from 'rxjs/operators';
+import { prizmAutoEmit } from '@prizm-ui/core';
+import { BehaviorSubject, concat, Observable, of } from 'rxjs';
+import { startWith, switchMap } from 'rxjs/operators';
 
 import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmThComponent } from '../th/th.component';
+import { moveInEventLoopIteration } from '@prizm-ui/helpers';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -59,15 +60,19 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>> impl
     this.heads$ = this.heads.changes.pipe(
       startWith(null),
       switchMap(() => this.cols$),
-      map(cols => {
+      switchMap(cols => {
         const heads = this.heads.toArray();
         const columns = cols;
+
         if (!columns || columns.length === 0) {
-          return heads;
+          return of(heads);
         }
 
         // Display heads in order as specified by table's `column` property.
-        return columns.map(c => heads.find(h => h.prizmHead === c));
+        return concat(
+          of(new Array(columns.length).fill(null)),
+          of(columns.map(c => heads.find(h => h.prizmHead === c))).pipe(moveInEventLoopIteration(2))
+        );
       })
     ) as any;
   }

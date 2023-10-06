@@ -2,6 +2,7 @@ import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import {
+  PrizmLanguageColumnSettings,
   PrizmLanguageCore,
   PrizmLanguageCron,
   PrizmLanguageFileUpload,
@@ -46,3 +47,7 @@ export const PRIZM_SPIN_TEXTS = new InjectionToken<Observable<PrizmLanguageCore[
 export const PRIZM_SHORT_WEEK_DAYS = new InjectionToken<Observable<PrizmLanguageCore['shortWeekDays']>>(
   `calendars i18n texts`
 );
+
+export const PRIZM_COLUMN_SETTINGS = new InjectionToken<
+  Observable<PrizmLanguageColumnSettings['columnSettings']>
+>(`column settings texts`);

@@ -1,0 +1,59 @@
+@import '../../../styles/ui-local.less';
+
+.container {
+  width: 360px;
+  color: var(--prizm-text-contrast);
+
+  .header {
+    border-bottom: 1px solid var(--prizm-border-widget);
+    padding: var(--prizm-column-settings-header-padding, 14px 16px);
+    display: flex;
+    justify-content: space-between;
+
+    font-style: var(--prizm-column-settings-header-font-style, normal);
+    font-weight: var(--prizm-column-settings-header-font-weight, 600);
+    font-size: var(--prizm-column-settings-header-font-size, var(--prizm-dialog-font-size, 14px));
+    color: var(--prizm-column-settings-header-text, var(--prizm-text-contrast));
+  }
+
+  .title {
+    .ellipsis();
+    max-width: 70%;
+    display: flex;
+    align-items: center;
+  }
+  .section {
+    border-bottom: 1px solid var(--prizm-border-widget);
+
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: var(--prizm-column-settings-header-padding, 14px 16px);
+    }
+
+    &-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 16px;
+    }
+  }
+
+  .footer {
+    border-top: 1px solid var(--prizm-border-widget);
+    padding: var(--prizm-column-settings-footer-padding, 14px 16px);
+    max-width: 100%;
+    color: var(--prizm-column-settings-footer-text, var(--prizm-text-main));
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      gap: 8px;
+      button {
+        flex-grow: 1;
+      }
+    }
+  }
+}

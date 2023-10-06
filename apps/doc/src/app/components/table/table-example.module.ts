@@ -7,6 +7,7 @@ import { TableBasicExampleComponent } from './examples/table-basic-example/table
 import {
   PrizmButtonModule,
   PrizmCheckboxModule,
+  PrizmColumnSettingsModule,
   PrizmDropdownHostModule,
   PrizmIconModule,
   PrizmInputTextModule,
@@ -17,6 +18,7 @@ import {
   PrizmStickyModule,
   PrizmTableModule,
   PrizmToggleModule,
+  PrizmWidgetModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';
@@ -39,6 +41,9 @@ import { TableInheritColsExampleComponent } from './examples/table-inherit-cols/
 import { TableIndexExampleComponent } from './examples/table-index-example/table-index-example.component';
 import { TableTreePaginationExampleComponent } from './examples/table-tree-pagination-example/table-tree-pagination-example.component';
 import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
+import { TableColumnSettingsExampleComponent } from './examples/table-column-settings-example/table-column-settings-example.component';
+import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/pipes/column-sticky-pipe.pipe';
+import { PrizmStickyHeaderPipe } from './examples/table-column-settings-example/pipes/header-sticky-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -65,6 +70,9 @@ import { TableTreeExampleComponent } from './examples/table-tree-example/table-t
     TableStickyExampleComponent,
     TableSelectableMetaExampleComponent,
     TableDynamicDynamicRowGroupExampleComponent,
+    TableColumnSettingsExampleComponent,
+    PrizmStickyColumnPipe,
+    PrizmStickyHeaderPipe,
   ],
   imports: [
     CommonModule,
@@ -84,6 +92,8 @@ import { TableTreeExampleComponent } from './examples/table-tree-example/table-t
     PrizmDropdownHostModule,
     PrizmCheckboxModule,
     PrizmButtonModule,
+    PrizmWidgetModule,
+    PrizmColumnSettingsModule,
   ],
 })
 export class TableExampleModule {}
