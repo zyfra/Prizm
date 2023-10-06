@@ -13,6 +13,7 @@ import { PrizmHintModule } from '../../directives/hint';
 import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PolymorphModule } from '../../directives';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
     PrizmCardModule,
     PrizmButtonModule,
     PrizmToggleModule,
+    PolymorphModule,
     DragDropModule,
     PrizmIconModule,
     PrizmScrollbarModule,

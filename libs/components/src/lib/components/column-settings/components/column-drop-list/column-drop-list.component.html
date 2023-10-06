@@ -7,7 +7,7 @@
       cdkDragPreviewClass="prizm-high-index"
       prizmTheme
     >
-      <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+      <ng-container *ngTemplateOutlet="columnWrapper; context: { column: column }"></ng-container>
       <ng-container *cdkDragPlaceholder>
         <ng-container *ngTemplateOutlet="placeholder"></ng-container>
       </ng-container>
@@ -21,6 +21,12 @@
 
 <ng-template #placeholder>
   <div class="dropzone"></div>
+</ng-template>
+
+<ng-template #columnWrapper let-column="column">
+  <ng-container *polymorphOutlet="column?.template; context: column">
+    <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+  </ng-container>
 </ng-template>
 
 <ng-template #columnItem let-column="column">
