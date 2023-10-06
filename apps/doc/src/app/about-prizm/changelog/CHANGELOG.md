@@ -19,11 +19,13 @@ All notable changes to this project will be documented in this file.
 - feat(components/hint): new input to set theme for modal window if need specific IDPPRIZM-1817
 - feat(doc/hint/tooltip/cinfirm-popup): example for new input for modal window IDPPRIZM-1817
 - feat(doc/confirm-popup): refactor files names for doc example IDPPRIZM-1817
+- feat(theme): add input to inverted-theme
 
 ### Bug fixes
 
 - fix(doc/live-demo): litle dark theme color fix #758
 - fix(doc/repo): outdated links removed #732
+- fix(components/column-settings): last shown column checking #82
 
 ## [1.4.6, 2.1.8, 3.0.3](https://github.com/zyfra/Prizm) (25-09-2023)
 
