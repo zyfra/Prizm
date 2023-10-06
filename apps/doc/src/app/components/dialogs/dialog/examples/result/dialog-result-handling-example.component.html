@@ -1,0 +1,23 @@
+<button (click)="show()" type="button" prizmButton>Открыть диалог</button>
+<br />
+<br />
+<div *ngIf="result">
+  {{ 'Результат: ' + result }}
+</div>
+
+<ng-template #content>
+  <div class="content">
+    <prizm-input-layout label="Заголовок">
+      <input #input [formControl]="control" prizmInput placeholder="Введите текст" />
+    </prizm-input-layout>
+  </div>
+</ng-template>
+
+<ng-template #footerTemp let-completeWith="completeWith">
+  <div class="box">
+    <button (click)="completeWith(null)" prizmButton appearance="primary" size="xl">Закрыть</button>
+    <button (click)="completeWith(control.value)" prizmButton appearance="primary" size="xl">
+      Сохранить
+    </button>
+  </div>
+</ng-template>

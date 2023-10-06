@@ -10,7 +10,6 @@ import {
   PrizmOverscrollMode,
   PrizmAppearance,
   PrizmAppearanceType,
-  PrizmContent,
   IconDefs,
   PrizmSize,
 } from '@prizm-ui/components';
@@ -18,12 +17,12 @@ import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
 
 @Component({
-  selector: 'prizm-tooltip-example',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.less'],
+  selector: 'prizm-dialog-example',
+  templateUrl: './dialog-example.component.html',
+  styleUrls: ['./dialog-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DialogComponent {
+export class DialogExampleComponent {
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
@@ -73,18 +72,23 @@ export class DialogComponent {
   public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBasic: TuiDocExample = {
-    TypeScript: import('./examples/base/base.component.ts?raw'),
-    HTML: import('./examples/base/base.component.html?raw'),
+    TypeScript: import('./examples/base/dialog-base-example.component.ts?raw'),
+    HTML: import('./examples/base/dialog-base-example.component.html?raw'),
   };
 
   public readonly exampleWithButtons: TuiDocExample = {
-    TypeScript: import('./examples/with-buttons/with-buttons.component.ts?raw'),
-    HTML: import('./examples/with-buttons/with-buttons.component.html?raw'),
+    TypeScript: import('./examples/with-buttons/dialog-with-buttons-example.component.ts?raw'),
+    HTML: import('./examples/with-buttons/dialog-with-buttons-example.component.html?raw'),
   };
 
   public readonly exampleWithParent: TuiDocExample = {
-    TypeScript: import('./examples/with-parent/with-parent.component.ts?raw'),
-    HTML: import('./examples/with-parent/with-parent.component.html?raw'),
+    TypeScript: import('./examples/with-parent/dialog-with-parent-example.component.ts?raw'),
+    HTML: import('./examples/with-parent/dialog-with-parent-example.component.html?raw'),
+  };
+
+  public readonly exampleResulthandling: TuiDocExample = {
+    TypeScript: import('./examples/result/dialog-result-handling-example.component.ts?raw'),
+    HTML: import('./examples/result/dialog-result-handling-example.component.html?raw'),
   };
 
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}

@@ -1,5 +1,6 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PrizmOverlayOutsidePlacement } from '../../modules/overlay/models';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 export type PrizmHintMode = 'error' | 'dark' | 'light' | null;
 export interface PrizmHintOptions {
@@ -8,6 +9,7 @@ export interface PrizmHintOptions {
   // readonly mode: PrizmHintMode;
   readonly autoReposition: boolean;
   readonly direction: PrizmOverlayOutsidePlacement;
+  readonly theme: PrizmTheme | null;
 }
 
 export interface PrizmHintContext {
@@ -25,6 +27,7 @@ export interface PrizmHintContext {
 export const PRIZM_HINT_DEFAULT_OPTIONS: PrizmHintOptions = {
   showDelay: 500,
   hideDelay: 200,
+  theme: null,
   autoReposition: true,
   // mode: null,
   direction: PrizmOverlayOutsidePlacement.RIGHT,

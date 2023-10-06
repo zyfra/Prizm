@@ -4,9 +4,10 @@ import { PrizmHintContainerComponent } from './hint-container.component';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
-  imports: [CommonModule, PrizmScrollbarModule, PolymorphModule],
+  imports: [PrizmThemeModule, CommonModule, PrizmScrollbarModule, PolymorphModule],
   declarations: [PrizmHintDirective, PrizmHintContainerComponent],
   exports: [PrizmHintDirective],
 })
