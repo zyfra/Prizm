@@ -121,6 +121,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public setDisabledState(isDisabled: boolean) {
+    this.stateChanges.next();
     this.checkControlUpdate();
   }
 
@@ -141,6 +142,7 @@ export abstract class PrizmInputNgControl<T>
         : value;
 
     this.refreshLocalValue(this.fromControlValue(controlValue));
+    this.stateChanges.next();
   }
 
   private refreshLocalValue(value: T | null): void {
