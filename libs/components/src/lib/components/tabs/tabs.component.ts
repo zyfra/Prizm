@@ -58,12 +58,6 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   public menuElements!: QueryList<TemplateRef<PrizmTabComponent>>;
 
   override readonly testId_ = 'ui_tabs';
-  readonly showLine$: Observable<boolean> = this.tabsService.tabs$.pipe(
-    map(tabMap => {
-      const last = [...tabMap.values()].pop();
-      return last?.type === 'line';
-    })
-  );
 
   public openLeft = false;
   public openRight = false;

@@ -14,15 +14,6 @@
     position: relative;
     overflow: hidden;
 
-    .line {
-      position: absolute;
-      height: 2px;
-      background-color: var(--prizm-grey-g10-g4);
-      width: 100%;
-      z-index: 1;
-      bottom: 0;
-    }
-
     .tabs {
       height: 100%;
       display: flex;
@@ -53,7 +44,7 @@
       display: flex;
       align-items: center;
 
-      background: var(--prizm-bg-body);
+      background: var(--prizm-v3-background-fill-primary);
 
       position: absolute;
 
@@ -64,17 +55,6 @@
 
       .dropdown-host {
         height: 100%;
-      }
-
-      &__icon {
-        height: 100%;
-        width: @sizeS;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 2px;
       }
 
       &__settings {
@@ -117,13 +97,6 @@
         opacity: 1;
         pointer-events: auto;
         transition: 0.4s;
-
-        .control__chevron:hover,
-        .control__chevron:active {
-          .control__icon {
-            color: var(--prizm-index-plan);
-          }
-        }
       }
     }
   }
@@ -132,7 +105,6 @@
     height: @sizeS;
 
     .container {
-      .control__icon,
       .control__settings {
         width: @sizeS;
       }
@@ -144,9 +116,5 @@
   padding: 8px 0;
   display: flex;
   flex-direction: column;
-  background: var(--prizm-bg-body);
-}
-
-.control__chevron {
-  color: var(--prizm-text-subscript);
+  background: var(--prizm-v3-background-fill-primary);
 }
