@@ -17,13 +17,14 @@
       (prizmAfterViewInit)="tabsMoreDropdown = dropdownMore"
       prizmDropdownHostWidth="auto"
     >
-      <prizm-icon
-        class="control__settings"
-        [class.control__settings_active]="openLeft"
-        [size]="16"
+      <button
+        [icon]="'settings-more-vert'"
         (click)="openLeft = !openLeft"
-        iconClass="settings-more-vert"
-      ></prizm-icon>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
     </prizm-dropdown-host>
   </div>
 
@@ -40,13 +41,14 @@
       (prizmAfterViewInit)="tabsMoreDropdown = tabsDropdown"
       prizmDropdownHostWidth="auto"
     >
-      <prizm-icon
-        class="control__settings"
-        [class.control__settings_active]="openRight"
-        [size]="16"
+      <button
+        [icon]="'settings-more-vert'"
         (click)="openRight = !openRight"
-        iconClass="settings-more-vert"
-      ></prizm-icon>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
     </prizm-dropdown-host>
     <button
       [icon]="'arrows-chevron-right'"
