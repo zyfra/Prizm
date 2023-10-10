@@ -4,11 +4,12 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
+  Inject,
   Input,
   OnInit,
   Output,
 } from '@angular/core';
-import { AsyncSubject } from 'rxjs';
+import { AsyncSubject, Observable } from 'rxjs';
 import {
   PrizmPaginatorData,
   PrizmPaginatorOptions,
@@ -17,12 +18,16 @@ import {
 } from './interfaces/prizm-paginator.interface';
 import { PolymorphContent } from '../../directives';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmLanguagePaginator } from '@prizm-ui/i18n';
+import { PRIZM_PAGINATOR } from '../../tokens';
+import { prizmI18nInitWithKey } from '../../services';
 
 @Component({
   selector: 'prizm-paginator',
   templateUrl: './prizm-paginator.component.html',
   styleUrls: ['./prizm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [...prizmI18nInitWithKey(PRIZM_PAGINATOR, 'paginator')],
 })
 export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
@@ -100,7 +105,11 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
 
   public readonly initialized = this.initialized$$.asObservable();
 
-  constructor(private readonly changeDetectorRef: ChangeDetectorRef) {
+  constructor(
+    @Inject(PRIZM_PAGINATOR)
+    public readonly paginator$: Observable<PrizmLanguagePaginator['paginator']>,
+    private readonly changeDetectorRef: ChangeDetectorRef
+  ) {
     super();
   }
 
