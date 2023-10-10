@@ -16,89 +16,101 @@
   }
 
   &[data-appearance='primary'] {
-    background: var(--prizm-primary);
+    background: var(--prizm-v3-button-primary-solid-default);
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-primary);
+      border: 1px solid var(--prizm-v3-button-primary-solid-default);
       background: transparent;
-      color: var(--prizm-primary);
+      color: var(--prizm-v3-button-primary-solid-default);
+
+      &[data-state='hovered'],
+      &._focused_deleted {
+        background: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-primary-solid-hover);
+      }
 
       &[data-state='pressed'] {
-        border: 1px solid var(--prizm-primary-pressed);
+        border: 1px solid var(--prizm-v3-button-primary-solid-active);
       }
     }
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--prizm-primary);
+      color: var(--prizm-v3-button-primary-solid-default);
 
       &[data-state='hovered'],
       &._focused_deleted {
-        background: var(--prizm-primary-ghost-hover);
-        color: var(--prizm-primary);
+        background: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-primary-solid-hover);
       }
 
       &[data-state='pressed'] {
-        background: var(--prizm-primary-ghost-pressed);
-        color: var(--prizm-primary);
+        background: var(--prizm-v3-button-primary-ghost-active);
+        color: var(--prizm-v3-button-primary-solid-active);
       }
     }
 
     &[data-state='hovered'],
     &._focused_deleted {
-      background: var(--prizm-wrapper-hovered-background, var(--prizm-primary-hover));
-      color: var(--prizm-wrapper-hovered-color, var(--prizm-exceptions-white));
+      background: var(--prizm-wrapper-hovered-background, var(--prizm-v3-button-primary-solid-hover));
+      color: var(--prizm-wrapper-hovered-color, var(--prizm-v3-text-icon-exception));
     }
 
     &[data-state='pressed'] {
-      background: var(--prizm-primary-pressed);
-      color: var(--prizm-exceptions-white);
+      background: var(--prizm-v3-button-primary-solid-active);
+      color: var(--prizm-v3-text-icon-exception);
     }
   }
 
   &[data-appearance='secondary'] {
-    background: var(--prizm-secondary);
+    background: var(--prizm-v3-button-secondary-solid-default);
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-secondary);
+      border: 1px solid var(--prizm-v3-button-secondary-solid-default);
       background: transparent;
-      color: var(--prizm-secondary);
+      color: var(--prizm-v3-button-secondary-solid-default);
+
+      &[data-state='hovered'],
+      &._focused_deleted {
+        background: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-secondary-solid-hover);
+      }
 
       &[data-state='pressed'] {
-        border-color: var(--prizm-secondary-pressed);
+        border-color: var(--prizm-v3-button-secondary-solid-active);
       }
     }
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--prizm-secondary);
+      color: var(--prizm-v3-button-secondary-solid-default);
 
       &[data-state='hovered'],
       &._focused_deleted {
-        background: var(--prizm-secondary-ghost-hover);
-        color: var(--prizm-secondary);
+        background: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-secondary-solid-hover);
       }
 
       &[data-state='pressed'] {
-        background: var(--prizm-secondary-ghost-pressed);
-        color: var(--prizm-secondary);
+        background: var(--prizm-v3-button-secondary-ghost-active);
+        color: var(--prizm-v3-button-secondary-solid-active);
       }
     }
 
     &[data-state='hovered'],
     &._focused_deleted {
-      background: var(--prizm-secondary-hover);
-      color: white;
+      background: var(--prizm-v3-button-secondary-solid-hover);
+      color: var(--prizm-v3-text-icon-exception);
     }
 
     &[data-state='pressed'] {
-      background: var(--prizm-secondary-pressed);
-      color: white;
+      background: var(--prizm-v3-button-secondary-solid-active);
+      color: var(--prizm-v3-text-icon-exception);
     }
   }
 
   &[data-appearance='warning'] {
-    --base: var(--prizm-index-warning);
+    --base: var(--prizm-v3-button-warning-solid-default);
 
     background: var(--base);
 
@@ -107,8 +119,15 @@
       background: transparent;
       color: var(--base);
 
+      &[data-state='hovered'],
+      &._focused_deleted {
+        background: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-warning-solid-hover);
+      }
+
       &[data-state='pressed'] {
-        border-color: var(--prizm-warning-pressed);
+        background: var(--prizm-v3-button-warning-solid-active);
+        color: var(--prizm-v3-text-icon-exception);
       }
     }
 
