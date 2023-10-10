@@ -93,14 +93,6 @@ export class TableSortExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_SORT;
   public searchString: string | null = null;
   public searchAllowedProducts: ITableProduct[] = this.products;
-
-  public search<T extends keyof ITableProduct>(value: string, key: T): void {
-    this.searchString = value.toLowerCase();
-    this.searchAllowedProducts = this.products.filter(product =>
-      (product[key] as string).toLowerCase().includes(this.searchString as string)
-    );
-  }
-
   public initSortOptions: PrizmTableCellSorter<unknown>[] = [
     {
       options: {
@@ -109,4 +101,11 @@ export class TableSortExampleComponent {
       },
     },
   ];
+
+  public search<T extends keyof ITableProduct>(value: string, key: T): void {
+    this.searchString = value.toLowerCase();
+    this.searchAllowedProducts = this.products.filter(product =>
+      (product[key] as string).toLowerCase().includes(this.searchString as string)
+    );
+  }
 }
