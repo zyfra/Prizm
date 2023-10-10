@@ -1,5 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PrizmTableCellStatus, prizmTableDefaultColumnSort } from '@prizm-ui/components';
+import {
+  PrizmTableCellSorter,
+  PrizmTableCellStatus,
+  prizmTableDefaultColumnSort,
+} from '@prizm-ui/components';
 
 export interface ITableProduct {
   id?: number;
@@ -96,4 +100,13 @@ export class TableSortExampleComponent {
       (product[key] as string).toLowerCase().includes(this.searchString as string)
     );
   }
+
+  public initSortOptions: PrizmTableCellSorter<unknown>[] = [
+    {
+      options: {
+        id: 'code',
+        order: 'desc',
+      },
+    },
+  ];
 }
