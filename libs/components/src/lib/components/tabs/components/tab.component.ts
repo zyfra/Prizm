@@ -84,9 +84,11 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
     return !this.isFromMenuTab();
   }
 
-  public ngOnInit(): void {
-    merge(this.tabsService.removed$$.pipe(moveInEventLoopIteration(1), startWith(void 0)))
+  private initUpdateIndexOnDomUpdateListener(): void {
+    this.tabsService.removed$$
       .pipe(
+        switchMap(() => this.tabsService.changeParent$),
+        startWith(void 0),
         filter(() => this.isMainProjectedTab()),
         tap(() => {
           const currentDomIdx = Array.from(this.el.nativeElement.parentElement?.children ?? []).indexOf(
@@ -97,7 +99,9 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         takeUntil(this.destroy)
       )
       .subscribe();
+  }
 
+  private initClickListenerToSelectTab(): void {
     fromEvent(this.el.nativeElement, 'click')
       .pipe(
         switchMap(() => {
@@ -107,6 +111,11 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         takeUntil(this.destroy)
       )
       .subscribe();
+  }
+
+  public ngOnInit(): void {
+    this.initUpdateIndexOnDomUpdateListener();
+    this.initClickListenerToSelectTab();
   }
 
   public selectTab$(): Observable<unknown> {
