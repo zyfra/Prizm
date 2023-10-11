@@ -5,7 +5,7 @@
     "@angular/common": "^16.1.8",
     "@angular/core": "^16.1.8",
     "@prizm-ui/core": "^3.2.0",
-    "@prizm-ui/helpers": "^3.0.4"
+    "@prizm-ui/helpers": "^3.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
