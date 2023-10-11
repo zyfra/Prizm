@@ -86,7 +86,6 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   }
 
   public ngOnInit(): void {
-    this.tabsService.initObservingTabsParent(this.elRef.nativeElement);
     this.mutationObserver = new MutationObserver(() => this.mutationDetector$.next());
     this.resizeObserver = new ResizeObserver(() => this.mutationDetector$.next());
     this.mutationObserver.observe(this.tabsContainer.nativeElement, {

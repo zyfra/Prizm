@@ -10,10 +10,6 @@ export class PrizmTabsService implements OnDestroy {
   readonly tabs = new Map<number, PrizmTabComponent>();
   readonly changes$$ = new Subject<Map<number, PrizmTabComponent>>();
   readonly removed$$ = new Subject<PrizmTabComponent>();
-  private changeParent$_!: Observable<any>;
-  get changeParent$() {
-    return this.changeParent$_;
-  }
   readonly closeTab$$ = new Subject<Map<number, PrizmTabComponent>>();
   private readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
   readonly activeTabIdx$ = this.activeTabIdx$$.pipe(distinctUntilChanged());
@@ -28,11 +24,6 @@ export class PrizmTabsService implements OnDestroy {
 
   constructor(private readonly destroy: PrizmDestroyService) {}
 
-  public initObservingTabsParent(el: HTMLElement) {
-    this.changeParent$_ = prizmFromMutationObserver$(el, {
-      childList: true,
-    });
-  }
   public isActiveTab(tab: PrizmTabComponent): Observable<boolean> {
     return combineLatest([this.activeTabIdx$$, this.tabs$]).pipe(
       map(([activeTabIdx]) => {
