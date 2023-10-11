@@ -31,7 +31,7 @@ Dependencies:
 ```
 ➜ npm ls @prizm-ui/zyfra-components
 
-@prizm-ui/zyfra-components 2.2.0
+@prizm-ui/zyfra-components 2.3.0
 ```
 
 ```
