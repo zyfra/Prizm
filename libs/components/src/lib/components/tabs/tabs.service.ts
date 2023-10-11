@@ -2,16 +2,22 @@ import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, combineLatest, concat, Observable, of, Subject } from 'rxjs';
 import { distinctUntilChanged, filter, map, startWith, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabComponent } from './components/tab.component';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
 
 @Injectable()
 export class PrizmTabsService implements OnDestroy {
   readonly tabs = new Map<number, PrizmTabComponent>();
   readonly changes$$ = new Subject<Map<number, PrizmTabComponent>>();
+  readonly removed$$ = new Subject<PrizmTabComponent>();
+  private changeParent$_!: Observable<any>;
+  get changeParent$() {
+    return this.changeParent$_;
+  }
   readonly closeTab$$ = new Subject<Map<number, PrizmTabComponent>>();
   private readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
   readonly activeTabIdx$ = this.activeTabIdx$$.pipe(distinctUntilChanged());
+
   get activeTabIdx() {
     return this.activeTabIdx$$.value;
   }
@@ -22,6 +28,11 @@ export class PrizmTabsService implements OnDestroy {
 
   constructor(private readonly destroy: PrizmDestroyService) {}
 
+  public initObservingTabsParent(el: HTMLElement) {
+    this.changeParent$_ = prizmFromMutationObserver$(el, {
+      childList: true,
+    });
+  }
   public isActiveTab(tab: PrizmTabComponent): Observable<boolean> {
     return combineLatest([this.activeTabIdx$$, this.tabs$]).pipe(
       map(([activeTabIdx]) => {
@@ -47,8 +58,11 @@ export class PrizmTabsService implements OnDestroy {
     const idx = this.findTabIdx(tab);
     this.tabs.delete(idx);
     const currentTabIdx = this.findTabIdx(tab);
+
+    this.removed$$.next(tab);
     if (currentTabIdx === -1) return;
     this.correctActiveTabIdx(currentTabIdx);
+
     this.changes$$.next(this.tabs);
   }
 

@@ -4,7 +4,6 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  HostListener,
   Input,
   OnDestroy,
   OnInit,
@@ -14,10 +13,10 @@ import {
 import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
-import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
-import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
+import { combineLatest, fromEvent, merge, Observable, of, switchMap, timeout } from 'rxjs';
+import { moveInEventLoopIteration, PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
-import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
@@ -72,7 +71,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         tap(tab => {
           if (tab === this) this.tabsService.removeTab(tab);
         }),
-        takeUntil(this.destroy)
+        timeout(25)
       )
       .subscribe();
   }
@@ -86,7 +85,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   }
 
   public ngOnInit(): void {
-    this.tabsService.tabs$
+    merge(this.tabsService.removed$$.pipe(moveInEventLoopIteration(1), startWith(void 0)))
       .pipe(
         filter(() => this.isMainProjectedTab()),
         tap(() => {
