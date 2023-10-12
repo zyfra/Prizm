@@ -148,7 +148,7 @@ export class ru implements PrizmCronHRLocale {
     return ', в последний день месяца';
   }
   public commaOnTheLastWeekdayOfTheMonth() {
-    return ', в последний будний день месяца';
+    return ', в последний рабочий день месяца';
   }
   public commaDaysBeforeTheLastDayOfTheMonth(s?: string) {
     return getPhraseByNumber(s, [
@@ -158,10 +158,10 @@ export class ru implements PrizmCronHRLocale {
     ]);
   }
   public firstWeekday() {
-    return 'первый будний день';
+    return 'первый рабочий день';
   }
   public weekdayNearestDayX0() {
-    return 'ближайший будний день к %s числу';
+    return 'ближайший рабочий день к %s числу';
   }
   public commaOnTheX0OfTheMonth() {
     return ', в %s месяца';
