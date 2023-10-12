@@ -52,6 +52,9 @@ export class PrizmTabsService implements OnDestroy {
     if (tab !== this.getTabByIdx(idx)) return;
     this.tabs.delete(idx);
     this.updateTab(tab, toIndex);
+    if (this.activeTabIdx$$.value === idx) {
+      this.activeTabIdx$$.next(toIndex);
+    }
   }
 
   public updateTab(tab: PrizmTabComponent, idx?: number): void {
@@ -64,21 +67,19 @@ export class PrizmTabsService implements OnDestroy {
   public removeTab(tab: PrizmTabComponent): void {
     const idx = this.findTabIdx(tab);
     this.tabs.delete(idx);
-    const currentTabIdx = this.findTabIdx(tab);
-
     this.removed$$.next(tab);
-    if (currentTabIdx === -1) return;
-    this.correctActiveTabIdx(currentTabIdx);
-
-    this.changes$$.next(this.tabs);
+    const newIdx = this.correctActiveTabIdx(idx);
+    if (idx !== newIdx) this.changes$$.next(this.tabs);
   }
 
-  private correctActiveTabIdx(idx: number = this.activeTabIdx$$.value): void {
-    const isActiveTab = this.activeTabIdx$$.value === idx;
-    let newIdx = idx - 1;
-    if (isActiveTab) newIdx++;
-    if (!this.tabs.size) newIdx = 0;
-    if (isActiveTab && this.activeTabIdx$$.value !== newIdx) this.activeTabIdx$$.next(newIdx);
+  private correctActiveTabIdx(idx: number = this.activeTabIdx$$.value): number {
+    if (this.tabs.has(this.activeTabIdx$$.value)) return this.activeTabIdx$$.value;
+    if (!this.tabs.size) return -1;
+    const indexes = Array.from(this.tabs.keys()).sort();
+    const nextIdx = indexes.find(i => i > idx);
+    const newIdx = nextIdx ?? (Array.from(this.tabs.keys()).sort().pop() as number);
+    this.activeTabIdx$$.next(newIdx);
+    return newIdx;
   }
   public findTabIdx(tab: PrizmTabComponent): number {
     return Array.from(this.tabs.entries()).find(([, t]) => t === tab)?.[0] ?? -1;
