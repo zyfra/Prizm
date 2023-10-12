@@ -14,7 +14,12 @@ import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
 import { combineLatest, fromEvent, merge, Observable, of, switchMap, timeout } from 'rxjs';
-import { moveInEventLoopIteration, PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
+import {
+  Compare,
+  moveInEventLoopIteration,
+  PrizmDestroyService,
+  PrizmLetContextService,
+} from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
@@ -44,6 +49,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   }
   @Output() public closeTab = new EventEmitter<void>();
 
+  private currentDomIdx!: number;
   override readonly testId_ = 'ui_tab';
   readonly isActiveTab$: Observable<boolean> = combineLatest([
     this.idx$,
@@ -94,7 +100,12 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
           const currentDomIdx = Array.from(this.el.nativeElement.parentElement?.children ?? []).indexOf(
             this.el.nativeElement
           );
-          this.tabsService.updateTab(this, currentDomIdx);
+          if (Compare.isNotNullish(this.currentDomIdx) && currentDomIdx !== this.currentDomIdx) {
+            this.tabsService.moveTab(this.currentDomIdx, currentDomIdx, this);
+          } else {
+            this.tabsService.updateTab(this, currentDomIdx);
+          }
+          this.currentDomIdx = currentDomIdx;
         }),
         takeUntil(this.destroy)
       )

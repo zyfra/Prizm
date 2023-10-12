@@ -48,6 +48,12 @@ export class PrizmTabsService implements OnDestroy {
     return this.tabs.get(idx) as PrizmTabComponent;
   }
 
+  public moveTab(idx: number, toIndex: number, tab: PrizmTabComponent): void {
+    if (tab !== this.getTabByIdx(idx)) return;
+    this.tabs.delete(idx);
+    this.updateTab(tab, toIndex);
+  }
+
   public updateTab(tab: PrizmTabComponent, idx?: number): void {
     const tabIdx = typeof idx !== 'number' ? this.tabs.size : idx;
     if (this.tabs.get(tabIdx) === tab) return;
