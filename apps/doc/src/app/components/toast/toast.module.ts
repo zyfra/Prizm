@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { ToastComponent } from './toast.component';
-import { PrizmToastInfoExampleComponent } from './examples/message-info-example/message-success-example.component';
+import { PrizmToastInfoExampleComponent } from './examples/message-info-example/message-info-example.component';
 import {
   PrizmButtonModule,
   PrizmRadioButtonModule,
@@ -12,7 +12,7 @@ import {
 } from '@prizm-ui/components';
 import { PrizmToastWarningExampleComponent } from './examples/message-warning-example/message-warning-example.component';
 import { PrizmToastSuccessExampleComponent } from './examples/message-success-example/message-success-example.component';
-import { PrizmToastDangerExampleComponent } from './examples/message-danger-example/message-success-example.component';
+import { PrizmToastDangerExampleComponent } from './examples/message-danger-example/message-danger-example.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToastExampleComponent } from './examples/toast-example/toast-example.component';
 import { PrizmToastInnerHtmlExampleComponent } from './examples/inner-html/toast-inner-html-example.component';

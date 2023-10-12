@@ -2,6 +2,81 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.5.0.next.1, 2.2.0.next.1, 3.1.0.next.1](https://github.com/zyfra/Prizm) (06-10-2023)
+
+### Features
+
+- feat(components/column-settings): add new component #82
+- feat(components/column-settings): add show, hide and reoder, add-all, reset settings features #82
+- feat(components/column-settings): add localization to new component #82
+- feat(components/column-settings): add sticky columns settings and example #82
+- feat(components/column-settings): add header settings and example #82
+- feat(ci): splitted steps
+- feat(theme): add new themes v3
+- feat(doc/dialog): dialog result handling demo IDPPRIZM-915
+- refactor(doc/dialog): dialog docs file name and selector for page has been changed
+- feat(theme): new inveted-theme-values directive IDPPRIZM-1817
+- feat(components/hint): new input to set theme for modal window if need specific IDPPRIZM-1817
+- feat(doc/hint/tooltip/cinfirm-popup): example for new input for modal window IDPPRIZM-1817
+- feat(doc/confirm-popup): refactor files names for doc example IDPPRIZM-1817
+- feat(theme): add input to inverted-theme
+
+### Bug fixes
+
+- fix(doc/live-demo): litle dark theme color fix #758
+- fix(doc/repo): outdated links removed #732
+- fix(components/column-settings): last shown column checking #82
+
+## [1.4.6, 2.1.8, 3.0.3](https://github.com/zyfra/Prizm) (25-09-2023)
+
+### Features
+
+- feat(components/table): it was added support string for getRowId #692
+- feat(components/navigation-menu): it was added group support #711
+
+### Bug fixes
+
+- fix(components/widget): widget header height #251
+- fix(components/toast): toast styles #305
+- fix(doc/dropdown): color for example with context small style fix
+- fix(components/confirm-popup/tooltip/hint) styles for tooltip and hint with other components #340
+- refactor(doc/tooltip/hint) file names for tooltip and hint example has been changed #340
+- fix(components/confirm-popup/tooltip/hint) outline on focuse removed #658
+- fix(components/paginator): custom buttons replaced by prizm ones #743
+- fix(components/tree): tree expand all feature has been changed #739
+- fix(components/input-layout-date-relative): relative date input validation #566
+- fix(components/navigation-menu): emit expandedItemsMapChanged on "class all" #709
+- fix(components/overlay): clear cache cached inputs #697
+
+## [1.4.5-next.2, 2.1.7-next.2, 3.0.2-next.2](https://github.com/zyfra/Prizm) (07-09-2023)
+
+### Features
+
+- feat(doc/example): open example in stackblitz in v1 #700
+- feat(doc/example): open example in stackblitz in v2 #701
+- feat(doc/example): open example in stackblitz in v3 #702
+- feat(doc/example): open base demo from list #675 #676 #677
+- feat(components/input-select): it was added observable support for stringify input #682
+
+### Bug fixes
+
+- fix(docs/input-mask): description for inputMask hint options added to documentation #253
+- fix(docs/carousel): description for carousel updated in documentation #253
+- fix(doc/version-manager): fix colors for version manager in dark mode #683
+- fix(icons): class names for font usage icons logistics was changed #650
+- fix(doc): contributing page markup changed #651
+- fix(doc): codestyle page markup changed #651
+- fix(components/dialog): default text styles for footer in dialog changed, #626
+
+## [1.4.5-next.1, 2.1.7-next.1, 3.0.2-next.1](https://github.com/zyfra/Prizm) (07-09-2023)
+
+### Features
+
+- feat(doc/input-number): it was added new api params #615
+- feat(doc/input): it was added new api params #615
+- feat(components/input-number): it was added new api to control hint #615
+- feat(components/input): it was added new api to control hint #615
+
 ## [1.4.4, 2.1.6, 3.0.1](https://github.com/zyfra/Prizm) (31-08-2023)
 
 ### Features

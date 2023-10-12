@@ -19,8 +19,8 @@ export class ToastComponent {
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleMessageInfo: TuiDocExample = {
-    TypeScript: import('./examples/message-info-example/message-success-example.component.ts?raw'),
-    HTML: import('./examples/message-info-example/message-success-example.component.html?raw'),
+    TypeScript: import('./examples/message-info-example/message-info-example.component.ts?raw'),
+    HTML: import('./examples/message-info-example/message-info-example.component.html?raw'),
   };
 
   readonly exampleMessageWarning: TuiDocExample = {
@@ -29,8 +29,8 @@ export class ToastComponent {
   };
 
   readonly exampleMessageDanger: TuiDocExample = {
-    TypeScript: import('./examples/message-danger-example/message-success-example.component.ts?raw'),
-    HTML: import('./examples/message-danger-example/message-success-example.component.html?raw'),
+    TypeScript: import('./examples/message-danger-example/message-danger-example.component.ts?raw'),
+    HTML: import('./examples/message-danger-example/message-danger-example.component.html?raw'),
   };
 
   readonly exampleMessageSuccess: TuiDocExample = {

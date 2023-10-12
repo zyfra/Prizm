@@ -1,21 +1,14 @@
 import { Component, ElementRef, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-sidebar-with-parent-example',
   templateUrl: './with-parent.component.html',
-  styles: [
-    `
-      .box {
-        display: flex;
-        gap: 1rem;
-      }
-    `,
-  ],
 })
 export class PrizmSidebarWithParentExampleComponent {
-  @ViewChild('contentExample') contentExample!: TemplateRef<any>;
-  @ViewChild('parentPanel') parentPanel!: ElementRef<any>;
+  @ViewChild('contentExample') contentExample!: TemplateRef<never>;
+  @ViewChild('parentPanel') parentPanel!: ElementRef<never>;
   public positionVariants: PrizmOverlayInsidePlacement[] = [
     PrizmOverlayInsidePlacement.LEFT,
     PrizmOverlayInsidePlacement.RIGHT,
@@ -25,6 +18,14 @@ export class PrizmSidebarWithParentExampleComponent {
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
   public dismissible = false;
+
+  readonly items = [
+    'One',
+    'Two',
+    'Three',
+    'Very long text with a lot of characters and spaces and other stuff and things',
+  ];
+  readonly control = new FormControl(this.items[1], [Validators.required]);
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
@@ -42,16 +43,9 @@ export class PrizmSidebarWithParentExampleComponent {
         dismissible: this.dismissible,
         size: 'm',
         parentContainer: this.parentPanel.nativeElement,
-        styleVars: (
-          [
-            PrizmOverlayInsidePlacement.TOP,
-            PrizmOverlayInsidePlacement.BOTTOM,
-          ] as Array<PrizmOverlayInsidePlacement>
-        ).includes(this.position)
-          ? {
-              sidebarContentPadding: '5px 10px',
-            }
-          : undefined,
+        styleVars: {
+          sidebarContentPadding: '5px 10px',
+        },
       })
       .subscribe();
   }

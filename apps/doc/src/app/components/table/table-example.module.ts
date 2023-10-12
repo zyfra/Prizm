@@ -7,6 +7,7 @@ import { TableBasicExampleComponent } from './examples/table-basic-example/table
 import {
   PrizmButtonModule,
   PrizmCheckboxModule,
+  PrizmColumnSettingsModule,
   PrizmDropdownHostModule,
   PrizmIconModule,
   PrizmInputTextModule,
@@ -17,6 +18,7 @@ import {
   PrizmStickyModule,
   PrizmTableModule,
   PrizmToggleModule,
+  PrizmWidgetModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';
@@ -30,7 +32,6 @@ import { TableBorderStyleExampleComponent } from './examples/table-border-style-
 import { TableSelectableMetaExampleComponent } from './examples/table-selectable-meta/table-selectable-meta-example.component';
 import { TableSortExampleComponent } from './examples/table-sort-example/table-sort-example.component';
 import { TableServerSortExampleComponent } from './examples/table-server-sort-example/table-server-sort-example.component';
-import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
 import { TableEmptyExampleComponent } from './examples/table-empty-example/table-empty-example.component';
 import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
 import { TableStickyExampleComponent } from './examples/table-sticky-example/table-sticky-example.component';
@@ -38,10 +39,17 @@ import { TableDataSourceExampleComponent } from './examples/table-data-source-ex
 import { TableDynamicDynamicRowGroupExampleComponent } from './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component';
 import { TableInheritColsExampleComponent } from './examples/table-inherit-cols/table-inherit-cols-example.component';
 import { TableIndexExampleComponent } from './examples/table-index-example/table-index-example.component';
+import { TableTreePaginationExampleComponent } from './examples/table-tree-pagination-example/table-tree-pagination-example.component';
+import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
+import { TableColumnSettingsExampleComponent } from './examples/table-column-settings-example/table-column-settings-example.component';
+import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/pipes/column-sticky-pipe.pipe';
+import { PrizmStickyHeaderPipe } from './examples/table-column-settings-example/pipes/header-sticky-pipe.pipe';
 
 @NgModule({
   declarations: [
+    TableTreeExampleComponent,
     TableIndexExampleComponent,
+    TableTreePaginationExampleComponent,
     TableInheritColsExampleComponent,
     TableExampleComponent,
     TableBasicExampleComponent,
@@ -58,10 +66,13 @@ import { TableIndexExampleComponent } from './examples/table-index-example/table
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
-    TableTreeExampleComponent,
+    TableTreePaginationExampleComponent,
     TableStickyExampleComponent,
     TableSelectableMetaExampleComponent,
     TableDynamicDynamicRowGroupExampleComponent,
+    TableColumnSettingsExampleComponent,
+    PrizmStickyColumnPipe,
+    PrizmStickyHeaderPipe,
   ],
   imports: [
     CommonModule,
@@ -81,6 +92,8 @@ import { TableIndexExampleComponent } from './examples/table-index-example/table
     PrizmDropdownHostModule,
     PrizmCheckboxModule,
     PrizmButtonModule,
+    PrizmWidgetModule,
+    PrizmColumnSettingsModule,
   ],
 })
 export class TableExampleModule {}

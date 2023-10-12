@@ -1,0 +1,82 @@
+<div class="container" *prizmLet="columnSettings$ | async as translations">
+  <div class="header">
+    <div class="title prizm-font-title-h4">{{ translations | prizmPluck : ['title'] }}</div>
+    <button
+      *ngIf="defaultSettings"
+      (click)="resetToDeafault()"
+      prizmButton
+      appearanceType="ghost"
+      appearance="danger"
+      size="m"
+    >
+      {{ translations | prizmPluck : ['resetBtn'] }}
+    </button>
+  </div>
+  <div class="section" *ngIf="headerSettings">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['subTitle'] }}</div>
+    </div>
+    <div class="section-toggle">
+      <prizm-toggle [(ngModel)]="_settings.fixHeader" size="m"></prizm-toggle>
+      <span class="prizm-font-main-body-14">{{ translations | prizmPluck : ['fixHeaderToggle'] }}</span>
+    </div>
+  </div>
+  <div class="section" *ngIf="stickySettings">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyLeft'] }}</div>
+    </div>
+    <prizm-column-drop-list
+      class="column-list"
+      #stickyLeftList="cdkDropList"
+      [cdkDropListData]="_settings.stickyLeft"
+      [cdkDropListConnectedTo]="connectedLeft"
+      [columns]="_settings.stickyLeft"
+      [translations]="translations"
+      (cdkDropListDropped)="drop($event, 'sticky')"
+      cdkDropList
+    ></prizm-column-drop-list>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="title prizm-font-title-h4">{{ translations | prizmPluck : ['mainColumns'] }}</div>
+      <button (click)="showAll()" prizmButton appearanceType="ghost" appearance="secondary" size="m">
+        {{ translations | prizmPluck : ['showAllBtn'] }}
+      </button>
+    </div>
+    <prizm-column-drop-list
+      #columnList="cdkDropList"
+      [cdkDropListData]="_settings.columns"
+      [cdkDropListConnectedTo]="connectedColumns"
+      [columns]="_settings.columns"
+      [isLastColumnShown]="isLastColumnShown"
+      [translations]="translations"
+      (cdkDropListDropped)="drop($event, 'default')"
+      (statusChanged)="checkIsLastShown()"
+      cdkDropList
+    ></prizm-column-drop-list>
+  </div>
+  <div class="section" *ngIf="stickySettings">
+    <div class="section-header">
+      <div class="prizm-font-title-h4">{{ translations | prizmPluck : ['stickyRight'] }}</div>
+    </div>
+    <prizm-column-drop-list
+      #stickyRightList="cdkDropList"
+      [cdkDropListData]="_settings.stickyRight"
+      [cdkDropListConnectedTo]="connectedRight"
+      [columns]="_settings.stickyRight"
+      [translations]="translations"
+      (cdkDropListDropped)="drop($event, 'sticky')"
+      cdkDropList
+    ></prizm-column-drop-list>
+  </div>
+  <div class="footer prizm-font-btn-links-14">
+    <div class="buttons">
+      <button (click)="close(null)" appearance="secondary" appearanceType="ghost" size="m" prizmButton>
+        {{ translations | prizmPluck : ['cancelBtn'] }}
+      </button>
+      <button (click)="close(_settings)" appearance="primary" size="m" prizmButton>
+        {{ translations | prizmPluck : ['saveBtn'] }}
+      </button>
+    </div>
+  </div>
+</div>

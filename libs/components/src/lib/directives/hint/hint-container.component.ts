@@ -16,7 +16,7 @@ import { PrizmHintService } from './hint.service';
 import { PrizmOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
-import { PrizmHintOptions } from './hint-options';
+import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeInvertedValuesService } from '@prizm-ui/theme';
 
 @Component({
   selector: 'prizm-hint-container',
@@ -42,22 +42,26 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   @Input()
   content!: () => PolymorphContent;
 
-  // @Input()
-  // mode: () => PrizmHintOptions['mode'];
-
   @Input()
   @prizmDefaultProp()
   context: CONTEXT = {} as CONTEXT;
 
-  // @HostListener('attr.mode') get getMode(): PrizmHintOptions['mode'] {
-  //   return this.mode();
-  // }
+  @Input()
+  set hintTheme(theme: PrizmTheme) {
+    this.themeInvertedValuesService.value$$.next({
+      ...this.themeInvertedValuesService.value$$.value,
+      '*': theme ?? null,
+    });
+  }
+
+  readonly themeInvertedDirective = new PrizmThemeInvertedDirective();
 
   constructor(
     protected readonly destroy$: PrizmDestroyService,
     protected readonly el: ElementRef,
     protected readonly renderer2: Renderer2,
     protected readonly prizmOverlayControl: PrizmOverlayControl,
+    public readonly themeInvertedValuesService: PrizmThemeInvertedValuesService,
     @Inject(PrizmHintService) private readonly hintService: PrizmHintService,
     @Inject(PrizmHoveredService) private readonly hoveredService: PrizmHoveredService
   ) {}
@@ -65,6 +69,7 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   public ngOnInit(): void {
     this.initPositionListener();
     this.initHoverListener();
+    this.themeInvertedDirective.ngOnInit();
   }
 
   public ngAfterViewInit(): void {

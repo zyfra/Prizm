@@ -107,18 +107,20 @@ export const MOKED_ITEMS: CustomItem[] = [
       },
       {
         id: v4(),
-        text: '2 (text)',
+        text: '2 (text) [a group with nested group items]',
         icon: 'documents_folders_folder',
+        isGroup: true,
         children: [
           {
             id: v4(),
-            text: '2-1 (text)',
+            text: '2-1 (text) [not a group]',
             icon: 'documents_folders_folder',
           },
           {
             id: v4(),
-            text: '2-2 (text)',
+            text: '2-2 (text) [a group]',
             icon: 'documents_folders_folder',
+            isGroup: true,
             children: [
               {
                 id: v4(),

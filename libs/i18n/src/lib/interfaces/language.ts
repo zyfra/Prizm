@@ -8,6 +8,7 @@ export interface PrizmLanguageFileUpload {
   fileUpload: {
     dropzone__title: string;
     dropzone__description: string;
+    btn__select: string;
   };
 }
 export interface PrizmLanguageInputLayoutDateRelative {
@@ -26,6 +27,23 @@ export interface PrizmLanguageCron {
     day: {
       every: string;
     };
+  };
+}
+
+export interface PrizmLanguageColumnSettings {
+  columnSettings: {
+    title: string;
+    subTitle: string;
+    resetBtn: string;
+    showAllBtn: string;
+    cancelBtn: string;
+    saveBtn: string;
+    fixHeaderToggle: string;
+    stickyLeft: string;
+    stickyRight: string;
+    dropzone: string;
+    mainColumns: string;
+    disabledHint: string;
   };
 }
 
@@ -190,4 +208,5 @@ export interface PrizmLanguage
     PrizmLanguageMeta,
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
-    PrizmLanguageFileUpload {}
+    PrizmLanguageFileUpload,
+    PrizmLanguageColumnSettings {}

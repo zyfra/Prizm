@@ -1,13 +1,16 @@
 :host {
   display: inline-block;
   padding: var(--prizm-tooltip-margin, 8px);
-  color: var(--prizm-tooltip-container-text, var(--prizm-grey-g12-g2));
+  color: var(--prizm-tooltip-container-text, var(--prizm-grey-g2-g12));
   font-size: var(--prizm-tooltip-container-font-size, 12px);
 
   prizm-scrollbar,
   .box {
     max-height: var(--prizm-tooltip-container-max-height, 90vh);
     max-width: var(--prizm-tooltip-container-max-width, 288px);
+    &:focus {
+      outline: none;
+    }
   }
 
   .box {
@@ -16,12 +19,12 @@
     position: relative;
     padding: var(--prizm-tooltip-container-padding, 16px);
     border-radius: var(--prizm-tooltip-container-border-radius, 2px);
-    background-color: var(--prizm-tooltip-container-background, var(--prizm-grey-g3-g11));
+    background-color: var(--prizm-tooltip-container-background, var(--prizm-grey-g11-g3));
   }
 
   .arrow-icon {
     position: absolute;
-    color: var(--prizm-tooltip-container-background, var(--prizm-grey-g3-g11));
+    color: var(--prizm-tooltip-container-background, var(--prizm-grey-g11-g3));
     font-size: 20px;
     display: block;
   }

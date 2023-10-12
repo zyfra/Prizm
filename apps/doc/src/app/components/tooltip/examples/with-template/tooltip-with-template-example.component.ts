@@ -7,6 +7,7 @@ import { PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
   styles: [
     `
       .box {
+        padding: 8px;
         .title {
           font-size: 14px;
           font-weight: 500;
@@ -15,6 +16,10 @@ import { PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
         a {
           color: #337eff;
           text-decoration: underline;
+        }
+
+        a:focus {
+          outline: none;
         }
 
         .date {
@@ -34,6 +39,7 @@ import { PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
 
           button {
             flex-grow: 1;
+            min-width: 100px;
           }
         }
       }

@@ -104,6 +104,11 @@ export class PrizmTableTreeService {
     this.updateMap(idx, false);
   }
 
+  public clear(): void {
+    this.showDirectChildrenMap.clear();
+    this.changes$$.next(this.showDirectChildrenMap);
+  }
+
   public toggleChildren(idx: number): void {
     this.showDirectChildrenMap.get(idx) ? this.hideChildren(idx) : this.showChildren(idx);
   }

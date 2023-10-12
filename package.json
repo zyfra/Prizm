@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "3.0.2",
+  "version": "3.1.0",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -15,7 +15,6 @@
     "format:staged": "pretty-quick --staged",
     "ng": "nx",
     "cypress:open": "cypress open",
-    "postinstall": "node ./decorate-angular-cli.js",
     "start": "nx run doc:serve",
     "build": "nx affected:build --all",
     "build:next": "nx run doc:build",
@@ -160,6 +159,6 @@
     "typescript": "5.1.6"
   },
   "volta": {
-    "node": "16.20.0"
+    "node": "16.20.2"
   }
 }

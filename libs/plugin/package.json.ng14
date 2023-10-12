@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/nx-plugin",
-  "version": "1.4.5",
+  "version": "1.6.0",
   "main": "src/index.js",
   "private": false,
   "publishConfig": {
@@ -10,6 +10,6 @@
   "generators": "./generators.json",
   "executors": "./executors.json",
   "peerDependencies": {
-    "@prizm-ui/ast": "^1.4.5"
+    "@prizm-ui/ast": "^1.6.0"
   }
 }

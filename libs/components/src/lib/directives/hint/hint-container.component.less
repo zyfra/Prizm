@@ -1,9 +1,9 @@
 :host {
   display: inline-block;
-  background-color: var(--prizm-hint-container-background, var(--prizm-grey-g3-g11));
+  background-color: var(--prizm-hint-container-background, var(--prizm-grey-g11-g3));
   padding: var(--prizm-hint-container-padding, 8px);
   border-radius: var(--prizm-hint-container-border-radius, 2px);
-  color: var(--prizm-hint-container-text, var(--prizm-grey-g12-g2));
+  color: var(--prizm-hint-container-text, var(--prizm-grey-g2-g12));
   font-size: var(--prizm-hint-container-font-size, 14px);
   overflow: hidden;
   text-overflow: ellipsis;
@@ -12,6 +12,9 @@
   prizm-scrollbar {
     max-width: var(--prizm-hint-container-max-width, 288px);
     max-height: var(--prizm-hint-container-max-height, 60vh);
+    &:focus {
+      outline: none;
+    }
   }
 
   prizm-scrollbar {

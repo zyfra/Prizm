@@ -36,6 +36,7 @@ export const PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS: PrizmConfirmPopupOptions = {
   hideDelay: 100,
   autoReposition: true,
   mode: null,
+  theme: null,
   direction: PrizmOverlayOutsidePlacement.RIGHT,
 };
 

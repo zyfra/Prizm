@@ -1,0 +1,48 @@
+<button (click)="show()" type="button" prizmButton>Show Dialog</button>
+
+<div
+  #parentPanel
+  style="
+    height: 400px;
+    margin: 10px 0;
+    position: relative;
+    border: 1px solid var(--tui-base-03);
+    border-radius: var(--tui-radius-m);
+  "
+></div>
+
+<ng-template #contentExample>
+  <h4>Check Dropdown Host Parent Container And Position</h4>
+  <prizm-input-layout label="Validators">
+    <prizm-input-select #input [formControl]="control" [items]="items"> </prizm-input-select>
+    <ng-template [control]="input" prizmInputStatusText>dddd</ng-template>
+  </prizm-input-layout>
+</ng-template>
+
+<div style="margin-top: 16px">
+  <prizm-doc-documentation [hasTestId]="false">
+    <ng-template
+      [(documentationPropertyValue)]="position"
+      [documentationPropertyValues]="positionVariants"
+      documentationPropertyName="position"
+      documentationPropertyType="PrizmOverlayInsidePlacement"
+    >
+      Position
+    </ng-template>
+    <ng-template
+      [(documentationPropertyValue)]="dismissible"
+      documentationPropertyName="dismissible"
+      documentationPropertyType="boolean"
+    >
+      Dismissible
+    </ng-template>
+
+    <ng-template
+      [(documentationPropertyValue)]="backdrop"
+      documentationPropertyName="backdrop"
+      documentationPropertyType="boolean"
+    >
+      Backdrop
+    </ng-template>
+  </prizm-doc-documentation>
+</div>

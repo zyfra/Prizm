@@ -5,11 +5,12 @@ include:
 
 variables:
   ZUI_BUILD_IMAGE_NAME: node
-  ZUI_BUILD_IMAGE_TAG: 14-alpine
+  ZUI_BUILD_IMAGE_TAG: '16.20.0'
   LANGUAGE: 'typescript'
   GIT_SUBMODULE_STRATEGY: recursive
   RUN_TESTS: 'false'
   SKIP_FRONTEND_IMAGE_TEST: 'true'
+  NX_NO_CLOUD: 'true'
   ENABLE_APP_REGISTRATION: 'false'
   ZIF_HELM_REGISTRY: '${FCI_HELM_REGISTRY}'
   ZIF_DOCKER_REGISTRY: '${FCI_DOCKER_REGISTRY}'
@@ -18,7 +19,7 @@ variables:
   ZIF_TOOLS_RUNNER_IMAGE: '${FCI_ZIF_TOOLS_RUNNER_IMAGE}'
   ZIF_TOOLS_RUNNER_TAG: '${FCI_ZIF_TOOLS_RUNNER_TAG}'
   DEPLOY_NAMESPACE: ziiot-dev-11
-  KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/'
+  KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/prizm/mr-${CI_MERGE_REQUEST_IID}/'
 
 stages:
   - build
@@ -55,7 +56,7 @@ Build js image:
         KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/'
     - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
       variables:
-        KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/zui-sdk/mr-${CI_MERGE_REQUEST_IID}/'
+        KANIKO_EXECUTOR_ARGUMENTS: '--build-arg NPM_SDK_DEPLOY_URL=/'
     - if: >-
         $CI_COMMIT_BRANCH != null &&
         $CI_PIPELINE_SOURCE == 'push' &&
@@ -72,29 +73,29 @@ Build js image:
     expire_in: 1 day
     paths:
       - /root/.npm/_logs/
-  needs:
-    - Build library
+  # needs:
+  #   - Build library
 
-Build library:
-  stage: build
-  # // include after k8s stable work
-  # cache:
-  #   paths:
-  #     - node_modules
-  #     - /cache/Cypress
-  #     - node_modules/.cache/nx
-  image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
-  script:
-    - cat ${NPMRC_CONFIG} > .npmrc
-    - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    - cp .npmrc ~/
-    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
-    - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
-  artifacts:
-    expire_in: 1 day
-    paths:
-      - dist/
-  extends: ['.tags_k8s', '.except_skip_ci']
+# Build library:
+#   stage: build
+#   # // include after k8s stable work
+#   # cache:
+#   #   paths:
+#   #     - node_modules
+#   #     - /cache/Cypress
+#   #     - node_modules/.cache/nx
+#   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
+#   script:
+#     - cat ${NPMRC_CONFIG} > .npmrc
+#     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
+#     - cp .npmrc ~/
+#     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run all
+#     - npm --userconfig ~/.npmrc install && npm --userconfig ~/.npmrc run build:doc
+#   artifacts:
+#     expire_in: 1 day
+#     paths:
+#       - dist/
+#   extends: ['.tags_k8s', '.except_skip_ci']
 
 #Release package:
 #  stage: release
@@ -134,7 +135,7 @@ Deploy:
         $CI_OPEN_MERGE_REQUESTS != null
   script:
     - mkdir -p $HOME/.kube
-    - cat /builds/public-group/zui-sdk.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
+    - cat /builds/public-group/prizm.tmp/KUBE_CONFIG | sed s/KUBE01_DEV07_TOKEN/$KUBE01_DEV07_TOKEN/g > ~/.kube/config
     - cat ~/.kube/config
 
     - export HELM_EXPERIMENTAL_OCI=1
@@ -165,7 +166,7 @@ Deploy:
       if [ "$DEPLOY_VERSION" = "latest" ]; then
         helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service --set image.registry=$ZIF_DOCKER_REGISTRY --set image.tag=$DEPLOY_VERSION --set image.namespace=public-group --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE --set ingress.path=/ --set ingress.urlRewrite=false --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       else
-        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service --set image.registry=$ZIF_DOCKER_REGISTRY --set image.tag=$DEPLOY_VERSION --set image.namespace=public-group --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE --set ingress.path=/$CI_PROJECT_NAME/$DEPLOY_VERSION --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
+        helm -n $DEPLOY_NAMESPACE upgrade --install $CI_PROJECT_NAME-$DEPLOY_RELEASE -f ./helm/values.$CI_PROJECT_NAME.yaml ./zif-generic-service --set image.registry=$ZIF_DOCKER_REGISTRY --set image.tag=$DEPLOY_VERSION --set image.namespace=public-group --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE --set ingress.host=$DEPLOY_VERSION.doc.prizm.site --set ingress.tls.tlsHost=$DEPLOY_VERSION.doc.prizm.site --set ingress.path=/ --set ingress.urlRewrite=false --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
       fi
   needs:
     - Build js image

@@ -292,7 +292,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/widget',
-    loadChildren: () => import('./components/widget/widget.module').then(i => i.WidgetModule),
+    loadChildren: () => import('./components/widget/widget-example.module').then(i => i.WidgetExampleModule),
     data: {
       title: 'Widget',
     },
@@ -344,14 +344,15 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/hint',
-    loadChildren: () => import('./components/hint/hint.module').then(i => i.HintModule),
+    loadChildren: () => import('./components/hint/hint-example.module').then(i => i.HintExampleModule),
     data: {
       title: 'Hint',
     },
   },
   {
     path: 'components/tooltip',
-    loadChildren: () => import('./components/tooltip/tooltip.module').then(i => i.TooltipModule),
+    loadChildren: () =>
+      import('./components/tooltip/tooltip-example.module').then(i => i.TooltipExampleModule),
     data: {
       title: 'Tooltip',
     },
@@ -359,7 +360,9 @@ export const ROUTES: Routes = [
   {
     path: 'components/confirm-popup',
     loadChildren: () =>
-      import('./components/confirm-popup/confirm-popup.module').then(i => i.ConfirmPopupModule),
+      import('./components/confirm-popup/confirm-popup-example.module').then(
+        i => i.ConfirmPopupExampleModule
+      ),
     data: {
       title: 'Confirm Popup',
     },
@@ -658,7 +661,8 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/dialogs/dialog',
-    loadChildren: () => import('./components/dialogs/dialog/dialog.module').then(i => i.DialogModule),
+    loadChildren: () =>
+      import('./components/dialogs/dialog/dialog-example.module').then(i => i.DialogExampleModule),
     data: {
       title: 'Dialog',
     },
