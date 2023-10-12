@@ -1,8 +1,9 @@
 .switcherSizing(@switcherSize, @titleFontSize, @padding) {
   .switcher {
     height: @switcherSize;
-    padding: 0 @padding;
-
+    prizm-wrapper {
+      padding: 0 @padding;
+    }
     &__title {
       font-size: @titleFontSize;
     }
@@ -11,10 +12,10 @@
 
 :host {
   button {
-    border: none;
-    outline: none;
-    background: transparent;
-    cursor: pointer;
+    border-radius: 0;
+    &._focused {
+      box-shadow: none;
+    }
   }
 
   &.full-width,
@@ -22,15 +23,9 @@
     width: 100%;
   }
 
-  span {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
   &[last-child='true'] {
     .switcher {
-      border-right: 1px solid var(--prizm-border-forms);
+      border-right: 1px solid var(--prizm-v3-background-stroke);
     }
   }
 
@@ -47,67 +42,19 @@
   }
 
   .switcher {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    height: 100%;
-
-    border: 1px solid var(--prizm-border-forms);
+    border: 1px solid var(--prizm-v3-background-stroke);
     border-right: none;
 
     transition: 400ms;
     overflow: hidden;
 
-    &__title {
-      font-weight: 600;
-      line-height: 16px;
-
-      color: var(--prizm-grey-g7-g7);
-    }
-
-    &__icon {
-      height: 16px;
-      width: 16px;
-
-      display: flex;
-
-      color: var(--prizm-grey-g7-g7);
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-    }
-
-    &:disabled .switcher__icon,
-    &:disabled .switcher__title {
-      color: var(--prizm-disabled-text);
-    }
-
-    &:hover:not(&_active):not(:disabled) {
-      background: var(--prizm-grey-g12-g2);
-
-      .switcher__title,
-      .switcher__icon {
-        color: var(--prizm-exeptions-g1-b1);
-      }
-    }
-
-    &:focus:not(&_active) {
-      border-color: transparent;
-      border-radius: 2px;
-      position: relative;
-      box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
-    }
-
     &_active {
-      background: var(--prizm-lite-b130-20);
+      background: var(--prizm-v3-button-secondary-ghost-active);
+      color: var(--prizm-v3-button-secondary-solid-active);
+    }
 
-      .switcher__title,
-      .switcher__icon {
-        color: var(--prizm-exeptions-g1-b1);
-      }
+    &_icon {
+      min-width: 50px;
     }
   }
 
