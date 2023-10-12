@@ -77,7 +77,7 @@ export class PrizmTabsService implements OnDestroy {
     if (!this.tabs.size) return -1;
     const indexes = Array.from(this.tabs.keys()).sort();
     const nextIdx = indexes.find(i => i > idx);
-    const newIdx = nextIdx ?? (Array.from(this.tabs.keys()).sort().pop() as number);
+    const newIdx = nextIdx ?? (indexes.pop() as number);
     this.activeTabIdx$$.next(newIdx);
     return newIdx;
   }
