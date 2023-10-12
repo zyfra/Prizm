@@ -208,12 +208,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public override get empty(): Observable<boolean> {
-    return this.value$.pipe(
-      tap(val => {
-        console.log('#mz value$', val);
-      }),
-      map(value => value == null)
-    );
+    return this.value$.pipe(map(value => value == null));
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {

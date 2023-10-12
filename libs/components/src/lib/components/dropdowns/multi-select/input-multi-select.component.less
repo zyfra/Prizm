@@ -17,7 +17,8 @@
   color: var(--prizm-select-item-text, var(--prizm-text-contrast, #20222b));
 
   .text {
-    max-width: 100%;
+    max-width: calc(100% - 16px);
+    width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -84,6 +85,7 @@
 }
 
 prizm-checkbox {
+  width: 100%;
   max-width: calc(100% - 8px);
 }
 
