@@ -16,7 +16,6 @@ import { PolymorphContent } from '../../../directives';
 import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
 import {
   Compare,
-  moveInEventLoopIteration,
   PrizmDestroyService,
   PrizmLetContextService,
 } from '@prizm-ui/helpers';
