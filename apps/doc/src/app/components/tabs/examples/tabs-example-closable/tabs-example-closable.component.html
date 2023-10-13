@@ -1,5 +1,5 @@
 <div class="container">
-  <prizm-tabs (activeTabIndexChange)="tabClick()" type="contained">
+  <prizm-tabs [(activeTabIndex)]="activeTabIndex" type="contained">
     <prizm-tab
       *ngFor="let item of tabs"
       [closable]="true"
@@ -11,3 +11,5 @@
     </prizm-tab>
   </prizm-tabs>
 </div>
+
+<div>activeTabIndex: [{{ activeTabIndex }}]</div>

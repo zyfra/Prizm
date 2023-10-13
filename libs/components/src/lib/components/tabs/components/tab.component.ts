@@ -4,7 +4,6 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
-  HostListener,
   Input,
   OnDestroy,
   OnInit,
@@ -15,9 +14,13 @@ import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
 import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
-import { PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
+import {
+  Compare,
+  PrizmDestroyService,
+  PrizmLetContextService,
+} from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
-import { filter, first, map, takeUntil, tap } from 'rxjs/operators';
+import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 
 @Component({
@@ -45,6 +48,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   }
   @Output() public closeTab = new EventEmitter<void>();
 
+  private currentDomIdx!: number;
   override readonly testId_ = 'ui_tab';
   readonly isActiveTab$: Observable<boolean> = combineLatest([
     this.idx$,
@@ -72,33 +76,42 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         tap(tab => {
           if (tab === this) this.tabsService.removeTab(tab);
         }),
-        takeUntil(this.destroy)
+        timeout(25)
       )
       .subscribe();
   }
 
   private isFromMenuTab(): boolean {
-    return !!this.inMenuContextService?.context?.inMenuIdx;
+    return Compare.isNotNullish(this.inMenuContextService?.context?.inMenuIdx);
   }
 
   private isMainProjectedTab(): boolean {
     return !this.isFromMenuTab();
   }
 
-  public ngOnInit(): void {
-    this.tabsService.tabs$
+  private initUpdateIndexOnDomUpdateListener(): void {
+    this.tabsService.removed$$
       .pipe(
+        switchMap(() => this.tabsService.changeParent$),
+        startWith(void 0),
         filter(() => this.isMainProjectedTab()),
         tap(() => {
           const currentDomIdx = Array.from(this.el.nativeElement.parentElement?.children ?? []).indexOf(
             this.el.nativeElement
           );
-          this.tabsService.updateTab(this, currentDomIdx);
+          if (Compare.isNotNullish(this.currentDomIdx) && currentDomIdx !== this.currentDomIdx) {
+            this.tabsService.moveTab(this.currentDomIdx, currentDomIdx, this);
+          } else {
+            this.tabsService.updateTab(this, currentDomIdx);
+          }
+          this.currentDomIdx = currentDomIdx;
         }),
         takeUntil(this.destroy)
       )
       .subscribe();
+  }
 
+  private initClickListenerToSelectTab(): void {
     fromEvent(this.el.nativeElement, 'click')
       .pipe(
         switchMap(() => {
@@ -108,6 +121,11 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         takeUntil(this.destroy)
       )
       .subscribe();
+  }
+
+  public ngOnInit(): void {
+    this.initUpdateIndexOnDomUpdateListener();
+    this.initClickListenerToSelectTab();
   }
 
   public selectTab$(): Observable<unknown> {
