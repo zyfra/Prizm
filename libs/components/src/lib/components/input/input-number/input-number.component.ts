@@ -1,10 +1,21 @@
-import { Component, ElementRef, Host, HostListener, Input, OnInit, Optional, Self } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  EventEmitter,
+  Host,
+  HostListener,
+  Input,
+  OnInit,
+  Output,
+  Self,
+} from '@angular/core';
 import { PrizmInputControl } from '../common';
 import { AbstractControl, NgControl, Validators } from '@angular/forms';
 import { prizmIsNativeFocused } from '../../../util';
-import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
-import { fromEvent, merge, of, Subject } from 'rxjs';
-import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
+import { PrizmDestroyService, prizmFormatNumber } from '@prizm-ui/helpers';
+import { fromEvent, merge } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { PrizmDecimal } from '@prizm-ui/core';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -15,7 +26,9 @@ import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputNumberComponent }],
 })
 export class PrizmInputNumberComponent extends PrizmInputControl<number> implements OnInit {
-  public empty = new Subject<boolean>();
+  public get empty() {
+    return this.el.nativeElement.value == '' && !this.hasOnlyMinus;
+  }
   get required() {
     // for work Validators.required
     if (this.ngControl.control?.hasValidator(Validators.required)) return true;
@@ -30,6 +43,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     // eslint-disable-next-line no-prototype-builtins
     return Boolean(validation && validation.hasOwnProperty('required'));
   }
+
   public focused = merge(
     fromEvent(this.el.nativeElement, 'blur'),
     fromEvent(this.el.nativeElement, 'focus')
@@ -50,11 +64,16 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
 
   @Input() min: number | null = null;
   @Input() max: number | null = null;
+  @Input() decimal: PrizmDecimal = 'not-zero';
+  @Input() precision = 2;
 
   @Input() step = 1;
   get value() {
     return this.el.nativeElement.valueAsNumber;
   }
+
+  // eslint-disable-next-line @angular-eslint/no-output-on-prefix
+  @Output() onClear = new EventEmitter<MouseEvent>();
 
   override readonly testId_ = 'ui_input_number';
 
@@ -62,16 +81,18 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     return this.el.nativeElement.disabled;
   }
 
-  /* block e symbol TODO think about it with another way*/
-  // @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
-  //   if ((ev.ctrlKey || ev.metaKey) && ['c', 'v', 'a', 'x'].includes(ev.key)) return true;
-  //   if (
-  //     ['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Backspace', 'Enter', 'Space', '.'].includes(ev.key)
-  //   )
-  //     return true;
-  //
-  //   return !ev.key.match(/[^0-9 ,.-]/);
-  // }
+  /* block e symbol */
+  @HostListener('keydown', ['$event']) public stopValue(ev: KeyboardEvent) {
+    return ev.key !== 'e';
+  }
+
+  /* detect minus */
+  @HostListener('input', ['$event']) public onInput(ev: InputEvent) {
+    this.detectMinus(ev.data);
+    this.stateChanges.next();
+  }
+
+  hasOnlyMinus = false;
 
   constructor(
     @Self() public readonly ngControl: NgControl,
@@ -82,16 +103,20 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.el.nativeElement.type = 'number';
   }
 
+  private detectMinus(value: string | null): void {
+    this.hasOnlyMinus = value === '-' && this.el.nativeElement.value === '';
+  }
+
   public clear(ev: MouseEvent): void {
     this.ngControl.control?.setValue(null);
+    this.onClear.emit(ev);
   }
 
   public increment(): void {
     if (this.el.nativeElement.disabled) return;
 
     if (this.max === null || this.hostValue < this.max) {
-      const devider = this.hostValue % this.step;
-      this.hostValue = Math.min(this.max ?? Number.POSITIVE_INFINITY, this.hostValue + this.step - devider);
+      this.hostValue = Math.min(this.max ?? Number.POSITIVE_INFINITY, this.hostValue + this.step);
     }
 
     this.ngControl.control?.markAsTouched();
@@ -102,11 +127,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     if (this.el.nativeElement.disabled) return;
 
     if (this.min === null || this.hostValue > this.min) {
-      const devider = this.hostValue % this.step;
-      this.hostValue = Math.max(
-        this.min ?? Number.NEGATIVE_INFINITY,
-        this.hostValue - (devider || this.step)
-      );
+      this.hostValue = Math.max(this.min ?? Number.NEGATIVE_INFINITY, this.hostValue - this.step);
     }
 
     this.ngControl.control?.markAsTouched();
@@ -141,17 +162,24 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
 
   public ngOnInit(): void {
-    this.initEmptyListener();
+    this.overrideSetValueMethod();
   }
 
-  private initEmptyListener(): void {
-    merge(of(this.ngControl.value), this.ngControl?.valueChanges as any)
-      .pipe(
-        map(() => Compare.isNullish(this.ngControl.value) || isNaN(this.ngControl.value)),
-        distinctUntilChanged(),
-        tap(isEmpty => this.empty.next(isEmpty)),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+  // TODO change overriding later
+  private overrideSetValueMethod(): void {
+    if (this.ngControl.control) {
+      const self = this;
+      const originFunc = this.ngControl.control.setValue;
+      this.ngControl.control.setValue = function (value, object) {
+        originFunc.call(
+          this,
+          typeof value === 'number'
+            ? parseFloat(prizmFormatNumber(value, self.precision, self.decimal))
+            : value,
+          object
+        );
+        self.stateChanges.next();
+      };
+    }
   }
 }
