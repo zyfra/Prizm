@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0.next.2, 2.3.0.next.2, 3.2.0.next.2](https://github.com/zyfra/Prizm) (06-10-2023)
+
+### Bug fixes
+
+- fix(components/tabs): update tab #759 [MR](https://github.com/zyfra/Prizm/pull/808)
+
 ## [1.3.0.next.1, 2.3.0.next.1, 3.2.0.next.1](https://github.com/zyfra/Prizm) (06-10-2023)
 
 ### Features
