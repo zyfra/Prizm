@@ -86,6 +86,7 @@ export class PrizmTabsService implements OnDestroy {
   }
   public selectTab(tab: PrizmTabComponent): void {
     const idx = this.findTabIdx(tab);
+
     if (idx === -1) {
       return;
     }
@@ -96,7 +97,6 @@ export class PrizmTabsService implements OnDestroy {
     if (idx === this.activeTabIdx) {
       return;
     }
-
     (typeof this.canOpenTab === 'function' ? this.canOpenTab(tab) : of(true))
       .pipe(
         take(1),

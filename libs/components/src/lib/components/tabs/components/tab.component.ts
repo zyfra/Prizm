@@ -83,7 +83,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   }
 
   private isFromMenuTab(): boolean {
-    return !!this.inMenuContextService?.context?.inMenuIdx;
+    return Compare.isNotNullish(this.inMenuContextService?.context?.inMenuIdx);
   }
 
   private isMainProjectedTab(): boolean {
