@@ -10,40 +10,76 @@
   [dropdownClasses]="dropdownClasses"
   (isOpenChange)="opened$$.next($event)"
 >
-  <div
-    #focusableElementRef
-    *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent as val"
-    [ngModelOptions]="{ standalone: true }"
-    [ngModel]="(value | prizmCallFunc : getCurrentValue) ?? ''"
-    [attr.contenteditable]="false"
-    [disabled]="disabled"
-    (click)="safeOpenModal()"
-    (focus)="focused$$.next(true)"
-    (blur)="focused$$.next(false)"
-    prizmInput
-  >
-    <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
+  <ng-container *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent as val">
+    <ng-container
+      *polymorphOutlet="
+        valueTemplate && editableTemplate as content;
+        context: {
+          $implicit: $any(val),
+          value: val | prizmCallFunc : transformer,
+          stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
+        }
+      "
+    >
       <ng-container
-        *polymorphOutlet="
-          valueTemplate as content;
-          context: {
-            $implicit: $any(val),
-            value: val | prizmCallFunc : transformer,
-            stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
-          }
-        "
+        *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text"
       >
-        <ng-container
-          *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text"
-        >
-          {{ text }}
-        </ng-container>
+        <input
+          class="input-search"
+          #focusableElementRef
+          [style.visibility]="isNotNullish(val) ? 'visible' : 'hidden'"
+          [placeholder]="placeholder"
+          [disabled]="disabled"
+          [readonly]="true"
+          [ngModelOptions]="{ standalone: true }"
+          [ngModel]="text ?? ''"
+          (click)="safeOpenModal()"
+          (focus)="focused$$.next(true)"
+          (blur)="focused$$.next(false)"
+          prizmInput
+        />
       </ng-container>
     </ng-container>
-    <ng-template #placeholderTemplate>
-      <div class="placeholder">{{ placeholder }}</div>
-    </ng-template>
-  </div>
+  </ng-container>
+
+  <ng-template #editableTemplate>
+    <div
+      #focusableElementRef
+      *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent as val"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="(value | prizmCallFunc : getCurrentValue) ?? ''"
+      [attr.contenteditable]="false"
+      [disabled]="disabled"
+      (click)="safeOpenModal()"
+      (focus)="focused$$.next(true)"
+      (blur)="focused$$.next(false)"
+      prizmInput
+    >
+      <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
+        <ng-container
+          *polymorphOutlet="
+            valueTemplate as content;
+            context: {
+              $implicit: $any(val),
+              value: val | prizmCallFunc : transformer,
+              stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
+            }
+          "
+        >
+          <ng-container
+            *prizmLet="
+              val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
+            "
+          >
+            {{ text }}
+          </ng-container>
+        </ng-container>
+      </ng-container>
+      <ng-template #placeholderTemplate>
+        <div class="placeholder">{{ placeholder }}</div>
+      </ng-template>
+    </div>
+  </ng-template>
 
   <ng-template #dropdown>
     <prizm-data-list

@@ -281,7 +281,7 @@ export const IconDefs = [
       'cancel-close-small',
       'cancel-close',
       'cancel-delete-line',
-      'cansel-delete-content',
+      'cancel-delete-content',
       'cansel-delete-file',
     ],
   },

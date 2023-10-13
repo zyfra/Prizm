@@ -283,7 +283,7 @@ export const Icon16Defs = [
       'cancel-close-circle',
       'cancel-close',
       'cancel-delete-line',
-      'cansel-delete-content',
+      'cancel-delete-content',
       'cansel-delete-file',
     ],
   },

@@ -14,11 +14,12 @@ import { PRIZM_TABLE_PROVIDERS } from '../providers/table.providers';
 import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../../util';
 import { PrizmComparator, PrizmTableBorderStyle } from '../table.types';
 import { AbstractPrizmController } from '../abstract/controller';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { prizmAutoEmit, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowService } from '../service/row.service';
+import { prizmTableDefaultColumnSort } from '../table.const';
 
 @Directive({
   selector: `table[prizmTable]`,
@@ -55,6 +56,9 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
 
   @Input()
   set sort(sorters: PrizmTableCellSorter<T>[]) {
+    for (const item of sorters) {
+      item.sorter = item.sorter ?? prizmTableDefaultColumnSort;
+    }
     this.sorterService.set(sorters);
   }
   get sort(): PrizmTableCellSorter<T>[] {

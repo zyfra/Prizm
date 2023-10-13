@@ -47,6 +47,12 @@ export interface PrizmLanguageColumnSettings {
   };
 }
 
+export interface PrizmLanguagePaginator {
+  paginator: {
+    linesShown: string;
+  };
+}
+
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -209,4 +215,5 @@ export interface PrizmLanguage
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
     PrizmLanguageFileUpload,
-    PrizmLanguageColumnSettings {}
+    PrizmLanguageColumnSettings,
+    PrizmLanguagePaginator {}
