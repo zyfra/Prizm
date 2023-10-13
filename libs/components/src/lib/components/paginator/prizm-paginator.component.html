@@ -9,24 +9,22 @@
       </ng-container>
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
-      <prizm-select
-        [disabled]="disabled"
-        [forceClear]="false"
-        [label]="$any(null)"
-        [outer]="true"
-        [nullContent]="$any(null)"
-        [ngModel]="rows"
-        [ngModelOptions]="{ standalone: true }"
-        [items]="$any(this.rowsCountOptions?.length) > 0 ? this.rowsCountOptions : [rows]"
-        (ngModelChange)="changeRows($event)"
-        size="s"
-      ></prizm-select>
+      <prizm-input-layout [forceClear]="false" [outer]="true" label="" size="s">
+        <prizm-input-select
+          [items]="$any(this.rowsCountOptions?.length) > 0 ? this.rowsCountOptions : [rows]"
+          [disabled]="disabled"
+          [ngModel]="rows"
+          [ngModelOptions]="{ standalone: true }"
+          [nullContent]="$any(null)"
+          (ngModelChange)="changeRows($event)"
+        ></prizm-input-select>
+      </prizm-input-layout>
     </div>
   </div>
 
   <div class="content">
     <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo" [hidden]="disabled">
-      Показано строк: {{ (currentPage - 1) * rows + 1 }}-{{
+      {{ paginator$ | async | prizmPluck : ['linesShown'] }} {{ (currentPage - 1) * rows + 1 }}-{{
         currentPage * rows > $any(totalRecords) ? totalRecords : currentPage * rows
       }}
       из {{ realTotalRecord }}

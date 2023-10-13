@@ -36,11 +36,11 @@
         <span class="prizm-input-label-required" *ngIf="$.required">*</span>
       </label>
       <button
-        class="prizm-input-label-clear-btn"
+        class="prizm-input-label-clear-btn clear-icon"
         [interactive]="true"
         [disabled]="$.disabled"
         (click)="onClearClick($event)"
-        prizmInputIconButton="cansel-delete-content"
+        prizmInputIconButton="cancel-delete-content"
       ></button>
     </div>
   </ng-template>
@@ -85,12 +85,12 @@
         </div>
 
         <button
-          class="prizm-input-button-default {{ showStatusButton ? '' : 'alone' }}"
+          class="prizm-input-button-default clear-icon {{ showStatusButton ? '' : 'alone' }}"
           *ngIf="showClearButton"
           [interactive]="true"
           [disabled]="$.disabled"
           (click)="onClearClick($event)"
-          prizmInputIconButton="cansel-delete-content"
+          prizmInputIconButton="cancel-delete-content"
         ></button>
 
         <button

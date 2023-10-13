@@ -133,7 +133,7 @@ export class PrizmInputLayoutComponent
         debounceTime(10),
         tap(() => {
           this.actualizeStatusIcon();
-          this.cdr.markForCheck();
+          this.cdr.detectChanges();
         }),
         takeUntil(this.destroy$)
       )

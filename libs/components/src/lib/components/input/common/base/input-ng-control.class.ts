@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Directive, DoCheck, Injector, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -11,14 +11,20 @@ import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 @Directive()
 export abstract class PrizmInputNgControl<T>
   extends PrizmInputControl<T>
-  implements OnInit, ControlValueAccessor
+  implements OnInit, ControlValueAccessor, DoCheck
 {
   readonly destroy$!: PrizmDestroyService;
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
   readonly layoutComponent!: PrizmInputLayoutComponent;
   private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
-
+  private readonly lastSyncedState: {
+    touched: boolean | null;
+    pristine: boolean | null;
+  } = {
+    touched: null,
+    pristine: null,
+  };
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouched = PRIZM_EMPTY_FUNCTION;
@@ -121,6 +127,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public setDisabledState(isDisabled: boolean) {
+    this.stateChanges.next();
     this.checkControlUpdate();
   }
 
@@ -131,7 +138,9 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public registerOnTouched(fn: any) {
-    this.onTouch = fn;
+    this.onTouch = () => {
+      fn();
+    };
   }
 
   public writeValue(value: T): void {
@@ -141,6 +150,8 @@ export abstract class PrizmInputNgControl<T>
         : value;
 
     this.refreshLocalValue(this.fromControlValue(controlValue));
+    // sync on change
+    this.stateChanges.next();
   }
 
   private refreshLocalValue(value: T | null): void {
@@ -199,5 +210,20 @@ export abstract class PrizmInputNgControl<T>
 
   public markAsDirty(): void {
     this.ngControl.control?.markAsDirty();
+  }
+
+  ngDoCheck(): void {
+    this.updateLayoutOnTouched();
+  }
+
+  private updateLayoutOnTouched(): void {
+    if (
+      this.ngControl.pristine !== this.lastSyncedState.pristine ||
+      this.ngControl.touched !== this.lastSyncedState.touched
+    ) {
+      this.lastSyncedState.touched = this.ngControl.touched;
+      this.lastSyncedState.pristine = this.ngControl.pristine;
+      this.stateChanges.next();
+    }
   }
 }
