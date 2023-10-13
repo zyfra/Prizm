@@ -4,18 +4,20 @@ import {
   EventEmitter,
   Host,
   HostListener,
+  inject,
   Input,
   OnInit,
   Output,
   Self,
 } from '@angular/core';
-import { PrizmInputControl } from '../common';
+import { PrizmInputControl, PrizmInputHintDirective } from '../common';
 import { AbstractControl, NgControl, Validators } from '@angular/forms';
 import { prizmIsNativeFocused } from '../../../util';
-import { PrizmDestroyService, prizmFormatNumber } from '@prizm-ui/helpers';
+import { prizmFormatNumber } from '@prizm-ui/helpers';
 import { fromEvent, merge } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PrizmDecimal } from '@prizm-ui/core';
+import { PrizmHintDirective } from '../../../directives';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -43,6 +45,13 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     // eslint-disable-next-line no-prototype-builtins
     return Boolean(validation && validation.hasOwnProperty('required'));
   }
+
+  readonly prizmHint_ = new PrizmHintDirective();
+
+  private readonly inputHint: PrizmInputHintDirective | null = inject(PrizmInputHintDirective, {
+    optional: true,
+    host: true,
+  });
 
   public focused = merge(
     fromEvent(this.el.nativeElement, 'blur'),
@@ -92,12 +101,11 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.stateChanges.next();
   }
 
-  hasOnlyMinus = false;
+  private hasOnlyMinus = false;
 
   constructor(
     @Self() public readonly ngControl: NgControl,
-    @Host() private readonly el: ElementRef<HTMLInputElement>,
-    private readonly destroy$: PrizmDestroyService
+    @Host() private readonly el: ElementRef<HTMLInputElement>
   ) {
     super();
     this.el.nativeElement.type = 'number';
@@ -109,7 +117,13 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
 
   public clear(ev: MouseEvent): void {
     this.ngControl.control?.setValue(null);
+    this.markAsTouched();
     this.onClear.emit(ev);
+  }
+
+  private markAsTouched(): void {
+    this.ngControl.control?.markAsTouched();
+    this.ngControl.control?.markAsDirty();
   }
 
   public increment(): void {
@@ -119,8 +133,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
       this.hostValue = Math.min(this.max ?? Number.POSITIVE_INFINITY, this.hostValue + this.step);
     }
 
-    this.ngControl.control?.markAsTouched();
-    this.ngControl.control?.markAsDirty();
+    this.markAsTouched();
   }
 
   public decrement(): void {
@@ -130,8 +143,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
       this.hostValue = Math.max(this.min ?? Number.NEGATIVE_INFINITY, this.hostValue - this.step);
     }
 
-    this.ngControl.control?.markAsTouched();
-    this.ngControl.control?.markAsDirty();
+    this.markAsTouched();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
@@ -163,6 +175,13 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
 
   public ngOnInit(): void {
     this.overrideSetValueMethod();
+    this.prizmHint_.ngOnInit();
+    this.inputHint?.updateHint();
+  }
+
+  public ngOnDestroy(): void {
+    this.stateChanges.complete();
+    this.prizmHint_.ngOnDestroy();
   }
 
   // TODO change overriding later
@@ -178,6 +197,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
             : value,
           object
         );
+        self.inputHint?.updateHint();
         self.stateChanges.next();
       };
     }

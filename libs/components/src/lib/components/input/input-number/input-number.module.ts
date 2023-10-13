@@ -4,13 +4,11 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmInputNumberAuxiliaryControlDirective } from './input-number-auxiliary-control.directive';
 import { PrizmInputNumberDefaultControlsComponent } from './input-number-auxiliary-controls.component';
 import { PrizmInputNumberComponent } from './input-number.component';
-import { PrizmInputNumberValidatorDirective } from './input-number-validator';
 
 @NgModule({
   imports: [PrizmInputCommonModule, PrizmInputTextModule],
   declarations: [
     PrizmInputNumberComponent,
-    PrizmInputNumberValidatorDirective,
     PrizmInputNumberAuxiliaryControlDirective,
     PrizmInputNumberDefaultControlsComponent,
   ],
@@ -18,7 +16,6 @@ import { PrizmInputNumberValidatorDirective } from './input-number-validator';
     PrizmInputNumberAuxiliaryControlDirective,
     PrizmInputCommonModule,
     PrizmInputNumberComponent,
-    PrizmInputNumberValidatorDirective,
     PrizmInputTextModule,
     PrizmInputNumberDefaultControlsComponent,
   ],

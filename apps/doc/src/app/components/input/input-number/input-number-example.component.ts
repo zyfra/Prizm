@@ -70,6 +70,12 @@ export class InputNumberExampleComponent {
       './examples/input-number-counter-float-example/input-number-counter-float-example.component.html?raw'
     ),
   };
+  public readonly prizmInputNumberInvalid: TuiDocExample = {
+    TypeScript: import(
+      './examples/input-number-invalid-example/input-number-invalid-example.component.ts?raw'
+    ),
+    HTML: import('./examples/input-number-invalid-example/input-number-invalid-example.component.html?raw'),
+  };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }

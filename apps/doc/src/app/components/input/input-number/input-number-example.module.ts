@@ -9,6 +9,7 @@ import { InputNumberExampleComponent } from './input-number-example.component';
 import { PrizmInputNumberModule } from '@prizm-ui/components';
 import { InputNumberCounterExampleComponent } from './examples/input-number-counter-example/input-number-counter-example.component';
 import { InputNumberCounterFloatExampleComponent } from './examples/input-number-counter-float-example/input-number-counter-float-example.component';
+import { InputNumberInvalidExampleComponent } from './examples/input-number-invalid-example/input-number-invalid-example.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { InputNumberCounterFloatExampleComponent } from './examples/input-number
     PrizmInputNumberModule,
   ],
   declarations: [
+    InputNumberInvalidExampleComponent,
     InputNumberCounterFloatExampleComponent,
     InputNumberBasicExampleComponent,
     InputNumberExampleComponent,
