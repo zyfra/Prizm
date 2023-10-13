@@ -13,7 +13,7 @@ import {
 import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
-import { combineLatest, fromEvent, merge, Observable, of, switchMap, timeout } from 'rxjs';
+import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
 import {
   Compare,
   moveInEventLoopIteration,
