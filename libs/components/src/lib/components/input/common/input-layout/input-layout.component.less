@@ -39,7 +39,6 @@
   color: var(--prizm-text-subscript);
   padding-left: 16px;
   line-height: 16px;
-  margin-bottom: 4px;
   transition: top 200ms ease 0s;
   pointer-events: none;
   width: 100%;
@@ -57,9 +56,6 @@
     gap: 4px;
     max-width: 100%;
     width: 100%;
-    //white-space: nowrap;
-    //overflow: hidden;
-    //text-overflow: ellipsis;
 
     &[data-size='l'] {
       top: 5px;
@@ -279,4 +275,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   gap: 4px;
+}
+
+.clear-icon {
+  z-index: 2;
+}
+
+.prizm-input-form-status-button {
+  z-index: 1;
 }

@@ -8,6 +8,7 @@ import {
   PrizmLanguageFileUpload,
   PrizmLanguageInputLayoutDateRelative,
   PrizmLanguageKit,
+  PrizmLanguagePaginator,
 } from '@prizm-ui/i18n';
 
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
@@ -51,3 +52,7 @@ export const PRIZM_SHORT_WEEK_DAYS = new InjectionToken<Observable<PrizmLanguage
 export const PRIZM_COLUMN_SETTINGS = new InjectionToken<
   Observable<PrizmLanguageColumnSettings['columnSettings']>
 >(`column settings texts`);
+
+export const PRIZM_PAGINATOR = new InjectionToken<Observable<PrizmLanguagePaginator['paginator']>>(
+  `paginator texts`
+);
