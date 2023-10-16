@@ -84,6 +84,7 @@
             size="m"
           >
             <input
+              [prizmInputAllowedSymbols]="allowedYear"
               [ngModel]="joinedStr"
               [ngModelOptions]="{ standalone: true }"
               (ngModelChange)="saveSpecified($event)"

@@ -11,6 +11,7 @@ import { PrizmCronUiBaseType } from '../../model';
 export class PrizmCronYearComponent {
   @Input() specifiedList: PrizmCronUiBaseType[] = [];
 
+  public readonly allowedYear = /[0-9 ,]/g;
   constructor(public readonly cronUiState: PrizmCronUiYearState) {}
 
   public join(str: string[]): string {
@@ -18,6 +19,11 @@ export class PrizmCronYearComponent {
   }
 
   public saveSpecified(str: string): void {
+    // str = this.removeMinus(str);
     return this.cronUiState.updateSpecified(str.replace(/[ ]+/g, '').split(','));
+  }
+
+  private removeMinus(str: string): string {
+    return str.replace(/[-]/g, '');
   }
 }
