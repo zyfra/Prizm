@@ -1,12 +1,11 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { DefaultInputInvalidTextClass } from '../base/input-invalid-text-base-class.directive';
 
 @Directive({
   selector: '[prizmInputAllowedSymbols]',
   providers: [PrizmDestroyService],
 })
-export class PrizmInputAllowedSymbolsDirective extends DefaultInputInvalidTextClass {
+export class PrizmInputAllowedSymbolsDirective {
   @Input() prizmInputAllowedSymbols: RegExp | string | string[] | `` = ``;
 
   @HostListener('keydown', ['$event.key', '$event'])

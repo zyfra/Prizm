@@ -18,12 +18,31 @@ export class PrizmCronYearComponent {
     return str.join(', ');
   }
 
-  public saveSpecified(str: string): void {
-    // str = this.removeMinus(str);
-    return this.cronUiState.updateSpecified(str.replace(/[ ]+/g, '').split(','));
-  }
+  public corrector(str: string): string {
+    const result = str
+      .split(',')
+      .reduce((base: string[], i) => {
+        const trimmed = i.replace(/[ ]+/g, '');
+        const int = parseInt(trimmed, 10);
 
-  private removeMinus(str: string): string {
-    return str.replace(/[-]/g, '');
+        if (!trimmed) {
+          base.push(trimmed);
+          return base;
+        }
+
+        if (!int) return base;
+        if (int < 1) return base;
+
+        if (int > 9999) base.push('10000');
+        else base.push(i);
+
+        return base;
+      }, [])
+      .join(', ');
+
+    return result;
+  }
+  public saveSpecified(str: string): void {
+    return this.cronUiState.updateSpecified(str.replace(/[ ]+/g, '').split(','));
   }
 }

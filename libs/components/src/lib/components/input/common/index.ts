@@ -7,4 +7,5 @@ export * from './input-icon-button';
 export * from './input-layout';
 export * from './input-hint';
 export * from './input-allowed-symbols';
+export * from './input-corrector';
 export * from './base';

@@ -85,6 +85,7 @@
           >
             <input
               [prizmInputAllowedSymbols]="allowedYear"
+              [prizmInputCorrector]="corrector"
               [ngModel]="joinedStr"
               [ngModelOptions]="{ standalone: true }"
               (ngModelChange)="saveSpecified($event)"
