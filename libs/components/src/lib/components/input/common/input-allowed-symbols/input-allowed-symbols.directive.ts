@@ -11,7 +11,7 @@ export class PrizmInputAllowedSymbolsDirective extends DefaultInputInvalidTextCl
 
   @HostListener('keydown', ['$event.key', '$event'])
   block(data: string, event: KeyboardEvent): void | false {
-    if (['Meta', 'Control', 'Alt'].includes(data)) {
+    if (['Meta', 'Control', 'Alt', 'Backspace', 'Delete'].includes(data)) {
       return void 0;
     }
     if (
