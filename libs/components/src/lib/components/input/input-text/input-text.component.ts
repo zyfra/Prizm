@@ -174,7 +174,8 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this.inputHint?.updateHint();
   }
 
-  public ngDoCheck(): void {
+  public override ngDoCheck(): void {
+    super.ngDoCheck();
     this.updateEmptyState();
     this.updateErrorState();
   }
