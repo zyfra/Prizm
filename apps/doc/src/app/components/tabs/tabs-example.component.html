@@ -37,11 +37,11 @@
       <div class="container container__{{ size }}">
         <prizm-tabs
           #elementTabs
+          [(activeTabIndex)]="activeTabIndex"
           [prizmDocHostElement]="elementTabs"
           [size]="size"
           [canOpen]="canOpen"
           [canShowMenu]="canShowMenu"
-          [activeTabIndex]="activeTabIndex"
           prizmDocHostElementKey="PrizmTabsComponent"
         >
           <prizm-tab
