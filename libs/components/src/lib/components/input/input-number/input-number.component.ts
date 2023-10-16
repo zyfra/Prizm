@@ -13,9 +13,9 @@ import {
 import { PrizmInputControl, PrizmInputHintDirective } from '../common';
 import { AbstractControl, NgControl, Validators } from '@angular/forms';
 import { prizmIsNativeFocused } from '../../../util';
-import { prizmFormatNumber } from '@prizm-ui/helpers';
-import { fromEvent, merge } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { PrizmDestroyService, prizmFormatNumber } from '@prizm-ui/helpers';
+import { fromEvent, merge, Subject } from 'rxjs';
+import { debounceTime, map, takeUntil, tap, throttleTime } from 'rxjs/operators';
 import { PrizmDecimal } from '@prizm-ui/core';
 import { PrizmHintDirective } from '../../../directives';
 
@@ -25,11 +25,11 @@ import { PrizmHintDirective } from '../../../directives';
   exportAs: 'prizmInputNumber',
   styleUrls: ['../common/styles/input.component.less'],
   template: '',
-  providers: [{ provide: PrizmInputControl, useExisting: PrizmInputNumberComponent }],
+  providers: [PrizmDestroyService, { provide: PrizmInputControl, useExisting: PrizmInputNumberComponent }],
 })
 export class PrizmInputNumberComponent extends PrizmInputControl<number> implements OnInit {
   public get empty() {
-    return this.el.nativeElement.value == '' && !this.hasOnlyMinus;
+    return this.el.nativeElement.value == '' && !this.hasSymbol;
   }
   get required() {
     // for work Validators.required
@@ -85,6 +85,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @Output() onClear = new EventEmitter<MouseEvent>();
 
   override readonly testId_ = 'ui_input_number';
+  private readonly input$$ = new Subject<string>();
 
   get disabled() {
     return this.el.nativeElement.disabled;
@@ -96,13 +97,15 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
 
   /* detect minus */
-  @HostListener('input', ['$event']) public onInput(ev: InputEvent) {
-    this.detectMinus(ev.data);
-    this.stateChanges.next();
+  @HostListener('input', ['$event.data'])
+  @HostListener('paste', ['$event.clipboardData.getData("Text")'])
+  public onInput(data: string) {
+    this.input$$.next(data);
   }
 
-  private hasOnlyMinus = false;
+  private hasSymbol = false;
 
+  destroy$ = inject(PrizmDestroyService);
   constructor(
     @Self() public readonly ngControl: NgControl,
     @Host() private readonly el: ElementRef<HTMLInputElement>
@@ -111,8 +114,9 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.el.nativeElement.type = 'number';
   }
 
-  private detectMinus(value: string | null): void {
-    this.hasOnlyMinus = value === '-' && this.el.nativeElement.value === '';
+  private detectSymbols(value: boolean): void {
+    this.hasSymbol = value;
+    this.stateChanges.next();
   }
 
   public clear(ev: MouseEvent): void {
@@ -177,6 +181,16 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.overrideSetValueMethod();
     this.prizmHint_.ngOnInit();
     this.inputHint?.updateHint();
+
+    this.input$$
+      .pipe(
+        throttleTime(1000 / 60),
+        tap(data => {
+          this.detectSymbols(!!data);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public ngOnDestroy(): void {
