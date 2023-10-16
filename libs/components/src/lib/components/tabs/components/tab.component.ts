@@ -14,11 +14,7 @@ import { PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
 import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
-import {
-  Compare,
-  PrizmDestroyService,
-  PrizmLetContextService,
-} from '@prizm-ui/helpers';
+import { Compare, PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
