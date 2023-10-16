@@ -1,6 +1,7 @@
 import { Directive, HostListener, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { DefaultInputInvalidTextClass } from '../base/input-invalid-text-base-class.directive';
+import { unsupportedKeyCharacters } from './const';
 
 @Directive({
   selector: '[prizmInputAllowedSymbols]',
@@ -11,7 +12,7 @@ export class PrizmInputAllowedSymbolsDirective extends DefaultInputInvalidTextCl
 
   @HostListener('keydown', ['$event.key', '$event'])
   block(data: string, event: KeyboardEvent): void | false {
-    if (['Meta', 'Control', 'Alt', 'Backspace', 'Delete'].includes(data)) {
+    if (unsupportedKeyCharacters.includes(data)) {
       return void 0;
     }
     if (
