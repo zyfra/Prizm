@@ -1,4 +1,9 @@
-<button class="page" [class.page_active]="isActiveTab$ | async" [disabled]="disabled">
+<button
+  class="page"
+  [class.page_active]="isActiveTab$ | async"
+  [disabled]="disabled"
+  [tabIndex]="(isActiveTab$ | async) ? -1 : ''"
+>
   <div class="page__icon" *ngIf="icon">
     <ng-container *polymorphOutlet="icon; context: $any({ idx: idx$ | async, tab: this })">
       <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
