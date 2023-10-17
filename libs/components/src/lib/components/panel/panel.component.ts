@@ -6,7 +6,6 @@ import {
   EventEmitter,
   ViewChild,
   ElementRef,
-  HostBinding,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 
