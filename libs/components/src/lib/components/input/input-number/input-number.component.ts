@@ -73,7 +73,9 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
 
   @Input() min: number | null = null;
   @Input() max: number | null = null;
-  @Input() decimal: PrizmDecimal = 'not-zero';
+  // TODO later create input with support zero postfix for number
+  // @Input()
+  decimal: PrizmDecimal = 'not-zero';
   @Input() precision = 2;
 
   @Input() step = 1;

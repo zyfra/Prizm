@@ -52,7 +52,6 @@
               [placeholder]="placeholder"
               [required]="required"
               [precision]="precision"
-              [decimal]="decimal"
               prizmDocHostElementKey="PrizmInputNumberDirective"
               type="number"
               prizmInput
@@ -181,15 +180,15 @@
         Minimum value
       </ng-template>
 
-      <ng-template
-        [(documentationPropertyValue)]="decimal"
-        [documentationPropertyValues]="decimalVariants"
-        documentationPropertyName="decimal"
-        documentationPropertyType="PrizmDecimal"
-        documentationPropertyMode="input"
-      >
-        Show/hide decimal
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="decimal"-->
+      <!--        [documentationPropertyValues]="decimalVariants"-->
+      <!--        documentationPropertyName="decimal"-->
+      <!--        documentationPropertyType="PrizmDecimal"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Show/hide decimal-->
+      <!--      </ng-template>-->
 
       <ng-template
         [(documentationPropertyValue)]="precision"
