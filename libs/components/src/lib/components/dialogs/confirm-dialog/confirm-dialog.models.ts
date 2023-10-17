@@ -20,6 +20,9 @@ export interface PrizmConfirmDialogOptions<DATA = unknown> extends PrizmDialogBa
   title: PolymorphContent<
     PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions<DATA>>
   >;
+  footer?: PolymorphContent<
+    PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions<DATA>>
+  >;
   description?: PolymorphContent<
     PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions<DATA>>
   >;

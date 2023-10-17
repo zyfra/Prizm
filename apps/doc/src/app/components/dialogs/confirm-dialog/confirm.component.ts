@@ -107,6 +107,12 @@ export class ConfirmComponent implements AfterViewInit {
     TypeScript: import('./examples/horizontal/horizontal.component.ts?raw'),
     HTML: import('./examples/horizontal/horizontal.component.html?raw'),
   };
+
+  public readonly exampleFooterTemplate: TuiDocExample = {
+    TypeScript: import('./examples/footer-template/footer-template.component.ts?raw'),
+    HTML: import('./examples/footer-template/footer-template.component.html?raw'),
+  };
+
   public readonly exampleFull: TuiDocExample = {
     TypeScript: import('./examples/full/full.component.ts?raw'),
     HTML: import('./examples/full/full.component.html?raw'),

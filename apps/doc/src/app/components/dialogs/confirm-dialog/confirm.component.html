@@ -18,6 +18,10 @@
     <prizm-doc-example id="custom-button" [content]="exampleCustomButton" heading="Custom Button">
       <prizm-dialog-custom-button-example></prizm-dialog-custom-button-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="footer-template" [content]="exampleFooterTemplate" heading="Footer Template">
+      <prizm-dialog-footer-template-example></prizm-dialog-footer-template-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -32,7 +36,7 @@
         [(documentationPropertyValue)]="title"
         [documentationPropertyValues]="defaultTitle | prizmCallFunc : generatePolymorphVariants"
         documentationPropertyName="title"
-        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext  <PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>>"
       >
         Title
       </ng-template>
@@ -41,7 +45,7 @@
         [(documentationPropertyValue)]="description"
         [documentationPropertyValues]="descriptionVariants"
         documentationPropertyName="description"
-        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext  <PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>>"
       >
         Description
       </ng-template>
