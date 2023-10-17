@@ -108,6 +108,7 @@ export class PrizmCronHRExpressionDescriptor {
       const dayOfMonthDesc = this.getDayOfMonthDescription();
       const monthDesc = this.getMonthDescription();
       const dayOfWeekDesc = this.getDayOfWeekDescription();
+
       const yearDesc = this.getYearDescription();
 
       description += timeSegment + dayOfMonthDesc + dayOfWeekDesc + monthDesc + yearDesc;
@@ -318,7 +319,7 @@ export class PrizmCronHRExpressionDescriptor {
 
   protected getDayOfWeekDescription() {
     const daysOfWeekNames = this.i18n.daysOfTheWeek();
-
+    let isFirst = true;
     let description: string | null = null;
     if (this.expressionParts[5] == '*') {
       // DOW is specified as * so we will not generate a description and defer to DOM part.
@@ -338,8 +339,16 @@ export class PrizmCronHRExpressionDescriptor {
           }
 
           // потому начинаются дни с субботы под номером 1
-          const incrementNumber = +exp - 1;
-          const newExp = incrementNumber === -1 ? 6 : incrementNumber;
+
+          let newExp: number;
+
+          if (isFirst) {
+            const incrementNumber = +exp - 1;
+            newExp = incrementNumber === -1 ? 6 : incrementNumber;
+          } else {
+            newExp = parseInt(s, 10);
+          }
+          isFirst = false;
           let description = this.i18n.daysOfTheWeekInCase
             ? this.i18n.daysOfTheWeekInCase(form)[newExp]
             : daysOfWeekNames[newExp];
@@ -590,8 +599,16 @@ export class PrizmCronHRExpressionDescriptor {
 
           descriptionContent += currentDescriptionContent;
         } else if (!doesExpressionContainIncrement) {
+          console.log('#m getSingleItemDescription -2', {
+            segments,
+            i,
+          });
           descriptionContent += getSingleItemDescription(segments[i]);
         } else {
+          console.log('#m getSegmentDescription -2', {
+            segments,
+            i,
+          });
           descriptionContent += this.getSegmentDescription(
             segments[i],
             allDescription,
