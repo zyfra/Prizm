@@ -71,7 +71,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
       this.position.getClassName(),
     ];
     if (this.config.closeOnDocClick) {
-      cls = cls.concat(['no-pointers']);
+      // cls = cls.concat(['no-pointers']);
     }
     this.el.setAttribute('data-zid', this.zid);
     cssClass('add', cls, `[data-zid='${[this.zid]}']`);

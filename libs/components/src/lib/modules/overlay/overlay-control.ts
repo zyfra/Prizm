@@ -10,11 +10,13 @@ import {
 import { animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject } from 'rxjs';
 import {
   debounceTime,
+  delay,
   distinctUntilChanged,
   filter,
   map,
   observeOn,
   skipWhile,
+  startWith,
   takeUntil,
   tap,
 } from 'rxjs/operators';
@@ -62,10 +64,13 @@ export class PrizmOverlayControl {
 
   public open(): void {
     if (this.isOpen) return;
+    this.destroy$.next();
 
     this.attach();
     if (this.viewEl) {
-      mergeObs(this.onDocumentClick(), this.onWindowResize(), this.onEscClick()).subscribe();
+      mergeObs(this.onDocumentClick(), this.onWindowResize(), this.onEscClick())
+        .pipe(takeUntil(this.destroy$))
+        .subscribe();
       setTimeout(() => EventBus.send(this.zid, 'z_dynpos'), 1);
     }
 
@@ -105,8 +110,11 @@ export class PrizmOverlayControl {
     const insideClick = fromEvent<MouseEvent>(
       this.viewEl?.querySelector('.z-overlay-wrapper') as any,
       'click'
+    ).pipe(
+      // first init for block closing
+      startWith(null as any)
     );
-    const outsideClick = fromEvent<MouseEvent>(this.viewEl as any, 'click');
+    const outsideClick = fromEvent<MouseEvent>(document.body as any, 'click');
 
     return raceEmit<[MouseEvent, boolean]>(
       100,
