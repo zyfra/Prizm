@@ -169,7 +169,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
 
   private set hostValue(value: number) {
-    this.ngControl.control?.setValue(value);
+    const newValue =
+      typeof value === 'number' ? parseFloat(prizmFormatNumber(value, this.precision, this.decimal)) : value;
+    this.ngControl.control?.setValue(newValue);
+    this.el.nativeElement.value = newValue.toString();
   }
 
   private safeNgControlData<T>(
@@ -180,7 +183,8 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
 
   public ngOnInit(): void {
-    this.overrideSetValueMethod();
+    // TODO after fix
+    // this.overrideSetValueMethod();
     this.prizmHint_.ngOnInit();
     this.inputHint?.updateHint();
 
@@ -203,6 +207,8 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   // TODO change overriding later
   private overrideSetValueMethod(): void {
     if (this.ngControl.control) {
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const self = this;
       const originFunc = this.ngControl.control.setValue;
       this.ngControl.control.setValue = function (value, object) {
