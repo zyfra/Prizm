@@ -120,8 +120,8 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public setDisabledState(isDisabled: boolean) {
+    // this.checkControlUpdate();
     this.stateChanges.next();
-    this.checkControlUpdate();
   }
 
   public registerOnChange(onChange: any): void {

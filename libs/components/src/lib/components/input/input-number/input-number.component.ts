@@ -173,6 +173,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
       typeof value === 'number' ? parseFloat(prizmFormatNumber(value, this.precision, this.decimal)) : value;
     this.ngControl.control?.setValue(newValue);
     this.el.nativeElement.value = newValue.toString();
+    this.stateChanges.next();
   }
 
   private safeNgControlData<T>(
