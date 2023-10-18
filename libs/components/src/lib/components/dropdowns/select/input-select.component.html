@@ -1,6 +1,6 @@
 <prizm-dropdown-host
   #dropdownHostRef
-  [content]="dropdown"
+  [content]="dataList?.temp ?? dropdown"
   [isOpen]="$any(opened$ | async)"
   [prizmDropdownHost]="layoutComponent.el.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"

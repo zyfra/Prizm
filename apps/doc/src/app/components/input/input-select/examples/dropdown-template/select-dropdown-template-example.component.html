@@ -1,0 +1,17 @@
+<prizm-input-layout label="Выберите из списка">
+  <prizm-input-select [formControl]="control">
+    <prizm-data-list *prizmDataList>
+      <div class="item" [value]="null" prizmSelectItem>Не выбрано</div>
+      <div class="group">
+        <div class="title">Россия</div>
+        <div class="item" prizmSelectItem value="Москва">Москва</div>
+        <div class="item" prizmSelectItem value="Санкт-Петербург">Санкт-Петербург</div>
+      </div>
+      <div class="group">
+        <div class="title">США</div>
+        <div class="item" prizmSelectItem value="Калифорния">Калифорния</div>
+        <div class="item" prizmSelectItem value="Техас">Техас</div>
+      </div>
+    </prizm-data-list>
+  </prizm-input-select>
+</prizm-input-layout>

@@ -124,6 +124,11 @@ export class InputSelectComponent {
     HTML: import('./examples/with-template/select-with-template-example.component.html?raw'),
   };
 
+  readonly exampleDropdownTemplate: TuiDocExample = {
+    TypeScript: import('./examples/dropdown-template/select-dropdown-template-example.component.ts?raw'),
+    HTML: import('./examples/dropdown-template/select-dropdown-template-example.component.html?raw'),
+  };
+
   readonly exampleWithObject: TuiDocExample = {
     TypeScript: import('./examples/with-object/select-with-object-example.component.ts?raw'),
     HTML: import('./examples/with-object/select-with-object-example.component.html?raw'),

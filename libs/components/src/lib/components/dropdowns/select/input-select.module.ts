@@ -13,6 +13,7 @@ import { PrizmCallFuncModule, PrizmLetModule, PrizmToObservableModule } from '@p
 import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmIconModule } from '../../icon';
 import { PrizmSelectInputComponent } from './input-select.component';
+import { PrizmSelectItemDirective } from './select-item.directive';
 
 @NgModule({
   imports: [
@@ -35,7 +36,7 @@ import { PrizmSelectInputComponent } from './input-select.component';
     PrizmDropdownHostModule,
     PrizmToObservableModule,
   ],
-  declarations: [PrizmSelectInputComponent],
-  exports: [PrizmSelectInputComponent, PrizmInputTextModule],
+  declarations: [PrizmSelectInputComponent, PrizmSelectItemDirective],
+  exports: [PrizmSelectItemDirective, PrizmSelectInputComponent, PrizmDataListModule, PrizmInputTextModule],
 })
 export class PrizmInputSelectModule {}
