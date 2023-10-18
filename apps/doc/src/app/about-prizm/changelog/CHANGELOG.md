@@ -2,6 +2,36 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.3.0, 2.3.0, 3.2.0](https://github.com/zyfra/Prizm) (18-10-2023)
+
+### Features
+
+- feat(components/input-select): added wrap model for simple content #793 [MR](https://github.com/zyfra/Prizm/pull/810)
+- feat(doc/table): initial table sort example #126 [MR](https://github.com/zyfra/Prizm/pull/805)
+- feat(components/table): initial table sorter added if not set #126 [MR](https://github.com/zyfra/Prizm/pull/805)
+- feat(components/paginator): translations tokens has been added for paginator module [MR](https://github.com/zyfra/Prizm/pull/802)
+- feat: sync on touched change with parent layout #353 [MR](https://github.com/zyfra/Prizm/pull/795)
+- feat(doc): mirror links to showcase added to docs [MR](https://github.com/zyfra/Prizm/pull/794)
+
+- feat(components/switcher): colors version to v3 update for switcher IDPPRIZM-1878 [MR](https://github.com/zyfra/Prizm/pull/801)
+- feat(components/tabs): colors version update to v3 and redesign for tabs: BREAKING CHANGE #401 [MR](https://github.com/zyfra/Prizm/pull/801)
+- feat(components/buttons): colors version update to v3 for buttons IDPPRIZM-1853 [MR](https://github.com/zyfra/Prizm/pull/801)
+
+### Bug fixes
+
+- fix(components/input-layout): input layout outer label incorrect display #788 [MR](https://github.com/zyfra/Prizm/pull/804)
+- fix(components/paginator): deprecated select component has been changed for new one for paginator #792 [MR](https://github.com/zyfra/Prizm/pull/802)
+- fix: new theme default palette colors fix [MR](https://github.com/zyfra/Prizm/pull/796)
+- fix: disabled sync between layout in in put #771 [MR](https://github.com/zyfra/Prizm/pull/795)
+- fix(components/input-control): update layout flow #691 [MR](https://github.com/zyfra/Prizm/pull/795)
+- fix(components/input-layout): clear button with status message #766 [MR](https://github.com/zyfra/Prizm/pull/795)
+- fix(icons): fix name cansel to cancel [MR](https://github.com/zyfra/Prizm/pull/795)
+- fix(components/input): update empty state #723 [MR](https://github.com/zyfra/Prizm/pull/795)
+- fix(components/tabs): update tab #759 [MR](https://github.com/zyfra/Prizm/pull/808)
+- fix(components/polymorph): build error #738 #806 [MR](https://github.com/zyfra/Prizm/pull/797)
+- fix(components/tabs): tab disable active state #703 [MR](https://github.com/zyfra/Prizm/pull/801)
+- fix(components/switcher): switcher disable active state #703 [MR](https://github.com/zyfra/Prizm/pull/801)
+
 ## [1.3.0.next.2, 2.3.0.next.2, 3.2.0.next.2](https://github.com/zyfra/Prizm) (13-10-2023)
 
 ### Bug fixes
