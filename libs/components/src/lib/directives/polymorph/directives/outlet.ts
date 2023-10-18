@@ -101,7 +101,7 @@ function isDirective<C extends object>(content: PolymorphContent<C> | null): con
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function isComponent<C extends object>(
+function isComponent<C>(
   content: PolymorphContent<C> | null
 ): content is PolymorphComponent<Record<string, unknown>, C> {
   return content instanceof PolymorphComponent;
