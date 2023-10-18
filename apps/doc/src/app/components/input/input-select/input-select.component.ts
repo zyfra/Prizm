@@ -40,7 +40,7 @@ export class InputSelectComponent {
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly selectKey = 'PrizmSelectInputComponent';
   public readOnly = false;
-  public border = false;
+  public border = true;
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
 
