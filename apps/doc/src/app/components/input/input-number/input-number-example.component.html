@@ -11,6 +11,18 @@
     >
       <prizm-input-number-counter-example></prizm-input-number-counter-example>
     </prizm-doc-example>
+
+    <prizm-doc-example
+      id="counter-float"
+      [content]="prizmInputNumberCounterFloat"
+      heading="Input number counter float example"
+    >
+      <prizm-input-number-counter-float-example></prizm-input-number-counter-float-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="counter-invalid" [content]="prizmInputNumberInvalid" heading="Form group">
+      <prizm-input-number-invalid-example></prizm-input-number-invalid-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -39,6 +51,7 @@
               [disabled]="disabled"
               [placeholder]="placeholder"
               [required]="required"
+              [precision]="precision"
               prizmDocHostElementKey="PrizmInputNumberDirective"
               type="number"
               prizmInput
@@ -78,6 +91,7 @@
               [min]="min"
               [max]="max"
               [step]="step"
+              [precision]="precision"
               [value]="value"
               [disabled]="disabled"
               [prizmHintDirection]="prizmHintDirection"
@@ -128,41 +142,87 @@
       heading="PrizmInputNumberDirective"
       hostComponentKey="PrizmInputNumberDirective"
     >
-      <ng-template
-        [(documentationPropertyValue)]="required"
-        documentationPropertyName="required"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Required
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="required"-->
+      <!--        documentationPropertyName="required"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Required-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="disabled"-->
+      <!--        [documentationPropertyDeprecated]="true"-->
+      <!--        documentationPropertyName="disabled"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Disabled Use form control disabled-->
+      <!--      </ng-template>-->
+
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="value"-->
+      <!--        documentationPropertyName="value"-->
+      <!--        documentationPropertyType="number"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Value-->
+      <!--      </ng-template>-->
 
       <ng-template
-        [(documentationPropertyValue)]="disabled"
-        [documentationPropertyDeprecated]="true"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Disabled Use form control disabled
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="value"
-        documentationPropertyName="value"
+        [(documentationPropertyValue)]="min"
+        documentationPropertyName="min"
         documentationPropertyType="number"
         documentationPropertyMode="input"
       >
-        Value
+        Minimum value
+      </ng-template>
+
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="decimal"-->
+      <!--        [documentationPropertyValues]="decimalVariants"-->
+      <!--        documentationPropertyName="decimal"-->
+      <!--        documentationPropertyType="PrizmDecimal"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Show/hide decimal-->
+      <!--      </ng-template>-->
+
+      <ng-template
+        [(documentationPropertyValue)]="precision"
+        documentationPropertyName="precision"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        A number of digits after comma ( Infinity for an untouched decimal part)
       </ng-template>
 
       <ng-template
-        documentationPropertyName="enter"
-        documentationPropertyType="any"
-        documentationPropertyMode="output"
+        [(documentationPropertyValue)]="max"
+        documentationPropertyName="max"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
       >
-        Enter
+        Maximum value
       </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="step"
+        documentationPropertyName="step"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Step
+      </ng-template>
+
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="enter"-->
+      <!--        documentationPropertyType="any"-->
+      <!--        documentationPropertyMode="output"-->
+      <!--      >-->
+      <!--        Enter-->
+      <!--      </ng-template>-->
 
       <ng-template
         documentationPropertyName="onClear"
@@ -172,13 +232,13 @@
         On Clear
       </ng-template>
 
-      <ng-template
-        documentationPropertyName="valueChanged"
-        documentationPropertyType="number"
-        documentationPropertyMode="output"
-      >
-        Value Changed
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        documentationPropertyName="valueChanged"-->
+      <!--        documentationPropertyType="number"-->
+      <!--        documentationPropertyMode="output"-->
+      <!--      >-->
+      <!--        Value Changed-->
+      <!--      </ng-template>-->
     </prizm-doc-documentation>
 
     <prizm-doc-documentation

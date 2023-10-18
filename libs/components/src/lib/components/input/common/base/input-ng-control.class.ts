@@ -1,30 +1,23 @@
-import { ChangeDetectorRef, Directive, DoCheck, Injector, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
-import { BehaviorSubject, concat, noop, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmControlValueTransformer } from '../../../../types';
 import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 
 @Directive()
 export abstract class PrizmInputNgControl<T>
   extends PrizmInputControl<T>
-  implements OnInit, ControlValueAccessor, DoCheck
+  implements OnInit, ControlValueAccessor
 {
   readonly destroy$!: PrizmDestroyService;
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
   readonly layoutComponent!: PrizmInputLayoutComponent;
   private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
-  private readonly lastSyncedState: {
-    touched: boolean | null;
-    pristine: boolean | null;
-  } = {
-    touched: null,
-    pristine: null,
-  };
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouched = PRIZM_EMPTY_FUNCTION;
@@ -210,20 +203,5 @@ export abstract class PrizmInputNgControl<T>
 
   public markAsDirty(): void {
     this.ngControl.control?.markAsDirty();
-  }
-
-  ngDoCheck(): void {
-    this.updateLayoutOnTouched();
-  }
-
-  private updateLayoutOnTouched(): void {
-    if (
-      this.ngControl.pristine !== this.lastSyncedState.pristine ||
-      this.ngControl.touched !== this.lastSyncedState.touched
-    ) {
-      this.lastSyncedState.touched = this.ngControl.touched;
-      this.lastSyncedState.pristine = this.ngControl.pristine;
-      this.stateChanges.next();
-    }
   }
 }

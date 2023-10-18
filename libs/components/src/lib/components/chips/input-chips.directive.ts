@@ -23,7 +23,7 @@ interface IPrizmChipsComponent {
     '[disabled]': 'disabled',
     '[required]': 'required',
   },
-  styleUrls: ['../input/input-text/input-text.component.less'],
+  styleUrls: ['../input/common/styles/input.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputChipsComponent }, PrizmDestroyService],
 })
 export class PrizmInputChipsComponent extends PrizmInputTextComponent {
