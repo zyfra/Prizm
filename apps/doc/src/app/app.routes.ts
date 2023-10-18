@@ -199,6 +199,13 @@ export const ROUTES: Routes = [
           title: 'Grid',
         },
       },
+      {
+        path: 'theme',
+        loadChildren: () => import('./guidelines/theme/theme-guide.module').then(m => m.ThemeGuideModule),
+        data: {
+          title: 'Theme',
+        },
+      },
     ],
   },
   // DOC

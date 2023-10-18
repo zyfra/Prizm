@@ -161,12 +161,18 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.guidelines,
+    title: `Темы`,
+    keywords: 'темы, theme',
+    route: 'guidelines/theme',
+    order: 3,
+  },
+  {
+    section: SectionNameEnum.guidelines,
     title: `Сетки`,
     keywords: 'сетка, grid',
     route: 'guidelines/grid',
-    order: 3,
+    order: 4,
   },
-
   // Documentation
   // {
   //   section: SectionNameEnum.allAboutPrizm,
