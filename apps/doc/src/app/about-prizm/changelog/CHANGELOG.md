@@ -12,10 +12,11 @@ All notable changes to this project will be documented in this file.
 - feat(components/paginator): translations tokens has been added for paginator module [MR](https://github.com/zyfra/Prizm/pull/802)
 - feat: sync on touched change with parent layout #353 [MR](https://github.com/zyfra/Prizm/pull/795)
 - feat(doc): mirror links to showcase added to docs [MR](https://github.com/zyfra/Prizm/pull/794)
-
 - feat(components/switcher): colors version to v3 update for switcher IDPPRIZM-1878 [MR](https://github.com/zyfra/Prizm/pull/801)
 - feat(components/tabs): colors version update to v3 and redesign for tabs: BREAKING CHANGE #401 [MR](https://github.com/zyfra/Prizm/pull/801)
 - feat(components/buttons): colors version update to v3 for buttons IDPPRIZM-1853 [MR](https://github.com/zyfra/Prizm/pull/801)
+- feat(components/input-number): convert directive to component #649
+- feat(components/number): add inputs to control precision and decimal #814
 
 ### Bug fixes
 
@@ -31,6 +32,8 @@ All notable changes to this project will be documented in this file.
 - fix(components/polymorph): build error #738 #806 [MR](https://github.com/zyfra/Prizm/pull/797)
 - fix(components/tabs): tab disable active state #703 [MR](https://github.com/zyfra/Prizm/pull/801)
 - fix(components/switcher): switcher disable active state #703 [MR](https://github.com/zyfra/Prizm/pull/801)
+- fix(components/input-number): fix validator #818
+- fix(components/input-number): empty state #267
 
 ## [1.3.0.next.2, 2.3.0.next.2, 3.2.0.next.2](https://github.com/zyfra/Prizm) (13-10-2023)
 
