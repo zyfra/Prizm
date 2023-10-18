@@ -205,23 +205,22 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
 
   // TODO change overriding later
-  private overrideSetValueMethod(): void {
-    if (this.ngControl.control) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const self = this;
-      const originFunc = this.ngControl.control.setValue;
-      this.ngControl.control.setValue = function (value, object) {
-        originFunc.call(
-          this,
-          typeof value === 'number'
-            ? parseFloat(prizmFormatNumber(value, self.precision, self.decimal))
-            : value,
-          object
-        );
-        self.inputHint?.updateHint();
-        self.stateChanges.next();
-      };
-    }
-  }
+  // private overrideSetValueMethod(): void {
+  //   if (this.ngControl.control) {
+  //     // @typescript-eslint/no-this-alias
+  //     const self = this;
+  //     const originFunc = this.ngControl.control.setValue;
+  //     this.ngControl.control.setValue = function (value, object) {
+  //       originFunc.call(
+  //         this,
+  //         typeof value === 'number'
+  //           ? parseFloat(prizmFormatNumber(value, self.precision, self.decimal))
+  //           : value,
+  //         object
+  //       );
+  //       self.inputHint?.updateHint();
+  //       self.stateChanges.next();
+  //     };
+  //   }
+  // }
 }
