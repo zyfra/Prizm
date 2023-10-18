@@ -44,6 +44,8 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
     return this.visibility$.value;
   }
 
+  @Input() overlap = true;
+
   override readonly testId_ = 'ui_scrollbar';
 
   private delegated = false;

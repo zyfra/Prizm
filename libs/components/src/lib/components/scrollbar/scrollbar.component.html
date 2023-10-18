@@ -1,4 +1,4 @@
 <prizm-scroll-controls [style.visibility]="(showScrollbars$ | async) ? '' : 'hidden'"></prizm-scroll-controls>
-<div class="content">
+<div class="content" [class.overlap]="overlap">
   <ng-content></ng-content>
 </div>

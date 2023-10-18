@@ -7,6 +7,7 @@ import {
   Inject,
   NgZone,
   Optional,
+  Output,
 } from '@angular/core';
 import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
@@ -34,6 +35,10 @@ export class PrizmScrollControlsComponent extends PrizmAbstractTestId {
     distinctUntilChanged((a, b) => a[0] === b[0] && a[1] === b[1]),
     prizmZoneOptimized(this.ngZone)
   );
+
+  @Output() horizontal = this.refresh$.pipe(map(bars => Boolean(bars[1])));
+
+  @Output() vertical = this.refresh$.pipe(map(bars => Boolean(bars[0])));
 
   readonly animation = {
     value: '',

@@ -9,6 +9,7 @@ import { PrizmScrollbarHorizontalExampleComponent } from './examples/horizontal/
 import { PrizmScrollbarHiddenExampleComponent } from './examples/hidden/scrollbar-hidden-example.component';
 import { PrizmScrollbarVisibleExampleComponent } from './examples/visible/scrollbar-visible-example.component';
 import { PrizmScrollbarAllExampleComponent } from './examples/all/scrollbar-all-example.component';
+import { PrizmScrollbarOverlapExampleComponent } from './examples/overlap/scrollbar-overlap-example.component';
 
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { PrizmScrollbarAllExampleComponent } from './examples/all/scrollbar-all-
     RouterModule.forChild(prizmDocGenerateRoutes(ScrollbarComponent)),
   ],
   declarations: [
+    PrizmScrollbarOverlapExampleComponent,
     PrizmScrollbarBaseExampleComponent,
     PrizmScrollbarHorizontalExampleComponent,
     PrizmScrollbarHiddenExampleComponent,

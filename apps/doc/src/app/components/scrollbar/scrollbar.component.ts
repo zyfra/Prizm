@@ -11,7 +11,7 @@ import { PrizmScrollbarVisibility, PrizmSizeL, PrizmSizeM } from '@prizm-ui/comp
 export class ScrollbarComponent {
   public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = ['auto', 'hidden', 'visible'];
   public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
-
+  public overlap = true;
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   public readonly exampleBase: TuiDocExample = {
@@ -32,6 +32,11 @@ export class ScrollbarComponent {
   public readonly exampleVisible: TuiDocExample = {
     TypeScript: import('./examples/visible/scrollbar-visible-example.component.ts?raw'),
     HTML: import('./examples/visible/scrollbar-visible-example.component.html?raw'),
+  };
+
+  public readonly exampleOverlap: TuiDocExample = {
+    TypeScript: import('./examples/overlap/scrollbar-overlap-example.component.ts?raw'),
+    HTML: import('./examples/overlap/scrollbar-overlap-example.component.html?raw'),
   };
 
   public readonly exampleAll: TuiDocExample = {
