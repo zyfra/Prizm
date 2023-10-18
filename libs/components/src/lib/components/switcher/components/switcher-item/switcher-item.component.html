@@ -1,8 +1,26 @@
-<button class="switcher" [class.switcher_active]="!isDisabled && isActive" [disabled]="isDisabled">
-  <span class="switcher__icon" *ngIf="data?.icon as icon">
-    <ng-container *polymorphOutlet="icon; let content">
-      <prizm-icon [iconClass]="content"></prizm-icon>
-    </ng-container>
-  </span>
-  <span class="switcher__title" *ngIf="data?.title">{{ data?.title }}</span>
+<button
+  class="switcher"
+  *ngIf="data?.title; else iconBtn"
+  [class.switcher_active]="isActive"
+  [disabled]="isDisabled"
+  [icon]="$any(data?.icon)"
+  [size]="size"
+  prizmButton
+  appearanceType="ghost"
+  appearance="secondary"
+>
+  {{ data?.title }}
 </button>
+
+<ng-template #iconBtn>
+  <button
+    class="switcher switcher_icon"
+    [class.switcher_active]="isActive"
+    [disabled]="isDisabled"
+    [icon]="$any(data?.icon)"
+    [size]="size"
+    prizmIconButton
+    appearanceType="ghost"
+    appearance="secondary"
+  ></button>
+</ng-template>

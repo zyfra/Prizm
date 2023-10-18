@@ -71,6 +71,12 @@ export class TabsExampleComponent {
     HTML: import('./examples/tabs-example-closable/tabs-example-closable.component.html?raw'),
   };
 
+  public readonly panelWithTabsExample: TuiDocExample = {
+    TypeScript: import('./examples/tabs-example-in-panel/tabs-example-in-panel.component?raw'),
+    HTML: import('./examples/tabs-example-in-panel/tabs-example-in-panel.component.html?raw'),
+    LESS: import('./examples/tabs-example-in-panel/tabs-example-in-panel.component.less?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
   public removeTab(): void {
     this.removed = true;

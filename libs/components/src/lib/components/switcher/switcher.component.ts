@@ -4,7 +4,6 @@ import {
   Component,
   EventEmitter,
   HostBinding,
-  Injector,
   Input,
   Optional,
   Output,
