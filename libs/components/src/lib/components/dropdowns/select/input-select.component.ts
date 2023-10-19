@@ -263,7 +263,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public isMostRelevant(idx: number, items: T[]): boolean {
     const wroteInputValue = this.printing$.value;
-    const valueFromItems = this.value && this.getValueFromItems(this.value);
+    const valueFromItems = this.value && this.getValueFromItems(this.value, items);
     const itIsNotCurrentValue =
       valueFromItems && wroteInputValue && !this.searchMatcher(wroteInputValue, valueFromItems);
     const isCanSearch = this.searchable;
@@ -280,20 +280,20 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     this.searchChange.emit(value);
   }
 
-  public getValueFromItems(value: T) {
-    const newItem = this.items.find(i => this.identityMatcher(this.transformer(i), value));
+  public getValueFromItems(value: T, items: T[]) {
+    const newItem = items.find(i => this.identityMatcher(this.transformer(i), value));
     return newItem;
   }
 
-  public getCurrentValue(value: T): string | Observable<string> {
-    const newItem = this.getFullObjectOfCurrent(this.value);
+  public getCurrentValue(value: T, items: T[]): string | Observable<string> {
+    const newItem = this.getFullObjectOfCurrent(this.value, items);
     if (Compare.isNullish(newItem)) return '';
     return this.stringify(newItem ?? value);
   }
 
-  public getFullObjectOfCurrent(value: T): T {
+  public getFullObjectOfCurrent(value: T, items: T[]): T {
     if (Compare.isNullish(value)) return null as any;
-    const newItem = this.getValueFromItems(this.value);
+    const newItem = this.getValueFromItems(this.value, items);
     return newItem as any;
   }
 }
