@@ -8,4 +8,5 @@ export * from './text-mask-pipe-handler';
 export * from './text-mask-pipe-result';
 export * from './create-date-time-mask';
 export * from './create-date-mask';
+export * from './create-time-mask';
 export * from './create-date-time-range-mask';
