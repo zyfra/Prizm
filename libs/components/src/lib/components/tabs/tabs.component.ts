@@ -15,8 +15,8 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmTabSize } from './tabs.interface';
-import { animationFrameScheduler, Observable, Subject, Subscription } from 'rxjs';
-import { debounceTime, filter, map, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
+import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
