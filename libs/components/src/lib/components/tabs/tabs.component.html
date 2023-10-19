@@ -1,9 +1,13 @@
 <div class="container">
-  <div class="line" *ngIf="showLine$ | async"></div>
   <div class="control" [class.control_active]="isLeftBtnActive">
-    <button class="control__chevron" (click)="decrease()">
-      <prizm-icon class="control__icon" [size]="16" iconClass="arrows-chevron-left"></prizm-icon>
-    </button>
+    <button
+      [icon]="'arrows-chevron-left'"
+      (click)="decrease()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="m"
+    ></button>
     <prizm-dropdown-host
       class="dropdown-host"
       #dropdownMore="prizm-dropdown-host"
@@ -13,13 +17,14 @@
       (prizmAfterViewInit)="tabsMoreDropdown = dropdownMore"
       prizmDropdownHostWidth="auto"
     >
-      <prizm-icon
-        class="control__settings"
-        [class.control__settings_active]="openLeft"
-        [size]="16"
+      <button
+        [icon]="'settings-more-vert'"
         (click)="openLeft = !openLeft"
-        iconClass="settings-more-vert"
-      ></prizm-icon>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
     </prizm-dropdown-host>
   </div>
 
@@ -36,17 +41,23 @@
       (prizmAfterViewInit)="tabsMoreDropdown = tabsDropdown"
       prizmDropdownHostWidth="auto"
     >
-      <prizm-icon
-        class="control__settings"
-        [class.control__settings_active]="openRight"
-        [size]="16"
+      <button
+        [icon]="'settings-more-vert'"
         (click)="openRight = !openRight"
-        iconClass="settings-more-vert"
-      ></prizm-icon>
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
     </prizm-dropdown-host>
-    <button class="control__chevron" (click)="increase()">
-      <prizm-icon class="control__icon" [size]="16" iconClass="arrows-chevron-right"></prizm-icon>
-    </button>
+    <button
+      [icon]="'arrows-chevron-right'"
+      (click)="increase()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="m"
+    ></button>
   </div>
 
   <ng-template #dropdown>

@@ -9,6 +9,7 @@ import {
   PrizmOverlayOutsidePlacement,
 } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { PrizmDecimal } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-input-number-example',
@@ -46,6 +47,9 @@ export class InputNumberExampleComponent {
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public required = false;
+  public precision = 2;
+  public readonly decimalVariants: ReadonlyArray<PrizmDecimal> = ['not-zero', 'always', 'never'];
+  public decimal: PrizmDecimal = 'not-zero';
 
   public readonly prizmInputNumberBasic: TuiDocExample = {
     TypeScript: import('./examples/input-number-basic-example/input-number-basic-example.component.ts?raw'),
@@ -57,6 +61,20 @@ export class InputNumberExampleComponent {
       './examples/input-number-counter-example/input-number-counter-example.component.ts?raw'
     ),
     HTML: import('./examples/input-number-counter-example/input-number-counter-example.component.html?raw'),
+  };
+  public readonly prizmInputNumberCounterFloat: TuiDocExample = {
+    TypeScript: import(
+      './examples/input-number-counter-float-example/input-number-counter-float-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/input-number-counter-float-example/input-number-counter-float-example.component.html?raw'
+    ),
+  };
+  public readonly prizmInputNumberInvalid: TuiDocExample = {
+    TypeScript: import(
+      './examples/input-number-invalid-example/input-number-invalid-example.component.ts?raw'
+    ),
+    HTML: import('./examples/input-number-invalid-example/input-number-invalid-example.component.html?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

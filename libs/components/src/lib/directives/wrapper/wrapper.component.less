@@ -7,7 +7,7 @@
   border-radius: inherit;
   box-sizing: border-box;
   cursor: pointer;
-  color: white;
+  color: var(--prizm-v3-text-icon-exception);
   border-left-width: var(--prizm-wrapper-border-left-width);
   border-right-width: var(--prizm-wrapper-border-right-width);
 
@@ -15,230 +15,90 @@
     cursor: not-allowed;
   }
 
-  &[data-appearance='primary'] {
-    background: var(--prizm-primary);
+  .btn-mixin(@base; @solid_hover; @solid_active; @ghost_active ) {
+    background: @base;
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-primary);
+      border: 1px solid @base;
       background: transparent;
-      color: var(--prizm-primary);
+      color: @base;
+
+      &[data-state='hovered'],
+      &._focused_deleted {
+        background: var(--prizm-v3-button-ghost-hover);
+        border-color: @solid_hover;
+        color: @solid_hover;
+      }
 
       &[data-state='pressed'] {
-        border: 1px solid var(--prizm-primary-pressed);
+        border-color: @solid_active;
       }
     }
 
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--prizm-primary);
+      color: @base;
 
       &[data-state='hovered'],
       &._focused_deleted {
-        background: var(--prizm-primary-ghost-hover);
-        color: var(--prizm-primary);
+        background: var(--prizm-v3-button-ghost-hover);
+        color: @solid_hover;
       }
 
       &[data-state='pressed'] {
-        background: var(--prizm-primary-ghost-pressed);
-        color: var(--prizm-primary);
+        background: @ghost_active;
+        color: @solid_active;
       }
     }
 
     &[data-state='hovered'],
     &._focused_deleted {
-      background: var(--prizm-wrapper-hovered-background, var(--prizm-primary-hover));
-      color: var(--prizm-wrapper-hovered-color, var(--prizm-exceptions-white));
+      background: @solid_hover;
+      color: var(--prizm-v3-text-icon-exception);
     }
 
     &[data-state='pressed'] {
-      background: var(--prizm-primary-pressed);
-      color: var(--prizm-exceptions-white);
+      background: @solid_active;
+      color: var(--prizm-v3-text-icon-exception);
     }
+  }
+
+  &[data-appearance='primary'] {
+    .btn-mixin(var(--prizm-v3-button-primary-solid-default), var(--prizm-v3-button-primary-solid-hover), var(--prizm-v3-button-primary-solid-active), var(--prizm-v3-button-primary-ghost-active));
   }
 
   &[data-appearance='secondary'] {
-    background: var(--prizm-secondary);
-
-    &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-secondary);
-      background: transparent;
-      color: var(--prizm-secondary);
-
-      &[data-state='pressed'] {
-        border-color: var(--prizm-secondary-pressed);
-      }
-    }
-
-    &[data-appearance-type='ghost'] {
-      background: transparent;
-      color: var(--prizm-secondary);
-
-      &[data-state='hovered'],
-      &._focused_deleted {
-        background: var(--prizm-secondary-ghost-hover);
-        color: var(--prizm-secondary);
-      }
-
-      &[data-state='pressed'] {
-        background: var(--prizm-secondary-ghost-pressed);
-        color: var(--prizm-secondary);
-      }
-    }
-
-    &[data-state='hovered'],
-    &._focused_deleted {
-      background: var(--prizm-secondary-hover);
-      color: white;
-    }
-
-    &[data-state='pressed'] {
-      background: var(--prizm-secondary-pressed);
-      color: white;
-    }
-  }
-
-  &[data-appearance='warning'] {
-    --base: var(--prizm-index-warning);
-
-    background: var(--base);
-
-    &[data-appearance-type='outline'] {
-      border: 1px solid var(--base);
-      background: transparent;
-      color: var(--base);
-
-      &[data-state='pressed'] {
-        border-color: var(--prizm-warning-pressed);
-      }
-    }
-
-    &[data-appearance-type='ghost'] {
-      background: transparent;
-      color: var(--base);
-
-      &[data-state='hovered'],
-      &._focused_deleted {
-        background: var(--prizm-warning-ghost-hover);
-        color: var(--base);
-      }
-
-      &[data-state='pressed'] {
-        background: var(--prizm-warning-ghost-pressed);
-        color: var(--base);
-      }
-    }
-
-    &[data-state='hovered'],
-    &._focused_deleted {
-      background: #e67b0f;
-      color: white;
-    }
-
-    &[data-state='pressed'] {
-      background: var(--prizm-warning-pressed);
-      color: white;
-    }
-  }
-
-  &[data-appearance='danger'] {
-    background: var(--prizm-index-danger);
-
-    &[data-appearance-type='ghost'] {
-      background: transparent;
-      color: var(--prizm-index-danger);
-
-      &[data-state='hovered'],
-      &._focused_deleted {
-        background: var(--prizm-danger-ghost-hover);
-        color: var(--prizm-index-danger);
-      }
-
-      &[data-state='pressed'] {
-        background: var(--prizm-danger-ghost-pressed);
-        color: var(--prizm-index-danger);
-      }
-    }
-
-    &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-index-danger);
-      background: transparent;
-      color: var(--prizm-index-danger);
-
-      &[data-state='pressed'] {
-        border-color: var(--prizm-danger-pressed);
-      }
-    }
-
-    &[data-state='hovered'],
-    &._focused_deleted {
-      background: var(--prizm-palette-r2);
-      color: var(--prizm-exceptions-white);
-    }
-
-    &[data-state='pressed'] {
-      background: var(--prizm-danger-pressed);
-      color: var(--prizm-exceptions-white);
-    }
+    .btn-mixin(var(--prizm-v3-button-secondary-solid-default), var(--prizm-v3-button-secondary-solid-hover), var(--prizm-v3-button-secondary-solid-active), var(--prizm-v3-button-secondary-ghost-active));
   }
 
   &[data-appearance='success'] {
-    background: var(--prizm-index-good);
+    .btn-mixin(var(--prizm-v3-button-success-solid-default), var(--prizm-v3-button-success-solid-hover), var(--prizm-v3-button-success-solid-active), var(--prizm-v3-button-success-ghost-active));
+  }
 
-    &[data-appearance-type='ghost'] {
-      background: transparent;
-      color: var(--prizm-index-good);
+  &[data-appearance='warning'] {
+    .btn-mixin(var(--prizm-v3-button-warning-solid-default), var(--prizm-v3-button-warning-solid-hover), var(--prizm-v3-button-warning-solid-active), var(--prizm-v3-button-warning-ghost-active));
+  }
 
-      &[data-state='hovered'],
-      &._focused_deleted {
-        background: var(--prizm-success-ghost-hover); //
-        color: var(--prizm-index-good);
-      }
-
-      &[data-state='pressed'] {
-        background: var(--prizm-success-ghost-pressed); //
-        color: var(--prizm-index-good);
-      }
-    }
-
-    &[data-appearance-type='outline'] {
-      border: 1px solid #49ab4d;
-      background: transparent;
-      color: #49ab4d;
-    }
-
-    &[data-state='hovered'],
-    &._focused_deleted {
-      background: #118f3f;
-      color: white;
-    }
-
-    &[data-state='pressed'] {
-      background: #0c7733;
-      color: white;
-    }
+  &[data-appearance='danger'] {
+    .btn-mixin(var(--prizm-v3-button-alarm-solid-default), var(--prizm-v3-button-alarm-solid-hover), var(--prizm-v3-button-alarm-solid-active), var(--prizm-v3-button-alarm-ghost-active));
   }
 
   &[data-state='disabled'][data-state='disabled'] {
     &[data-appearance-type='ghost'] {
       background: transparent;
-      color: var(--prizm-disabled-ghost-text);
 
       &[data-state='pressed'] {
-        background: var(--prizm-disabled-ghost-pressed);
-      }
-
-      &[data-state='hovered'] {
-        background: var(--prizm-disabled-ghost-hover);
+        background: var(--prizm-v3-button-disable);
       }
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-grey-g12-g2);
+      border: 1px solid var(--prizm-v3-button-disable);
       background: transparent;
     }
 
-    background: var(--prizm-disabled);
-    color: var(--prizm-disabled-text);
+    background: var(--prizm-v3-button-disable);
+    color: var(--prizm-v3-text-icon-disable);
   }
 }
 

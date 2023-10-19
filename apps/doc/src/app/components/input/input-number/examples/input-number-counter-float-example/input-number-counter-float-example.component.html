@@ -10,10 +10,11 @@
 
   <input
     #inputNumber="prizmInputNumber"
-    [min]="-10"
+    [min]="0"
     [max]="10"
+    [precision]="2"
     [formControl]="requiredInputControl"
-    [step]="2"
+    [step]="0.1"
     type="number"
     prizmInput
     placeholder="Введите число"

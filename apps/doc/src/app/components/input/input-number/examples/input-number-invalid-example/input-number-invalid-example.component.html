@@ -1,0 +1,20 @@
+<form [formGroup]="form">
+  <prizm-input-layout label="Заголовок" size="l" status="default">
+    <input
+      #inputText
+      #inputNumber="prizmInputNumber"
+      [step]="2"
+      formControlName="number"
+      type="number"
+      prizmInput
+      placeholder="Введите число"
+    />
+    <ng-template [control]="inputText" prizmInputStatusText></ng-template>
+    <prizm-input-number-auxiliary-controls
+      [inputNumber]="inputNumber"
+      prizm-input-right
+    ></prizm-input-number-auxiliary-controls>
+  </prizm-input-layout>
+</form>
+
+Touched {{ form.touched }} Pristine {{ form.pristine }} Invalid {{ form.invalid }} Valid {{ form.valid }}
