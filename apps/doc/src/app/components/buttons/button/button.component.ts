@@ -48,6 +48,7 @@ export class ButtonComponent {
   appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
   disabled = false;
   content = 'Button Name';
+  minWidth = '0';
   showLoader = false;
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
