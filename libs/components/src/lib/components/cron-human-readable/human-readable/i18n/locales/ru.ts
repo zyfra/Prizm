@@ -101,6 +101,9 @@ export class ru implements PrizmCronHRLocale {
   public first(s?: string) {
     return getPhraseByDayOfWeek(s, ['первое', 'первый', 'первую']);
   }
+  public clear(fullDescription: string) {
+    return fullDescription.replace('по пятницу', '');
+  }
   public second(s?: string) {
     return getPhraseByDayOfWeek(s, ['второе', 'второй', 'вторую']);
   }

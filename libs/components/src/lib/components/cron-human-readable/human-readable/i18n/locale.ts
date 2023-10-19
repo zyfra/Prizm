@@ -9,6 +9,7 @@ export interface PrizmCronHRLocale {
   atSpace(): string;
   everyMinuteBetweenX0AndX1(): string;
   at(): string;
+  clear?(value: string): string;
   spaceAnd(): string;
   everySecond(): string;
   everyX0Seconds(s?: string): string;
