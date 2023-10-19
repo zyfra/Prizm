@@ -50,6 +50,24 @@
         Description
       </ng-template>
 
+      <ng-template #footerTemplateOne let-completeWith="completeWith">
+        <button (click)="completeWith('secondary')" prizmButton appearance="secondary" size="l">
+          Cancel
+        </button>
+      </ng-template>
+      <ng-template #footerTemplateTwo let-completeWith="completeWith">
+        <button (click)="completeWith('primary')" prizmButton appearance="primary" size="l">Confirm</button>
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="footer"
+        [documentationPropertyValues]="$any(getFooterVariants(footerTemplateOne, footerTemplateTwo))"
+        documentationPropertyName="footer"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext  <PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>>"
+      >
+        Footer
+      </ng-template>
+
       <ng-template
         [(documentationPropertyValue)]="position"
         [documentationPropertyValues]="positionVariants"

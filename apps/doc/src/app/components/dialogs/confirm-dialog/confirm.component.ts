@@ -78,12 +78,16 @@ export class ConfirmComponent implements AfterViewInit {
 
   public readonly defaultTitle = 'Вы уверены, что хотите перейти на следующий этап?';
   public readonly defaultDescription = `Дальнейшее редактирование этого раздела будет недоступно`;
+  public readonly defaultFooter = '';
   public title: PolymorphContent<
     PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>
   > = this.defaultTitle;
   public description: PolymorphContent<
     PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>
   > = this.defaultDescription;
+  public footer: PolymorphContent<
+    PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>
+  > = this.defaultFooter;
 
   public confirmButton = 'Перейти на следующий этап';
   public cancelButton = 'Вернуться к текущему этапу';
@@ -128,11 +132,17 @@ export class ConfirmComponent implements AfterViewInit {
     return generatePolymorphVariants(...content);
   }
 
+  @prizmPure
+  public getFooterVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent | null> {
+    return [...templates];
+  }
+
   public show(): void {
     this.dialogConfirmService
       .open(this.title, {
         backdrop: this.backdrop,
         description: this.description,
+        footer: this.footer,
         confirmButton: this.confirmButton,
         cancelButton: this.cancelButton,
         supportButton: this.supportButton,
