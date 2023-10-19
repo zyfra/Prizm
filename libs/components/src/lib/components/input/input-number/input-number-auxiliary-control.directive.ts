@@ -1,12 +1,12 @@
 import { Directive, HostListener, Input } from '@angular/core';
-import { PrizmInputNumberDirective } from './input-number.directive';
+import { PrizmInputNumberComponent } from './input-number.component';
 
 @Directive({
   selector: '[prizmInputNumberAuxiliaryControl]',
 })
 export class PrizmInputNumberAuxiliaryControlDirective {
   @Input('prizmInputNumberAuxiliaryControl') type!: 'increment' | 'decrement';
-  @Input() inputNumber!: PrizmInputNumberDirective;
+  @Input() inputNumber!: PrizmInputNumberComponent;
 
   @HostListener('click') public action(): void {
     this.inputNumber[this.type]();

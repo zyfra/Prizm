@@ -11,8 +11,8 @@ import { ChangeDetectorRef, Directive, Inject, Input, Self, TemplateRef } from '
   exportAs: 'polymorph',
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
-export class PolymorphTemplate<C extends Record<any, any>> {
-  @Input() polymorph: C | string = '';
+export class PolymorphTemplate<C = any> {
+  @Input() polymorph: C | '' = '';
 
   constructor(
     @Inject(TemplateRef)

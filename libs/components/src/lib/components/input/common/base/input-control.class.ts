@@ -1,4 +1,4 @@
-import { Directive, ViewChild } from '@angular/core';
+import { Directive, DoCheck, ViewChild } from '@angular/core';
 import { AbstractControlDirective, NgControl } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 import { PrizmInputLayoutBottomDirective } from '../input-layout/input-layout-bottom.directive';
@@ -10,7 +10,7 @@ import { PrizmInputStatusTextDirective } from '../input-status-text/input-status
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
 @Directive()
-export abstract class PrizmInputControl<T> extends PrizmAbstractTestId {
+export abstract class PrizmInputControl<T> extends PrizmAbstractTestId implements DoCheck {
   // @ViewChild(PrizmInputStatusTextDirective, { static: true })
   statusText?: PrizmInputStatusTextDirective;
 
@@ -30,7 +30,13 @@ export abstract class PrizmInputControl<T> extends PrizmAbstractTestId {
   public layoutSubtext: PrizmInputLayoutSubtextDirective | null = null;
 
   public defaultLabel!: string;
-
+  protected readonly lastSyncedState: {
+    touched: boolean | null;
+    pristine: boolean | null;
+  } = {
+    touched: null,
+    pristine: null,
+  };
   /** The value of the control. */
   abstract value: T | null;
 
@@ -61,4 +67,20 @@ export abstract class PrizmInputControl<T> extends PrizmAbstractTestId {
   abstract hasClearButton: boolean;
   hidden = false;
   public abstract clear(ev: MouseEvent): void;
+
+  ngDoCheck(): void {
+    this.updateLayoutOnTouched();
+  }
+
+  private updateLayoutOnTouched(): void {
+    if (
+      this.ngControl &&
+      (this.ngControl.pristine !== this.lastSyncedState.pristine ||
+        this.ngControl.touched !== this.lastSyncedState.touched)
+    ) {
+      this.lastSyncedState.touched = this.ngControl.touched;
+      this.lastSyncedState.pristine = this.ngControl.pristine;
+      this.stateChanges.next();
+    }
+  }
 }
