@@ -11,6 +11,7 @@ export class PanelExampleComponent {
   public withBackButton = true;
   public header = 'Header text is here';
   public radius: string | null = null;
+  public height: string | null = null;
   public subheader = 'Subheader text is here';
 
   public readonly panelBasicExample: TuiDocExample = {
