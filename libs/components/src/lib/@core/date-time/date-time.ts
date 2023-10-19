@@ -42,17 +42,17 @@ export class PrizmDateTime {
     return new PrizmDateTime(PrizmDay.fromLocalNativeDate(date), PrizmTime.fromLocalNativeDate(date));
   }
 
-  constructor(public day: PrizmDay, public time: PrizmTime = new PrizmTime(0, 0)) {}
+  constructor(public day: PrizmDay, public time: PrizmTime | null = new PrizmTime(0, 0)) {}
 
   public toLocalNativeDate(): Date {
     return new Date(
       this.day.year,
       this.day.month,
       this.day.day,
-      this.time.hours,
-      this.time.minutes,
-      this.time.seconds,
-      this.time.ms
+      this.time?.hours ?? 0,
+      this.time?.minutes ?? 0,
+      this.time?.seconds ?? 0,
+      this.time?.ms ?? 0
     );
   }
 }

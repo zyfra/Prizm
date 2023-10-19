@@ -11,6 +11,7 @@ import { PrizmInputLayoutDateTimeNativeExampleComponent } from './examples/nativ
 import { PrizmInputLayoutDateTimeRequiredExampleComponent } from './examples/required/input-layout-date-time-required-example.component';
 import { PrizmInputLayoutDateTimeMinMaxExampleComponent } from './examples/min-max/input-layout-date-time-min-max-example.component';
 import { PrizmInputLayoutDateTimeMinMaxTimeExampleComponent } from './examples/min-max-time/input-layout-date-time-min-max-time-example.component';
+import { PrizmInputLayoutDateTimeBaseTransformerExampleComponent } from './examples/base-transformer/input-layout-date-time-base-transformer-example.component';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { PrizmInputLayoutDateTimeMinMaxTimeExampleComponent } from './examples/m
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateTimeTimeComponent)),
   ],
   declarations: [
+    PrizmInputLayoutDateTimeBaseTransformerExampleComponent,
     PrizmInputLayoutDateTimeBaseExampleComponent,
     PrizmInputLayoutDateTimeMinMaxTimeExampleComponent,
     PrizmInputLayoutDateTimeMinMaxExampleComponent,

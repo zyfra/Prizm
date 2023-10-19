@@ -61,6 +61,14 @@ export class InputLayoutDateTimeTimeComponent {
     TypeScript: import('./examples/base/input-layout-date-time-base-example.component.ts?raw'),
     HTML: import('./examples/base/input-layout-date-time-base-example.component.html?raw'),
   };
+  public readonly exampleBaseTransformer: TuiDocExample = {
+    TypeScript: import(
+      './examples/base-transformer/input-layout-date-time-base-transformer-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/base-transformer/input-layout-date-time-base-transformer-example.component.html?raw'
+    ),
+  };
   public readonly exampleMinMax: TuiDocExample = {
     TypeScript: import('./examples/min-max/input-layout-date-time-min-max-example.component.ts?raw'),
     HTML: import('./examples/min-max/input-layout-date-time-min-max-example.component.html?raw'),
