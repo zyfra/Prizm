@@ -1,16 +1,18 @@
 <div class="host" prizmFocusTrap prizmTheme>
-  <div class="header prizm-font-title-h4" *ngIf="context.header">
-    <div class="title" *polymorphOutlet="context.header as data; context: context">
-      {{ data }}
+  <ng-container *polymorphOutlet="context.outerHeader as data; context: context">
+    <div class="header prizm-font-title-h4" *ngIf="context.header || context.outerHeader">
+      <div class="title" *polymorphOutlet="context.header as data; context: context">
+        {{ data }}
+      </div>
+      <button
+        *ngIf="context.closeable"
+        [size]="16"
+        [interactive]="true"
+        (click)="close()"
+        prizmInputIconButton="cancel-close"
+      ></button>
     </div>
-    <button
-      *ngIf="context.closeable"
-      [size]="16"
-      [interactive]="true"
-      (click)="close()"
-      prizmInputIconButton="cancel-close"
-    ></button>
-  </div>
+  </ng-container>
 
   <div class="content prizm-font-main-body-14">
     <prizm-scrollbar class="scrollbar">
