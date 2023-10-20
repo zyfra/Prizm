@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { PolymorphContent } from '../../../directives';
+import { isPolymorphPrimitive, PolymorphContent } from '../../../directives';
 import {
   PRIZM_SELECT_OPTIONS,
   PrizmSelectOptions,
@@ -122,6 +122,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @prizmDefaultProp()
   nullContent: PolymorphContent = this.options.nullContent;
 
+  readonly isPolymorphPrimitive = isPolymorphPrimitive;
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly printing$ = new BehaviorSubject<string>('');
 
