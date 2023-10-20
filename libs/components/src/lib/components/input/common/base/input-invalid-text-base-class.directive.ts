@@ -9,7 +9,7 @@ export abstract class InputInvalidTextBaseClass {
   /**
    * Gets invalid text
    */
-  public abstract getText(firstInvalidKey: string): string;
+  public abstract getText(firstInvalidKey: string, control?: PrizmInputControl<unknown>): string;
 }
 
 @Directive()
@@ -37,7 +37,7 @@ export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass impl
   }
 
   public getText(firstInvalidKey: string): string {
-    return firstInvalidKey && (this.validationTexts.getText(firstInvalidKey) as any);
+    return firstInvalidKey && (this.validationTexts.getText(firstInvalidKey, this.control) as any);
   }
 
   private actualizeText(): void {
