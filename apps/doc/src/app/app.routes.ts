@@ -368,6 +368,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/counter',
+    loadChildren: () =>
+      import('./components/counter/counter-example.module').then(i => i.CounterExampleModule),
+    data: {
+      title: 'Counter',
+    },
+  },
+  {
     path: 'components/old-icon',
     loadChildren: () => import('./components/icons/old/icon.module').then(i => i.IconModule),
     data: {

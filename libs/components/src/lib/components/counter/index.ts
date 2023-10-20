@@ -1,2 +1,3 @@
 export * from './counter.module';
-export * from './cointer.component';
+export * from './counter.component';
+export * from './counter.models';

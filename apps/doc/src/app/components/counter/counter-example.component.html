@@ -1,0 +1,65 @@
+<prizm-doc-page header="Counter">
+  <div class="page-description" description>
+    Our counter component helps highlight important information such as notifications or new/unread messages.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-counter-base-example></prizm-counter-base-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-counter
+        #element
+        [prizmDocHostElement]="element"
+        [status]="status"
+        [disabled]="disabled"
+        [value]="value"
+      ></prizm-counter>
+    </prizm-doc-demo>
+    <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statusVariants"
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmCounterStatus"
+        documentationPropertyMode="input"
+      >
+        Status
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="value"
+        documentationPropertyName="value"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Disabled
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmCardModule</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
