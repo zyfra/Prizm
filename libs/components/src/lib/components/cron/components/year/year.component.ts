@@ -63,6 +63,7 @@ export class PrizmCronYearComponent {
 
     return Array.from(new Set(result));
   }
+
   public saveSpecified(str: string): void {
     return this.cronUiState.updateSpecified(str.replace(/[ ]+/g, '').split(','));
   }
