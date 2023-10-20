@@ -27,6 +27,7 @@ export class CronComponent {
   tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
   readonly allTabs: PrizmCronTabItem[] = ['second', 'minute', 'hour', 'day', 'month', 'year'];
   public value!: string;
+  public maxWidth: string | null = null;
   readonly tabsVariants: ReadonlyArray<PrizmCronTabItem[]> = [
     ['second', 'minute', 'hour', 'day', 'month', 'year'],
     ['hour', 'day', 'month', 'year'],

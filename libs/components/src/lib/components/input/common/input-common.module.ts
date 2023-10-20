@@ -14,7 +14,8 @@ import { PrizmInputLayoutSubtextDirective } from './input-layout/input-layout-su
 import { PrizmZoneEventModule } from '../../../directives';
 import { PrizmLetModule, PrizmToObservableModule } from '@prizm-ui/helpers';
 import { PrizmInputHintModule } from './input-hint/input-hint.module';
-import { PrizmInputAllowedSymbolsDirective } from './input-allowed-symbols/input-allowed-symbols.directive';
+import { PrizmInputAllowedSymbolsModule } from './input-allowed-symbols';
+import { PrizmInputCorrectorDirective, PrizmInputCorrectorModule } from './input-corrector';
 
 @NgModule({
   imports: [
@@ -26,9 +27,10 @@ import { PrizmInputAllowedSymbolsDirective } from './input-allowed-symbols/input
     PrizmZoneEventModule,
     PrizmHintModule,
     PrizmInputIconButtonModule,
+    PrizmInputAllowedSymbolsModule,
+    PrizmInputCorrectorModule,
   ],
   declarations: [
-    PrizmInputAllowedSymbolsDirective,
     PrizmInputLayoutComponent,
     PrizmInputStatusSubtextComponent,
     PrizmInputStatusTextDirective,
@@ -41,7 +43,6 @@ import { PrizmInputAllowedSymbolsDirective } from './input-allowed-symbols/input
   exports: [
     CommonModule,
     PrizmInputHintModule,
-    PrizmInputAllowedSymbolsDirective,
     PrizmInputLayoutComponent,
     PrizmInputStatusSubtextComponent,
     PrizmInputIconButtonModule,
@@ -51,6 +52,8 @@ import { PrizmInputAllowedSymbolsDirective } from './input-allowed-symbols/input
     PrizmInputLayoutRightDirective,
     PrizmInputLayoutInBodyDirective,
     PrizmInputLayoutSubtextDirective,
+    PrizmInputAllowedSymbolsModule,
+    PrizmInputCorrectorModule,
   ],
 })
 export class PrizmInputCommonModule {}

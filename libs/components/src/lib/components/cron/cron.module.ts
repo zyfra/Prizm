@@ -7,6 +7,7 @@ import {
   PrizmInputCarouselModule,
   PrizmInputDateTimeModule,
   PrizmInputLayoutDateTimeModule,
+  PrizmInputNumberModule,
   PrizmInputTextModule,
 } from '../input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -26,6 +27,7 @@ import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
 import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
 import { PrizmScrollbarModule } from '../scrollbar';
 import { PrizmCronHumanReadableModule } from '../cron-human-readable';
+import { PrizmChipsModule } from '../chips';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,10 @@ import { PrizmCronHumanReadableModule } from '../cron-human-readable';
   ],
   imports: [
     CommonModule,
+    PrizmChipsModule,
     PrizmCronHumanReadableModule,
     PolymorphModule,
+    PrizmInputNumberModule,
     PrizmInputLayoutDateTimeModule,
     PrizmCallFuncModule,
     PrizmButtonModule,

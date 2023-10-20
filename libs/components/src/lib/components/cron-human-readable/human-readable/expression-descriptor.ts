@@ -593,20 +593,8 @@ export class PrizmCronHRExpressionDescriptor {
 
           descriptionContent += currentDescriptionContent;
         } else if (!doesExpressionContainIncrement) {
-          console.log('#m getSingleItemDescription - 2', {
-            descriptionContent,
-            doesExpressionContainIncrement,
-            allDescription,
-            segments,
-            i,
-          });
           descriptionContent += getSingleItemDescription(segments[i]);
         } else {
-          console.log('#m getSegmentDescription - 3', {
-            allDescription,
-            segments,
-            i,
-          });
           descriptionContent += this.getSegmentDescription(
             segments[i],
             allDescription,
