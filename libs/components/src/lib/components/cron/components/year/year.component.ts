@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/c
 import { PrizmCronUiYearState } from '../../cron-ui-year.state';
 import { PrizmCronUiBaseType } from '../../model';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmChipsComponent } from '@prizm-ui/components';
+import { PrizmChipsComponent } from '../../../chips';
 
 @Component({
   selector: 'prizm-cron-year',
