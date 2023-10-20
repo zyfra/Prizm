@@ -18,6 +18,10 @@
     <prizm-doc-example id="custom-button" [content]="exampleCustomButton" heading="Custom Button">
       <prizm-dialog-custom-button-example></prizm-dialog-custom-button-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="footer-template" [content]="exampleFooterTemplate" heading="Footer Template">
+      <prizm-dialog-footer-template-example></prizm-dialog-footer-template-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -32,7 +36,7 @@
         [(documentationPropertyValue)]="title"
         [documentationPropertyValues]="defaultTitle | prizmCallFunc : generatePolymorphVariants"
         documentationPropertyName="title"
-        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext  <PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>>"
       >
         Title
       </ng-template>
@@ -41,9 +45,41 @@
         [(documentationPropertyValue)]="description"
         [documentationPropertyValues]="descriptionVariants"
         documentationPropertyName="description"
-        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType,PrizmConfirmDialogOptions>>"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext  <PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>>"
       >
         Description
+      </ng-template>
+
+      <ng-template #footerTemplateOne let-completeWith="completeWith">
+        <button
+          (click)="completeWith('secondary')"
+          prizmButton
+          appearance="secondary"
+          appearanceType="fill"
+          size="l"
+        >
+          Cancel
+        </button>
+      </ng-template>
+      <ng-template #footerTemplateTwo let-completeWith="completeWith">
+        <button
+          (click)="completeWith('primary')"
+          prizmButton
+          appearance="primary"
+          appearanceType="fill"
+          size="l"
+        >
+          Confirm
+        </button>
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="footer"
+        [documentationPropertyValues]="$any(getFooterVariants(footerTemplateOne, footerTemplateTwo))"
+        documentationPropertyName="footer"
+        documentationPropertyType="PolymorphContent<PrizmBaseDialogContext  <PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions>>"
+      >
+        Footer
       </ng-template>
 
       <ng-template

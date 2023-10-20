@@ -16,6 +16,7 @@ import { PrizmDialogHorizontalExampleComponent } from './examples/horizontal/hor
 import { FullExampleModule } from './examples/full/full.module';
 import { PrizmCallFuncModule } from '@prizm-ui/helpers';
 import { PrizmDialogCustomButtonExampleComponent } from './examples/custom-button/custom-button.component';
+import { PrizmDialogFooterTemplateExampleComponent } from './examples/footer-template/footer-template.component';
 
 @NgModule({
   imports: [
@@ -36,6 +37,7 @@ import { PrizmDialogCustomButtonExampleComponent } from './examples/custom-butto
     PrizmDialogCustomButtonExampleComponent,
     PrizmDialogServiceExampleComponent,
     PrizmDialogHorizontalExampleComponent,
+    PrizmDialogFooterTemplateExampleComponent,
     ConfirmComponent,
   ],
   exports: [ConfirmComponent],

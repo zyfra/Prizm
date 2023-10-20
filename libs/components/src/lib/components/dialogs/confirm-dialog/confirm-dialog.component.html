@@ -15,56 +15,60 @@
   </div>
 
   <div class="footer prizm-font-btn-links-14">
-    <ng-container [ngSwitch]="!context.showByVertical">
-      <div class="horizontal" *ngSwitchCase="true">
-        <div class="left">
-          <ng-container
-            *ngIf="context.supportButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.supportButton }"
-          >
-          </ng-container>
-        </div>
-        <div class="right">
-          <ng-container
-            *ngIf="context.cancelButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.cancelButton }"
-          >
-          </ng-container>
+    <ng-template #columnWrapper let-column="column"> </ng-template>
 
-          <ng-container
-            *ngIf="context.confirmButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.confirmButton }"
-          >
-          </ng-container>
+    <ng-container *polymorphOutlet="$any(context.footer); context: context">
+      <ng-container [ngSwitch]="!context.showByVertical">
+        <div class="horizontal" *ngSwitchCase="true">
+          <div class="left">
+            <ng-container
+              *ngIf="context.supportButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.supportButton }"
+            >
+            </ng-container>
+          </div>
+          <div class="right">
+            <ng-container
+              *ngIf="context.cancelButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.cancelButton }"
+            >
+            </ng-container>
+
+            <ng-container
+              *ngIf="context.confirmButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.confirmButton }"
+            >
+            </ng-container>
+          </div>
         </div>
-      </div>
-      <div class="vertical" *ngSwitchDefault>
-        <div class="top">
-          <ng-container
-            *ngIf="context.confirmButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.confirmButton }"
-          >
-          </ng-container>
-          <ng-container
-            *ngIf="context.supportButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.supportButton }"
-          >
-          </ng-container>
+        <div class="vertical" *ngSwitchDefault>
+          <div class="top">
+            <ng-container
+              *ngIf="context.confirmButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.confirmButton }"
+            >
+            </ng-container>
+            <ng-container
+              *ngIf="context.supportButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.supportButton }"
+            >
+            </ng-container>
+          </div>
+          <div class="bottom">
+            <ng-container
+              *ngIf="context.cancelButton"
+              [ngTemplateOutlet]="buttonTemplate"
+              [ngTemplateOutletContext]="{ button: context.cancelButton }"
+            >
+            </ng-container>
+          </div>
         </div>
-        <div class="bottom">
-          <ng-container
-            *ngIf="context.cancelButton"
-            [ngTemplateOutlet]="buttonTemplate"
-            [ngTemplateOutletContext]="{ button: context.cancelButton }"
-          >
-          </ng-container>
-        </div>
-      </div>
+      </ng-container>
     </ng-container>
 
     <ng-template #buttonTemplate let-button="button">
