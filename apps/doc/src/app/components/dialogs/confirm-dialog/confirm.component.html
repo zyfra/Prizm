@@ -51,12 +51,26 @@
       </ng-template>
 
       <ng-template #footerTemplateOne let-completeWith="completeWith">
-        <button (click)="completeWith('secondary')" prizmButton appearance="secondary" size="l">
+        <button
+          (click)="completeWith('secondary')"
+          prizmButton
+          appearance="secondary"
+          appearanceType="fill"
+          size="l"
+        >
           Cancel
         </button>
       </ng-template>
       <ng-template #footerTemplateTwo let-completeWith="completeWith">
-        <button (click)="completeWith('primary')" prizmButton appearance="primary" size="l">Confirm</button>
+        <button
+          (click)="completeWith('primary')"
+          prizmButton
+          appearance="primary"
+          appearanceType="fill"
+          size="l"
+        >
+          Confirm
+        </button>
       </ng-template>
 
       <ng-template

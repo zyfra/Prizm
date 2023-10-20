@@ -2,8 +2,20 @@
 
 <ng-template #footerTemp let-completeWith="completeWith">
   <div class="custom-footer">
-    <button (click)="completeWith('secondary')" prizmButton appearance="secondary" size="l">Cancel</button>
-    <button (click)="completeWith('danger')" prizmButton appearance="danger" size="l">Danger Action</button>
-    <button (click)="completeWith('primary')" prizmButton appearance="primary" size="l">Confirm</button>
+    <button
+      (click)="completeWith('secondary')"
+      prizmButton
+      appearance="secondary"
+      appearanceType="fill"
+      size="l"
+    >
+      Cancel
+    </button>
+    <button (click)="completeWith('danger')" prizmButton appearance="danger" appearanceType="fill" size="l">
+      Danger Action
+    </button>
+    <button (click)="completeWith('primary')" prizmButton appearance="primary" appearanceType="fill" size="l">
+      Confirm
+    </button>
   </div>
 </ng-template>
