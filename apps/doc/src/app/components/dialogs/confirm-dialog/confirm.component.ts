@@ -134,7 +134,7 @@ export class ConfirmComponent implements AfterViewInit {
 
   @prizmPure
   public getFooterVariants(...templates: TemplateRef<unknown>[]): ReadonlyArray<PolymorphContent | null> {
-    return [...templates];
+    return [...templates, this.defaultFooter];
   }
 
   public show(): void {
