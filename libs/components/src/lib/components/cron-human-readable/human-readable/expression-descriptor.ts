@@ -108,6 +108,7 @@ export class PrizmCronHRExpressionDescriptor {
       const dayOfMonthDesc = this.getDayOfMonthDescription();
       const monthDesc = this.getMonthDescription();
       const dayOfWeekDesc = this.getDayOfWeekDescription();
+
       const yearDesc = this.getYearDescription();
 
       description += timeSegment + dayOfMonthDesc + dayOfWeekDesc + monthDesc + yearDesc;
@@ -318,7 +319,6 @@ export class PrizmCronHRExpressionDescriptor {
 
   protected getDayOfWeekDescription() {
     const daysOfWeekNames = this.i18n.daysOfTheWeek();
-
     let description: string | null = null;
     if (this.expressionParts[5] == '*') {
       // DOW is specified as * so we will not generate a description and defer to DOM part.
@@ -337,9 +337,14 @@ export class PrizmCronHRExpressionDescriptor {
             exp = exp.replace('L', '');
           }
 
+          // потому начинаются дни с субботы под номером 1
+          let newExp: number;
+          const incrementNumber = +exp - 1;
+          newExp = incrementNumber === -1 ? 6 : incrementNumber;
+
           let description = this.i18n.daysOfTheWeekInCase
-            ? this.i18n.daysOfTheWeekInCase(form)[parseInt(exp)]
-            : daysOfWeekNames[parseInt(exp)];
+            ? this.i18n.daysOfTheWeekInCase(form)[newExp]
+            : daysOfWeekNames[newExp];
 
           if (s.indexOf('#') > -1) {
             let dayOfWeekOfMonthDescription: string | null = null;
@@ -401,6 +406,7 @@ export class PrizmCronHRExpressionDescriptor {
         }
       );
     }
+    if (this.i18n.clear && description) description = this.i18n.clear(description);
 
     return description;
   }
@@ -587,8 +593,20 @@ export class PrizmCronHRExpressionDescriptor {
 
           descriptionContent += currentDescriptionContent;
         } else if (!doesExpressionContainIncrement) {
+          console.log('#m getSingleItemDescription - 2', {
+            descriptionContent,
+            doesExpressionContainIncrement,
+            allDescription,
+            segments,
+            i,
+          });
           descriptionContent += getSingleItemDescription(segments[i]);
         } else {
+          console.log('#m getSegmentDescription - 3', {
+            allDescription,
+            segments,
+            i,
+          });
           descriptionContent += this.getSegmentDescription(
             segments[i],
             allDescription,
