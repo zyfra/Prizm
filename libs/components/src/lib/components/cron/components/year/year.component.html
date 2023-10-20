@@ -84,8 +84,8 @@
           >
             <input
               #input
+              [(ngModel)]="yearForAdd"
               [prizmInputAllowedSymbols]="allowedYear"
-              [ngModel]="yearForAdd"
               [ngModelOptions]="{ standalone: true }"
               (enter)="onEnter($event, chipsComponent)"
               prizmInput

@@ -25,17 +25,19 @@ export class PrizmCronYearComponent {
   public removedChips(value: string[]): void {
     const correctedValue = this.corrector(value);
     this.chipses = correctedValue;
-    this.yearForAdd = '';
     this.saveSpecified(correctedValue.join(', '));
   }
 
   public onEnter(value: any, chipsComponent: PrizmChipsComponent): void {
     if (!value) return;
     const str = value.toString();
-    chipsComponent.addChips(str);
-    this.chipses.push(str);
     this.yearForAdd = null;
+
+    this.chipses.push(str);
+    this.chipses = this.corrector(this.chipses);
+    this.saveSpecified(this.chipses.join(', '));
   }
+
   public join(str: string[]): string {
     return str.join(', ');
   }
@@ -52,7 +54,6 @@ export class PrizmCronYearComponent {
 
         if (!int) return base;
         if (int < 1900) return base;
-
         if (int > 2999) base.push(2999);
         else base.push(int);
 
