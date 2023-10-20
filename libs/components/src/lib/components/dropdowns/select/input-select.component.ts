@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { isPolymorphPrimitive, PolymorphContent } from '../../../directives';
+import { isPolymorphPrimitive, PolymorphContent } from '../../../directives/polymorph';
 import {
   PRIZM_SELECT_OPTIONS,
   PrizmSelectOptions,
@@ -24,8 +24,17 @@ import {
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import { debounceTime, distinctUntilChanged, map, shareReplay, switchMap, tap } from 'rxjs/operators';
-import { BehaviorSubject, concat, Observable, Subject, timer } from 'rxjs';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  shareReplay,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
+import { BehaviorSubject, concat, fromEvent, Observable, Subject, timer } from 'rxjs';
 import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
@@ -179,6 +188,16 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public override ngOnInit() {
     super.ngOnInit();
+
+    fromEvent(this.layoutComponent.el.nativeElement, 'click')
+      .pipe(
+        tap(event => {
+          this.safeOpenModal();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+
     this.filteredItems$ = concat(this.printing$.pipe()).pipe(
       tap(value => this.searchEmit(value as string)),
       distinctUntilChanged(),
@@ -249,6 +268,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public safeOpenModal(): void {
+    if (this.disabled) return;
     this.printing$.next('');
     const open = !this.opened$$.value && !this.disabled; // && inputElement && prizmIsNativeFocused(inputElement);
     this.opened$$.next(open);

@@ -11,7 +11,6 @@
     [dropdownStyles]="dropdownStyles"
     [dropdownClasses]="dropdownClasses"
     (isOpenChange)="opened$$.next($event)"
-    (click)="isNullish(val) && isPolymorphPrimitive(valueTemplate && editableTemplate) && safeOpenModal()"
   >
     <ng-container>
       <ng-container
@@ -36,7 +35,6 @@
             [readonly]="true"
             [ngModelOptions]="{ standalone: true }"
             [ngModel]="text ?? ''"
-            (click)="safeOpenModal()"
             (focus)="focused$$.next(true)"
             (blur)="focused$$.next(false)"
             prizmInput
@@ -53,7 +51,6 @@
         [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
         [attr.contenteditable]="false"
         [disabled]="disabled"
-        (click)="safeOpenModal()"
         (focus)="focused$$.next(true)"
         (blur)="focused$$.next(false)"
         prizmInput
@@ -178,7 +175,7 @@
         [class.active]="(focused$ | async) || (opened$ | async)"
         [class.icon-dropdown]="iconName === defaultIcon"
         [iconClass]="$any(iconName)"
-        (click)="!disabled && focusableElement?.nativeElement?.click()"
+        (click)="(!disabled)"
       >
       </prizm-icon>
     </ng-container>

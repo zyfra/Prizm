@@ -1,5 +1,7 @@
 import { TemplateRef } from '@angular/core';
-import { PolymorphComponent, PolymorphContent, PolymorphTemplate } from '../polymorph';
+import { PolymorphContent } from './types/content';
+import { PolymorphTemplate } from './directives/template';
+import { PolymorphComponent } from './classes/component';
 
 export const isPolymorphPrimitive = <T = any>(content: PolymorphContent<T>): boolean => {
   if (isPolymorphTemplate(content)) return false;
