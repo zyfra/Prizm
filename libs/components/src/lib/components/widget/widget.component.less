@@ -15,6 +15,10 @@ prizm-card {
 
   text-overflow: ellipsis;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .header {
@@ -26,6 +30,7 @@ prizm-card {
   align-items: center;
   background-color: var(--prizm-widget-header-bg, var(--prizm-bg-header));
   gap: 16px;
+  flex-shrink: 0;
 }
 
 .icons {
