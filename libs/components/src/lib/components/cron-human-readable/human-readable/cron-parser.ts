@@ -151,13 +151,20 @@ export class PrizmCronHRParser {
 
     // Convert DOW SUN-SAT format to 0-6 format
     const days: { [key: string]: number } = {
-      SUN: 0,
-      MON: 1,
-      TUE: 2,
-      WED: 3,
-      THU: 4,
-      FRI: 5,
-      SAT: 6,
+      SUN: 1,
+      MON: 2,
+      TUE: 3,
+      WED: 4,
+      THU: 5,
+      FRI: 6,
+      SAT: 7,
+      // SUN: 0,
+      // MON: 1,
+      // TUE: 2,
+      // WED: 3,
+      // THU: 4,
+      // FRI: 5,
+      // SAT: 6,
     };
     for (const day in days) {
       expressionParts[5] = expressionParts[5].replace(new RegExp(day, 'gi'), days[day].toString());
