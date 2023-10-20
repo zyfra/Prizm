@@ -24,6 +24,7 @@
     <prizm-doc-demo>
       <button
         #element
+        [style.--prizm-button-min-width]="minWidth"
         [prizmDocHostElement]="element"
         [icon]="icon"
         [iconRight]="iconRight"
@@ -40,6 +41,14 @@
       </button>
     </prizm-doc-demo>
     <prizm-doc-documentation [hasTestId]="true">
+      <ng-template
+        [(documentationPropertyValue)]="minWidth"
+        documentationPropertyName="prizm-button-min-width"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Min Width
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="content"
         documentationPropertyName="ng-content"
