@@ -1,30 +1,39 @@
-import { ChangeDetectorRef, Directive, ElementRef, HostListener, Input, Optional, Self } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Directive,
+  ElementRef,
+  HostListener,
+  Input,
+  OnInit,
+  Optional,
+  Self,
+} from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { NgControl } from '@angular/forms';
+import { Subject } from 'rxjs';
+import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 
 @Directive({
   selector: '[prizmInputCorrector]',
   providers: [PrizmDestroyService],
 })
-export class PrizmInputCorrectorDirective {
+export class PrizmInputCorrectorDirective implements OnInit {
   @Input('prizmInputCorrector') corrector: ((value: string) => string) | null = null;
   @Input() needCorrect: (value: string) => boolean = () => true;
 
+  private readonly inputs$ = new Subject<any>();
+
   @HostListener('paste', [])
   @HostListener('input', [])
-  block(): void | false {
-    const value = this.el.nativeElement.value;
-    const correctValue = this.correctValue(value);
-    if (correctValue !== value) {
-      this.updateNativeValue(correctValue);
-      this.updateNgValue(correctValue);
-    }
+  onInputOrPaste(): void | false {
+    this.inputs$.next(this.el.nativeElement.value);
   }
 
   constructor(
     private readonly el: ElementRef<HTMLInputElement>,
     @Optional() @Self() private ngControl: NgControl,
-    private cdr: ChangeDetectorRef
+    private cdr: ChangeDetectorRef,
+    private destroy$: PrizmDestroyService
   ) {
     this.overrideSetValue();
   }
@@ -53,5 +62,21 @@ export class PrizmInputCorrectorDirective {
 
   private updateNgValue(value: string): void {
     this.ngControl?.control?.setValue(value);
+  }
+
+  ngOnInit(): void {
+    this.inputs$
+      .pipe(
+        debounceTime(100),
+        tap(value => {
+          const correctValue = this.correctValue(value);
+          if (correctValue !== value) {
+            this.updateNativeValue(correctValue);
+            this.updateNgValue(correctValue);
+          }
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 }
