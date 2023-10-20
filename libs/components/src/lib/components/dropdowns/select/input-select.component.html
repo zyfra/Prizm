@@ -1,179 +1,183 @@
-<prizm-dropdown-host
-  #dropdownHostRef
-  [content]="dropdown"
-  [isOpen]="$any(opened$ | async)"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
-  [prizmDropdownHostWidth]="dropdownWidth"
-  [prizmDropdownMinHeight]="minDropdownHeight"
-  [prizmDropdownMaxHeight]="maxDropdownHeight"
-  [dropdownStyles]="dropdownStyles"
-  [dropdownClasses]="dropdownClasses"
-  (isOpenChange)="opened$$.next($event)"
->
-  <ng-container *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent as val">
-    <ng-container
-      *polymorphOutlet="
-        valueTemplate && editableTemplate as content;
-        context: {
-          $implicit: $any(val),
-          value: val | prizmCallFunc : transformer,
-          stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
-        }
-      "
-    >
+<ng-container *prizmLet="items$ | async as itemList">
+  <prizm-dropdown-host
+    #dropdownHostRef
+    *prizmLet="items && value | prizmCallFunc : getFullObjectOfCurrent : itemList as val"
+    [content]="dropdown"
+    [isOpen]="$any(opened$ | async)"
+    [prizmDropdownHost]="layoutComponent.el.nativeElement"
+    [prizmDropdownHostWidth]="dropdownWidth"
+    [prizmDropdownMinHeight]="minDropdownHeight"
+    [prizmDropdownMaxHeight]="maxDropdownHeight"
+    [dropdownStyles]="dropdownStyles"
+    [dropdownClasses]="dropdownClasses"
+    (isOpenChange)="opened$$.next($event)"
+  >
+    <ng-container>
       <ng-container
-        *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text"
+        *polymorphOutlet="
+          valueTemplate && editableTemplate as content;
+          context: {
+            $implicit: $any(val),
+            value: val | prizmCallFunc : transformer,
+            stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
+          }
+        "
       >
-        <input
-          class="input-search"
-          #focusableElementRef
-          [style.visibility]="isNotNullish(val) ? 'visible' : 'hidden'"
-          [placeholder]="placeholder"
-          [disabled]="disabled"
-          [readonly]="true"
-          [ngModelOptions]="{ standalone: true }"
-          [ngModel]="text ?? ''"
-          (click)="safeOpenModal()"
-          (focus)="focused$$.next(true)"
-          (blur)="focused$$.next(false)"
-          prizmInput
-        />
-      </ng-container>
-    </ng-container>
-  </ng-container>
-
-  <ng-template #editableTemplate>
-    <div
-      #focusableElementRef
-      *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent as val"
-      [ngModelOptions]="{ standalone: true }"
-      [ngModel]="(value | prizmCallFunc : getCurrentValue) ?? ''"
-      [attr.contenteditable]="false"
-      [disabled]="disabled"
-      (click)="safeOpenModal()"
-      (focus)="focused$$.next(true)"
-      (blur)="focused$$.next(false)"
-      prizmInput
-    >
-      <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
         <ng-container
-          *polymorphOutlet="
-            valueTemplate as content;
-            context: {
-              $implicit: $any(val),
-              value: val | prizmCallFunc : transformer,
-              stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
-            }
-          "
+          *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text"
         >
-          <ng-container
-            *prizmLet="
-              val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
-            "
-          >
-            {{ text }}
-          </ng-container>
-        </ng-container>
-      </ng-container>
-      <ng-template #placeholderTemplate>
-        <div class="placeholder">{{ placeholder }}</div>
-      </ng-template>
-    </div>
-  </ng-template>
-
-  <ng-template #dropdown>
-    <prizm-data-list
-      class="block"
-      *prizmLet="(filteredItems$ | async) ?? [] as items"
-      [scroll]="dropdownScroll"
-      [style.--prizm-data-list-border]="0"
-    >
-      <div class="list-search-item" *ngIf="searchable">
-        <prizm-input-layout size="m" label="Поиск">
           <input
             class="input-search"
-            [ngModel]="printing$.value"
+            #focusableElementRef
+            [style.visibility]="isNotNullish(val) ? 'visible' : 'hidden'"
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [readonly]="true"
             [ngModelOptions]="{ standalone: true }"
-            (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
+            [ngModel]="text ?? ''"
+            (focus)="focused$$.next(true)"
+            (blur)="focused$$.next(false)"
             prizmInput
-            prizmAutoFocus
           />
-          <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
-        </prizm-input-layout>
-      </div>
-      <ng-container *ngIf="items?.length; else emptyTemplate">
-        <div
-          class="item"
-          #hostHint
-          *ngFor="let item of items; let idx = index"
-          [class.most-relevant]="isMostRelevant(idx, items)"
-          [class.selected]="
-            item === value || (item && value && (transformer(item) | prizmCallFunc : identityMatcher : value))
-          "
-          (click)="select(item)"
-        >
-          <ng-container *ngIf="!isNullish(item); else nullContentTemplate">
-            <span
-              class="text"
-              #elem
-              *prizmLet="
-                item | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
-              "
-              [prizmHint]="text"
-              [prizmHintHost]="hostHint"
-              [prizmHintDirection]="direction"
-              [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
-            >
-              <ng-container
-                *polymorphOutlet="
-                  listItemTemplate ?? valueTemplate as content;
-                  context: {
-                    $implicit: item,
-                    value: item | prizmCallFunc : transformer,
-                    stringify: text
-                  }
-                "
-              >
-                {{ text }}
-              </ng-container>
-            </span>
-          </ng-container>
-
-          <ng-template #nullContentTemplate>
-            <ng-container *ngIf="nullContent">
-              <ng-container *polymorphOutlet="nullContent as content">
-                {{ content }}
-              </ng-container>
-            </ng-container>
-          </ng-template>
-        </div>
+        </ng-container>
       </ng-container>
-      <ng-template #emptyTemplate>
-        <div class="empty-template">
-          <ng-container *polymorphOutlet="emptyContent as content">
-            {{ content }}
-          </ng-container>
-        </div>
-      </ng-template>
-    </prizm-data-list>
-  </ng-template>
-</prizm-dropdown-host>
+    </ng-container>
 
-<ng-container *prizmInputLayoutRight>
-  <ng-container
-    *polymorphOutlet="
-      icon || defaultIcon as iconName;
-      context: $any({ opened: opened$ | async, disabled: disabled })
-    "
-  >
-    <prizm-icon
-      [class.disabled]="disabled"
-      [class.opened]="opened$ | async"
-      [class.active]="(focused$ | async) || (opened$ | async)"
-      [class.icon-dropdown]="iconName === defaultIcon"
-      [iconClass]="$any(iconName)"
-      (click)="!disabled && focusableElement?.nativeElement?.click()"
+    <ng-template #editableTemplate>
+      <div
+        #focusableElementRef
+        *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent : itemList as val"
+        [ngModelOptions]="{ standalone: true }"
+        [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
+        [attr.contenteditable]="false"
+        [disabled]="disabled"
+        (focus)="focused$$.next(true)"
+        (blur)="focused$$.next(false)"
+        prizmInput
+      >
+        <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
+          <ng-container
+            *polymorphOutlet="
+              valueTemplate as content;
+              context: {
+                $implicit: $any(val),
+                value: val | prizmCallFunc : transformer,
+                stringify: $any(
+                  val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async
+                )
+              }
+            "
+          >
+            <ng-container
+              *prizmLet="
+                val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
+              "
+            >
+              {{ text }}
+            </ng-container>
+          </ng-container>
+        </ng-container>
+        <ng-template #placeholderTemplate>
+          <div class="placeholder">{{ placeholder }}</div>
+        </ng-template>
+      </div>
+    </ng-template>
+
+    <ng-template #dropdown>
+      <prizm-data-list
+        class="block"
+        *prizmLet="(filteredItems$ | async) ?? [] as items"
+        [scroll]="dropdownScroll"
+        [style.--prizm-data-list-border]="0"
+      >
+        <div class="list-search-item" *ngIf="searchable">
+          <prizm-input-layout size="m" label="Поиск">
+            <input
+              class="input-search"
+              [ngModel]="printing$.value"
+              [ngModelOptions]="{ standalone: true }"
+              (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
+              prizmInput
+              prizmAutoFocus
+            />
+            <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
+          </prizm-input-layout>
+        </div>
+        <ng-container *ngIf="items?.length; else emptyTemplate">
+          <div
+            class="item"
+            #hostHint
+            *ngFor="let item of items; let idx = index"
+            [class.most-relevant]="isMostRelevant(idx, items)"
+            [class.selected]="
+              item === value ||
+              (item && value && (transformer(item) | prizmCallFunc : identityMatcher : value))
+            "
+            (click)="select(item)"
+          >
+            <ng-container *ngIf="!isNullish(item); else nullContentTemplate">
+              <span
+                class="text"
+                #elem
+                *prizmLet="
+                  item | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
+                "
+                [prizmHint]="text"
+                [prizmHintHost]="hostHint"
+                [prizmHintDirection]="direction"
+                [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
+              >
+                <ng-container
+                  *polymorphOutlet="
+                    listItemTemplate ?? valueTemplate as content;
+                    context: {
+                      $implicit: item,
+                      value: item | prizmCallFunc : transformer,
+                      stringify: text
+                    }
+                  "
+                >
+                  {{ text }}
+                </ng-container>
+              </span>
+            </ng-container>
+
+            <ng-template #nullContentTemplate>
+              <ng-container *ngIf="nullContent">
+                <ng-container *polymorphOutlet="nullContent as content">
+                  {{ content }}
+                </ng-container>
+              </ng-container>
+            </ng-template>
+          </div>
+        </ng-container>
+        <ng-template #emptyTemplate>
+          <div class="empty-template">
+            <ng-container *polymorphOutlet="emptyContent as content">
+              {{ content }}
+            </ng-container>
+          </div>
+        </ng-template>
+      </prizm-data-list>
+    </ng-template>
+  </prizm-dropdown-host>
+
+  <ng-container *prizmInputLayoutRight>
+    <ng-container
+      *polymorphOutlet="
+        icon || defaultIcon as iconName;
+        context: $any({ opened: opened$ | async, disabled: disabled })
+      "
     >
-    </prizm-icon>
+      <prizm-icon
+        [class.disabled]="disabled"
+        [class.opened]="opened$ | async"
+        [class.active]="(focused$ | async) || (opened$ | async)"
+        [class.icon-dropdown]="iconName === defaultIcon"
+        [iconClass]="$any(iconName)"
+        (click)="(!disabled)"
+      >
+      </prizm-icon>
+    </ng-container>
   </ng-container>
 </ng-container>
