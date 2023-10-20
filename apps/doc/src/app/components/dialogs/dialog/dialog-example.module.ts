@@ -17,6 +17,7 @@ import { PrizmDialogServiceExampleComponent } from './examples/base/dialog-base-
 import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-buttons/dialog-with-buttons-example.component';
 import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-parent/dialog-with-parent-example.component';
 import { PrizmDialogServiceResultHandlingExampleComponent } from './examples/result/dialog-result-handling-example.component';
+import { PrizmDialogOuterHeaderExampleComponent } from './examples/outher-header/dialog-outher-header-example.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { PrizmDialogServiceResultHandlingExampleComponent } from './examples/res
     PrizmInputSelectModule,
   ],
   declarations: [
+    PrizmDialogOuterHeaderExampleComponent,
     PrizmDialogServiceExampleComponent,
     PrizmDialogServiceWithButtonsExampleComponent,
     PrizmDialogServiceWithParentExampleComponent,

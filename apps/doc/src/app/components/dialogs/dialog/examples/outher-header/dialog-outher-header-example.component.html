@@ -1,0 +1,42 @@
+<button (click)="show()" type="button" prizmButton>Show Dialog</button>
+
+<div style="margin-top: 16px">
+  <prizm-doc-documentation [hasTestId]="false">
+    <ng-template
+      [(documentationPropertyValue)]="position"
+      [documentationPropertyValues]="positionVariants"
+      documentationPropertyName="position"
+      documentationPropertyType="PrizmOverlayInsidePlacement"
+    >
+      Position
+    </ng-template>
+    <ng-template
+      [(documentationPropertyValue)]="dismissible"
+      documentationPropertyName="dismissible"
+      documentationPropertyType="boolean"
+    >
+      Dismissible
+    </ng-template>
+
+    <ng-template
+      [(documentationPropertyValue)]="backdrop"
+      documentationPropertyName="backdrop"
+      documentationPropertyType="boolean"
+    >
+      Backdrop
+    </ng-template>
+  </prizm-doc-documentation>
+</div>
+
+<ng-template
+  #outerHeaderTemp
+  let-context="context"
+  let-completeWith="completeWith"
+  let-closeWord="closeWord"
+  let-header="header"
+>
+  <div class="header">
+    <div>{{ header }} #{{ context.customNumber }}</div>
+    <button (click)="completeWith(true)" prizmButton appearance="primary" size="s">{{ closeWord }}</button>
+  </div>
+</ng-template>
