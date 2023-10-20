@@ -17,16 +17,7 @@ import {
 import { PrizmSplitterOrientation } from './types';
 
 import { asyncScheduler, BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
-import {
-  map,
-  observeOn,
-  shareReplay,
-  startWith,
-  switchMap,
-  takeUntil,
-  tap,
-  withLatestFrom,
-} from 'rxjs/operators';
+import { map, observeOn, startWith, switchMap, takeUntil, tap, withLatestFrom } from 'rxjs/operators';
 
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
@@ -107,9 +98,10 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
       this.lastGap = gap;
 
       this.guttersData = [];
-      areas.forEach((area, index) => {
+      const shownAreas = areas.filter(area => !area.hidden);
+      shownAreas.forEach((area, index) => {
         area.order = index;
-        if (index < areas.length - 1) {
+        if (index < shownAreas.length - 1) {
           this.guttersData.push({ areaBefore: index, areaAfter: index + 1, order: index + 1 });
         }
       });

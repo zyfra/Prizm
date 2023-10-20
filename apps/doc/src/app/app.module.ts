@@ -32,7 +32,6 @@ import { ForDevelopersModule } from './how-to-work/for-developers/for-developers
 import { ReleasePolicyModule } from './about-prizm/release-policy/release-policy.module';
 import { ServiceLevelAgreementModule } from './about-prizm/service-level-agreement/service-level-agreement.module';
 import { RoadmapModule } from './about-prizm/roadmap/roadmap.module';
-import { TechnologyListModule } from './about-prizm/technology-list/technology-list.module';
 import { TransitionModule } from './how-to-work/transition/transition.module';
 import { AddComponentModule } from './how-to-work/add-component/add-component.module';
 import { SetTaskModule } from './how-to-work/set-task/set-task.module';
@@ -70,7 +69,6 @@ registerLocaleData(localeRu);
     ReleasePolicyModule,
     ServiceLevelAgreementModule,
     RoadmapModule,
-    TechnologyListModule,
     TransitionModule,
     AddComponentModule,
     SetTaskModule,

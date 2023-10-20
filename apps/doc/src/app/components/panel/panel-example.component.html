@@ -55,6 +55,7 @@
       <prizm-panel
         #element
         [style.--prizm-panel-border-radius]="radius"
+        [style.--prizm-panel-height]="height"
         [prizmDocHostElement]="element"
         [withBackButton]="withBackButton"
         [header]="header"
@@ -77,6 +78,15 @@
         documentationPropertyMode="css-var"
       >
         Panel Border Radius (Default none)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="height"
+        documentationPropertyName="prizm-panel-height"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Panel Height (Default 48px)
       </ng-template>
 
       <ng-template
