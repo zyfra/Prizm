@@ -21,6 +21,7 @@
         [status]="status"
         [disabled]="disabled"
         [class]="class"
+        [maxValue]="maxValue"
       ></prizm-counter>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -37,10 +38,19 @@
       <ng-template
         [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
-        documentationPropertyType="string"
+        documentationPropertyType="number"
         documentationPropertyMode="input"
       >
         Value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="maxValue"
+        documentationPropertyName="maxValue"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        MaxValue
       </ng-template>
 
       <ng-template

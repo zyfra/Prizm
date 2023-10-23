@@ -10,7 +10,8 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 export class CounterExampleComponent {
   public status: PrizmCounterStatus = 'info';
   public disabled = false;
-  public value = '0';
+  public value = 10;
+  public maxValue = 99;
   public position: PrizmCounterPosition = 'tr';
   public class = '';
 

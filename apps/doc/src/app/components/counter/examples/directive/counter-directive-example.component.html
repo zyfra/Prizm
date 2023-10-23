@@ -11,7 +11,14 @@
     Button With Counter
   </button>
 
-  <button [prizmCounter]="count" counterPosition="bl" counterStatus="danger" prizmButton>
+  <button
+    [prizmCounter]="count"
+    [counterMaxValue]="9"
+    [counterDisabled]="true"
+    counterPosition="bl"
+    counterStatus="danger"
+    prizmButton
+  >
     Button With Counter
   </button>
 </div>

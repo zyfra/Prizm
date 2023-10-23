@@ -17,10 +17,21 @@ export class PrizmCounterComponent extends PrizmAbstractTestId {
   class = '';
 
   @Input()
+  maxValue: number | undefined;
+
+  @Input()
   @HostBinding('attr.status')
   status = '';
 
-  @Input() value: number | string | undefined;
-
   override readonly testId_ = 'ui_counter';
+
+  public _value!: number;
+
+  @HostBinding('class.hidden') get hidden() {
+    return !this._value;
+  }
+
+  @Input() set value(val: number | undefined) {
+    this._value = val ?? 0;
+  }
 }
