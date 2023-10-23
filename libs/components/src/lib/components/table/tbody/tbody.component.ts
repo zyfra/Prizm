@@ -21,7 +21,6 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { BehaviorSubject, isObservable, Observable } from 'rxjs';
 import { filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../directives';
-import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmTableEmptyDirective } from '../directives/empty.directive';
 import { PrizmTableLoadingDirective } from '../directives/loading.directive';
 import { PrizmRowDirective } from '../directives/row.directive';
@@ -32,7 +31,6 @@ import { PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableDataSourceInput } from '../table.types';
 import { PrizmTrComponent } from '../tr/tr.component';
-import { PrizmTableRowService } from '../service/row.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
