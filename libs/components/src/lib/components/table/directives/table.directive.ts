@@ -20,11 +20,11 @@ import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowService } from '../service/row.service';
 import { prizmTableDefaultColumnSort } from '../table.const';
-import { TableService } from '../table.service';
+import { PrizmTableService } from '../table.service';
 
 @Directive({
   selector: `table[prizmTable]`,
-  providers: [TableService, ...PRIZM_TABLE_PROVIDERS, PrizmTableTreeService, PrizmTableRowService],
+  providers: [PrizmTableService, ...PRIZM_TABLE_PROVIDERS, PrizmTableTreeService, PrizmTableRowService],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     style: `border-collapse: separate; border-spacing: 0`,
@@ -85,7 +85,7 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   constructor(
     public readonly tree: PrizmTableTreeService,
     public readonly sorterService: PrizmTableSorterService<T>,
-    public readonly tableService: TableService,
+    public readonly tableService: PrizmTableService,
     @Inject(IntersectionObserverService)
     readonly entries$: Observable<IntersectionObserverEntry[]>,
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef

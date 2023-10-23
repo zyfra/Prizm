@@ -19,7 +19,7 @@ import { CollectionViewer, isDataSource, ListRange } from '@angular/cdk/collecti
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { BehaviorSubject, isObservable, Observable } from 'rxjs';
-import { filter, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../directives';
 import { PrizmTableEmptyDirective } from '../directives/empty.directive';
 import { PrizmTableLoadingDirective } from '../directives/loading.directive';
@@ -157,14 +157,8 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   ) {}
 
   ngAfterViewInit(): void {
-    this.rows.changes
-      .pipe(
-        startWith(this.rows),
-        map(({ first }: QueryList<PrizmTrComponent<T>>) => first),
-        filter((first: PrizmTrComponent<T>) => !!first),
-        map(({ colCount }) => colCount),
-        takeUntil(this.destroy$)
-      )
+    this.table.tableService.tableMaxColspan$
+      .pipe(takeUntil(this.destroy$))
       .subscribe((columnsCount: number) => {
         this.columnsCount = columnsCount;
         this.changeDetectorRef.detectChanges();

@@ -7,6 +7,7 @@ import {
   Inject,
   Input,
   OnDestroy,
+  OnInit,
   QueryList,
   Self,
 } from '@angular/core';
@@ -19,7 +20,7 @@ import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmThComponent } from '../th/th.component';
 import { moveInEventLoopIteration } from '@prizm-ui/helpers';
-import { TableService } from '../table.service';
+import { PrizmTableService } from '../table.service';
 import { PrizmThGroupService } from './th-group.service';
 
 @Component({
@@ -30,7 +31,7 @@ import { PrizmThGroupService } from './th-group.service';
   providers: [PRIZM_TABLE_PROVIDER, PrizmThGroupService],
 })
 export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
-  implements AfterContentInit, OnDestroy
+  implements OnInit, AfterContentInit, OnDestroy
 {
   private readonly columns$$ = new BehaviorSubject<ReadonlyArray<keyof T | string> | null>(null);
   @Input()
@@ -59,29 +60,34 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
 
   heads$: Observable<PrizmHeadDirective<T>[]> | null = null;
 
-  readonly structure$ = concat(
-    // TODO remove (move to lifecycle hook)
-    timer(0).pipe(mapTo([])),
-    defer(() => of(this.th.toArray())),
-    defer(() => this.th.changes.pipe(map(() => this.th.toArray())))
-  ).pipe(
-    map((cols: PrizmThComponent<T>[]) => {
-      const colspan = cols.reduce((acc, element) => acc + element.el.nativeElement.colSpan, 0);
-      return {
-        cols,
-        colspan,
-      };
-    }),
-    shareReplay(1)
-  );
+  groupStructure$!: Observable<{
+    cols: PrizmThComponent<T>[];
+    colspan: number;
+  }>;
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
     public readonly table: PrizmTableDirective<T>,
-    public readonly tableService: TableService,
+    public readonly tableService: PrizmTableService,
     @Self() public readonly thGroupService: PrizmThGroupService
   ) {
-    this.tableService.add(this);
+    this.tableService.addThGroup(this);
+  }
+
+  ngOnInit(): void {
+    this.groupStructure$ = concat(
+      defer(() => of(this.th.toArray())),
+      defer(() => this.th.changes.pipe(map(() => this.th.toArray())))
+    ).pipe(
+      map((cols: PrizmThComponent<T>[]) => {
+        const colspan = cols.reduce((acc, element) => acc + element.el.nativeElement.colSpan, 0);
+        return {
+          cols,
+          colspan,
+        };
+      }),
+      shareReplay(1)
+    );
   }
 
   ngAfterContentInit(): void {
@@ -106,6 +112,6 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
   }
 
   ngOnDestroy(): void {
-    this.tableService.remove(this);
+    this.tableService.removeThGroup(this);
   }
 }

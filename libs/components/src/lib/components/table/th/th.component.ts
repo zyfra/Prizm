@@ -17,7 +17,6 @@ import { PrizmTableSortKeyException } from '../../../exceptions';
 import { PrizmTableCellSorter, PrizmTableCellSorterHandler, PrizmTableSorterService } from '../service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { TableService } from '../table.service';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -56,7 +55,6 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     @Optional()
     @Inject(PrizmHeadDirective)
     private readonly head: PrizmHeadDirective<T> | null,
-    private readonly tableService: TableService,
     public readonly el: ElementRef<HTMLTableCellElement>,
     private readonly sorterService: PrizmTableSorterService<T>,
     @Optional()
