@@ -60,6 +60,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
   heads$: Observable<PrizmHeadDirective<T>[]> | null = null;
 
   readonly structure$ = concat(
+    // TODO remove (move to lifecycle hook)
     timer(0).pipe(mapTo([])),
     defer(() => of(this.th.toArray())),
     defer(() => this.th.changes.pipe(map(() => this.th.toArray())))
