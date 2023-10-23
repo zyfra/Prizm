@@ -1,3 +1,3 @@
 export * from './counter.module';
-export * from './counter.component';
+export * from './counter.directive';
 export * from './counter.models';

@@ -9,7 +9,31 @@
   font-size: 12px;
   color: var(--prizm-v3-text-icon-exception);
 
-  .counter-contauner {
+  &.counter {
+    position: absolute;
+
+    &_tr {
+      top: -8px;
+      right: -8px;
+    }
+
+    &_tl {
+      top: -8px;
+      left: -8px;
+    }
+
+    &_br {
+      bottom: -8px;
+      right: -8px;
+    }
+
+    &_bl {
+      bottom: -8px;
+      left: -8px;
+    }
+  }
+
+  .counter-container {
     min-width: 8px;
     line-height: 16px;
   }

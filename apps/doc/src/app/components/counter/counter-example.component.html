@@ -6,6 +6,10 @@
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-counter-base-example></prizm-counter-base-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="directive" [content]="exampleDirective" heading="Directive">
+      <prizm-counter-directive-example></prizm-counter-directive-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -13,9 +17,10 @@
       <prizm-counter
         #element
         [prizmDocHostElement]="element"
+        [value]="value"
         [status]="status"
         [disabled]="disabled"
-        [value]="value"
+        [class]="class"
       ></prizm-counter>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -45,6 +50,15 @@
         documentationPropertyMode="input"
       >
         Disabled
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="class"
+        documentationPropertyName="class"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Class
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

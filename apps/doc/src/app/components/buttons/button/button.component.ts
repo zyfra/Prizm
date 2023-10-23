@@ -71,4 +71,9 @@ export class ButtonComponent {
     TypeScript: import('./examples/icons/icons-buttons-example.component.ts?raw'),
     HTML: import('./examples/icons/icons-buttons-example.component.html?raw'),
   };
+
+  readonly exampleCounter: TuiDocExample = {
+    TypeScript: import('./examples/counter/button-with-counter-example.component.ts?raw'),
+    HTML: import('./examples/counter/button-with-counter-example.component.html?raw'),
+  };
 }
