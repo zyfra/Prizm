@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PrizmCounterDirective } from './counter.directive';
-import { PrizmCounterComponent } from './counter-container.component';
+import { PrizmCounterComponent } from './counter.component';
 
 @NgModule({
   imports: [CommonModule],

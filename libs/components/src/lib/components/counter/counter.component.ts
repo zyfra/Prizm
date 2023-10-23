@@ -3,8 +3,8 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-counter',
-  templateUrl: './counter-container.component.html',
-  styleUrls: ['./counter-container.component.less'],
+  templateUrl: './counter.component.html',
+  styleUrls: ['./counter.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmCounterComponent extends PrizmAbstractTestId {

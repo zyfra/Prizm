@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { PrizmCounterComponent } from './counter-container.component';
+import { PrizmCounterComponent } from './counter.component';
 
 describe('CounterComponent', () => {
   let component: PrizmCounterComponent;

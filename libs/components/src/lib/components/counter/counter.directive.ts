@@ -9,7 +9,7 @@ import {
   ViewContainerRef,
   inject,
 } from '@angular/core';
-import { PrizmCounterComponent } from './counter-container.component';
+import { PrizmCounterComponent } from './counter.component';
 import { PrizmCounterPosition, PrizmCounterStatus } from './counter.models';
 
 @Directive({
