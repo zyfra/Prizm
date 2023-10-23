@@ -56,29 +56,40 @@
   }
 }
 
+.empty-row {
+  td {
+    border: 1px solid var(--prizm-border-widget);
+    border-top: transparent;
+  }
+}
+
 :host-context([data-size='xs']) {
   font-size: 12px;
   line-height: 12px;
 
-  .heading {
+  .heading,
+  .empty-row {
     height: @height-xs;
   }
 }
 
 :host-context([data-size='s']) {
-  .heading {
+  .heading,
+  .empty-row {
     height: @height-s;
   }
 }
 
 :host-context([data-size='m']) {
-  .heading {
+  .heading,
+  .empty-row {
     height: @height-m;
   }
 }
 
 :host-context([data-size='l']) {
-  .heading {
+  .heading,
+  .empty-row {
     height: @height-l;
   }
 }
