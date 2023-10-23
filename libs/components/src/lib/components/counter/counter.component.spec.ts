@@ -20,6 +20,6 @@ describe('CounterComponent', () => {
 
   it('should set value to counter', () => {
     component.value = 10;
-    expect(component.value).toBe(10);
+    expect(component._value).toBe(10);
   });
 });
