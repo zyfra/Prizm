@@ -44,9 +44,11 @@ import { TableTreeExampleComponent } from './examples/table-tree-example/table-t
 import { TableColumnSettingsExampleComponent } from './examples/table-column-settings-example/table-column-settings-example.component';
 import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/pipes/column-sticky-pipe.pipe';
 import { PrizmStickyHeaderPipe } from './examples/table-column-settings-example/pipes/header-sticky-pipe.pipe';
+import { TableTrackByExampleComponent } from './examples/table-track-by-example/table-track-by-example.component';
 
 @NgModule({
   declarations: [
+    TableTrackByExampleComponent,
     TableTreeExampleComponent,
     TableIndexExampleComponent,
     TableTreePaginationExampleComponent,

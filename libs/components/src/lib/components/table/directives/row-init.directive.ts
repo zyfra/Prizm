@@ -37,6 +37,7 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
     this.generateIdx();
     this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, this.getContext());
     this.initChildrenVisibleStateOnce();
+    this.updateContextIfCan();
   }
 
   private initChildrenVisibleStateOnce(): void {
@@ -68,9 +69,8 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
 
   public updateContextIfCan() {
     if (!this.embeddedRef) return;
-    this.viewContainer.clear();
-    this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, this.getContext());
     this.context = this.getContext();
+    if (this.context !== this.embeddedRef.context) this.embeddedRef.context = this.context;
     this.embeddedRef.markForCheck();
   }
 

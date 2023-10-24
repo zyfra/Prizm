@@ -1,0 +1,74 @@
+<prizm-scrollbar class="scrollable">
+  <table class="table" prizmTable size="l">
+    <thead>
+      <tr prizmThGroup>
+        <th prizmTh>Код</th>
+        <th prizmTh>Наименование</th>
+        <th prizmTh>Категория</th>
+        <th prizmTh>Количество</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody [data]="products" prizmTbody>
+      <ng-container
+        *prizmRow="
+          let item of products;
+          let i = index;
+          let odd = odd;
+          let even = even;
+          let first = first;
+          let last = last;
+          trackBy: trackByFn
+        "
+      >
+        <tr (click)="onTrClick($event, item)" prizmTr>
+          <td prizmTd>
+            {{ item.code }}
+          </td>
+          <td prizmTd>
+            {{ item.name }}
+          </td>
+          <td prizmTd>{{ item.category }}</td>
+          <td prizmTd>
+            {{ item.count }}
+          </td>
+          <td>{{ item.active }}</td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</prizm-scrollbar>
+
+<h2>Обычная таблица</h2>
+<table class="table table--simple">
+  <thead>
+    <tr>
+      <th>Код</th>
+      <th>Наименование</th>
+      <th>Категория</th>
+      <th>Количество</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let item of products; trackBy: trackByFn2" (click)="onTrClick($event, item)">
+      <td>
+        {{ item.code }}
+      </td>
+      <td>
+        {{ item.name }}
+      </td>
+      <td>{{ item.category }}</td>
+      <td>
+        {{ item.count }}
+      </td>
+      <td>{{ item.active }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-template #oervlayTemplate>
+  <div class="overlay-tpl"></div>
+</ng-template>
