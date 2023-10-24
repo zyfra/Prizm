@@ -22,6 +22,7 @@ import { PrizmSelectStringifyExampleComponent } from './examples/stringify/selec
 import { PrizmSelectWithTransformerExampleComponent } from './examples/with-transformer/select-with-transformer-example.component';
 import { PrizmSelectWithListItemTemplateExampleComponent } from './examples/with-list-item-template/select-with-list-item-template-example.component';
 import { PrizmSelectStringifyObservableExampleComponent } from './examples/stringify-observable/select-stringify-observable-example.component';
+import { PrizmSelectAsyncExampleComponent } from './examples/async/select-async-example.component';
 
 @NgModule({
   imports: [
@@ -37,6 +38,7 @@ import { PrizmSelectStringifyObservableExampleComponent } from './examples/strin
     RouterModule.forChild(prizmDocGenerateRoutes(InputSelectComponent)),
   ],
   declarations: [
+    PrizmSelectAsyncExampleComponent,
     PrizmSelectWithTransformerExampleComponent,
     PrizmSelectFullWidthExampleComponent,
     PrizmSelectValidatorsExampleComponent,

@@ -104,6 +104,10 @@ export class InputSelectComponent {
     TypeScript: import('./examples/base/select-base-example.component.ts?raw'),
     HTML: import('./examples/base/select-base-example.component.html?raw'),
   };
+  readonly exampleAsync: TuiDocExample = {
+    TypeScript: import('./examples/async/select-async-example.component.ts?raw'),
+    HTML: import('./examples/async/select-async-example.component.html?raw'),
+  };
   readonly exampleStringify: TuiDocExample = {
     TypeScript: import('./examples/stringify/select-stringify-example.component.ts?raw'),
     HTML: import('./examples/stringify/select-stringify-example.component.html?raw'),

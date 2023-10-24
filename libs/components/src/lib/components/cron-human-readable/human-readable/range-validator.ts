@@ -64,7 +64,7 @@ export default class PrizmCronHRRangeValidator {
       if (!isNaN(parseInt(parsed[i], 10))) {
         const dayOfWeek = parseInt(parsed[i], 10);
         assert(
-          dayOfWeek >= 0 && dayOfWeek <= 6,
+          dayOfWeek >= 0 && dayOfWeek <= 7,
           dayOfWeekStartIndexZero ? 'DOW part must be >= 0 and <= 6' : 'DOW part must be >= 1 and <= 7'
         );
       }

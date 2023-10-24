@@ -1,0 +1,30 @@
+<prizm-input-layout label="Validators">
+  <prizm-input-select
+    [items]="(items$ | async) ?? []"
+    [valueTemplate]="valueTemplate"
+    [formControl]="valueControl"
+    [searchMatcher]="searchMatcher"
+    [identityMatcher]="identityMatcher"
+    [stringify]="stringify"
+    [searchable]="true"
+  >
+  </prizm-input-select>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()">
+    Set default value: <b>{{ items[0].name | json }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ valueControl.value | json }}</div>
+
+<ng-template #valueTemplate let-value let-stringify="stringify">
+  <div class="item">
+    <prizm-icon iconClass="account-done"></prizm-icon>
+    <span>{{ stringify }}</span>
+  </div>
+</ng-template>

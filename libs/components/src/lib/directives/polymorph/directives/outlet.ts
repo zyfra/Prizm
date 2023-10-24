@@ -16,6 +16,7 @@ import { PolymorphComponent } from '../classes/component';
 import { PrimitiveContext } from '../classes/primitive-context';
 import { PolymorphContent } from '../types/content';
 import { PolymorphTemplate } from './template';
+import { isPolymorphComponent, isPolymorphDirective } from '../util';
 
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
@@ -43,7 +44,7 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
   ) {}
 
   private get template(): TemplateRef<unknown> {
-    if (isDirective(this.content)) {
+    if (isPolymorphDirective(this.content)) {
       return this.content.template;
     }
 
@@ -66,7 +67,7 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
 
     this.viewContainerRef.clear();
 
-    if (isComponent(this.content)) {
+    if (isPolymorphComponent(this.content)) {
       const proxy = new Proxy(this.context ?? ({} as unknown as C), {
         get: (_, key): unknown => this.context[key as keyof C],
       });
@@ -83,7 +84,7 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
 
   // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle
   ngDoCheck(): void {
-    if (isDirective(this.content)) {
+    if (isPolymorphDirective(this.content)) {
       this.content.check();
     }
   }
@@ -96,20 +97,8 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
 }
 
 // eslint-disable-next-line @typescript-eslint/ban-types
-function isDirective<C extends object>(content: PolymorphContent<C> | null): content is PolymorphTemplate<C> {
-  return content instanceof PolymorphTemplate;
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-types
-function isComponent<C>(
-  content: PolymorphContent<C> | null
-): content is PolymorphComponent<Record<string, unknown>, C> {
-  return content instanceof PolymorphComponent;
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-types
 function isTemplate<C extends object>(
   content: PolymorphContent<C> | null
 ): content is PolymorphTemplate<C> | TemplateRef<C> {
-  return isDirective(content) || content instanceof TemplateRef;
+  return isPolymorphDirective(content) || content instanceof TemplateRef;
 }

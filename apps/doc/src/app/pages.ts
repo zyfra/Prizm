@@ -65,13 +65,6 @@ export const pages: PrizmOrderedDocPage = [
     route: 'about-prizm/changelog',
     order: 8,
   },
-  {
-    section: SectionNameEnum.allAboutPrizm,
-    title: 'Список технологий',
-    keywords: 'список, технология, technology, list',
-    route: 'about-prizm/technology-list',
-    order: 9,
-  },
   //How to work
   {
     section: SectionNameEnum.howToWork,
