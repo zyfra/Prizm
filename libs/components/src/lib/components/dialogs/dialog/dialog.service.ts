@@ -13,6 +13,7 @@ const DEFAULT_OPTIONS: PrizmDialogOptions = {
   position: PrizmOverlayInsidePlacement.CENTER,
   dismissible: true,
   header: '',
+  outerHeader: '',
 } as const;
 
 @Injectable({

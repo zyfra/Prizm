@@ -70,26 +70,55 @@
           (changeEvent)="scheduleComponent.emit()"
         ></prizm-radio-button>
       </div>
-      <div class="content column">
+      <div class="content column year">
         <span>Выбранный год (выбор одного или нескольких)</span>
         <div>
           <prizm-input-layout
             class="year-input"
             *prizmLet="
-              cronUiState.state$ | async | prizmPluck : ['specified'] | prizmCallFunc : join as joinedStr
+              cronUiState.state$ | async | prizmPluck : ['specified'] | prizmCallFunc : corrector as chips
             "
             [outer]="true"
             [label]="null"
-            [forceClear]="false"
             size="m"
           >
             <input
-              [ngModel]="joinedStr"
+              #input
+              [(ngModel)]="yearForAdd"
+              [prizmInputAllowedSymbols]="allowedYear"
               [ngModelOptions]="{ standalone: true }"
-              (ngModelChange)="saveSpecified($event)"
+              (enter)="onEnter($event, chipsComponent)"
               prizmInput
+              placeholder="Введите год"
             />
+            <prizm-chips
+              #chipsComponent
+              [ngModel]="chips"
+              [deletable]="deletable"
+              (ngModelChange)="removedChips($event)"
+              prizm-input-bottom
+            ></prizm-chips>
           </prizm-input-layout>
+
+          <!--          <prizm-input-layout-->
+          <!--            class="year-input"-->
+          <!--            *prizmLet="-->
+          <!--              cronUiState.state$ | async | prizmPluck : ['specified'] | prizmCallFunc : join as joinedStr-->
+          <!--            "-->
+          <!--            [outer]="true"-->
+          <!--            [label]="null"-->
+          <!--            [forceClear]="false"-->
+          <!--            size="m"-->
+          <!--          >-->
+          <!--            <input-->
+          <!--              [prizmInputAllowedSymbols]="allowedYear"-->
+          <!--              [prizmInputCorrector]="corrector"-->
+          <!--              [ngModel]="joinedStr"-->
+          <!--              [ngModelOptions]="{ standalone: true }"-->
+          <!--              (ngModelChange)="saveSpecified($event)"-->
+          <!--              prizmInput-->
+          <!--            />-->
+          <!--          </prizm-input-layout>-->
         </div>
         <prizm-cron-schedule
           #scheduleComponent

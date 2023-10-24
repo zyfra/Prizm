@@ -9,3 +9,4 @@ export * from './types/content';
 export * from './types/handler';
 export * from './types/primitive';
 export * from './polymorph.module';
+export * from './util';

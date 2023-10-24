@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { PrizmInputControl } from '../base';
 
 /**
  * Default class for input validation texts
@@ -12,7 +13,7 @@ export class PrizmInputValidationTexts {
     ['max', 'Значение слишком большое'],
   ]);
 
-  public getText(key: string): string | undefined {
+  public getText(key: string, control?: PrizmInputControl<unknown>): string | undefined {
     return this.invalidTextMap.get(key);
   }
 }

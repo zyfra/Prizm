@@ -29,3 +29,4 @@ export * from './wrapper';
 export * from './sticky';
 export * from './native-value';
 export * from './auto-resize';
+export * from './input-zone';

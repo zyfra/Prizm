@@ -24,7 +24,7 @@ import { PrizmInputHintDirective } from '../common';
 @Component({
   selector:
     // eslint-disable-next-line @angular-eslint/component-selector
-    'input[prizmInput], textarea[prizmInput], input[prizmInputNumber], input[prizmInputPassword], input[prizmInput][type=number]',
+    'input[prizmInput]:not([type=number]), textarea[prizmInput], input[prizmInputPassword]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
@@ -32,7 +32,7 @@ import { PrizmInputHintDirective } from '../common';
     '[disabled]': 'disabled',
   },
   exportAs: 'prizmInput',
-  styleUrls: ['input-text.component.less', 'input-textarea.component.less'],
+  styleUrls: ['../common/styles/input.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
 })
 export class PrizmInputTextComponent<VALUE extends string | number | null = string>
@@ -174,7 +174,8 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this.inputHint?.updateHint();
   }
 
-  public ngDoCheck(): void {
+  public override ngDoCheck(): void {
+    super.ngDoCheck();
     this.updateEmptyState();
     this.updateErrorState();
   }
