@@ -2,7 +2,7 @@
   <prizm-input-layout-date-time [formControl]="value"></prizm-input-layout-date-time>
 </prizm-input-layout>
 <div>
-  {{ value.value | date : 'short' }}
+  {{ value.value?.toLocalNativeDate() | date : 'short' }}
 </div>
 
 <br />
