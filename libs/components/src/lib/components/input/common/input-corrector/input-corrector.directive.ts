@@ -25,7 +25,7 @@ export class PrizmInputCorrectorDirective implements OnInit {
 
   @HostListener('paste', [])
   @HostListener('input', [])
-  onInputOrPaste(): void | false {
+  public onInputOrPaste(): void | false {
     this.inputs$.next(this.el.nativeElement.value);
   }
 
@@ -41,6 +41,7 @@ export class PrizmInputCorrectorDirective implements OnInit {
   private overrideSetValue(): void {
     if (this.ngControl.control) {
       const originFunc = this.ngControl.control.setValue;
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
       const self = this;
       this.ngControl.control.setValue = function (value, options) {
         const newValue = self.correctValue(value);
