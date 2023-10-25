@@ -2,7 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.3.0, 2.3.0, 3.2.0](https://github.com/zyfra/Prizm) (18-10-2023)
+## [1.7.0, 2.4.0, 3.3.0](https://github.com/zyfra/Prizm) (25-10-2023)
+
+### Features
+
+- feat(components/cron): cron year limit #824 [MR](https://github.com/zyfra/Prizm/pull/817)
+- feat(components/confirm-dialog): add polymorph template support for confirm-dialog component #799 [MR](https://github.com/zyfra/Prizm/pull/827)
+- feat(components/panel): add variable for panel height #811 [MR](https://github.com/zyfra/Prizm/pull/828)
+- feat(components/hint): white-space: pre-line added #781 [MR](https://github.com/zyfra/Prizm/pull/831)
+- feat(components/tooltip): white-space: pre-line added #781 [MR](https://github.com/zyfra/Prizm/pull/831)
+- feat(components/confirm-popup): white-space: pre-line added for title and description #781 [MR](https://github.com/zyfra/Prizm/pull/831)
+- feat(components/confirm-dialog): white-space: pre-line added for title and description #768 [MR](https://github.com/zyfra/Prizm/pull/831)
+- feat(components/input): added new param with control (resolved #762) [MR](https://github.com/zyfra/Prizm/pull/832)
+- feat(components/overlay): new close logic #798 [MR](https://github.com/zyfra/Prizm/pull/833)
+- feat(doc): remove redundant page 'technology list' from docs [MR](https://github.com/zyfra/Prizm/pull/840)
+- feat(components): added exports for custom dropdown #783 [MR](https://github.com/zyfra/Prizm/pull/847)
+- feat(components/input-date-time): new transformer for work with base date format #410 [MR](https://github.com/zyfra/Prizm/pull/851)
+- feat(components/counter): counter component and directive added [MR](https://github.com/zyfra/Prizm/pull/859)
+- feat(components/dialog): added outer-header with example #854 [MR](https://github.com/zyfra/Prizm/pull/860)
+
+### Bug fixes
+
+- fix(components/cron): fixed week day names #784 [MR](https://github.com/zyfra/Prizm/pull/825)
+- fix(components/widget): widget header shrinks #273 [MR](https://github.com/zyfra/Prizm/pull/838)
+- fix:(components/splitter) splitter area collapsed after display changed #737 [MR](https://github.com/zyfra/Prizm/pull/839)
+- fix(components/input-select): lazy get items #836 #812 [MR](https://github.com/zyfra/Prizm/pull/846)
+- fix(components/cron): cron buttons width #848 [MR](https://github.com/zyfra/Prizm/pull/850)
+- fix(components/tab): active tab coor and border #401 [MR](https://github.com/zyfra/Prizm/pull/850)
+- fix(components/input-select): open dropdown by click when passed primitive polymorph template #853 [MR](https://github.com/zyfra/Prizm/pull/858)
+- fix(doc/button): buttons pseudo state documentation update #809 [MR](https://github.com/zyfra/Prizm/pull/864)
+- fix(doc/icon-button): icon-buttons pseudo state documentation update #809 [MR](https://github.com/zyfra/Prizm/pull/864)
+- fix(components/table): table row group column borders disappear when filtering #230 [MR](https://github.com/zyfra/Prizm/pull/866)
+- fix(components/table): re render on update context #816 [MR](https://github.com/zyfra/Prizm/pull/884)
+
+## [1.6.0, 2.3.0, 3.2.0](https://github.com/zyfra/Prizm) (18-10-2023)
 
 ### Features
 
