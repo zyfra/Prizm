@@ -39,6 +39,9 @@
         [showLoader]="showLoader"
         [focusable]="focusable"
         [pseudoState]="pseudoState"
+        [pseudoPressed]="pseudoPressed"
+        [pseudoHovered]="pseudoHovered"
+        [pseudoFocused]="pseudoFocused"
         prizmButton
       >
         {{ content }}
@@ -131,7 +134,7 @@
       <ng-template
         [(documentationPropertyValue)]="pseudoHovered"
         documentationPropertyName="pseudoHovered"
-        documentationPropertyType="boolean | null"
+        documentationPropertyType="boolean"
         documentationPropertyMode="input"
       >
         Pseudo Hovered
@@ -139,7 +142,7 @@
       <ng-template
         [(documentationPropertyValue)]="pseudoPressed"
         documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
+        documentationPropertyType="boolean"
         documentationPropertyMode="input"
       >
         Pseudo Pressed
@@ -147,7 +150,7 @@
       <ng-template
         [(documentationPropertyValue)]="pseudoFocused"
         documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
+        documentationPropertyType="boolean"
         documentationPropertyMode="input"
       >
         Pseudo Focused
