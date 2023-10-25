@@ -1,0 +1,10 @@
+<prizm-input-layout label="Введите дату">
+  <prizm-input-layout-date-time [formControl]="value"></prizm-input-layout-date-time>
+</prizm-input-layout>
+<div>
+  {{ value.value?.toLocalNativeDate() }}
+</div>
+
+<br />
+<button (click)="setDefaultValue()">Set default value</button>
+<button (click)="clear()">Clear</button>
