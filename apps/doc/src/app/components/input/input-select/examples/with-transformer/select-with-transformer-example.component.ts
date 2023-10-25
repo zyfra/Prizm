@@ -35,7 +35,7 @@ export class PrizmSelectWithTransformerExampleComponent {
     return item.name.toLowerCase().includes(search.toLowerCase());
   };
 
-  readonly transformer: PrizmSelectValueTransformver<PrizmItem> = a => a.id;
+  readonly transformer: PrizmSelectValueTransformver<PrizmItem> = a => a?.id;
   readonly identityMatcher: PrizmSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
     return a === b;
   };
