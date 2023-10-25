@@ -40,6 +40,10 @@ export class PrizmOverlayExampleRelativeComponent implements OnInit {
 
     this.control = this.overlay
       .position(position)
+      .config({
+        closeOnDocClick: true,
+        backdrop: false,
+      })
       // PASS TEMPLATE
       .content(this.templateRef)
       .create();
