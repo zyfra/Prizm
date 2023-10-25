@@ -23,4 +23,6 @@ export class TableRowGroupExampleComponent {
   public products1: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
 
   public products2: ITableProduct[] = TABLE_EXAMPLE_DATA_2;
+
+  public products3: ITableProduct[] = [];
 }

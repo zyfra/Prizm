@@ -26,7 +26,9 @@
 
     <tbody [data]="searchAllowedProducts" prizmTbody>
       <tr class="row" *prizmRow="let item of searchAllowedProducts; let i = index" prizmTr>
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>
+          {{ item.code | spaceNumber : '0.0-0' }}
+        </td>
         <td *prizmCell="'name'" prizmTd>{{ item.name }}</td>
         <td *prizmCell="'category'" prizmTd>{{ item.category }}</td>
         <td class="format__number" *prizmCell="'count'" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>

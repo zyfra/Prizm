@@ -55,6 +55,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     @Optional()
     @Inject(PrizmHeadDirective)
     private readonly head: PrizmHeadDirective<T> | null,
+    public readonly el: ElementRef<HTMLTableCellElement>,
     private readonly sorterService: PrizmTableSorterService<T>,
     @Optional()
     @Inject(forwardRef(() => PrizmTableDirective))

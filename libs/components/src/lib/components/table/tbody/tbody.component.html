@@ -55,7 +55,7 @@
 
   <ng-template #loadingWrapperTemplate>
     <tr>
-      <td>Loading...</td>
+      <td [colSpan]="columnsCount">Loading...</td>
     </tr>
   </ng-template>
 </ng-template>
@@ -64,8 +64,8 @@
   <ng-container *ngTemplateOutlet="emptyTemplate?.template || emptyInnerTemplate"></ng-container>
 
   <ng-template #emptyInnerTemplate>
-    <tr>
-      <td>—</td>
+    <tr class="empty-row">
+      <td [colSpan]="columnsCount">—</td>
     </tr>
   </ng-template>
 </ng-template>
