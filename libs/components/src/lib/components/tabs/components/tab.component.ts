@@ -10,7 +10,7 @@ import {
   Optional,
   Output,
 } from '@angular/core';
-import { PrizmTabType } from '../tabs.interface';
+import { PrizmTabCounterOptions, PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
 import { PolymorphContent } from '../../../directives';
 import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
@@ -32,6 +32,17 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   @Input() content: PolymorphContent<PrizmTabContext> | null = null;
   @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
   @Input() count = 0;
+
+  public _counterOptions: PrizmTabCounterOptions = {
+    status: 'info',
+    disabled: false,
+  };
+
+  @Input()
+  set counterOptions(value: Partial<PrizmTabCounterOptions> | undefined) {
+    this._counterOptions = { ...this._counterOptions, ...value };
+  }
+
   @Input() closable!: boolean;
   @Input() disabled = false;
   private idx_: number | null = null;

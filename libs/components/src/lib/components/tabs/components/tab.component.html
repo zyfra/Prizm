@@ -14,10 +14,15 @@
       {{ content }}
     </ng-container>
   </span>
-  <div class="page__counter" *ngIf="!!count">{{ count }}</div>
+  <prizm-counter
+    [value]="count"
+    [status]="_counterOptions.status"
+    [disabled]="_counterOptions.disabled"
+    [maxValue]="_counterOptions.maxValue"
+  ></prizm-counter>
   <div class="page__cancel" *ngIf="closable && !disabled" (click)="onClose($event)">
     <ng-container *polymorphOutlet="closeIcon; context: $any({ idx: idx$ | async, tab: this })">
-      <prizm-icon class="icon" [iconClass]="$any(closeIcon)" [size]="16"> </prizm-icon>
+      <prizm-icon class="icon" [iconClass]="$any(closeIcon)" [size]="16"></prizm-icon>
     </ng-container>
   </div>
 </button>
