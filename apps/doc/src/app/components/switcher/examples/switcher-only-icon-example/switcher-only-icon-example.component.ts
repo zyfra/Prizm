@@ -11,12 +11,31 @@ export class SwitcherOnlyIconExampleComponent {
   public readonly switchers: PrizmSwitcherItem[] = [
     {
       icon: 'editor-table',
+      hint: {
+        value: 'Таблицы',
+        options: {
+          theme: 'light',
+        },
+      },
     },
     {
       icon: 'network-scheme',
+      hint: {
+        value: 'Мнемосхемы',
+        options: {
+          theme: 'light',
+          showDelay: 100,
+          hideDelay: 500,
+          autoReposition: false,
+          direction: 'br',
+        },
+      },
     },
     {
       icon: 'view-dashboard',
+      hint: {
+        value: 'Дашборды',
+      },
     },
   ];
 }

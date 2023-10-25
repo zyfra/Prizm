@@ -4,11 +4,12 @@ import { PrizmSwitcherComponent } from './switcher.component';
 import { SwitcherItemComponent } from './components/switcher-item/switcher-item.component';
 import { PrizmIconModule } from '../icon';
 import { PrizmButtonModule } from '../button';
-import { PolymorphModule } from '../../directives';
+import { PolymorphModule, PrizmHintModule } from '../../directives';
+import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive';
 
 @NgModule({
-  declarations: [PrizmSwitcherComponent, SwitcherItemComponent],
-  imports: [CommonModule, PrizmIconModule, PrizmButtonModule, PolymorphModule],
+  declarations: [PrizmSwitcherComponent, SwitcherItemComponent, PrizmSwitcherHintDirective],
+  imports: [CommonModule, PrizmIconModule, PrizmButtonModule, PolymorphModule, PrizmHintModule],
   exports: [PrizmSwitcherComponent],
 })
 export class PrizmSwitcherModule {}
