@@ -56,5 +56,5 @@ function processRawValue(value: string, config: PrizmAutoCorrectedDatePipeConfig
 export function prizmCreateAutoCorrectedDateRangePipe(
   config: PrizmAutoCorrectedDatePipeConfigs
 ): PrizmTextMaskPipeHandler {
-  return (value: any): any => ({ value: processRawValue(value, config) });
+  return (value: unknown): unknown => ({ value: processRawValue(value, config) });
 }

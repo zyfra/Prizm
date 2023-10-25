@@ -89,7 +89,7 @@ export class PrizmInputLayoutComponent
           !this.letDirective?.context?.empty;
   }
 
-  @ContentChild(PrizmInputControl, { static: true }) control!: PrizmInputControl<any>;
+  @ContentChild(PrizmInputControl, { static: true }) control!: PrizmInputControl<unknown>;
   @ContentChild(PrizmInputStatusTextDirective, { static: false })
   inputStatusText!: PrizmInputStatusTextDirective;
 

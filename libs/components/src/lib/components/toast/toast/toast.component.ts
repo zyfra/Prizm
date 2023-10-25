@@ -13,8 +13,8 @@ export class ToastComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_toast_single';
 
   // TODO remove record to context type
-  get context(): Record<string, any> {
-    return this.toastRef as Record<string, any>;
+  get context(): Record<string, unknown> {
+    return this.toastRef as Record<string, unknown>;
   }
   get temp(): PolymorphContent {
     return this.toastRef.content;

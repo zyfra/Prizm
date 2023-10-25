@@ -145,7 +145,7 @@ export class PrizmInputDateRelativeComponent
 
   public ngAfterViewInit(): void {
     const control = this.injector.get(NgControl) as unknown as UntypedFormControl;
-    this.value.addValidators(control.validator as any);
+    this.value.addValidators(control.validator as unknown);
 
     this.subscriptions.add(
       this.value.valueChanges.subscribe(() => {
@@ -240,7 +240,7 @@ export class PrizmInputDateRelativeComponent
   }
 
   public get focused(): boolean {
-    return prizmIsNativeFocusedIn(this.focusableElement?.nativeElement as any);
+    return prizmIsNativeFocusedIn(this.focusableElement?.nativeElement as unknown);
   }
 
   /**
@@ -248,7 +248,7 @@ export class PrizmInputDateRelativeComponent
    */
   private actualizeInput(): void {
     const stringValue = RenderText({
-      time: this.activeTimeId as any,
+      time: this.activeTimeId as unknown,
       number: this.activeNumber,
       direction: this.activeDirectionId,
       period: this.activePeriodId,
@@ -266,7 +266,7 @@ export class PrizmInputDateRelativeComponent
    * Actualize menu items, as radio group button
    */
   private actualizeMenu(): void {
-    this.timeItems = UpdateActiveItem(this.timeItems, this.activeTimeId) as any;
+    this.timeItems = UpdateActiveItem(this.timeItems, this.activeTimeId) as unknown;
     this.directionItems = UpdateActiveItem(this.directionItems, this.activeDirectionId);
     this.periodItems = UpdateActiveItem(this.periodItems, this.activePeriodId);
   }

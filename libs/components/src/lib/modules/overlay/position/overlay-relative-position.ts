@@ -34,15 +34,15 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     if (this.config.autoReposition) this.listenDrag(this.zid);
   }
 
-  public override getPositions(targetEl: HTMLElement): Pick<PrizmOverlayPositionMeta, any> {
+  public override getPositions(targetEl: HTMLElement): Pick<PrizmOverlayPositionMeta, unknown> {
     const s = this.getCoords(this.config.element);
     const h = this.getCoords(targetEl);
     let { width: w, height: ht } = this.config;
 
-    w = setWidthHeight(s, h, 'width', w as any);
-    ht = setWidthHeight(s, h, 'height', ht as any);
+    w = setWidthHeight(s, h, 'width', w as unknown);
+    ht = setWidthHeight(s, h, 'height', ht as unknown);
 
-    const { pos, props } = this.calculatePos(this.config.placement as any, s, h);
+    const { pos, props } = this.calculatePos(this.config.placement as unknown, s, h);
 
     // Try to keep hint host within viewport.
     const { innerHeight, innerWidth } = window;
@@ -62,7 +62,11 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     return elem.getBoundingClientRect();
   }
 
-  private calc(placement: PrizmOverlayOutsidePlacement, src: any, host: any): { left: number; top: number } {
+  private calc(
+    placement: PrizmOverlayOutsidePlacement,
+    src: unknown,
+    host: unknown
+  ): { left: number; top: number } {
     const [main, sub] = placement.split('');
     const p = { left: 0, top: 0 };
     if ((main === 't' || main === 'b') && !sub) {
@@ -103,8 +107,8 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
 
   private calculatePos(
     pos: PrizmOverlayOutsidePlacement,
-    s: any,
-    h: any
+    s: unknown,
+    h: unknown
   ): { pos: string; props: { left: number; top: number } } {
     const props = this.calc(pos, s, h);
 
@@ -128,7 +132,7 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     return { pos, props: this.calc(pos, s, h) };
   }
 
-  private isOverflowed(props: { [x: string]: any }): boolean {
+  private isOverflowed(props: { [x: string]: unknown }): boolean {
     const { innerHeight, innerWidth } = window;
 
     props.bottom = props.top + props.height;
@@ -137,14 +141,14 @@ export class PrizmOverlayRelativePosition extends PrizmOverlayAbstractPosition<P
     return props.bottom > innerHeight || props.top < 0 || props.left < 0 || props.right > innerWidth;
   }
 
-  private oppositeDirection(current: PrizmOverlayOutsidePlacement): any {
+  private oppositeDirection(current: PrizmOverlayOutsidePlacement): unknown {
     const index = HINT_DIRECTIONS.indexOf(current);
     const even = index % 2 === 0;
 
     return even ? HINT_DIRECTIONS[index + 1] : HINT_DIRECTIONS[index - 1];
   }
 
-  private round(props: Record<string, any>): typeof props {
+  private round(props: Record<string, unknown>): typeof props {
     Object.keys(props).forEach(x => (props[x] = Math.round(props[x])));
     return props;
   }

@@ -35,7 +35,7 @@ export abstract class AbstractPrizmDialogService<
     options: Partial<T>,
     cb: (data: {
       control: PrizmOverlayControl;
-      dialog: PrizmBaseDialogContext<any, any>;
+      dialog: PrizmBaseDialogContext<unknown, unknown>;
       observer: Observer<O>;
       destroy$: Observable<void>;
     }) => void = noop
@@ -90,7 +90,7 @@ export abstract class AbstractPrizmDialogService<
     });
   }
 
-  protected getConfig(dialog: PrizmBaseDialogContext<any, any>): Partial<PrizmOverlayConfig> {
+  protected getConfig(dialog: PrizmBaseDialogContext<unknown, unknown>): Partial<PrizmOverlayConfig> {
     return {
       backdrop: dialog.backdrop ?? true,
       styleVars: dialog.styleVars,
@@ -103,7 +103,7 @@ export abstract class AbstractPrizmDialogService<
   }
 
   protected getPosition(
-    dialog: PrizmBaseDialogContext<any, any>
+    dialog: PrizmBaseDialogContext<unknown, unknown>
   ): PrizmOverlayGlobalPosition | PrizmOverlaySlidePosition | PrizmOverlayGlobalPosition {
     return new PrizmOverlayGlobalPosition({
       placement: dialog.position ?? PrizmOverlayInsidePlacement.CENTER,
@@ -121,7 +121,7 @@ export abstract class AbstractPrizmDialogService<
     // @ts-ignore
     control.viewEl.style.pointerEvents = 'unset';
     this.overscrollService
-      .run(mode, control.viewEl as any)
+      .run(mode, control.viewEl as unknown)
       .pipe(takeUntil(destroy$))
       .subscribe();
   }

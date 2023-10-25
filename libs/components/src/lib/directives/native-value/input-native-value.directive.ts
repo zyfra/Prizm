@@ -10,7 +10,7 @@ import { PrizmInputNativeValueNeedChange } from './model';
   providers: [PrizmDestroyService],
   exportAs: 'prizmInputNativeValue',
 })
-export class PrizmInputNativeValueDirective<T = any> implements OnInit {
+export class PrizmInputNativeValueDirective<T = unknown> implements OnInit {
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('prizmInputNativeValue')
   @prizmObservable()

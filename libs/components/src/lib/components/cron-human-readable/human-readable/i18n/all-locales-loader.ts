@@ -7,7 +7,7 @@ export class PrizmCronHRAllLocalesLoader {
       // eslint-disable-next-line no-prototype-builtins,@typescript-eslint/ban-ts-comment
       // @ts-ignore
       if (typeof allLocales[property] !== 'undefined') {
-        availableLocales[property] = new (allLocales as any)[property]() as PrizmCronHRLocale;
+        availableLocales[property] = new (allLocales as unknown)[property]() as PrizmCronHRLocale;
       }
     }
   }

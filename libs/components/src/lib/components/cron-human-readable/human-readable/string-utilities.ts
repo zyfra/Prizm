@@ -8,7 +8,7 @@ export class PrizmCronHRStringUtilities {
    * @returns {string}
    */
   public static format(template: string, ...values: string[]): string {
-    return template.replace(/%s/g, function (substring: string, ...args: any[]): string {
+    return template.replace(/%s/g, function (substring: string, ...args: unknown[]): string {
       return values.shift() as string;
     });
   }

@@ -30,7 +30,7 @@ import { PrizmThGroupService } from './th-group.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PRIZM_TABLE_PROVIDER, PrizmThGroupService],
 })
-export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
+export class PrizmThGroupComponent<T extends Partial<Record<keyof T, unknown>>>
   implements OnInit, AfterContentInit, OnDestroy
 {
   private readonly columns$$ = new BehaviorSubject<ReadonlyArray<keyof T | string> | null>(null);
@@ -108,7 +108,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
           of(columns.map(c => heads.find(h => h.prizmHead === c))).pipe(moveInEventLoopIteration(2))
         );
       })
-    ) as any;
+    ) as unknown;
   }
 
   ngOnDestroy(): void {

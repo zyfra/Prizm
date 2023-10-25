@@ -9,7 +9,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 @Directive({
   selector: `table[prizmTable][prizmSortBy]`,
 })
-export class PrizmSortByDirective<T extends Partial<Record<keyof T, any>>> {
+export class PrizmSortByDirective<T extends Partial<Record<keyof T, unknown>>> {
   @ContentChildren(PrizmSortableDirective, { descendants: true })
   private readonly sortables: QueryList<PrizmSortableDirective<T>> = new QueryList<
     PrizmSortableDirective<T>

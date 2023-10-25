@@ -77,7 +77,7 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
 
   constructor(
     private readonly hoveredService: PrizmHoveredService,
-    @Inject(CSS) private readonly cssRef: any,
+    @Inject(CSS) private readonly cssRef: unknown,
     private readonly elementRef: ElementRef,
     @Inject(USER_AGENT) private readonly userAgent: string,
     @Inject(PRIZM_IS_IOS) private readonly isIos: boolean

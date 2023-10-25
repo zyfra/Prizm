@@ -39,11 +39,11 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   zid!: PrizmOverlayId;
   @HostBinding('style.zIndex')
   zIndex!: number;
-  el: HTMLElement | any;
-  wrapperEl: HTMLElement | any;
+  el!: HTMLElement | null;
+  wrapperEl: HTMLElement | unknown;
   extra!: string;
-  parentInjector: any;
-  compInstance: any;
+  parentInjector: unknown;
+  compInstance: unknown;
   parentContainer!: HTMLElement;
 
   @HostBinding('style.position')
@@ -65,7 +65,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   public ngOnInit(): void {
     this.el = this.overlayElRef.nativeElement;
     this.wrapperEl = this.el.querySelector('.z-overlay-wrapper');
-    let cls = [
+    const cls = [
       'z-container',
       ...(this.config.containerClass || 'z-overlay').split(' '),
       this.position.getClassName(),
@@ -83,7 +83,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   ngAfterViewInit(): void {
     this.listenPos().subscribe();
     if (this.content.type === PrizmOverlayContentType.COMPONENT) {
-      this.compInstance = this.setComponent(this.content.props);
+      this.compInstance = this.setComponent(this.content.props as unknown);
       EventBus.send(this.zid, 'z_compins', this.compInstance);
     }
   }
@@ -96,13 +96,13 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  public setComponent(props: Record<string, unknown>): Record<string, any> {
+  public setComponent(props: Record<string, unknown>): Record<string, unknown> {
     const compRef = this.compOutlet.createComponent(
-      this.compResolver.resolveComponentFactory(this.content.data as any)
+      this.compResolver.resolveComponentFactory(this.content.data as unknown)
     );
-    Object.assign(compRef.instance as any, props);
+    Object.assign(compRef.instance as unknown, props);
     compRef.changeDetectorRef.detectChanges();
-    return compRef.instance as any;
+    return compRef.instance as unknown;
   }
 
   public updateTextContent(data: string): void {
@@ -117,11 +117,11 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
     EventBus.send(this.zid, 'z_detach');
   }
 
-  private listenPos(): Observable<any> {
+  private listenPos(): Observable<unknown> {
     return EventBus.listen(this.zid, 'z_dynpos').pipe(
       startWith(1),
       takeUntil(this.destroy$),
-      tap(e => {
+      tap((e: unknown) => {
         if (!e || !e.x) return this.setPos();
         const coords = { left: e.x, top: e.y };
         this.wrapperEl.style = objToCss(coords);
@@ -131,7 +131,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
 
   private updatePos(): void {
     const positions = this.position.getPositions(this.wrapperEl, this.parentContainer);
-    const { extra, ...coords } = positions;
+    const { extra, ...coords } = positions as unknown;
     if (this.extra !== extra) {
       this.extra = extra;
       this.cd.detectChanges();

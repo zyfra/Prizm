@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { combineLatest, concat, Observable, of, Subject, switchMap } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
 
-type PrizmThGroup = any;
+type PrizmThGroup = unknown;
 @Injectable()
 export class PrizmTableService {
   private readonly set = new Set<PrizmThGroup>();

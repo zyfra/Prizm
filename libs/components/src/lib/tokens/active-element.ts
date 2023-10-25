@@ -22,7 +22,7 @@ import { prizmGetDocumentOrShadowRoot } from '../util/dom/prizm-get-document-or-
 export const PRIZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | null>>(
   `Active element on the document for ActiveZone`,
   {
-    factory: (): Observable<any> => {
+    factory: (): Observable<unknown> => {
       const removedElement$ = inject(PRIZM_REMOVED_ELEMENT);
       const windowRef = inject(WINDOW);
       const documentRef = inject(DOCUMENT);
@@ -67,7 +67,7 @@ export const PRIZM_ACTIVE_ELEMENT = new InjectionToken<Observable<EventTarget | 
 );
 
 // Checks if focusout event should be considered leaving active zone
-function isValidFocusout(target: any, removedElement: Element | null = null): boolean {
+function isValidFocusout(target: unknown, removedElement: Element | null = null): boolean {
   return (
     // Not due to switching tabs/going to DevTools
     prizmGetDocumentOrShadowRoot(target).activeElement !== target &&
@@ -87,6 +87,6 @@ function shadowRootActiveElement(root: Document): Observable<EventTarget | null>
     )
   );
 }
-function PRIZM_REMOVED_ELEMENT(PRIZM_REMOVED_ELEMENT: any): never {
+function PRIZM_REMOVED_ELEMENT(PRIZM_REMOVED_ELEMENT: unknown): never {
   throw new Error('Function not implemented.');
 }

@@ -9,7 +9,7 @@ import { PolymorphContent } from '../../directives/polymorph/types/content';
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: 'prizmTreeButton',
 })
-export class PrizmTreeButtonComponent<T extends Partial<Record<keyof T, any>>> {
+export class PrizmTreeButtonComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input()
   @prizmDefaultProp()
   icon: PolymorphContent = ``;

@@ -22,7 +22,7 @@ export class PrizmDroppableDirective {
   ) {
     this.prizmDroppableDropped = prizmTypedFromEvent(nativeElement, 'drop').pipe(
       prizmPreventDefault(),
-      map(event => event.dataTransfer as any),
+      map(event => event.dataTransfer as unknown),
       filterNotNullish()
     );
 

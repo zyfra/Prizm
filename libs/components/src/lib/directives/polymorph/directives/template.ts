@@ -11,7 +11,7 @@ import { ChangeDetectorRef, Directive, Inject, Input, Self, TemplateRef } from '
   exportAs: 'polymorph',
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
-export class PolymorphTemplate<C = any> {
+export class PolymorphTemplate<C = unknown> {
   @Input() polymorph: C | '' = '';
 
   constructor(
@@ -25,8 +25,8 @@ export class PolymorphTemplate<C = any> {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     _dir: PolymorphTemplate<T>,
-    _ctx: any
-  ): _ctx is T extends string ? any : T {
+    _ctx: unknown
+  ): _ctx is T extends string ? unknown : T {
     return true;
   }
 

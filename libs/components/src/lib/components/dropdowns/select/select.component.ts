@@ -68,7 +68,7 @@ export class PrizmSelectComponent<T>
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data as any);
+    this.items$.next(data as unknown);
   }
   get items(): T[] {
     return this.items$.value;
@@ -139,7 +139,7 @@ export class PrizmSelectComponent<T>
    * */
   @Input()
   @prizmDefaultProp()
-  stringify: (i: T, content?: string) => any = this.options.stringify as any;
+  stringify: (i: T, content?: string) => unknown = this.options.stringify as unknown;
 
   @Input()
   @prizmDefaultProp()
@@ -272,11 +272,11 @@ export class PrizmSelectComponent<T>
   }
 
   public onClear(): void {
-    this.select(null as any);
+    this.select(null as unknown);
   }
 
   protected getFallbackValue(): T {
-    return null as any;
+    return null as unknown;
   }
 
   public select(item: T): void {

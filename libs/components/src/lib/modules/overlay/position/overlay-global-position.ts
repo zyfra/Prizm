@@ -26,18 +26,18 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
     });
   }
 
-  public getPositions(hostEl?: HTMLElement, parent?: HTMLElement): any {
-    const host = hostEl?.getBoundingClientRect() as any;
+  public getPositions(hostEl?: HTMLElement, parent?: HTMLElement): unknown {
+    const host = hostEl?.getBoundingClientRect() as unknown;
     const src = {
       width: parent?.offsetWidth ?? window['innerWidth'],
       height: parent?.offsetHeight ?? window['innerHeight'],
     };
     let { width: w, height: h } = this.config;
 
-    w = setWidthHeight(src, host, 'width', w as any);
-    h = setWidthHeight(src, host, 'height', h as any);
+    w = setWidthHeight(src, host, 'width', w as unknown);
+    h = setWidthHeight(src, host, 'height', h as unknown);
 
-    const props = this.calc(this.config.placement as any, src, host);
+    const props = this.calc(this.config.placement as unknown, src, host);
     return {
       ...props,
       width: w,
@@ -47,7 +47,11 @@ export class PrizmOverlayGlobalPosition extends PrizmOverlayAbstractPosition<Pri
     };
   }
 
-  private calc(placement: PrizmOverlayInsidePlacement, src: any, host: any): Partial<OverlayOffsetPosition> {
+  private calc(
+    placement: PrizmOverlayInsidePlacement,
+    src: unknown,
+    host: unknown
+  ): Partial<OverlayOffsetPosition> {
     const [main, sub] = placement.split('');
     const result: Partial<OverlayOffsetPosition> = {};
 

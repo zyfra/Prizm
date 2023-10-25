@@ -20,7 +20,7 @@ export type RelativeDateDirectionId = (typeof DefaultRelativeMenuItems.direction
 export type RelativeDatePeriodId = (typeof DefaultRelativeMenuItems.period)[number]['id'];
 
 export function getDefaultRelativeDateMenuItems(): RelativeDateMenuItems {
-  return DefaultRelativeMenuItems as any;
+  return DefaultRelativeMenuItems as unknown;
 }
 
 export type IdByGroup<TProp extends keyof RelativeDateMenuItems> = RelativeDateMenuItems[TProp][number]['id'];

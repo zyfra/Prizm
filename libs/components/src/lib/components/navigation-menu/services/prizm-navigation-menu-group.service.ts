@@ -227,7 +227,7 @@ export class PrizmNavigationMenuGroupService<
               return this.groupToolbarService.searchState$;
 
             case 'menu':
-              return this.menuToolbarService?.searchState$ as any;
+              return this.menuToolbarService?.searchState$ as unknown;
 
             case 'hierarchical':
             default:
@@ -255,7 +255,7 @@ export class PrizmNavigationMenuGroupService<
         distinctUntilChanged(),
         takeUntil(this.destroy$)
       )
-      .subscribe(v => this.applySearchState(v as any));
+      .subscribe(v => this.applySearchState(v as unknown));
   }
 
   private configureViewMode(): void {

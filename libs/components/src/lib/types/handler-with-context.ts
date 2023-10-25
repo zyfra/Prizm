@@ -5,5 +5,5 @@ export type PrizmHandlerWithContext<I, O, C extends Record<string, unknown> = Re
 
 export type PrizmBooleanHandlerWithContext<
   I,
-  C extends Record<string, any> = Record<string, never>
+  C extends Record<string, unknown> = Record<string, never>
 > = PrizmHandlerWithContext<I, boolean, C>;

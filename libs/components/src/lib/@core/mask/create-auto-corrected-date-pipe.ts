@@ -22,7 +22,7 @@ export function prizmNormalizeDateValue(
 export function prizmCreateAutoCorrectedDatePipe(
   config: PrizmAutoCorrectedDatePipeConfigs
 ): PrizmTextMaskPipeHandler {
-  return (value: any): any => {
+  return (value: unknown): unknown => {
     if (value.length !== PRIZM_DATE_FILLER_LENGTH) {
       return { value };
     }

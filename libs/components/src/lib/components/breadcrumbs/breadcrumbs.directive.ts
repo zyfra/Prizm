@@ -7,7 +7,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 })
 export class PrizmBreadcrumbDirective implements OnDestroy {
   constructor(
-    @Inject(TemplateRef) readonly template: TemplateRef<any>,
+    @Inject(TemplateRef) readonly template: TemplateRef<unknown>,
     private readonly viewContainer: ViewContainerRef
   ) {}
 

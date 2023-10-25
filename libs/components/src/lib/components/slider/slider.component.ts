@@ -187,11 +187,11 @@ export class PrizmSliderComponent
     this.setPositionFromValue();
   }
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: unknown): void {
     this.changedFn = fn;
   }
 
-  public registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: unknown): void {
     this.touchedFn = fn;
   }
 

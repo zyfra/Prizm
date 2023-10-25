@@ -12,7 +12,7 @@ import { PrizmInputStatus } from '../models/prizm-input.models';
 export class PrizmInputStatusTextDirective extends DefaultInputInvalidTextClass {
   @Input() enable = true;
   @Input() status?: PrizmInputStatus;
-  public templateRef: TemplateRef<any>;
+  public templateRef: TemplateRef<unknown>;
   public readonly changed: Subject<void> = new Subject<void>();
 
   constructor(injector: Injector) {

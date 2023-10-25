@@ -57,7 +57,7 @@ export class PrizmCounterDirective implements OnChanges, OnDestroy {
 
   private createCounter(): void {
     this.counterRef = this.vcr.createComponent(PrizmCounterComponent);
-    const counter = (this.counterRef.hostView as EmbeddedViewRef<any>).rootNodes[0] as HTMLElement;
+    const counter = (this.counterRef.hostView as EmbeddedViewRef<unknown>).rootNodes[0] as HTMLElement;
     this.elRef.nativeElement.appendChild(counter);
   }
 

@@ -91,7 +91,7 @@ export interface PrizmOverlayConfig {
 }
 
 export interface PrizmOverlayComponentType<T> {
-  new (...args: any[]): T;
+  new (...args: unknown[]): T;
 }
 
 export type PrizmOverlayId = string;
@@ -107,7 +107,7 @@ export type PrizmOverlayEventName =
 export interface PrizmOverlayEvent {
   from: PrizmOverlayId;
   name: PrizmOverlayEventName;
-  data?: any;
+  data?: unknown;
 }
 
 export const enum PrizmOverlayContentType {
@@ -116,8 +116,8 @@ export const enum PrizmOverlayContentType {
   TEMPLATE = 't',
   COMPONENT = 'c',
 }
-export type PrizmOverlayContentData = string | TemplateRef<any> | PrizmOverlayComponentType<any>;
-export type PrizmOverlayContentProps = { [x: string]: any } | any;
+export type PrizmOverlayContentData = string | TemplateRef<unknown> | PrizmOverlayComponentType<unknown>;
+export type PrizmOverlayContentProps = { [x: string]: unknown } | unknown;
 
 export interface PrizmOverlayContent {
   type?: PrizmOverlayContentType;

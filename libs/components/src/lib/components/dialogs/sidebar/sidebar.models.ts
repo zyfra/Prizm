@@ -29,18 +29,18 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   overscrollMode?: PrizmOverscrollMode;
 
   closeWord: string;
-  readonly content?: any;
-  readonly outerContent?: any;
+  readonly content?: unknown;
+  readonly outerContent?: unknown;
   readonly closeable: boolean;
   /**
    * header (not include close button)
    * @deprecated use headerTemplate
    * */
-  readonly header?: any;
+  readonly header?: unknown;
   /**
    * for change full header with close button
    * */
-  readonly headerTemplate?: any;
+  readonly headerTemplate?: unknown;
   readonly canClose?: () => Observable<boolean>;
   readonly hideFooter?: boolean;
   readonly footer: PolymorphContent<
@@ -53,4 +53,4 @@ export enum PrizmSidebarResultDefaultType {
   support = 'support',
   cancel = 'cancel',
 }
-export type PrizmSidebarResult = PrizmSidebarResultDefaultType | any;
+export type PrizmSidebarResult = PrizmSidebarResultDefaultType | unknown;

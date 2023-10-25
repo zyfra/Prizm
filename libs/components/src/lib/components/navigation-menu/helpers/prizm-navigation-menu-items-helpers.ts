@@ -1,6 +1,6 @@
 import { InternalPrizmNavigationMenuItem } from '../interfaces';
 
-export type SimpleItem<T = any> = { text: string; children?: T[] };
+export type SimpleItem<T = unknown> = { text: string; children?: T[] };
 
 export type FilterPredicate<Item extends SimpleItem<Item>> = (item: Item) => boolean;
 
@@ -68,7 +68,7 @@ export function toRubricatorItems<UserItem>(
   return rubricatorNodes;
 }
 
-export function flatItems<Item extends SimpleItem<any>>(items: Item[]): Item[] {
+export function flatItems<Item extends SimpleItem<unknown>>(items: Item[]): Item[] {
   const flat: Item[] = [];
 
   function extract(item: Item): void {

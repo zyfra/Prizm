@@ -144,8 +144,8 @@ export class PrizmConfirmPopupDirective<
       text: buttonText,
       size: btn.size ?? options.size,
       // TODO remove any type
-      action: (ctx: any): void => {
-        if (typeof btn.action === 'function') btn.action(ctx as any);
+      action: (ctx: unknown): void => {
+        if (typeof btn.action === 'function') btn.action(ctx as unknown);
         options.completeWith(defaultComplete);
       },
       appearance: btn.appearance ?? defaultAppearance,

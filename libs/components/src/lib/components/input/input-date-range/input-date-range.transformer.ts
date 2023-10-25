@@ -12,7 +12,7 @@ export class PrizmInputDateRangeNativeTransformer implements PrizmControlValueTr
   }
 
   public toControlValue(componentValue: From): To {
-    return componentValue?.toLocalNativeDate() || (null as any);
+    return componentValue?.toLocalNativeDate() || (null as unknown);
   }
 }
 

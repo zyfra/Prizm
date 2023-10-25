@@ -5,5 +5,5 @@ import { Directive, Input, TemplateRef } from '@angular/core';
 })
 export class PrizmSplitterCustomGutterDirective {
   @Input() size!: number;
-  constructor(public template: TemplateRef<any>) {}
+  constructor(public template: TemplateRef<unknown>) {}
 }

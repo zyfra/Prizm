@@ -7,7 +7,7 @@ import { PrizmComparator } from '../table.types';
 @Directive({
   selector: `th[prizmTh][prizmSortable]`,
 })
-export class PrizmSortableDirective<T extends Partial<Record<keyof T, any>>> implements DoCheck, OnInit {
+export class PrizmSortableDirective<T extends Partial<Record<keyof T, unknown>>> implements DoCheck, OnInit {
   constructor(
     @Inject(forwardRef(() => PrizmSortByDirective))
     private readonly sortBy: PrizmSortByDirective<T>,

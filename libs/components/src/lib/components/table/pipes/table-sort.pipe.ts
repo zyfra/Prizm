@@ -8,7 +8,7 @@ import { prizmPure } from '@prizm-ui/core';
   name: `prizmTableSort`,
   pure: false,
 })
-export class PrizmTableSortPipe<T extends Partial<Record<keyof T, any>>> implements PipeTransform {
+export class PrizmTableSortPipe<T extends Partial<Record<keyof T, unknown>>> implements PipeTransform {
   constructor(@Inject(PrizmTableDirective) private readonly table: PrizmTableDirective<T>) {}
 
   public transform(data: readonly T[]): readonly T[] {

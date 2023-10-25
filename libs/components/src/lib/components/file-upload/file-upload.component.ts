@@ -61,7 +61,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   @Input() set progress(progress: PrizmFilesProgress) {
     for (const key of Object.keys(progress)) {
       if (this.filesMap.has(key)) {
-        this.filesMap.set(key, { ...this.filesMap.get(key), ...progress[key] } as any);
+        this.filesMap.set(key, { ...this.filesMap.get(key), ...progress[key] } as unknown);
       }
     }
   }
@@ -106,7 +106,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     event.preventDefault();
 
     if (this.disabled === false) {
-      const { files } = event.dataTransfer as any;
+      const { files } = event.dataTransfer as unknown;
       this.selectFiles(Array.from(files));
     }
 
@@ -114,7 +114,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   }
 
   public onFileInputChange(event: Event): void {
-    const inputFile = event.target as HTMLInputElement as any;
+    const inputFile = event.target as HTMLInputElement as unknown;
 
     if (inputFile.files.length > 0) {
       this.selectFiles(Array.from(inputFile.files));
@@ -130,7 +130,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     if (options.emitEvent) {
       this.beforeFilesChange.next();
     }
-    const fileData = this.filesMap.get(filename) as any;
+    const fileData = this.filesMap.get(filename) as unknown;
     if (fileData.url) {
       URL.revokeObjectURL(fileData.url);
     }
@@ -167,12 +167,12 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     return '';
   }
 
-  public filesTrackBy(index: number, file: { key: string; value: any }): string {
+  public filesTrackBy(index: number, file: { key: string; value: unknown }): string {
     return file.key;
   }
 
   public getStage(filename: string): { cssClass: keyof PrizmFileUploadOptions['statusNames']; name: string } {
-    const { error, progress } = this.filesMap.get(filename) as any;
+    const { error, progress } = this.filesMap.get(filename) as unknown;
 
     if (error) {
       return { cssClass: 'warning', name: this.options.statusNames.warning };
@@ -192,7 +192,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   public retryUpload(filename: string): void {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
-    this.retry.emit(this.filesMap.get(filename).file) as any;
+    this.retry.emit(this.filesMap.get(filename).file) as unknown;
   }
 
   private dropzoneDragOverListener(event: DragEvent): void {
@@ -237,7 +237,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
         file,
         progress: 0,
         error: false,
-        url: this.isImage(file) ? URL.createObjectURL(file) : (null as any),
+        url: this.isImage(file) ? URL.createObjectURL(file) : (null as unknown),
       });
     }
 

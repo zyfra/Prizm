@@ -122,7 +122,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     return this.elementRef.nativeElement as HTMLInputElement;
   }
 
-  @Output() enter = new EventEmitter<any>();
+  @Output() enter = new EventEmitter<unknown>();
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onClear = new EventEmitter<MouseEvent>();
 

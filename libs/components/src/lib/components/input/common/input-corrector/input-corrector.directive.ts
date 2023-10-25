@@ -21,11 +21,11 @@ export class PrizmInputCorrectorDirective implements OnInit {
   @Input('prizmInputCorrector') corrector: ((value: string) => string) | null = null;
   @Input() needCorrect: (value: string) => boolean = () => true;
 
-  private readonly inputs$ = new Subject<any>();
+  private readonly inputs$ = new Subject<unknown>();
 
   @HostListener('paste', [])
   @HostListener('input', [])
-  onInputOrPaste(): void | false {
+  public onInputOrPaste(): void | false {
     this.inputs$.next(this.el.nativeElement.value);
   }
 
@@ -41,6 +41,7 @@ export class PrizmInputCorrectorDirective implements OnInit {
   private overrideSetValue(): void {
     if (this.ngControl.control) {
       const originFunc = this.ngControl.control.setValue;
+      // eslint-disable-next-line @typescript-eslint/no-this-alias
       const self = this;
       this.ngControl.control.setValue = function (value, options) {
         const newValue = self.correctValue(value);
@@ -68,7 +69,7 @@ export class PrizmInputCorrectorDirective implements OnInit {
     this.inputs$
       .pipe(
         debounceTime(100),
-        tap(value => {
+        tap((value: unknown) => {
           const correctValue = this.correctValue(value);
           if (correctValue !== value) {
             this.updateNativeValue(correctValue);

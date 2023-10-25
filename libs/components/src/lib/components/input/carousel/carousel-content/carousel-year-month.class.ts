@@ -13,7 +13,7 @@ export type PrizmInputCarouselYearMonthValue = PrizmCarouselYearMonthValue;
  * use PrizmInputCarouselYearMonth
  * */
 export class PrizmCarouselYearMonth implements PrizmCarouselContent {
-  currentValue: PrizmCarouselYearMonthValue = undefined as any;
+  currentValue: PrizmCarouselYearMonthValue = undefined as unknown;
 
   public min: PrizmCarouselYearMonthValue = { month: 1, year: Number.NEGATIVE_INFINITY };
   public max: PrizmCarouselYearMonthValue = { month: 12, year: Number.POSITIVE_INFINITY };
@@ -24,7 +24,7 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
     }
 
     if (max) {
-      this.min = min as any;
+      this.min = min as unknown;
     }
   }
 
@@ -116,8 +116,8 @@ export class PrizmCarouselYearMonth implements PrizmCarouselContent {
     value1?: PrizmCarouselYearMonthValue,
     value2?: PrizmCarouselYearMonthValue
   ): 'lt' | 'eq' | 'gt' {
-    const v2 = value2 as any;
-    const v1 = value1 as any;
+    const v2 = value2 as unknown;
+    const v1 = value1 as unknown;
     if (!value1 || !value1) return 'eq';
     if (v1.year < v2.year) {
       return 'lt';

@@ -45,7 +45,7 @@ export class PrizmOverlayService {
     return this;
   }
 
-  public position<T extends PrizmOverlayAbstractPosition<any>>(position: T): PrizmOverlayService {
+  public position<T extends PrizmOverlayAbstractPosition<unknown>>(position: T): PrizmOverlayService {
     this.inputs.position = position;
     return this;
   }

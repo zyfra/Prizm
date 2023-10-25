@@ -10,7 +10,7 @@ export class PrizmTabsService implements OnDestroy {
   readonly tabs = new Map<number, PrizmTabComponent>();
   readonly changes$$ = new Subject<Map<number, PrizmTabComponent>>();
   readonly removed$$ = new Subject<PrizmTabComponent>();
-  private changeParent$_!: Observable<any>;
+  private changeParent$_!: Observable<unknown>;
   get changeParent$() {
     return this.changeParent$_;
   }

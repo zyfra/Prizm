@@ -6,7 +6,7 @@ export function prizmCreateDateTimeNgxMask(
   mode: PrizmDateMode,
   timeMode: PrizmTimeMode,
   separator: string
-): any {
+): unknown {
   console.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
 
   switch (mode) {

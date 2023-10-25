@@ -37,7 +37,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   get value$(): Observable<T> {
-    return this.previousInternalValue$$.asObservable().pipe(map(i => i ?? this.fallbackValue)) as any;
+    return this.previousInternalValue$$.asObservable().pipe(map(i => i ?? this.fallbackValue)) as unknown;
   }
 
   public isEmpty(value: T): boolean {
@@ -115,7 +115,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public clear(ev: MouseEvent) {
-    this.updateValue(null as any);
+    this.updateValue(null as unknown);
     this.markAsDirty();
   }
 
@@ -124,13 +124,13 @@ export abstract class PrizmInputNgControl<T>
     this.stateChanges.next();
   }
 
-  public registerOnChange(onChange: any): void {
+  public registerOnChange(onChange: unknown): void {
     this.onChange = (componentValue: T): void => {
       onChange(this.toControlValue(componentValue));
     };
   }
 
-  public registerOnTouched(fn: any) {
+  public registerOnTouched(fn: unknown) {
     this.onTouch = () => {
       fn();
     };

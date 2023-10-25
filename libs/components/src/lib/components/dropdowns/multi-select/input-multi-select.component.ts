@@ -61,7 +61,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next((data as any) ?? []);
+    this.items$.next((data as unknown) ?? []);
   }
   get items(): T[] {
     return this.items$.value;
@@ -200,7 +200,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.selectedItems$
       .pipe(
         tap(items => {
-          this.chipsControl.setValue(items as any, { emitEvent: true });
+          this.chipsControl.setValue(items as unknown, { emitEvent: true });
         }),
         tap(() => this.changeDetectorRef.markForCheck()),
         takeUntil(this.destroy$)
@@ -309,7 +309,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
-    this.updateValue(null as any);
+    this.updateValue(null as unknown);
     this.markAsTouched();
   }
 

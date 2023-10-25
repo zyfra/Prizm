@@ -45,7 +45,7 @@ export class PrizmTextareaDirective implements AfterViewInit {
   private clone: HTMLTextAreaElement | null = null;
   constructor(
     @Host() private elementRef: ElementRef<HTMLTextAreaElement>,
-    @Attribute('autoSize') private autoSize: any,
+    @Attribute('autoSize') private autoSize: unknown,
     private destroy$: PrizmDestroyService,
     @Inject(WINDOW) private readonly windowRef: Window
   ) {

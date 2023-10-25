@@ -19,8 +19,8 @@ import { Compare } from '@prizm-ui/helpers';
 })
 export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges {
   @Input() context!: PrizmTableRowContext;
-  @Input() template!: TemplateRef<any>;
-  public embeddedRef!: EmbeddedViewRef<any>;
+  @Input() template!: TemplateRef<unknown>;
+  public embeddedRef!: EmbeddedViewRef<unknown>;
   private idx!: number;
   private idxFromMap!: number;
   constructor(

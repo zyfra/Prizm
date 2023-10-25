@@ -28,7 +28,7 @@ export function cssClass(method: 'add' | 'remove', cls: string[], target = 'body
   document.querySelector(target)?.classList[method](...cls);
 }
 
-export function objToCss(styleObj: Record<string, any>): string {
+export function objToCss(styleObj: Record<string, unknown>): string {
   return Object.keys(styleObj)
     .map(x => `${x}:${styleObj[x]}${typeof styleObj[x] === 'number' ? 'px' : ''}`)
     .join(';');
@@ -43,8 +43,8 @@ export function percentToCss(max: number, percentage: string): string {
 }
 
 export function setWidthHeight(
-  src: Record<string, any>,
-  host: Record<string, any>,
+  src: Record<string, unknown>,
+  host: Record<string, unknown>,
   key: string,
   value: number | string
 ): number | string {
@@ -63,10 +63,10 @@ export const BODY_ELEMENT = document.querySelector('body');
 
 class EventBusClass {
   private _e: Subject<PrizmOverlayEvent> = new Subject();
-  public send(from: string, name: PrizmOverlayEventName, data: any = null): void {
+  public send(from: string, name: PrizmOverlayEventName, data: unknown = null): void {
     this._e.next({ from, name, data });
   }
-  public listen(from: string, name: PrizmOverlayEventName): Observable<any> {
+  public listen(from: string, name: PrizmOverlayEventName): Observable<unknown> {
     return this._e.asObservable().pipe(
       filter(e => e.from === from && e.name === name),
       map(e => e.data)

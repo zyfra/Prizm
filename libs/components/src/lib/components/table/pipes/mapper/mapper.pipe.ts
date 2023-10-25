@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-export type PrizmMapper<T, G> = (item: T, ...args: any[]) => G;
+export type PrizmMapper<T, G> = (item: T, ...args: unknown[]) => G;
 
 @Pipe({ name: `prizmMapper` })
 export class PrizmMapperPipe implements PipeTransform {
@@ -11,7 +11,7 @@ export class PrizmMapperPipe implements PipeTransform {
    * @param mapper a mapping function
    * @param args arbitrary number of additional arguments
    */
-  public transform<T, G>(value: T, mapper: PrizmMapper<T, G>, ...args: any[]): G {
+  public transform<T, G>(value: T, mapper: PrizmMapper<T, G>, ...args: unknown[]): G {
     return mapper(value, ...args);
   }
 }

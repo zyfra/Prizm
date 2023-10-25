@@ -16,7 +16,7 @@ export interface PrizmNavigationMenuItem {
   children?: PrizmNavigationMenuItem[];
 }
 
-export interface InternalPrizmNavigationMenuItem<T = any> extends PrizmNavigationMenuItem {
+export interface InternalPrizmNavigationMenuItem<T = unknown> extends PrizmNavigationMenuItem {
   groupId: string | null;
   parent: InternalPrizmNavigationMenuItem | null;
   breadcrumbs: T[] | null;

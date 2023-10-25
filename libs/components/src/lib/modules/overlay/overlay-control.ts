@@ -91,8 +91,8 @@ export class PrizmOverlayControl {
     return this.isOpen ? this.close() : this.open();
   }
 
-  public onEscClick(): Observable<any> {
-    return fromEvent<KeyboardEvent>(BODY_ELEMENT as any, 'keydown').pipe(
+  public onEscClick(): Observable<unknown> {
+    return fromEvent<KeyboardEvent>(BODY_ELEMENT as unknown, 'keydown').pipe(
       takeUntil(this.destroy$),
       skipWhile(() => !this.config.closeOnEsc),
       filter(
@@ -106,15 +106,15 @@ export class PrizmOverlayControl {
     );
   }
 
-  public onDocumentClick(): Observable<any> {
+  public onDocumentClick(): Observable<unknown> {
     const insideClick = fromEvent<MouseEvent>(
-      this.viewEl?.querySelector('.z-overlay-wrapper') as any,
+      this.viewEl?.querySelector('.z-overlay-wrapper') as unknown,
       'click'
     ).pipe(
       // first init for block closing
-      startWith(null as any)
+      startWith(null as unknown)
     );
-    const outsideClick = fromEvent<MouseEvent>(document.body as any, 'click');
+    const outsideClick = fromEvent<MouseEvent>(document.body as unknown, 'click');
 
     return raceEmit<[MouseEvent, boolean]>(
       100,
@@ -131,7 +131,7 @@ export class PrizmOverlayControl {
     );
   }
 
-  public onWindowResize(): Observable<any> {
+  public onWindowResize(): Observable<unknown> {
     const onResize = fromEvent(window, 'resize');
     const onScroll = fromEvent(window, 'scroll', { passive: true });
     return mergeObs(onResize, onScroll).pipe(
@@ -164,7 +164,7 @@ export class PrizmOverlayControl {
     this.parentContainer = node instanceof HTMLElement ? node : null;
   }
 
-  public listen<T = any>(eventName: PrizmOverlayEventName): Observable<T> {
+  public listen<T = unknown>(eventName: PrizmOverlayEventName): Observable<T> {
     return EventBus.listen(this.zid, eventName);
   }
 
@@ -191,8 +191,8 @@ export class PrizmOverlayControl {
     /* attach view */
     this.hostView = this.compRef.hostView;
     this.appRef.attachView(this.hostView);
-    this.viewEl = (this.hostView as any).rootNodes[0];
-    (parentContainer ?? (BODY_ELEMENT as HTMLElement)).appendChild(this.viewEl as any);
+    this.viewEl = (this.hostView as unknown).rootNodes[0];
+    (parentContainer ?? (BODY_ELEMENT as HTMLElement)).appendChild(this.viewEl as unknown);
   }
 
   private detach(): void {

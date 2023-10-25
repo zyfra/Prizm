@@ -52,7 +52,7 @@ export interface PrizmMultiSelectOptions<T> {
 export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown> = {
   items: [],
   chooseAllItem: null,
-  icon: null as any,
+  icon: null as unknown,
   searchable: false,
   forceClear: null,
   isChipsDeletable: true,

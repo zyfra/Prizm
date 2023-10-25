@@ -5,7 +5,7 @@ export type PrizmDropdownHostContext = {
 export type PrizmDropdownHostCustomContext = Record<string, unknown>;
 export type PrizmDropdownHostStyles =
   | {
-      [klass: string]: any;
+      [klass: string]: unknown;
     }
   | null
   | undefined;

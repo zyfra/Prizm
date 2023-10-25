@@ -51,7 +51,7 @@ export class PrizmInputHintDirective {
       this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_;
     } else {
       this.prizmHint_.prizmHintCanShow = prizmIsTextOverflow(this.el.nativeElement);
-      this.prizmHint_.prizmHint = this.el.nativeElement.value as any;
+      this.prizmHint_.prizmHint = this.el.nativeElement.value as unknown;
     }
     this.hintSyncChanges();
   }

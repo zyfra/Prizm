@@ -59,7 +59,9 @@ export class PrizmSidebarService<
     return super.open<PrizmSidebarResult, unknown>(title, options as Partial<T>, cb);
   }
 
-  protected override getPosition(dialog: PrizmBaseDialogContext<any, any>): PrizmOverlayGlobalPosition {
+  protected override getPosition(
+    dialog: PrizmBaseDialogContext<unknown, unknown>
+  ): PrizmOverlayGlobalPosition {
     return new PrizmOverlayGlobalPosition({
       placement: dialog.position ?? PrizmOverlayInsidePlacement.LEFT,
       width: (['t', 'b'].includes(dialog.position) && '100%') || dialog.width,
@@ -73,7 +75,7 @@ export class PrizmSidebarService<
       Compare.isNotNullish(options.supportButton) &&
       this.generateButton(
         options,
-        options.supportButton as any,
+        options.supportButton as unknown,
         'Продолжить',
         PrizmSidebarResultDefaultType.confirmed,
         'danger',
@@ -82,7 +84,7 @@ export class PrizmSidebarService<
 
     const confirmButton = this.generateButton(
       options,
-      options.confirmButton as any,
+      options.confirmButton as unknown,
       'Подтвердить',
       PrizmSidebarResultDefaultType.confirmed,
       'primary'
@@ -92,7 +94,7 @@ export class PrizmSidebarService<
       options.cancelButton !== null &&
       this.generateButton(
         options,
-        options.cancelButton as any,
+        options.cancelButton as unknown,
         'Отмена',
         PrizmSidebarResultDefaultType.cancel,
         'secondary',
@@ -100,8 +102,8 @@ export class PrizmSidebarService<
       );
 
     options.confirmButton = confirmButton;
-    options.cancelButton = cancelButton as any;
-    options.supportButton = supportButton as any;
+    options.cancelButton = cancelButton as unknown;
+    options.supportButton = supportButton as unknown;
   }
 
   private generateButton(

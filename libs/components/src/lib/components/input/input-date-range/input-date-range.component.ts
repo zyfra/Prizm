@@ -140,7 +140,7 @@ export class PrizmInputDateRangeComponent
     @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
     @Optional()
     @Inject(PRIZM_MOBILE_CALENDAR)
-    private readonly mobileCalendar: Type<any> | null,
+    private readonly mobileCalendar: Type<unknown> | null,
     @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
     @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
     @Inject(PRIZM_DATE_TEXTS)
@@ -322,8 +322,8 @@ export class PrizmInputDateRangeComponent
       ? clampedBottom.from.append(this.maxLength).append({ day: -1 })
       : this.max;
 
-    return clampedBottom.to.dayAfter(availableMax as any)
-      ? new PrizmDayRange(clampedBottom.from, availableMax as any)
+    return clampedBottom.to.dayAfter(availableMax as unknown)
+      ? new PrizmDayRange(clampedBottom.from, availableMax as unknown)
       : clampedBottom;
   }
 

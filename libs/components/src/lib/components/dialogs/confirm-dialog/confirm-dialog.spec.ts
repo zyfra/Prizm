@@ -33,7 +33,7 @@ xdescribe('PrizmConfirmDialog', () => {
 
   it('pass data and not close', async () => {
     let c: PrizmOverlayControl;
-    const result = service.open(null as any, {}, async ({ control, dialog }) => {
+    const result = service.open(null as unknown, {}, async ({ control, dialog }) => {
       c = control;
       dialog.$implicit.next(true);
       const r = await result.pipe(first()).toPromise();

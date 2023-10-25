@@ -213,8 +213,8 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
     const parsedValue = PrizmDay.normalizeParse(value, this.dateFormat);
     this.updateWithCorrectDateAndTime(
-      isFormValue ? parsedValue : (this.value?.from as any),
-      isFormValue ? this.value?.to : (parsedValue as any)
+      isFormValue ? parsedValue : (this.value?.from as unknown),
+      isFormValue ? this.value?.to : (parsedValue as unknown)
     );
   }
 
@@ -252,7 +252,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   private updateWithCorrectDateAndTime(from: PrizmDay | null, to: PrizmDay | null): void {
     if (from) from = this.dayLimit(from);
     if (to) to = this.dayLimit(to);
-    this.updateValue(new PrizmDayRange(from as any, to as any));
+    this.updateValue(new PrizmDayRange(from as unknown, to as unknown));
   }
 
   private dayLimit(value: PrizmDay): PrizmDay {

@@ -247,7 +247,7 @@ export class PrizmInputLayoutDateTimeComponent
   };
 
   get calendarValue(): PrizmDay | null {
-    return this.value?.[0] as any;
+    return this.value?.[0] as unknown;
   }
 
   get calendarMinDay(): PrizmDay {
@@ -286,7 +286,7 @@ export class PrizmInputLayoutDateTimeComponent
         this.max instanceof PrizmDay ? this.max : this.max && this.max[0]
       );
 
-    if (time) time = this.timeLimit([date as any, time]);
+    if (time) time = this.timeLimit([date as unknown, time]);
 
     this.updateValue([date, time]);
   }
@@ -348,7 +348,7 @@ export class PrizmInputLayoutDateTimeComponent
   public getTemplate(
     openTimeTemplate: TemplateRef<unknown>,
     dropdownTimeTemplate: TemplateRef<unknown>
-  ): TemplateRef<any> | null {
+  ): TemplateRef<unknown> | null {
     if (!this.open && !this.openTimeTemplate) return null;
     if (this.openTimeTemplate) return openTimeTemplate;
     return dropdownTimeTemplate;
@@ -364,7 +364,7 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
-    super.writeValue(value as any);
+    super.writeValue(value as unknown);
     this.nativeValue$$.next(['', '']);
   }
 

@@ -68,7 +68,7 @@ export class PrizmMultiSelectComponent<T>
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next((data as any) ?? []);
+    this.items$.next((data as unknown) ?? []);
   }
   get items(): T[] {
     return this.items$.value;
@@ -268,7 +268,7 @@ export class PrizmMultiSelectComponent<T>
     this.selectedItems$
       .pipe(
         tap(items => {
-          this.chipsControl.setValue(items as any, { emitEvent: true });
+          this.chipsControl.setValue(items as unknown, { emitEvent: true });
           // TODO remove after add update inputs
           if (this.inputTextElement) this.inputTextElement.markAsTouched();
         }),

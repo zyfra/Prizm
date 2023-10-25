@@ -38,7 +38,7 @@ import { PrizmCarouselContent } from './carousel-content/carousel-content.interf
     '[attr.tabindex]': "disabled ? null : '0'",
   },
 })
-export class PrizmCarouselComponent extends PrizmInputControl<any> implements ControlValueAccessor {
+export class PrizmCarouselComponent extends PrizmInputControl<unknown> implements ControlValueAccessor {
   /**
    * Disabled input
    */
@@ -82,9 +82,9 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   /**
    * Input value input
    */
-  private _value: any;
+  private _value: unknown;
 
-  get value(): any {
+  get value(): unknown {
     if (this.ngControl) {
       return this.ngControl.value;
     }
@@ -93,7 +93,7 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   }
 
   @Input()
-  set value(value: any) {
+  set value(value: unknown) {
     if (this.ngControl) {
       this.ngControl.control?.patchValue(value);
       return;
@@ -136,7 +136,7 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
     return this._touched;
   }
 
-  public writeValue(obj: any): void {
+  public writeValue(obj: unknown): void {
     this._value = obj;
     this.carouselContent.setCurrentValue(obj);
 
@@ -145,11 +145,11 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
     this.cdr.markForCheck();
   }
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: unknown): void {
     this.changeFn = fn;
   }
 
-  public registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: unknown): void {
     this.touchedFn = fn;
   }
 

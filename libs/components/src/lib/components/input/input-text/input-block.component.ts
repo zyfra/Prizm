@@ -27,7 +27,7 @@ export class PrizmInputBlockComponent extends PrizmInputTextComponent implements
   onChange: (v: number) => void = noop;
   onTouched: () => void = noop;
 
-  public writeValue(obj: any): void {
+  public writeValue(obj: unknown): void {
     super.value = obj;
   }
 

@@ -396,8 +396,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
       this.nativeValueFrom$$.next('');
     }
 
-    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange as any, range, (a, b) => a?.daySame(b))) {
-      const newValue = new PrizmDateTimeRange(range as any, (this.value?.timeRange ?? null) as any);
+    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange as unknown, range, (a, b) => a?.daySame(b))) {
+      const newValue = new PrizmDateTimeRange(range as unknown, (this.value?.timeRange ?? null) as unknown);
       this.updateValue(newValue);
       this.open = false;
     }
@@ -416,8 +416,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
     let parsedTimeFrom = fromTime && PrizmTime.correctTime(PrizmTime.fromString(fromTime));
     let parsedTimeTo = toTime && PrizmTime.correctTime(PrizmTime.fromString(toTime));
 
-    if (parsedTimeFrom) parsedTimeFrom = this.timeLimit([parsedFrom as any, parsedTimeFrom]) as any;
-    if (parsedTimeTo) parsedTimeTo = this.timeLimit([parsedTo as any, parsedTimeTo]) as any;
+    if (parsedTimeFrom) parsedTimeFrom = this.timeLimit([parsedFrom as unknown, parsedTimeFrom]) as unknown;
+    if (parsedTimeTo) parsedTimeTo = this.timeLimit([parsedTo as unknown, parsedTimeTo]) as unknown;
 
     if (parsedTimeTo || parsedTimeFrom) {
       if (!parsedFrom) {
@@ -433,8 +433,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
     this.updateValue(
       new PrizmDateTimeRange(
-        (parsedFrom && parsedTo ? new PrizmDayRange(parsedFrom, parsedTo) : null) as any,
-        (parsedTimeFrom && parsedTimeTo ? new PrizmTimeRange(parsedTimeFrom, parsedTimeTo) : null) as any
+        (parsedFrom && parsedTo ? new PrizmDayRange(parsedFrom, parsedTo) : null) as unknown,
+        (parsedTimeFrom && parsedTimeTo ? new PrizmTimeRange(parsedTimeFrom, parsedTimeTo) : null) as unknown
       )
     );
   }
@@ -461,7 +461,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   public override writeValue(value: PrizmDateTimeRange | null): void {
-    super.writeValue(value as any);
+    super.writeValue(value as unknown);
     this.nativeValueTimeFrom$$.next(value?.timeRange?.from?.toString(this.timeMode) ?? '');
     this.nativeValueTimeTo$$.next(value?.timeRange?.to?.toString(this.timeMode) ?? '');
     this.nativeValueFrom$$.next(value?.dayRange?.from?.toString() ?? '');

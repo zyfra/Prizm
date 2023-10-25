@@ -64,7 +64,7 @@ export class PrizmConfirmDialogService<
 
     const confirmButton = this.generateButton(
       options,
-      options.confirmButton as any,
+      options.confirmButton as unknown,
       'Подтвердить',
       PrizmConfirmDialogResultDefaultType.confirmed,
       'primary'
@@ -72,7 +72,7 @@ export class PrizmConfirmDialogService<
 
     const cancelButton = this.generateButton(
       options,
-      options.cancelButton as any,
+      options.cancelButton as unknown,
       'Отмена',
       PrizmConfirmDialogResultDefaultType.cancel,
       'secondary',

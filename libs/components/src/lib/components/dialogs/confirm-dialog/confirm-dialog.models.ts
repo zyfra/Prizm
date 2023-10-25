@@ -34,4 +34,4 @@ export enum PrizmConfirmDialogResultDefaultType {
   support = 'support',
   cancel = 'cancel',
 }
-export type PrizmConfirmDialogResult = PrizmConfirmDialogResultDefaultType | any;
+export type PrizmConfirmDialogResult = PrizmConfirmDialogResultDefaultType | unknown;

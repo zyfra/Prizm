@@ -3,7 +3,7 @@ import { Directive, Inject, Input, TemplateRef, ViewContainerRef } from '@angula
 @Directive({
   selector: `[prizmHead]`,
 })
-export class PrizmHeadDirective<T extends Partial<Record<keyof T, any>>> {
+export class PrizmHeadDirective<T extends Partial<Record<keyof T, unknown>>> {
   @Input()
   prizmHead!: keyof T;
 

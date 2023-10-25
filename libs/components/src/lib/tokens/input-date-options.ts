@@ -4,7 +4,7 @@ import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../@core/date-time/days.const';
 import { PolymorphContent } from '../directives/polymorph/types/content';
 
 export interface PrizmInputDateOptions {
-  readonly icon: PolymorphContent<any>;
+  readonly icon: PolymorphContent<unknown>;
   readonly min: PrizmDay;
   readonly max: PrizmDay;
   readonly readonly: boolean;

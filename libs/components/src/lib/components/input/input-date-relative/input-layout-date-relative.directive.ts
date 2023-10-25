@@ -15,7 +15,7 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+
   ],
 })
 export class PrizmInputLayoutDateRelativeDirective implements Validator {
-  public validate(control: AbstractControl): { [key: string]: any } | null {
+  public validate(control: AbstractControl): { [key: string]: unknown } | null {
     return Validators.pattern(ValidationPattern)(control);
   }
 }

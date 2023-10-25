@@ -23,7 +23,7 @@ export function prizmCreateDateMask(mode: PrizmDateMode, separator: string): Pri
   }
 }
 
-export function prizmCreateDateNgxMask(mode: PrizmDateMode, separator: string): any {
+export function prizmCreateDateNgxMask(mode: PrizmDateMode, separator: string): unknown {
   console.assert(separator.length === 1, `Separator should consist of only 1 symbol`);
 
   switch (mode) {

@@ -33,7 +33,7 @@ export abstract class PrizmCronUiBaseState<
   readonly canShowCronListItem = canShowCronListItem;
 
   constructor(
-    public readonly current$: Observable<any>,
+    public readonly current$: Observable<unknown>,
     public readonly initialType: TYPE,
     public readonly TYPES: ENUM,
     private readonly between = {
@@ -87,7 +87,7 @@ export abstract class PrizmCronUiBaseState<
       .subscribe();
   }
 
-  protected isBaseChanged(a: any, b: any): boolean {
+  protected isBaseChanged(a: unknown, b: unknown): boolean {
     return a === b;
   }
 
@@ -187,7 +187,7 @@ export abstract class PrizmCronUiBaseState<
   /**
    * TODO fix type casting
    * */
-  public updateLocalState(value: any, type: TYPE): void {
+  public updateLocalState(value: unknown, type: TYPE): void {
     switch (type) {
       case this.TYPES.between:
         {

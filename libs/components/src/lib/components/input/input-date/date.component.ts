@@ -150,7 +150,7 @@ export class PrizmInputDateComponent
     @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
     @Optional()
     @Inject(PRIZM_MOBILE_CALENDAR)
-    private readonly mobileCalendar: Type<any> | null,
+    private readonly mobileCalendar: Type<unknown> | null,
     @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
     @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
     @Inject(PRIZM_DATE_TEXTS)

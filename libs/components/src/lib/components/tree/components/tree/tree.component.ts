@@ -58,7 +58,7 @@ export class PrizmTreeComponent<T> extends PrizmAbstractTestId implements DoChec
   usePaddingIndent!: boolean;
 
   @Input()
-  content: PolymorphContent = ({ $implicit }: any) => String($implicit);
+  content: PolymorphContent = ({ $implicit }: unknown) => String($implicit);
 
   constructor(
     @Optional()

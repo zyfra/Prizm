@@ -8,7 +8,7 @@ import { PolymorphPrimitive } from './primitive';
  * All content types supported by {@link PolymorphOutletDirective}
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
-export type PolymorphContent<C = any> =
+export type PolymorphContent<C = unknown> =
   | TemplateRef<C>
   | C
   | PolymorphTemplate<Partial<C> | ''> // string is untyped, e.g. 'any'

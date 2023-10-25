@@ -8,7 +8,7 @@ import { POLYMORPH_CONTEXT } from '../tokens/context';
  * @param injector — optional {@link Injector} for lazy loaded module case
  */
 // eslint-disable-next-line @typescript-eslint/ban-types
-export class PolymorphComponent<T extends object, C = any> {
+export class PolymorphComponent<T extends object, C = unknown> {
   constructor(readonly component: Type<T>, private readonly injector: Injector | null = null) {}
 
   public createInjector(injector: Injector, context: C): Injector {

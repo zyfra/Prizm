@@ -2,7 +2,9 @@ import { ReplaySubject } from 'rxjs';
 import { PrizmOverlayPositionMeta } from '../models';
 import { EventBus } from '../utils';
 
-export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any> = Record<string, any>> {
+export abstract class PrizmOverlayAbstractPosition<
+  T extends Record<string, unknown> = Record<string, unknown>
+> {
   protected config: T = {} as T;
   private configSource$: ReplaySubject<T> = new ReplaySubject<T>(1);
   readonly config$ = this.configSource$.asObservable();
@@ -17,7 +19,7 @@ export abstract class PrizmOverlayAbstractPosition<T extends Record<string, any>
     if (this.zid) EventBus.send(this.zid, 'z_dynpos');
   }
 
-  public abstract getPositions(host: HTMLElement, parentElement?: HTMLElement): Record<string, any>;
+  public abstract getPositions(host: HTMLElement, parentElement?: HTMLElement): Record<string, unknown>;
 
   public getClassName(): string {
     return this.constructor.name.replace('Pos', '-pos').toLowerCase();

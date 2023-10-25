@@ -80,7 +80,7 @@ export class PrizmStickyDirective implements OnChanges {
     const keys = this.stylesOnSticky && Object.keys(this.stylesOnSticky);
     if (!keys?.length) return;
 
-    keys.forEach((key: any) => {
+    keys.forEach((key: unknown) => {
       this.elRef.nativeElement.style[key] = (this.stylesOnSticky?.[key] as string) ?? '';
     });
 
@@ -92,7 +92,7 @@ export class PrizmStickyDirective implements OnChanges {
 
     const keys = this.stylesOnSticky && Object.keys(this.stylesOnSticky);
     if (!keys?.length) return;
-    keys.forEach((key: any) => {
+    keys.forEach((key: unknown) => {
       this.elRef.nativeElement.style[key] = '';
     });
 

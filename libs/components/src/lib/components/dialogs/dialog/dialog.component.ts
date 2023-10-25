@@ -64,11 +64,11 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
       {
         size: this.context.size,
         action: (ctx: PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>): void => {
-          ctx.completeWith(null as any);
+          ctx.completeWith(null as unknown);
         },
         text: this.context.closeWord,
       },
-    ]) as any;
+    ]) as unknown;
   }
 
   private readonly animation = {

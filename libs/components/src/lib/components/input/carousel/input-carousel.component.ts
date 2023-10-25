@@ -44,7 +44,7 @@ import { PrizmInputCarousel } from './types';
   },
 })
 export class PrizmInputCarouselComponent
-  extends PrizmInputNgControl<any>
+  extends PrizmInputNgControl<unknown>
   implements ControlValueAccessor, PrizmInputCarousel
 {
   override readonly testId_ = 'ui-area--carousel';

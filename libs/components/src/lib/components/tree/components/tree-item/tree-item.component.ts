@@ -37,7 +37,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
   exportAs: 'prizmTreeItem',
 })
 export class PrizmTreeItemComponent extends PrizmAbstractTestId implements DoCheck {
-  @ContentChildren(PRIZM_TREE_NODE as any)
+  @ContentChildren(PRIZM_TREE_NODE as unknown)
   private readonly nested: QueryList<unknown> = PRIZM_EMPTY_QUERY;
 
   private readonly change$ = new Subject<void>();

@@ -32,10 +32,10 @@ export const prizmInputCarouselDefaultControlsState = prizmDefaultCarouselContro
  * use PrizmInputCarouselContent
  * */
 export interface PrizmCarouselContent {
-  currentValue: any;
+  currentValue: unknown;
   currentValueNotSet: boolean;
 
-  setCurrentValue(value: any): void;
+  setCurrentValue(value: unknown): void;
 
   controlsState: PrizmCarouselControlsState;
 

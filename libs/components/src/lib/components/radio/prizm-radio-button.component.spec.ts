@@ -31,7 +31,7 @@ describe('PrizmRadioButtonComponent', () => {
     let result = false;
 
     component.changeEvent.subscribe(() => (result = true));
-    component.onChangeEventHandler(null as any);
+    component.onChangeEventHandler(null as unknown);
 
     expect(result).toBeTruthy();
   });
@@ -40,7 +40,7 @@ describe('PrizmRadioButtonComponent', () => {
     let result = false;
 
     component.focusEvent.subscribe(() => (result = true));
-    component.onFocusEventHandler(null as any);
+    component.onFocusEventHandler(null as unknown);
 
     expect(result).toBeTruthy();
   });
@@ -49,7 +49,7 @@ describe('PrizmRadioButtonComponent', () => {
     let result = false;
 
     component.focusOutEvent.subscribe(() => (result = true));
-    component.onFocusOutEventHandler(null as any);
+    component.onFocusOutEventHandler(null as unknown);
 
     expect(result).toBeTruthy();
   });
@@ -58,7 +58,7 @@ describe('PrizmRadioButtonComponent', () => {
     let result = false;
 
     component.clickEvent.subscribe(() => (result = true));
-    component.onClickEventHandler(null as any);
+    component.onClickEventHandler(null as unknown);
 
     expect(result).toBeTruthy();
   });
@@ -68,7 +68,7 @@ describe('PrizmRadioButtonComponent', () => {
 
     component.accessorIsDisabled = true;
     component.clickEvent.subscribe(() => (result = true));
-    component.onClickEventHandler(null as any);
+    component.onClickEventHandler(null as unknown);
 
     expect(result).toBeFalsy();
   });
@@ -77,7 +77,7 @@ describe('PrizmRadioButtonComponent', () => {
     let result = false;
 
     component.blurEvent.subscribe(() => (result = true));
-    component.onBlurEventHandler(null as any);
+    component.onBlurEventHandler(null as unknown);
 
     expect(result).toBeTruthy();
   });
@@ -87,7 +87,7 @@ describe('PrizmRadioButtonComponent', () => {
 
     component.accessorIsDisabled = true;
     component.blurEvent.subscribe(() => (result = true));
-    component.onBlurEventHandler(null as any);
+    component.onBlurEventHandler(null as unknown);
 
     expect(result).toBeFalsy();
   });

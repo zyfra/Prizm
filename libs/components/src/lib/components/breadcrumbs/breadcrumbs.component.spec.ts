@@ -5,8 +5,8 @@ import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-hos
 import { PrizmIconModule } from '../icon/icon.module';
 
 describe('BreadcrumbsComponent', () => {
-  let component: PrizmBreadcrumbsComponent<any>;
-  let fixture: ComponentFixture<PrizmBreadcrumbsComponent<any>>;
+  let component: PrizmBreadcrumbsComponent<unknown>;
+  let fixture: ComponentFixture<PrizmBreadcrumbsComponent<unknown>>;
   class ResizeObserver {
     // eslint-disable-next-line @typescript-eslint/no-empty-function
     public disconnect(): void {}
@@ -41,7 +41,7 @@ describe('BreadcrumbsComponent', () => {
 
     component.breadcrumbs = [{ name: '0' }, { name: '1' }, { name: '2' }, { name: '3' }];
     fixture.detectChanges();
-    component.breadcrumbChange.subscribe((item: any) => (result = item === component.breadcrumbs[idx]));
+    component.breadcrumbChange.subscribe((item: unknown) => (result = item === component.breadcrumbs[idx]));
     component.changeBreadcrumb(idx);
 
     expect(result).toBeTruthy();

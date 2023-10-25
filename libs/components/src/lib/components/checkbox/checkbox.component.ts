@@ -119,11 +119,11 @@ export class PrizmCheckboxComponent
     this.setValue(value);
   }
 
-  public registerOnChange(fn: any): void {
+  public registerOnChange(fn: unknown): void {
     this.changeFn = fn;
   }
 
-  public registerOnTouched(fn: any): void {
+  public registerOnTouched(fn: unknown): void {
     this.touchedFn = fn;
   }
 

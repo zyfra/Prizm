@@ -31,7 +31,7 @@ import { Observable } from 'rxjs';
     },
   ],
 })
-export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
+export class PrizmThComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input()
   @prizmDefaultProp()
   sorter: PrizmTableCellSorterHandler<T> | null = null;
@@ -110,7 +110,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
 
   public updateSorter(event: MouseEvent): void {
     event.preventDefault();
-    const newOrder = this.sorterService.nextOrder(this.key as string) as any;
+    const newOrder = this.sorterService.nextOrder(this.key as string) as unknown;
     if (event.ctrlKey || event.metaKey) {
       this.sorterService.remove(this.key as string);
     } else
@@ -120,7 +120,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
             id: this.key as string,
             order: newOrder,
           },
-          sorter: this.sorter as any,
+          sorter: this.sorter as unknown,
         },
         !event.shiftKey
       );

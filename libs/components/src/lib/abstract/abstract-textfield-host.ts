@@ -3,7 +3,7 @@ import { PrizmTextfieldHost } from '../types/textfield-host';
 import { AbstractPrizmControl } from './control';
 
 @Directive()
-export abstract class AbstractPrizmTextfieldHost<T extends AbstractPrizmControl<any>>
+export abstract class AbstractPrizmTextfieldHost<T extends AbstractPrizmControl<unknown>>
   implements PrizmTextfieldHost
 {
   constructor(@Inject(AbstractPrizmControl) protected readonly host: T) {}

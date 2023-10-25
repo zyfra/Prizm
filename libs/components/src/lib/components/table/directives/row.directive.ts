@@ -15,7 +15,7 @@ import { PrizmTableRowContext } from '../table.types';
   selector: `ng-template[prizmRow]`,
   exportAs: 'prizmRow',
 })
-export class PrizmRowDirective<T extends Partial<Record<keyof T, any>>> implements OnDestroy {
+export class PrizmRowDirective<T extends Partial<Record<keyof T, unknown>>> implements OnDestroy {
   @Input()
   @prizmDefaultProp()
   prizmRowOf: readonly T[] = [];

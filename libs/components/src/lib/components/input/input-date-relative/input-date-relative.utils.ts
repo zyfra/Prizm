@@ -33,10 +33,10 @@ export function ParseTextInput(text: string): ExtendedRelativeDateModel {
   const regexMatch = new RegExp(MatchPattern);
   const match = regexMatch.exec(text) ?? [];
 
-  result.time = timeMap.get(match[1]) as any;
-  result.direction = directionMap.get(match[2]) as any;
-  result.period = periodMap.get(match[4]) as any;
-  result.number = (match[3] as any) || '';
+  result.time = timeMap.get(match[1]) as unknown;
+  result.direction = directionMap.get(match[2]) as unknown;
+  result.period = periodMap.get(match[4]) as unknown;
+  result.number = (match[3] as unknown) || '';
   result.wrongFormat = text !== match[0];
 
   return result;

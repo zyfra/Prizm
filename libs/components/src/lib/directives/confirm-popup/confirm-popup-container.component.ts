@@ -9,4 +9,4 @@ import { PrizmHintContainerComponent } from '../hint/hint-container.component';
   styleUrls: ['./confirm-popup-container.component.less'],
   providers: [PrizmDestroyService],
 })
-export class PrizmConfirmPopupContainerComponent extends PrizmHintContainerComponent<any> {}
+export class PrizmConfirmPopupContainerComponent extends PrizmHintContainerComponent<unknown> {}

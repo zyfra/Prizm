@@ -28,7 +28,7 @@ export class PrizmCronYearComponent {
     this.saveSpecified(correctedValue.join(', '));
   }
 
-  public onEnter(value: any, chipsComponent: PrizmChipsComponent): void {
+  public onEnter(value: unknown, chipsComponent: PrizmChipsComponent): void {
     if (!value) return;
     const str = value.toString();
     this.yearForAdd = null;

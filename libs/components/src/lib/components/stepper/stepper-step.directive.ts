@@ -12,7 +12,7 @@ export class PrizmStepperStepDirective implements OnChanges {
   @Input() disabled = true;
 
   @Output() stateChanged = new EventEmitter<number>();
-  constructor(public template: TemplateRef<any>) {}
+  constructor(public template: TemplateRef<unknown>) {}
 
   public ngOnChanges(): void {
     this.stateChanged.next(this.index);

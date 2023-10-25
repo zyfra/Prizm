@@ -74,7 +74,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @Input() set items(data: T[]) {
-    this.items$.next(data as any);
+    this.items$.next(data as unknown);
   }
   get items(): T[] {
     return this.items$.value;
@@ -169,7 +169,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public readonly hasClearButton = true;
   readonly isNullish = Compare.isNullish;
 
-  filteredItems$!: any;
+  filteredItems$!: unknown;
 
   public filteredItems: T[] = [];
   private searchValue!: string;
@@ -243,7 +243,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     timer(0)
       .pipe(
         tap(() => {
-          this.select(null as any);
+          this.select(null as unknown);
           this.changeDetectorRef.markForCheck();
         })
       )
@@ -252,7 +252,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public override clear(ev: MouseEvent): void {
     ev.stopImmediatePropagation();
-    this.updateValue(null as any);
+    this.updateValue(null as unknown);
     this.markAsTouched();
 
     this.changeDetectorRef.markForCheck();
@@ -313,8 +313,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public getFullObjectOfCurrent(value: T, items: T[]): T {
-    if (Compare.isNullish(value)) return null as any;
+    if (Compare.isNullish(value)) return null as unknown;
     const newItem = this.getValueFromItems(this.value, items);
-    return newItem as any;
+    return newItem as unknown;
   }
 }

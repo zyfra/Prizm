@@ -17,7 +17,7 @@ export class PrizmSplitterGutterComponent extends PrizmAbstractTestId {
 
   @Input() orientation!: PrizmSplitterOrientation;
   @Input() @HostBinding('style.order') order!: number;
-  @Input() template!: TemplateRef<any>;
+  @Input() template!: TemplateRef<unknown>;
 
   position!: number;
   override readonly testId_ = 'ui_splitter--gutter';

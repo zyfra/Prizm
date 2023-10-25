@@ -37,7 +37,7 @@ export class DefaultInputInvalidTextClass extends InputInvalidTextBaseClass impl
   }
 
   public getText(firstInvalidKey: string): string {
-    return firstInvalidKey && (this.validationTexts.getText(firstInvalidKey, this.control) as any);
+    return firstInvalidKey && (this.validationTexts.getText(firstInvalidKey, this.control) as unknown);
   }
 
   private actualizeText(): void {
