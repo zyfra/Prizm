@@ -5,6 +5,7 @@ import {
   ElementRef,
   HostBinding,
   Inject,
+  Input,
   NgZone,
   Optional,
   Output,
@@ -27,6 +28,8 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 })
 export class PrizmScrollControlsComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_scroll_controls';
+
+  @Input() scrollRef: HTMLElement | null = this.scrollRef_?.nativeElement ?? null;
 
   readonly refresh$ = this.animationFrame$.pipe(
     throttleTime(300),
@@ -51,16 +54,22 @@ export class PrizmScrollControlsComponent extends PrizmAbstractTestId {
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Optional()
     @Inject(PRIZM_SCROLL_REF)
-    private readonly scrollRef: ElementRef<HTMLElement> | null,
+    private readonly scrollRef_: ElementRef<HTMLElement> | null,
     @Inject(ANIMATION_FRAME) private readonly animationFrame$: Observable<number>
   ) {
     super();
   }
 
   private get scrollbars(): [boolean, boolean] {
+    const ele = this.scrollRef ? this.scrollRef : this.documentRef.documentElement;
     const { clientHeight, scrollHeight, clientWidth, scrollWidth } = this.scrollRef
-      ? this.scrollRef.nativeElement
+      ? this.scrollRef
       : this.documentRef.documentElement;
+    console.log('#mz ', {
+      ele,
+      scrollRef: this.scrollRef,
+      documentElement: this.documentRef.documentElement,
+    });
 
     return [
       Math.ceil((clientHeight / scrollHeight) * 100) < 100,

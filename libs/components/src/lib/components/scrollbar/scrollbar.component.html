@@ -1,10 +1,18 @@
 <div class="content-block" [class.not-overlap]="!overlap">
-  <div class="content">
-    <prizm-scroll-controls
-      [style.visibility]="(showScrollbars$ | async) ? '' : 'hidden'"
-    ></prizm-scroll-controls>
+  <div
+    class="content"
+    #htmlElement
+    #contentView="prizmScrollbarRef"
+    [visibility]="visibility"
+    prizmScrollbarRef
+  >
     <div>
       <ng-content></ng-content>
     </div>
   </div>
+
+  <prizm-scroll-controls
+    [scrollRef]="htmlElement"
+    [style.visibility]="(contentView.showScrollbars$ | async) ? '' : 'hidden'"
+  ></prizm-scroll-controls>
 </div>

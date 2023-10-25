@@ -1,5 +1,9 @@
 @import '../../../styles/ui-local';
 
+:host {
+  display: block;
+}
+
 .content {
   .createStackingContext();
   position: relative;
@@ -32,7 +36,13 @@
   height: 100%;
 }
 
-@scrollbar: 16px;
+@scrollbar: 0px;
+
+.content-block {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
 .content-block.not-overlap {
   display: flex;
