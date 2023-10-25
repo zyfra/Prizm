@@ -1,7 +1,17 @@
 <div class="panel">
-  <button class="back-btn" *ngIf="withBackButton" (click)="back()">
+  <!-- <button class="back-btn" *ngIf="withBackButton" (click)="back()">
     <prizm-icon class="back-btn__icon" iconClass="arrows-back"></prizm-icon>
-  </button>
+  </button> -->
+  <div class="back-btn" *ngIf="withBackButton">
+    <button
+      [icon]="'arrows-back'"
+      (click)="back()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="m"
+    ></button>
+  </div>
   <div class="buttons">
     <ng-content select="[buttons]"></ng-content>
   </div>
