@@ -32,7 +32,7 @@ export class PrizmSelectWithTransformerExampleComponent {
   readonly valueControl = new UntypedFormControl(3);
 
   readonly searchMatcher: PrizmSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
-    return item.name.toLowerCase().includes(search.toLowerCase());
+    return item?.name.toLowerCase().includes(search.toLowerCase());
   };
 
   readonly transformer: PrizmSelectValueTransformver<PrizmItem> = a => a?.id;
@@ -41,7 +41,7 @@ export class PrizmSelectWithTransformerExampleComponent {
   };
 
   readonly stringify: PrizmSelectStringify<PrizmItem> = (item: PrizmItem): any => {
-    return item.name;
+    return item?.name;
   };
 
   public setDefaultValue(): void {
