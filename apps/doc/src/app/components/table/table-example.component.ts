@@ -39,6 +39,11 @@ export class TableExampleComponent {
     HTML: import('./examples/table-basic-example/table-basic-example.component.html?raw'),
     LESS: import('./examples/table-basic-example/table-basic-example.component.less?raw'),
   };
+  public readonly exampleTrackBy: TuiDocExample = {
+    TypeScript: import('./examples/table-track-by-example/table-track-by-example.component?raw'),
+    HTML: import('./examples/table-track-by-example/table-track-by-example.component.html?raw'),
+    LESS: import('./examples/table-track-by-example/table-track-by-example.component.less?raw'),
+  };
   public readonly exampleIndexTable: TuiDocExample = {
     TypeScript: import('./examples/table-index-example/table-index-example.component?raw'),
     HTML: import('./examples/table-index-example/table-index-example.component.html?raw'),
