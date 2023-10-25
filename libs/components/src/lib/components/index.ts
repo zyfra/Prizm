@@ -45,3 +45,4 @@ export * from './file-upload';
 export * from './expand';
 export * from './spinner';
 export * from './column-settings';
+export * from './counter';

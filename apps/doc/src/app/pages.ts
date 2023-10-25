@@ -473,6 +473,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Counter',
+    keywords: 'counter, каунтер, счетчик',
+    route: '/components/counter',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Icons',
     subPages: [
       {
