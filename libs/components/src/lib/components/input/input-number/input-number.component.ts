@@ -28,6 +28,9 @@ import { PrizmHintDirective } from '../../../directives';
   providers: [PrizmDestroyService, { provide: PrizmInputControl, useExisting: PrizmInputNumberComponent }],
 })
 export class PrizmInputNumberComponent extends PrizmInputControl<number> implements OnInit {
+  private hasSymbol = false;
+
+  destroy$ = inject(PrizmDestroyService);
   public get empty() {
     return this.el.nativeElement.value == '' && !this.hasSymbol;
   }
@@ -105,9 +108,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.input$$.next(data);
   }
 
-  private hasSymbol = false;
-
-  destroy$ = inject(PrizmDestroyService);
   constructor(
     @Self() public readonly ngControl: NgControl,
     @Host() private readonly el: ElementRef<HTMLInputElement>

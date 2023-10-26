@@ -65,7 +65,7 @@ export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   public ngOnInit(): void {
     this.el = this.overlayElRef.nativeElement;
     this.wrapperEl = this.el.querySelector('.z-overlay-wrapper');
-    let cls = [
+    const cls = [
       'z-container',
       ...(this.config.containerClass || 'z-overlay').split(' '),
       this.position.getClassName(),

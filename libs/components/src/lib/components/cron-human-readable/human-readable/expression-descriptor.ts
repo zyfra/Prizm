@@ -338,9 +338,8 @@ export class PrizmCronHRExpressionDescriptor {
           }
 
           // потому начинаются дни с субботы под номером 1
-          let newExp: number;
           const incrementNumber = +exp - 1;
-          newExp = incrementNumber === -1 ? 6 : incrementNumber;
+          const newExp = incrementNumber === -1 ? 6 : incrementNumber;
 
           let description = this.i18n.daysOfTheWeekInCase
             ? this.i18n.daysOfTheWeekInCase(form)[newExp]

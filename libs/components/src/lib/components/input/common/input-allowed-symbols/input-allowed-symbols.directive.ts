@@ -11,7 +11,7 @@ export class PrizmInputAllowedSymbolsDirective extends DefaultInputInvalidTextCl
   @Input() prizmInputAllowedSymbols: RegExp | string | string[] | `` = ``;
 
   @HostListener('keydown', ['$event.key', '$event'])
-  block(data: string, event: KeyboardEvent): void | false {
+  public block(data: string, event: KeyboardEvent): void | false {
     if (unsupportedKeyCharacters.includes(data)) {
       return void 0;
     }
