@@ -14,11 +14,15 @@
     border-radius: var(--prizm-panel-border-radius, 2px);
     background: var(--prizm-panel-background, var(--prizm-v3-background-fill-panel));
 
-    .back-btn {
-      padding: 0 25px;
-      margin: auto 0;
+    .back-btn-wrapper {
+      padding: 0 0 0 16px;
+      margin: auto 12px auto 0px;
 
       border-right: 1px solid var(--prizm-v3-background-stroke);
+
+      button {
+        margin-right: 12px;
+      }
     }
 
     .title {
@@ -31,6 +35,10 @@
       flex-direction: column;
 
       overflow: hidden;
+
+      &.not-left-indent {
+        margin-left: 0;
+      }
 
       span {
         white-space: nowrap;
@@ -71,6 +79,10 @@
 
     .buttons {
       display: flex;
+
+      &:not(:empty) {
+        margin-right: 12px;
+      }
     }
 
     .instruments {
