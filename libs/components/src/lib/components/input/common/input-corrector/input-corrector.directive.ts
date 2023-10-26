@@ -18,10 +18,10 @@ import { debounceTime, takeUntil, tap } from 'rxjs/operators';
   providers: [PrizmDestroyService],
 })
 export class PrizmInputCorrectorDirective implements OnInit {
+  private readonly inputs$ = new Subject<any>();
+
   @Input('prizmInputCorrector') corrector: ((value: string) => string) | null = null;
   @Input() needCorrect: (value: string) => boolean = () => true;
-
-  private readonly inputs$ = new Subject<any>();
 
   @HostListener('paste', [])
   @HostListener('input', [])
