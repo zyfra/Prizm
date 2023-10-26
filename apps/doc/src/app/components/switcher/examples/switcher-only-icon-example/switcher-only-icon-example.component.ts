@@ -15,6 +15,7 @@ export class SwitcherOnlyIconExampleComponent {
         value: 'Таблицы',
         options: {
           theme: 'light',
+          direction: 'l',
         },
       },
     },
