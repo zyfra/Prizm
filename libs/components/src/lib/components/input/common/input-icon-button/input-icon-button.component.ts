@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -20,7 +21,13 @@ export class PrizmInputIconButtonComponent extends PrizmAbstractTestId {
 
   @HostBinding('class.disabled')
   @Input()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
   @Input()
   @HostBinding('attr.type')
   type: 'button' | 'reset' | 'submit' = 'button';

@@ -4,6 +4,7 @@ import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { prizmIsTextOverflow$ } from '../../../util/dom/is-textoverflow';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-chips-item',
@@ -12,7 +13,15 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmChipsItemComponent extends PrizmAbstractTestId {
-  @Input() disabled = false;
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
+
   @Input() deletable = true;
   @Output() deleted = new EventEmitter<MouseEvent>();
   @Input() hintCanShow = true;

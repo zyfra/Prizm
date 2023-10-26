@@ -17,6 +17,7 @@ import { Subject } from 'rxjs';
 import { PolymorphContent } from '../../../../directives/polymorph';
 import { PrizmAccordionItemData } from '../../model';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -29,7 +30,16 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   @Input() icon!: PolymorphContent<PrizmAccordionItemData>;
   @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
-  @Input() disabled = false;
+
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
+
   @Output() isExpandedChange = new EventEmitter<boolean>();
 
   get data() {

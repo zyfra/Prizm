@@ -18,6 +18,7 @@ import { Compare, PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-tab',
@@ -33,7 +34,16 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
   @Input() count = 0;
   @Input() closable!: boolean;
-  @Input() disabled = false;
+
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
+
   private idx_: number | null = null;
   public readonly idx$ = this.tabsService.tabs$.pipe(
     map(() => this.inMenuContextService?.context?.inMenuIdx ?? this.tabsService?.findTabIdx?.(this)),
