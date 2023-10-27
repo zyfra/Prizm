@@ -31,7 +31,7 @@ import { prizmI18nInitWithKey } from '../../services';
 })
 export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
-  @Input() textOnPage: PolymorphContent = 'Строк на странице';
+  @Input() textOnPage: PolymorphContent | undefined;
   /** The length of the total number of items that are being paginated. Defaulted to 0. */
   @Input()
   get totalRecords(): number | null {
@@ -83,7 +83,7 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
 
   @Input() public leftButtonLabel = '';
   @Input() public rightButtonLabel = '';
-  @Input() moreButtonLabel = 'Показать еще';
+  @Input() moreButtonLabel: string | undefined;
 
   @Input() public rowsCountOptions: number[] = [];
   @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
@@ -153,6 +153,10 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
 
   public get realTotalRecord(): number | null {
     return this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords;
+  }
+
+  public get rowsCountLabel(): string {
+    return this.paginatorType === 'infinite' ? 'linesToUpload' : 'linesOnPage';
   }
 
   /**

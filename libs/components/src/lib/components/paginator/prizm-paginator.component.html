@@ -1,11 +1,11 @@
-<div class="container">
+<div class="container" *prizmLet="paginator$ | async as translations">
   <div class="content">
     <span
       class="rows rows__count"
       *ngIf="!paginatorOptions?.noRowsSelector && !paginatorOptions?.noRowsSelectorLabel"
     >
       <ng-container *polymorphOutlet="textOnPage as title">
-        {{ title }}
+        {{ title ? title : (translations | prizmPluck : [rowsCountLabel]) }}
       </ng-container>
     </span>
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
@@ -24,10 +24,14 @@
 
   <div class="content">
     <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo" [hidden]="disabled">
-      {{ paginator$ | async | prizmPluck : ['linesShown'] }} {{ (currentPage - 1) * rows + 1 }}-{{
+      {{ translations | prizmPluck : ['linesShown'] }}
+      {{ (currentPage - 1) * rows + 1 }}-{{
         currentPage * rows > $any(totalRecords) ? totalRecords : currentPage * rows
       }}
-      из {{ realTotalRecord }}
+      <ng-container *ngIf="paginatorType !== 'infinite'">
+        {{ translations | prizmPluck : ['from'] }}
+        {{ realTotalRecord }}
+      </ng-container>
     </span>
     <div
       class="paginator paginator__finite"
@@ -172,12 +176,14 @@
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
       <button
-        class="show-more"
         [disabled]="disabled || showMoreDisabled"
-        [class.show-more_disabled]="disabled || showMoreDisabled"
         (click)="increase()"
+        prizmButton
+        appearanceType="ghost"
+        appearance="primary"
+        size="m"
       >
-        {{ moreButtonLabel }}
+        {{ moreButtonLabel ? moreButtonLabel : (translations | prizmPluck : ['moreButtonLabel']) }}
       </button>
     </div>
   </div>

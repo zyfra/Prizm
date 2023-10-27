@@ -21,6 +21,7 @@ import { PrizmButtonModule } from '../button/button.module';
     FormsModule,
     PrizmButtonModule,
     PrizmPluckPipeModule,
+    PrizmLetModule,
   ],
   exports: [PrizmPaginatorComponent],
 })
