@@ -19,6 +19,14 @@ import { PrizmPrimitiveMonthPickerModule } from '../internal/primitive-month-pic
     PrizmMapperPipeModule,
   ],
   declarations: [PrizmCalendarComponent],
-  exports: [PrizmCalendarComponent],
+  exports: [
+    PrizmCalendarComponent,
+    PrizmPrimitiveYearMonthPaginationModule,
+    PrizmPrimitiveCalendarModule,
+    PrizmPrimitiveYearPickerModule,
+    PrizmPrimitiveMonthPickerModule,
+    PrizmScrollbarModule,
+    PrizmMapperPipeModule,
+  ],
 })
 export class PrizmCalendarModule {}
