@@ -1,7 +1,6 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Inject,
@@ -10,13 +9,13 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@angular/cdk/drag-drop';
+import { CdkDragDrop, CdkDropList, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { PrizmColumnSettings, PrizmColumnStatus, PrizmTableSettings } from './column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
 import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
-import { cloneDeep } from 'lodash';
+import { prizmCloneDeep } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-column-settings',
@@ -32,7 +31,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   public _settings!: PrizmTableSettings;
   @Input() set settings(value: PrizmTableSettings) {
-    this._settings = cloneDeep(value);
+    this._settings = prizmCloneDeep(value);
   }
   @Input() defaultSettings: PrizmTableSettings | undefined;
   @Input() stickySettings = false;
@@ -62,7 +61,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   }
 
   public resetToDeafault(): void {
-    this._settings = cloneDeep(this.defaultSettings as PrizmTableSettings);
+    this._settings = prizmCloneDeep(this.defaultSettings as PrizmTableSettings);
     this.checkIsLastShown();
   }
 

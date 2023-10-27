@@ -1,11 +1,10 @@
 import { canShowCronListItem, getArrWithStringNumbers, getCarousel } from './util';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { distinctUntilChanged, filter, finalize, first, map, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, first, map, takeUntil, tap } from 'rxjs/operators';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronUiBaseType, PrizmCronUiState, PrizmCronUiStateList } from './model';
 import { PrizmCronService, PrizmCronValueObject } from '../../services/cron';
-import { isEqual } from 'lodash';
 
 export abstract class PrizmCronUiBaseState<
   ENUM extends Record<string, unknown> = typeof PrizmCronUiBaseType,

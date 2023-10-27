@@ -6,3 +6,5 @@ export * from './decorators';
 export * from './uuid';
 export * from './style';
 export * from './number';
+export * from './clone-deep';
+export * from './order-by';
