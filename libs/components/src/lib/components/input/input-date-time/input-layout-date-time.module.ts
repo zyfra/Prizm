@@ -35,6 +35,6 @@ import { PrizmInputZoneModule } from '../../../directives/input-zone';
     PrizmInputNativeValueModule,
   ],
   declarations: [PrizmInputLayoutDateTimeComponent],
-  exports: [PrizmInputLayoutDateTimeComponent, PrizmInputTextModule],
+  exports: [PrizmDropdownHostModule, PrizmInputLayoutDateTimeComponent, PrizmInputTextModule],
 })
 export class PrizmInputLayoutDateTimeModule {}
