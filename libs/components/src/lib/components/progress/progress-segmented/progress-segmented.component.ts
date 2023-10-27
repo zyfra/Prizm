@@ -26,7 +26,7 @@ export class PrizmProgressSegmentedComponent extends PrizmAbstractTestId {
 
   @Input()
   @prizmDefaultProp()
-  colors: string | readonly string[] = `var(--prizm-primary)`;
+  colors: string | readonly string[] = `var(--prizm-v3-status-info-primary-default)`;
 
   override readonly testId_ = 'ui_progress_segmented';
 

@@ -43,6 +43,6 @@ export class PrizmProgressBaseExampleComponent {
     takeWhile(i => i != 101),
     startWith(30)
   );
-  readonly colors = [`var(--prizm-index-warning)`, `lightskyblue`, `#3682db`, `red`];
+  readonly colors = [`var(--prizm-v3-status-alarm-primary-default)`, `lightskyblue`, `#3682db`, `red`];
   readonly max = 100;
 }
