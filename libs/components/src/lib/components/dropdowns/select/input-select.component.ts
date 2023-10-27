@@ -161,6 +161,12 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   @Output()
   public readonly searchChange = new EventEmitter<string | null>();
 
+  get virtualHeight() {
+    const height = (this.items?.length ?? 0) * 36;
+    if (height > 300) return 300;
+    return height;
+  }
+
   override defaultLabel = this.options.label;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);

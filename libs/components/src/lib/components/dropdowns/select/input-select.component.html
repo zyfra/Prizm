@@ -88,75 +88,90 @@
         class="block"
         *prizmLet="(filteredItems$ | async) ?? [] as items"
         [scroll]="dropdownScroll"
+        [body]="templateBody"
         [style.--prizm-data-list-border]="0"
       >
-        <div class="list-search-item" *ngIf="searchable">
-          <prizm-input-layout size="m" label="Поиск">
-            <input
-              class="input-search"
-              [ngModel]="printing$.value"
-              [ngModelOptions]="{ standalone: true }"
-              (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
-              prizmInput
-              prizmAutoFocus
-            />
-            <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
-          </prizm-input-layout>
-        </div>
-        <ng-container *ngIf="items?.length; else emptyTemplate">
-          <div
-            class="item"
-            #hostHint
-            *ngFor="let item of items; let idx = index"
-            [class.most-relevant]="isMostRelevant(idx, items)"
-            [class.selected]="
-              item === value ||
-              (item && value && (transformer(item) | prizmCallFunc : identityMatcher : value))
-            "
-            (click)="select(item)"
-          >
-            <ng-container *ngIf="!isNullish(item); else nullContentTemplate">
-              <span
-                class="text"
-                #elem
-                *prizmLet="
-                  item | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
-                "
-                [prizmHint]="text"
-                [prizmHintHost]="hostHint"
-                [prizmHintDirection]="direction"
-                [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
+        <ng-template #templateBody>
+          <prizm-scrollbar [visibility]="dropdownScroll">
+            <div class="list-search-item" *ngIf="searchable">
+              <prizm-input-layout size="m" label="Поиск">
+                <input
+                  class="input-search"
+                  [ngModel]="printing$.value"
+                  [ngModelOptions]="{ standalone: true }"
+                  (ngModelChange)="dropdownHostRef.reCalculatePositions(1000 / 16); printing$.next($event)"
+                  prizmInput
+                  prizmAutoFocus
+                />
+                <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
+              </prizm-input-layout>
+            </div>
+            <ng-container *ngIf="items?.length; else emptyTemplate">
+              <cdk-virtual-scroll-viewport
+                class="example-viewport"
+                [style.height.px]="virtualHeight"
+                prizmScrollable
+                itemSize="50"
               >
-                <ng-container
-                  *polymorphOutlet="
-                    listItemTemplate ?? valueTemplate as content;
-                    context: {
-                      $implicit: item,
-                      value: item | prizmCallFunc : transformer,
-                      stringify: text
-                    }
+                <div
+                  class="item"
+                  #hostHint
+                  *cdkVirtualFor="let item of items; let idx = index"
+                  [class.most-relevant]="isMostRelevant(idx, items)"
+                  [class.selected]="
+                    item === value ||
+                    (item && value && (transformer(item) | prizmCallFunc : identityMatcher : value))
                   "
+                  (click)="select(item)"
                 >
-                  {{ text }}
-                </ng-container>
-              </span>
-            </ng-container>
+                  <ng-container *ngIf="!isNullish(item); else nullContentTemplate">
+                    <span
+                      class="text"
+                      #elem
+                      *prizmLet="
+                        item
+                          | prizmCallFunc : stringify : $any(nullContent)
+                          | prizmToObservable
+                          | async as text
+                      "
+                      [prizmHint]="text"
+                      [prizmHintHost]="hostHint"
+                      [prizmHintDirection]="direction"
+                      [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
+                    >
+                      <ng-container
+                        *polymorphOutlet="
+                          listItemTemplate ?? valueTemplate as content;
+                          context: {
+                            $implicit: item,
+                            value: item | prizmCallFunc : transformer,
+                            stringify: text
+                          }
+                        "
+                      >
+                        {{ text }}
+                      </ng-container>
+                    </span>
+                  </ng-container>
 
-            <ng-template #nullContentTemplate>
-              <ng-container *ngIf="nullContent">
-                <ng-container *polymorphOutlet="nullContent as content">
+                  <ng-template #nullContentTemplate>
+                    <ng-container *ngIf="nullContent">
+                      <ng-container *polymorphOutlet="nullContent as content">
+                        {{ content }}
+                      </ng-container>
+                    </ng-container>
+                  </ng-template>
+                </div>
+              </cdk-virtual-scroll-viewport>
+            </ng-container>
+            <ng-template #emptyTemplate>
+              <div class="empty-template">
+                <ng-container *polymorphOutlet="emptyContent as content">
                   {{ content }}
                 </ng-container>
-              </ng-container>
+              </div>
             </ng-template>
-          </div>
-        </ng-container>
-        <ng-template #emptyTemplate>
-          <div class="empty-template">
-            <ng-container *polymorphOutlet="emptyContent as content">
-              {{ content }}
-            </ng-container>
-          </div>
+          </prizm-scrollbar>
         </ng-template>
       </prizm-data-list>
     </ng-template>

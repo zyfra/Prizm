@@ -20,6 +20,7 @@ import {
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PolymorphContent } from '../../directives';
 
 @Component({
   selector: 'prizm-data-list',
@@ -43,6 +44,9 @@ export class PrizmDataListComponent extends PrizmAbstractTestId implements OnIni
   @Input()
   @prizmDefaultProp()
   scroll: PrizmScrollbarVisibility = 'auto';
+
+  @Input()
+  body: PolymorphContent = '';
 
   override readonly testId_ = 'ui_data_list';
 

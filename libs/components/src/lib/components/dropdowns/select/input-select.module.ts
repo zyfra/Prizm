@@ -13,9 +13,11 @@ import { PrizmCallFuncModule, PrizmLetModule, PrizmToObservableModule } from '@p
 import { PrizmHintModule } from '../../../directives/hint';
 import { PrizmIconModule } from '../../icon';
 import { PrizmSelectInputComponent } from './input-select.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   imports: [
+    ScrollingModule,
     PrizmOverlayModule,
     PolymorphModule,
     PrizmInputTextModule,
