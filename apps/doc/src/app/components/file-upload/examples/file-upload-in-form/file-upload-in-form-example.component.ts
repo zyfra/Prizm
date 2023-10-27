@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { PrizmToastService } from '@prizm-ui/components';
 
 @Component({
@@ -9,9 +9,7 @@ import { PrizmToastService } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmFileUploadInFormExampleComponent {
-  form = new UntypedFormGroup({
-    file: new UntypedFormControl(),
-  });
+  form = new UntypedFormGroup({});
 
   files: Array<File> = [];
 
