@@ -5,10 +5,12 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  Host,
   HostListener,
   Inject,
   Injector,
   Input,
+  Optional,
   Output,
   TemplateRef,
   ViewChild,
@@ -34,6 +36,7 @@ import {
 } from './models';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { PrizmDropdownHostControlDirective } from './dropdown-host-control.directive';
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -129,6 +132,10 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   constructor(
     private readonly prizmOverlayService: PrizmOverlayService,
+    @Inject(PrizmDropdownHostControlDirective)
+    @Host()
+    @Optional()
+    public readonly dropdownHostControlDirective: PrizmDropdownHostControlDirective | null,
     @Inject(DOCUMENT) private readonly document: Document,
     @Inject(PRIZM_DROPDOWN_HOST_OPTIONS) private readonly options: PrizmDropdownHostOptions,
     public readonly el: ElementRef<HTMLElement>,
@@ -164,7 +171,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
         distinctUntilChanged(),
         tap(state => {
           if (state) {
-            this.openOverlay();
+            if (this.dropdownHostControlDirective?.enabled ?? true) this.openOverlay();
           } else {
             this.closeOverlay();
           }
