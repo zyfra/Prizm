@@ -151,8 +151,11 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
     return null;
   }
 
+  _infiniteRecordsCount = 0;
+
   public get realTotalRecord(): number | null {
-    return this.paginatorType === 'infinite' ? this.rows * (this.currentPage + 1) : this.totalRecords;
+    this._infiniteRecordsCount = this._infiniteRecordsCount || this.rows;
+    return this.paginatorType === 'infinite' ? this._infiniteRecordsCount : this.totalRecords;
   }
 
   public get rowsCountLabel(): string {
@@ -183,6 +186,9 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
   }
 
   public increase(): void {
+    if (this.paginatorType === 'infinite') {
+      this._infiniteRecordsCount += this.rows;
+    }
     this.changePage(this.page + 1);
   }
 
@@ -217,5 +223,7 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
     this.paginationGenerator();
     this.rowsChange.emit(this.rows);
     this.emitPaginatorChanges();
+
+    if (this.paginatorType === 'infinite' && rows && rows > this._infiniteRecordsCount) this.increase();
   }
 }

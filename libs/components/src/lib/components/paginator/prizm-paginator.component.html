@@ -25,13 +25,13 @@
   <div class="content">
     <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo" [hidden]="disabled">
       {{ translations | prizmPluck : ['linesShown'] }}
-      {{ (currentPage - 1) * rows + 1 }}-{{
-        currentPage * rows > $any(totalRecords) ? totalRecords : currentPage * rows
-      }}
       <ng-container *ngIf="paginatorType !== 'infinite'">
+        {{ (currentPage - 1) * rows + 1 }}-{{
+          currentPage * rows > $any(totalRecords) ? totalRecords : currentPage * rows
+        }}
         {{ translations | prizmPluck : ['from'] }}
-        {{ realTotalRecord }}
       </ng-container>
+      {{ realTotalRecord }}
     </span>
     <div
       class="paginator paginator__finite"
