@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   forwardRef,
-  HostBinding,
   Inject,
   Injector,
   Input,
@@ -43,7 +42,7 @@ import { PrizmInputZoneDirective } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmInputNativeValueNeedChange } from '../../../directives';
 import { DOCUMENT } from '@angular/common';
-import { prizmI18nInitWithKey, prizmI18nInitWithKeys } from '../../../services';
+import { prizmI18nInitWithKeys } from '../../../services';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -241,7 +240,7 @@ export class PrizmInputLayoutDateTimeComponent
     const currentNewValue = currentValue.replace(/[^0-9]/g, '');
 
     if (newNativeValue.length !== 4) return false;
-    if (newNativeValue.length !== 4) return false;
+    if (currentNewValue.length !== 4) return false;
     if (newNativeValue === currentNewValue) return false;
     return true;
   };
@@ -267,7 +266,7 @@ export class PrizmInputLayoutDateTimeComponent
 
     this.nativeValue$$.next([value, this.nativeValue$$.value[1]]);
 
-    if (!value || value.length < this.textMaskOptions.length) {
+    if (!value || value.length < this.textMaskOptions.length || this.isValueMasked(value)) {
       if (!value) this.updateValue([null, this.value?.[1] ?? null]);
       return;
     }
@@ -295,7 +294,7 @@ export class PrizmInputLayoutDateTimeComponent
     if (value === this.computedTimeValue()) return;
     this.nativeValue$$.next([this.nativeValue$$.value[0], value]);
 
-    if (!value || value.length < this.timeMaskOptions.length) {
+    if (!value || value.length < this.timeMaskOptions.length || this.isValueMasked(value)) {
       if (!value) this.updateValue([this.value?.[0] ?? null, null]);
       return;
     }
@@ -473,5 +472,9 @@ export class PrizmInputLayoutDateTimeComponent
         })
       )
       .subscribe();
+  }
+
+  private isValueMasked(value: string): boolean {
+    return value.includes('_');
   }
 }
