@@ -116,6 +116,10 @@ export class PrizmInputLayoutComponent
       : this.status;
   }
 
+  get emptyLabel() {
+    return !this.label?.replace(/[ ]+/, '');
+  }
+
   get showStatusButton(): boolean {
     return Boolean(
       this.status !== 'default' ||

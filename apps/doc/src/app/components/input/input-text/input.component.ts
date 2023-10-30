@@ -53,6 +53,10 @@ export class InputComponent {
     TypeScript: import('./examples/input-basic-example/input-basic-example.component.ts?raw'),
     HTML: import('./examples/input-basic-example/input-basic-example.component.html?raw'),
   };
+  public readonly inputEmptyLabelExample: TuiDocExample = {
+    TypeScript: import('./examples/input-empty-label-example/input-empty-label-example.component.ts?raw'),
+    HTML: import('./examples/input-empty-label-example/input-empty-label-example.component.html?raw'),
+  };
 
   public readonly zyfraInputLabelPositionExample: TuiDocExample = {
     TypeScript: import(

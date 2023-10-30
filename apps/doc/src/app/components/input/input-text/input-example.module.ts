@@ -16,6 +16,7 @@ import { InputBasicExampleComponent } from './examples/input-basic-example/input
 import { InputValidationCustomExampleComponent } from './examples/input-validation-custom-example/input-validation-custom-example.component';
 import { InputFormControlExampleComponent } from './examples/input-form-control-example/input-form-control-example.component';
 import { InputSearchExampleComponent } from './examples/input-search-example/input-search-example.component';
+import { InputEmptyLabelExampleComponent } from './examples/input-empty-label-example/input-empty-label-example.component';
 
 @NgModule({
   imports: [
@@ -40,6 +41,7 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
     InputIconButtonsExampleComponent,
     InputFormControlExampleComponent,
     InputSearchExampleComponent,
+    InputEmptyLabelExampleComponent,
   ],
   exports: [InputComponent],
 })

@@ -5,7 +5,8 @@
     empty: control.empty | prizmToObservable | async,
     touched: control.touched | prizmToObservable | async,
     invalid: control.invalid | prizmToObservable | async,
-    required: control.required | prizmToObservable | async
+    required: control.required | prizmToObservable | async,
+    emptyLabel: emptyLabel
   } as $"
 >
   <ng-template #labelTemplate>
@@ -59,6 +60,7 @@
     [ngClass]="{
       'prizm-input-form-focused': !$.disabled && $.focused,
       'prizm-input-form-empty': $.empty,
+      'prizm-input-empty-label': emptyLabel,
       'prizm-input-form-disabled': $.disabled,
       'prizm-input-form-touched': $.touched,
       'prizm-input-form-invalid': $.invalid
