@@ -1,10 +1,10 @@
-import { ChangeDetectorRef, Directive, Injector, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, inject, Injector, OnInit } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputLayoutComponent } from '../input-layout';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { PrizmControlValueTransformer } from '../../../../types';
 import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 
@@ -13,6 +13,7 @@ export abstract class PrizmInputNgControl<T>
   extends PrizmInputControl<T>
   implements OnInit, ControlValueAccessor
 {
+  protected readonly elRef_ = inject(ElementRef<HTMLInputElement>);
   readonly destroy$!: PrizmDestroyService;
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
@@ -87,6 +88,8 @@ export abstract class PrizmInputNgControl<T>
   ngOnInit(): void {
     this.ngControl = this.injector.get(NgControl);
 
+    this.initFocusListeners();
+
     console.assert(
       !!this.ngControl,
       `NgControl not injected in ${this.constructor.name}!\n`,
@@ -96,6 +99,15 @@ export abstract class PrizmInputNgControl<T>
     this.ngControl?.statusChanges
       ?.pipe(
         tap(i => this.stateChanges.next()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  protected initFocusListeners(): void {
+    merge(fromEvent(this.elRef_.nativeElement, 'focusout'), fromEvent(this.elRef_.nativeElement, 'focusin'))
+      .pipe(
+        tap(() => this.stateChanges.next()),
         takeUntil(this.destroy$)
       )
       .subscribe();
