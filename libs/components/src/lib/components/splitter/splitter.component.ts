@@ -85,7 +85,7 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
       ),
       this.splitterService.areaInputSizeChange$$.pipe(map(() => this.splitterAreaQueryList.toArray()))
     ).pipe(
-      map(areas => areas.filter(area => area.size !== null)),
+      map(areas => areas.filter(area => !area.hidden)),
       observeOn(asyncScheduler)
     );
 
@@ -98,10 +98,9 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
       this.lastGap = gap;
 
       this.guttersData = [];
-      const shownAreas = areas.filter(area => !area.hidden);
-      shownAreas.forEach((area, index) => {
+      areas.forEach((area, index) => {
         area.order = index;
-        if (index < shownAreas.length - 1) {
+        if (index < areas.length - 1) {
           this.guttersData.push({ areaBefore: index, areaAfter: index + 1, order: index + 1 });
         }
       });
