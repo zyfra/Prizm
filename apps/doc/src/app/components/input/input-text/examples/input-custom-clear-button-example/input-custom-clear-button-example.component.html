@@ -1,0 +1,59 @@
+<div>
+  <h2>Custom Button</h2>
+
+  <prizm-input-layout [clearButton]="clearButtonTemplate" label="Заголовок">
+    <input prizmInput />
+  </prizm-input-layout>
+
+  <ng-template
+    #clearButtonTemplate
+    let-showStatusButton="showStatusButton"
+    let-disabled="disabled"
+    let-clear="clear"
+  >
+    <button
+      class="{{ showStatusButton ? '' : 'alone' }}"
+      [interactive]="true"
+      [disabled]="disabled"
+      [prizmHint]="'Нажмите для очистки'"
+      [prizmInputIconButton]="'cancel-delete-content'"
+      (click)="clear($event)"
+    ></button>
+  </ng-template>
+</div>
+
+<br />
+<br />
+<div>
+  <h2>Custom Button Outer (With hint)</h2>
+
+  <prizm-input-layout [outer]="true" [clearButton]="clearButtonTemplate" label="Заголовок">
+    <input prizmInput />
+  </prizm-input-layout>
+
+  <ng-template
+    #clearButtonTemplate
+    let-showStatusButton="showStatusButton"
+    let-disabled="disabled"
+    let-clear="clear"
+  >
+    <button
+      class="{{ showStatusButton ? '' : 'alone' }}"
+      [interactive]="true"
+      [disabled]="disabled"
+      [prizmHint]="'Нажмите для очистки'"
+      [prizmInputIconButton]="'cancel-delete-content'"
+      (click)="clear($event)"
+    ></button>
+  </ng-template>
+</div>
+
+<br />
+<br />
+<div>
+  <h2>Custom Icon</h2>
+
+  <prizm-input-layout [clearButton]="'cancel-close'" label="Заголовок">
+    <input prizmInput />
+  </prizm-input-layout>
+</div>
