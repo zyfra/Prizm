@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PRIZM_CHART_THEMES, prizmChartsSetDefaultThemes } from '../theme/util';
-import { merge } from 'lodash';
+import merge from 'lodash-es/merge';
 import { PrizmChartTheme } from '../theme/types';
 @Injectable({
   providedIn: 'root',

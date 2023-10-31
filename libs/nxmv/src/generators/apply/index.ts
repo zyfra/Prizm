@@ -2,7 +2,7 @@ import { formatFiles, Tree } from '@nrwl/devkit';
 import { PrizmNxMvConfig, PrizmNxMvSchema } from './schema';
 import * as fs from 'fs';
 import { copyFolder, getProjectConfigurations, visitAllFiles } from './util';
-import { difference } from 'lodash';
+import difference from 'lodash-es/difference';
 
 /**
  * Заменяем файлы проектов в рабочем пространстве на основе схемы PluginUpdateVersionSchema и конфига.
