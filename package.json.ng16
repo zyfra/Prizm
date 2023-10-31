@@ -15,7 +15,6 @@
     "format:staged": "pretty-quick --staged",
     "ng": "nx",
     "cypress:open": "cypress open",
-    "postinstall": "node ./decorate-angular-cli.js",
     "start": "nx run doc:serve",
     "build": "nx affected:build --all",
     "build:next": "nx run doc:build",
@@ -78,6 +77,7 @@
     "dompurify": "^2.3.8",
     "highlight.js": "^11.5.1",
     "highlightjs-line-numbers.js": "^2.8.0",
+    "lodash-es": "^4.17.21",
     "marked": "^4.0.17",
     "ngx-markdown": "^16.0.0",
     "ngx-mask": "16.2.6",
@@ -160,6 +160,6 @@
     "typescript": "5.1.6"
   },
   "volta": {
-    "node": "16.20.0"
+    "node": "16.20.2"
   }
 }
