@@ -1,6 +1,6 @@
 import { Directive, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { BooleanInput } from '@angular/cdk/coercion';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 // TODO remove !ng16
 export { PrizmAbstractTestId };
@@ -50,8 +50,8 @@ export abstract class AbstractPrizmInteractive extends PrizmAbstractTestId {
   focusVisible = false;
 
   @HostBinding('class._disabled')
-  get computedDisabled(): BooleanInput {
-    return this.disabled;
+  get computedDisabled(): boolean {
+    return coerceBooleanProperty(this.disabled);
   }
 
   @HostBinding('class._hovered')

@@ -32,7 +32,7 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   @Input() isExpanded = false;
 
   @Input()
-  get disabled() {
+  get disabled(): boolean {
     return this._disabled;
   }
   set disabled(value: BooleanInput) {
@@ -47,7 +47,7 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
       icon: this.icon,
       title: this.title,
       isExpanded: this.isExpanded,
-      disabled: this.disabled,
+      disabled: this._disabled,
       focused: this.isAccordionFocused,
     };
   }
