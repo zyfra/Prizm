@@ -10,7 +10,7 @@ All notable changes to this project will be documented in this file.
 - ! feat(components): to new colors #862
 - ! feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
   !!! Check all input on empty mode and non label mode
-- ! feat(components/overlay): context example and to standalone #813
+- feat(components/overlay): context example and to standalone #813
 - feat: updated v1 stackblitz demos with style #877
 - feat: updated v2 stackblitz demos with style #878
 - feat: updated v3 stackblitz demos with style #879

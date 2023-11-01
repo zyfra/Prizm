@@ -36,6 +36,11 @@ export class OverlayComponent {
     HTML: import('./examples/relative/template.html?raw'),
   };
 
+  readonly customContextExample: TuiDocExample = {
+    TypeScript: import('./examples/custom-context/custom-context.component?raw'),
+    HTML: import('./examples/custom-context/custom-context.component.html?raw'),
+  };
+
   readonly fullscreenExample: TuiDocExample = {
     TypeScript: import('./examples/fullscreen/template?raw'),
     HTML: import('./examples/fullscreen/template.html?raw'),
