@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (25-10-2023)
+## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (01-11-2023)
 
 ### Features
 
@@ -16,17 +16,21 @@ All notable changes to this project will be documented in this file.
 - feat(components/card): colors v3 for card #897
 - feat(components/panel): colors v3 for panel #897
 - feat(components/tabs): add prizm counter to tabs #863
+- feat: update progress colors to v3 #902
+- feat(components/dropdown-control): new directive control for dropdown #881
 
 ### Bug fixes
 
 - fix(doc/input-date-multi): inputDateMulti incorrect label text #753
 - fix(components/file-upload): file upload button type #837
+- fix(docs/table): description for 'open' property for table body added to docs #654
+- fix(components/toast): double toast error and scrollbar #481 #734
+- fix(components/tree): active item style and update doc #708 #654
 
 ## [1.7.0, 2.4.0, 3.3.0](https://github.com/zyfra/Prizm) (25-10-2023)
 
 ### Features
 
-- feat(components/dropdown-control): new directive control for dropdown #881
 - feat(components/cron): cron year limit #824 [MR](https://github.com/zyfra/Prizm/pull/817)
 - feat(components/confirm-dialog): add polymorph template support for confirm-dialog component #799 [MR](https://github.com/zyfra/Prizm/pull/827)
 - feat(components/panel): add variable for panel height #811 [MR](https://github.com/zyfra/Prizm/pull/828)
@@ -41,11 +45,9 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-date-time): new transformer for work with base date format #410 [MR](https://github.com/zyfra/Prizm/pull/851)
 - feat(components/counter): counter component and directive added [MR](https://github.com/zyfra/Prizm/pull/859)
 - feat(components/dialog): added outer-header with example #854 [MR](https://github.com/zyfra/Prizm/pull/860)
-- feat: update progress colors to v3 #902
 
 ### Bug fixes
 
-- fix(docs/table): description for 'open' property for table body added to docs #654
 - fix(components/cron): fixed week day names #784 [MR](https://github.com/zyfra/Prizm/pull/825)
 - fix(components/widget): widget header shrinks #273 [MR](https://github.com/zyfra/Prizm/pull/838)
 - fix:(components/splitter) splitter area collapsed after display changed #737 [MR](https://github.com/zyfra/Prizm/pull/839)
@@ -57,8 +59,6 @@ All notable changes to this project will be documented in this file.
 - fix(doc/icon-button): icon-buttons pseudo state documentation update #809 [MR](https://github.com/zyfra/Prizm/pull/864)
 - fix(components/table): table row group column borders disappear when filtering #230 [MR](https://github.com/zyfra/Prizm/pull/866)
 - fix(components/table): re render on update context #816 [MR](https://github.com/zyfra/Prizm/pull/884)
-- fix(components/toast): double toast error and scrollbar #481 #734
-- fix(components/tree): active item style and update doc #708 #654
 
 ## [1.6.0, 2.3.0, 3.2.0](https://github.com/zyfra/Prizm) (18-10-2023)
 
