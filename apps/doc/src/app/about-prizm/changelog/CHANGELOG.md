@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(components/input-select): virtual scroll support #617
 - ! feat(components): to new colors #862
 - ! feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
   !!! Check all input on empty mode and non label mode
