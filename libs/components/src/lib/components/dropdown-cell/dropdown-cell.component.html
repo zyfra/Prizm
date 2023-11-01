@@ -1,0 +1,11 @@
+<div class="cell-container">
+  <div class="instruments">
+    <ng-content select="[instruments]"></ng-content>
+  </div>
+  <ng-container *polymorphOutlet="title">
+    {{ title }}
+  </ng-container>
+  <div class="buttons">
+    <ng-content select="[buttons]"></ng-content>
+  </div>
+</div>

@@ -65,7 +65,38 @@
       <div class="tabs-column prizm-tab-menu-container">
         <ng-container *ngFor="let tabElement of tabElements; let i = index">
           <ng-container *ngIf="tabElement as tab">
-            <prizm-tab
+            <prizm-dropdown-cell
+              [title]="tab.content"
+              [disabled]="$any(tab.disabled)"
+              (click)="tabClickHandler(i)"
+            >
+              <div *ngIf="tab.icon as icon" instruments>
+                <div class="dropdown-instruments">
+                  <ng-container *polymorphOutlet="icon; context: $any({ idx: i, tab: tab })">
+                    <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
+                  </ng-container>
+                </div>
+              </div>
+              <div class="dropdown-buttons" buttons>
+                <prizm-counter
+                  *ngIf="tab.count"
+                  [value]="tab.count"
+                  [status]="tab._counterOptions.status"
+                  [disabled]="tab._counterOptions.disabled"
+                  [maxValue]="tab._counterOptions.maxValue"
+                ></prizm-counter>
+                <button
+                  [class.hidden]="!tab.closable"
+                  [icon]="'cancel-close'"
+                  (click)="closeTab($any(tabElement.idx))"
+                  prizmIconButton
+                  appearanceType="ghost"
+                  appearance="secondary"
+                  size="s"
+                ></button>
+              </div>
+            </prizm-dropdown-cell>
+            <!-- <prizm-tab
               *prizmLet="{ inMenuIdx: i }"
               [type]="tab.type"
               [content]="$any(tab.content)"
@@ -76,7 +107,7 @@
               (click)="clickTab()"
               (closeTab)="closeTab($any(tabElement.idx))"
             >
-            </prizm-tab>
+            </prizm-tab> -->
           </ng-container>
         </ng-container>
       </div>
