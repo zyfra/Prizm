@@ -6,9 +6,13 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- ! feat(components): to new colors #862
 - ! feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
   !!! Check all input on empty mode and non label mode
 - ! feat(components/overlay): context example and to standalone #813
+- feat: updated v1 stackblitz demos with style #877
+- feat: updated v2 stackblitz demos with style #878
+- feat: updated v3 stackblitz demos with style #879
 - feat(components/indicator): v3 colors for indicator #867
 - feat(components/checkbox): v3 colors for checkbox #871
 - feat(components/spinner): v3 colors for spinner #870
@@ -30,6 +34,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- ! fix(components/input-layout-date-time): dropdown size #741
 - fix(doc/input-date-multi): inputDateMulti incorrect label text #753
 - fix(components/file-upload): file upload button type #837
 - fix(docs/table): description for 'open' property for table body added to docs #654
@@ -37,6 +42,11 @@ All notable changes to this project will be documented in this file.
 - fix(components/tree): active item style and update doc #708 #654
 - fix(components/input): update on blur #736 [MR](https://github.com/zyfra/Prizm/pull/917)
   !!! CHECK ALL INPUTS
+
+### Closed
+
+- request(components/combobox): new component 'combobox' applied to next iteration #629
+- question(components/table): answered new demo #748
 
 ## [1.7.0, 2.4.0, 3.3.0](https://github.com/zyfra/Prizm) (25-10-2023)
 
