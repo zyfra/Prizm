@@ -10,40 +10,23 @@
   .panel {
     height: var(--prizm-panel-height, 48px);
     display: flex;
-    border-bottom: 1px solid var(--prizm-panel-border-bottom, var(--prizm-border-widget));
+    border-bottom: 1px solid var(--prizm-panel-border-bottom, var(--prizm-v3-background-stroke));
     border-radius: var(--prizm-panel-border-radius, 2px);
-    background: var(--prizm-panel-background, var(--prizm-bg-header));
+    background: var(--prizm-panel-background, var(--prizm-v3-background-fill-panel));
 
-    .back-btn {
-      height: 24px;
-      padding: 0 25px;
-      margin: auto 15px auto 0;
+    .back-btn-wrapper {
+      padding: 0 0 0 16px;
+      margin: auto 12px auto 0px;
 
-      border-right: 1px solid var(--prizm-grey-g10-g4);
+      border-right: 1px solid var(--prizm-v3-background-stroke);
 
-      cursor: pointer;
-
-      &__icon {
-        height: 16px;
-        width: 16px;
-
-        display: flex;
-
-        font-size: 16px;
-        line-height: 16px;
-        color: var(--prizm-grey-g8-g6);
-      }
-
-      &:hover,
-      &:focus {
-        .back-btn__icon {
-          color: var(--prizm-index-plan);
-        }
+      button {
+        margin-right: 12px;
       }
     }
 
     .title {
-      margin: 0 15px;
+      margin: 0 12px;
       min-width: 15%;
 
       flex: 1;
@@ -52,6 +35,10 @@
       flex-direction: column;
 
       overflow: hidden;
+
+      &.not-left-indent {
+        margin-left: 0;
+      }
 
       span {
         white-space: nowrap;
@@ -64,7 +51,7 @@
         line-height: 20px;
         font-weight: 600;
 
-        color: var(--prizm-text-contrast);
+        color: var(--prizm-v3-text-icon-primary);
       }
 
       &__sub {
@@ -72,7 +59,7 @@
         line-height: 16px;
         font-weight: 400;
 
-        color: var(--prizm-grey-g7-g7);
+        color: var(---prizm-v3-text-icon-tertiary);
       }
     }
 
@@ -92,6 +79,10 @@
 
     .buttons {
       display: flex;
+
+      &:not(:empty) {
+        margin-right: 12px;
+      }
     }
 
     .instruments {
