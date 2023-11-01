@@ -4,7 +4,8 @@
 <ng-container *polymorphOutlet="content as data">
   <div class="body">
     <prizm-scrollbar
-      [visibility]="scroll"
+      *ngIf="scroll !== 'none'"
+      [visibility]="$any(scroll)"
       [style.min-height]="minDropdownHeight"
       [style.max-height]="maxDropdownHeight"
     >

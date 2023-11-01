@@ -6,8 +6,8 @@ import { Pipe, PipeTransform } from '@angular/core';
  *
  * @button <ng-template let-someArg><span *ngIf="someArg | prizmToType : typeName"></span></ng-template>
  */
-@Pipe({ name: 'prizmToType' })
-export class ToTypePipe implements PipeTransform {
+@Pipe({ name: 'prizmToType', standalone: true })
+export class PrizmToTypePipe implements PipeTransform {
   public transform<T>(value: unknown, _typeSource: T): T {
     return value as T;
   }

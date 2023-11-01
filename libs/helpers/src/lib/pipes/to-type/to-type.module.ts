@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
-import { ToTypePipe } from './to-type.pipe';
+import { PrizmToTypePipe } from './to-type.pipe';
 
+/**
+ * @deprecated
+ * use standalone components instead
+ * */
 @NgModule({
-  exports: [ToTypePipe],
-  declarations: [ToTypePipe],
+  exports: [PrizmToTypePipe],
+  imports: [PrizmToTypePipe],
 })
 export class PrizmToTypeModule {}

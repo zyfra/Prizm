@@ -54,7 +54,7 @@ export class PrizmDataListComponent extends PrizmAbstractTestId implements OnIni
 
   @Input()
   @prizmDefaultProp()
-  scroll: PrizmScrollbarVisibility = 'auto';
+  scroll: PrizmScrollbarVisibility | 'none' = 'auto';
 
   override readonly testId_ = 'ui_data_list';
 

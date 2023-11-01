@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmLetDirective } from './let.directive';
 
+/**
+ * @deprecated
+ * use standalone instead
+ * */
 @NgModule({
-  declarations: [PrizmLetDirective],
+  imports: [PrizmLetDirective],
   exports: [PrizmLetDirective],
 })
 export class PrizmLetModule {}

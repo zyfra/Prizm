@@ -1,10 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  ContentChild,
   ElementRef,
   EventEmitter,
   forwardRef,
-  HostBinding,
+  inject,
   Inject,
   Injector,
   Input,
@@ -12,9 +13,16 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { isPolymorphPrimitive, PolymorphContent } from '../../../directives/polymorph';
+import {
+  Compare,
+  PrizmCallFuncModule,
+  PrizmDestroyService,
+  PrizmLetModule,
+  PrizmToObservableModule,
+  PrizmToObservablePipe,
+} from '@prizm-ui/helpers';
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { isPolymorphPrimitive, PolymorphContent, PolymorphModule } from '../../../directives/polymorph';
 import {
   PRIZM_SELECT_OPTIONS,
   PrizmSelectOptions,
@@ -22,12 +30,11 @@ import {
   PrizmSelectValueContext,
 } from './select.options';
 import { PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputControl } from '../../input';
+import { PrizmInputControl, PrizmInputTextModule } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import {
   debounceTime,
   distinctUntilChanged,
-  filter,
   map,
   shareReplay,
   switchMap,
@@ -44,17 +51,57 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import {
   PrizmDropdownHostClasses,
   PrizmDropdownHostComponent,
+  PrizmDropdownHostModule,
   PrizmDropdownHostStyles,
 } from '../dropdown-host';
-import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
+import { PrizmOverlayModule, PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
-import { PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmScrollbarModule, PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmInputSelectOptionDirective } from './input-select-option.directive';
+import { PrizmInputSelectOptionService } from './input-select-option.service';
+import { PrizmChipsModule } from '../../chips';
+import { CommonModule } from '@angular/common';
+import {
+  PrizmAutoFocusModule,
+  PrizmDropdownControllerModule,
+  PrizmHintModule,
+  PrizmLifecycleModule,
+} from '../../../directives';
+import { PrizmIconModule } from '../../icon';
+import { PrizmDataListModule } from '../../data-list';
+import { prizmWatch } from '../../../observables';
+import { PrizmSelectInputItemComponent } from './input-select-item.component';
+import { PrizmInputSelectDataListDirective } from './input-select-data-list.directive';
 
 @Component({
   selector: 'prizm-input-select',
   templateUrl: './input-select.component.html',
   styleUrls: ['./input-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    PrizmOverlayModule,
+    PrizmInputSelectOptionDirective,
+    PolymorphModule,
+    PrizmInputTextModule,
+    PrizmChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PrizmLetModule,
+    PrizmAutoFocusModule,
+    PrizmHintModule,
+    PrizmIconModule,
+    PrizmCallFuncModule,
+    PrizmScrollbarModule,
+    PrizmDropdownControllerModule,
+    PrizmLifecycleModule,
+    PrizmDataListModule,
+    PrizmSelectInputItemComponent,
+    PrizmDropdownHostModule,
+    PrizmToObservablePipe,
+    PrizmInputSelectOptionDirective,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -62,6 +109,7 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
       multi: true,
     },
     PrizmDestroyService,
+    PrizmInputSelectOptionService,
     { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
   ],
   exportAs: 'prizmSelectInput',
@@ -72,6 +120,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
+
+  @ContentChild(PrizmInputSelectDataListDirective) customItemDataList?: PrizmInputSelectDataListDirective;
 
   @Input() set items(data: T[]) {
     this.items$.next(data as any);
@@ -182,7 +232,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   readonly focused$ = this.focused$$.asObservable();
   readonly opened$$ = new BehaviorSubject<boolean>(false);
   readonly opened$: Observable<boolean> = this.opened$$.asObservable();
-
+  private readonly inputSelectOptionService = inject(PrizmInputSelectOptionService, {
+    self: true,
+  });
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
     @Inject(Injector) injector: Injector
@@ -190,9 +242,21 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     super(injector);
   }
 
+  private initSelectListener() {
+    this.inputSelectOptionService.selected$
+      .pipe(
+        tap(item => {
+          this.select(item);
+        }),
+        prizmWatch(this.changeDetectorRef),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
   public override ngOnInit() {
     super.ngOnInit();
-
+    this.initSelectListener();
     fromEvent(this.layoutComponent.el.nativeElement, 'click')
       .pipe(
         tap(event => {
@@ -284,19 +348,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
     // set touched on change value
     this.ngControl.control?.markAsTouched();
-  }
-
-  public isMostRelevant(idx: number, items: T[]): boolean {
-    const wroteInputValue = this.printing$.value;
-    const valueFromItems = this.value && this.getValueFromItems(this.value, items);
-    const itIsNotCurrentValue =
-      valueFromItems && wroteInputValue && !this.searchMatcher(wroteInputValue, valueFromItems);
-    const isCanSearch = this.searchable;
-    const hasNullValue = items[0] === null;
-    const result =
-      isCanSearch && itIsNotCurrentValue && ((hasNullValue && idx === 1) || (!hasNullValue && idx === 0));
-
-    return !!result;
   }
 
   private searchEmit(value: string): void {

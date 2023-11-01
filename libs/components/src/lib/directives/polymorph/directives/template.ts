@@ -9,6 +9,7 @@ import { ChangeDetectorRef, Directive, Inject, Input, Self, TemplateRef } from '
   // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
   inputs: ['polymorph'],
   exportAs: 'polymorph',
+  standalone: true,
 })
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class PolymorphTemplate<C = any> {
