@@ -2,7 +2,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  HostBinding,
   Inject,
   Input,
   OnInit,
@@ -10,7 +9,7 @@ import {
 } from '@angular/core';
 import { PRIZM_DATALIST_OPTIONS, PrizmDataListOptions } from './data-list-options';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmScrollbarVisibility } from '../scrollbar';
+import { PrizmScrollbarModule, PrizmScrollbarVisibility } from '../scrollbar';
 import {
   PRIZM_DROPDOWN_CONTROLLER,
   PRIZM_DROPDOWN_DEFAULT_MAX_HEIGHT,
@@ -20,6 +19,10 @@ import {
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PolymorphContent, PolymorphModule } from '../../directives';
+import { PrizmDataListDirective } from './data-list.directive';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../icon';
 
 @Component({
   selector: 'prizm-data-list',
@@ -27,6 +30,8 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   styleUrls: ['./data-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [PrizmDataListDirective, CommonModule, PolymorphModule, PrizmIconModule, PrizmScrollbarModule],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'prizm-data-list',
@@ -40,9 +45,16 @@ export class PrizmDataListComponent extends PrizmAbstractTestId implements OnIni
   @prizmDefaultProp()
   iconOff = this.options.empty;
 
+  /**
+   * for example
+   * change scroll bar
+   * */
+  @Input()
+  content: PolymorphContent;
+
   @Input()
   @prizmDefaultProp()
-  scroll: PrizmScrollbarVisibility = 'auto';
+  scroll: PrizmScrollbarVisibility | 'none' = 'auto';
 
   override readonly testId_ = 'ui_data_list';
 

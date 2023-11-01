@@ -152,7 +152,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   @ViewChild('contentBlockRef') contentBlockRef!: ElementRef;
 
   constructor(
-    private readonly prizmOverlayService: PrizmOverlayService,
+    public readonly prizmOverlayService: PrizmOverlayService,
     @Inject(PrizmDropdownHostControlDirective)
     @Host()
     @Optional()

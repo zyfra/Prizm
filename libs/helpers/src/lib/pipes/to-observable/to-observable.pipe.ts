@@ -4,7 +4,7 @@ import * as operators from 'rxjs/operators';
 import { shareReplay } from 'rxjs/operators';
 import { PrizmToObservableOperator } from './model';
 
-@Pipe({ name: 'prizmToObservable' })
+@Pipe({ name: 'prizmToObservable', standalone: true })
 export class PrizmToObservablePipe<T> implements PipeTransform, OnDestroy {
   private subject$$!: BehaviorSubject<T | unknown>;
   private lastObservable$$!: Observable<T | unknown>;

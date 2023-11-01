@@ -21,6 +21,7 @@ import { isPolymorphComponent, isPolymorphDirective } from '../util';
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: '[polymorphOutlet]',
+  standalone: true,
 })
 // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle,@typescript-eslint/ban-types
 export class PolymorphOutletDirective<C extends object> implements OnChanges, DoCheck {

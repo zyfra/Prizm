@@ -17,6 +17,8 @@ import { PrizmOverlayControl } from '../../modules/overlay';
 import { animationFrameScheduler, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
 import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeInvertedValuesService } from '@prizm-ui/theme';
+import { PolymorphModule } from '../polymorph';
+import { PrizmScrollbarModule } from '../../components/scrollbar';
 
 @Component({
   selector: 'prizm-hint-container',
@@ -31,6 +33,8 @@ import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeInvertedValuesServic
   `,
   styleUrls: ['./hint-container.component.less'],
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [PolymorphModule, PrizmScrollbarModule],
 })
 export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>>
   implements OnInit, AfterViewInit

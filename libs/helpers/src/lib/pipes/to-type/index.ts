@@ -1,2 +1,2 @@
 export { PrizmToTypeModule } from './to-type.module';
-export { ToTypePipe } from './to-type.pipe';
+export { PrizmToTypePipe } from './to-type.pipe';

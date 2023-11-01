@@ -8,6 +8,7 @@ import {
   PrizmButtonModule,
   PrizmIconModule,
   PrizmInputSelectModule,
+  PrizmScrollbarModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSelectWithTemplateExampleComponent } from './examples/with-template/select-with-template-example.component';
@@ -23,15 +24,19 @@ import { PrizmSelectWithTransformerExampleComponent } from './examples/with-tran
 import { PrizmSelectWithListItemTemplateExampleComponent } from './examples/with-list-item-template/select-with-list-item-template-example.component';
 import { PrizmSelectStringifyObservableExampleComponent } from './examples/stringify-observable/select-stringify-observable-example.component';
 import { PrizmSelectAsyncExampleComponent } from './examples/async/select-async-example.component';
+import { PrizmSelectVirtualScrollExampleComponent } from './examples/virtual-scroll/select-virtual-scroll-example.component';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   imports: [
     CommonModule,
+    ScrollingModule,
     PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
     PrizmLetModule,
+    PrizmScrollbarModule,
     PrizmButtonModule,
     PrizmIconModule,
     PrizmInputSelectModule,
@@ -51,6 +56,7 @@ import { PrizmSelectAsyncExampleComponent } from './examples/async/select-async-
     PrizmSelectWithListItemTemplateExampleComponent,
     InputSelectComponent,
     PrizmSelectStringifyObservableExampleComponent,
+    PrizmSelectVirtualScrollExampleComponent,
   ],
   exports: [InputSelectComponent],
 })

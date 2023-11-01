@@ -11,8 +11,8 @@ type Tail<T extends Method> = T extends (first: any, ...rest: infer R) => any ? 
  * @button <ng-container *ngIf="firstArg | prizmCallFunc : someMethod">SomeValue</ng-container>
  * @button <ng-container>{{firstArg | prizmCallFunc : someMethod : secondArg}}</ng-container>
  */
-@Pipe({ name: 'prizmCallFunc' })
-export class CallFuncPipe<C> implements PipeTransform {
+@Pipe({ name: 'prizmCallFunc', standalone: true })
+export class PrizmCallFuncPipe<C> implements PipeTransform {
   private readonly context: C;
 
   // with Ivy you can inject EmbeddedViewRef directly
