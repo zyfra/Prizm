@@ -21,6 +21,7 @@ import { InputBasicExampleComponent } from './examples/input-basic-example/input
 import { InputValidationCustomExampleComponent } from './examples/input-validation-custom-example/input-validation-custom-example.component';
 import { InputFormControlExampleComponent } from './examples/input-form-control-example/input-form-control-example.component';
 import { InputSearchExampleComponent } from './examples/input-search-example/input-search-example.component';
+import { InputEmptyLabelExampleComponent } from './examples/input-empty-label-example/input-empty-label-example.component';
 import { InputCustomClearButtonExampleComponent } from './examples/input-custom-clear-button-example/input-custom-clear-button-example.component';
 
 @NgModule({
@@ -48,6 +49,7 @@ import { InputCustomClearButtonExampleComponent } from './examples/input-custom-
     InputFormControlExampleComponent,
     InputSearchExampleComponent,
     InputCustomClearButtonExampleComponent,
+    InputEmptyLabelExampleComponent,
   ],
   exports: [InputComponent],
 })

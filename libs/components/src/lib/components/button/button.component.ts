@@ -25,6 +25,7 @@ import { PrizmFocusableElementAccessor } from '../../types';
 import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PrizmHoveredService } from '../../services';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -67,7 +68,13 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
 
   @Input()
   @prizmDefaultProp()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input()
   @HostBinding('class._loading')

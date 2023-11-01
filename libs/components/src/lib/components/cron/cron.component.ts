@@ -26,6 +26,7 @@ import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n
 import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
 import { PRIZM_CRON } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-cron',
@@ -56,7 +57,13 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   @Input()
   @prizmDefaultProp()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input()
   @prizmDefaultProp()

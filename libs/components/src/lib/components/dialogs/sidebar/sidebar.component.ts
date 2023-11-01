@@ -4,11 +4,18 @@ import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil, tap } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmToObservableModule } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmSidebarOptions, PrizmSidebarResultDefaultType } from './sidebar.models';
 import { invokeIfCanCloseSidebar } from './util';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmOverlayModule } from '../../../modules';
+import { PrizmInputIconButtonModule } from '../../input';
+import { PrizmButtonModule } from '../../button';
+import { PrizmScrollbarModule } from '../../scrollbar';
 
 @Component({
   selector: 'prizm-sidebar',
@@ -17,6 +24,18 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PolymorphModule,
+    PrizmThemeModule,
+    PrizmToObservableModule,
+    PrizmOverlayModule,
+    PrizmInputIconButtonModule,
+    PrizmButtonModule,
+    PrizmFocusTrapModule,
+    PrizmScrollbarModule,
+  ],
 })
 export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
   @Input()
