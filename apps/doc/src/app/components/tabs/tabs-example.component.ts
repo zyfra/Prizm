@@ -4,6 +4,7 @@ import {
   IconDefs,
   PrizmTabCanOpen,
   PrizmTabComponent,
+  PrizmTabCounterOptions,
   PrizmTabSize,
   PrizmTabType,
 } from '@prizm-ui/components';
@@ -37,6 +38,32 @@ export class TabsExampleComponent {
   public disabled = false;
   public canShowMenu = true;
   public count = 0;
+  public counterOptions: Partial<PrizmTabCounterOptions> = {
+    status: 'info',
+    maxValue: 99,
+    disabled: false,
+  };
+
+  public counterOptionsVariants: Partial<PrizmTabCounterOptions>[] = [
+    this.counterOptions,
+    {
+      status: 'danger',
+      maxValue: 99,
+      disabled: false,
+    },
+    {
+      status: 'warning',
+      maxValue: 99,
+      disabled: false,
+    },
+    {
+      status: 'success',
+    },
+    {
+      status: 'warning',
+      disabled: true,
+    },
+  ];
 
   public readonly tabsExampleBasic: TuiDocExample = {
     TypeScript: import('./examples/tabs-example-basic/tabs-example-basic.component?raw'),
