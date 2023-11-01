@@ -47,16 +47,26 @@
 }
 
 // In inner context
-:host-context(.prizm-input-form-inner) .multiple-input-box {
-  padding: 22px 8px 4px 8px;
+:host-context(.prizm-input-form-inner) {
+  :host-context(.prizm-input-empty-label) .multiple-input-box {
+    padding-top: 4px;
 
-  :host::placeholder {
-    opacity: 0;
+    :host::placeholder {
+      opacity: 1;
+    }
   }
 
-  :host:focus::placeholder {
-    opacity: 1;
-    transition: opacity 200ms ease 0s;
+  .multiple-input-box {
+    padding: 22px 8px 4px 8px;
+
+    :host::placeholder {
+      opacity: 0;
+    }
+
+    :host:focus::placeholder {
+      opacity: 1;
+      transition: opacity 200ms ease 0s;
+    }
   }
 }
 
@@ -64,11 +74,27 @@
   text-align: center;
 }
 
-:host-context(.prizm-input-form-inner[data-size='l']) .multiple-input-box {
-  padding: 22px 8px 4px 8px;
+:host-context(.prizm-input-form-inner[data-size='l']) {
+  :host-context(.prizm-input-empty-label) {
+    .multiple-input-box {
+      padding-top: 4px;
+    }
+  }
+
+  .multiple-input-box {
+    padding: 22px 8px 4px 8px;
+  }
 }
-:host-context(.prizm-input-form-inner[data-size='m']) .multiple-input-box {
-  padding: 16px 8px 2px 8px;
+:host-context(.prizm-input-form-inner[data-size='m']) {
+  .multiple-input-box {
+    padding: 16px 8px 2px 8px;
+  }
+
+  :host-context(.prizm-input-empty-label) {
+    .multiple-input-box {
+      padding-top: 2px;
+    }
+  }
 }
 
 /** use for show place holder in temporary input */
