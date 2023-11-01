@@ -22,6 +22,7 @@ export class TableExampleComponent {
     ['name', 'category'],
     ['code', 'name', 'category', 'count'],
   ];
+  public open = true;
 
   borderStyle: PrizmTableBorderStyle = 'grid';
   borderStyleVariants: Array<PrizmTableBorderStyle> = ['grid', 'horizontal', 'vertical'];
