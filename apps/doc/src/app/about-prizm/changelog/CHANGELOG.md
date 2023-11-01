@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- ! feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
+  !!! Check all input on empty mode and non label mode
+- ! feat(components/overlay): context example and to standalone #813
 - feat(components/indicator): v3 colors for indicator #867
 - feat(components/checkbox): v3 colors for checkbox #871
 - feat(components/spinner): v3 colors for spinner #870
