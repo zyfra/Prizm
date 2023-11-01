@@ -12,8 +12,14 @@ import {
   PrizmDialogOptions,
   PrizmDialogSize,
 } from './dialog.models';
-import { PolymorphContent } from '../../../directives';
+import { PolymorphContent, PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmOverlayModule } from '../../../modules';
+import { PrizmButtonModule } from '../../button';
+import { PrizmInputIconButtonModule } from '../../input';
+import { PrizmScrollbarModule } from '../../scrollbar';
 
 @Component({
   selector: 'prizm-dialog',
@@ -22,6 +28,17 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PRIZM_DIALOG_PROVIDERS,
   animations: [prizmSlideInTop, prizmFadeIn],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PolymorphModule,
+    PrizmThemeModule,
+    PrizmOverlayModule,
+    PrizmButtonModule,
+    PrizmFocusTrapModule,
+    PrizmInputIconButtonModule,
+    PrizmScrollbarModule,
+  ],
 })
 export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbstractTestId {
   @Input()

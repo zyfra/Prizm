@@ -1,27 +1,12 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
-import { PrizmOverlayModule } from '../../../modules/overlay';
-import { PrizmButtonModule } from '../../button';
 import { PrizmSidebarComponent } from './sidebar.component';
-import { PrizmScrollbarModule } from '../../scrollbar';
-import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
-import { PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmToObservableModule } from '@prizm-ui/helpers';
 
+/**
+ * @deprecated
+ * use standalone component instead
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PolymorphModule,
-    PrizmThemeModule,
-    PrizmToObservableModule,
-    PrizmOverlayModule,
-    PrizmInputIconButtonModule,
-    PrizmButtonModule,
-    PrizmFocusTrapModule,
-    PrizmScrollbarModule,
-  ],
-  declarations: [PrizmSidebarComponent],
+  imports: [PrizmSidebarComponent],
   exports: [PrizmSidebarComponent],
 })
 export class PrizmSidebarModule {}
