@@ -2,13 +2,15 @@
   <ng-content select="[header]"></ng-content>
 </div>
 <div class="body">
-  <prizm-scrollbar
-    [visibility]="scroll"
-    [style.min-height]="minDropdownHeight"
-    [style.max-height]="maxDropdownHeight"
-  >
-    <ng-content></ng-content>
-  </prizm-scrollbar>
+  <ng-container *polymorphOutlet="body; context: {}">
+    <prizm-scrollbar
+      [visibility]="scroll"
+      [style.min-height]="minDropdownHeight"
+      [style.max-height]="maxDropdownHeight"
+    >
+      <ng-content></ng-content>
+    </prizm-scrollbar>
+  </ng-container>
 </div>
 <div class="footer">
   <ng-content select="[footer]"></ng-content>
