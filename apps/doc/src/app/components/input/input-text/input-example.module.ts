@@ -1,8 +1,13 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { PrizmInputTextModule, PrizmButtonModule, PrizmIconModule } from '@prizm-ui/components';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import {
+  PrizmButtonModule,
+  PrizmHintModule,
+  PrizmIconModule,
+  PrizmInputTextModule,
+} from '@prizm-ui/components';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
 import { InputLabelPositionExampleComponent } from './examples/input-label-position-example/input-label-position-example.component';
@@ -16,9 +21,11 @@ import { InputBasicExampleComponent } from './examples/input-basic-example/input
 import { InputValidationCustomExampleComponent } from './examples/input-validation-custom-example/input-validation-custom-example.component';
 import { InputFormControlExampleComponent } from './examples/input-form-control-example/input-form-control-example.component';
 import { InputSearchExampleComponent } from './examples/input-search-example/input-search-example.component';
+import { InputCustomClearButtonExampleComponent } from './examples/input-custom-clear-button-example/input-custom-clear-button-example.component';
 
 @NgModule({
   imports: [
+    PrizmHintModule,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
     PrizmIconModule,
@@ -40,6 +47,7 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
     InputIconButtonsExampleComponent,
     InputFormControlExampleComponent,
     InputSearchExampleComponent,
+    InputCustomClearButtonExampleComponent,
   ],
   exports: [InputComponent],
 })
