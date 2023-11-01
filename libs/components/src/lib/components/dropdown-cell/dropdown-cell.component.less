@@ -1,0 +1,39 @@
+:host {
+  .cell-container {
+    display: flex;
+    align-items: center;
+    height: var(--prizm-dropdown-cell-height, 40px);
+    padding: 0 16px;
+    background-color: var(--prizm-v3-background-fill-overlay);
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16px;
+    color: var(--prizm-v3-text-icon-secondary);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--prizm-v3-table-fill-row-hover);
+    }
+
+    &:active,
+    &__selected {
+      background-color: var(--prizm-v3-table-fill-row-active);
+    }
+
+    &__disabled {
+      background-color: var(--prizm-v3-text-icon-disable);
+      cursor: not-allowed;
+    }
+
+    .instruments {
+      display: flex;
+      margin-right: auto;
+    }
+
+    .buttons {
+      display: flex;
+      margin-left: auto;
+    }
+  }
+}

@@ -32,6 +32,9 @@ import {
 } from '../../directives';
 import { PrizmButtonModule } from '../button';
 import { PrizmDataListComponent } from '../data-list';
+import { PrizmDropdownCellComponent } from '../dropdown-cell';
+import { PrizmCounterComponent } from '../counter';
+import { PrizmIconModule } from '../icon';
 
 @Component({
   selector: 'prizm-tabs',
@@ -51,6 +54,9 @@ import { PrizmDataListComponent } from '../data-list';
     PrizmDropdownControllerModule,
     PrizmDataListComponent,
     PrizmTabComponent,
+    PrizmDropdownCellComponent,
+    PrizmCounterComponent,
+    PrizmIconModule,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
