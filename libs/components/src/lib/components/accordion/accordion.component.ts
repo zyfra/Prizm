@@ -5,7 +5,6 @@ import {
   QueryList,
   AfterContentInit,
   Input,
-  HostBinding,
 } from '@angular/core';
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
