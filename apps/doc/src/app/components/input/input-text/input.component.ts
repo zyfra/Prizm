@@ -61,6 +61,10 @@ export class InputComponent {
       './examples/input-custom-clear-button-example/input-custom-clear-button-example.component.html?raw'
     ),
   };
+  public readonly inputEmptyLabelExample: TuiDocExample = {
+    TypeScript: import('./examples/input-empty-label-example/input-empty-label-example.component.ts?raw'),
+    HTML: import('./examples/input-empty-label-example/input-empty-label-example.component.html?raw'),
+  };
 
   public readonly zyfraInputLabelPositionExample: TuiDocExample = {
     TypeScript: import(
