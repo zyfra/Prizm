@@ -76,7 +76,6 @@
           <button
             class="page"
             [disabled]="disabled"
-            [class.page_disabled]="disabled"
             (click)="changePage(pagingData.left)"
             prizmButton
             appearanceType="ghost"
@@ -98,8 +97,7 @@
           class="page"
           *ngFor="let page of pagingData.mid"
           [disabled]="disabled"
-          [class.page_disabled]="disabled"
-          [class.page_selected]="page === currentPage"
+          [pseudoPressed]="page === currentPage"
           (click)="changePage(page)"
           prizmButton
           appearanceType="ghost"
