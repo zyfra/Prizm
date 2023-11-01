@@ -104,6 +104,10 @@ export class InputSelectComponent {
     TypeScript: import('./examples/base/select-base-example.component.ts?raw'),
     HTML: import('./examples/base/select-base-example.component.html?raw'),
   };
+  readonly exampleVirtualScroll: TuiDocExample = {
+    TypeScript: import('./examples/virtual-scroll/select-virtual-scroll-example.component.ts?raw'),
+    HTML: import('./examples/virtual-scroll/select-virtual-scroll-example.component.html?raw'),
+  };
   readonly exampleAsync: TuiDocExample = {
     TypeScript: import('./examples/async/select-async-example.component.ts?raw'),
     HTML: import('./examples/async/select-async-example.component.html?raw'),

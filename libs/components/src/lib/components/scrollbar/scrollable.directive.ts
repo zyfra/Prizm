@@ -1,11 +1,11 @@
-import { Directive, ElementRef, Inject, OnInit } from '@angular/core';
+import { Directive, ElementRef, inject, Inject, OnInit, Renderer2 } from '@angular/core';
 import { PRIZM_SCROLLABLE } from '../../constants/events';
 
 @Directive({
   selector: '[prizmScrollable]',
 })
 export class PrizmScrollableDirective implements OnInit {
-  constructor(@Inject(ElementRef) private readonly elementRef: ElementRef<HTMLElement>) {}
+  readonly elementRef = inject(ElementRef<HTMLElement>);
 
   ngOnInit(): void {
     this.elementRef.nativeElement.dispatchEvent(
