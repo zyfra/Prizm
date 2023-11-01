@@ -32,23 +32,23 @@
       align-items: center;
       justify-content: center;
 
-      color: var(--prizm-exceptions-white);
+      color: var(--prizm-v3-text-icon-exception);
     }
 
     &[status='info'] {
-      background: var(--prizm-index-plan);
+      background: var(--prizm-v3-status-info-primary-default);
     }
 
     &[status='secondary'] {
-      background: var(--prizm-border-forms);
+      background: var(--prizm-v3-status-none-primary-default);
     }
 
     &[status='success'] {
-      background: var(--prizm-index-good);
+      background: var(--prizm-v3-status-success-primary-default);
     }
 
     &[status='warning'] {
-      background: var(--prizm-index-warning);
+      background: var(--prizm-v3-status-warning-primary-default);
 
       &[type='icon'] {
         width: 0;
@@ -58,7 +58,7 @@
 
         border-left: (@indicatorSizeWithIcon / 2) solid transparent;
         border-right: (@indicatorSizeWithIcon / 2) solid transparent;
-        border-bottom: @indicatorSizeWithIcon solid var(--prizm-index-warning);
+        border-bottom: @indicatorSizeWithIcon solid var(--prizm-v3-status-warning-primary-default);
 
         border-radius: 0;
 
@@ -72,7 +72,7 @@
     }
 
     &[status='danger'] {
-      background: var(--prizm-index-danger);
+      background: var(--prizm-v3-status-alarm-primary-default);
     }
   }
 }
