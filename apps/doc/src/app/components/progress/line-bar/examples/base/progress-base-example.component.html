@@ -7,7 +7,7 @@
       prizmProgressBar
       max="100"
       size="m"
-      color="var(--prizm-index-plan)"
+      color="var(--prizm-v3-status-info-primary-default)"
     ></progress>
     <span>{{ value$ | async }}%</span>
   </div>
@@ -52,7 +52,7 @@
         [value]="value"
         prizmProgressBar
         max="100"
-        color="var(--prizm-index-warning)"
+        color="var(--prizm-v3-status-warning-primary-default)"
         size="m"
       ></progress>
     </label>
@@ -73,9 +73,19 @@
 <div>
   <p>Indeterminate</p>
   <div>
-    <progress class="progress" prizmProgressBar color="var(--prizm-index-plan)" size="s"></progress>
+    <progress
+      class="progress"
+      prizmProgressBar
+      color="var(--prizm-v3-status-info-primary-default)"
+      size="s"
+    ></progress>
     <br />
     <br />
-    <progress class="progress" prizmProgressBar color="var(--prizm-index-danger)" size="m"></progress>
+    <progress
+      class="progress"
+      prizmProgressBar
+      color="var(--prizm-v3-status-alarm-primary-default)"
+      size="m"
+    ></progress>
   </div>
 </div>

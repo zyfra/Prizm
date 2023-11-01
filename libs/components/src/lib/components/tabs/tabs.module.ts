@@ -9,6 +9,7 @@ import { PolymorphModule, PrizmDropdownControllerModule, PrizmLifecycleModule } 
 import { PrizmDataListModule } from '../data-list';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCounterModule } from '../counter';
 
 @NgModule({
   declarations: [PrizmTabsComponent, PrizmTabComponent, PrizmTabMenuItemDirective],
@@ -23,6 +24,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     PrizmButtonModule,
     PrizmDropdownControllerModule,
     PrizmDataListModule,
+    PrizmCounterModule,
   ],
   exports: [PrizmTabsComponent, PrizmTabComponent],
 })

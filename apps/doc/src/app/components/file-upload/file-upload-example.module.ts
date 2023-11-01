@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { fakeFileUploadProvider } from './interceptor';
 import { PrizmFileAutoUploadExampleComponent } from './examples/auto-upload/auto-upload.component';
 import { PrizmFileUploadI18nExampleComponent } from './examples/i18n/file-upload-i18n-example.component';
+import { PrizmFileUploadInFormExampleComponent } from './examples/file-upload-in-form/file-upload-in-form-example.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -19,12 +21,15 @@ import { PrizmFileUploadI18nExampleComponent } from './examples/i18n/file-upload
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmFileUploadExampleComponent)),
     HttpClientModule,
     PrizmButtonModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     PrizmFileUploadExampleComponent,
     PrizmFileUploadBasicExampleComponent,
     PrizmFileAutoUploadExampleComponent,
     PrizmFileUploadI18nExampleComponent,
+    PrizmFileUploadInFormExampleComponent,
   ],
   providers: [fakeFileUploadProvider],
 })

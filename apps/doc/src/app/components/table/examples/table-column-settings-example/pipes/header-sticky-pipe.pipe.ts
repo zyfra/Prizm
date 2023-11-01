@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { isNil } from 'lodash';
+import isNil from 'lodash-es/isNil';
 
 @Pipe({
   name: 'prizmStickyHeader',

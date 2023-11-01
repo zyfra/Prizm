@@ -38,7 +38,10 @@ export abstract class AbstractPrizmDialogService<
       dialog: PrizmBaseDialogContext<any, any>;
       observer: Observer<O>;
       destroy$: Observable<void>;
-    }) => void = noop
+    }) => void = noop,
+    config?: {
+      injector?: Injector;
+    }
   ): Observable<O> {
     const destroy$ = new Subject<void>();
     return new Observable(observer => {
@@ -70,7 +73,9 @@ export abstract class AbstractPrizmDialogService<
           },
         })
         .parentContainer(options.parentContainer)
-        .create();
+        .create({
+          parentInjector: config?.injector,
+        });
 
       if (typeof options.zIndex === 'number') control.zIndex = options.zIndex;
 

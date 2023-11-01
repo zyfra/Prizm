@@ -1,7 +1,13 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
-import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './../../switcher.interface';
+import { Component, ChangeDetectionStrategy, Input, HostBinding, OnInit } from '@angular/core';
+import {
+  PrizmSwitcherItem,
+  PrizmSwitcherSize,
+  PrizmSwitcherType,
+  prizmSwitcherHint,
+} from './../../switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+import { PrizmHintDirective } from '../../../../directives';
 
 @Component({
   selector: 'prizm-switcher-item',
@@ -9,7 +15,9 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SwitcherItemComponent extends PrizmAbstractTestId {
+export class SwitcherItemComponent extends PrizmAbstractTestId implements OnInit {
+  @Input() hint?: prizmSwitcherHint;
+
   @Input()
   @prizmDefaultProp()
   @HostBinding('attr.data-size')
@@ -40,5 +48,15 @@ export class SwitcherItemComponent extends PrizmAbstractTestId {
 
   get isDisabled(): boolean {
     return Boolean(this.disabled || this.data?.disabled);
+  }
+
+  readonly prizmHint_ = new PrizmHintDirective();
+
+  @HostBinding('attr.prizmHint') get prizmHint(): any {
+    return this.hint?.value || '';
+  }
+
+  ngOnInit(): void {
+    this.prizmHint_.ngOnInit();
   }
 }

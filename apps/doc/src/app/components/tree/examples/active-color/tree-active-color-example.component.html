@@ -1,0 +1,16 @@
+<ng-container [prizmTreeController]="true">
+  <prizm-tree-item [usePaddingIndent]="true">
+    Fruits
+    <prizm-tree-item [usePaddingIndent]="true" [active]="true">
+      Apples
+      <prizm-tree-item [usePaddingIndent]="true">Granny Smith</prizm-tree-item>
+      <prizm-tree-item [usePaddingIndent]="true">Red Delicious</prizm-tree-item>
+    </prizm-tree-item>
+    <prizm-tree-item [usePaddingIndent]="true">Oranges</prizm-tree-item>
+  </prizm-tree-item>
+  <prizm-tree-item [usePaddingIndent]="true">
+    Animals
+    <prizm-tree-item [usePaddingIndent]="true">Cats</prizm-tree-item>
+    <prizm-tree-item [usePaddingIndent]="true" [active]="true">Dogs</prizm-tree-item>
+  </prizm-tree-item>
+</ng-container>

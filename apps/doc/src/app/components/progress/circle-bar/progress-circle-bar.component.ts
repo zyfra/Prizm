@@ -1,13 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import {
-  PolymorphContent,
-  PrizmContextWithImplicit,
-  PrizmSizeL,
-  PrizmSizeM,
-  PrizmSizeS,
-  PrizmSizesXl,
-} from '@prizm-ui/components';
+import { PrizmSizeS, PrizmSizesXl } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-progress-example',
@@ -25,10 +18,10 @@ export class ProgressCircleBarComponent {
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--prizm-index-danger)',
-    'var(--prizm-index-warning)',
-    'var(--prizm-index-plan)',
-    'var(--prizm-index-good)',
+    'var(--prizm-v3-status-alarm-primary-default)',
+    'var(--prizm-v3-status-warning-primary-default)',
+    'var(--prizm-v3-status-info-primary-default)',
+    'var(--prizm-v3-status-success-primary-default)',
     'lightblue',
   ];
   color: string | null = this.colorVariants[0];
@@ -36,8 +29,9 @@ export class ProgressCircleBarComponent {
   readonly trackColorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--prizm-index-danger)',
-    'var(--prizm-index-warning)',
+    'var(--prizm-v3-status-alarm-primary-default)',
+    'var(--prizm-v3-status-warning-primary-default)',
+    'var(--prizm-v3-background-fill-secondary)',
     'lightblue',
     'gray',
     'green',

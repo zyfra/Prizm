@@ -3,6 +3,7 @@
     <prizm-tab
       *ngFor="let item of tabs"
       [count]="item.count ?? 0"
+      [counterOptions]="item.counterOptions"
       [content]="$any(item.title)"
       [closable]="$any(item.closable)"
       [disabled]="!!item.disabled"

@@ -11,6 +11,7 @@ import { PrizmButtonModule } from '../button';
 import { PrizmIndicatorModule } from '../indicator';
 import { PrizmInputCommonModule } from '../input';
 import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmScrollbarModule } from '../scrollbar';
 
 @NgModule({
   exports: [PrizmToastContainerComponent],
@@ -23,9 +24,9 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
     PrizmButtonModule,
     PrizmThemeModule,
     PrizmFocusTrapModule,
+    PrizmScrollbarModule,
   ],
   declarations: [PrizmToastContainerComponent, ToastWrapperComponent, ToastComponent],
-  providers: [PrizmToastControl],
 })
 export class PrizmToastModule {
   constructor(private readonly toastControl: PrizmToastControl) {}

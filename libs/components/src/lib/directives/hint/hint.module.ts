@@ -7,8 +7,8 @@ import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
-  imports: [PrizmThemeModule, CommonModule, PrizmScrollbarModule, PolymorphModule],
-  declarations: [PrizmHintDirective, PrizmHintContainerComponent],
+  imports: [PrizmThemeModule, PrizmHintDirective, CommonModule, PrizmScrollbarModule, PolymorphModule],
+  declarations: [PrizmHintContainerComponent],
   exports: [PrizmHintDirective],
 })
 export class PrizmHintModule {}

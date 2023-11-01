@@ -39,8 +39,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   extends PrizmInputControl<VALUE>
   implements DoCheck, OnInit, OnDestroy
 {
-  readonly prizmHint_ = new PrizmHintDirective();
-
   @HostBinding('attr.prizmHint') get prizmHint(): VALUE {
     return this.value;
   }
@@ -170,7 +168,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
-    this.prizmHint_.ngOnInit();
     this.inputHint?.updateHint();
   }
 
@@ -182,7 +179,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   ngOnDestroy(): void {
     this.stateChanges.complete();
-    this.prizmHint_.ngOnDestroy();
   }
 
   @HostListener('input', ['$event'])

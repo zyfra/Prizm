@@ -52,10 +52,10 @@
 :host {
   position: relative;
   display: block;
-  color: var(--prizm-primary);
+  color: var(--prizm-v3-status-info-primary-default);
   transform: rotate(-90deg);
   transform-origin: center;
-  fonz-size: 1rem;
+  font-size: 1rem;
 
   &[data-size='s'] {
     .circle-params(s);
@@ -76,7 +76,7 @@
 
 .z-track {
   fill: transparent;
-  stroke: var(--prizm-progress-circle-track-color, var(--prizm-grey-g11-g3));
+  stroke: var(--prizm-progress-circle-track-color, transparent);
 }
 
 .z-progress {

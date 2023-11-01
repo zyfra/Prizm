@@ -1,11 +1,18 @@
 <div class="panel">
-  <button class="back-btn" *ngIf="withBackButton" (click)="back()">
-    <prizm-icon class="back-btn__icon" iconClass="arrows-back"></prizm-icon>
-  </button>
+  <div class="back-btn-wrapper" *ngIf="withBackButton">
+    <button
+      [icon]="'arrows-back'"
+      (click)="back()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="m"
+    ></button>
+  </div>
   <div class="buttons">
     <ng-content select="[buttons]"></ng-content>
   </div>
-  <div class="title" *ngIf="!!(header || subheader)">
+  <div class="title" *ngIf="!!(header || subheader)" [class.not-left-indent]="withBackButton">
     <span class="title__main">{{ header }}</span>
     <span class="title__sub">{{ subheader }}</span>
   </div>

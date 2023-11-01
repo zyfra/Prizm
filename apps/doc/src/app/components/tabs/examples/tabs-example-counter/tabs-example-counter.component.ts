@@ -12,6 +12,11 @@ export class TabsExampleCounterComponent {
     {
       title: 'Вкладка 1',
       count: 10,
+      counterOptions: {
+        status: 'info',
+        disabled: false,
+        maxValue: 2500,
+      },
     },
     {
       title: 'Вкладка 2',
@@ -21,15 +26,30 @@ export class TabsExampleCounterComponent {
       title: 'Вкладка 3',
       count: 3999,
       closable: true,
+      counterOptions: {
+        status: 'danger',
+        disabled: false,
+        maxValue: 2500,
+      },
     },
     {
       title: 'Вкладка 4',
       count: 4,
+      counterOptions: {
+        status: 'success',
+        disabled: false,
+        maxValue: 2500,
+      },
     },
     {
       title: 'Вкладка 5',
       count: 432,
       closable: true,
+      counterOptions: {
+        status: 'warning',
+        disabled: false,
+        maxValue: 2500,
+      },
     },
   ];
 

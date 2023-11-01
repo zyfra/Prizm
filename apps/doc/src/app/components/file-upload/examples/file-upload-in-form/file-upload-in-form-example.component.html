@@ -1,0 +1,13 @@
+<form class="form" [formGroup]="form" (submit)="formSubmit()">
+  <div class="control-container">
+    <prizm-file-upload
+      [multiple]="false"
+      [accept]="'image/*,.xlsx,.xls,.doc,.docx,.pdf'"
+      (filesChange)="onFilesChange($event)"
+    ></prizm-file-upload>
+  </div>
+
+  <div class="actions">
+    <button prizmButton appearance="primary" size="l">Сохранить</button>
+  </div>
+</form>

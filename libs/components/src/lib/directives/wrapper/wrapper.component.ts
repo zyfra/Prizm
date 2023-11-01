@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Input } from '@angular/core';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 export enum PrizmInteractiveState {
   Disabled = 'disabled',
@@ -18,7 +19,13 @@ export enum PrizmInteractiveState {
 })
 export class PrizmWrapperComponent {
   @Input()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input()
   readOnly = false;

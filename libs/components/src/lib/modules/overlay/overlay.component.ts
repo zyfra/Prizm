@@ -13,12 +13,13 @@ import {
   ViewContainerRef,
 } from '@angular/core';
 import { PrizmDestroyService, prizmStyleGetVars } from '@prizm-ui/helpers';
-import { PrizmThemeService } from '@prizm-ui/theme';
+import { PrizmThemeModule, PrizmThemeService } from '@prizm-ui/theme';
 import { Observable, timer } from 'rxjs';
 import { startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmOverlayConfig, PrizmOverlayContent, PrizmOverlayContentType, PrizmOverlayId } from './models';
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { cssClass, EventBus, objToCss } from './utils';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-overlay',
@@ -26,6 +27,8 @@ import { cssClass, EventBus, objToCss } from './utils';
   styleUrls: ['./overlay.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [CommonModule, PrizmThemeModule],
 })
 export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet!: ViewContainerRef;

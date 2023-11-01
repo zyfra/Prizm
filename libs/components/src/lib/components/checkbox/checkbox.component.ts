@@ -19,6 +19,7 @@ import { fromEvent, merge, Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
 import { prizmWatch } from '../../observables';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-checkbox',
@@ -39,7 +40,16 @@ export class PrizmCheckboxComponent
 
   @Input() indeterminate = false;
   @Input() host: HTMLElement | null = null;
-  @Input() @HostBinding('class.prizm-checkbox--disabled') disabled = false;
+
+  @Input()
+  @HostBinding('class.prizm-checkbox--disabled')
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   private _checked = false;
   get checked(): boolean {

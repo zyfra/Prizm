@@ -20,17 +20,17 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { BehaviorSubject, combineLatest, concat, interval, merge, Observable, of, timer } from 'rxjs';
-import { debounceTime, filter, map, startWith, switchMap, tap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, concat, merge, Observable, of, timer } from 'rxjs';
+import { debounceTime, filter, map, startWith, switchMap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 import { PrizmDocHostElementListenerService } from '../host';
-import * as _ from 'lodash';
+import orderBy from 'lodash-es/orderBy';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
-import { FormControl, UntypedFormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
@@ -259,7 +259,7 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
       allConnectors.push(...propertiesInnerConnectors.toArray());
     }
 
-    return _.orderBy(allConnectors, [
+    return orderBy(allConnectors, [
       (a: PrizmDocDocumentationPropertyConnectorDirective<any>): number => {
         const place = sortOrder.indexOf(a.documentationPropertyMode);
         if (place === -1) {

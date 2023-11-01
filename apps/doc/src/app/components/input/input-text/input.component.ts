@@ -53,6 +53,14 @@ export class InputComponent {
     TypeScript: import('./examples/input-basic-example/input-basic-example.component.ts?raw'),
     HTML: import('./examples/input-basic-example/input-basic-example.component.html?raw'),
   };
+  public readonly inputCustomClearButton: TuiDocExample = {
+    TypeScript: import(
+      './examples/input-custom-clear-button-example/input-custom-clear-button-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/input-custom-clear-button-example/input-custom-clear-button-example.component.html?raw'
+    ),
+  };
   public readonly inputEmptyLabelExample: TuiDocExample = {
     TypeScript: import('./examples/input-empty-label-example/input-empty-label-example.component.ts?raw'),
     HTML: import('./examples/input-empty-label-example/input-empty-label-example.component.html?raw'),
