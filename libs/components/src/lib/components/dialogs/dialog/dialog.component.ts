@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmOverlayModule } from '../../../modules';
 import { PrizmButtonModule } from '../../button';
-import { PrizmInputIconButtonModule } from '../../input';
+import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
 import { PrizmScrollbarModule } from '../../scrollbar';
 
 @Component({
