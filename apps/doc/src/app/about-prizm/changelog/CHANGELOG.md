@@ -18,6 +18,12 @@ All notable changes to this project will be documented in this file.
 - feat(components/tabs): add prizm counter to tabs #863
 - feat: update progress colors to v3 #902
 - feat(components/dropdown-control): new directive control for dropdown #881
+- feat(components): create own calendar exports #880
+- ! feat(components): add boolean compatible with async #714
+  !!! check disabled state for accordion, button, split-button, checkbox, chips-item, counter,cron, file-upload, input-icon-button, stepper, tabs
+- ! feat(components/input): empty label mode for inner #384
+  !!! Check all input on empty mode and non label mode [MR](https://github.com/zyfra/Prizm/pull/920)
+- ! feat(components/hint): standalone directives [MR](https://github.com/zyfra/Prizm/pull/905)
 
 ### Bug fixes
 
@@ -26,6 +32,8 @@ All notable changes to this project will be documented in this file.
 - fix(docs/table): description for 'open' property for table body added to docs #654
 - fix(components/toast): double toast error and scrollbar #481 #734
 - fix(components/tree): active item style and update doc #708 #654
+- fix(components/input): update on blur #736 [MR](https://github.com/zyfra/Prizm/pull/917)
+  !!! CHECK ALL INPUTS
 
 ## [1.7.0, 2.4.0, 3.3.0](https://github.com/zyfra/Prizm) (25-10-2023)
 
