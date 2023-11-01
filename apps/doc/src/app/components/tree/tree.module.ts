@@ -18,6 +18,7 @@ import { TreeTemplateCheckboxExampleModule } from './examples/template-checkbox/
 import { TreeTemplateLazyExampleModule } from './examples/lazy/tree-template-lazy-example.module';
 import { TreePaddingInputExampleComponent } from './examples/padding-indent/tree-padding-indent-example.component';
 import { TreeInModalExampleComponent } from './examples/in-modal/tree-in-modal-example.component';
+import { TreeActiveColorExampleComponent } from './examples/active-color/tree-active-color-example.component';
 
 @NgModule({
   imports: [
@@ -32,6 +33,7 @@ import { TreeInModalExampleComponent } from './examples/in-modal/tree-in-modal-e
     RouterModule.forChild(prizmDocGenerateRoutes(TreeComponent)),
   ],
   declarations: [
+    TreeActiveColorExampleComponent,
     TreeInModalExampleComponent,
     TreeBaseExampleComponent,
     TreeArrayExampleComponent,

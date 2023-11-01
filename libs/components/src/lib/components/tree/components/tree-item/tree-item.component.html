@@ -2,7 +2,7 @@
   <ng-content></ng-content>
 </ng-template>
 <div
-  class="prizm-tree-item__dynamic-content prizm-font-main-body-12"
+  class="prizm-tree-item__dynamic-content prizm-tree-item__main prizm-font-main-body-12"
   [style.--prizm-tree-item-indent-level]="level"
 >
   <ng-container *polymorphOutlet="content; context: { $implicit: this, template: template }"> </ng-container>

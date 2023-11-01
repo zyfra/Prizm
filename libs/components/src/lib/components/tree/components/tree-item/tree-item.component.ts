@@ -68,6 +68,15 @@ export class PrizmTreeItemComponent extends PrizmAbstractTestId implements DoChe
   @Input()
   usePaddingIndent!: boolean;
 
+  @Input()
+  @HostBinding('class.active')
+  active = false;
+
+  @HostBinding('style.--prizm-tree-level')
+  get levelVar() {
+    return this.level;
+  }
+
   constructor(
     @Inject(ElementRef)
     private readonly elementRef: ElementRef<HTMLElement>,
