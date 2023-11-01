@@ -15,7 +15,7 @@
     width: 100%;
     padding: 16px;
 
-    background: var(--prizm-bg-body);
+    background: var(--prizm-v3-background-fill-primary);
 
     display: flex;
     justify-content: space-between;
@@ -42,12 +42,12 @@
       &__count {
         margin-right: 12px;
 
-        color: var(--prizm-text-subscript);
+        color: var(--prizm-v3-text-icon-secondary);
       }
 
       &__show {
         margin-right: 32px;
-        color: var(--prizm-grey-g10-g4);
+        color: var(--prizm-v3-text-icon-tertiary);
       }
     }
 
@@ -64,11 +64,6 @@
         height: 32px;
         min-width: 40px;
         margin: 0 4px;
-
-        &_selected {
-          background: var(--prizm-secondary-ghost-pressed);
-          color: var(--prizm-secondary);
-        }
       }
 
       .dots {
@@ -79,10 +74,10 @@
         align-items: flex-end;
         justify-content: center;
 
-        color: var(--prizm-grey-g7-g7);
+        color: var(--prizm-v3-button-secondary-solid-default);
         &_disabled {
           cursor: not-allowed;
-          color: var(--prizm-grey-g10-g4);
+          color: var(--prizm-v3-text-icon-disable);
         }
       }
 
