@@ -19,12 +19,6 @@ import { map, startWith, takeWhile } from 'rxjs/operators';
       .label-wrapper {
         width: 50%;
       }
-
-      //.progress-block {
-      //  display: flex;
-      //  gap: 8px;
-      //  align-items: center;
-      //}
     `,
   ],
 })
@@ -35,5 +29,5 @@ export class PrizmProgressBaseExampleComponent {
     takeWhile(i => i != this.max + 1),
     startWith(2)
   );
-  readonly colors = [`var(--prizm-index-warning)`, `lightskyblue`, `#3682db`, `red`];
+  readonly colors = [`var(---prizm-v3-status-warning-primary-default)`, `lightskyblue`, `#3682db`, `red`];
 }

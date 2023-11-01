@@ -20,8 +20,8 @@
 
     <prizm-progress-circle
       [max]="max"
-      [trackColor]="'var(--prizm-index-warning)'"
-      [color]="'var(--prizm-index-plan)'"
+      [trackColor]="'var(--prizm-v3-status-warning-primary-default)'"
+      [color]="'var(--prizm-v3-status-warning-primary-default)'"
       [value]="(value$ | async) || 0"
       size="l"
     ></prizm-progress-circle>
@@ -38,7 +38,7 @@
       [max]="max"
       [value]="(value$ | async) || 0"
       size="s"
-      color="var(--prizm-index-warning)"
+      color="var(--prizm-v3-status-warning-primary-default)"
       trackColor="transparent"
     ></prizm-progress-circle>
   </div>
@@ -54,7 +54,7 @@
       [max]="max"
       [value]="(value$ | async) || 0"
       size="m"
-      color="var(--prizm-index-warning)"
+      color="var(--prizm-v3-status-warning-primary-default)"
     ></prizm-progress-circle>
   </div>
 </div>

@@ -1,7 +1,7 @@
 import { Directive, ElementRef, Inject, Input } from '@angular/core';
 import { USER_AGENT } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
-import { map, tap } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmResizeService } from '../../../services/resize.service';
 import { prizmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
