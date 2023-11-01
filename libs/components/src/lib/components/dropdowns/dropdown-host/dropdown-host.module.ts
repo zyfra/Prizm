@@ -1,28 +1,14 @@
 import { NgModule } from '@angular/core';
+import { PrizmDropdownHostControlDirective } from './dropdown-host-control.directive';
 import { PrizmDropdownHostComponent } from './dropdown-host.component';
-import { PrizmOverlayModule } from '../../../modules/overlay';
-import {
-  PolymorphModule,
-  PrizmDropdownZoneModule,
-  PrizmLifecycleModule,
-  PrizmMutationObserveModule,
-  PrizmZoneEventModule,
-} from '../../../directives';
-import { CommonModule } from '@angular/common';
-import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmDropdownZoneModule } from '@prizm-ui/components';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmOverlayModule,
-    PrizmThemeModule,
-    PrizmLifecycleModule,
-    PrizmZoneEventModule,
-    PolymorphModule,
-    PrizmDropdownZoneModule,
-    PrizmMutationObserveModule,
-  ],
-  declarations: [PrizmDropdownHostComponent],
-  exports: [PrizmDropdownHostComponent, PrizmDropdownZoneModule],
+  imports: [PrizmDropdownHostControlDirective, PrizmDropdownHostComponent],
+  exports: [PrizmDropdownHostControlDirective, PrizmDropdownHostComponent, PrizmDropdownZoneModule],
 })
 export class PrizmDropdownHostModule {}
