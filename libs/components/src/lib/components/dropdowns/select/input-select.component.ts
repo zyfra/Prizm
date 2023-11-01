@@ -109,6 +109,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   @Input()
   @prizmDefaultProp()
+  virtul = this.options.placeholder;
+
+  @Input()
+  @prizmDefaultProp()
   dropdownWidth = this.options.dropdownWidth;
 
   @Input()

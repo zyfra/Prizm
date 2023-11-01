@@ -84,6 +84,7 @@
     </ng-template>
 
     <ng-template #dropdown>
+      <ng-container> </ng-container>
       <prizm-data-list
         class="block"
         *prizmLet="(filteredItems$ | async) ?? [] as items"
