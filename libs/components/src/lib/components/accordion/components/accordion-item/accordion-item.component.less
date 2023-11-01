@@ -2,40 +2,21 @@
   display: block;
 }
 
-button {
-  outline: none;
-  border: none;
-  background: transparent;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-}
-
 .accordion {
   display: flex;
   flex-direction: column;
 
   cursor: pointer;
-  border-top: 1px solid var(--prizm-grey-g12-g2);
+  border-top: 1px solid var(--prizm-v3-background-stroke);
 
   &_focused:not(.accordion_disabled),
   &:hover:not(.accordion_disabled) {
     border-radius: 2px;
-
-    //border-top: 1px solid var(--prizm-bg-header);
-
     position: relative;
   }
 
-  &:hover:not(.accordion_disabled) {
-    box-shadow: 0 0 0 1px var(--prizm-accordion-item-hover-boxShadowColor, var(--prizm-index-plan));
-  }
-
   &_focused:not(.accordion_disabled) {
-    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
   }
 
   &__header {
@@ -45,7 +26,7 @@ button {
     display: flex;
     align-items: center;
 
-    background: var(--prizm-bg-header);
+    background: var(--prizm-v3-background-fill-panel);
 
     outline: none;
     overflow: hidden;
@@ -57,7 +38,7 @@ button {
       font-size: 14px;
       line-height: 20px;
 
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-primary);
 
       overflow: hidden;
       white-space: nowrap;
@@ -65,37 +46,8 @@ button {
     }
 
     .header-icon {
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-primary);
       margin-right: 8px;
-    }
-  }
-
-  &__button {
-    height: 32px;
-    width: 32px;
-    margin-left: 22px;
-
-    display: flex;
-    align-items: center;
-
-    border-radius: 2px;
-    color: var(--prizm-border-icon);
-
-    transition: 200ms;
-
-    &-icon {
-      height: 16px;
-      width: 16px;
-
-      display: flex;
-
-      transition: 400ms;
-    }
-
-    &:hover {
-      background: var(--prizm-grey-g12-g2);
-
-      color: var(--prizm-index-plan);
     }
   }
 
@@ -108,19 +60,24 @@ button {
     opacity: 0;
 
     overflow: hidden;
-    background: var(--prizm-bg-body);
+    background: var(--prizm-v3-background-fill-panel);
 
     transition: 400ms;
   }
 
-  &_expanded {
-    & > .accordion__header > .accordion__button {
-      background: var(--prizm-lite-b130-20);
-      color: var(--prizm-index-plan);
+  .btn-wrapper {
+    margin: auto 0px auto 12px;
 
-      & > .accordion__button-icon {
-        transform: rotate(180deg);
-      }
+    border-left: 1px solid var(--prizm-v3-background-stroke);
+
+    .accordion__button {
+      margin-left: 12px;
+    }
+  }
+
+  &_expanded {
+    .accordion__button {
+      transform: rotate(180deg);
     }
 
     &:focus {
@@ -137,8 +94,8 @@ button {
     cursor: not-allowed;
 
     & > .accordion__header .title,
-    & > .accordion__header .accordion__button {
-      color: var(--prizm-grey-g10-g4);
+    & > .accordion__header {
+      color: var(--prizm-v3-text-icon-disable);
       pointer-events: none;
     }
   }

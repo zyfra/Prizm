@@ -4,7 +4,6 @@ import {
   Component,
   ContentChild,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output,
