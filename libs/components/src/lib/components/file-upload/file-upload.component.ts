@@ -25,6 +25,7 @@ import { Observable } from 'rxjs';
 import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 import { prizmI18nInitWithKey } from '../../services';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -56,7 +57,15 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   @Input() multiple = false;
   @Input() maxFileSize = Number.MAX_SAFE_INTEGER;
   @Input() maxFilesCount = Number.MAX_SAFE_INTEGER;
-  @Input() disabled = false;
+
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input() set progress(progress: PrizmFilesProgress) {
     for (const key of Object.keys(progress)) {

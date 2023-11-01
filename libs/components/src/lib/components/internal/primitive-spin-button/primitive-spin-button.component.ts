@@ -16,6 +16,7 @@ import { PRIZM_SPIN_TEXTS } from '../../../tokens/i18n';
 import { PrizmAppearanceTypeGhost } from '../../../types/appearance.types';
 import { prizmIsNativeFocused } from '../../../util/is-native-focused';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 // @dynamic
 @Component({
@@ -31,7 +32,13 @@ export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive 
 
   @Input()
   @prizmDefaultProp()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input()
   @prizmDefaultProp()
