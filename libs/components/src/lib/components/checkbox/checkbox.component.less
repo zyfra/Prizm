@@ -13,10 +13,10 @@
   justify-content: center;
   transition: 0.3s;
 
-  background: var(--prizm-bg-dashboard-forms);
+  background: var(--prizm-v3-form-fill-default);
   box-shadow: 0 0 0 2px transparent;
 
-  border: 1px solid var(--prizm-border-forms);
+  border: 1px solid var(--prizm-v3-form-stroke-default);
   border-radius: 2px;
 
   &--size-s {
@@ -29,14 +29,18 @@
     width: 20px;
   }
 
-  &--checked,
-  &--indeterminate {
-    border-color: var(--prizm-index-plan);
-    background: var(--prizm-index-plan);
+  &:hover {
+    border-color: var(--prizm-v3-form-stroke-hover);
   }
 
-  &:hover {
-    border-color: var(--prizm-index-plan);
+  &--checked,
+  &--indeterminate {
+    border-color: var(--prizm-v3-form-active);
+    background: var(--prizm-v3-form-active);
+    &:hover {
+      background-color: var(--prizm-v3-form-active-hover);
+      border-color: var(--prizm-v3-form-active-hover);
+    }
   }
 
   &__icon {
@@ -44,7 +48,7 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--prizm-exceptions-white);
+    color: var(--prizm-v3-text-icon-exception);
     opacity: 0;
 
     pointer-events: none;
@@ -79,7 +83,7 @@
 
 .label {
   margin-left: 8px;
-  color: var(--prizm-text-contrast);
+  color: var(--prizm-v3-text-icon-secondary);
 
   width: 100%;
   max-width: 100%;
@@ -100,22 +104,27 @@
   cursor: not-allowed;
 
   .checkbox {
-    border-color: var(--prizm-bg-dashboard-forms);
+    border-color: var(--prizm-v3-form-fill-disable);
+    background-color: var(--prizm-v3-form-fill-disable);
     &--checked,
     &--indeterminate {
-      background-color: var(--prizm-index-lock);
+      background-color: var(--prizm-v3-form-active-disable);
+      border-color: var(--prizm-v3-form-active-disable);
     }
+  }
+
+  .label {
+    color: var(--prizm-v3-text-icon-disable);
   }
 }
 
 :host:focus {
   .checkbox {
-    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
 
     &--checked,
     &--indeterminate {
-      border-color: var(--prizm-palette-b2);
-      background: var(--prizm-palette-b2);
+      border-color: var(--prizm-v3-background-stroke-focus);
     }
   }
 }
