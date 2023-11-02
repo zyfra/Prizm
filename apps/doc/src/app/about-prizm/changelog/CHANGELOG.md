@@ -32,6 +32,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(components/old-icon): fixed broken icons #102
 - fix(components/input-layout-date-time): dropdown size #741
 - fix(doc/input-date-multi): inputDateMulti incorrect label text #753
 - fix(components/file-upload): file upload button type #837
