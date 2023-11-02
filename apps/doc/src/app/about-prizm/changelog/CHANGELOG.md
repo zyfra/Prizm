@@ -34,6 +34,7 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/old-icon): fixed broken icons #102
 - fix(components/input-layout-date-time): dropdown size #741
+- fix(components/buttons): fix emit hover on disabled for icon-button and buttons #948
 - fix(doc/input-date-multi): inputDateMulti incorrect label text #753
 - fix(components/file-upload): file upload button type #837
 - fix(docs/table): description for 'open' property for table body added to docs #654
