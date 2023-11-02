@@ -1,83 +1,15 @@
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  EventEmitter,
-  forwardRef,
-  inject,
-  Inject,
-  Injector,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
-import {
-  Compare,
-  PrizmCallFuncModule,
   PrizmCallFuncPipe,
   PrizmDestroyService,
   PrizmLetDirective,
-  PrizmLetModule,
-  PrizmToObservableModule,
   PrizmToObservablePipe,
 } from '@prizm-ui/helpers';
-import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import {
-  isPolymorphPrimitive,
-  PolymorphContent,
-  PolymorphModule,
-  PolymorphOutletDirective,
-} from '../../../directives/polymorph';
-import {
-  PRIZM_SELECT_OPTIONS,
-  PrizmSelectOptions,
-  PrizmSelectStringify,
-  PrizmSelectValueContext,
-} from './select.options';
-import { PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputControl, PrizmInputTextModule } from '../../input';
-import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
-import {
-  debounceTime,
-  distinctUntilChanged,
-  map,
-  shareReplay,
-  switchMap,
-  takeUntil,
-  tap,
-} from 'rxjs/operators';
-import { BehaviorSubject, concat, fromEvent, Observable, Subject, timer } from 'rxjs';
-import {
-  PrizmSelectIdentityMatcher,
-  PrizmSelectSearchMatcher,
-  PrizmSelectValueTransformver,
-} from './select.model';
-import { prizmDefaultProp } from '@prizm-ui/core';
-import {
-  PrizmDropdownHostClasses,
-  PrizmDropdownHostComponent,
-  PrizmDropdownHostModule,
-  PrizmDropdownHostStyles,
-} from '../dropdown-host';
-import { PrizmOverlayModule, PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
-import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
-import { PrizmScrollbarModule, PrizmScrollbarVisibility } from '../../scrollbar';
+import { PolymorphOutletDirective } from '../../../directives/polymorph';
 import { PrizmInputSelectOptionDirective } from './input-select-option.directive';
-import { PrizmInputSelectOptionService } from './input-select-option.service';
-import { PrizmChipsModule } from '../../chips';
-import { AsyncPipe, CommonModule, NgIf } from '@angular/common';
-import {
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
-  PrizmHintDirective,
-  PrizmHintModule,
-  PrizmLifecycleModule,
-} from '../../../directives';
-import { PrizmIconModule } from '../../icon';
-import { PrizmDataListModule } from '../../data-list';
-import { prizmWatch } from '../../../observables';
-import { PrizmSelectInputComponent } from '@prizm-ui/components';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { PrizmHintDirective } from '../../../directives';
+import { PrizmSelectInputComponent } from './input-select.component';
 
 @Component({
   selector: 'prizm-input-select-item',
@@ -101,8 +33,6 @@ import { PrizmSelectInputComponent } from '@prizm-ui/components';
 export class PrizmSelectInputItemComponent<T> {
   @Input() item!: T;
   readonly parent = inject(PrizmSelectInputComponent);
-
-  constructor() {}
 
   public isMostRelevant(items: T[]): boolean {
     const idx = this.parent.items.findIndex(i => this.item === i);

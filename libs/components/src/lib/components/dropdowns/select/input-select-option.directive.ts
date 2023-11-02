@@ -16,9 +16,7 @@ export class PrizmInputSelectOptionDirective<T = any> {
     }
   );
 
-  constructor() {}
-
-  @HostListener('click', ['$event']) onClick(event: MouseEvent) {
+  @HostListener('click', ['$event']) public onClick(event: MouseEvent) {
     this.selected.next(this.value);
     this.inputSelectOptionService?.selected(this.value);
   }

@@ -99,7 +99,15 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   @Input()
   @prizmDefaultProp()
-  prizmDropdownHostWidth?: PrizmDropdownHostWidth = this.options.width;
+  set prizmDropdownHostWidth(width: PrizmDropdownHostWidth) {
+    this._prizmDropdownHostWidth = width;
+    this.updateWidth();
+  }
+  get prizmDropdownHostWidth() {
+    return this._prizmDropdownHostWidth;
+  }
+
+  private _prizmDropdownHostWidth: PrizmDropdownHostWidth = this.options.width;
 
   @Input()
   @prizmDefaultProp()
@@ -179,7 +187,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   }
 
   public updateWidth(): void {
-    this.position.updateConfig({
+    this.position?.updateConfig({
       width: this.prizmDropdownHostWidth ?? this.el.nativeElement.offsetWidth,
     });
   }

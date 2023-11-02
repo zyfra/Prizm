@@ -79,6 +79,7 @@ export abstract class AbstractPrizmInteractive extends PrizmAbstractTestId {
   }
 
   protected updateHovered(hovered: boolean): void {
+    if (this.disabled) return;
     if (this.hovered === hovered) {
       return;
     }
