@@ -12,10 +12,6 @@ import { Component } from '@angular/core';
         padding: 16px;
         background-color: var(--prizm-v3-background-fill-secondary);
       }
-
-      prizm-dropdown-cell {
-        max-width: 300px;
-      }
     `,
   ],
 })
