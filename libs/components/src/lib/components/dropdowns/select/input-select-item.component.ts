@@ -34,8 +34,6 @@ export class PrizmSelectInputItemComponent<T> {
   @Input() item!: T;
   readonly parent = inject(PrizmSelectInputComponent);
 
-  constructor() {}
-
   public isMostRelevant(items: T[]): boolean {
     const idx = this.parent.items.findIndex(i => this.item === i);
     const wroteInputValue = this.parent.printing$.value;
