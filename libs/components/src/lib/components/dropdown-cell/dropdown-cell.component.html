@@ -1,10 +1,23 @@
-<div class="cell-container">
+<div
+  class="cell-container"
+  [class.cell-container__selected]="selected"
+  [class.cell-container__disabled]="disabled"
+>
   <div class="instruments">
     <ng-content select="[instruments]"></ng-content>
   </div>
-  <ng-container *polymorphOutlet="title">
-    {{ title }}
-  </ng-container>
+  <div class="cell-title">
+    <ng-container *polymorphOutlet="title">
+      <ng-container [ngSwitch]="contentType">
+        <ng-container *ngSwitchCase="'flat'">
+          {{ title }}
+        </ng-container>
+        <ng-container *ngSwitchCase="'chips'">
+          <prizm-chips-item [deletable]="false"> {{ title }} </prizm-chips-item>
+        </ng-container>
+      </ng-container>
+    </ng-container>
+  </div>
   <div class="buttons">
     <ng-content select="[buttons]"></ng-content>
   </div>

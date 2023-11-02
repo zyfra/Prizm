@@ -62,22 +62,29 @@
 
   <ng-template #dropdown>
     <prizm-data-list>
-      <div class="tabs-column prizm-tab-menu-container">
+      <div
+        class="tabs-column prizm-tab-menu-container"
+        *prizmLet="{ hasIcons: tabElements | prizmIconTabs } as data"
+      >
         <ng-container *ngFor="let tabElement of tabElements; let i = index">
           <ng-container *ngIf="tabElement as tab">
             <prizm-dropdown-cell
               [title]="tab.content"
               [disabled]="$any(tab.disabled)"
-              (click)="tabClickHandler(i)"
+              [selected]="activeTabIndex === i"
+              (click)="clickTab(i)"
             >
-              <div *ngIf="tab.icon as icon" instruments>
-                <div class="dropdown-instruments">
+              <ng-container *ngIf="tab.icon || data.hasIcons" instruments>
+                <ng-container *ngIf="tab.icon as icon; else placeholder">
                   <ng-container *polymorphOutlet="icon; context: $any({ idx: i, tab: tab })">
                     <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
                   </ng-container>
-                </div>
-              </div>
-              <div class="dropdown-buttons" buttons>
+                </ng-container>
+                <ng-template #placeholder>
+                  <div class="icon-placeholder"></div>
+                </ng-template>
+              </ng-container>
+              <ng-container buttons>
                 <prizm-counter
                   *ngIf="tab.count"
                   [value]="tab.count"
@@ -94,20 +101,8 @@
                   appearance="secondary"
                   size="s"
                 ></button>
-              </div>
+              </ng-container>
             </prizm-dropdown-cell>
-            <!-- <prizm-tab
-              *prizmLet="{ inMenuIdx: i }"
-              [type]="tab.type"
-              [content]="$any(tab.content)"
-              [icon]="tab.icon"
-              [closable]="$any(tab.closable)"
-              [disabled]="$any(tab.disabled)"
-              [attr.dropdown-tab]="true"
-              (click)="clickTab()"
-              (closeTab)="closeTab($any(tabElement.idx))"
-            >
-            </prizm-tab> -->
           </ng-container>
         </ng-container>
       </div>

@@ -11,9 +11,10 @@ import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmCounterModule } from '../counter';
 import { PrizmDropdownCellComponent } from '../dropdown-cell';
+import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 
 @NgModule({
-  declarations: [PrizmTabsComponent, PrizmTabComponent, PrizmTabMenuItemDirective],
+  declarations: [PrizmTabsComponent, PrizmTabComponent, PrizmTabMenuItemDirective, PrizmIconTabsPipe],
   imports: [
     CommonModule,
     PrizmIconModule,
