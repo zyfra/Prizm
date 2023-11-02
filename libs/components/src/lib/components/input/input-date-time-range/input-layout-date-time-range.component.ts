@@ -37,7 +37,16 @@ import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
-import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
+import {
+  debounceTime,
+  delay,
+  distinctUntilChanged,
+  map,
+  share,
+  shareReplay,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import {
   prizmCreateDateNgxMask,
   PrizmDateTime,
@@ -311,6 +320,21 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   public ngAfterViewInit(): void {
+    const focused$ = this.focusableElement?.focused$ as Observable<boolean>;
+    this.showPlaceholder$ = combineLatest([
+      this.empty,
+      focused$.pipe(map(focused => this.disabled || !focused)),
+    ]).pipe(
+      map(i => i.every(i => i)),
+      debounceTime(100),
+      shareReplay(1)
+    );
+    this.showMask$ = combineLatest([focused$, this.hasNativeValue$]).pipe(
+      map(every => !!every.find(i => !!i)),
+      debounceTime(100),
+      shareReplay(1)
+    );
+
     this.focusableElement?.blur$
       .pipe(
         debounceTime(0),
@@ -320,6 +344,9 @@ export class PrizmInputLayoutDateTimeRangeComponent
       )
       .subscribe();
   }
+
+  showMask$ = of(false);
+  showPlaceholder$ = of(false);
 
   public override ngOnInit() {
     super.ngOnInit();
@@ -332,6 +359,18 @@ export class PrizmInputLayoutDateTimeRangeComponent
           const toValue = dayRange[1];
           const fromTimeValue = timeRange[0];
           const toTimeValue = timeRange[1];
+
+          if (
+            [fromValue, toValue, fromTimeValue, toTimeValue].every(i => !i) &&
+            ![
+              this.value?.dayRange.from,
+              this.value?.dayRange.to,
+              this.value?.timeRange?.to,
+              this.value?.timeRange?.from,
+            ].every(i => !i)
+          ) {
+            return this.updateValue(null);
+          }
 
           if (!fromValue || fromValue.length !== this.computedDateMask.length) return;
           if (!toValue || toValue.length !== this.computedDateMask.length) return;
@@ -371,7 +410,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
     if (isFormValue) this.nativeValueFrom$$.next(value);
     else this.nativeValueTo$$.next(value);
-
     if (value == null) {
       this.onOpenChange(true);
     }
