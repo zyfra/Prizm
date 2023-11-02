@@ -7,9 +7,8 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - feat(components/input-select): virtual scroll support #617
-- ! feat(components): to new colors #862
-- ! feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
-  !!! Check all input on empty mode and non label mode
+- feat(components): to new colors #862
+- feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
 - feat(components/overlay): context example and to standalone #813
 - feat: updated v1 stackblitz demos with style #877
 - feat: updated v2 stackblitz demos with style #878
@@ -27,22 +26,19 @@ All notable changes to this project will be documented in this file.
 - feat: update progress colors to v3 #902
 - feat(components/dropdown-control): new directive control for dropdown #881
 - feat(components): create own calendar exports #880
-- ! feat(components): add boolean compatible with async #714
-  !!! check disabled state for accordion, button, split-button, checkbox, chips-item, counter,cron, file-upload, input-icon-button, stepper, tabs
-- ! feat(components/input): empty label mode for inner #384
-  !!! Check all input on empty mode and non label mode [MR](https://github.com/zyfra/Prizm/pull/920)
-- ! feat(components/hint): standalone directives [MR](https://github.com/zyfra/Prizm/pull/905)
+- feat(components): add boolean compatible with async #714
+- feat(components/input): empty label mode for inner #384
+- feat(components/hint): standalone directives [MR](https://github.com/zyfra/Prizm/pull/905)
 
 ### Bug fixes
 
-- ! fix(components/input-layout-date-time): dropdown size #741
+- fix(components/input-layout-date-time): dropdown size #741
 - fix(doc/input-date-multi): inputDateMulti incorrect label text #753
 - fix(components/file-upload): file upload button type #837
 - fix(docs/table): description for 'open' property for table body added to docs #654
 - fix(components/toast): double toast error and scrollbar #481 #734
 - fix(components/tree): active item style and update doc #708 #654
 - fix(components/input): update on blur #736 [MR](https://github.com/zyfra/Prizm/pull/917)
-  !!! CHECK ALL INPUTS
 
 ### Closed
 
