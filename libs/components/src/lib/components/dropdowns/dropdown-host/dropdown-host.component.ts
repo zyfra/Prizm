@@ -187,7 +187,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   }
 
   public updateWidth(): void {
-    this.position.updateConfig({
+    this.position?.updateConfig({
       width: this.prizmDropdownHostWidth ?? this.el.nativeElement.offsetWidth,
     });
   }
