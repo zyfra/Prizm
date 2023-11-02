@@ -759,6 +759,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/dropdown-cell',
+    loadChildren: () =>
+      import('./components/dropdown-cell/dropdown-cell-example.module').then(
+        i => i.DropDownCellExampleModule
+      ),
+    data: {
+      title: 'Dropdown Cell',
+    },
+  },
+  {
     path: 'tools/overlay',
     loadChildren: () => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
