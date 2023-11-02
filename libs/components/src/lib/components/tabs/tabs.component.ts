@@ -35,6 +35,7 @@ import { PrizmDataListComponent } from '../data-list';
 import { PrizmDropdownCellComponent } from '../dropdown-cell';
 import { PrizmCounterComponent } from '../counter';
 import { PrizmIconModule } from '../icon';
+import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 
 @Component({
   selector: 'prizm-tabs',
@@ -57,6 +58,7 @@ import { PrizmIconModule } from '../icon';
     PrizmDropdownCellComponent,
     PrizmCounterComponent,
     PrizmIconModule,
+    PrizmIconTabsPipe
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
@@ -218,7 +220,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.reCalculatePositions();
   }
 
-  public clickTab(): void {
+  public clickTab(index: number): void {
     this.openLeft = this.openRight = false;
+    this.tabClickHandler(index);
   }
 }

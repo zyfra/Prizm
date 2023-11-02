@@ -283,6 +283,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Dropdown Cell',
+    keywords: 'list item, cell, dropdown cell, список, элемент списка',
+    route: '/components/dropdown-cell',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Inputs',
     subPages: [
       {
