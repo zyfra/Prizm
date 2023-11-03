@@ -170,10 +170,12 @@
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
       <button
-        class="show-more"
         [disabled]="disabled || showMoreDisabled"
-        [class.show-more_disabled]="disabled || showMoreDisabled"
         (click)="increase()"
+        prizmButton
+        appearanceType="ghost"
+        appearance="primary"
+        size="m"
       >
         {{ moreButtonLabel }}
       </button>
