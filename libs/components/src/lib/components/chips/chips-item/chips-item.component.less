@@ -23,18 +23,18 @@ button {
   align-items: center;
   justify-content: space-between;
   border-radius: 2px;
-  background: var(--prizm-chips-item-background, var(--prizm-grey-g11-g3));
+  background: var(--prizm-chips-item-background, var(--prizm-v3-status-none-secondary-default));
 
   font-size: 14px;
   line-height: 16px;
-  color: var(--prizm-text-contrast);
+  color: var(--prizm-v3-status-none-primary-default);
 
   cursor: pointer;
 
   &:not(:disabled) {
     &:hover,
     &:focus {
-      outline: var(--prizm-index-plan) 1px solid;
+      outline: var(--prizm-v3-background-stroke-focus) 1px solid;
     }
   }
 
@@ -53,10 +53,19 @@ button {
     justify-content: center;
 
     font-size: 16px;
-    color: var(--prizm-border-icon);
+    color: var(--prizm-v3-status-none-primary-default);
 
     &:focus {
-      color: var(--prizm-index-plan);
+      color: var(--prizm-v3-background-stroke-focus);
+    }
+  }
+
+  &_selected {
+    background-color: var(--prizm-v3-status-none-primary-default);
+    color: var(--prizm-v3-text-icon-exception);
+
+    .chips-cancel {
+      color: var(--prizm-v3-text-icon-exception);
     }
   }
 }
