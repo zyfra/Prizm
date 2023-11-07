@@ -14,22 +14,12 @@ import { PrizmColumnDropListComponent } from './components/column-drop-list/colu
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmCardModule,
-    PrizmButtonModule,
-    PrizmToggleModule,
-    DragDropModule,
-    PrizmIconModule,
-    PrizmScrollbarModule,
-    PrizmLetModule,
-    PrizmPluckPipeModule,
-    PrizmHintModule,
-    FormsModule,
-    PrizmThemeModule,
-  ],
-  declarations: [PrizmColumnSettingsComponent, PrizmColumnIconPipe, PrizmColumnDropListComponent],
+  imports: [PrizmColumnSettingsComponent, PrizmColumnDropListComponent],
   exports: [PrizmColumnSettingsComponent],
 })
 export class PrizmColumnSettingsModule {}

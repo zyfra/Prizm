@@ -2,7 +2,20 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from 
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
-import { CDK_DRAG_CONFIG, DragDropConfig } from '@angular/cdk/drag-drop';
+import { CDK_DRAG_CONFIG, DragDropConfig, DragDropModule } from '@angular/cdk/drag-drop';
+import { CommonModule } from '@angular/common';
+import {
+  PrizmButtonModule,
+  PrizmCardModule,
+  PrizmHintModule,
+  PrizmIconModule,
+  PrizmScrollbarModule,
+  PrizmToggleModule,
+} from '@prizm-ui/components';
+import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { FormsModule } from '@angular/forms';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmColumnIconPipe } from '../../pipes/column-icon.pipe';
 
 const DragConfig: DragDropConfig = {
   zIndex: 9999,
@@ -14,6 +27,21 @@ const DragConfig: DragDropConfig = {
   styleUrls: ['./column-drop-list.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{ provide: CDK_DRAG_CONFIG, useValue: DragConfig }],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmButtonModule,
+    PrizmToggleModule,
+    DragDropModule,
+    PrizmIconModule,
+    PrizmScrollbarModule,
+    PrizmLetModule,
+    PrizmPluckPipeModule,
+    PrizmHintModule,
+    FormsModule,
+    PrizmThemeModule,
+    PrizmColumnIconPipe,
+  ],
 })
 export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
   @Input() columns!: PrizmColumnSettings[];
