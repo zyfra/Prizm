@@ -33,7 +33,6 @@ import {
 } from '../../directives';
 import { PrizmPrimitiveSpinButtonModule, PrizmPrimitiveYearPickerModule } from '../internal';
 import { PrizmScrollbarModule } from '../scrollbar';
-import { PrizmLinkModule } from '../link';
 import { PrizmLetModule } from '@prizm-ui/helpers';
 
 const TODAY = PrizmDay.currentLocal();
@@ -49,7 +48,6 @@ const TODAY = PrizmDay.currentLocal();
     PrizmPrimitiveYearPickerModule,
     PrizmPrimitiveSpinButtonModule,
     PrizmScrollbarModule,
-    PrizmLinkModule,
     PrizmLetModule,
     PrizmHoveredModule,
     PrizmPressedModule,
