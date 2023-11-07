@@ -1,7 +1,6 @@
 <prizm-doc-page header="Dropdown Cell">
   <div class="page-description" description>
-    <!-- Our counter component helps highlight important information such as notifications or new/unread messages. -->
-    Текст про ячейку
+    Our dropdown cell component is used to display listed items in dropdowns.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
@@ -28,11 +27,19 @@
           [disabled]="disabled"
           [selected]="selected"
           [contentType]="contentType"
-          title="My Disabled Cell"
+          [cellTitle]="title"
         ></prizm-dropdown-cell>
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        documentationPropertyName="cellTitle"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Cell Title
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="contentType"
         [documentationPropertyValues]="contentTypeVariants"

@@ -18,6 +18,14 @@
       font-weight: 400;
       line-height: 16px;
       color: var(--prizm-v3-text-icon-primary);
+
+      .title {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+      }
     }
 
     &:not(.cell-container__selected):not(.cell-container__disabled):hover {

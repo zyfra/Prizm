@@ -23,6 +23,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   ],
 })
 export class PrizmDropdownCellExampleComponent {
+  public title = 'My Cell Title';
   public disabled = false;
   public selected = false;
   public contentType: 'chips' | 'flat' = 'flat';

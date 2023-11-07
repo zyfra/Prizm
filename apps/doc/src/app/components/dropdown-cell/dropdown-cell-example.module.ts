@@ -9,6 +9,7 @@ import {
   PrizmCheckboxModule,
   PrizmCounterModule,
   PrizmDropdownCellComponent,
+  PrizmDropdownHostComponent,
 } from '@prizm-ui/components';
 import { PrizmDropdownCellWithInstrumnetsExampleComponent } from './examples/with-instrumnets/dropdown-cell-with-instruments-example.component';
 import { PrizmDropdownCellChipsExampleComponent } from './examples/chips/dropdown-cell-chips-example.component';
@@ -22,6 +23,7 @@ import { PrizmDropdownCellChipsExampleComponent } from './examples/chips/dropdow
     PrizmDropdownCellComponent,
     PrizmCheckboxModule,
     PrizmCounterModule,
+    PrizmDropdownHostComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmDropdownCellExampleComponent)),
   ],
   declarations: [

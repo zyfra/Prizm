@@ -6,14 +6,16 @@
   <div class="instruments">
     <ng-content select="[instruments]"></ng-content>
   </div>
-  <div class="cell-title">
-    <ng-container *polymorphOutlet="title">
+  <div class="cell-title" #titleEl>
+    <ng-container *polymorphOutlet="cellTitle">
       <ng-container [ngSwitch]="contentType">
         <ng-container *ngSwitchCase="'flat'">
-          {{ title }}
+          <div class="title" [prizmHint]="cellTitle">
+            {{ cellTitle }}
+          </div>
         </ng-container>
         <ng-container *ngSwitchCase="'chips'">
-          <prizm-chips-item [deletable]="false"> {{ title }} </prizm-chips-item>
+          <prizm-chips-item [deletable]="false"> {{ cellTitle }} </prizm-chips-item>
         </ng-container>
       </ng-container>
     </ng-container>

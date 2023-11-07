@@ -42,7 +42,7 @@ export class TabsExampleCounterComponent {
       },
     },
     {
-      title: 'Вкладка 5',
+      title: 'Вкладка 5 с очень, очень, очень длинным названием, которое уходит под три точки',
       count: 432,
       closable: true,
       counterOptions: {
