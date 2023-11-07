@@ -13,12 +13,14 @@ import {
   Output,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { prizmIsTextOverflow$ } from '../../util/dom/is-textoverflow';
 import { PrizmOverlayOutsidePlacement } from '../../modules';
-import { BehaviorSubject, Observable, of, Subscription, timer } from 'rxjs';
+import { BehaviorSubject, Observable, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmCallFuncModule, PrizmDestroyService, PrizmLetModule } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '../../directives';
+import { PrizmChipsItemComponent } from './chips-item';
 
 @Component({
   selector: 'prizm-chips',
@@ -32,6 +34,16 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
       multi: true,
     },
     PrizmDestroyService,
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmChipsItemComponent,
+    PrizmCallFuncModule,
+    PrizmLifecycleModule,
+    PrizmElementReadyModule,
+    PrizmLetModule,
+    PrizmHintModule,
   ],
 })
 export class PrizmChipsComponent

@@ -5,12 +5,29 @@ import { map, switchMap } from 'rxjs/operators';
 import { prizmIsTextOverflow$ } from '../../../util/dom/is-textoverflow';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PrizmCallFuncModule, PrizmLetDirective, PrizmLetModule } from '@prizm-ui/helpers';
+import {
+  PrizmElementReadyModule,
+  PrizmHintDirective,
+  PrizmHintModule,
+  PrizmLifecycleModule,
+} from '../../../directives';
 
 @Component({
   selector: 'prizm-chips-item',
   templateUrl: './chips-item.component.html',
   styleUrls: ['./chips-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmCallFuncModule,
+    PrizmLifecycleModule,
+    PrizmElementReadyModule,
+    PrizmLetDirective,
+    PrizmHintDirective,
+  ],
 })
 export class PrizmChipsItemComponent extends PrizmAbstractTestId {
   @Input()
