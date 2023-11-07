@@ -6,7 +6,6 @@ import { PrizmHoveredModule } from '../../directives/hovered/hovered.module';
 import { PrizmPressedModule } from '../../directives/pressed/pressed.module';
 import { PrizmPrimitiveSpinButtonModule } from '../internal/primitive-spin-button/primitive-spin-button.module';
 import { PrizmPrimitiveYearPickerModule } from '../internal/primitive-year-picker/primitive-year-picker.module';
-import { PrizmLinkModule } from '../link/link.module';
 import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
 import { PrizmCalendarMonthComponent } from './calendar-month.component';
 import { PrizmStopPropagationModule } from '../../directives/stop-propagation/stop-propagation.module';
@@ -18,7 +17,6 @@ import { PrizmStopPropagationModule } from '../../directives/stop-propagation/st
     PrizmPrimitiveYearPickerModule,
     PrizmPrimitiveSpinButtonModule,
     PrizmScrollbarModule,
-    PrizmLinkModule,
     PrizmLetModule,
     PrizmHoveredModule,
     PrizmPressedModule,

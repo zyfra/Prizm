@@ -16,7 +16,7 @@
     flex: 1;
     line-height: 2rem;
     border-radius: 2px;
-    color: var(--prizm-text-contrast);
+    color: var(--prizm-v3-text-icon-secondary);
 
     &:before,
     &:after {
@@ -47,9 +47,21 @@
     &_today {
       border-radius: 2px;
 
+      &[data-state='hovered'] {
+        & > .z-item {
+          border-color: var(--prizm-v3-button-primary-solid-hover);
+          color: var(--prizm-v3-button-primary-solid-hover);
+          background-color: var(--prizm-v3-button-ghost-hover);
+        }
+      }
+
       .z-item {
-        border: 1px solid var(--prizm-index-plan);
-        color: var(--prizm-exeptions-g1-b1);
+        border: 1px solid var(--prizm-v3-button-primary-solid-default);
+        color: var(--prizm-v3-button-primary-solid-default);
+
+        &_unavailable {
+          color: var(--prizm-v3-text-icon-disable);
+        }
       }
     }
 
@@ -66,10 +78,10 @@
 
     &_interval {
       &:before {
-        background: var(--prizm-lite-b130-20);
+        background: var(--prizm-v3-button-primary-ghost-active);
 
         :host._single & {
-          background-color: var(--prizm-lite-b130-20);
+          background-color: var(--prizm-v3-button-primary-ghost-active);
         }
       }
 
@@ -93,39 +105,34 @@
 
       & > .z-item {
         border-radius: 0;
-        color: var(--prizm-index-plan);
+        color: var(--prizm-v3-button-primary-solid-default);
       }
     }
 
     &[data-range] {
-      &:after {
-        background-color: var(--prizm-primary-text);
-      }
-
       &:not([data-state='hovered']) > .z-item {
-        color: var(--prizm-grey-g13-g1);
+        color: var(--prizm-v3-text-icon-exception);
 
         &:before,
         &:after {
-          background-color: var(--prizm-index-plan);
+          background-color: var(--prizm-v3-button-primary-solid-default);
         }
       }
 
       &[data-state='hovered'] > .z-item {
-        background-color: var(--prizm-g2-g11);
-        color: var(--prizm-index-plan);
+        background-color: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-primary-solid-hover);
       }
 
       &[data-state='hovered'] > .z-item:before,
       &[data-state='hovered'] > .z-item:after {
-        background-color: var(--prizm-grey-g12-g2);
-        color: var(--prizm-index-plan);
+        background-color: var(--prizm-v3-button-ghost-hover);
+        color: var(--prizm-v3-button-primary-solid-hover);
       }
 
       &[data-state='pressed'] > .z-item:before,
       &[data-state='pressed'] > .z-item:after {
-        //background-color: var(--prizm-primary-active);
-        background-color: var(--prizm-index-plan);
+        background-color: var(--prizm-v3-button-primary-solid-default);
       }
     }
 
@@ -160,19 +167,20 @@
       cursor: not-allowed;
 
       & > .z-item {
-        opacity: 0.36;
+        text-decoration: line-through;
+        opacity: 0.3;
       }
     }
 
-    &[data-state='hovered']:not([data-range]) > .z-item {
-      background-color: var(--prizm-g2-g11);
-      color: var(--prizm-exeptions-g1-b1);
+    &[data-state='hovered']:not([data-range]):not(.z-cell_today) > .z-item {
+      background-color: var(--prizm-v3-button-ghost-hover);
+      color: var(--prizm-v3-button-primary-solid-hover);
     }
 
     &[data-state='pressed']:hover:not([data-range]) > .z-item {
-      background-color: var(--prizm-index-plan);
+      background-color: var(--prizm-v3-button-primary-solid-default);
       border-radius: 2px;
-      color: var(--prizm-grey-g13-g1);
+      color: var(--prizm-v3-text-icon-exception);
     }
   }
 }
