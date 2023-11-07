@@ -1,11 +1,14 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.less'],
+  standalone: true,
+  imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmCounterComponent extends PrizmAbstractTestId {
