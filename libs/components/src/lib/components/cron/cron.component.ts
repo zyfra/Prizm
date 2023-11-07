@@ -27,6 +27,16 @@ import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons
 import { PRIZM_CRON } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmCronScheduleComponent } from './components/schedule/schedule.component';
+import { PrizmCronCarouselComponent } from './components/carousel/carousel.component';
+import { PrizmCronHourComponent } from './components/hour/hour.component';
+import { PrizmCronYearComponent } from './components/year/year.component';
+import { PrizmCronDayComponent } from './components/day/day.component';
+import { PrizmCronMonthComponent } from './components/month/month.component';
+import { PrizmCronMinuteComponent } from './components/minute/minute.component';
+import { PrizmCronSecondComponent } from './components/second/second.component';
+import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
+import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
 
 @Component({
   selector: 'prizm-cron',
@@ -44,6 +54,19 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     PrizmCronUiYearState,
     PrizmCronUiMinuteState,
     ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
+  ],
+  standalone: true,
+  imports: [
+    PrizmCronScheduleComponent,
+    PrizmCronCarouselComponent,
+    PrizmCronHourComponent,
+    PrizmCronYearComponent,
+    PrizmCronDayComponent,
+    PrizmCronMonthComponent,
+    PrizmCronMinuteComponent,
+    PrizmCronSecondComponent,
+    PrizmCronMonthPipe,
+    PrizmCronWeekPipe,
   ],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
