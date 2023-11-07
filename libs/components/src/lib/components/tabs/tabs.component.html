@@ -69,7 +69,7 @@
         <ng-container *ngFor="let tabElement of tabElements; let i = index">
           <ng-container *ngIf="tabElement as tab">
             <prizm-dropdown-cell
-              [title]="tab.content"
+              [cellTitle]="tab.content"
               [disabled]="$any(tab.disabled)"
               [selected]="activeTabIndex === i"
               (click)="clickTab(i)"

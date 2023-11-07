@@ -7,16 +7,18 @@ import { Component } from '@angular/core';
     `
       .container {
         display: flex;
-        align-items: center;
+        flex-direction: column;
         gap: 24px;
         padding: 16px;
         background-color: var(--prizm-v3-background-fill-secondary);
       }
 
       prizm-dropdown-cell {
-        min-width: 200px;
+        max-width: 300px;
       }
     `,
   ],
 })
-export class PrizmDropdownCellBaseExampleComponent {}
+export class PrizmDropdownCellBaseExampleComponent {
+  public open = false;
+}

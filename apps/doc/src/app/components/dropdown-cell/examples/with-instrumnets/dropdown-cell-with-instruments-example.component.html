@@ -3,7 +3,7 @@
     *ngFor="let cell of cells"
     [disabled]="cell.disabled"
     [selected]="cell.selected"
-    [title]="cell.title"
+    [cellTitle]="cell.title"
   >
     <ng-container instruments>
       <prizm-checkbox [checked]="cell.selected"></prizm-checkbox>
