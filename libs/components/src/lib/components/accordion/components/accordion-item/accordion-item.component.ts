@@ -14,16 +14,24 @@ import { AccordionContentDirective } from '../../directives/accordion-content.di
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
 import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
-import { PolymorphContent } from '../../../../directives/polymorph';
+import {
+  PolymorphContent,
+  PolymorphModule,
+  PolymorphOutletDirective,
+} from '../../../../directives/polymorph';
 import { PrizmAccordionItemData } from '../../model';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../../../icon';
 
 @Component({
   selector: 'prizm-accordion-item',
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.less'],
   animations: [expandAnimation],
+  standalone: true,
+  imports: [CommonModule, PrizmIconModule, PolymorphOutletDirective],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
