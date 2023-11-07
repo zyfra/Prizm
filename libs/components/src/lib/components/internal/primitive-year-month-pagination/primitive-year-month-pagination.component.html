@@ -24,33 +24,33 @@
 <ng-template #button>
   <div class="year-box" (click)="onYearClick($event)">
     <button
+      class="pagination-btn"
       [attr.data-testid]="'prizm-primitive-year-month-pagination__year-button'"
-      [prizmFocusable]="false"
+      [prizmFocusable]="true"
       [class.active]="yearActive"
       type="button"
-      prizmLink
     >
       {{ value.formattedYear }}
+      <span>
+        <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
+      </span>
     </button>
-    <span>
-      <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
-    </span>
   </div>
 </ng-template>
 
 <ng-template #buttonMonth>
   <div class="month-box" (click)="onMonthClick($event)">
     <button
+      class="pagination-btn"
       [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
       [class.active]="monthActive"
-      [prizmFocusable]="false"
+      [prizmFocusable]="true"
       type="button"
-      prizmLink
     >
       {{ value | prizmMonth | async }}
+      <span>
+        <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
+      </span>
     </button>
-    <span>
-      <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
-    </span>
   </div>
 </ng-template>
