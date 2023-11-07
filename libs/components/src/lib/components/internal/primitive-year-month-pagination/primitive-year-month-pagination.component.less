@@ -1,40 +1,22 @@
+@import '../../../../styles/ui-local.less';
+
 :host {
   display: block;
-}
 
-.box {
-  display: flex;
-  justify-content: space-between;
-}
-
-.year-month {
-  color: var(--prizm-text-contrast);
-  display: flex;
-  gap: 8px;
-}
-
-.year-box,
-.month-box {
-  display: flex;
-  justify-content: space-between;
-  color: var(--prizm-text-contrast);
-  gap: 4px;
-  cursor: pointer;
-
-  prizm-icon {
-    color: var(--prizm-border-icon);
+  .box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
-  &:hover,
-  &:hover prizm-icon {
-    color: var(--prizm-index-plan);
+  .year-month {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--prizm-v3-text-icon-secondary);
   }
-}
 
-[prizmLink] {
-  --prizm-link: var(--prizm-text-contrast);
-
-  &.active {
-    --prizm-link: var(--prizm-index-plan);
+  .pagination-btn {
+    .pagination-btn();
   }
 }
