@@ -7,12 +7,27 @@ import { PrizmMonthLike } from '../../../types/month-like';
 import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PRIZM_MONTHS } from '../../../tokens/i18n';
+import { CommonModule } from '@angular/common';
+import { PrizmFocusableModule } from '../../../directives';
+import { PrizmPrimitiveSpinButtonModule } from '../primitive-spin-button';
+import { PrizmLinkModule } from '../../link';
+import { PrizmIconModule } from '../../icon';
+import { PrizmMonthPipeModule } from '../../../pipes';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,
   templateUrl: `./primitive-year-month-pagination.component.html`,
   styleUrls: [`./primitive-year-month-pagination.component.less`],
   providers: [...prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmFocusableModule,
+    PrizmPrimitiveSpinButtonModule,
+    PrizmLinkModule,
+    PrizmIconModule,
+    PrizmMonthPipeModule,
+  ],
 })
 export class PrizmPrimitiveYearMonthPaginationComponent
   extends PrizmAbstractTestId

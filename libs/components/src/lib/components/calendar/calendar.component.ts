@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PrizmDayRange } from '../../@core/date-time/day-range';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../@core/date-time/days.const';
@@ -14,12 +14,35 @@ import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PrizmDayWithStatus } from '../../@core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import {
+  PrizmPrimitiveCalendarComponent,
+  PrizmPrimitiveCalendarModule,
+  PrizmPrimitiveMonthPickerComponent,
+  PrizmPrimitiveMonthPickerModule,
+  PrizmPrimitiveYearMonthPaginationComponent,
+  PrizmPrimitiveYearMonthPaginationModule,
+  PrizmPrimitiveYearPickerComponent,
+  PrizmPrimitiveYearPickerModule,
+} from '../internal';
+import { PrizmScrollbarModule } from '../scrollbar';
+import { PrizmMapperPipeModule } from '../../pipes';
 
 @Component({
   selector: `prizm-calendar`,
   templateUrl: `./calendar.component.html`,
   styleUrls: [`./calendar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmPrimitiveYearMonthPaginationComponent,
+    PrizmPrimitiveCalendarComponent,
+    PrizmPrimitiveYearPickerComponent,
+    PrizmPrimitiveMonthPickerComponent,
+    PrizmScrollbarModule,
+    PrizmMapperPipeModule,
+  ],
 })
 export class PrizmCalendarComponent extends PrizmAbstractTestId implements PrizmWithOptionalMinMax<PrizmDay> {
   @Input()
