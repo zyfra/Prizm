@@ -14,7 +14,7 @@ import { PRIZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button
 import { AbstractPrizmInteractive } from '../../abstract/interactive';
 import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmSize } from '../../util/size-bigger';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
@@ -26,6 +26,10 @@ import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-v
 import { PrizmHoveredService } from '../../services';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PolymorphOutletDirective, PrizmWrapperComponent } from '../../directives';
+import { PrizmIconModule } from '../icon';
+import { PrizmLoaderModule } from '../loader';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -33,6 +37,15 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   styleUrls: ['./button.component.less'],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmWrapperComponent,
+    PolymorphOutletDirective,
+    PrizmIconModule,
+    PrizmLoaderModule,
+    PrizmCallFuncPipe,
+  ],
   providers: [
     PrizmDestroyService,
     {
