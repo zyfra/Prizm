@@ -12,12 +12,25 @@ import {
   Self,
   ViewChild,
 } from '@angular/core';
-import { Compare, PrizmDestroyService, PrizmFormControlHelpers } from '@prizm-ui/helpers';
-import { NgControl, UntypedFormControl } from '@angular/forms';
-import { PolymorphContent } from '../../../directives';
+import {
+  Compare,
+  PrizmCallFuncModule,
+  PrizmDestroyService,
+  PrizmFormControlHelpers,
+  PrizmLetModule,
+} from '@prizm-ui/helpers';
+import { FormsModule, NgControl, ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
+import {
+  PolymorphContent,
+  PolymorphModule,
+  PrizmAutoFocusModule,
+  PrizmDropdownControllerModule,
+  PrizmHintModule,
+  PrizmLifecycleModule,
+} from '../../../directives';
 import { PRIZM_SELECT_OPTIONS, PrizmSelectOptions, PrizmSelectValueContext } from './select.options';
 import { PrizmFocusableElementAccessor, PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputSize, PrizmInputTextComponent } from '../../input';
+import { PrizmInputSize, PrizmInputTextComponent, PrizmInputTextModule } from '../../input';
 import { AbstractPrizmControl } from '../../../abstract/control';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import {
@@ -33,9 +46,13 @@ import { BehaviorSubject, concat, timer } from 'rxjs';
 import { PrizmSelectIdentityMatcher, PrizmSelectSearchMatcher } from './select.model';
 import { PRIZM_FOCUSABLE_ITEM_ACCESSOR } from '../../../tokens';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDropdownHostComponent } from '../dropdown-host';
-import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
-import { PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmDropdownHostComponent, PrizmDropdownHostModule } from '../dropdown-host';
+import { PrizmOverlayModule, PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
+import { PrizmScrollbarModule, PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmChipsModule } from '../../chips';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../../icon';
+import { PrizmDataListModule } from '../../data-list';
 
 /**
  * @deprecated
@@ -54,6 +71,26 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
       provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmSelectComponent),
     },
+  ],
+  standalone: true,
+  imports: [
+    PrizmOverlayModule,
+    PolymorphModule,
+    PrizmInputTextModule,
+    PrizmChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PrizmLetModule,
+    PrizmAutoFocusModule,
+    PrizmHintModule,
+    PrizmIconModule,
+    PrizmCallFuncModule,
+    PrizmScrollbarModule,
+    PrizmDropdownControllerModule,
+    PrizmLifecycleModule,
+    PrizmDataListModule,
+    PrizmDropdownHostModule,
   ],
   exportAs: 'prizmDropdownSelect',
 })
