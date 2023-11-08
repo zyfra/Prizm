@@ -37,6 +37,8 @@ import { PrizmCronMinuteComponent } from './components/minute/minute.component';
 import { PrizmCronSecondComponent } from './components/second/second.component';
 import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
 import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
+import { PrizmCronInnerModule } from './cron-inner.module';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-cron',
@@ -56,18 +58,7 @@ import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
     ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
   ],
   standalone: true,
-  imports: [
-    PrizmCronScheduleComponent,
-    PrizmCronCarouselComponent,
-    PrizmCronHourComponent,
-    PrizmCronYearComponent,
-    PrizmCronDayComponent,
-    PrizmCronMonthComponent,
-    PrizmCronMinuteComponent,
-    PrizmCronSecondComponent,
-    PrizmCronMonthPipe,
-    PrizmCronWeekPipe,
-  ],
+  imports: [PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public set value(value: string) {
