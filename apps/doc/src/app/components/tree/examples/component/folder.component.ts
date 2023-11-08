@@ -1,5 +1,6 @@
 import { Component, HostListener } from '@angular/core';
-import { PrizmTreeItemContentComponent } from '@prizm-ui/components';
+import { PrizmIconComponent, PrizmTreeItemContentComponent } from '@prizm-ui/components';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-folders',
@@ -8,6 +9,8 @@ import { PrizmTreeItemContentComponent } from '@prizm-ui/components';
     <ng-container [ngTemplateOutlet]="context.template"></ng-container>
   `,
   styleUrls: ['folder.component.less'],
+  standalone: true,
+  imports: [PrizmIconComponent, CommonModule],
 })
 export class FoldersComponent extends PrizmTreeItemContentComponent {
   public get icon(): string {
