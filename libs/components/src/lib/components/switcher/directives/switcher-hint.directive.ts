@@ -4,6 +4,7 @@ import { prizmSwitcherHint } from '../switcher.interface';
 
 @Directive({
   selector: '[prizmSwitcherHint]',
+  standalone: true,
 })
 export class PrizmSwitcherHintDirective implements OnInit, OnChanges, OnDestroy {
   readonly prizmHint_ = new PrizmHintDirective();
