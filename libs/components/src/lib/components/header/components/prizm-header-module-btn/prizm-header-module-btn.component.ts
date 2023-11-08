@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IndicatorStatus } from '../../../indicator/indicator.models';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonModule } from '../../../button';
+import { PrizmHintDirective } from '../../../../directives';
 
 @Component({
   selector: 'prizm-header-module-btn',
@@ -9,7 +10,7 @@ import { PrizmButtonModule } from '../../../button';
   styleUrls: ['./prizm-header-module-btn.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, PrizmButtonModule],
+  imports: [CommonModule, PrizmButtonModule, PrizmHintDirective],
 })
 export class PrizmHeaderModuleBtnComponent {
   @Input() public icon = 'alerts-bell';
