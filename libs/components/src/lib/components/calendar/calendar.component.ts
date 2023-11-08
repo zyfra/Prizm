@@ -15,18 +15,12 @@ import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PrizmDayWithStatus } from '../../@core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import {
-  PrizmPrimitiveCalendarComponent,
-  PrizmPrimitiveCalendarModule,
-  PrizmPrimitiveMonthPickerComponent,
-  PrizmPrimitiveMonthPickerModule,
-  PrizmPrimitiveYearMonthPaginationComponent,
-  PrizmPrimitiveYearMonthPaginationModule,
-  PrizmPrimitiveYearPickerComponent,
-  PrizmPrimitiveYearPickerModule,
-} from '../internal';
+import { PrizmPrimitiveCalendarComponent } from '../internal/primitive-calendar';
 import { PrizmScrollbarModule } from '../scrollbar';
 import { PrizmMapperPipeModule } from '../../pipes';
+import { PrizmPrimitiveYearMonthPaginationComponent } from '../internal/primitive-year-month-pagination/primitive-year-month-pagination.component';
+import { PrizmPrimitiveMonthPickerComponent } from '../internal/primitive-month-picker/primitive-month-picker.component';
+import { PrizmPrimitiveYearPickerComponent } from '../internal/primitive-year-picker/primitive-year-picker.component';
 
 @Component({
   selector: `prizm-calendar`,
