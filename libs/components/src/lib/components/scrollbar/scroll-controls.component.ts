@@ -1,4 +1,4 @@
-import { DOCUMENT, NgIf } from '@angular/common';
+import { AsyncPipe, DOCUMENT, NgIf } from '@angular/common';
 import { ChangeDetectionStrategy, Component, ElementRef, Inject, NgZone, Optional } from '@angular/core';
 import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
@@ -22,6 +22,7 @@ import { PrizmScrollbarDirective } from './scrollbar.directive';
   standalone: true,
   imports: [
     NgIf,
+    AsyncPipe,
     PrizmLetDirective,
     PrizmThemeModule,
     PrizmScrollbarWrapperDirective,
