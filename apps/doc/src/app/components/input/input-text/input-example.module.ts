@@ -3,7 +3,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {
   PrizmButtonModule,
+  PrizmHintDirective,
   PrizmHintModule,
+  PrizmIconComponent,
   PrizmIconModule,
   PrizmInputTextModule,
 } from '@prizm-ui/components';
@@ -26,10 +28,10 @@ import { InputCustomClearButtonExampleComponent } from './examples/input-custom-
 
 @NgModule({
   imports: [
-    PrizmHintModule,
+    PrizmHintDirective,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
-    PrizmIconModule,
+    PrizmIconComponent,
     PrizmInputTextModule,
     PrizmButtonModule,
     ReactiveFormsModule,

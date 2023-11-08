@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { CommonModule } from '@angular/common';
 
 /**
  * @deprecated
@@ -11,7 +10,6 @@ import { CommonModule } from '@angular/common';
   styleUrls: ['./icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule],
 })
 export class PrizmIconComponent extends PrizmAbstractTestId {
   @Input() iconClass: string | null = null;
