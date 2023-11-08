@@ -1,11 +1,12 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { PolymorphModule } from '../../directives/polymorph';
 import { PrizmSpinnerComponent } from './spinner.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [CommonModule, PolymorphModule],
-  declarations: [PrizmSpinnerComponent],
+  imports: [PrizmSpinnerComponent],
   exports: [PrizmSpinnerComponent],
 })
 export class PrizmSpinnerModule {}
