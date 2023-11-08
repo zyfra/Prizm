@@ -10,17 +10,12 @@ import { PrizmButtonModule } from '../button';
 import { PrizmHintModule } from '../../directives';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmHeaderComponent, PrizmHeaderDropdownComponent, PrizmHeaderModuleBtnComponent],
-  imports: [
-    CommonModule,
-    PrizmIconModule,
-    PrizmThemeModule,
-    PrizmDropdownHostModule,
-    PrizmDataListModule,
-    PrizmButtonModule,
-    PrizmHintModule,
-  ],
+  imports: [PrizmHeaderComponent, PrizmHeaderDropdownComponent, PrizmHeaderModuleBtnComponent],
   exports: [PrizmHeaderComponent, PrizmHeaderDropdownComponent, PrizmHeaderModuleBtnComponent],
 })
 export class PrizmHeaderModule {}

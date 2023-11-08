@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 
 /**
@@ -9,8 +9,9 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
-export class IconComponent extends PrizmAbstractTestId {
+export class PrizmIconComponent extends PrizmAbstractTestId {
   @Input() iconClass: string | null = null;
   @Input() size: string | number = 16;
 

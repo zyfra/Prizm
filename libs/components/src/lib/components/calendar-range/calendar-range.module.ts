@@ -9,18 +9,12 @@ import { PrizmDataListModule } from '../data-list/data-list.module';
 import { PrizmButtonModule } from '../button';
 import { PrizmIconModule } from '../icon';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmMapperPipeModule,
-    PrizmButtonModule,
-    PrizmPreventDefaultModule,
-    PrizmCalendarModule,
-    PrizmIconModule,
-    PrizmDataListModule,
-    PrizmPrimitiveCalendarRangeModule,
-  ],
-  declarations: [PrizmCalendarRangeComponent],
+  imports: [PrizmCalendarRangeComponent],
   exports: [PrizmCalendarRangeComponent],
 })
 export class PrizmCalendarRangeModule {}

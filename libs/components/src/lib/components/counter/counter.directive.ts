@@ -15,6 +15,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Directive({
   selector: '[prizmCounter]',
+  standalone: true,
 })
 export class PrizmCounterDirective implements OnChanges, OnDestroy {
   @Input()

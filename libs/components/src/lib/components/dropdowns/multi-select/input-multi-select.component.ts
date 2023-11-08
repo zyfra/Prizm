@@ -10,12 +10,19 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { NG_VALUE_ACCESSOR, UntypedFormControl } from '@angular/forms';
-import { PolymorphContent } from '../../../directives';
+import { PrizmCallFuncModule, PrizmDestroyService, PrizmLetModule } from '@prizm-ui/helpers';
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
+import {
+  PolymorphContent,
+  PolymorphModule,
+  PrizmAutoFocusModule,
+  PrizmDropdownControllerModule,
+  PrizmHintModule,
+  PrizmLifecycleModule,
+} from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
-import { PrizmInputControl, PrizmInputNgControl } from '../../input';
+import { PrizmInputControl, PrizmInputNgControl, PrizmInputTextModule } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
@@ -23,6 +30,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import {
   PrizmDropdownHostClasses,
   PrizmDropdownHostComponent,
+  PrizmDropdownHostModule,
   PrizmDropdownHostStyles,
 } from '../dropdown-host';
 import {
@@ -32,7 +40,13 @@ import {
   PrizmMultiSelectSearchMatcher,
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
-import { PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmScrollbarModule, PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmOverlayModule } from '../../../modules';
+import { PrizmChipsModule } from '../../chips';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../../icon';
+import { PrizmDataListModule } from '../../data-list';
+import { PrizmCheckboxModule } from '../../checkbox';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -40,6 +54,27 @@ import { PrizmScrollbarVisibility } from '../../scrollbar';
   templateUrl: './input-multi-select.component.html',
   styleUrls: ['./input-multi-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    PrizmOverlayModule,
+    PolymorphModule,
+    PrizmInputTextModule,
+    PrizmChipsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    PrizmLetModule,
+    PrizmHintModule,
+    PrizmIconModule,
+    PrizmCallFuncModule,
+    PrizmAutoFocusModule,
+    PrizmScrollbarModule,
+    PrizmDropdownControllerModule,
+    PrizmDataListModule,
+    PrizmCheckboxModule,
+    PrizmLifecycleModule,
+    PrizmDropdownHostModule,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
