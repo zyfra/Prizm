@@ -17,6 +17,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { shareReplay, switchMap } from 'rxjs/operators';
 import { PrizmScrollbarVisibility } from './scrollbar.model';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmScrollControlsComponent } from './scroll-controls.component';
+import { AsyncPipe } from '@angular/common';
 
 export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent): ElementRef<HTMLElement> {
   return browserScrollRef;
@@ -27,6 +29,8 @@ export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent):
   templateUrl: './scrollbar.component.html',
   styleUrls: ['./scrollbar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [PrizmScrollControlsComponent, AsyncPipe],
   providers: [
     {
       provide: PRIZM_SCROLL_REF,

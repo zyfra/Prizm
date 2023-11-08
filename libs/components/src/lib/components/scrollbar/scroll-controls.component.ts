@@ -1,13 +1,5 @@
-import { DOCUMENT } from '@angular/common';
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  HostBinding,
-  Inject,
-  NgZone,
-  Optional,
-} from '@angular/core';
+import { DOCUMENT, NgIf } from '@angular/common';
+import { ChangeDetectionStrategy, Component, ElementRef, Inject, NgZone, Optional } from '@angular/core';
 import { ANIMATION_FRAME } from '@ng-web-apis/common';
 import { Observable } from 'rxjs';
 import { distinctUntilChanged, map, startWith, throttleTime } from 'rxjs/operators';
@@ -16,6 +8,10 @@ import { prizmZoneOptimized } from '../../observables';
 import { PRIZM_ANIMATION_OPTIONS, PRIZM_SCROLL_REF } from '../../tokens';
 import { AnimationOptions } from '@angular/animations';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmLetDirective } from '@prizm-ui/helpers';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
+import { PrizmScrollbarDirective } from './scrollbar.directive';
 
 @Component({
   selector: 'prizm-scroll-controls',
@@ -23,6 +19,14 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   styleUrls: ['./scroll-controls.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [prizmFadeIn],
+  standalone: true,
+  imports: [
+    NgIf,
+    PrizmLetDirective,
+    PrizmThemeModule,
+    PrizmScrollbarWrapperDirective,
+    PrizmScrollbarDirective,
+  ],
 })
 export class PrizmScrollControlsComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_scroll_controls';

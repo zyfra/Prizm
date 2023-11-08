@@ -9,5 +9,6 @@ import { PRIZM_ELEMENT_REF } from '../../tokens/element-ref';
       useExisting: ElementRef,
     },
   ],
+  standalone: true,
 })
 export class PrizmScrollbarWrapperDirective {}
