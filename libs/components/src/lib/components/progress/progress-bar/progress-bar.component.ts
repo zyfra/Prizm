@@ -8,6 +8,7 @@ import { PrizmSizeM, PrizmSizeS } from '../../../util/size-bigger';
   template: ``,
   styleUrls: [`./progress-bar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class PrizmProgressBarComponent extends PrizmAbstractTestId {
   @Input()
