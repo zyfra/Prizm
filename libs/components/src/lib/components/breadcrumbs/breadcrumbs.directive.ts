@@ -4,6 +4,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Directive({
   selector: 'ng-template[prizmBreadcrumb]',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmBreadcrumbDirective implements OnDestroy {
   constructor(

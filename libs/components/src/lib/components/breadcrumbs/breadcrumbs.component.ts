@@ -20,6 +20,9 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../icon';
+import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 
 @Component({
   selector: 'prizm-breadcrumbs',
@@ -27,6 +30,13 @@ import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
   styleUrls: ['./breadcrumbs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [
+    CommonModule,
+    // TODO !ng16 change all icon module to svg module
+    PrizmIconModule,
+    PrizmDropdownHostModule,
+  ],
 })
 export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   extends PrizmAbstractTestId
