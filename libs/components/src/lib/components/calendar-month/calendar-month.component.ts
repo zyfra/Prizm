@@ -24,6 +24,17 @@ import { PrizmBooleanHandlerWithContext } from '../../types/handler-with-context
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
 import { prizmI18nInitWithKey } from '../../services';
+import { CommonModule } from '@angular/common';
+import {
+  PrizmFocusableModule,
+  PrizmHoveredModule,
+  PrizmPressedModule,
+  PrizmStopPropagationModule,
+} from '../../directives';
+import { PrizmPrimitiveSpinButtonModule, PrizmPrimitiveYearPickerModule } from '../internal';
+import { PrizmScrollbarModule } from '../scrollbar';
+import { PrizmLinkModule } from '../link';
+import { PrizmLetModule } from '@prizm-ui/helpers';
 
 const TODAY = PrizmDay.currentLocal();
 
@@ -31,6 +42,19 @@ const TODAY = PrizmDay.currentLocal();
   selector: `prizm-calendar-month`,
   templateUrl: `./calendar-month.component.html`,
   styleUrls: [`./calendar-month.component.less`],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmStopPropagationModule,
+    PrizmPrimitiveYearPickerModule,
+    PrizmPrimitiveSpinButtonModule,
+    PrizmScrollbarModule,
+    PrizmLinkModule,
+    PrizmLetModule,
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmFocusableModule,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [...prizmI18nInitWithKey(PRIZM_CALENDAR_MONTHS, 'shortCalendarMonths')],
 })
