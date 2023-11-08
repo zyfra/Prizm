@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 import { PrizmCounterDirective } from './counter.directive';
 import { PrizmCounterComponent } from './counter.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [CommonModule],
-  declarations: [PrizmCounterDirective, PrizmCounterComponent],
+  imports: [PrizmCounterDirective, PrizmCounterComponent],
   exports: [PrizmCounterDirective, PrizmCounterComponent],
 })
 export class PrizmCounterModule {}
