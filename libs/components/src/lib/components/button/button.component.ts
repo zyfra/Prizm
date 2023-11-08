@@ -27,9 +27,10 @@ import { PrizmHoveredService } from '../../services';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PolymorphOutletDirective, PrizmWrapperComponent } from '../../directives';
 import { PrizmIconModule } from '../icon';
 import { PrizmLoaderModule } from '../loader';
+import { PrizmWrapperComponent } from '../../directives/wrapper/wrapper.component';
+import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
