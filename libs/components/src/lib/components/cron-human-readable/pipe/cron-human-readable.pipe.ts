@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 
 @Pipe({
   name: 'prizmCronHumanReadable',
+  standalone: true,
 })
 export class PrizmCronHumanReadablePipe implements PipeTransform {
   readonly cdRef = inject(ChangeDetectorRef);

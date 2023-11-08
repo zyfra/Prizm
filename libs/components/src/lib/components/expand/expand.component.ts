@@ -1,4 +1,4 @@
-import { NgIfContext } from '@angular/common';
+import { CommonModule, NgIfContext } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -18,6 +18,7 @@ import { prizmIsCurrentTarget } from '../../util/dom';
 import { PrizmExpandContentDirective } from './expand-content.directive';
 import { PRIZM_EXPAND_LOADED } from './expand.const';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmLoaderModule } from '../loader';
 
 enum State {
   Idle,
@@ -33,6 +34,8 @@ const LOADER_HEIGHT = 48;
   templateUrl: './expand.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./expand.component.less'],
+  standalone: true,
+  imports: [CommonModule, PrizmLoaderModule],
 })
 export class PrizmExpandComponent extends PrizmAbstractTestId {
   @ViewChild('wrapper')

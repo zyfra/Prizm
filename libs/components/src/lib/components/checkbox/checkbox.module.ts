@@ -4,9 +4,12 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmCheckboxComponent } from './checkbox.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmCheckboxComponent],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [PrizmCheckboxComponent],
   exports: [PrizmCheckboxComponent],
 })
 export class PrizmCheckboxModule {}

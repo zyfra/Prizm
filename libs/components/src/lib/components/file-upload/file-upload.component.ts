@@ -13,7 +13,12 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import {
+  PrizmDestroyService,
+  PrizmLetModule,
+  PrizmPluckPipeModule,
+  PrizmSanitizerPipeModule,
+} from '@prizm-ui/helpers';
 import { PrizmFilesProgress, PrizmFileValidationErrors } from './types';
 import {
   PRIZM_FILEUPLOAD_OPTIONS,
@@ -26,12 +31,26 @@ import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 import { prizmI18nInitWithKey } from '../../services';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PrizmButtonModule } from '../button';
+import { PrizmProgressModule } from '../progress';
+import { PrizmIconModule } from '../icon';
 
 @Component({
   selector: 'prizm-file-upload',
   templateUrl: './file-upload.component.html',
   styleUrls: ['./file-upload.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  imports: [
+    CommonModule,
+    PrizmPluckPipeModule,
+    PrizmSanitizerPipeModule,
+    PrizmButtonModule,
+    PrizmProgressModule,
+    PrizmIconModule,
+    PrizmLetModule,
+  ],
+  standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
 })
 export class PrizmFileUploadComponent extends PrizmAbstractTestId implements AfterViewInit, OnDestroy {

@@ -9,22 +9,25 @@ import {
   ViewChild,
   HostBinding,
 } from '@angular/core';
-import { GridItemComponent } from './components/grid-item/grid-item.component';
+import { PrizmGridItemComponent } from './components/grid-item/grid-item.component';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule],
 })
-export class GridComponent extends PrizmAbstractTestId implements AfterContentInit {
+export class PrizmGridComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() @HostBinding('attr.columns') public cols: '8' | '12' = '12';
   @Input() public rows = '10';
 
   @ViewChild('container', { static: true }) container!: ElementRef;
-  @ContentChildren(GridItemComponent, { read: ElementRef }) public gridItems!: QueryList<ElementRef>;
-  @ContentChildren(GridItemComponent) public gridItemsData!: QueryList<GridItemComponent>;
+  @ContentChildren(PrizmGridItemComponent, { read: ElementRef }) public gridItems!: QueryList<ElementRef>;
+  @ContentChildren(PrizmGridItemComponent) public gridItemsData!: QueryList<PrizmGridItemComponent>;
 
   override readonly testId_ = 'ui-area--grid';
 

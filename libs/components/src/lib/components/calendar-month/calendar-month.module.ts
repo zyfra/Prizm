@@ -11,20 +11,12 @@ import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
 import { PrizmCalendarMonthComponent } from './calendar-month.component';
 import { PrizmStopPropagationModule } from '../../directives/stop-propagation/stop-propagation.module';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmStopPropagationModule,
-    PrizmPrimitiveYearPickerModule,
-    PrizmPrimitiveSpinButtonModule,
-    PrizmScrollbarModule,
-    PrizmLinkModule,
-    PrizmLetModule,
-    PrizmHoveredModule,
-    PrizmPressedModule,
-    PrizmFocusableModule,
-  ],
-  declarations: [PrizmCalendarMonthComponent],
+  imports: [PrizmCalendarMonthComponent],
   exports: [PrizmCalendarMonthComponent],
 })
 export class PrizmCalendarMonthModule {}
