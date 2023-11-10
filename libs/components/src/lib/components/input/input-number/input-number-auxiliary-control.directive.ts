@@ -3,6 +3,7 @@ import { PrizmInputNumberComponent } from './input-number.component';
 
 @Directive({
   selector: '[prizmInputNumberAuxiliaryControl]',
+  standalone: true,
 })
 export class PrizmInputNumberAuxiliaryControlDirective {
   @Input('prizmInputNumberAuxiliaryControl') type!: 'increment' | 'decrement';
