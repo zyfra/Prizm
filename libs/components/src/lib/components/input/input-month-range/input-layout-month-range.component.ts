@@ -8,7 +8,7 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { PrizmMonthPipe } from '../../../pipes/month/month.pipe';
 import { PRIZM_MONTH_FORMATTER_PROVIDER } from '../../../providers/month-formatter.provider';
@@ -28,6 +28,12 @@ import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PRIZM_MONTHS } from '../../../tokens';
+import { CommonModule } from '@angular/common';
+import { PrizmLifecycleModule, PrizmPreventDefaultModule } from '../../../directives';
+import { PrizmCalendarMonthModule } from '../../calendar-month';
+import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
+import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
+import { PrizmInputTextModule } from '../input-text';
 
 @Component({
   selector: `prizm-input-layout-month-range`,
@@ -45,6 +51,17 @@ import { PRIZM_MONTHS } from '../../../tokens';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutMonthRangeComponent },
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmLifecycleModule,
+    PrizmCalendarMonthModule,
+    PrizmDropdownHostModule,
+    PrizmPreventDefaultModule,
+    PrizmMapperPipeModule,
+    PrizmInputTextModule,
+    FormsModule,
   ],
 })
 export class PrizmInputLayoutMonthRangeComponent extends PrizmInputNgControl<PrizmMonthRange | null> {

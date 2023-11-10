@@ -15,6 +15,7 @@ import { PrizmMonth } from '../../../@core/date-time/month';
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: `prizm-input-month-range`,
   providers: [prizmAsTextfieldHost(PrizmInputLayoutMonthRangeDirective), PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmInputLayoutMonthRangeDirective
   extends AbstractPrizmTextfieldHost<PrizmInputMonthRangeComponent>
