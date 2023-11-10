@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   forwardRef,
-  HostBinding,
   Inject,
   Injector,
   Input,
@@ -41,24 +40,25 @@ import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
+import { PrizmLifecycleModule } from '../../../directives/lifecycle';
+import { PolymorphOutletDirective } from '../../../directives/polymorph';
 import {
-  PolymorphModule,
-  PolymorphOutletDirective,
   PrizmInputNativeValueModule,
   PrizmInputNativeValueNeedChange,
-  PrizmLifecycleModule,
-  PrizmPreventDefaultModule,
-  PrizmValueAccessorModule,
-} from '../../../directives';
-import { CommonModule, DOCUMENT, NgFor, NgIf } from '@angular/common';
-import { prizmI18nInitWithKey, prizmI18nInitWithKeys } from '../../../services';
-import { PrizmDropdownHostComponent, PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
-import { PrizmInputTextModule } from '../input-text';
-import { PrizmMaskModule } from '../../../modules';
-import { PrizmDataListComponent, PrizmDataListModule } from '../../data-list';
-import { PrizmIconComponent, PrizmIconModule } from '../../icon';
-import { PrizmCalendarModule } from '../../calendar';
-import { PrizmLinkModule } from '../../link';
+} from '../../../directives/native-value';
+import { DOCUMENT, NgFor, NgIf } from '@angular/common';
+import { prizmI18nInitWithKeys } from '../../../services';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host/dropdown-host.component';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmMaskModule } from '../../../modules/mask/mask.module';
+import { PrizmDataListComponent } from '../../data-list/data-list.component';
+import { PrizmIconComponent } from '../../icon/icon.component';
+import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
+import { PrizmCalendarModule } from '../../calendar/calendar.module';
+import { PrizmLinkModule } from '../../link/link.module';
+import { PrizmCalendarComponent } from '../../calendar';
+import { PrizmLinkComponent } from '../../link';
+import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -93,14 +93,13 @@ import { PrizmLinkModule } from '../../link';
     PrizmMaskModule,
     PrizmDataListComponent,
     PolymorphOutletDirective,
-    PrizmInputTextModule,
     PrizmIconComponent,
     PrizmInputZoneModule,
     FormsModule,
     PrizmLifecycleModule,
     PrizmPreventDefaultModule,
-    PrizmCalendarModule,
-    PrizmLinkModule,
+    PrizmCalendarComponent,
+    PrizmLinkComponent,
     PrizmDropdownHostComponent,
     PrizmValueAccessorModule,
     PrizmInputNativeValueModule,
@@ -279,7 +278,7 @@ export class PrizmInputLayoutDateTimeComponent
     const currentNewValue = currentValue.replace(/[^0-9]/g, '');
 
     if (newNativeValue.length !== 4) return false;
-    if (newNativeValue.length !== 4) return false;
+    if (currentNewValue.length !== 4) return false;
     if (newNativeValue === currentNewValue) return false;
     return true;
   };
@@ -305,7 +304,7 @@ export class PrizmInputLayoutDateTimeComponent
 
     this.nativeValue$$.next([value, this.nativeValue$$.value[1]]);
 
-    if (!value || value.length < this.textMaskOptions.length) {
+    if (!value || value.length < this.textMaskOptions.length || this.isValueMasked(value)) {
       if (!value) this.updateValue([null, this.value?.[1] ?? null]);
       return;
     }
@@ -333,7 +332,7 @@ export class PrizmInputLayoutDateTimeComponent
     if (value === this.computedTimeValue()) return;
     this.nativeValue$$.next([this.nativeValue$$.value[0], value]);
 
-    if (!value || value.length < this.timeMaskOptions.length) {
+    if (!value || value.length < this.timeMaskOptions.length || this.isValueMasked(value)) {
       if (!value) this.updateValue([this.value?.[0] ?? null, null]);
       return;
     }
@@ -511,5 +510,9 @@ export class PrizmInputLayoutDateTimeComponent
         })
       )
       .subscribe();
+  }
+
+  private isValueMasked(value: string): boolean {
+    return value.includes('_');
   }
 }
