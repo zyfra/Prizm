@@ -18,13 +18,39 @@ import { AbstractPrizmControl } from '../../abstract/control';
 import { prizmIsNativeFocused, PrizmSize, PrizmSizeL, PrizmSizeM } from '../../util';
 import { PrizmNativeFocusableElement } from '../../types/focusable-element-accessor';
 import { PrizmAppearance } from '../../types/appearance.types';
+import { CommonModule } from '@angular/common';
+import {
+  PolymorphModule,
+  PrizmCheckedModule,
+  PrizmFocusableModule,
+  PrizmFocusedModule,
+  PrizmFocusVisibleModule,
+  PrizmHoveredModule,
+  PrizmPressedModule,
+  PrizmWrapperModule,
+} from '../../directives';
+import { PrizmLoaderModule } from '../loader';
+import { PrizmIconModule } from '../icon';
 
 @Component({
   selector: 'prizm-toggle',
   templateUrl: './toggle.component.html',
   styleUrls: ['./toggle.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmFocusedModule,
+    PrizmFocusableModule,
+    PrizmFocusVisibleModule,
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmCheckedModule,
+    PrizmWrapperModule,
+    PrizmLoaderModule,
+    PolymorphModule,
+    PrizmIconModule,
+  ],
 })
 export class PrizmToggleComponent extends AbstractPrizmControl<boolean> {
   @ViewChild('focusableElement')
