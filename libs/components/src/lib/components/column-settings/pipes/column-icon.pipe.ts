@@ -3,6 +3,7 @@ import { PrizmColumnStatus } from '../column-settings.model';
 
 @Pipe({
   name: 'prizmColumnIcon',
+  standalone: true,
 })
 export class PrizmColumnIconPipe implements PipeTransform {
   public transform(status: PrizmColumnStatus): string {
