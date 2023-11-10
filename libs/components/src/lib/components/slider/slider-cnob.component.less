@@ -4,8 +4,8 @@
   border-radius: 100%;
   width: 20px;
   height: 20px;
-  border: 2px solid var(--prizm-grey-g13-g1);
-  background-color: var(--prizm-exeptions-g1-b1);
+  border: 2px solid var(--prizm-v3-background-fill-primary);
+  background-color: var(--prizm-v3-button-primary-solid-default);
   position: relative;
 
   &::before {
@@ -18,12 +18,12 @@
     bottom: 0;
     border-radius: 100%;
     outline-offset: 2px;
-    outline: 2px solid var(--prizm-palette-b1-20);
+    outline: 2px solid var(--prizm-v3-background-stroke-focus);
     visibility: hidden;
   }
 
   &:hover {
-    background-color: var(--prizm-palette-b2);
+    background-color: var(--prizm-v3-button-primary-solid-hover);
   }
 
   &:focus {
@@ -38,14 +38,14 @@
   }
 
   &:active {
-    background-color: var(--prizm-palette-b3);
+    background-color: var(--prizm-v3-button-primary-solid-active);
     &::before {
       visibility: hidden;
     }
   }
 
   &[disabled] {
-    background-color: var(--prizm-grey-g7-g7);
+    background-color: var(--prizm-v3-text-icon-disable);
     &:hover {
       cursor: not-allowed;
     }

@@ -38,6 +38,8 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   exportAs: `prizmLink`,
+  standalone: true,
+  imports: [PrizmLinkComponent],
 })
 export class PrizmLinkComponent extends PrizmAbstractTestId implements PrizmFocusableElementAccessor {
   @Input()

@@ -4,7 +4,6 @@ import {
   Component,
   ContentChild,
   forwardRef,
-  HostBinding,
   Inject,
   Injector,
   Input,
@@ -13,7 +12,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable, of } from 'rxjs';
 import { PrizmDayRange } from '../../../@core/date-time/day-range';
 import { PrizmDay } from '../../../@core/date-time/day';
@@ -34,7 +33,7 @@ import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
 import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
@@ -45,12 +44,25 @@ import {
   PrizmTime,
   PrizmTimeRange,
 } from '../../../@core';
-import { PrizmInputZoneDirective } from '../../../directives/input-zone';
+import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { PrizmDateButton, PrizmTimeMode } from '../../../types';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
 import { PrizmDateTimeMinMax } from './model';
 import { prizmI18nInitWithKeys } from '../../../services';
+import { CommonModule } from '@angular/common';
+import { PrizmMaskModule } from '../../../modules';
+import {
+  PolymorphOutletDirective,
+  PrizmLifecycleModule,
+  PrizmValueAccessorModule,
+} from '../../../directives';
+import { PrizmDataListComponent } from '../../data-list';
+import { PrizmInputLayoutTimeModule } from '../input-time';
+import { PrizmInputTextModule } from '../input-text';
+import { PrizmIconComponent } from '../../icon';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
+import { PrizmCalendarRangeComponent } from '../../calendar-range';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -71,6 +83,24 @@ import { prizmI18nInitWithKeys } from '../../../services';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateTimeRangeComponent },
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmInputLayoutDateTimeRangeComponent,
+    PrizmMaskModule,
+    PrizmInputZoneModule,
+    PrizmLifecycleModule,
+    PrizmLetDirective,
+    PrizmDataListComponent,
+    PrizmInputLayoutTimeModule,
+    PolymorphOutletDirective,
+    PrizmInputTextModule,
+    PrizmIconComponent,
+    PrizmDropdownHostComponent,
+    PrizmCalendarRangeComponent,
+    PrizmValueAccessorModule,
+    FormsModule,
   ],
 })
 export class PrizmInputLayoutDateTimeRangeComponent

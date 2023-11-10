@@ -10,9 +10,9 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmLanguageInputLayoutDateRelative } from '@prizm-ui/i18n';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
 
@@ -26,11 +26,17 @@ import {
   RelativeDateTimeId,
 } from './input-date-relative.models';
 import { ParseTextInput, RenderText, UpdateActiveItem } from './input-date-relative.utils';
-import { PrizmInputStatusTextDirective, PrizmInputNgControl, PrizmInputControl } from '../common';
+import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective } from '../common';
 import { PRIZM_DATE_RIGHT_BUTTONS, PRIZM_INPUT_LAYOUT_DATE_RELATIVE } from '../../../tokens';
 import { PrizmDateButton } from '../../../types';
 import { prizmI18nInitWithKey } from '../../../services';
 import { prizmIsNativeFocusedIn } from '../../../util';
+import { CommonModule } from '@angular/common';
+import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
+import { PrizmInputTextModule } from '../input-text';
+import { PrizmIconComponent } from '../../icon';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
+import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relative.directive';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -49,6 +55,19 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
     ...prizmI18nInitWithKey(PRIZM_INPUT_LAYOUT_DATE_RELATIVE, 'inputLayoutDateRelative'),
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PolymorphOutletDirective,
+    PrizmLifecycleModule,
+    FormsModule,
+    PrizmInputTextModule,
+    PrizmPluckPipe,
+    PrizmIconComponent,
+    ReactiveFormsModule,
+    PrizmInputLayoutDateRelativeDirective,
+    PrizmDropdownHostComponent,
+  ],
 })
 export class PrizmInputLayoutDateRelativeComponent
   extends PrizmInputNgControl<string | null>

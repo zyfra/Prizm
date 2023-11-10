@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { map } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from '../hint/hint-container.component';
 
 @Component({

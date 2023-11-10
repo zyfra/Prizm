@@ -76,7 +76,6 @@
           <button
             class="page"
             [disabled]="disabled"
-            [class.page_disabled]="disabled"
             (click)="changePage(pagingData.left)"
             prizmButton
             appearanceType="ghost"
@@ -98,8 +97,7 @@
           class="page"
           *ngFor="let page of pagingData.mid"
           [disabled]="disabled"
-          [class.page_disabled]="disabled"
-          [class.page_selected]="page === currentPage"
+          [pseudoPressed]="page === currentPage"
           (click)="changePage(page)"
           prizmButton
           appearanceType="ghost"
@@ -172,10 +170,12 @@
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
       <button
-        class="show-more"
         [disabled]="disabled || showMoreDisabled"
-        [class.show-more_disabled]="disabled || showMoreDisabled"
         (click)="increase()"
+        prizmButton
+        appearanceType="ghost"
+        appearance="primary"
+        size="m"
       >
         {{ moreButtonLabel }}
       </button>

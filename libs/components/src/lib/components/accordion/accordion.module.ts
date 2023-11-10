@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PrizmAccordionComponent } from './accordion.component';
-import { AccordionContentDirective } from './directives/accordion-content.directive';
+import { PrizmAccordionContentDirective } from './directives/accordion-content.directive';
 import { AccordionToolsDirective } from './directives/accordion-tools.directive';
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 
@@ -11,13 +11,13 @@ import { PrizmAccordionItemComponent } from './components/accordion-item/accordi
 @NgModule({
   imports: [
     PrizmAccordionComponent,
-    AccordionContentDirective,
+    PrizmAccordionContentDirective,
     AccordionToolsDirective,
     PrizmAccordionItemComponent,
   ],
   exports: [
     PrizmAccordionComponent,
-    AccordionContentDirective,
+    PrizmAccordionContentDirective,
     AccordionToolsDirective,
     PrizmAccordionItemComponent,
   ],

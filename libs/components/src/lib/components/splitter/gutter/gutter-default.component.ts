@@ -10,6 +10,7 @@ import { PrizmSplitterOrientation } from '../types';
   host: {
     '[class]': 'orientation',
   },
+  standalone: true,
 })
 export class PrizmSplitterGutterDefaultComponent {
   @Input() orientation!: PrizmSplitterOrientation;

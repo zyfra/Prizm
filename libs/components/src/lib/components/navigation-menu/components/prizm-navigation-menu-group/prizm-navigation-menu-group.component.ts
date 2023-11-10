@@ -26,6 +26,15 @@ import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigati
 import { PrizmNavigationMenuItemsComponent } from '../prizm-navigation-menu-items/prizm-navigation-menu-items.component';
 import { PrizmHandler } from '../../../../../lib/types';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PolymorphOutletDirective } from '../../../../directives';
+import {
+  PrizmAccordionComponent,
+  PrizmAccordionContentDirective,
+  PrizmAccordionItemComponent,
+} from '../../../accordion';
+import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
 
 @Component({
   selector: 'prizm-navigation-menu-group',
@@ -33,6 +42,17 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   styleUrls: ['./prizm-navigation-menu-group.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmNavigationMenuToolbarService, PrizmNavigationMenuGroupService],
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    PrizmAccordionItemComponent,
+    PrizmAccordionComponent,
+    PrizmNavigationMenuToolbarComponent,
+    PrizmNavigationMenuItemsComponent,
+    PrizmAccordionContentDirective,
+    PolymorphOutletDirective,
+  ],
 })
 export class PrizmNavigationMenuGroupComponent<
     UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }

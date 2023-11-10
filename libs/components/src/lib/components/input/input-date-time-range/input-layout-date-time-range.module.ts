@@ -15,24 +15,12 @@ import { PrizmLifecycleModule } from '../../../directives/lifecycle/lifecycle.mo
 import { PrizmDataListModule } from '../../data-list';
 import { PrizmInputLayoutTimeModule } from '../input-time';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmMaskModule,
-    PrizmInputZoneModule,
-    PrizmLifecycleModule,
-    PrizmLetModule,
-    PrizmDataListModule,
-    PrizmInputLayoutTimeModule,
-    PolymorphModule,
-    PrizmInputTextModule,
-    PrizmIconModule,
-    PrizmDropdownHostModule,
-    PrizmCalendarRangeModule,
-    PrizmValueAccessorModule,
-    FormsModule,
-  ],
-  declarations: [PrizmInputLayoutDateTimeRangeComponent],
+  imports: [PrizmInputTextModule, PrizmInputLayoutDateTimeRangeComponent],
   exports: [PrizmInputLayoutDateTimeRangeComponent, PrizmInputTextModule],
 })
 export class PrizmInputLayoutDateTimeRangeModule {}

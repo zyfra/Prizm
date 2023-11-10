@@ -14,13 +14,17 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { noop } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-item.component';
+import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive';
 
 @Component({
   selector: 'prizm-switcher',
   templateUrl: './switcher.component.html',
   styleUrls: ['./switcher.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [],
+  standalone: true,
+  imports: [CommonModule, PrizmSwitcherHintDirective, PrizmSwitcherItemComponent],
 })
 export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor {
   onChange: (v: number) => void = noop;

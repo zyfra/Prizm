@@ -33,6 +33,7 @@ import { PrizmInputHintDirective } from '../common';
   exportAs: 'prizmInput',
   styleUrls: ['../common/styles/input.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmInputTextComponent<VALUE extends string | number | null = string>
   extends PrizmInputControl<VALUE>

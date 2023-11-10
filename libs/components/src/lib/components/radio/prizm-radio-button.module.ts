@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { PrizmRadioButtonComponent } from './prizm-radio-button.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmRadioButtonComponent],
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [PrizmRadioButtonComponent],
   exports: [PrizmRadioButtonComponent],
 })
 export class PrizmRadioButtonModule {}

@@ -9,5 +9,6 @@ import { PRIZM_SCROLL_REF } from '../../tokens';
       useExisting: ElementRef,
     },
   ],
+  standalone: true,
 })
 export class PrizmScrollRefDirective {}

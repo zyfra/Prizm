@@ -22,7 +22,13 @@ prizm-radio-button {
       margin-left: 8px;
       word-break: break-word;
 
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-secondary);
+    }
+
+    &.disabled {
+      .title {
+        color: var(--prizm-v3-text-icon-disable);
+      }
     }
 
     .radio-button {
@@ -30,17 +36,17 @@ prizm-radio-button {
       align-items: center;
       justify-content: center;
 
-      background: var(--prizm-bg-dashboard-forms);
+      background: var(--prizm-v3-form-fill-default);
       box-shadow: 0 0 0 2px transparent;
 
-      border: 1px solid var(--prizm-border-forms);
+      border: 1px solid var(--prizm-v3-form-stroke-default);
       border-radius: 50%;
 
       cursor: pointer;
 
       &__mark {
         border-radius: 50%;
-        background: var(--prizm-exceptions-white);
+        background: var(--prizm-v3-text-icon-exception);
         opacity: 0;
 
         pointer-events: none;
@@ -60,13 +66,13 @@ prizm-radio-button {
       cursor: pointer;
 
       &:focus + .radio-button {
-        box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+        box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
         transition: 0.3s;
       }
 
       &:checked + .radio-button {
-        border-color: var(--prizm-index-plan);
-        background: var(--prizm-index-plan);
+        border-color: var(--prizm-v3-form-active);
+        background: var(--prizm-v3-form-active);
         transition: 0.3s;
 
         .radio-button__mark {
@@ -76,11 +82,17 @@ prizm-radio-button {
       }
 
       &:not(:checked):focus + .radio-button {
-        border-color: var(--prizm-index-plan);
+        border-color: var(--prizm-v3-form-stroke-default);
       }
 
-      &:hover + .radio-button {
-        border-color: var(--prizm-index-plan);
+      &:not(:checked):hover + .radio-button {
+        border-color: var(--prizm-v3-form-stroke-hover);
+        transition: 0.3s;
+      }
+
+      &:checked:hover + .radio-button {
+        border-color: var(--prizm-v3-form-active-hover);
+        background-color: var(--prizm-v3-form-active-hover);
         transition: 0.3s;
       }
     }
@@ -95,12 +107,13 @@ prizm-radio-button {
       pointer-events: none;
 
       & + .radio-button {
-        border-color: var(--prizm-bg-dashboard-forms);
+        border-color: var(--prizm-v3-form-fill-disable);
+        background-color: var(--prizm-v3-form-fill-disable);
       }
 
       &:checked + .radio-button {
-        border-color: var(--prizm-bg-dashboard-forms);
-        background: var(--prizm-index-lock);
+        border-color: var(--prizm-v3-form-active-disable);
+        background: var(--prizm-v3-form-active-disable);
       }
     }
   }

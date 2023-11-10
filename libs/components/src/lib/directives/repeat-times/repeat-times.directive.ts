@@ -18,6 +18,7 @@ export class PrizmRepeatTimesContext implements PrizmContextWithImplicit<number>
  */
 @Directive({
   selector: `[prizmRepeatTimes][prizmRepeatTimesOf]`,
+  standalone: true,
 })
 export class PrizmRepeatTimesDirective {
   @Input()
