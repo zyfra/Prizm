@@ -4,6 +4,7 @@ import { prizmCapitalizeFirstLetter } from '@prizm-ui/core';
 
 @Pipe({
   name: 'prizmCronWeek',
+  standalone: true,
 })
 export class PrizmCronWeekPipe implements PipeTransform {
   readonly datePipe = new DatePipe(this.locale);

@@ -1,7 +1,9 @@
-import { Directive, ElementRef, HostBinding, Input } from '@angular/core';
+import { Directive, ElementRef, HostBinding, inject, Input, Optional } from '@angular/core';
 import { PrizmHintDirective } from '../../../../directives/hint';
 import { PrizmOverlayOutsidePlacement } from '../../../../modules/overlay/models';
 import { prizmIsTextOverflow } from '../../../../util/dom/is-textoverflow';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmInputLayoutComponent } from '../input-layout';
 
 @Directive({
   selector: 'input[prizmHintDirection], input[prizmHintCanShow]',
@@ -25,14 +27,17 @@ export class PrizmInputHintDirective {
 
   private prizmHintCanShow_ = true;
   @Input()
-  set prizmHintCanShow(value: boolean) {
-    this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_ = value;
+  set prizmHintCanShow(value: BooleanInput) {
+    this.prizmHint_.prizmHintCanShow = this.prizmHintCanShow_ = coerceBooleanProperty(value);
   }
   get prizmHintCanShow(): boolean {
     return this.prizmHintCanShow_;
   }
 
-  constructor(private readonly el: ElementRef<HTMLInputElement>) {}
+  readonly layout = inject(PrizmInputLayoutComponent, {
+    optional: true,
+  });
+  readonly el = inject(ElementRef<HTMLInputElement>);
 
   public ngOnInit(): void {
     this.prizmHint_.ngOnInit();
@@ -52,6 +57,7 @@ export class PrizmInputHintDirective {
     } else {
       this.prizmHint_.prizmHintCanShow = prizmIsTextOverflow(this.el.nativeElement);
       this.prizmHint_.prizmHint = this.el.nativeElement.value as any;
+      this.prizmHint_.prizmHintHost = this.layout?.el?.nativeElement ?? null;
     }
     this.hintSyncChanges();
   }

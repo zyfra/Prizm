@@ -43,7 +43,7 @@ span {
       &__chevron {
         display: flex;
 
-        color: var(--prizm-border-icon);
+        color: var(--prizm-v3-text-icon-tertiary);
       }
 
       &__dots {
@@ -54,7 +54,7 @@ span {
       &__dots button {
         &:hover,
         &:focus {
-          color: var(--prizm-index-plan);
+          color: var(--prizm-v3-button-primary-solid-hover);
         }
       }
 
@@ -75,7 +75,7 @@ span {
           font-size: 12px;
           line-height: 16px;
 
-          color: var(--prizm-text-subscript);
+          color: var(--prizm-v3-text-icon-tertiary);
         }
 
         &__icon {
@@ -85,7 +85,7 @@ span {
           align-items: center;
           justify-content: center;
 
-          color: var(--prizm-text-subscript);
+          color: var(--prizm-v3-text-icon-tertiary);
         }
 
         &_active {
@@ -93,20 +93,20 @@ span {
 
           .breadcrumb__name,
           .breadcrumb__icon {
-            color: var(--prizm-text-contrast);
+            color: var(--prizm-v3-text-icon-primary);
           }
         }
 
         &:hover:not(.breadcrumb_active) {
           .breadcrumb__name,
           .breadcrumb__icon {
-            color: var(--prizm-index-plan);
+            color: var(--prizm-v3-button-primary-solid-hover);
             transition: 0.4s;
           }
         }
 
         &:focus:not(.breadcrumb_active) {
-          border-color: var(--prizm-lite-b130-20);
+          border-color: var(--prizm-v3-background-stroke-focus);
         }
       }
     }
@@ -119,7 +119,7 @@ span {
   display: flex;
   flex-direction: column;
 
-  background: var(--prizm-bg-body);
+  background: var(--prizm-v3-background-fill-overlay);
 
   .dropdown-breadcrumb {
     height: 32px;
@@ -141,7 +141,7 @@ span {
       font-size: 14px;
       line-height: 16px;
 
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-secondary);
     }
 
     &__icon {
@@ -151,16 +151,16 @@ span {
       align-items: center;
       justify-content: center;
 
-      color: var(--prizm-text-main);
+      color: var(--prizm-v3-text-icon-secondary);
     }
 
     &:hover,
     &:focus {
-      background: var(--prizm-grey-g12-g2);
+      background: var(--prizm-v3-table-fill-row-hover);
     }
   }
 }
 
 .dots-buttons {
-  color: var(--prizm-border-icon);
+  color: var(--prizm-v3-text-icon-tertiary);
 }

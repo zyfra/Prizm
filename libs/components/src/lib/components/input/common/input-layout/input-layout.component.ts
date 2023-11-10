@@ -20,7 +20,7 @@ import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
-import { PolymorphComponent, PolymorphContent } from '../../../../directives/polymorph';
+import { isPolymorphPrimitive, PolymorphComponent, PolymorphContent } from '../../../../directives/polymorph';
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 
@@ -90,6 +90,7 @@ export class PrizmInputLayoutComponent
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
+    if (this.disabled) return false;
     return typeof this.forceClear === 'boolean'
       ? this.forceClear
       : this.control.hasClearButton &&
@@ -228,4 +229,6 @@ export class PrizmInputLayoutComponent
   protected innerClick(event: MouseEvent) {
     this.innerClick$$.next(event);
   }
+
+  protected readonly isPolymorphPrimitive = isPolymorphPrimitive;
 }
