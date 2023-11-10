@@ -18,7 +18,6 @@ import {
   PrizmCallFuncModule,
   PrizmDestroyService,
   PrizmLetModule,
-  PrizmToObservableModule,
   PrizmToObservablePipe,
 } from '@prizm-ui/helpers';
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
@@ -72,6 +71,7 @@ import { PrizmDataListModule } from '../../data-list';
 import { prizmWatch } from '../../../observables';
 import { PrizmSelectInputItemComponent } from './input-select-item.component';
 import { PrizmInputSelectDataListDirective } from './input-select-data-list.directive';
+import { BooleanInput } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-input-select',
@@ -122,6 +122,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;
 
   @ContentChild(PrizmInputSelectDataListDirective) customItemDataList?: PrizmInputSelectDataListDirective;
+
+  @Input() prizmHintDirection: PrizmOverlayOutsidePlacement = 't';
+
+  @Input() prizmHintCanShow!: BooleanInput;
 
   @Input() set items(data: T[]) {
     this.items$.next(data as any);

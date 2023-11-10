@@ -18,7 +18,6 @@ import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/for
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
-import { PrizmHintDirective } from '../../../directives';
 import { PrizmInputHintDirective } from '../common';
 
 @Component({
