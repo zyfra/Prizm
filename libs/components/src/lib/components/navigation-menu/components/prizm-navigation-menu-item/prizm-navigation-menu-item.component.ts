@@ -9,11 +9,26 @@ import {
 } from '@angular/core';
 import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { PrizmIconsSvgModule } from '@prizm-ui/icons';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { PrizmButtonModule } from '../../../button/button.module';
+import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
+import { PrizmHoveredModule } from '../../../../directives/hovered';
+
 @Component({
   selector: 'prizm-navigation-menu-item',
   templateUrl: './prizm-navigation-menu-item.component.html',
   styleUrls: ['./prizm-navigation-menu-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    PrizmIconsSvgModule,
+    PrizmHoveredModule,
+    NgIf,
+    NgTemplateOutlet,
+    PrizmInputCommonModule,
+    PrizmButtonModule,
+  ],
 })
 export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Output() interaction = new EventEmitter<InternalPrizmNavigationMenuItem<T>>();

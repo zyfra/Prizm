@@ -8,10 +8,11 @@ import {
   Output,
   ViewChild,
 } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { PrizmButtonModule } from '../../../button';
 
 @Component({
   selector: 'prizm-navigation-menu-search',
@@ -19,6 +20,8 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   styleUrls: ['./prizm-navigation-menu-search.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [PrizmButtonModule, ReactiveFormsModule],
 })
 export class PrizmNavigationMenuSearchComponent extends PrizmAbstractTestId implements AfterViewInit {
   @ViewChild('searchInput', {

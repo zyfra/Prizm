@@ -15,13 +15,16 @@ import { PrizmNavigationMenuItemComponent } from '../prizm-navigation-menu-item/
 import { findItem } from '../../helpers/prizm-navigation-menu-items-helpers';
 import { PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER, PrizmNavigationMenuChildrenHandler } from '../../tokens';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { PrizmTreeControllerDirective } from '../../../tree';
+import { PrizmTreeControllerDirective, PrizmTreeModule } from '../../../tree';
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'prizm-navigation-menu-items',
   templateUrl: './prizm-navigation-menu-items.component.html',
   styleUrls: ['./prizm-navigation-menu-items.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [PrizmTreeModule, NgFor, PrizmNavigationMenuItemComponent],
 })
 export class PrizmNavigationMenuItemsComponent<
   T extends { children?: unknown[] }

@@ -3,6 +3,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Directive({
   selector: '[prizmStepperSelectorItem]',
+  standalone: true,
 })
 export class PrizmStepperSelectorItemDirective {
   @Input('prizmStepperSelectorItem') stepIndex = 0;

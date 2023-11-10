@@ -5,6 +5,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Directive({
   selector: '[prizmStepperStep]',
+  standalone: true,
 })
 export class PrizmStepperStepDirective implements OnChanges {
   @Input('prizmStepperStep') index = 0;

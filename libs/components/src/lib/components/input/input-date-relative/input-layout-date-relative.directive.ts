@@ -13,6 +13,7 @@ const ValidationPattern = '(T|\\*)((\\+|\\-)(\\d+)(Y|M|d|h|m|s))?((\\+|\\-)(\\d+
       multi: true,
     },
   ],
+  standalone: true,
 })
 export class PrizmInputLayoutDateRelativeDirective implements Validator {
   public validate(control: AbstractControl): { [key: string]: any } | null {
