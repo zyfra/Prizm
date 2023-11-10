@@ -18,6 +18,7 @@ import { prizmIsEdgeOlderThan } from '../../../util/browser/is-edge-older-than';
   templateUrl: `./progress-circle.component.html`,
   styleUrls: [`./progress-circle.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class PrizmProgressCircleComponent extends PrizmAbstractTestId {
   @ViewChild(`progressCircle`, { static: true })
