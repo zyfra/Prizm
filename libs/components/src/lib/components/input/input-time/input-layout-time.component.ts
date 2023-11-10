@@ -9,7 +9,7 @@ import {
   Input,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PrizmTime } from '../../../@core/date-time/time';
@@ -29,6 +29,17 @@ import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { prizmI18nInitWithKey } from '../../../services';
+import { CommonModule } from '@angular/common';
+import {
+  PrizmDropdownControllerModule,
+  PrizmLifecycleModule,
+  PrizmValueAccessorModule,
+} from '../../../directives';
+import { PrizmMaskModule } from '../../../modules';
+import { PrizmDataListModule } from '../../data-list';
+import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
+import { PrizmInputTextModule } from '../input-text';
+import { PrizmButtonModule } from '../../button';
 
 @Component({
   selector: `prizm-input-layout-time`,
@@ -45,6 +56,19 @@ import { prizmI18nInitWithKey } from '../../../services';
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutTimeComponent },
     PRIZM_FIXED_DROPDOWN_CONTROLLER_PROVIDER,
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmLifecycleModule,
+    PrizmMaskModule,
+    PrizmDataListModule,
+    PrizmDropdownControllerModule,
+    PrizmDropdownHostModule,
+    PrizmInputTextModule,
+    PrizmButtonModule,
+    FormsModule,
+    PrizmValueAccessorModule,
   ],
 })
 export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime | null> {
