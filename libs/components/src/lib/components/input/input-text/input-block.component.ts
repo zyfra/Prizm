@@ -21,6 +21,7 @@ import { PrizmInputTextComponent } from './input-text.component';
     '../common/styles/input.component.less',
     'input-textarea.component.less',
   ],
+  standalone: true,
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputBlockComponent }, PrizmDestroyService],
 })
 export class PrizmInputBlockComponent extends PrizmInputTextComponent implements ControlValueAccessor {
