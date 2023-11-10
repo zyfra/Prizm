@@ -90,6 +90,7 @@ export class PrizmInputLayoutComponent
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
+    if (this.disabled) return false;
     return typeof this.forceClear === 'boolean'
       ? this.forceClear
       : this.control.hasClearButton &&
