@@ -7,9 +7,9 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmSwitcherItem } from '../switcher';
-import { UntypedFormControl } from '@angular/forms';
+import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
+import { PrizmSwitcherItem, PrizmSwitcherModule } from '../switcher';
+import { FormsModule, ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { PrizmCronService, prizmI18nInitWithKey } from '../../services';
 import { distinctUntilChanged, filter, first, map, skip, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
@@ -27,18 +27,22 @@ import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons
 import { PRIZM_CRON } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { PrizmCronScheduleComponent } from './components/schedule/schedule.component';
-import { PrizmCronCarouselComponent } from './components/carousel/carousel.component';
-import { PrizmCronHourComponent } from './components/hour/hour.component';
-import { PrizmCronYearComponent } from './components/year/year.component';
-import { PrizmCronDayComponent } from './components/day/day.component';
-import { PrizmCronMonthComponent } from './components/month/month.component';
-import { PrizmCronMinuteComponent } from './components/minute/minute.component';
-import { PrizmCronSecondComponent } from './components/second/second.component';
 import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
 import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
 import { PrizmCronInnerModule } from './cron-inner.module';
 import { CommonModule } from '@angular/common';
+import { PrizmChipsModule } from '../chips/chips.module';
+import { PolymorphOutletDirective, PrizmHintDirective } from '../../directives';
+import { PrizmInputNumberModule } from '../input/input-number/input-number.module';
+import { PrizmInputLayoutDateTimeModule } from '../input/input-date-time/input-layout-date-time.module';
+import { PrizmButtonComponent } from '../button';
+import { PrizmInputCarouselModule } from '../input/carousel/input-carousel.module';
+import { PrizmInputTextModule } from '../input/input-text/input-text.module';
+import { PrizmRadioButtonComponent } from '../radio';
+import { PrizmToggleComponent } from '../toggle';
+import { PrizmInputDateTimeModule } from '../input';
+import { PrizmScrollbarComponent } from '../scrollbar';
+import { PrizmCronHumanReadablePipe } from '../cron-human-readable';
 
 @Component({
   selector: 'prizm-cron',
@@ -49,6 +53,7 @@ import { CommonModule } from '@angular/common';
   providers: [
     PrizmDestroyService,
     PrizmCronService,
+    PrizmLetDirective,
     PrizmCronUiSecondState,
     PrizmCronUiMonthState,
     PrizmCronUiHourState,
@@ -58,7 +63,7 @@ import { CommonModule } from '@angular/common';
     ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
   ],
   standalone: true,
-  imports: [PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
+  imports: [PrizmCronHumanReadablePipe, PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public set value(value: string) {

@@ -9,17 +9,18 @@ import { PrizmCronDayComponent } from './components/day/day.component';
 import { PrizmCronMonthComponent } from './components/month/month.component';
 import { PrizmCronMinuteComponent } from './components/minute/minute.component';
 import { PrizmCronSecondComponent } from './components/second/second.component';
-import { PrizmPluckPipe } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
-import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
-import { PrizmToggleModule } from '../toggle';
+import { PrizmToggleComponent } from '../toggle';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutDateTimeModule } from '../input/input-date-time';
-import { PrizmSwitcherModule } from '../switcher';
+import { PrizmSwitcherComponent } from '../switcher';
 import { PrizmHintDirective } from '../../directives/hint';
-import { PrizmRadioButtonModule } from '../radio';
+import { PrizmRadioButtonComponent } from '../radio';
 import { PrizmChipsModule } from '../chips';
 import { PrizmInputCarouselModule } from '../input/carousel';
+import { PrizmScrollbarComponent } from '../scrollbar/scrollbar.component';
+import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
 
 @NgModule({
   declarations: [
@@ -35,30 +36,36 @@ import { PrizmInputCarouselModule } from '../input/carousel';
   imports: [
     CommonModule,
     FormsModule,
+    PolymorphOutletDirective,
+    PrizmLetDirective,
     PrizmChipsModule,
     PrizmInputCarouselModule,
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
     PrizmHintDirective,
     ReactiveFormsModule,
-    PrizmSwitcherModule,
+    PrizmSwitcherComponent,
     PrizmInputLayoutDateTimeModule,
-    PrizmToggleModule,
-    PrizmScrollbarModule,
+    PrizmToggleComponent,
+    PrizmScrollbarComponent,
     PrizmCronMonthPipe,
     PrizmCronWeekPipe,
     PrizmPluckPipe,
+    PrizmCallFuncPipe,
   ],
   exports: [
+    PrizmCallFuncPipe,
+    PrizmLetDirective,
+    PolymorphOutletDirective,
     PrizmInputCarouselModule,
     FormsModule,
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
     PrizmHintDirective,
     PrizmInputLayoutDateTimeModule,
     ReactiveFormsModule,
     CommonModule,
-    PrizmToggleModule,
-    PrizmSwitcherModule,
-    PrizmScrollbarModule,
+    PrizmToggleComponent,
+    PrizmSwitcherComponent,
+    PrizmScrollbarComponent,
     PrizmChipsModule,
     PrizmPluckPipe,
     PrizmCronScheduleComponent,
