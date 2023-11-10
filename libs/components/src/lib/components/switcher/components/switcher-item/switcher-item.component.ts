@@ -1,21 +1,25 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
 import {
+  prizmSwitcherHint,
   PrizmSwitcherItem,
   PrizmSwitcherSize,
   PrizmSwitcherType,
-  prizmSwitcherHint,
 } from './../../switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmHintDirective } from '../../../../directives';
+import { CommonModule } from '@angular/common';
+import { PrizmButtonModule } from '../../../button';
 
 @Component({
   selector: 'prizm-switcher-item',
   templateUrl: './switcher-item.component.html',
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, PrizmButtonModule],
 })
-export class SwitcherItemComponent extends PrizmAbstractTestId implements OnInit {
+export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements OnInit {
   @Input() hint?: prizmSwitcherHint;
 
   @Input()
