@@ -7,16 +7,12 @@ import { PrizmLinkModule } from '../../link/link.module';
 import { PrizmFocusableModule } from '../../../directives/focusable/focusable.module';
 import { PrizmIconModule } from '../../icon/icon.module';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmFocusableModule,
-    PrizmPrimitiveSpinButtonModule,
-    PrizmLinkModule,
-    PrizmIconModule,
-    PrizmMonthPipeModule,
-  ],
-  declarations: [PrizmPrimitiveYearMonthPaginationComponent],
+  imports: [PrizmPrimitiveYearMonthPaginationComponent],
   exports: [PrizmPrimitiveYearMonthPaginationComponent],
 })
 export class PrizmPrimitiveYearMonthPaginationModule {}

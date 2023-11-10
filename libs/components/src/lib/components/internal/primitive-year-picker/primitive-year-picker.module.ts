@@ -6,15 +6,12 @@ import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
 import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
 import { PrizmScrollIntoViewModule } from '../../../directives/scroll-into-view/scroll-into-view.module';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    PrizmHoveredModule,
-    PrizmPressedModule,
-    PrizmRepeatTimesModule,
-    PrizmLetModule,
-    PrizmScrollIntoViewModule,
-  ],
-  declarations: [PrizmPrimitiveYearPickerComponent],
+  imports: [PrizmPrimitiveYearPickerComponent],
   exports: [PrizmPrimitiveYearPickerComponent],
 })
 export class PrizmPrimitiveYearPickerModule {}

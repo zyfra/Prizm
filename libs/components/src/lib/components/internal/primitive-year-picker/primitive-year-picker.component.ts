@@ -6,9 +6,16 @@ import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY, PrizmDayRange, PrizmYear } from '../..
 import { PrizmBooleanHandler } from '../../../types/handler';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { prizmInRange } from '../../../util/math/in-range';
-import { PrizmInteractiveState } from '../../../directives';
+import {
+  PrizmHoveredModule,
+  PrizmInteractiveState,
+  PrizmPressedModule,
+  PrizmRepeatTimesModule,
+  PrizmScrollIntoViewModule,
+} from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { PrizmLetDirective, PrizmLetModule } from '@prizm-ui/helpers';
 
 const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
@@ -18,6 +25,14 @@ const ITEMS_IN_ROW = 3;
   templateUrl: `./primitive-year-picker.component.html`,
   styleUrls: [`./primitive-year-picker.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmRepeatTimesModule,
+    PrizmLetDirective,
+    PrizmScrollIntoViewModule,
+  ],
 })
 export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   private hoveredItem: number | null = null;

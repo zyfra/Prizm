@@ -30,12 +30,29 @@ import { PrizmLanguageCore } from '@prizm-ui/i18n';
 import { PRIZM_SHORT_WEEK_DAYS } from '../../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
+import { PrizmCalendarSheetPipeModule, PrizmMapperPipeModule } from '../../../pipes';
+import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
+import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
+import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
 
 @Component({
   selector: `prizm-primitive-calendar`,
   templateUrl: `./primitive-calendar.component.html`,
   styleUrls: [`./primitive-calendar.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmLetDirective,
+    PrizmMapperPipeModule,
+    PrizmRepeatTimesModule,
+    PrizmCallFuncPipe,
+    PrizmHoveredModule,
+    PrizmPressedModule,
+    PrizmCalendarSheetPipeModule,
+  ],
   providers: [
     ...prizmI18nInitWithKey(PRIZM_SHORT_WEEK_DAYS, 'shortWeekDays'),
     {
