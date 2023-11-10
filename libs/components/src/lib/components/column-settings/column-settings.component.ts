@@ -33,6 +33,7 @@ import { PrizmHintModule } from '../../directives';
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
+import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
 
 @Component({
   selector: 'prizm-column-settings',
@@ -48,6 +49,7 @@ import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
     DragDropModule,
     PrizmIconModule,
     PrizmScrollbarModule,
+    PrizmColumnDropListComponent,
     PrizmLetModule,
     PrizmPluckPipeModule,
     PrizmHintModule,

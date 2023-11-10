@@ -4,18 +4,15 @@ import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
 import { CDK_DRAG_CONFIG, DragDropConfig, DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import {
-  PrizmButtonModule,
-  PrizmCardModule,
-  PrizmHintModule,
-  PrizmIconModule,
-  PrizmScrollbarModule,
-  PrizmToggleModule,
-} from '@prizm-ui/components';
-import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmColumnIconPipe } from '../../pipes/column-icon.pipe';
+import { PrizmButtonComponent } from '../../../button/button.component';
+import { PrizmToggleComponent } from '../../../toggle/toggle.component';
+import { PrizmIconComponent } from '../../../icon/icon.component';
+import { PrizmScrollbarComponent } from '../../../scrollbar/scrollbar.component';
+import { PrizmHintDirective } from '../../../../directives/hint/hint.directive';
 
 const DragConfig: DragDropConfig = {
   zIndex: 9999,
@@ -30,14 +27,14 @@ const DragConfig: DragDropConfig = {
   standalone: true,
   imports: [
     CommonModule,
-    PrizmButtonModule,
-    PrizmToggleModule,
+    PrizmButtonComponent,
+    PrizmToggleComponent,
     DragDropModule,
-    PrizmIconModule,
-    PrizmScrollbarModule,
-    PrizmLetModule,
-    PrizmPluckPipeModule,
-    PrizmHintModule,
+    PrizmIconComponent,
+    PrizmScrollbarComponent,
+    PrizmLetDirective,
+    PrizmPluckPipe,
+    PrizmHintDirective,
     FormsModule,
     PrizmThemeModule,
     PrizmColumnIconPipe,
