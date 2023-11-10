@@ -7,7 +7,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronService, prizmI18nInitWithKey } from '../../services';
@@ -27,6 +27,10 @@ import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons
 import { PRIZM_CRON } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
+import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
+import { PrizmCronInnerModule } from './cron-inner.module';
+import { PrizmCronHumanReadablePipe } from '../cron-human-readable';
 
 @Component({
   selector: 'prizm-cron',
@@ -37,6 +41,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   providers: [
     PrizmDestroyService,
     PrizmCronService,
+    PrizmLetDirective,
     PrizmCronUiSecondState,
     PrizmCronUiMonthState,
     PrizmCronUiHourState,
@@ -45,6 +50,8 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     PrizmCronUiMinuteState,
     ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
   ],
+  standalone: true,
+  imports: [PrizmCronHumanReadablePipe, PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public set value(value: string) {
