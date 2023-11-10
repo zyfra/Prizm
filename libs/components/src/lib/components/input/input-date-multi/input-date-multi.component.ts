@@ -13,7 +13,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmInputSize } from '../common/models/prizm-input.models';
 import {
   getProviderPrizmDateLeftButtons,
   PRIZM_DATE_RIGHT_BUTTONS,
@@ -23,10 +22,10 @@ import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-but
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmInputTextModule } from '../input-text';
-import { PolymorphModule, PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
+import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
 import { ReactiveFormsModule } from '@angular/forms';
-import { PrizmDataListComponent, PrizmDataListModule } from '../../data-list';
-import { PrizmDropdownHostComponent, PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
+import { PrizmDataListComponent } from '../../data-list';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 
 export type PrizmDateItemTemplate = {
   name: string;
