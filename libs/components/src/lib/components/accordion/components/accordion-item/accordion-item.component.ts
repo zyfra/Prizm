@@ -4,7 +4,6 @@ import {
   Component,
   ContentChild,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output,
@@ -24,6 +23,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
 import { PrizmIconModule } from '../../../icon';
+import { PrizmButtonComponent } from '../../../button';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -31,7 +31,7 @@ import { PrizmIconModule } from '../../../icon';
   styleUrls: ['./accordion-item.component.less'],
   animations: [expandAnimation],
   standalone: true,
-  imports: [CommonModule, PrizmIconModule, PolymorphOutletDirective],
+  imports: [CommonModule, PrizmIconModule, PolymorphOutletDirective, PrizmButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
