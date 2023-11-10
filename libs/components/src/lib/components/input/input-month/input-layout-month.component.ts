@@ -22,11 +22,22 @@ import { PRIZM_MONTH_FORMATTER } from '../../../tokens/month-formatter';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmBooleanHandler, PrizmHandler } from '../../../types/handler';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PRIZM_MONTHS } from '../../../tokens';
+import { CommonModule } from '@angular/common';
+import { PrizmCalendarMonthComponent } from '../../calendar-month';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
+import {
+  PolymorphOutletDirective,
+  PrizmLifecycleModule,
+  PrizmPreventDefaultModule,
+} from '../../../directives';
+import { PrizmMaskModule } from '../../../modules';
+import { PrizmInputTextModule } from '../input-text';
+import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
 
 @Component({
   selector: `prizm-input-layout-month`,
@@ -44,6 +55,19 @@ import { PRIZM_MONTHS } from '../../../tokens';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutMonthComponent },
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmCalendarMonthComponent,
+    PrizmDropdownHostComponent,
+    PrizmPreventDefaultModule,
+    FormsModule,
+    PrizmLifecycleModule,
+    PolymorphOutletDirective,
+    PrizmMaskModule,
+    PrizmInputTextModule,
+    PrizmMapperPipeModule,
   ],
 })
 export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMonth | null> {
