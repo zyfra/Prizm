@@ -4,4 +4,4 @@ import { Directive } from '@angular/core';
   selector: '[prizmAccordionContent]',
   standalone: true,
 })
-export class AccordionContentDirective {}
+export class PrizmAccordionContentDirective {}
