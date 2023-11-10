@@ -16,6 +16,7 @@ export enum PrizmInteractiveState {
   styleUrls: ['./wrapper.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmWrapperComponent {
   @Input()
