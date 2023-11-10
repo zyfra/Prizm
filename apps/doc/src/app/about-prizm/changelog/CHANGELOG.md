@@ -96,6 +96,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(components/input-layout): hide clear button when forceClear == true in disabled state #1025 #1024 #1028
 - fix(components/old-icon): fixed broken icons #102
 - fix(components/input-layout-date-time): dropdown size #741
 - fix(components/buttons): fix emit hover on disabled for icon-button and buttons #948
@@ -105,6 +106,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/toast): double toast error and scrollbar #481 #734
 - fix(components/tree): active item style and update doc #708 #654
 - fix(components/input): update on blur #736 [MR](https://github.com/zyfra/Prizm/pull/917)
+  fix(components/input-layout): clear button position when we didn't pass template #1022 #1029
 
 ### Closed
 
