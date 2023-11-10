@@ -15,9 +15,16 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputCarouselContent } from './carousel-content/carousel-content.interface';
-import { PrizmInputNgControl } from '../common';
+import {
+  PrizmInputLayoutLeftDirective,
+  PrizmInputLayoutRightDirective,
+  PrizmInputNgControl,
+} from '../common';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputCarousel } from './types';
+import { NgIf } from '@angular/common';
+import { PrizmInputCarouselAuxiliaryLeftComponent } from './input-carousel-auxiliary-left.component';
+import { PrizmInputCarouselAuxiliaryRightComponent } from './input-carousel-auxiliary-right.component';
 
 @Component({
   selector: 'prizm-input-carousel',
@@ -42,6 +49,14 @@ import { PrizmInputCarousel } from './types';
     class: 'prizm-carousel',
     '[attr.tabindex]': "disabled ? null : '0'",
   },
+  standalone: true,
+  imports: [
+    NgIf,
+    PrizmInputLayoutLeftDirective,
+    PrizmInputLayoutRightDirective,
+    PrizmInputCarouselAuxiliaryLeftComponent,
+    PrizmInputCarouselAuxiliaryRightComponent,
+  ],
 })
 export class PrizmInputCarouselComponent
   extends PrizmInputNgControl<any>

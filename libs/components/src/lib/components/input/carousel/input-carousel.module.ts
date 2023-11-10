@@ -5,9 +5,12 @@ import { PrizmInputCarouselComponent } from './input-carousel.component';
 import { PrizmInputCarouselAuxiliaryLeftComponent } from './input-carousel-auxiliary-left.component';
 import { PrizmInputCarouselAuxiliaryRightComponent } from './input-carousel-auxiliary-right.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [PrizmInputCommonModule],
-  declarations: [
+  imports: [
     PrizmInputCarouselComponent,
     PrizmInputCarouselAuxiliaryLeftComponent,
     PrizmInputCarouselAuxiliaryRightComponent,
