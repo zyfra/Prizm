@@ -7,8 +7,9 @@ import {
   Output,
   ViewEncapsulation,
 } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmWrappedFormComponent } from '../../@core/value-accessor/prizm-wrapped-form-component.directive';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'prizm-radio-button',
@@ -16,6 +17,8 @@ import { PrizmWrappedFormComponent } from '../../@core/value-accessor/prizm-wrap
   styleUrls: ['./prizm-radio-button.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  standalone: true,
+  imports: [NgIf, ReactiveFormsModule],
 })
 export class PrizmRadioButtonComponent extends PrizmWrappedFormComponent {
   @Input()

@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { TreeComponent } from './tree.component';
 import {
   PrizmButtonModule,
-  PrizmIconModule,
-  PrizmSidebarModule,
+  PrizmIconComponent,
+  PrizmSidebarComponent,
   PrizmTreeModule,
 } from '@prizm-ui/components';
 import { TreeBaseExampleComponent } from './examples/base/tree-base-example.component';
@@ -27,9 +27,10 @@ import { TreeActiveColorExampleComponent } from './examples/active-color/tree-ac
     PrizmTreeModule,
     TreeTemplateLazyExampleModule,
     TreeTemplateCheckboxExampleModule,
-    PrizmIconModule,
+    PrizmIconComponent,
     PrizmButtonModule,
-    PrizmSidebarModule,
+    PrizmSidebarComponent,
+    FoldersComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(TreeComponent)),
   ],
   declarations: [
@@ -41,7 +42,6 @@ import { TreeActiveColorExampleComponent } from './examples/active-color/tree-ac
     TreeComponentExampleComponent,
     TreePaddingInputExampleComponent,
     TreeComponent,
-    FoldersComponent,
   ],
   exports: [TreeComponent],
 })

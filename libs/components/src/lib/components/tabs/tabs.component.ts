@@ -21,9 +21,17 @@ import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import {
+  PolymorphOutletDirective,
+  PrizmDropdownControllerModule,
+  PrizmLifecycleModule,
+} from '../../directives';
+import { PrizmButtonModule } from '../button';
+import { PrizmDataListComponent } from '../data-list';
 
 @Component({
   selector: 'prizm-tabs',
@@ -31,6 +39,19 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   styleUrls: ['./tabs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmTabsService, PrizmDestroyService],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PolymorphOutletDirective,
+    PrizmLifecycleModule,
+    PrizmDropdownHostComponent,
+    PrizmCallFuncPipe,
+    PrizmLetDirective,
+    PrizmButtonModule,
+    PrizmDropdownControllerModule,
+    PrizmDataListComponent,
+    PrizmTabComponent,
+  ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';

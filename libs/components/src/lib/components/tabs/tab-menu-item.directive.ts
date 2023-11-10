@@ -2,6 +2,7 @@ import { Directive, OnInit, TemplateRef, ViewContainerRef } from '@angular/core'
 import { PrizmTabComponent } from './components/tab.component';
 @Directive({
   selector: '[prizmTabMenuItem]',
+  standalone: true,
 })
 export class PrizmTabMenuItemDirective implements OnInit {
   constructor(

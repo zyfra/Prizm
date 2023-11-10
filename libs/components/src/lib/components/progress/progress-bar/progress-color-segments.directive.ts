@@ -25,6 +25,7 @@ function calculateColorSegments(colors: string[], progressWidth: number): string
     '[$.style.--prizm-progress-color]': `calcSegments$`,
     '($.style.--prizm-progress-color)': `0`,
   },
+  standalone: true,
   providers: [PrizmDestroyService, PrizmResizeService],
 })
 export class PrizmProgressColorSegmentsDirective {

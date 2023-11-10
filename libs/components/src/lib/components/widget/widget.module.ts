@@ -8,15 +8,7 @@ import { PrizmButtonModule } from '../button';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    PrizmCardModule,
-    PrizmIconModule,
-    PrizmThemeModule,
-    PolymorphModule,
-    PrizmButtonModule,
-  ],
-  declarations: [PrizmWidgetComponent],
+  imports: [PrizmWidgetComponent],
   exports: [PrizmWidgetComponent],
 })
 export class PrizmWidgetModule {}

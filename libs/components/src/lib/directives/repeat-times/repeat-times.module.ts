@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmRepeatTimesDirective } from './repeat-times.directive';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmRepeatTimesDirective],
+  imports: [PrizmRepeatTimesDirective],
   exports: [PrizmRepeatTimesDirective],
 })
 export class PrizmRepeatTimesModule {}

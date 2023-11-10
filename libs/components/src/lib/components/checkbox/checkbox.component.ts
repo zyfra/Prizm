@@ -14,12 +14,13 @@ import {
   Self,
   SimpleChanges,
 } from '@angular/core';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { ControlValueAccessor, NgControl, ReactiveFormsModule } from '@angular/forms';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { filter, takeUntil, tap } from 'rxjs/operators';
 import { prizmWatch } from '../../observables';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-checkbox',
@@ -31,6 +32,8 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     class: 'prizm-checkbox',
     '[attr.tabindex]': "disabled ? null : '0'",
   },
+  standalone: true,
+  imports: [CommonModule, ReactiveFormsModule],
 })
 export class PrizmCheckboxComponent
   extends PrizmAbstractTestId

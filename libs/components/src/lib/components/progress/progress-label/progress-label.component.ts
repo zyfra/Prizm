@@ -7,6 +7,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   templateUrl: `./progress-label.component.html`,
   styleUrls: [`./progress-label.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class PrizmProgressLabelComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_progress_label';

@@ -19,6 +19,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   styleUrls: ['./accordion.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
