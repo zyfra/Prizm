@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { IndicatorComponent } from './indicator.component';
-import { PrizmIconModule } from '../icon';
+import { PrizmIndicatorComponent } from './indicator.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [IndicatorComponent],
-  imports: [CommonModule, PrizmIconModule],
-  exports: [IndicatorComponent],
+  imports: [PrizmIndicatorComponent],
+  exports: [PrizmIndicatorComponent],
 })
 export class PrizmIndicatorModule {}
