@@ -3,8 +3,8 @@ import { PrizmNavigationMenuSearchConfig, PrizmNavigationMenuToolbarConfig } fro
 import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigation-menu-toolbar.service';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
-import { PrizmButtonModule } from '@prizm-ui/components';
 import { PrizmNavigationMenuSearchComponent } from '../prizm-navigation-menu-search/prizm-navigation-menu-search.component';
+import { PrizmButtonModule } from '../../../button/button.module';
 
 @Component({
   selector: 'prizm-navigation-menu-toolbar',

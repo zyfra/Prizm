@@ -10,8 +10,11 @@ import {
 import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmIconsSvgModule } from '@prizm-ui/icons';
-import { PrizmButtonModule, PrizmHoveredModule, PrizmInputCommonModule } from '@prizm-ui/components';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { PrizmButtonModule } from '../../../button/button.module';
+import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
+import { PrizmHoveredModule } from '../../../../directives/hovered';
+
 @Component({
   selector: 'prizm-navigation-menu-item',
   templateUrl: './prizm-navigation-menu-item.component.html',

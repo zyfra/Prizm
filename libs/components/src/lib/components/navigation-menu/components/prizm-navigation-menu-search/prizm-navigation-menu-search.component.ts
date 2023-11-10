@@ -12,7 +12,7 @@ import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { PrizmButtonModule } from '@prizm-ui/components';
+import { PrizmButtonModule } from '../../../button';
 
 @Component({
   selector: 'prizm-navigation-menu-search',
