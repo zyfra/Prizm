@@ -16,6 +16,7 @@ import { WINDOW } from '@ng-web-apis/common';
 
 @Directive({
   selector: 'textarea[prizmInput]',
+  standalone: true,
 })
 export class PrizmTextareaDirective implements AfterViewInit {
   @Input() @HostBinding('style.height.px') height: number | null = null;
