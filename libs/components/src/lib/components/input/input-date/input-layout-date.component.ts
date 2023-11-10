@@ -40,10 +40,23 @@ import { prizmIsNativeFocusedIn } from '../../../util';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common';
 import { prizmI18nInitWithKey } from '../../../services';
+import { CommonModule } from '@angular/common';
+import {
+  PolymorphOutletDirective,
+  PrizmLifecycleModule,
+  PrizmPreventDefaultModule,
+  PrizmValueAccessorModule,
+} from '../../../directives';
+import { PrizmMaskModule } from '../../../modules';
+import { PrizmCalendarModule } from '../../calendar';
+import { PrizmInputTextModule } from '../input-text';
+import { PrizmIconComponent } from '../../icon';
+import { PrizmLinkModule } from '../../link';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 
 @Component({
   selector: `prizm-input-layout-date`,
@@ -60,6 +73,22 @@ import { prizmI18nInitWithKey } from '../../../services';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateComponent },
+  ],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmLifecycleModule,
+    PrizmMaskModule,
+    PolymorphOutletDirective,
+    PrizmPreventDefaultModule,
+    PrizmCalendarModule,
+    PrizmInputTextModule,
+    PrizmIconComponent,
+    PrizmLinkModule,
+    FormsModule,
+    PrizmDropdownHostComponent,
+    PrizmValueAccessorModule,
+    PrizmLetDirective,
   ],
 })
 export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay | null> {
