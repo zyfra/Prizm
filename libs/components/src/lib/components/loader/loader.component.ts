@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -18,6 +18,8 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   templateUrl: './loader.component.html',
   styleUrls: ['./loader.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmLoaderComponent extends PrizmAbstractTestId {
   @Input()

@@ -3,9 +3,12 @@ import { NgModule } from '@angular/core';
 import { PolymorphModule } from '../../directives/polymorph';
 import { PrizmLoaderComponent } from './loader.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [CommonModule, PolymorphModule],
-  declarations: [PrizmLoaderComponent],
+  imports: [PrizmLoaderComponent],
   exports: [PrizmLoaderComponent],
 })
 export class PrizmLoaderModule {}
