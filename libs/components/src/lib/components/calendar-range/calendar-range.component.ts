@@ -35,9 +35,9 @@ import { CommonModule } from '@angular/common';
 import { PrizmMapperPipeModule } from '../../pipes';
 import { PrizmButtonModule } from '../button';
 import { PrizmPreventDefaultModule } from '../../directives';
-import { PrizmCalendarModule } from '../calendar';
-import { PrizmIconModule } from '../icon';
-import { PrizmDataListModule } from '../data-list';
+import { PrizmCalendarComponent, PrizmCalendarModule } from '../calendar';
+import { PrizmIconComponent, PrizmIconModule } from '../icon';
+import { PrizmDataListComponent, PrizmDataListModule } from '../data-list';
 import { PrizmPrimitiveCalendarRangeModule } from '../internal';
 
 @Component({
@@ -51,10 +51,10 @@ import { PrizmPrimitiveCalendarRangeModule } from '../internal';
     PrizmMapperPipeModule,
     PrizmButtonModule,
     PrizmPreventDefaultModule,
-    PrizmCalendarModule,
-    PrizmIconModule,
-    PrizmDataListModule,
+    PrizmIconComponent,
+    PrizmDataListComponent,
     PrizmPrimitiveCalendarRangeModule,
+    PrizmCalendarComponent,
   ],
   providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
 })

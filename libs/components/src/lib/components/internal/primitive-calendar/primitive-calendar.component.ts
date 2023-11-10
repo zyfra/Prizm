@@ -31,9 +31,11 @@ import { PRIZM_SHORT_WEEK_DAYS } from '../../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmCalendarSheetPipeModule, PrizmMapperPipeModule } from '../../../pipes';
-import { PrizmHoveredModule, PrizmPressedModule, PrizmRepeatTimesModule } from '../../../directives';
+import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
+import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
+import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
 
 @Component({
   selector: `prizm-primitive-calendar`,
@@ -43,10 +45,10 @@ import { PrizmHoveredModule, PrizmPressedModule, PrizmRepeatTimesModule } from '
   standalone: true,
   imports: [
     CommonModule,
-    PrizmLetModule,
+    PrizmLetDirective,
     PrizmMapperPipeModule,
     PrizmRepeatTimesModule,
-    PrizmCallFuncModule,
+    PrizmCallFuncPipe,
     PrizmHoveredModule,
     PrizmPressedModule,
     PrizmCalendarSheetPipeModule,

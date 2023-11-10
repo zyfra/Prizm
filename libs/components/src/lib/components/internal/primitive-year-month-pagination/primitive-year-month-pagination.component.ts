@@ -1,4 +1,4 @@
-import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmYear } from '../../../@core/date-time/year';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmFocusableModule } from '../../../directives';
 import { PrizmPrimitiveSpinButtonModule } from '../primitive-spin-button';
 import { PrizmLinkModule } from '../../link';
-import { PrizmIconModule } from '../../icon';
+import { PrizmIconComponent } from '../../icon';
 import { PrizmMonthPipeModule } from '../../../pipes';
 
 @Component({
@@ -25,7 +25,7 @@ import { PrizmMonthPipeModule } from '../../../pipes';
     PrizmFocusableModule,
     PrizmPrimitiveSpinButtonModule,
     PrizmLinkModule,
-    PrizmIconModule,
+    PrizmIconComponent,
     PrizmMonthPipeModule,
   ],
 })
