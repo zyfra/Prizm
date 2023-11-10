@@ -27,6 +27,8 @@ import { PrizmSplitterAreaComponent } from './area/area.component';
 import { PrizmSplitterService } from './splitter.service';
 import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { CommonModule } from '@angular/common';
+import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 
 type AreaRealSize = { area: PrizmSplitterAreaComponent; realSize: number; realMinSize: number };
 type GutterData = { areaBefore: number; areaAfter: number; order: number };
@@ -40,6 +42,8 @@ type GutterData = { areaBefore: number; areaAfter: number; order: number };
   host: {
     '[class]': "'prizm-spliiter ' + orientation",
   },
+  standalone: true,
+  imports: [CommonModule, PrizmSplitterGutterComponent, ResizeObserverModule],
 })
 export class PrizmSplitterComponent extends PrizmAbstractTestId implements AfterViewInit, AfterContentInit {
   @Input() orientation: PrizmSplitterOrientation = 'horizontal';

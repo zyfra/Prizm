@@ -14,6 +14,7 @@ import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PolymorphContent } from '../../../directives';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmButtonComponent } from '../button.component';
 
 @Component({
   selector: 'prizm-split-button',
@@ -21,6 +22,8 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [PrizmButtonComponent],
 })
 export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
   @Input()

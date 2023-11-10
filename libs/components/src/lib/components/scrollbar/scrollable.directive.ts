@@ -3,6 +3,7 @@ import { PRIZM_SCROLLABLE } from '../../constants/events';
 
 @Directive({
   selector: '[prizmScrollable]',
+  standalone: true,
 })
 export class PrizmScrollableDirective implements OnInit {
   readonly elementRef = inject(ElementRef<HTMLElement>);

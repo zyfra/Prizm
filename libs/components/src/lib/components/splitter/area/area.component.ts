@@ -16,7 +16,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   selector: 'prizm-splitter-area',
   template: `<ng-content></ng-content>`,
   styleUrls: ['./area.component.less'],
-
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmSplitterAreaComponent extends PrizmAbstractTestId {

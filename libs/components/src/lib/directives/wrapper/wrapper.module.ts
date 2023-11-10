@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmWrapperComponent } from './wrapper.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmWrapperComponent],
+  imports: [PrizmWrapperComponent],
   exports: [PrizmWrapperComponent],
 })
 export class PrizmWrapperModule {}

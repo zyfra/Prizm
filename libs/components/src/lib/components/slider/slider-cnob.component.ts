@@ -10,6 +10,7 @@ import {
 } from '@angular/core';
 import { PrizmSliderCnobValuePosition } from './types';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'prizm-slider-cnob',
@@ -24,6 +25,8 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     '[attr.tabindex]': "disabled ? null : '0'",
     '[attr.disabled]': "disabled ? '' : null",
   },
+  standalone: true,
+  imports: [NgIf],
 })
 export class PrizmSliderCnobComponent {
   @Input() @HostBinding('attr.index') index!: number;

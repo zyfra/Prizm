@@ -19,6 +19,7 @@ const POLLING_TIME = 1000 / 15;
 @Directive({
   selector: '[prizmScrollbar]',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmScrollbarDirective {
   @Input()

@@ -1,7 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { PolymorphContent } from '../../directives';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { PolymorphContent, PolymorphOutletDirective } from '../../directives';
 import { PrizmShadowType } from '../../directives/shadow';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmCardComponent } from '../card';
+import { PrizmIconComponent } from '../icon';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmButtonModule } from '../button';
 
 @Component({
   selector: 'prizm-widget',
@@ -9,6 +14,15 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   styleUrls: ['./widget.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmCardComponent,
+    PrizmIconComponent,
+    PrizmThemeModule,
+    PolymorphOutletDirective,
+    PrizmButtonModule,
+  ],
 })
 export class PrizmWidgetComponent extends PrizmAbstractTestId {
   @Input() public header: PolymorphContent = '';
