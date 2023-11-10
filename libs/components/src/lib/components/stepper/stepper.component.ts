@@ -13,6 +13,9 @@ import { merge, Observable } from 'rxjs';
 import { map, startWith, switchMap } from 'rxjs/operators';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { CommonModule } from '@angular/common';
+import { PrizmIconComponent } from '../icon';
+import { PrizmStepperSelectorComponent } from './stepper-selector.component';
 
 @Component({
   selector: 'prizm-stepper',
@@ -23,6 +26,8 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
     class: 'prizm-stepper',
     '[class.vertical]': 'vertical',
   },
+  standalone: true,
+  imports: [CommonModule, PrizmStepperSelectorComponent],
 })
 export class PrizmStepperComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() title = '';
