@@ -1,4 +1,4 @@
-import { NumberInput, coerceNumberProperty } from '@angular/cdk/coercion';
+import { coerceNumberProperty, NumberInput } from '@angular/cdk/coercion';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -16,11 +16,17 @@ import {
   PrizmPaginatorOutput,
   PrizmPaginatorType,
 } from './interfaces/prizm-paginator.interface';
-import { PolymorphContent } from '../../directives';
+import { PolymorphContent, PolymorphOutletDirective } from '../../directives';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmLanguagePaginator } from '@prizm-ui/i18n';
 import { PRIZM_PAGINATOR } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
+import { CommonModule } from '@angular/common';
+import { PrizmCallFuncPipe, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
+import { PrizmIconComponent } from '../icon';
+import { PrizmInputSelectModule } from '../dropdowns/select';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { PrizmButtonModule } from '../button';
 
 @Component({
   selector: 'prizm-paginator',
@@ -28,6 +34,19 @@ import { prizmI18nInitWithKey } from '../../services';
   styleUrls: ['./prizm-paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [...prizmI18nInitWithKey(PRIZM_PAGINATOR, 'paginator')],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmCallFuncPipe,
+    PolymorphOutletDirective,
+    PrizmLetDirective,
+    PrizmIconComponent,
+    PrizmInputSelectModule,
+    ReactiveFormsModule,
+    FormsModule,
+    PrizmButtonModule,
+    PrizmPluckPipe,
+  ],
 })
 export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
