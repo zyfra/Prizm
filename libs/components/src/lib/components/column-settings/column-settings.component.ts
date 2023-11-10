@@ -23,13 +23,13 @@ import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
 import cloneDeep from 'lodash-es/cloneDeep';
 import { CommonModule } from '@angular/common';
-import { PrizmCardModule } from '../card';
-import { PrizmButtonModule } from '../button';
-import { PrizmToggleModule } from '../toggle';
-import { PrizmIconModule } from '../icon';
-import { PrizmScrollbarModule } from '../scrollbar';
-import { PrizmLetModule, PrizmPluckPipeModule } from '@prizm-ui/helpers';
-import { PrizmHintModule } from '../../directives';
+import { PrizmCardComponent, PrizmCardModule } from '../card';
+import { PrizmButtonComponent, PrizmButtonModule } from '../button';
+import { PrizmToggleComponent, PrizmToggleModule } from '../toggle';
+import { PrizmIconComponent, PrizmIconModule } from '../icon';
+import { PrizmScrollbarComponent, PrizmScrollbarModule } from '../scrollbar';
+import { PrizmLetDirective, PrizmLetModule, PrizmPluckPipe, PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { PrizmHintDirective, PrizmHintModule } from '../../directives';
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
@@ -43,16 +43,16 @@ import { PrizmColumnDropListComponent } from './components/column-drop-list/colu
   standalone: true,
   imports: [
     CommonModule,
-    PrizmCardModule,
-    PrizmButtonModule,
-    PrizmToggleModule,
+    PrizmCardComponent,
+    PrizmButtonComponent,
+    PrizmToggleComponent,
     DragDropModule,
-    PrizmIconModule,
-    PrizmScrollbarModule,
+    PrizmIconComponent,
+    PrizmScrollbarComponent,
     PrizmColumnDropListComponent,
-    PrizmLetModule,
-    PrizmPluckPipeModule,
-    PrizmHintModule,
+    PrizmLetDirective,
+    PrizmPluckPipe,
+    PrizmHintDirective,
     FormsModule,
     PrizmThemeModule,
     PrizmColumnIconPipe,
