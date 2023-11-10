@@ -12,13 +12,16 @@ import {
 } from '@angular/core';
 import { PrizmTabCounterOptions, PrizmTabType } from '../tabs.interface';
 import { PrizmTabsService } from '../tabs.service';
-import { PolymorphContent } from '../../../directives';
+import { PolymorphContent, PolymorphOutletDirective } from '../../../directives';
 import { combineLatest, fromEvent, Observable, of, switchMap, timeout } from 'rxjs';
 import { Compare, PrizmDestroyService, PrizmLetContextService } from '@prizm-ui/helpers';
 import { PrizmTabContext, PrizmTabMenuContext } from '../tabs.model';
 import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PrizmIconComponent } from '../../icon';
+import { PrizmCounterModule } from '../../counter';
 
 @Component({
   selector: 'prizm-tab',
@@ -26,6 +29,8 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
   styleUrls: ['./tab.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  imports: [CommonModule, PrizmIconComponent, PolymorphOutletDirective, PrizmCounterModule],
+  standalone: true,
 })
 export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
