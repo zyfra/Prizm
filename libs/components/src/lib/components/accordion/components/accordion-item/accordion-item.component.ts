@@ -10,7 +10,7 @@ import {
   Output,
   TemplateRef,
 } from '@angular/core';
-import { AccordionContentDirective } from '../../directives/accordion-content.directive';
+import { PrizmAccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
 import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
@@ -62,8 +62,8 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
 
   override readonly testId_ = 'ui_accordion_item';
 
-  @ContentChild(AccordionContentDirective, { read: TemplateRef })
-  public readonly accordionContent!: TemplateRef<AccordionContentDirective>;
+  @ContentChild(PrizmAccordionContentDirective, { read: TemplateRef })
+  public readonly accordionContent!: TemplateRef<PrizmAccordionContentDirective>;
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
   public readonly accordionTools!: TemplateRef<AccordionToolsDirective>;
 
