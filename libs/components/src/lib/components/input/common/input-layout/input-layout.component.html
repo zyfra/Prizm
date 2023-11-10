@@ -36,21 +36,26 @@
         <span class="prizm-input-label-required" *ngIf="$.required">*</span>
       </label>
 
-      <div class="prizm-input-label-clear-btn clear-icon">
-        <ng-container
-          *polymorphOutlet="
-            clearButton;
-            context: { clear: onClearClick, showStatusButton: showStatusButton, disabled: $.disabled }
-          "
-        >
-          <button
-            [interactive]="true"
-            [disabled]="$.disabled"
-            [prizmInputIconButton]="$any(clearButton)"
-            (click)="onClearClick($event)"
-          ></button>
-        </ng-container>
-      </div>
+      <ng-container [ngSwitch]="isPolymorphPrimitive(clearButton)">
+        <button
+          class="prizm-input-label-clear-btn clear-icon"
+          *ngSwitchCase="true"
+          [interactive]="true"
+          [disabled]="$.disabled"
+          [prizmInputIconButton]="$any(clearButton)"
+          (click)="onClearClick($event)"
+        ></button>
+
+        <div class="prizm-input-label-clear-btn clear-icon" *ngSwitchDefault>
+          <ng-container
+            *polymorphOutlet="
+              clearButton;
+              context: { clear: onClearClick, showStatusButton: showStatusButton, disabled: $.disabled }
+            "
+          >
+          </ng-container>
+        </div>
+      </ng-container>
     </div>
   </ng-template>
 
@@ -94,22 +99,26 @@
           </ng-container>
         </div>
 
-        <div class="prizm-input-button-default clear-icon" *ngIf="showClearButton">
-          <ng-container
-            *polymorphOutlet="
-              clearButton;
-              context: { clear: onClearClick, showStatusButton: showStatusButton, disabled: $.disabled }
-            "
-          >
-            <button
-              class="{{ showStatusButton ? '' : 'alone' }}"
-              [interactive]="true"
-              [disabled]="$.disabled"
-              [prizmInputIconButton]="$any(clearButton)"
-              (click)="onClearClick($event)"
-            ></button>
-          </ng-container>
-        </div>
+        <ng-container *ngIf="showClearButton" [ngSwitch]="isPolymorphPrimitive(clearButton)">
+          <button
+            class="prizm-input-label-clear-btn clear-icon"
+            *ngSwitchCase="true"
+            [interactive]="true"
+            [disabled]="$.disabled"
+            (click)="onClearClick($event)"
+            prizmInputIconButton="cancel-delete-content"
+          ></button>
+
+          <div class="prizm-input-button-default clear-icon" *ngSwitchDefault>
+            <ng-container
+              *polymorphOutlet="
+                clearButton;
+                context: { clear: onClearClick, showStatusButton: showStatusButton, disabled: $.disabled }
+              "
+            >
+            </ng-container>
+          </div>
+        </ng-container>
 
         <button
           class="prizm-input-form-status-button"
