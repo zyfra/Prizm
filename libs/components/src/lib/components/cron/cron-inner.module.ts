@@ -21,6 +21,7 @@ import { PrizmChipsModule } from '../chips';
 import { PrizmInputCarouselModule } from '../input/carousel';
 import { PrizmScrollbarComponent } from '../scrollbar/scrollbar.component';
 import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
+import { PrizmButtonComponent } from '../button';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { PolymorphOutletDirective } from '../../directives/polymorph/directives/
     PrizmCronWeekPipe,
     PrizmPluckPipe,
     PrizmCallFuncPipe,
+    PrizmButtonComponent,
   ],
   exports: [
     PrizmCallFuncPipe,
@@ -78,6 +80,7 @@ import { PolymorphOutletDirective } from '../../directives/polymorph/directives/
     PrizmCronSecondComponent,
     PrizmCronMonthPipe,
     PrizmCronWeekPipe,
+    PrizmButtonComponent,
   ],
 })
 export class PrizmCronInnerModule {}
