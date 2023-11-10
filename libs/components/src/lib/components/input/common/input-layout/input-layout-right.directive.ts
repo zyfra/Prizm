@@ -2,7 +2,6 @@ import { Directive, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/co
 
 @Directive({
   selector: 'ng-template[prizmInputLayoutRight]',
-  standalone: true,
 })
 export class PrizmInputLayoutRightDirective implements OnDestroy {
   constructor(public readonly templateRef: TemplateRef<unknown>, public readonly view: ViewContainerRef) {}

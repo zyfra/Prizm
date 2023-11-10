@@ -4,7 +4,6 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  HostBinding,
   HostListener,
   Inject,
   Injector,
@@ -15,11 +14,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputCarouselContent } from './carousel-content/carousel-content.interface';
-import {
-  PrizmInputLayoutLeftDirective,
-  PrizmInputLayoutRightDirective,
-  PrizmInputNgControl,
-} from '../common';
+import { PrizmInputCommonModule, PrizmInputNgControl } from '../common';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputCarousel } from './types';
 import { NgIf } from '@angular/common';
@@ -52,8 +47,7 @@ import { PrizmInputCarouselAuxiliaryRightComponent } from './input-carousel-auxi
   standalone: true,
   imports: [
     NgIf,
-    PrizmInputLayoutLeftDirective,
-    PrizmInputLayoutRightDirective,
+    PrizmInputCommonModule,
     PrizmInputCarouselAuxiliaryLeftComponent,
     PrizmInputCarouselAuxiliaryRightComponent,
   ],

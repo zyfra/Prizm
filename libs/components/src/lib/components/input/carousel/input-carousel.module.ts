@@ -11,6 +11,7 @@ import { PrizmInputCarouselAuxiliaryRightComponent } from './input-carousel-auxi
  * */
 @NgModule({
   imports: [
+    PrizmInputCommonModule,
     PrizmInputCarouselComponent,
     PrizmInputCarouselAuxiliaryLeftComponent,
     PrizmInputCarouselAuxiliaryRightComponent,
