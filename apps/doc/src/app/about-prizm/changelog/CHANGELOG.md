@@ -2,6 +2,70 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.9.0, 2.6.0, 3.5.0](https://github.com/zyfra/Prizm) (10-11-2023)
+
+### Features
+
+- feat(components/input-select): added hint support for inner input #984
+- feat(components/cron): to standalone
+- feat(components/column-settings): to standalone
+- feat(components/accordion/breadcrumbs): accordion and breadcrumbs v3 colors
+- feat(components/paginator): to standalone
+- feat(components/navigation-menu): to standalone
+- feat(components/navigation-menu): to standalone
+- feat(components/loader): to standalone
+- feat(components/input-layout-time): to standalone
+- feat(components/input-text): to standalone
+- feat(components/input-number): to standalone
+- feat(components/input-layout-month-range): to standalone
+- feat(components/input-layout-month-standalone): to standalone
+- feat(components/input-layout-date-time-range): to standalone
+- feat(components/input-layout-date-time): to standalone
+- feat(components/input-layout-date-relative): to standalone
+- feat(components/input-layout-date-range-standalone): to standalone
+- feat(components/input-date-multi-standalone): to standalone
+- feat(components/input-layout-date-standalone): to standalone
+- feat(components/input-carousel): to standalone
+- feat(components/indicator): to standalone
+- feat(components/progress): to standalone
+- feat(components/scrollbar): to standalone
+- feat(components/scrollbar): to standalone
+- feat(components/slider): to standalone
+- feat(components/spinner): to standalone
+- feat(components/splitter): to standalone
+- feat(components/stepper): to standalone
+- feat(components/switcher): to standalone
+- feat(components/tabs): to standalone
+- feat(components/toggle): to standalone
+- feat(components/widget): to standalone
+- feat(components/icon): to standalone
+- feat(components/grid): to standalone
+- feat(components/file-upload): to standalone
+- feat(components/expand): to standalone
+- feat(components/select): to standalone
+- feat(components/multi-select): to standalone
+- feat(components/cron-hr): to standalone
+- feat(components/counter): to standalone
+- feat(components/chips): to standalone
+- feat(components/checkbox): to standalone #963
+- feat(components/card): to standalone #962
+- feat(components/calendar-range): to standalone #961
+- feat(components/calendar-month): to standalone #960
+- feat(components/calendar): to standalone #959
+- feat(components/button): to standalone #958
+- feat(components/accordion): to standalone #956
+- feat: paginator v3 colors #933 ready #943
+- feat: colors and theme documentation #765 #936
+- feat: slider update colors to v3 #930 #932
+- feat: colors v3 for radio-button #926 #927
+
+### Bug fixes
+
+- fix: hidden splitter filtering #923 #928
+- fix: added lodash-es to peerDependencies #1001 #982
+- fix: add more space for chips in multiselect #892
+- fix(components/stepper): icon with the step number is not displayed if the status for this step "Not selected" #655 #916
+
 ## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (01-11-2023)
 
 ### Features
