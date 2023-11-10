@@ -8,6 +8,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
+    "lodash-es": "^4.17.21",
     "@angular/common": "^15.2.0",
     "@angular/core": "^15.2.0",
     "@prizm-ui/theme": "^2.3.0",
