@@ -33,6 +33,8 @@
             [placeholder]="placeholder"
             [disabled]="disabled"
             [readonly]="true"
+            [prizmHintDirection]="prizmHintDirection"
+            [prizmHintCanShow]="prizmHintCanShow"
             [ngModelOptions]="{ standalone: true }"
             [ngModel]="text ?? ''"
             (focus)="focused$$.next(true)"

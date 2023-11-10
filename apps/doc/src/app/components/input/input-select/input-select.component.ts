@@ -2,11 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
+  PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmDropdownHostClasses,
   PrizmDropdownHostStyles,
+  PrizmHintOptions,
   PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
+  PrizmOverlayOutsidePlacement,
   PrizmScrollbarVisibility,
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
@@ -28,6 +31,11 @@ export class InputSelectComponent {
       '--prizm-data-list-header-text': 'white',
     },
   ];
+  public prizmHintCanShow = true;
+  public prizmHintDirection: PrizmHintOptions['direction'] = 't';
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
+    PrizmOverlayOutsidePlacement
+  );
   public dropdownStyles: PrizmDropdownHostStyles;
   public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
