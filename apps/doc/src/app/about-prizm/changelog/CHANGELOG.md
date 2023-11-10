@@ -61,6 +61,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix:(components/input-date-multi): incorrect date set after manual input #887
 - fix: hidden splitter filtering #923 #928
 - fix: added lodash-es to peerDependencies #1001 #982
 - fix: add more space for chips in multiselect #892
