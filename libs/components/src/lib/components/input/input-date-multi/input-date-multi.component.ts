@@ -13,7 +13,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmInputSize } from '../common/models/prizm-input.models';
 import {
   getProviderPrizmDateLeftButtons,
   PRIZM_DATE_RIGHT_BUTTONS,
@@ -21,6 +20,12 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-button';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmInputTextModule } from '../input-text';
+import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrizmDataListComponent } from '../../data-list';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 
 export type PrizmDateItemTemplate = {
   name: string;
@@ -32,6 +37,16 @@ export type PrizmDateItemTemplate = {
   styleUrls: [`./input-date-multi.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [getProviderPrizmDateLeftButtons()],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmInputTextModule,
+    PrizmLifecycleModule,
+    ReactiveFormsModule,
+    PrizmDataListComponent,
+    PolymorphOutletDirective,
+    PrizmDropdownHostComponent,
+  ],
 })
 export class PrizmInputDateMultiComponent extends PrizmAbstractTestId implements OnInit {
   @ViewChild('buttonLeft', { static: true }) buttonLeftTemplate!: TemplateRef<unknown>;

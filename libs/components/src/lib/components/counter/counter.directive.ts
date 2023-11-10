@@ -11,12 +11,21 @@ import {
 } from '@angular/core';
 import { PrizmCounterComponent } from './counter.component';
 import { PrizmCounterPosition, PrizmCounterStatus } from './counter.models';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Directive({
   selector: '[prizmCounter]',
+  standalone: true,
 })
 export class PrizmCounterDirective implements OnChanges, OnDestroy {
-  @Input() counterDisabled = false;
+  @Input()
+  get counterDisabled() {
+    return this._counterDisabled;
+  }
+  set counterDisabled(value: BooleanInput) {
+    this._counterDisabled = coerceBooleanProperty(value);
+  }
+  private _counterDisabled = false;
 
   @Input() counterStatus: PrizmCounterStatus = 'info';
 

@@ -28,6 +28,10 @@ export class TreeComponent {
     TypeScript: import('./examples/base/tree-base-example.component.ts?raw'),
     HTML: import('./examples/base/tree-base-example.component.html?raw'),
   };
+  public readonly exampleActiveItem: TuiDocExample = {
+    TypeScript: import('./examples/active-color/tree-active-color-example.component.ts?raw'),
+    HTML: import('./examples/active-color/tree-active-color-example.component.html?raw'),
+  };
 
   public readonly exampleArray: TuiDocExample = {
     TypeScript: import('./examples/array/tree-array-example.component.ts?raw'),

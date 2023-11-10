@@ -27,12 +27,33 @@ import {
   PrizmNavigationMenuToolbarConfig,
 } from '../../interfaces';
 import { DEFAULT_HEADER_CONFIG } from '../../defaults';
+import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PrizmTreeModule } from '../../../tree';
+import { PrizmIconsSvgModule } from '@prizm-ui/icons';
+import { PrizmButtonModule } from '../../../button';
+import { PolymorphOutletDirective, PrizmHoveredModule } from '../../../../directives';
+import { PrizmAccordionComponent } from '../../../accordion';
+import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
 
 @Component({
   selector: 'prizm-navigation-menu',
   templateUrl: './prizm-navigation-menu.component.html',
   styleUrls: ['./prizm-navigation-menu.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    PrizmTreeModule,
+    PrizmIconsSvgModule,
+    PrizmButtonModule,
+    PrizmHoveredModule,
+    PrizmAccordionComponent,
+    PolymorphOutletDirective,
+    PrizmNavigationMenuGroupComponent,
+    PrizmNavigationMenuToolbarComponent,
+  ],
   providers: [PrizmNavigationMenuService, PrizmNavigationMenuToolbarService, PrizmDestroyService],
 })
 export class PrizmNavigationMenuComponent<

@@ -17,6 +17,7 @@ interface LetContext<T> {
 @Directive({
   selector: '[prizmLet]',
   exportAs: 'prizmLet',
+  standalone: true,
   providers: [PrizmLetContextService],
 })
 export class PrizmLetDirective<T> implements OnDestroy {

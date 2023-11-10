@@ -20,9 +20,15 @@ import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
 import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
-import { PolymorphContent } from '../../../../directives/polymorph';
+import { isPolymorphPrimitive, PolymorphComponent, PolymorphContent } from '../../../../directives/polymorph';
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+
+export type PrizmInputLayoutClearButtonContext = {
+  clear: (event: MouseEvent) => void;
+  disabled: boolean;
+  showStatusButton: boolean;
+};
 
 @Component({
   selector: 'prizm-input-layout',
@@ -56,6 +62,8 @@ export class PrizmInputLayoutComponent
 
   @Input() outer = false;
 
+  @Input() clearButton: PolymorphContent<PrizmInputLayoutClearButtonContext> = 'cancel-delete-content';
+
   @Input() border = true;
   @Input() position: PrizmInputPosition = 'left';
   @Input() forceClear: boolean | null = null;
@@ -82,6 +90,7 @@ export class PrizmInputLayoutComponent
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
+    if (this.disabled) return false;
     return typeof this.forceClear === 'boolean'
       ? this.forceClear
       : this.control.hasClearButton &&
@@ -116,12 +125,22 @@ export class PrizmInputLayoutComponent
       : this.status;
   }
 
+  get emptyLabel() {
+    return !this.label?.replace(/[ ]+/, '');
+  }
+
   get showStatusButton(): boolean {
     return Boolean(
       this.status !== 'default' ||
         (this.letDirective?.context?.invalid && this.letDirective?.context?.touched)
     );
   }
+
+  readonly onClearClick = (event: MouseEvent) => {
+    this.clear.next(event);
+    this.control.clear(event);
+    this.actualizeStatusIcon();
+  };
 
   constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {
     super();
@@ -177,12 +196,6 @@ export class PrizmInputLayoutComponent
     }
   }
 
-  public onClearClick(event: MouseEvent): void {
-    this.clear.next(event);
-    this.control.clear(event);
-    this.actualizeStatusIcon();
-  }
-
   private actualizeStatusIcon(): void {
     let statusIcon: string;
 
@@ -216,4 +229,6 @@ export class PrizmInputLayoutComponent
   protected innerClick(event: MouseEvent) {
     this.innerClick$$.next(event);
   }
+
+  protected readonly isPolymorphPrimitive = isPolymorphPrimitive;
 }

@@ -4,10 +4,16 @@ import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmToObservableModule } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import { PrizmOverlayModule } from '../../../modules';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmButtonModule } from '../../button';
+import { PrizmScrollbarModule } from '../../scrollbar';
 
 @Component({
   selector: 'prizm-confirm-dialog',
@@ -15,6 +21,17 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
   styleUrls: ['./confirm-dialog.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PRIZM_DIALOG_PROVIDERS,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PolymorphModule,
+    PrizmOverlayModule,
+    PrizmThemeModule,
+    PrizmToObservableModule,
+    PrizmButtonModule,
+    PrizmFocusTrapModule,
+    PrizmScrollbarModule,
+  ],
   animations: [prizmSlideInTop, prizmFadeIn],
 })
 export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTestId {

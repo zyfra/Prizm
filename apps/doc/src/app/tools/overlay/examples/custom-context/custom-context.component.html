@@ -1,0 +1,8 @@
+<button #elementRef (click)="toggle()" prizmButton>Click me</button>
+<ng-template #someTemplate let-props>
+  <div class="box">
+    <div>Passed data: {{ props.testData }}</div>
+
+    <button prizmButton>Submit</button>
+  </div>
+</ng-template>

@@ -31,12 +31,31 @@ import { prizmNullableSame } from '../../util/common/nullable-same';
 import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../services';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmMapperPipeModule } from '../../pipes';
+import { PrizmButtonModule } from '../button';
+import { PrizmPreventDefaultModule } from '../../directives';
+import { PrizmCalendarComponent, PrizmCalendarModule } from '../calendar';
+import { PrizmIconComponent, PrizmIconModule } from '../icon';
+import { PrizmDataListComponent, PrizmDataListModule } from '../data-list';
+import { PrizmPrimitiveCalendarRangeModule } from '../internal';
 
 @Component({
   selector: `prizm-calendar-range`,
   templateUrl: `./calendar-range.component.html`,
   styleUrls: [`./calendar-range.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmMapperPipeModule,
+    PrizmButtonModule,
+    PrizmPreventDefaultModule,
+    PrizmIconComponent,
+    PrizmDataListComponent,
+    PrizmPrimitiveCalendarRangeModule,
+    PrizmCalendarComponent,
+  ],
   providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
 })
 export class PrizmCalendarRangeComponent

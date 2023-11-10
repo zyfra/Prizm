@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CallFuncPipe } from './call-func.pipe';
+import { PrizmCallFuncPipe } from './call-func.pipe';
 
+/**
+ * @deprecated
+ * use standalone components instead
+ * */
 @NgModule({
-  exports: [CallFuncPipe],
-  declarations: [CallFuncPipe],
+  exports: [PrizmCallFuncPipe],
+  imports: [PrizmCallFuncPipe],
 })
 export class PrizmCallFuncModule {}

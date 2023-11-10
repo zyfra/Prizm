@@ -7,6 +7,10 @@
       <prizm-tree-base-example></prizm-tree-base-example>
     </prizm-doc-example>
 
+    <prizm-doc-example id="active-item" [content]="exampleActiveItem" heading="Active Item">
+      <prizm-tree-active-color-example></prizm-tree-active-color-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="array" [content]="exampleArray" heading="Array">
       <prizm-tree-array-example></prizm-tree-array-example>
     </prizm-doc-example>
@@ -127,7 +131,7 @@
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
       >
-        Use Padding Indent
+        Use Padding Indent For TreeItem (instead of margin for parent element)
       </ng-template>
       <ng-template
         documentationPropertyName="testId"

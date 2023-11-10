@@ -27,6 +27,8 @@ import { PrizmSplitterAreaComponent } from './area/area.component';
 import { PrizmSplitterService } from './splitter.service';
 import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { CommonModule } from '@angular/common';
+import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 
 type AreaRealSize = { area: PrizmSplitterAreaComponent; realSize: number; realMinSize: number };
 type GutterData = { areaBefore: number; areaAfter: number; order: number };
@@ -40,6 +42,8 @@ type GutterData = { areaBefore: number; areaAfter: number; order: number };
   host: {
     '[class]': "'prizm-spliiter ' + orientation",
   },
+  standalone: true,
+  imports: [CommonModule, PrizmSplitterGutterComponent, ResizeObserverModule],
 })
 export class PrizmSplitterComponent extends PrizmAbstractTestId implements AfterViewInit, AfterContentInit {
   @Input() orientation: PrizmSplitterOrientation = 'horizontal';
@@ -85,7 +89,7 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
       ),
       this.splitterService.areaInputSizeChange$$.pipe(map(() => this.splitterAreaQueryList.toArray()))
     ).pipe(
-      map(areas => areas.filter(area => area.size !== null)),
+      map(areas => areas.filter(area => !area.hidden)),
       observeOn(asyncScheduler)
     );
 
@@ -98,10 +102,9 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
       this.lastGap = gap;
 
       this.guttersData = [];
-      const shownAreas = areas.filter(area => !area.hidden);
-      shownAreas.forEach((area, index) => {
+      areas.forEach((area, index) => {
         area.order = index;
-        if (index < shownAreas.length - 1) {
+        if (index < areas.length - 1) {
           this.guttersData.push({ areaBefore: index, areaAfter: index + 1, order: index + 1 });
         }
       });

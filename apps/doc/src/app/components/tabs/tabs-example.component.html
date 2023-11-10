@@ -58,6 +58,7 @@
             [type]="type"
             [disabled]="disabled"
             [count]="count"
+            [counterOptions]="counterOptions"
             (closeTab)="removeTab()"
             prizmDocHostElementKey="PrizmTabComponent"
           >
@@ -69,6 +70,7 @@
             [closeIcon]="$any(closeIcon)"
             [disabled]="disabled"
             [count]="count"
+            [counterOptions]="counterOptions"
             content="Big Tab 2"
           >
           </prizm-tab>
@@ -141,6 +143,16 @@
         documentationPropertyMode="input"
       >
         Tab counter
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="counterOptions"
+        [documentationPropertyValues]="counterOptionsVariants"
+        documentationPropertyName="counterOptions"
+        documentationPropertyType="Partial<PrizmTabCounterOptions>"
+        documentationPropertyMode="input"
+      >
+        Tab counter options
       </ng-template>
 
       <ng-template

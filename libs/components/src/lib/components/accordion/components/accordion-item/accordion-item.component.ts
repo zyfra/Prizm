@@ -4,32 +4,50 @@ import {
   Component,
   ContentChild,
   EventEmitter,
-  HostBinding,
   Input,
   OnDestroy,
   Output,
   TemplateRef,
 } from '@angular/core';
-import { AccordionContentDirective } from '../../directives/accordion-content.directive';
+import { PrizmAccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
 import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
-import { PolymorphContent } from '../../../../directives/polymorph';
+import {
+  PolymorphContent,
+  PolymorphModule,
+  PolymorphOutletDirective,
+} from '../../../../directives/polymorph';
 import { PrizmAccordionItemData } from '../../model';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../../../icon';
+import { PrizmButtonComponent } from '../../../button';
 
 @Component({
   selector: 'prizm-accordion-item',
   templateUrl: './accordion-item.component.html',
   styleUrls: ['./accordion-item.component.less'],
   animations: [expandAnimation],
+  standalone: true,
+  imports: [CommonModule, PrizmIconModule, PolymorphOutletDirective, PrizmButtonComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
   @Input() icon!: PolymorphContent<PrizmAccordionItemData>;
   @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
-  @Input() disabled = false;
+
+  @Input()
+  get disabled(): boolean {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
+
   @Output() isExpandedChange = new EventEmitter<boolean>();
 
   get data() {
@@ -37,15 +55,15 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
       icon: this.icon,
       title: this.title,
       isExpanded: this.isExpanded,
-      disabled: this.disabled,
+      disabled: this._disabled,
       focused: this.isAccordionFocused,
     };
   }
 
   override readonly testId_ = 'ui_accordion_item';
 
-  @ContentChild(AccordionContentDirective, { read: TemplateRef })
-  public readonly accordionContent!: TemplateRef<AccordionContentDirective>;
+  @ContentChild(PrizmAccordionContentDirective, { read: TemplateRef })
+  public readonly accordionContent!: TemplateRef<PrizmAccordionContentDirective>;
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
   public readonly accordionTools!: TemplateRef<AccordionToolsDirective>;
 

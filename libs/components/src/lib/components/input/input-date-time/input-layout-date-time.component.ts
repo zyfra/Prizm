@@ -10,7 +10,7 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { BehaviorSubject, combineLatest, Observable, of, tap } from 'rxjs';
 import { PRIZM_DATE_FILLER_LENGTH } from '../../../@core/date-time/date-fillers';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
@@ -38,11 +38,27 @@ import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
 import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
-import { PrizmInputZoneDirective } from '../../../directives/input-zone';
+import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
-import { PrizmInputNativeValueNeedChange } from '../../../directives';
-import { DOCUMENT } from '@angular/common';
+import { PrizmLifecycleModule } from '../../../directives/lifecycle';
+import { PolymorphOutletDirective } from '../../../directives/polymorph';
+import {
+  PrizmInputNativeValueModule,
+  PrizmInputNativeValueNeedChange,
+} from '../../../directives/native-value';
+import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { prizmI18nInitWithKeys } from '../../../services';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host/dropdown-host.component';
+import { PrizmInputTextModule } from '../input-text/input-text.module';
+import { PrizmMaskModule } from '../../../modules/mask/mask.module';
+import { PrizmDataListComponent } from '../../data-list/data-list.component';
+import { PrizmIconComponent } from '../../icon/icon.component';
+import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
+import { PrizmCalendarModule } from '../../calendar/calendar.module';
+import { PrizmLinkModule } from '../../link/link.module';
+import { PrizmCalendarComponent } from '../../calendar';
+import { PrizmLinkComponent } from '../../link';
+import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -65,6 +81,28 @@ import { prizmI18nInitWithKeys } from '../../../services';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateTimeComponent },
+  ],
+  standalone: true,
+  imports: [
+    PrizmInputLayoutDateTimeComponent,
+    PrizmDropdownHostComponent,
+    PrizmInputTextModule,
+    NgIf,
+    NgFor,
+    ReactiveFormsModule,
+    PrizmMaskModule,
+    PrizmDataListComponent,
+    PolymorphOutletDirective,
+    PrizmIconComponent,
+    PrizmInputZoneModule,
+    FormsModule,
+    PrizmLifecycleModule,
+    PrizmPreventDefaultModule,
+    PrizmCalendarComponent,
+    PrizmLinkComponent,
+    PrizmDropdownHostComponent,
+    PrizmValueAccessorModule,
+    PrizmInputNativeValueModule,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent

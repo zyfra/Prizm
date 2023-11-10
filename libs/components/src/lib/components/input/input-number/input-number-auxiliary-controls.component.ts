@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { PrizmInputNumberComponent } from './input-number.component';
+import { PrizmInputCommonModule } from '../common';
 
 @Component({
   selector: 'prizm-input-number-auxiliary-controls',
@@ -21,6 +22,8 @@ import { PrizmInputNumberComponent } from './input-number.component';
     ></button>
   </div> `,
   styleUrls: ['./input-number-auxiliary-controls.component.less'],
+  standalone: true,
+  imports: [PrizmInputCommonModule],
 })
 export class PrizmInputNumberDefaultControlsComponent {
   @Input() inputNumber!: PrizmInputNumberComponent;

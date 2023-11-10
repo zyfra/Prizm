@@ -1,13 +1,13 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmInputLayoutTimeModule } from '@prizm-ui/components';
+import { PrizmInputLayoutTimeComponent } from '@prizm-ui/components';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmInputLayoutTimeModule,
+    PrizmInputLayoutTimeComponent,
   ],
 })
 export class MyModule {}

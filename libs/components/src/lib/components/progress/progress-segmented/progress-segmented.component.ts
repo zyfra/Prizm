@@ -1,12 +1,15 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
 import { prizmIsString } from '../../../util/common/is-string';
+import { PrizmRepeatTimesDirective } from '../../../directives';
 
 @Component({
   selector: `prizm-progress-segmented`,
   templateUrl: `./progress-segmented.component.html`,
   styleUrls: [`./progress-segmented.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [PrizmRepeatTimesDirective],
 })
 export class PrizmProgressSegmentedComponent extends PrizmAbstractTestId {
   @Input()
@@ -26,7 +29,7 @@ export class PrizmProgressSegmentedComponent extends PrizmAbstractTestId {
 
   @Input()
   @prizmDefaultProp()
-  colors: string | readonly string[] = `var(--prizm-primary)`;
+  colors: string | readonly string[] = `var(--prizm-v3-status-info-primary-default)`;
 
   override readonly testId_ = 'ui_progress_segmented';
 

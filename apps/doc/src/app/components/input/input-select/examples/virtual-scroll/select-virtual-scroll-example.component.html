@@ -1,0 +1,24 @@
+<prizm-input-layout label="Validators">
+  <prizm-input-select #input [formControl]="control" [items]="items">
+    <prizm-scrollbar *prizmInputSelectDataList [visibility]="'visible'">
+      <cdk-virtual-scroll-viewport class="scroll" [itemSize]="50" prizmScrollable>
+        <prizm-input-select-item *cdkVirtualFor="let item of items" [item]="item">
+          {{ item }}
+        </prizm-input-select-item>
+      </cdk-virtual-scroll-viewport>
+    </prizm-scrollbar>
+  </prizm-input-select>
+
+  <ng-template [control]="$any(input)" prizmInputStatusText>dddd</ng-template>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()" prizmButton>
+    Set default value: <b>{{ items[0] }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ control.value }}</div>

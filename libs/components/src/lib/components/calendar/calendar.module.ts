@@ -1,24 +1,34 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PrizmCalendarComponent } from './calendar.component';
-import { PrizmPrimitiveYearMonthPaginationModule } from '../internal/primitive-year-month-pagination';
-import { PrizmPrimitiveYearPickerModule } from '../internal/primitive-year-picker';
-import { PrizmPrimitiveCalendarModule } from '../internal/primitive-calendar/primitive-calendar.module';
+import { PrizmPrimitiveYearMonthPaginationComponent } from '../internal/primitive-year-month-pagination';
+import { PrizmPrimitiveYearPickerComponent } from '../internal/primitive-year-picker';
 import { PrizmMapperPipeModule } from '../../pipes/mapper/mapper.module';
 import { PrizmScrollbarModule } from '../scrollbar/scrollbar.module';
-import { PrizmPrimitiveMonthPickerModule } from '../internal/primitive-month-picker';
+import { PrizmPrimitiveMonthPickerComponent } from '../internal/primitive-month-picker';
+import { PrizmPrimitiveCalendarComponent } from '../internal';
 
+/**
+ * @deprecated
+ * user standalone
+ * */
 @NgModule({
   imports: [
-    CommonModule,
-    PrizmPrimitiveYearMonthPaginationModule,
-    PrizmPrimitiveCalendarModule,
-    PrizmPrimitiveYearPickerModule,
-    PrizmPrimitiveMonthPickerModule,
+    PrizmCalendarComponent,
+    PrizmPrimitiveYearMonthPaginationComponent,
+    PrizmPrimitiveCalendarComponent,
+    PrizmPrimitiveYearPickerComponent,
+    PrizmPrimitiveMonthPickerComponent,
     PrizmScrollbarModule,
     PrizmMapperPipeModule,
   ],
-  declarations: [PrizmCalendarComponent],
-  exports: [PrizmCalendarComponent],
+  exports: [
+    PrizmCalendarComponent,
+    PrizmPrimitiveYearMonthPaginationComponent,
+    PrizmPrimitiveCalendarComponent,
+    PrizmPrimitiveYearPickerComponent,
+    PrizmPrimitiveMonthPickerComponent,
+    PrizmScrollbarModule,
+    PrizmMapperPipeModule,
+  ],
 })
 export class PrizmCalendarModule {}

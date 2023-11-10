@@ -1,0 +1,48 @@
+<div
+  class="item"
+  #hostHint
+  [class.most-relevant]="isMostRelevant(parent.items)"
+  [class.selected]="
+    item === parent.value ||
+    (item &&
+      parent.value &&
+      (parent.transformer(item) | prizmCallFunc : parent.identityMatcher : parent.value))
+  "
+  [value]="item"
+  prizmInputSelectOption
+>
+  <ng-container *ngIf="!parent.isNullish(item); else nullContentTemplate">
+    <span
+      class="text"
+      #elem
+      *prizmLet="
+        item | prizmCallFunc : parent.stringify : $any(parent.nullContent) | prizmToObservable | async as text
+      "
+      [prizmHint]="text"
+      [prizmHintHost]="hostHint"
+      [prizmHintDirection]="parent.direction"
+      [prizmHintCanShow]="$any(elem | prizmCallFunc : parent.prizmIsTextOverflow$ | async)"
+    >
+      <ng-container
+        *polymorphOutlet="
+          parent.listItemTemplate ?? parent.valueTemplate as content;
+          context: {
+            $implicit: item,
+            value: item | prizmCallFunc : parent.transformer,
+            stringify: text
+          }
+        "
+      >
+        {{ text }}
+      </ng-container>
+    </span>
+  </ng-container>
+
+  <ng-template #nullContentTemplate>
+    <ng-container *ngIf="parent.nullContent">
+      <ng-container *polymorphOutlet="parent.nullContent as content">
+        {{ content }}
+      </ng-container>
+    </ng-container>
+  </ng-template>
+</div>

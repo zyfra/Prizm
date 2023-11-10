@@ -13,12 +13,16 @@
         (click)="clickOnStep(step.index)"
         (keydown)="onKeyDown($event, step.index)"
       >
-        <span class="step__index" *ngIf="!(currentStep === step.index && step.status !== 'default')" [@inOut]>
+        <span
+          class="step__index"
+          *ngIf="!(currentStep === step.index && step.status !== 'default') && step.status !== null"
+          [@inOut]
+        >
           {{ step.index }}
         </span>
         <prizm-icon
           class="step__icon"
-          *ngIf="currentStep === step.index && step.status !== 'default'"
+          *ngIf="(currentStep === step.index && step.status !== 'default') || step.status === null"
           [@inOut]
           [size]="24"
           [iconClass]="step.status === 'success' ? 'success-circle-fill' : 'alerts-circle-fill'"

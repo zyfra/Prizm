@@ -8,17 +8,12 @@ import { PrizmScrollIntoViewModule } from '../../../directives/scroll-into-view/
 import { PrizmMonthPipeModule } from '../../../pipes/month';
 import { CommonModule } from '@angular/common';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [
-    PrizmHoveredModule,
-    PrizmPressedModule,
-    PrizmRepeatTimesModule,
-    PrizmLetModule,
-    CommonModule,
-    PrizmScrollIntoViewModule,
-    PrizmMonthPipeModule,
-  ],
-  declarations: [PrizmPrimitiveMonthPickerComponent],
+  imports: [PrizmPrimitiveMonthPickerComponent],
   exports: [PrizmPrimitiveMonthPickerComponent],
 })
 export class PrizmPrimitiveMonthPickerModule {}

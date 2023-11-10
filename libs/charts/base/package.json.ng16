@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/charts",
-  "version": "3.3.0",
+  "version": "3.4.0",
   "license": "MIT",
   "private": false,
   "publishConfig": {
@@ -8,10 +8,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
+    "lodash-es": "^4.17.21",
     "@angular/common": "^16.1.8",
     "@angular/core": "^16.1.8",
-    "@prizm-ui/theme": "^3.3.0",
-    "@prizm-ui/helpers": "^3.3.0",
+    "@prizm-ui/theme": "^3.4.0",
+    "@prizm-ui/helpers": "^3.4.0",
     "@antv/g2plot": "^2.4.22"
   },
   "dependencies": {

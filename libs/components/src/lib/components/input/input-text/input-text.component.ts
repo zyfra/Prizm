@@ -18,7 +18,6 @@ import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/for
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
-import { PrizmHintDirective } from '../../../directives';
 import { PrizmInputHintDirective } from '../common';
 
 @Component({
@@ -34,13 +33,12 @@ import { PrizmInputHintDirective } from '../common';
   exportAs: 'prizmInput',
   styleUrls: ['../common/styles/input.component.less', 'input-textarea.component.less'],
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputTextComponent }, PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmInputTextComponent<VALUE extends string | number | null = string>
   extends PrizmInputControl<VALUE>
   implements DoCheck, OnInit, OnDestroy
 {
-  readonly prizmHint_ = new PrizmHintDirective();
-
   @HostBinding('attr.prizmHint') get prizmHint(): VALUE {
     return this.value;
   }
@@ -170,7 +168,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
-    this.prizmHint_.ngOnInit();
     this.inputHint?.updateHint();
   }
 
@@ -182,7 +179,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   ngOnDestroy(): void {
     this.stateChanges.complete();
-    this.prizmHint_.ngOnDestroy();
   }
 
   @HostListener('input', ['$event'])

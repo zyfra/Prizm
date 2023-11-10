@@ -6,6 +6,7 @@ type Method = Exclude<keyof DomSanitizer, 'sanitize'>;
 
 @Pipe({
   name: 'prizmSanitizer',
+  standalone: true,
 })
 export class PrizmSanitizerPipe implements PipeTransform {
   constructor(private sanitizer: DomSanitizer) {}

@@ -14,7 +14,7 @@ import { PRIZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button
 import { AbstractPrizmInteractive } from '../../abstract/interactive';
 import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmSize } from '../../util/size-bigger';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
@@ -25,6 +25,12 @@ import { PrizmFocusableElementAccessor } from '../../types';
 import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-visible.service';
 import { PrizmHoveredService } from '../../services';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../icon';
+import { PrizmLoaderModule } from '../loader';
+import { PrizmWrapperComponent } from '../../directives/wrapper/wrapper.component';
+import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -32,6 +38,15 @@ import { PolymorphContent } from '../../directives/polymorph/types/content';
   styleUrls: ['./button.component.less'],
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmWrapperComponent,
+    PolymorphOutletDirective,
+    PrizmIconModule,
+    PrizmLoaderModule,
+    PrizmCallFuncPipe,
+  ],
   providers: [
     PrizmDestroyService,
     {
@@ -67,7 +82,13 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
 
   @Input()
   @prizmDefaultProp()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input()
   @HostBinding('class._loading')

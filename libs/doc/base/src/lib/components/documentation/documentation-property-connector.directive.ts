@@ -19,7 +19,7 @@ import { prizmCoerceValue } from '../../utils/coerce-value';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { PrizmDocHostElementService } from '../host';
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
-import { isEqual } from 'lodash';
+import isEqual from 'lodash-es/isEqual';
 
 const SERIALIZED_SUFFIX = `$`;
 

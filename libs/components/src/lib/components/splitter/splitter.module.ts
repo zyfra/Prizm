@@ -1,16 +1,17 @@
-import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { PrizmSplitterAreaComponent } from './area/area.component';
 import { PrizmSplitterGutterDefaultComponent } from './gutter/gutter-default.component';
 import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 
 import { PrizmSplitterComponent } from './splitter.component';
-import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
 import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [CommonModule, ResizeObserverModule],
-  declarations: [
+  imports: [
     PrizmSplitterComponent,
     PrizmSplitterAreaComponent,
     PrizmSplitterGutterComponent,

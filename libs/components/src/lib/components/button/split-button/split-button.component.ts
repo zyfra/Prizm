@@ -13,6 +13,8 @@ import { PrizmSize } from '../../../util';
 import { PrizmAppearance, PrizmAppearanceType } from '../../../types';
 import { PolymorphContent } from '../../../directives';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmButtonComponent } from '../button.component';
 
 @Component({
   selector: 'prizm-split-button',
@@ -20,6 +22,8 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
   templateUrl: './split-button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [PrizmButtonComponent],
 })
 export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
   @Input()
@@ -39,7 +43,13 @@ export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
   appearanceType!: PrizmAppearanceType;
 
   @Input()
-  disabled = false;
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Input()
   showLoader = false;

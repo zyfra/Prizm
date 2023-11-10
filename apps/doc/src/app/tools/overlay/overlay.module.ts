@@ -10,6 +10,7 @@ import { PrizmOverlayExampleRelativeComponent } from './examples/relative/templa
 import { PrizmOverlayExampleGlobalComponent } from './examples/global/template';
 import { PrizmOverlayExampleFullscreenComponent } from './examples/fullscreen/template';
 import { PrizmOverlaySomeComponent } from './examples/with-component/some-component';
+import { PrizmOverlayCustomContextExampleComponent } from './examples/custom-context/custom-context.component';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { PrizmOverlaySomeComponent } from './examples/with-component/some-compon
     RouterModule.forChild(prizmDocGenerateRoutes(OverlayComponent)),
   ],
   declarations: [
+    PrizmOverlayCustomContextExampleComponent,
     PrizmOverlayExampleSlideComponent,
     PrizmOverlayExampleRelativeComponent,
     PrizmOverlayExampleGlobalComponent,

@@ -3,6 +3,7 @@ import { prizmAssert } from '@prizm-ui/core';
 
 @Pipe({
   name: 'prizmPluck',
+  standalone: true,
 })
 export class PrizmPluckPipe implements PipeTransform {
   public transform<T, K extends keyof T & string>(

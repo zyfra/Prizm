@@ -2,11 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
+  PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmDropdownHostClasses,
   PrizmDropdownHostStyles,
+  PrizmHintOptions,
   PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
+  PrizmOverlayOutsidePlacement,
   PrizmScrollbarVisibility,
   PrizmSelectIconContext,
 } from '@prizm-ui/components';
@@ -28,6 +31,11 @@ export class InputSelectComponent {
       '--prizm-data-list-header-text': 'white',
     },
   ];
+  public prizmHintCanShow = true;
+  public prizmHintDirection: PrizmHintOptions['direction'] = 't';
+  public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
+    PrizmOverlayOutsidePlacement
+  );
   public dropdownStyles: PrizmDropdownHostStyles;
   public dropdownClassesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
@@ -103,6 +111,10 @@ export class InputSelectComponent {
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('./examples/base/select-base-example.component.ts?raw'),
     HTML: import('./examples/base/select-base-example.component.html?raw'),
+  };
+  readonly exampleVirtualScroll: TuiDocExample = {
+    TypeScript: import('./examples/virtual-scroll/select-virtual-scroll-example.component.ts?raw'),
+    HTML: import('./examples/virtual-scroll/select-virtual-scroll-example.component.html?raw'),
   };
   readonly exampleAsync: TuiDocExample = {
     TypeScript: import('./examples/async/select-async-example.component.ts?raw'),

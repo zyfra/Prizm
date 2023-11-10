@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "3.1.0",
+  "version": "3.4.0",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -77,6 +77,7 @@
     "dompurify": "^2.3.8",
     "highlight.js": "^11.5.1",
     "highlightjs-line-numbers.js": "^2.8.0",
+    "lodash-es": "^4.17.21",
     "marked": "^4.0.17",
     "ngx-markdown": "^16.0.0",
     "ngx-mask": "16.2.6",
@@ -117,6 +118,7 @@
     "@types/dompurify": "^2.3.3",
     "@types/jest": "29.4.4",
     "@types/lodash": "^4.14.191",
+    "@types/lodash-es": "^4.17.10",
     "@types/marked": "^4.0.8",
     "@types/mock-fs": "^4.13.1",
     "@types/node": "18.7.1",

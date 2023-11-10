@@ -6,7 +6,8 @@
   display: flex;
   overflow: auto;
 
-  &:not(._legacy) {
+  &:not(._legacy),
+  ::ng-deep [prizmScrollable] {
     scrollbar-width: none;
     -ms-overflow-style: none;
     &::-webkit-scrollbar,

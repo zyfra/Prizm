@@ -9,6 +9,8 @@ import {
   Output,
 } from '@angular/core';
 import { PrizmSliderCnobValuePosition } from './types';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'prizm-slider-cnob',
@@ -23,12 +25,21 @@ import { PrizmSliderCnobValuePosition } from './types';
     '[attr.tabindex]': "disabled ? null : '0'",
     '[attr.disabled]': "disabled ? '' : null",
   },
+  standalone: true,
+  imports: [NgIf],
 })
 export class PrizmSliderCnobComponent {
   @Input() @HostBinding('attr.index') index!: number;
   @Input() value!: number | null;
   @Input() showValueOn!: PrizmSliderCnobValuePosition;
-  @Input() disabled = false;
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+  private _disabled = false;
 
   @Output()
   dragStart = new EventEmitter<{

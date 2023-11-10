@@ -1,2 +1,2 @@
 export { PrizmCallFuncModule } from './call-func.module';
-export { CallFuncPipe } from './call-func.pipe';
+export { PrizmCallFuncPipe } from './call-func.pipe';

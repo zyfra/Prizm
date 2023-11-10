@@ -6,9 +6,12 @@ import { PolymorphModule } from '../polymorph';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 
+/**
+ * @deprecated
+ * user standalone instead of
+ * */
 @NgModule({
-  imports: [PrizmThemeModule, CommonModule, PrizmScrollbarModule, PolymorphModule],
-  declarations: [PrizmHintDirective, PrizmHintContainerComponent],
+  imports: [PrizmHintContainerComponent, PrizmHintDirective],
   exports: [PrizmHintDirective],
 })
 export class PrizmHintModule {}

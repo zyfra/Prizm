@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { CommonModule, DOCUMENT } from '@angular/common';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -11,12 +11,15 @@ import {
 import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PolymorphOutletDirective } from '../../directives/polymorph';
 
 @Component({
   selector: 'prizm-spinner',
   templateUrl: './spinner.component.html',
   styleUrls: ['./spinner.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, PolymorphOutletDirective],
 })
 export class PrizmSpinnerComponent extends PrizmAbstractTestId {
   @Input()

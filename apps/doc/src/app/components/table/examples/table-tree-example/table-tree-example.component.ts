@@ -3,7 +3,7 @@ import { PrizmTableCellStatus, prizmTableDefaultColumnSort } from '@prizm-ui/com
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
 import { TABLE_EXAMPLE_TREE_DATA_1 } from '../../table-example.const';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash-es/cloneDeep';
 
 export interface ITableProduct {
   id?: number | string;

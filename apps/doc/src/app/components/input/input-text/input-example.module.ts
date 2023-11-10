@@ -1,8 +1,15 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { PrizmInputTextModule, PrizmButtonModule, PrizmIconModule } from '@prizm-ui/components';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import {
+  PrizmButtonModule,
+  PrizmHintDirective,
+  PrizmHintModule,
+  PrizmIconComponent,
+  PrizmIconModule,
+  PrizmInputTextModule,
+} from '@prizm-ui/components';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
 import { InputLabelPositionExampleComponent } from './examples/input-label-position-example/input-label-position-example.component';
@@ -16,12 +23,15 @@ import { InputBasicExampleComponent } from './examples/input-basic-example/input
 import { InputValidationCustomExampleComponent } from './examples/input-validation-custom-example/input-validation-custom-example.component';
 import { InputFormControlExampleComponent } from './examples/input-form-control-example/input-form-control-example.component';
 import { InputSearchExampleComponent } from './examples/input-search-example/input-search-example.component';
+import { InputEmptyLabelExampleComponent } from './examples/input-empty-label-example/input-empty-label-example.component';
+import { InputCustomClearButtonExampleComponent } from './examples/input-custom-clear-button-example/input-custom-clear-button-example.component';
 
 @NgModule({
   imports: [
+    PrizmHintDirective,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
-    PrizmIconModule,
+    PrizmIconComponent,
     PrizmInputTextModule,
     PrizmButtonModule,
     ReactiveFormsModule,
@@ -40,6 +50,8 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
     InputIconButtonsExampleComponent,
     InputFormControlExampleComponent,
     InputSearchExampleComponent,
+    InputCustomClearButtonExampleComponent,
+    InputEmptyLabelExampleComponent,
   ],
   exports: [InputComponent],
 })

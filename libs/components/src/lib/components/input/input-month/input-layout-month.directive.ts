@@ -13,6 +13,7 @@ import { AbstractPrizmControl } from '../../../abstract/control';
 @Directive({
   // eslint-disable-next-line @angular-eslint/directive-selector
   selector: `prizm-input-month`,
+  standalone: true,
   providers: [prizmAsTextfieldHost(PrizmInputLayoutMonthDirective), PrizmDestroyService],
 })
 export class PrizmInputLayoutMonthDirective

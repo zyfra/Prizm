@@ -6,6 +6,9 @@
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-select-base-example></prizm-select-base-example>
     </prizm-doc-example>
+    <prizm-doc-example id="virtual-scroll" [content]="exampleVirtualScroll" heading="Virtual Scroll">
+      <prizm-select-virtual-scroll-example></prizm-select-virtual-scroll-example>
+    </prizm-doc-example>
     <prizm-doc-example id="async" [content]="exampleAsync" heading="Async">
       <prizm-select-async-example></prizm-select-async-example>
     </prizm-doc-example>
@@ -86,6 +89,8 @@
           [searchable]="searchable"
           [dropdownStyles]="dropdownStyles"
           [dropdownClasses]="dropdownClasses"
+          [prizmHintCanShow]="prizmHintCanShow"
+          [prizmHintDirection]="prizmHintDirection"
           [dropdownScroll]="dropdownScroll"
           [emptyContent]="emptyContent"
           [minDropdownHeight]="minDropdownHeight"
@@ -157,6 +162,25 @@
         documentationPropertyMode="input"
       >
         Identity Matcher
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintDirection"
+        [documentationPropertyValues]="prizmHintDirectionVariants"
+        documentationPropertyName="prizmHintDirection"
+        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyMode="input"
+      >
+        Hint Direction
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmHintCanShow"
+        documentationPropertyName="prizmHintCanShow"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Can Show
       </ng-template>
 
       <ng-template
@@ -403,6 +427,15 @@
       >
         Show clear button
       </ng-template>
+
+      <ng-template
+        documentationPropertyName="clearButton"
+        documentationPropertyType="PolymorphContent<PrizmInputLayoutClearButtonContext>"
+        documentationPropertyMode="input"
+      >
+        Clear Button (icon or template)
+      </ng-template>
+
       <ng-template
         [(documentationPropertyValue)]="outer"
         documentationPropertyName="outer"

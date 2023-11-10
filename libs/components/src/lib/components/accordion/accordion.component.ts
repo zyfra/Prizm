@@ -5,7 +5,6 @@ import {
   QueryList,
   AfterContentInit,
   Input,
-  HostBinding,
 } from '@angular/core';
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
@@ -19,6 +18,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
   styleUrls: ['./accordion.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;

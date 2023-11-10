@@ -1,7 +1,6 @@
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
   EventEmitter,
   Inject,
@@ -10,19 +9,54 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { CdkDragDrop, moveItemInArray, transferArrayItem, CdkDropList } from '@angular/cdk/drag-drop';
+import {
+  CdkDragDrop,
+  CdkDropList,
+  DragDropModule,
+  moveItemInArray,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { PrizmColumnSettings, PrizmColumnStatus, PrizmTableSettings } from './column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
 import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
-import { cloneDeep } from 'lodash';
+import cloneDeep from 'lodash-es/cloneDeep';
+import { CommonModule } from '@angular/common';
+import { PrizmCardComponent, PrizmCardModule } from '../card';
+import { PrizmButtonComponent, PrizmButtonModule } from '../button';
+import { PrizmToggleComponent, PrizmToggleModule } from '../toggle';
+import { PrizmIconComponent, PrizmIconModule } from '../icon';
+import { PrizmScrollbarComponent, PrizmScrollbarModule } from '../scrollbar';
+import { PrizmLetDirective, PrizmLetModule, PrizmPluckPipe, PrizmPluckPipeModule } from '@prizm-ui/helpers';
+import { PrizmHintDirective, PrizmHintModule } from '../../directives';
+import { FormsModule } from '@angular/forms';
+import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
+import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
 
 @Component({
   selector: 'prizm-column-settings',
   templateUrl: './column-settings.component.html',
   styleUrls: ['./column-settings.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmCardComponent,
+    PrizmButtonComponent,
+    PrizmToggleComponent,
+    DragDropModule,
+    PrizmIconComponent,
+    PrizmScrollbarComponent,
+    PrizmColumnDropListComponent,
+    PrizmLetDirective,
+    PrizmPluckPipe,
+    PrizmHintDirective,
+    FormsModule,
+    PrizmThemeModule,
+    PrizmColumnIconPipe,
+  ],
   providers: [...prizmI18nInitWithKey(PRIZM_COLUMN_SETTINGS, 'columnSettings')],
 })
 export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements AfterViewInit {

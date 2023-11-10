@@ -11,11 +11,11 @@ import { PrizmInputLayoutRightDirective } from './input-layout/input-layout-righ
 import { PrizmInputLayoutLeftDirective } from './input-layout/input-layout-left.directive';
 import { PrizmInputLayoutInBodyDirective } from './input-layout/input-layout-in-body.directive';
 import { PrizmInputLayoutSubtextDirective } from './input-layout/input-layout-subtext.directive';
-import { PrizmZoneEventModule } from '../../../directives';
+import { PolymorphModule, PrizmZoneEventModule } from '../../../directives';
 import { PrizmLetModule, PrizmToObservableModule } from '@prizm-ui/helpers';
 import { PrizmInputHintModule } from './input-hint/input-hint.module';
 import { PrizmInputAllowedSymbolsModule } from './input-allowed-symbols';
-import { PrizmInputCorrectorDirective, PrizmInputCorrectorModule } from './input-corrector';
+import { PrizmInputCorrectorModule } from './input-corrector';
 
 @NgModule({
   imports: [
@@ -23,6 +23,7 @@ import { PrizmInputCorrectorDirective, PrizmInputCorrectorModule } from './input
     PrizmInputHintModule,
     PrizmToObservableModule,
     PrizmLetModule,
+    PolymorphModule,
     PrizmIconModule,
     PrizmZoneEventModule,
     PrizmHintModule,
@@ -31,12 +32,12 @@ import { PrizmInputCorrectorDirective, PrizmInputCorrectorModule } from './input
     PrizmInputCorrectorModule,
   ],
   declarations: [
+    PrizmInputLayoutRightDirective,
+    PrizmInputLayoutLeftDirective,
     PrizmInputLayoutComponent,
     PrizmInputStatusSubtextComponent,
     PrizmInputStatusTextDirective,
     PrizmInputLayoutBottomDirective,
-    PrizmInputLayoutRightDirective,
-    PrizmInputLayoutLeftDirective,
     PrizmInputLayoutInBodyDirective,
     PrizmInputLayoutSubtextDirective,
   ],

@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (01-11-2023)
+
+### Features
+
+- feat(components/input-select): virtual scroll support #617
+- feat(components): to new colors #862
+- feat(components/input): empty label mode for iner #384 [MR](https://github.com/zyfra/Prizm/pull/920)
+- feat(components/overlay): context example and to standalone #813
+- feat: updated v1 stackblitz demos with style #877
+- feat: updated v2 stackblitz demos with style #878
+- feat: updated v3 stackblitz demos with style #879
+- feat(components/indicator): v3 colors for indicator #867
+- feat(components/checkbox): v3 colors for checkbox #871
+- feat(components/spinner): v3 colors for spinner #870
+- feat(components/loader): v3 colors for loader #870
+- feat(components/toggle): update toggle colors to v3 #876
+- feat(components/switcher): add hint to switcher #856
+- feat(components/scrollbar): scrollbar colors update to v3 #895
+- feat(components/card): colors v3 for card #897
+- feat(components/panel): colors v3 for panel #897
+- feat(components/tabs): add prizm counter to tabs #863
+- feat: update progress colors to v3 #902
+- feat(components/dropdown-control): new directive control for dropdown #881
+- feat(components): create own calendar exports #880
+- feat(components): add boolean compatible with async #714
+- feat(components/input): empty label mode for inner #384
+- feat(components/hint): standalone directives [MR](https://github.com/zyfra/Prizm/pull/905)
+
+### Bug fixes
+
+- fix(components/old-icon): fixed broken icons #102
+- fix(components/input-layout-date-time): dropdown size #741
+- fix(components/buttons): fix emit hover on disabled for icon-button and buttons #948
+- fix(doc/input-date-multi): inputDateMulti incorrect label text #753
+- fix(components/file-upload): file upload button type #837
+- fix(docs/table): description for 'open' property for table body added to docs #654
+- fix(components/toast): double toast error and scrollbar #481 #734
+- fix(components/tree): active item style and update doc #708 #654
+- fix(components/input): update on blur #736 [MR](https://github.com/zyfra/Prizm/pull/917)
+
+### Closed
+
+- request(components/combobox): new component 'combobox' applied to next iteration #629
+- question(components/table): answered new demo #748
+
 ## [1.7.0, 2.4.0, 3.3.0](https://github.com/zyfra/Prizm) (25-10-2023)
 
 ### Features
@@ -39,6 +84,8 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(chore): changed lodash to lodash-es #886
+- feat(components/input-layout): custom clear button #855
 - feat(components/input-select): added wrap model for simple content #793 [MR](https://github.com/zyfra/Prizm/pull/810)
 - feat(doc/table): initial table sort example #126 [MR](https://github.com/zyfra/Prizm/pull/805)
 - feat(components/table): initial table sorter added if not set #126 [MR](https://github.com/zyfra/Prizm/pull/805)

@@ -33,9 +33,18 @@
     >
       <ng-container *ngTemplateOutlet="accordionTools"></ng-container>
     </div>
-    <button class="accordion__button" tabindex="-1">
-      <prizm-icon class="accordion__button-icon" size="16" iconClass="chevrons-double-down"></prizm-icon>
-    </button>
+    <div class="btn-wrapper">
+      <button
+        class="accordion__button"
+        [icon]="'chevrons-double-down'"
+        [disabled]="disabled"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+        tabindex="-1"
+      ></button>
+    </div>
   </div>
   <div class="accordion__content" *ngIf="accordionContent" [@expand]="isExpanded ? 'expanded' : 'init'">
     <ng-container *ngTemplateOutlet="accordionContent"></ng-container>

@@ -1,7 +1,7 @@
-import { CallFuncPipe } from './call-func.pipe';
+import { PrizmCallFuncPipe } from './call-func.pipe';
 
 describe('Pipe: CallFunc', () => {
-  const pipe = new CallFuncPipe({} as any);
+  const pipe = new PrizmCallFuncPipe({} as any);
 
   it('create an instance', () => {
     expect(pipe).toBeTruthy();

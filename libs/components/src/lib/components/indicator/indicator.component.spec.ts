@@ -1,21 +1,21 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IndicatorComponent } from './indicator.component';
+import { PrizmIndicatorComponent } from './indicator.component';
 import { CommonModule } from '@angular/common';
 
 describe('IndicatorComponent', () => {
-  let component: IndicatorComponent;
-  let fixture: ComponentFixture<IndicatorComponent>;
+  let component: PrizmIndicatorComponent;
+  let fixture: ComponentFixture<PrizmIndicatorComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [IndicatorComponent],
+      declarations: [PrizmIndicatorComponent],
       imports: [CommonModule],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IndicatorComponent);
+    fixture = TestBed.createComponent(PrizmIndicatorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,4 @@
-import { DOCUMENT } from '@angular/common';
+import { DOCUMENT, NgClass, NgIf, NgStyle } from '@angular/common';
 import {
   AfterViewInit,
   ChangeDetectionStrategy,
@@ -39,6 +39,8 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
     { provide: NG_VALUE_ACCESSOR, useExisting: PrizmSliderComponent, multi: true },
     PrizmDestroyService,
   ],
+  standalone: true,
+  imports: [NgIf, NgClass, NgStyle, PrizmSliderCnobComponent],
 })
 export class PrizmSliderComponent
   extends PrizmAbstractTestId
