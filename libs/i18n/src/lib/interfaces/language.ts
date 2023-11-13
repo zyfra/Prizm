@@ -9,6 +9,10 @@ export interface PrizmLanguageFileUpload {
     dropzone__title: string;
     dropzone__description: string;
     btn__select: string;
+    status__idle: string;
+    status__progress: string;
+    status__warning: string;
+    status__success: string;
   };
 }
 export interface PrizmLanguageInputLayoutDateRelative {

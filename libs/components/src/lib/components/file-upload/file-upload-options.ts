@@ -13,10 +13,10 @@ export type PrizmFileUploadOptions = {
 export const prizmFileUploadDefaultOptions: PrizmFileUploadOptions = {
   showRetryButtons: true,
   statusNames: {
-    idle: 'Ожидание загрузки',
-    progress: 'Загрузка',
-    warning: 'Ошибка',
-    success: 'Загружено',
+    idle: 'status__idle',
+    progress: 'status__progress',
+    warning: 'status__warning',
+    success: 'status__success',
   },
 };
 
