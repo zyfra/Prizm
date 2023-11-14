@@ -58,7 +58,7 @@ import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
     PrizmDropdownCellComponent,
     PrizmCounterComponent,
     PrizmIconModule,
-    PrizmIconTabsPipe
+    PrizmIconTabsPipe,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
