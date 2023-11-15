@@ -766,13 +766,11 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/dropdown-cell',
+    path: 'components/listing-item',
     loadChildren: () =>
-      import('./components/dropdown-cell/dropdown-cell-example.module').then(
-        i => i.DropDownCellExampleModule
-      ),
+      import('./components/listing-item/listing-item-example.module').then(i => i.ListingItemExampleModule),
     data: {
-      title: 'Dropdown Cell',
+      title: 'Listing Item',
     },
   },
   {

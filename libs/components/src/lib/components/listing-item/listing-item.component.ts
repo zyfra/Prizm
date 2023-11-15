@@ -1,20 +1,18 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { PolymorphContent, PolymorphModule, PrizmHintDirective } from '../../directives';
+import { PolymorphOutletDirective } from '../../directives';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PrizmChipsModule } from '../chips';
 
 @Component({
-  selector: 'prizm-dropdown-cell',
-  templateUrl: './dropdown-cell.component.html',
-  styleUrls: ['./dropdown-cell.component.less'],
+  selector: 'prizm-listing-item',
+  templateUrl: './listing-item.component.html',
+  styleUrls: ['./listing-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, PolymorphModule, PrizmChipsModule, PrizmHintDirective],
+  imports: [CommonModule, PolymorphOutletDirective],
 })
-export class PrizmDropdownCellComponent extends PrizmAbstractTestId {
-  @Input() public cellTitle: PolymorphContent = '';
+export class PrizmListingItemComponent extends PrizmAbstractTestId {
   @Input()
   get disabled() {
     return this._disabled;
@@ -32,12 +30,6 @@ export class PrizmDropdownCellComponent extends PrizmAbstractTestId {
     this._selected = coerceBooleanProperty(value);
   }
   private _selected = false;
-  @Input() contentType: 'flat' | 'chips' = 'flat';
 
-  override readonly testId_ = 'ui_dropdown_cell';
-
-  get prizmHintCanShow(): boolean {
-    // TODO: add optional hint if text overflows
-    return true;
-  }
+  override readonly testId_ = 'ui_listing_item';
 }

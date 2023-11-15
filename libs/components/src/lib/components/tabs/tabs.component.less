@@ -64,11 +64,18 @@
 
 .tabs-column {
   max-width: var(--prizm-tabs-dropdown-max-width, 360px);
-  --prizm-dropdown-cell-row-instruments-hover: var(--prizm-v3-table-fill-row-active);
+  --prizm-listing-item-row-instruments-hover: var(--prizm-v3-table-fill-row-active);
   padding: 8px 0;
   display: flex;
   flex-direction: column;
   background: var(--prizm-v3-background-fill-primary);
+  .title {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+  }
 }
 
 .hidden {

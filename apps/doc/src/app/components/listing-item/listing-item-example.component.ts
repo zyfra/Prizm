@@ -3,8 +3,8 @@ import { PrizmCounterPosition, PrizmCounterStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
-  selector: 'prizm-dropdown-cell-example',
-  templateUrl: './dropdown-cell-example.component.html',
+  selector: 'prizm-listing-item-example',
+  templateUrl: './listing-item-example.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [
     `
@@ -16,14 +16,14 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
         background-color: var(--prizm-v3-background-fill-secondary);
       }
 
-      prizm-dropdown-cell {
+      prizm-listing-item {
         min-width: 200px;
       }
     `,
   ],
 })
-export class PrizmDropdownCellExampleComponent {
-  public title = 'My Cell Title';
+export class PrizmListingItemExampleComponent {
+  public title = 'My List Item';
   public disabled = false;
   public selected = false;
   public contentType: 'chips' | 'flat' = 'flat';
@@ -35,17 +35,17 @@ export class PrizmDropdownCellExampleComponent {
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleBase: TuiDocExample = {
-    TypeScript: import('./examples/base/dropdown-cell-base-example.component.ts?raw'),
-    HTML: import('./examples/base/dropdown-cell-base-example.component.html?raw'),
+    TypeScript: import('./examples/base/listing-item-base-example.component.ts?raw'),
+    HTML: import('./examples/base/listing-item-base-example.component.html?raw'),
   };
 
   readonly exampleWithInstruments: TuiDocExample = {
-    TypeScript: import('./examples/with-instrumnets/dropdown-cell-with-instruments-example.component.ts?raw'),
-    HTML: import('./examples/with-instrumnets/dropdown-cell-with-instruments-example.component.html?raw'),
+    TypeScript: import('./examples/with-instrumnets/listing-item-with-instruments-example.component.ts?raw'),
+    HTML: import('./examples/with-instrumnets/listing-item-with-instruments-example.component.html?raw'),
   };
 
   readonly exampleChips: TuiDocExample = {
-    TypeScript: import('./examples/chips/dropdown-cell-chips-example.component.ts?raw'),
-    HTML: import('./examples/chips/dropdown-cell-chips-example.component.html?raw'),
+    TypeScript: import('./examples/chips/listing-item-chips-example.component.ts?raw'),
+    HTML: import('./examples/chips/listing-item-chips-example.component.html?raw'),
   };
 }

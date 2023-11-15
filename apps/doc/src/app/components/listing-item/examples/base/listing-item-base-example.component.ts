@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'prizm-dropdown-cell-base-example',
-  templateUrl: './dropdown-cell-base-example.component.html',
+  selector: 'prizm-listing-item-base-example',
+  templateUrl: './listing-item-base-example.component.html',
   styles: [
     `
       .container {
@@ -13,12 +13,12 @@ import { Component } from '@angular/core';
         background-color: var(--prizm-v3-background-fill-secondary);
       }
 
-      prizm-dropdown-cell {
+      prizm-listing-item {
         max-width: 300px;
       }
     `,
   ],
 })
-export class PrizmDropdownCellBaseExampleComponent {
+export class PrizmListingItemBaseExampleComponent {
   public open = false;
 }

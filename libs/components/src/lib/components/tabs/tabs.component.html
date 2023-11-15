@@ -68,13 +68,12 @@
       >
         <ng-container *ngFor="let tabElement of tabElements; let i = index">
           <ng-container *ngIf="tabElement as tab">
-            <prizm-dropdown-cell
-              [cellTitle]="tab.content"
+            <prizm-listing-item
               [disabled]="$any(tab.disabled)"
               [selected]="activeTabIndex === i"
               (click)="clickTab(i)"
             >
-              <ng-container *ngIf="tab.icon || data.hasIcons" instruments>
+              <ng-container *ngIf="tab.icon || data.hasIcons" leftBox>
                 <ng-container *ngIf="tab.icon as icon; else placeholder">
                   <ng-container *polymorphOutlet="icon; context: $any({ idx: i, tab: tab })">
                     <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
@@ -84,7 +83,14 @@
                   <div class="icon-placeholder"></div>
                 </ng-template>
               </ng-container>
-              <ng-container buttons>
+
+              <ng-container>
+                <div class="title" [prizmHint]="tab.content">
+                  {{ tab.content }}
+                </div>
+              </ng-container>
+
+              <ng-container rightBox>
                 <prizm-counter
                   *ngIf="tab.count"
                   [value]="tab.count"
@@ -102,7 +108,7 @@
                   size="s"
                 ></button>
               </ng-container>
-            </prizm-dropdown-cell>
+            </prizm-listing-item>
           </ng-container>
         </ng-container>
       </div>

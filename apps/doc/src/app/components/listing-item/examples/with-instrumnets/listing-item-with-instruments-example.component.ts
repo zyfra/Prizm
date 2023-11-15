@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'prizm-dropdown-cell-with-instrumnets-example',
-  templateUrl: './dropdown-cell-with-instruments-example.component.html',
+  selector: 'prizm-listing-item-with-instrumnets-example',
+  templateUrl: './listing-item-with-instruments-example.component.html',
   styles: [
     `
       .container {
@@ -13,28 +13,28 @@ import { Component } from '@angular/core';
         background-color: var(--prizm-v3-background-fill-secondary);
       }
 
-      prizm-dropdown-cell {
+      prizm-listing-item {
         max-width: 300px;
       }
     `,
   ],
 })
-export class PrizmDropdownCellWithInstrumnetsExampleComponent {
+export class PrizmListingItemWithInstrumnetsExampleComponent {
   readonly cells = [
     {
-      title: 'My Cell',
+      title: 'My List Item',
       disabled: false,
       selected: false,
       count: 10,
     },
     {
-      title: 'My Selected Cell',
+      title: 'My Selected List Item',
       disabled: false,
       selected: true,
       count: 9,
     },
     {
-      title: 'My Disabled Cell',
+      title: 'My Disabled List Item',
       disabled: true,
       selected: false,
       count: 0,

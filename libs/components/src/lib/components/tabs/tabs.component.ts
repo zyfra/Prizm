@@ -28,11 +28,12 @@ import { CommonModule } from '@angular/common';
 import {
   PolymorphOutletDirective,
   PrizmDropdownControllerModule,
+  PrizmHintDirective,
   PrizmLifecycleModule,
 } from '../../directives';
 import { PrizmButtonModule } from '../button';
 import { PrizmDataListComponent } from '../data-list';
-import { PrizmDropdownCellComponent } from '../dropdown-cell';
+import { PrizmListingItemComponent } from '../listing-item';
 import { PrizmCounterComponent } from '../counter';
 import { PrizmIconModule } from '../icon';
 import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
@@ -55,10 +56,11 @@ import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
     PrizmDropdownControllerModule,
     PrizmDataListComponent,
     PrizmTabComponent,
-    PrizmDropdownCellComponent,
+    PrizmListingItemComponent,
     PrizmCounterComponent,
     PrizmIconModule,
     PrizmIconTabsPipe,
+    PrizmHintDirective,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {

@@ -1,14 +1,14 @@
 :host {
   background-color: var(--prizm-v3-background-fill-overlay);
-  .cell-container {
+  .item-container {
     display: flex;
     align-items: center;
-    height: var(--prizm-dropdown-cell-height, 40px);
+    height: var(--prizm-listing-item-height, 40px);
     padding: 0 16px;
     background-color: var(--prizm-v3-background-fill-overlay);
     cursor: pointer;
 
-    .cell-title {
+    .title {
       display: flex;
       align-items: center;
       height: 100%;
@@ -18,25 +18,14 @@
       font-weight: 400;
       line-height: 16px;
       color: var(--prizm-v3-text-icon-primary);
-
-      .title {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        display: -webkit-box;
-        -webkit-line-clamp: 1;
-        -webkit-box-orient: vertical;
-      }
     }
 
-    &:not(.cell-container__selected):not(.cell-container__disabled):hover {
-      background-color: var(--prizm-dropdown-cell-row-hover, var(--prizm-v3-table-fill-row-hover));
+    &:not(.item-container__selected):not(.item-container__disabled):hover {
+      background-color: var(--prizm-listing-item-row-hover, var(--prizm-v3-table-fill-row-hover));
     }
 
-    &.cell-container__selected:not(.cell-container__disabled):has(.instruments:not(:empty)):hover {
-      background-color: var(
-        --prizm-dropdown-cell-row-instruments-hover,
-        var(--prizm-v3-table-fill-row-hover)
-      );
+    &.item-container__selected:not(.item-container__disabled):has(.container-left:not(:empty)):hover {
+      background-color: var(--prizm-listing-item-row-instruments-hover, var(--prizm-v3-table-fill-row-hover));
     }
 
     &:active,
@@ -47,12 +36,12 @@
     &__disabled {
       pointer-events: none;
       opacity: 0.3;
-      .cell-title {
+      .title {
         color: var(--prizm-v3-text-icon-secondary);
       }
     }
 
-    .instruments {
+    .container-left {
       display: flex;
       gap: 8px;
 
@@ -61,7 +50,7 @@
       }
     }
 
-    .buttons {
+    .container-right {
       display: flex;
       align-items: center;
       gap: 8px;

@@ -1,10 +1,10 @@
-<prizm-doc-page header="Dropdown Cell">
+<prizm-doc-page header="Listing Item">
   <div class="page-description" description>
-    Our dropdown cell component is used to display listed items in dropdowns.
+    Our listing item component is used to display listed items in dropdowns.
   </div>
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
-      <prizm-dropdown-cell-base-example></prizm-dropdown-cell-base-example>
+      <prizm-listing-item-base-example></prizm-listing-item-base-example>
     </prizm-doc-example>
 
     <prizm-doc-example
@@ -12,44 +12,23 @@
       [content]="exampleWithInstruments"
       heading="With buttons and instruments"
     >
-      <prizm-dropdown-cell-with-instrumnets-example></prizm-dropdown-cell-with-instrumnets-example>
+      <prizm-listing-item-with-instrumnets-example></prizm-listing-item-with-instrumnets-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="with-instruments" [content]="exampleChips" heading="Chips">
-      <prizm-dropdown-cell-chips-example></prizm-dropdown-cell-chips-example>
+      <prizm-listing-item-chips-example></prizm-listing-item-chips-example>
     </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div class="container">
-        <prizm-dropdown-cell
-          [disabled]="disabled"
-          [selected]="selected"
-          [contentType]="contentType"
-          [cellTitle]="title"
-        ></prizm-dropdown-cell>
+        <prizm-listing-item [disabled]="disabled" [selected]="selected">
+          {{ title }}
+        </prizm-listing-item>
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
-      <ng-template
-        [(documentationPropertyValue)]="title"
-        documentationPropertyName="cellTitle"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Cell Title
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="contentType"
-        [documentationPropertyValues]="contentTypeVariants"
-        documentationPropertyName="contentType"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Content Type
-      </ng-template>
-
       <ng-template
         [(documentationPropertyValue)]="selected"
         documentationPropertyName="selected"

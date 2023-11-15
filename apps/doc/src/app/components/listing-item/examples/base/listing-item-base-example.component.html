@@ -1,0 +1,23 @@
+<div class="container">
+  <prizm-listing-item [disabled]="false" [selected]="false"> My Default List item</prizm-listing-item>
+  <prizm-listing-item [disabled]="false" [selected]="true">My Selected List item</prizm-listing-item>
+  <prizm-listing-item [disabled]="true" [selected]="false">My Disabled List item</prizm-listing-item>
+
+  <prizm-dropdown-host
+    class="dropdown-host"
+    #tabsDropdown
+    [(isOpen)]="open"
+    [content]="dropdown"
+    prizmDropdownHostWidth="auto"
+  >
+    <button (click)="open = !open" prizmButton appearanceType="fill" appearance="primary" size="m">
+      Click me
+    </button>
+  </prizm-dropdown-host>
+
+  <ng-template #dropdown>
+    <prizm-listing-item [disabled]="false" [selected]="false">My Default List item</prizm-listing-item>
+    <prizm-listing-item [disabled]="false" [selected]="true">My Selected List item</prizm-listing-item>
+    <prizm-listing-item [disabled]="true" [selected]="false"> My Disabled List item</prizm-listing-item>
+  </ng-template>
+</div>
