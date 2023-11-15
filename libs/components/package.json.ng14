@@ -10,8 +10,8 @@
   },
   "peerDependencies": {
     "lodash-es": "^4.17.21",
-    "@angular/common": "^14.2.12",
-    "@angular/core": "^14.2.12",
+    "@angular/common": "^14.2.0",
+    "@angular/core": "^14.2.0",
     "ngx-mask": "14.2.4",
     "@ng-web-apis/common": "2.0.0",
     "@ng-web-apis/resize-observer": "2.0.0",

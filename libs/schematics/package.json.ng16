@@ -9,7 +9,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "dependencies": {
-    "@angular-devkit/schematics": "^16.1.8",
+    "@angular-devkit/schematics": "^16.1.0 || ^16.2.0",
     "ng-morph": "^2.0.0"
   }
 }
