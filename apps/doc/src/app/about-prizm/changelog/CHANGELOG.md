@@ -66,6 +66,7 @@ All notable changes to this project will be documented in this file.
 - fix: added lodash-es to peerDependencies #1001 #982
 - fix: add more space for chips in multiselect #892
 - fix(components/stepper): icon with the step number is not displayed if the status for this step "Not selected" #655 #916
+- fix: build error #1033
 
 ## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (01-11-2023)
 
