@@ -8,14 +8,14 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "lodash-es": "^4.17.21",
     "@angular/common": "^14.2.12",
     "@angular/core": "^14.2.12",
     "@prizm-ui/theme": "^1.8.0",
-    "@prizm-ui/helpers": "^1.8.0",
-    "@antv/g2plot": "^2.4.22"
+    "@prizm-ui/helpers": "^1.8.0"
   },
   "dependencies": {
+    "@antv/g2plot": "^2.4.22",
+    "lodash-es": "^4.17.21",
     "tslib": "^2.3.0"
   }
 }

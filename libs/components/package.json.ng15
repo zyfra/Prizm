@@ -9,21 +9,21 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "lodash-es": "^4.17.21",
     "@angular/common": "^15.2.0",
     "@angular/core": "^15.2.0",
-    "@angular/cdk": "^15.2.0",
-    "ngx-mask": "15.1.5",
-    "@ng-web-apis/common": "^2.0.0",
-    "@ng-web-apis/resize-observer": "2.0.0",
-    "@ng-web-apis/intersection-observer": "2.0.0",
-    "@ng-web-apis/mutation-observer": "2.0.0",
     "@prizm-ui/helpers": "^2.5.0",
     "@prizm-ui/core": "^2.5.0",
     "@prizm-ui/i18n": "^2.5.0",
     "@prizm-ui/theme": "^2.5.0"
   },
   "dependencies": {
+    "@angular/cdk": "^15.2.0",
+    "@ng-web-apis/common": "^2.0.0",
+    "@ng-web-apis/resize-observer": "2.0.0",
+    "@ng-web-apis/intersection-observer": "2.0.0",
+    "@ng-web-apis/mutation-observer": "2.0.0",
+    "lodash-es": "^4.17.21",
+    "ngx-mask": "15.1.5",
     "tslib": "^2.3.0"
   }
 }
