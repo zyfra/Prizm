@@ -168,6 +168,7 @@
 <ng-container *prizmInputLayoutRight>
   <button
     [interactive]="true"
+    [style.--prizm-input-icon-button-width]="'24px'"
     [disabled]="!!disabled"
     (click)="focusableElementRef.focus(); onOpenChange(!open)"
     prizmInputIconButton="date-calendar-range"
