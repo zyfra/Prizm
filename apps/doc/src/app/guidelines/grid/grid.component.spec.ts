@@ -9,7 +9,7 @@ describe('GridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [GridComponent],
+      imports: [GridComponent],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });

@@ -9,8 +9,7 @@ describe('PrizmCardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [CommonModule],
-      declarations: [PrizmCardComponent],
+      imports: [CommonModule, PrizmCardComponent],
     }).compileComponents();
   });
 

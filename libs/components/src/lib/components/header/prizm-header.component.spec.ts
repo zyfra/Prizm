@@ -8,7 +8,7 @@ describe('PrizmHeaderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmHeaderComponent],
+      imports: [PrizmHeaderComponent],
     }).compileComponents();
   });
 

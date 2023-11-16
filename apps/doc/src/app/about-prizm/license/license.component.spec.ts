@@ -9,7 +9,7 @@ describe('LicenseComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [LicenseComponent],
+      imports: [LicenseComponent],
       schemas: [NO_ERRORS_SCHEMA],
     }).compileComponents();
   });

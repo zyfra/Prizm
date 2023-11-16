@@ -8,7 +8,7 @@ describe('AccordionComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmAccordionComponent],
+      imports: [PrizmAccordionComponent],
     }).compileComponents();
   });
 
