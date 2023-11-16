@@ -116,7 +116,7 @@ export class PrizmInputLayoutDateTimeComponent
   override fallbackValue: [PrizmDay | null, PrizmTime | null] = [null, null];
 
   @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
-  public readonly focusableElement?: PrizmInputZoneDirective;
+  public override readonly focusableElement?: PrizmInputZoneDirective;
 
   @Input()
   @prizmDefaultProp()

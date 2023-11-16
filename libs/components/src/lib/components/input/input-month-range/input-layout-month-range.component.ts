@@ -70,7 +70,7 @@ export class PrizmInputLayoutMonthRangeComponent extends PrizmInputNgControl<Pri
   override readonly testId_ = 'ui_input_month_range';
 
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
   @prizmDefaultProp()
