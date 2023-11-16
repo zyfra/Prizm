@@ -9,3 +9,9 @@ export type PrizmFilesProgress = {
     error?: boolean;
   };
 };
+
+export type PrizmFileUploadOptions = {
+  showRetryButtons: boolean;
+};
+
+export type PrizmFilesMap = Map<string, { file: File; progress: number; error: boolean; url?: string }>;

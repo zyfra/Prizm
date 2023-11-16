@@ -49,11 +49,14 @@
 
       <div class="file__info">
         <span class="file__name">{{ item.key }}</span>
-        <span class="file__size">{{ getFileSize(item.value.file.size) }}</span>
+        <span class="file__size">{{ item.value.file.size | prizmFileSize }}</span>
       </div>
 
-      <div class="file__stage">
-        {{ translations | prizmPluck : [getStage(item.key).name] }}
+      <div
+        class="file__stage"
+        *prizmLet="item.value.progress | prizmUploadStatus : item.value.error as status"
+      >
+        {{ translations | prizmPluck : [status] }}
       </div>
 
       <button
@@ -81,7 +84,7 @@
 
       <div class="file__progress progress">
         <progress
-          class="progress__bar {{ getStage(item.key).cssClass }}"
+          class="progress__bar {{ item.value.progress | prizmUploadStatus : item.value.error }}"
           [value]="item.value.progress"
           prizmProgressBar
           max="100"

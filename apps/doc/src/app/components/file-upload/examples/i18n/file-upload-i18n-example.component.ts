@@ -7,10 +7,10 @@ export const PRIZM_ENGLISH_FILE_UPLOAD: PrizmLanguageFileUpload = {
     dropzone__description: 'Select a file or drag it to this area',
     dropzone__title: 'File upload',
     btn__select: 'Browse',
-    status__idle: 'Waiting to upload',
-    status__progress: 'Uploading',
-    status__warning: 'Error',
-    status__success: 'Uploaded',
+    idle: 'Waiting to upload',
+    progress: 'Uploading',
+    warning: 'Error',
+    success: 'Uploaded',
   },
 };
 

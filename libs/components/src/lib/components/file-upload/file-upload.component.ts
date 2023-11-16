@@ -15,16 +15,17 @@ import {
 
 import {
   PrizmDestroyService,
-  PrizmLetModule,
-  PrizmPluckPipeModule,
-  PrizmSanitizerPipeModule,
+  PrizmLetDirective,
+  PrizmPluckPipe,
+  PrizmSanitizerPipe,
 } from '@prizm-ui/helpers';
-import { PrizmFilesProgress, PrizmFileValidationErrors } from './types';
 import {
-  PRIZM_FILEUPLOAD_OPTIONS,
-  prizmFileUploadDefaultOptions,
+  PrizmFilesMap,
+  PrizmFilesProgress,
   PrizmFileUploadOptions,
-} from './file-upload-options';
+  PrizmFileValidationErrors,
+} from './types';
+import { PRIZM_FILEUPLOAD_OPTIONS, prizmFileUploadDefaultOptions } from './file-upload-options';
 import { PRIZM_FILE_UPLOAD } from '../../tokens';
 import { Observable } from 'rxjs';
 import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
@@ -32,9 +33,11 @@ import { prizmI18nInitWithKey } from '../../services';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PrizmButtonModule } from '../button';
-import { PrizmProgressModule } from '../progress';
-import { PrizmIconModule } from '../icon';
+import { PrizmButtonComponent } from '../button';
+import { PrizmProgressBarComponent } from '../progress';
+import { PrizmIconComponent } from '../icon';
+import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
+import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -43,12 +46,14 @@ import { PrizmIconModule } from '../icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [
     CommonModule,
-    PrizmPluckPipeModule,
-    PrizmSanitizerPipeModule,
-    PrizmButtonModule,
-    PrizmProgressModule,
-    PrizmIconModule,
-    PrizmLetModule,
+    PrizmUploadStatusPipe,
+    PrizmFileSizePipe,
+    PrizmSanitizerPipe,
+    PrizmPluckPipe,
+    PrizmLetDirective,
+    PrizmProgressBarComponent,
+    PrizmButtonComponent,
+    PrizmIconComponent,
   ],
   standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
@@ -100,7 +105,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   @Output() filesCountError = new EventEmitter<Array<string>>();
   @Output() retry = new EventEmitter<File>();
 
-  public filesMap: Map<string, { file: File; progress: number; url?: string; error: boolean }> = new Map();
+  public filesMap: PrizmFilesMap = new Map();
 
   get files(): Array<File> {
     return [...this.filesMap.entries()].map(([_, { file }]) => file);
@@ -183,38 +188,8 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     }
   }
 
-  public getFileSize(size: number): string {
-    if (size < 1024) {
-      return size + 'bytes';
-    } else if (size > 1024 && size < 1048576) {
-      return (size / 1024).toFixed(1) + 'KB';
-    } else if (size > 1048576) {
-      return (size / 1048576).toFixed(1) + 'MB';
-    }
-
-    return '';
-  }
-
   public filesTrackBy(index: number, file: { key: string; value: any }): string {
     return file.key;
-  }
-
-  public getStage(filename: string): { cssClass: keyof PrizmFileUploadOptions['statusNames']; name: string } {
-    const { error, progress } = this.filesMap.get(filename) as any;
-
-    if (error) {
-      return { cssClass: 'warning', name: this.options.statusNames.warning };
-    }
-
-    if (progress === 0) {
-      return { cssClass: 'idle', name: this.options.statusNames.idle };
-    }
-
-    if (progress === 100) {
-      return { cssClass: 'success', name: this.options.statusNames.success };
-    }
-
-    return { cssClass: 'progress', name: this.options.statusNames.progress };
   }
 
   public retryUpload(filename: string): void {
