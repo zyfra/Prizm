@@ -20,8 +20,7 @@ describe('BreadcrumbsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmBreadcrumbsComponent],
-      imports: [PrizmDropdownHostModule, PrizmIconModule],
+      imports: [PrizmDropdownHostModule, PrizmIconModule, PrizmBreadcrumbsComponent],
     }).compileComponents();
   });
 

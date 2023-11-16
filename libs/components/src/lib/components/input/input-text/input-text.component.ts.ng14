@@ -19,7 +19,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
-import { NgxMaskDirective } from 'ngx-mask';
+import { MaskDirective } from 'ngx-mask';
 
 @Component({
   selector:
@@ -133,7 +133,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public empty!: boolean;
 
   readonly parentLayout = inject(PrizmInputLayoutComponent);
-  readonly maybeMask = inject(NgxMaskDirective, {
+  readonly maybeMask = inject(MaskDirective, {
     optional: true,
   });
   /**

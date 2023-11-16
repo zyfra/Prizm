@@ -80,7 +80,7 @@ export class PrizmInputLayoutDateRelativeComponent
   override statusText!: PrizmInputStatusTextDirective;
 
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
   @prizmDefaultProp()

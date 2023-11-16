@@ -33,7 +33,7 @@ import { PRIZM_DATE_TEXTS } from '../../../tokens/i18n';
 import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { PrizmDestroyService, PrizmLetDirective, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { map } from 'rxjs/operators';
@@ -43,15 +43,14 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { CommonModule } from '@angular/common';
 import { PrizmMaskModule } from '../../../modules';
 import {
-  PolymorphModule,
   PolymorphOutletDirective,
   PrizmLifecycleModule,
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmIconComponent, PrizmIconModule } from '../../icon';
-import { PrizmDropdownHostComponent, PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
-import { PrizmCalendarRangeComponent, PrizmCalendarRangeModule } from '../../calendar-range';
+import { PrizmIconComponent } from '../../icon';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
+import { PrizmCalendarRangeComponent } from '../../calendar-range';
 
 @Component({
   selector: `prizm-input-layout-date-range`,
@@ -92,7 +91,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   nativeElementType = 'input-layout-date-range';
 
   @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
-  public readonly focusableElement?: PrizmInputZoneDirective;
+  public override readonly focusableElement?: PrizmInputZoneDirective;
 
   @ContentChild('footerFrom', { read: TemplateRef })
   public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;

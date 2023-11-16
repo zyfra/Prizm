@@ -8,7 +8,7 @@ describe('SwitcherComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmSwitcherComponent],
+      imports: [PrizmSwitcherComponent],
     }).compileComponents();
   });
 

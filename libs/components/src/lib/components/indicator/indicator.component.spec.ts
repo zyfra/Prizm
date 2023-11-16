@@ -9,8 +9,7 @@ describe('IndicatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmIndicatorComponent],
-      imports: [CommonModule],
+      imports: [PrizmIndicatorComponent],
     }).compileComponents();
   });
 
