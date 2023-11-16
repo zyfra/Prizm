@@ -87,6 +87,7 @@ export class PrizmInputLayoutComponent
   }
 
   override testId_ = 'ui_input_layout';
+  protected readonly isPolymorphPrimitive = isPolymorphPrimitive;
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
@@ -229,6 +230,4 @@ export class PrizmInputLayoutComponent
   protected innerClick(event: MouseEvent) {
     this.innerClick$$.next(event);
   }
-
-  protected readonly isPolymorphPrimitive = isPolymorphPrimitive;
 }
