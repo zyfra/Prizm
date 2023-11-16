@@ -72,6 +72,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/stepper): icon with the step number is not displayed if the status for this step "Not selected" #655 #916
 - fix: build error #1033
 - fix(components/input-layout): clear button position when we didn't pass template #1022 #1029
+- fix(components/input-date-time-range): calendar button overlaps input when validation error present #1051
 
 ## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (01-11-2023)
 
