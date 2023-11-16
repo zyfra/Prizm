@@ -76,7 +76,7 @@ export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMon
   override readonly testId_ = 'ui_input_month';
 
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
   @prizmDefaultProp()

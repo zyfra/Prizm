@@ -61,12 +61,17 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(components/input-layout-date-range): empty detector #950
+- fix(components/input-layout-date): empty detector #951
+- fix(components/input-layout): clear with validator #1053
+- fix(components/input-layout): hide clear button when forceClear == true in disabled state #1025 #1024 #1028
 - fix:(components/input-date-multi): incorrect date set after manual input #887
 - fix: hidden splitter filtering #923 #928
 - fix: added lodash-es to peerDependencies #1001 #982
 - fix: add more space for chips in multiselect #892
 - fix(components/stepper): icon with the step number is not displayed if the status for this step "Not selected" #655 #916
 - fix: build error #1033
+- fix(components/input-layout): clear button position when we didn't pass template #1022 #1029
 
 ## [1.8.0, 2.5.0, 3.4.0](https://github.com/zyfra/Prizm) (01-11-2023)
 
@@ -98,7 +103,6 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
-- fix(components/input-layout): hide clear button when forceClear == true in disabled state #1025 #1024 #1028
 - fix(components/old-icon): fixed broken icons #102
 - fix(components/input-layout-date-time): dropdown size #741
 - fix(components/buttons): fix emit hover on disabled for icon-button and buttons #948
@@ -108,7 +112,6 @@ All notable changes to this project will be documented in this file.
 - fix(components/toast): double toast error and scrollbar #481 #734
 - fix(components/tree): active item style and update doc #708 #654
 - fix(components/input): update on blur #736 [MR](https://github.com/zyfra/Prizm/pull/917)
-  fix(components/input-layout): clear button position when we didn't pass template #1022 #1029
 
 ### Closed
 

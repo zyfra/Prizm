@@ -111,7 +111,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   nativeElementType = 'input-layout-date-range';
 
   @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
-  public readonly focusableElement?: PrizmInputZoneDirective;
+  public override readonly focusableElement?: PrizmInputZoneDirective;
 
   @ContentChild('footerFrom', { read: TemplateRef })
   public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;

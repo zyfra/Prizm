@@ -22,6 +22,7 @@ export abstract class PrizmInputNgControl<T>
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouched = PRIZM_EMPTY_FUNCTION;
+  protected readonly focusableElement?: ElementRef<HTMLInputElement> | any;
 
   get value(): T {
     return this.previousInternalValue$$.value ?? (this.fallbackValue as T);
@@ -42,7 +43,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public isEmpty(value: T): boolean {
-    return !value;
+    return !value && !this.focusableElement?.nativeElement?.value;
   }
 
   get required() {
@@ -132,7 +133,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public setDisabledState(isDisabled: boolean) {
-    // this.checkControlUpdate();
+    this.checkControlUpdate();
     this.stateChanges.next();
   }
 
