@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/charts",
-  "version": "3.5.0",
+  "version": "3.5.1",
   "license": "MIT",
   "private": false,
   "publishConfig": {
@@ -11,8 +11,8 @@
     "lodash-es": "^4.17.21",
     "@angular/common": "^16.1.8",
     "@angular/core": "^16.1.8",
-    "@prizm-ui/theme": "^3.5.0",
-    "@prizm-ui/helpers": "^3.4.0",
+    "@prizm-ui/theme": "^3.5.1",
+    "@prizm-ui/helpers": "^3.5.1",
     "@antv/g2plot": "^2.4.22"
   },
   "dependencies": {
