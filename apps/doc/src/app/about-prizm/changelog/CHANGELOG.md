@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - fix(components): fixed changes that caused the api to crash #1061
 - fix(components/switcher): no provider for DestroyService in switcher hint #983 #1031
+- fix(components/table): inner input without parent input-layout #1059
 
 ## [1.9.0, 2.6.0, 3.5.0](https://github.com/zyfra/Prizm) (16-11-2023)
 
