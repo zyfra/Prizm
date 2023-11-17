@@ -19,3 +19,9 @@ export class PrizmIconComponent extends PrizmAbstractTestId {
     return 'ui_icon' + this.iconClass;
   }
 }
+
+/**
+ * TODO v5: remove
+ * @deprecated
+ * */
+export const IconComponent = PrizmIconComponent;

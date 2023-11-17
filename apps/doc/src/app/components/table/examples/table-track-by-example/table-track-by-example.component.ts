@@ -71,12 +71,10 @@ export class TableTrackByExampleComponent {
   }
 
   public trackByFn(index: number, item: ITableProduct) {
-    console.log('trackByFn', item, index);
     return index;
   }
 
   public trackByFn2(index: number, item: ITableProduct) {
-    // console.log('trackByFn2', item, index);
     return index;
   }
 }

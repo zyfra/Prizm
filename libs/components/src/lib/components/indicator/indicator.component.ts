@@ -25,3 +25,8 @@ export class PrizmIndicatorComponent extends PrizmAbstractTestId {
     danger: 'alerts-mark',
   };
 }
+/**
+ * TODO v5: remove
+ * @deprecated
+ * */
+export const IndicatorComponent = PrizmIndicatorComponent;
