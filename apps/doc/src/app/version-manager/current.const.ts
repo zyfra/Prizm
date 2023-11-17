@@ -1,1 +1,1 @@
-export const PRIZM_CURRENT_VERSION = '3.5.0';
+export const PRIZM_CURRENT_VERSION = '3.5.1';

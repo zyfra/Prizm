@@ -10,8 +10,8 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '3.5.0 (ng16)',
-    version: '3.5.0',
+    label: '3.5.1 (ng16)',
+    version: '3.5.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
     link: new URL('http://prizm.site'),
     otherLinks: [new URL('https://prizm-v3.web.app')],
@@ -40,8 +40,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '3.5.0-next (ng16)',
-    version: '3.5.0-next',
+    label: '3.5.1-next (ng16)',
+    version: '3.5.1-next',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-next-demo',
     link: new URL('https://prizm-v3-next.web.app'),
     otherLinks: [],
@@ -61,8 +61,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     otherLinks: [],
   },
   {
-    label: '3.5.0-beta (ng16)',
-    version: '3.5.0-beta',
+    label: '3.5.1-beta (ng16)',
+    version: '3.5.1-beta',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-beta-demo',
     link: new URL('https://prizm-v3-beta.web.app'),
     otherLinks: [],
