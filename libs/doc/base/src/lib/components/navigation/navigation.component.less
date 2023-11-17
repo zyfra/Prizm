@@ -111,7 +111,9 @@
 }
 
 .new-label,
-.deprecated-label {
+.deprecated-label,
+.preview-label {
+  display: inline-block;
   font-size: 12px;
   border-radius: 5px;
   padding: 1px 4px;
@@ -121,4 +123,8 @@
 
 .new-label {
   background-color: yellow;
+}
+
+.preview-label {
+  background-color: var(--prizm-v3-status-warning-primary-default);
 }

@@ -225,12 +225,12 @@ export const pages: PrizmOrderedDocPage = [
       {
         title: 'Select',
         keywords: 'select, prizm-select, overlay',
-        deprecated: true,
+        status: 'deprecated',
         route: '/components/dropdowns/select',
       },
       {
         title: 'MultiSelect',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'multi-select, prizm-multi-select, overlay',
         route: '/components/dropdowns/multi-select',
       },
@@ -284,6 +284,7 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Listing Item',
+    status: 'preview',
     keywords: 'list item, cell, dropdown cell, listing item, список, элемент списка',
     route: '/components/listing-item',
   },
@@ -298,7 +299,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateTime',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-date-time, deprecated, date-time, form',
         route: '/components/input-date-time',
       },
@@ -314,7 +315,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateTimeRange',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-date-time-range, deprecated, date-time-range, form',
         route: '/components/input-date-time-range',
       },
@@ -326,7 +327,7 @@ export const pages: PrizmOrderedDocPage = [
 
       {
         title: 'InputTime',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-time, deprecated, time, form',
         route: '/components/input-time',
       },
@@ -337,7 +338,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDate',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-date, deprecated, form',
         route: '/components/input-date',
       },
@@ -348,7 +349,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputMonth',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-month, date, form, deprecated',
         route: '/components/input-month',
       },
@@ -359,7 +360,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputMonthRange',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-month-range, date, form, deprecated',
         route: '/components/input-month-range',
       },
@@ -370,7 +371,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateRange',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-date-range, deprecated, date-range, form',
         route: '/components/input-date-range',
       },
@@ -381,7 +382,7 @@ export const pages: PrizmOrderedDocPage = [
       },
       {
         title: 'InputDateRelative',
-        deprecated: true,
+        status: 'deprecated',
         keywords: 'input-date-relative, date-relative, deprecated, отностительный, дата, пикер, form',
         route: '/components/input-date-relative',
       },
@@ -428,7 +429,7 @@ export const pages: PrizmOrderedDocPage = [
       {
         title: 'Carousel',
         keywords: 'carousel',
-        deprecated: true,
+        status: 'deprecated',
         route: 'components/carousel',
       },
       {
@@ -497,7 +498,7 @@ export const pages: PrizmOrderedDocPage = [
         title: 'Icon',
         keywords: 'иконка, old-icon, deprecated',
         route: '/components/old-icon',
-        deprecated: true,
+        status: 'deprecated',
       },
       {
         title: 'Icon',
