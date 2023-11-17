@@ -2,7 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.9.0, 2.6.0, 3.5.0](https://github.com/zyfra/Prizm) (10-11-2023)
+## [1.9.1, 2.6.1, 3.5.1](https://github.com/zyfra/Prizm) (17-11-2023)
+
+### Bug fixes
+
+- fix(components): fixed changes that caused the api to crash #1061
+- fix(components/switcher): no provider for DestroyService in switcher hint #983 #1031
+
+## [1.9.0, 2.6.0, 3.5.0](https://github.com/zyfra/Prizm) (16-11-2023)
 
 ### Features
 
