@@ -1,13 +1,13 @@
 ```ts
-import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeInvertedValuesService } from '@prizm-ui/theme';
+import { PrizmThemeInvertedDirective } from '@prizm-ui/theme';
 
-  @Input()
-  set invertedTheme(theme: PrizmTheme) {
-    this.themeInvertedValuesService.value$$.next({
-      ...this.themeInvertedValuesService.value$$.value,
-      '*': theme ?? null,
-    });
-  }
-
+export class MyInvertedThemeContainerComponent implements OnInit {
+  // create a class of themeInvertedDirective
   readonly themeInvertedDirective = new PrizmThemeInvertedDirective();
+
+  public ngOnInit(): void {
+    // call for themeInvertedDirective OnInit method
+    this.themeInvertedDirective.ngOnInit();
+  }
+}
 ```

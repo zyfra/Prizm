@@ -76,9 +76,15 @@
     <prizm-doc-code [code]="themeSwitcher"></prizm-doc-code>
   </div>
 
+  <br />
+
   <p class="prizm-space_top-0">
     Так же доступна возможность подключать реверсивные темы с использованием
-    <code>PrizmThemeInvertedValuesService</code>.
+    <code>themeInvertedDirective</code>. Эта директива позволяет установить на выбранный контейнер тему,
+    обратную основной теме приложения. В дизайн-системе такой подход используется в <code>PrizmHint</code>,
+    <code>PrizmTooltip</code> и <code>PrizmConfirmPopup</code> компонентах. Таким образом, весь контент этих
+    элементов по умолчанию отображается в теме, противоположной основной. Получить значения для реверсивных
+    тем при необходимости можно через <code>PrizmThemeInvertedValuesService</code>.
   </p>
 
   <div>
@@ -86,14 +92,18 @@
   </div>
 </div>
 
+<br />
+<br />
+
 <div>
   <h4>Как создать свою тему</h4>
   <p class="prizm-space_top-0">
-    Вы можете подключить свою тему в Prizm. Для этого необходимо добавить в проект файлы с переопределенными
-    токенами и палитрами.
+    <!-- Вы можете подключить свою тему в Prizm. Для этого необходимо добавить в проект файлы с переопределенными
+    токенами и палитрами. -->
+    Раздел в разработке
   </p>
   <div>
-    <prizm-doc-code [code]="customTheme"></prizm-doc-code>
+    <!-- <prizm-doc-code [code]="customTheme"></prizm-doc-code> -->
   </div>
   <br />
 </div>
