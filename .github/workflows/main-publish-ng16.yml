@@ -72,10 +72,10 @@ jobs:
 
       - name: Save dist in cache...
         id: dist-cache-save
-        uses: actions/cache/save@v3
+        uses: actions/cache@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
   deploy_to_doc:
     needs: build
@@ -95,7 +95,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -132,7 +132,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -159,7 +159,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -186,7 +186,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -212,7 +212,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -239,7 +239,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -266,7 +266,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -293,7 +293,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -320,7 +320,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -347,7 +347,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -374,7 +374,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
@@ -401,7 +401,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-main
+          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
         with:
