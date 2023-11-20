@@ -6,9 +6,10 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "peerDependencies": {},
+  "peerDependencies": {
+    "lodash": "^4.17.15"
+  },
   "dependencies": {
-    "lodash": "^4.17.15",
     "tslib": "^2.3.0"
   }
 }
