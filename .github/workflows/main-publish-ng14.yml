@@ -65,7 +65,7 @@ jobs:
         run: npx nx generate @prizm-ui/nx-mv:apply -n v14
 
       - name: 'Update main versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-main.up" --all --currentVersion="${{ env.LAST_V1_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*-main.up" --all --currentVersion="${{ env.LAST_V1_VERSION }}"
 
       - name: 'Build main versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
