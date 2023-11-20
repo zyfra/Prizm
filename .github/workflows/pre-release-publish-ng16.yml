@@ -70,25 +70,33 @@ jobs:
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - name: Save build artifacts
-        uses: actions/upload-artifact@v3
+      - name: Save dist in cache...
+        id: dist-cache-save
+        uses: actions/cache/save@v3
         with:
-          name: build-artifact
-          path: |
-            dist
-            node_modules
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
 
   deploy_to_doc:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -111,12 +119,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -129,12 +146,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -147,12 +173,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -165,12 +200,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -183,12 +226,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -201,12 +253,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -219,12 +280,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -237,12 +307,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -255,12 +334,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -273,12 +361,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
@@ -291,12 +388,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/download-artifact@v3
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
         with:
-          name: build-artifacts
-          path: |
-            dist
-            node_modules
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_16-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_16-next
+
       - uses: actions/setup-node@v3
         with:
           node-version: '16.x'
