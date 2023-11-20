@@ -10,7 +10,7 @@ permissions:
   contents: read
   packages: write
 jobs:
-  next_release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -70,20 +70,33 @@ jobs:
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/components && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --tag next --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose || exit_code=0
+      - name: Save build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: build-artifact
+          path: |
+            dist
+            node_modules
+
+  deploy_to_doc:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
+
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -92,3 +105,201 @@ jobs:
           projectId: prizmui
           channelId: live
           target: v3-next
+
+  publish-components:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/components && npm publish --tag next --access public --verbose
+
+  publish-i18n:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
+
+  publish-helpers:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose
+
+  publish-core:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/core && npm publish --tag next --access public --verbose
+
+  publish-theme:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose || exit_code=0
+
+  publish-icons:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/icons/base && npm publish --tag next --access public --verbose
+
+  publish-flags:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose || exit_code=0
+
+  publish-plugin:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose
+
+  publish-ast:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
+
+  publish-charts:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/charts && npm publish --tag next --access public --verbose
+
+  publish-nxmv:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/download-artifact@v3
+        with:
+          name: build-artifacts
+          path: |
+            dist
+            node_modules
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose || exit_code=0
