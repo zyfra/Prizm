@@ -129,57 +129,57 @@
 
   &-status {
     &-success {
-      border-color: var(--prizm-index-good);
+      border-color: var(--prizm-v3-status-success-primary-default);
       &:hover {
-        border-color: var(--prizm-index-good);
+        border-color: var(--prizm-v3-status-success-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-index-good);
+        color: var(--prizm-v3-status-success-primary-default);
       }
     }
 
     &-warning {
-      border-color: var(--prizm-index-warning);
+      border-color: var(--prizm-v3-status-warning-primary-default);
       &:hover {
-        border-color: var(--prizm-index-warning);
+        border-color: var(--prizm-v3-status-warning-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-index-warning);
+        color: var(--prizm-v3-status-warning-primary-default);
       }
     }
 
     &-danger {
-      border-color: var(--prizm-index-danger);
+      border-color: var(--prizm-v3-status-alarm-primary-default);
       &:hover {
-        border-color: var(--prizm-index-danger);
+        border-color: var(--prizm-v3-status-alarm-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-index-danger);
+        color: var(--prizm-v3-status-alarm-primary-default);
       }
     }
   }
 
   &-invalid {
     &.prizm-input-form-touched {
-      border-color: var(--prizm-index-danger);
+      border-color: var(--prizm-v3-status-alarm-primary-default);
     }
 
     .prizm-input-form-status-button {
-      color: var(--prizm-index-danger);
+      color: var(--prizm-v3-status-alarm-primary-default);
     }
   }
 
   // rewrite all if focused
   &-focused:host-context(.enabled),
   &:focus-within:host-context(.enabled) {
-    border-color: var(--prizm-index-plan);
-    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+    border-color: var(--prizm-v3-background-stroke-focus);
+    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
 
     &:hover {
-      border-color: var(--prizm-index-plan);
+      border-color: var(--prizm-v3-background-stroke-focus);
     }
 
     .prizm-input-button-default {
@@ -230,7 +230,7 @@
       .prizm-input-button-default {
         position: absolute;
         z-index: 100;
-        background-color: var(--prizm-bg-dashboard-forms);
+        background-color: var(--prizm-v3-form-fill-default);
       }
 
       .prizm-input-button-default {
@@ -257,15 +257,15 @@
   line-height: 22px;
 
   &-success {
-    color: var(--prizm-index-good);
+    color: var(--prizm-v3-status-success-primary-default);
   }
 
   &-warning {
-    color: var(--prizm-index-warning);
+    color: var(--prizm-v3-status-warning-primary-default);
   }
 
   &-danger {
-    color: var(--prizm-index-danger);
+    color: var(--prizm-v3-status-alarm-primary-default);
   }
 }
 
