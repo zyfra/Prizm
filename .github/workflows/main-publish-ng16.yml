@@ -71,7 +71,7 @@ jobs:
         id: dist-cache-restore
         uses: actions/cache/save@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - name: 'Build main versions'
