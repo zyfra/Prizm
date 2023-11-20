@@ -65,7 +65,7 @@ jobs:
         run: npx nx generate @prizm-ui/nx-mv:apply -n v16
 
       - name: 'Update beta versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-beta.up" --all --currentVersion="${{ env.LAST_beta_VERSION }}"
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
       - name: 'Build beta versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
