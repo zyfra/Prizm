@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AccordionExampleComponent } from './accordion-example.component';
-import { PrizmAccordionModule, PrizmCheckboxModule } from '@prizm-ui/components';
+import {
+  PrizmAccordionComponent,
+  PrizmAccordionItemComponent,
+  PrizmCheckboxComponent,
+} from '@prizm-ui/components';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { AccordionBasicExampleComponent } from './examples/accordion-basic-example/accordion-basic-example.component';
@@ -21,9 +25,10 @@ import { PrizmAccordionCustomTitleExampleModule } from './examples/custom-title/
   ],
   imports: [
     CommonModule,
-    PrizmAccordionModule,
+    PrizmAccordionComponent,
+    PrizmAccordionItemComponent,
     PrizmAddonDocModule,
-    PrizmCheckboxModule,
+    PrizmCheckboxComponent,
     PrizmAccordionCustomTitleExampleModule,
     RouterModule.forChild(prizmDocGenerateRoutes(AccordionExampleComponent)),
   ],
