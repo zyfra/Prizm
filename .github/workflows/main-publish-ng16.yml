@@ -81,7 +81,7 @@ jobs:
   #        id: dist-cache-save
   #        uses: actions/cache/save@v3
   #        with:
-  #          path: ./dist
+  #          path: dist
   #          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
   deploy_to_doc:
@@ -101,7 +101,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -138,7 +138,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -165,7 +165,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -192,7 +192,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -218,7 +218,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -245,7 +245,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -272,7 +272,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -299,7 +299,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -326,7 +326,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -353,7 +353,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -380,7 +380,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
@@ -407,7 +407,7 @@ jobs:
       - name: Restore dist in cache
         uses: actions/cache/restore@v3
         with:
-          path: ./dist
+          path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
 
       - uses: actions/setup-node@v3
