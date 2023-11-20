@@ -4,11 +4,11 @@ import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } fr
 
 @Component({
   selector: 'prizm-toggle-example',
-  templateUrl: './toggle.component.html',
-  styleUrls: ['./toggle.component.less'],
+  templateUrl: './toggle-example.component.html',
+  styleUrls: ['./toggle-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ToggleComponent {
+export class ToggleExampleComponent {
   testIdPostfix!: string;
   public readOnly = false;
   public pseudoInvalid = false;
