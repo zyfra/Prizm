@@ -13,9 +13,9 @@
   </p>
 
   <p class="prizm-space_top-0">
-    В Prizm доступно две темы по умолчанию - <code>light</code> и <code>dark</code>. Для кастомизации
-    отдельных стилевых значений, там где это допускается дизайн-системой созданы специальные переменные.
-    Переопределять токены из палитры не рекомендуется.
+    В Prizm доступно две базовые темы: <code>light</code> по умолчанию и 'ночная' - <code>dark</code>. Для
+    кастомизации отдельных стилевых значений, там где это допускается дизайн-системой созданы специальные
+    переменные. Переопределять токены из палитры не рекомендуется.
   </p>
 
   <div>
@@ -37,6 +37,27 @@
 
   <div>
     <prizm-doc-code [code]="setup"></prizm-doc-code>
+  </div>
+
+  <br />
+
+  <p class="prizm-space_top-0">
+    В проект темы Prizm подключаются с помощью <a href="/tools/theme">PrizmThemeModule</a>
+  </p>
+
+  <div>
+    <prizm-doc-code [code]="setupModule"></prizm-doc-code>
+  </div>
+
+  <br />
+
+  <p class="prizm-space_top-0">
+    Так же для использования тем необходимо подключить стили к вашему проекту: либо через
+    <code>angular.json</code>, либо через основной стилевой файл проекта.
+  </p>
+
+  <div>
+    <prizm-doc-code [code]="setupStyles"></prizm-doc-code>
   </div>
 </div>
 
