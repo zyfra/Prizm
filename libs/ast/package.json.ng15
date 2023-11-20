@@ -8,6 +8,7 @@
   },
   "peerDependencies": {},
   "dependencies": {
+    "lodash": "^4.17.15",
     "tslib": "^2.3.0"
   }
 }
