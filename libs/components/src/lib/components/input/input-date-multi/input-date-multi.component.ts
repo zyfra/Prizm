@@ -13,7 +13,6 @@ import {
   ViewChild,
 } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmInputSize } from '../common/models/prizm-input.models';
 import {
   getProviderPrizmDateLeftButtons,
   PRIZM_DATE_RIGHT_BUTTONS,
