@@ -10,7 +10,7 @@ permissions:
   contents: read
   packages: write
 jobs:
-  v3_release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
