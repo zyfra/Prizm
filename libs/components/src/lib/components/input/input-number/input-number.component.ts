@@ -15,7 +15,7 @@ import { AbstractControl, NgControl, Validators } from '@angular/forms';
 import { prizmIsNativeFocused } from '../../../util';
 import { PrizmDestroyService, prizmFormatNumber } from '@prizm-ui/helpers';
 import { fromEvent, merge, Subject } from 'rxjs';
-import { debounceTime, map, takeUntil, tap, throttleTime } from 'rxjs/operators';
+import { map, takeUntil, tap, throttleTime } from 'rxjs/operators';
 import { PrizmDecimal } from '@prizm-ui/core';
 import { PrizmHintDirective } from '../../../directives';
 
