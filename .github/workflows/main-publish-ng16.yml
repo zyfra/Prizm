@@ -67,22 +67,22 @@ jobs:
       #      - name: 'Update main versions'
       #        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*.up" --all --currentVersion="${{ env.LAST_V3_VERSION }}"
 
-      - name: Dist from cache
+      #      - name: Dist from cache
+      #        id: dist-cache-restore
+      #        uses: actions/cache/save@v3
+      #        with:
+      #          path: dist
+      #          key: ${{ runner.os }}-node_modules_ng_16_main_release
+
+      - name: 'Build main versions'
+        run: npx nx run-many --target=build --all --parallel --max-parallel=3
+
+      - name: Save dist in cache...
         id: dist-cache-restore
         uses: actions/cache/save@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release
-
-      - name: 'Build main versions'
-        run: npx nx run-many --target=build --all --parallel --max-parallel=3
-
-  #      - name: Save dist in cache...
-  #        id: dist-cache-save
-  #        uses: actions/cache/save@v3
-  #        with:
-  #          path: dist
-  #          key: ${{ runner.os }}-node_modules_ng_16_main_release
 
   deploy_to_doc:
     needs: build
