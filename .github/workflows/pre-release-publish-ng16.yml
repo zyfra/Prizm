@@ -166,7 +166,7 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose
 
   publish-helpers:
     needs: build
@@ -246,7 +246,7 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose
 
   publish-icons:
     needs: build
@@ -300,7 +300,7 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose
 
   publish-plugin:
     needs: build
@@ -354,7 +354,7 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose
 
   publish-charts:
     needs: build
@@ -408,4 +408,4 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose || exit_code=0
+      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose
