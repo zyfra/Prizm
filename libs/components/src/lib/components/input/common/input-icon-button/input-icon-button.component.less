@@ -13,7 +13,7 @@
   color: var(--prizm-v3-text-icon-secondary);
 
   &.disabled {
-    color: red;
+    color: var();
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -22,16 +22,19 @@
 :host-context(.interactive) {
   &:not(.disabled) {
     &:hover {
-      color: var(--prizm-index-plan);
+      color: var(--prizm-v3-button-secondary-solid-hover);
     }
 
     &:focus {
-      color: var(--prizm-index-plan);
-      text-shadow: 0 0 1px var(--prizm-index-plan);
+      color: var(--prizm-v3-button-primary-solid-active);
     }
 
     cursor: pointer;
   }
 
-  color: var(--prizm-border-icon);
+  color: var(--prizm-v3-button-secondary-solid-default);
+}
+
+:host-context(.disabled) {
+  display: none;
 }
