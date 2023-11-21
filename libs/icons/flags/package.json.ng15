@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/flag-icons",
-  "version": "2.3.0",
+  "version": "2.6.2",
   "description": "Prizm UI flags icon pack library http://prizm.zyfra.com",
   "private": false,
   "publishConfig": {
