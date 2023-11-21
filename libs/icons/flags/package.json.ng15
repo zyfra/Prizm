@@ -10,7 +10,7 @@
   "peerDependencies": {
     "@angular/common": "^15.2.0",
     "@angular/core": "^15.2.0",
-    "@prizm-ui/core": "^2.6.1"
+    "@prizm-ui/core": "^2.6.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"
