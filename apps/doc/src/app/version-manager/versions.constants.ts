@@ -10,8 +10,8 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '3.5.1 (ng16)',
-    version: '3.5.1',
+    label: '3.5.2 (ng16)',
+    version: '3.5.2',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
     link: new URL('http://prizm.site'),
     otherLinks: [new URL('https://prizm-v3.web.app')],
@@ -30,8 +30,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '1.9.1 (ng14)',
-    version: '1.9.1',
+    label: '1.9.2 (ng14)',
+    version: '1.9.2',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-demo',
     link: new URL('https://prizm-v1.web.app'),
     otherLinks: [],
@@ -40,8 +40,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '3.5.1-next (ng16)',
-    version: '3.5.1-next',
+    label: '3.5.2-next (ng16)',
+    version: '3.5.2-next',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-next-demo',
     link: new URL('https://prizm-v3-next.web.app'),
     otherLinks: [],
@@ -54,15 +54,15 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     otherLinks: [],
   },
   {
-    label: '1.9.1-next (ng14)',
-    version: '1.9.1-next',
+    label: '1.9.2-next (ng14)',
+    version: '1.9.2-next',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-next-demo',
     link: new URL('https://prizm-v1-next.web.app'),
     otherLinks: [],
   },
   {
-    label: '3.5.1-beta (ng16)',
-    version: '3.5.1-beta',
+    label: '3.5.2-beta (ng16)',
+    version: '3.5.2-beta',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-beta-demo',
     link: new URL('https://prizm-v3-beta.web.app'),
     otherLinks: [],
@@ -75,8 +75,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     otherLinks: [],
   },
   {
-    label: '1.9.1-beta (ng14)',
-    version: '1.9.1-beta',
+    label: '1.9.2-beta (ng14)',
+    version: '1.9.2-beta',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-beta-demo',
     link: new URL('https://prizm-v1-beta.web.app'),
     otherLinks: [],

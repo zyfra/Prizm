@@ -68,22 +68,22 @@ jobs:
       #        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*.up" --all --currentVersion="${{ env.LAST_V1_VERSION }}"
 
       #      - name: Restore dist from cache
-      - name: Dist from cache
-        id: dist-cache-restore
-        uses: actions/cache@v3
-        with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+      #      - name: Dist from cache
+      #        id: dist-cache-restore
+      #        uses: actions/cache@v3
+      #        with:
+      #          path: ./dist
+      #          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - name: 'Build main versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-  #      - name: Save dist in cache...
-  #        id: dist-cache-save
-  #        uses: actions/cache/save@v3
-  #        with:
-  #          path: ./dist
-  #          key: ${{ runner.os }}-node_modules_ng_14-main
+      - name: Save dist in cache...
+        id: dist-cache-save
+        uses: actions/cache/save@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
   deploy_to_doc:
     needs: build
@@ -103,7 +103,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -140,7 +140,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -167,7 +167,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -194,7 +194,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -220,7 +220,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -247,7 +247,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -274,7 +274,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -301,7 +301,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -328,7 +328,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -355,7 +355,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -382,7 +382,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -409,7 +409,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-main
+          key: ${{ runner.os }}-node_modules_ng_14-main-${{ hashFiles('package.json') }}
 
       - uses: actions/setup-node@v3
         with:
