@@ -62,10 +62,7 @@
 
   <ng-template #dropdown>
     <prizm-data-list>
-      <div
-        class="tabs-column prizm-tab-menu-container"
-        *prizmLet="{ hasIcons: tabElements | prizmIconTabs } as data"
-      >
+      <div class="tabs-column prizm-tab-menu-container" *prizmLet="tabElements | prizmIconTabs as hasIcons">
         <ng-container *ngFor="let tabElement of tabElements; let i = index">
           <ng-container *ngIf="tabElement as tab">
             <prizm-listing-item
@@ -73,7 +70,7 @@
               [selected]="activeTabIndex === i"
               (click)="clickTab(i)"
             >
-              <ng-container *ngIf="tab.icon || data.hasIcons" leftBox>
+              <ng-container *ngIf="tab.icon || hasIcons" leftBox>
                 <ng-container *ngIf="tab.icon as icon; else placeholder">
                   <ng-container *polymorphOutlet="icon; context: $any({ idx: i, tab: tab })">
                     <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
