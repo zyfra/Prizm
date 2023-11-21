@@ -133,9 +133,7 @@
 <ng-content></ng-content>
 
 <ng-template #statusLabel let-status>
-  <ng-container [ngSwitch]="status">
-    <div class="deprecated-label" *ngSwitchCase="'deprecated'">deprecated</div>
-    <div class="new-label" *ngSwitchCase="'new'">new</div>
-    <div class="preview-label" *ngSwitchCase="'preview'">in preview</div>
+  <ng-container *ngIf="status">
+    <prizm-chips-item [className]="status" [deletable]="false">{{ status | titlecase }}</prizm-chips-item>
   </ng-container>
 </ng-template>
