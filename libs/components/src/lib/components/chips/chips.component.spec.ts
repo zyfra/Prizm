@@ -8,7 +8,7 @@ describe('InputChipsControlComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmChipsComponent],
+      imports: [PrizmChipsComponent],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   });

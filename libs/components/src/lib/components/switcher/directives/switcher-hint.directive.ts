@@ -1,10 +1,12 @@
 import { Directive, Input, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { PolymorphContent, PrizmHintDirective, PrizmHintOptions } from '../../../directives';
 import { prizmSwitcherHint } from '../switcher.interface';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Directive({
   selector: '[prizmSwitcherHint]',
   standalone: true,
+  providers: [PrizmDestroyService],
 })
 export class PrizmSwitcherHintDirective implements OnInit, OnChanges, OnDestroy {
   readonly prizmHint_ = new PrizmHintDirective();

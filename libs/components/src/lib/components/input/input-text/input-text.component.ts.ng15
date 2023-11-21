@@ -132,9 +132,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   @HostBinding('class.empty')
   public empty!: boolean;
 
-  readonly parentLayout = inject(PrizmInputLayoutComponent, {
-    optional: true,
-  });
+  readonly parentLayout = inject(PrizmInputLayoutComponent);
   readonly maybeMask = inject(NgxMaskDirective, {
     optional: true,
   });
@@ -181,7 +179,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   private safeClearNgxMaskListener() {
     // TODO: fix ngxMask bug when clear value
-    this.parentLayout?.clear
+    this.parentLayout.clear
       .pipe(
         tap(() => {
           this.maybeMask, this.maybeMask?.writeValue(null as any);

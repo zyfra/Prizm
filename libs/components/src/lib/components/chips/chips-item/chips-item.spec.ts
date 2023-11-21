@@ -14,8 +14,8 @@ describe('PrizmChipsItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmChipsItemComponent],
       imports: [
+        PrizmChipsItemComponent,
         CommonModule,
         PrizmCallFuncModule,
         PrizmLifecycleModule,

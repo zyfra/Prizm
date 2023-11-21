@@ -14,3 +14,8 @@ export class PrizmGridItemComponent extends PrizmAbstractTestId {
 
   override readonly testId_ = 'ui_area';
 }
+/**
+ * TODO v5: remove
+ * @deprecated
+ * */
+export const GridItemComponent = PrizmGridItemComponent;

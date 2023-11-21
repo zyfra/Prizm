@@ -10,7 +10,7 @@ permissions:
   contents: read
   packages: write
 jobs:
-  beta_release:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -57,33 +57,54 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            (npm view @prizm-ui/components versions --tag ng15beta --json 2>/dev/null || echo '2.2.0-ng15beta.0') | jq '([.[] | select(startswith("2.2.0-ng15beta"))] | last // "2.2.0-ng15beta.0")' 2>/dev/null || echo '2.2.0-ng15beta.0'
+            (npm view @prizm-ui/components versions --tag ng15beta --json 2>/dev/null || echo '2.6.2-ng15beta.0') | jq '([.[] | select(startswith("2.6.2-ng15beta"))] | last // "2.6.2-ng15beta.0")' 2>/dev/null || echo '2.6.2-ng15beta.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
       - name: 'Set version 15'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
-      - name: 'Update ng15beta versions'
-        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-ng15beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+      - name: 'Update beta versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
-      - name: 'Build ng15beta versions'
+      - name: 'Build beta versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - run: cd dist/libs/components && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/i18n && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/helpers && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/core && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/theme && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/base && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/icons/flags && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/plugin && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/ast && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/charts && npm publish --tag ng15beta --access public --verbose || exit_code=0
-      - run: cd dist/libs/nxmv && npm publish --tag ng15beta --access public --verbose || exit_code=0
+      - name: Save dist in cache...
+        id: dist-cache-save
+        uses: actions/cache/save@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+  deploy_to_doc:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
+
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
@@ -92,3 +113,299 @@ jobs:
           projectId: prizmui
           channelId: live
           target: v2-beta
+
+  publish-components:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/components && npm publish --tag beta --access public --verbose
+
+  publish-i18n:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/i18n && npm publish --tag beta --access public --verbose
+
+  publish-helpers:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/helpers && npm publish --tag beta --access public --verbose
+
+  publish-core:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/core && npm publish --tag beta --access public --verbose
+
+  publish-theme:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/theme && npm publish --tag beta --access public --verbose
+
+  publish-icons:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/icons/base && npm publish --tag beta --access public --verbose
+
+  publish-flags:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/icons/flags && npm publish --tag beta --access public --verbose
+
+  publish-plugin:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/plugin && npm publish --tag beta --access public --verbose
+
+  publish-ast:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/ast && npm publish --tag beta --access public --verbose
+
+  publish-charts:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/charts && npm publish --tag beta --access public --verbose
+
+  publish-nxmv:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_15-${{ hashFiles('package-lock.json.ng15') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_15-
+
+      - name: Restore dist in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./dist
+          key: ${{ runner.os }}-node_modules_ng_15-beta
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/nxmv && npm publish --tag beta --access public --verbose

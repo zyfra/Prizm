@@ -32,7 +32,6 @@ export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_stepper--selector';
 
   public clickOnStep(index: number): void {
-    console.log(this.steps);
     if (this.currentStep !== index) {
       this.selectStep.next(index);
     }

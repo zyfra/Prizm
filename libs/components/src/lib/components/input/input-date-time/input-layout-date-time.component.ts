@@ -54,8 +54,6 @@ import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PrizmDataListComponent } from '../../data-list/data-list.component';
 import { PrizmIconComponent } from '../../icon/icon.component';
 import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
-import { PrizmCalendarModule } from '../../calendar/calendar.module';
-import { PrizmLinkModule } from '../../link/link.module';
 import { PrizmCalendarComponent } from '../../calendar';
 import { PrizmLinkComponent } from '../../link';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
@@ -116,7 +114,7 @@ export class PrizmInputLayoutDateTimeComponent
   override fallbackValue: [PrizmDay | null, PrizmTime | null] = [null, null];
 
   @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
-  public readonly focusableElement?: PrizmInputZoneDirective;
+  public override readonly focusableElement?: PrizmInputZoneDirective;
 
   @Input()
   @prizmDefaultProp()
