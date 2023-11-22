@@ -69,12 +69,14 @@
   display: flex;
   flex-direction: column;
   background: var(--prizm-v3-background-fill-primary);
-  .title {
+  prizm-listing-item {
+    max-width: 100%;
+  }
+
+  .tab-content {
     text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 1;
-    -webkit-box-orient: vertical;
   }
 }
 

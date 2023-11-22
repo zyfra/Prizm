@@ -82,7 +82,12 @@
               </ng-container>
 
               <ng-container>
-                <div class="title" [prizmHint]="tab.content">
+                <div
+                  class="tab-content"
+                  #elem
+                  [prizmHint]="tab.content"
+                  [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
+                >
                   {{ tab.content }}
                 </div>
               </ng-container>
@@ -95,15 +100,13 @@
                   [disabled]="tab._counterOptions.disabled"
                   [maxValue]="tab._counterOptions.maxValue"
                 ></prizm-counter>
-                <button
+                <prizm-icon
+                  class="icon"
                   [class.hidden]="!tab.closable"
-                  [icon]="'cancel-close'"
+                  [iconClass]="'cancel-close'"
+                  [size]="16"
                   (click)="closeTab($any(tabElement.idx))"
-                  prizmIconButton
-                  appearanceType="ghost"
-                  appearance="secondary"
-                  size="s"
-                ></button>
+                ></prizm-icon>
               </ng-container>
             </prizm-listing-item>
           </ng-container>

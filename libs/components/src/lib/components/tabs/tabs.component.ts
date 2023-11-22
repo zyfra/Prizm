@@ -37,6 +37,7 @@ import { PrizmListingItemComponent } from '../listing-item';
 import { PrizmCounterComponent } from '../counter';
 import { PrizmIconModule } from '../icon';
 import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
+import { prizmIsTextOverflow$ } from '../../util';
 
 @Component({
   selector: 'prizm-tabs',
@@ -95,6 +96,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
   public isLeftBtnActive = false;
   public isRightBtnActive = false;
+
+  readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
   private mutationObserver!: MutationObserver;
   private resizeObserver!: ResizeObserver;
