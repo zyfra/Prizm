@@ -5,11 +5,11 @@
 @import './v3/custom-dark-palette';
 
 :root,
-*[data-prizm-theme='customLight'] {
+*[data-prizm-theme='light'] {
   .myCustomLightPalette();
   .myCustomLightTheme();
 }
-*[data-prizm-theme='customDark'] {
+*[data-prizm-theme='dark'] {
   .myCustomDarkPalette();
   .myCustomDarkTheme();
 }

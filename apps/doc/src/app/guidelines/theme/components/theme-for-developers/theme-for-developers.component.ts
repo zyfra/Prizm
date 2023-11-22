@@ -15,5 +15,10 @@ export class ThemeForDevelopersComponent {
   public readonly themeReverse: RawLoaderContent = import('./../examples/theme-reverse.md?raw');
   public readonly styleVariables: RawLoaderContent = import('./../examples/style-variables.md?raw');
   public readonly customTheme: RawLoaderContent = import('./../examples/custom-theme.md?raw');
-  public readonly customThemeInverted: RawLoaderContent = import('./../examples/custom-theme.md?raw');
+  public readonly customThemePalette: RawLoaderContent = import('./../examples/custom-theme-palette.md?raw');
+  public readonly customThemeInverted: RawLoaderContent = import(
+    './../examples/custom-theme-inverted.md?raw'
+  );
+  public readonly customThemeSetup: RawLoaderContent = import('./../examples/custom-theme-setup.md?raw');
+  public readonly updatedPalette: RawLoaderContent = import('./../examples/updated-palette.md?raw');
 }

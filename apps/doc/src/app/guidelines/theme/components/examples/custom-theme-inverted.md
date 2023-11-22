@@ -1,12 +1,16 @@
 ```ts
+const MY_INVERTED_THEME: PrizmThemeInvertedValues = {
+  customDark: 'customLight',
+  customLight: 'customDark',
+};
 @NgModule({
   // ...
   providers: [
     {
       provide: PRIZM_THEME_INVERTED,
-      useValue: of({
+      useValue: {
         ...MY_INVERTED_THEME,
-      }),
+      },
     },
   ],
 })
