@@ -12,6 +12,12 @@ export type PrizmFilesProgress = {
 
 export type PrizmFileUploadOptions = {
   showRetryButtons: boolean;
+  statusNames?: {
+    idle: string;
+    progress: string;
+    warning: string;
+    success: string;
+  };
 };
 
 export type PrizmFilesMap = Map<string, { file: File; progress: number; error: boolean; url?: string }>;
