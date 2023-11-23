@@ -766,6 +766,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/listing-item',
+    loadChildren: () =>
+      import('./components/listing-item/listing-item-example.module').then(i => i.ListingItemExampleModule),
+    data: {
+      title: 'Listing Item',
+    },
+  },
+  {
     path: 'tools/overlay',
     loadChildren: () => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {

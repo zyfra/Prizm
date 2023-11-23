@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
 import { PrizmOverlayOutsidePlacement } from '../../../modules';
 import { Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { prizmIsTextOverflow$ } from '../../../util/dom/is-textoverflow';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -38,6 +38,15 @@ export class PrizmChipsItemComponent extends PrizmAbstractTestId {
     this._disabled = coerceBooleanProperty(value);
   }
   private _disabled = false;
+
+  @Input()
+  get selected() {
+    return this._selected;
+  }
+  set selected(value: BooleanInput) {
+    this._selected = coerceBooleanProperty(value);
+  }
+  private _selected = false;
 
   @Input() deletable = true;
   @Output() deleted = new EventEmitter<MouseEvent>();

@@ -25,6 +25,7 @@
             [hintDirection]="hintDirection"
             [hintCanShow]="hintCanShow"
             [prizmDocHostElement]="chipsItem"
+            [selected]="selected"
             style="width: 100px"
             prizmDocHostElementKey="PrizmChipsItemComponent"
           >
@@ -76,6 +77,15 @@
         documentationPropertyMode="input"
       >
         Deletable
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="selected"
+        documentationPropertyName="selected"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Selected
       </ng-template>
 
       <ng-template

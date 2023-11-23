@@ -15,10 +15,7 @@
       <tui-opt-group *ngFor="let group of filtered$ | async; let index = index" [label]="labels[index] || ''">
         <a *ngFor="let item of group" [routerLink]="item.route" (click)="onClick(input)" tuiOption>
           {{ item.title }}
-          <div class="deprecated-label" *ngIf="item.deprecated; else newTemplate">deprecated</div>
-          <ng-template #newTemplate>
-            <div class="new-label" *ngIf="item.new">new</div>
-          </ng-template>
+          <ng-template *ngTemplateOutlet="statusLabel; context: { $implicit: item.status }"></ng-template>
         </a>
       </tui-opt-group>
     </tui-data-list>
@@ -61,8 +58,8 @@
         <a
           class="t-sublink"
           *ngSwitchCase="true"
-          [class.deprecated]="item.deprecated"
-          [class.new]="item.new"
+          [class.deprecated]="item.status === 'deprecated'"
+          [class.new]="item.status === 'new'"
           [target]="item.target"
           [href]="item.link"
           (click)="closeMenu()"
@@ -70,12 +67,13 @@
           routerLinkActive="t-sublink_active"
         >
           {{ item.title }}
+          <ng-template *ngTemplateOutlet="statusLabel; context: { $implicit: item.status }"></ng-template>
         </a>
         <a
           class="t-sublink"
           *ngSwitchDefault
-          [class.deprecated]="item.deprecated"
-          [class.new]="item.new"
+          [class.deprecated]="item.status === 'deprecated'"
+          [class.new]="item.status === 'new'"
           [routerLink]="item.route"
           [prizmScrollIntoViewLink]="isActive(item.route)"
           (click)="closeMenu()"
@@ -83,6 +81,7 @@
           routerLinkActive="t-sublink_active"
         >
           {{ item.title }}
+          <ng-template *ngTemplateOutlet="statusLabel; context: { $implicit: item.status }"></ng-template>
         </a>
       </ng-container>
 
@@ -91,8 +90,8 @@
           <button
             class="t-sublink t-sublink_subsection"
             *ngIf="item.subPages"
-            [title]="item.deprecated ? 'Больше не поддерживается' : ''"
-            [class.deprecated]="item.deprecated"
+            [title]="item.status === 'deprecated' ? 'Больше не поддерживается' : ''"
+            [class.deprecated]="item.status === 'deprecated'"
             (click)="onGroupClick(index)"
             tuiLink
             type="button"
@@ -103,14 +102,15 @@
               src="tuiIconChevronRight"
             ></tui-svg>
             {{ item.title }}
+            <ng-template *ngTemplateOutlet="statusLabel; context: { $implicit: item.status }"></ng-template>
           </button>
           <tui-expand class="t-expand" [expanded]="!!openPagesGroupsArr[index]">
             <div class="t-section t-section_bordered">
               <a
                 class="t-sublink t-sublink_small"
                 *ngFor="let subPage of item.subPages"
-                [title]="subPage.deprecated ? 'Компонент больше не поддерживается' : ''"
-                [class.deprecated]="subPage.deprecated"
+                [title]="subPage.status === 'deprecated' ? 'Компонент больше не поддерживается' : ''"
+                [class.deprecated]="subPage.status === 'deprecated'"
                 [routerLink]="subPage.route"
                 [prizmScrollIntoViewLink]="isActive(subPage.route)"
                 (click)="closeMenu()"
@@ -118,6 +118,9 @@
                 routerLinkActive="t-sublink_active"
               >
                 {{ subPage.title }}
+                <ng-template
+                  *ngTemplateOutlet="statusLabel; context: { $implicit: subPage.status }"
+                ></ng-template>
               </a>
             </div>
           </tui-expand>
@@ -128,3 +131,9 @@
 </nav>
 
 <ng-content></ng-content>
+
+<ng-template #statusLabel let-status>
+  <ng-container *ngIf="status">
+    <prizm-chips-item [className]="status" [deletable]="false">{{ status | titlecase }}</prizm-chips-item>
+  </ng-container>
+</ng-template>

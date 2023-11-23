@@ -42,6 +42,7 @@ export class InputChipsExampleComponent {
   public deletable = true;
   public disabled = false;
   public singleLine = false;
+  public selected = false;
 
   @ViewChild(PrizmInputTextComponent, { static: false }) input!: PrizmInputTextComponent;
   @ViewChild(PrizmChipsComponent, { static: false }) chipsComponent!: PrizmChipsComponent;
