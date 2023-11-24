@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PrizmCalendarMonthComponent } from './calendar-month.component';
 
-
 /**
  * @deprecated
  * use standalone
