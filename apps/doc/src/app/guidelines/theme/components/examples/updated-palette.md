@@ -6,11 +6,11 @@
 
 :root,
 *[data-prizm-theme='light'] {
-  .myCustomLightPalette();
-  .myCustomLightTheme();
+  --prizm-v3-text-icon-primary: red;
+  --prizm-v3-text-icon-secondary: blue;
 }
 *[data-prizm-theme='dark'] {
-  .myCustomDarkPalette();
-  .myCustomDarkTheme();
+  --prizm-v3-text-icon-primary: yellow;
+  --prizm-v3-text-icon-secondary: green;
 }
 ```

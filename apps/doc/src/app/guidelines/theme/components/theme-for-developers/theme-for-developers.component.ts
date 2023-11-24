@@ -16,6 +16,7 @@ export class ThemeForDevelopersComponent {
   public readonly styleVariables: RawLoaderContent = import('./../examples/style-variables.md?raw');
   public readonly customTheme: RawLoaderContent = import('./../examples/custom-theme.md?raw');
   public readonly customThemePalette: RawLoaderContent = import('./../examples/custom-theme-palette.md?raw');
+  public readonly customThemeCss: RawLoaderContent = import('./../examples/custom-theme-css.md?raw');
   public readonly customThemeInverted: RawLoaderContent = import(
     './../examples/custom-theme-inverted.md?raw'
   );
