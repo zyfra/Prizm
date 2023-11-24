@@ -104,16 +104,13 @@
     prizmLifecycle
   >
     <ng-container>
-      <div
-        class="time-item"
+      <prizm-listing-item
         *ngFor="let item of timeItems; let idx = index"
-        [class.selected]="value?.[1] && item.isSameTime($any(value?.[1]))"
+        [selected]="value?.[1] && item.isSameTime($any(value?.[1]))"
         (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
       >
-        <span class="text">
-          {{ item }}
-        </span>
-      </div>
+        {{ item }}
+      </prizm-listing-item>
     </ng-container>
   </prizm-data-list>
 </ng-template>

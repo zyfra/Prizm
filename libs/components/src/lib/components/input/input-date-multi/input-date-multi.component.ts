@@ -26,6 +26,7 @@ import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directi
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
+import { PrizmListingItemComponent } from '../../listing-item';
 
 export type PrizmDateItemTemplate = {
   name: string;
@@ -46,6 +47,7 @@ export type PrizmDateItemTemplate = {
     PrizmDataListComponent,
     PolymorphOutletDirective,
     PrizmDropdownHostComponent,
+    PrizmListingItemComponent,
   ],
 })
 export class PrizmInputDateMultiComponent extends PrizmAbstractTestId implements OnInit {

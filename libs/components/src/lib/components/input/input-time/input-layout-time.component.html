@@ -29,16 +29,12 @@
 <ng-template #dropdownContent>
   <prizm-data-list class="block" [style.--prizm-data-list-border]="0" (prizmAfterViewInit)="markAsTouched()">
     <ng-container *ngIf="items?.length">
-      <div
-        class="item"
+      <prizm-listing-item
         *ngFor="let item of filtered; let idx = index"
-        [class.selected]="value && item.isSameTime(value)"
+        [selected]="value && item.isSameTime(value)"
         (click)="onMenuClick(item)"
-      >
-        <span class="text">
-          {{ item }}
-        </span>
-      </div>
+        >{{ item }}
+      </prizm-listing-item>
     </ng-container>
   </prizm-data-list>
 </ng-template>

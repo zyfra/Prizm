@@ -16,11 +16,11 @@
   display: flex;
   align-items: center;
   padding: var(--prizm-select-item-padding, 8px 16px);
-  background: var(--prizm-select-item-background, var(--prizm-bg-body));
+  background: var(--prizm-select-item-background, var(--prizm-v3-background-fill-overlay));
   cursor: pointer;
   font-weight: var(--prizm-select-item-font-weight, 400);
   font-size: var(--prizm-select-item-font-size, 14px);
-  color: var(--prizm-select-item-text, var(--prizm-text-contrast, #20222b));
+  color: var(--prizm-select-item-text, var(--prizm-v3-text-icon-primary));
 
   &:empty {
     display: none;
@@ -35,18 +35,18 @@
 
   &.selected,
   &.most-relevant {
-    background: var(--prizm-select-item-selected-background, var(--prizm-lite-b130-20));
-    color: var(--prizm-text-contrast);
+    background: var(--prizm-select-item-selected-background, var(--prizm-v3-table-fill-row-active));
+    color: var(--prizm-v3-text-icon-primary);
   }
 
   &:not(.selected):not(.most-relevant):hover {
-    background: var(--prizm-select-item-hover-background, var(--prizm-g2-g11));
-    color: var(--prizm-text-contrast);
+    background: var(--prizm-select-item-hover-background, var(--prizm-v3-table-fill-row-hover));
+    color: var(--prizm-v3-text-icon-primary);
   }
 }
 
 .block {
-  background: var(--prizm-select-background, var(--prizm-bg-body));
+  background: var(--prizm-select-background, var(--prizm-v3-background-fill-overlay));
   border-radius: 2px;
   border: none;
   padding: var(--prizm-select-padding, 8px 0);
@@ -58,14 +58,14 @@
 
 .empty-template {
   padding: var(--prizm-select-item-padding, 8px 16px);
-  background: var(--prizm-select-item-background, var(--prizm-bg-body));
+  background: var(--prizm-select-item-background, var(--prizm-v3-background-fill-overlay));
   font-weight: var(--prizm-select-item-font-weight, 400);
   font-size: var(--prizm-select-item-font-size, 14px);
-  color: var(--prizm-select-empty-text, var(--prizm-text-subscript, #20222b));
+  color: var(--prizm-select-empty-text, var(--prizm-v3-text-icon-secondary));
 }
 
 .icon-dropdown {
-  color: #777b92;
+  color: var(--prizm-v3-button-secondary-solid-default);
   cursor: pointer;
   transition-property: transform;
   transition-property: all;
@@ -78,7 +78,7 @@
   }
 
   &.active {
-    color: #337eff;
+    color: var(--prizm-v3-button-primary-solid-active);
   }
 }
 

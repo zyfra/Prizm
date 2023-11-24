@@ -1,16 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { fromEvent, merge } from 'rxjs';
-import { switchMap, take, takeUntil, tap } from 'rxjs/operators';
-
 import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { PrizmInputPasswordDirective } from './input-password.directive';
 
