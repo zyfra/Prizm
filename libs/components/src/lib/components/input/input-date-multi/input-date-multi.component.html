@@ -15,16 +15,13 @@
 <ng-template #dropdown>
   <prizm-data-list class="block">
     <ng-container *ngIf="items?.length">
-      <div
-        class="item"
+      <prizm-listing-item
         *ngFor="let item of items; let idx = index"
-        [class.selected]="idx === currentIdx"
+        [selected]="idx === currentIdx"
         (click)="select(idx)"
       >
-        <span class="text">
-          {{ item.name }}
-        </span>
-      </div>
+        {{ item.name }}
+      </prizm-listing-item>
     </ng-container>
   </prizm-data-list>
 </ng-template>

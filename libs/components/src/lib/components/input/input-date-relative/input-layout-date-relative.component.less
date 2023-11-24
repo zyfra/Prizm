@@ -8,40 +8,15 @@
   display: block;
 }
 
-.relative-menu-item {
-  height: 44px;
-  padding: 0 24px;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-
-  &-icon {
-    font-size: 18px;
-    display: inherit;
-  }
-
-  &-label {
-    padding-left: 8px;
-  }
-
-  &-divider {
-    margin: 2px 0;
-    border-bottom: 1px solid var(--prizm-border-widget);
-  }
-
-  &:hover {
-    background: var(--prizm-bg-dashboard-forms);
-  }
-
-  &-active {
-    background: var(--prizm-select-item-selected-background, var(--prizm-lite-b130-20));
-
-    &:hover {
-      background: var(--prizm-select-item-selected-background, var(--prizm-lite-b130-20));
-    }
-  }
+.block {
+  padding: 8px 0;
 }
 
-.prizm-datepicker-relative-menu {
-  color: var(--prizm-text-contrast);
+.relative-menu-item-divider {
+  margin: 2px 0;
+  border-bottom: 1px solid var(--prizm-v3-background-stroke);
+}
+
+.relative-menu-icon {
+  color: var(--prizm-v3-text-icon-primary);
 }

@@ -30,7 +30,6 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import {
   PrizmDropdownHostClasses,
   PrizmDropdownHostComponent,
-  PrizmDropdownHostModule,
   PrizmDropdownHostStyles,
 } from '../dropdown-host';
 import {
@@ -45,8 +44,8 @@ import { PrizmOverlayModule } from '../../../modules';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
 import { PrizmIconModule } from '../../icon';
-import { PrizmDataListModule } from '../../data-list';
-import { PrizmCheckboxModule } from '../../checkbox';
+import { PrizmDataListComponent } from '../../data-list';
+import { PrizmCheckboxComponent } from '../../checkbox';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -70,10 +69,10 @@ import { PrizmCheckboxModule } from '../../checkbox';
     PrizmAutoFocusModule,
     PrizmScrollbarModule,
     PrizmDropdownControllerModule,
-    PrizmDataListModule,
-    PrizmCheckboxModule,
+    PrizmDataListComponent,
+    PrizmCheckboxComponent,
     PrizmLifecycleModule,
-    PrizmDropdownHostModule,
+    PrizmDropdownHostComponent,
   ],
   providers: [
     {
