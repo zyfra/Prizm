@@ -1,10 +1,4 @@
-<div
-  class="block"
-  [prizmMutationObserverHost]="el.nativeElement"
-  (prizmMutationObserver)="updateWidth()"
-  prizmZoneEvent
-  zoneEventName="click"
->
+<div class="block" [prizmMutationObserverHost]="el.nativeElement" (prizmMutationObserver)="updateWidth()">
   <ng-content></ng-content>
   <ng-template #temp>
     <div
