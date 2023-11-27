@@ -9,8 +9,8 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^16.1.8",
-    "@angular/core": "^16.1.8"
+    "@angular/common": "^16.1.0 || ^16.2.0",
+    "@angular/core": "^16.1.0 || ^16.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

@@ -9,8 +9,8 @@
   },
   "peerDependencies": {
     "lodash-es": "^4.17.21",
-    "@angular/common": "^16.1.8",
-    "@angular/core": "^16.1.8",
+    "@angular/common": "^16.1.0 || ^16.2.0",
+    "@angular/core": "^16.1.0 || ^16.2.0",
     "@prizm-ui/theme": "^3.5.2",
     "@prizm-ui/helpers": "^3.5.2",
     "@antv/g2plot": "^2.4.22"

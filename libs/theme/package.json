@@ -2,8 +2,8 @@
   "name": "@prizm-ui/theme",
   "version": "3.5.2",
   "peerDependencies": {
-    "@angular/common": "^16.1.8",
-    "@angular/core": "^16.1.8",
+    "@angular/common": "^16.1.0 || ^16.2.0",
+    "@angular/core": "^16.1.0 || ^16.2.0",
     "@prizm-ui/core": "^3.5.2",
     "@prizm-ui/helpers": "^3.5.2"
   },
