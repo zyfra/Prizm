@@ -50,10 +50,10 @@ export interface PrizmLanguageColumnSettings {
 export interface PrizmLanguagePaginator {
   paginator: {
     linesShown: string;
-    linesToUpload: string;
-    linesOnPage: string;
-    moreButtonLabel: string;
-    from: string;
+    linesToUpload?: string;
+    linesOnPage?: string;
+    moreButtonLabel?: string;
+    from?: string;
   };
 }
 
