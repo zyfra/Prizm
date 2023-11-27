@@ -1,9 +1,6 @@
 <div
   class="block"
-  [zoneElement]="prizmDropdownHost"
   [prizmMutationObserverHost]="el.nativeElement"
-  [zoneActive]="$any(isOpen$ | async)"
-  (zoneOutsideEvent)="outsideClick()"
   (prizmMutationObserver)="updateWidth()"
   prizmZoneEvent
   zoneEventName="click"
