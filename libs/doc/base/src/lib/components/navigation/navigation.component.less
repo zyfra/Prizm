@@ -106,19 +106,17 @@
   }
 }
 
-.deprecated-label {
-  background-color: red;
+.deprecated {
+  --prizm-chips-item-background: var(--prizm-v3-status-alarm-primary-default);
+  --prizm-chips-item-color: var(--prizm-v3-text-icon-exception);
 }
 
-.new-label,
-.deprecated-label {
-  font-size: 12px;
-  border-radius: 5px;
-  padding: 1px 4px;
-
-  color: white;
+.new {
+  --prizm-chips-item-background: var(--prizm-v3-status-info-primary-default);
+  --prizm-chips-item-color: var(--prizm-v3-text-icon-exception);
 }
 
-.new-label {
-  background-color: yellow;
+.preview {
+  --prizm-chips-item-background: var(--prizm-v3-status-warning-primary-default);
+  --prizm-chips-item-color: var(--prizm-v3-text-icon-primary);
 }

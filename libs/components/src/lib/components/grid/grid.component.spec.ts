@@ -8,7 +8,7 @@ describe('GridComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmGridComponent],
+      imports: [PrizmGridComponent],
     }).compileComponents();
   });
 

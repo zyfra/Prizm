@@ -98,7 +98,8 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
         tap(tab => {
           if (tab === this) this.tabsService.removeTab(tab);
         }),
-        timeout(25)
+        timeout(25),
+        takeUntil(this.destroy)
       )
       .subscribe();
   }

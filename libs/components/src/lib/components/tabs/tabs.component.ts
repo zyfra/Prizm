@@ -28,10 +28,16 @@ import { CommonModule } from '@angular/common';
 import {
   PolymorphOutletDirective,
   PrizmDropdownControllerModule,
+  PrizmHintDirective,
   PrizmLifecycleModule,
 } from '../../directives';
 import { PrizmButtonModule } from '../button';
 import { PrizmDataListComponent } from '../data-list';
+import { PrizmListingItemComponent } from '../listing-item';
+import { PrizmCounterComponent } from '../counter';
+import { PrizmIconModule } from '../icon';
+import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
+import { prizmIsTextOverflow$ } from '../../util';
 
 @Component({
   selector: 'prizm-tabs',
@@ -51,6 +57,11 @@ import { PrizmDataListComponent } from '../data-list';
     PrizmDropdownControllerModule,
     PrizmDataListComponent,
     PrizmTabComponent,
+    PrizmListingItemComponent,
+    PrizmCounterComponent,
+    PrizmIconModule,
+    PrizmIconTabsPipe,
+    PrizmHintDirective,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
@@ -85,6 +96,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
   public isLeftBtnActive = false;
   public isRightBtnActive = false;
+
+  readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
   private mutationObserver!: MutationObserver;
   private resizeObserver!: ResizeObserver;
@@ -212,7 +225,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.reCalculatePositions();
   }
 
-  public clickTab(): void {
+  public clickTab(index: number): void {
     this.openLeft = this.openRight = false;
+    this.tabClickHandler(index);
   }
 }

@@ -90,7 +90,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   readonly hasClearButton = true;
   override defaultLabel = this.options.label;
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLElement>;
+  public override readonly focusableElement?: ElementRef<HTMLElement>;
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;

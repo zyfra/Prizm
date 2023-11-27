@@ -18,7 +18,8 @@ import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/for
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
-import { PrizmInputHintDirective } from '../common';
+import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector:
@@ -131,6 +132,12 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   @HostBinding('class.empty')
   public empty!: boolean;
 
+  readonly parentLayout = inject(PrizmInputLayoutComponent, {
+    optional: true,
+  });
+  readonly maybeMask = inject(NgxMaskDirective, {
+    optional: true,
+  });
   /**
    * Focus state
    */
@@ -169,6 +176,19 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public ngOnInit(): void {
     if (this.ngControl) this.initControlListener();
     this.inputHint?.updateHint();
+    this.safeClearNgxMaskListener();
+  }
+
+  private safeClearNgxMaskListener() {
+    // TODO: fix ngxMask bug when clear value
+    this.parentLayout?.clear
+      .pipe(
+        tap(() => {
+          this.maybeMask, this.maybeMask?.writeValue(null as any);
+        }),
+        takeUntil(this.destroy)
+      )
+      .subscribe();
   }
 
   public override ngDoCheck(): void {

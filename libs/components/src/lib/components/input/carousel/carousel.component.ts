@@ -156,6 +156,7 @@ export class PrizmCarouselComponent extends PrizmInputControl<any> implements Co
   public setDisabledState?(isDisabled: boolean): void {
     this._disabled = isDisabled;
     this.stateChanges.next();
+    console.log('#mz setDisabledState', isDisabled);
   }
 
   public left(): void {

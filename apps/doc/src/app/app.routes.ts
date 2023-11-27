@@ -336,7 +336,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/toggle',
-    loadChildren: () => import('./components/toggle/toggle.module').then(i => i.ToggleModule),
+    loadChildren: () => import('./components/toggle/toggle-example.module').then(i => i.ToggleExampleModule),
     data: {
       title: 'Toggle',
     },
@@ -763,6 +763,14 @@ export const ROUTES: Routes = [
       import('./components/accordion/accordion-example.module').then(i => i.AccordionExampleModule),
     data: {
       title: 'Accordion',
+    },
+  },
+  {
+    path: 'components/listing-item',
+    loadChildren: () =>
+      import('./components/listing-item/listing-item-example.module').then(i => i.ListingItemExampleModule),
+    data: {
+      title: 'Listing Item',
     },
   },
   {

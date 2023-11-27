@@ -19,15 +19,15 @@ import { TuiAccordionModule, TuiInputModule } from '@taiga-ui/kit';
 import { PolymorpheusModule } from '@tinkoff/ng-polymorpheus';
 import { TuiScrollIntoViewLinkModule } from '../../directives/scroll-into-view/scroll-into-view.module';
 import { TuiDocNavigationComponent } from './navigation.component';
-import { PrizmToggleModule } from '@prizm-ui/components';
-import { PrizmCallFuncModule } from '@prizm-ui/helpers';
+import { PrizmChipsItemComponent, PrizmToggleComponent } from '@prizm-ui/components';
+import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
     RouterModule,
-    PrizmToggleModule,
+    PrizmToggleComponent,
     PolymorpheusModule,
     TuiScrollIntoViewLinkModule,
     TuiButtonModule,
@@ -41,11 +41,12 @@ import { PrizmCallFuncModule } from '@prizm-ui/helpers';
     TuiHostedDropdownModule,
     TuiDropdownModule,
     TuiAccordionModule,
-    PrizmCallFuncModule,
+    PrizmCallFuncPipe,
     TuiScrollbarModule,
     TuiSvgModule,
     TuiDataListModule,
     TuiAutoFocusModule,
+    PrizmChipsItemComponent,
   ],
   declarations: [TuiDocNavigationComponent],
   exports: [TuiDocNavigationComponent],

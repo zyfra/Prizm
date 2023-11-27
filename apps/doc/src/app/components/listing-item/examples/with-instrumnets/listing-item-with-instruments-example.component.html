@@ -1,0 +1,22 @@
+<div class="container">
+  <prizm-listing-item *ngFor="let cell of cells" [disabled]="cell.disabled" [selected]="cell.selected">
+    <ng-container leftBox>
+      <prizm-checkbox [checked]="cell.selected"></prizm-checkbox>
+    </ng-container>
+
+    <ng-container>
+      {{ cell.title }}
+    </ng-container>
+
+    <ng-container rightBox>
+      <prizm-counter [value]="cell.count" [maxValue]="99" status="info"></prizm-counter>
+      <button
+        [icon]="'location-map-marker'"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
+    </ng-container>
+  </prizm-listing-item>
+</div>

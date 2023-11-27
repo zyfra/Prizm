@@ -24,3 +24,8 @@ export class PrizmCallFuncPipe<C> implements PipeTransform {
     return fn.apply(this.context, [param, ...params]);
   }
 }
+/**
+ * TODO v5: remove
+ * @deprecated
+ * */
+export const CallFuncPipe = PrizmCallFuncPipe;

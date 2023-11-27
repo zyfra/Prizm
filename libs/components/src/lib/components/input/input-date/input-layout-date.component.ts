@@ -95,7 +95,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
   readonly nativeElementType = 'input-date';
   readonly hasClearButton = true;
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   private month: PrizmMonth | null = null;
 

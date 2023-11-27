@@ -8,7 +8,7 @@ xdescribe('PrizmWidgetComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmWidgetComponent],
+      imports: [PrizmWidgetComponent],
     }).compileComponents();
   });
 

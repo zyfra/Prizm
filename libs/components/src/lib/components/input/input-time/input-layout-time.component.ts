@@ -76,7 +76,7 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   readonly nativeElementType = 'input-layout-time';
 
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
   @prizmDefaultProp()

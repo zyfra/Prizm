@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/components",
-  "version": "2.5.0",
+  "version": "2.6.2",
   "description": "Prizm UI system design components library http://prizm.zyfra.com",
   "license": "MIT",
   "private": false,
@@ -18,10 +18,10 @@
     "@ng-web-apis/resize-observer": "2.0.0",
     "@ng-web-apis/intersection-observer": "2.0.0",
     "@ng-web-apis/mutation-observer": "2.0.0",
-    "@prizm-ui/helpers": "^2.5.0",
-    "@prizm-ui/core": "^2.5.0",
-    "@prizm-ui/i18n": "^2.5.0",
-    "@prizm-ui/theme": "^2.5.0"
+    "@prizm-ui/helpers": "^2.6.2",
+    "@prizm-ui/core": "^2.6.2",
+    "@prizm-ui/i18n": "^2.6.2",
+    "@prizm-ui/theme": "^2.6.2"
   },
   "dependencies": {
     "tslib": "^2.3.0"

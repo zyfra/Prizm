@@ -116,7 +116,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 })
 export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> implements OnInit {
   @ViewChild('focusableElementRef', { read: ElementRef })
-  public readonly focusableElement?: ElementRef<HTMLInputElement>;
+  public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @ViewChild('dropdownHostRef')
   public readonly dropdownHostElement?: PrizmDropdownHostComponent;

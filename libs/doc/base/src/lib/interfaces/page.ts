@@ -6,8 +6,7 @@ export interface TuiDocPageBase {
 export interface PrizmDocPage extends TuiDocPageBase {
   readonly route?: string;
   readonly keywords?: string;
-  readonly deprecated?: boolean;
-  readonly new?: boolean;
+  readonly status?: 'deprecated' | 'new' | 'preview';
   readonly target?: string;
   readonly link?: string;
 }

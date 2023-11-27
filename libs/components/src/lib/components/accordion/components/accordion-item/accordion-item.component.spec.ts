@@ -9,8 +9,7 @@ describe('AccordionItemComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmAccordionItemComponent],
-      imports: [PrizmIconModule],
+      imports: [PrizmAccordionItemComponent],
     }).compileComponents();
   });
 

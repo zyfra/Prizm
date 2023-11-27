@@ -1,0 +1,15 @@
+<div
+  class="item-container"
+  [class.item-container__selected]="selected"
+  [class.item-container__disabled]="disabled"
+>
+  <div class="container-left">
+    <ng-content select="[leftBox]"></ng-content>
+  </div>
+  <div class="title">
+    <ng-content></ng-content>
+  </div>
+  <div class="container-right">
+    <ng-content select="[rightBox]"></ng-content>
+  </div>
+</div>

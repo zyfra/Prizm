@@ -8,8 +8,7 @@ describe('PrizmRadioButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmRadioButtonComponent],
-      imports: [ReactiveFormsModule],
+      imports: [ReactiveFormsModule, PrizmRadioButtonComponent],
     }).compileComponents();
   });
 
