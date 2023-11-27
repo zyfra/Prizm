@@ -30,8 +30,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '1.9.2 (ng14)',
-    version: '1.9.2',
+    label: '1.10.0 (ng14)',
+    version: '1.10.0',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-demo',
     link: new URL('https://prizm-v1.web.app'),
     otherLinks: [],
@@ -54,8 +54,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     otherLinks: [],
   },
   {
-    label: '1.9.2-next (ng14)',
-    version: '1.9.2-next',
+    label: '1.10.0-next (ng14)',
+    version: '1.10.0-next',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-next-demo',
     link: new URL('https://prizm-v1-next.web.app'),
     otherLinks: [],
@@ -75,8 +75,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     otherLinks: [],
   },
   {
-    label: '1.9.2-beta (ng14)',
-    version: '1.9.2-beta',
+    label: '1.10.0-beta (ng14)',
+    version: '1.10.0-beta',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-beta-demo',
     link: new URL('https://prizm-v1-beta.web.app'),
     otherLinks: [],
