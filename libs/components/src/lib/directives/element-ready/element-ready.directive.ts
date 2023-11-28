@@ -7,6 +7,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   selector: '[prizmElementReady]',
   exportAs: 'prizmElementReady',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmElementReadyDirective implements OnInit {
   @Output()
