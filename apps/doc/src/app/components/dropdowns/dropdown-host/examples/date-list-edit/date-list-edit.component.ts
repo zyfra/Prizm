@@ -79,7 +79,7 @@ export class PrizmDropdownHostDateListEditExampleComponent {
   }
 
   public convertDate([start, end]: DateItem['range']): [Date, Date] | null {
-    if (!start?.[0] || !end?.[0]) return null;
+    if (!start?.[0] || !end?.[0]) return [new Date(), new Date()];
     return [
       new PrizmDateTime(start[0], start[1] ?? new PrizmTime(0, 0)).toLocalNativeDate(),
       new PrizmDateTime(end[0], end[1] ?? new PrizmTime(0, 0)).toLocalNativeDate(),
