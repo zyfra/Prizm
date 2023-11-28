@@ -16,6 +16,7 @@ export class TableExampleComponent {
   public prizmTableRowBackground: string | null = null;
   public prizmTableRowCursor = 'pointer';
   public prizmTableRowHoverBackground: string | null = null;
+  public prizmTableActiveRowMarkerColor: string | null = null;
   public columns: string[] = ['code', 'name', 'category', 'count'];
   public columnsVarians: string[][] = [
     ['code', 'name'],
