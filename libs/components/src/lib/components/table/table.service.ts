@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { combineLatest, concat, Observable, of, Subject, switchMap } from 'rxjs';
-import { map, shareReplay } from 'rxjs/operators';
+import { combineLatest, concat, isObservable, Observable, of, Subject, switchMap } from 'rxjs';
+import { map, shareReplay, takeUntil } from 'rxjs/operators';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmThComponent } from '@prizm-ui/components';
 
 type PrizmThGroup = any;
 @Injectable()
@@ -11,14 +13,21 @@ export class PrizmTableService {
   readonly tableMaxColspan$: Observable<number> = concat(of(void null), this.changes$).pipe(
     switchMap(() => {
       const thGroups = [...this.set];
-      return combineLatest(thGroups.map((i: PrizmThGroup) => i.groupStructure$)).pipe(
+      const flows$ = thGroups.map((i: PrizmThGroup) => i.groupStructure$).filter(isObservable) as Observable<{
+        cols: PrizmThComponent<any>[];
+        colspan: number;
+      }>[];
+      return combineLatest(flows$).pipe(
         map(i => {
           return Math.max(...i.map(i => i.colspan)) as number;
         })
       );
     }),
-    shareReplay(1)
+    shareReplay(1),
+    takeUntil(this.destroy$)
   );
+
+  constructor(private readonly destroy$: PrizmDestroyService) {}
 
   public addThGroup(thGroup: PrizmThGroup) {
     this.set.add(thGroup);
