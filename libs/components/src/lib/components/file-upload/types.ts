@@ -1,3 +1,5 @@
+import { UploadingStatusEnum } from './file-upload.enums';
+
 export type PrizmFileValidationErrors = {
   accept?: { expect: string; current: string };
   size?: { max: number; current: number };
@@ -13,10 +15,7 @@ export type PrizmFilesProgress = {
 export type PrizmFileUploadOptions = {
   showRetryButtons: boolean;
   statusNames?: {
-    idle: string;
-    progress: string;
-    warning: string;
-    success: string;
+    [key in UploadingStatusEnum]: string;
   };
 };
 

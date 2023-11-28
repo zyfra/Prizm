@@ -52,11 +52,8 @@
         <span class="file__size">{{ item.value.file.size | prizmFileSize }}</span>
       </div>
 
-      <div
-        class="file__stage"
-        *prizmLet="item.value.progress | prizmUploadStatus : item.value.error as status"
-      >
-        {{  $any(options.statusNames?.[status]) ?? (translations | prizmPluck : [status]) }}
+      <div class="file__stage">
+        {{  options.statusNames?.[item.value.progress | prizmUploadStatus : item.value.error] ?? (translations | prizmPluck : [item.value.progress | prizmUploadStatus : item.value.error]) }}
       </div>
 
       <button
