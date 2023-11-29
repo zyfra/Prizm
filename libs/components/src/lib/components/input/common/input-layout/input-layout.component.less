@@ -173,13 +173,13 @@
   }
 
   // rewrite all if focused
-  &-focused:host-context(.enabled),
-  &:focus-within:host-context(.enabled) {
-    border-color: var(--prizm-v3-background-stroke-focus);
+  &-focused,
+  &:focus-within {
+    border-color: var(--prizm-v3-form-active);
     box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
 
     &:hover {
-      border-color: var(--prizm-v3-background-stroke-focus);
+      border-color: var(--prizm-v3-form-active-hover);
     }
 
     .prizm-input-button-default {
