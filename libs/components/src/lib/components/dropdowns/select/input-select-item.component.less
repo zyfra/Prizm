@@ -20,7 +20,7 @@
   cursor: pointer;
   font-weight: var(--prizm-select-item-font-weight, 400);
   font-size: var(--prizm-select-item-font-size, 14px);
-  color: var(--prizm-select-item-text, var(--prizm-v3-text-icon-primary));
+  color: var(--prizm-select-item-text, var(--prizm-v3-text-icon-secondary));
 
   &:empty {
     display: none;
@@ -36,12 +36,12 @@
   &.selected,
   &.most-relevant {
     background: var(--prizm-select-item-selected-background, var(--prizm-v3-table-fill-row-active));
-    color: var(--prizm-v3-text-icon-primary);
+    color: var(--prizm-v3-text-icon-secondary);
   }
 
   &:not(.selected):not(.most-relevant):hover {
     background: var(--prizm-select-item-hover-background, var(--prizm-v3-table-fill-row-hover));
-    color: var(--prizm-v3-text-icon-primary);
+    color: var(--prizm-v3-text-icon-secondary);
   }
 }
 
