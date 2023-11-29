@@ -45,7 +45,6 @@ export class PrizmLanguageSwitcherExampleComponent {
 
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
   files: Array<File> = [];
-  disabled = false;
 
   public onFilesChange(files: Array<File>): void {
     this.files = files;
@@ -73,7 +72,6 @@ export class PrizmLanguageSwitcherExampleComponent {
   }
 
   public send(): void {
-    this.disabled = true;
     const formData = new FormData();
     for (const file of this.files) {
       formData.append(file.name, file);
@@ -90,8 +88,6 @@ export class PrizmLanguageSwitcherExampleComponent {
             case HttpEventType.Sent:
               break;
             case HttpEventType.Response: {
-              this.disabled = false;
-
               if (event.status >= 200 && event.status < 300) {
                 for (const file of this.files) {
                   this.progress$$.next({
@@ -132,7 +128,6 @@ export class PrizmLanguageSwitcherExampleComponent {
   }
 
   public retry(file: File): void {
-    this.disabled = true;
     const formData = new FormData();
 
     formData.append(file.name, file);
@@ -148,8 +143,6 @@ export class PrizmLanguageSwitcherExampleComponent {
             case HttpEventType.Sent:
               break;
             case HttpEventType.Response: {
-              this.disabled = false;
-
               if (event.status >= 200 && event.status < 300) {
                 this.progress$$.next({
                   ...this.progress$$.value,

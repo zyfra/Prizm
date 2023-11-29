@@ -10,7 +10,6 @@
   [progress]="$any(progress$$ | async)"
   [maxFilesCount]="3"
   [maxFileSize]="1000000"
-  [disabled]="disabled"
   (filesChange)="onFilesChange($event)"
   (filesValidationErrors)="onfilesValidationErrors($any($event))"
   (filesCountError)="onFilesCountError($event)"
