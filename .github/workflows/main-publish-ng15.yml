@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
@@ -88,7 +88,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -109,8 +109,8 @@ jobs:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - name: 'Build doc app for firebase hosting'
-        run: npm run build:doc
+      #- name: 'Build doc app for firebase hosting'
+      #      run: npm run build:doc
 
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
@@ -125,7 +125,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -152,7 +152,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -179,7 +179,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -206,7 +206,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
@@ -232,7 +232,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -259,7 +259,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -286,7 +286,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -313,7 +313,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -340,7 +340,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -367,7 +367,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
@@ -394,7 +394,7 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
 
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
