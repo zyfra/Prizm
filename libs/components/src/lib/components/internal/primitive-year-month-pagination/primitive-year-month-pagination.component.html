@@ -10,7 +10,7 @@
   </div>
   <div>
     <prizm-primitive-spin-button
-      *ngIf="!hideButtons"
+      [class.hidden]="hideButtons"
       [focusable]="false"
       [leftDisabled]="prevMonthDisabled"
       [rightDisabled]="nextMonthDisabled"
