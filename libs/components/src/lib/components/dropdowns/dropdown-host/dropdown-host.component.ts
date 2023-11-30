@@ -110,10 +110,6 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   private _prizmDropdownHostWidth: PrizmDropdownHostWidth = this.options.width;
 
-  @Input()
-  @prizmDefaultProp()
-  prizmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
-
   override readonly testId_ = 'ui_dropdown_host';
 
   readonly itemForListener = new Set<HTMLElement>();
@@ -243,7 +239,9 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     this.updateWidth();
     this.overlay = this.prizmOverlayService
       .position(this.position)
-      .config({ wrapperClass: this.wrapper_class })
+      .config({
+        wrapperClass: this.wrapper_class,
+      })
       .content(this.temp)
       .create({
         parentInjector: this.injector,
