@@ -67,11 +67,11 @@ export class PrizmZoneEventService {
 
   public getInOutSideEvents(eventName: string): Observable<{ event: UIEvent; inside: boolean }> {
     return prizmRaceInEmit(
-      this.innerEvent$$.pipe(map(({ event }) => ({ event, inside: true }))),
-      fromEvent<UIEvent>(this.documentRef, eventName).pipe(
-        debounceTime(0),
-        map(event => ({ event, inside: false }))
-      )
+      [
+        this.innerEvent$$.pipe(map(({ event }) => ({ event, inside: true }))),
+        fromEvent<UIEvent>(this.documentRef, eventName).pipe(map(event => ({ event, inside: false }))),
+      ],
+      0
     ).pipe(takeUntil(this.destroy$));
   }
 
