@@ -7,6 +7,7 @@
       [ngClass]="dropdownClasses"
       [id]="prizmDropdownHostId"
       [attr.position]="position$ | async"
+      [childrenZones]="[zoneEventService]"
       (zoneOutsideEvent)="outsideClick()"
       (prizmAfterViewInit)="addListenerItems($event.nativeElement); reCalculatePositions()"
       (prizmOnDestroy)="removeListenerItems($event.nativeElement)"

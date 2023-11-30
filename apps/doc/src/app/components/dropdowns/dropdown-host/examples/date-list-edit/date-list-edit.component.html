@@ -28,6 +28,7 @@
                 idx: 0,
                 isNew: true
               }"
+              [ngTemplateOutletInjector]="injector"
             ></ng-container>
           </ng-container>
           <ng-container *ngFor="let item of data; let idx = index; trackBy: trackBy">
@@ -40,6 +41,7 @@
                 idx: idx,
                 isNew: false
               }"
+              [ngTemplateOutletInjector]="injector"
             ></ng-container>
           </ng-container>
         </div>
@@ -57,48 +59,48 @@
       </div>
     </prizm-data-list>
   </ng-template>
-</prizm-dropdown-host>
 
-<ng-template #itemTemplate let-item="item" let-elem="elem" let-zone="zone" let-idx="idx" let-isNew="isNew">
-  <div class="list-item" *prizmLet="item.range | prizmCallFunc : convertDate as dateArr">
-    <div class="item-content" [ngSwitch]="item === selection">
-      <div class="edit-block" *ngSwitchCase="true">
-        <prizm-input-layout label="От">
-          <prizm-input-layout-date-time
-            #from
-            [prizmEventZoneParent]="zone"
-            [ngModel]="selection?.range?.[0]"
-            (ngModelChange)="changeDate($any($event), $any(to.value))"
-          ></prizm-input-layout-date-time>
-        </prizm-input-layout>
+  <ng-template #itemTemplate let-item="item" let-elem="elem" let-zone="zone" let-idx="idx" let-isNew="isNew">
+    <div class="list-item" *prizmLet="item.range | prizmCallFunc : convertDate as dateArr">
+      <div class="item-content" [ngSwitch]="item === selection">
+        <div class="edit-block" *ngSwitchCase="true">
+          <prizm-input-layout label="От">
+            <prizm-input-layout-date-time
+              #from
+              [prizmEventZoneParent]="zone"
+              [ngModel]="selection?.range?.[0]"
+              (ngModelChange)="changeDate($any($event), $any(to.value))"
+            ></prizm-input-layout-date-time>
+          </prizm-input-layout>
 
-        <prizm-input-layout label="До">
-          <prizm-input-layout-date-time
-            #to
-            [ngModel]="selection?.range?.[1]"
-            [prizmEventZoneParent]="zone"
-            (ngModelChange)="changeDate($any(from.value), $any($event))"
-          ></prizm-input-layout-date-time>
-        </prizm-input-layout>
+          <prizm-input-layout label="До">
+            <prizm-input-layout-date-time
+              #to
+              [ngModel]="selection?.range?.[1]"
+              [prizmEventZoneParent]="zone"
+              (ngModelChange)="changeDate($any(from.value), $any($event))"
+            ></prizm-input-layout-date-time>
+          </prizm-input-layout>
+        </div>
+        <prizm-radio-button
+          *ngSwitchDefault
+          [value]="item.range"
+          [label]="(dateArr[0] | date : 'short') + ' - ' + (dateArr[1] | date : 'short')"
+          (click)="select(item)"
+        ></prizm-radio-button>
       </div>
-      <prizm-radio-button
-        *ngSwitchDefault
-        [value]="item.range"
-        [label]="(dateArr[0] | date : 'short') + ' - ' + (dateArr[1] | date : 'short')"
-        (click)="select(item)"
-      ></prizm-radio-button>
+      <div class="btns">
+        <prizm-icon
+          class="edit-icon"
+          (click)="isNew ? editNew(item) : editCurrent(item, idx)"
+          iconClass="editor-mode"
+        ></prizm-icon>
+        <prizm-icon
+          class="trash-icon"
+          (click)="isNew ? removeNew() : remove(idx); elem.reCalculatePositions()"
+          iconClass="delete"
+        ></prizm-icon>
+      </div>
     </div>
-    <div class="btns">
-      <prizm-icon
-        class="edit-icon"
-        (click)="isNew ? editNew(item) : editCurrent(item, idx)"
-        iconClass="editor-mode"
-      ></prizm-icon>
-      <prizm-icon
-        class="trash-icon"
-        (click)="isNew ? removeNew() : remove(idx); elem.reCalculatePositions()"
-        iconClass="delete"
-      ></prizm-icon>
-    </div>
-  </div>
-</ng-template>
+  </ng-template>
+</prizm-dropdown-host>

@@ -1,8 +1,9 @@
 import { Inject, Injectable, Optional, SkipSelf } from '@angular/core';
-import { BehaviorSubject, EMPTY, fromEvent, merge, Observable, race, Subject } from 'rxjs';
-import { debounceTime, map, mapTo, share, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { BehaviorSubject, fromEvent, Observable, Subject } from 'rxjs';
+import { debounceTime, map, mapTo, takeUntil, tap } from 'rxjs/operators';
 import { PrizmZoneEvent } from './model';
 import { DOCUMENT } from '@angular/common';
+import { prizmRaceInEmit } from '@prizm-ui/helpers';
 
 @Injectable()
 export class PrizmZoneEventService {
@@ -11,15 +12,17 @@ export class PrizmZoneEventService {
   private readonly childrenChanges$: Observable<Set<PrizmZoneEventService>> = this.childrenChanges$$.pipe(
     mapTo(this.childrenSet)
   );
-  private readonly parents = new Set<PrizmZoneEventService>();
+  private parents = new Set<PrizmZoneEventService>();
   public readonly destroyPrevious$ = new Subject<void>();
   public readonly destroy$ = new Subject<void>();
   public readonly inside$$ = new Subject<PrizmZoneEvent>();
   public readonly outside$$ = new Subject<PrizmZoneEvent>();
   public hostElement$$ = new BehaviorSubject<HTMLElement | null>(null);
-  private inOutSideEvents$!: Observable<{ event: UIEvent; inside: boolean }>;
-  private insideListenedEvents$!: Observable<UIEvent>;
-  private needUpdateListeners$ = merge(this.hostElement$$, this.childrenChanges$);
+  private readonly innerEvent$$ = new Subject<{
+    service: PrizmZoneEventService;
+    name: string;
+    event: UIEvent;
+  }>();
   get children(): PrizmZoneEventService[] {
     return [...this.childrenSet];
   }
@@ -27,23 +30,31 @@ export class PrizmZoneEventService {
   constructor(
     @SkipSelf() @Optional() private zoneService: PrizmZoneEventService,
     @Inject(DOCUMENT) private readonly documentRef: Document
-  ) {}
+  ) {
+    if (this.zoneService) this.parents.add(this.zoneService);
+  }
 
-  public setParent(parent: this): void {
+  public triggerEvent(
+    name: string,
+    event: UIEvent,
+    service: PrizmZoneEventService,
+    guardFromRecursiveCall: Set<PrizmZoneEventService>
+  ): void {
+    this.innerEvent$$.next({
+      name,
+      event,
+      service,
+    });
+    guardFromRecursiveCall.add(this);
+    this.parents.forEach(parent => {
+      if (guardFromRecursiveCall.has(parent)) return;
+      parent.triggerEvent(name, event, service, guardFromRecursiveCall);
+    });
+  }
+
+  public setParent(parent: PrizmZoneEventService): void {
     if (!parent) return;
     this.parents.add(parent);
-    this.parents.forEach(parent => parent.addChild(this));
-    // this.parent = parent;
-    // this.parent.addChild(this);
-  }
-
-  public addChild(s: this): void {
-    this.childrenSet.add(s);
-    this.childrenChanges$$.next();
-  }
-  public removeChild(s: this): void {
-    this.childrenSet.delete(s);
-    this.childrenChanges$$.next();
   }
 
   public safeAddListener(eventName: string, hostElement: HTMLElement): void {
@@ -54,51 +65,27 @@ export class PrizmZoneEventService {
     }
   }
 
-  // TODO need refactoring (think about detect as in overlay-control)
-  public getInsideListenedEvents(eventName: string): Observable<UIEvent> {
-    return (
-      this.insideListenedEvents$ ??
-      (this.insideListenedEvents$ = this.needUpdateListeners$.pipe(
-        switchMap(() =>
-          this.hostElement$$.value
-            ? merge(
-                fromEvent<UIEvent>(this.hostElement$$.value, eventName),
-                ...this.children.map(service => service.getInsideListenedEvents(eventName))
-              )
-            : EMPTY
-        ),
-        takeUntil(this.destroy$),
-        share()
-      ))
-    );
-  }
-
   public getInOutSideEvents(eventName: string): Observable<{ event: UIEvent; inside: boolean }> {
-    const repeat$ = new BehaviorSubject<void>(void 0);
-    return this.inOutSideEvents$
-      ? this.inOutSideEvents$
-      : (this.inOutSideEvents$ = repeat$
-          .pipe(
-            switchMap(() => {
-              return race(
-                this.getInsideListenedEvents(eventName).pipe(map(event => ({ event, inside: true }))),
-                this.needUpdateListeners$.pipe(
-                  debounceTime(0),
-                  switchMap(() => fromEvent<UIEvent>(this.documentRef, eventName).pipe(debounceTime(0))),
-                  map(event => ({ event, inside: false }))
-                )
-              );
-            })
-          )
-          .pipe(
-            debounceTime(0),
-            tap(() => repeat$.next()),
-            takeUntil(this.destroy$),
-            share()
-          ));
+    return prizmRaceInEmit(
+      this.innerEvent$$.pipe(map(({ event }) => ({ event, inside: true }))),
+      fromEvent<UIEvent>(this.documentRef, eventName).pipe(
+        debounceTime(0),
+        map(event => ({ event, inside: false }))
+      )
+    ).pipe(takeUntil(this.destroy$));
   }
 
   private initListener(eventName: string): void {
+    if (this.hostElement$$.value)
+      fromEvent(this.hostElement$$.value, eventName)
+        .pipe(
+          tap(event => {
+            this.triggerEvent(eventName, event as UIEvent, this, new Set());
+          }),
+          takeUntil(this.destroyPrevious$)
+        )
+        .subscribe();
+
     const repeat$ = new BehaviorSubject<void>(void 0);
     this.getInOutSideEvents(eventName)
       .pipe(
@@ -117,17 +104,11 @@ export class PrizmZoneEventService {
       .subscribe();
   }
 
-  public delete(service: PrizmZoneEventService): void {
-    this.childrenSet.delete(service);
-    this.parents.forEach(parent => parent.childrenChanges$$.next());
-  }
-
   public destroy(): void {
     this.destroyPrevious$.next();
   }
 
   public ngOnDestroy(): void {
-    this.parents.forEach(parent => parent.removeChild(this));
     this.destroy();
     this.destroy$.next();
     this.destroy$.complete();

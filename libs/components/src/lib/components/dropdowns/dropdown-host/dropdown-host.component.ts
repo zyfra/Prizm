@@ -46,13 +46,14 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmDropdownHostControlDirective } from './dropdown-host-control.directive';
 import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmZoneEventService } from '../../../directives/zone-event/zone-event.service';
 
 @Component({
   selector: 'prizm-dropdown-host',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PrizmDestroyService],
+  providers: [PrizmDestroyService, PrizmZoneEventService],
   exportAs: 'prizm-dropdown-host',
   standalone: true,
   imports: [
@@ -161,6 +162,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   constructor(
     public readonly prizmOverlayService: PrizmOverlayService,
+    public readonly zoneEventService: PrizmZoneEventService,
     @Inject(PrizmDropdownHostControlDirective)
     @Host()
     @Optional()
