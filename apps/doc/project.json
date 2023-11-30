@@ -1,10 +1,17 @@
 {
   "name": "doc",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
   "sourceRoot": "apps/doc/src",
   "prefix": "prizm",
   "targets": {
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "commands": ["firebase deploy --only hosting:main"],
+        "parallel": false
+      }
+    },
     "build": {
       "executor": "@angular-builders/custom-webpack:browser",
       "outputs": ["{options.outputPath}"],
@@ -36,6 +43,7 @@
           "apps/doc/src/styles.less",
           "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
           "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+          "node_modules/primeicons/primeicons.css",
           "libs/components/src/styles/styles.less",
           "libs/theme/src/styles/styles.less",
           "libs/icons/flags/src/styles/styles.less",
@@ -46,7 +54,7 @@
           "libs/icons/base/src/styles/styles.less"
         ],
         "scripts": [
-          "node_modules/marked/bin/marked.js",
+          "node_modules/marked/lib/marked.js",
           "node_modules/prismjs/prism.js",
           "node_modules/prismjs/components/prism-less.min.js",
           "node_modules/prismjs/components/prism-markup.min.js",
@@ -116,7 +124,7 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/apps/doc"],
+      "outputs": ["coverage/apps/doc"],
       "options": {
         "jestConfig": "apps/doc/jest.config.ts",
         "passWithNoTests": true

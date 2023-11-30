@@ -7,7 +7,7 @@ jobs:
   doc_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
@@ -26,7 +26,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng15') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
@@ -73,7 +73,7 @@ jobs:
     needs: doc_deploy
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           repository: ${{ github.event.pull_request.head.repo.full_name }}
@@ -92,7 +92,7 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng15') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
