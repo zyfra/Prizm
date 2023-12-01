@@ -58,7 +58,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v1_version=$(
-            echo '1.10.0'
+            echo '1.11.0'
           )
           echo "LAST_V1_VERSION=${last_v1_version}" >> $GITHUB_ENV
 
