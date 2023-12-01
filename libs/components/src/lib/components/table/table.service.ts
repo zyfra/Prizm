@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { combineLatest, concat, isObservable, Observable, of, Subject, switchMap } from 'rxjs';
 import { map, shareReplay, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmThComponent } from '@prizm-ui/components';
+import { PrizmThComponent } from './th/th.component';
 
 type PrizmThGroup = any;
 @Injectable()
