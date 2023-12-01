@@ -23,7 +23,7 @@ jobs:
 
       - name: Restore cache
         id: cache-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_14-${{ hashFiles('package-lock.json.ng15') }}

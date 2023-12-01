@@ -46,13 +46,14 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmDropdownHostControlDirective } from './dropdown-host-control.directive';
 import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmZoneEventService } from '../../../directives/zone-event/zone-event.service';
 
 @Component({
   selector: 'prizm-dropdown-host',
   templateUrl: './dropdown-host.component.html',
   styleUrls: ['./dropdown-host.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PrizmDestroyService],
+  providers: [PrizmDestroyService, PrizmZoneEventService],
   exportAs: 'prizm-dropdown-host',
   standalone: true,
   imports: [
@@ -109,10 +110,6 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   private _prizmDropdownHostWidth: PrizmDropdownHostWidth = this.options.width;
 
-  @Input()
-  @prizmDefaultProp()
-  prizmDropdownHostCloseOnBackdropClick = this.options.closeOnBackdrop;
-
   override readonly testId_ = 'ui_dropdown_host';
 
   readonly itemForListener = new Set<HTMLElement>();
@@ -161,6 +158,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   constructor(
     public readonly prizmOverlayService: PrizmOverlayService,
+    public readonly zoneEventService: PrizmZoneEventService,
     @Inject(PrizmDropdownHostControlDirective)
     @Host()
     @Optional()
@@ -241,7 +239,9 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     this.updateWidth();
     this.overlay = this.prizmOverlayService
       .position(this.position)
-      .config({ wrapperClass: this.wrapper_class })
+      .config({
+        wrapperClass: this.wrapper_class,
+      })
       .content(this.temp)
       .create({
         parentInjector: this.injector,
