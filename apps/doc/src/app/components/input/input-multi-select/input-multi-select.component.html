@@ -22,6 +22,10 @@
       <prizm-multi-select-with-object-example></prizm-multi-select-with-object-example>
     </prizm-doc-example>
 
+    <prizm-doc-example id="transformer" [content]="exampleWithObject" heading="Transformer">
+      <prizm-input-multi-select-with-transformer-example></prizm-input-multi-select-with-transformer-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="validators" [content]="exampleValidators" heading="Validators">
       <prizm-multi-select-validators-example></prizm-multi-select-validators-example>
     </prizm-doc-example>
@@ -232,6 +236,14 @@
         documentationPropertyMode="input"
       >
         Show clear button
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="transformer"
+        documentationPropertyType="PrizmMultiSelectValueTransformer"
+        documentationPropertyMode="input"
+      >
+        Value Transformer (get value from object)
       </ng-template>
 
       <ng-template

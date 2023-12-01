@@ -1,5 +1,6 @@
 export type PrizmMultiSelectSearchMatcher<T> = (searchValue: string, item: T) => boolean;
 export type PrizmMultiSelectIdentityMatcher<T> = (item1: T, item2: T) => boolean;
+export type PrizmMultiSelectValueTransformer<T> = (item1: T) => any;
 
 export type PrizmMultiSelectItemWithChecked<T> = {
   checked: boolean;

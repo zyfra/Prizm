@@ -3,10 +3,11 @@ import { PolymorphContent } from '../../../directives';
 import { PrizmInputSize } from '../../input';
 import { PrizmContextWithImplicit } from '../../../types';
 import {
-  PrizmMultiSelectItemWithChecked,
   PrizmMultiSelectIdentityMatcher,
-  PrizmMultiSelectSearchMatcher,
   PrizmMultiSelectItemStringifyFunc,
+  PrizmMultiSelectItemWithChecked,
+  PrizmMultiSelectSearchMatcher,
+  PrizmMultiSelectValueTransformer,
 } from './multi-select.model';
 
 export type PrizmMultiSelectIconContext = { opened: boolean; disabled: boolean };
@@ -15,6 +16,7 @@ export interface PrizmMultiSelectOptions<T> {
   readonly items: T[];
   readonly chooseAllItem: T;
   readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
+  readonly transformer: PrizmMultiSelectValueTransformer<T>;
   readonly searchable: boolean;
   /**
    * @deprecated
@@ -61,6 +63,7 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
   minDropdownHeight: 0,
   maxDropdownHeight: 342,
   emptyContent: 'Ничего не найдено',
+  transformer: item => item,
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
   },
