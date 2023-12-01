@@ -9,7 +9,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmHintDirective } from '../../../../directives';
 import { CommonModule } from '@angular/common';
-import { PrizmButtonModule } from '../../../button';
+import { PrizmButtonComponent, PrizmButtonModule } from '../../../button';
 
 @Component({
   selector: 'prizm-switcher-item',
@@ -17,7 +17,7 @@ import { PrizmButtonModule } from '../../../button';
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, PrizmButtonModule],
+  imports: [CommonModule, PrizmButtonComponent],
 })
 export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements OnInit {
   @Input() hint?: prizmSwitcherHint;
