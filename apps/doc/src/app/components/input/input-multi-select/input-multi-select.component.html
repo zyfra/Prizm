@@ -74,6 +74,14 @@
       [control]="valueControl"
     >
       <ng-template
+        documentationPropertyName="transformer"
+        documentationPropertyType="PrizmMultiSelectValueTransformer"
+        documentationPropertyMode="input"
+      >
+        Value Transformer (get value from object)
+      </ng-template>
+
+      <ng-template
         [(documentationPropertyValue)]="dropdownStyles"
         [documentationPropertyValues]="dropdownStylesVariants"
         documentationPropertyName="dropdownStyles"
@@ -236,14 +244,6 @@
         documentationPropertyMode="input"
       >
         Show clear button
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="transformer"
-        documentationPropertyType="PrizmMultiSelectValueTransformer"
-        documentationPropertyMode="input"
-      >
-        Value Transformer (get value from object)
       </ng-template>
 
       <ng-template
