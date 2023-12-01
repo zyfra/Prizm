@@ -1,3 +1,14 @@
-<prizm-file-upload [multiple]="false" [accept]="'image/*'" [maxFilesCount]="3" [maxFileSize]="1000000">
-  Maximum image size 1MB
+<prizm-file-upload
+  [multiple]="true"
+  [accept]="'image/*'"
+  [progress]="$any(progress$$ | async)"
+  [maxFilesCount]="3"
+  [maxFileSize]="1000000"
+  [disabled]="disabled"
+  (filesChange)="onFilesChange($event)"
+  (filesValidationErrors)="onfilesValidationErrors($any($event))"
+  (filesCountError)="onFilesCountError($event)"
+  (retry)="retry($event)"
+>
+  Maximum of three images up to 1MB in size
 </prizm-file-upload>

@@ -4,11 +4,16 @@ import { PrizmLanguageName, PrizmLanguageShortName } from './language-names';
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
 
+// idle, proggres, warning and success are options for backward compatibility
 export interface PrizmLanguageFileUpload {
   fileUpload: {
     dropzone__title: string;
     dropzone__description: string;
     btn__select: string;
+    idle?: string;
+    progress?: string;
+    warning?: string;
+    success?: string;
   };
 }
 export interface PrizmLanguageInputLayoutDateRelative {
