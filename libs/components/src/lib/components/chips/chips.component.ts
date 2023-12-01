@@ -16,10 +16,10 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { PrizmCallFuncModule, PrizmDestroyService, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { CommonModule } from '@angular/common';
-import { PrizmElementReadyModule, PrizmHintModule, PrizmLifecycleModule } from '../../directives';
+import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
+import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../directives';
 import { PrizmChipsItemComponent } from './chips-item';
 
 @Component({
@@ -37,13 +37,16 @@ import { PrizmChipsItemComponent } from './chips-item';
   ],
   standalone: true,
   imports: [
-    CommonModule,
+    NgIf,
+    NgFor,
+    NgTemplateOutlet,
+    AsyncPipe,
     PrizmChipsItemComponent,
-    PrizmCallFuncModule,
-    PrizmLifecycleModule,
-    PrizmElementReadyModule,
-    PrizmLetModule,
-    PrizmHintModule,
+    PrizmCallFuncPipe,
+    PrizmLifecycleDirective,
+    PrizmElementReadyDirective,
+    PrizmLetDirective,
+    PrizmHintDirective,
   ],
 })
 export class PrizmChipsComponent
