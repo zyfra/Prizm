@@ -11,7 +11,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/switcher): ability to change appearance #978 [MR](https://github.com/zyfra/Prizm/pull/1097)
 - feat(documentation/theme-guide): theme guide for developers #979 [MR](https://github.com/zyfra/Prizm/pull/1060)
 - refactor(components/file-upload): funtions for file size and uploading status are moved to pipes #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
-- refactor(components/file-upload): deprecated modules replaced by standalones i File Upload Component #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/file-upload): deprecated modules replaced by standalones in File Upload Component #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
 - refactor(components/file-upload): translations for uploading status are moved from fileUploadOptions to translations #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
 - refactor(components/input-chips): changed depedencies to actual standalone
 
