@@ -139,6 +139,11 @@ export class InputInputMultiSelectComponent {
     HTML: import('./examples/with-object/multi-select-with-object-example.component.html?raw'),
   };
 
+  readonly exampleWithTransformer: TuiDocExample = {
+    TypeScript: import('./examples/with-transformer/multi-select-with-transformer-example.component.ts?raw'),
+    HTML: import('./examples/with-transformer/multi-select-with-transformer-example.component.html?raw'),
+  };
+
   readonly exampleValidators: TuiDocExample = {
     TypeScript: import('./examples/validators/multi-select-validators-example.component.ts?raw'),
     HTML: import('./examples/validators/multi-select-validators-example.component.html?raw'),
