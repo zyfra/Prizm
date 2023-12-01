@@ -16,7 +16,7 @@ export interface PrizmMultiSelectOptions<T> {
   readonly items: T[];
   readonly chooseAllItem: T;
   readonly icon: PolymorphContent<PrizmMultiSelectIconContext>;
-  readonly transformer: PrizmMultiSelectValueTransformer<T>;
+  readonly transformer: PrizmMultiSelectValueTransformer<T, unknown>;
   readonly searchable: boolean;
   /**
    * @deprecated
