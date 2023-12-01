@@ -15,6 +15,7 @@ import { PrizmInputMultiSelectBaseExampleComponent } from './examples/base/multi
 import { PrizmInputMultiSelectWithSearchExampleComponent } from './examples/with-search/multi-select-with-search-example.component';
 import { PrizmInputMultiSelectWithObjectExampleComponent } from './examples/with-object/multi-select-with-object-example.component';
 import { PrizmInputMultiSelectValidatorsExampleComponent } from './examples/validators/multi-select-validators-example.component';
+import { PrizmInputMultiSelectWithTransformerExampleComponent } from './examples/with-transformer/multi-select-with-transformer-example.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { PrizmInputMultiSelectValidatorsExampleComponent } from './examples/vali
     RouterModule.forChild(prizmDocGenerateRoutes(InputInputMultiSelectComponent)),
   ],
   declarations: [
+    PrizmInputMultiSelectWithTransformerExampleComponent,
     PrizmInputMultiSelectValidatorsExampleComponent,
     PrizmInputMultiSelectBaseExampleComponent,
     PrizmInputMultiSelectWithSearchExampleComponent,

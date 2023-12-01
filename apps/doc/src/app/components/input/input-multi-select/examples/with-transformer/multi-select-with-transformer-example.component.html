@@ -1,0 +1,32 @@
+<prizm-input-layout label="Validators">
+  <prizm-input-multi-select
+    [items]="items"
+    [valueTemplate]="valueTemplate"
+    [formControl]="valueControl"
+    [searchMatcher]="searchMatcher"
+    [transformer]="transformer"
+    [identityMatcher]="identityMatcher"
+    [stringify]="stringify"
+    [searchable]="true"
+  >
+  </prizm-input-multi-select>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()">
+    Set default value: <b>{{ items[0].name | json }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ valueControl.value | json }}</div>
+
+<ng-template #valueTemplate let-value>
+  <div class="item" *ngIf="value.obj.id !== -1; else allTemplate">
+    <prizm-icon iconClass="account-done"></prizm-icon>
+    <span>{{ value.stringify }}</span>
+  </div>
+  <ng-template #allTemplate> Выбрать все </ng-template>
+</ng-template>
