@@ -10,10 +10,6 @@ All notable changes to this project will be documented in this file.
 - feat(icons): divided location and less #1047 [MR](https://github.com/zyfra/Prizm/pull/1114)
 - feat(components/switcher): ability to change appearance #978 [MR](https://github.com/zyfra/Prizm/pull/1097)
 - feat(documentation/theme-guide): theme guide for developers #979 [MR](https://github.com/zyfra/Prizm/pull/1060)
-- refactor(components/file-upload): funtions for file size and uploading status are moved to pipes #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
-- refactor(components/file-upload): deprecated modules replaced by standalones i File Upload Component #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
-- refactor(components/file-upload): translations for uploading status are moved from fileUploadOptions to translations #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
-- refactor(components/input-chips): changed depedencies to actual standalone
 
 ### Bug fixes
 
@@ -23,6 +19,13 @@ All notable changes to this project will be documented in this file.
 - fix(components/table): fix error when pass not observable value #1068 #1084 [MR](https://github.com/zyfra/Prizm/pull/1094)
 - fix(doc/input-chips): fix doc with print chips value #572 [MR](https://github.com/zyfra/Prizm/pull/1095)
 - fix(doc/dropdown-host): example with range components #893 [MR](https://github.com/zyfra/Prizm/pull/1096)
+
+### Refactor
+
+- refactor(components/file-upload): functions for file size and uploading status are moved to pipes #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/file-upload): deprecated modules replaced by standalones i File Upload Component #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/file-upload): translations for uploading status are moved from fileUploadOptions to translations #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/input-chips): changed dependencies to actual standalone
 
 ## [1.10.0, 2.7.0, 3.6.0](https://github.com/zyfra/Prizm) (27-11-2023)
 
