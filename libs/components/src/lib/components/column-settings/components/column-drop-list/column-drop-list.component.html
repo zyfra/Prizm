@@ -1,17 +1,35 @@
 <prizm-scrollbar class="scroll-box">
   <ng-container *ngIf="columns.length; else dropZone">
-    <div
-      class="column-box prizm-font-main-body-14"
+    <prizm-listing-item
       *ngFor="let column of columns"
       cdkDrag
       cdkDragPreviewClass="prizm-high-index"
       prizmTheme
     >
-      <ng-container *ngTemplateOutlet="columnItem; context: { column: column }"></ng-container>
+      <ng-container leftBox>
+        <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
+      </ng-container>
+      <span>{{ column.name }}</span>
+      <ng-container rightBox>
+        <button
+          [icon]="column.status | prizmColumnIcon"
+          [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
+          [prizmHint]="
+            isLastColumnShown && column.status === 'default'
+              ? (translations | prizmPluck : ['disabledHint'])
+              : ''
+          "
+          (click)="toggleColumnStatus(column)"
+          prizmIconButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="m"
+        ></button>
+      </ng-container>
       <ng-container *cdkDragPlaceholder>
         <ng-container *ngTemplateOutlet="placeholder"></ng-container>
       </ng-container>
-    </div>
+    </prizm-listing-item>
   </ng-container>
 </prizm-scrollbar>
 
@@ -21,21 +39,4 @@
 
 <ng-template #placeholder>
   <div class="dropzone"></div>
-</ng-template>
-
-<ng-template #columnItem let-column="column">
-  <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
-  <span>{{ column.name }}</span>
-  <button
-    [icon]="column.status | prizmColumnIcon"
-    [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
-    [prizmHint]="
-      isLastColumnShown && column.status === 'default' ? (translations | prizmPluck : ['disabledHint']) : ''
-    "
-    (click)="toggleColumnStatus(column)"
-    prizmIconButton
-    appearanceType="ghost"
-    appearance="secondary"
-    size="m"
-  ></button>
 </ng-template>

@@ -3,38 +3,26 @@
   max-height: 287px;
 }
 
-.column-box {
-  background-color: var(--prizm-bg-body);
-  display: flex;
-  align-items: center;
-  height: 40px;
-  padding: 0px 16px;
-  button {
-    margin-left: auto;
-  }
-  cursor: pointer;
-  &:hover {
-    background-color: var(--prizm-v2-table-background-default-hover);
-  }
-}
-
 .cdk-drag-preview {
-  color: var(--prizm-text-contrast);
-  box-shadow: 0px 8px 32px 0px var(--prizm-shadow);
+  color: var(--prizm-v3-text-icon-secondary);
+  box-shadow: var(--prizm-v3-shadow-big-bottom);
   border-radius: 2px;
-  border: 1px solid var(--prizm-border-widget);
-  cursor: grabbing;
+  cursor: grabbing !important;
   z-index: 9999;
+
+  ::ng-deep .item-container {
+    border: 1px solid var(--prizm-v3-background-stroke);
+  }
 }
 
 .dropzone {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-top: 1px dashed var(--prizm-border-forms);
-  border-bottom: 1px dashed var(--prizm-border-forms);
+  border-top: 1px dashed var(--prizm-v3-form-stroke-default);
+  border-bottom: 1px dashed var(--prizm-v3-form-stroke-default);
   border-radius: 2px;
-  background-color: var(--prizm-g2-g11);
+  background-color: var(--prizm-v3-form-fill-default);
   height: 40px;
   margin-bottom: 16px;
 }
