@@ -17,6 +17,7 @@ export abstract class PrizmInputNgControl<T>
   readonly destroy$!: PrizmDestroyService;
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
+
   readonly layoutComponent = inject(PrizmInputLayoutComponent, {
     optional: true,
   }) as PrizmInputLayoutComponent;
