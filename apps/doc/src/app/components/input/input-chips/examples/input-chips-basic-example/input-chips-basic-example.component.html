@@ -14,4 +14,10 @@
   ></prizm-chips>
 </prizm-input-layout>
 
-<div>Chips form control value: {{ chipsControl.value | json }}</div>
+<br />
+<h1>Chips:</h1>
+<div>
+  <span *ngFor="let chips of chipsControl.value ?? []">
+    {{ chips }}
+  </span>
+</div>

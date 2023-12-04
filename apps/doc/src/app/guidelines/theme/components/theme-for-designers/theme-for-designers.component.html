@@ -103,6 +103,7 @@
         <th prizmTh></th>
         <th prizmTh>Токен</th>
         <th prizmTh>Описание</th>
+        <th prizmTh>Переменная*</th>
       </tr>
     </thead>
 
@@ -118,10 +119,23 @@
           <td prizmTd>
             {{ item.description }}
           </td>
+          <td class="clickable" (click)="copy(item.variable)" prizmTd>
+            {{ item.variable }}
+          </td>
         </tr>
       </ng-container>
     </tbody>
   </table>
+  <br />
+
+  <p class="prizm-space_top-0 note">
+    * Префикс <code>v3-</code> в имени переменной будет удален при окночательном переходе на новую цветовую
+    схему.
+  </p>
+
+  <br />
+  <br />
+  <br />
 </div>
 
 <div>

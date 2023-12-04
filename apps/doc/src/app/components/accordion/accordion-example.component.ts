@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PolymorphContent, PrizmAccordionItemData } from '@prizm-ui/components';
+import { PolymorphContent, PrizmAccordionItemData, IconDefs } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-accordion-example',
@@ -12,7 +12,11 @@ export class AccordionExampleComponent {
   public disabled = false;
   public onlyOneExpanded = false;
   public title: PolymorphContent<PrizmAccordionItemData> = 'Title number 2';
-  public icon: PolymorphContent<PrizmAccordionItemData> = 'Title number 2';
+  public iconVariants: ReadonlyArray<PolymorphContent> = [
+    '',
+    ...IconDefs.reduce((a: any[], c) => a.concat(c?.data), []),
+  ];
+  public icon: PolymorphContent = this.iconVariants[0];
   public isExpanded = false;
 
   public readonly exampleBasicAccordion: TuiDocExample = {

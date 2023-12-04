@@ -32,7 +32,7 @@
 }
 
 .color-container {
-  width: 240px;
+  width: 300px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -42,7 +42,7 @@
 }
 
 .color-item {
-  width: 240px;
+  width: 300px;
   height: 180px;
   background: var(--prizm-v3-text-icon-exception);
   border-radius: 8px;

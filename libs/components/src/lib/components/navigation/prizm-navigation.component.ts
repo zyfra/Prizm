@@ -10,6 +10,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
   templateUrl: './prizm-navigation.component.html',
   styleUrls: ['./prizm-navigation.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ActiveNavigationItemService],
 })
 export class PrizmNavigationComponent extends PrizmAbstractTestId {
   @Input() public set data(tree: INavigationTree[]) {

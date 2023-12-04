@@ -1,7 +1,7 @@
 :host {
   display: inline-block;
   padding: var(--prizm-confirm-popup-margin, 8px);
-  color: var(--prizm-confirm-popup-container-text, var(--prizm-grey-g2-g12));
+  color: var(--prizm-confirm-popup-container-text, var(--prizm-v3-text-icon-primary));
   font-size: var(--prizm-confirm-popup-container-font-size, 12px);
   min-width: var(--prizm-confirm-popup-container-min-width, 350px);
 
@@ -20,57 +20,20 @@
     position: relative;
     padding: var(--prizm-confirm-popup-container-padding, 16px 14px);
     border-radius: var(--prizm-confirm-popup-container-border-radius, 2px);
-    background-color: var(--prizm-confirm-popup-container-background, var(--prizm-grey-g11-g3));
-  }
-
-  .arrow-icon {
-    position: absolute;
-    color: var(--prizm-confirm-popup-container-background, var(--prizm-text-main));
-    font-size: 20px;
-    display: block;
-  }
-
-  &[position='t'],
-  &[position='tr'],
-  &[position='tb'] {
-    .arrow-icon {
-      bottom: -14px;
-      transform: translateX(-10px);
-    }
-  }
-
-  &[position='t'],
-  &[position='b'] {
-    .arrow-icon {
-      left: 50%;
-      right: 50%;
-    }
-  }
-
-  &[position='r'],
-  &[position='l'] {
-    .arrow-icon {
-      top: 50%;
-      bottom: 50%;
-    }
+    background-color: var(
+      --prizm-confirm-popup-container-background,
+      var(--prizm-v3-background-fill-overlay)
+    );
   }
 
   &[position='tl'],
   &[position='bl'] {
     padding-left: 0;
-
-    .arrow-icon {
-      left: 10%;
-    }
   }
 
   &[position='lt'],
   &[position='rt'] {
     padding-top: 1px;
-
-    .arrow-icon {
-      top: max(10%, 10px);
-    }
   }
 
   &[position='lb'],
@@ -81,37 +44,6 @@
   &[position='tr'],
   &[position='br'] {
     padding-right: 0;
-
-    .arrow-icon {
-      right: 10%;
-    }
-  }
-
-  &[position='b'],
-  &[position='bl'],
-  &[position='br'] {
-    .arrow-icon {
-      top: -12px;
-      transform: translateX(-10px);
-    }
-  }
-
-  &[position='l'],
-  &[position='lt'],
-  &[position='lb'] {
-    .arrow-icon {
-      right: -12px;
-      transform: translateY(-10px);
-    }
-  }
-
-  &[position='r'],
-  &[position='rt'],
-  &[position='rb'] {
-    .arrow-icon {
-      left: -12px;
-      transform: translateY(-10px);
-    }
   }
 }
 

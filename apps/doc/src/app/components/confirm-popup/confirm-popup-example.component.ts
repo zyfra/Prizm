@@ -33,7 +33,7 @@ export class ConfirmPopupExampleComponent {
   public prizmConfirmPopupTheme: PrizmConfirmPopupOptions['theme'] =
     PRIZM_CONFIRM_POPUP_DEFAULT_OPTIONS.theme;
 
-  public content = 'Тестовое содержимое';
+  public title = 'Тестовый заголовок';
   public prizmAutoReposition = false;
 
   public prizmConfirmPopupId = 'confirm-id';
@@ -44,9 +44,12 @@ export class ConfirmPopupExampleComponent {
 
   public prizmConfirmPopupHost: HTMLElement | null = null;
 
-  public readonly prizmConfirmPopupVariants = ['ConfirmPopup'];
+  public readonly prizmConfirmPopupVariants = [
+    'ConfirmPopup Example Text',
+    'Long text with a lot of characters and spaces and other stuff and things',
+  ];
 
-  public prizmConfirmPopup: PolymorphContent = this.prizmConfirmPopupVariants[0];
+  public prizmConfirmPopupContent: PolymorphContent = this.prizmConfirmPopupVariants[0];
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

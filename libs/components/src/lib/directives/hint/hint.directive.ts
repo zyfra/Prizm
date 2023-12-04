@@ -14,7 +14,7 @@ import {
 } from '@angular/core';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
-import { PolymorphContent, PolymorphModule } from '../polymorph';
+import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
 import {
   PrizmOverlayControl,
@@ -26,9 +26,7 @@ import { PrizmHoveredService } from '../../services';
 import { delay, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
-import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
-import { CommonModule } from '@angular/common';
-import { PrizmScrollbarModule } from '../../components/scrollbar';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 

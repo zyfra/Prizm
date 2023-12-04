@@ -1,12 +1,15 @@
 import { Compare } from '../compare/compare';
-import { filter, map, observeOn, throttleTime } from 'rxjs/operators';
+import { debounceTime, filter, map, observeOn, switchMap, tap, throttleTime } from 'rxjs/operators';
 import {
   asyncScheduler,
+  BehaviorSubject,
   merge,
   MonoTypeOperatorFunction,
   Observable,
   OperatorFunction,
+  race,
   Subscriber,
+  timer,
 } from 'rxjs';
 
 /**
@@ -91,4 +94,16 @@ export function moveInEventLoopIteration<T>(count: number): MonoTypeOperatorFunc
 
     return source;
   };
+}
+
+export function prizmRaceInEmit<T>(inner: Observable<T>[], reloadTime?: number): Observable<T> {
+  const repeat$ = new BehaviorSubject<void>(void 0);
+  let result = repeat$.pipe(
+    switchMap(() => {
+      return race(...inner);
+    })
+  );
+  if (Compare.isNotNullish(reloadTime)) result = result.pipe(debounceTime(reloadTime));
+
+  return result.pipe(tap(() => repeat$.next()));
 }

@@ -31,7 +31,8 @@
       <button
         #element="prizmConfirmPopup"
         [prizmDocHostElement]="element"
-        [prizmConfirmPopup]="content"
+        [prizmConfirmPopupTitle]="title"
+        [prizmConfirmPopup]="prizmConfirmPopupContent"
         [prizmAutoReposition]="prizmAutoReposition"
         [prizmHintTheme]="prizmConfirmPopupTheme"
         [prizmConfirmPopupDirection]="prizmConfirmPopupDirection"
@@ -47,7 +48,8 @@
     </prizm-doc-demo>
     <prizm-doc-documentation [hasTestId]="false">
       <ng-template
-        [(documentationPropertyValue)]="content"
+        [(documentationPropertyValue)]="prizmConfirmPopupContent"
+        [documentationPropertyValues]="prizmConfirmPopupVariants"
         documentationPropertyName="prizmConfirmPopup"
         documentationPropertyType="PolymorphContent"
         documentationPropertyMode="input"
@@ -80,6 +82,7 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="title"
         documentationPropertyName="prizmConfirmPopupTitle"
         documentationPropertyType="string"
         documentationPropertyMode="input"

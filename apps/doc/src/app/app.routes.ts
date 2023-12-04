@@ -336,7 +336,7 @@ export const ROUTES: Routes = [
   },
   {
     path: 'components/toggle',
-    loadChildren: () => import('./components/toggle/toggle.module').then(i => i.ToggleModule),
+    loadChildren: () => import('./components/toggle/toggle-example.module').then(i => i.ToggleExampleModule),
     data: {
       title: 'Toggle',
     },

@@ -1,9 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ColorsComponent } from './colors.component';
-import { Frame25826Component } from './components/frame25826/frame25826.component';
+import { ThemeColorsComponent } from './components/theme-colors/theme-colors.component';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
+import { PaletteComponent } from './components/palette/palette.component';
 
 @NgModule({
   imports: [
@@ -11,6 +12,6 @@ import { RouterModule } from '@angular/router';
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ColorsComponent)),
   ],
-  declarations: [ColorsComponent, Frame25826Component],
+  declarations: [ColorsComponent, ThemeColorsComponent, PaletteComponent],
 })
 export class ColorsModule {}

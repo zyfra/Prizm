@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/helpers",
-  "version": "3.5.2",
+  "version": "3.7.0",
   "license": "MIT",
   "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
   "private": false,
@@ -9,9 +9,9 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "@angular/common": "^16.1.8",
-    "@angular/forms": "^16.1.8",
-    "@angular/core": "^16.1.8"
+    "@angular/common": "^16.1.0 || ^16.2.0",
+    "@angular/forms": "^16.1.0 || ^16.2.0",
+    "@angular/core": "^16.1.0 || ^16.2.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"

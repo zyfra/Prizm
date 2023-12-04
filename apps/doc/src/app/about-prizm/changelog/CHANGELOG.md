@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.10.0, 2.7.0, 3.6.0](https://github.com/zyfra/Prizm) (27-11-2023)
+
+### Features
+
+- feat: colors v3 for hint, tooltip and confirm #1035 [MR](https://github.com/zyfra/Prizm/pull/1037)
+- feat(components/listing-item): new component added [MR](https://github.com/zyfra/Prizm/pull/953)
+- feat(components/chip-item): v3 colors ans selected state for single chips [MR](https://github.com/zyfra/Prizm/pull/953)
+
+### Bug fixes
+
+- fix(components/paginator): infinite paginator page count #661 [MR](https://github.com/zyfra/Prizm/pull/914)
+- fix(components/tabs): contained tab dropdown shown incorrectly #844 [MR](https://github.com/zyfra/Prizm/pull/953)
+- fix(components/tabs): In dropdown with a list of tabs, there is no alignment to the close button #843 [MR](https://github.com/zyfra/Prizm/pull/953)
+- fix: confirm popup live demo property works incorrect #570 [MR](https://github.com/zyfra/Prizm/pull/1034)
+- chore: replaced fixed versions on patch relative #1043 [MR](https://github.com/zyfra/Prizm/pull/1043)
+- fix: invalid icon name can be set in accordion live demo #947 [MR](https://github.com/zyfra/Prizm/pull/1071)
+- fix(components/tabs): unsubscribe error #1079 #842 #1023 [MR](https://github.com/zyfra/Prizm/pull/1083)
+- fix(components/navigation): navigation extra notification for active item change #571 [MR](https://github.com/zyfra/Prizm/pull/1080)
+- fix(documentation/toggle): toggle extra notification in live demo #530 [MR](https://github.com/zyfra/Prizm/pull/1072)
+
 ## [1.9.1, 2.6.1, 3.5.1](https://github.com/zyfra/Prizm) (17-11-2023)
 
 ### Bug fixes

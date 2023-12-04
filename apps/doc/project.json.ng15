@@ -5,6 +5,14 @@
   "sourceRoot": "apps/doc/src",
   "prefix": "prizm",
   "targets": {
+    "deploy": {
+      "executor": "nx:run-commands",
+      "dependsOn": ["build"],
+      "options": {
+        "commands": ["firebase deploy --only hosting:v2"],
+        "parallel": false
+      }
+    },
     "build": {
       "executor": "@angular-builders/custom-webpack:browser",
       "outputs": ["{options.outputPath}"],

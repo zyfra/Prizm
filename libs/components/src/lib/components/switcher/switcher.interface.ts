@@ -1,10 +1,13 @@
 import { PrizmHintOptions } from '../../directives';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
+import { PrizmAppearance, PrizmAppearanceType } from '../../types';
 
 export interface PrizmSwitcherItem<ID extends PrizmSwitcherId = PrizmSwitcherId> {
   title?: string | number;
   icon?: PolymorphContent;
   disabled?: boolean;
+  appearanceType?: PrizmAppearanceType;
+  appearance?: PrizmAppearance;
   hide?: boolean;
   id?: ID;
   hint?: prizmSwitcherHint;

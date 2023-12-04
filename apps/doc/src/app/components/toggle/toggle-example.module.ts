@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { ToggleComponent } from './toggle.component';
-import { PolymorphModule, PrizmToggleModule } from '@prizm-ui/components';
+import { ToggleExampleComponent } from './toggle-example.component';
+import { PolymorphOutletDirective, PrizmToggleComponent } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToggleBaseExampleComponent } from './examples/base/toggle-base-example.component';
 
@@ -13,11 +13,11 @@ import { PrizmToggleBaseExampleComponent } from './examples/base/toggle-base-exa
     PrizmAddonDocModule,
     FormsModule,
     ReactiveFormsModule,
-    PolymorphModule,
-    PrizmToggleModule,
-    RouterModule.forChild(prizmDocGenerateRoutes(ToggleComponent)),
+    PolymorphOutletDirective,
+    PrizmToggleComponent,
+    RouterModule.forChild(prizmDocGenerateRoutes(ToggleExampleComponent)),
   ],
-  declarations: [PrizmToggleBaseExampleComponent, ToggleComponent],
-  exports: [ToggleComponent],
+  declarations: [PrizmToggleBaseExampleComponent, ToggleExampleComponent],
+  exports: [ToggleExampleComponent],
 })
-export class ToggleModule {}
+export class ToggleExampleModule {}
