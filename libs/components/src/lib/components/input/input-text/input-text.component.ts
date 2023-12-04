@@ -130,10 +130,11 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   @HostBinding('class.empty')
   public empty!: boolean;
 
-  readonly parentLayout = inject(PrizmInputLayoutComponent, {
+  readonly maybeMask = inject(NgxMaskDirective, {
     optional: true,
   });
-  readonly maybeMask = inject(NgxMaskDirective, {
+
+  readonly parentLayout = inject(PrizmInputLayoutComponent, {
     optional: true,
   });
   /**
