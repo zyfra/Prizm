@@ -17,10 +17,7 @@ export abstract class PrizmInputNgControl<T>
   readonly destroy$!: PrizmDestroyService;
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
-
-  readonly layoutComponent = inject(PrizmInputLayoutComponent, {
-    optional: true,
-  }) as PrizmInputLayoutComponent;
+  readonly layoutComponent!: PrizmInputLayoutComponent;
   private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
@@ -86,6 +83,7 @@ export abstract class PrizmInputNgControl<T>
 
     this.destroy$ = this.injector.get(PrizmDestroyService);
     this.changeDetectorRef = this.injector.get(ChangeDetectorRef);
+    this.layoutComponent = this.injector.get(PrizmInputLayoutComponent);
   }
 
   ngOnInit(): void {
