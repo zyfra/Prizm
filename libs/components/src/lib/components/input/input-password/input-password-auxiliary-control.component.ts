@@ -1,16 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  ElementRef,
-  inject,
-  Input,
-  OnInit,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { fromEvent, merge } from 'rxjs';
-import { switchMap, take, takeUntil, tap } from 'rxjs/operators';
 
 import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { PrizmInputPasswordDirective } from './input-password.directive';
@@ -53,11 +42,12 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
 })
 export class PrizmInputPasswordDefaultControlComponent {
   @Input() inputPassword!: PrizmInputPasswordDirective;
-  public readonly layout = inject(PrizmInputLayoutComponent, {
-    optional: true,
-  }) as PrizmInputLayoutComponent;
 
-  constructor(private readonly destroy$: PrizmDestroyService, private readonly cdr: ChangeDetectorRef) {}
+  constructor(
+    public readonly layout: PrizmInputLayoutComponent,
+    private readonly destroy$: PrizmDestroyService,
+    private readonly cdr: ChangeDetectorRef
+  ) {}
 
   get icon(): string {
     return this.inputPassword.passwordHidden ? 'sort-eye' : 'sort-eye-off-2';

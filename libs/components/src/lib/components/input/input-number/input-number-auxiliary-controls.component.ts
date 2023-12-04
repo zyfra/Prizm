@@ -1,4 +1,4 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { PrizmInputNumberComponent } from './input-number.component';
 import { PrizmInputCommonModule } from '../common';
@@ -27,12 +27,10 @@ import { PrizmInputCommonModule } from '../common';
 })
 export class PrizmInputNumberDefaultControlsComponent {
   @Input() inputNumber!: PrizmInputNumberComponent;
-  private readonly layout = inject(PrizmInputLayoutComponent, {
-    optional: true,
-  });
+
+  constructor(private readonly layout: PrizmInputLayoutComponent) {}
 
   get size(): number {
-    if (!this.layout) return 12;
     const { outer, size } = this.layout;
 
     if (outer && size === 's') {
