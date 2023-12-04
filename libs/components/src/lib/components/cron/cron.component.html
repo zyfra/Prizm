@@ -25,12 +25,7 @@
           />
 
           <ng-container prizm-input-right>
-            <button
-              class="copy-icon"
-              [interactive]="true"
-              (click)="copy()"
-              prizmInputIconButton="editor-copy"
-            ></button>
+            <button [interactive]="true" (click)="copy()" prizmInputIconButton="editor-copy"></button>
           </ng-container>
         </prizm-input-layout>
       </ng-container>
@@ -66,7 +61,6 @@
 
       <ng-container prizm-input-right>
         <button
-          class="copy-icon"
           [interactive]="true"
           (click)="copyHumanReadable()"
           prizmInputIconButton="editor-copy"
