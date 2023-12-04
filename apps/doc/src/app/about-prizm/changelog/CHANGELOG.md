@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file.
 
 - refactor(components/file-upload): functions for file size and uploading status are moved to pipes #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
 - refactor(components/file-upload): deprecated modules replaced by standalones i File Upload Component #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
-- refactor(components/file-upload): translations for uploading status are moved from fileUploadOptions to translations #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/file-upload): translations for uploading status added [MR](https://github.com/zyfra/Prizm/pull/1032)
 - refactor(components/input-chips): changed dependencies to actual standalone
 
 ## [1.10.0, 2.7.0, 3.6.0](https://github.com/zyfra/Prizm) (27-11-2023)
