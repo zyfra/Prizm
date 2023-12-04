@@ -87,12 +87,10 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this.stateChanges.next();
   }
 
-  override readonly testId_ = 'ui_input_text';
-
+  public invalid = false;
   private _required: boolean | undefined;
 
-  public invalid = false;
-
+  override readonly testId_ = 'ui_input_text';
   /**
    * Input value input
    */
