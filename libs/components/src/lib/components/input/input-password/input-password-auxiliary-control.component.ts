@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   ElementRef,
+  inject,
   Input,
   OnInit,
   ViewChild,
@@ -52,12 +53,11 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
 })
 export class PrizmInputPasswordDefaultControlComponent {
   @Input() inputPassword!: PrizmInputPasswordDirective;
+  public readonly layout = inject(PrizmInputLayoutComponent, {
+    optional: true,
+  }) as PrizmInputLayoutComponent;
 
-  constructor(
-    public readonly layout: PrizmInputLayoutComponent,
-    private readonly destroy$: PrizmDestroyService,
-    private readonly cdr: ChangeDetectorRef
-  ) {}
+  constructor(private readonly destroy$: PrizmDestroyService, private readonly cdr: ChangeDetectorRef) {}
 
   get icon(): string {
     return this.inputPassword.passwordHidden ? 'sort-eye' : 'sort-eye-off-2';
