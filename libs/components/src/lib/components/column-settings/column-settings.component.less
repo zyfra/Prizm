@@ -6,7 +6,7 @@
 
   .header {
     border-bottom: 1px solid var(--prizm-v3-background-stroke);
-    padding: var(--prizm-column-settings-header-padding, 14px 16px);
+    padding: var(--prizm-column-settings-header-padding, 16px);
     display: flex;
     justify-content: space-between;
 
@@ -32,13 +32,15 @@
       gap: 16px;
       padding: var(--prizm-column-settings-header-padding, 0px 16px);
       margin-top: 16px;
+      color: var(--prizm-v3-text-icon-primary);
     }
 
     &-toggle {
       display: flex;
       align-items: center;
       gap: 8px;
-      padding: 16px;
+      padding: 0px 16px 16px 16px;
+      margin-top: 16px;
     }
   }
 
@@ -55,6 +57,17 @@
       button {
         flex-grow: 1;
       }
+    }
+  }
+
+  .show-all {
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--prizm-v3-button-secondary-solid-default);
+
+    &:hover {
+      color: var(--prizm-v3-button-secondary-solid-hover);
     }
   }
 }
