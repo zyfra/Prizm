@@ -17,10 +17,12 @@
       </prizm-scrollbar>
       <button
         *ngIf="context.closeable"
-        [size]="16"
-        [interactive]="true"
+        [size]="'m'"
+        [icon]="'cancel-close'"
         (click)="closeSidebar()"
-        prizmInputIconButton="cancel-close"
+        appearanceType="ghost"
+        appearance="secondary"
+        prizmIconButton
       ></button>
     </ng-container>
   </div>
