@@ -37,6 +37,7 @@ import {
   PrizmMultiSelectItemStringifyFunc,
   PrizmMultiSelectItemWithChecked,
   PrizmMultiSelectSearchMatcher,
+  PrizmMultiSelectValueTransformer,
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmScrollbarComponent, PrizmScrollbarVisibility } from '../../scrollbar';
@@ -46,7 +47,6 @@ import { CommonModule } from '@angular/common';
 import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmCheckboxComponent } from '../../checkbox';
-import { PrizmMultiSelectValueTransformer } from './multi-select.model';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
