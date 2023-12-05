@@ -15,10 +15,15 @@ export class SwitcherBasicExampleComponent {
       disabled: true,
     },
     {
+      title: 'Графики',
+    },
+    {
       title: 'Мнемосхемы',
+      appearanceType: 'outline',
     },
     {
       title: 'Дашборды',
+      appearance: 'primary',
     },
   ];
   public readonly control = new FormControl(1);

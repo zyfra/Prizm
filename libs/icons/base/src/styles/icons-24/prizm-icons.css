@@ -1,11 +1,3 @@
-@font-face {
-  font-family: 'prizm-icons';
-  src: url('./prizm-icons.ttf?1772816e867a80e18921a5b7d83b4205') format('truetype'),
-    url('./prizm-icons.woff?1772816e867a80e18921a5b7d83b4205') format('woff'),
-    url('./prizm-icons.eot?1772816e867a80e18921a5b7d83b4205#iefix') format('embedded-opentype'),
-    url('./prizm-icons.woff2?1772816e867a80e18921a5b7d83b4205') format('woff2');
-}
-
 i[class^='prizm-icons-']:before,
 i[class*=' prizm-icons-']:before {
   font-family: prizm-icons !important;

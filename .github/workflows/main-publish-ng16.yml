@@ -13,7 +13,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Derive appropriate SHAs for base and head for `nx affected` commands
@@ -26,10 +26,10 @@ jobs:
 
       - name: Restore cache
         id: cache-restore
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng15') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '3.6.0'
+            echo '3.7.0'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
@@ -88,11 +88,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -100,7 +100,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -126,11 +126,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -138,7 +138,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -154,11 +154,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -166,7 +166,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -182,11 +182,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -194,7 +194,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -210,11 +210,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -222,7 +222,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -238,11 +238,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -250,7 +250,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -266,11 +266,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -278,7 +278,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -294,11 +294,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -306,7 +306,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -322,11 +322,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -334,7 +334,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -350,11 +350,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -362,7 +362,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -378,11 +378,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -390,7 +390,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
@@ -406,11 +406,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Restore node_modules in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: ./node_modules
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
@@ -418,7 +418,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_16-
 
       - name: Restore dist in cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v3
         with:
           path: dist
           key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}

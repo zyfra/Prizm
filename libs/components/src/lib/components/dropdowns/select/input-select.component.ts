@@ -44,7 +44,7 @@ import { BehaviorSubject, concat, fromEvent, Observable, Subject, timer } from '
 import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
-  PrizmSelectValueTransformver,
+  PrizmSelectValueTransformer,
 } from './select.model';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import {
@@ -171,7 +171,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   @Input()
   @prizmDefaultProp()
-  transformer: PrizmSelectValueTransformver<T> = this.options.transformer;
+  transformer: PrizmSelectValueTransformer<T> = this.options.transformer;
 
   @Input()
   @prizmDefaultProp()

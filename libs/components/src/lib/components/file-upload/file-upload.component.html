@@ -1,90 +1,94 @@
-<input
-  class="hidden"
-  #inputFile
-  [multiple]="multiple"
-  [accept]="accept"
-  (change)="onFileInputChange($event)"
-  type="file"
-/>
+<ng-container *prizmLet="fileUpload$ | async as translations">
+  <input
+    class="hidden"
+    #inputFile
+    [multiple]="multiple"
+    [accept]="accept"
+    (change)="onFileInputChange($event)"
+    type="file"
+  />
 
-<div class="dropzone" #dropzone *prizmLet="fileUpload$ | async as translations" (drop)="onDrop($event)">
-  <div class="dropzone__title">
-    {{ translations | prizmPluck : ['dropzone__title'] }}
-  </div>
-  <div class="dropzone__description">
-    {{ translations | prizmPluck : ['dropzone__description'] }}
-  </div>
-  <div class="dropzone__user-content">
-    <ng-content></ng-content>
-  </div>
-
-  <button
-    class="dropzone__file-select"
-    [disabled]="disabled"
-    (click)="inputFile.click()"
-    type="button"
-    prizmButton
-    appearanceType="outline"
-    appearance="secondary"
-    size="m"
-  >
-    {{ translations | prizmPluck : ['btn__select'] }}
-  </button>
-</div>
-
-<div class="files" *ngIf="filesMap.size > 0">
-  <div class="file files__item" *ngFor="let item of filesMap | keyvalue; trackBy: filesTrackBy">
-    <div class="file__preview">
-      <img
-        class="file__image"
-        *ngIf="item.value.url; else iconTpl"
-        [src]="item.value.url | prizmSanitizer : 'bypassSecurityTrustResourceUrl'"
-      />
-
-      <ng-template #iconTpl>
-        <prizm-icon class="file__icon" [size]="24" iconClass="files-file"></prizm-icon>
-      </ng-template>
+  <div class="dropzone" #dropzone (drop)="onDrop($event)">
+    <div class="dropzone__title">
+      {{ translations | prizmPluck : ['dropzone__title'] }}
+    </div>
+    <div class="dropzone__description">
+      {{ translations | prizmPluck : ['dropzone__description'] }}
+    </div>
+    <div class="dropzone__user-content">
+      <ng-content></ng-content>
     </div>
 
-    <div class="file__info">
-      <span class="file__name">{{ item.key }}</span>
-      <span class="file__size">{{ getFileSize(item.value.file.size) }}</span>
-    </div>
-
-    <div class="file__stage">{{ getStage(item.key).name }}</div>
-
     <button
-      class="file__retry-btn"
-      *ngIf="item.value.error && options.showRetryButtons"
+      class="dropzone__file-select"
       [disabled]="disabled"
-      [icon]="'arrows-refresh'"
-      (click)="retryUpload(item.key)"
-      prizmIconButton
-      appearanceType="ghost"
+      (click)="inputFile.click()"
+      type="button"
+      prizmButton
+      appearanceType="outline"
       appearance="secondary"
-      size="s"
-    ></button>
+      size="m"
+    >
+      {{ translations | prizmPluck : ['btn__select'] }}
+    </button>
+  </div>
 
-    <button
-      class="file__delete-btn"
-      [disabled]="disabled"
-      [icon]="'delete'"
-      (click)="removeFile(item.key)"
-      prizmIconButton
-      appearanceType="ghost"
-      appearance="secondary"
-      size="s"
-    ></button>
+  <div class="files" *ngIf="filesMap.size > 0">
+    <div class="file files__item" *ngFor="let item of filesMap | keyvalue; trackBy: filesTrackBy">
+      <div class="file__preview">
+        <img
+          class="file__image"
+          *ngIf="item.value.url; else iconTpl"
+          [src]="item.value.url | prizmSanitizer : 'bypassSecurityTrustResourceUrl'"
+        />
 
-    <div class="file__progress progress">
-      <progress
-        class="progress__bar {{ getStage(item.key).cssClass }}"
-        [value]="item.value.progress"
-        prizmProgressBar
-        max="100"
+        <ng-template #iconTpl>
+          <prizm-icon class="file__icon" [size]="24" iconClass="files-file"></prizm-icon>
+        </ng-template>
+      </div>
+
+      <div class="file__info">
+        <span class="file__name">{{ item.key }}</span>
+        <span class="file__size">{{ item.value.file.size | prizmFileSize }}</span>
+      </div>
+
+      <div class="file__stage">
+        {{  options.statusNames?.[item.value.progress | prizmUploadStatus : item.value.error] ?? (translations | prizmPluck : [item.value.progress | prizmUploadStatus : item.value.error]) }}
+      </div>
+
+      <button
+        class="file__retry-btn"
+        *ngIf="item.value.error && options.showRetryButtons"
+        [disabled]="disabled"
+        [icon]="'arrows-refresh'"
+        (click)="retryUpload(item.key)"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
         size="s"
-      ></progress>
-      <span class="progress__value">{{ item.value.progress }}%</span>
+      ></button>
+
+      <button
+        class="file__delete-btn"
+        [disabled]="disabled"
+        [icon]="'delete'"
+        (click)="removeFile(item.key)"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="s"
+      ></button>
+
+      <div class="file__progress progress">
+        <progress
+          class="progress__bar {{ item.value.progress | prizmUploadStatus : item.value.error }}"
+          [value]="item.value.progress"
+          prizmProgressBar
+          max="100"
+          size="s"
+        ></progress>
+        <span class="progress__value">{{ item.value.progress }}%</span>
+      </div>
     </div>
   </div>
-</div>
+</ng-container>

@@ -16,6 +16,7 @@ import { debounceTime } from 'rxjs/operators';
   selector:
     '[prizmLifecycle], [prizmAfterViewInit], [prizmAfterContentInit], [prizmOnInit], [prizmOnDestroy]',
   exportAs: 'prizmLifecycle',
+  standalone: true,
 })
 export class PrizmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy, AfterContentInit {
   @Output()
