@@ -132,7 +132,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   readonly maybeMask = inject(NgxMaskDirective, {
     optional: true,
-  });
+  }) as NgxMaskDirective;
 
   readonly parentLayout = inject(PrizmInputLayoutComponent, {
     optional: true,
