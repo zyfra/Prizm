@@ -39,7 +39,7 @@ Build js image:
   tags:
     - docker
   before_script:
-    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"},\"$OLD_CI_REGISTRY\":{\"username\":\"$OLD_CI_REGISTRY_USER\",\"password\":\"$OLD_CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+    - echo $DOCKER_AUTH_CONFIG > /kaniko/.docker/config.json
   script:
     - cat ${NPMRC_CONFIG} > .npmrc
     - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
