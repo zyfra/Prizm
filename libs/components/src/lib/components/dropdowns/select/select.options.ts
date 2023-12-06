@@ -36,7 +36,7 @@ export interface PrizmSelectOptions<T> {
   readonly nullContent: PolymorphContent;
   readonly searchMatcher: PrizmSelectSearchMatcher<T>;
   readonly identityMatcher: PrizmSelectIdentityMatcher<T>;
-  readonly transformer: PrizmSelectValueTransformver<T>;
+  readonly transformer: PrizmSelectValueTransformver<T, unknown>;
   readonly minDropdownHeight: number;
   /**
    * @deprecated

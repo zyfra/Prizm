@@ -26,9 +26,9 @@ import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-v
 import { PrizmHoveredService } from '../../services';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { CommonModule } from '@angular/common';
-import { PrizmIconModule } from '../icon';
-import { PrizmLoaderModule } from '../loader';
+import { CommonModule, NgIf, NgTemplateOutlet } from '@angular/common';
+import { PrizmIconComponent, PrizmIconModule } from '../icon';
+import { PrizmLoaderComponent, PrizmLoaderModule } from '../loader';
 import { PrizmWrapperComponent } from '../../directives/wrapper/wrapper.component';
 import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
 
@@ -40,11 +40,12 @@ import { PolymorphOutletDirective } from '../../directives/polymorph/directives/
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    CommonModule,
+    NgIf,
+    NgTemplateOutlet,
     PrizmWrapperComponent,
     PolymorphOutletDirective,
-    PrizmIconModule,
-    PrizmLoaderModule,
+    PrizmIconComponent,
+    PrizmLoaderComponent,
     PrizmCallFuncPipe,
   ],
   providers: [

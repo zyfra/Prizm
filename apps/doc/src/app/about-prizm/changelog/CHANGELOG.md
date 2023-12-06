@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.11.0, 2.8.0, 3.7.0](https://github.com/zyfra/Prizm) (04-12-2023)
+
+### Features
+
+- feat(components/input-multi-select): added transformer support #938 [MR](https://github.com/zyfra/Prizm/pull/1113)
+- feat(icons): divided location and less #1047 [MR](https://github.com/zyfra/Prizm/pull/1114)
+- feat(components/switcher): ability to change appearance #978 [MR](https://github.com/zyfra/Prizm/pull/1097)
+- feat(documentation/theme-guide): theme guide for developers #979 [MR](https://github.com/zyfra/Prizm/pull/1060)
+
+### Bug fixes
+
+- fix(doc/dropdown-host): example with range components #893 [MR](https://github.com/zyfra/Prizm/pull/1096)
+- fix(components/file-upload): progress status translations for file upload #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- fix(components/dropdown-host): fix close logic #1074 [MR](https://github.com/zyfra/Prizm/pull/1090)
+- fix(components/table): fix error when pass not observable value #1068 #1084 [MR](https://github.com/zyfra/Prizm/pull/1094)
+- fix(doc/input-chips): fix doc with print chips value #572 [MR](https://github.com/zyfra/Prizm/pull/1095)
+- fix(doc/dropdown-host): example with range components #893 [MR](https://github.com/zyfra/Prizm/pull/1096)
+
+### Refactor
+
+- refactor(components/file-upload): functions for file size and uploading status are moved to pipes #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/file-upload): deprecated modules replaced by standalones i File Upload Component #931 [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/file-upload): translations for uploading status added [MR](https://github.com/zyfra/Prizm/pull/1032)
+- refactor(components/input-chips): changed dependencies to actual standalone
+
+## [1.10.0, 2.7.0, 3.6.0](https://github.com/zyfra/Prizm) (27-11-2023)
+
+### Features
+
+- feat: colors v3 for hint, tooltip and confirm #1035 [MR](https://github.com/zyfra/Prizm/pull/1037)
+- feat(components/listing-item): new component added [MR](https://github.com/zyfra/Prizm/pull/953)
+- feat(components/chip-item): v3 colors ans selected state for single chips [MR](https://github.com/zyfra/Prizm/pull/953)
+
+### Bug fixes
+
+- fix(components/paginator): infinite paginator page count #661 [MR](https://github.com/zyfra/Prizm/pull/914)
+- fix(components/tabs): contained tab dropdown shown incorrectly #844 [MR](https://github.com/zyfra/Prizm/pull/953)
+- fix(components/tabs): In dropdown with a list of tabs, there is no alignment to the close button #843 [MR](https://github.com/zyfra/Prizm/pull/953)
+- fix: confirm popup live demo property works incorrect #570 [MR](https://github.com/zyfra/Prizm/pull/1034)
+- chore: replaced fixed versions on patch relative #1043 [MR](https://github.com/zyfra/Prizm/pull/1043)
+- fix: invalid icon name can be set in accordion live demo #947 [MR](https://github.com/zyfra/Prizm/pull/1071)
+- fix(components/tabs): unsubscribe error #1079 #842 #1023 [MR](https://github.com/zyfra/Prizm/pull/1083)
+- fix(components/navigation): navigation extra notification for active item change #571 [MR](https://github.com/zyfra/Prizm/pull/1080)
+- fix(documentation/toggle): toggle extra notification in live demo #530 [MR](https://github.com/zyfra/Prizm/pull/1072)
+
 ## [1.9.1, 2.6.1, 3.5.1](https://github.com/zyfra/Prizm) (17-11-2023)
 
 ### Bug fixes
