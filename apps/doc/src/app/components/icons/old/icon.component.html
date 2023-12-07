@@ -7,18 +7,19 @@
     <h1>Иконки</h1>
 
     <div>
-      <h4 class="title">Иконка дубли (источник + дубли) - {{ iconVariantsDoubled.length }}</h4>
+      <h4 class="title">Иконка дубли (только дубли) - {{ iconVariantsWithPostfixNumber.length }}</h4>
       <div class="icons">
-        <div class="icon-def" *ngFor="let name of iconVariantsDoubled" (click)="copy(name)">
+        <div class="icon-def" *ngFor="let name of iconVariantsWithPostfixNumber" (click)="copy(name)">
           <prizm-icon class="icon" [iconClass]="name" [size]="24"></prizm-icon>
           <div class="name">{{ name }}</div>
         </div>
       </div>
     </div>
+
     <div>
-      <h4 class="title">Иконка дубли (только дубли) - {{ iconVariantsWithPostfixNumber.length }}</h4>
+      <h4 class="title">Иконка дубли (источник + дубли) - {{ iconVariantsDoubled.length }}</h4>
       <div class="icons">
-        <div class="icon-def" *ngFor="let name of iconVariantsWithPostfixNumber" (click)="copy(name)">
+        <div class="icon-def" *ngFor="let name of iconVariantsDoubled" (click)="copy(name)">
           <prizm-icon class="icon" [iconClass]="name" [size]="24"></prizm-icon>
           <div class="name">{{ name }}</div>
         </div>
