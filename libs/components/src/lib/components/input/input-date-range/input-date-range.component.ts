@@ -3,7 +3,6 @@ import {
   Component,
   ContentChild,
   ElementRef,
-  HostBinding,
   HostListener,
   Inject,
   Injector,
