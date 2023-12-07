@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-
 import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { PrizmInputPasswordDirective } from './input-password.directive';
 
