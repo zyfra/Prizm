@@ -22,6 +22,11 @@
 
     &:not(.item-container__selected):not(.item-container__disabled):hover {
       background-color: var(--prizm-listing-item-row-hover, var(--prizm-v3-table-fill-row-hover));
+      color: var(--prizm-v3-text-icon-primary);
+
+      .title {
+        color: var(--prizm-v3-text-icon-primary);
+      }
     }
 
     &.item-container__selected:not(.item-container__disabled):has(.container-left:not(:empty)):hover {
