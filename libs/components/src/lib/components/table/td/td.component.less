@@ -35,10 +35,16 @@
     padding: 0;
   }
 
+  &:has([prizmInput]:focus) {
+    background-color: var(--prizm-v3-background-fill-primary);
+    box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
+  }
+
   &[status='success'] {
     background: var(--prizm-v3-status-success-secondary-default);
 
-    &:has([prizmInput]:not(:focus)):hover {
+    &:has([prizmInput]):hover,
+    &:has([prizmInput]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-v3-status-success-primary-default) inset;
     }
   }
@@ -54,7 +60,8 @@
   &[status='warning'] {
     background: var(--prizm-v3-status-warning-secondary-default);
 
-    &:has([prizmInput]:not(:focus)):hover {
+    &:has([prizmInput]):hover,
+    &:has([prizmInput]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-v3-status-warning-primary-default) inset;
     }
   }
@@ -62,14 +69,10 @@
   &[status='danger'] {
     background: var(--prizm-v3-status-alarm-secondary-default);
 
-    &:has([prizmInput]:not(:focus)):hover {
+    &:has([prizmInput]):hover,
+    &:has([prizmInput]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-v3-status-alarm-primary-default) inset;
     }
-  }
-
-  &:has([prizmInput]:focus) {
-    background-color: var(--prizm-v3-background-fill-primary);
-    box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
   }
 }
 
@@ -78,7 +81,9 @@
     background: var(--prizm-table-active-row-marker-color, var(--prizm-v3-status-info-primary-default));
   }
 
-  background: var(--prizm-v3-table-fill-row-active);
+  &[status='default'] {
+    background: var(--prizm-v3-table-fill-row-active);
+  }
 }
 
 :host-context([border-style='vertical']) {
