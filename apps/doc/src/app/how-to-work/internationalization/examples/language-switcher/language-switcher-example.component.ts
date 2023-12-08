@@ -33,6 +33,9 @@ import { PrizmFileValidationErrors, PrizmFilesProgress } from '@prizm-ui/compone
 })
 export class PrizmLanguageSwitcherExampleComponent {
   toastService: any;
+
+  progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
+  files: Array<File> = [];
   constructor(
     @Self()
     private readonly prizmLanguageSwitcher: PrizmLanguageSwitcher,
@@ -42,9 +45,6 @@ export class PrizmLanguageSwitcherExampleComponent {
   public changeLanguage(lang: string) {
     this.prizmLanguageSwitcher.setLanguage(lang as PrizmLanguageName);
   }
-
-  progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
-  files: Array<File> = [];
 
   public onFilesChange(files: Array<File>): void {
     this.files = files;
