@@ -121,3 +121,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+.pagination-btn() {
+  border: none;
+  background: none;
+  outline: none;
+  display: flex;
+  gap: 4px;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 400;
+
+  color: var(--prizm-v3-text-icon-secondary);
+
+  &:hover:not(.active):not(:active) {
+    background-color: var(--prizm-v3-button-ghost-hover);
+    border-radius: 2px;
+  }
+
+  &:active,
+  &.active {
+    color: var(--prizm-v3-button-primary-solid-active);
+  }
+}

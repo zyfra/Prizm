@@ -5,9 +5,9 @@
   [disabled]="isDisabled"
   [icon]="$any(data?.icon)"
   [size]="size"
+  [appearanceType]="data?.appearanceType ?? 'ghost'"
+  [appearance]="data?.appearance ?? 'secondary'"
   prizmButton
-  appearanceType="ghost"
-  appearance="secondary"
 >
   {{ data?.title }}
 </button>
@@ -19,8 +19,8 @@
     [disabled]="isDisabled"
     [icon]="$any(data?.icon)"
     [size]="size"
+    [appearanceType]="data?.appearanceType ?? 'ghost'"
+    [appearance]="data?.appearance ?? 'secondary'"
     prizmIconButton
-    appearanceType="ghost"
-    appearance="secondary"
   ></button>
 </ng-template>

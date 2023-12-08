@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, Injector } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmDateTime, PrizmDay, PrizmTime } from '@prizm-ui/components';
 import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
@@ -63,7 +63,7 @@ export class PrizmDropdownHostDateListEditExampleComponent {
   readonly startControl = new UntypedFormControl();
   readonly endControl = new UntypedFormControl();
 
-  constructor(public readonly cdRef: ChangeDetectorRef) {}
+  constructor(public readonly cdRef: ChangeDetectorRef, public readonly injector: Injector) {}
 
   public select(item: DateItem | null): void {
     if (!item) {
@@ -79,7 +79,7 @@ export class PrizmDropdownHostDateListEditExampleComponent {
   }
 
   public convertDate([start, end]: DateItem['range']): [Date, Date] | null {
-    if (!start?.[0] || !end?.[0]) return null;
+    if (!start?.[0] || !end?.[0]) return [new Date(), new Date()];
     return [
       new PrizmDateTime(start[0], start[1] ?? new PrizmTime(0, 0)).toLocalNativeDate(),
       new PrizmDateTime(end[0], end[1] ?? new PrizmTime(0, 0)).toLocalNativeDate(),

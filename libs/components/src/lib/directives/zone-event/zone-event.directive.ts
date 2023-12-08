@@ -2,20 +2,16 @@ import {
   Directive,
   ElementRef,
   EventEmitter,
-  Inject,
+  inject,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
-  Optional,
   Output,
-  Self,
   SimpleChanges,
-  SkipSelf,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { DOCUMENT } from '@angular/common';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmZoneEventService } from './zone-event.service';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -33,6 +29,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
   @Input() zoneElement?: HTMLElement;
   @Input() parentZone?: PrizmZoneEventDirective;
+  @Input() childrenZones: PrizmZoneEventService[] = [];
 
   @Input()
   @prizmDefaultProp()
@@ -49,28 +46,30 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
   get htmlElement(): HTMLElement {
     return this.zoneElement ?? this.elementRef.nativeElement;
   }
+  private readonly elementRef: ElementRef = inject(ElementRef);
+  private readonly destroyService: PrizmDestroyService = inject(PrizmDestroyService);
+  private readonly eventZoneService: PrizmZoneEventService = inject(PrizmZoneEventService, {
+    self: true,
+  });
+  private readonly parentEventZoneService: PrizmZoneEventService | null = inject(PrizmZoneEventService, {
+    skipSelf: true,
+    optional: true,
+  });
 
-  constructor(
-    private elementRef: ElementRef,
-    private destroyService: PrizmDestroyService,
-    @Self()
-    private eventZoneService: PrizmZoneEventService,
-    @SkipSelf()
-    @Optional()
-    private parentEventZoneService: PrizmZoneEventService,
-    @Inject(DOCUMENT) private readonly documentRef: Document
-  ) {
+  constructor() {
     if (this.parentEventZoneService) {
       this.eventZoneService.setParent(this.parentEventZoneService);
     }
   }
 
   public ngOnInit(): void {
-    this.safeInit();
-
     if (this.parentZone) {
       this.eventZoneService.setParent(this.parentZone.eventZoneService);
     }
+    this.childrenZones.map(childrenZone => {
+      childrenZone.setParent(this.eventZoneService);
+    });
+    this.safeInit();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
