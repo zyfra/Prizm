@@ -15,7 +15,7 @@
 
   &.disabled {
     color: var(--prizm-v3-text-icon-disable);
-    pointer-events: none;
+    opacity: 0.4;
     cursor: not-allowed;
   }
 }
@@ -34,8 +34,4 @@
   }
 
   color: var(--prizm-v3-button-secondary-solid-default);
-}
-
-:host-context(.disabled) {
-  display: none;
 }
