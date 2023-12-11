@@ -39,9 +39,9 @@
   <div class="section">
     <div class="section-header">
       <div class="title prizm-font-title-h4">{{ translations | prizmPluck : ['mainColumns'] }}</div>
-      <button (click)="showAll()" prizmButton appearanceType="ghost" appearance="secondary" size="m">
+      <div class="show-all" (click)="showAll()">
         {{ translations | prizmPluck : ['showAllBtn'] }}
-      </button>
+      </div>
     </div>
     <prizm-column-drop-list
       #columnList="cdkDropList"

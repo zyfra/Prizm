@@ -17,9 +17,9 @@
     prizmStopPropagation="mousedown"
   >
     <button
+      class="year-btn"
       [prizmFocusable]="false"
       (click)="onYearClick()"
-      prizmLink
       automation-id="prizm-calendar-month__active-year"
     >
       {{ year.formattedYear }}
