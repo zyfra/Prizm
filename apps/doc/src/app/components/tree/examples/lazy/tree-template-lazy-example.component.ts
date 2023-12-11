@@ -9,10 +9,6 @@ import {
 import { TreeTemplateLazyExampleService } from './tree-template-lazy-example.service';
 import { Item } from './tree-template-lazy.model';
 
-interface TreeNode {
-  readonly text: string;
-  readonly children?: readonly TreeNode[];
-}
 @Component({
   selector: 'prizm-tree-template-lazy-example',
   templateUrl: './tree-template-lazy-example.component.html',
