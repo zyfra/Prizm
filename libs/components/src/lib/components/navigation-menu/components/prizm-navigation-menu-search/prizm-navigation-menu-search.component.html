@@ -1,17 +1,8 @@
 <div class="prizm-navigation-menu-search">
-  <input
-    class="prizm-navigation-menu-search__input"
-    #searchInput
-    [formControl]="searchFormControl"
-    [placeholder]="placeholder || ''"
-  />
-  <button
-    class="prizm-navigation-menu-search__button"
-    [size]="'m'"
-    [icon]="'cancel-close'"
-    [appearance]="'secondary'"
-    [appearanceType]="'ghost'"
-    (click)="clearSearchValue()"
-    prizmIconButton
-  ></button>
+  <prizm-input-layout class="prizm-navigation-menu-search__input" label="" size="m">
+    <input #searchInput [formControl]="searchFormControl" [placeholder]="placeholder || ''" prizmInput />
+    <ng-container prizm-input-right>
+      <button prizmInputIconButton="sort-zoom-in"></button>
+    </ng-container>
+  </prizm-input-layout>
 </div>

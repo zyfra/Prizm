@@ -12,22 +12,24 @@
   outline: none;
   padding-right: 8px;
   padding-left: calc(4px + (var(--prizm-tree-item-indent, 24) * var(--prizm-tree-item-indent-level)) * 1px);
-  border-bottom: 1px solid var(--prizm-grey-g10-g4);
   border-left: 4px solid transparent;
   font-size: 14px;
   font-weight: 400;
   line-height: 16px;
-  color: var(--prizm-text-contrast);
+  color: var(--prizm-v3-text-icon-secondary);
   cursor: pointer;
 
-  &:hover,
-  &:focus {
-    background: var(--prizm-index-lock);
+  &:not(&_active):hover,
+  &:not(&_active):focus {
+    background: var(--prizm-v3-table-fill-row-hover);
   }
 
   &_active {
-    background: var(--prizm-index-lock);
-    border-left-color: var(--prizm-index-plan);
+    background: var(--prizm-v3-table-fill-row-active);
+    border-left-color: var(
+      --prizm-navigation-active-row-marker-color,
+      var(--prizm-v3-status-info-primary-default)
+    );
   }
 
   &__icon {
@@ -47,22 +49,9 @@
     margin: 0;
   }
 
-  button[prizmIconButton] {
-    &._focused {
-      box-shadow: 0 0 0 2px var(--prizm-navigation-menu__focus-color);
-    }
-
-    &:hover ::ng-deep prizm-wrapper {
-      background: transparent;
-      color: var(--prizm-primary);
-    }
-  }
-
   /* expand icon */
   .expand-button {
     .transition(transform);
-    --prizm-secondary: var(--prizm-text-main);
-    font-weight: 600;
 
     &_expanded {
       transform: rotate(90deg);
