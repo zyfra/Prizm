@@ -36,8 +36,7 @@
 .prizm-input-label {
   font-weight: 600;
   font-size: 12px;
-  color: var(--prizm-text-subscript);
-  padding-left: 16px;
+  color: var(--prizm-v3-text-icon-tertiary);
   line-height: 16px;
   transition: top 200ms ease 0s;
   pointer-events: none;
@@ -46,12 +45,11 @@
   gap: 4px;
 
   &-required {
-    color: var(--prizm-index-danger);
+    color: var(--prizm-v3-status-alarm-primary-default);
   }
 
   &-inner {
     position: absolute;
-    padding-left: 8px;
     display: flex;
     gap: 4px;
     max-width: 100%;
@@ -90,8 +88,8 @@
 }
 
 .prizm-input-form {
-  background-color: var(--prizm-bg-dashboard-forms);
-  border: 1px solid var(--prizm-border-forms);
+  background-color: var(--prizm-v3-form-fill-default);
+  border: 1px solid var(--prizm-v3-form-stroke-default);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -113,7 +111,7 @@
   }
 
   &:hover {
-    border-color: var(--prizm-index-plan);
+    border-color: var(--prizm-v3-form-stroke-hover);
   }
 
   &__first {
@@ -129,57 +127,58 @@
 
   &-status {
     &-success {
-      border-color: var(--prizm-index-good);
+      border-color: var(--prizm-v3-status-success-primary-default);
       &:hover {
-        border-color: var(--prizm-index-good);
+        border-color: var(--prizm-v3-status-success-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-index-good);
+        color: var(--prizm-v3-status-success-primary-default);
       }
     }
 
     &-warning {
-      border-color: var(--prizm-index-warning);
+      border-color: var(--prizm-v3-status-warning-primary-default);
       &:hover {
-        border-color: var(--prizm-index-warning);
+        border-color: var(--prizm-v3-status-warning-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-index-warning);
+        color: var(--prizm-v3-status-warning-primary-default);
       }
     }
 
     &-danger {
-      border-color: var(--prizm-index-danger);
+      border-color: var(--prizm-v3-status-alarm-primary-default);
       &:hover {
-        border-color: var(--prizm-index-danger);
+        border-color: var(--prizm-v3-status-alarm-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-index-danger);
+        color: var(--prizm-v3-status-alarm-primary-default);
       }
     }
   }
 
   &-invalid {
     &.prizm-input-form-touched {
-      border-color: var(--prizm-index-danger);
+      border-color: var(--prizm-v3-status-alarm-primary-default);
     }
 
     .prizm-input-form-status-button {
-      color: var(--prizm-index-danger);
+      color: var(--prizm-v3-status-alarm-primary-default);
     }
   }
 
   // rewrite all if focused
-  &-focused:host-context(.enabled),
-  &:focus-within:host-context(.enabled) {
-    border-color: var(--prizm-index-plan);
-    box-shadow: 0 0 0 2px var(--prizm-lite-b130-20);
+  &-focused,
+  &:focus-within {
+    border-color: var(--prizm-v3-form-active);
+    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+    position: relative;
 
     &:hover {
-      border-color: var(--prizm-index-plan);
+      border-color: var(--prizm-v3-form-active-hover);
     }
 
     .prizm-input-button-default {
@@ -194,6 +193,12 @@
     }
 
     cursor: not-allowed;
+
+    ::ng-deep {
+      [prizmInputIconButton] {
+        display: none;
+      }
+    }
   }
 
   &-inner {
@@ -230,7 +235,7 @@
       .prizm-input-button-default {
         position: absolute;
         z-index: 100;
-        background-color: var(--prizm-bg-dashboard-forms);
+        background-color: var(--prizm-v3-form-fill-default);
       }
 
       .prizm-input-button-default {
@@ -257,15 +262,15 @@
   line-height: 22px;
 
   &-success {
-    color: var(--prizm-index-good);
+    color: var(--prizm-v3-status-success-primary-default);
   }
 
   &-warning {
-    color: var(--prizm-index-warning);
+    color: var(--prizm-v3-status-warning-primary-default);
   }
 
   &-danger {
-    color: var(--prizm-index-danger);
+    color: var(--prizm-v3-status-alarm-primary-default);
   }
 }
 

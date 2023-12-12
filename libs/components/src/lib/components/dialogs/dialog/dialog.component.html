@@ -6,10 +6,12 @@
       </div>
       <button
         *ngIf="context.closeable"
-        [size]="16"
-        [interactive]="true"
         (click)="close()"
-        prizmInputIconButton="cancel-close"
+        size="m"
+        appearanceType="ghost"
+        appearance="secondary"
+        prizmIconButton
+        icon="cancel-close"
       ></button>
     </div>
   </ng-container>
