@@ -4,7 +4,8 @@
 <div class="z-row z-row_weekday prizm-font-main-body-12">
   <div
     class="z-cell"
-    *ngFor="let day of weekDays$ | async"
+    *ngFor="let day of weekDays$ | async; let i = index"
+    [class.z-cell_weekend]="i > 4"
     [innerText]="day | prizmCallFunc : capitalizeFirstLetter"
   ></div>
 </div>
@@ -19,7 +20,6 @@
         <div
           class="z-cell"
           *ngIf="!itemIsUnavailable(item) || showAdjacent"
-          [class.z-cell_weekend]="item.isWeekend"
           [class.z-cell_today]="itemIsToday(item)"
           [class.z-cell_interval]="itemIsInterval(item)"
           [attr.data-range]="getItemRange(item)"
@@ -32,6 +32,7 @@
           <div
             class="z-item prizm-font-btn-links-14"
             [class.z-item_unavailable]="itemIsUnavailable(item)"
+            [class.z-item_weekend]="item.isWeekend"
             automation-id="prizm-primitive-calendar__item"
           >
             {{ item.day }}
