@@ -14,7 +14,7 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       a {
-        color: #337eff;
+        color: var(--prizm-v3-text-icon-link);
         text-decoration: underline;
       }
 
@@ -23,7 +23,7 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       .date {
-        color: #a1a5b7;
+        color: var(--prizm-v3-text-icon-tertiary);
         margin: 8px 0;
       }
 

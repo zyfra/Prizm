@@ -6,14 +6,12 @@
   max-width: 524px;
   padding: 16px;
   border-width: 1px 1px 1px 4px;
-  border-color: var(--prizm-v3-status-none-primary-default);
-  background: var(--prizm-v3-status-none-secondary-default);
 
   &.is-platform {
     .content-box {
       .title,
       .content {
-        color: var(--prizm-v3-text-icon-revers);
+        color: var(--prizm-v3-text-icon-reverse);
       }
     }
   }
@@ -46,7 +44,7 @@
     &.success,
     &.warning,
     &.danger {
-      background: var(--prizm-v3-background-fill-revers);
+      background: var(--prizm-v3-background-fill-reverse);
     }
   }
 
@@ -68,6 +66,11 @@
   &.danger {
     border-color: var(--prizm-v3-status-alarm-primary-default);
     background: var(--prizm-v3-status-alarm-secondary-default);
+  }
+
+  &.none {
+    border-color: var(--prizm-v3-status-none-primary-default);
+    background: var(--prizm-v3-status-none-secondary-default);
   }
 
   .control {
