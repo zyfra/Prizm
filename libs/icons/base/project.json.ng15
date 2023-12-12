@@ -5,6 +5,30 @@
   "sourceRoot": "libs/icons/base/src",
   "prefix": "prizm",
   "targets": {
+    "generateIcons": {
+      "builder": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+      "options": {
+        "conversionType": "files",
+        "srcFiles": ["libs/icons/base/src/styles/icons-v-24/**/*.svg"],
+        "outputDirectory": "libs/icons/base/src/styles/icons-v-24-READY",
+        "interfaceName": "prizm-icons",
+        "generateType": false,
+        "generateTypeObject": false,
+        "generateCompleteIconSet": false,
+        "exportCompleteIconSet": false,
+        "fileName": "prizm-icons",
+        "iconsFolderName": "prizm-icons",
+        "objectName": "prizmIcons",
+        "typeName": "prizmIcons",
+        "prefix": "prizmIcon",
+        "modelFileName": "prizm-icons",
+        "barrelFileName": "index",
+        "svgoConfig": {
+          "plugins": ["cleanupAttrs"]
+        },
+        "compileSources": true
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/icons/base"],

@@ -5,6 +5,31 @@
   "sourceRoot": "libs/icons/base/src",
   "prefix": "prizm",
   "targets": {
+    "generateIcons": {
+      "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+      "options": {
+        "conversionType": "files",
+        "optimizeForLazyLoading": true,
+        "srcFiles": ["libs/icons/base/assets/icons/**/*.svg"],
+        "outputDirectory": "libs/icons/base/src/styles/icons",
+        "interfaceName": "PrizmIcons",
+        "typeName": "PrizmIconsType",
+        "generateEnum": true,
+        "completeIconSetName": "PRIZM_ICONS_SET",
+        "exportCompleteIconSet": true,
+        "enumName": "PrizmIconsEnum",
+        "generateType": true,
+        "generateTypeObject": true,
+        "iconsFolderName": "icons",
+        "barrelFileName": "index",
+        "prefix": "prizmIcons",
+        "modelFileName": "prizm-icons.model",
+        "svgoConfig": {
+          "plugins": ["removeDimensions"]
+        },
+        "compileSources": false
+      }
+    },
     "build": {
       "executor": "@nrwl/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/icons/base"],
@@ -33,7 +58,16 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
+        "lintFilePatterns": [
+          "libs/icons/base/src/**/*.ts",
+          "libs/icons/base/src/**/*.html",
+          "libs/icons/base/icons/**/*.ts",
+          "libs/icons/base/icons/**/*.html",
+          "libs/icons/base/set/**/*.ts",
+          "libs/icons/base/set/**/*.html",
+          "libs/icons/base/lazy/**/*.ts",
+          "libs/icons/base/lazy/**/*.html"
+        ]
       }
     }
   },
