@@ -36,10 +36,11 @@ import {
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
-import { PrizmDataListModule } from '../../data-list';
-import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
+import { PrizmDataListComponent } from '../../data-list';
+import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmButtonModule } from '../../button';
+import { PrizmButtonComponent } from '../../button';
+import { PrizmListingItemComponent } from '../../listing-item';
 
 @Component({
   selector: `prizm-input-layout-time`,
@@ -62,13 +63,14 @@ import { PrizmButtonModule } from '../../button';
     CommonModule,
     PrizmLifecycleModule,
     PrizmMaskModule,
-    PrizmDataListModule,
+    PrizmDataListComponent,
     PrizmDropdownControllerModule,
-    PrizmDropdownHostModule,
+    PrizmDropdownHostComponent,
     PrizmInputTextModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     FormsModule,
     PrizmValueAccessorModule,
+    PrizmListingItemComponent,
   ],
 })
 export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime | null> {

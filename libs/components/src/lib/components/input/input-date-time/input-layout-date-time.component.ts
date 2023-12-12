@@ -57,6 +57,7 @@ import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/p
 import { PrizmCalendarComponent } from '../../calendar';
 import { PrizmLinkComponent } from '../../link';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PrizmListingItemComponent } from '../../listing-item';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -101,6 +102,7 @@ import { PrizmValueAccessorModule } from '../../../directives/value-accessor/val
     PrizmDropdownHostComponent,
     PrizmValueAccessorModule,
     PrizmInputNativeValueModule,
+    PrizmListingItemComponent,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
