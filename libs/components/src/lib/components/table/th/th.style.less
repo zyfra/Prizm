@@ -26,6 +26,10 @@
     border-left: none;
   }
 
+  &:has([prizmInput]:hover) {
+    box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
+  }
+
   &:has([prizmInput]:focus) {
     background-color: var(--prizm-v3-background-fill-primary);
     box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
