@@ -7,13 +7,14 @@
   padding: 0;
   background: transparent;
 
-  width: var(--prizm-input-icon-button-width, 32px);
+  width: var(--prizm-input-icon-button-width, 24px);
+  height: var(--prizm-input-icon-button-height, 24px);
   font-size: inherit;
 
-  color: var(--prizm-text-contrast);
+  color: var(--prizm-v3-text-icon-secondary);
 
   &.disabled {
-    color: var(--prizm-grey-g9-g5);
+    color: var(--prizm-v3-text-icon-disable);
     pointer-events: none;
     cursor: not-allowed;
   }
@@ -22,16 +23,19 @@
 :host-context(.interactive) {
   &:not(.disabled) {
     &:hover {
-      color: var(--prizm-index-plan);
+      color: var(--prizm-v3-button-primary-solid-hover);
     }
 
     &:focus {
-      color: var(--prizm-index-plan);
-      text-shadow: 0 0 1px var(--prizm-index-plan);
+      color: var(--prizm-v3-button-primary-solid-hover);
     }
 
     cursor: pointer;
   }
 
-  color: var(--prizm-border-icon);
+  color: var(--prizm-v3-button-secondary-solid-default);
+}
+
+:host-context(.disabled) {
+  display: none;
 }

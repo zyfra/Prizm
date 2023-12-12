@@ -2,13 +2,17 @@
 
 :host {
   display: block;
+
+  &::placeholder {
+    color: var(--prizm-v3-text-icon-disable);
+  }
 }
 
 .multiple-input-box {
   display: flex;
   gap: 2px;
   // TODO: this padding copied from input-text (need remove copied style and use only one file)
-  padding: 22px 8px 4px 8px;
+  padding: 22px 8px 4px 0px;
 
   input {
     width: calc(var(--prizm-input-in-zone-max-size) * 0.9ch);
@@ -29,21 +33,21 @@
 // TODO: this stype copied from input-text (need remove copied style and use only one file)
 // In outer context
 :host-context(.prizm-input-form-outer) .multiple-input-box {
-  padding: 7px 8px;
+  padding: 7px 0px;
 }
 
 // need for optimization output selector in less
 :host-context(.prizm-input-form-outer[data-size='l']) .multiple-input-box {
-  padding: 11px 8px;
+  padding: 11px 0px;
 }
 
 :host-context(.prizm-input-form-outer[data-size='m']) .multiple-input-box {
-  padding: 7px 8px;
+  padding: 7px 0px;
 }
 
 :host-context(.prizm-input-form-outer[data-size='s']) .multiple-input-box {
   font-size: 12px;
-  padding: 4px 8px;
+  padding: 4px 0px;
 }
 
 // In inner context
@@ -57,7 +61,7 @@
   }
 
   .multiple-input-box {
-    padding: 22px 8px 4px 8px;
+    padding: 22px 8px 4px 0px;
 
     :host::placeholder {
       opacity: 0;
@@ -82,12 +86,12 @@
   }
 
   .multiple-input-box {
-    padding: 22px 8px 4px 8px;
+    padding: 22px 8px 4px 0px;
   }
 }
 :host-context(.prizm-input-form-inner[data-size='m']) {
   .multiple-input-box {
-    padding: 16px 8px 2px 8px;
+    padding: 16px 8px 2px 0px;
   }
 
   :host-context(.prizm-input-empty-label) {

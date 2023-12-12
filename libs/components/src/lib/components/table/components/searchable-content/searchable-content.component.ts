@@ -1,5 +1,9 @@
 import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
 
+/**
+ * @deprecated since 3.8.0
+ */
+
 @Component({
   selector: 'prizm-searchable-content',
   templateUrl: './searchable-content.component.html',

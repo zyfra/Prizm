@@ -13,6 +13,7 @@ import { PrizmToggleComponent } from '../../../toggle/toggle.component';
 import { PrizmIconComponent } from '../../../icon/icon.component';
 import { PrizmScrollbarComponent } from '../../../scrollbar/scrollbar.component';
 import { PrizmHintDirective } from '../../../../directives/hint/hint.directive';
+import { PrizmListingItemComponent } from '../../../listing-item';
 
 const DragConfig: DragDropConfig = {
   zIndex: 9999,
@@ -38,6 +39,7 @@ const DragConfig: DragDropConfig = {
     FormsModule,
     PrizmThemeModule,
     PrizmColumnIconPipe,
+    PrizmListingItemComponent,
   ],
 })
 export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
