@@ -1,0 +1,53 @@
+<div class="box">
+  <button (click)="showToast()" prizmButton>С заголовком</button>
+  <button (click)="showToastWithoutTitle()" prizmButton>Без заголовка</button>
+  <button (click)="showToastWithBigText()" prizmButton>Длинный текст</button>
+  <button (click)="showToastWithBigTitle()" prizmButton>Длинный заголовок</button>
+  <button (click)="showToastWithoutTimer()" prizmButton>Без таймера</button>
+  <button (click)="showToastWithContentTemplate(contentTemplate)" prizmButton>Шаблон в содержимом</button>
+  <button (click)="showToastWithHeaderTemplate(headerTemplate)" prizmButton>Шаблон в хедере</button>
+  <button class="show-toast-by-id" (click)="showWithId()" prizmButton>(*) Показ по id</button>
+  <button (click)="updateContentWithId()" prizmButton>(*) Обновить содержимое по id</button>
+  <button (click)="updateTitleWithId(headerTemplate)" prizmButton>(*) Обновить title по id</button>
+  <button class="close-toast-by-id" (click)="closeWithId()" prizmButton>(*) Закрыть по id</button>
+  <button class="close-all-toast" (click)="closeAll()" prizmButton>(*) Закрыть все</button>
+  <ng-template #contentTemplate let-close="close">
+    <div>В toast-сообщении старайтесь уместить текст в 2 строки.</div>
+
+    <div class="date">16.05.2022 10:00</div>
+    <div class="link">
+      <a href="#">Ссылка</a>
+    </div>
+    <div class="footer"><button (click)="close()" prizmButton>Закрыть</button></div>
+  </ng-template>
+
+  <ng-template #headerTemplate let-close="close">
+    <div class="header-title">
+      <span class="title">Заголовок</span>
+
+      <span class="link">
+        <a href="#">Ссылка</a>
+      </span>
+    </div>
+  </ng-template>
+</div>
+
+<br />
+<hr />
+<div class="inline-container">
+  <p>Inline Container</p>
+  <prizm-toast-container [containerId]="containerId"></prizm-toast-container>
+</div>
+<br />
+<hr />
+<p>Position</p>
+<div style="display: flex; gap: 1rem; flex-wrap: wrap">
+  <prizm-radio-button
+    class="toast-position-button-{{ item.val }}"
+    *ngFor="let item of data"
+    [formControl]="formControl"
+    [label]="item.label"
+    [name]="appearance"
+    [value]="item.val"
+  ></prizm-radio-button>
+</div>

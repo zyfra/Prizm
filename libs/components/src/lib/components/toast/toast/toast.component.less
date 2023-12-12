@@ -6,12 +6,14 @@
   max-width: 524px;
   padding: 16px;
   border-width: 1px 1px 1px 4px;
+  border-color: var(--prizm-v3-status-none-primary-default);
+  background: var(--prizm-v3-status-none-secondary-default);
 
   &.is-platform {
     .content-box {
       .title,
       .content {
-        color: var(--prizm-grey-g12-g2);
+        color: var(--prizm-v3-text-icon-revers);
       }
     }
   }
@@ -24,9 +26,11 @@
     justify-content: space-between;
     gap: 8px;
 
-    .title,
+    .title {
+      color: var(--prizm-v3-text-icon-primary);
+    }
     .content {
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-secondary);
     }
 
     .title {
@@ -42,28 +46,28 @@
     &.success,
     &.warning,
     &.danger {
-      background: var(--prizm-grey-g2-g12);
+      background: var(--prizm-v3-background-fill-revers);
     }
   }
 
   &.info {
-    border-color: var(--prizm-index-plan);
-    background: var(--prizm-lite-b130-20);
+    border-color: var(--prizm-v3-status-info-primary-default);
+    background: var(--prizm-v3-status-info-secondary-default);
   }
 
   &.success {
-    border-color: var(--prizm-index-good);
-    background: var(--prizm-lite-gr130-20);
+    border-color: var(--prizm-v3-status-success-primary-default);
+    background: var(--prizm-v3-status-success-secondary-default);
   }
 
   &.warning {
-    border-color: var(--prizm-index-warning);
-    background: var(--prizm-lite-y130-20);
+    border-color: var(--prizm-v3-status-warning-primary-default);
+    background: var(--prizm-v3-status-warning-secondary-default);
   }
 
   &.danger {
-    border-color: var(--prizm-index-danger);
-    background: var(--prizm-lite-r130-20);
+    border-color: var(--prizm-v3-status-alarm-primary-default);
+    background: var(--prizm-v3-status-alarm-secondary-default);
   }
 
   .control {

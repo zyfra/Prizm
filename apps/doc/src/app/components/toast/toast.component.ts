@@ -38,6 +38,11 @@ export class ToastComponent {
     HTML: import('./examples/message-success-example/message-success-example.component.html?raw'),
   };
 
+  readonly exampleMessageNone: TuiDocExample = {
+    TypeScript: import('./examples/message-none-example/message-none-example.component.ts?raw'),
+    HTML: import('./examples/message-none-example/message-none-example.component.html?raw'),
+  };
+
   readonly exampleToast: TuiDocExample = {
     TypeScript: import('./examples/toast-example/toast-example.component.ts?raw'),
     HTML: import('./examples/toast-example/toast-example.component.html?raw'),
@@ -48,7 +53,13 @@ export class ToastComponent {
     HTML: import('./examples/inner-html/toast-inner-html-example.component.html?raw'),
   };
 
-  readonly appearanceVariants: ReadonlyArray<PrizmToastAppearance> = ['info', 'success', 'warning', 'danger'];
+  readonly appearanceVariants: ReadonlyArray<PrizmToastAppearance> = [
+    'info',
+    'success',
+    'warning',
+    'danger',
+    'none',
+  ];
   appearance: PrizmToastAppearance = this.appearanceVariants[0];
 
   readonly containerId = 'test-inline-container';

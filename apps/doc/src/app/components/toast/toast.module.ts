@@ -16,6 +16,7 @@ import { PrizmToastDangerExampleComponent } from './examples/message-danger-exam
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToastExampleComponent } from './examples/toast-example/toast-example.component';
 import { PrizmToastInnerHtmlExampleComponent } from './examples/inner-html/toast-inner-html-example.component';
+import { PrizmToastNoneExampleComponent } from './examples/message-none-example/message-none-example.component';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { PrizmToastInnerHtmlExampleComponent } from './examples/inner-html/toast
     PrizmToastExampleComponent,
     PrizmToastSuccessExampleComponent,
     PrizmToastDangerExampleComponent,
+    PrizmToastNoneExampleComponent,
     ToastComponent,
   ],
   providers: [
