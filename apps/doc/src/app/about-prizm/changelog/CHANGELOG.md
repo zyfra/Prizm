@@ -2,6 +2,50 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.12.0-next.1, 2.9.0-next.1, 3.8.0-next.1](https://github.com/zyfra/Prizm) (12-12-2023)
+
+### Features
+
+- feat(components/stepper): update colors for stepper #1153
+- feat(components/widget): widget colors update #1150
+- feat: (components/splitter): splitter colors update #1155
+- feat(documentation/splitter): splitter examples update #1155
+- feat(components/error-page): error page colors update #1138
+- feat(components/dialog): dialog colors update to v3 #1129
+- feat(components/confirm-dialog): dialog colors update to v3 #1129
+- feat(components/cron): colors update for cron #1124
+- feat(components/column-settings): columns settings v3 colors #1104
+- feat(components/dropdown-host): dropdownhost colors update #1137
+- feat(components/calendar): colors update to v3 #987
+- feat(components/calendar-month): colors update to v3 #987
+- feat(components/calendar-range): colors update to v3 #987
+- feat(components/InputMultiSelect): colors update to v3 #1064
+- feat(components/InputLayoutDateTime): colors update to v3 #1064
+- feat(components/InputSelect): colors update to v3 #1064
+- feat(components/InputLayoutDateTimeRange): colors update to v3 #1064
+- feat(components/InputLayoutTime): colors update to v3 #1064
+- feat(components/InputLayoutDate): colors update to v3 #1064
+- feat(components/InputLayoutMonth): colors update to v3 #1064
+- feat(components/InputLayoutMonthRange): colors update to v3 #1064
+- feat(components/InputLayoutDateRange): colors update to v3 #1064
+- feat(components/InputLayoutDateRelative): colors update to v3 #1064
+- feat(components/InputDateMulti): colors update to v3 #1064
+- feat(components/Input): colors update to v3 #1064
+- feat(components/Textarea): colors update to v3 #1064
+- feat(components/InputChips): colors update to v3 #1064
+- feat(components/InputNumber): colors update to v3 #1064
+- feat(components/InputMask): colors update to v3 #1064
+- feat(components/InputPassword): colors update to v3 #1064
+- feat(components/InputCarousel): colors update to v3 #1064
+- feat(components/data-list): v3 colors for data list component #1098
+- feat(components/table): table colors update to v3 #1093
+- feat(components/table): SearchableContentComponent became deprecated #1093
+
+### Bug fixes
+
+- fix(components/carousel): carousel disabled buttons incorrect behavior #1146
+- fix(components/inputs): focus state not shown on inputs #1077
+
 ## [1.11.0, 2.8.0, 3.7.0](https://github.com/zyfra/Prizm) (04-12-2023)
 
 ### Features
