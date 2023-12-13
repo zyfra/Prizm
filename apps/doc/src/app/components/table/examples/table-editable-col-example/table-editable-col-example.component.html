@@ -24,7 +24,7 @@
         prizmTr
       >
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
-        <td class="row_editable" *prizmCell="'name'" prizmTd>
+        <td class="row_editable" *prizmCell="'name'" [status]="item.status ?? 'default'" prizmTd>
           <input
             [value]="item.name"
             [readOnly]="!(currentEditableProduct?.product === item && currentEditableProduct?.key === 'name')"
