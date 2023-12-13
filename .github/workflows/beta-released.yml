@@ -11,9 +11,13 @@ jobs:
     secrets: inherit
 
   pre_beta_release_v2:
+    needs: pre_beta_release_v1
+    if: ${{ always() }}
     uses: zyfra/Prizm/.github/workflows/beta-publish-ng15.yml@main
     secrets: inherit
 
   pre_beta_release_v3:
+    needs: pre_beta_release_v2
+    if: ${{ always() }}
     uses: zyfra/Prizm/.github/workflows/beta-publish-ng16.yml@main
     secrets: inherit
