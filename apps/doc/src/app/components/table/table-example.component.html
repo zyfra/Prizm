@@ -112,6 +112,7 @@
           [style.--prizm-table-row-hover-background]="prizmTableRowHoverBackground"
           [style.--prizm-table-row-background]="prizmTableRowBackground"
           [style.--prizm-table-row-cursor]="prizmTableRowCursor"
+          [style.--prizm-table-active-row-marker-color]="prizmTableActiveRowMarkerColor"
           [columns]="columns"
           [size]="size"
           [tableBorderStyle]="borderStyle"
@@ -128,7 +129,7 @@
 
           <tbody [data]="products" [open]="open" prizmTbody>
             <ng-container *prizmRow="let item of products; let i = index">
-              <tr prizmTr>
+              <tr [active]="i === 2" prizmTr>
                 <td class="format__number" *prizmCell="'code'" prizmTd>
                   {{ item.code | spaceNumber : '0.0-0' }}
                 </td>
@@ -183,6 +184,14 @@
         documentationPropertyMode="css-var"
       >
         Row cursor
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="prizmTableActiveRowMarkerColor"
+        documentationPropertyName="prizm-table-active-row-marker-color"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Active row marker background color
       </ng-template>
     </prizm-doc-documentation>
     <prizm-doc-documentation [hasTestId]="false" heading="PrizmTbodyComponent">

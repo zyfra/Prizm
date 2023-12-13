@@ -6,8 +6,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       .box {
-        display: flex;
-        gap: 1rem;
+        color: var(--prizm-v3-text-icon-secondary);
       }
     `,
   ],
