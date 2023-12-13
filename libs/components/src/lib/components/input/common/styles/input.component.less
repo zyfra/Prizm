@@ -6,14 +6,18 @@
   height: 100%;
   line-height: 16px;
   font-size: 14px;
-  color: var(--prizm-text-contrast);
+  color: var(--prizm-v3-text-icon-secondary);
   display: block;
   text-overflow: ellipsis;
+
+  &::placeholder {
+    color: var(--prizm-v3-text-icon-disable);
+  }
 }
 
 // In inner context
 :host-context(.prizm-input-form-inner) {
-  padding: 22px 8px 4px 8px;
+  padding: 22px 8px 4px 0px;
 
   &:host-context(.prizm-input-empty-label) {
     padding-top: 4px;
@@ -38,14 +42,14 @@
 }
 
 :host-context(.prizm-input-form-inner[data-size='l']) {
-  padding: 22px 8px 4px 8px;
+  padding: 22px 8px 4px 0px;
 
   &:host-context(.prizm-input-empty-label) {
     padding-top: 4px;
   }
 }
 :host-context(.prizm-input-form-inner[data-size='m']) {
-  padding: 16px 8px 2px 8px;
+  padding: 16px 8px 2px 0px;
 
   &:host-context(.prizm-input-empty-label) {
     padding-top: 2px;
@@ -54,21 +58,21 @@
 
 // In outer context
 :host-context(.prizm-input-form-outer) {
-  padding: 7px 8px;
+  padding: 7px 0px;
 }
 
 // need for optimization output selector in less
 :host-context(.prizm-input-form-outer[data-size='l']) {
-  padding: 11px 8px;
+  padding: 11px 0px;
 }
 
 :host-context(.prizm-input-form-outer[data-size='m']) {
-  padding: 7px 8px;
+  padding: 7px 0px;
 }
 
 :host-context(.prizm-input-form-outer[data-size='s']) {
   font-size: 12px;
-  padding: 4px 8px;
+  padding: 4px 0px;
 }
 
 :host-context([type='number']) {
