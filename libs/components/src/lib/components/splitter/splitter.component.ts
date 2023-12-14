@@ -19,7 +19,7 @@ import { PrizmSplitterOrientation } from './types';
 import { asyncScheduler, BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { map, observeOn, startWith, switchMap, takeUntil, tap, withLatestFrom } from 'rxjs/operators';
 
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 import { PrizmSplitterAreaComponent } from './area/area.component';
@@ -29,7 +29,6 @@ import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 type AreaRealSize = { area: PrizmSplitterAreaComponent; realSize: number; realMinSize: number };
 type GutterData = { areaBefore: number; areaAfter: number; order: number };
@@ -57,10 +56,10 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
   @ContentChild(PrizmSplitterCustomGutterDirective) customGutter!: PrizmSplitterCustomGutterDirective;
 
   @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList: QueryList<PrizmSplitterAreaComponent> =
-    EMPTY_QUERY;
+    prizmEmptyQueryList();
 
   @ViewChildren(PrizmSplitterGutterComponent)
-  splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent> = EMPTY_QUERY;
+  splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui_splitter';
   get gutterElementSize(): number {

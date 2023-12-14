@@ -15,14 +15,13 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 import { fromEvent, merge, Observable } from 'rxjs';
 import { distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmSliderCnobComponent } from './slider-cnob.component';
 import { PrizmSliderCnobValuePosition, PrizmSliderOrientation, PrizmSliderValue } from './types';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-slider',
@@ -58,7 +57,8 @@ export class PrizmSliderComponent
 
   @ViewChild('track') scrollbar!: ElementRef<HTMLDivElement>;
 
-  @ViewChildren(PrizmSliderCnobComponent) private _cnobs: QueryList<PrizmSliderCnobComponent> = EMPTY_QUERY;
+  @ViewChildren(PrizmSliderCnobComponent) private _cnobs: QueryList<PrizmSliderCnobComponent> =
+    prizmEmptyQueryList();
 
   private get cnobs(): Observable<QueryList<PrizmSliderCnobComponent>> {
     return this._cnobs.changes.pipe(startWith(this._cnobs));

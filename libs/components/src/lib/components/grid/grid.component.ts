@@ -1,18 +1,18 @@
 import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
   AfterContentInit,
+  ChangeDetectionStrategy,
+  Component,
   ContentChildren,
   ElementRef,
+  HostBinding,
+  Input,
   QueryList,
   ViewChild,
-  HostBinding,
 } from '@angular/core';
 import { PrizmGridItemComponent } from './components/grid-item/grid-item.component';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
+import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-grid',
@@ -29,10 +29,10 @@ export class PrizmGridComponent extends PrizmAbstractTestId implements AfterCont
   @ViewChild('container', { static: true }) container!: ElementRef;
 
   @ContentChildren(PrizmGridItemComponent, { read: ElementRef })
-  public gridItems: QueryList<ElementRef> = EMPTY_QUERY;
+  public gridItems: QueryList<ElementRef> = prizmEmptyQueryList();
 
   @ContentChildren(PrizmGridItemComponent)
-  public gridItemsData: QueryList<PrizmGridItemComponent> = EMPTY_QUERY;
+  public gridItemsData: QueryList<PrizmGridItemComponent> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui-area--grid';
 

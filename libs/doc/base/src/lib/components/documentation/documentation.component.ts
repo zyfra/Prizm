@@ -12,7 +12,6 @@ import {
   ViewChildren,
 } from '@angular/core';
 import {
-  EMPTY_QUERY,
   tuiHexToRgb,
   tuiIsNumber,
   tuiIsString,
@@ -89,10 +88,12 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   isAPI = false;
 
   @ContentChildren(PrizmDocDocumentationPropertyConnectorDirective)
-  propertiesConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
+  propertiesConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> =
+    prizmEmptyQueryList();
 
   @ViewChildren(PrizmDocDocumentationPropertyConnectorDirective)
-  propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> = EMPTY_QUERY;
+  propertiesInnerConnectors: QueryList<PrizmDocDocumentationPropertyConnectorDirective<any>> =
+    prizmEmptyQueryList();
 
   activeItemIndex = 0;
   testIdPostfix = '';

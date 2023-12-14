@@ -17,7 +17,7 @@ import { PRIZM_NAVIGATION_MENU_CHILDREN_HANDLER, PrizmNavigationMenuChildrenHand
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmTreeControllerDirective, PrizmTreeModule } from '../../../tree';
 import { NgFor } from '@angular/common';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
+import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-navigation-menu-items',
@@ -32,7 +32,7 @@ export class PrizmNavigationMenuItemsComponent<
 > extends PrizmAbstractTestId {
   @ViewChildren(PrizmNavigationMenuItemComponent) private menuItemsList: QueryList<
     PrizmNavigationMenuItemComponent<T>
-  > = EMPTY_QUERY;
+  > = prizmEmptyQueryList();
 
   @Output() itemExpandedChanged = new EventEmitter<{
     item: InternalPrizmNavigationMenuItem<T>;

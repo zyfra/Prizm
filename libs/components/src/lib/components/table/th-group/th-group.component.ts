@@ -19,10 +19,9 @@ import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmThComponent } from '../th/th.component';
-import { moveInEventLoopIteration } from '@prizm-ui/helpers';
+import { moveInEventLoopIteration, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { PrizmTableService } from '../table.service';
 import { PrizmThGroupService } from './th-group.service';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -51,10 +50,10 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
   }
 
   @ContentChildren(forwardRef(() => PrizmThComponent), { descendants: true })
-  readonly th: QueryList<PrizmThComponent<T>> = EMPTY_QUERY;
+  readonly th: QueryList<PrizmThComponent<T>> = prizmEmptyQueryList();
 
   @ContentChildren(forwardRef(() => PrizmHeadDirective))
-  readonly heads: QueryList<PrizmHeadDirective<T>> = EMPTY_QUERY;
+  readonly heads: QueryList<PrizmHeadDirective<T>> = prizmEmptyQueryList();
 
   heads$: Observable<PrizmHeadDirective<T>[]> | null = null;
 

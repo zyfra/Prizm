@@ -17,7 +17,7 @@ import {
 import { CollectionViewer, isDataSource, ListRange } from '@angular/cdk/collections';
 
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { BehaviorSubject, isObservable, Observable } from 'rxjs';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../directives';
@@ -31,7 +31,6 @@ import { PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableDataSourceInput } from '../table.types';
 import { PrizmTrComponent } from '../tr/tr.component';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -135,7 +134,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   readonly row?: PrizmRowDirective<T>;
 
   @ContentChildren(forwardRef(() => PrizmTrComponent))
-  readonly rows: QueryList<PrizmTrComponent<T>> = EMPTY_QUERY;
+  readonly rows: QueryList<PrizmTrComponent<T>> = prizmEmptyQueryList();
 
   columnsCount = 0;
   /**

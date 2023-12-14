@@ -21,7 +21,12 @@ import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import {
+  PrizmCallFuncPipe,
+  PrizmDestroyService,
+  prizmEmptyQueryList,
+  PrizmLetDirective,
+} from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
@@ -38,7 +43,6 @@ import { PrizmCounterComponent } from '../counter';
 import { PrizmIconModule } from '../icon';
 import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 import { prizmIsTextOverflow$ } from '../../util';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-tabs',
@@ -87,10 +91,10 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   public tabsMoreDropdown!: PrizmDropdownHostComponent;
 
   @ContentChildren(PrizmTabComponent, { descendants: true })
-  public tabElements: QueryList<PrizmTabComponent> = EMPTY_QUERY;
+  public tabElements: QueryList<PrizmTabComponent> = prizmEmptyQueryList();
 
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
-  public menuElements: QueryList<TemplateRef<PrizmTabComponent>> = EMPTY_QUERY;
+  public menuElements: QueryList<TemplateRef<PrizmTabComponent>> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui_tabs';
 

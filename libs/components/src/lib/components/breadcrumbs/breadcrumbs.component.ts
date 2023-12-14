@@ -16,14 +16,13 @@ import {
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
 import { CommonModule } from '@angular/common';
 import { PrizmIconModule } from '../icon';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-breadcrumbs',
@@ -57,9 +56,9 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   @ViewChild('container', { static: true }) public containerRef!: ElementRef;
   @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer!: ElementRef;
   @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList: QueryList<ElementRef> =
-    EMPTY_QUERY;
+    prizmEmptyQueryList();
   @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem: QueryList<PrizmBreadcrumbDirective> =
-    EMPTY_QUERY;
+    prizmEmptyQueryList();
 
   public breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);

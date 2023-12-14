@@ -9,9 +9,8 @@ import {
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-accordion',
@@ -24,7 +23,7 @@ import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
-  accordionItems: QueryList<PrizmAccordionItemComponent> = EMPTY_QUERY;
+  accordionItems: QueryList<PrizmAccordionItemComponent> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui_accordion';
 
