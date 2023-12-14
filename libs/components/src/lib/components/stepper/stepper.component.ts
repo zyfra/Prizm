@@ -14,7 +14,6 @@ import { map, startWith, switchMap } from 'rxjs/operators';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
-import { PrizmIconComponent } from '../icon';
 import { PrizmStepperSelectorComponent } from './stepper-selector.component';
 
 @Component({
