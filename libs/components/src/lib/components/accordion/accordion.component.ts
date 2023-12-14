@@ -11,6 +11,7 @@ import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-accordion',
@@ -23,7 +24,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
-  accordionItems!: QueryList<PrizmAccordionItemComponent>;
+  accordionItems: QueryList<PrizmAccordionItemComponent> = EMPTY_QUERY;
 
   override readonly testId_ = 'ui_accordion';
 

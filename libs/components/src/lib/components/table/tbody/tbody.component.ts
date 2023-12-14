@@ -31,6 +31,7 @@ import { PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableDataSourceInput } from '../table.types';
 import { PrizmTrComponent } from '../tr/tr.component';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -134,7 +135,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   readonly row?: PrizmRowDirective<T>;
 
   @ContentChildren(forwardRef(() => PrizmTrComponent))
-  readonly rows: QueryList<PrizmTrComponent<T>> = new QueryList<PrizmTrComponent<T>>();
+  readonly rows: QueryList<PrizmTrComponent<T>> = EMPTY_QUERY;
 
   columnsCount = 0;
   /**

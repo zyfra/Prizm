@@ -35,6 +35,7 @@ import { PrizmButtonModule } from '../../../button';
 import { PolymorphOutletDirective, PrizmHoveredModule } from '../../../../directives';
 import { PrizmAccordionComponent } from '../../../accordion';
 import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-navigation-menu',
@@ -60,7 +61,7 @@ export class PrizmNavigationMenuComponent<
   UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
 > extends PrizmAbstractTestId {
   @ContentChildren(PrizmNavigationMenuGroupComponent)
-  menuGroups!: QueryList<PrizmNavigationMenuGroupComponent<UserItem>>;
+  menuGroups: QueryList<PrizmNavigationMenuGroupComponent<UserItem>> = EMPTY_QUERY;
 
   @Output() homeClicked = new EventEmitter<void>();
   @Output() activeItemChanged = new EventEmitter<UserItem>();

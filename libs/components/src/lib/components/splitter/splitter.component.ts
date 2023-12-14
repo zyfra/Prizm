@@ -29,6 +29,7 @@ import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { ResizeObserverModule } from '@ng-web-apis/resize-observer';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 type AreaRealSize = { area: PrizmSplitterAreaComponent; realSize: number; realMinSize: number };
 type GutterData = { areaBefore: number; areaAfter: number; order: number };
@@ -55,10 +56,11 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
   @ViewChild('container', { static: true }) private containerElement!: ElementRef<HTMLElement>;
   @ContentChild(PrizmSplitterCustomGutterDirective) customGutter!: PrizmSplitterCustomGutterDirective;
 
-  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList!: QueryList<PrizmSplitterAreaComponent>;
+  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList: QueryList<PrizmSplitterAreaComponent> =
+    EMPTY_QUERY;
 
   @ViewChildren(PrizmSplitterGutterComponent)
-  splitterGutterQueryList!: QueryList<PrizmSplitterGutterComponent>;
+  splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent> = EMPTY_QUERY;
 
   override readonly testId_ = 'ui_splitter';
   get gutterElementSize(): number {

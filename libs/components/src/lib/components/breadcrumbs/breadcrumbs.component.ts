@@ -23,6 +23,7 @@ import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
 import { CommonModule } from '@angular/common';
 import { PrizmIconModule } from '../icon';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-breadcrumbs',
@@ -55,8 +56,10 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   @Output() public breadcrumbChange: EventEmitter<Breadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef!: ElementRef;
   @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer!: ElementRef;
-  @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList!: QueryList<ElementRef>;
-  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem!: QueryList<PrizmBreadcrumbDirective>;
+  @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList: QueryList<ElementRef> =
+    EMPTY_QUERY;
+  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem: QueryList<PrizmBreadcrumbDirective> =
+    EMPTY_QUERY;
 
   public breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);

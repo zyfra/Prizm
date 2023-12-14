@@ -5,6 +5,7 @@ import { PrizmStepperStepDirective } from './stepper-step.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { PrizmIconComponent } from '../icon/icon.component';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-stepper-selector',
@@ -28,7 +29,7 @@ export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
   @Output() selectStep = new EventEmitter<number>();
 
   @ViewChildren(PrizmStepperSelectorItemDirective)
-  selectorItems!: QueryList<PrizmStepperSelectorItemDirective>;
+  selectorItems: QueryList<PrizmStepperSelectorItemDirective> = EMPTY_QUERY;
   override readonly testId_ = 'ui_stepper--selector';
 
   public clickOnStep(index: number): void {

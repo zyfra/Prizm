@@ -22,6 +22,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmCellService } from '../directives/cell.service';
 import { PrizmTdService } from '../td/td.service';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -52,7 +53,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   }
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
-  readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
+  readonly cells: QueryList<PrizmCellDirective> = EMPTY_QUERY;
 
   readonly cells$ = merge(
     this.cells.changes,

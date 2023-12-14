@@ -22,6 +22,7 @@ import { distinctUntilChanged, map, startWith, switchMap, takeUntil, tap } from 
 import { PrizmSliderCnobComponent } from './slider-cnob.component';
 import { PrizmSliderCnobValuePosition, PrizmSliderOrientation, PrizmSliderValue } from './types';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-slider',
@@ -57,7 +58,7 @@ export class PrizmSliderComponent
 
   @ViewChild('track') scrollbar!: ElementRef<HTMLDivElement>;
 
-  @ViewChildren(PrizmSliderCnobComponent) private _cnobs!: QueryList<PrizmSliderCnobComponent>;
+  @ViewChildren(PrizmSliderCnobComponent) private _cnobs: QueryList<PrizmSliderCnobComponent> = EMPTY_QUERY;
 
   private get cnobs(): Observable<QueryList<PrizmSliderCnobComponent>> {
     return this._cnobs.changes.pipe(startWith(this._cnobs));

@@ -38,6 +38,7 @@ import { PrizmCounterComponent } from '../counter';
 import { PrizmIconModule } from '../icon';
 import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 import { prizmIsTextOverflow$ } from '../../util';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-tabs',
@@ -84,10 +85,12 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   @ViewChild('tabsContainer', { static: true }) public tabsContainer!: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown!: PrizmDropdownHostComponent;
   public tabsMoreDropdown!: PrizmDropdownHostComponent;
+
   @ContentChildren(PrizmTabComponent, { descendants: true })
-  public tabElements!: QueryList<PrizmTabComponent>;
+  public tabElements: QueryList<PrizmTabComponent> = EMPTY_QUERY;
+
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
-  public menuElements!: QueryList<TemplateRef<PrizmTabComponent>>;
+  public menuElements: QueryList<TemplateRef<PrizmTabComponent>> = EMPTY_QUERY;
 
   override readonly testId_ = 'ui_tabs';
 

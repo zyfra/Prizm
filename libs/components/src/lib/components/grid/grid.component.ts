@@ -12,6 +12,7 @@ import {
 import { PrizmGridItemComponent } from './components/grid-item/grid-item.component';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
+import { EMPTY_QUERY } from '@taiga-ui/cdk/constants/empty';
 
 @Component({
   selector: 'prizm-grid',
@@ -26,8 +27,12 @@ export class PrizmGridComponent extends PrizmAbstractTestId implements AfterCont
   @Input() public rows = '10';
 
   @ViewChild('container', { static: true }) container!: ElementRef;
-  @ContentChildren(PrizmGridItemComponent, { read: ElementRef }) public gridItems!: QueryList<ElementRef>;
-  @ContentChildren(PrizmGridItemComponent) public gridItemsData!: QueryList<PrizmGridItemComponent>;
+
+  @ContentChildren(PrizmGridItemComponent, { read: ElementRef })
+  public gridItems: QueryList<ElementRef> = EMPTY_QUERY;
+
+  @ContentChildren(PrizmGridItemComponent)
+  public gridItemsData: QueryList<PrizmGridItemComponent> = EMPTY_QUERY;
 
   override readonly testId_ = 'ui-area--grid';
 
