@@ -3,8 +3,8 @@ import { PrizmToastAppearance, PrizmToastPosition, PrizmToastService } from '@pr
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
-  selector: 'prizm-message-none-example',
-  templateUrl: './message-none-example.component.html',
+  selector: 'prizm-message-secondary-example',
+  templateUrl: './message-secondary-example.component.html',
   styles: [
     `
       .box {
@@ -53,8 +53,8 @@ import { UntypedFormControl } from '@angular/forms';
     `,
   ],
 })
-export class PrizmToastNoneExampleComponent {
-  readonly containerId = 'inline-container-none';
+export class PrizmToastSecondaryExampleComponent {
+  readonly containerId = 'inline-container-secondary';
 
   readonly data = [
     {
@@ -87,7 +87,7 @@ export class PrizmToastNoneExampleComponent {
     },
   ];
 
-  appearance: PrizmToastAppearance = 'none';
+  appearance: PrizmToastAppearance = 'secondary';
   readonly formControl = new UntypedFormControl(PrizmToastPosition.TOP_RIGHT);
 
   constructor(private readonly toastService: PrizmToastService) {}

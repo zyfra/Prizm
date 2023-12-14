@@ -38,9 +38,9 @@ export class ToastComponent {
     HTML: import('./examples/message-success-example/message-success-example.component.html?raw'),
   };
 
-  readonly exampleMessageNone: TuiDocExample = {
-    TypeScript: import('./examples/message-none-example/message-none-example.component.ts?raw'),
-    HTML: import('./examples/message-none-example/message-none-example.component.html?raw'),
+  readonly exampleMessageSecondary: TuiDocExample = {
+    TypeScript: import('./examples/message-secondary-example/message-secondary-example.component.ts?raw'),
+    HTML: import('./examples/message-secondary-example/message-secondary-example.component.html?raw'),
   };
 
   readonly exampleToast: TuiDocExample = {
@@ -58,7 +58,7 @@ export class ToastComponent {
     'success',
     'warning',
     'danger',
-    'none',
+    'secondary',
   ];
   appearance: PrizmToastAppearance = this.appearanceVariants[0];
 
