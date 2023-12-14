@@ -30,7 +30,7 @@ import { PrizmDocHostElementListenerService } from '../host';
 import orderBy from 'lodash-es/orderBy';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { UntypedFormControl, Validators } from '@angular/forms';
-import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { prizmEmptyQueryList, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({
