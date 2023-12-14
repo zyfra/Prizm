@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Host, HostBinding } from '@angular/core';
+import { Directive, ElementRef, Host } from '@angular/core';
 import { PrizmInputTextComponent } from '../input-text/input-text.component';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 

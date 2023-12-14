@@ -8,6 +8,10 @@
   width: 15.75rem;
   padding: 1.125rem;
   box-sizing: content-box;
+
+  .year-btn {
+    .pagination-btn();
+  }
 }
 
 .z-row {
@@ -23,10 +27,10 @@
   }
 
   &:not([data-range='start']):not([data-range='single']):not([data-range='end']):hover {
-    background-color: var(--prizm-g2-g11);
+    background-color: var(--prizm-v3-button-ghost-hover);
 
     .z-item {
-      color: var(--prizm-index-plan) !important;
+      color: var(--prizm-v3-button-primary-solid-hover) !important;
     }
   }
 }
