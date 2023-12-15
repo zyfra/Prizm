@@ -2,19 +2,19 @@
   #dropdownHostRef
   [content]="dropdown"
   [isOpen]="$any(opened$ | async)"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
   [dropdownStyles]="dropdownStyles"
   [dropdownClasses]="dropdownClasses"
-  [ngSwitch]="layoutComponent.outer"
+  [ngSwitch]="layoutComponent?.outer"
   (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
 >
   <input
     #focusableElementRef
-    [style.display]="layoutComponent.outer && value?.length ? 'none' : ''"
-    [style.visibility]="!layoutComponent.outer && value?.length ? 'hidden' : ''"
+    [style.display]="layoutComponent?.outer && value?.length ? 'none' : ''"
+    [style.visibility]="!layoutComponent?.outer && value?.length ? 'hidden' : ''"
     [disabled]="disabled"
     [readonly]="true"
     [placeholder]="placeholder"
@@ -122,7 +122,11 @@
 <ng-template #chipsTemplate>
   <ng-container *prizmLet="selectedItemsChips$ | async as chips">
     <prizm-chips
-      [style.max-width.px]="layoutComponent.el.nativeElement.clientWidth - button_layout_width"
+      [style.max-width.px]="
+        layoutComponent?.el?.nativeElement
+          ? layoutComponent!.el!.nativeElement.clientWidth - button_layout_width
+          : 0
+      "
       [class.empty]="!chips.length"
       [size]="$any(size)"
       [class.inner]="inner"

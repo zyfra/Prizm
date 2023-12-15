@@ -3,7 +3,7 @@
   #prizmDropdownHostComponent
   [style.--prizm-dropdown-host-width]="'100%'"
   [canOpen]="!disabled"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   [content]="$any(getTemplate(dropdownTimeTemplate, dropdownDateTemplate))"
   [prizmDropdownHostWidth]="openTimeTemplate ? '100%' : 'auto'"
   [isOpen]="!disabled && (openTimeTemplate || open)"

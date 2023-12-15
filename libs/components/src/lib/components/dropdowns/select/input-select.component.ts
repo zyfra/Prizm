@@ -15,13 +15,17 @@ import {
 } from '@angular/core';
 import {
   Compare,
-  PrizmCallFuncModule,
+  PrizmCallFuncPipe,
   PrizmDestroyService,
-  PrizmLetModule,
+  PrizmLetDirective,
   PrizmToObservablePipe,
 } from '@prizm-ui/helpers';
 import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { isPolymorphPrimitive, PolymorphContent, PolymorphModule } from '../../../directives/polymorph';
+import {
+  isPolymorphPrimitive,
+  PolymorphContent,
+  PolymorphOutletDirective,
+} from '../../../directives/polymorph';
 import {
   PRIZM_SELECT_OPTIONS,
   PrizmSelectOptions,
@@ -36,11 +40,22 @@ import {
   distinctUntilChanged,
   map,
   shareReplay,
+  startWith,
   switchMap,
   takeUntil,
   tap,
 } from 'rxjs/operators';
-import { BehaviorSubject, concat, fromEvent, Observable, Subject, timer } from 'rxjs';
+import {
+  BehaviorSubject,
+  concat,
+  defer,
+  fromEvent,
+  isObservable,
+  Observable,
+  of,
+  Subject,
+  timer,
+} from 'rxjs';
 import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
@@ -50,12 +65,11 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import {
   PrizmDropdownHostClasses,
   PrizmDropdownHostComponent,
-  PrizmDropdownHostModule,
   PrizmDropdownHostStyles,
 } from '../dropdown-host';
-import { PrizmOverlayModule, PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
+import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay';
 import { PrizmInputNgControl } from '../../input/common/base/input-ng-control.class';
-import { PrizmScrollbarModule, PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 import { PrizmInputSelectOptionDirective } from './input-select-option.directive';
 import { PrizmInputSelectOptionService } from './input-select-option.service';
 import { PrizmChipsModule } from '../../chips';
@@ -63,15 +77,17 @@ import { CommonModule } from '@angular/common';
 import {
   PrizmAutoFocusModule,
   PrizmDropdownControllerModule,
-  PrizmHintModule,
-  PrizmLifecycleModule,
+  PrizmHintDirective,
+  PrizmLifecycleDirective,
 } from '../../../directives';
-import { PrizmIconModule } from '../../icon';
-import { PrizmDataListModule } from '../../data-list';
+import { PrizmIconComponent } from '../../icon';
+import { PrizmDataListComponent } from '../../data-list';
 import { prizmWatch } from '../../../observables';
 import { PrizmSelectInputItemComponent } from './input-select-item.component';
 import { PrizmInputSelectDataListDirective } from './input-select-data-list.directive';
 import { BooleanInput } from '@angular/cdk/coercion';
+import { PrizmScrollbarDirective } from '../../scrollbar/scrollbar.directive';
+import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
 
 @Component({
   selector: 'prizm-input-select',
@@ -80,25 +96,25 @@ import { BooleanInput } from '@angular/cdk/coercion';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmOverlayModule,
+    PrizmOverlayComponent,
     PrizmInputSelectOptionDirective,
-    PolymorphModule,
+    PolymorphOutletDirective,
     PrizmInputTextModule,
     PrizmChipsModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    PrizmLetModule,
+    PrizmLetDirective,
     PrizmAutoFocusModule,
-    PrizmHintModule,
-    PrizmIconModule,
-    PrizmCallFuncModule,
-    PrizmScrollbarModule,
+    PrizmHintDirective,
+    PrizmIconComponent,
+    PrizmCallFuncPipe,
+    PrizmScrollbarDirective,
     PrizmDropdownControllerModule,
-    PrizmLifecycleModule,
-    PrizmDataListModule,
+    PrizmLifecycleDirective,
+    PrizmDataListComponent,
     PrizmSelectInputItemComponent,
-    PrizmDropdownHostModule,
+    PrizmDropdownHostComponent,
     PrizmToObservablePipe,
     PrizmInputSelectOptionDirective,
   ],
@@ -216,6 +232,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public readonly searchChange = new EventEmitter<string | null>();
 
   override defaultLabel = this.options.label;
+
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
   public readonly defaultIcon = 'chevrons-dropdown';
@@ -257,14 +274,15 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public override ngOnInit() {
     super.ngOnInit();
     this.initSelectListener();
-    fromEvent(this.layoutComponent.el.nativeElement, 'click')
-      .pipe(
-        tap(event => {
-          this.safeOpenModal();
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
+    if (this.layoutComponent)
+      fromEvent(this.layoutComponent.el.nativeElement, 'click')
+        .pipe(
+          tap(event => {
+            this.safeOpenModal();
+          }),
+          takeUntil(this.destroy$)
+        )
+        .subscribe();
 
     this.filteredItems$ = concat(this.printing$.pipe()).pipe(
       tap(value => this.searchEmit(value as string)),
@@ -371,5 +389,23 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     if (Compare.isNullish(value)) return null as any;
     const newItem = this.getValueFromItems(this.value, items);
     return newItem as any;
+  }
+
+  public stringifyForInner(i: T, outer: boolean, label: string, nullContent?: string): Observable<string> {
+    if (!this.layoutComponent) {
+      return defer(() => {
+        const result = this.stringify(i, nullContent);
+        return isObservable(result) ? result : of(result);
+      });
+    }
+
+    return this.layoutComponent.changes$.pipe(
+      startWith(),
+      switchMap(() => {
+        const flow$ = outer || label ? this.stringify(i, nullContent) : this.stringify(i);
+
+        return isObservable(flow$) ? flow$ : of(flow$);
+      })
+    );
   }
 }
