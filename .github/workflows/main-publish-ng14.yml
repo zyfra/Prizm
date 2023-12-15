@@ -22,7 +22,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Restore cache
@@ -110,7 +110,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: 'Build doc app for firebase hosting'
@@ -148,7 +148,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/components && npm publish --tag ng14 --access public --verbose
@@ -176,7 +176,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/i18n && npm publish --tag ng14 --access public --verbose
@@ -204,7 +204,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/helpers && npm publish --tag ng14 --access public --verbose
@@ -232,7 +232,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/core && npm publish --tag ng14 --access public --verbose
@@ -260,7 +260,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/theme && npm publish --tag ng14 --access public --verbose
@@ -288,7 +288,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/icons/base && npm publish --tag ng14 --access public --verbose
@@ -316,7 +316,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/icons/flags && npm publish --tag ng14 --access public --verbose
@@ -344,7 +344,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/plugin && npm publish --tag ng14 --access public --verbose
@@ -372,7 +372,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/ast && npm publish --tag ng14 --access public --verbose
@@ -400,7 +400,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/charts && npm publish --tag ng14 --access public --verbose
@@ -428,7 +428,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/nxmv && npm publish --tag ng14 --access public --verbose

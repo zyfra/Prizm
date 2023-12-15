@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Restore cache
@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            (npm view @prizm-ui/components versions --tag beta --json 2>/dev/null || echo '3.8.0-beta.0') | jq '([.[] | select(startswith("3.8.0-beta"))] | last // "3.6.0-beta.0")' 2>/dev/null || echo '3.6.0-beta.0'
+            (npm view @prizm-ui/components versions --tag beta --json 2>/dev/null || echo '3.8.0-beta.0') | jq '([.[] | select(startswith("3.8.0-beta"))] | last // "3.8.0-beta.0")' 2>/dev/null || echo '3.8.0-beta.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
@@ -68,7 +68,7 @@ jobs:
         run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*-beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
       - name: 'Build beta versions'
-        run: npx nx run-many --target=build --all --parallel --max-parallel=3
+        run: npx nx run-many --target=build --all --parallel --max-parallel=3 --configuration development
 
       - name: Save dist in cache...
         id: dist-cache-save
@@ -99,7 +99,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: 'Build doc app for firebase hosting'
@@ -136,7 +136,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/components && npm publish --tag beta --access public --verbose
@@ -163,7 +163,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/i18n && npm publish --tag beta --access public --verbose
@@ -190,7 +190,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/helpers && npm publish --tag beta --access public --verbose
@@ -216,7 +216,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/core && npm publish --tag beta --access public --verbose
@@ -243,7 +243,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/theme && npm publish --tag beta --access public --verbose
@@ -270,7 +270,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/icons/base && npm publish --tag beta --access public --verbose
@@ -297,7 +297,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/icons/flags && npm publish --tag beta --access public --verbose
@@ -324,7 +324,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/plugin && npm publish --tag beta --access public --verbose
@@ -351,7 +351,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/ast && npm publish --tag beta --access public --verbose
@@ -378,7 +378,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/charts && npm publish --tag beta --access public --verbose
@@ -405,7 +405,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/nxmv && npm publish --tag beta --access public --verbose
