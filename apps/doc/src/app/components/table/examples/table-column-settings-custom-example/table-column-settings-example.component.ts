@@ -13,7 +13,7 @@ export interface ITableProduct {
 }
 
 @Component({
-  selector: 'prizm-table-column-settings-custom-example',
+  selector: 'prizm-table-column-settings-example',
   templateUrl: './table-column-settings-example.component.html',
   styleUrls: ['./table-column-settings-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,

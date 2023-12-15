@@ -1,35 +1,34 @@
-<prizm-scrollbar class="scroll-box">
+<prizm-scrollbar class="scroll-box" prizmTheme>
   <ng-container *ngIf="columns.length; else dropZone">
-    <prizm-listing-item
-      *ngFor="let column of columns"
-      cdkDrag
-      cdkDragPreviewClass="prizm-high-index"
-      prizmTheme
-    >
-      <ng-container leftBox>
-        <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
+    <ng-container *ngFor="let column of columns">
+      <ng-container *polymorphOutlet="column.template; context: getContext(column)">
+        <prizm-listing-item cdkDrag cdkDragPreviewClass="prizm-high-index">
+          <ng-container leftBox>
+            <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>
+          </ng-container>
+          <span>{{ column.name }}</span>
+          <ng-container rightBox>
+            <button
+              [icon]="column.status | prizmColumnIcon"
+              [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
+              [prizmHint]="
+                isLastColumnShown && column.status === 'default'
+                  ? (translations | prizmPluck : ['disabledHint'])
+                  : ''
+              "
+              (click)="toggleColumnStatus(column)"
+              prizmIconButton
+              appearanceType="ghost"
+              appearance="secondary"
+              size="m"
+            ></button>
+          </ng-container>
+          <ng-container *cdkDragPlaceholder>
+            <ng-container *ngTemplateOutlet="placeholder"></ng-container>
+          </ng-container>
+        </prizm-listing-item>
       </ng-container>
-      <span>{{ column.name }}</span>
-      <ng-container rightBox>
-        <button
-          [icon]="column.status | prizmColumnIcon"
-          [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
-          [prizmHint]="
-            isLastColumnShown && column.status === 'default'
-              ? (translations | prizmPluck : ['disabledHint'])
-              : ''
-          "
-          (click)="toggleColumnStatus(column)"
-          prizmIconButton
-          appearanceType="ghost"
-          appearance="secondary"
-          size="m"
-        ></button>
-      </ng-container>
-      <ng-container *cdkDragPlaceholder>
-        <ng-container *ngTemplateOutlet="placeholder"></ng-container>
-      </ng-container>
-    </prizm-listing-item>
+    </ng-container>
   </ng-container>
 </prizm-scrollbar>
 

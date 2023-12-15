@@ -1,0 +1,174 @@
+<prizm-widget [icons]="[iconBtnTemplate]" title="Управление колонками">
+  <prizm-scrollbar class="scrollable">
+    <table class="table" [columns]="columns" prizmStickyRelative prizmTable>
+      <thead>
+        <tr prizmThGroup>
+          <th
+            *prizmHead="'code'"
+            [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Код
+          </th>
+          <th
+            *prizmHead="'name'"
+            [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Наименование
+          </th>
+          <th
+            *prizmHead="'category'"
+            [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Категория
+          </th>
+          <th
+            *prizmHead="'count'"
+            [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Количество
+          </th>
+          <th
+            *prizmHead="'nameTwin'"
+            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Наименование 2
+          </th>
+          <th
+            *prizmHead="'categoryTwin'"
+            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Категория 2
+          </th>
+          <th
+            *prizmHead="'countTwin'"
+            [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyHeaderStyle"
+            [class.unsticky]="settings.fixHeader | prizmStickyHeader"
+            prizmTh
+          >
+            Количество 2
+          </th>
+        </tr>
+      </thead>
+
+      <tbody [data]="products" prizmTbody>
+        <tr class="row" *prizmRow="let item of products; let i = index" prizmTr>
+          <td
+            class="format__number"
+            *prizmCell="'code'"
+            [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.code | spaceNumber : '0.0-0' }}
+          </td>
+          <td
+            *prizmCell="'name'"
+            [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.name }}
+          </td>
+          <td
+            *prizmCell="'category'"
+            [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.category }}
+          </td>
+          <td
+            class="format__number"
+            *prizmCell="'count'"
+            [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+          <td
+            *prizmCell="'nameTwin'"
+            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.name }}
+          </td>
+          <td
+            *prizmCell="'categoryTwin'"
+            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.category }}
+          </td>
+          <td
+            class="format__number"
+            *prizmCell="'countTwin'"
+            [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
+            [stylesOnSticky]="stickyStyle"
+            prizmTd
+          >
+            {{ item.count | spaceNumber : '0.0-0' }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </prizm-scrollbar>
+</prizm-widget>
+
+<ng-template #iconBtnTemplate>
+  <prizm-dropdown-host [(isOpen)]="showColumnSettings" [content]="dropdown" prizmDropdownHostWidth="auto">
+    <button
+      [icon]="'settings'"
+      (click)="toggleColumnSettings()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="s"
+    ></button>
+  </prizm-dropdown-host>
+</ng-template>
+
+<ng-template #dropdown>
+  <prizm-column-settings
+    [defaultSettings]="defaultSettings"
+    [settings]="settings"
+    [stickySettings]="true"
+    [headerSettings]="true"
+    (isSettingsChanged)="updateTableSettings($event)"
+  ></prizm-column-settings>
+</ng-template>
