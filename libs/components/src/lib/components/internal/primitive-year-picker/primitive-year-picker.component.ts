@@ -92,6 +92,11 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   }
 
   public scrollItemIntoView(item: number): boolean {
+    console.log('#mz pyp scrollItemIntoView', this.initialItem.year === item, {
+      item,
+      initialItem: this.initialItem,
+      self: this,
+    });
     return this.initialItem.year === item;
   }
 
