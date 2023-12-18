@@ -94,7 +94,7 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
     return this.isLegacy && this.visibility === 'visible' && !this.delegated;
   }
 
-  @HostListener(`${PRIZM_SCROLLABLE}.stop`, ['$event.detail'])
+  @HostListener(`${PRIZM_SCROLLABLE}`, ['$event.detail'])
   public onScrollable(element: HTMLElement, $event: Event): void {
     console.log('#mz onScrollable', 1, {
       element,
@@ -105,7 +105,7 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
     this.browserScrollRef.nativeElement = element;
   }
 
-  @HostListener(`${PRIZM_SCROLL_INTO_VIEW}.stop`, ['$event.detail', '$event'])
+  @HostListener(`${PRIZM_SCROLL_INTO_VIEW}`, ['$event.detail', '$event'])
   public scrollIntoView(detail: HTMLElement, event: Event): void {
     console.log('#mz scrollIntoView', 1, {
       detail,
