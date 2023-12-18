@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Directive, ElementRef, Inject, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Inject, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -15,7 +15,7 @@ import { prizmCustomEvent } from '../../util/dom/custom-event';
   standalone: true,
   providers: [PrizmDestroyService],
 })
-export class PrizmScrollIntoViewDirective implements OnInit {
+export class PrizmScrollIntoViewDirective {
   @Input()
   @prizmRequiredSetter()
   set prizmScrollIntoView(scroll: boolean) {
@@ -23,13 +23,11 @@ export class PrizmScrollIntoViewDirective implements OnInit {
       return;
     }
 
-    console.log('#mz prizmScrollIntoView', 1, scroll);
     // Timeout is necessary in order to give element render cycle to get into its final spot
     // (for example if it is inside dropdown box which has to be positioned first)
     timer(0)
       .pipe(takeUntil(this.destroy$))
       .subscribe(() => {
-        console.log('#mz prizmScrollIntoView', 2, scroll);
         this.elementRef.nativeElement.dispatchEvent(
           prizmCustomEvent<Element>(
             PRIZM_SCROLL_INTO_VIEW,
@@ -48,10 +46,4 @@ export class PrizmScrollIntoViewDirective implements OnInit {
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(PrizmDestroyService) private readonly destroy$: Observable<void>
   ) {}
-
-  ngOnInit(): void {
-    console.log('#mz PrizmScrollIntoViewDirective', {
-      self: this,
-    });
-  }
 }

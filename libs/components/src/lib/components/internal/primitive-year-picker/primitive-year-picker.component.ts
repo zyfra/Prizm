@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  HostBinding,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmMonthRange } from '../../../@core/date-time/month-range';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -42,7 +34,7 @@ const ITEMS_IN_ROW = 3;
     PrizmScrollIntoViewDirective,
   ],
 })
-export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId implements OnInit {
+export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   private hoveredItem: number | null = null;
   private pressedItem: number | null = null;
   private readonly currentYear = PrizmMonth.currentLocal().year;
@@ -100,11 +92,6 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId imple
   }
 
   public scrollItemIntoView(item: number): boolean {
-    console.log('#mz pyp scrollItemIntoView', this.initialItem.year === item, {
-      item,
-      initialItem: this.initialItem,
-      self: this,
-    });
     return this.initialItem.year === item;
   }
 
@@ -241,12 +228,5 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId imple
 
   private updatePressedItem(pressed: boolean, item: number): void {
     this.pressedItem = pressed ? item : null;
-  }
-
-  ngOnInit(): void {
-    console.log('#mz pyp ngOnInit', this.initialItem.year, {
-      initialItem: this.initialItem,
-      self: this,
-    });
   }
 }
