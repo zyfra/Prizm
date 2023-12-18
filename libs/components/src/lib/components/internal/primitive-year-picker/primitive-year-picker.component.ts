@@ -15,15 +15,15 @@ import { PrizmBooleanHandler } from '../../../types/handler';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { prizmInRange } from '../../../util/math/in-range';
 import {
-  PrizmHoveredModule,
+  PrizmHoveredDirective,
   PrizmInteractiveState,
-  PrizmPressedModule,
-  PrizmRepeatTimesModule,
-  PrizmScrollIntoViewModule,
+  PrizmPressedDirective,
+  PrizmRepeatTimesDirective,
+  PrizmScrollIntoViewDirective,
 } from '../../../directives';
 import { PrizmRangeState } from '../../../@core/enums/range-state';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
-import { PrizmLetDirective, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmLetDirective } from '@prizm-ui/helpers';
 
 const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
@@ -35,11 +35,11 @@ const ITEMS_IN_ROW = 3;
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmHoveredModule,
-    PrizmPressedModule,
-    PrizmRepeatTimesModule,
+    PrizmHoveredDirective,
+    PrizmPressedDirective,
+    PrizmRepeatTimesDirective,
     PrizmLetDirective,
-    PrizmScrollIntoViewModule,
+    PrizmScrollIntoViewDirective,
   ],
 })
 export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId implements OnInit {

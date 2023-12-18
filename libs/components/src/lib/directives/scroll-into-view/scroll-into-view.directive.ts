@@ -12,6 +12,7 @@ import { prizmCustomEvent } from '../../util/dom/custom-event';
  */
 @Directive({
   selector: `[prizmScrollIntoView]`,
+  standalone: true,
   providers: [PrizmDestroyService],
 })
 export class PrizmScrollIntoViewDirective implements OnInit {
