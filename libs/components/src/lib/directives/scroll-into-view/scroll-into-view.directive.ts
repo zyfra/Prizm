@@ -1,5 +1,5 @@
 import { DOCUMENT } from '@angular/common';
-import { Directive, ElementRef, Inject, Input } from '@angular/core';
+import { Directive, ElementRef, Inject, Input, OnInit } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { Observable, timer } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -14,7 +14,7 @@ import { prizmCustomEvent } from '../../util/dom/custom-event';
   selector: `[prizmScrollIntoView]`,
   providers: [PrizmDestroyService],
 })
-export class PrizmScrollIntoViewDirective {
+export class PrizmScrollIntoViewDirective implements OnInit {
   @Input()
   @prizmRequiredSetter()
   set prizmScrollIntoView(scroll: boolean) {
@@ -45,4 +45,10 @@ export class PrizmScrollIntoViewDirective {
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(PrizmDestroyService) private readonly destroy$: Observable<void>
   ) {}
+
+  ngOnInit(): void {
+    console.log('#mz PrizmScrollIntoViewDirective', {
+      self: this,
+    });
+  }
 }
