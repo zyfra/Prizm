@@ -274,15 +274,14 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   public override ngOnInit() {
     super.ngOnInit();
     this.initSelectListener();
-    if (this.layoutComponent)
-      fromEvent(this.layoutComponent.el.nativeElement, 'click')
-        .pipe(
-          tap(event => {
-            this.safeOpenModal();
-          }),
-          takeUntil(this.destroy$)
-        )
-        .subscribe();
+    fromEvent(this.layoutComponent?.el.nativeElement ?? this.elRef_.nativeElement, 'click')
+      .pipe(
+        tap(() => {
+          this.safeOpenModal();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
     this.filteredItems$ = concat(this.printing$.pipe()).pipe(
       tap(value => this.searchEmit(value as string)),
