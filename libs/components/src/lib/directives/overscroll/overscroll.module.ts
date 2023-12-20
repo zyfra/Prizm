@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmOverscrollDirective } from './overscroll.directive';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmOverscrollDirective],
+  imports: [PrizmOverscrollDirective],
   exports: [PrizmOverscrollDirective],
 })
 export class PrizmOverscrollModule {}

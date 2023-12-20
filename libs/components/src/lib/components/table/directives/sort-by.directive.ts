@@ -5,15 +5,14 @@ import { PrizmSortableDirective } from './sortable.directive';
 import { PrizmTableDirective } from './table.directive';
 import { PrizmComparator } from '../table.types';
 import { prizmDefaultProp } from '@prizm-ui/core';
+import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 @Directive({
   selector: `table[prizmTable][prizmSortBy]`,
 })
 export class PrizmSortByDirective<T extends Partial<Record<keyof T, any>>> {
   @ContentChildren(PrizmSortableDirective, { descendants: true })
-  private readonly sortables: QueryList<PrizmSortableDirective<T>> = new QueryList<
-    PrizmSortableDirective<T>
-  >();
+  private readonly sortables: QueryList<PrizmSortableDirective<T>> = prizmEmptyQueryList();
 
   @Input()
   @prizmDefaultProp()

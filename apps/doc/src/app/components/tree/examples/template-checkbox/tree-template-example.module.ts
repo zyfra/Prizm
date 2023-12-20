@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmCheckboxModule,
+  PrizmCheckboxComponent,
   PrizmIconModule,
   PrizmMapperPipeModule,
   PrizmTreeModule,
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrizmTreeModule,
-    PrizmCheckboxModule,
+    PrizmCheckboxComponent,
     FormsModule,
     PrizmMapperPipeModule,
     PrizmIconModule,

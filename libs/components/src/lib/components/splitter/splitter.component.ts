@@ -19,7 +19,7 @@ import { PrizmSplitterOrientation } from './types';
 import { asyncScheduler, BehaviorSubject, fromEvent, merge, Observable } from 'rxjs';
 import { map, observeOn, startWith, switchMap, takeUntil, tap, withLatestFrom } from 'rxjs/operators';
 
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 import { PrizmSplitterAreaComponent } from './area/area.component';
@@ -55,10 +55,11 @@ export class PrizmSplitterComponent extends PrizmAbstractTestId implements After
   @ViewChild('container', { static: true }) private containerElement!: ElementRef<HTMLElement>;
   @ContentChild(PrizmSplitterCustomGutterDirective) customGutter!: PrizmSplitterCustomGutterDirective;
 
-  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList!: QueryList<PrizmSplitterAreaComponent>;
+  @ContentChildren(PrizmSplitterAreaComponent) splitterAreaQueryList: QueryList<PrizmSplitterAreaComponent> =
+    prizmEmptyQueryList();
 
   @ViewChildren(PrizmSplitterGutterComponent)
-  splitterGutterQueryList!: QueryList<PrizmSplitterGutterComponent>;
+  splitterGutterQueryList: QueryList<PrizmSplitterGutterComponent> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui_splitter';
   get gutterElementSize(): number {
