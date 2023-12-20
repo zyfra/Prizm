@@ -495,8 +495,9 @@ export class PrizmInputLayoutDateTimeComponent
     ev.stopImmediatePropagation();
     super.clear(ev);
     this.nativeValue$$.next(['', '']);
-    this.updateValue([null, null]);
-    this.layoutComponent?.cdr.markForCheck();
+    this.updateValue(null);
+    this.markAsTouched();
+    this.stateChanges.next();
   }
 
   public referFocusToMain(referFocus = true) {

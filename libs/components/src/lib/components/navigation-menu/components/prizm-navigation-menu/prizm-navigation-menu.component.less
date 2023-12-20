@@ -1,15 +1,16 @@
 .prizm-navigation-menu {
-  --prizm-navigation-menu__item-padding: 0 8px 0 4px;
+  --prizm-navigation-menu__item-padding: 8px 16px;
   --prizm-navigation-menu__item-height: 40px;
-  --prizm-navigation-menu__focus-color: var(--prizm-lite-b130-20);
 
   display: grid;
   grid-template-rows: min-content;
   height: 100%;
-  background: var(--prizm-grey-g11-g3);
+  background: var(--prizm-v3-background-fill-primary);
+  border-right: 1px solid var(--prizm-v3-background-stroke);
 
   &__header {
     overflow: hidden;
+    border-bottom: 1px solid var(--prizm-v3-background-stroke);
   }
 
   &__content {
@@ -23,7 +24,7 @@
       justify-content: space-between;
       padding: var(--prizm-navigation-menu__item-padding);
       height: var(--prizm-navigation-menu__item-height);
-      border-bottom: 1px solid var(--prizm-grey-g10-g4);
+      border-bottom: 1px solid var(--prizm-v3-background-stroke);
     }
 
     &__toolbar {
@@ -34,9 +35,9 @@
       font-size: 14px;
       line-height: 20px;
       font-weight: 600;
-      padding: 0 8px;
+      padding: 0 4px;
 
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-primary);
 
       white-space: nowrap;
       overflow: hidden;
@@ -49,18 +50,6 @@
 
       button[prizmIconButton] {
         margin: 0px 1px;
-
-        &:hover,
-        &._active {
-          ::ng-deep prizm-wrapper.z-wrapper {
-            color: var(--prizm-primary);
-            background: transparent;
-          }
-        }
-
-        &._focused {
-          box-shadow: 0 0 0 2px var(--prizm-navigation-menu__focus-color);
-        }
       }
     }
   }
@@ -86,8 +75,6 @@
     &__bottom {
       flex-shrink: 1;
       overflow: hidden;
-      position: relative; // required for shadow
-      box-shadow: 0px -2px 8px var(--prizm-shadow);
     }
   }
 }
@@ -99,9 +86,4 @@
 
 &::-webkit-scrollbar-track {
   background: transparent;
-}
-
-&::-webkit-scrollbar-thumb {
-  background-color: var(--prizm-grey-g10-g4);
-  border-radius: 4px;
 }

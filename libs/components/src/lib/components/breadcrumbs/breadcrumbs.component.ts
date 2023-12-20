@@ -16,7 +16,7 @@ import {
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
 import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
@@ -55,8 +55,10 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   @Output() public breadcrumbChange: EventEmitter<Breadcrumb> = new EventEmitter();
   @ViewChild('container', { static: true }) public containerRef!: ElementRef;
   @ViewChild('breadcrumbsFake', { static: true }) public fakeBreadcrumbContainer!: ElementRef;
-  @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList!: QueryList<ElementRef>;
-  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem!: QueryList<PrizmBreadcrumbDirective>;
+  @ViewChildren('breadcrumb', { read: ElementRef }) public breadcrumbsList: QueryList<ElementRef> =
+    prizmEmptyQueryList();
+  @ContentChildren(PrizmBreadcrumbDirective) public breadcrumbsItem: QueryList<PrizmBreadcrumbDirective> =
+    prizmEmptyQueryList();
 
   public breadcrumbs$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);
   public breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]> = new BehaviorSubject<Breadcrumb[]>([]);

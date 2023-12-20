@@ -9,7 +9,7 @@ import {
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 import { merge } from 'rxjs';
 import { mapTo, takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 
 @Component({
@@ -23,7 +23,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 export class PrizmAccordionComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() public onlyOneExpanded = false;
   @ContentChildren(PrizmAccordionItemComponent, { descendants: false })
-  accordionItems!: QueryList<PrizmAccordionItemComponent>;
+  accordionItems: QueryList<PrizmAccordionItemComponent> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui_accordion';
 

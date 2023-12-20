@@ -10,6 +10,7 @@ import { takeUntil } from 'rxjs/operators';
 @Directive({
   selector: '[prizmOverscroll]',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmOverscrollDirective implements OnInit {
   @Input('prizmOverscroll')

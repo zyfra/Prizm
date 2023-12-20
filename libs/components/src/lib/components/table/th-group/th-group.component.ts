@@ -19,7 +19,7 @@ import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmThComponent } from '../th/th.component';
-import { moveInEventLoopIteration } from '@prizm-ui/helpers';
+import { moveInEventLoopIteration, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { PrizmTableService } from '../table.service';
 import { PrizmThGroupService } from './th-group.service';
 
@@ -49,14 +49,11 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
     );
   }
 
-  // @ContentChild(forwardRef(() => PrizmThComponent))
-  // readonly th!: PrizmThComponent<T>;
-
   @ContentChildren(forwardRef(() => PrizmThComponent), { descendants: true })
-  readonly th!: QueryList<PrizmThComponent<T>>;
+  readonly th: QueryList<PrizmThComponent<T>> = prizmEmptyQueryList();
 
   @ContentChildren(forwardRef(() => PrizmHeadDirective))
-  readonly heads: QueryList<PrizmHeadDirective<T>> = new QueryList<PrizmHeadDirective<T>>();
+  readonly heads: QueryList<PrizmHeadDirective<T>> = prizmEmptyQueryList();
 
   heads$: Observable<PrizmHeadDirective<T>[]> | null = null;
 

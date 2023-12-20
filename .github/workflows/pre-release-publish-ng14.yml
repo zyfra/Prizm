@@ -70,12 +70,12 @@ jobs:
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - name: Save dist in cache...
+      - name: Upload dist as artifacts...
         id: dist-cache-save
-        uses: actions/cache/save@v3
+        uses: actions/upload-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
 
   deploy_to_doc:
     needs: build
@@ -91,11 +91,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -128,11 +127,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -155,11 +153,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -182,11 +179,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -208,11 +204,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -235,11 +230,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -262,11 +256,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -289,11 +282,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -316,11 +308,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -343,11 +334,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -370,11 +360,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
@@ -397,11 +386,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_14-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_14-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:

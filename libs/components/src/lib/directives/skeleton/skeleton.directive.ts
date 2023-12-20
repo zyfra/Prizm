@@ -3,6 +3,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Directive({
   selector: '[prizmSkeleton], [prizmSkeletonText], [prizmSkeletonRounded], [prizmSkeletonShort]',
+  standalone: true,
 })
 export class PrizmSkeletonDirective {
   @Input('prizmSkeletonText')
