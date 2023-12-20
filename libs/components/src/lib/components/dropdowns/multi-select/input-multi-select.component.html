@@ -17,6 +17,7 @@
     [style.visibility]="!layoutComponent?.outer && value?.length ? 'hidden' : ''"
     [disabled]="disabled"
     [readonly]="true"
+    [tabIndex]="1"
     [placeholder]="placeholder"
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
