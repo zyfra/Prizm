@@ -1,9 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmCheckboxModule,
   PrizmIconModule,
-  PrizmLoaderModule,
+  PrizmLoaderComponent,
   PrizmMapperPipeModule,
   PrizmTreeModule,
 } from '@prizm-ui/components';
@@ -14,7 +13,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrizmTreeModule,
-    PrizmLoaderModule,
+    PrizmLoaderComponent,
     FormsModule,
     PrizmMapperPipeModule,
     PrizmIconModule,
