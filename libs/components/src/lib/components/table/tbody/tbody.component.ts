@@ -17,7 +17,7 @@ import {
 import { CollectionViewer, isDataSource, ListRange } from '@angular/cdk/collections';
 
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { BehaviorSubject, isObservable, Observable } from 'rxjs';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../directives';
@@ -134,7 +134,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   readonly row?: PrizmRowDirective<T>;
 
   @ContentChildren(forwardRef(() => PrizmTrComponent))
-  readonly rows: QueryList<PrizmTrComponent<T>> = new QueryList<PrizmTrComponent<T>>();
+  readonly rows: QueryList<PrizmTrComponent<T>> = prizmEmptyQueryList();
 
   columnsCount = 0;
   /**

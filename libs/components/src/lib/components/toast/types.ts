@@ -12,7 +12,7 @@ export enum PrizmToastPosition {
 export type PRIZM_TOAST_ID = string;
 export type PRIZM_TOAST_CONTAINER_ID = string;
 
-export type PrizmToastAppearance = 'info' | 'success' | 'warning' | 'danger';
+export type PrizmToastAppearance = 'info' | 'success' | 'warning' | 'danger' | 'secondary';
 
 export type PrizmToastOptions = {
   position?: PrizmToastPosition | PRIZM_TOAST_CONTAINER_ID;

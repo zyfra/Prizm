@@ -4,6 +4,7 @@ import { PrizmHoveredService } from '../../services/hovered.service';
 
 @Directive({
   selector: '[prizmHoveredChange]',
+  standalone: true,
 })
 export class PrizmHoveredDirective {
   @Output()

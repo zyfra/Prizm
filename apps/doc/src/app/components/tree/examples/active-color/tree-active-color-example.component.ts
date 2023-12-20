@@ -6,8 +6,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styles: [
     `
       prizm-tree-item.active > .prizm-tree-item__main {
-        background: var(--prizm-lite-b130-20);
-        color: var(--prizm-text-contrast);
+        background: var(--prizm-v3-table-fill-row-active);
+        color: var(--prizm-v3-text-icon-primary);
       }
     `,
   ],

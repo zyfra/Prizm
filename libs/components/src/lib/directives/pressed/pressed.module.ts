@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmPressedDirective } from './pressed.directive';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmPressedDirective],
+  imports: [PrizmPressedDirective],
   exports: [PrizmPressedDirective],
 })
 export class PrizmPressedModule {}

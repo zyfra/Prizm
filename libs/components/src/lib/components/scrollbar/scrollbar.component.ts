@@ -94,21 +94,20 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
     return this.isLegacy && this.visibility === 'visible' && !this.delegated;
   }
 
-  @HostListener(`${PRIZM_SCROLLABLE}.stop`, ['$event.detail'])
-  public onScrollable(element: HTMLElement): void {
+  @HostListener(`${PRIZM_SCROLLABLE}`, ['$event.detail'])
+  public onScrollable(element: HTMLElement, $event: Event): void {
     this.delegated = true;
     this.browserScrollRef.nativeElement = element;
   }
 
-  @HostListener(`${PRIZM_SCROLL_INTO_VIEW}.stop`, ['$event.detail'])
-  public scrollIntoView(detail: HTMLElement): void {
+  @HostListener(`${PRIZM_SCROLL_INTO_VIEW}`, ['$event.detail', '$event'])
+  public scrollIntoView(detail: HTMLElement, event: Event): void {
     if (this.delegated) {
       return;
     }
 
     const { nativeElement } = this.browserScrollRef;
     const { offsetTop, offsetLeft } = prizmGetElementOffset(nativeElement, detail);
-
     nativeElement.scrollTop = offsetTop + detail.offsetHeight / 2 - nativeElement.clientHeight / 2;
     nativeElement.scrollLeft = offsetLeft + detail.offsetWidth / 2 - nativeElement.clientWidth / 2;
   }
