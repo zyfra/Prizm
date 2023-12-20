@@ -40,6 +40,7 @@
             #focusableElementRef
             [placeholder]="placeholder"
             [disabled]="disabled"
+            [tabIndex]="!disabled ? 1 : -1"
             [title]="val"
             [readonly]="true"
             [prizmHintDirection]="prizmHintDirection"
@@ -61,6 +62,7 @@
         [ngModelOptions]="{ standalone: true }"
         [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
         [attr.contenteditable]="false"
+        [tabIndex]="!disabled ? 1 : -1"
         [disabled]="disabled"
         (focus)="focused$$.next(true)"
         (blur)="focused$$.next(false)"
