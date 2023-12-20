@@ -50,7 +50,7 @@ export class ThemeForDesignersComponent {
     {
       name: 'Revers',
       description: 'Для контента в хинтах и тутипах',
-      variable: '--prizm-v3-text-icon-revers',
+      variable: '--prizm-v3-text-icon-reverse',
     },
     {
       name: 'Link',
@@ -81,7 +81,7 @@ export class ThemeForDesignersComponent {
     {
       name: 'Fill-Revers',
       description: 'Тело хинта и тултипа',
-      variable: '--prizm-v3-background-fill-revers',
+      variable: '--prizm-v3-background-fill-reverse',
     },
     {
       name: 'Stroke',

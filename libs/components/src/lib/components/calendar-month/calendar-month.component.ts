@@ -27,13 +27,14 @@ import { prizmI18nInitWithKey } from '../../services';
 import { CommonModule } from '@angular/common';
 import {
   PrizmFocusableModule,
+  PrizmHoveredDirective,
   PrizmHoveredModule,
   PrizmPressedModule,
   PrizmStopPropagationModule,
 } from '../../directives';
-import { PrizmPrimitiveSpinButtonModule, PrizmPrimitiveYearPickerModule } from '../internal';
-import { PrizmScrollbarModule } from '../scrollbar';
-import { PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmPrimitiveSpinButtonModule, PrizmPrimitiveYearPickerComponent } from '../internal';
+import { PrizmScrollbarComponent } from '../scrollbar';
+import { PrizmLetDirective } from '@prizm-ui/helpers';
 
 const TODAY = PrizmDay.currentLocal();
 
@@ -45,11 +46,11 @@ const TODAY = PrizmDay.currentLocal();
   imports: [
     CommonModule,
     PrizmStopPropagationModule,
-    PrizmPrimitiveYearPickerModule,
+    PrizmPrimitiveYearPickerComponent,
     PrizmPrimitiveSpinButtonModule,
-    PrizmScrollbarModule,
-    PrizmLetModule,
-    PrizmHoveredModule,
+    PrizmScrollbarComponent,
+    PrizmLetDirective,
+    PrizmHoveredDirective,
     PrizmPressedModule,
     PrizmFocusableModule,
   ],

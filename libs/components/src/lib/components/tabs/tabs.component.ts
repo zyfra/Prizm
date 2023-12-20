@@ -21,7 +21,12 @@ import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import {
+  PrizmCallFuncPipe,
+  PrizmDestroyService,
+  prizmEmptyQueryList,
+  PrizmLetDirective,
+} from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
@@ -84,10 +89,12 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   @ViewChild('tabsContainer', { static: true }) public tabsContainer!: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown!: PrizmDropdownHostComponent;
   public tabsMoreDropdown!: PrizmDropdownHostComponent;
+
   @ContentChildren(PrizmTabComponent, { descendants: true })
-  public tabElements!: QueryList<PrizmTabComponent>;
+  public tabElements: QueryList<PrizmTabComponent> = prizmEmptyQueryList();
+
   @ContentChildren(PrizmTabMenuItemDirective, { read: TemplateRef, descendants: true })
-  public menuElements!: QueryList<TemplateRef<PrizmTabComponent>>;
+  public menuElements: QueryList<TemplateRef<PrizmTabComponent>> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui_tabs';
 

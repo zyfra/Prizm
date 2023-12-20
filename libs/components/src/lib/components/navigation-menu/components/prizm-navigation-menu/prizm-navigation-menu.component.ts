@@ -15,7 +15,7 @@ import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigati
 import { PrizmNavigationMenuService } from '../../services/prizm-navigation-menu.service';
 import { Observable } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import {
   GroupExpandedChangedEvent,
   ItemExpandedChangedEvent,
@@ -60,7 +60,7 @@ export class PrizmNavigationMenuComponent<
   UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
 > extends PrizmAbstractTestId {
   @ContentChildren(PrizmNavigationMenuGroupComponent)
-  menuGroups!: QueryList<PrizmNavigationMenuGroupComponent<UserItem>>;
+  menuGroups: QueryList<PrizmNavigationMenuGroupComponent<UserItem>> = prizmEmptyQueryList();
 
   @Output() homeClicked = new EventEmitter<void>();
   @Output() activeItemChanged = new EventEmitter<UserItem>();
