@@ -1,4 +1,4 @@
-<div class="prizm-navigation-menu-group">
+<div class="prizm-navigation-menu-group" [class.prizm-navigation-menu-group_expanded]="groupIsExpanded">
   <prizm-accordion *ngIf="!hideGroupAppearance; else noGroupAppearanceTemplate">
     <prizm-accordion-item
       [icon]="$any(icon)"
