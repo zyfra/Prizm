@@ -15,8 +15,12 @@
 
   .row {
     &_editable {
+      padding: 0;
+
       &:hover,
       .edit-cell:focus {
+        box-shadow: 0 0 0 1px var(--prizm-v3-form-active) inset;
+
         position: relative;
         z-index: 10;
       }
