@@ -5,7 +5,7 @@
   [prizmDropdownHostWidth]="'100%'"
   [isOpen]="interactive && open && !!filtered.length"
   [closeByEsc]="true"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   (isOpenChange)="onOpen($event)"
 >
   <input

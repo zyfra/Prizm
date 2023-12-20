@@ -30,13 +30,13 @@
           />
         </td>
         <td class="row__editable" *prizmCell="'category'" prizmTd>
-          <input
+          <prizm-input-select
             [disabled]="currentEditableRow !== item"
-            [value]="item.category"
-            (click)="$event.stopPropagation()"
-            (blur)="changeItemName($event, 'category')"
-            prizmInput
-          />
+            [ngModel]="item.category"
+            [items]="categories"
+            (ngModelChange)="changeByValue($event, 'category')"
+          >
+          </prizm-input-select>
         </td>
         <td class="row__editable" *prizmCell="'count'" prizmTd>
           <input

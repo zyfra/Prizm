@@ -313,6 +313,6 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     super.clear(ev);
     this.nativeValue$$.next(['', '']);
     this.updateValue(null);
-    this.layoutComponent.cdr.markForCheck();
+    this.layoutComponent?.cdr.markForCheck();
   }
 }
