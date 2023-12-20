@@ -1,17 +1,18 @@
 import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
   AfterContentInit,
+  ChangeDetectionStrategy,
+  Component,
   ContentChildren,
   ElementRef,
+  HostBinding,
+  Input,
   QueryList,
   ViewChild,
-  HostBinding,
 } from '@angular/core';
 import { PrizmGridItemComponent } from './components/grid-item/grid-item.component';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
+import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-grid',
@@ -26,8 +27,12 @@ export class PrizmGridComponent extends PrizmAbstractTestId implements AfterCont
   @Input() public rows = '10';
 
   @ViewChild('container', { static: true }) container!: ElementRef;
-  @ContentChildren(PrizmGridItemComponent, { read: ElementRef }) public gridItems!: QueryList<ElementRef>;
-  @ContentChildren(PrizmGridItemComponent) public gridItemsData!: QueryList<PrizmGridItemComponent>;
+
+  @ContentChildren(PrizmGridItemComponent, { read: ElementRef })
+  public gridItems: QueryList<ElementRef> = prizmEmptyQueryList();
+
+  @ContentChildren(PrizmGridItemComponent)
+  public gridItemsData: QueryList<PrizmGridItemComponent> = prizmEmptyQueryList();
 
   override readonly testId_ = 'ui-area--grid';
 
