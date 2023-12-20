@@ -119,7 +119,7 @@ export class PrizmInputLayoutComponent
   private readonly destroy$: PrizmDestroyService = this.injector.get(PrizmDestroyService);
 
   private foundStatusDirective!: PrizmInputStatusTextDirective;
-
+  public readonly changes$ = new Subject<void>();
   get correctedStatus() {
     return this.foundStatusDirective?.status && this.foundStatusDirective.enable
       ? this.foundStatusDirective.status
@@ -195,6 +195,7 @@ export class PrizmInputLayoutComponent
     if (changes.status) {
       this.actualizeStatusIcon();
     }
+    this.changes$.next();
   }
 
   private actualizeStatusIcon(): void {
