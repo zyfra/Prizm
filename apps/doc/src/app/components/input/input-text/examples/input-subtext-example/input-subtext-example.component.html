@@ -1,4 +1,14 @@
-<h4>Default subtext info</h4>
+<h4>Counter subtext info</h4>
+<br />
+<prizm-input-layout label="Заголовок" size="l">
+  <input [(ngModel)]="text" [maxlength]="maxLength" prizmInput placeholder="Введите текст" />
+  <div style="display: flex; justify-content: space-between" prizm-input-subtext>
+    <span>Описание</span>
+    <span>{{ text?.length ?? 0 }}/{{ maxLength }}</span>
+  </div>
+</prizm-input-layout>
+<br />
+
 <prizm-input-layout label="Заголовок" size="l">
   <input prizmInput value="Введенный текст" placeholder="Введите текст" />
   <div prizm-input-subtext>Подтекст</div>

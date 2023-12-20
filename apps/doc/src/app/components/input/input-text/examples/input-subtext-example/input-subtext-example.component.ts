@@ -6,4 +6,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./input-subtext-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputSubtextExampleComponent {}
+export class InputSubtextExampleComponent {
+  text = 'Введенный текст';
+  maxLength = 30;
+}
