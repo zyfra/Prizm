@@ -23,7 +23,18 @@
           }
         "
       >
-        <ng-container *prizmLet="val | prizmCallFunc : stringifyForInner : $any(nullContent) | async as text">
+        <ng-container
+          *prizmLet="
+            val
+              | prizmCallFunc
+                : stringifyForInner
+                : layoutComponent?.outer
+                : layoutComponent?.label
+                : placeholder
+                : nullContent
+              | async as text
+          "
+        >
           <input
             class="input-search"
             #focusableElementRef

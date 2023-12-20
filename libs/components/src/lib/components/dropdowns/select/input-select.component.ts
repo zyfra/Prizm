@@ -391,7 +391,13 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     return newItem as any;
   }
 
-  public stringifyForInner(i: T, outer: boolean, label: string, nullContent?: string): Observable<string> {
+  public stringifyForInner(
+    i: T,
+    outer?: boolean,
+    label?: string | null,
+    placeholder?: string,
+    nullContent?: PolymorphContent
+  ): Observable<string> {
     if (!this.layoutComponent) {
       return defer(() => {
         const result = this.stringify(i, nullContent);
@@ -402,7 +408,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
     return merge(this.value$, this.layoutComponent.changes$).pipe(
       startWith(),
       switchMap(() => {
-        const flow$ = outer || label ? this.stringify(i, nullContent) : this.stringify(i);
+        const flow$ = outer || !label ? this.stringify(i, nullContent) : this.stringify(i);
         return isObservable(flow$) ? flow$ : of(flow$);
       })
     );
