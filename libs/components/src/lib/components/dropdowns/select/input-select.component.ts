@@ -51,6 +51,7 @@ import {
   defer,
   fromEvent,
   isObservable,
+  merge,
   Observable,
   of,
   Subject,
@@ -398,11 +399,10 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
       });
     }
 
-    return this.layoutComponent.changes$.pipe(
+    return merge(this.value$, this.layoutComponent.changes$).pipe(
       startWith(),
       switchMap(() => {
         const flow$ = outer || label ? this.stringify(i, nullContent) : this.stringify(i);
-
         return isObservable(flow$) ? flow$ : of(flow$);
       })
     );
