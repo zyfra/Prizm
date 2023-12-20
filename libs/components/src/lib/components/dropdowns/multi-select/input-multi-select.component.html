@@ -47,7 +47,7 @@
         <div
           class="item"
           #parent
-          *ngFor="let item of $.filteredItems; let idx = index"
+          *ngFor="let item of $.filteredItems; let idx = index; trackBy: trackBy"
           [class.selected]="item.checked"
           [class.most-relevant]="searchable && searchInputControl.value && idx === 0"
         >

@@ -390,4 +390,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
       obj: item,
     } as PrizmMultiSelectItemWithChecked<T>);
   }
+
+  public trackBy(index: number): number {
+    return index;
+  }
 }
