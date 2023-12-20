@@ -21,7 +21,7 @@ jobs:
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: Restore cache
@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            (npm view @prizm-ui/components versions --tag next --json 2>/dev/null || echo '3.7.0-next.0') | jq '([.[] | select(startswith("3.7.0-next"))] | last // "3.7.0-next.0")' 2>/dev/null || echo '3.7.0-next.0'
+            (npm view @prizm-ui/components versions --tag next --json 2>/dev/null || echo '3.8.0-next.0') | jq '([.[] | select(startswith("3.8.0-next"))] | last // "3.8.0-next.0")' 2>/dev/null || echo '3.8.0-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
@@ -70,12 +70,12 @@ jobs:
       - name: 'Build next versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - name: Save dist in cache...
+      - name: Upload dist as artifacts...
         id: dist-cache-save
-        uses: actions/cache/save@v3
+        uses: actions/upload-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
 
   deploy_to_doc:
     needs: build
@@ -91,15 +91,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - name: 'Build doc app for firebase hosting'
@@ -128,15 +127,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/components && npm publish --tag next --access public --verbose
@@ -155,15 +153,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose
@@ -182,15 +179,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose
@@ -208,15 +204,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/core && npm publish --tag next --access public --verbose
@@ -235,15 +230,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/theme && npm publish --tag next --access public --verbose
@@ -262,15 +256,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/icons/base && npm publish --tag next --access public --verbose
@@ -289,15 +282,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose
@@ -316,15 +308,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose
@@ -343,15 +334,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/ast && npm publish --tag next --access public --verbose
@@ -370,15 +360,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/charts && npm publish --tag next --access public --verbose
@@ -397,15 +386,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
-          path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_16-next
+          name: dist
 
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.x'
+          node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
       - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose

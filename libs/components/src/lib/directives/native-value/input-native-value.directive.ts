@@ -8,6 +8,7 @@ import { PrizmInputNativeValueNeedChange } from './model';
 @Directive({
   selector: `input[prizmInputNativeValue]`,
   providers: [PrizmDestroyService],
+  standalone: true,
   exportAs: 'prizmInputNativeValue',
 })
 export class PrizmInputNativeValueDirective<T = any> implements OnInit {

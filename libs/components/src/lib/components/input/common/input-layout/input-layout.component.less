@@ -111,7 +111,7 @@
   }
 
   &:hover {
-    border-color: var(--prizm-v3-form-active);
+    border-color: var(--prizm-v3-form-stroke-hover);
   }
 
   &__first {
@@ -193,6 +193,12 @@
     }
 
     cursor: not-allowed;
+
+    ::ng-deep {
+      [prizmInputIconButton] {
+        display: none;
+      }
+    }
   }
 
   &-inner {
@@ -250,7 +256,6 @@
 }
 
 .prizm-input-form-subtext {
-  padding-left: 16px;
   font-size: 10px;
   font-weight: 500;
   line-height: 22px;

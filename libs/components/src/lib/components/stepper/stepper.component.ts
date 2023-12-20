@@ -14,8 +14,8 @@ import { map, startWith, switchMap } from 'rxjs/operators';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
-import { PrizmIconComponent } from '../icon';
 import { PrizmStepperSelectorComponent } from './stepper-selector.component';
+import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-stepper',
@@ -41,7 +41,7 @@ export class PrizmStepperComponent extends PrizmAbstractTestId implements AfterC
   @Output() selectStep = new EventEmitter<number>();
 
   @ContentChildren(PrizmStepperStepDirective)
-  prizmStepperStepDirectiveQL!: QueryList<PrizmStepperStepDirective>;
+  prizmStepperStepDirectiveQL: QueryList<PrizmStepperStepDirective> = prizmEmptyQueryList();
 
   steps$!: Observable<PrizmStepperStepDirective[]>;
   override readonly testId_ = 'ui_stepper';

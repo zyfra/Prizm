@@ -4,6 +4,7 @@ import { prizmGetShadow } from './shadow.util';
 
 @Directive({
   selector: '[prizmShadow]',
+  standalone: true,
 })
 export class PrizmShadowDirective {
   @Input('prizmShadow')

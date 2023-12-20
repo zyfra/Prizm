@@ -13,6 +13,11 @@ import { copyToClipboard } from '../../../util';
 })
 export class IconComponent {
   readonly iconVariants = IconDefs.reduce((a: any[], c) => a.concat(c.data), []);
+  readonly iconVariantsWithPostfixNumber = this.iconVariants.filter(i => i.match(/-[0-9]+$/g));
+  readonly iconVariantsDoubled = this.iconVariants.filter(i =>
+    this.iconVariantsWithPostfixNumber.find(iwc => i === iwc || i === iwc.replace(/-[0-9]+$/g, ''))
+  );
+
   public icon = this.iconVariants[0];
 
   readonly iconSizes = [24, 16];
