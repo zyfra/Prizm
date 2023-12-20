@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmMutationObserveDirective } from './mutation-observer.directive';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmMutationObserveDirective],
+  imports: [PrizmMutationObserveDirective],
   exports: [PrizmMutationObserveDirective],
 })
 export class PrizmMutationObserveModule {}
