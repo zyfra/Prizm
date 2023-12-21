@@ -12,6 +12,7 @@ export class TableEditableRowExampleComponent {
   public selectedItemsCodes: string[] = [];
   public columns: string[] = ['code', 'name', 'category', 'count', 'actions'];
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
+  public categories: string[] = [...new Set(this.products.map(i => i.category))];
   public updatedRow: ITableProduct | null = null;
   public currentEditableRow: ITableProduct | null = null;
 
@@ -41,6 +42,10 @@ export class TableEditableRowExampleComponent {
 
   public changeItemName<T extends keyof ITableProduct>(e: FocusEvent, key: T): void {
     const val = (e.target as HTMLInputElement).value;
+    this.changeByValue(val, key);
+  }
+
+  public changeByValue<T extends keyof ITableProduct>(val: string, key: T): void {
     this.updatedRow = { ...this.updatedRow, [key]: val } as any;
   }
 

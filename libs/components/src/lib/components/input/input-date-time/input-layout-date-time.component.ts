@@ -83,6 +83,7 @@ import { PrizmListingItemComponent } from '../../listing-item';
   ],
   standalone: true,
   imports: [
+    PrizmInputLayoutDateTimeComponent,
     PrizmDropdownHostComponent,
     PrizmInputTextModule,
     NgIf,
