@@ -513,7 +513,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
     this.nativeValueFrom$$.next('');
     this.nativeValueTimeFrom$$.next('');
     this.nativeValueTimeTo$$.next('');
-    this.layoutComponent.cdr.markForCheck();
+    this.layoutComponent?.cdr.markForCheck();
   }
 
   public updateTimeTo(value: PrizmTime): void {

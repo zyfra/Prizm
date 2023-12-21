@@ -14,17 +14,24 @@ import { PRIZM_TABLE_PROVIDERS } from '../providers/table.providers';
 import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../../util';
 import { PrizmComparator, PrizmTableBorderStyle } from '../table.types';
 import { AbstractPrizmController } from '../abstract/controller';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { prizmAutoEmit, prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmTableCellSorter, PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowService } from '../service/row.service';
 import { prizmTableDefaultColumnSort } from '../table.const';
 import { PrizmTableService } from '../table.service';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Directive({
   selector: `table[prizmTable]`,
-  providers: [PrizmTableService, ...PRIZM_TABLE_PROVIDERS, PrizmTableTreeService, PrizmTableRowService],
+  providers: [
+    ...PRIZM_TABLE_PROVIDERS,
+    PrizmDestroyService,
+    PrizmTableService,
+    PrizmTableTreeService,
+    PrizmTableRowService,
+  ],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     style: `border-collapse: separate; border-spacing: 0`,

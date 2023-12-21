@@ -9,12 +9,12 @@ import {
   QueryList,
   SimpleChanges,
 } from '@angular/core';
-import { EMPTY_QUERY } from '@taiga-ui/cdk';
 
 import { PRIZM_DOC_DEFAULT_TABS } from '../../tokens/default-tabs';
 import { PAGE_PROVIDERS, PAGE_SEE_ALSO } from './page.providers';
 import { PrizmDocPageTabConnectorDirective } from './page-tab.directive';
 import { PrizmPageService } from './page.service';
+import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 
 @Component({
   selector: `prizm-doc-page`,
@@ -37,7 +37,7 @@ export class PrizmDocPageComponent implements OnChanges {
   path = ``;
 
   @ContentChildren(PrizmDocPageTabConnectorDirective)
-  readonly tabConnectors: QueryList<PrizmDocPageTabConnectorDirective> = EMPTY_QUERY;
+  readonly tabConnectors: QueryList<PrizmDocPageTabConnectorDirective> = prizmEmptyQueryList();
 
   activeItemIndex = NaN;
 

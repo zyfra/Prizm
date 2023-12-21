@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
   PrizmOverlayControl,
   PrizmOverlayService,
@@ -22,9 +22,15 @@ export interface TreeNode {
         padding: 1rem;
         width: 100%;
         min-width: 300px;
+<<<<<<< HEAD
         background-color: var(--prizm-bg-body);
         border-right: 1px solid var(--prizm-border-widget);
         color: var(--prizm-v3-text-icon-primary);
+=======
+        background-color: var(--prizm-v3-background-fill-overlay);
+        border-right: 1px solid var(--prizm-v3-background-stroke);
+        color: var(--prizm-v3-text-icon-secondary);
+>>>>>>> 6235102c317c92b1079cf7151698b5d274f158cc
       }
 
       .modal-button {
@@ -33,7 +39,7 @@ export interface TreeNode {
     `,
   ],
 })
-export class TreeInModalExampleComponent {
+export class TreeInModalExampleComponent implements OnInit {
   @ViewChild('someTemplate', { read: TemplateRef, static: true })
   templateRef!: TemplateRef<unknown>;
 

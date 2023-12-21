@@ -18,7 +18,7 @@ import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTbodyComponent } from '../tbody/tbody.component';
 import { PrizmTableCellStatus } from '../table.types';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmCellService } from '../directives/cell.service';
 import { PrizmTdService } from '../td/td.service';
@@ -52,7 +52,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   }
 
   @ContentChildren(forwardRef(() => PrizmCellDirective))
-  readonly cells: QueryList<PrizmCellDirective> = new QueryList<PrizmCellDirective>();
+  readonly cells: QueryList<PrizmCellDirective> = prizmEmptyQueryList();
 
   readonly cells$ = merge(
     this.cells.changes,

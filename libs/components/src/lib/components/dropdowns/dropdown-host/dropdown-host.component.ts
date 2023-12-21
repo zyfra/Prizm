@@ -96,7 +96,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   closeOnOutsideClick = true;
 
   @Input()
-  prizmDropdownHost!: HTMLElement;
+  prizmDropdownHost?: HTMLElement | null;
 
   @Input()
   @prizmDefaultProp()

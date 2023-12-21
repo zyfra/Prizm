@@ -177,7 +177,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   @HostBinding('class.inner')
   get inner(): boolean {
-    return !this.layoutComponent.outer;
+    return !this.layoutComponent?.outer ?? false;
   }
 
   @HostBinding('class.empty')
@@ -187,7 +187,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   @HostBinding('attr.data-size')
   get size(): string {
-    return this.layoutComponent.size;
+    return this.layoutComponent?.size ?? 'l';
   }
 
   public readonly defaultIcon = 'chevrons-dropdown';
@@ -248,7 +248,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   protected initParentClickListener(): void {
-    this.layoutComponent.innerClick$
+    this.layoutComponent?.innerClick$
       .pipe(
         tap(() => this.opened$$.next(this.disabled ? false : !this.opened$$.value)),
         tap(() => this.changeDetectorRef.markForCheck()),
@@ -389,5 +389,9 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
       checked: true,
       obj: item,
     } as PrizmMultiSelectItemWithChecked<T>);
+  }
+
+  public trackBy(index: number): number {
+    return index;
   }
 }

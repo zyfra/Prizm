@@ -192,4 +192,8 @@ export class PrizmChipsComponent
       this.chipsList = [...this.chipsList];
     });
   }
+
+  public trackByIdx(idx: number): number {
+    return idx;
+  }
 }
