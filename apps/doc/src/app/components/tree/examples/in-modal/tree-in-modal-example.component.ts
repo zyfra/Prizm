@@ -24,7 +24,7 @@ export interface TreeNode {
         min-width: 300px;
         background-color: var(--prizm-bg-body);
         border-right: 1px solid var(--prizm-border-widget);
-        color: var(--prizm-text-contrast);
+        color: var(--prizm-v3-text-icon-primary);
       }
 
       .modal-button {
