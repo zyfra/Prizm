@@ -405,10 +405,12 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
       });
     }
 
+    let hideNullContent;
     return merge(this.value$, this.layoutComponent.changes$).pipe(
       startWith(),
       switchMap(() => {
-        const flow$ = outer || !label ? this.stringify(i, nullContent) : this.stringify(i);
+        hideNullContent = (outer && placeholder) || !outer;
+        const flow$ = this.stringify(i, hideNullContent ? null : nullContent);
         return isObservable(flow$) ? flow$ : of(flow$);
       })
     );
