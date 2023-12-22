@@ -12,7 +12,7 @@
           <th *prizmHead="'count'" [sortable]="true" rowspan="2" prizmTh>Количество</th>
         </tr>
         <tr prizmThGroup>
-          <th class="extra-border search-cell" [resizable]="true" prizmTh>
+          <th class="extra-border" [resizable]="true" prizmTh>
             <input #input (enter)="search($event, 'name')" prizmInput placeholder="Поиск" />
             <button
               [interactive]="true"
