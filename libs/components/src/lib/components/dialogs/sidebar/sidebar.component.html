@@ -36,10 +36,7 @@
         {{ outerContent }}
       </ng-container>
       <ng-template #innerTemplate>
-        <prizm-scrollbar
-          class="scrollbar full-height"
-          [visibility]="context.scrollbarVisibility ?? 'visible'"
-        >
+        <prizm-scrollbar class="scrollbar full-height" [visibility]="context.scrollbarVisibility ?? 'auto'">
           <div class="full-height" *polymorphOutlet="context.content as text; context: context">
             {{ text }}
           </div>
