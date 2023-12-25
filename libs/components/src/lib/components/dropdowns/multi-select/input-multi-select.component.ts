@@ -18,7 +18,7 @@ import {
   PrizmAutoFocusModule,
   PrizmDropdownControllerModule,
   PrizmHintDirective,
-  PrizmLifecycleModule,
+  PrizmLifecycleDirective,
 } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
@@ -41,12 +41,12 @@ import {
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmScrollbarComponent, PrizmScrollbarVisibility } from '../../scrollbar';
-import { PrizmOverlayModule } from '../../../modules';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
 import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmCheckboxComponent } from '../../checkbox';
+import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -56,7 +56,7 @@ import { PrizmCheckboxComponent } from '../../checkbox';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmOverlayModule,
+    PrizmOverlayComponent,
     PolymorphOutletDirective,
     PrizmInputTextModule,
     PrizmChipsModule,
@@ -72,7 +72,7 @@ import { PrizmCheckboxComponent } from '../../checkbox';
     PrizmDropdownControllerModule,
     PrizmDataListComponent,
     PrizmCheckboxComponent,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
   ],
   providers: [
