@@ -31,8 +31,8 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmTreeModule } from '../../../tree';
 import { PrizmIconsSvgModule } from '@prizm-ui/icons';
-import { PrizmButtonModule } from '../../../button';
-import { PolymorphOutletDirective, PrizmHoveredModule } from '../../../../directives';
+import { PrizmButtonComponent } from '../../../button';
+import { PolymorphOutletDirective, PrizmHoveredDirective } from '../../../../directives';
 import { PrizmAccordionComponent } from '../../../accordion';
 import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
 
@@ -47,8 +47,8 @@ import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-to
     ReactiveFormsModule,
     PrizmTreeModule,
     PrizmIconsSvgModule,
-    PrizmButtonModule,
-    PrizmHoveredModule,
+    PrizmButtonComponent,
+    PrizmHoveredDirective,
     PrizmAccordionComponent,
     PolymorphOutletDirective,
     PrizmNavigationMenuGroupComponent,
