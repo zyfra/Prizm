@@ -1,4 +1,5 @@
 <prizm-scroll-controls [style.visibility]="(showScrollbars$ | async) ? '' : 'hidden'"></prizm-scroll-controls>
 <div class="content">
+  #mz:[{{ visibility }}]
   <ng-content></ng-content>
 </div>

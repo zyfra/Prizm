@@ -79,6 +79,16 @@
 
     <prizm-doc-documentation [hasTestId]="false">
       <ng-template
+        [(documentationPropertyValue)]="visibility"
+        [documentationPropertyValues]="visibilityVariants"
+        documentationPropertyName="scrollbarVisibility"
+        documentationPropertyType="PrizmScrollbarVisibility"
+        documentationPropertyMode="input"
+      >
+        Scrollbar Visibility
+      </ng-template>
+
+      <ng-template
         [(documentationPropertyValue)]="position"
         [documentationPropertyValues]="positionVariants"
         documentationPropertyName="position"

@@ -6,7 +6,7 @@
       </ng-container>
     </div>
     <div class="description prizm-font-main-body-14">
-      <prizm-scrollbar class="scrollbar">
+      <prizm-scrollbar class="scrollbar" [visibility]="context.scrollbarVisibility ?? 'visible'">
         <ng-container *polymorphOutlet="$any(context.description) as data; context: $any(context)">
           {{ data }}
         </ng-container>

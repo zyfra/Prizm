@@ -6,6 +6,7 @@ import {
   PrizmDialogSize,
 } from '../dialog/dialog.models';
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 export type PrizmConfirmDialogButton = Omit<PrizmDialogButton, 'action'> &
   Partial<Pick<PrizmDialogButton, 'action'>>;
@@ -16,6 +17,7 @@ export interface PrizmConfirmDialogOptions<DATA = unknown> extends PrizmDialogBa
   cancelButton?: PrizmConfirmDialogButton | string;
   showByVertical?: boolean;
   data?: DATA;
+  readonly scrollbarVisibility?: PrizmScrollbarVisibility;
   size?: PrizmDialogSize;
   title: PolymorphContent<
     PrizmBaseDialogContext<PrizmConfirmDialogResultDefaultType, PrizmConfirmDialogOptions<DATA>>
