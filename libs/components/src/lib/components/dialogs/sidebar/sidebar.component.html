@@ -12,7 +12,7 @@
     <ng-container *ngSwitchDefault>
       <prizm-scrollbar
         *polymorphOutlet="context.header as data; context: context"
-        [visibility]="context.scrollbarVisibility ?? 'visible'"
+        [visibility]="context.scrollbarVisibility ?? 'hidden'"
       >
         <div class="title">
           {{ data }}
