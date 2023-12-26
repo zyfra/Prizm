@@ -46,6 +46,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/toast): toast v3 colors #1177
 - feat(components/toast): toast none status appearance type added #1177
 - feat(doc/toast): toast none status example added #1177
+- feat(components/navigation-menu): navigation-menu colors update #1151
 
 ### Bug fixes
 
