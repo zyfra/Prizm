@@ -4,7 +4,13 @@ import { SideMenuExampleComponent } from './side-menu-example.component';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SideMenuExampleBasicComponent } from './examples/side-menu-example-basic/side-menu-example-basic.component';
-import { PrizmIconModule, PrizmInputTextModule, PrizmPanelModule } from '@prizm-ui/components';
+import {
+  PrizmButtonComponent,
+  PrizmIconModule,
+  PrizmInputTextModule,
+  PrizmListingItemComponent,
+  PrizmPanelModule,
+} from '@prizm-ui/components';
 
 @NgModule({
   declarations: [SideMenuExampleComponent, SideMenuExampleBasicComponent],
@@ -15,6 +21,8 @@ import { PrizmIconModule, PrizmInputTextModule, PrizmPanelModule } from '@prizm-
     RouterModule.forChild(prizmDocGenerateRoutes(SideMenuExampleComponent)),
     PrizmPanelModule,
     PrizmInputTextModule,
+    PrizmButtonComponent,
+    PrizmListingItemComponent,
   ],
 })
 export class SideMenuExampleModule {}
