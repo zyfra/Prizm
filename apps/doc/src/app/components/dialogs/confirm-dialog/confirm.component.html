@@ -177,6 +177,9 @@
 
 <ng-template #contentTemp>
   Content из <a href="#">шаблона</a>
+  [formControl]="control" [items]="items"
 
-  <prizm-select [items]="items"></prizm-select>
+  <prizm-input-layout label="Validators">
+    <prizm-input-select [items]="items"></prizm-input-select>
+  </prizm-input-layout>
 </ng-template>

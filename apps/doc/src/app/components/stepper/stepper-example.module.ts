@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmStepperBasicExampleComponent } from './examples/stepper-basic-example/stepper-basic-example.component';
 import {
   PrizmButtonModule,
   PrizmCheckboxModule,
-  PrizmSelectModule,
+  PrizmInputSelectModule,
   PrizmStepperModule,
 } from '@prizm-ui/components';
 import { PrizmStepperExampleComponent } from './stepper-example.component';
@@ -23,7 +23,7 @@ import { PrizmStepperAsyncExampleComponent } from './examples/stepper-async-exam
     FormsModule,
     ReactiveFormsModule,
     PrizmButtonModule,
-    PrizmSelectModule,
+    PrizmInputSelectModule,
     PrizmCheckboxModule,
   ],
   declarations: [

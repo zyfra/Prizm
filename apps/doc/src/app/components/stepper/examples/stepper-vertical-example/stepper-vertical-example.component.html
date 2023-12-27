@@ -12,13 +12,9 @@
     [disabled]="steps[1].disabled"
   >
     <div>
-      <prizm-select
-        [(ngModel)]="steps[1].status"
-        [items]="statusItems"
-        [label]="'Состояние'"
-        [forceClear]="false"
-      >
-      </prizm-select>
+      <prizm-input-layout [label]="'Состояние'" [forceClear]="false">
+        <prizm-input-select [(ngModel)]="steps[1].status" [items]="statusItems"></prizm-input-select>
+      </prizm-input-layout>
 
       <div class="next-step-disabled-container">
         <prizm-checkbox [(ngModel)]="steps[2].disabled">Шаг 2 disabled</prizm-checkbox>
@@ -48,13 +44,9 @@
     [disabled]="steps[2].disabled"
   >
     <div>
-      <prizm-select
-        [(ngModel)]="steps[2].status"
-        [items]="statusItems"
-        [label]="'Состояние'"
-        [forceClear]="false"
-      >
-      </prizm-select>
+      <prizm-input-layout [label]="'Состояние'" [forceClear]="false">
+        <prizm-input-select [(ngModel)]="steps[2].status" [items]="statusItems"></prizm-input-select>
+      </prizm-input-layout>
       <div class="next-step-disabled-container">
         <prizm-checkbox [(ngModel)]="steps[3].disabled">Шаг 3 disabled</prizm-checkbox>
       </div>
@@ -87,13 +79,9 @@
     [disabled]="steps[3].disabled"
   >
     <div>
-      <prizm-select
-        [(ngModel)]="steps[3].status"
-        [items]="statusItems"
-        [label]="'Состояние'"
-        [forceClear]="false"
-      >
-      </prizm-select>
+      <prizm-input-layout [label]="'Состояние'" [forceClear]="false">
+        <prizm-input-select [(ngModel)]="steps[3].status" [items]="statusItems"></prizm-input-select>
+      </prizm-input-layout>
 
       <div class="next-step-disabled-container">
         <prizm-checkbox [(ngModel)]="steps[4].disabled">Шаг 4 disabled</prizm-checkbox>
@@ -128,13 +116,10 @@
     [disabled]="steps[4].disabled"
   >
     <div>
-      <prizm-select
-        [(ngModel)]="steps[4].status"
-        [items]="statusItems"
-        [label]="'Состояние'"
-        [forceClear]="false"
-      >
-      </prizm-select>
+      <prizm-input-layout [label]="'Состояние'" [forceClear]="false">
+        <prizm-input-select [(ngModel)]="steps[4].status" [items]="statusItems"></prizm-input-select>
+      </prizm-input-layout>
+
       <div class="next-step-disabled-container">
         <prizm-checkbox [(ngModel)]="steps[5].disabled">Шаг 5 disabled</prizm-checkbox>
       </div>
@@ -171,13 +156,9 @@
     [disabled]="steps[5].disabled"
   >
     <div>
-      <prizm-select
-        [(ngModel)]="steps[5].status"
-        [items]="statusItems"
-        [label]="'Состояние'"
-        [forceClear]="false"
-      >
-      </prizm-select>
+      <prizm-input-layout [label]="'Состояние'" [forceClear]="false">
+        <prizm-input-select [(ngModel)]="steps[5].status" [items]="statusItems"> </prizm-input-select>
+      </prizm-input-layout>
     </div>
     <br />
     <div>

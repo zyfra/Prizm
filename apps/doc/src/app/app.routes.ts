@@ -233,21 +233,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/dropdowns/select',
-    loadChildren: () => import('./components/dropdowns/select/select.module').then(i => i.SelectModule),
-    data: {
-      title: 'Select',
-    },
-  },
-  {
-    path: 'components/dropdowns/multi-select',
-    loadChildren: () =>
-      import('./components/dropdowns/multi-select/multi-select.module').then(i => i.MultiSelectModule),
-    data: {
-      title: 'Multi Select',
-    },
-  },
-  {
     path: 'components/shadow',
     loadChildren: () => import('./components/shadow/shadow.module').then(i => i.ShadowModule),
     data: {
