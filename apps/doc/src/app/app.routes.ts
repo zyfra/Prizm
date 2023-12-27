@@ -434,14 +434,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-month',
-    loadChildren: () =>
-      import('./components/input/input-month/input-month.module').then(i => i.InputMonthModule),
-    data: {
-      title: 'Input Month',
-    },
-  },
-  {
     path: 'components/input-layout-month',
     loadChildren: () =>
       import('./components/input/input-layout-month/input-layout-month.module').then(
