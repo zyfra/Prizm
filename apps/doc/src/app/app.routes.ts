@@ -540,14 +540,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/carousel',
-    loadChildren: () =>
-      import('./components/input/carousel/carousel-example.module').then(i => i.CarouselExampleModule),
-    data: {
-      title: 'Carousel',
-    },
-  },
-  {
     path: 'components/input-carousel',
     loadChildren: () =>
       import('./components/input/input-carousel/input-carousel-example.module').then(
