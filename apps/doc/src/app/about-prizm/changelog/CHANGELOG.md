@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (20-12-2023)
+
+### Bug fixes
+
+- fix(components/navigation): extra exclamation point in navigation removed
+
 ## [1.12.0, 2.9.0, 3.8.0](https://github.com/zyfra/Prizm) (20-12-2023)
 
 ### Features
