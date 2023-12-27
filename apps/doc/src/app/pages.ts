@@ -351,12 +351,6 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-layout-date-range',
       },
       {
-        title: 'InputDateRelative',
-        status: 'deprecated',
-        keywords: 'input-date-relative, date-relative, deprecated, отностительный, дата, пикер, form',
-        route: '/components/input-date-relative',
-      },
-      {
         title: 'InputLayoutDateRelative',
         keywords: 'input-layout-date-relative, date-relative, отностительный, дата, пикер, form',
         route: '/components/input-layout-date-relative',
