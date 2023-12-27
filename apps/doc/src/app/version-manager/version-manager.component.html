@@ -1,3 +1,18 @@
+<div class="i18-block">
+  <tui-select
+    class="select full-width"
+    [ngModel]="languageManager.code$ | async"
+    (ngModelChange)="languageManager.setLanguage($event)"
+    tuiTextfieldSize="s"
+  >
+    <tui-data-list *tuiDataList>
+      <button *ngFor="let language of languages" [value]="language.code" tuiOption>
+        {{ language.label }}
+      </button>
+    </tui-data-list>
+  </tui-select>
+</div>
+
 <div class="select-block">
   <ng-container *ngIf="initialVersion?.stackblitz">
     <div class="icon-block" *prizmLet="initialVersion as version" [hidden]="!version.stackblitz">

@@ -8,6 +8,21 @@ export interface PrizmVersionMeta {
   cb?: (hostName: string, current: PrizmVersionMeta) => boolean;
 }
 
+export interface PrizmLanguageMeta {
+  code: 'ru' | 'en';
+  label: 'Русский' | 'English';
+}
+
+export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
+  {
+    label: 'Русский',
+    code: 'ru',
+  },
+  {
+    label: 'English',
+    code: 'en',
+  },
+];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
     label: '3.8.0 (ng16)',
