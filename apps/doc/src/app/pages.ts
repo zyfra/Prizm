@@ -286,12 +286,6 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-multi-select',
       },
       {
-        title: 'InputDateTime',
-        status: 'deprecated',
-        keywords: 'input-date-time, deprecated, date-time, form',
-        route: '/components/input-date-time',
-      },
-      {
         title: 'InputLayoutDateTime',
         keywords: 'input-layout-date-time, date-time, form',
         route: '/components/input-layout-date-time',

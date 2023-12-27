@@ -482,16 +482,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date-time',
-    loadChildren: () =>
-      import('./components/input/input-date-time/input-date-time.module').then(
-        i => i.InputDateTimeTimeModule
-      ),
-    data: {
-      title: 'Input Date Time',
-    },
-  },
-  {
     path: 'components/input-layout-date-time',
     loadChildren: () =>
       import('./components/input/input-layout-date-time/input-layout-date-time.module').then(
