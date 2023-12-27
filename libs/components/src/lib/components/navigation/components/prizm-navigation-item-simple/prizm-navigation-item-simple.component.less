@@ -8,9 +8,9 @@
     display: flex;
     align-items: center;
 
-    background: var(--prizm-grey-g12-g2);
+    background: var(--prizm-v3-background-fill-primary);
 
-    border-bottom: 1px solid var(--prizm-grey-g10-g4);
+    border-bottom: 1px solid var(--prizm-v3-background-stroke);
 
     &__title {
       margin-right: 8px;
@@ -18,7 +18,7 @@
       font-size: 14px;
       line-height: 16px;
 
-      color: var(--prizm-text-contrast);
+      color: var(--prizm-v3-text-icon-primary);
 
       overflow: hidden;
       white-space: nowrap;
@@ -34,7 +34,7 @@
       align-items: center;
       justify-content: center;
 
-      color: var(--prizm-border-icon);
+      color: var(--prizm-v3-text-icon-tertiary);
 
       .indicator {
         min-height: 1rem;
@@ -48,30 +48,30 @@
         font-size: 12px;
         line-height: 16px;
         font-weight: 600;
-        color: var(--prizm-exceptions-white);
+        color: var(--prizm-v3-text-icon-exception);
 
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
 
         &_info {
-          background: var(--prizm-index-plan);
+          background: var(--prizm-v3-status-info-primary-default);
         }
 
         &_secondary {
-          background: var(--prizm-border-forms);
+          background: var(--prizm-v3-status-none-primary-default);
         }
 
         &_success {
-          background: var(--prizm-index-good);
+          background: var(--prizm-v3-status-success-primary-default);
         }
 
         &_warning {
-          background: var(--prizm-index-warning);
+          background: var(--prizm-v3-status-warning-primary-default);
         }
 
         &_danger {
-          background: var(--prizm-index-danger);
+          background: var(--prizm-v3-status-alarm-primary-default);
         }
       }
     }

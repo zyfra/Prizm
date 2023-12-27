@@ -15,9 +15,9 @@
       display: flex;
       align-items: center;
 
-      background: var(--prizm-grey-g11-g3);
+      background: var(--prizm-v3-background-fill-primary);
 
-      border-bottom: 1px solid var(--prizm-grey-g10-g4);
+      border-bottom: 1px solid var(--prizm-v3-background-stroke);
 
       cursor: pointer;
 
@@ -27,7 +27,7 @@
         font-size: 14px;
         line-height: 16px;
 
-        color: var(--prizm-text-contrast);
+        color: var(--prizm-v3-text-icon-primary);
 
         overflow: hidden;
         white-space: nowrap;
@@ -42,7 +42,7 @@
         display: inline-flex;
         align-items: center;
 
-        color: var(--prizm-border-icon);
+        color: var(--prizm-v3-status-info-primary-default);
       }
 
       &__chevron {
@@ -53,7 +53,7 @@
         align-items: center;
         justify-content: center;
 
-        color: var(--prizm-border-icon);
+        color: var(--prizm-v3-text-icon-tertiary);
 
         .icon {
           transition: 0.3s;
@@ -75,7 +75,7 @@
         align-items: center;
         justify-content: center;
 
-        color: var(--prizm-border-icon);
+        color: var(--prizm-v3-text-icon-tertiary);
 
         .indicator {
           height: 8px;
@@ -84,29 +84,29 @@
           border-radius: 50%;
 
           &_info {
-            background: var(--prizm-index-plan);
+            background: var(--prizm-v3-status-info-primary-default);
           }
 
           &_secondary {
-            background: var(--prizm-border-forms);
+            background: var(--prizm-v3-status-none-primary-default);
           }
 
           &_success {
-            background: var(--prizm-index-good);
+            background: var(--prizm-v3-status-success-primary-default);
           }
 
           &_warning {
-            background: var(--prizm-index-warning);
+            background: var(--prizm-v3-status-warning-primary-default);
           }
 
           &_danger {
-            background: var(--prizm-index-danger);
+            background: var(--prizm-v3-status-alarm-primary-default);
           }
         }
       }
 
       &_active {
-        background: var(--prizm-index-lock);
+        background: var(--prizm-v3-table-fill-row-active);
       }
     }
 
