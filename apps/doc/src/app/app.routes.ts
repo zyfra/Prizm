@@ -414,13 +414,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date',
-    loadChildren: () => import('./components/input/date/date.module').then(i => i.DateModule),
-    data: {
-      title: 'InputDate',
-    },
-  },
-  {
     path: 'components/input-layout-date',
     loadChildren: () =>
       import('./components/input/input-layout-date/input-layout-date.module').then(
