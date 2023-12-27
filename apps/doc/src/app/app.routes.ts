@@ -482,16 +482,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date-time-range',
-    loadChildren: () =>
-      import('./components/input/input-date-time-range/input-date-time-range.module').then(
-        i => i.InputDateTimeRangeModule
-      ),
-    data: {
-      title: 'Input Date Time Range',
-    },
-  },
-  {
     path: 'components/input-date-time',
     loadChildren: () =>
       import('./components/input/input-date-time/input-date-time.module').then(
@@ -535,14 +525,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Layout Time',
-    },
-  },
-  {
-    path: 'components/input-date-range',
-    loadChildren: () =>
-      import('./components/input/input-date-range/input-date-range.module').then(i => i.InputDateRangeModule),
-    data: {
-      title: 'Input Date Range',
     },
   },
   {

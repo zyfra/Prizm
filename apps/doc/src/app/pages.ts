@@ -222,18 +222,6 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'dropdown, prizm-dropdown-host, overlay',
         route: '/components/dropdowns/dropdown-host',
       },
-      {
-        title: 'Select',
-        keywords: 'select, prizm-select, overlay',
-        status: 'deprecated',
-        route: '/components/dropdowns/select',
-      },
-      {
-        title: 'MultiSelect',
-        status: 'deprecated',
-        keywords: 'multi-select, prizm-multi-select, overlay',
-        route: '/components/dropdowns/multi-select',
-      },
     ],
   },
   {
@@ -314,12 +302,6 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-select',
       },
       {
-        title: 'InputDateTimeRange',
-        status: 'deprecated',
-        keywords: 'input-date-time-range, deprecated, date-time-range, form',
-        route: '/components/input-date-time-range',
-      },
-      {
         title: 'InputLayoutDateTimeRange',
         keywords: 'input-layout-date-time-range, date-time-range, form',
         route: '/components/input-layout-date-time-range',
@@ -335,12 +317,6 @@ export const pages: PrizmOrderedDocPage = [
         title: 'InputLayoutTime',
         keywords: 'input-layout-time, time, form',
         route: '/components/input-layout-time',
-      },
-      {
-        title: 'InputDate',
-        status: 'deprecated',
-        keywords: 'input-date, deprecated, form',
-        route: '/components/input-date',
       },
       {
         title: 'InputLayoutDate',
@@ -368,12 +344,6 @@ export const pages: PrizmOrderedDocPage = [
         title: 'InputLayoutMonthRange',
         keywords: 'input-layout-month-range, date, form',
         route: '/components/input-layout-month-range',
-      },
-      {
-        title: 'InputDateRange',
-        status: 'deprecated',
-        keywords: 'input-date-range, deprecated, date-range, form',
-        route: '/components/input-date-range',
       },
       {
         title: 'InputLayoutDateRange',
