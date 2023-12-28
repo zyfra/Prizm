@@ -4,10 +4,6 @@ import { PrizmInputTextComponent } from './input-text.component';
 import { PrizmTextareaDirective } from './textarea.directive';
 import { PrizmInputBlockComponent } from './input-block.component';
 
-/**
- * @deprecated
- * use standalone
- * */
 @NgModule({
   imports: [
     PrizmInputCommonModule,

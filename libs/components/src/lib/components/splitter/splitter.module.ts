@@ -6,10 +6,6 @@ import { PrizmSplitterGutterComponent } from './gutter/gutter.component';
 import { PrizmSplitterComponent } from './splitter.component';
 import { PrizmSplitterCustomGutterDirective } from './custom-gutter.directive';
 
-/**
- * @deprecated
- * use standalone
- * */
 @NgModule({
   imports: [
     PrizmSplitterComponent,
