@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (20-12-2023)
+
+### Bug fixes
+
+- fix(components/navigation): extra exclamation point in navigation removed
+
 ## [1.12.0, 2.9.0, 3.8.0](https://github.com/zyfra/Prizm) (20-12-2023)
 
 ### Features
@@ -46,6 +52,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/toast): toast v3 colors #1177
 - feat(components/toast): toast none status appearance type added #1177
 - feat(doc/toast): toast none status example added #1177
+- feat(components/navigation-menu): navigation-menu colors update #1151
 
 ### Bug fixes
 
