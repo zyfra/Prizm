@@ -9,7 +9,7 @@ import { UntypedFormControl } from '@angular/forms';
       .header {
         margin: 8px 0;
         padding: 8px 0;
-        border-bottom: 1px solid var(--prizm-v3-background-stroke);
+        border-bottom: 1px solid var(--prizm-background-stroke);
       }
 
       .body {

@@ -14,7 +14,7 @@ import {
   styles: [
     `
       prizm-widget {
-        color: var(--prizm-v3-text-icon-secondary);
+        color: var(--prizm-text-icon-secondary);
         font-style: normal;
         font-weight: 400;
         font-size: 14px;

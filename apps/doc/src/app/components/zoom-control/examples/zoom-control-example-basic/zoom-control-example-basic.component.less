@@ -11,8 +11,8 @@
     display: flex;
     flex-direction: column;
 
-    background: var(--prizm-v3-background-fill-primary);
-    border: 1px solid var(--prizm-v3-background-stroke);
+    background: var(--prizm-background-fill-primary);
+    border: 1px solid var(--prizm-background-stroke);
 
     .content {
       height: 400px;
@@ -46,7 +46,7 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: var(--prizm-v3-form-stroke-default);
+        background-color: var(--prizm-form-stroke-default);
         border-radius: 4px;
       }
     }
@@ -76,15 +76,15 @@
         align-items: center;
         justify-content: space-between;
 
-        background: var(--prizm-v3-background-fill-secondary);
-        border: 1px solid var(--prizm-v3-form-stroke-default);
+        background: var(--prizm-background-fill-secondary);
+        border: 1px solid var(--prizm-form-stroke-default);
         border-radius: 2px;
 
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
 
-        color: var(--prizm-v3-text-icon-primary);
+        color: var(--prizm-text-icon-primary);
 
         transition: 400ms;
 
@@ -96,15 +96,15 @@
           align-items: center;
           justify-content: center;
 
-          color: var(--prizm-v3-text-icon-tertiary);
+          color: var(--prizm-text-icon-tertiary);
         }
 
         &:hover,
         &:focus {
-          border-color: var(--prizm-v3-status-info-primary-default);
+          border-color: var(--prizm-status-info-primary-default);
 
           .zoom-control__select-icon {
-            color: var(--prizm-v3-status-info-primary-default);
+            color: var(--prizm-status-info-primary-default);
           }
         }
       }
@@ -116,7 +116,7 @@
   display: flex;
   flex-direction: column;
 
-  background: var(--prizm-v3-background-fill-primary);
+  background: var(--prizm-background-fill-primary);
 
   &.default {
     border: none;
@@ -125,7 +125,7 @@
   &-group {
     padding: 16px 0;
 
-    border-bottom: 1px solid var(--prizm-v3-background-stroke);
+    border-bottom: 1px solid var(--prizm-background-stroke);
 
     &:last-child {
       border: none;

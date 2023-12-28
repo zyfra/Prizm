@@ -18,14 +18,10 @@ export class ProgressLineSegmentedComponent {
   readonly colorsVariants: ReadonlyArray<string | string[]> = [
     [],
     'transparent',
-    [
-      'var(--prizm-v3-status-alarm-primary-default)',
-      'var(--prizm-v3-status-warning-primary-default)',
-      'lightblue',
-    ],
+    ['var(--prizm-status-alarm-primary-default)', 'var(--prizm-status-warning-primary-default)', 'lightblue'],
     ['black', 'gray'],
-    'var(--prizm-v3-status-alarm-primary-default)',
-    'var(--prizm-v3-status-warning-primary-default)',
+    'var(--prizm-status-alarm-primary-default)',
+    'var(--prizm-status-warning-primary-default)',
     'lightblue',
     'green',
   ];

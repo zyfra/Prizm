@@ -7,7 +7,7 @@ import { prizmCronHRToString } from '@prizm-ui/components';
   styles: [
     `
       .box {
-        color: var(--prizm-v3-text-icon-secondary);
+        color: var(--prizm-text-icon-secondary);
       }
     `,
   ],
