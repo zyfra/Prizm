@@ -51,7 +51,7 @@ prizm-wrapper {
       }
 
       .circle {
-        background-color: var(--prizm-v3-form-stroke-hover);
+        border-color: var(--prizm-v3-form-stroke-hover);
       }
     }
 
@@ -61,15 +61,11 @@ prizm-wrapper {
   }
 
   &._disabled {
-    outline: 1px solid transparent;
+    opacity: 0.4;
 
     &:not(._checked) {
       .icon {
         color: var(--prizm-v3-text-icon-disable);
-      }
-
-      .circle {
-        background-color: var(--prizm-v3-form-stroke-default);
       }
     }
 
@@ -134,25 +130,24 @@ prizm-wrapper {
 }
 
 .circle {
-  margin: 2px 0;
   flex-shrink: 0;
   border-radius: 100%;
-  background-color: var(--prizm-v3-form-stroke-default);
+  background-color: var(--prizm-v3-text-icon-exception);
   border: 1px solid var(--prizm-v3-form-stroke-default);
 
   :host._checked & {
     background-color: var(--prizm-v3-text-icon-exception);
-    border-color: transparent;
+    border-color: var(--prizm-v3-button-primary-solid-default);
   }
 
   :host[data-size='m'] & {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
   }
 
   :host[data-size='l'] & {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 }
 
