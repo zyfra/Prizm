@@ -12,6 +12,7 @@ import {
   PrizmIconModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
+  PrizmListingItemComponent,
   PrizmPanelModule,
 } from '@prizm-ui/components';
 
@@ -29,6 +30,7 @@ import {
     PrizmDataListModule,
     PrizmButtonModule,
     PrizmDropdownControllerModule,
+    PrizmListingItemComponent,
   ],
 })
 export class ZoomControlExampleModule {}

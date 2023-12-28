@@ -6,7 +6,8 @@
 /out-tsc
 /.angular
 /.firebase
-.nx/
+/.nx
+
 # dependencies
 /node_modules
 /node_modules.ng14
