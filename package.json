@@ -58,8 +58,6 @@
     "@ng-web-apis/intersection-observer": "^3.0.0",
     "@ng-web-apis/mutation-observer": "^3.0.0",
     "@ng-web-apis/resize-observer": "^3.0.0",
-    "@ngneat/elf": "^2.4.0",
-    "@ngneat/elf-persist-state": "^1.2.0",
     "@nrwl/angular": "17.2.6",
     "@nrwl/nx-plugin": "17.2.6",
     "@stackblitz/sdk": "^1.9.0",

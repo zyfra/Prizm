@@ -14,18 +14,20 @@ import {
   PrizmDocSourceCodePathOptions,
 } from '@prizm-ui/doc';
 import {
-  tuiIsInsideIframe,
   TUI_DIALOG_CLOSES_ON_BACK,
   TUI_IS_CYPRESS,
   TUI_TAKE_ONLY_TRUSTED_EVENTS,
+  tuiIsInsideIframe,
 } from '@taiga-ui/cdk';
 import { TUI_ANIMATIONS_DURATION, TUI_SANITIZER } from '@taiga-ui/core';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-import { Observable, of } from 'rxjs';
+import { flatMap, Observable, of } from 'rxjs';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
-import { pages, PrizmOrderedDocPage } from './pages';
+import { pages, pagesEnglish, PrizmOrderedDocPage } from './pages';
 import { LOGO_CONTENT } from './logo/logo.component';
 import { SectionNameEnum } from './model';
+import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
+import { distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
 
 export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
 const TITLE_PREFIX = 'Prizm UI: ';
@@ -79,9 +81,21 @@ export const APP_PROVIDERS = [
   },
   {
     provide: PRIZM_DOC_PAGES,
-    useFactory: (): PrizmDocPages => {
-      return sortDocPages(pages);
+    useFactory: (switcher: PrizmLanguageSwitcher): Observable<PrizmDocPages> => {
+      return switcher.pipe(
+        switchMap(i => i),
+        distinctUntilChanged((a, b) => {
+          return a.shortName === b.shortName;
+        }),
+        map(i => {
+          let result = pages;
+          if (i.name === 'english') result = pagesEnglish;
+
+          return sortDocPages(result);
+        })
+      );
     },
+    deps: [PrizmLanguageSwitcher],
   },
   {
     provide: PRIZM_DOC_DEFAULT_TABS,

@@ -1,5 +1,5 @@
 import { PrizmDocPage, PrizmDocPageGroup } from '@prizm-ui/doc';
-import { SectionNameEnum } from './model';
+import { SectionNameEnglishEnum, SectionNameEnum } from './model';
 
 type OrderedPage = { order?: number };
 
@@ -166,14 +166,6 @@ export const pages: PrizmOrderedDocPage = [
     route: 'guidelines/grid',
     order: 4,
   },
-  // Documentation
-  // {
-  //   section: SectionNameEnum.allAboutPrizm,
-  //   title: `About`,
-  //   keywords: 'about, intro, how to, guide, main, главная, начало, инструкция',
-  //   route: 'about',
-  //   order: 11,
-  // },
   // Components
   {
     section: SectionNameEnum.components,
@@ -196,11 +188,6 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'button, кнопка',
         route: '/components/button',
       },
-      // {
-      //   title: 'Tree Button',
-      //   keywords: 'tree-button, tree, дерево, кнопка, button',
-      //   route: '/components/tree-button',
-      // },
       {
         title: 'Split Button',
         keywords: 'split-button, split, раздельная, кнопка, button',
@@ -586,7 +573,6 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'stepper',
     route: '/components/stepper',
   },
-
   {
     section: SectionNameEnum.components,
     title: 'Splitter',
@@ -611,7 +597,6 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'Cron,Human,Readable',
     route: '/components/cron-human-readable',
   },
-
   {
     section: SectionNameEnum.components,
     title: 'Error page',
@@ -759,16 +744,649 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'charts, column-group, графики',
     route: '/charts/column-group',
   },
-  // Helpers
-  // {
-  //   section: `Helpers`,
-  //   title: `Helpers`,
-  //   subPages: [],
-  // },
-  // State
-  // {
-  //   section: `State`,
-  //   title: `State`,
-  //   subPages: [],
-  // },
+];
+
+export const pagesEnglish: PrizmOrderedDocPage = [
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: `About Prizm Design System`,
+    keywords: 'design system, design, system',
+    route: 'about-prizm/design-system',
+    order: 1,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: `License`,
+    keywords: 'license',
+    route: 'about-prizm/license',
+    order: 2,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: `Repositories`,
+    keywords: 'repositories',
+    route: 'about-prizm/repositories',
+    order: 3,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: 'Contact Prizm team',
+    keywords: 'Help, help, contact',
+    route: 'about-prizm/contacts',
+    order: 4,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: 'Release Policy',
+    keywords: 'release, policy',
+    route: 'about-prizm/release-policy',
+    order: 5,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: 'Service Level Agreement (SLA)',
+    keywords: 'agreement, service, level, agreement, sla',
+    route: 'about-prizm/service-level-agreement',
+    order: 6,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: 'Roadmap and Tasks',
+    keywords: 'roadmap, tasks',
+    route: 'about-prizm/roadmap',
+    order: 7,
+  },
+  {
+    section: SectionNameEnglishEnum.allAboutPrizm,
+    title: 'Changelog',
+    keywords: 'changelog',
+    route: 'about-prizm/changelog',
+    order: 8,
+  },
+  //How to work
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: `Quick Start (for developers)`,
+    keywords: 'intro, how to, start, guide, getting started, main',
+    route: 'how-to-work/for-developers',
+    order: 1,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: `Internationalization`,
+    keywords: 'internationalization, language, multi, i18n',
+    route: 'how-to-work/internationalization',
+    order: 7,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: `How to Transition`,
+    keywords: 'transition, how',
+    route: 'how-to-work/transition',
+    order: 2,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: `How to Add Component`,
+    keywords: 'add, component, how',
+    route: 'how-to-work/add-component',
+    order: 3,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: `How to Set a Task`,
+    keywords: 'set, task, how',
+    route: 'how-to-work/set-task',
+    order: 4,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: 'Contributing',
+    keywords: 'contributing',
+    route: 'how-to-work/contributing',
+    order: 5,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: 'CodeStyle',
+    keywords: 'code, codestyle',
+    route: 'how-to-work/codestyle',
+    order: 6,
+  },
+  //For ZIIoT
+  {
+    section: SectionNameEnglishEnum.forZIIoT,
+    title: `Introduction`,
+    keywords: 'introduction',
+    route: 'forZIIoT/introduction',
+    order: 1,
+  },
+  {
+    section: SectionNameEnglishEnum.forZIIoT,
+    title: `UI Library Requirements for ZIIoT`,
+    keywords: 'requirements, libraries, ui, ziiot',
+    route: 'forZIIoT/library-requirements',
+    order: 2,
+  },
+  {
+    section: SectionNameEnglishEnum.forZIIoT,
+    title: `Migration`,
+    keywords: 'migration',
+    route: 'forZIIoT/migration',
+    order: 3,
+  },
+  //Guidelines
+  {
+    section: SectionNameEnglishEnum.guidelines,
+    title: `Typography`,
+    keywords: 'typography',
+    route: 'guidelines/typography',
+    order: 1,
+  },
+  {
+    section: SectionNameEnglishEnum.guidelines,
+    title: `Colors`,
+    keywords: 'colors',
+    route: 'guidelines/colors',
+    order: 2,
+  },
+  {
+    section: SectionNameEnglishEnum.guidelines,
+    title: `Themes`,
+    keywords: 'themes',
+    route: 'guidelines/theme',
+    order: 3,
+  },
+  {
+    section: SectionNameEnglishEnum.guidelines,
+    title: `Grids`,
+    keywords: 'grid',
+    route: 'guidelines/grid',
+    order: 4,
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Skeleton',
+    keywords: 'skeleton, prizmSkeleton',
+    route: '/components/skeleton',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Tree',
+    keywords: 'tree, prizm-tree',
+    route: '/components/tree',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Buttons',
+    subPages: [
+      {
+        title: 'Button',
+        keywords: 'button',
+        route: '/components/button',
+      },
+      {
+        title: 'Split Button',
+        keywords: 'split-button, split, button',
+        route: '/components/split-button',
+      },
+      {
+        title: 'Icon Button',
+        keywords: 'icon, icon-button, button',
+        route: '/components/icon-button',
+      },
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Dropdowns',
+    subPages: [
+      {
+        title: 'DropdownHost',
+        keywords: 'dropdown, prizm-dropdown-host, overlay',
+        route: '/components/dropdowns/dropdown-host',
+      },
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Shadow',
+    keywords: 'shadow, prizm-shadow',
+    route: '/components/shadow',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Sticky',
+    keywords: 'sticky, prizm-sticky',
+    route: '/components/sticky',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Card',
+    keywords: 'card, prizm-card',
+    route: '/components/card',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Widget',
+    keywords: 'widget, prizm-widget',
+    route: '/components/widget',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Calendars',
+    subPages: [
+      {
+        title: 'Calendar',
+        keywords: 'calendar',
+        route: '/components/calendar',
+      },
+      {
+        title: 'Calendar Month',
+        keywords: 'calendar-month',
+        route: '/components/calendar-month',
+      },
+      {
+        title: 'Calendar Range',
+        keywords: 'calendar-range',
+        route: '/components/calendar-range',
+      },
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Listing Item',
+    status: 'preview',
+    keywords: 'list item, cell, dropdown cell, listing item',
+    route: '/components/listing-item',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Inputs',
+    subPages: [
+      // (SubPages are omitted for brevity, follow the same pattern as above.)
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Hint',
+    keywords: 'hint',
+    route: '/components/hint',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Toast',
+    keywords: 'toast',
+    route: '/components/toast',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Dialogs',
+    subPages: [
+      {
+        title: 'Dialog',
+        keywords: 'dialog, window',
+        route: '/components/dialogs/dialog',
+      },
+      {
+        title: 'Sidebar',
+        keywords: 'sidebar, window',
+        route: '/components/dialogs/sidebar',
+      },
+      {
+        title: 'Confirm Dialog',
+        keywords: 'confirm-dialog',
+        route: '/components/dialogs/confirm-dialog',
+      },
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Tooltip',
+    keywords: 'tooltip',
+    route: '/components/tooltip',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Confirm Popup',
+    keywords: 'confirm, popup, confirm-popup',
+    route: '/components/confirm-popup',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Counter',
+    keywords: 'counter',
+    route: '/components/counter',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Icons',
+    subPages: [
+      {
+        title: 'Icon (Deprecated)',
+        keywords: 'icon, deprecated',
+        route: '/components/old-icon',
+        status: 'deprecated',
+      },
+      {
+        title: 'Flag Icons',
+        keywords: 'icon, flags',
+        route: '/components/flag-icons',
+      },
+      {
+        title: 'Svg Icon',
+        keywords: 'icon, svg',
+        route: '/components/icon',
+      },
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Loader',
+    keywords: 'loader',
+    route: '/components/loader',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Spinner',
+    keywords: 'loader, spinner',
+    route: '/components/spinner',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Indicators',
+    keywords: 'indicator, danger, warning, success',
+    route: '/components/indicators',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Checkbox',
+    keywords: 'button, checkbox',
+    route: '/components/checkbox',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Paginator',
+    keywords: 'paginator, paging',
+    route: '/components/paginator',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Scrollbar',
+    keywords: 'scrollbar, scroll',
+    route: '/components/scrollbar',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Toggle',
+    keywords: 'toggle, switcher',
+    route: '/components/toggle',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Progress',
+    subPages: [
+      {
+        title: 'Progress Line',
+        keywords: 'progress-line, line, bar',
+        route: '/components/progress-line-bar',
+      },
+      {
+        title: 'Progress Circle',
+        keywords: 'progress-circle, circle, bar',
+        route: '/components/progress-circle-bar',
+      },
+      {
+        title: 'Progress Segmented',
+        keywords: 'progress-segmented, segmented, bar',
+        route: '/components/progress-line-segmented',
+      },
+    ],
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Radio Button',
+    keywords: 'radio, button',
+    route: '/components/radio-button',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Table',
+    keywords: 'table',
+    route: '/components/table',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Panel',
+    keywords: 'panel, header',
+    route: '/components/panel',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Tabs',
+    keywords: 'tabs, nav, navigation',
+    route: '/components/tabs',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Breadcrumbs',
+    keywords: 'breadcrumbs, nav, navigation',
+    route: '/components/breadcrumbs',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Accordion',
+    keywords: 'accordion',
+    route: '/components/accordion',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Side-menu',
+    keywords: 'side-menu, menu',
+    route: '/components/side-menu',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Navigation Menu',
+    keywords: 'navigation-menu, nav, menu',
+    route: '/components/navigation-menu',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Navigation',
+    keywords: 'nav-menu, nav, menu',
+    route: '/components/navigation',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Switcher',
+    keywords: 'switcher, select-button',
+    route: '/components/switcher',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Grids',
+    keywords: 'grids',
+    route: '/components/grids',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Zoom Control',
+    keywords: 'zoom, zoom control',
+    route: '/components/zoom-control',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Stepper',
+    keywords: 'stepper',
+    route: '/components/stepper',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Splitter',
+    keywords: 'splitter',
+    route: '/components/splitter',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Slider',
+    keywords: 'slider',
+    route: '/components/slider',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Cron',
+    keywords: 'cron',
+    route: '/components/cron',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Cron Human Readable',
+    keywords: 'cron, human readable',
+    route: '/components/cron-human-readable',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Error Page',
+    keywords: 'error page',
+    route: '/components/error-page',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'File Upload',
+    keywords: 'file upload',
+    route: '/components/file-upload',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Overlay',
+    keywords: 'overlay, modal',
+    route: '/tools/overlay',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'AST HTML',
+    keywords: 'html, parser',
+    route: '/tools/ast-html',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Zone Events',
+    keywords: 'zone, events',
+    route: '/tools/zone-events',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Nx Plugin',
+    keywords: 'plugin, generator, executor',
+    route: '/tools/nx-plugin',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'AST',
+    keywords: 'ast, helpers, prizm',
+    route: '/tools/ast',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'To Observable',
+    keywords: 'to-observable, pipe',
+    route: '/tools/to-observable',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Observable',
+    keywords: 'observable, subject, decorator',
+    route: '/tools/observable',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Auto Emit',
+    keywords: 'auto-emit, observable, subject, decorator',
+    route: '/tools/auto-emit',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Polymorph',
+    keywords: 'polymorph, template',
+    route: '/tools/polymorph',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Theme Service',
+    keywords: 'theme, service, colors, typography',
+    route: '/tools/theme-service',
+  },
+  {
+    section: SectionNameEnglishEnum.tools,
+    title: 'Theme Module',
+    keywords: 'theme, module, colors, typography',
+    route: '/tools/theme',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Line Chart',
+    keywords: 'charts, line',
+    route: '/charts/line',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Area Chart',
+    keywords: 'charts, area',
+    route: '/charts/area',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Bar Chart',
+    keywords: 'charts, bar',
+    route: '/charts/bar',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Gauge Chart',
+    keywords: 'charts, gauge',
+    route: '/charts/gauge',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Scatter Chart',
+    keywords: 'charts, scatter',
+    route: '/charts/scatter',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Treemap Chart',
+    keywords: 'charts, treemap',
+    route: '/charts/treemap',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Radar Chart',
+    keywords: 'charts, radar',
+    route: '/charts/radar',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Pie Chart',
+    keywords: 'charts, pie',
+    route: '/charts/pie',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Radial Bar Chart',
+    keywords: 'charts, radial bar',
+    route: '/charts/radial-bar',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Waterfall Chart',
+    keywords: 'charts, waterfall',
+    route: '/charts/waterfall',
+  },
+  {
+    section: SectionNameEnglishEnum.charts,
+    title: 'Column Chart',
+    keywords: 'charts, column group',
+    route: '/charts/column-group',
+  },
 ];

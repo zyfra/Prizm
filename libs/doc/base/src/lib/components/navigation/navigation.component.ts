@@ -14,8 +14,8 @@ import { TuiSidebarDirective } from '@taiga-ui/addon-mobile';
 import { tuiControlValue, TuiDestroyService, tuiPure, tuiUniqBy } from '@taiga-ui/cdk';
 import { TuiBrightness, TuiModeDirective } from '@taiga-ui/core';
 import { TuiInputComponent } from '@taiga-ui/kit';
-import { Observable } from 'rxjs';
-import { filter, map, startWith, take, takeUntil } from 'rxjs/operators';
+import { first, Observable, switchMap } from 'rxjs';
+import { filter, map, startWith, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmDocPage } from '../../interfaces/page';
 import { PRIZM_DOC_SEARCH_TEXT } from '../../tokens/i18n';
 import { PRIZM_DOC_PAGE_LOADED } from '../../tokens/page-loaded';
@@ -48,7 +48,9 @@ export class TuiDocNavigationComponent {
 
   readonly filtered$ = tuiControlValue<string>(this.search).pipe(
     filter(search => search.length > 2),
-    map(search => this.filterItems(this.flattenSubPages(this.items), search))
+    switchMap(search => {
+      return this.items$.pipe(map(items => this.filterItems(this.flattenSubPages(items), search)));
+    })
   );
 
   readonly mode$: Observable<TuiBrightness> = this.mode.change$.pipe(
@@ -70,9 +72,9 @@ export class TuiDocNavigationComponent {
     @Optional()
     @Inject(TuiSidebarDirective)
     readonly sidebar: unknown,
-    @Inject(NAVIGATION_LABELS) readonly labels: string[],
+    @Inject(NAVIGATION_LABELS) readonly labels$: Observable<string[]>,
     @Inject(NAVIGATION_ITEMS)
-    readonly items: readonly PrizmDocPages[],
+    readonly items$: Observable<PrizmDocPages[]>,
     @Inject(PRIZM_DOC_SEARCH_TEXT) readonly searchText: string,
     @Inject(Router) private readonly router: Router,
     @Inject(ActivatedRoute) private readonly activatedRoute: ActivatedRoute,
@@ -96,8 +98,8 @@ export class TuiDocNavigationComponent {
     return (this.search.value?.length ?? 0) > 2;
   }
 
-  get itemsWithoutSections(): PrizmDocPages {
-    return this.items[this.items.length - 1];
+  public itemsWithoutSections(items: PrizmDocPages[]): PrizmDocPages {
+    return items[items.length - 1];
   }
 
   public isActive(route: string): boolean {
@@ -170,24 +172,32 @@ export class TuiDocNavigationComponent {
   }
 
   private openActivePageGroup(): void {
-    this.items.forEach((pages, pagesIndex) => {
-      pages.forEach((page, pageIndex) => {
-        if (`route` in page && this.isActiveRoute(page.route as string)) {
-          this.openPagesArr[pagesIndex] = true;
-          this.active = page.route as string;
-        }
+    this.items$
+      .pipe(
+        first(),
+        tap(items => {
+          items.forEach((pages, pagesIndex) => {
+            pages.forEach((page, pageIndex) => {
+              if (`route` in page && this.isActiveRoute(page.route as string)) {
+                this.openPagesArr[pagesIndex] = true;
+                this.active = page.route as string;
+              }
 
-        if (`subPages` in page) {
-          page.subPages.forEach(subPage => {
-            if (this.isActiveRoute(subPage.route as string)) {
-              this.openPagesArr[pagesIndex] = true;
-              this.openPagesGroupsArr[pagesIndex * 100 + pageIndex] = true;
-              this.active = subPage.route as string;
-            }
+              if (`subPages` in page) {
+                page.subPages.forEach(subPage => {
+                  if (this.isActiveRoute(subPage.route as string)) {
+                    this.openPagesArr[pagesIndex] = true;
+                    this.openPagesGroupsArr[pagesIndex * 100 + pageIndex] = true;
+                    this.active = subPage.route as string;
+                  }
+                });
+              }
+            });
           });
-        }
-      });
-    });
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private navigateToAnchorLink(fragment: string): void {

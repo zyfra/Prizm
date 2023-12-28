@@ -1,3 +1,5 @@
+import { PrizmLanguageName } from '@prizm-ui/i18n';
+
 export interface PrizmVersionMeta {
   label: string;
   link: URL;
@@ -9,18 +11,18 @@ export interface PrizmVersionMeta {
 }
 
 export interface PrizmLanguageMeta {
-  code: 'ru' | 'en';
+  code: PrizmLanguageName;
   label: 'Русский' | 'English';
 }
 
 export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
   {
     label: 'Русский',
-    code: 'ru',
+    code: 'russian',
   },
   {
     label: 'English',
-    code: 'en',
+    code: 'english',
   },
 ];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [

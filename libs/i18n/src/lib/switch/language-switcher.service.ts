@@ -1,12 +1,13 @@
 import { Inject, Injectable, Optional } from '@angular/core';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
-import { BehaviorSubject, Observable, of } from 'rxjs';
+import { BehaviorSubject, Observable, of, switchMap, tap } from 'rxjs';
 import { PrizmLanguage, PrizmLanguageLoader, PrizmLanguageName, PrizmLanguageStorage } from '../interfaces';
 import { PRIZM_LANGUAGE_STORAGE_KEY } from '../tokens';
 import { PRIZM_LANGUAGE_LOADER } from '../tokens/language-loader';
 import { PRIZM_DEFAULT_LANGUAGE } from '../tools';
 
 import { prizmAsyncLoadLanguage } from './utils';
+import { map } from 'rxjs/operators';
 
 @Injectable({ providedIn: `root` })
 export class PrizmLanguageSwitcher extends BehaviorSubject<Observable<PrizmLanguage>> {
@@ -28,9 +29,12 @@ export class PrizmLanguageSwitcher extends BehaviorSubject<Observable<PrizmLangu
     return this.storage.getItem(this.key) || this.fallback.name;
   }
 
+  public get language$(): Observable<PrizmLanguageName> {
+    return this.pipe(map(() => this.language));
+  }
+
   public setLanguage(language: PrizmLanguageName): void {
     this.storage.setItem(this.key, language);
-
     this.next(prizmAsyncLoadLanguage(language, this.loader, this.fallback));
   }
 
