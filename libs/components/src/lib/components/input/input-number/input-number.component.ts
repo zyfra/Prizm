@@ -124,13 +124,13 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
 
   private validateMinMax() {
-    if (this.max && this.max < this.value) {
+    if (this.max !== null && this.max < this.value) {
       this.el.nativeElement.value = this.max.toString();
       this.stateChanges.next();
       return;
     }
 
-    if (this.min && this.min > this.value) {
+    if (this.min !== null && this.min > this.value) {
       this.el.nativeElement.value = this.min.toString();
       this.stateChanges.next();
       return;
