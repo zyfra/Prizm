@@ -5,12 +5,36 @@
   "sourceRoot": "libs/icons/base/src",
   "prefix": "prizm",
   "targets": {
+    "generate-icons-24": {
+      "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+      "options": {
+        "exportCompleteIconSet": true,
+        "conversionType": "files",
+        "srcFiles": ["libs/icons/base/assets/24/*.svg"],
+        "outputDirectory": "libs/icons/base/src/lib/icons/24",
+        "interfaceName": "PrizmIcons",
+        "typeName": "PrizmIconsType",
+        "generateEnum": true,
+        "enumName": "PrizmIconsEnum",
+        "fileName": "icons",
+        "iconsFolderName": "source",
+        "barrelFileName": "index",
+        "generateType": true,
+        "generateTypeObject": true,
+        "prefix": "prizmIcons",
+        "optimizeForLazyLoading": true,
+        "modelFileName": "prizm-icons.model",
+        "svgoConfig": {
+          "plugins": ["removeDimensions"]
+        },
+        "compileSources": false
+      }
+    },
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/icons/base"],
       "options": {
-        "project": "libs/icons/base/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": false
+        "project": "libs/icons/base/ng-package.json"
       },
       "configurations": {
         "production": {
@@ -23,7 +47,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/icons/base"],
       "options": {
         "jestConfig": "libs/icons/base/jest.config.ts",
@@ -31,7 +55,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
       }

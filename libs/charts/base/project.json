@@ -6,7 +6,7 @@
   "prefix": "prizm",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/charts/base"],
       "options": {
         "project": "libs/charts/base/ng-package.json",
@@ -23,7 +23,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/charts/base"],
       "options": {
         "jestConfig": "libs/charts/base/jest.config.ts",
@@ -31,7 +31,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/charts/base/src/**/*.ts", "libs/charts/base/src/**/*.html"]
       }

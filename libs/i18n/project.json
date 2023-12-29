@@ -6,7 +6,7 @@
   "prefix": "prizm",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/i18n"],
       "options": {
         "project": "libs/i18n/ng-package.json",
@@ -23,7 +23,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/i18n"],
       "options": {
         "jestConfig": "libs/i18n/jest.config.ts",
@@ -31,7 +31,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/i18n/src/**/*.ts", "libs/i18n/src/**/*.html"]
       }

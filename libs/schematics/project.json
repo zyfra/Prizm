@@ -6,7 +6,7 @@
   "prefix": "prizm",
   "targets": {
     "prebuild": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/schematics"],
       "options": {
         "project": "libs/schematics/ng-package.json",
@@ -47,7 +47,7 @@
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/schematics"],
       "options": {
         "jestConfig": "libs/schematics/jest.config.ts",
@@ -55,7 +55,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/schematics/src/**/*.ts", "libs/schematics/src/**/*.html"]
       }
