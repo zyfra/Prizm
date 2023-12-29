@@ -24,6 +24,7 @@ import { takeUntil, tap } from 'rxjs/operators';
   selector: `[prizmEventZone]:not(ng-container), [prizmEventZoneChange]:not(ng-container), [prizmEventZoneParent]:not(ng-container)`,
   exportAs: `prizmEventZone`,
   providers: [PrizmEventZoneService, PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmDropdownZoneDirective implements OnInit, OnChanges {
   @Output() prizmEventZoneEvent = new EventEmitter<number>();

@@ -19,12 +19,6 @@
   </div>
 
   <div class="expandable" [@expand]="isExpanded ? 'expanded' : 'init'">
-    <!-- <prizm-navigation-item
-      *ngFor="let item of menuItem.children"
-      [data]="item"
-      [deep]="deep + 1"
-    ></prizm-navigation-item> -->
-
     <ng-container *ngFor="let item of menuItem?.children ?? []">
       <prizm-navigation-item-simple
         *ngIf="!item?.children"
