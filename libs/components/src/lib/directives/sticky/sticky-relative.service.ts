@@ -6,7 +6,7 @@ import { shareReplay } from 'rxjs/operators';
 @Injectable()
 export class PrizmStickyRelativeService implements OnDestroy {
   element!: HTMLElement;
-  public readonly changesChildren$$ = new Subject<void>();
+  private readonly changesChildren$$ = new Subject<void>();
 
   private resizeObserver = new ResizeObserver(() => {
     this.changesChildren$$.next();
