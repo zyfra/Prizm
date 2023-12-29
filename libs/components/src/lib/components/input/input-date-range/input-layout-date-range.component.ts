@@ -217,6 +217,9 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   }
 
   public onValueFromChange(value: string, isFromValue: boolean): void {
+    // clear from mask
+    value = value.replace(/[_]/g, '');
+
     if (isFromValue && value === this.fromValue) return;
     if (!isFromValue && value === this.toValue) return;
     this.nativeValue$$.next(
