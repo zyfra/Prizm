@@ -17,7 +17,7 @@
   </ng-container>
 
   <div class="content prizm-font-main-body-14">
-    <prizm-scrollbar class="scrollbar">
+    <prizm-scrollbar class="scrollbar" [visibility]="context.scrollbarVisibility ?? 'auto'">
       <div *polymorphOutlet="$any(context.content) as text; context: $any(context)">
         {{ text }}
       </div>

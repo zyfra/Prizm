@@ -10,7 +10,10 @@
       </ng-container>
     </ng-container>
     <ng-container *ngSwitchDefault>
-      <prizm-scrollbar *polymorphOutlet="context.header as data; context: context" visibility="hidden">
+      <prizm-scrollbar
+        *polymorphOutlet="context.header as data; context: context"
+        [visibility]="context.scrollbarVisibility ?? 'hidden'"
+      >
         <div class="title">
           {{ data }}
         </div>
@@ -33,7 +36,7 @@
         {{ outerContent }}
       </ng-container>
       <ng-template #innerTemplate>
-        <prizm-scrollbar class="scrollbar full-height">
+        <prizm-scrollbar class="scrollbar full-height" [visibility]="context.scrollbarVisibility ?? 'auto'">
           <div class="full-height" *polymorphOutlet="context.content as text; context: context">
             {{ text }}
           </div>

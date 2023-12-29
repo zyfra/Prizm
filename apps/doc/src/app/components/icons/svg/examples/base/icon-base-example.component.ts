@@ -7,11 +7,11 @@ import { Component } from '@angular/core';
     `
       .icons-24 {
         font-size: 24px;
-        color: var(--prizm-index-plan);
+        color: var(--prizm-v3-status-info-primary-default);
       }
       .icons-16 {
         font-size: 16px;
-        color: var(--prizm-index-plan);
+        color: var(--prizm-v3-status-info-primary-default);
       }
     `,
   ],
