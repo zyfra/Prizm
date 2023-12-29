@@ -5,6 +5,8 @@ import {
   Inject,
   Input,
   OnChanges,
+  OnDestroy,
+  OnInit,
   Optional,
   Renderer2,
 } from '@angular/core';
@@ -19,7 +21,7 @@ import { animationFrameScheduler, merge, of, Subject } from 'rxjs';
   selector: '[prizmStickyLeft], [prizmStickyRight], [prizmStickyTop], [prizmStickyBottom]',
   providers: [PrizmDestroyService, ResizeObserverService],
 })
-export class PrizmStickyDirective implements OnChanges {
+export class PrizmStickyDirective implements OnChanges, OnDestroy, OnInit {
   @HostBinding('class.prizm-sticky-left')
   @Input()
   prizmStickyLeft!: boolean;
@@ -69,6 +71,14 @@ export class PrizmStickyDirective implements OnChanges {
     @Inject(ResizeObserverService) private readonly entries$: ResizeObserverService
   ) {}
 
+  ngOnInit(): void {
+    this.relativeService.add(this);
+  }
+
+  ngOnDestroy(): void {
+    this.relativeService.delete(this);
+  }
+
   public ngOnChanges(): void {
     this.init();
   }
@@ -103,8 +113,10 @@ export class PrizmStickyDirective implements OnChanges {
     this.destroyPrevious$.next();
 
     const parent = this.prizmStickyRelative ?? this.relativeService?.element;
-    merge(this.rect$)
+    this.relativeService.changesChildren$
       .pipe(
+        switchMap(directive => merge(...directive.map(i => i.entries$))),
+        map(() => this.elRef.nativeElement.getBoundingClientRect()),
         observeOn(animationFrameScheduler),
         filter(i => Boolean(i.width || i.height)),
         switchMap(result => {
