@@ -2,3 +2,9 @@
   <prizm-input-layout-date-range [formControl]="value" [min]="min" [max]="max">
   </prizm-input-layout-date-range>
 </prizm-input-layout>
+
+<div>
+  <div>min: {{ min?.toString() ?? '' }}</div>
+  <div>max: {{ max?.toString() ?? '' }}</div>
+  <div>value: {{ value?.toString() ?? '' }}</div>
+</div>
