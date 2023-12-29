@@ -21,25 +21,29 @@
     align-items: center;
     justify-content: space-between;
 
-    background: var(--prizm-bg-header);
+    background: var(--prizm-v3-background-fill-panel);
 
     cursor: pointer;
 
     &__icon {
-      color: var(--prizm-border-icon);
+      color: var(--prizm-v3-button-secondary-solid-default);
       transition: 400ms;
     }
 
     &:hover:not(.dropdown_active) {
-      background: var(--prizm-grey-g10-g4);
+      background: var(--prizm-v3-table-fill-row-hover);
     }
 
     &_active {
-      background: var(--prizm-lite-b130-20);
+      background: var(--prizm-v3-table-fill-row-active);
 
       .dropdown__icon {
         transform: rotate(90deg);
-        color: var(--prizm-text-contrast);
+        color: var(--prizm-v3-text-icon-primary);
+      }
+
+      .screen__icon {
+        color: var(--prizm-v3-text-icon-primary);
       }
     }
   }
@@ -50,7 +54,7 @@
   gap: 8px;
 
   &__icon {
-    color: var(--prizm-index-plan);
+    color: var(--prizm-v3-status-info-primary-default);
   }
 
   &__title {
@@ -58,7 +62,7 @@
     font-size: 14px;
     line-height: 16px;
 
-    color: var(--prizm-text-contrast);
+    color: var(--prizm-v3-text-icon-primary);
 
     white-space: nowrap;
     overflow: hidden;
@@ -71,7 +75,7 @@
 
   display: flex;
   flex-direction: column;
-  background: var(--prizm-bg-body) !important;
+  background: var(--prizm-v3-background-fill-panel) !important;
 
   &.default {
     border: none;
@@ -87,20 +91,16 @@
     cursor: pointer;
 
     &.selected {
-      background: var(--prizm-header-dropdown-selected-background, var(--prizm-lite-b130-20));
-      color: var(--prizm-text-contrast);
-    }
-
-    .screen__icon {
-      color: var(--prizm-border-icon);
-    }
-
-    &:hover {
-      background: var(--prizm-lite-b130-20);
+      background: var(--prizm-header-dropdown-selected-background, var(--prizm-v3-table-fill-row-active));
+      color: var(--prizm-v3-text-icon-primary);
 
       .screen__icon {
-        color: var(--prizm-index-plan);
+        color: var(--prizm-v3-text-icon-primary);
       }
+    }
+
+    &:hover:not(.selected) {
+      background: var(--prizm-v3-table-fill-row-hover);
     }
   }
 }
