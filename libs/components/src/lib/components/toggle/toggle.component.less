@@ -10,17 +10,18 @@
 @toggle-interval-l: 20px;
 @radius: 16px;
 
-prizm-wrapper {
-  overflow: hidden;
-  border-radius: @radius;
-}
-
 :host {
   position: relative;
   display: inline-block;
   vertical-align: middle;
   border-radius: @radius;
   outline: 1px solid transparent;
+
+  prizm-wrapper {
+    overflow: hidden;
+    border-radius: @radius;
+    background-color: var(--prizm-v3-form-active);
+  }
 
   &:hover:not(._disabled) {
     prizm-wrapper {
