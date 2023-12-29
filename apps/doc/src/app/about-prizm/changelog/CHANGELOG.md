@@ -2,7 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (20-12-2023)
+## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
+
+## Features
+
+- feat(components/sticky): update on changes #1085
+- feat(component/event-zone): directive to standalone #1260 #1276
+- feat(components/input-zone): add hook on update value and fix bug #1092 #1274
+- feat: update toggle styles #1169 #1268
+- feat: navigation v3 colors #1186 #1262
+- feat(components/tab): added css variable for tab max-width #1244 #1249
+- feat(components/sidebar): added ability to control scrollbar visibility #780 #1233
+- feat(documentation): update documentation colors (use only v3) #1195 #1232
+- feat(components/textarea): show placeholder #357 #1230
+  feat(components/navigation): search lower case #1214 #1227
+- feat: update colors for shadow #1199 #1200
+
+### Bug fixes
+
+- fix: input number min/max should apply for manual input values #1237
+- fix(components/input-date-time): min max limit on first update #1263 #1273
+- fix(components/input-date-time): min max limit on first update #488 #1275
+- fix: none-status tokens updated for dark theme #1253
+- fix: artifact download folder in beta release #1229
+- fix: artifact dowload folder in next release #1228
+-
+
+## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (27-12-2023)
 
 ### Bug fixes
 
