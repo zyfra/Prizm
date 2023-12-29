@@ -1,7 +1,7 @@
-import { ChangeDetectorRef, Directive, ElementRef, Output } from '@angular/core';
+import { ChangeDetectorRef, Directive, Output } from '@angular/core';
 import { PrizmInputZoneService } from './input-zone.service';
-import { fromEvent, merge, Observable, switchMap, timeout, timer } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, mapTo, share, tap } from 'rxjs/operators';
+import { merge, Observable, switchMap } from 'rxjs';
+import { distinctUntilChanged, map, share } from 'rxjs/operators';
 
 @Directive({
   selector: `[prizmInputZone]`,
@@ -52,7 +52,20 @@ export class PrizmInputZoneDirective {
 
   public updateNativeValue(idx: number, value: string | number | null): PrizmInputZoneDirective {
     const selected = this.inputZoneService.elements[idx];
-    if (selected && selected.el.nativeElement) selected.el.nativeElement.value = value?.toString() ?? '';
+    if (selected) {
+      const newValue = value?.toString() ?? '';
+      selected.updateNativeValue.next(newValue);
+      if (selected.el.nativeElement) selected.el.nativeElement.value = newValue;
+    }
+    return this;
+  }
+
+  public updateNativeValues(
+    ...values: { idx: number; value: string | number | null }[]
+  ): PrizmInputZoneDirective {
+    values.forEach(({ idx, value }) => {
+      this.updateNativeValue(idx, value);
+    });
     return this;
   }
 
