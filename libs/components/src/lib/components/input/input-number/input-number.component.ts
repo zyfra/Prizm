@@ -3,6 +3,7 @@ import {
   ElementRef,
   EventEmitter,
   Host,
+  HostBinding,
   HostListener,
   inject,
   Input,
@@ -74,6 +75,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   }
   public nativeElementType = 'number';
   public hasClearButton = true;
+
+  @Input()
+  @HostBinding('attr.placeholder')
+  placeholder?: string;
 
   @Input() min: number | null = null;
   @Input() max: number | null = null;
