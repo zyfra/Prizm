@@ -26,7 +26,6 @@ All notable changes to this project will be documented in this file.
 - fix: none-status tokens updated for dark theme #1253
 - fix: artifact download folder in beta release #1229
 - fix: artifact dowload folder in next release #1228
--
 
 ## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (27-12-2023)
 
