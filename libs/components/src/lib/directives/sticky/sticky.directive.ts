@@ -2,7 +2,6 @@ import {
   Directive,
   ElementRef,
   HostBinding,
-  Inject,
   Input,
   OnChanges,
   OnDestroy,
@@ -10,16 +9,15 @@ import {
   Optional,
   Renderer2,
 } from '@angular/core';
-import { ResizeObserverService } from '@ng-web-apis/resize-observer';
 import { filter, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { prizmToPx } from '../../util';
 import { moveInEventLoopIteration, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmStickyRelativeService } from './sticky-relative.service';
-import { animationFrameScheduler, merge, of, Subject } from 'rxjs';
+import { animationFrameScheduler, of, Subject } from 'rxjs';
 
 @Directive({
   selector: '[prizmStickyLeft], [prizmStickyRight], [prizmStickyTop], [prizmStickyBottom]',
-  providers: [PrizmDestroyService, ResizeObserverService],
+  providers: [PrizmDestroyService],
 })
 export class PrizmStickyDirective implements OnChanges, OnDestroy, OnInit {
   @HostBinding('class.prizm-sticky-left')
@@ -55,7 +53,6 @@ export class PrizmStickyDirective implements OnChanges, OnDestroy, OnInit {
   }
 
   private setActiveStyle = false;
-  private readonly rect$ = this.entries$.pipe(map(() => this.elRef.nativeElement.getBoundingClientRect()));
   private readonly destroyPrevious$ = new Subject<void>();
   private readonly changedSides = {
     right: true,
@@ -64,11 +61,10 @@ export class PrizmStickyDirective implements OnChanges, OnDestroy, OnInit {
     bottom: true,
   };
   constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
+    public readonly elRef: ElementRef<HTMLElement>,
     private readonly renderer: Renderer2,
     @Optional() private readonly relativeService: PrizmStickyRelativeService,
-    private readonly destroy$: PrizmDestroyService,
-    @Inject(ResizeObserverService) private readonly entries$: ResizeObserverService
+    private readonly destroy$: PrizmDestroyService
   ) {}
 
   ngOnInit(): void {
@@ -115,7 +111,6 @@ export class PrizmStickyDirective implements OnChanges, OnDestroy, OnInit {
     const parent = this.prizmStickyRelative ?? this.relativeService?.element;
     this.relativeService.changesChildren$
       .pipe(
-        switchMap(directive => merge(...directive.map(i => i.entries$))),
         map(() => this.elRef.nativeElement.getBoundingClientRect()),
         observeOn(animationFrameScheduler),
         filter(i => Boolean(i.width || i.height)),
