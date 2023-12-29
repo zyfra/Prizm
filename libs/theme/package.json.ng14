@@ -1,11 +1,11 @@
 {
   "name": "@prizm-ui/theme",
-  "version": "1.12.1",
+  "version": "1.13.0",
   "peerDependencies": {
     "@angular/common": "^14.2.0",
     "@angular/core": "^14.2.0",
-    "@prizm-ui/core": "^1.12.1",
-    "@prizm-ui/helpers": "^1.12.1"
+    "@prizm-ui/core": "^1.13.0",
+    "@prizm-ui/helpers": "^1.13.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
