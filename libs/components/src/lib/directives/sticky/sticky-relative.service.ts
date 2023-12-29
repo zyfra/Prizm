@@ -11,16 +11,13 @@ export class PrizmStickyRelativeService implements OnDestroy {
   private resizeObserver = new ResizeObserver(() => {
     this.changesChildren$$.next();
   });
-  public readonly set = new Set<PrizmStickyDirective>();
   public readonly changesChildren$ = this.changesChildren$$.pipe(shareReplay(1));
 
   public add(item: PrizmStickyDirective) {
-    this.set.add(item);
     this.resizeObserver.observe(item.elRef.nativeElement);
   }
 
   public delete(item: PrizmStickyDirective) {
-    this.set.delete(item);
     this.resizeObserver.unobserve(item.elRef.nativeElement);
   }
 
