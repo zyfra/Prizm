@@ -2,24 +2,24 @@ import {
   Directive,
   ElementRef,
   HostBinding,
-  Inject,
   Input,
   OnChanges,
+  OnDestroy,
+  OnInit,
   Optional,
   Renderer2,
 } from '@angular/core';
-import { ResizeObserverService } from '@ng-web-apis/resize-observer';
 import { filter, map, observeOn, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { prizmToPx } from '../../util';
 import { moveInEventLoopIteration, PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmStickyRelativeService } from './sticky-relative.service';
-import { animationFrameScheduler, merge, of, Subject } from 'rxjs';
+import { animationFrameScheduler, of, Subject } from 'rxjs';
 
 @Directive({
   selector: '[prizmStickyLeft], [prizmStickyRight], [prizmStickyTop], [prizmStickyBottom]',
-  providers: [PrizmDestroyService, ResizeObserverService],
+  providers: [PrizmDestroyService],
 })
-export class PrizmStickyDirective implements OnChanges {
+export class PrizmStickyDirective implements OnChanges, OnDestroy, OnInit {
   @HostBinding('class.prizm-sticky-left')
   @Input()
   prizmStickyLeft!: boolean;
@@ -53,7 +53,6 @@ export class PrizmStickyDirective implements OnChanges {
   }
 
   private setActiveStyle = false;
-  private readonly rect$ = this.entries$.pipe(map(() => this.elRef.nativeElement.getBoundingClientRect()));
   private readonly destroyPrevious$ = new Subject<void>();
   private readonly changedSides = {
     right: true,
@@ -62,12 +61,19 @@ export class PrizmStickyDirective implements OnChanges {
     bottom: true,
   };
   constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
+    public readonly elRef: ElementRef<HTMLElement>,
     private readonly renderer: Renderer2,
     @Optional() private readonly relativeService: PrizmStickyRelativeService,
-    private readonly destroy$: PrizmDestroyService,
-    @Inject(ResizeObserverService) private readonly entries$: ResizeObserverService
+    private readonly destroy$: PrizmDestroyService
   ) {}
+
+  ngOnInit(): void {
+    this.relativeService.add(this);
+  }
+
+  ngOnDestroy(): void {
+    this.relativeService.delete(this);
+  }
 
   public ngOnChanges(): void {
     this.init();
@@ -103,8 +109,9 @@ export class PrizmStickyDirective implements OnChanges {
     this.destroyPrevious$.next();
 
     const parent = this.prizmStickyRelative ?? this.relativeService?.element;
-    merge(this.rect$)
+    this.relativeService.changesChildren$
       .pipe(
+        map(() => this.elRef.nativeElement.getBoundingClientRect()),
         observeOn(animationFrameScheduler),
         filter(i => Boolean(i.width || i.height)),
         switchMap(result => {
