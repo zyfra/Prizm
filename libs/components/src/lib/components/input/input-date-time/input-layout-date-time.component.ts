@@ -325,6 +325,12 @@ export class PrizmInputLayoutDateTimeComponent
 
     if (time) time = this.timeLimit([date as any, time]);
 
+    // force update native value
+    this.nativeValue$$.next([
+      date?.toString() ?? this.nativeValue$$.value[0],
+      time?.toString() ?? this.nativeValue$$.value[1],
+    ]);
+
     this.updateValue([date, time]);
   }
 
@@ -334,6 +340,7 @@ export class PrizmInputLayoutDateTimeComponent
 
     if (!value || value.length < this.timeMaskOptions.length || this.isValueMasked(value)) {
       if (!value) this.updateValue([this.value?.[0] ?? null, null]);
+
       return;
     }
 
