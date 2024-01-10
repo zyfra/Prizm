@@ -250,7 +250,7 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/calendar-month',
       },
       {
-        title: 'CalendarRange',
+        title: 'Calendar Range',
         keywords: 'calendar-range, календарь, диапозон',
         route: '/components/calendar-range',
       },
@@ -539,7 +539,7 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
-    title: 'Navigation menu',
+    title: 'Navigation Menu',
     keywords: 'navigation-menu, nav, navigation, menu, меню, навигация',
     route: '/components/navigation-menu',
   },
@@ -563,7 +563,7 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
-    title: 'Zoom control',
+    title: 'Zoom Control',
     keywords: 'zoom, zoom control, зум',
     route: '/components/zoom-control',
   },
@@ -599,13 +599,13 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
-    title: 'Error page',
+    title: 'Error Page',
     keywords: 'error-page',
     route: '/components/error-page',
   },
   {
     section: SectionNameEnum.components,
-    title: 'File upload',
+    title: 'File Upload',
     keywords: 'file upload',
     route: '/components/file-upload',
   },
@@ -624,7 +624,7 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
-    title: 'ZoneEvents',
+    title: 'Zone Events',
     keywords: 'zone, зона, events, события',
     route: '/tools/zone-events',
   },
@@ -1004,7 +1004,96 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     section: SectionNameEnglishEnum.components,
     title: 'Inputs',
     subPages: [
-      // (SubPages are omitted for brevity, follow the same pattern as above.)
+      {
+        title: 'InputMultiSelect',
+        keywords: 'input-multi-select, multi-select, form',
+        route: '/components/input-multi-select',
+      },
+      {
+        title: 'InputLayoutDateTime',
+        keywords: 'input-layout-date-time, date-time, form',
+        route: '/components/input-layout-date-time',
+      },
+      {
+        title: 'InputSelect',
+        keywords: 'input-select, select, form',
+        route: '/components/input-select',
+      },
+      {
+        title: 'InputLayoutDateTimeRange',
+        keywords: 'input-layout-date-time-range, date-time-range, form',
+        route: '/components/input-layout-date-time-range',
+      },
+      {
+        title: 'InputLayoutTime',
+        keywords: 'input-layout-time, time, form',
+        route: '/components/input-layout-time',
+      },
+      {
+        title: 'InputLayoutDate',
+        keywords: 'input-layout-date, date, input, form',
+        route: '/components/input-layout-date',
+      },
+      {
+        title: 'InputLayoutMonth',
+        keywords: 'input-layout-month, date, form',
+        route: '/components/input-layout-month',
+      },
+      {
+        title: 'InputLayoutMonthRange',
+        keywords: 'input-layout-month-range, date, form',
+        route: '/components/input-layout-month-range',
+      },
+      {
+        title: 'InputLayoutDateRange',
+        keywords: 'input-layout-date-range, date-range, form',
+        route: '/components/input-layout-date-range',
+      },
+      {
+        title: 'InputLayoutDateRelative',
+        keywords: 'input-layout-date-relative, date-relative, отностительный, дата, пикер, form',
+        route: '/components/input-layout-date-relative',
+      },
+      {
+        title: 'InputDateMulti',
+        keywords: 'input-date-multi, date-multi, мулти, дата, пикер, form',
+        route: '/components/input-date-multi',
+      },
+      {
+        title: 'Input',
+        keywords: 'input, text, form',
+        route: '/components/input',
+      },
+      {
+        title: 'Textarea',
+        keywords: 'input, text, form',
+        route: '/components/textarea',
+      },
+      {
+        title: 'InputChips',
+        keywords: 'input-chips, input, чипс',
+        route: 'components/input-chips',
+      },
+      {
+        title: 'InputNumber',
+        keywords: 'input-number, input, number',
+        route: 'components/input-number',
+      },
+      {
+        title: 'InputMask',
+        keywords: 'input-mask, input, mask, phone',
+        route: '/components/input-mask',
+      },
+      {
+        title: 'InputPassword',
+        keywords: 'input-password, input, password',
+        route: 'components/input-password',
+      },
+      {
+        title: 'InputCarousel',
+        keywords: 'input-carousel, input',
+        route: 'components/input-carousel',
+      },
     ],
   },
   {
@@ -1063,7 +1152,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'Icons',
     subPages: [
       {
-        title: 'Icon (Deprecated)',
+        title: 'Icon',
         keywords: 'icon, deprecated',
         route: '/components/old-icon',
         status: 'deprecated',
@@ -1325,67 +1414,67 @@ export const pagesEnglish: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Line Chart',
+    title: 'Line',
     keywords: 'charts, line',
     route: '/charts/line',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Area Chart',
+    title: 'Area',
     keywords: 'charts, area',
     route: '/charts/area',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Bar Chart',
+    title: 'Bar',
     keywords: 'charts, bar',
     route: '/charts/bar',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Gauge Chart',
+    title: 'Gauge',
     keywords: 'charts, gauge',
     route: '/charts/gauge',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Scatter Chart',
+    title: 'Scatter',
     keywords: 'charts, scatter',
     route: '/charts/scatter',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Treemap Chart',
+    title: 'Treemap',
     keywords: 'charts, treemap',
     route: '/charts/treemap',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Radar Chart',
+    title: 'Radar',
     keywords: 'charts, radar',
     route: '/charts/radar',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Pie Chart',
+    title: 'Pie',
     keywords: 'charts, pie',
     route: '/charts/pie',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Radial Bar Chart',
+    title: 'Radial Bar',
     keywords: 'charts, radial bar',
     route: '/charts/radial-bar',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Waterfall Chart',
+    title: 'Waterfall',
     keywords: 'charts, waterfall',
     route: '/charts/waterfall',
   },
   {
     section: SectionNameEnglishEnum.charts,
-    title: 'Column Chart',
+    title: 'Column',
     keywords: 'charts, column group',
     route: '/charts/column-group',
   },
