@@ -21,13 +21,13 @@ import {
 } from '@taiga-ui/cdk';
 import { TUI_ANIMATIONS_DURATION, TUI_SANITIZER } from '@taiga-ui/core';
 import { HIGHLIGHT_OPTIONS } from 'ngx-highlightjs';
-import { flatMap, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { NgDompurifySanitizer } from '@tinkoff/ng-dompurify';
 import { pages, pagesEnglish, PrizmOrderedDocPage } from './pages';
 import { LOGO_CONTENT } from './logo/logo.component';
 import { SectionNameEnum } from './model';
 import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
-import { distinctUntilChanged, map, switchMap, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 
 export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
 const TITLE_PREFIX = 'Prizm UI: ';
@@ -81,6 +81,11 @@ export const APP_PROVIDERS = [
   },
   {
     provide: PRIZM_DOC_PAGES,
+    /**
+     * Returns an Observable of PrizmDocPages based on the provided PrizmLanguageSwitcher.
+     * @param switcher - The PrizmLanguageSwitcher.
+     * @returns An Observable of PrizmDocPages.
+     */
     useFactory: (switcher: PrizmLanguageSwitcher): Observable<PrizmDocPages> => {
       return switcher.pipe(
         switchMap(i => i),
@@ -91,7 +96,7 @@ export const APP_PROVIDERS = [
           let result = pages;
           if (i.name === 'english') result = pagesEnglish;
 
-          return sortDocPages(result);
+          return sortDocPages([...result]);
         })
       );
     },
@@ -119,7 +124,14 @@ export const APP_PROVIDERS = [
   },
 ];
 
+/**
+ * Sorts the document pages based on a predefined ordering
+ * and returns the sorted pages with subpages recursively sorted.
+ * @param pages - The array of document pages to be sorted.
+ * @returns The sorted array of document pages.
+ */
 function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageGroup)[] {
+  // Define the ordering of sections
   const ordering = {
     [SectionNameEnum.allAboutPrizm]: 0,
     [SectionNameEnum.howToWork]: 1,
@@ -129,9 +141,11 @@ function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageG
     [SectionNameEnum.tools]: 5,
   };
 
+  // Get the length of the ordering object
   const orderingLength = Object.keys(ordering).length;
 
-  return [...pages]
+  // Group the pages based on section and sort them
+  const grouped = [...pages]
     .sort((a, b) => {
       const sectionWeightA = orderingLength - ordering[a?.section ?? 0];
       const sectionWeightB = orderingLength - ordering[b?.section ?? 0];
@@ -146,9 +160,23 @@ function sortDocPages(pages: PrizmOrderedDocPage): (PrizmDocPage | PrizmDocPageG
         return localOrderA - localOrderB;
       }
 
-      return a.title.localeCompare(b.title);
+      return 0;
     })
+    .reduce((base, item) => {
+      const arr = base[item.section!] ?? [];
+      arr.push(item);
+      base[item.section!] = arr;
+      return base;
+    }, {} as Record<string, (PrizmDocPage | PrizmDocPageGroup)[]>);
+
+  // Flatten the grouped object into an array and sort the subpages recursively
+  return Object.entries(grouped)
+    .reduce((base, [, values]) => {
+      base.push(...values.sort((a, b) => a.title.localeCompare(b.title)));
+      return base;
+    }, [] as (PrizmDocPage | PrizmDocPageGroup)[])
     .map((page: PrizmDocPage | PrizmDocPageGroup) => {
+      // Sort the subpages recursively if the page has subpages
       return {
         ...page,
         ...('subPages' in page ? { subPages: sortDocPages(page.subPages) } : {}),
