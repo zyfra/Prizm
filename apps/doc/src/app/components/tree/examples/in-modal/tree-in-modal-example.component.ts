@@ -22,9 +22,9 @@ export interface TreeNode {
         padding: 1rem;
         width: 100%;
         min-width: 300px;
-        background-color: var(--prizm-v3-background-fill-overlay);
-        border-right: 1px solid var(--prizm-v3-background-stroke);
-        color: var(--prizm-v3-text-icon-secondary);
+        background-color: var(--prizm-background-fill-overlay);
+        border-right: 1px solid var(--prizm-background-stroke);
+        color: var(--prizm-text-icon-secondary);
       }
 
       .modal-button {

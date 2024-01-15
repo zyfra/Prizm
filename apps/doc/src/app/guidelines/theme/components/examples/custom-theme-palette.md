@@ -2,8 +2,8 @@
 /* custom-light.less */
 
 .myCustomLightTheme() {
-  --prizm-v3-text-icon-primary: var(--my-primary-text-color);
-  --prizm-v3-text-icon-secondary: var(--my-secondary-text-color);
+  --prizm-text-icon-primary: var(--my-primary-text-color);
+  --prizm-text-icon-secondary: var(--my-secondary-text-color);
   ...;
 }
 /* custom-light-palette.less */
@@ -17,8 +17,8 @@
 /* custom-dark.less */
 
 .myCustomDarkTheme() {
-  --prizm-v3-text-icon-primary: var(--my-primary-text-color);
-  --prizm-v3-text-icon-secondary: var(--my-secondary-text-color);
+  --prizm-text-icon-primary: var(--my-primary-text-color);
+  --prizm-text-icon-secondary: var(--my-secondary-text-color);
   ...;
 }
 

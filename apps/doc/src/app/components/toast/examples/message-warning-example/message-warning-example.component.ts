@@ -14,7 +14,7 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       a {
-        color: var(--prizm-v3-text-icon-link);
+        color: var(--prizm-text-icon-link);
         text-decoration: underline;
         font-weight: 500;
       }
