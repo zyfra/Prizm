@@ -133,7 +133,15 @@
       >
         Width
       </ng-template>
-
+      <ng-template
+        [(documentationPropertyValue)]="visibility"
+        [documentationPropertyValues]="visibilityVariants"
+        documentationPropertyName="scrollbarVisibility"
+        documentationPropertyType="PrizmScrollbarVisibility"
+        documentationPropertyMode="input"
+      >
+        Scrollbar Visibility
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="confirmButton"
         documentationPropertyName="confirmButton"

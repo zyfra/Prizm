@@ -2,8 +2,12 @@ import { Directive, ElementRef, Inject, Output } from '@angular/core';
 import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PRIZM_TAKE_ONLY_TRUSTED_EVENTS } from '../../tokens/take-only-trusted-events';
 
+/**
+ *
+ * */
 @Directive({
   selector: '[prizmPressedChange]',
+  standalone: true,
 })
 export class PrizmPressedDirective {
   @Output()

@@ -6,7 +6,7 @@
   [closeOnOutsideClick]="closeOnOutsideClick"
   [prizmDropdownHostWidth]="'auto'"
   [isOpen]="canOpen && !disabled && open"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   (isOpenChange)="onOpenChange($event)"
   prizmDropdownHostWidth="auto"
 >

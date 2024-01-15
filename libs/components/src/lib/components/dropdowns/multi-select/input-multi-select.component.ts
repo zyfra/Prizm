@@ -18,7 +18,7 @@ import {
   PrizmAutoFocusModule,
   PrizmDropdownControllerModule,
   PrizmHintDirective,
-  PrizmLifecycleModule,
+  PrizmLifecycleDirective,
 } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
@@ -41,12 +41,12 @@ import {
 } from './multi-select.model';
 import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmScrollbarComponent, PrizmScrollbarVisibility } from '../../scrollbar';
-import { PrizmOverlayModule } from '../../../modules';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
 import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmCheckboxComponent } from '../../checkbox';
+import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -56,7 +56,7 @@ import { PrizmCheckboxComponent } from '../../checkbox';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmOverlayModule,
+    PrizmOverlayComponent,
     PolymorphOutletDirective,
     PrizmInputTextModule,
     PrizmChipsModule,
@@ -72,7 +72,7 @@ import { PrizmCheckboxComponent } from '../../checkbox';
     PrizmDropdownControllerModule,
     PrizmDataListComponent,
     PrizmCheckboxComponent,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
   ],
   providers: [
@@ -177,7 +177,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   @HostBinding('class.inner')
   get inner(): boolean {
-    return !this.layoutComponent.outer;
+    return !this.layoutComponent?.outer ?? false;
   }
 
   @HostBinding('class.empty')
@@ -187,7 +187,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   @HostBinding('attr.data-size')
   get size(): string {
-    return this.layoutComponent.size;
+    return this.layoutComponent?.size ?? 'l';
   }
 
   public readonly defaultIcon = 'chevrons-dropdown';
@@ -248,7 +248,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   protected initParentClickListener(): void {
-    this.layoutComponent.innerClick$
+    this.layoutComponent?.innerClick$
       .pipe(
         tap(() => this.opened$$.next(this.disabled ? false : !this.opened$$.value)),
         tap(() => this.changeDetectorRef.markForCheck()),
@@ -389,5 +389,9 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
       checked: true,
       obj: item,
     } as PrizmMultiSelectItemWithChecked<T>);
+  }
+
+  public trackBy(index: number): number {
+    return index;
   }
 }

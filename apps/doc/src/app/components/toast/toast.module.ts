@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { ToastComponent } from './toast.component';
 import { PrizmToastInfoExampleComponent } from './examples/message-info-example/message-info-example.component';
 import {
-  PrizmButtonModule,
-  PrizmRadioButtonModule,
+  PrizmButtonComponent,
+  PrizmRadioButtonComponent,
   PrizmToastModule,
   prizmToastOptionsProvider,
 } from '@prizm-ui/components';
@@ -16,13 +16,14 @@ import { PrizmToastDangerExampleComponent } from './examples/message-danger-exam
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToastExampleComponent } from './examples/toast-example/toast-example.component';
 import { PrizmToastInnerHtmlExampleComponent } from './examples/inner-html/toast-inner-html-example.component';
+import { PrizmToastSecondaryExampleComponent } from './examples/message-secondary-example/message-secondary-example.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmButtonModule,
-    PrizmRadioButtonModule,
+    PrizmButtonComponent,
+    PrizmRadioButtonComponent,
     FormsModule,
     ReactiveFormsModule,
     PrizmToastModule,
@@ -35,6 +36,7 @@ import { PrizmToastInnerHtmlExampleComponent } from './examples/inner-html/toast
     PrizmToastExampleComponent,
     PrizmToastSuccessExampleComponent,
     PrizmToastDangerExampleComponent,
+    PrizmToastSecondaryExampleComponent,
     ToastComponent,
   ],
   providers: [

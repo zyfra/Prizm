@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
     `
       prizm-sticky {
         padding: 16px;
-        color: var(--prizm-text-main);
+        color: var(--prizm-v3-text-icon-secondary);
         font-style: normal;
         font-weight: 400;
         font-size: 14px;

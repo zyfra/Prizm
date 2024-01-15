@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_draft_version=$(
-            (npm view @prizm-ui/components versions --tag ng15beta --json 2>/dev/null || echo '2.9.0-ng15beta.0') | jq '([.[] | select(startswith("2.9.0-ng15beta"))] | last // "2.9.0-ng15beta.0")' 2>/dev/null || echo '2.9.0-ng15beta.0'
+            (npm view @prizm-ui/components versions --tag ng15beta --json 2>/dev/null || echo '2.10.0-ng15beta.0') | jq '([.[] | select(startswith("2.10.0-ng15beta"))] | last // "2.10.0-ng15beta.0")' 2>/dev/null || echo '2.10.0-ng15beta.0'
           )
           echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
@@ -67,15 +67,15 @@ jobs:
       - name: 'Update beta versions'
         run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="2.*.*-ng15beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
 
-      - name: 'Build beta versions'
+      - name: 'Build beta versions.'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - name: Save dist in cache...
+      - name: Upload dist as artifacts...
         id: dist-cache-save
-        uses: actions/cache/save@v3
+        uses: actions/upload-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
   deploy_to_doc:
     needs: build
@@ -91,11 +91,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -128,11 +128,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -155,11 +155,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -182,11 +182,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -208,11 +208,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -235,11 +235,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -262,11 +262,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -289,11 +289,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -316,11 +316,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -343,11 +343,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -370,11 +370,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:
@@ -397,11 +397,11 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_15-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
         with:
+          name: dist
           path: ./dist
-          key: ${{ runner.os }}-node_modules_ng_15-beta
 
       - uses: actions/setup-node@v3
         with:

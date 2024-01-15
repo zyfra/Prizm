@@ -57,32 +57,22 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '3.8.0'
+            echo '3.9.0'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
       - name: 'Set version 16'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v16
 
-      #      - name: 'Update main versions'
-      #        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="3.*.*.up" --all --currentVersion="${{ env.LAST_V3_VERSION }}"
-
-      #      - name: Dist from cache
-      #        id: dist-cache-restore
-      #        uses: actions/cache/save@v3
-      #        with:
-      #          path: dist
-      #          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - name: 'Build main versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
-      - name: Save dist in cache...
-        id: dist-cache-restore
-        uses: actions/cache/save@v3
+      - name: Upload dist as artifacts...
+        id: dist-cache-save
+        uses: actions/upload-artifact@v3
         with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
+          name: dist
+          path: ./dist
 
   deploy_to_doc:
     needs: build
@@ -98,12 +88,6 @@ jobs:
           key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
-
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
 
       - uses: actions/setup-node@v3
         with:
@@ -137,16 +121,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/components && npm publish --access public --verbose
 
@@ -165,16 +149,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/i18n && npm publish --access public --verbose
 
@@ -193,16 +177,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/helpers && npm publish --access public --verbose
 
@@ -221,16 +205,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/core && npm publish --access public --verbose
 
@@ -249,16 +233,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/theme && npm publish --access public --verbose
 
@@ -277,16 +261,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/icons/base && npm publish --access public --verbose
 
@@ -305,16 +289,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/icons/flags && npm publish --access public --verbose
 
@@ -333,16 +317,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/plugin && npm publish --access public --verbose
 
@@ -361,16 +345,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/ast && npm publish --access public --verbose
 
@@ -389,16 +373,16 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/charts && npm publish --access public --verbose
 
@@ -417,15 +401,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
-      - name: Restore dist in cache
-        uses: actions/cache/restore@v3
-        with:
-          path: dist
-          key: ${{ runner.os }}-node_modules_ng_16_main_release-${{ hashFiles('package-lock.json.ng16') }}
-
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - run: cd dist/libs/nxmv && npm publish --access public --verbose

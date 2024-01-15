@@ -26,11 +26,11 @@
     border-left: none;
   }
 
-  &:has([prizmInput]:hover) {
+  &:has(input[prizmInput]:not([disabled]):hover) {
     box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
   }
 
-  &:has([prizmInput]:focus) {
+  &:has(input[prizmInput]:not([disabled]):focus) {
     background-color: var(--prizm-v3-background-fill-primary);
     box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
   }
