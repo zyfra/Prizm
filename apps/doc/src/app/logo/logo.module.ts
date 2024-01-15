@@ -4,7 +4,7 @@ import { TuiLinkModule } from '@taiga-ui/core';
 import { LogoComponent } from './logo.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { PrizmIconsSvgModule } from '@prizm-ui/icons';
+import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 import { PrizmToggleModule } from '@prizm-ui/components';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 
@@ -15,7 +15,7 @@ import { PrizmLetDirective } from '@prizm-ui/helpers';
     CommonModule,
     RouterModule,
     FormsModule,
-    PrizmIconsSvgModule,
+    PrizmIconsSvgComponent,
     PrizmToggleModule,
   ],
   declarations: [LogoComponent],

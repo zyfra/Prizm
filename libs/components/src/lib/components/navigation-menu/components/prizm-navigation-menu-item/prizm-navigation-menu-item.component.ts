@@ -9,7 +9,7 @@ import {
 } from '@angular/core';
 import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { PrizmIconsSvgModule } from '@prizm-ui/icons';
+import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmButtonModule } from '../../../button/button.module';
 import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
@@ -22,7 +22,7 @@ import { PrizmHoveredModule } from '../../../../directives/hovered';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmIconsSvgModule,
+    PrizmIconsSvgComponent,
     PrizmHoveredModule,
     NgIf,
     NgTemplateOutlet,
