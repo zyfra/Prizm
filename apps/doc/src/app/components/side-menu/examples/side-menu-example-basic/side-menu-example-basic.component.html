@@ -1,23 +1,26 @@
 <div class="container">
   <prizm-panel header="Заголовок">
     <div class="toggle-container" instruments>
-      <div class="toggle" [class.toggle_active]="isSideMenuOpened" (click)="toggleSideMenu()">
-        <prizm-icon class="toggle__icon" [size]="16" iconClass="editor-panel-right"></prizm-icon>
-      </div>
+      <button
+        [icon]="'editor-panel-right'"
+        [pseudoPressed]="isSideMenuOpened"
+        (click)="toggleSideMenu()"
+        prizmIconButton
+        appearanceType="ghost"
+        appearance="secondary"
+        size="m"
+      ></button>
     </div>
   </prizm-panel>
   <div class="content" [class.content_column]="sideMenuType === 'col'">
     <div class="content__inner">
-      <ul class="elements-list">
-        <li
-          class="element"
-          *ngFor="let el of elementList; let idx = index"
-          [class.element_selected]="idx === selectedElementIdx"
-          (click)="toggleElementState(idx)"
-        >
-          {{ el }}
-        </li>
-      </ul>
+      <prizm-listing-item
+        *ngFor="let el of elementList; let idx = index"
+        [selected]="idx === selectedElementIdx"
+        (click)="toggleElementState(idx)"
+      >
+        {{ el }}
+      </prizm-listing-item>
     </div>
 
     <div class="side-menu" *ngIf="isSideMenuOpened">

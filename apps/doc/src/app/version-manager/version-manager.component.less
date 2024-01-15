@@ -1,10 +1,17 @@
 :host {
-  display: flex;
-  justify-content: center;
+  margin: 1em 0.5rem;
+
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 1fr;
 }
 
 .select {
   width: 90%;
+
+  &.full-width {
+    width: 100%;
+  }
 }
 
 .item {
@@ -47,7 +54,7 @@
   width: 100%;
   align-items: center;
   gap: 1rem;
-  margin: 1.25rem;
+  //padding: 1rem;
 
   .icon-block {
     width: 30px;

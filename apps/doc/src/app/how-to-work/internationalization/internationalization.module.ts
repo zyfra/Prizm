@@ -4,7 +4,6 @@ import { PrizmButtonComponent, PrizmFileUploadComponent } from '@prizm-ui/compon
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { InternationalizationComponent } from './internationalization.component';
 import { PrizmLanguageSwitcherExampleComponent } from './examples/language-switcher/language-switcher-example.component';
-import { PrizmLanguageName, PrizmLanguageSwitcher } from '@prizm-ui/i18n';
 import { AsyncPipe } from '@angular/common';
 
 @NgModule({
@@ -18,8 +17,4 @@ import { AsyncPipe } from '@angular/common';
     AsyncPipe,
   ],
 })
-export class InternationalizationModule {
-  constructor(private readonly prizmLanguage: PrizmLanguageSwitcher) {
-    this.prizmLanguage.setLanguage('en' as PrizmLanguageName);
-  }
-}
+export class InternationalizationModule {}

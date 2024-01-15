@@ -7,30 +7,6 @@
       padding: 0 24px;
       display: flex;
       align-items: center;
-
-      .toggle {
-        width: 32px;
-        height: 32px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 2px;
-
-        cursor: pointer;
-
-        transition: 400ms;
-
-        &_active {
-          background: var(--prizm-lite-b130-20);
-          color: var(--prizm-index-plan);
-        }
-
-        &:hover {
-          background: var(--prizm-lite-b130-20);
-        }
-      }
     }
 
     .content {
@@ -40,44 +16,19 @@
       gap: 8px;
       flex: 1;
 
-      background: var(--prizm-bg-body);
+      background: var(--prizm-v3-background-fill-primary);
 
       overflow: hidden;
 
       &__inner {
         flex: 1;
 
-        border: 1px solid var(--prizm-border-widget);
+        border: 1px solid var(--prizm-v3-background-stroke);
         border-radius: 2px;
 
-        filter: drop-shadow(0 2px 4px var(--prizm-shadow));
+        filter: drop-shadow(0 2px 4px var(--prizm-v3-shadow-color));
 
         overflow: hidden;
-
-        .elements-list {
-          .element {
-            height: 40px;
-            padding: 0 15px;
-
-            display: flex;
-            align-items: center;
-
-            color: var(--prizm-text-contrast);
-            border: 1px solid transparent;
-
-            overflow: hidden;
-            cursor: pointer;
-
-            &:hover {
-              background: var(--prizm-lite-b130-20);
-            }
-
-            &_selected {
-              background: var(--prizm-lite-b130-20);
-              border-color: var(--prizm-index-plan);
-            }
-          }
-        }
       }
 
       .side-menu {
@@ -87,8 +38,8 @@
         display: flex;
         flex-direction: column;
 
-        border: 1px solid var(--prizm-border-widget);
-        background: var(--prizm-bg-dashboard-forms);
+        border: 1px solid var(--prizm-v3-background-stroke);
+        background: var(--prizm-v3-background-fill-secondary);
 
         .header {
           height: 48px;
@@ -129,14 +80,14 @@
             &__main {
               font-weight: 600;
 
-              color: var(--prizm-text-contrast);
+              color: var(--prizm-v3-text-icon-primary);
               text-align: center;
             }
 
             &__sub {
               font-weight: 400;
 
-              color: var(--prizm-text-subscript);
+              color: var(--prizm-v3-text-icon-tertiary);
             }
           }
         }
@@ -152,7 +103,7 @@
             display: flex;
             gap: 10px;
 
-            border-right: 1px solid var(--prizm-grey-g10-g4);
+            border-right: 1px solid var(--prizm-v3-background-stroke);
 
             &:last-child {
               border: none;
