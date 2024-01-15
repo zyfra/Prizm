@@ -3,10 +3,6 @@ import { PrizmDropdownHostControlDirective } from './dropdown-host-control.direc
 import { PrizmDropdownHostComponent } from './dropdown-host.component';
 import { PrizmDropdownZoneModule } from '../../../directives/event-zone';
 
-/**
- * @deprecated
- * use standalone
- * */
 @NgModule({
   imports: [PrizmDropdownHostControlDirective, PrizmDropdownHostComponent],
   exports: [PrizmDropdownHostControlDirective, PrizmDropdownHostComponent, PrizmDropdownZoneModule],
