@@ -414,13 +414,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date',
-    loadChildren: () => import('./components/input/date/date.module').then(i => i.DateModule),
-    data: {
-      title: 'InputDate',
-    },
-  },
-  {
     path: 'components/input-layout-date',
     loadChildren: () =>
       import('./components/input/input-layout-date/input-layout-date.module').then(
@@ -441,14 +434,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-month',
-    loadChildren: () =>
-      import('./components/input/input-month/input-month.module').then(i => i.InputMonthModule),
-    data: {
-      title: 'Input Month',
-    },
-  },
-  {
     path: 'components/input-layout-month',
     loadChildren: () =>
       import('./components/input/input-layout-month/input-layout-month.module').then(
@@ -456,16 +441,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Layout Month',
-    },
-  },
-  {
-    path: 'components/input-month-range',
-    loadChildren: () =>
-      import('./components/input/input-month-range/input-month-range.module').then(
-        i => i.InputMonthRangeRangeModule
-      ),
-    data: {
-      title: 'Input Month Range',
     },
   },
   {
@@ -489,26 +464,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date-time-range',
-    loadChildren: () =>
-      import('./components/input/input-date-time-range/input-date-time-range.module').then(
-        i => i.InputDateTimeRangeModule
-      ),
-    data: {
-      title: 'Input Date Time Range',
-    },
-  },
-  {
-    path: 'components/input-date-time',
-    loadChildren: () =>
-      import('./components/input/input-date-time/input-date-time.module').then(
-        i => i.InputDateTimeTimeModule
-      ),
-    data: {
-      title: 'Input Date Time',
-    },
-  },
-  {
     path: 'components/input-layout-date-time',
     loadChildren: () =>
       import('./components/input/input-layout-date-time/input-layout-date-time.module').then(
@@ -527,14 +482,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-time',
-    loadChildren: () =>
-      import('./components/input/input-time/input-time.module').then(i => i.InputTimeTimeModule),
-    data: {
-      title: 'Input Time',
-    },
-  },
-  {
     path: 'components/input-layout-time',
     loadChildren: () =>
       import('./components/input/input-layout-time/input-layout-time.module').then(
@@ -545,14 +492,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date-range',
-    loadChildren: () =>
-      import('./components/input/input-date-range/input-date-range.module').then(i => i.InputDateRangeModule),
-    data: {
-      title: 'Input Date Range',
-    },
-  },
-  {
     path: 'components/input-layout-date-range',
     loadChildren: () =>
       import('./components/input/input-layout-date-range/input-layout-date-range.module').then(
@@ -560,16 +499,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Layout Date Range',
-    },
-  },
-  {
-    path: 'components/input-date-relative',
-    loadChildren: () =>
-      import('./components/input/input-date-relative/input-date-relative.module').then(
-        i => i.InputDateRelativeRelativeModule
-      ),
-    data: {
-      title: 'Input Date Relative',
     },
   },
   {
@@ -608,14 +537,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Password',
-    },
-  },
-  {
-    path: 'components/carousel',
-    loadChildren: () =>
-      import('./components/input/carousel/carousel-example.module').then(i => i.CarouselExampleModule),
-    data: {
-      title: 'Carousel',
     },
   },
   {
