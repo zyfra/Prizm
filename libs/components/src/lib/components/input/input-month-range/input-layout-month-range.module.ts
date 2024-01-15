@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmInputLayoutMonthRangeComponent } from './input-layout-month-range.component';
-import { PrizmInputLayoutMonthRangeDirective } from './input-layout-month-range.directive';
 
 @NgModule({
-  imports: [PrizmInputLayoutMonthRangeComponent, PrizmInputLayoutMonthRangeDirective, PrizmInputTextModule],
-  exports: [PrizmInputLayoutMonthRangeComponent, PrizmInputLayoutMonthRangeDirective, PrizmInputTextModule],
+  imports: [PrizmInputLayoutMonthRangeComponent, PrizmInputTextModule],
+  exports: [PrizmInputLayoutMonthRangeComponent, PrizmInputTextModule],
 })
 export class PrizmInputLayoutMonthRangeModule {}

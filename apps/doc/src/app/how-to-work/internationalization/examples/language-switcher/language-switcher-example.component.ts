@@ -1,14 +1,14 @@
 import { Component, Self } from '@angular/core';
 import {
   PRIZM_RUSSIAN_LANGUAGE,
+  PRIZM_ENGLISH_LANGUAGE,
   PrizmLanguageName,
   prizmLanguageSwitcher,
   PrizmLanguageSwitcher,
 } from '@prizm-ui/i18n';
-import { BehaviorSubject, of } from 'rxjs';
-import { PRIZM_ENGLISH_FILE_UPLOAD } from '../../../../components/file-upload/examples/i18n/file-upload-i18n-example.component';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
-import { PrizmFileValidationErrors, PrizmFilesProgress } from '@prizm-ui/components';
+import { PrizmFilesProgress, PrizmFileValidationErrors } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-language-switcher-example',
@@ -22,9 +22,8 @@ import { PrizmFileValidationErrors, PrizmFilesProgress } from '@prizm-ui/compone
   ],
   providers: [
     ...prizmLanguageSwitcher(async lang => {
-      if (lang === ('ru' as PrizmLanguageName)) return PRIZM_RUSSIAN_LANGUAGE;
-      if (lang === ('en' as PrizmLanguageName))
-        return { ...PRIZM_RUSSIAN_LANGUAGE, ...PRIZM_ENGLISH_FILE_UPLOAD };
+      if (lang === 'russian') return PRIZM_RUSSIAN_LANGUAGE;
+      if (lang === 'english') return { ...PRIZM_ENGLISH_LANGUAGE };
 
       return PRIZM_RUSSIAN_LANGUAGE;
     }),
@@ -42,8 +41,8 @@ export class PrizmLanguageSwitcherExampleComponent {
     private http: HttpClient
   ) {}
 
-  public changeLanguage(lang: string) {
-    this.prizmLanguageSwitcher.setLanguage(lang as PrizmLanguageName);
+  public changeLanguage(lang: PrizmLanguageName) {
+    this.prizmLanguageSwitcher.setLanguage(lang);
   }
 
   public onFilesChange(files: Array<File>): void {

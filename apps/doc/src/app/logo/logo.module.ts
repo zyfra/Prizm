@@ -6,9 +6,18 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PrizmIconsSvgModule } from '@prizm-ui/icons';
 import { PrizmToggleModule } from '@prizm-ui/components';
+import { PrizmLetDirective } from '@prizm-ui/helpers';
 
 @NgModule({
-  imports: [TuiLinkModule, CommonModule, RouterModule, FormsModule, PrizmIconsSvgModule, PrizmToggleModule],
+  imports: [
+    PrizmLetDirective,
+    TuiLinkModule,
+    CommonModule,
+    RouterModule,
+    FormsModule,
+    PrizmIconsSvgModule,
+    PrizmToggleModule,
+  ],
   declarations: [LogoComponent],
   exports: [LogoComponent],
 })

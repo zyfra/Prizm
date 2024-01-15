@@ -2,18 +2,18 @@ import { InjectionToken, Provider } from '@angular/core';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { TuiDestroyService, tuiIsPresent } from '@taiga-ui/cdk';
 import { Observable } from 'rxjs';
-import { filter, map, mergeMap, takeUntil } from 'rxjs/operators';
+import { filter, map, mergeMap, takeUntil, tap } from 'rxjs/operators';
 
 import { PRIZM_DOC_PAGES } from '../../tokens/pages';
 import { PRIZM_DOC_TITLE } from '../../tokens/title';
 import { PrizmDocPages } from '../../types/pages';
 
 export const NAVIGATION_TITLE = new InjectionToken<Observable<string>>(`[NAVIGATION_TITLE]: Page title`);
-export const NAVIGATION_LABELS = new InjectionToken<readonly string[]>(
+export const NAVIGATION_LABELS = new InjectionToken<Observable<string[]>>(
   `[NAVIGATION_LABELS]: Navigation sections labels for search`
 );
-export const NAVIGATION_ITEMS: InjectionToken<readonly PrizmDocPages[]> = new InjectionToken<
-  readonly PrizmDocPages[]
+export const NAVIGATION_ITEMS: InjectionToken<Observable<PrizmDocPages[]>> = new InjectionToken<
+  Observable<PrizmDocPages[]>
 >(`[NAVIGATION_ITEMS]: Navigation pages`);
 
 export const NAVIGATION_PROVIDERS: Provider[] = [
@@ -40,18 +40,23 @@ export const NAVIGATION_PROVIDERS: Provider[] = [
   {
     provide: NAVIGATION_LABELS,
     deps: [PRIZM_DOC_PAGES],
-    useFactory: labelsProviderFactory,
+    useFactory: (pages: Observable<PrizmDocPages>): Observable<readonly string[]> => {
+      return pages.pipe(map(pages => labelsProviderFactory(pages)));
+    },
   },
   {
     provide: NAVIGATION_ITEMS,
     deps: [PRIZM_DOC_PAGES],
-    useFactory: (pages: PrizmDocPages): readonly PrizmDocPages[] => {
-      const labels = labelsProviderFactory(pages);
-
-      return [
-        ...labels.map(label => pages.filter(({ section }) => section === label)),
-        pages.filter(page => !page.section),
-      ];
+    useFactory: (pages: Observable<PrizmDocPages>): Observable<PrizmDocPages[]> => {
+      return pages.pipe(
+        map(pages => {
+          const labels = labelsProviderFactory(pages);
+          return [
+            ...labels.map(label => pages.filter(({ section }) => section === label)),
+            pages.filter(page => !page.section),
+          ];
+        })
+      );
     },
   },
 ];

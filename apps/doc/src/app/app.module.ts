@@ -37,6 +37,7 @@ import { AddComponentModule } from './how-to-work/add-component/add-component.mo
 import { SetTaskModule } from './how-to-work/set-task/set-task.module';
 import { IntroductionModule } from './forZIIoT/introduction/introduction.module';
 import { LibraryRequirementsModule } from './forZIIoT/library-requirements/library-requirements.module';
+import { PRIZM_ENGLISH_LANGUAGE, PRIZM_RUSSIAN_LANGUAGE, prizmLanguageSwitcher } from '@prizm-ui/i18n';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -80,7 +81,16 @@ registerLocaleData(localeRu);
     }),
   ],
   declarations: [AppComponent],
-  providers: [{ provide: LOCALE_ID, useValue: 'ru-RU' }, ...APP_PROVIDERS],
+  providers: [
+    ...prizmLanguageSwitcher(async lang => {
+      if (lang === 'russian') return PRIZM_RUSSIAN_LANGUAGE;
+      if (lang === 'english') return { ...PRIZM_ENGLISH_LANGUAGE };
+
+      return PRIZM_RUSSIAN_LANGUAGE;
+    }),
+    { provide: LOCALE_ID, useValue: 'ru-RU' },
+    ...APP_PROVIDERS,
+  ],
 })
 export class AppModule {
   constructor(private readonly themeSwitcher: PrizmThemeService) {

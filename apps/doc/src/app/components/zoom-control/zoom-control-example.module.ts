@@ -10,10 +10,10 @@ import {
   PrizmDropdownControllerModule,
   PrizmDropdownHostModule,
   PrizmIconModule,
+  PrizmInputSelectModule,
   PrizmInputTextModule,
   PrizmListingItemComponent,
   PrizmPanelModule,
-  PrizmSelectModule,
 } from '@prizm-ui/components';
 
 @NgModule({
@@ -25,7 +25,7 @@ import {
     RouterModule.forChild(prizmDocGenerateRoutes(ZoomControlExampleComponent)),
     PrizmPanelModule,
     PrizmInputTextModule,
-    PrizmSelectModule,
+    PrizmInputSelectModule,
     PrizmDropdownHostModule,
     PrizmDataListModule,
     PrizmButtonModule,

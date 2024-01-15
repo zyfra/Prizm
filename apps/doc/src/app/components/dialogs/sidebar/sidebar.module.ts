@@ -11,7 +11,6 @@ import {
   PrizmRadioButtonModule,
   PrizmScrollbarModule,
   PrizmSidebarModule,
-  PrizmSelectModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
@@ -40,7 +39,6 @@ import { PrizmSidebarOnlyConfirmButtonExampleComponent } from './examples/only-c
     RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
     PrizmInputCommonModule,
     PrizmInputSelectModule,
-    PrizmSelectModule,
   ],
   declarations: [
     PrizmSidebarOnlyConfirmButtonExampleComponent,
