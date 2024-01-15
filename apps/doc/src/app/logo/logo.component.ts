@@ -3,6 +3,7 @@ import { debounceTime, filter, map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitHub } from '@prizm-ui/icons';
+import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-doc-logo',
@@ -21,6 +22,7 @@ export class LogoComponent {
 
   constructor(
     private readonly themeSwitcher: PrizmThemeService,
+    public readonly languageSwitcher: PrizmLanguageSwitcher,
     private readonly svgRegistry: PrizmIconsSvgRegistry,
     @Inject(LOCAL_STORAGE) private readonly storage: Storage
   ) {

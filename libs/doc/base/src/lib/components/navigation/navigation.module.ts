@@ -20,7 +20,7 @@ import { PolymorpheusModule } from '@tinkoff/ng-polymorpheus';
 import { TuiScrollIntoViewLinkModule } from '../../directives/scroll-into-view/scroll-into-view.module';
 import { TuiDocNavigationComponent } from './navigation.component';
 import { PrizmChipsItemComponent, PrizmToggleComponent } from '@prizm-ui/components';
-import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -44,6 +44,7 @@ import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
     PrizmCallFuncPipe,
     TuiScrollbarModule,
     TuiSvgModule,
+    PrizmLetDirective,
     TuiDataListModule,
     TuiAutoFocusModule,
     PrizmChipsItemComponent,
