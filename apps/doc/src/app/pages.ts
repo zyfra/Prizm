@@ -434,12 +434,12 @@ export const pages: PrizmOrderedDocPage = [
         status: 'deprecated',
       },
       {
-        title: 'Icon',
+        title: 'Flags',
         keywords: 'иконка, флаги. flags',
         route: '/components/flag-icons',
       },
       {
-        title: 'Svg Icon',
+        title: 'Svg Icons',
         keywords: 'иконка, icon, svg',
         route: '/components/icon',
       },
