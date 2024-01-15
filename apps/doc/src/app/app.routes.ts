@@ -434,14 +434,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-month',
-    loadChildren: () =>
-      import('./components/input/input-month/input-month.module').then(i => i.InputMonthModule),
-    data: {
-      title: 'Input Month',
-    },
-  },
-  {
     path: 'components/input-layout-month',
     loadChildren: () =>
       import('./components/input/input-layout-month/input-layout-month.module').then(
@@ -449,16 +441,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Layout Month',
-    },
-  },
-  {
-    path: 'components/input-month-range',
-    loadChildren: () =>
-      import('./components/input/input-month-range/input-month-range.module').then(
-        i => i.InputMonthRangeRangeModule
-      ),
-    data: {
-      title: 'Input Month Range',
     },
   },
   {
@@ -482,16 +464,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-date-time',
-    loadChildren: () =>
-      import('./components/input/input-date-time/input-date-time.module').then(
-        i => i.InputDateTimeTimeModule
-      ),
-    data: {
-      title: 'Input Date Time',
-    },
-  },
-  {
     path: 'components/input-layout-date-time',
     loadChildren: () =>
       import('./components/input/input-layout-date-time/input-layout-date-time.module').then(
@@ -507,14 +479,6 @@ export const ROUTES: Routes = [
       import('./components/input/input-date-multi/input-date-multi.module').then(i => i.InputDateMultiModule),
     data: {
       title: 'Input Date Multi',
-    },
-  },
-  {
-    path: 'components/input-time',
-    loadChildren: () =>
-      import('./components/input/input-time/input-time.module').then(i => i.InputTimeTimeModule),
-    data: {
-      title: 'Input Time',
     },
   },
   {
@@ -573,14 +537,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Password',
-    },
-  },
-  {
-    path: 'components/carousel',
-    loadChildren: () =>
-      import('./components/input/carousel/carousel-example.module').then(i => i.CarouselExampleModule),
-    data: {
-      title: 'Carousel',
     },
   },
   {
