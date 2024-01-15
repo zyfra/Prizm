@@ -20,7 +20,7 @@
         prizmTr
       >
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
-        <td class="row__editable" *prizmCell="'name'" prizmTd>
+        <td *prizmCell="'name'" prizmTd>
           <input
             [disabled]="currentEditableRow !== item"
             [value]="item.name"
@@ -29,7 +29,7 @@
             prizmInput
           />
         </td>
-        <td class="row__editable" *prizmCell="'category'" prizmTd>
+        <td *prizmCell="'category'" prizmTd>
           <prizm-input-select
             [disabled]="currentEditableRow !== item"
             [ngModel]="item.category"
@@ -38,7 +38,7 @@
           >
           </prizm-input-select>
         </td>
-        <td class="row__editable" *prizmCell="'count'" prizmTd>
+        <td *prizmCell="'count'" prizmTd>
           <input
             class="format__number"
             [disabled]="currentEditableRow !== item"

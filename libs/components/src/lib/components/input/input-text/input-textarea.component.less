@@ -3,6 +3,14 @@
   resize: none;
   min-height: 42px;
 
+  :host.empty {
+    padding-top: 8px;
+  }
+
+  &::placeholder {
+    opacity: 1;
+  }
+
   &.add-base-resize {
     resize: both;
   }

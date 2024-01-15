@@ -108,7 +108,9 @@ export class PrizmNavigationMenuGroupService<
       }
 
       if (searchState.enabled) {
-        const filtered = filterItems(modeBasedItems, item => item.text.includes(searchState.value));
+        const filtered = filterItems(modeBasedItems, item =>
+          item.text.toLowerCase().includes(searchState.value.toLowerCase())
+        );
         traverseAllDeep(filtered, item => this.temporaryExpandedItemsMap.set(item, true));
         return filtered;
       }

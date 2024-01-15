@@ -1,6 +1,7 @@
 import {
   Directive,
   ElementRef,
+  EventEmitter,
   HostBinding,
   HostListener,
   Inject,
@@ -29,6 +30,9 @@ export class PrizmInputInZoneDirective implements OnInit, OnDestroy {
   @HostBinding('style.--prizm-input-in-zone-max-size')
   @Input()
   maxSize!: number;
+
+  @Output()
+  updateNativeValue = new EventEmitter<string>();
 
   @Output() focused$ = merge(
     fromEvent(this.el.nativeElement, 'focus').pipe(mapTo(true)),

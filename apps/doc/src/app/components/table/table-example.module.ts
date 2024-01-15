@@ -10,7 +10,6 @@ import {
   PrizmColumnSettingsComponent,
   PrizmDropdownHostComponent,
   PrizmIconComponent,
-  PrizmInputSelectModule,
   PrizmInputTextModule,
   PrizmLoaderComponent,
   PrizmPaginatorComponent,
