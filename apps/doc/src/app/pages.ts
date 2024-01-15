@@ -300,13 +300,6 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'input-layout-date-time-range, date-time-range, form',
         route: '/components/input-layout-date-time-range',
       },
-
-      {
-        title: 'InputTime',
-        status: 'deprecated',
-        keywords: 'input-time, deprecated, time, form',
-        route: '/components/input-time',
-      },
       {
         title: 'InputLayoutTime',
         keywords: 'input-layout-time, time, form',
@@ -321,12 +314,6 @@ export const pages: PrizmOrderedDocPage = [
         title: 'InputLayoutMonth',
         keywords: 'input-layout-month, date, form',
         route: '/components/input-layout-month',
-      },
-      {
-        title: 'InputMonthRange',
-        status: 'deprecated',
-        keywords: 'input-month-range, date, form, deprecated',
-        route: '/components/input-month-range',
       },
       {
         title: 'InputLayoutMonthRange',
@@ -377,12 +364,6 @@ export const pages: PrizmOrderedDocPage = [
         title: 'InputPassword',
         keywords: 'input-password, input, password',
         route: 'components/input-password',
-      },
-      {
-        title: 'Carousel',
-        keywords: 'carousel',
-        status: 'deprecated',
-        route: 'components/carousel',
       },
       {
         title: 'InputCarousel',
