@@ -48,7 +48,7 @@ export class PrizmChartsGaugeExampleComponent {
           return `Rate: ${(percent * 100).toFixed(0)}%`;
         },
         style: {
-          color: 'var(--prizm-v3-status-success-primary-default)',
+          color: 'var(--prizm-status-success-primary-default)',
           fontSize: '24px',
         },
       },

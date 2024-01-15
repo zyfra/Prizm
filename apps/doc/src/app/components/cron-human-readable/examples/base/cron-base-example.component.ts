@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styles: [
     `
       .box {
-        color: var(--prizm-v3-text-icon-secondary);
+        color: var(--prizm-text-icon-secondary);
       }
     `,
   ],

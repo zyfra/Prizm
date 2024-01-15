@@ -6,7 +6,7 @@
 :host {
   padding: 0 8px;
   background: inherit;
-  border: 1px solid var(--prizm-v3-table-stroke-cell-default);
+  border: 1px solid var(--prizm-table-stroke-cell-default);
   border-top: none;
   z-index: 10;
 
@@ -31,54 +31,64 @@
   background: inherit;
   color: inherit;
 
-  &:has([prizmInput]:focus) {
-    background-color: var(--prizm-v3-background-fill-primary);
-    box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
-  }
+  // TODO: for 4.0
+
+  // &:has([prizmInput]) {
+  //   padding: 0;
+  // }
+
+  // &:has([prizmInput]:focus) {
+  //   background-color: var(--prizm-background-fill-primary);
+  //   box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-active) inset;
+  // }
 
   &[status='success'] {
-    background: var(--prizm-v3-status-success-secondary-default);
+    background: var(--prizm-status-success-secondary-default);
 
-    &:has([prizmInput]:not(:disabled)):hover,
-    &:has([prizmInput]:focus) {
-      box-shadow: 0 0 0 1px var(--prizm-v3-status-success-primary-default) inset;
-    }
+    // TODO: for 4.0
+    // &:has([prizmInput]):hover,
+    // &:has([prizmInput]:focus) {
+    //   box-shadow: 0 0 0 1px var(--prizm-status-success-primary-default) inset;
+    // }
   }
 
   &[status='default'] {
     background: inherit;
 
-    &:has([prizmInput]:not(:focus):not(:disabled)):hover {
-      box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
-    }
+    // TODO: for 4.0
+    // &:has([prizmInput]:not(:focus)):hover {
+    //   box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-hover) inset;
+    // }
   }
 
   &[status='warning'] {
-    background: var(--prizm-v3-status-warning-secondary-default);
+    background: var(--prizm-status-warning-secondary-default);
 
-    &:has([prizmInput]:not(:disabled)):hover,
-    &:has([prizmInput]:focus) {
-      box-shadow: 0 0 0 1px var(--prizm-v3-status-warning-primary-default) inset;
-    }
+    // TODO: for 4.0
+    // &:has([prizmInput]):hover,
+    // &:has([prizmInput]:focus) {
+    //   box-shadow: 0 0 0 1px var(--prizm-status-warning-primary-default) inset;
+    // }
   }
 
   &[status='danger'] {
-    background: var(--prizm-v3-status-alarm-secondary-default);
+    background: var(--prizm-status-alarm-secondary-default);
 
-    &:has([prizmInput]:not(:disabled)):hover,
-    &:has([prizmInput]:focus) {
-      box-shadow: 0 0 0 1px var(--prizm-v3-status-alarm-primary-default) inset;
-    }
+    // TODO: for 4.0
+    // &:has([prizmInput]):hover,
+    // &:has([prizmInput]:focus) {
+    //   box-shadow: 0 0 0 1px var(--prizm-status-alarm-primary-default) inset;
+    // }
   }
 }
 
 :host-context([active='true']) {
   &:first-child:before {
-    background: var(--prizm-table-active-row-marker-color, var(--prizm-v3-status-info-primary-default));
+    background: var(--prizm-table-active-row-marker-color, var(--prizm-status-info-primary-default));
   }
 
   &[status='default'] {
-    background: var(--prizm-v3-table-fill-row-active);
+    background: var(--prizm-table-fill-row-active);
   }
 }
 

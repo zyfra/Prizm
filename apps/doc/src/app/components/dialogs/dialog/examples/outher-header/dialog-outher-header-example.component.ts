@@ -12,14 +12,14 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
       }
 
       .header {
-        border-bottom: 1px solid var(--prizm-v3-background-stroke);
+        border-bottom: 1px solid var(--prizm-background-stroke);
         padding: var(--prizm-dialog-header-padding, 14px 16px);
         display: flex;
         justify-content: space-between;
         font-style: var(--prizm-dialog-header-font-style, normal);
         font-weight: var(--prizm-dialog-header-font-weight, 600);
         font-size: var(--prizm-dialog-header-font-size, var(--prizm-dialog-font-size, 14px));
-        color: var(--prizm-dialog-header-text, var(--prizm-v3-text-icon-primary));
+        color: var(--prizm-dialog-header-text, var(--prizm-text-icon-primary));
       }
     `,
   ],

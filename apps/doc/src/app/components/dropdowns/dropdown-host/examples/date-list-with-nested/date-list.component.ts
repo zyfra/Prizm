@@ -18,7 +18,7 @@ type DateItem = {
       }
 
       .header {
-        color: var(--prizm-v3-text-icon-primary);
+        color: var(--prizm-text-icon-primary);
       }
 
       .list {

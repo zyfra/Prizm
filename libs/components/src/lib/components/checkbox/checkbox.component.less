@@ -13,10 +13,10 @@
   justify-content: center;
   transition: 0.3s;
 
-  background: var(--prizm-v3-form-fill-default);
+  background: var(--prizm-form-fill-default);
   box-shadow: 0 0 0 2px transparent;
 
-  border: 1px solid var(--prizm-v3-form-stroke-default);
+  border: 1px solid var(--prizm-form-stroke-default);
   border-radius: 2px;
 
   &--size-s {
@@ -30,16 +30,16 @@
   }
 
   &:hover {
-    border-color: var(--prizm-v3-form-stroke-hover);
+    border-color: var(--prizm-form-stroke-hover);
   }
 
   &--checked,
   &--indeterminate {
-    border-color: var(--prizm-v3-form-active);
-    background: var(--prizm-v3-form-active);
+    border-color: var(--prizm-form-active);
+    background: var(--prizm-form-active);
     &:hover {
-      background-color: var(--prizm-v3-form-active-hover);
-      border-color: var(--prizm-v3-form-active-hover);
+      background-color: var(--prizm-form-active-hover);
+      border-color: var(--prizm-form-active-hover);
     }
   }
 
@@ -48,7 +48,7 @@
     align-items: center;
     justify-content: center;
 
-    color: var(--prizm-v3-text-icon-exception);
+    color: var(--prizm-text-icon-exception);
     opacity: 0;
 
     pointer-events: none;
@@ -83,7 +83,7 @@
 
 .label {
   margin-left: 8px;
-  color: var(--prizm-v3-text-icon-secondary);
+  color: var(--prizm-text-icon-secondary);
 
   width: 100%;
   max-width: 100%;
@@ -108,27 +108,27 @@
   cursor: not-allowed;
 
   .checkbox {
-    border-color: var(--prizm-v3-form-fill-disable);
-    background-color: var(--prizm-v3-form-fill-disable);
+    border-color: var(--prizm-form-fill-disable);
+    background-color: var(--prizm-form-fill-disable);
     &--checked,
     &--indeterminate {
-      background-color: var(--prizm-v3-form-active-disable);
-      border-color: var(--prizm-v3-form-active-disable);
+      background-color: var(--prizm-form-active-disable);
+      border-color: var(--prizm-form-active-disable);
     }
   }
 
   .label {
-    color: var(--prizm-v3-text-icon-disable);
+    color: var(--prizm-text-icon-disable);
   }
 }
 
 :host:focus {
   .checkbox {
-    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+    box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
 
     &--checked,
     &--indeterminate {
-      border-color: var(--prizm-v3-background-stroke-focus);
+      border-color: var(--prizm-background-stroke-focus);
     }
   }
 }
