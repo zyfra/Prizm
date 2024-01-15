@@ -482,14 +482,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/input-time',
-    loadChildren: () =>
-      import('./components/input/input-time/input-time.module').then(i => i.InputTimeTimeModule),
-    data: {
-      title: 'Input Time',
-    },
-  },
-  {
     path: 'components/input-layout-time',
     loadChildren: () =>
       import('./components/input/input-layout-time/input-layout-time.module').then(
@@ -545,14 +537,6 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Input Password',
-    },
-  },
-  {
-    path: 'components/carousel',
-    loadChildren: () =>
-      import('./components/input/carousel/carousel-example.module').then(i => i.CarouselExampleModule),
-    data: {
-      title: 'Carousel',
     },
   },
   {
