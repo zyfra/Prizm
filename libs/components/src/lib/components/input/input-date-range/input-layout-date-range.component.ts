@@ -44,7 +44,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmMaskModule } from '../../../modules';
 import {
   PolymorphOutletDirective,
-  PrizmLifecycleModule,
+  PrizmLifecycleDirective,
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmInputTextModule } from '../input-text';
@@ -75,7 +75,7 @@ import { PrizmCalendarRangeComponent } from '../../calendar-range';
     CommonModule,
     PrizmMaskModule,
     PrizmInputZoneModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmLetDirective,
     PolymorphOutletDirective,
     PrizmInputTextModule,
@@ -216,26 +216,29 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     this.changeDetectorRef.markForCheck();
   }
 
-  public onValueFromChange(value: string, isFormValue: boolean): void {
-    if (isFormValue && value === this.fromValue) return;
-    if (!isFormValue && value === this.toValue) return;
+  public onValueFromChange(value: string, isFromValue: boolean): void {
+    // clear from mask
+    value = value.replace(/[_]/g, '');
+
+    if (isFromValue && value === this.fromValue) return;
+    if (!isFromValue && value === this.toValue) return;
     this.nativeValue$$.next(
-      isFormValue ? [value, this.nativeValue$$.value[1]] : [this.nativeValue$$.value[0], value]
+      isFromValue ? [value, this.nativeValue$$.value[1]] : [this.nativeValue$$.value[0], value]
     );
     if (value == null) {
       this.onOpenChange(true);
     }
 
     if (!value || value.length !== this.computedSingleMask.length) {
-      if (!value && isFormValue && !this.value?.to && !isFormValue && !this.value?.from)
+      if (!value && isFromValue && !this.value?.to && !isFromValue && !this.value?.from)
         this.updateValue(null);
       return;
     }
 
     const parsedValue = PrizmDay.normalizeParse(value, this.dateFormat);
     this.updateWithCorrectDateAndTime(
-      isFormValue ? parsedValue : (this.value?.from as any),
-      isFormValue ? this.value?.to : (parsedValue as any)
+      isFromValue ? parsedValue : (this.value?.from as any),
+      isFromValue ? this.value?.to : (parsedValue as any)
     );
   }
 
@@ -273,6 +276,18 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   private updateWithCorrectDateAndTime(from: PrizmDay | null, to: PrizmDay | null): void {
     if (from) from = this.dayLimit(from);
     if (to) to = this.dayLimit(to);
+    // need to update mask value for sync values
+    // TODO move to helper and add to all similar cases
+    this.focusableElement?.updateNativeValues(
+      {
+        idx: 0,
+        value: from?.toString() ?? '',
+      },
+      {
+        idx: 1,
+        value: to?.toString() ?? '',
+      }
+    );
     this.updateValue(new PrizmDayRange(from as any, to as any));
   }
 

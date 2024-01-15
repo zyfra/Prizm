@@ -12,6 +12,7 @@ import {
   PrizmAppearanceType,
   IconDefs,
   PrizmSize,
+  PrizmScrollbarVisibility,
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
@@ -33,6 +34,8 @@ export class DialogExampleComponent {
   public pressedChange = false;
   public hoveredChange = false;
   public focusVisibleChange = false;
+  public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = ['auto', 'hidden', 'visible'];
+  public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
@@ -108,6 +111,7 @@ export class DialogExampleComponent {
         footer: this.footer,
         height: this.height,
         overscroll: this.overscroll,
+        scrollbarVisibility: this.visibility,
         position: this.position,
         closeWord: this.closeWord,
         size: this.size,

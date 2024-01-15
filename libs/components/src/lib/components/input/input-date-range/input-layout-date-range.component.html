@@ -17,6 +17,7 @@
   >
     <input
       class="input-main"
+      #maskDirectiveFrom="mask"
       [class.show-placeholder]="(empty | async) && (focusableElementRef.focused$ | async) !== true"
       [placeholder]="placeholder"
       [mask]="computedSingleMask"
@@ -29,6 +30,7 @@
       [maxLength]="computedSingleMask.length + 1"
       [maxSize]="computedSingleMask.length"
       (ngModelChange)="onValueFromChange($event || '', true)"
+      (updateNativeValue)="maskDirectiveFrom.writeValue($event)"
       style="padding: 0"
       prizmInput
       prizmInputInZone
@@ -36,6 +38,7 @@
     <span class="delimiter">-</span>
     <input
       class="input-time"
+      #maskDirectiveTo="mask"
       [mask]="computedSingleMask"
       [dropSpecialCharacters]="false"
       [showMaskTyped]="focusableElementRef.focused$ | async"
@@ -46,6 +49,7 @@
       [maxLength]="computedSingleMask.length + 1"
       [maxSize]="computedSingleMask.length"
       (ngModelChange)="onValueFromChange($event || '', false)"
+      (updateNativeValue)="maskDirectiveTo.writeValue($event)"
       style="padding: 0"
       prizmInput
       prizmInputInZone
