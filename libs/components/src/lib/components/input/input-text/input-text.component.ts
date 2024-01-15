@@ -73,6 +73,10 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   private _disabled = false;
 
+  @Input()
+  @HostBinding('attr.placeholder')
+  placeholder?: string;
+
   /**
    * @deprecated
    * Required input

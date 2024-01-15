@@ -6,7 +6,8 @@
 /out-tsc
 /.angular
 /.firebase
-.nx/
+/.nx
+
 # dependencies
 /node_modules
 /node_modules.ng14
@@ -49,5 +50,3 @@ Thumbs.db
 **/test-results
 **/playwright-report
 **/playwright/.cache
-
-.nx

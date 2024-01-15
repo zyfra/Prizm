@@ -4,10 +4,6 @@ import { PrizmScrollbarComponent } from './scrollbar.component';
 import { PrizmScrollableDirective } from './scrollable.directive';
 import { PrizmScrollControlsComponent } from './scroll-controls.component';
 
-/**
- * @deprecated
- * use standalone
- * */
 @NgModule({
   imports: [
     PrizmScrollControlsComponent,
