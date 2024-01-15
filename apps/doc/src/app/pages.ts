@@ -421,7 +421,7 @@ export const pages: PrizmOrderedDocPage = [
         status: 'deprecated',
       },
       {
-        title: 'Icon',
+        title: 'Flags',
         keywords: 'иконка, флаги. flags',
         route: '/components/flag-icons',
       },
@@ -1158,7 +1158,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         status: 'deprecated',
       },
       {
-        title: 'Flag Icons',
+        title: 'Flags',
         keywords: 'icon, flags',
         route: '/components/flag-icons',
       },
