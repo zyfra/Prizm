@@ -366,12 +366,6 @@ export const pages: PrizmOrderedDocPage = [
         route: 'components/input-password',
       },
       {
-        title: 'Carousel',
-        keywords: 'carousel',
-        status: 'deprecated',
-        route: 'components/carousel',
-      },
-      {
         title: 'InputCarousel',
         keywords: 'input-carousel, input',
         route: 'components/input-carousel',
