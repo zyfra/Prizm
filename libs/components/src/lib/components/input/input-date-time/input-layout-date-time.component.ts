@@ -323,7 +323,22 @@ export class PrizmInputLayoutDateTimeComponent
         this.max instanceof PrizmDay ? this.max : this.max && this.max[0]
       );
 
-    if (time) time = this.timeLimit([date as any, time]);
+    const timeMin = Array.isArray(this.min) && this.min[1] ? this.min[1] : null;
+    const timeMax = Array.isArray(this.max) && this.max[1] ? this.max[1] : null;
+    if (time && (timeMin || timeMax)) {
+      time = time.timeLimit(timeMin, timeMax);
+    }
+
+    this.focusableElement?.updateNativeValues({
+      idx: 0,
+      value: date?.toString() ?? '',
+    });
+
+    // force update native value
+    this.nativeValue$$.next([
+      date?.toString() ?? this.nativeValue$$.value[0],
+      time?.toString() ?? this.nativeValue$$.value[1],
+    ]);
 
     this.updateValue([date, time]);
   }
@@ -334,6 +349,7 @@ export class PrizmInputLayoutDateTimeComponent
 
     if (!value || value.length < this.timeMaskOptions.length || this.isValueMasked(value)) {
       if (!value) this.updateValue([this.value?.[0] ?? null, null]);
+
       return;
     }
 
@@ -374,9 +390,6 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   public onDayClick(day: PrizmDay, time?: PrizmTime): void {
-    // const modifiedTime =
-    //   time ?? (this.value[1] && this.prizmClampTime(this.value[1], day)) ?? new PrizmTime(0, 0);
-    // this.updateValue([day, modifiedTime]);
     this.onDateValueChange(day.toString(this.dateFormat));
     this.open = false;
     this.changeDetectorRef.markForCheck();

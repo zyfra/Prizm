@@ -23,7 +23,7 @@ import { Component } from '@angular/core';
         }
 
         &__link {
-          color: var(--prizm-v3-text-icon-link);
+          color: var(--prizm-text-icon-link);
           font-weight: 500;
           font-size: 14px;
           line-height: 24px;

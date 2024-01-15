@@ -7,7 +7,7 @@
   flex-direction: column;
 
   cursor: pointer;
-  border-top: 1px solid var(--prizm-v3-background-stroke);
+  border-top: 1px solid var(--prizm-background-stroke);
 
   &_focused:not(.accordion_disabled),
   &:hover:not(.accordion_disabled) {
@@ -16,7 +16,7 @@
   }
 
   &_focused:not(.accordion_disabled) {
-    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+    box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
   }
 
   &__header {
@@ -26,7 +26,7 @@
     display: flex;
     align-items: center;
 
-    background: var(--prizm-v3-background-fill-panel);
+    background: var(--prizm-background-fill-panel);
 
     outline: none;
     overflow: hidden;
@@ -38,7 +38,7 @@
       font-size: 14px;
       line-height: 20px;
 
-      color: var(--prizm-v3-text-icon-primary);
+      color: var(--prizm-text-icon-primary);
 
       overflow: hidden;
       white-space: nowrap;
@@ -46,7 +46,7 @@
     }
 
     .header-icon {
-      color: var(--prizm-v3-text-icon-primary);
+      color: var(--prizm-text-icon-primary);
       margin-right: 8px;
     }
   }
@@ -60,7 +60,7 @@
     opacity: 0;
 
     overflow: hidden;
-    background: var(--prizm-v3-background-fill-panel);
+    background: var(--prizm-background-fill-panel);
 
     transition: 400ms;
   }
@@ -68,7 +68,7 @@
   .btn-wrapper {
     margin: auto 0px auto 12px;
 
-    border-left: 1px solid var(--prizm-v3-background-stroke);
+    border-left: 1px solid var(--prizm-background-stroke);
 
     .accordion__button {
       margin-left: 12px;
@@ -96,7 +96,7 @@
     & > .accordion__header .title,
     & > .accordion__header,
     & > .accordion__header .header-icon {
-      color: var(--prizm-v3-text-icon-disable);
+      color: var(--prizm-text-icon-disable);
       pointer-events: none;
     }
   }

@@ -59,6 +59,7 @@
             [disabled]="disabled"
             [count]="count"
             [counterOptions]="counterOptions"
+            [style.--prizm-tab-button-max-width]="prizmTabButtonMaxWidth"
             (closeTab)="removeTab()"
             prizmDocHostElementKey="PrizmTabComponent"
           >
@@ -71,6 +72,7 @@
             [disabled]="disabled"
             [count]="count"
             [counterOptions]="counterOptions"
+            [style.--prizm-tab-button-max-width]="prizmTabButtonMaxWidth"
             content="Big Tab 2"
           >
           </prizm-tab>
@@ -78,6 +80,14 @@
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation heading="PrizmTabsComponent" hostComponentKey="PrizmTabsComponent">
+      <ng-template
+        [(documentationPropertyValue)]="prizmTabButtonMaxWidth"
+        documentationPropertyName="prizm-tab-button-max-width"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Tab button maximum width
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="size"
         [documentationPropertyValues]="sizeVariants"

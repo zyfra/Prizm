@@ -18,6 +18,24 @@ import { PrizmDecimal } from '@prizm-ui/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputNumberExampleComponent {
+  readonly layoutKey = 'PrizmInputLayoutComponent';
+  public readOnly = false;
+  public border = true;
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+
+  outer = false;
+  get sizeVariants(): ReadonlyArray<PrizmInputSize> {
+    return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
+  }
+  size = this.sizeVariants[0];
+  forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+  forceClear = this.forceClearVariants[0];
+  emptyContent = 'Ничего не найдено';
+  nullContent = 'Не выбрано';
+  minDropdownHeight = 0;
+  maxDropdownHeight = 342;
+
   value = 1;
   public requiredInputControl = new UntypedFormControl('', Validators.required);
   public min = 0;
@@ -33,11 +51,7 @@ export class InputNumberExampleComponent {
   public label = 'Заголовок';
   public placeholder = '';
 
-  public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
-  public outer!: false;
-
-  public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
 

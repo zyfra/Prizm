@@ -7,7 +7,7 @@
   border-radius: inherit;
   box-sizing: border-box;
   cursor: pointer;
-  color: var(--prizm-v3-text-icon-exception);
+  color: var(--prizm-text-icon-exception);
   border-left-width: var(--prizm-wrapper-border-left-width);
   border-right-width: var(--prizm-wrapper-border-right-width);
 
@@ -25,7 +25,7 @@
 
       &[data-state='hovered'],
       &._focused_deleted {
-        background: var(--prizm-v3-button-ghost-hover);
+        background: var(--prizm-button-ghost-hover);
         border-color: @solid_hover;
         color: @solid_hover;
       }
@@ -41,7 +41,7 @@
 
       &[data-state='hovered'],
       &._focused_deleted {
-        background: var(--prizm-v3-button-ghost-hover);
+        background: var(--prizm-button-ghost-hover);
         color: @solid_hover;
       }
 
@@ -54,33 +54,33 @@
     &[data-state='hovered'],
     &._focused_deleted {
       background: @solid_hover;
-      color: var(--prizm-v3-text-icon-exception);
+      color: var(--prizm-text-icon-exception);
     }
 
     &[data-state='pressed'] {
       background: @solid_active;
-      color: var(--prizm-v3-text-icon-exception);
+      color: var(--prizm-text-icon-exception);
     }
   }
 
   &[data-appearance='primary'] {
-    .btn-mixin(var(--prizm-v3-button-primary-solid-default), var(--prizm-v3-button-primary-solid-hover), var(--prizm-v3-button-primary-solid-active), var(--prizm-v3-button-primary-ghost-active));
+    .btn-mixin(var(--prizm-button-primary-solid-default), var(--prizm-button-primary-solid-hover), var(--prizm-button-primary-solid-active), var(--prizm-button-primary-ghost-active));
   }
 
   &[data-appearance='secondary'] {
-    .btn-mixin(var(--prizm-v3-button-secondary-solid-default), var(--prizm-v3-button-secondary-solid-hover), var(--prizm-v3-button-secondary-solid-active), var(--prizm-v3-button-secondary-ghost-active));
+    .btn-mixin(var(--prizm-button-secondary-solid-default), var(--prizm-button-secondary-solid-hover), var(--prizm-button-secondary-solid-active), var(--prizm-button-secondary-ghost-active));
   }
 
   &[data-appearance='success'] {
-    .btn-mixin(var(--prizm-v3-button-success-solid-default), var(--prizm-v3-button-success-solid-hover), var(--prizm-v3-button-success-solid-active), var(--prizm-v3-button-success-ghost-active));
+    .btn-mixin(var(--prizm-button-success-solid-default), var(--prizm-button-success-solid-hover), var(--prizm-button-success-solid-active), var(--prizm-button-success-ghost-active));
   }
 
   &[data-appearance='warning'] {
-    .btn-mixin(var(--prizm-v3-button-warning-solid-default), var(--prizm-v3-button-warning-solid-hover), var(--prizm-v3-button-warning-solid-active), var(--prizm-v3-button-warning-ghost-active));
+    .btn-mixin(var(--prizm-button-warning-solid-default), var(--prizm-button-warning-solid-hover), var(--prizm-button-warning-solid-active), var(--prizm-button-warning-ghost-active));
   }
 
   &[data-appearance='danger'] {
-    .btn-mixin(var(--prizm-v3-button-alarm-solid-default), var(--prizm-v3-button-alarm-solid-hover), var(--prizm-v3-button-alarm-solid-active), var(--prizm-v3-button-alarm-ghost-active));
+    .btn-mixin(var(--prizm-button-alarm-solid-default), var(--prizm-button-alarm-solid-hover), var(--prizm-button-alarm-solid-active), var(--prizm-button-alarm-ghost-active));
   }
 
   &[data-state='disabled'][data-state='disabled'] {
@@ -88,17 +88,17 @@
       background: transparent;
 
       &[data-state='pressed'] {
-        background: var(--prizm-v3-button-disable);
+        background: var(--prizm-button-disable);
       }
     }
 
     &[data-appearance-type='outline'] {
-      border: 1px solid var(--prizm-v3-button-disable);
+      border: 1px solid var(--prizm-button-disable);
       background: transparent;
     }
 
-    background: var(--prizm-v3-button-disable);
-    color: var(--prizm-v3-text-icon-disable);
+    background: var(--prizm-button-disable);
+    color: var(--prizm-text-icon-disable);
   }
 }
 

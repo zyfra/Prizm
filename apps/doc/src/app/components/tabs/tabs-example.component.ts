@@ -43,6 +43,7 @@ export class TabsExampleComponent {
     maxValue: 99,
     disabled: false,
   };
+  public prizmTabButtonMaxWidth = 'unset';
 
   public counterOptionsVariants: Partial<PrizmTabCounterOptions>[] = [
     this.counterOptions,
