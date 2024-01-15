@@ -429,6 +429,7 @@ export const pages: PrizmOrderedDocPage = [
         title: 'Svg Icon',
         keywords: 'иконка, icon, svg',
         route: '/components/icon',
+        status: 'deprecated',
       },
     ],
   },

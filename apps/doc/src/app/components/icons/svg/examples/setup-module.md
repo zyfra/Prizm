@@ -1,14 +1,14 @@
 ```ts
 // Использование svg
 import { NgModule } from '@angular/core';
-import { PrizmIconsSvgModule } from '@prizm-ui/icons';
+import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmIconsSvgModule,
+    PrizmIconsSvgComponent,
   ],
 })
 export class MyModule {}
