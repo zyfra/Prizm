@@ -126,12 +126,13 @@ export class TuiDocNavigationComponent {
   ): ReadonlyArray<readonly PrizmDocPage[]> {
     return items.map(section =>
       tuiUniqBy(
-        section.filter(({ title, keywords = `` }) => {
+        section.filter(({ title, status, keywords = `` }) => {
           title = title.toLowerCase();
           search = search.toLowerCase();
           keywords = keywords.toLowerCase();
 
           return (
+            (status && status.includes(search)) ||
             title.includes(search) ||
             keywords.includes(search) ||
             title.includes(tuiTransliterateKeyboardLayout(search)) ||
