@@ -78,6 +78,10 @@ export class DialogExampleComponent {
     TypeScript: import('./examples/base/dialog-base-example.component.ts?raw'),
     HTML: import('./examples/base/dialog-base-example.component.html?raw'),
   };
+  public readonly exampleWightOuterHeader: TuiDocExample = {
+    TypeScript: import('./examples/outher-header/dialog-outher-header-example.component.ts?raw'),
+    HTML: import('./examples/outher-header/dialog-outher-header-example.component.html?raw'),
+  };
 
   public readonly exampleWithButtons: TuiDocExample = {
     TypeScript: import('./examples/with-buttons/dialog-with-buttons-example.component.ts?raw'),
