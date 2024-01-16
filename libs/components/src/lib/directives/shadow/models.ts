@@ -26,7 +26,7 @@ export enum PrizmShadowValue {
   bigTop = 'var(--prizm-shadow-big-top)',
   miniTop = 'var(--prizm-shadow-mini-top)',
   bigBottom = 'var(--prizm-shadow-big-bottom)',
-  miniRight = 'var(--prizm-shadow-mini-left)',
+  miniRight = 'var(--prizm-shadow-mini-right)',
   bigRight = 'var(--prizm-shadow-big-right)',
   miniLeft = 'var(--prizm-shadow-mini-left)',
   bigLeft = 'var(--prizm-shadow-big-left)',
