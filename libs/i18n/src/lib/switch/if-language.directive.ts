@@ -1,8 +1,9 @@
 import { Directive, Input, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
-import { PrizmLanguageName, PrizmLanguageSwitcher } from '@prizm-ui/i18n';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { BehaviorSubject, combineLatest, Subject, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, combineLatest, takeUntil, tap } from 'rxjs';
 import { prizmObservable } from '@prizm-ui/core';
+import { PrizmLanguageName } from '../interfaces/language-names';
+import { PrizmLanguageSwitcher } from './language-switcher.service';
 
 @Directive({
   selector: 'ng-template[prizmIfLang]',
