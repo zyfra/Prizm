@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Publish main packages 16
+name: Publish main packages 17
 on:
   workflow_dispatch:
   workflow_call:
@@ -29,14 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
-      - name: 'Initial changes 16'
+      - name: 'Initial changes 17'
         run: |
-          cp -f package.json.ng16 package.json
-          cp -f package-lock.json.ng16 package-lock.json
+          cp -f package.json.ng17 package.json
+          cp -f package-lock.json.ng17 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -61,8 +61,8 @@ jobs:
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+      - name: 'Set version 17'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
 
       - name: 'Build main versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -85,9 +85,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -117,9 +117,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -145,9 +145,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -173,9 +173,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -201,9 +201,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -229,9 +229,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -257,9 +257,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -285,9 +285,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -313,9 +313,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -341,9 +341,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -369,9 +369,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -397,9 +397,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
