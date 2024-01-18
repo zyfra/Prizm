@@ -12,7 +12,6 @@ jobs:
     if: ${{ always() }}
     uses: zyfra/Prizm/.github/workflows/main-publish-ng17.yml@main
     secrets: inherit
-
 #  release_v3:
 #    needs: release_v4
 #    if: ${{ always() }}
