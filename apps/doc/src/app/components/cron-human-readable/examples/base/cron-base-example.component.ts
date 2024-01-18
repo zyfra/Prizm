@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { prizmCronHRToString } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-cron-base-example',
@@ -11,4 +12,6 @@ import { Component } from '@angular/core';
     `,
   ],
 })
-export class PrizmCronBaseExampleComponent {}
+export class PrizmCronBaseExampleComponent {
+  protected readonly prizmCronHRToString = prizmCronHRToString;
+}

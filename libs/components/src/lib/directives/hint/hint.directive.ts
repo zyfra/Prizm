@@ -23,7 +23,7 @@ import {
 } from '../../modules/overlay';
 import { combineLatest, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
-import { delay, distinctUntilChanged, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { delay, distinctUntilChanged, filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
 import { PrizmTheme } from '@prizm-ui/theme';
@@ -164,14 +164,16 @@ export class PrizmHintDirective<
   }
 
   protected open(): void {
+    if (this.show_) return;
     if (!this.prizmHintCanShow || this.content === '') return;
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay.open();
-    this.prizmHoveredChange$$.next(!this.show_);
+    this.prizmHoveredChange$$.next(this.show_);
   }
 
   protected close(): void {
+    if (!this.show_) return;
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.close();
@@ -224,6 +226,11 @@ export class PrizmHintDirective<
           map(([thisHovered, containerHovered]) => {
             return thisHovered || containerHovered;
           }),
+          // filter(
+          //   () => {
+          //     this
+          //   }
+          // ),
           tap(hovered => this.show$.next(hovered)),
           takeUntil(this.destroyListeners$),
           takeUntil(this.destroy$)

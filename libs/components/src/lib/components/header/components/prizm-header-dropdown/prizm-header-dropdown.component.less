@@ -21,29 +21,29 @@
     align-items: center;
     justify-content: space-between;
 
-    background: var(--prizm-v3-background-fill-panel);
+    background: var(--prizm-background-fill-panel);
 
     cursor: pointer;
 
     &__icon {
-      color: var(--prizm-v3-button-secondary-solid-default);
+      color: var(--prizm-button-secondary-solid-default);
       transition: 400ms;
     }
 
     &:hover:not(.dropdown_active) {
-      background: var(--prizm-v3-table-fill-row-hover);
+      background: var(--prizm-table-fill-row-hover);
     }
 
     &_active {
-      background: var(--prizm-v3-table-fill-row-active);
+      background: var(--prizm-table-fill-row-active);
 
       .dropdown__icon {
         transform: rotate(90deg);
-        color: var(--prizm-v3-text-icon-primary);
+        color: var(--prizm-text-icon-primary);
       }
 
       .screen__icon {
-        color: var(--prizm-v3-text-icon-primary);
+        color: var(--prizm-text-icon-primary);
       }
     }
   }
@@ -54,7 +54,7 @@
   gap: 8px;
 
   &__icon {
-    color: var(--prizm-v3-status-info-primary-default);
+    color: var(--prizm-status-info-primary-default);
   }
 
   &__title {
@@ -62,7 +62,7 @@
     font-size: 14px;
     line-height: 16px;
 
-    color: var(--prizm-v3-text-icon-primary);
+    color: var(--prizm-text-icon-primary);
 
     white-space: nowrap;
     overflow: hidden;
@@ -75,7 +75,7 @@
 
   display: flex;
   flex-direction: column;
-  background: var(--prizm-v3-background-fill-panel) !important;
+  background: var(--prizm-background-fill-panel) !important;
 
   &.default {
     border: none;
@@ -91,16 +91,16 @@
     cursor: pointer;
 
     &.selected {
-      background: var(--prizm-header-dropdown-selected-background, var(--prizm-v3-table-fill-row-active));
-      color: var(--prizm-v3-text-icon-primary);
+      background: var(--prizm-header-dropdown-selected-background, var(--prizm-table-fill-row-active));
+      color: var(--prizm-text-icon-primary);
 
       .screen__icon {
-        color: var(--prizm-v3-text-icon-primary);
+        color: var(--prizm-text-icon-primary);
       }
     }
 
     &:hover:not(.selected) {
-      background: var(--prizm-v3-table-fill-row-hover);
+      background: var(--prizm-table-fill-row-hover);
     }
   }
 }

@@ -1,7 +1,7 @@
 <div class="box">
   <div class="year-month prizm-font-input-text-14px">
     <div *ngIf="oneMonth; else buttonMonth">
-      {{ value | prizmMonth | async }}
+      {{ value?.month | prizmMonth | async }}
     </div>
 
     <div *ngIf="oneYear; else button">
@@ -47,7 +47,7 @@
       [prizmFocusable]="true"
       type="button"
     >
-      {{ value | prizmMonth | async }}
+      {{ value?.month | prizmMonth | async }}
       <span>
         <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
       </span>

@@ -1164,7 +1164,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         route: '/components/flag-icons',
       },
       {
-        title: 'Svg Icon',
+        title: 'Svg Icons',
         keywords: 'icon, svg',
         route: '/components/icon',
         status: 'deprecated',
