@@ -27,11 +27,21 @@ export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
 ];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
+    label: '4.0.0 (ng17)',
+    version: '4.0.0',
+    stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
+    link: new URL('http://prizm.site'),
+    otherLinks: [new URL('https://prizm-v4.web.app')],
+    cb: (hostName: string, current: PrizmVersionMeta) => {
+      return hostName.startsWith('prizm-v4--');
+    },
+  },
+  {
     label: '3.9.0 (ng16)',
     version: '3.9.0',
-    stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
-    link: new URL('http://prizm.site'),
-    otherLinks: [new URL('https://prizm-v3.web.app')],
+    stackblitz: 'https://stackblitz.com/edit/prizm-v2-demo',
+    link: new URL('https://prizm-v3.web.app'),
+    otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v3--');
     },
@@ -57,6 +67,13 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
+    label: '4.0.0-next (ng16)',
+    version: '4.0.0-next',
+    stackblitz: 'https://stackblitz.com/edit/prizm-v4-next-demo',
+    link: new URL('https://prizm-v4-next.web.app'),
+    otherLinks: [],
+  },
+  {
     label: '3.9.0-next (ng16)',
     version: '3.9.0-next',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-next-demo',
@@ -77,25 +94,25 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     link: new URL('https://prizm-v1-next.web.app'),
     otherLinks: [],
   },
-  {
-    label: '3.9.0-beta (ng16)',
-    version: '3.9.0-beta',
-    stackblitz: 'https://stackblitz.com/edit/prizm-v3-beta-demo',
-    link: new URL('https://prizm-v3-beta.web.app'),
-    otherLinks: [],
-  },
-  {
-    label: '2.10.0-beta (ng15)',
-    version: '2.10.0-beta',
-    stackblitz: 'https://stackblitz.com/edit/prizm-v2-beta-demo',
-    link: new URL('https://prizm-v2-beta.web.app'),
-    otherLinks: [],
-  },
-  {
-    label: '1.13.0-beta (ng14)',
-    version: '1.13.0-beta',
-    stackblitz: 'https://stackblitz.com/edit/prizm-v1-beta-demo',
-    link: new URL('https://prizm-v1-beta.web.app'),
-    otherLinks: [],
-  },
+  // {
+  //   label: '3.9.0-beta (ng16)',
+  //   version: '3.9.0-beta',
+  //   stackblitz: 'https://stackblitz.com/edit/prizm-v3-beta-demo',
+  //   link: new URL('https://prizm-v3-beta.web.app'),
+  //   otherLinks: [],
+  // },
+  // {
+  //   label: '2.10.0-beta (ng15)',
+  //   version: '2.10.0-beta',
+  //   stackblitz: 'https://stackblitz.com/edit/prizm-v2-beta-demo',
+  //   link: new URL('https://prizm-v2-beta.web.app'),
+  //   otherLinks: [],
+  // },
+  // {
+  //   label: '1.13.0-beta (ng14)',
+  //   version: '1.13.0-beta',
+  //   stackblitz: 'https://stackblitz.com/edit/prizm-v1-beta-demo',
+  //   link: new URL('https://prizm-v1-beta.web.app'),
+  //   otherLinks: [],
+  // },
 ];
