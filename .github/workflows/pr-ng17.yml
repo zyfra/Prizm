@@ -66,7 +66,7 @@ jobs:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           expires: 5d
-          target: v3
+          target: v4
           projectId: prizmui
 
   lint_build_test:

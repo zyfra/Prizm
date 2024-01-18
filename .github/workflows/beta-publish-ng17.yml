@@ -112,7 +112,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: v3-beta
+          target: v4-beta
 
   publish-components:
     needs: build

@@ -40,6 +40,15 @@
         ],
         "beta": [
           "prizmui-beta"
+        ],
+        "v4": [
+          "prizm-v4"
+        ],
+        "v4-next": [
+          "prizm-v4-next"
+        ],
+        "v4-beta": [
+          "prizm-v4-beta"
         ]
       }
     }
