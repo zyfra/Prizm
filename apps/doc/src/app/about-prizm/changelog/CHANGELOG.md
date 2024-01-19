@@ -14,6 +14,36 @@ All notable changes to this project will be documented in this file.
 - fix(components/tabs): set stacking context to isolate #1291
 - fix(components/input-text): show status on clear required fields #1284
 
+## [4.0.0-rc.1](https://github.com/zyfra/Prizm) (15-01-2024)
+
+## Features
+
+- feat(components): remove deprecation from complex modules #1271
+- feat(doc): language changer was added #1265
+- feat(doc): search by status (new|preview|deprecated) #1257
+
+## Bug fixes
+
+- fix: check box extra margin #1189 #1193
+
+## Deprecations
+
+- chore(flag-icons): deprecated flag-icons #1267
+- chore(icons): deprecated prizm-icons-svg #1266
+
+## Breacking Changes
+
+- bc(components): carousel deleted #1258
+- bc(components): remove old themes and remove v3 prefix from new theme tokens #1270
+- bc(components): removed input-month-range #1256
+- bc(components): removed input-month #1255
+- bc(components): removed input-date-time #1254
+- bc(components): removed input-date-relative #1252
+- bc(components): removed input-date-range input-date-time-range #1251
+- bc(components): removed input date #1250
+- bc(components): removed select, multiselect #1247
+- feat: add styling for table cell with prizmInput (breaking change) #1226
+
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
 ## Features

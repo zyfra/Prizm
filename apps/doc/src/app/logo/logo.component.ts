@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { debounceTime, filter, map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
 import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitHub } from '@prizm-ui/icons';
+import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-doc-logo',
@@ -10,18 +11,21 @@ import { PrizmIconsSvgRegistry, PrizmIconSvgEnum, prizmIconSvgOtherGitHub } from
   styleUrls: ['./logo.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LogoComponent implements OnInit {
-  readonly githubSvgName = PrizmIconSvgEnum.OTHER_GIT_HUB;
-  readonly themeSwitcher = inject(PrizmThemeService);
-  readonly svgRegistry = inject(PrizmIconsSvgRegistry);
-  readonly storage = inject(LOCAL_STORAGE);
+export class LogoComponent {
   readonly isNight$ = this.themeSwitcher.change$.pipe(
     filter(i => i.el === this.themeSwitcher.rootElement),
     map(i => i.theme === 'dark'),
     debounceTime(0)
   );
 
-  ngOnInit(): void {
+  readonly githubSvgName = PrizmIconSvgEnum.OTHER_GIT_HUB;
+
+  constructor(
+    private readonly themeSwitcher: PrizmThemeService,
+    public readonly languageSwitcher: PrizmLanguageSwitcher,
+    private readonly svgRegistry: PrizmIconsSvgRegistry,
+    @Inject(LOCAL_STORAGE) private readonly storage: Storage
+  ) {
     this.svgRegistry.registerIcons([prizmIconSvgOtherGitHub]);
   }
 

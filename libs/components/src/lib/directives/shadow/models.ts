@@ -22,13 +22,13 @@ export type PrizmShadowType =
   | `${PrizmShadowTypeEnum.bigRight}`;
 
 export enum PrizmShadowValue {
-  miniBottom = 'var(--prizm-v3-shadow-mini-bottom)',
-  bigTop = 'var(--prizm-v3-shadow-big-top)',
-  miniTop = 'var(--prizm-v3-shadow-mini-top)',
-  bigBottom = 'var(--prizm-v3-shadow-big-bottom)',
-  miniRight = 'var(--prizm-v3-shadow-mini-left)',
-  bigRight = 'var(--prizm-v3-shadow-big-right)',
-  miniLeft = 'var(--prizm-v3-shadow-mini-left)',
-  bigLeft = 'var(--prizm-v3-shadow-big-lef)',
+  miniBottom = 'var(--prizm-shadow-mini-bottom)',
+  bigTop = 'var(--prizm-shadow-big-top)',
+  miniTop = 'var(--prizm-shadow-mini-top)',
+  bigBottom = 'var(--prizm-shadow-big-bottom)',
+  miniRight = 'var(--prizm-shadow-mini-right)',
+  bigRight = 'var(--prizm-shadow-big-right)',
+  miniLeft = 'var(--prizm-shadow-mini-left)',
+  bigLeft = 'var(--prizm-shadow-big-left)',
   none = '',
 }

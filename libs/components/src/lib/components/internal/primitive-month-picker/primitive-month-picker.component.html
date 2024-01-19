@@ -13,7 +13,7 @@
       (click)="onItemClick($event, item.month)"
       automation-id="prizm-primitive-year-picker__cell"
     >
-      <div class="z-item">{{ item | prizmMonth | async }}</div>
+      <div class="z-item">{{ item?.month | prizmMonth | async }}</div>
     </div>
   </ng-container>
 </div>

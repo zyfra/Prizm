@@ -43,6 +43,10 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
   @prizmDefaultProp()
   public switchers: PrizmSwitcherItem[] = [];
 
+  get activeSwitchers() {
+    return this.switchers.filter(switcher => !switcher.hide);
+  }
+
   @Input()
   @prizmDefaultProp()
   public set selectedSwitcherIdx(idx: number) {

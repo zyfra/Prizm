@@ -92,9 +92,6 @@ export class PrizmPrimitiveYearMonthPaginationComponent
   }
 
   public onMonthClick($event: MouseEvent): void {
-    // TODO delete after update dropdown-host (need activeZone optionan, for dynamic change elements)
-    $event.stopImmediatePropagation();
-
     this.monthClick.next(this.value);
   }
 

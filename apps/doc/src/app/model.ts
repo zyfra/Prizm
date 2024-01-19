@@ -7,3 +7,13 @@ export enum SectionNameEnum {
   charts = 'Графики',
   tools = 'Инструменты',
 }
+
+export enum SectionNameEnglishEnum {
+  allAboutPrizm = 'All About Prizm',
+  howToWork = 'How to Work with Prizm',
+  forZIIoT = 'Prizm for ZIIoT',
+  guidelines = 'Guidelines',
+  components = 'Components',
+  charts = 'Charts',
+  tools = 'Tools',
+}

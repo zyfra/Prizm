@@ -1,8 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PrizmIconsSvgComponent } from './prizm-icons.component';
 
+/*
+ * @deprecated from 4
+ * use PrizmIconsComponent instead of this
+ * */
 @NgModule({
-  declarations: [PrizmIconsSvgComponent],
+  imports: [PrizmIconsSvgComponent],
   exports: [PrizmIconsSvgComponent],
 })
 export class PrizmIconsSvgModule {}

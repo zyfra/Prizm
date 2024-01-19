@@ -103,7 +103,11 @@ export class PrizmConfirmPopupDirective<
   protected override readonly onHoverActive = false;
 
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
-    this.show$.next(this.elementRef.nativeElement.contains(target));
+    if (this.elementRef.nativeElement.contains(target)) {
+      this.open();
+    } else {
+      this.close();
+    }
   }
 
   protected override getContext(): PrizmConfirmPopupContext {

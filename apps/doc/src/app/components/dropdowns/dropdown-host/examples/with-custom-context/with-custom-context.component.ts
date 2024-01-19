@@ -10,7 +10,7 @@ import { ChangeDetectorRef, Component } from '@angular/core';
         flex-flow: column;
         gap: 8px;
         padding: 16px;
-        color: var(--prizm-v3-text-icon-primary);
+        color: var(--prizm-text-icon-primary);
       }
 
       [prizmButton] {

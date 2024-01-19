@@ -3,6 +3,11 @@
   <b>0 0 * ? * * *</b>
 </div>
 <div class="box">
-  Result:
+  With function:
   <b>{{ prizmCronHRToString('0 0 * ? * * *', { locale: 'en' }) }}</b>
+  <br />
+  With pipe:
+  <b>
+    <b>{{ '0 0 * ? * * *' | prizmCronHumanReadable : 'en' | async }}</b>
+  </b>
 </div>

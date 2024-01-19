@@ -35,7 +35,7 @@
       align-items: center;
       gap: 8px;
 
-      background: var(--prizm-v3-background-fill-primary);
+      background: var(--prizm-background-fill-primary);
 
       position: absolute;
 
@@ -46,12 +46,12 @@
 
       &:first-child {
         left: 0;
-        border-right: 1px solid var(--prizm-v3-background-stroke);
+        border-right: 1px solid var(--prizm-background-stroke);
       }
 
       &:last-child {
         right: 0;
-        border-left: 1px solid var(--prizm-v3-background-stroke);
+        border-left: 1px solid var(--prizm-background-stroke);
       }
 
       &_active {
@@ -65,11 +65,10 @@
 
 .tabs-column {
   max-width: var(--prizm-tabs-dropdown-max-width, 360px);
-  --prizm-listing-item-row-instruments-hover: var(--prizm-v3-table-fill-row-active);
+  --prizm-listing-item-row-instruments-hover: var(--prizm-table-fill-row-active);
   padding: 8px 0;
   display: flex;
   flex-direction: column;
-  background: var(--prizm-v3-background-fill-primary);
   prizm-listing-item {
     max-width: 100%;
   }
@@ -86,7 +85,7 @@
 }
 
 .icon {
-  color: var(--prizm-v3-button-secondary-solid-default);
+  color: var(--prizm-button-secondary-solid-default);
 }
 
 .icon-placeholder {

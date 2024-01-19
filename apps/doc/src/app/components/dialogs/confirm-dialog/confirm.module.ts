@@ -6,8 +6,10 @@ import {
   PolymorphModule,
   PrizmButtonModule,
   PrizmConfirmDialogModule,
+  PrizmInputCommonModule,
+  PrizmInputSelectModule,
   PrizmRadioButtonModule,
-  PrizmSelectModule,
+  PrizmSelectInputComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmComponent } from './confirm.component';
@@ -25,13 +27,15 @@ import { PrizmDialogFooterTemplateExampleComponent } from './examples/footer-tem
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmSelectModule,
+    PrizmInputSelectModule,
     FullExampleModule,
     PrizmCallFuncModule,
     PrizmButtonModule,
     PrizmConfirmDialogModule,
     PrizmRadioButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ConfirmComponent)),
+    PrizmInputCommonModule,
+    PrizmSelectInputComponent,
   ],
   declarations: [
     PrizmDialogCustomButtonExampleComponent,

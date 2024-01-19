@@ -3,8 +3,16 @@ import { Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 
 import { SELECTED_VERSION_META, VERSION_MANAGER_PROVIDERS } from './version-manager.providers';
-import { PRIZM_VERSIONS_META, PrizmVersionMeta } from './versions.constants';
+import {
+  PRIZM_LANGUAGES_META,
+  PRIZM_VERSIONS_META,
+  PrizmLanguageMeta,
+  PrizmVersionMeta,
+} from './versions.constants';
 import { PRIZM_CURRENT_VERSION } from './current.const';
+import { LanguageManagerService } from './language-manager.service';
+import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-version-manager',
@@ -15,8 +23,11 @@ import { PRIZM_CURRENT_VERSION } from './current.const';
 })
 export class VersionManagerComponent {
   readonly versions = PRIZM_VERSIONS_META;
+  readonly languages = PRIZM_LANGUAGES_META;
 
   constructor(
+    public readonly languageSwitcher: PrizmLanguageSwitcher,
+    public readonly languageManager: LanguageManagerService,
     @Inject(SELECTED_VERSION_META) public initialVersion: PrizmVersionMeta | null,
     @Inject(LOCATION) private readonly locationRef: Location,
     @Inject(Router) private readonly router: Router
@@ -46,5 +57,9 @@ export class VersionManagerComponent {
     } else {
       return version.link?.href;
     }
+  }
+
+  public languageIdentityMatcher(a: PrizmLanguageMeta, b: PrizmLanguageMeta) {
+    return a?.code === b?.code;
   }
 }

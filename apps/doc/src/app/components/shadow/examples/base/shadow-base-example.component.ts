@@ -15,7 +15,7 @@ import { PrizmShadowTypeEnum } from '@prizm-ui/components';
       .shadow-container {
         width: 200px;
         height: 200px;
-        background: var(--prizm-v3-background-fill-primary);
+        background: var(--prizm-background-fill-primary);
         border-radius: 0.5rem;
         display: flex;
         flex-flow: column;
@@ -23,13 +23,13 @@ import { PrizmShadowTypeEnum } from '@prizm-ui/components';
         padding: 16px;
 
         .title {
-          color: var(--prizm-v3-text-icon-secondary);
+          color: var(--prizm-text-icon-secondary);
           font-size: 14px;
           font-weight: 800;
         }
 
         .description {
-          color: var(--prizm-v3-text-icon-tertiary);
+          color: var(--prizm-text-icon-tertiary);
           font-size: 12px;
         }
       }

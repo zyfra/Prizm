@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { CronHumanReadableComponent } from './cron-human-readable.component';
 import {
   PolymorphModule,
-  PrizmCronHumanReadableModule,
-  PrizmMutationObserveModule,
+  PrizmCronHumanReadablePipe,
+  PrizmMutationObserveDirective,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example.component';
@@ -16,11 +16,11 @@ import { PrizmCronFuncExampleComponent } from './examples/func/cron-func-example
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmMutationObserveModule,
+    PrizmMutationObserveDirective,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmCronHumanReadableModule,
+    PrizmCronHumanReadablePipe,
     RouterModule.forChild(prizmDocGenerateRoutes(CronHumanReadableComponent)),
   ],
   declarations: [PrizmCronBaseExampleComponent, PrizmCronFuncExampleComponent, CronHumanReadableComponent],

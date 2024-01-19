@@ -3,10 +3,6 @@ import { PrizmInputLayoutDateRelativeComponent } from './input-layout-date-relat
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relative.directive';
 
-/**
- * @deprecated
- * use standalone
- * */
 @NgModule({
   imports: [
     PrizmInputTextModule,

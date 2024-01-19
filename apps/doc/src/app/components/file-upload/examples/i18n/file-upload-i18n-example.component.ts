@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { PRIZM_LANGUAGE, PRIZM_RUSSIAN_LANGUAGE, PrizmLanguageFileUpload } from '@prizm-ui/i18n';
-import { BehaviorSubject, of } from 'rxjs';
+import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
+import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
-import { PrizmFileValidationErrors, PrizmFilesProgress, PrizmToastService } from '@prizm-ui/components';
+import { PrizmFilesProgress, PrizmFileValidationErrors, PrizmToastService } from '@prizm-ui/components';
 
 export const PRIZM_ENGLISH_FILE_UPLOAD: PrizmLanguageFileUpload = {
   fileUpload: {
@@ -19,15 +19,6 @@ export const PRIZM_ENGLISH_FILE_UPLOAD: PrizmLanguageFileUpload = {
 @Component({
   selector: 'prizm-file-upload-i18n-example',
   templateUrl: './file-upload-i18n-example.component.html',
-  providers: [
-    {
-      provide: PRIZM_LANGUAGE,
-      useValue: of({
-        ...PRIZM_RUSSIAN_LANGUAGE,
-        ...PRIZM_ENGLISH_FILE_UPLOAD,
-      }),
-    },
-  ],
 })
 export class PrizmFileUploadI18nExampleComponent {
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});

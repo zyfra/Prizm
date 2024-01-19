@@ -1,3 +1,24 @@
+<div class="i18-block">
+  <tui-select
+    class="select full-width"
+    [ngModel]="languageManager.language$ | async"
+    [valueContent]="valueContentLanguage"
+    [identityMatcher]="languageIdentityMatcher"
+    (ngModelChange)="languageSwitcher.setLanguage($event.code)"
+    tuiTextfieldSize="s"
+  >
+    <tui-data-list *tuiDataList>
+      <button *ngFor="let language of languages" [value]="language" tuiOption>
+        {{ language.label }}
+      </button>
+    </tui-data-list>
+  </tui-select>
+
+  <ng-template #valueContentLanguage let-language>
+    {{ language.label }}
+  </ng-template>
+</div>
+
 <div class="select-block">
   <ng-container *ngIf="initialVersion?.stackblitz">
     <div class="icon-block" *prizmLet="initialVersion as version" [hidden]="!version.stackblitz">
