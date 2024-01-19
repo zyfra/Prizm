@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
+
+## Features
+
+- feat(doc): save current theme in local storage on change
+
+### Bug fixes
+
+- fix(theme/service): recognize current theme #1287 #1292
+- fix(components/tabs): set stacking context to isolate #1291
+- fix(components/input-text): show status on clear required fields #1284
+
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
 ## Features
