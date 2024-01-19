@@ -46,7 +46,7 @@ export class PrizmThemeService implements OnDestroy {
 
   public getLastThemeForElement$(el: HTMLElement = this.rootElement): Observable<string | null> {
     return this.change$.pipe(
-      map(i => this.getLastThemeForElement(el)),
+      map(() => this.getLastThemeForElement(el)),
       distinctUntilChanged()
     );
   }

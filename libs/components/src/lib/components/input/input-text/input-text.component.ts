@@ -287,7 +287,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this.updateEmptyState();
     this.updateErrorState();
 
-    this.focus();
     this.markControl({ touched: true, dirty: true });
     this.onClear.emit(event);
     this.valueChanged.next('' as VALUE);
