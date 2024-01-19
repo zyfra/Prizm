@@ -37,11 +37,14 @@ export class PrizmThemeService implements OnDestroy {
     this.subscription.add(this.change$.pipe(tap(theme => this.setToHtml(theme.theme, theme.el))).subscribe());
   }
 
-  public getLastThemeForElement(el: HTMLElement = this.rootElement): string {
-    return this.themeStorage.get(el) as string;
+  public getLastThemeForElement(el: HTMLElement = this.rootElement): string | null {
+    let theme = this.themeStorage.get(el);
+    if (el !== this.rootElement_)
+      theme = el.closest(`[${this.attThemeKey}}]`)?.getAttribute(this.attThemeKey) as string;
+    return theme ?? null;
   }
 
-  public getLastThemeForElement$(el: HTMLElement = this.rootElement): Observable<string> {
+  public getLastThemeForElement$(el: HTMLElement = this.rootElement): Observable<string | null> {
     return this.change$.pipe(
       map(i => this.getLastThemeForElement(el)),
       distinctUntilChanged()
@@ -54,8 +57,8 @@ export class PrizmThemeService implements OnDestroy {
       light: 'dark',
       dark: 'light',
     }
-  ): Observable<string> {
-    return this.getLastThemeForElement$(element).pipe(map(theme => pairThemeValues[theme]));
+  ): Observable<string | null> {
+    return this.getLastThemeForElement$(element).pipe(map(theme => theme && pairThemeValues[theme]));
   }
 
   public getByElement(el?: HTMLElement): PrizmTheme {
