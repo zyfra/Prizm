@@ -40,7 +40,7 @@ export class PrizmThemeService implements OnDestroy {
   public getLastThemeForElement(el: HTMLElement = this.rootElement): string | null {
     let theme = this.themeStorage.get(el);
     if (el !== this.rootElement_)
-      theme = el.closest(`[${this.attThemeKey}}]`)?.getAttribute(this.attThemeKey) as string;
+      theme = el.closest(`[${this.attThemeKey}]`)?.getAttribute(this.attThemeKey) as string;
     return theme ?? null;
   }
 

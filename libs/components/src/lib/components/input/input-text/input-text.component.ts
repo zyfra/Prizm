@@ -20,6 +20,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
 import { NgxMaskDirective } from 'ngx-mask';
+import { timer } from 'rxjs';
 
 @Component({
   selector:
@@ -187,7 +188,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this.parentLayout?.clear
       .pipe(
         tap(() => {
-          this.maybeMask, this.maybeMask?.writeValue(null as any);
+          this.maybeMask?.writeValue(null as any);
         }),
         takeUntil(this.destroy)
       )
@@ -283,14 +284,11 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
     this.updateValue(null as VALUE);
 
-    this.ngControl?.control?.markAsDirty();
-
     this.updateEmptyState();
     this.updateErrorState();
 
     this.focus();
-
-    this.stateChanges.next();
+    this.markControl({ touched: true, dirty: true });
     this.onClear.emit(event);
     this.valueChanged.next('' as VALUE);
 
@@ -322,7 +320,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   public markAsTouched(): void {
-    if (this.ngControl?.control instanceof UntypedFormControl) this.ngControl.control.markAsTouched();
-    else this._touched = true;
+    this.markControl({ touched: true });
   }
 }
