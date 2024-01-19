@@ -39,8 +39,8 @@ export class PrizmThemeInvertedDirective implements OnInit {
             ? of(invertedValues?.['*'])
             : this.themeService.getInvertedThemeByElement$(themeElement, invertedValues)
         ),
-        tap(newTheme => this.themeService.update(newTheme, this.elementRef.nativeElement)),
-        tap(newTheme => this.prizmThemeChange.next(newTheme)),
+        tap(newTheme => newTheme && this.themeService.update(newTheme, this.elementRef.nativeElement)),
+        tap(newTheme => newTheme && this.prizmThemeChange.next(newTheme)),
         takeUntil(this.destroy$)
       )
       .subscribe();
