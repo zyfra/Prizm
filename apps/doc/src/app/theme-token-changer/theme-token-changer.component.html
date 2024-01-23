@@ -1,0 +1,30 @@
+<div #prizmTheme prizmTheme>
+  <prizm-doc-documentation [hasTestId]="false" heading="Base variables" hostComponentKey="Base variables">
+    <ng-template
+      *ngFor="let token of PRIZM_THEME_TOKEN_BASE_VARIABLES"
+      [documentationPropertyName]="token"
+      [documentationPropertyValue]="getTokenValue(token)"
+      (documentationPropertyValueChange)="themeService.updateTokenValue(token, $event)"
+      documentationPropertyType="string"
+      documentationPropertyMode="css-var"
+    >
+      {{ token }}
+    </ng-template>
+  </prizm-doc-documentation>
+  <prizm-doc-documentation
+    [hasTestId]="false"
+    heading="Palette variables"
+    hostComponentKey="Palette variables"
+  >
+    <ng-template
+      *ngFor="let token of PRIZM_THEME_TOKEN_PALETTE_VARIABLES"
+      [documentationPropertyName]="token"
+      [documentationPropertyValue]="getTokenValue(token)"
+      (documentationPropertyValueChange)="themeService.updateTokenValue(token, $event)"
+      documentationPropertyType="string"
+      documentationPropertyMode="css-var"
+    >
+      {{ token }}
+    </ng-template>
+  </prizm-doc-documentation>
+</div>

@@ -79,4 +79,20 @@ export class PrizmThemeService implements OnDestroy {
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
   }
+
+  public getTokenValue(token: string, el: HTMLElement | null = null): string | null {
+    el = el ?? this.rootElement;
+    console.log('#Mz getTokenValue', token, this.rootElement);
+    if (!el) return null;
+    const style = getComputedStyle(el);
+    return style.getPropertyValue(`--${token}`);
+  }
+
+  public updateTokenValue(token: string, value: string, el: HTMLElement | null = null): boolean {
+    el = el ?? this.rootElement;
+    if (!el) return false;
+    const style = el.style;
+    style.setProperty(`--${token}`, value);
+    return true;
+  }
 }

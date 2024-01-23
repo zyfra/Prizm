@@ -33,11 +33,6 @@
             "glob": "**/*",
             "input": "node_modules/@taiga-ui/icons/src",
             "output": "assets/taiga-ui/icons"
-          },
-          {
-            "glob": "**/*",
-            "input": "libs/icons/base/src/styles/icons",
-            "output": "assets/prizm-icons/fonts"
           }
         ],
         "styles": [
