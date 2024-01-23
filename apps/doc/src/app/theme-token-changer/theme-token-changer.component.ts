@@ -42,7 +42,7 @@ import { ThemeTokenChangerService } from './theme-token-changer.service';
     PrizmIconsSvgComponent,
     PrizmToggleComponent,
   ],
-  providers: [ThemeTokenChangerService, PrizmDestroyService],
+  providers: [PrizmDestroyService],
 })
 export class ThemeTokenChangerComponent {
   @ViewChild('prizmTheme') prizmThemeElement!: ElementRef<HTMLElement>;

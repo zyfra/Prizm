@@ -1,12 +1,11 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { PRIZM_DARK_THEME_CSS_VARS, PRIZM_LIGHT_THEME_CSS_VARS } from '@prizm-ui/theme';
 import { Subject } from 'rxjs';
-import { debounceTime, takeUntil, tap } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { debounceTime, startWith, tap } from 'rxjs/operators';
 import { createStore, withProps } from '@ngneat/elf';
 import { localStorageStrategy, persistState } from '@ngneat/elf-persist-state';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ThemeTokenChangerService {
   readonly lightStorage = createStore({ name: 'light_theme' }, withProps<Record<string, string>>({}));
   readonly darkStorage = createStore({ name: 'dark_theme' }, withProps<Record<string, string>>({}));
@@ -20,7 +19,7 @@ export class ThemeTokenChangerService {
 
   readonly updateStyles$$ = new Subject<void>();
 
-  constructor(public readonly destroyService: PrizmDestroyService) {
+  constructor() {
     persistState(this.lightStorage, {
       key: 'prizm_light_custom_theme',
       storage: localStorageStrategy,
@@ -29,17 +28,17 @@ export class ThemeTokenChangerService {
       key: 'prizm_dark_custom_theme',
       storage: localStorageStrategy,
     });
+  }
 
-    this.updateStyles$$
-      .pipe(
-        debounceTime(100),
-        tap(() => {
-          this.addStylesWithClass('dark-theme', this.generateStyleContent('dark'));
-          this.addStylesWithClass('light-theme', this.generateStyleContent('light'));
-        }),
-        takeUntil(this.destroyService)
-      )
-      .subscribe();
+  public init() {
+    return this.updateStyles$$.pipe(
+      startWith(null),
+      debounceTime(100),
+      tap(() => {
+        this.addStylesWithClass('dark-theme', this.generateStyleContent('dark'));
+        this.addStylesWithClass('light-theme', this.generateStyleContent('light'));
+      })
+    );
   }
 
   public restore() {
