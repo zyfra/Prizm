@@ -82,11 +82,6 @@ export class ThemeTokenChangerComponent {
     ]);
   }
 
-  ngOnInit(): void {
-    console.log('#mz lightStorage', this.tokenChangerService.lightStorage.getValue());
-    console.log('#mz darkStorage', this.tokenChangerService.darkStorage.getValue());
-  }
-
   public onMode(isNight: boolean): void {
     this.storage.setItem(`night`, isNight ? 'true' : 'false');
     this.themeService.update(isNight ? 'dark' : 'light');
