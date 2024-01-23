@@ -10,7 +10,7 @@ import {
 } from '@prizm-ui/icons';
 import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
 import { PolymorphComponent, PrizmDialogService } from '@prizm-ui/components';
-import { ThemeTokenChanger } from '../theme-token-changer/theme-token-changer.component';
+import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-changer.component';
 
 @Component({
   selector: 'prizm-doc-logo',
@@ -49,10 +49,11 @@ export class LogoComponent {
 
   public openThemeChanger() {
     this.dialogService
-      .open(new PolymorphComponent(ThemeTokenChanger), {
+      .open(new PolymorphComponent(ThemeTokenChangerComponent), {
         closeable: true,
         header: 'Theme changer',
         height: 800,
+        width: 1000,
       })
       .subscribe();
   }

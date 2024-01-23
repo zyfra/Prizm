@@ -37,10 +37,39 @@
 }
 
 .theme-tokens-updater {
-  color: white;
+  color: black;
   cursor: pointer;
 
   &:hover {
     color: var(--prizm-index-plan);
   }
+}
+
+.buttons-block {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 4px;
+}
+
+.loading {
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+}
+
+.box {
+  max-height: 500px;
+}
+
+.theme-title {
+  text-transform: capitalize;
 }

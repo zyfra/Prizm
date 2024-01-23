@@ -12,7 +12,7 @@ import {
   PrizmToggleComponent,
 } from '@prizm-ui/components';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
-import { ThemeTokenChanger } from '../theme-token-changer/theme-token-changer.component';
+import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-changer.component';
 
 @NgModule({
   imports: [
@@ -22,7 +22,7 @@ import { ThemeTokenChanger } from '../theme-token-changer/theme-token-changer.co
     CommonModule,
     RouterModule,
     PrizmDialogModule,
-    ThemeTokenChanger,
+    ThemeTokenChangerComponent,
     FormsModule,
     PrizmIconsSvgComponent,
     PrizmToggleComponent,

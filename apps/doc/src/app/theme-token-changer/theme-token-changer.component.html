@@ -1,30 +1,76 @@
-<div #prizmTheme prizmTheme>
-  <prizm-doc-documentation [hasTestId]="false" heading="Base variables" hostComponentKey="Base variables">
-    <ng-template
-      *ngFor="let token of PRIZM_THEME_TOKEN_BASE_VARIABLES"
-      [documentationPropertyName]="token"
-      [documentationPropertyValue]="getTokenValue(token)"
-      (documentationPropertyValueChange)="themeService.updateTokenValue(token, $event)"
-      documentationPropertyType="string"
-      documentationPropertyMode="css-var"
-    >
-      {{ token }}
-    </ng-template>
-  </prizm-doc-documentation>
-  <prizm-doc-documentation
-    [hasTestId]="false"
-    heading="Palette variables"
-    hostComponentKey="Palette variables"
-  >
-    <ng-template
-      *ngFor="let token of PRIZM_THEME_TOKEN_PALETTE_VARIABLES"
-      [documentationPropertyName]="token"
-      [documentationPropertyValue]="getTokenValue(token)"
-      (documentationPropertyValueChange)="themeService.updateTokenValue(token, $event)"
-      documentationPropertyType="string"
-      documentationPropertyMode="css-var"
-    >
-      {{ token }}
-    </ng-template>
-  </prizm-doc-documentation>
+<div class="host-changer" #prizmTheme>
+  <div class="title">
+    <span class="theme-title"> {{ themeService.changesTheme$ | async }} theme </span>
+
+    <div class="buttons-block">
+      <prizm-icons-svg
+        class="theme-tokens-updater"
+        [hidden]="!tokenChangerService.hasDarkValue && !tokenChangerService.hasLightValue"
+        [size]="24"
+        [name]="PrizmIconSvgEnum.SETTINGS_TOOLS_BAN"
+        (click)="tokenChangerService.restore()"
+      >
+      </prizm-icons-svg>
+
+      <prizm-icons-svg
+        class="theme-tokens-updater"
+        [hidden]="!tokenChangerService.hasDarkValue && !tokenChangerService.hasLightValue"
+        [size]="24"
+        [name]="PrizmIconSvgEnum.EDITOR_DECOR_CODE_DOWNLOAD"
+        (click)="tokenChangerService.download()"
+      >
+      </prizm-icons-svg>
+
+      <!--      <prizm-toggle-->
+      <!--        [ngModel]="isNight$ | async"-->
+      <!--        (ngModelChange)="onMode($event)"-->
+      <!--        iconOn="social-sun"-->
+      <!--      ></prizm-toggle>-->
+    </div>
+  </div>
+
+  <div>
+    <prizm-scrollbar class="box">
+      <ng-container *ngIf="theme$ | async as theme; else loadingTemplate">
+        <prizm-doc-documentation
+          [hasTestId]="false"
+          heading="Base variables"
+          hostComponentKey="Base variables"
+        >
+          <ng-template
+            *ngFor="let token of tokens"
+            [documentationPropertyName]="token"
+            [documentationPropertyValue]="tokenChangerService.getTokenValue(token, theme)"
+            [urlUpdate]="false"
+            (documentationPropertyValueChange)="tokenChangerService.updateTokenValue(token, theme, $event)"
+            documentationPropertyType="string"
+            documentationPropertyMode="css-var"
+          >
+            {{ token }}
+          </ng-template>
+        </prizm-doc-documentation>
+      </ng-container>
+    </prizm-scrollbar>
+  </div>
 </div>
+
+<!--  <prizm-doc-documentation-->
+<!--    [hasTestId]="false"-->
+<!--    heading="Palette variables"-->
+<!--    hostComponentKey="Palette variables"-->
+<!--  >-->
+<!--    <ng-template-->
+<!--      *ngFor="let token of PRIZM_THEME_TOKEN_PALETTE_VARIABLES"-->
+<!--      [documentationPropertyName]="token"-->
+<!--      [documentationPropertyValue]="getTokenValue(token)"-->
+<!--      (documentationPropertyValueChange)="themeService.updateTokenValue(token, $event)"-->
+<!--      documentationPropertyType="string"-->
+<!--      documentationPropertyMode="css-var"-->
+<!--    >-->
+<!--      {{ token }}-->
+<!--    </ng-template>-->
+<!--  </prizm-doc-documentation>-->
+
+<ng-template #loadingTemplate>
+  <div class="loading">Загрузка</div>
+</ng-template>

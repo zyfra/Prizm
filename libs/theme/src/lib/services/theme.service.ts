@@ -82,7 +82,6 @@ export class PrizmThemeService implements OnDestroy {
 
   public getTokenValue(token: string, el: HTMLElement | null = null): string | null {
     el = el ?? this.rootElement;
-    console.log('#Mz getTokenValue', token, this.rootElement);
     if (!el) return null;
     const style = getComputedStyle(el);
     return style.getPropertyValue(`--${token}`);
