@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.0.0-next.2](https://github.com/zyfra/Prizm) (17-01-2024)
+
+## Features
+
+- feat(doc): added ability to change current theme tokens
+- feat(theme): added export all token list with palette and base
+- feat(ci): update ci for previous versions v1-v3
+
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
 ## Features
