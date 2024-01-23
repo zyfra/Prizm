@@ -5,18 +5,27 @@ import { LogoComponent } from './logo.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
-import { PrizmToggleModule } from '@prizm-ui/components';
+import {
+  PrizmButtonComponent,
+  PrizmDialogComponent,
+  PrizmDialogModule,
+  PrizmToggleComponent,
+} from '@prizm-ui/components';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
+import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-changer.component';
 
 @NgModule({
   imports: [
     PrizmLetDirective,
     TuiLinkModule,
+    PrizmButtonComponent,
     CommonModule,
     RouterModule,
+    PrizmDialogModule,
+    ThemeTokenChangerComponent,
     FormsModule,
     PrizmIconsSvgComponent,
-    PrizmToggleModule,
+    PrizmToggleComponent,
   ],
   declarations: [LogoComponent],
   exports: [LogoComponent],
