@@ -6,7 +6,7 @@
   "prefix": "zui",
   "targets": {
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/helpers"],
       "options": {
         "project": "libs/helpers/ng-package.json"
@@ -22,7 +22,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/helpers"],
       "options": {
         "jestConfig": "libs/helpers/jest.config.ts",
@@ -30,7 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/helpers/src/**/*.ts", "libs/helpers/src/**/*.html"]
       }
