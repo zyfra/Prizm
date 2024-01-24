@@ -39,14 +39,14 @@ prizm-data-list.is-full .t-empty {
 }
 
 .prizm-doc-content {
-  --tui-base-01: var(--prizm-v3-background-fill-primary);
+  --tui-base-01: var(--prizm-background-fill-primary);
   --tui-radius-m: 2px;
-  --tui-base-03: var(--prizm-v3-background-stroke);
-  --tui-text-01: var(--prizm-v3-text-icon-secondary);
+  --tui-base-03: var(--prizm-background-stroke);
+  --tui-text-01: var(--prizm-text-icon-secondary);
 
-  background-color: var(--prizm-v3-background-fill-primary);
-  border-style: var(--prizm-v3-background-stroke);
-  color: var(--prizm-v3-text-icon-secondary);
+  background-color: var(--prizm-background-fill-primary);
+  border-style: var(--prizm-background-stroke);
+  color: var(--prizm-text-icon-secondary);
 
   prizm-tag {
     display: none;
@@ -54,7 +54,7 @@ prizm-data-list.is-full .t-empty {
 }
 
 .t-highlight {
-  color: var(--prizm-v3-text-icon-tertiary);
+  color: var(--prizm-text-icon-tertiary);
 }
 
 prizm-doc-demo.remove-sticky {
@@ -176,4 +176,8 @@ prizm-doc-page.info-page {
       list-style-type: decimal;
     }
   }
+}
+
+[hidden] {
+  visibility: hidden;
 }

@@ -10,6 +10,7 @@ import {
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
+  PrizmScrollbarVisibility,
   PrizmSidebarOptions,
   PrizmSidebarResultDefaultType,
   PrizmSidebarService,
@@ -52,6 +53,8 @@ export class SidebarComponent {
     'danger',
   ];
   appearance: PrizmAppearance = this.appearanceVariants[0];
+  public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = ['auto', 'hidden', 'visible'];
+  public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
 
   appearanceTypeVariants: ReadonlyArray<PrizmAppearanceType> = ['fill', 'outline', 'ghost'];
   appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
@@ -140,6 +143,7 @@ export class SidebarComponent {
         dismissible: this.dismissible,
         header: this.header,
         width: this.width,
+        scrollbarVisibility: this.visibility,
         height: this.height,
         hideFooter: this.hideFooter,
         overscroll: this.overscroll,

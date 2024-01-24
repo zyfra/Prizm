@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/icons/flags"],
       "options": {
-        "project": "libs/icons/flags/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": false
+        "project": "libs/icons/flags/ng-package.json"
       },
       "configurations": {
         "production": {

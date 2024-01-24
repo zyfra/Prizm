@@ -11,10 +11,10 @@
   height: var(--prizm-input-icon-button-height, 24px);
   font-size: inherit;
 
-  color: var(--prizm-v3-text-icon-secondary);
+  color: var(--prizm-text-icon-secondary);
 
   &.disabled {
-    color: var(--prizm-v3-text-icon-disable);
+    color: var(--prizm-text-icon-disable);
     opacity: 0.4;
     cursor: not-allowed;
   }
@@ -23,15 +23,15 @@
 :host-context(.interactive) {
   &:not(.disabled) {
     &:hover {
-      color: var(--prizm-v3-button-primary-solid-hover);
+      color: var(--prizm-button-primary-solid-hover);
     }
 
     &:focus {
-      color: var(--prizm-v3-button-primary-solid-hover);
+      color: var(--prizm-button-primary-solid-hover);
     }
 
     cursor: pointer;
   }
 
-  color: var(--prizm-v3-button-secondary-solid-default);
+  color: var(--prizm-button-secondary-solid-default);
 }

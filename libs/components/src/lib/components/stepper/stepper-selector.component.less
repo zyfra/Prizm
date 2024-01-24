@@ -1,7 +1,7 @@
 :host {
   padding: 16px;
   display: flex;
-  border-bottom: 1px solid var(--prizm-v3-background-stroke);
+  border-bottom: 1px solid var(--prizm-background-stroke);
 }
 
 .steps {
@@ -14,7 +14,7 @@
   &:focus {
     .step__index,
     .step__icon {
-      box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+      box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
     }
   }
   display: flex;
@@ -53,79 +53,79 @@
     font-size: 14px;
     line-height: 16px;
     font-weight: 600;
-    color: var(--prizm-v3-text-icon-primary);
+    color: var(--prizm-text-icon-primary);
     padding: 0 8px;
   }
 
   &--success {
     .step__index {
-      color: var(--prizm-v3-text-icon-exception);
-      background-color: var(--prizm-v3-status-success-primary-default);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-success-primary-default);
     }
 
     .step__icon {
-      color: var(--prizm-v3-status-success-primary-default);
+      color: var(--prizm-status-success-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        background-color: var(--prizm-v3-status-success-primary-hover);
-        border-color: var(--prizm-v3-status-success-primary-hover);
+        background-color: var(--prizm-status-success-primary-hover);
+        border-color: var(--prizm-status-success-primary-hover);
       }
     }
   }
 
   &--warning {
     .step__index {
-      color: var(--prizm-v3-text-icon-exception);
-      background-color: var(--prizm-v3-status-warning-primary-default);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-warning-primary-default);
     }
 
     .step__icon {
-      color: var(--prizm-v3-status-warning-primary-default);
+      color: var(--prizm-status-warning-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        background-color: var(--prizm-v3-status-warning-primary-hover);
-        border-color: var(--prizm-v3-status-warning-primary-hover);
+        background-color: var(--prizm-status-warning-primary-hover);
+        border-color: var(--prizm-status-warning-primary-hover);
       }
     }
   }
 
   &--danger {
     .step__index {
-      color: var(--prizm-v3-text-icon-exception);
-      background-color: var(--prizm-v3-status-alarm-primary-default);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-alarm-primary-default);
     }
 
     .step__icon {
-      color: var(--prizm-v3-status-alarm-primary-default);
+      color: var(--prizm-status-alarm-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        background-color: var(--prizm-v3-status-alarm-primary-hover);
-        border-color: var(--prizm-v3-status-alarm-primary-hover);
+        background-color: var(--prizm-status-alarm-primary-hover);
+        border-color: var(--prizm-status-alarm-primary-hover);
       }
     }
   }
 
   &--default {
     .step__index {
-      color: var(--prizm-v3-status-none-primary-default);
-      border-color: var(--prizm-v3-status-none-primary-default);
+      color: var(--prizm-status-none-primary-default);
+      border-color: var(--prizm-status-none-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        color: var(--prizm-v3-text-icon-exception);
-        border-color: var(--prizm-v3-status-none-primary-hover);
-        background-color: var(--prizm-v3-status-none-primary-hover);
+        color: var(--prizm-text-icon-exception);
+        border-color: var(--prizm-status-none-primary-hover);
+        background-color: var(--prizm-status-none-primary-hover);
       }
     }
   }
@@ -134,17 +134,17 @@
     cursor: default;
 
     .step__index {
-      color: var(--prizm-v3-text-icon-exception);
-      background-color: var(--prizm-v3-status-info-primary-default);
-      border-color: var(--prizm-v3-status-info-primary-default);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-info-primary-default);
+      border-color: var(--prizm-status-info-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        color: var(--prizm-v3-text-icon-exception);
-        background-color: var(--prizm-v3-status-info-primary-default);
-        border-color: var(--prizm-v3-status-info-primary-default);
+        color: var(--prizm-text-icon-exception);
+        background-color: var(--prizm-status-info-primary-default);
+        border-color: var(--prizm-status-info-primary-default);
       }
     }
   }
@@ -153,17 +153,17 @@
     cursor: not-allowed;
 
     .step__index {
-      color: var(--prizm-v3-text-icon-disable);
-      background-color: var(--prizm-v3-button-disable);
-      border-color: var(--prizm-v3-button-disable);
+      color: var(--prizm-text-icon-disable);
+      background-color: var(--prizm-button-disable);
+      border-color: var(--prizm-button-disable);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        color: var(--prizm-v3-text-icon-disable);
-        background-color: var(--prizm-v3-button-disable);
-        border-color: var(--prizm-v3-button-disable);
+        color: var(--prizm-text-icon-disable);
+        background-color: var(--prizm-button-disable);
+        border-color: var(--prizm-button-disable);
       }
     }
   }
@@ -173,7 +173,7 @@
   flex-grow: 1;
   display: block;
   height: 2px;
-  background-color: var(--prizm-v3-background-stroke);
+  background-color: var(--prizm-background-stroke);
   min-width: 15px;
   margin: 0 8px;
 
@@ -184,7 +184,7 @@
 
 :host-context(.vertical) {
   border-bottom: none;
-  border-right: 1px solid var(--prizm-v3-background-stroke);
+  border-right: 1px solid var(--prizm-background-stroke);
   align-items: flex-start;
   width: auto;
 

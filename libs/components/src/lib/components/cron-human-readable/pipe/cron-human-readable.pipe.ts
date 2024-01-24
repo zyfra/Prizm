@@ -1,8 +1,7 @@
-import { ChangeDetectorRef, inject, Inject, Pipe, PipeTransform } from '@angular/core';
+import { ChangeDetectorRef, inject, Pipe, PipeTransform } from '@angular/core';
 import { prizmCronHRToString } from '../human-readable/crons-i18n';
-import { PRIZM_LANGUAGE, PrizmLanguage } from '@prizm-ui/i18n';
-import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { PRIZM_LANGUAGE, PrizmLanguageShortName } from '@prizm-ui/i18n';
+import { Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 @Pipe({
@@ -12,15 +11,16 @@ import { map } from 'rxjs/operators';
 export class PrizmCronHumanReadablePipe implements PipeTransform {
   readonly cdRef = inject(ChangeDetectorRef);
   readonly language$ = inject(PRIZM_LANGUAGE);
-  readonly asyncPipe = new AsyncPipe(this.cdRef);
 
-  public transform(expression: string): string {
-    const lang = this.asyncPipe.transform(this.language$.pipe(map(i => i.shortName)));
+  public transform(expression: string, language?: PrizmLanguageShortName): Observable<string> {
+    const lang = language ? of(language) : this.language$.pipe(map(i => i.shortName));
 
-    if (!lang) return '';
-
-    return prizmCronHRToString(expression, {
-      locale: lang,
-    });
+    return lang.pipe(
+      map(shortLanguage => {
+        return prizmCronHRToString(expression, {
+          locale: shortLanguage,
+        });
+      })
+    );
   }
 }

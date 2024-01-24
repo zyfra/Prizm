@@ -10,7 +10,7 @@ import { Component } from '@angular/core';
         flex-direction: column;
         gap: 24px;
         padding: 16px;
-        background-color: var(--prizm-v3-background-fill-secondary);
+        background-color: var(--prizm-background-fill-secondary);
       }
 
       prizm-listing-item {

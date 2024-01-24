@@ -99,7 +99,7 @@ export class TuiDocNavigationComponent {
   }
 
   public itemsWithoutSections(items: PrizmDocPages[]): PrizmDocPages {
-    return items[items.length - 1];
+    return items && items[items.length - 1];
   }
 
   public isActive(route: string): boolean {

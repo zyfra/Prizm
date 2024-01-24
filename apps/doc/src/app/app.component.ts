@@ -13,6 +13,7 @@ import { PRIZM_LOG_LEVEL, prizmAssert } from '@prizm-ui/core';
 import { ActivationEnd, Router } from '@angular/router';
 import { DOCUMENT } from '@angular/common';
 import { DocDemoService } from './doc-demo.service';
+import { ThemeTokenChangerService } from './theme-token-changer/theme-token-changer.service';
 
 /**
  * Show all assert logg as warning
@@ -49,12 +50,14 @@ export class AppComponent implements AfterViewInit {
     private readonly prizmDocHostElementListenerService: PrizmDocHostElementListenerService,
     private readonly destroy$: PrizmDestroyService,
     public readonly router: Router,
+    public readonly themeTokenChangerService: ThemeTokenChangerService,
     private readonly toastService: PrizmToastService,
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(PRIZM_DOC_TITLE) private readonly docTitle: string
   ) {
     this.themeSwitcher.rootElement = null;
     this.initPageTitleSetter();
+    this.themeTokenChangerService.init().pipe(takeUntil(this.destroy$)).subscribe();
   }
 
   private initPageTitleSetter(): void {

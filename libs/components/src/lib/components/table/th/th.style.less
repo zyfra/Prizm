@@ -5,13 +5,13 @@
 :host {
   padding: 0 8px;
 
-  border: 1px solid var(--prizm-v3-table-stroke-cell-default);
-  background: var(--prizm-v3-table-fill-header-default);
+  border: 1px solid var(--prizm-table-stroke-cell-default);
+  background: var(--prizm-table-fill-header-default);
 
   font-size: 12px;
   line-height: 16px;
   font-weight: 600;
-  color: var(--prizm-v3-text-icon-tertiary);
+  color: var(--prizm-text-icon-tertiary);
   text-align: left;
 
   position: sticky;
@@ -25,15 +25,15 @@
   &:not(:first-child) {
     border-left: none;
   }
-  // TODO: for 4.0
-  // &:has([prizmInput]:hover) {
-  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
-  // }
 
-  // &:has([prizmInput]:focus) {
-  //   background-color: var(--prizm-v3-background-fill-primary);
-  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
-  // }
+  &:has(input[prizmInput]:not([disabled]):hover) {
+    box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-hover) inset;
+  }
+
+  &:has(input[prizmInput]:not([disabled]):focus) {
+    background-color: var(--prizm-background-fill-primary);
+    box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-active) inset;
+  }
 
   .resize-bar {
     height: 100%;
@@ -64,7 +64,7 @@
     font-size: 12px;
     line-height: 16px;
     font-weight: 600;
-    color: var(--prizm-v3-text-icon-tertiary);
+    color: var(--prizm-text-icon-tertiary);
 
     border: none;
     outline: none;
@@ -74,13 +74,13 @@
       margin-left: 4px;
       display: flex;
       gap: 2px;
-      color: var(--prizm-v3-button-secondary-solid-default);
+      color: var(--prizm-button-secondary-solid-default);
       cursor: pointer;
       align-items: center;
       justify-content: center;
 
       &_active {
-        color: var(--prizm-v3-button-primary-solid-active);
+        color: var(--prizm-button-primary-solid-active);
       }
     }
   }

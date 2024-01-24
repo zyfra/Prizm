@@ -12,6 +12,7 @@ import {
   PrizmAppearanceType,
   IconDefs,
   PrizmSize,
+  PrizmScrollbarVisibility,
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
@@ -33,6 +34,8 @@ export class DialogExampleComponent {
   public pressedChange = false;
   public hoveredChange = false;
   public focusVisibleChange = false;
+  public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = ['auto', 'hidden', 'visible'];
+  public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
@@ -75,6 +78,10 @@ export class DialogExampleComponent {
     TypeScript: import('./examples/base/dialog-base-example.component.ts?raw'),
     HTML: import('./examples/base/dialog-base-example.component.html?raw'),
   };
+  public readonly exampleWightOuterHeader: TuiDocExample = {
+    TypeScript: import('./examples/outher-header/dialog-outher-header-example.component.ts?raw'),
+    HTML: import('./examples/outher-header/dialog-outher-header-example.component.html?raw'),
+  };
 
   public readonly exampleWithButtons: TuiDocExample = {
     TypeScript: import('./examples/with-buttons/dialog-with-buttons-example.component.ts?raw'),
@@ -108,6 +115,7 @@ export class DialogExampleComponent {
         footer: this.footer,
         height: this.height,
         overscroll: this.overscroll,
+        scrollbarVisibility: this.visibility,
         position: this.position,
         closeWord: this.closeWord,
         size: this.size,

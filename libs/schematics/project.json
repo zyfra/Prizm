@@ -9,8 +9,7 @@
       "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/schematics"],
       "options": {
-        "project": "libs/schematics/ng-package.json",
-        "updateBuildableProjectDepsInPackageJson": false
+        "project": "libs/schematics/ng-package.json"
       },
       "configurations": {
         "production": {

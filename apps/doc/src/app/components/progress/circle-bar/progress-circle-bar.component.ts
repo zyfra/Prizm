@@ -18,10 +18,10 @@ export class ProgressCircleBarComponent {
   readonly colorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--prizm-v3-status-alarm-primary-default)',
-    'var(--prizm-v3-status-warning-primary-default)',
-    'var(--prizm-v3-status-info-primary-default)',
-    'var(--prizm-v3-status-success-primary-default)',
+    'var(--prizm-status-alarm-primary-default)',
+    'var(--prizm-status-warning-primary-default)',
+    'var(--prizm-status-info-primary-default)',
+    'var(--prizm-status-success-primary-default)',
     'lightblue',
   ];
   color: string | null = this.colorVariants[0];
@@ -29,9 +29,9 @@ export class ProgressCircleBarComponent {
   readonly trackColorVariants: ReadonlyArray<string | null> = [
     null,
     'transparent',
-    'var(--prizm-v3-status-alarm-primary-default)',
-    'var(--prizm-v3-status-warning-primary-default)',
-    'var(--prizm-v3-background-fill-secondary)',
+    'var(--prizm-status-alarm-primary-default)',
+    'var(--prizm-status-warning-primary-default)',
+    'var(--prizm-background-fill-secondary)',
     'lightblue',
     'gray',
     'green',

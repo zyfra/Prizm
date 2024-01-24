@@ -57,6 +57,15 @@
 
     <prizm-doc-documentation [hasTestId]="true" heading="PrizmInputText" hostComponentKey="PrizmInputText">
       <ng-template
+        [(documentationPropertyValue)]="placeholder"
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
         [(documentationPropertyValue)]="value"
         documentationPropertyName="value"
         documentationPropertyType="any"

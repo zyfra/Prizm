@@ -1,8 +1,10 @@
 name: PR NG 14
 on:
-  pull_request_target:
-    branches:
-      - main
+  workflow_dispatch:
+  workflow_call:
+#  pull_request_target:
+#    branches:
+#      - main
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest

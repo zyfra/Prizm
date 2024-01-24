@@ -24,61 +24,57 @@ prizm-wrapper {
 
   &:hover:not(._disabled) {
     prizm-wrapper {
-      background-color: var(--prizm-v3-form-active-hover);
+      background-color: var(--prizm-form-active-hover);
       transition: 0.3s;
     }
   }
 
   &:focus-within:not(._disabled) {
-    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+    box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
     transition: 0.3s;
   }
 
   &:not(._checked) {
-    outline: 1px solid var(--prizm-v3-form-stroke-default);
+    outline: 1px solid var(--prizm-form-stroke-default);
     prizm-wrapper {
-      background-color: var(--prizm-v3-form-fill-default);
+      background-color: var(--prizm-form-fill-default);
     }
 
     .icon {
-      color: var(--prizm-v3-text-icon-tertiary);
+      color: var(--prizm-text-icon-tertiary);
     }
 
     &:hover:not(._disabled) {
-      outline: 1px solid var(--prizm-v3-form-stroke-hover);
+      outline: 1px solid var(--prizm-form-stroke-hover);
       prizm-wrapper {
-        background-color: var(--prizm-v3-form-fill-default);
+        background-color: var(--prizm-form-fill-default);
       }
 
       .circle {
-        background-color: var(--prizm-v3-form-stroke-hover);
+        border-color: var(--prizm-form-stroke-hover);
       }
     }
 
     .z-loader {
-      color: var(--prizm-v3-text-icon-tertiary);
+      color: var(--prizm-text-icon-tertiary);
     }
   }
 
   &._disabled {
-    outline: 1px solid transparent;
+    opacity: 0.4;
 
     &:not(._checked) {
       .icon {
-        color: var(--prizm-v3-text-icon-disable);
-      }
-
-      .circle {
-        background-color: var(--prizm-v3-form-stroke-default);
+        color: var(--prizm-text-icon-disable);
       }
     }
 
     &._checked prizm-wrapper {
-      background-color: var(--prizm-v3-form-active-disable);
+      background-color: var(--prizm-form-active-disable);
     }
 
     prizm-wrapper {
-      background-color: var(--prizm-v3-form-fill-disable);
+      background-color: var(--prizm-form-fill-disable);
       cursor: not-allowed;
     }
   }
@@ -134,25 +130,24 @@ prizm-wrapper {
 }
 
 .circle {
-  margin: 2px 0;
   flex-shrink: 0;
   border-radius: 100%;
-  background-color: var(--prizm-v3-form-stroke-default);
-  border: 1px solid var(--prizm-v3-form-stroke-default);
+  background-color: var(--prizm-text-icon-exception);
+  border: 1px solid var(--prizm-form-stroke-default);
 
   :host._checked & {
-    background-color: var(--prizm-v3-text-icon-exception);
-    border-color: transparent;
+    background-color: var(--prizm-text-icon-exception);
+    border-color: var(--prizm-button-primary-solid-default);
   }
 
   :host[data-size='m'] & {
-    width: 12px;
-    height: 12px;
+    width: 16px;
+    height: 16px;
   }
 
   :host[data-size='l'] & {
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
   }
 }
 
@@ -161,7 +156,7 @@ prizm-wrapper {
   cursor: default;
   background: inherit;
   z-index: 1;
-  color: var(--prizm-v3-text-icon-exception);
+  color: var(--prizm-text-icon-exception);
 }
 
 .icon-wrapper {

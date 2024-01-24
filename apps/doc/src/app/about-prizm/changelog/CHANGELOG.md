@@ -2,7 +2,82 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (20-12-2023)
+## [4.0.0-next.2](https://github.com/zyfra/Prizm) (17-01-2024)
+
+## Features
+
+- feat(doc): added ability to change current theme tokens
+- feat(theme): added export all token list with palette and base
+- feat(ci): update ci for previous versions v1-v3
+
+## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
+
+## Features
+
+- feat(doc): save current theme in local storage on change
+
+### Bug fixes
+
+- fix(theme/service): recognize current theme #1287 #1292
+- fix(components/tabs): set stacking context to isolate #1291
+- fix(components/input-text): show status on clear required fields #1284
+
+## [4.0.0-rc.1](https://github.com/zyfra/Prizm) (15-01-2024)
+
+## Features
+
+- feat(components): remove deprecation from complex modules #1271
+- feat(doc): language changer was added #1265
+- feat(doc): search by status (new|preview|deprecated) #1257
+
+## Bug fixes
+
+- fix: check box extra margin #1189 #1193
+
+## Deprecations
+
+- chore(flag-icons): deprecated flag-icons #1267
+- chore(icons): deprecated prizm-icons-svg #1266
+
+## Breacking Changes
+
+- bc(components): carousel deleted #1258
+- bc(components): remove old themes and remove v3 prefix from new theme tokens #1270
+- bc(components): removed input-month-range #1256
+- bc(components): removed input-month #1255
+- bc(components): removed input-date-time #1254
+- bc(components): removed input-date-relative #1252
+- bc(components): removed input-date-range input-date-time-range #1251
+- bc(components): removed input date #1250
+- bc(components): removed select, multiselect #1247
+- feat: add styling for table cell with prizmInput (breaking change) #1226
+
+## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
+
+## Features
+
+- feat(components/sticky): update on changes #1085
+- feat(component/event-zone): directive to standalone #1260 #1276
+- feat(components/input-zone): add hook on update value and fix bug #1092 #1274
+- feat: update toggle styles #1169 #1268
+- feat: navigation v3 colors #1186 #1262
+- feat(components/tab): added css variable for tab max-width #1244 #1249
+- feat(components/sidebar): added ability to control scrollbar visibility #780 #1233
+- feat(documentation): update documentation colors (use only v3) #1195 #1232
+- feat(components/textarea): show placeholder #357 #1230
+  feat(components/navigation): search lower case #1214 #1227
+- feat: update colors for shadow #1199 #1200
+
+### Bug fixes
+
+- fix: input number min/max should apply for manual input values #1237
+- fix(components/input-date-time): min max limit on first update #1263 #1273
+- fix(components/input-date-time): min max limit on first update #488 #1275
+- fix: none-status tokens updated for dark theme #1253
+- fix: artifact download folder in beta release #1229
+- fix: artifact dowload folder in next release #1228
+
+## [1.12.1, 2.9.1, 3.8.1](https://github.com/zyfra/Prizm) (27-12-2023)
 
 ### Bug fixes
 

@@ -9,6 +9,7 @@ import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.m
 import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { PrizmContent } from '../../button';
 import { Observable } from 'rxjs';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
 
 export type PrizmSidebarButton = Omit<PrizmDialogButton, 'action'> &
   Partial<Pick<PrizmDialogButton, 'action'>> & { icon?: PrizmContent };
@@ -32,6 +33,7 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
   readonly content?: any;
   readonly outerContent?: any;
   readonly closeable: boolean;
+  readonly scrollbarVisibility?: PrizmScrollbarVisibility;
   /**
    * header (not include close button)
    * @deprecated use headerTemplate

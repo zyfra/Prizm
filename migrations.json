@@ -64,6 +64,14 @@
       "name": "update-17-2-6-rename-workspace-rules"
     },
     {
+      "cli": "nx",
+      "version": "16.8.0-beta.4",
+      "description": "Update to Cypress v13. Most noteable change is video recording is off by default. This migration will only update if the workspace is already on Cypress v12. https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-130",
+      "implementation": "./src/migrations/update-16-8-0/cypress-13",
+      "package": "@nrwl/cypress",
+      "name": "update-16-8-0-cypress-13"
+    },
+    {
       "version": "16.8.0",
       "description": "update-16-8-0-add-ignored-files",
       "implementation": "./src/migrations/update-16-8-0-add-ignored-files/update-16-8-0-add-ignored-files",
@@ -90,14 +98,6 @@
       "implementation": "./src/migrations/update-17-2-0/simplify-eslint-patterns",
       "package": "@nrwl/linter",
       "name": "simplify-eslint-patterns"
-    },
-    {
-      "cli": "nx",
-      "version": "16.8.0-beta.4",
-      "description": "Update to Cypress v13. Most noteable change is video recording is off by default. This migration will only update if the workspace is already on Cypress v12. https://docs.cypress.io/guides/references/migration-guide#Migrating-to-Cypress-130",
-      "implementation": "./src/migrations/update-16-8-0/cypress-13",
-      "package": "@nrwl/cypress",
-      "name": "update-16-8-0-cypress-13"
     },
     {
       "version": "17.1.0-beta.2",
@@ -200,13 +200,6 @@
       "factory": "./migrations/transfer-state/bundle",
       "package": "@angular/core",
       "name": "migration-transfer-state"
-    },
-    {
-      "version": "17.0.0-0",
-      "description": "Updates the Angular CDK to v17",
-      "factory": "./ng-update/index#updateToV17",
-      "package": "@angular/cdk",
-      "name": "migration-v17"
     }
   ]
 }

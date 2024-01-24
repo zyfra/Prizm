@@ -34,6 +34,9 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   documentationPropertyName: string | null = ``;
 
   @Input()
+  urlUpdate = true;
+
+  @Input()
   documentationPropertyMode: PrizmDocumentationPropertyType = null;
 
   @Input()
@@ -71,7 +74,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   ) {}
 
   ngOnInit(): void {
-    this.parseParams(this.activatedRoute.snapshot.queryParams);
+    if (this.urlUpdate) this.parseParams(this.activatedRoute.snapshot.queryParams);
   }
 
   get attrName(): string {
@@ -130,7 +133,7 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
   public onValueChange(value: T): void {
     this.documentationPropertyValue = value;
     this.documentationPropertyValueChange.emit(value);
-    this.setQueryParam(value);
+    if (this.urlUpdate) this.setQueryParam(value);
   }
 
   public emitEvent(event: unknown): void {

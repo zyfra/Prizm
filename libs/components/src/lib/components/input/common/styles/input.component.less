@@ -6,12 +6,12 @@
   height: 100%;
   line-height: 16px;
   font-size: 14px;
-  color: var(--prizm-v3-text-icon-secondary);
+  color: var(--prizm-text-icon-secondary);
   display: block;
   text-overflow: ellipsis;
 
   &::placeholder {
-    color: var(--prizm-v3-text-icon-disable);
+    color: var(--prizm-text-icon-disable);
   }
 }
 
@@ -19,7 +19,7 @@
 :host-context(.prizm-input-form-inner) {
   padding: 22px 8px 4px 0px;
 
-  &:host-context(.prizm-input-empty-label) {
+  &:host-context(.prizm-input-empty-label:not(.prizm-input-form-textarea)) {
     padding-top: 4px;
 
     &::placeholder {
@@ -44,14 +44,14 @@
 :host-context(.prizm-input-form-inner[data-size='l']) {
   padding: 22px 8px 4px 0px;
 
-  &:host-context(.prizm-input-empty-label) {
+  &:host-context(.prizm-input-empty-label:not(.prizm-input-form-textarea)) {
     padding-top: 4px;
   }
 }
 :host-context(.prizm-input-form-inner[data-size='m']) {
   padding: 16px 8px 2px 0px;
 
-  &:host-context(.prizm-input-empty-label) {
+  &:host-context(.prizm-input-empty-label:not(.prizm-input-form-textarea)) {
     padding-top: 2px;
   }
 }
