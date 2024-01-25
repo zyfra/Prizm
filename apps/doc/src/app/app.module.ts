@@ -94,7 +94,5 @@ registerLocaleData(localeRu);
   ],
 })
 export class AppModule {
-  constructor(private readonly themeSwitcher: PrizmThemeService) {
-    this.themeSwitcher.rootElement = null;
-  }
+  constructor(private readonly themeSwitcher: PrizmThemeService) {}
 }

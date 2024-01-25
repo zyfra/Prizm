@@ -11,7 +11,7 @@ import { invokeIfCanCloseSidebar } from './util';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PolymorphOutletDirective, PrizmFocusTrapModule } from '../../../directives';
-import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmInputIconButtonModule } from '../../input';
 import { PrizmButtonComponent } from '../../button';
 import { PrizmScrollbarComponent } from '../../scrollbar';
@@ -43,6 +43,10 @@ export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
 
   @Input()
   public close!: () => void;
+
+  get theme(): PrizmTheme {
+    return this.context.theme!;
+  }
 
   @HostBinding('attr.prizm-size')
   public get size(): PrizmDialogSize {

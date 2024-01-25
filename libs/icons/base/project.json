@@ -8,13 +8,15 @@
     "generate-icons-24": {
       "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
       "options": {
-        "exportCompleteIconSet": true,
         "conversionType": "files",
         "srcFiles": ["libs/icons/base/assets/24/*.svg"],
         "outputDirectory": "libs/icons/base/src/lib/icons/24",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
+        "exportCompleteIconSet": true,
+        "generateCompleteIconSet": true,
+        "completeIconSetName": "PRIZM_ICONS_SET",
         "enumName": "PrizmIconsEnum",
         "fileName": "icons",
         "iconsFolderName": "source",

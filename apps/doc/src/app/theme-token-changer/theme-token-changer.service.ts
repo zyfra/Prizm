@@ -75,7 +75,7 @@ export class ThemeTokenChangerService {
 
   private generateStyleContent(token: 'light' | 'dark' | string): string {
     return `
-    *, *[data-prizm-theme][data-prizm-theme='${token}'] {
+    *[data-prizm-theme][data-prizm-theme='${token}'] {
       ${[
         ...(token === 'light'
           ? Object.entries(this.lightStorage.value)

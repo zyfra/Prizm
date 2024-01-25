@@ -15,7 +15,7 @@ import {
 import { PolymorphContent, PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmOverlayModule } from '../../../modules';
 import { PrizmButtonModule } from '../../button';
 import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
@@ -46,6 +46,10 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
 
   @Input()
   public close!: () => void;
+
+  get theme(): PrizmTheme {
+    return this.context.theme!;
+  }
 
   @HostBinding('attr.prizm-size')
   public get size(): PrizmDialogSize {

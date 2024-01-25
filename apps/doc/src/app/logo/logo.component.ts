@@ -41,7 +41,6 @@ export class LogoComponent {
   }
 
   public onMode(isNight: boolean): void {
-    this.storage.setItem(`night`, isNight ? 'true' : 'false');
     this.themeSwitcher.update(isNight ? 'dark' : 'light');
   }
 

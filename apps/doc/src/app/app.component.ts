@@ -55,7 +55,6 @@ export class AppComponent implements AfterViewInit {
     @Inject(DOCUMENT) private readonly documentRef: Document,
     @Inject(PRIZM_DOC_TITLE) private readonly docTitle: string
   ) {
-    this.themeSwitcher.rootElement = null;
     this.initPageTitleSetter();
     this.themeTokenChangerService.init().pipe(takeUntil(this.destroy$)).subscribe();
   }
@@ -159,6 +158,6 @@ export class AppComponent implements AfterViewInit {
   }
 
   public contentReady(el: HTMLElement): void {
-    this.themeSwitcher.rootElement = el;
+    // this.themeSwitcher.rootElement = el;
   }
 }
