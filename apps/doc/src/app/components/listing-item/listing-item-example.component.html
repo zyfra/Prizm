@@ -23,12 +23,42 @@
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
       <div class="container">
-        <prizm-listing-item [disabled]="disabled" [selected]="selected">
+        <prizm-listing-item
+          [disabled]="disabled"
+          [selected]="selected"
+          [style.--prizm-listing-item-row-hover]="prizmListingItemRowHover"
+          [style.--prizm-listing-item-row-selected-hover]="prizmListingItemRowSelectedHover"
+          [style.--prizm-listing-item-height]="prizmListingItemHeight"
+        >
           {{ title }}
         </prizm-listing-item>
       </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
+      <ng-template
+        [(documentationPropertyValue)]="prizmListingItemRowHover"
+        documentationPropertyName="prizm-listing-item-row-hover"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Listing item row hover color
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="prizmListingItemRowSelectedHover"
+        documentationPropertyName="prizm-listing-item-row-selected-hover"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Listing item selected row hover color
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="prizmListingItemHeight"
+        documentationPropertyName="prizm-listing-item-height"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Listing item height
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="selected"
         documentationPropertyName="selected"
