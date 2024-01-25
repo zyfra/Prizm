@@ -16,7 +16,7 @@ export class AccordionCustomTitleComponent {
       Его популяризации в новое время послужили публикация листов Letraset с образцами Lorem Ipsum в 60-х
       годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых
       используется.`,
-      title: 'Title 1',
+      title: 'My custom title 1',
       hint: 'It is 1st element',
     },
     {
@@ -28,7 +28,7 @@ export class AccordionCustomTitleComponent {
       годах и, в более недавнее время, программы электронной вёрстки типа Aldus PageMaker, в шаблонах которых
       используется Lorem Ipsum. Не дочитали до конца - ошибка, дочитали и думали, что текст тот же, что и выше
       - фатальная ошибка.`,
-      title: 'Title 2',
+      title: 'My Custom title 2',
       hint: 'It is 2nd element',
     },
   ];
