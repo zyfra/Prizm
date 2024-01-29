@@ -1,0 +1,20 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "IconsToLazy executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "pathToFolder": {
+      "type": "string",
+      "alias": "i",
+      "description": "Path to folder with svg"
+    },
+    "pathToOutputFile": {
+      "type": "string",
+      "alias": "o",
+      "description": "Path to output with lazy imports"
+    }
+  },
+  "required": ["pathToFolder", "pathToOutputFile"]
+}

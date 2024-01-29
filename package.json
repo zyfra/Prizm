@@ -61,7 +61,6 @@
     "@ngneat/elf": "^2.5.0",
     "@ngneat/elf-persist-state": "^1.2.0",
     "@nx/angular": "17.2.8",
-    "@nx/nx-plugin": "17.2.8",
     "@stackblitz/sdk": "^1.9.0",
     "@swc/helpers": "^0.5.3",
     "@taiga-ui/addon-doc": "^3.13.0",

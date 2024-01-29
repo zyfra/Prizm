@@ -61,6 +61,13 @@
       "options": {
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
       }
+    },
+    "icons-to-lazy": {
+      "executor": "local:icons-to-lazy",
+      "options": {
+        "pathToFolder": "libs/icons/base/src/lib/icons/24/source",
+        "pathToOutputFile": ""
+      }
     }
   },
   "tags": []
