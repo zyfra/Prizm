@@ -27,6 +27,9 @@ export class PrizmListingItemExampleComponent {
   public disabled = false;
   public selected = false;
   public contentType: 'chips' | 'flat' = 'flat';
+  public prizmListingItemRowHover = '';
+  public prizmListingItemRowSelectedHover = '';
+  public prizmListingItemHeight = '';
 
   public contentTypeVariants: ('chips' | 'flat')[] = ['chips', 'flat'];
 

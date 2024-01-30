@@ -1,7 +1,12 @@
 <div class="container">
-  <prizm-listing-item *ngFor="let cell of cells" [disabled]="cell.disabled" [selected]="cell.selected">
+  <prizm-listing-item
+    *ngFor="let cell of cells"
+    [disabled]="cell.disabled"
+    [selected]="cell.selected"
+    [style.--prizm-listing-item-row-selected-hover]="'var(--prizm-v3-table-fill-row-hover)'"
+  >
     <ng-container leftBox>
-      <prizm-checkbox [checked]="cell.selected"></prizm-checkbox>
+      <prizm-checkbox [(ngModel)]="cell.selected" [checked]="cell.selected"></prizm-checkbox>
     </ng-container>
 
     <ng-container>
