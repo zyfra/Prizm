@@ -15,7 +15,7 @@ import { TuiSwipeService } from '@taiga-ui/cdk';
 import { TuiBrightness, TuiModeDirective } from '@taiga-ui/core';
 import { skip, Subject } from 'rxjs';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { filter, takeUntil, tap } from 'rxjs/operators';
+import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
