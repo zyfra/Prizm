@@ -10,6 +10,16 @@
       "alias": "i",
       "description": "Path to folder with svg"
     },
+    "prefix": {
+      "type": "string",
+      "alias": "i",
+      "description": "File prefix for ignore"
+    },
+    "exportName": {
+      "type": "string",
+      "alias": "i",
+      "description": "Name of exported constant"
+    },
     "pathToOutputFile": {
       "type": "string",
       "alias": "o",

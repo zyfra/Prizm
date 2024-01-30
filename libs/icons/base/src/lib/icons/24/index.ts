@@ -351,7 +351,7 @@ export * from './source/prizmIcons-file-doc.icon';
 export * from './source/prizmIcons-file-docx.icon';
 export * from './source/prizmIcons-file-dot.icon';
 export * from './source/prizmIcons-file-empty.icon';
-export * from './source/prizmIcons-file-exclamatioт.icon';
+export * from './source/prizmIcons-file-exclamation.icon';
 export * from './source/prizmIcons-file-eye.icon';
 export * from './source/prizmIcons-file-filled.icon';
 export * from './source/prizmIcons-file-image.icon';

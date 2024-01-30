@@ -1,22 +1,51 @@
 import { Injectable } from '@angular/core';
-import { PrizmIconSvg } from './svg/my-icons';
+import { PrizmIcon } from './types';
+import { PrizmIconsLoader } from './token';
+import { Observable, of, tap } from 'rxjs';
 
+/**
+ * Service for registering and retrieving icons. Icons can be loaded once and then retrieved from the registry.
+ */
 @Injectable({
   providedIn: 'root',
 })
-export class PrizmIconsSvgRegistry {
+export class PrizmIconsRegistry {
+  // A registry to store icons by their names.
   private registry = new Map<string, string>();
 
-  public registerIcons(icons: PrizmIconSvg[]): void {
-    icons.forEach((icon: PrizmIconSvg) => this.registry.set(icon.name, icon.data));
+  /**
+   * Registers a list of icons to make them available for retrieval.
+   * @param {PrizmIcon[]} icons - An array of PrizmIcon objects to register.
+   */
+  public registerIcons(icons: PrizmIcon[]): void {
+    icons.forEach(icon => this.registry.set(icon.name, icon.data));
   }
 
-  public getIcon(iconName: string): string | undefined {
-    if (!this.registry.has(iconName)) {
-      console.warn(
-        `We could not find the dinosaur Icon with the name ${iconName}, did you add it to the Icon registry?`
+  /**
+   * Retrieves an icon by its name. If the icon is not in the registry and a loader is provided,
+   * it will attempt to load the icon using the loader and then register it.
+   * @param {string} name - The name of the icon to retrieve.
+   * @param {PrizmIconsLoader} [loader] - An optional loader function to load the icon if it's not registered.
+   * @returns {Observable<string | null>} An observable that emits the icon data or null if not found.
+   */
+  public getIcon(name: string, loader?: PrizmIconsLoader): Observable<string | null> {
+    // Check if the icon is already in the registry.
+    if (this.registry.has(name)) {
+      // Return the icon data as an observable.
+      return of(this.registry.get(name)!);
+    } else if (loader) {
+      // Attempt to load the icon using the provided loader function.
+      return loader(name).pipe(
+        tap(data => {
+          // If the icon data is loaded, register it for future retrievals.
+          if (data) {
+            this.registerIcons([{ name, data }]);
+          }
+        })
       );
+    } else {
+      // Return null if the icon is not in the registry and no loader is provided.
+      return of(null);
     }
-    return this.registry.get(iconName);
   }
 }

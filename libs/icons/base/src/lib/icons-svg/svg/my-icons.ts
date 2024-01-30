@@ -6876,6 +6876,9 @@ export enum PrizmIconSvgEnum {
   USER_ACCOUNT_USERS_PLUS = 'user_account_users_plus',
   USER_ACCOUNT_USERS = 'user_account_users',
 }
+/**
+ * @deprecated
+ * */
 export interface PrizmIconSvg {
   name: PrizmIconSvgEnum | prizmIconSvg | string;
   data: string;

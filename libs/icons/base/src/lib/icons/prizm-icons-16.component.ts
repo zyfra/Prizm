@@ -1,78 +1,26 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  HostBinding,
-  Inject,
-  Input,
-  Optional,
-} from '@angular/core';
-import { DOCUMENT } from '@angular/common';
-import { PrizmIconsSvgRegistry } from './prizm-icons.registry';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PRIZM_ICONS_16_LOADER, PRIZM_ICONS_LOADER } from './token';
+import { PrizmIconsComponent } from './prizm-icons.component';
 
-import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
-
+/**
+ * Component to display 16px SVG icons.
+ * It provides a specific icon loader for 16px icons and extends the functionality of PrizmIconsComponent.
+ */
 @Component({
-  selector: 'prizm-icons-16',
-  template: ` <ng-content></ng-content> `,
-  styles: [
-    `
-      :host {
-        display: inline-flex;
-        height: auto;
-      }
-
-      :host ::ng-deep > svg {
-        width: 100%;
-      }
-    `,
+  selector: 'prizm-icons-16', // Defines the custom element tag to use this component
+  template: ` <ng-content></ng-content> `, // Allows for content projection within the component
+  styleUrls: ['./prizm-icons.component.less'], // Reuses the same styles as the base icon component
+  standalone: true, // Marks the component as standalone, meaning it doesn't need to be declared in an NgModule
+  changeDetection: ChangeDetectionStrategy.OnPush, // Optimizes change detection for performance
+  providers: [
+    {
+      // Specifies that this component uses a different icon loader for 16px icons
+      provide: PRIZM_ICONS_LOADER,
+      useExisting: PRIZM_ICONS_16_LOADER,
+    },
   ],
-  standalone: true,
-  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmIconsComponent extends PrizmAbstractTestId {
-  private svgIcon!: SVGElement;
-  private iconName!: string;
-  @Input()
-  set name(iconName: string) {
-    this.iconName = iconName;
-
-    if (this.svgIcon) {
-      this.element.nativeElement.removeChild(this.svgIcon);
-    }
-    const svgData = this.iconRegistry.getIcon(iconName);
-    if (!svgData) return;
-    this.svgIcon = this.svgElementFromString(svgData);
-    this.element.nativeElement.appendChild(this.svgIcon);
-  }
-
-  @HostBinding('style.color')
-  @Input()
-  color!: string;
-
-  override get generateManeTestId(): string {
-    return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');
-  }
-
-  @HostBinding('style.width')
-  _size = '16px';
-
-  @Input()
-  set size(size: string | number) {
-    this._size = typeof size === 'number' ? prizmPx(size) : size;
-  }
-
-  constructor(
-    private element: ElementRef,
-    private iconRegistry: PrizmIconsSvgRegistry,
-    @Optional() @Inject(DOCUMENT) private document: Document
-  ) {
-    super();
-  }
-
-  private svgElementFromString(svgContent: string): SVGElement {
-    const div = this.document.createElement('DIV');
-    div.innerHTML = svgContent;
-    return div.querySelector('svg') || this.document.createElementNS('http://www.w3.org/2000/svg', 'path');
-  }
+export class PrizmIcons16Component extends PrizmIconsComponent {
+  // No additional logic required here as of now.
+  // Future customizations for 16px icons can be implemented in this class.
 }
