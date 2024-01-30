@@ -156,8 +156,4 @@ export class AppComponent implements AfterViewInit {
     /* update taiga doc theme */
     this.docEl.onMode(isNight);
   }
-
-  public contentReady(el: HTMLElement): void {
-    // this.themeSwitcher.rootElement = el;
-  }
 }
