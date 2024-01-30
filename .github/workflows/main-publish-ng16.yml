@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '3.10.0'
+            echo '3.11.0'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
