@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.15.0, 2.13.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
+
+## Features
+
+- feat(components/navigation-menu): add hint to navigation menu items and titles when text overflows #1216, #1312
+- feat(components/accordion): add hint to accordion title when text overflows #1216, #1312
+
+### Bug fixes
+
+- fix(components/listing-item): listing item selected item hover #1280
+- fix(components/input-dat-relative): selected item hover #1280
+- fix(components/accordion): accordion focus shadow overlaps on hover #1116,
+- fix(components/accordion): accordion incorrect background color #1236,
+- fix(components/accordion): nested accordion button incorect behavior #1285
+- fix(components/accordion): custom title accordion example fix #1240
+
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
 ## Features
