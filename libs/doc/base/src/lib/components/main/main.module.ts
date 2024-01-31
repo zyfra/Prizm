@@ -7,14 +7,16 @@ import { TuiToggleModule } from '@taiga-ui/kit';
 import { PrizmDocHeaderModule } from '../../internal/header/header.module';
 import { PrizmDocNavigationModule } from '../navigation/navigation.module';
 import { PrizmDocMainComponent } from './main.component';
-import { PrizmLifecycleModule } from '@prizm-ui/components';
+import { PrizmLifecycleDirective } from '@prizm-ui/components';
+import { PrizmThemeModule } from '@prizm-ui/theme';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
     FormsModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
+    PrizmThemeModule,
     TuiToggleModule,
     TuiThemeNightModule,
     PrizmDocHeaderModule,

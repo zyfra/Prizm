@@ -5,8 +5,62 @@
   "sourceRoot": "libs/icons/base/src",
   "prefix": "prizm",
   "targets": {
+    "generate-icons-24": {
+      "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+      "options": {
+        "conversionType": "files",
+        "srcFiles": ["libs/icons/base/assets/24/*.svg"],
+        "outputDirectory": "libs/icons/base/src/lib/icons/24",
+        "interfaceName": "PrizmIcons",
+        "typeName": "PrizmIconsType",
+        "generateEnum": true,
+        "exportCompleteIconSet": true,
+        "generateCompleteIconSet": true,
+        "completeIconSetName": "PRIZM_ICONS_SET",
+        "enumName": "PrizmIconsEnum",
+        "fileName": "icons",
+        "iconsFolderName": "source",
+        "barrelFileName": "index",
+        "generateType": true,
+        "generateTypeObject": true,
+        "prefix": "prizmIcons",
+        "optimizeForLazyLoading": true,
+        "modelFileName": "prizm-icons.model",
+        "svgoConfig": {
+          "plugins": ["removeDimensions"]
+        },
+        "compileSources": false
+      }
+    },
+    "generate-icons-16": {
+      "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+      "options": {
+        "conversionType": "files",
+        "srcFiles": ["libs/icons/base/assets/16/*.svg"],
+        "outputDirectory": "libs/icons/base/src/lib/icons/16",
+        "interfaceName": "PrizmIcons",
+        "typeName": "PrizmIconsType",
+        "generateEnum": true,
+        "exportCompleteIconSet": true,
+        "generateCompleteIconSet": true,
+        "completeIconSetName": "PRIZM_ICONS_SET",
+        "enumName": "PrizmIconsEnum",
+        "fileName": "icons",
+        "iconsFolderName": "source",
+        "barrelFileName": "index",
+        "generateType": true,
+        "generateTypeObject": true,
+        "prefix": "prizmIcons",
+        "optimizeForLazyLoading": true,
+        "modelFileName": "prizm-icons.model",
+        "svgoConfig": {
+          "plugins": ["removeDimensions"]
+        },
+        "compileSources": false
+      }
+    },
     "build": {
-      "executor": "@nrwl/angular:package",
+      "executor": "@nx/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/icons/base"],
       "options": {
         "project": "libs/icons/base/ng-package.json"
@@ -22,7 +76,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/icons/base"],
       "options": {
         "jestConfig": "libs/icons/base/jest.config.ts",
@@ -30,9 +84,27 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
+      }
+    },
+    "icons-to-lazy": {
+      "executor": "local:icons-to-lazy",
+      "options": {
+        "pathToFolder": "libs/icons/base/src/lib/icons/24/source",
+        "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set.ts",
+        "prefix": "prizmIcons-",
+        "exportName": "PRIZM_ICONS_LAZY_SET"
+      }
+    },
+    "icons-16-to-lazy": {
+      "executor": "local:icons-to-lazy",
+      "options": {
+        "pathToFolder": "libs/icons/base/src/lib/icons/16/source",
+        "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set-16.ts",
+        "prefix": "prizmIcons-",
+        "exportName": "PRIZM_ICONS_16_LAZY_SET"
       }
     }
   },

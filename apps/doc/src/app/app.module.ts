@@ -38,7 +38,6 @@ import { SetTaskModule } from './how-to-work/set-task/set-task.module';
 import { IntroductionModule } from './forZIIoT/introduction/introduction.module';
 import { LibraryRequirementsModule } from './forZIIoT/library-requirements/library-requirements.module';
 import { PRIZM_ENGLISH_LANGUAGE, PRIZM_RUSSIAN_LANGUAGE, prizmLanguageSwitcher } from '@prizm-ui/i18n';
-import { ThemeTokenChangerComponent } from './theme-token-changer/theme-token-changer.component';
 
 registerLocaleData(localeRu);
 @NgModule({
@@ -94,7 +93,5 @@ registerLocaleData(localeRu);
   ],
 })
 export class AppModule {
-  constructor(private readonly themeSwitcher: PrizmThemeService) {
-    this.themeSwitcher.rootElement = null;
-  }
+  constructor(private readonly themeSwitcher: PrizmThemeService) {}
 }

@@ -1,0 +1,9 @@
+{
+  "executors": {
+    "icons-to-lazy": {
+      "implementation": "./src/executors/icons-to-lazy/executor",
+      "schema": "./src/executors/icons-to-lazy/schema.json",
+      "description": "icons-to-lazy executor"
+    }
+  }
+}
