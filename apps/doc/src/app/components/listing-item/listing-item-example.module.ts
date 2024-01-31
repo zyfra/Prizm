@@ -14,6 +14,7 @@ import {
 import { PrizmListingItemExampleComponent } from './listing-item-example.component';
 import { PrizmListingItemChipsExampleComponent } from './examples/chips/listing-item-chips-example.component';
 import { PrizmListingItemWithInstrumnetsExampleComponent } from './examples/with-instrumnets/listing-item-with-instruments-example.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { PrizmListingItemWithInstrumnetsExampleComponent } from './examples/with
     PrizmDropdownHostComponent,
     PrizmChipsModule,
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmListingItemExampleComponent)),
+    FormsModule,
   ],
   declarations: [
     PrizmListingItemExampleComponent,
