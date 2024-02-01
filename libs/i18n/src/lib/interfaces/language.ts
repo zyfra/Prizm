@@ -137,6 +137,8 @@ export interface PrizmLanguageKit {
     drop: string;
     dropMultiple: string;
   };
+  // TODO: 4.0 remove optional sign, bc #dr
+  search?: string;
 }
 
 export interface PrizmLanguageEditor {
