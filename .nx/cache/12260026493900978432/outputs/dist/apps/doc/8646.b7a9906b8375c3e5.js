@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[8646],{8646:t=>{t.exports='<button [prizmHint]="dropdown" type="button" prizmButton>Button</button>\n\n<ng-template #dropdown>\n  <div>Hello</div>\n  <div>Good bye</div>\n</ng-template>\n'}}]);

@@ -1,9 +1,0 @@
-export * from './lazy-icon-set';
-export * from './lazy-icon-set-16';
-export * from './prizm-icons.component';
-export * from './prizm-icons-16.component';
-export * from './prizm-icons.registry';
-export * from './prizm-icons-16.registry';
-export * from './types';
-export * from './token';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9saWJzL2ljb25zL2Jhc2Uvc3JjL2xpYi9pY29ucy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxjQUFjLGlCQUFpQixDQUFDO0FBQ2hDLGNBQWMsb0JBQW9CLENBQUM7QUFDbkMsY0FBYyx5QkFBeUIsQ0FBQztBQUN4QyxjQUFjLDRCQUE0QixDQUFDO0FBQzNDLGNBQWMsd0JBQXdCLENBQUM7QUFDdkMsY0FBYywyQkFBMkIsQ0FBQztBQUMxQyxjQUFjLFNBQVMsQ0FBQztBQUN4QixjQUFjLFNBQVMsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vbGF6eS1pY29uLXNldCc7XG5leHBvcnQgKiBmcm9tICcuL2xhenktaWNvbi1zZXQtMTYnO1xuZXhwb3J0ICogZnJvbSAnLi9wcml6bS1pY29ucy5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9wcml6bS1pY29ucy0xNi5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9wcml6bS1pY29ucy5yZWdpc3RyeSc7XG5leHBvcnQgKiBmcm9tICcuL3ByaXptLWljb25zLTE2LnJlZ2lzdHJ5JztcbmV4cG9ydCAqIGZyb20gJy4vdHlwZXMnO1xuZXhwb3J0ICogZnJvbSAnLi90b2tlbic7XG4iXX0=

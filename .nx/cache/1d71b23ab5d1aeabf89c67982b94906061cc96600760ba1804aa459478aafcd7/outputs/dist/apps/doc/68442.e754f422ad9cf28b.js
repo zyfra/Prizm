@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[68442],{68442:n=>{n.exports='<div>\n  <h4>Default size (24)</h4>\n\n  <div>\n    <prizm-icon [size]="24" iconClass="account"></prizm-icon>\n  </div>\n</div>\n\n<div>\n  <h4>16 size</h4>\n  <div>\n    <prizm-icon iconClass="account" size="16"></prizm-icon>\n  </div>\n</div>\n'}}]);

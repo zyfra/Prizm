@@ -1,4 +1,0 @@
-export * from './styles/icons-24/prizm-icons';
-export * from './lib/icons-svg';
-export * from './lib/icons';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9saWJzL2ljb25zL2Jhc2Uvc3JjL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLGNBQWMsK0JBQStCLENBQUM7QUFDOUMsY0FBYyxpQkFBaUIsQ0FBQTtBQUMvQixjQUFjLGFBQWEsQ0FBQSIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vc3R5bGVzL2ljb25zLTI0L3ByaXptLWljb25zJztcbmV4cG9ydCAqIGZyb20gJy4vbGliL2ljb25zLXN2ZydcbmV4cG9ydCAqIGZyb20gJy4vbGliL2ljb25zJ1xuIl19

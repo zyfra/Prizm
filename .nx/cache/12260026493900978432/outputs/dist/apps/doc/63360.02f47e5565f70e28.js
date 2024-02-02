@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[63360],{63360:t=>{t.exports='<button (click)="show()" type="button" prizmButton>Show SideBar</button>\n\n<ng-template #contentExample>\n  <div style="height: 100%; display: flex; align-items: center">Custom Padding For Content Wrapper</div>\n</ng-template>\n'}}]);

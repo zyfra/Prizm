@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[73457],{73457:r=>{r.exports="```ts\nimport { NgModule } from '@angular/core';\nimport { PrizmChartsRadarModule } from '@prizm-ui/charts';\n\n@NgModule({\n  imports: [\n    // ...\n    PrizmChartsRadarModule,\n  ],\n})\nexport class MyModule {}\n```\n"}}]);

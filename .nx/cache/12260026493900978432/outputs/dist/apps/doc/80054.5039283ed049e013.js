@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[80054],{80054:n=>{n.exports="```ts\nimport { NgModule } from '@angular/core';\nimport { PrizmInputLayoutDateRangeComponent } from '@prizm-ui/components';\n\n// ...\n\n@NgModule({\n  imports: [\n    // ...\n    PrizmInputLayoutDateRangeComponent,\n  ],\n})\nexport class MyModule {}\n```\n"}}]);

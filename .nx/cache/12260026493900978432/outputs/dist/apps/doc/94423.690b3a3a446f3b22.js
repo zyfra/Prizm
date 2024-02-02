@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[94423],{94423:e=>{e.exports='<prizm-calendar-range [(value)]="value"></prizm-calendar-range>\n\n<h4>\n  Current value: <b>{{ value?.toString() | json }}</b>\n</h4>\n'}}]);

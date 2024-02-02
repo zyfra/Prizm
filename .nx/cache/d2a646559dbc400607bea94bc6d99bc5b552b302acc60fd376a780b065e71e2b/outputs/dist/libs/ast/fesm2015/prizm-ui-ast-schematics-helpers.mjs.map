@@ -1,1 +1,0 @@
-{"version":3,"file":"prizm-ui-ast-schematics-helpers.mjs","sources":["../../../../libs/ast/schematics-helpers/src/prizm-ui-ast-schematics-helpers.ts"],"sourcesContent":["/**\n * Generated bundle index. Do not edit.\n */\n\nexport * from './index';\n"],"names":[],"mappings":";AAAA;;AAEG;;;AAEH,OAAwB,CAAA,YAAA,CAAA,OAAA,CAAA,SAAA,CAAA,EAAA,OAAA,CAAA"}

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[72320],{72320:e=>{e.exports='```html\n<body data-prizm-theme="light">\n  ...\n</body>\n```\n'}}]);

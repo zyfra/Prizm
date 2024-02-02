@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[87461],{87461:p=>{p.exports='<prizm-input-layout label="\u041c\u0430\u0441\u043a\u0430">\n  <input #input prizmInput mask="000:00" />\n</prizm-input-layout>\n'}}]);

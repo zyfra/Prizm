@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[70611],{70611:p=>{p.exports='<prizm-input-layout label="Password">\n  <input #inputPassword="prizmInputPassword" prizmInputPassword />\n  <prizm-input-password-auxiliary-control\n    [inputPassword]="inputPassword"\n    prizm-input-right\n  ></prizm-input-password-auxiliary-control>\n</prizm-input-layout>\n'}}]);

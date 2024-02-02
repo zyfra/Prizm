@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[89393],{89393:e=>{e.exports='<prizm-calendar-month [value]="value" (monthClick)="onMonthClick($event)"></prizm-calendar-month>\n<p><b>Selected:</b> {{ value }}</p>\n'}}]);

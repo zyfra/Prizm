@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[92095],{92095:e=>{e.exports='<prizm-tree [value]="data"></prizm-tree>\n'}}]);

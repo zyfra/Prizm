@@ -1,6 +1,0 @@
-import { PrizmNavigationMenuEmptyMessageConfig, PrizmNavigationMenuHeaderConfig, PrizmNavigationMenuSearchConfig, PrizmNavigationMenuSettingsConfig, PrizmNavigationMenuToolbarConfig } from '../interfaces';
-export declare const DEFAULT_HEADER_CONFIG: PrizmNavigationMenuHeaderConfig;
-export declare const DEFAULT_SETTINGS: PrizmNavigationMenuSettingsConfig;
-export declare const DEFAULT_TOOLBAR_CONFIG: PrizmNavigationMenuToolbarConfig;
-export declare const DEFAULT_SEARCH_CONFIG: PrizmNavigationMenuSearchConfig;
-export declare const DEFAULT_EMPTY_MESSAGE_CONFIG: PrizmNavigationMenuEmptyMessageConfig;

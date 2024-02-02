@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[74541],{74541:e=>{e.exports='<prizm-charts-radar\n  [data]="data"\n  [xField]="xField"\n  [yField]="yField"\n  [options]="options"\n  [theme]="$any(prizmTheme.changesTheme$ | async)"\n></prizm-charts-radar>\n'}}]);

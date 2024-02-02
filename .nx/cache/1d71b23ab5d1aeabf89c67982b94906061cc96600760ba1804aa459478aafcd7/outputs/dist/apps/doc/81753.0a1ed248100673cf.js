@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[81753],{81753:e=>{e.exports='<prizm-cron [(period)]="period"></prizm-cron>\n'}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[88941],{88941:t=>{t.exports='<prizm-input-layout label="\u0412\u0432\u0435\u0434\u0438\u0442\u0435 \u0434\u0430\u0442\u0443">\n  <prizm-input-layout-date [formControl]="control"></prizm-input-layout-date>\n</prizm-input-layout>\n\n<div>\n  {{ control.value | date : \'shortDate\' }}\n</div>\n'}}]);

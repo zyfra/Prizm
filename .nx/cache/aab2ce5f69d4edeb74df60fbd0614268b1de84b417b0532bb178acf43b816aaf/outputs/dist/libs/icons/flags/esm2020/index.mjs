@@ -1,8 +1,0 @@
-/* SVG */
-export * from './lib/icons/my-icons';
-export * from './lib/prizm-flag-icons.module';
-export * from './lib/prizm-flag-icons.component';
-export * from './lib/prizm-flag-icons.registry';
-/* FONTS */
-export * from './styles/font/prizm-flag-icons';
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9saWJzL2ljb25zL2ZsYWdzL3NyYy9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxTQUFTO0FBQ1QsY0FBYyxzQkFBc0IsQ0FBQztBQUNyQyxjQUFjLCtCQUErQixDQUFDO0FBQzlDLGNBQWMsa0NBQWtDLENBQUM7QUFDakQsY0FBYyxpQ0FBaUMsQ0FBQztBQUVoRCxXQUFXO0FBQ1gsY0FBYyxnQ0FBZ0MsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qIFNWRyAqL1xuZXhwb3J0ICogZnJvbSAnLi9saWIvaWNvbnMvbXktaWNvbnMnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvcHJpem0tZmxhZy1pY29ucy5tb2R1bGUnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvcHJpem0tZmxhZy1pY29ucy5jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9saWIvcHJpem0tZmxhZy1pY29ucy5yZWdpc3RyeSc7XG5cbi8qIEZPTlRTICovXG5leHBvcnQgKiBmcm9tICcuL3N0eWxlcy9mb250L3ByaXptLWZsYWctaWNvbnMnO1xuIl19

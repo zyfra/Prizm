@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[63120],{63120:n=>{n.exports=":host {\n  --prizm-widget-content-padding: 0px;\n  table {\n    width: 100%;\n  }\n\n  .scrollable {\n    max-height: 300px;\n  }\n\n  .format {\n    &__number {\n      text-align: right;\n    }\n  }\n}\n"}}]);

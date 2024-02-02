@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[66016],{66016:n=>{n.exports="```ts\nexport class PrizmPureException extends Error {\n  constructor() {\n    super('prizmPure can only be used with functions or getters');\n  }\n}\n\n// use\n\nif (typeof value !== 'function') {\n  throw new PrizmPureException();\n}\n```\n"}}]);

@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[79998],{79998:e=>{e.exports='<prizm-charts-scatter\n  [data]="data"\n  [theme]="$any($any(prizmTheme.changesTheme$ | async))"\n  [options]="{ size: 5, shape: \'circle\', appendPadding: 30 }"\n  xField="xG conceded"\n  colorField="Result"\n  yField="Shot conceded"\n></prizm-charts-scatter>\n'}}]);

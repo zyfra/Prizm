@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[82759],{82759:n=>{n.exports='<prizm-paginator\n  [disabled]="disabled"\n  [rows]="30"\n  [rowsCountOptions]="[3, 5, 10, 30, 60, 100]"\n  paginatorType="infinite"\n></prizm-paginator>\n'}}]);

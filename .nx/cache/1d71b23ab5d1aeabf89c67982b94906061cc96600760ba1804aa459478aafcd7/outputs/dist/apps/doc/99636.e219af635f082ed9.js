@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[99636],{99636:e=>{e.exports="```ts\nimport { PrizmThemeService } from '@prizm-ui/components';\n\n@Component({})\nexport class MyComponent {\n  constructor(private readonly theme: PrizmThemeService) {}\n}\n```\n"}}]);

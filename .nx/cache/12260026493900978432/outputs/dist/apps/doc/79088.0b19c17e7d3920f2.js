@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[79088],{79088:t=>{t.exports='<prizm-input-layout label="\u041e\u0442\u043d\u043e\u0441\u0438\u0442\u0435\u043b\u044c\u043d\u043e\u0435 \u0432\u0440\u0435\u043c\u044f">\n  <prizm-input-layout-date-relative [formControl]="valueControl"></prizm-input-layout-date-relative>\n</prizm-input-layout>\n'}}]);

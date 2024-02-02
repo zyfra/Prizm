@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[75713],{75713:e=>{e.exports='<prizm-select [formControl]="control" [items]="items"></prizm-select>\n<br />\n<br />\n<div>\n  <button (click)="setDefaultValue()" prizmButton>\n    Set default value: <b>{{ items[0] }}</b>\n  </button>\n</div>\n\n<br />\n<br />\n<div>Current value: {{ control.value }}</div>\n'}}]);

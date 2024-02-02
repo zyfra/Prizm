@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[68538],{68538:n=>{n.exports="import { Component } from '@angular/core';\n\n@Component({\n  selector: 'prizm-icon-font-example',\n  templateUrl: './icon-font-example.component.html',\n})\nexport class PrizmIconSvgFontExampleComponent {}\n"}}]);

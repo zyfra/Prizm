@@ -1,1 +1,0 @@
-export { Compare } from './compare';
