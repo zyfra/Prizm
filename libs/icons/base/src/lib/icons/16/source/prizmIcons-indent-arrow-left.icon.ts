@@ -4,5 +4,5 @@ export const prizmIconsIndentArrowLeft: {
   data: string;
 } = {
   name: 'indent_arrow_left',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H1M1 8L3 6M1 8L3 10" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 2H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 14H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 6H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 8H1M1 8L3 6M1 8L3 10" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 2H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 14H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 10H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 6H15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 };

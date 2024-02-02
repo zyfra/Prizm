@@ -11,5 +11,5 @@
     "useDefineForClassFields": false
   },
   "exclude": ["src/test-setup.ts", "**/*.spec.ts", "jest.config.ts"],
-  "include": ["**/*.ts"]
+  "files": ["set/src/lib/lazy.ts"]
 }

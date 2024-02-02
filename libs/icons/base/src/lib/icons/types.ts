@@ -1,5 +1,5 @@
+import { PrizmIconSvgEnum, prizmIconSvg } from '../icons-svg/svg/my-icons';
 import { PrizmIcons, PrizmIconsNameSubset } from './24';
-import { prizmIconSvg, PrizmIconSvgEnum } from '@prizm-ui/icons';
 
 export type PrizmIconsName = PrizmIconsNameSubset<PrizmIcons[]> | string;
 

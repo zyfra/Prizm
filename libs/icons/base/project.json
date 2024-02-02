@@ -5,24 +5,24 @@
   "sourceRoot": "libs/icons/base/src",
   "prefix": "prizm",
   "targets": {
-    "generate-icons-24": {
+    "generateIcons": {
       "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
       "options": {
         "conversionType": "files",
-        "srcFiles": ["libs/icons/base/assets/24/*.svg"],
-        "outputDirectory": "libs/icons/base/src/lib/icons/24",
+        "optimizeForLazyLoading": true,
+        "srcFiles": ["libs/icons/base/assets/icons/**/*.svg"],
+        "outputDirectory": "libs/icons/base/src/styles/icons",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
-        "exportCompleteIconSet": true,
-        "generateCompleteIconSet": true,
         "completeIconSetName": "PRIZM_ICONS_SET",
+        "exportCompleteIconSet": true,
         "enumName": "PrizmIconsEnum",
-        "fileName": "icons",
-        "iconsFolderName": "source",
-        "barrelFileName": "index",
         "generateType": true,
         "generateTypeObject": true,
+<<<<<<< Updated upstream
+        "iconsFolderName": "icons",
+=======
         "prefix": "prizmIcons",
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
@@ -30,7 +30,10 @@
           "plugins": ["removeDimensions"]
         },
         "compileSources": false
-      }
+      },
+      "dependsOn": [
+        {"target": "build", "project": "self"},
+      ]
     },
     "generate-icons-16": {
       "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
@@ -39,31 +42,33 @@
         "srcFiles": ["libs/icons/base/assets/16/*.svg"],
         "outputDirectory": "libs/icons/base/src/lib/icons/16",
         "interfaceName": "PrizmIcons",
-        "typeName": "PrizmIconsType",
+        "typeName": "PrizmIcons16Type",
         "generateEnum": true,
         "exportCompleteIconSet": true,
         "generateCompleteIconSet": true,
-        "completeIconSetName": "PRIZM_ICONS_SET",
-        "enumName": "PrizmIconsEnum",
+        "completeIconSetName": "PRIZM_ICONS_16_SET",
+        "enumName": "PrizmIcons16Enum",
         "fileName": "icons",
         "iconsFolderName": "source",
+>>>>>>> Stashed changes
         "barrelFileName": "index",
-        "generateType": true,
-        "generateTypeObject": true,
         "prefix": "prizmIcons",
-        "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
           "plugins": ["removeDimensions"]
         },
         "compileSources": false
-      }
+      },
+      "dependsOn": [
+        {"target": "build", "project": "self"},
+      ]
     },
     "build": {
-      "executor": "@nx/angular:package",
+      "executor": "@nrwl/angular:package",
       "outputs": ["{workspaceRoot}/dist/libs/icons/base"],
       "options": {
-        "project": "libs/icons/base/ng-package.json"
+        "project": "libs/icons/base/ng-package.json",
+        "updateBuildableProjectDepsInPackageJson": false
       },
       "configurations": {
         "production": {
@@ -76,7 +81,7 @@
       "defaultConfiguration": "production"
     },
     "test": {
-      "executor": "@nx/jest:jest",
+      "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/libs/icons/base"],
       "options": {
         "jestConfig": "libs/icons/base/jest.config.ts",
@@ -84,8 +89,21 @@
       }
     },
     "lint": {
-      "executor": "@nx/linter:eslint",
+      "executor": "@nrwl/linter:eslint",
       "options": {
+<<<<<<< Updated upstream
+        "lintFilePatterns": [
+          "libs/icons/base/src/**/*.ts",
+          "libs/icons/base/src/**/*.html",
+          "libs/icons/base/icons/**/*.ts",
+          "libs/icons/base/icons/**/*.html",
+          "libs/icons/base/set/**/*.ts",
+          "libs/icons/base/set/**/*.html",
+          "libs/icons/base/lazy/**/*.ts",
+          "libs/icons/base/lazy/**/*.html"
+        ]
+      }
+=======
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
       }
     },
@@ -96,7 +114,10 @@
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_LAZY_SET"
-      }
+      },
+      "dependsOn": [
+        {"target": "generate-icons-24", "project": "self"}
+      ]
     },
     "icons-16-to-lazy": {
       "executor": "local:icons-to-lazy",
@@ -105,7 +126,11 @@
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set-16.ts",
         "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_16_LAZY_SET"
-      }
+      },
+      "dependsOn": [
+        {"target": "generate-icons-16", "project": "self"}
+      ]
+>>>>>>> Stashed changes
     }
   },
   "tags": []
