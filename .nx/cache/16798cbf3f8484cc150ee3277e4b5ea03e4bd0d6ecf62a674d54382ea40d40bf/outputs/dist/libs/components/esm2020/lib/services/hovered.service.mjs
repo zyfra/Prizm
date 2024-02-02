@@ -1,0 +1,32 @@
+import { DOCUMENT } from '@angular/common';
+import { Inject, Injectable, NgZone } from '@angular/core';
+import { merge } from 'rxjs';
+import { distinctUntilChanged, filter, mapTo, startWith, switchMap, take } from 'rxjs/operators';
+import { prizmZoneOptimized } from '../observables/zone-free';
+import { prizmTypedFromEvent } from '../observables/typed-from-event';
+import { prizmGetActualTarget } from '../util/dom/get-actual-target';
+import * as i0 from "@angular/core";
+export class PrizmHoveredService {
+    constructor(documentRef, ngZone) {
+        this.ngZone = ngZone;
+        this.documentEvents$ = merge(prizmTypedFromEvent(documentRef, 'mousemove'), prizmTypedFromEvent(documentRef, 'touchstart', { capture: true }));
+    }
+    createHovered$(target, options = { passive: true }) {
+        return merge(prizmTypedFromEvent(target, 'mouseenter', options), prizmTypedFromEvent(target, 'touchstart', options)).pipe(switchMap(() => merge(prizmTypedFromEvent(target, 'mouseleave', options), this.documentEvents$.pipe(filter(event => !target.contains(prizmGetActualTarget(event))), prizmZoneOptimized(this.ngZone), take(1))).pipe(mapTo(false), startWith(true))), distinctUntilChanged());
+    }
+}
+PrizmHoveredService.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmHoveredService, deps: [{ token: DOCUMENT }, { token: NgZone }], target: i0.ɵɵFactoryTarget.Injectable });
+PrizmHoveredService.ɵprov = i0.ɵɵngDeclareInjectable({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmHoveredService, providedIn: 'root' });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmHoveredService, decorators: [{
+            type: Injectable,
+            args: [{
+                    providedIn: 'root',
+                }]
+        }], ctorParameters: function () { return [{ type: Document, decorators: [{
+                    type: Inject,
+                    args: [DOCUMENT]
+                }] }, { type: i0.NgZone, decorators: [{
+                    type: Inject,
+                    args: [NgZone]
+                }] }]; } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaG92ZXJlZC5zZXJ2aWNlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vbGlicy9jb21wb25lbnRzL3NyYy9saWIvc2VydmljZXMvaG92ZXJlZC5zZXJ2aWNlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE9BQU8sRUFBRSxRQUFRLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUMzQyxPQUFPLEVBQUUsTUFBTSxFQUFFLFVBQVUsRUFBRSxNQUFNLEVBQUUsTUFBTSxlQUFlLENBQUM7QUFDM0QsT0FBTyxFQUFFLEtBQUssRUFBYyxNQUFNLE1BQU0sQ0FBQztBQUN6QyxPQUFPLEVBQUUsb0JBQW9CLEVBQUUsTUFBTSxFQUFFLEtBQUssRUFBRSxTQUFTLEVBQUUsU0FBUyxFQUFFLElBQUksRUFBRSxNQUFNLGdCQUFnQixDQUFDO0FBQ2pHLE9BQU8sRUFBRSxrQkFBa0IsRUFBRSxNQUFNLDBCQUEwQixDQUFDO0FBQzlELE9BQU8sRUFBRSxtQkFBbUIsRUFBRSxNQUFNLGlDQUFpQyxDQUFDO0FBQ3RFLE9BQU8sRUFBRSxvQkFBb0IsRUFBRSxNQUFNLCtCQUErQixDQUFDOztBQUtyRSxNQUFNLE9BQU8sbUJBQW1CO0lBRzlCLFlBQThCLFdBQXFCLEVBQW1DLE1BQWM7UUFBZCxXQUFNLEdBQU4sTUFBTSxDQUFRO1FBQ2xHLElBQUksQ0FBQyxlQUFlLEdBQUcsS0FBSyxDQUMxQixtQkFBbUIsQ0FBQyxXQUFXLEVBQUUsV0FBVyxDQUFDLEVBQzdDLG1CQUFtQixDQUFDLFdBQVcsRUFBRSxZQUFZLEVBQUUsRUFBRSxPQUFPLEVBQUUsSUFBSSxFQUFFLENBQUMsQ0FDbEUsQ0FBQztJQUNKLENBQUM7SUFFTSxjQUFjLENBQ25CLE1BQWUsRUFDZixVQUFtQyxFQUFFLE9BQU8sRUFBRSxJQUFJLEVBQUU7UUFFcEQsT0FBTyxLQUFLLENBQ1YsbUJBQW1CLENBQUMsTUFBTSxFQUFFLFlBQVksRUFBRSxPQUFPLENBQUMsRUFDbEQsbUJBQW1CLENBQUMsTUFBTSxFQUFFLFlBQVksRUFBRSxPQUFPLENBQUMsQ0FDbkQsQ0FBQyxJQUFJLENBQ0osU0FBUyxDQUFDLEdBQUcsRUFBRSxDQUNiLEtBQUssQ0FDSCxtQkFBbUIsQ0FBQyxNQUFNLEVBQUUsWUFBWSxFQUFFLE9BQU8sQ0FBQyxFQUNsRCxJQUFJLENBQUMsZUFBZSxDQUFDLElBQUksQ0FDdkIsTUFBTSxDQUFDLEtBQUssQ0FBQyxFQUFFLENBQUMsQ0FBQyxNQUFNLENBQUMsUUFBUSxDQUFDLG9CQUFvQixDQUFDLEtBQUssQ0FBQyxDQUFDLENBQUMsRUFDOUQsa0JBQWtCLENBQUMsSUFBSSxDQUFDLE1BQU0sQ0FBQyxFQUMvQixJQUFJLENBQUMsQ0FBQyxDQUFDLENBQ1IsQ0FDRixDQUFDLElBQUksQ0FBQyxLQUFLLENBQUMsS0FBSyxDQUFDLEVBQUUsU0FBUyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQ3RDLEVBQ0Qsb0JBQW9CLEVBQUUsQ0FDdkIsQ0FBQztJQUNKLENBQUM7O2dIQTlCVSxtQkFBbUIsa0JBR1YsUUFBUSxhQUFpQyxNQUFNO29IQUh4RCxtQkFBbUIsY0FGbEIsTUFBTTsyRkFFUCxtQkFBbUI7a0JBSC9CLFVBQVU7bUJBQUM7b0JBQ1YsVUFBVSxFQUFFLE1BQU07aUJBQ25COzswQkFJYyxNQUFNOzJCQUFDLFFBQVE7OzBCQUEwQixNQUFNOzJCQUFDLE1BQU0iLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBET0NVTUVOVCB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5pbXBvcnQgeyBJbmplY3QsIEluamVjdGFibGUsIE5nWm9uZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgbWVyZ2UsIE9ic2VydmFibGUgfSBmcm9tICdyeGpzJztcbmltcG9ydCB7IGRpc3RpbmN0VW50aWxDaGFuZ2VkLCBmaWx0ZXIsIG1hcFRvLCBzdGFydFdpdGgsIHN3aXRjaE1hcCwgdGFrZSB9IGZyb20gJ3J4anMvb3BlcmF0b3JzJztcbmltcG9ydCB7IHByaXptWm9uZU9wdGltaXplZCB9IGZyb20gJy4uL29ic2VydmFibGVzL3pvbmUtZnJlZSc7XG5pbXBvcnQgeyBwcml6bVR5cGVkRnJvbUV2ZW50IH0gZnJvbSAnLi4vb2JzZXJ2YWJsZXMvdHlwZWQtZnJvbS1ldmVudCc7XG5pbXBvcnQgeyBwcml6bUdldEFjdHVhbFRhcmdldCB9IGZyb20gJy4uL3V0aWwvZG9tL2dldC1hY3R1YWwtdGFyZ2V0JztcblxuQEluamVjdGFibGUoe1xuICBwcm92aWRlZEluOiAncm9vdCcsXG59KVxuZXhwb3J0IGNsYXNzIFByaXptSG92ZXJlZFNlcnZpY2Uge1xuICBwcml2YXRlIHJlYWRvbmx5IGRvY3VtZW50RXZlbnRzJDogT2JzZXJ2YWJsZTxFdmVudD47XG5cbiAgY29uc3RydWN0b3IoQEluamVjdChET0NVTUVOVCkgZG9jdW1lbnRSZWY6IERvY3VtZW50LCBASW5qZWN0KE5nWm9uZSkgcHJpdmF0ZSByZWFkb25seSBuZ1pvbmU6IE5nWm9uZSkge1xuICAgIHRoaXMuZG9jdW1lbnRFdmVudHMkID0gbWVyZ2UoXG4gICAgICBwcml6bVR5cGVkRnJvbUV2ZW50KGRvY3VtZW50UmVmLCAnbW91c2Vtb3ZlJyksXG4gICAgICBwcml6bVR5cGVkRnJvbUV2ZW50KGRvY3VtZW50UmVmLCAndG91Y2hzdGFydCcsIHsgY2FwdHVyZTogdHJ1ZSB9KVxuICAgICk7XG4gIH1cblxuICBwdWJsaWMgY3JlYXRlSG92ZXJlZCQoXG4gICAgdGFyZ2V0OiBFbGVtZW50LFxuICAgIG9wdGlvbnM6IEFkZEV2ZW50TGlzdGVuZXJPcHRpb25zID0geyBwYXNzaXZlOiB0cnVlIH1cbiAgKTogT2JzZXJ2YWJsZTxib29sZWFuPiB7XG4gICAgcmV0dXJuIG1lcmdlKFxuICAgICAgcHJpem1UeXBlZEZyb21FdmVudCh0YXJnZXQsICdtb3VzZWVudGVyJywgb3B0aW9ucyksXG4gICAgICBwcml6bVR5cGVkRnJvbUV2ZW50KHRhcmdldCwgJ3RvdWNoc3RhcnQnLCBvcHRpb25zKVxuICAgICkucGlwZShcbiAgICAgIHN3aXRjaE1hcCgoKSA9PlxuICAgICAgICBtZXJnZShcbiAgICAgICAgICBwcml6bVR5cGVkRnJvbUV2ZW50KHRhcmdldCwgJ21vdXNlbGVhdmUnLCBvcHRpb25zKSxcbiAgICAgICAgICB0aGlzLmRvY3VtZW50RXZlbnRzJC5waXBlKFxuICAgICAgICAgICAgZmlsdGVyKGV2ZW50ID0+ICF0YXJnZXQuY29udGFpbnMocHJpem1HZXRBY3R1YWxUYXJnZXQoZXZlbnQpKSksXG4gICAgICAgICAgICBwcml6bVpvbmVPcHRpbWl6ZWQodGhpcy5uZ1pvbmUpLFxuICAgICAgICAgICAgdGFrZSgxKVxuICAgICAgICAgIClcbiAgICAgICAgKS5waXBlKG1hcFRvKGZhbHNlKSwgc3RhcnRXaXRoKHRydWUpKVxuICAgICAgKSxcbiAgICAgIGRpc3RpbmN0VW50aWxDaGFuZ2VkKClcbiAgICApO1xuICB9XG59XG4iXX0=

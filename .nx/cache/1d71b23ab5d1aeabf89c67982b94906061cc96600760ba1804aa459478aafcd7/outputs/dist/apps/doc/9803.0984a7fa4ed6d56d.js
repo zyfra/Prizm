@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[9803],{9803:c=>{c.exports="```css\nbutton {\n  backgroud-color: 000000;\n  color: #ffffff;\n}\n```\n"}}]);

@@ -1,0 +1,37 @@
+:host {
+  border-radius: 2px;
+  border: 1px solid var(--prizm-v3-background-stroke);
+  display: flex;
+  flex-direction: column;
+  background-color: var(--prizm-v3-background-fill-primary);
+}
+
+.header {
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--prizm-v3-background-stroke);
+  color: var(--prizm-v3-text-icon-primary);
+  background-color: var(--prizm-v3-background-fill-panel);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.step-content {
+  padding: 16px;
+}
+
+.footer {
+  border-top: 1px solid var(--prizm-v3-background-stroke);
+  padding: 16px;
+}
+
+:host-context(.vertical) {
+  .wrapper {
+    flex-direction: row;
+  }
+}

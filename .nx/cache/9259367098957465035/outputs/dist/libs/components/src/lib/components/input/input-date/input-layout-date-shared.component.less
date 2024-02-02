@@ -1,0 +1,124 @@
+@import '../../../../styles/ui-local.less';
+
+:host {
+  display: block;
+
+  &::placeholder {
+    color: var(--prizm-v3-text-icon-disable);
+  }
+}
+
+.multiple-input-box {
+  display: flex;
+  gap: 2px;
+  // TODO: this padding copied from input-text (need remove copied style and use only one file)
+  padding: 22px 8px 4px 0px;
+
+  input {
+    width: calc(var(--prizm-input-in-zone-max-size) * 0.9ch);
+  }
+
+  .input-main {
+    &.show-placeholder {
+      width: 100%;
+
+      & ~ input,
+      & ~ .delimiter {
+        display: none;
+      }
+    }
+  }
+}
+
+// TODO: this stype copied from input-text (need remove copied style and use only one file)
+// In outer context
+:host-context(.prizm-input-form-outer) .multiple-input-box {
+  padding: 7px 0px;
+}
+
+// need for optimization output selector in less
+:host-context(.prizm-input-form-outer[data-size='l']) .multiple-input-box {
+  padding: 11px 0px;
+}
+
+:host-context(.prizm-input-form-outer[data-size='m']) .multiple-input-box {
+  padding: 7px 0px;
+}
+
+:host-context(.prizm-input-form-outer[data-size='s']) .multiple-input-box {
+  font-size: 12px;
+  padding: 4px 0px;
+}
+
+// In inner context
+:host-context(.prizm-input-form-inner) {
+  :host-context(.prizm-input-empty-label) .multiple-input-box {
+    padding-top: 4px;
+
+    :host::placeholder {
+      opacity: 1;
+    }
+  }
+
+  .multiple-input-box {
+    padding: 22px 8px 4px 0px;
+
+    :host::placeholder {
+      opacity: 0;
+    }
+
+    :host:focus::placeholder {
+      opacity: 1;
+      transition: opacity 200ms ease 0s;
+    }
+  }
+}
+
+:host-context(.prizm-input-form-center) {
+  text-align: center;
+}
+
+:host-context(.prizm-input-form-inner[data-size='l']) {
+  :host-context(.prizm-input-empty-label) {
+    .multiple-input-box {
+      padding-top: 4px;
+    }
+  }
+
+  .multiple-input-box {
+    padding: 22px 8px 4px 0px;
+  }
+}
+:host-context(.prizm-input-form-inner[data-size='m']) {
+  .multiple-input-box {
+    padding: 16px 8px 2px 0px;
+  }
+
+  :host-context(.prizm-input-empty-label) {
+    .multiple-input-box {
+      padding-top: 2px;
+    }
+  }
+}
+
+/** use for show place holder in temporary input */
+.placeholder-input-search {
+  &.hidden {
+    // we don't use display none, because otherwise we can not refer focus to main inputs
+    position: absolute;
+    top: -10000px;
+    left: -10000px;
+    opacity: 0;
+  }
+  /** when we showed placeholder we hide all next our main inputs */
+  &:not(.hidden) ~ input,
+  &:not(.hidden) ~ .delimiter {
+    display: none;
+  }
+}
+
+.delimiter {
+  line-height: 16px;
+  height: 16px;
+  margin: 0 0.25ch;
+}

@@ -1,0 +1,36 @@
+import { QueryList } from '@angular/core';
+import { Observable } from 'rxjs';
+import { PrizmCellDirective } from '../directives/cell.directive';
+import { PrizmTableDirective } from '../directives/table.directive';
+import { PrizmTbodyComponent } from '../tbody/tbody.component';
+import { PrizmTableCellStatus } from '../table.types';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmTableTreeService } from '../service/tree.service';
+import { PrizmCellService } from '../directives/cell.service';
+import { PrizmTdService } from '../td/td.service';
+import * as i0 from "@angular/core";
+export declare class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
+    readonly table: PrizmTableDirective<T>;
+    private readonly body;
+    private readonly cellService;
+    private readonly td;
+    private readonly tableTreeService;
+    readonly destroy$: PrizmDestroyService;
+    status: PrizmTableCellStatus;
+    private readonly columns$$;
+    columns: ReadonlyArray<keyof T | string>;
+    get realColumns$(): Observable<ReadonlyArray<keyof T | string>>;
+    readonly cells: QueryList<PrizmCellDirective>;
+    readonly cells$: Observable<(PrizmCellDirective | undefined)[]>;
+    get colCount(): number;
+    get colCount$(): Observable<number>;
+    readonly item$: Observable<T>;
+    active: boolean;
+    constructor(table: PrizmTableDirective<T>, body: PrizmTbodyComponent<T>, cellService: PrizmCellService, td: PrizmTdService, tableTreeService: PrizmTableTreeService, destroy$: PrizmDestroyService);
+    showChildren(idx: number): void;
+    hideChildren(idx: number): void;
+    toggleChildren(idx: number): void;
+    isChildrenOpened(idx: number): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrizmTrComponent<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PrizmTrComponent<any>, "tr[prizmTr]", ["prizmTr"], { "status": "status"; "columns": "columns"; "active": "active"; }, {}, ["cells"], ["*"], false, never>;
+}

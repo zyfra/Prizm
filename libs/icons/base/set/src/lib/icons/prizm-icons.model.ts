@@ -348,7 +348,7 @@ export type PrizmIconsType =
   | 'file_docx'
   | 'file_dot'
   | 'file_empty'
-  | 'file_exclamatioт'
+  | 'file_exclamation'
   | 'file_eye'
   | 'file_filled'
   | 'file_image'
@@ -1097,8 +1097,7 @@ export const PrizmIconsType = {
   circle_square: 'circle_square' as PrizmIconsType,
   circle_xmark_fill: 'circle_xmark_fill' as PrizmIconsType,
   circle_xmark: 'circle_xmark' as PrizmIconsType,
-  circles_line_left_up_circle_right_down_fill:
-    'circles_line_left_up_circle_right_down_fill' as PrizmIconsType,
+  circles_line_left_up_circle_right_down_fill: 'circles_line_left_up_circle_right_down_fill' as PrizmIconsType,
   circles_line_left_up_circle_right_down: 'circles_line_left_up_circle_right_down' as PrizmIconsType,
   clapperboard_cross: 'clapperboard_cross' as PrizmIconsType,
   clapperboard_open: 'clapperboard_open' as PrizmIconsType,
@@ -1206,7 +1205,7 @@ export const PrizmIconsType = {
   file_docx: 'file_docx' as PrizmIconsType,
   file_dot: 'file_dot' as PrizmIconsType,
   file_empty: 'file_empty' as PrizmIconsType,
-  file_exclamatioт: 'file_exclamatioт' as PrizmIconsType,
+  file_exclamation: 'file_exclamation' as PrizmIconsType,
   file_eye: 'file_eye' as PrizmIconsType,
   file_filled: 'file_filled' as PrizmIconsType,
   file_image: 'file_image' as PrizmIconsType,
@@ -1714,7 +1713,7 @@ export const PrizmIconsType = {
   xmark_column_right: 'xmark_column_right' as PrizmIconsType,
   xmark_column_top: 'xmark_column_top' as PrizmIconsType,
   xmark_mini: 'xmark_mini' as PrizmIconsType,
-  xmark: 'xmark' as PrizmIconsType,
+  xmark: 'xmark' as PrizmIconsType
 };
 export interface PrizmIcons {
   name: PrizmIconsEnum;
@@ -2068,7 +2067,7 @@ export enum PrizmIconsEnum {
   FILE_DOCX = 'file_docx',
   FILE_DOT = 'file_dot',
   FILE_EMPTY = 'file_empty',
-  FILE_EXCLAMATIOТ = 'file_exclamatioт',
+  FILE_EXCLAMATION = 'file_exclamation',
   FILE_EYE = 'file_eye',
   FILE_FILLED = 'file_filled',
   FILE_IMAGE = 'file_image',
@@ -2576,5 +2575,5 @@ export enum PrizmIconsEnum {
   XMARK_COLUMN_RIGHT = 'xmark_column_right',
   XMARK_COLUMN_TOP = 'xmark_column_top',
   XMARK_MINI = 'xmark_mini',
-  XMARK = 'xmark',
+  XMARK = 'xmark'
 }

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[84310],{84310:t=>{t.exports='<button prizmButton #elementRef (click)="toggle()">Click me</button>\n<ng-template #someTemplate>\n  <div class="box">\n    <div>GLOBAL CONTENT</div>\n    <button prizmButton (click)="close()">Close</button>\n  </div>\n</ng-template>\n'}}]);

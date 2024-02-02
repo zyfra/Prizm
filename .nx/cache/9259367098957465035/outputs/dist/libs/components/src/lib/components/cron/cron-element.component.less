@@ -1,0 +1,34 @@
+.blocks {
+  display: flex;
+  flex-direction: column;
+  //gap: 30px;
+
+  .block {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    padding: 16px 15px;
+
+    &.row {
+      .radio {
+        align-items: center;
+        display: flex;
+      }
+
+      .content {
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+      }
+    }
+  }
+}
+
+.content {
+  display: flex;
+
+  &.column {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

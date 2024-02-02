@@ -1,0 +1,91 @@
+@import '../../../../styles/ui-local.less';
+
+@itemSize: 2.25rem;
+
+.picker(@itemSize);
+
+:host {
+  width: @itemSize * 7;
+}
+
+.z-item {
+  color: var(--prizm-v3-text-icon-secondary);
+
+  &.z-item_unavailable {
+    color: var(--prizm-v3-text-icon-disable);
+  }
+}
+
+.z-row {
+  justify-content: flex-start;
+
+  &:first-child {
+    justify-content: flex-end;
+  }
+
+  &_weekday {
+    font: var(--prizm-font-text-s);
+    color: var(--prizm-v3-text-icon-tertiary);
+    pointer-events: none;
+    text-transform: capitalize;
+    .z-cell_weekend {
+      color: var(--prizm-v3-status-alarm-primary-default);
+    }
+  }
+}
+
+.z-item {
+  display: flex;
+  flex-direction: column;
+
+  &_weekend {
+    color: var(--prizm-calendar-day-weekend-color, var(--prizm-v3-text-icon-secondary));
+  }
+}
+
+.z-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: -0.5rem;
+  padding-bottom: 0.25rem;
+}
+
+.z-dot {
+  display: inline-block;
+  width: 0.25rem;
+  height: 0.25rem;
+  border-radius: 100%;
+  margin: 0 0.0625rem;
+}
+
+.z-status {
+  position: absolute;
+  height: 4px;
+  width: 50%;
+  bottom: 4px;
+  transform: translateX(50%);
+  border-radius: 2px;
+  background-color: var(--prizm-status-day-color);
+
+  &[data-prizm-status='index'] {
+    background-color: var(--prizm-calendar-day-status-default, var(--prizm-v3-status-info-primary-default));
+  }
+
+  &[data-prizm-status='warning'] {
+    background-color: var(
+      --prizm-calendar-day-status-warning,
+      var(--prizm-v3-status-warning-primary-default)
+    );
+  }
+
+  &[data-prizm-status='danger'] {
+    background-color: var(--prizm-calendar-day-status-danger, var(--prizm-v3-status-alarm-primary-default));
+  }
+
+  &[data-prizm-status='success'] {
+    background-color: var(
+      --prizm-calendar-day-status-success,
+      var(--prizm-v3-status-success-primary-default)
+    );
+  }
+}

@@ -1,0 +1,31 @@
+import { PrizmToastOptions } from './types';
+import { PrizmToastDefaultOptions } from './toast-options';
+import { PolymorphContent } from '../../directives/polymorph';
+import { PrizmToastService } from './toast.service';
+export declare class PrizmToastRef {
+    content: PolymorphContent;
+    readonly weight: PrizmToastOptions['weight'];
+    readonly closeAfter: PrizmToastOptions['timer'];
+    title: PrizmToastOptions['title'];
+    readonly data: PrizmToastOptions['data'];
+    readonly position: PrizmToastOptions['position'];
+    readonly id: PrizmToastOptions['id'];
+    readonly appearance: PrizmToastOptions['appearance'];
+    readonly options: PrizmToastDefaultOptions;
+    readonly toastService: PrizmToastService;
+    show: boolean;
+    readonly isPlatform: PrizmToastOptions['isPlatform'];
+    private show$;
+    private destroy$;
+    private hash_;
+    get hash(): string;
+    get buttonAppearance(): string;
+    constructor(content: PolymorphContent, weight: PrizmToastOptions['weight'], closeAfter: PrizmToastOptions['timer'], title: PrizmToastOptions['title'], data: PrizmToastOptions['data'], position: PrizmToastOptions['position'], id: PrizmToastOptions['id'], appearance: PrizmToastOptions['appearance'], options: PrizmToastDefaultOptions, toastService: PrizmToastService, show: boolean, isPlatform: PrizmToastOptions['isPlatform']);
+    readonly destroy: () => void;
+    readonly close: (closeAfterMs?: number) => void;
+    readonly open: () => void;
+    readonly updateContent: (content: PolymorphContent) => void;
+    readonly updateTitle: (title: PrizmToastOptions['title']) => void;
+    private changeVisibleState;
+    private detect;
+}

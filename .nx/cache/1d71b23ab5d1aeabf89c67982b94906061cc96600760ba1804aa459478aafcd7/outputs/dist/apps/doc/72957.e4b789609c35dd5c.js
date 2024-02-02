@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[72957],{72957:e=>{e.exports='```html\n<some-element\n  class="element-class"\n  #myElement\n  *ngIf="condition"\n  [myAttrDirective]="someName"\n  [label]="label"\n  [attr.alt]="alt"\n  [ngClass]="\'some\'"\n  [class.my-class-name]="ifTrue"\n  [style.width.px]="width"\n>\n</some-element>\n```\n'}}]);

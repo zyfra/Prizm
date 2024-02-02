@@ -1,0 +1,36 @@
+:host {
+  display: inline-flex;
+  width: 100%;
+
+  .chips-list {
+    width: 100%;
+    padding: 0 12px 12px 0px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+
+    prizm-chips-item {
+      visibility: hidden;
+      max-width: 100%;
+
+      &.single-line {
+        max-width: 100%;
+      }
+
+      &.hidden {
+        display: none;
+      }
+
+      &.visible {
+        visibility: visible;
+      }
+    }
+
+    &.hidden {
+      height: 20px;
+      padding-top: 1px;
+      width: 100%;
+    }
+  }
+}

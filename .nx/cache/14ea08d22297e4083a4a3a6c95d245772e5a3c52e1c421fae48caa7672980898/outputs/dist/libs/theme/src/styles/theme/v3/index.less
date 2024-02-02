@@ -1,0 +1,20 @@
+@import './palette';
+@import './default';
+@import './default-palette';
+@import './dark';
+@import './dark-palette';
+
+:root {
+  .prizmV3Palette();
+}
+
+:root,
+*[data-prizm-theme='light'] {
+  .prizmV3ThemeDefaultPalette();
+  .prizmDefaultThemeV3();
+}
+
+*[data-prizm-theme='dark'] {
+  .prizmV3ThemeDarkPalette();
+  .prizmDarkThemeV3();
+}

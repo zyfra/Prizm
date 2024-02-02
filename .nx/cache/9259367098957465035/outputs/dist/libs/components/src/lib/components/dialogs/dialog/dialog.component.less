@@ -1,0 +1,64 @@
+@import '../../../../styles/ui-local.less';
+
+:host {
+  display: block;
+}
+
+.host {
+  background: var(--prizm-dialog-background, var(--prizm-v3-background-fill-overlay));
+  border: 1px solid var(--prizm-v3-background-stroke);
+  border-radius: var(--prizm-dialog-border-radius, 2px);
+  margin: var(--prizm-dialog-margin, 16px);
+  pointer-events: all;
+}
+
+.content {
+  .ellipsis();
+  padding: var(--prizm-dialog-content-padding, 32px 16px);
+  color: var(--prizm-dialog-content-text, var(--prizm-v3-text-icon-secondary));
+  max-width: 100%;
+}
+
+.header {
+  border-bottom: 1px solid var(--prizm-v3-background-stroke);
+  padding: var(--prizm-dialog-header-padding, 8px 16px);
+  display: flex;
+  justify-content: space-between;
+
+  font-style: var(--prizm-dialog-header-font-style, normal);
+  font-weight: var(--prizm-dialog-header-font-weight, 600);
+  font-size: var(--prizm-dialog-header-font-size, var(--prizm-dialog-font-size, 14px));
+
+  background-color: var(--prizm-v3-background-fill-panel);
+  color: var(--prizm-dialog-header-text, var(--prizm-v3-text-icon-primary));
+
+  .title {
+    .ellipsis();
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.footer {
+  .ellipsis();
+  border-top: 1px solid var(--prizm-v3-background-stroke);
+  padding: var(--prizm-dialog-footer-padding, 14px 16px);
+  max-width: 100%;
+  color: var(--prizm-dialog-footer-text, var(--prizm-v3-text-icon-secondary));
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    overflow: hidden;
+  }
+}
+
+.scrollbar {
+  max-height: var(--prizm-dialog-max-scrollbar-height, 60vh);
+}
+
+*:focus-visible {
+  outline: none;
+}

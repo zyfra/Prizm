@@ -1,0 +1,38 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.PrizmAstAddImportsIfNeededCodeTask = void 0;
+const abstract_1 = require("../abstract");
+const util_1 = require("./util");
+/**
+ * @class PrizmAstAddImportsIfNeededCodeTask
+ * @extends {PrizmAstCodeTask<IPrizmAddImportsIfNeededCodeTask>}
+ *
+ * @description
+ * A class that represents a task for adding imports if needed.
+ * It checks if the required import(s) already exist and adds them if they don't.
+ * It utilizes the prizmAstAddImportIfNeeded utility function to perform the actual transformation.
+ */
+class PrizmAstAddImportsIfNeededCodeTask extends abstract_1.PrizmAstCodeTask {
+    constructor() {
+        super(...arguments);
+        // Task type identifier
+        this.type = 'add-imports-if-needed';
+    }
+    /**
+     * @function run
+     * @description
+     * Runs the task to add imports if needed.
+     *
+     * @param {ts.TransformationContext} context - The transformation context.
+     * @param {ts.SourceFile} sourceFile - The source file to be transformed.
+     * @param {IPrizmAddImportsIfNeededCodeTask['payload']} payload - The payload that contains the information about the imports.
+     *
+     * @returns {ts.SourceFile} - The transformed source file.
+     */
+    run(context, sourceFile, payload) {
+        // Call the utility function to add the import if needed and return the result
+        return (0, util_1.prizmAstAddImportIfNeeded)(context, sourceFile, payload.namedImports, payload.importToAdd, payload.targetImport, payload.targetNamedImports, payload.commentBeforeImport);
+    }
+}
+exports.PrizmAstAddImportsIfNeededCodeTask = PrizmAstAddImportsIfNeededCodeTask;
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiYWRkLWltcG9ydHMtaWYtbmVlZGVkLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vLi4vbGlicy9hc3QvY29kZS9zcmMvbGliL3RzL2FkZC1pbXBvcnRzL2FkZC1pbXBvcnRzLWlmLW5lZWRlZC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSwwQ0FBK0M7QUFHL0MsaUNBQW1EO0FBRW5EOzs7Ozs7OztHQVFHO0FBQ0gsTUFBYSxrQ0FBbUMsU0FBUSwyQkFBa0Q7SUFBMUc7O1FBQ0UsdUJBQXVCO1FBQ2QsU0FBSSxHQUFHLHVCQUF1QixDQUFDO0lBNkIxQyxDQUFDO0lBM0JDOzs7Ozs7Ozs7O09BVUc7SUFDSSxHQUFHLENBQ1IsT0FBaUMsRUFDakMsVUFBeUIsRUFDekIsT0FBb0Q7UUFFcEQsOEVBQThFO1FBQzlFLE9BQU8sSUFBQSxnQ0FBeUIsRUFDOUIsT0FBTyxFQUNQLFVBQVUsRUFDVixPQUFPLENBQUMsWUFBWSxFQUNwQixPQUFPLENBQUMsV0FBVyxFQUNuQixPQUFPLENBQUMsWUFBWSxFQUNwQixPQUFPLENBQUMsa0JBQWtCLEVBQzFCLE9BQU8sQ0FBQyxtQkFBbUIsQ0FDNUIsQ0FBQztJQUNKLENBQUM7Q0FDRjtBQS9CRCxnRkErQkMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBQcml6bUFzdENvZGVUYXNrIH0gZnJvbSAnLi4vYWJzdHJhY3QnO1xuaW1wb3J0ICogYXMgdHMgZnJvbSAndHlwZXNjcmlwdCc7XG5pbXBvcnQgeyBJUHJpem1BZGRJbXBvcnRzSWZOZWVkZWRDb2RlVGFzayB9IGZyb20gJy4vbW9kZWwnO1xuaW1wb3J0IHsgcHJpem1Bc3RBZGRJbXBvcnRJZk5lZWRlZCB9IGZyb20gJy4vdXRpbCc7XG5cbi8qKlxuICogQGNsYXNzIFByaXptQXN0QWRkSW1wb3J0c0lmTmVlZGVkQ29kZVRhc2tcbiAqIEBleHRlbmRzIHtQcml6bUFzdENvZGVUYXNrPElQcml6bUFkZEltcG9ydHNJZk5lZWRlZENvZGVUYXNrPn1cbiAqXG4gKiBAZGVzY3JpcHRpb25cbiAqIEEgY2xhc3MgdGhhdCByZXByZXNlbnRzIGEgdGFzayBmb3IgYWRkaW5nIGltcG9ydHMgaWYgbmVlZGVkLlxuICogSXQgY2hlY2tzIGlmIHRoZSByZXF1aXJlZCBpbXBvcnQocykgYWxyZWFkeSBleGlzdCBhbmQgYWRkcyB0aGVtIGlmIHRoZXkgZG9uJ3QuXG4gKiBJdCB1dGlsaXplcyB0aGUgcHJpem1Bc3RBZGRJbXBvcnRJZk5lZWRlZCB1dGlsaXR5IGZ1bmN0aW9uIHRvIHBlcmZvcm0gdGhlIGFjdHVhbCB0cmFuc2Zvcm1hdGlvbi5cbiAqL1xuZXhwb3J0IGNsYXNzIFByaXptQXN0QWRkSW1wb3J0c0lmTmVlZGVkQ29kZVRhc2sgZXh0ZW5kcyBQcml6bUFzdENvZGVUYXNrPElQcml6bUFkZEltcG9ydHNJZk5lZWRlZENvZGVUYXNrPiB7XG4gIC8vIFRhc2sgdHlwZSBpZGVudGlmaWVyXG4gIHJlYWRvbmx5IHR5cGUgPSAnYWRkLWltcG9ydHMtaWYtbmVlZGVkJztcblxuICAvKipcbiAgICogQGZ1bmN0aW9uIHJ1blxuICAgKiBAZGVzY3JpcHRpb25cbiAgICogUnVucyB0aGUgdGFzayB0byBhZGQgaW1wb3J0cyBpZiBuZWVkZWQuXG4gICAqXG4gICAqIEBwYXJhbSB7dHMuVHJhbnNmb3JtYXRpb25Db250ZXh0fSBjb250ZXh0IC0gVGhlIHRyYW5zZm9ybWF0aW9uIGNvbnRleHQuXG4gICAqIEBwYXJhbSB7dHMuU291cmNlRmlsZX0gc291cmNlRmlsZSAtIFRoZSBzb3VyY2UgZmlsZSB0byBiZSB0cmFuc2Zvcm1lZC5cbiAgICogQHBhcmFtIHtJUHJpem1BZGRJbXBvcnRzSWZOZWVkZWRDb2RlVGFza1sncGF5bG9hZCddfSBwYXlsb2FkIC0gVGhlIHBheWxvYWQgdGhhdCBjb250YWlucyB0aGUgaW5mb3JtYXRpb24gYWJvdXQgdGhlIGltcG9ydHMuXG4gICAqXG4gICAqIEByZXR1cm5zIHt0cy5Tb3VyY2VGaWxlfSAtIFRoZSB0cmFuc2Zvcm1lZCBzb3VyY2UgZmlsZS5cbiAgICovXG4gIHB1YmxpYyBydW4oXG4gICAgY29udGV4dDogdHMuVHJhbnNmb3JtYXRpb25Db250ZXh0LFxuICAgIHNvdXJjZUZpbGU6IHRzLlNvdXJjZUZpbGUsXG4gICAgcGF5bG9hZDogSVByaXptQWRkSW1wb3J0c0lmTmVlZGVkQ29kZVRhc2tbJ3BheWxvYWQnXVxuICApOiB0cy5Tb3VyY2VGaWxlIHtcbiAgICAvLyBDYWxsIHRoZSB1dGlsaXR5IGZ1bmN0aW9uIHRvIGFkZCB0aGUgaW1wb3J0IGlmIG5lZWRlZCBhbmQgcmV0dXJuIHRoZSByZXN1bHRcbiAgICByZXR1cm4gcHJpem1Bc3RBZGRJbXBvcnRJZk5lZWRlZChcbiAgICAgIGNvbnRleHQsXG4gICAgICBzb3VyY2VGaWxlLFxuICAgICAgcGF5bG9hZC5uYW1lZEltcG9ydHMsXG4gICAgICBwYXlsb2FkLmltcG9ydFRvQWRkLFxuICAgICAgcGF5bG9hZC50YXJnZXRJbXBvcnQsXG4gICAgICBwYXlsb2FkLnRhcmdldE5hbWVkSW1wb3J0cyxcbiAgICAgIHBheWxvYWQuY29tbWVudEJlZm9yZUltcG9ydFxuICAgICk7XG4gIH1cbn1cbiJdfQ==

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[7148],{7148:s=>{s.exports='<prizm-switcher [switchers]="switchers"></prizm-switcher>\n'}}]);

@@ -1,0 +1,6 @@
+{
+  "eslint.validate": [
+    "json"
+  ],
+  "inference.model": "codellama:13b-code-q4_K_M"
+}

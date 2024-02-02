@@ -1,0 +1,42 @@
+import { __decorate, __metadata } from "tslib";
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
+import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
+import * as i0 from "@angular/core";
+export class PrizmProgressBarComponent extends PrizmAbstractTestId {
+    constructor() {
+        super(...arguments);
+        this.trackColor = null;
+        this.size = `m`;
+        this.testId_ = 'ui_progress_bar';
+    }
+}
+PrizmProgressBarComponent.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmProgressBarComponent, deps: null, target: i0.ɵɵFactoryTarget.Component });
+PrizmProgressBarComponent.ɵcmp = i0.ɵɵngDeclareComponent({ minVersion: "14.0.0", version: "15.2.9", type: PrizmProgressBarComponent, isStandalone: true, selector: "progress[prizmProgressBar]", inputs: { color: "color", trackColor: "trackColor", size: "size" }, host: { properties: { "style.--prizm-progress-color": "this.color", "style.--prizm-progress-track-color": "this.trackColor", "attr.data-size": "this.size" } }, usesInheritance: true, ngImport: i0, template: ``, isInline: true, styles: ["@keyframes prizmIndeterminateAnimation{50%{background-position:left}}:host{-webkit-appearance:none;appearance:none;border:none;background-color:var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary));display:block;width:100%;color:var(--prizm-v3-status-info-primary-default);border-radius:var(--prizm-radius-xs, 2px);overflow:hidden}:host::-webkit-progress-value{-webkit-transition:width var(--prizm-duration) linear;transition:width var(--prizm-duration) linear}:host::-webkit-progress-value{background:var(--prizm-progress-color, currentColor)}:host::-moz-progress-bar{background:var(--prizm-progress-color, currentColor)}:host::-webkit-progress-bar{background-color:var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary))}:host[data-size=m]{height:16px}:host[data-size=s]{height:4px}:host[data-size=s]::-webkit-progress-value{border-radius:var(--prizm-radius-xs)}:host[data-size=s]::-moz-progress-bar{border-radius:var(--prizm-radius-xs)}:host:indeterminate{background:transparent;background-image:linear-gradient(to right,var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary)) 0 45%,var(--prizm-progress-color, currentColor) 45% 55%,var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary)) 55% 100%);background-size:225%;background-position:right;animation:prizmIndeterminateAnimation 3s infinite ease-in-out}:host:indeterminate::-webkit-progress-bar{background:transparent}:host:indeterminate::-webkit-progress-value{background:transparent}:host:indeterminate::-moz-progress-bar{background:transparent}:host-context(label[prizmProgressLabel]):not(:first-child){position:absolute;top:0;left:0;width:100%;height:100%;background-color:transparent}:host-context(label[prizmProgressLabel]):not(:first-child)::-webkit-progress-bar{background-color:transparent}\n"], changeDetection: i0.ChangeDetectionStrategy.OnPush });
+__decorate([
+    prizmDefaultProp(),
+    __metadata("design:type", Object)
+], PrizmProgressBarComponent.prototype, "trackColor", void 0);
+__decorate([
+    prizmDefaultProp(),
+    __metadata("design:type", String)
+], PrizmProgressBarComponent.prototype, "size", void 0);
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmProgressBarComponent, decorators: [{
+            type: Component,
+            args: [{ selector: `progress[prizmProgressBar]`, template: ``, changeDetection: ChangeDetectionStrategy.OnPush, standalone: true, styles: ["@keyframes prizmIndeterminateAnimation{50%{background-position:left}}:host{-webkit-appearance:none;appearance:none;border:none;background-color:var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary));display:block;width:100%;color:var(--prizm-v3-status-info-primary-default);border-radius:var(--prizm-radius-xs, 2px);overflow:hidden}:host::-webkit-progress-value{-webkit-transition:width var(--prizm-duration) linear;transition:width var(--prizm-duration) linear}:host::-webkit-progress-value{background:var(--prizm-progress-color, currentColor)}:host::-moz-progress-bar{background:var(--prizm-progress-color, currentColor)}:host::-webkit-progress-bar{background-color:var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary))}:host[data-size=m]{height:16px}:host[data-size=s]{height:4px}:host[data-size=s]::-webkit-progress-value{border-radius:var(--prizm-radius-xs)}:host[data-size=s]::-moz-progress-bar{border-radius:var(--prizm-radius-xs)}:host:indeterminate{background:transparent;background-image:linear-gradient(to right,var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary)) 0 45%,var(--prizm-progress-color, currentColor) 45% 55%,var(--prizm-progress-track-color, var(--prizm-v3-background-fill-secondary)) 55% 100%);background-size:225%;background-position:right;animation:prizmIndeterminateAnimation 3s infinite ease-in-out}:host:indeterminate::-webkit-progress-bar{background:transparent}:host:indeterminate::-webkit-progress-value{background:transparent}:host:indeterminate::-moz-progress-bar{background:transparent}:host-context(label[prizmProgressLabel]):not(:first-child){position:absolute;top:0;left:0;width:100%;height:100%;background-color:transparent}:host-context(label[prizmProgressLabel]):not(:first-child)::-webkit-progress-bar{background-color:transparent}\n"] }]
+        }], propDecorators: { color: [{
+                type: Input
+            }, {
+                type: HostBinding,
+                args: [`style.--prizm-progress-color`]
+            }], trackColor: [{
+                type: Input
+            }, {
+                type: HostBinding,
+                args: [`style.--prizm-progress-track-color`]
+            }], size: [{
+                type: Input
+            }, {
+                type: HostBinding,
+                args: [`attr.data-size`]
+            }] } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJvZ3Jlc3MtYmFyLmNvbXBvbmVudC5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uLy4uL2xpYnMvY29tcG9uZW50cy9zcmMvbGliL2NvbXBvbmVudHMvcHJvZ3Jlc3MvcHJvZ3Jlc3MtYmFyL3Byb2dyZXNzLWJhci5jb21wb25lbnQudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IjtBQUFBLE9BQU8sRUFBRSx1QkFBdUIsRUFBRSxTQUFTLEVBQUUsV0FBVyxFQUFFLEtBQUssRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN2RixPQUFPLEVBQUUsbUJBQW1CLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQzs7QUFXdkUsTUFBTSxPQUFPLHlCQUEwQixTQUFRLG1CQUFtQjtJQVJsRTs7UUFnQkUsZUFBVSxHQUFrQixJQUFJLENBQUM7UUFLakMsU0FBSSxHQUE0QixHQUFHLENBQUM7UUFFbEIsWUFBTyxHQUFHLGlCQUFpQixDQUFDO0tBQy9DOztzSEFoQlkseUJBQXlCOzBHQUF6Qix5QkFBeUIsaVZBTDFCLEVBQUU7QUFVWjtJQUVDLGdCQUFnQixFQUFFOzs2REFDYztBQUVqQztJQUVDLGdCQUFnQixFQUFFOzt1REFDaUI7MkZBYnpCLHlCQUF5QjtrQkFSckMsU0FBUzsrQkFFRSw0QkFBNEIsWUFDNUIsRUFBRSxtQkFFSyx1QkFBdUIsQ0FBQyxNQUFNLGNBQ25DLElBQUk7OEJBS2hCLEtBQUs7c0JBRkosS0FBSzs7c0JBQ0wsV0FBVzt1QkFBQyw4QkFBOEI7Z0JBTTNDLFVBQVU7c0JBSFQsS0FBSzs7c0JBQ0wsV0FBVzt1QkFBQyxvQ0FBb0M7Z0JBT2pELElBQUk7c0JBSEgsS0FBSzs7c0JBQ0wsV0FBVzt1QkFBQyxnQkFBZ0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBDaGFuZ2VEZXRlY3Rpb25TdHJhdGVneSwgQ29tcG9uZW50LCBIb3N0QmluZGluZywgSW5wdXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IFByaXptQWJzdHJhY3RUZXN0SWQsIHByaXptRGVmYXVsdFByb3AgfSBmcm9tICdAcHJpem0tdWkvY29yZSc7XG5pbXBvcnQgeyBQcml6bVNpemVNLCBQcml6bVNpemVTIH0gZnJvbSAnLi4vLi4vLi4vdXRpbC9zaXplLWJpZ2dlcic7XG5cbkBDb21wb25lbnQoe1xuICAvLyBlc2xpbnQtZGlzYWJsZS1uZXh0LWxpbmUgQGFuZ3VsYXItZXNsaW50L2NvbXBvbmVudC1zZWxlY3RvclxuICBzZWxlY3RvcjogYHByb2dyZXNzW3ByaXptUHJvZ3Jlc3NCYXJdYCxcbiAgdGVtcGxhdGU6IGBgLFxuICBzdHlsZVVybHM6IFtgLi9wcm9ncmVzcy1iYXIuY29tcG9uZW50Lmxlc3NgXSxcbiAgY2hhbmdlRGV0ZWN0aW9uOiBDaGFuZ2VEZXRlY3Rpb25TdHJhdGVneS5PblB1c2gsXG4gIHN0YW5kYWxvbmU6IHRydWUsXG59KVxuZXhwb3J0IGNsYXNzIFByaXptUHJvZ3Jlc3NCYXJDb21wb25lbnQgZXh0ZW5kcyBQcml6bUFic3RyYWN0VGVzdElkIHtcbiAgQElucHV0KClcbiAgQEhvc3RCaW5kaW5nKGBzdHlsZS4tLXByaXptLXByb2dyZXNzLWNvbG9yYClcbiAgY29sb3I/OiBzdHJpbmcgfCBudWxsO1xuXG4gIEBJbnB1dCgpXG4gIEBIb3N0QmluZGluZyhgc3R5bGUuLS1wcml6bS1wcm9ncmVzcy10cmFjay1jb2xvcmApXG4gIEBwcml6bURlZmF1bHRQcm9wKClcbiAgdHJhY2tDb2xvcjogc3RyaW5nIHwgbnVsbCA9IG51bGw7XG5cbiAgQElucHV0KClcbiAgQEhvc3RCaW5kaW5nKGBhdHRyLmRhdGEtc2l6ZWApXG4gIEBwcml6bURlZmF1bHRQcm9wKClcbiAgc2l6ZTogUHJpem1TaXplUyB8IFByaXptU2l6ZU0gPSBgbWA7XG5cbiAgb3ZlcnJpZGUgcmVhZG9ubHkgdGVzdElkXyA9ICd1aV9wcm9ncmVzc19iYXInO1xufVxuIl19

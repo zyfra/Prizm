@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[73193],{73193:c=>{c.exports='```html\n<comp class="component" [style.--icon-size]="iconSize"></comp>\n```\n'}}]);

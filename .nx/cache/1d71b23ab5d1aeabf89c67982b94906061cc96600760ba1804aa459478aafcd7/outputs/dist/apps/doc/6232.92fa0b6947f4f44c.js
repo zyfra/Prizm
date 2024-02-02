@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[6232],{6232:e=>{e.exports='<prizm-charts-gauge\n  [percent]="0.35"\n  [options]="options"\n  [theme]="$any(prizmTheme.changesTheme$ | async)"\n></prizm-charts-gauge>\n'}}]);

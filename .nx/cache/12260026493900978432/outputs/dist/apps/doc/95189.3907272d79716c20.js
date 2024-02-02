@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[95189],{95189:e=>{e.exports='<prizm-charts-treemap\n  [data]="data"\n  [colorField]="colorField"\n  [theme]="$any(prizmTheme.changesTheme$ | async)"\n></prizm-charts-treemap>\n'}}]);

@@ -1,0 +1,10 @@
+'use strict';
+(self.webpackChunkdoc = self.webpackChunkdoc || []).push([
+  [27900],
+  {
+    27900: t => {
+      t.exports =
+        '<prizm-input-layout label="\u0412\u044b\u0431\u0435\u0440\u0438\u0442\u0435 \u043f\u0435\u0440\u0438\u043e\u0434">\n  <prizm-input-layout-date-range [items]="items" [formControl]="value" [min]="min" [max]="max">\n  </prizm-input-layout-date-range>\n</prizm-input-layout>\n';
+    },
+  },
+]);

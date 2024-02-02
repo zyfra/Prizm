@@ -1,0 +1,104 @@
+:host {
+  display: inline-block;
+  padding: var(--prizm-confirm-popup-margin, 8px);
+  color: var(--prizm-confirm-popup-container-text, var(--prizm-v3-text-icon-primary));
+  font-size: var(--prizm-confirm-popup-container-font-size, 12px);
+  min-width: var(--prizm-confirm-popup-container-min-width, 350px);
+
+  prizm-scrollbar,
+  .box {
+    max-height: var(--prizm-confirm-popup-container-max-height, 60vh);
+    max-width: var(--prizm-confirm-popup-container-max-width, 388px);
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .box {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    padding: var(--prizm-confirm-popup-container-padding, 16px 14px);
+    border-radius: var(--prizm-confirm-popup-container-border-radius, 2px);
+    background-color: var(
+      --prizm-confirm-popup-container-background,
+      var(--prizm-v3-background-fill-overlay)
+    );
+  }
+
+  &[position='tl'],
+  &[position='bl'] {
+    padding-left: 0;
+  }
+
+  &[position='lt'],
+  &[position='rt'] {
+    padding-top: 1px;
+  }
+
+  &[position='lb'],
+  &[position='rb'] {
+    padding-bottom: 1px;
+  }
+
+  &[position='tr'],
+  &[position='br'] {
+    padding-right: 0;
+  }
+}
+
+prizm-scrollbar {
+  height: 100%;
+}
+
+.footer {
+  padding: var(--prizm-confirm-dialog-padding, 32px 0 0 0);
+  max-width: 100%;
+
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .left,
+  .right,
+  .top,
+  .bottom {
+    display: flex;
+    gap: 8px;
+  }
+
+  .right {
+    justify-content: flex-end;
+  }
+}
+
+.vertical {
+  [prizmButton] {
+    box-sizing: border-box;
+    text-align: center;
+  }
+
+  .top,
+  .bottom {
+    flex-flow: column;
+  }
+
+  .bottom {
+    margin-top: 24px;
+  }
+}
+
+.title,
+.description {
+  white-space: pre-line;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.content {
+  padding: 0 2px;
+}

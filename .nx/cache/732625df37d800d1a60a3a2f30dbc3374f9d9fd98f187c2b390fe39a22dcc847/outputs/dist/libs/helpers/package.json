@@ -1,0 +1,39 @@
+{
+  "name": "@prizm-ui/helpers",
+  "version": "2.12.0",
+  "license": "MIT",
+  "description": "Library to make it easy to create Angular applications. Contains Injectables Service, RxJS utilities, directives, and standard pipes.",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/forms": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/prizm-ui-helpers.mjs",
+  "es2020": "fesm2020/prizm-ui-helpers.mjs",
+  "esm2020": "esm2020/prizm-ui-helpers.mjs",
+  "fesm2020": "fesm2020/prizm-ui-helpers.mjs",
+  "fesm2015": "fesm2015/prizm-ui-helpers.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/prizm-ui-helpers.mjs",
+      "es2020": "./fesm2020/prizm-ui-helpers.mjs",
+      "es2015": "./fesm2015/prizm-ui-helpers.mjs",
+      "node": "./fesm2015/prizm-ui-helpers.mjs",
+      "default": "./fesm2020/prizm-ui-helpers.mjs"
+    }
+  },
+  "sideEffects": false
+}

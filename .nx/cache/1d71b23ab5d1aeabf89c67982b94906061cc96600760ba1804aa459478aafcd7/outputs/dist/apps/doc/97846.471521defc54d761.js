@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[97846],{97846:n=>{n.exports=":host {\n  &.hovered {\n    prizm-icons-svg {\n      display: flex;\n    }\n  }\n\n  prizm-icons-svg {\n    cursor: help;\n    display: none;\n  }\n}\n"}}]);

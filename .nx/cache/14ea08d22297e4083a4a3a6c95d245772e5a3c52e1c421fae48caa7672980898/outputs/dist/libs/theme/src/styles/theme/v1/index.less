@@ -1,0 +1,16 @@
+@import 'default.less';
+@import 'dark.less';
+@import 'variables.less';
+
+:root {
+  .prizmThemeVariables();
+}
+
+:root,
+*[data-prizm-theme='light'] {
+  .prizmDefaultTheme();
+}
+
+*[data-prizm-theme='dark'] {
+  .prizmDarkTheme();
+}

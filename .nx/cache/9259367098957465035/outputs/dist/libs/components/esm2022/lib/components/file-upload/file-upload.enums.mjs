@@ -1,0 +1,8 @@
+export var UploadingStatusEnum;
+(function (UploadingStatusEnum) {
+    UploadingStatusEnum["idle"] = "idle";
+    UploadingStatusEnum["progress"] = "progress";
+    UploadingStatusEnum["warning"] = "warning";
+    UploadingStatusEnum["success"] = "success";
+})(UploadingStatusEnum || (UploadingStatusEnum = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZmlsZS11cGxvYWQuZW51bXMuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9saWJzL2NvbXBvbmVudHMvc3JjL2xpYi9jb21wb25lbnRzL2ZpbGUtdXBsb2FkL2ZpbGUtdXBsb2FkLmVudW1zLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sQ0FBTixJQUFZLG1CQUtYO0FBTEQsV0FBWSxtQkFBbUI7SUFDN0Isb0NBQWEsQ0FBQTtJQUNiLDRDQUFxQixDQUFBO0lBQ3JCLDBDQUFtQixDQUFBO0lBQ25CLDBDQUFtQixDQUFBO0FBQ3JCLENBQUMsRUFMVyxtQkFBbUIsS0FBbkIsbUJBQW1CLFFBSzlCIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gVXBsb2FkaW5nU3RhdHVzRW51bSB7XG4gIGlkbGUgPSAnaWRsZScsXG4gIHByb2dyZXNzID0gJ3Byb2dyZXNzJyxcbiAgd2FybmluZyA9ICd3YXJuaW5nJyxcbiAgc3VjY2VzcyA9ICdzdWNjZXNzJyxcbn1cbiJdfQ==

@@ -1,0 +1,117 @@
+@height-s: 24px;
+@height-m: 32px;
+@height-l: 40px;
+
+:host {
+  padding: 0 8px;
+
+  border: 1px solid var(--prizm-v3-table-stroke-cell-default);
+  background: var(--prizm-v3-table-fill-header-default);
+
+  font-size: 12px;
+  line-height: 16px;
+  font-weight: 600;
+  color: var(--prizm-v3-text-icon-tertiary);
+  text-align: left;
+
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  &.unsticky {
+    top: auto;
+  }
+
+  &:not(:first-child) {
+    border-left: none;
+  }
+  // TODO: for 4.0
+  // &:has([prizmInput]:hover) {
+  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
+  // }
+
+  // &:has([prizmInput]:focus) {
+  //   background-color: var(--prizm-v3-background-fill-primary);
+  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
+  // }
+
+  .resize-bar {
+    height: 100%;
+    width: 4px;
+
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    cursor: col-resize;
+  }
+
+  .cell {
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+  }
+
+  .sorter {
+    width: 100%;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 600;
+    color: var(--prizm-v3-text-icon-tertiary);
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    .sort__block {
+      margin-left: 4px;
+      display: flex;
+      gap: 2px;
+      color: var(--prizm-v3-button-secondary-solid-default);
+      cursor: pointer;
+      align-items: center;
+      justify-content: center;
+
+      &_active {
+        color: var(--prizm-v3-button-primary-solid-active);
+      }
+    }
+  }
+}
+
+:host-context([data-size='s']),
+:host-context([data-size='xs']) {
+  height: @height-s;
+}
+
+:host-context([data-size='m']) {
+  height: @height-m;
+}
+
+:host-context([data-size='l']) {
+  height: @height-l;
+}
+
+:host-context(tr:not(:first-child)) {
+  border-top: none;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(2)),
+:host-context(table[data-size='xs'] thead tr:nth-child(2)) {
+  top: @height-s;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(2)) {
+  top: @height-m;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(2)) {
+  top: @height-l;
+}

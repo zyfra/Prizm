@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[93743],{93743:e=>{e.exports='<ng-container *polymorphOutlet="value">\n  {{ value }}\n</ng-container>\n'}}]);

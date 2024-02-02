@@ -1,0 +1,13 @@
+/**
+ * Forked from ng-polymorph
+ */
+export * from './classes/component';
+export * from './directives/template';
+export * from './directives/outlet';
+export * from './tokens/context';
+export * from './types/content';
+export * from './types/handler';
+export * from './types/primitive';
+export * from './polymorph.module';
+export * from './util';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9saWJzL2NvbXBvbmVudHMvc3JjL2xpYi9kaXJlY3RpdmVzL3BvbHltb3JwaC9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTs7R0FFRztBQUNILGNBQWMscUJBQXFCLENBQUM7QUFDcEMsY0FBYyx1QkFBdUIsQ0FBQztBQUN0QyxjQUFjLHFCQUFxQixDQUFDO0FBQ3BDLGNBQWMsa0JBQWtCLENBQUM7QUFDakMsY0FBYyxpQkFBaUIsQ0FBQztBQUNoQyxjQUFjLGlCQUFpQixDQUFDO0FBQ2hDLGNBQWMsbUJBQW1CLENBQUM7QUFDbEMsY0FBYyxvQkFBb0IsQ0FBQztBQUNuQyxjQUFjLFFBQVEsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICogRm9ya2VkIGZyb20gbmctcG9seW1vcnBoXG4gKi9cbmV4cG9ydCAqIGZyb20gJy4vY2xhc3Nlcy9jb21wb25lbnQnO1xuZXhwb3J0ICogZnJvbSAnLi9kaXJlY3RpdmVzL3RlbXBsYXRlJztcbmV4cG9ydCAqIGZyb20gJy4vZGlyZWN0aXZlcy9vdXRsZXQnO1xuZXhwb3J0ICogZnJvbSAnLi90b2tlbnMvY29udGV4dCc7XG5leHBvcnQgKiBmcm9tICcuL3R5cGVzL2NvbnRlbnQnO1xuZXhwb3J0ICogZnJvbSAnLi90eXBlcy9oYW5kbGVyJztcbmV4cG9ydCAqIGZyb20gJy4vdHlwZXMvcHJpbWl0aXZlJztcbmV4cG9ydCAqIGZyb20gJy4vcG9seW1vcnBoLm1vZHVsZSc7XG5leHBvcnQgKiBmcm9tICcuL3V0aWwnO1xuIl19

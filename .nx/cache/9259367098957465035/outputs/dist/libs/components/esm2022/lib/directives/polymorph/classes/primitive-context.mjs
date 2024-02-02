@@ -1,0 +1,9 @@
+export class PrimitiveContext {
+    constructor($implicit) {
+        this.$implicit = $implicit;
+    }
+    get polymorphOutlet() {
+        return this.$implicit;
+    }
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoicHJpbWl0aXZlLWNvbnRleHQuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9saWJzL2NvbXBvbmVudHMvc3JjL2xpYi9kaXJlY3RpdmVzL3BvbHltb3JwaC9jbGFzc2VzL3ByaW1pdGl2ZS1jb250ZXh0LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU0sT0FBTyxnQkFBZ0I7SUFDM0IsWUFBbUIsU0FBa0I7UUFBbEIsY0FBUyxHQUFULFNBQVMsQ0FBUztJQUFHLENBQUM7SUFFekMsSUFBSSxlQUFlO1FBQ2pCLE9BQU8sSUFBSSxDQUFDLFNBQVMsQ0FBQztJQUN4QixDQUFDO0NBQ0YiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgY2xhc3MgUHJpbWl0aXZlQ29udGV4dCB7XG4gIGNvbnN0cnVjdG9yKHB1YmxpYyAkaW1wbGljaXQ6IHVua25vd24pIHt9XG5cbiAgZ2V0IHBvbHltb3JwaE91dGxldCgpOiB1bmtub3duIHtcbiAgICByZXR1cm4gdGhpcy4kaW1wbGljaXQ7XG4gIH1cbn1cbiJdfQ==

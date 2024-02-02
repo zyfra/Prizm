@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[96897],{96897:e=>{e.exports='<prizm-charts-waterfall\n  [data]="data"\n  [options]="options"\n  [xField]="xField"\n  [yField]="yField"\n  [theme]="$any(prizmTheme.changesTheme$ | async)"\n></prizm-charts-waterfall>\n'}}]);

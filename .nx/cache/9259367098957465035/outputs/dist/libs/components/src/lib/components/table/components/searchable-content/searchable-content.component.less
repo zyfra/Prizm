@@ -1,0 +1,18 @@
+:host {
+  display: inline-flex;
+
+  span {
+    white-space: pre;
+  }
+
+  .marked {
+    font-weight: 700;
+  }
+
+  &[focused='true'] {
+    .marked {
+      background: var(--prizm-text-contrast);
+      color: var(--prizm-bg);
+    }
+  }
+}

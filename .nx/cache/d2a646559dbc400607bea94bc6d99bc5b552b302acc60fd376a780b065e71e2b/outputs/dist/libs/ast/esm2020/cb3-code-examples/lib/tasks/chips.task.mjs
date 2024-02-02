@@ -1,0 +1,19 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ZyfraChipsCodeTasks = void 0;
+const code_1 = require("@prizm-ui/ast/code");
+exports.ZyfraChipsCodeTasks = [
+    (0, code_1.prizmAstCreateCodeTaskBy)(code_1.PrizmAstAddImportsIfNeededCodeTask, {
+        importToAdd: '@prizm-ui/components',
+        namedImports: ['PrizmChipsModule'],
+        targetImport: '@digital-plant/zyfra-components',
+        targetNamedImports: ['ZyfraChipModule'],
+        commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraChipModule',
+    }),
+    (0, code_1.prizmAstCreateCodeTaskBy)(code_1.PrizmAstAddImportsToNgModuleCodeTask, {
+        newModule: 'PrizmChipsModule',
+        moduleToFind: 'ZyfraChipModule',
+        comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraChipModule',
+    }),
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2hpcHMudGFzay5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL2xpYnMvYXN0L2NiMy1jb2RlLWV4YW1wbGVzL3NyYy9saWIvdGFza3MvY2hpcHMudGFzay50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7QUFBQSw2Q0FLNEI7QUFFZixRQUFBLG1CQUFtQixHQUF3QjtJQUN0RCxJQUFBLCtCQUF3QixFQUFDLHlDQUFrQyxFQUFFO1FBQzNELFdBQVcsRUFBRSxzQkFBc0I7UUFDbkMsWUFBWSxFQUFFLENBQUMsa0JBQWtCLENBQUM7UUFDbEMsWUFBWSxFQUFFLGlDQUFpQztRQUMvQyxrQkFBa0IsRUFBRSxDQUFDLGlCQUFpQixDQUFDO1FBQ3ZDLG1CQUFtQixFQUFFLGtFQUFrRTtLQUN4RixDQUFDO0lBQ0YsSUFBQSwrQkFBd0IsRUFBQywyQ0FBb0MsRUFBRTtRQUM3RCxTQUFTLEVBQUUsa0JBQWtCO1FBQzdCLFlBQVksRUFBRSxpQkFBaUI7UUFDL0IsT0FBTyxFQUFFLG1FQUFtRTtLQUM3RSxDQUFDO0NBQ0gsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7XG4gIFByaXptQXN0QWRkSW1wb3J0c0lmTmVlZGVkQ29kZVRhc2ssXG4gIFByaXptQXN0QWRkSW1wb3J0c1RvTmdNb2R1bGVDb2RlVGFzayxcbiAgSVByaXptQXN0Q29kZVRhc2ssXG4gIHByaXptQXN0Q3JlYXRlQ29kZVRhc2tCeSxcbn0gZnJvbSAnQHByaXptLXVpL2FzdC9jb2RlJztcblxuZXhwb3J0IGNvbnN0IFp5ZnJhQ2hpcHNDb2RlVGFza3M6IElQcml6bUFzdENvZGVUYXNrW10gPSBbXG4gIHByaXptQXN0Q3JlYXRlQ29kZVRhc2tCeShQcml6bUFzdEFkZEltcG9ydHNJZk5lZWRlZENvZGVUYXNrLCB7XG4gICAgaW1wb3J0VG9BZGQ6ICdAcHJpem0tdWkvY29tcG9uZW50cycsXG4gICAgbmFtZWRJbXBvcnRzOiBbJ1ByaXptQ2hpcHNNb2R1bGUnXSxcbiAgICB0YXJnZXRJbXBvcnQ6ICdAZGlnaXRhbC1wbGFudC96eWZyYS1jb21wb25lbnRzJyxcbiAgICB0YXJnZXROYW1lZEltcG9ydHM6IFsnWnlmcmFDaGlwTW9kdWxlJ10sXG4gICAgY29tbWVudEJlZm9yZUltcG9ydDogJ1BSSVpNOk1JR1JBVE9SIGFkZGVkIG5ldyBtb2R1bGUgZm9yIG1pZ3JhdGUgZnJvbSBaeWZyYUNoaXBNb2R1bGUnLFxuICB9KSxcbiAgcHJpem1Bc3RDcmVhdGVDb2RlVGFza0J5KFByaXptQXN0QWRkSW1wb3J0c1RvTmdNb2R1bGVDb2RlVGFzaywge1xuICAgIG5ld01vZHVsZTogJ1ByaXptQ2hpcHNNb2R1bGUnLFxuICAgIG1vZHVsZVRvRmluZDogJ1p5ZnJhQ2hpcE1vZHVsZScsXG4gICAgY29tbWVudDogJ1BSSVpNOk1JR1JBVE9SOiBPdXIgYWRkZWQgbW9kdWxlIGZvciBtaWdyYXRlIGZyb20gWnlmcmFDaGlwTW9kdWxlJyxcbiAgfSksXG5dO1xuIl19

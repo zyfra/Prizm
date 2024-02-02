@@ -1,8 +1,15 @@
 <prizm-doc-page header="Icon" package="NEXT">
   <div class="page-description" description>
-    Icons can be used as fonts and as svg (examples of usage below). Also with the help of our registry you
-    can add your svg icons (example in the file with svg). Also each icon can be connected separately or the
-    whole set of SVG icons.
+    <ng-container *prizmIfLang="'russian'; else eng">
+      Иконки можно использовать как шрифты и как svg (примеры использования приведены ниже). Также с помощью нашего реестра вы
+      можете добавить свои svg-иконки (пример в файле с svg). Также можно подключить каждую иконку отдельно или
+      весь набор SVG-иконок.
+    </ng-container>
+    <ng-template #eng>
+      Icons can be used as fonts and as svg (examples of usage below). Also with the help of our registry you
+      can add your svg icons (example in the file with svg). Also each icon can be connected separately or the
+      whole set of SVG icons.
+    </ng-template>
   </div>
 
   <ng-template prizmDocPageTab>
@@ -14,7 +21,7 @@
       <prizm-icon-svg-example></prizm-icon-svg-example>
     </prizm-doc-example>
 
-    <h1>Icon set.</h1>
+    <h1>Svg Icons set.</h1>
 
     <div *ngFor="let def of defs">
       <h4 class="title">{{ def.dir }}</h4>
@@ -73,12 +80,25 @@
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">
       <li>
+<<<<<<< Updated upstream
         <p>
           Import
           <code>PrizmIconsSvgModule</code>
           into a module where you want to use our component
+=======
+        <p *prizmIfLang="'russian'; else eng">
+          Импортируйте
+          <code>PrizmIconsSvgComponent</code>
+          в модуль, где хотите использовать наш компонент
+>>>>>>> Stashed changes
         </p>
-
+        <ng-template #eng>
+          <p>
+            Import
+            <code>PrizmIconsSvgComponent</code>
+            into a module where you want to use our component
+          </p>
+        </ng-template>
         <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>

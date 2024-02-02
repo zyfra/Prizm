@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[75354],{75354:n=>{n.exports='<prizm-breadcrumbs>\n  <ng-container *ngFor="let item of breadcrumbs">\n    <a *prizmBreadcrumb [routerLink]="item.link">\n      {{ item.name }}\n    </a>\n  </ng-container>\n</prizm-breadcrumbs>\n'}}]);

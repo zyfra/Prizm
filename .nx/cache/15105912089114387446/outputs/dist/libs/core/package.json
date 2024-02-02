@@ -1,0 +1,32 @@
+{
+  "name": "@prizm-ui/core",
+  "version": "3.11.0",
+  "license": "MIT",
+  "description": "The main library for creating Angular components and elements using Prizm.",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.1.0 || ^16.2.0",
+    "@angular/core": "^16.1.0 || ^16.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2022/prizm-ui-core.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/prizm-ui-core.mjs",
+      "esm": "./esm2022/prizm-ui-core.mjs",
+      "default": "./fesm2022/prizm-ui-core.mjs"
+    }
+  },
+  "sideEffects": false
+}

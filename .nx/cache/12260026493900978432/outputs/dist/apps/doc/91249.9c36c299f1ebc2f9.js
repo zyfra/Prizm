@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[91249],{91249:e=>{e.exports=".padding-indent {\n  --example-prizm-folder-position: relative;\n}\n\nprizm-tree {\n  overflow: hidden;\n}\n"}}]);

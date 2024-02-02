@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[74202],{74202:e=>{e.exports='<prizm-charts-pie\n  [data]="data"\n  [options]="options"\n  [colorField]="colorField"\n  [angleField]="angleField"\n  [interactions]="interactions"\n  [label]="label"\n  [theme]="$any(prizmTheme.changesTheme$ | async)"\n></prizm-charts-pie>\n'}}]);

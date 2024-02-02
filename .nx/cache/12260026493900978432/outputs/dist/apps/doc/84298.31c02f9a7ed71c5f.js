@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[84298],{84298:e=>{e.exports='<h3>\n  Current Value:\n  <b>{{ item.valueChange | async }}</b>\n</h3>\n<h3>\n  Selected Tab:\n  <b>{{ selected }}</b>\n</h3>\n<hr />\n<br />\n<br />\n<prizm-cron #item [(selected)]="selected" [tabs]="tabs"></prizm-cron>\n'}}]);

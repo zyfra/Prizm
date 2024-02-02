@@ -1,0 +1,37 @@
+import { ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { ControlValueAccessor, NgControl } from '@angular/forms';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { BooleanInput } from '@angular/cdk/coercion';
+import * as i0 from "@angular/core";
+export declare class PrizmCheckboxComponent extends PrizmAbstractTestId implements ControlValueAccessor, OnDestroy, OnChanges, OnInit {
+    private readonly el;
+    private ngControl;
+    private cdr;
+    size: 's' | 'l';
+    indeterminate: boolean;
+    host: HTMLElement | null;
+    get disabled(): BooleanInput;
+    set disabled(value: BooleanInput);
+    private _disabled;
+    private _checked;
+    get checked(): boolean;
+    set checked(val: boolean);
+    changed: EventEmitter<boolean>;
+    readonly testId_ = "ui_checkbox";
+    changeFn: (value: boolean) => void;
+    touchedFn: () => void;
+    private readonly destroyElement$;
+    constructor(el: ElementRef, ngControl: NgControl, cdr: ChangeDetectorRef);
+    ngOnInit(): void;
+    ngOnChanges(changes: SimpleChanges): void;
+    ngOnDestroy(): void;
+    private onClick;
+    private initListener;
+    private setValue;
+    writeValue(value: boolean): void;
+    registerOnChange(fn: any): void;
+    registerOnTouched(fn: any): void;
+    setDisabledState?(isDisabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrizmCheckboxComponent, [null, { optional: true; self: true; }, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PrizmCheckboxComponent, "prizm-checkbox", never, { "size": "size"; "indeterminate": "indeterminate"; "host": "host"; "disabled": "disabled"; "checked": "checked"; }, { "changed": "changed"; }, never, ["*"], true, never>;
+}

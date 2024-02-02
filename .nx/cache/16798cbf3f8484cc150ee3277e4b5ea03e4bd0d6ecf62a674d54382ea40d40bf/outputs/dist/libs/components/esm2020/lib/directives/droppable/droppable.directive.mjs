@@ -1,0 +1,38 @@
+import { Directive, ElementRef, Inject, Output } from '@angular/core';
+import { merge, Observable } from 'rxjs';
+import { distinctUntilChanged, filter, map, mapTo, startWith, switchMap, takeUntil } from 'rxjs/operators';
+import { filterNotNullish, PrizmDestroyService } from '@prizm-ui/helpers';
+import { prizmTypedFromEvent } from '../../observables/typed-from-event';
+import { prizmPreventDefault } from '../../observables/prevent-default';
+import * as i0 from "@angular/core";
+import * as i1 from "rxjs";
+export class PrizmDroppableDirective {
+    constructor({ nativeElement }, destroy$) {
+        this.prizmDroppableDropped = prizmTypedFromEvent(nativeElement, 'drop').pipe(prizmPreventDefault(), map(event => event.dataTransfer), filterNotNullish());
+        this.prizmDroppableDragOverChange = prizmTypedFromEvent(nativeElement, 'dragenter').pipe(switchMap(({ target, dataTransfer }) => merge(prizmTypedFromEvent(nativeElement, 'dragleave').pipe(filter(event => event.target === target)), prizmTypedFromEvent(nativeElement, 'drop')).pipe(mapTo(null), startWith(dataTransfer))), distinctUntilChanged((a, b) => (!!a && !!b) || (!a && !b)));
+        // Required by Drag and Drop API to stop redirecting
+        prizmTypedFromEvent(nativeElement, 'dragover')
+            .pipe(prizmPreventDefault(), takeUntil(destroy$))
+            .subscribe();
+    }
+}
+PrizmDroppableDirective.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmDroppableDirective, deps: [{ token: ElementRef }, { token: PrizmDestroyService }], target: i0.ɵɵFactoryTarget.Directive });
+PrizmDroppableDirective.ɵdir = i0.ɵɵngDeclareDirective({ minVersion: "14.0.0", version: "15.2.9", type: PrizmDroppableDirective, selector: "[prizmDroppableDropped], [prizmDroppableDragOverChange]", outputs: { prizmDroppableDropped: "prizmDroppableDropped", prizmDroppableDragOverChange: "prizmDroppableDragOverChange" }, providers: [PrizmDestroyService], ngImport: i0 });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "15.2.9", ngImport: i0, type: PrizmDroppableDirective, decorators: [{
+            type: Directive,
+            args: [{
+                    selector: '[prizmDroppableDropped], [prizmDroppableDragOverChange]',
+                    providers: [PrizmDestroyService],
+                }]
+        }], ctorParameters: function () { return [{ type: i0.ElementRef, decorators: [{
+                    type: Inject,
+                    args: [ElementRef]
+                }] }, { type: i1.Observable, decorators: [{
+                    type: Inject,
+                    args: [PrizmDestroyService]
+                }] }]; }, propDecorators: { prizmDroppableDropped: [{
+                type: Output
+            }], prizmDroppableDragOverChange: [{
+                type: Output
+            }] } });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJvcHBhYmxlLmRpcmVjdGl2ZS5qcyIsInNvdXJjZVJvb3QiOiIiLCJzb3VyY2VzIjpbIi4uLy4uLy4uLy4uLy4uLy4uLy4uL2xpYnMvY29tcG9uZW50cy9zcmMvbGliL2RpcmVjdGl2ZXMvZHJvcHBhYmxlL2Ryb3BwYWJsZS5kaXJlY3RpdmUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsT0FBTyxFQUFFLFNBQVMsRUFBRSxVQUFVLEVBQUUsTUFBTSxFQUFFLE1BQU0sRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN0RSxPQUFPLEVBQUUsS0FBSyxFQUFFLFVBQVUsRUFBRSxNQUFNLE1BQU0sQ0FBQztBQUN6QyxPQUFPLEVBQUUsb0JBQW9CLEVBQUUsTUFBTSxFQUFFLEdBQUcsRUFBRSxLQUFLLEVBQUUsU0FBUyxFQUFFLFNBQVMsRUFBRSxTQUFTLEVBQUUsTUFBTSxnQkFBZ0IsQ0FBQztBQUMzRyxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsbUJBQW1CLEVBQUUsTUFBTSxtQkFBbUIsQ0FBQztBQUMxRSxPQUFPLEVBQUUsbUJBQW1CLEVBQUUsTUFBTSxvQ0FBb0MsQ0FBQztBQUN6RSxPQUFPLEVBQUUsbUJBQW1CLEVBQUUsTUFBTSxtQ0FBbUMsQ0FBQzs7O0FBTXhFLE1BQU0sT0FBTyx1QkFBdUI7SUFPbEMsWUFDc0IsRUFBRSxhQUFhLEVBQTJCLEVBQ2pDLFFBQTBCO1FBRXZELElBQUksQ0FBQyxxQkFBcUIsR0FBRyxtQkFBbUIsQ0FBQyxhQUFhLEVBQUUsTUFBTSxDQUFDLENBQUMsSUFBSSxDQUMxRSxtQkFBbUIsRUFBRSxFQUNyQixHQUFHLENBQUMsS0FBSyxDQUFDLEVBQUUsQ0FBQyxLQUFLLENBQUMsWUFBbUIsQ0FBQyxFQUN2QyxnQkFBZ0IsRUFBRSxDQUNuQixDQUFDO1FBRUYsSUFBSSxDQUFDLDRCQUE0QixHQUFHLG1CQUFtQixDQUFDLGFBQWEsRUFBRSxXQUFXLENBQUMsQ0FBQyxJQUFJLENBQ3RGLFNBQVMsQ0FBQyxDQUFDLEVBQUUsTUFBTSxFQUFFLFlBQVksRUFBRSxFQUFFLEVBQUUsQ0FDckMsS0FBSyxDQUNILG1CQUFtQixDQUFDLGFBQWEsRUFBRSxXQUFXLENBQUMsQ0FBQyxJQUFJLENBQUMsTUFBTSxDQUFDLEtBQUssQ0FBQyxFQUFFLENBQUMsS0FBSyxDQUFDLE1BQU0sS0FBSyxNQUFNLENBQUMsQ0FBQyxFQUM5RixtQkFBbUIsQ0FBQyxhQUFhLEVBQUUsTUFBTSxDQUFDLENBQzNDLENBQUMsSUFBSSxDQUFDLEtBQUssQ0FBQyxJQUFJLENBQUMsRUFBRSxTQUFTLENBQUMsWUFBWSxDQUFDLENBQUMsQ0FDN0MsRUFDRCxvQkFBb0IsQ0FBQyxDQUFDLENBQUMsRUFBRSxDQUFDLEVBQUUsRUFBRSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLElBQUksQ0FBQyxDQUFDLENBQUMsSUFBSSxDQUFDLENBQUMsQ0FBQyxDQUFDLENBQzNELENBQUM7UUFFRixvREFBb0Q7UUFDcEQsbUJBQW1CLENBQUMsYUFBYSxFQUFFLFVBQVUsQ0FBQzthQUMzQyxJQUFJLENBQUMsbUJBQW1CLEVBQUUsRUFBRSxTQUFTLENBQUMsUUFBUSxDQUFDLENBQUM7YUFDaEQsU0FBUyxFQUFFLENBQUM7SUFDakIsQ0FBQzs7b0hBL0JVLHVCQUF1QixrQkFReEIsVUFBVSxhQUNWLG1CQUFtQjt3R0FUbEIsdUJBQXVCLDZNQUZ2QixDQUFDLG1CQUFtQixDQUFDOzJGQUVyQix1QkFBdUI7a0JBSm5DLFNBQVM7bUJBQUM7b0JBQ1QsUUFBUSxFQUFFLHlEQUF5RDtvQkFDbkUsU0FBUyxFQUFFLENBQUMsbUJBQW1CLENBQUM7aUJBQ2pDOzswQkFTSSxNQUFNOzJCQUFDLFVBQVU7OzBCQUNqQixNQUFNOzJCQUFDLG1CQUFtQjs0Q0FQcEIscUJBQXFCO3NCQUQ3QixNQUFNO2dCQUlFLDRCQUE0QjtzQkFEcEMsTUFBTSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IERpcmVjdGl2ZSwgRWxlbWVudFJlZiwgSW5qZWN0LCBPdXRwdXQgfSBmcm9tICdAYW5ndWxhci9jb3JlJztcbmltcG9ydCB7IG1lcmdlLCBPYnNlcnZhYmxlIH0gZnJvbSAncnhqcyc7XG5pbXBvcnQgeyBkaXN0aW5jdFVudGlsQ2hhbmdlZCwgZmlsdGVyLCBtYXAsIG1hcFRvLCBzdGFydFdpdGgsIHN3aXRjaE1hcCwgdGFrZVVudGlsIH0gZnJvbSAncnhqcy9vcGVyYXRvcnMnO1xuaW1wb3J0IHsgZmlsdGVyTm90TnVsbGlzaCwgUHJpem1EZXN0cm95U2VydmljZSB9IGZyb20gJ0Bwcml6bS11aS9oZWxwZXJzJztcbmltcG9ydCB7IHByaXptVHlwZWRGcm9tRXZlbnQgfSBmcm9tICcuLi8uLi9vYnNlcnZhYmxlcy90eXBlZC1mcm9tLWV2ZW50JztcbmltcG9ydCB7IHByaXptUHJldmVudERlZmF1bHQgfSBmcm9tICcuLi8uLi9vYnNlcnZhYmxlcy9wcmV2ZW50LWRlZmF1bHQnO1xuXG5ARGlyZWN0aXZlKHtcbiAgc2VsZWN0b3I6ICdbcHJpem1Ecm9wcGFibGVEcm9wcGVkXSwgW3ByaXptRHJvcHBhYmxlRHJhZ092ZXJDaGFuZ2VdJyxcbiAgcHJvdmlkZXJzOiBbUHJpem1EZXN0cm95U2VydmljZV0sXG59KVxuZXhwb3J0IGNsYXNzIFByaXptRHJvcHBhYmxlRGlyZWN0aXZlIHtcbiAgQE91dHB1dCgpXG4gIHJlYWRvbmx5IHByaXptRHJvcHBhYmxlRHJvcHBlZDogT2JzZXJ2YWJsZTxEYXRhVHJhbnNmZXI+O1xuXG4gIEBPdXRwdXQoKVxuICByZWFkb25seSBwcml6bURyb3BwYWJsZURyYWdPdmVyQ2hhbmdlOiBPYnNlcnZhYmxlPERhdGFUcmFuc2ZlciB8IG51bGw+O1xuXG4gIGNvbnN0cnVjdG9yKFxuICAgIEBJbmplY3QoRWxlbWVudFJlZikgeyBuYXRpdmVFbGVtZW50IH06IEVsZW1lbnRSZWY8SFRNTEVsZW1lbnQ+LFxuICAgIEBJbmplY3QoUHJpem1EZXN0cm95U2VydmljZSkgZGVzdHJveSQ6IE9ic2VydmFibGU8dm9pZD5cbiAgKSB7XG4gICAgdGhpcy5wcml6bURyb3BwYWJsZURyb3BwZWQgPSBwcml6bVR5cGVkRnJvbUV2ZW50KG5hdGl2ZUVsZW1lbnQsICdkcm9wJykucGlwZShcbiAgICAgIHByaXptUHJldmVudERlZmF1bHQoKSxcbiAgICAgIG1hcChldmVudCA9PiBldmVudC5kYXRhVHJhbnNmZXIgYXMgYW55KSxcbiAgICAgIGZpbHRlck5vdE51bGxpc2goKVxuICAgICk7XG5cbiAgICB0aGlzLnByaXptRHJvcHBhYmxlRHJhZ092ZXJDaGFuZ2UgPSBwcml6bVR5cGVkRnJvbUV2ZW50KG5hdGl2ZUVsZW1lbnQsICdkcmFnZW50ZXInKS5waXBlKFxuICAgICAgc3dpdGNoTWFwKCh7IHRhcmdldCwgZGF0YVRyYW5zZmVyIH0pID0+XG4gICAgICAgIG1lcmdlKFxuICAgICAgICAgIHByaXptVHlwZWRGcm9tRXZlbnQobmF0aXZlRWxlbWVudCwgJ2RyYWdsZWF2ZScpLnBpcGUoZmlsdGVyKGV2ZW50ID0+IGV2ZW50LnRhcmdldCA9PT0gdGFyZ2V0KSksXG4gICAgICAgICAgcHJpem1UeXBlZEZyb21FdmVudChuYXRpdmVFbGVtZW50LCAnZHJvcCcpXG4gICAgICAgICkucGlwZShtYXBUbyhudWxsKSwgc3RhcnRXaXRoKGRhdGFUcmFuc2ZlcikpXG4gICAgICApLFxuICAgICAgZGlzdGluY3RVbnRpbENoYW5nZWQoKGEsIGIpID0+ICghIWEgJiYgISFiKSB8fCAoIWEgJiYgIWIpKVxuICAgICk7XG5cbiAgICAvLyBSZXF1aXJlZCBieSBEcmFnIGFuZCBEcm9wIEFQSSB0byBzdG9wIHJlZGlyZWN0aW5nXG4gICAgcHJpem1UeXBlZEZyb21FdmVudChuYXRpdmVFbGVtZW50LCAnZHJhZ292ZXInKVxuICAgICAgLnBpcGUocHJpem1QcmV2ZW50RGVmYXVsdCgpLCB0YWtlVW50aWwoZGVzdHJveSQpKVxuICAgICAgLnN1YnNjcmliZSgpO1xuICB9XG59XG4iXX0=

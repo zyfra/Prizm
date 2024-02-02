@@ -1,0 +1,38 @@
+import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy, OnInit, QueryList } from '@angular/core';
+import { IBreadcrumb } from './breadcrumb.interface';
+import { BehaviorSubject } from 'rxjs';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmBreadcrumbDirective } from './breadcrumbs.directive';
+import * as i0 from "@angular/core";
+export declare class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb> extends PrizmAbstractTestId implements OnInit, OnDestroy, AfterViewInit {
+    private readonly cdRef;
+    private readonly destroy;
+    set breadcrumbs(data: Breadcrumb[]);
+    get breadcrumbs(): Breadcrumb[];
+    readonly testId_ = "ui_breadcrumbs";
+    breadcrumbChange: EventEmitter<Breadcrumb>;
+    containerRef: ElementRef;
+    fakeBreadcrumbContainer: ElementRef;
+    breadcrumbsList: QueryList<ElementRef>;
+    breadcrumbsItem: QueryList<PrizmBreadcrumbDirective>;
+    breadcrumbs$: BehaviorSubject<Breadcrumb[]>;
+    breadcrumbsToShow$: BehaviorSubject<Breadcrumb[]>;
+    breadcrumbsInMenu$: BehaviorSubject<Breadcrumb[]>;
+    isDropdownOpened: boolean;
+    isContainerOverflowed: boolean;
+    breadcrumbsElementsWidth: number;
+    get activeBreadcrumbIdx(): number;
+    private resizeObserver;
+    private mutationDetector$;
+    constructor(cdRef: ChangeDetectorRef, destroy: PrizmDestroyService);
+    changeBreadcrumb(idx: number): void;
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+    ngOnDestroy(): void;
+    private calculateOverflowState;
+    private calculateBreadcrumbsWidth;
+    private setViewBreadcrumbs;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrizmBreadcrumbsComponent<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PrizmBreadcrumbsComponent<any>, "prizm-breadcrumbs", never, { "breadcrumbs": "breadcrumbs"; }, { "breadcrumbChange": "breadcrumbChange"; }, ["breadcrumbsItem"], never, true, never>;
+}

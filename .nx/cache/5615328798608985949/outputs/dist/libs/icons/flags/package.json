@@ -1,0 +1,32 @@
+{
+  "name": "@prizm-ui/flag-icons",
+  "version": "3.11.0",
+  "description": "Prizm UI flags icon pack library http://prizm.zyfra.com",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^16.1.0 || ^16.2.0",
+    "@angular/core": "^16.1.0 || ^16.2.0",
+    "@prizm-ui/core": "^3.11.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2022/prizm-ui-flag-icons.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/prizm-ui-flag-icons.mjs",
+      "esm": "./esm2022/prizm-ui-flag-icons.mjs",
+      "default": "./fesm2022/prizm-ui-flag-icons.mjs"
+    }
+  },
+  "sideEffects": false
+}

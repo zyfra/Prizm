@@ -1,0 +1,4 @@
+#mz file OPTIONS {
+  pathToFolder: [32m'libs/icons/base/src/lib/icons/24/source'[39m,
+  pathToOutputFile: [32m''[39m
+}

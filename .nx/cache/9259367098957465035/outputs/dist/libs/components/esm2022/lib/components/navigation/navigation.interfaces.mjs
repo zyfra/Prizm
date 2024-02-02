@@ -1,0 +1,9 @@
+export var StatusDictionary;
+(function (StatusDictionary) {
+    StatusDictionary[StatusDictionary["info"] = 0] = "info";
+    StatusDictionary[StatusDictionary["secondary"] = 1] = "secondary";
+    StatusDictionary[StatusDictionary["success"] = 2] = "success";
+    StatusDictionary[StatusDictionary["warning"] = 3] = "warning";
+    StatusDictionary[StatusDictionary["danger"] = 4] = "danger";
+})(StatusDictionary || (StatusDictionary = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoibmF2aWdhdGlvbi5pbnRlcmZhY2VzLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vLi4vLi4vbGlicy9jb21wb25lbnRzL3NyYy9saWIvY29tcG9uZW50cy9uYXZpZ2F0aW9uL25hdmlnYXRpb24uaW50ZXJmYWNlcy50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFjQSxNQUFNLENBQU4sSUFBWSxnQkFNWDtBQU5ELFdBQVksZ0JBQWdCO0lBQzFCLHVEQUFNLENBQUE7SUFDTixpRUFBVyxDQUFBO0lBQ1gsNkRBQVMsQ0FBQTtJQUNULDZEQUFTLENBQUE7SUFDVCwyREFBUSxDQUFBO0FBQ1YsQ0FBQyxFQU5XLGdCQUFnQixLQUFoQixnQkFBZ0IsUUFNM0IiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBJbmRpY2F0b3JTdGF0dXMgfSBmcm9tICcuLi9pbmRpY2F0b3InO1xuXG5leHBvcnQgaW50ZXJmYWNlIElTY3JlZW4ge1xuICB0aXRsZTogc3RyaW5nO1xuICBpY29uPzogc3RyaW5nO1xufVxuXG5leHBvcnQgaW50ZXJmYWNlIElOYXZpZ2F0aW9uVHJlZSBleHRlbmRzIElTY3JlZW4ge1xuICBpc0V4cGFuZGVkPzogYm9vbGVhbjtcbiAgY2hpbGRyZW4/OiBJTmF2aWdhdGlvblRyZWVbXTtcbiAgaW5kaWNhdG9yU3RhdHVzPzogSW5kaWNhdG9yU3RhdHVzO1xuICBpbmRpY2F0b3JWYWx1ZT86IG51bWJlcjtcbn1cblxuZXhwb3J0IGVudW0gU3RhdHVzRGljdGlvbmFyeSB7XG4gICdpbmZvJyxcbiAgJ3NlY29uZGFyeScsXG4gICdzdWNjZXNzJyxcbiAgJ3dhcm5pbmcnLFxuICAnZGFuZ2VyJyxcbn1cbiJdfQ==

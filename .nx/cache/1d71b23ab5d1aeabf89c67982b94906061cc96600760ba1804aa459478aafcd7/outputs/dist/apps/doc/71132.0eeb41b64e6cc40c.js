@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[71132],{71132:o=>{o.exports='<div class="block">\n  <prizm-input-date [max]="toControl.value" [formControl]="fromControl" label="\u041e\u0442"></prizm-input-date>\n  <prizm-input-date [min]="fromControl.value" [formControl]="toControl" label="\u0414\u043e"></prizm-input-date>\n</div>\n'}}]);

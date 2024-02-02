@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[73470],{73470:e=>{e.exports='<prizm-input-time [formControl]="value" [items]="items" mode="HH:MM"></prizm-input-time>\n'}}]);

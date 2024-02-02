@@ -6,6 +6,7 @@ import { IconComponent } from './icon.component';
 import { PrizmIconSvgBaseExampleComponent } from './examples/base/icon-base-example.component';
 import { PrizmIconsSvgModule } from '@prizm-ui/icons';
 import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icon-svg-example.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icon-svg-example
     PrizmAddonDocModule,
     PrizmIconsSvgModule,
     RouterModule.forChild(prizmDocGenerateRoutes(IconComponent)),
+    PrizmIfLanguageDirective,
   ],
   declarations: [PrizmIconSvgBaseExampleComponent, PrizmIconSvgSvgExampleComponent, IconComponent],
   exports: [IconComponent],

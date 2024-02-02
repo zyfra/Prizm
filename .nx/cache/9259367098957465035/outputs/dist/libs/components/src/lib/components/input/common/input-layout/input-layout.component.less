@@ -1,0 +1,290 @@
+:host {
+  display: block;
+  position: relative;
+  width: var(--prizm-input-layout-width, 100%);
+
+  .prizm-input-form-status-button,
+  .prizm-input-button-default {
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  .prizm-input-button-default {
+    display: none;
+  }
+
+  &:hover,
+  &:focus-within {
+    .prizm-input-button-default {
+      display: block;
+    }
+  }
+}
+
+.label-container {
+  display: flex;
+
+  .prizm-input-label-clear-btn {
+    display: none;
+    position: relative;
+    bottom: 2px;
+    width: auto;
+    padding-left: 5px;
+  }
+}
+
+.prizm-input-label {
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--prizm-v3-text-icon-tertiary);
+  line-height: 16px;
+  transition: top 200ms ease 0s;
+  pointer-events: none;
+  width: 100%;
+  display: flex;
+  gap: 4px;
+
+  &-required {
+    color: var(--prizm-v3-status-alarm-primary-default);
+  }
+
+  &-inner {
+    position: absolute;
+    display: flex;
+    gap: 4px;
+    max-width: 100%;
+    width: 100%;
+
+    &[data-size='l'] {
+      top: 5px;
+
+      &.prizm-input-label-empty {
+        top: 13px;
+      }
+      &.prizm-input-label-focused {
+        top: 5px;
+      }
+    }
+
+    &[data-size='m'] {
+      top: 1px;
+      &.prizm-input-label-empty {
+        top: 9px;
+      }
+      &.prizm-input-label-focused {
+        top: 1px;
+      }
+    }
+
+    &-center {
+      padding: 0;
+      left: 50%;
+      justify-content: center;
+      transform: translateX(-50%);
+    }
+  }
+
+  @label: prizm-input-label;
+}
+
+.prizm-input-form {
+  background-color: var(--prizm-v3-form-fill-default);
+  border: 1px solid var(--prizm-v3-form-stroke-default);
+  border-radius: 2px;
+  display: flex;
+  flex-direction: column;
+  padding: 0 8px;
+  justify-content: center;
+
+  width: 100%;
+
+  &.hide-border {
+    border-color: transparent;
+  }
+
+  .prizm-input-form-inner-container {
+    flex: 1;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  &:hover {
+    border-color: var(--prizm-v3-form-stroke-hover);
+  }
+
+  &__first {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  &-body {
+    position: relative;
+    width: 100%;
+  }
+
+  &-status {
+    &-success {
+      border-color: var(--prizm-v3-status-success-primary-default);
+      &:hover {
+        border-color: var(--prizm-v3-status-success-primary-hover);
+      }
+
+      .prizm-input-form-status-button {
+        color: var(--prizm-v3-status-success-primary-default);
+      }
+    }
+
+    &-warning {
+      border-color: var(--prizm-v3-status-warning-primary-default);
+      &:hover {
+        border-color: var(--prizm-v3-status-warning-primary-hover);
+      }
+
+      .prizm-input-form-status-button {
+        color: var(--prizm-v3-status-warning-primary-default);
+      }
+    }
+
+    &-danger {
+      border-color: var(--prizm-v3-status-alarm-primary-default);
+      &:hover {
+        border-color: var(--prizm-v3-status-alarm-primary-hover);
+      }
+
+      .prizm-input-form-status-button {
+        color: var(--prizm-v3-status-alarm-primary-default);
+      }
+    }
+  }
+
+  &-invalid {
+    &.prizm-input-form-touched {
+      border-color: var(--prizm-v3-status-alarm-primary-default);
+    }
+
+    .prizm-input-form-status-button {
+      color: var(--prizm-v3-status-alarm-primary-default);
+    }
+  }
+
+  // rewrite all if focused
+  &-focused,
+  &:focus-within {
+    border-color: var(--prizm-v3-form-active);
+    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+    position: relative;
+
+    &:hover {
+      border-color: var(--prizm-v3-form-active-hover);
+    }
+
+    .prizm-input-button-default {
+      display: block;
+    }
+  }
+
+  &-disabled {
+    border-color: transparent;
+    &:hover {
+      border-color: transparent;
+    }
+
+    cursor: not-allowed;
+
+    ::ng-deep {
+      [prizmInputIconButton] {
+        display: none;
+      }
+    }
+  }
+
+  &-inner {
+    min-height: 44px;
+
+    &[data-size='l'] {
+      min-height: 44px;
+    }
+    &[data-size='m'] {
+      min-height: 36px;
+    }
+  }
+
+  /**
+  Special input for outer
+   */
+  &-outer {
+    min-height: 32px;
+
+    &[data-size='l'] {
+      min-height: 40px;
+    }
+    &[data-size='m'] {
+      min-height: 32px;
+    }
+    &[data-size='s'] {
+      min-height: 24px;
+    }
+  }
+
+  &-center {
+    .prizm-input-form-inner-container {
+      .prizm-input-form-status-button,
+      .prizm-input-button-default {
+        position: absolute;
+        z-index: 100;
+        background-color: var(--prizm-v3-form-fill-default);
+      }
+
+      .prizm-input-button-default {
+        right: 32px;
+
+        &.alone {
+          right: 0;
+        }
+      }
+
+      .prizm-input-form-status-button {
+        right: 0;
+      }
+    }
+  }
+
+  @form: prizm-input-form;
+}
+
+.prizm-input-form-subtext {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 22px;
+
+  &-success {
+    color: var(--prizm-v3-status-success-primary-default);
+  }
+
+  &-warning {
+    color: var(--prizm-v3-status-warning-primary-default);
+  }
+
+  &-danger {
+    color: var(--prizm-v3-status-alarm-primary-default);
+  }
+}
+
+.label--title {
+  max-width: calc(100% - 20px);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  gap: 4px;
+}
+
+.clear-icon {
+  z-index: 2;
+}
+
+.prizm-input-form-status-button {
+  z-index: 1;
+}

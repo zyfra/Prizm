@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[95704],{95704:n=>{n.exports='<prizm-slider\n  [orientation]="\'vertical\'"\n  [ngStyle]="{ height: \'300px\' }"\n  [formControl]="fc"\n  [cnobValuePosition]="\'left\'"\n>\n</prizm-slider>\n'}}]);

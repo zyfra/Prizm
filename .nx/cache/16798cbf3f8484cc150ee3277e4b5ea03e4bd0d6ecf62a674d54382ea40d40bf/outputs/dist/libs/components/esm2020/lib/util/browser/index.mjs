@@ -1,0 +1,6 @@
+export * from './is-edge';
+export * from './is-edge-older-than';
+export * from './is-firefox';
+export * from './is-ie';
+export * from './is-safari';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi8uLi9saWJzL2NvbXBvbmVudHMvc3JjL2xpYi91dGlsL2Jyb3dzZXIvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FBYyxXQUFXLENBQUM7QUFDMUIsY0FBYyxzQkFBc0IsQ0FBQztBQUNyQyxjQUFjLGNBQWMsQ0FBQztBQUM3QixjQUFjLFNBQVMsQ0FBQztBQUN4QixjQUFjLGFBQWEsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vaXMtZWRnZSc7XG5leHBvcnQgKiBmcm9tICcuL2lzLWVkZ2Utb2xkZXItdGhhbic7XG5leHBvcnQgKiBmcm9tICcuL2lzLWZpcmVmb3gnO1xuZXhwb3J0ICogZnJvbSAnLi9pcy1pZSc7XG5leHBvcnQgKiBmcm9tICcuL2lzLXNhZmFyaSc7XG4iXX0=

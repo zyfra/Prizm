@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[68388],{68388:e=>{e.exports='<prizm-switcher [formControl]="control" [switchers]="switchers"></prizm-switcher>\n\n<div>\n  Value: <b>{{ control.value }}</b>\n</div>\n'}}]);

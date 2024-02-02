@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[7368],{7368:e=>{e.exports='<prizm-input-date-range [items]="items" [formControl]="value" [min]="min" [max]="max">\n</prizm-input-date-range>\n'}}]);

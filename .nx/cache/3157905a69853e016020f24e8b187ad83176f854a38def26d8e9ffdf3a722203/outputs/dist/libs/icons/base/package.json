@@ -1,0 +1,38 @@
+{
+  "name": "@prizm-ui/icons",
+  "version": "2.12.0",
+  "description": "Prizm UI base icon pack library http://prizm.zyfra.com",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0",
+    "@prizm-ui/core": "^2.12.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "module": "fesm2015/prizm-ui-icons.mjs",
+  "es2020": "fesm2020/prizm-ui-icons.mjs",
+  "esm2020": "esm2020/prizm-ui-icons.mjs",
+  "fesm2020": "fesm2020/prizm-ui-icons.mjs",
+  "fesm2015": "fesm2015/prizm-ui-icons.mjs",
+  "typings": "index.d.ts",
+  "exports": {
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/prizm-ui-icons.mjs",
+      "es2020": "./fesm2020/prizm-ui-icons.mjs",
+      "es2015": "./fesm2015/prizm-ui-icons.mjs",
+      "node": "./fesm2015/prizm-ui-icons.mjs",
+      "default": "./fesm2020/prizm-ui-icons.mjs"
+    }
+  },
+  "sideEffects": false
+}

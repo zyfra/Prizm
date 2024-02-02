@@ -1,0 +1,58 @@
+import { OnDestroy } from '@angular/core';
+import { Observable, Subject } from 'rxjs';
+import { InternalPrizmNavigationMenuItem, PrizmNavigationMenuEmptyMessageConfig, PrizmNavigationMenuItem, PrizmNavigationMenuSearchConfig, PrizmNavigationMenuToolbarConfig, ViewMode } from '../interfaces';
+import { PrizmNavigationMenuToolbarService } from './prizm-navigation-menu-toolbar.service';
+import { PrizmNavigationMenuService } from './prizm-navigation-menu.service';
+import * as i0 from "@angular/core";
+export declare class PrizmNavigationMenuGroupService<UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & {
+    children?: UserItem[];
+}> implements OnDestroy {
+    private menuService;
+    private searchConfigToken;
+    private groupToolbarService;
+    private menuToolbarService?;
+    private groupId$$;
+    private emptySearchResultMessageConfig$$;
+    private emptyDataMessageConfig$$;
+    private toolbarConfig$$;
+    private searchConfig$$;
+    private searchState$$;
+    private viewMode$$;
+    private folderItem$$;
+    private persistentExpandedItemsMap$$;
+    private temporaryExpandedItemsMap;
+    private internalItems$;
+    private modeBasedItems$;
+    viewMode$: Observable<ViewMode>;
+    groupItems$: Observable<InternalPrizmNavigationMenuItem<UserItem>[]>;
+    expandedItemsMap$: Observable<Map<InternalPrizmNavigationMenuItem<UserItem>, boolean>>;
+    closeAll$: Subject<void>;
+    searchEnabled$: Observable<boolean>;
+    searchConfig$: Observable<PrizmNavigationMenuSearchConfig>;
+    toolbarConfig$: Observable<PrizmNavigationMenuToolbarConfig>;
+    emptySearchResultMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig>;
+    emptyDataMessageConfig$: Observable<PrizmNavigationMenuEmptyMessageConfig>;
+    get groupId(): string | null;
+    get searchConfig(): PrizmNavigationMenuSearchConfig;
+    get viewMode(): ViewMode;
+    private destroy$;
+    constructor(menuService: PrizmNavigationMenuService<UserItem>, searchConfigToken: PrizmNavigationMenuSearchConfig, groupToolbarService: PrizmNavigationMenuToolbarService, menuToolbarService?: PrizmNavigationMenuToolbarService | undefined);
+    goToParentFolder(item: InternalPrizmNavigationMenuItem<UserItem>): void;
+    goToRootFolder(): void;
+    handleFolderExpanded(item: InternalPrizmNavigationMenuItem<UserItem>): void;
+    setGroupId(groupId: string): void;
+    setToolbarConfig(toolbarConfig: PrizmNavigationMenuToolbarConfig): void;
+    setSearchConfig(config: PrizmNavigationMenuSearchConfig): void;
+    setEmptySearchResultMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void;
+    setEmptyDataMessageConfig(config: PrizmNavigationMenuEmptyMessageConfig): void;
+    applySearchState(value: {
+        enabled: boolean;
+        value: string;
+    }): void;
+    ngOnDestroy(): void;
+    private filterItemsOnSearchChange;
+    private configureViewMode;
+    private clearExpandedItemsOnToolbarAction;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrizmNavigationMenuGroupService<any>, [null, null, { self: true; }, { optional: true; skipSelf: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<PrizmNavigationMenuGroupService<any>>;
+}

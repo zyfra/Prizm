@@ -1,0 +1,29 @@
+@import '../../../../styles/ui-local.less';
+
+:host {
+  display: block;
+  font: var(--prizm-font-text-l);
+  text-align: center;
+  font-weight: bold;
+}
+
+.z-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  outline: none;
+}
+
+.z-arrow {
+  &_hidden {
+    visibility: hidden;
+  }
+}
+
+.z-content:not(:empty) {
+  padding: 0 2 * @space;
+
+  :host._focus-visible & {
+    box-shadow: 0 0 0 1px var(--prizm-v3-background-stroke-focus);
+  }
+}

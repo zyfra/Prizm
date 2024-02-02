@@ -1,0 +1,8 @@
+#mz file OPTIONS {
+  pathToFolder: [32m'libs/icons/base/src/lib/icons/24/source'[39m,
+  pathToOutputFile: [32m'libs/icons/base/src/lib/icons/24/source/lazy-icon-set.ts'[39m,
+  prefix: [32m'prizmIcons-'[39m
+}
+SKIP FILE: complete-icon-set.ts
+SKIP FILE: lazy-icon-set.ts
+SKIP FILE: prizm-icons.model.ts

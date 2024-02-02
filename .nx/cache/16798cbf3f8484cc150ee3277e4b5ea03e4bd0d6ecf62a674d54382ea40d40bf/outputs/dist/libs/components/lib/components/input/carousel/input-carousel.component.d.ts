@@ -1,0 +1,31 @@
+import { ChangeDetectorRef, ElementRef, Injector } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
+import { PrizmInputCarouselContent } from './carousel-content/carousel-content.interface';
+import { PrizmInputNgControl } from '../common';
+import { PrizmInputCarousel } from './types';
+import * as i0 from "@angular/core";
+export declare class PrizmInputCarouselComponent extends PrizmInputNgControl<any> implements ControlValueAccessor, PrizmInputCarousel {
+    private el;
+    private readonly cdr;
+    readonly testId_ = "ui-area--carousel";
+    carouselContent: PrizmInputCarouselContent;
+    lightMode: boolean;
+    hasClearButton: boolean;
+    nativeElementType: string;
+    focused: boolean;
+    constructor(injector: Injector, el: ElementRef, cdr: ChangeDetectorRef);
+    ngOnInit(): void;
+    left(): void;
+    stepLeft(): void;
+    stepRight(): void;
+    right(): void;
+    private updateFromContent;
+    onFocus(): void;
+    onBlur(): void;
+    onArrowLeft(event: KeyboardEvent): void;
+    onArrowRight(event: KeyboardEvent): void;
+    clear(ev: MouseEvent): void;
+    focus(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PrizmInputCarouselComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PrizmInputCarouselComponent, "prizm-input-carousel", never, { "carouselContent": "carouselContent"; "lightMode": "lightMode"; }, {}, never, ["*"], true, never>;
+}

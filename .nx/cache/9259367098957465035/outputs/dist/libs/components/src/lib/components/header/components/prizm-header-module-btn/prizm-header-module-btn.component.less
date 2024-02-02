@@ -1,0 +1,67 @@
+:host {
+  display: inline-flex;
+  align-items: center;
+
+  .icon {
+    display: flex;
+    position: relative;
+
+    .indicator {
+      min-height: 1rem;
+      min-width: 1rem;
+      max-width: 3rem;
+
+      padding: 0 4px;
+
+      border-radius: 1.25rem;
+
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 600;
+      color: var(--prizm-v3-text-icon-exception);
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(30%, -30%);
+
+      &_info {
+        background: var(--prizm-v3-status-info-primary-default);
+      }
+
+      &_secondary {
+        background: var(--prizm-v3-status-none-primary-default);
+      }
+
+      &_success {
+        background: var(--prizm-v3-status-success-primary-default);
+      }
+
+      &_warning {
+        background: var(--prizm-v3-status-warning-primary-default);
+      }
+
+      &_danger {
+        background: var(--prizm-v3-status-alarm-primary-default);
+      }
+    }
+  }
+
+  .title {
+    margin-left: 30px;
+
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+
+    color: var(--prizm-v3-text-icon-tertiary);
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

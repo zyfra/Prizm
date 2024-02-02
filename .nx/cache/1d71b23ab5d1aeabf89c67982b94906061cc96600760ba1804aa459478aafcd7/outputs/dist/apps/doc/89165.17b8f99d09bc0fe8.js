@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkdoc=self.webpackChunkdoc||[]).push([[89165],{89165:n=>{n.exports="```\nmy.component.ts\nmy.component.html\nmy.component.less\nmy.module.ts\n\nmy.pipe.ts\n\nmy.class.ts\n\nmy.model.ts\nmy.models.ts\n\n...\n```\n"}}]);

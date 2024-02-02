@@ -1,0 +1,11 @@
+import { InjectionToken } from '@angular/core';
+import { PolymorphContent } from '../../../directives/polymorph';
+import { PrizmTreeAccessor, PrizmTreeController, PrizmTreeItemContext, PrizmTreeLoader } from './tree.interfaces';
+export declare const PRIZM_TREE_ACCESSOR: InjectionToken<PrizmTreeAccessor<unknown>>;
+export declare const PRIZM_TREE_CONTROLLER: InjectionToken<PrizmTreeController>;
+export declare const PRIZM_TREE_NODE: InjectionToken<unknown>;
+export declare const PRIZM_TREE_LOADING: InjectionToken<unknown>;
+export declare const PRIZM_TREE_START: InjectionToken<unknown>;
+export declare const PRIZM_TREE_LOADER: InjectionToken<PrizmTreeLoader<unknown>>;
+export declare const PRIZM_TREE_CONTENT: InjectionToken<PolymorphContent<PrizmTreeItemContext>>;
+export declare const PRIZM_TREE_LEVEL: InjectionToken<number>;

@@ -1,0 +1,95 @@
+@height-xs: 16px;
+@height-s: 24px;
+@height-m: 32px;
+@height-l: 40px;
+
+:host {
+  font-size: 14px;
+  line-height: 16px;
+  color: var(--prizm-v3-text-icon-secondary);
+  font-weight: 400;
+
+  .heading {
+    padding: 0;
+
+    border: 1px solid var(--prizm-v3-table-stroke-cell-default);
+    border-top: none;
+
+    &__container {
+      height: 100%;
+      width: 100%;
+
+      display: flex;
+      align-items: center;
+
+      font-weight: 400;
+    }
+
+    &__icon {
+      height: 24px;
+      width: 24px;
+      margin: 0 4px;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: var(--prizm-v3-button-secondary-solid-default);
+
+      cursor: pointer;
+
+      transition: 400ms;
+
+      &_expanded {
+        transform: rotate(90deg);
+      }
+    }
+
+    &__content {
+      height: 100%;
+
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      flex: 1;
+    }
+  }
+}
+
+.empty-row {
+  td {
+    border: 1px solid var(--prizm-v3-table-stroke-cell-default);
+    border-top: transparent;
+  }
+}
+
+:host-context([data-size='xs']) {
+  font-size: 12px;
+  line-height: 12px;
+
+  .heading,
+  .empty-row {
+    height: @height-xs;
+  }
+}
+
+:host-context([data-size='s']) {
+  .heading,
+  .empty-row {
+    height: @height-s;
+  }
+}
+
+:host-context([data-size='m']) {
+  .heading,
+  .empty-row {
+    height: @height-m;
+  }
+}
+
+:host-context([data-size='l']) {
+  .heading,
+  .empty-row {
+    height: @height-l;
+  }
+}
