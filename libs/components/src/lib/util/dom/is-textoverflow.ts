@@ -1,5 +1,5 @@
 import { isObservable, Observable, of } from 'rxjs';
-import { delay, delayWhen, map, tap } from 'rxjs/operators';
+import { delay, delayWhen, map } from 'rxjs/operators';
 
 export function prizmIsTextOverflow(element: HTMLElement): boolean {
   if (element) {

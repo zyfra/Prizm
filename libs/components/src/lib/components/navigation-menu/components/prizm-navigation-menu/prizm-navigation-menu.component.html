@@ -1,7 +1,9 @@
 <div class="prizm-navigation-menu">
   <header class="prizm-navigation-menu__header header">
     <div class="header__top" (prizmHoveredChange)="headerIsHovered = $event">
-      <div class="header__title">{{ title }}</div>
+      <div class="header__title" #elem [prizmHint]="title" [prizmHintCanShow]="prizmIsTextOverflow(elem)">
+        {{ title }}
+      </div>
       <div class="header__instruments">
         <ng-container
           [ngTemplateOutlet]="headerExtraTemplate"
