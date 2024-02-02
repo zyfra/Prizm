@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
   PrizmButtonModule,
   PrizmCardModule,
+  PrizmInputSelectModule,
   PrizmInputTextModule,
-  PrizmSelectModule,
   PrizmSkeletonModule,
   PrizmToggleModule,
 } from '@prizm-ui/components';
@@ -25,7 +25,7 @@ import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base
     PrizmButtonModule,
     PrizmCardModule,
     PrizmToggleModule,
-    PrizmSelectModule,
+    PrizmInputSelectModule,
     PrizmInputTextModule,
     PrizmSkeletonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SkeletonComponent)),

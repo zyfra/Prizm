@@ -1,4 +1,4 @@
-<div class="box" prizmFocusTrap prizmTheme>
+<div class="box" [prizmTheme]="theme" prizmFocusTrap>
   <div
     class="header prizm-font-title-h4"
     *ngIf="context.headerTemplate ?? context.header"
@@ -10,17 +10,22 @@
       </ng-container>
     </ng-container>
     <ng-container *ngSwitchDefault>
-      <prizm-scrollbar *polymorphOutlet="context.header as data; context: context" visibility="hidden">
+      <prizm-scrollbar
+        *polymorphOutlet="context.header as data; context: context"
+        [visibility]="context.scrollbarVisibility ?? 'hidden'"
+      >
         <div class="title">
           {{ data }}
         </div>
       </prizm-scrollbar>
       <button
         *ngIf="context.closeable"
-        [size]="16"
-        [interactive]="true"
+        [size]="'m'"
+        [icon]="'cancel-close'"
         (click)="closeSidebar()"
-        prizmInputIconButton="cancel-close"
+        appearanceType="ghost"
+        appearance="secondary"
+        prizmIconButton
       ></button>
     </ng-container>
   </div>
@@ -31,7 +36,7 @@
         {{ outerContent }}
       </ng-container>
       <ng-template #innerTemplate>
-        <prizm-scrollbar class="scrollbar full-height">
+        <prizm-scrollbar class="scrollbar full-height" [visibility]="context.scrollbarVisibility ?? 'auto'">
           <div class="full-height" *polymorphOutlet="context.content as text; context: context">
             {{ text }}
           </div>

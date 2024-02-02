@@ -13,7 +13,9 @@
 
 <ng-template #contentExample>
   <h4>Check Dropdown Host Parent Container And Position</h4>
-  <prizm-select [formControl]="control" [items]="items" label="Validators"> </prizm-select>
+  <prizm-input-layout label="Validators">
+    <prizm-input-select [formControl]="control" [items]="items"></prizm-input-select>
+  </prizm-input-layout>
 </ng-template>
 
 <div style="margin-top: 16px">

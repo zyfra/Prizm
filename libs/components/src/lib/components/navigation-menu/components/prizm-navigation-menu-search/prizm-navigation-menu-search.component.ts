@@ -13,6 +13,8 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmButtonModule } from '../../../button';
+import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
+import { PrizmInputTextComponent } from '../../../input';
 
 @Component({
   selector: 'prizm-navigation-menu-search',
@@ -21,7 +23,7 @@ import { PrizmButtonModule } from '../../../button';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
   standalone: true,
-  imports: [PrizmButtonModule, ReactiveFormsModule],
+  imports: [PrizmButtonModule, ReactiveFormsModule, PrizmInputCommonModule, PrizmInputTextComponent],
 })
 export class PrizmNavigationMenuSearchComponent extends PrizmAbstractTestId implements AfterViewInit {
   @ViewChild('searchInput', {
@@ -48,9 +50,5 @@ export class PrizmNavigationMenuSearchComponent extends PrizmAbstractTestId impl
       .subscribe(this.searchChange);
 
     this.searchInput.nativeElement.focus();
-  }
-
-  public clearSearchValue(): void {
-    this.searchFormControl.reset('');
   }
 }

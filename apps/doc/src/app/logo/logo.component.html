@@ -2,11 +2,31 @@
   <a href="http://prizm.zyfra.com/" target="_blank">
     <img src="/assets/logos/logo-dark.svg" />
   </a>
-  <prizm-toggle [ngModel]="isNight$ | async" (ngModelChange)="onMode($event)" iconOn="social-sun">
-  </prizm-toggle>
+
+  <div class="buttons-block">
+    <prizm-toggle
+      [ngModel]="isNight$ | async"
+      (ngModelChange)="onMode($event)"
+      iconOn="social-sun"
+    ></prizm-toggle>
+
+    <prizm-icons-svg
+      class="theme-tokens-updater"
+      [size]="24"
+      [name]="PrizmIconSvgEnum.SHAPE_GEOMETRY_SQUARE_CIRCLE_PLUS_TRIANGLE_FILL"
+      (click)="openThemeChanger()"
+    >
+    </prizm-icons-svg>
+  </div>
 </div>
-<div class="sub-text x-margin prizm-font-input-text-14px">
-  <span> Индустриальная дизайн-система </span>
+<div
+  class="sub-text x-margin prizm-font-input-text-14px"
+  *prizmLet="languageSwitcher.language$ | async as language"
+>
+  <span *ngIf="language === 'russian'; else baseTemplate"> Индустриальная дизайн-система </span>
+  <ng-template #baseTemplate>
+    <span> Industrial design system </span>
+  </ng-template>
   <a class="icon" target="_blank" href="https://github.com/zyfra/Prizm">
     <prizm-icons-svg [size]="24" [name]="githubSvgName"></prizm-icons-svg>
   </a>

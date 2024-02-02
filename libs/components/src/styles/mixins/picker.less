@@ -16,7 +16,7 @@
     flex: 1;
     line-height: 2rem;
     border-radius: 2px;
-    color: var(--prizm-v3-text-icon-secondary);
+    color: var(--prizm-text-icon-secondary);
     font-weight: 600;
 
     &:before,
@@ -50,18 +50,18 @@
 
       &[data-state='hovered'] {
         & > .z-item {
-          border-color: var(--prizm-v3-button-primary-solid-hover);
-          color: var(--prizm-v3-button-primary-solid-hover);
-          background-color: var(--prizm-v3-button-ghost-hover);
+          border-color: var(--prizm-button-primary-solid-hover);
+          color: var(--prizm-button-primary-solid-hover);
+          background-color: var(--prizm-button-ghost-hover);
         }
       }
 
       .z-item {
-        border: 1px solid var(--prizm-v3-button-primary-solid-default);
-        color: var(--prizm-v3-button-primary-solid-default);
+        border: 1px solid var(--prizm-button-primary-solid-default);
+        color: var(--prizm-button-primary-solid-default);
 
         &_unavailable {
-          color: var(--prizm-v3-text-icon-disable);
+          color: var(--prizm-text-icon-disable);
         }
       }
     }
@@ -79,10 +79,10 @@
 
     &_interval {
       &:before {
-        background: var(--prizm-v3-button-primary-ghost-active);
+        background: var(--prizm-button-primary-ghost-active);
 
         :host._single & {
-          background-color: var(--prizm-v3-button-primary-ghost-active);
+          background-color: var(--prizm-button-primary-ghost-active);
         }
       }
 
@@ -106,34 +106,34 @@
 
       & > .z-item {
         border-radius: 0;
-        color: var(--prizm-v3-button-primary-solid-default);
+        color: var(--prizm-button-primary-solid-default);
       }
     }
 
     &[data-range] {
       &:not([data-state='hovered']) > .z-item {
-        color: var(--prizm-v3-text-icon-exception);
+        color: var(--prizm-text-icon-exception);
 
         &:before,
         &:after {
-          background-color: var(--prizm-v3-button-primary-solid-default);
+          background-color: var(--prizm-button-primary-solid-default);
         }
       }
 
       &[data-state='hovered'] > .z-item {
-        background-color: var(--prizm-v3-button-ghost-hover);
-        color: var(--prizm-v3-button-primary-solid-hover);
+        background-color: var(--prizm-button-ghost-hover);
+        color: var(--prizm-button-primary-solid-hover);
       }
 
       &[data-state='hovered'] > .z-item:before,
       &[data-state='hovered'] > .z-item:after {
-        background-color: var(--prizm-v3-button-ghost-hover);
-        color: var(--prizm-v3-button-primary-solid-hover);
+        background-color: var(--prizm-button-ghost-hover);
+        color: var(--prizm-button-primary-solid-hover);
       }
 
       &[data-state='pressed'] > .z-item:before,
       &[data-state='pressed'] > .z-item:after {
-        background-color: var(--prizm-v3-button-primary-solid-default);
+        background-color: var(--prizm-button-primary-solid-default);
       }
     }
 
@@ -174,14 +174,14 @@
     }
 
     &[data-state='hovered']:not([data-range]):not(.z-cell_today) > .z-item {
-      background-color: var(--prizm-v3-button-ghost-hover);
-      color: var(--prizm-v3-button-primary-solid-hover);
+      background-color: var(--prizm-button-ghost-hover);
+      color: var(--prizm-button-primary-solid-hover);
     }
 
     &[data-state='pressed']:hover:not([data-range]) > .z-item {
-      background-color: var(--prizm-v3-button-primary-solid-default);
+      background-color: var(--prizm-button-primary-solid-default);
       border-radius: 2px;
-      color: var(--prizm-v3-text-icon-exception);
+      color: var(--prizm-text-icon-exception);
     }
   }
 }

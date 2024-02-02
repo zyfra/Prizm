@@ -1,7 +1,7 @@
 :host {
   padding: 16px;
   display: flex;
-  border-bottom: 1px solid var(--prizm-border-widget);
+  border-bottom: 1px solid var(--prizm-background-stroke);
 }
 
 .steps {
@@ -12,7 +12,10 @@
 
 .step {
   &:focus {
-    border-color: var(--prizm-lite-b130-20);
+    .step__index,
+    .step__icon {
+      box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
+    }
   }
   display: flex;
   align-items: center;
@@ -43,86 +46,86 @@
 
   &__icon {
     transition: color 0.3s, background-color 0.3s, border-color 0.3s;
+    border-radius: 50%;
   }
 
   &__title {
     font-size: 14px;
     line-height: 16px;
     font-weight: 600;
-    color: var(--prizm-text-contrast);
+    color: var(--prizm-text-icon-primary);
     padding: 0 8px;
   }
 
   &--success {
     .step__index {
-      color: var(--prizm-exceptions-white);
-      background-color: var(--prizm-index-good);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-success-primary-default);
     }
 
     .step__icon {
-      color: var(--prizm-index-good);
+      color: var(--prizm-status-success-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        background-color: var(--prizm-palette-gr2);
-        border-color: var(--prizm-palette-gr2);
+        background-color: var(--prizm-status-success-primary-hover);
+        border-color: var(--prizm-status-success-primary-hover);
       }
     }
   }
 
   &--warning {
     .step__index {
-      color: var(--prizm-exceptions-white);
-      background-color: var(--prizm-index-warning);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-warning-primary-default);
     }
 
     .step__icon {
-      color: var(--prizm-index-warning);
+      color: var(--prizm-status-warning-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        background-color: var(--prizm-palette-y2, #e67b0f);
-        border-color: var(--prizm-palette-y2, #e67b0f);
+        background-color: var(--prizm-status-warning-primary-hover);
+        border-color: var(--prizm-status-warning-primary-hover);
       }
     }
   }
 
   &--danger {
     .step__index {
-      color: var(--prizm-exceptions-white);
-      background-color: var(--prizm-index-danger);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-alarm-primary-default);
     }
 
     .step__icon {
-      color: var(--prizm-index-danger);
+      color: var(--prizm-status-alarm-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        background-color: var(--prizm-palette-r2);
-        border-color: var(--prizm-palette-r2);
+        background-color: var(--prizm-status-alarm-primary-hover);
+        border-color: var(--prizm-status-alarm-primary-hover);
       }
     }
   }
 
   &--default {
     .step__index {
-      color: var(--prizm-text-subscript);
-      background-color: #fff;
-      border-color: var(--prizm-grey-g8-g6);
+      color: var(--prizm-status-none-primary-default);
+      border-color: var(--prizm-status-none-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        color: var(--prizm-exceptions-white);
-        border-color: var(--prizm-grey-g7-g7);
-        background-color: var(--prizm-grey-g7-g7);
+        color: var(--prizm-text-icon-exception);
+        border-color: var(--prizm-status-none-primary-hover);
+        background-color: var(--prizm-status-none-primary-hover);
       }
     }
   }
@@ -131,17 +134,17 @@
     cursor: default;
 
     .step__index {
-      color: var(--prizm-exceptions-white);
-      background-color: var(--prizm-index-plan);
-      border-color: var(--prizm-index-plan);
+      color: var(--prizm-text-icon-exception);
+      background-color: var(--prizm-status-info-primary-default);
+      border-color: var(--prizm-status-info-primary-default);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        color: var(--prizm-exceptions-white);
-        background-color: var(--prizm-index-plan);
-        border-color: var(--prizm-index-plan);
+        color: var(--prizm-text-icon-exception);
+        background-color: var(--prizm-status-info-primary-default);
+        border-color: var(--prizm-status-info-primary-default);
       }
     }
   }
@@ -150,17 +153,17 @@
     cursor: not-allowed;
 
     .step__index {
-      color: var(--prizm-grey-g10-g4);
-      background-color: var(--prizm-grey-g12-g2);
-      border-color: var(--prizm-grey-g12-g2);
+      color: var(--prizm-text-icon-disable);
+      background-color: var(--prizm-button-disable);
+      border-color: var(--prizm-button-disable);
     }
 
     &:hover,
     &:focus {
       .step__index {
-        color: var(--prizm-grey-g10-g4);
-        background-color: var(--prizm-grey-g12-g2);
-        border-color: var(--prizm-grey-g12-g2);
+        color: var(--prizm-text-icon-disable);
+        background-color: var(--prizm-button-disable);
+        border-color: var(--prizm-button-disable);
       }
     }
   }
@@ -170,7 +173,7 @@
   flex-grow: 1;
   display: block;
   height: 2px;
-  background-color: var(--prizm-border-widget);
+  background-color: var(--prizm-background-stroke);
   min-width: 15px;
   margin: 0 8px;
 
@@ -181,7 +184,7 @@
 
 :host-context(.vertical) {
   border-bottom: none;
-  border-right: 1px solid var(--prizm-border-widget);
+  border-right: 1px solid var(--prizm-background-stroke);
   align-items: flex-start;
   width: auto;
 

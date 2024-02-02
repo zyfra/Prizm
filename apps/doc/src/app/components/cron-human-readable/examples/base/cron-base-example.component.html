@@ -1,8 +1,8 @@
-<div>
+<div class="box">
   Input:
   <b>0 0 * ? * * *</b>
 </div>
-<div>
-  Result:
-  <b>{{ '0 0 * ? * * *' | prizmCronHumanReadable }}</b>
+<div class="box">
+  With Pipe:
+  <b>{{ '0 0 * ? * * *' | prizmCronHumanReadable | async }}</b>
 </div>

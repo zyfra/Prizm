@@ -27,6 +27,7 @@ import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
       }
     `,
   ],
+  standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmFlagIconsComponent extends PrizmAbstractTestId {

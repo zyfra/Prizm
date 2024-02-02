@@ -12,15 +12,17 @@
     cursor: pointer;
     justify-content: center;
     padding: 0 4px;
+    color: var(--prizm-text-icon-secondary);
 
     &.item.selected {
-      background-color: var(--prizm-index-plan);
-      color: var(--prizm-exceptions-white);
+      background-color: var(--prizm-button-primary-solid-default);
+      color: var(--prizm-text-icon-exception);
     }
 
     &:hover {
-      background-color: var(--prizm-g2-g11);
-      color: var(--prizm-index-plan);
+      background-color: var(--prizm-button-ghost-hover);
+      color: var(--prizm-button-primary-solid-hover);
+      border: 1px solid var(--prizm-button-primary-solid-hover);
     }
   }
 }

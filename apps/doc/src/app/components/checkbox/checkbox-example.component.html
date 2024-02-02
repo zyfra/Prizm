@@ -18,16 +18,28 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-checkbox
-        #element
-        [prizmDocHostElement]="element"
-        [checked]="checked"
-        [disabled]="disabled"
-        [size]="size"
-        [indeterminate]="indeterminate"
-      >
-        {{ label }}
-      </prizm-checkbox>
+      <div class="box">
+        <prizm-checkbox
+          #element
+          [prizmDocHostElement]="element"
+          [checked]="checked"
+          [disabled]="disabled"
+          [size]="size"
+          [indeterminate]="indeterminate"
+        >
+          {{ label }}
+        </prizm-checkbox>
+      </div>
+      <div class="box">
+        <prizm-checkbox
+          #element
+          [prizmDocHostElement]="element"
+          [checked]="checked"
+          [disabled]="disabled"
+          [size]="size"
+          [indeterminate]="indeterminate"
+        ></prizm-checkbox>
+      </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template [(documentationPropertyValue)]="label" documentationPropertyMode="ng-content">

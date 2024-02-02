@@ -13,7 +13,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
         align-items: center;
         gap: 24px;
         padding: 16px;
-        background-color: var(--prizm-v3-background-fill-secondary);
+        background-color: var(--prizm-background-fill-secondary);
       }
 
       prizm-listing-item {
@@ -27,6 +27,9 @@ export class PrizmListingItemExampleComponent {
   public disabled = false;
   public selected = false;
   public contentType: 'chips' | 'flat' = 'flat';
+  public prizmListingItemRowHover = '';
+  public prizmListingItemRowSelectedHover = '';
+  public prizmListingItemHeight = '';
 
   public contentTypeVariants: ('chips' | 'flat')[] = ['chips', 'flat'];
 

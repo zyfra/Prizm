@@ -1,42 +1,44 @@
 [prizmTbody] tr[prizmTr] {
   cursor: var(--prizm-table-row-cursor, pointer);
+  color: var(--prizm-text-icon-secondary);
 
-  color: var(--prizm-v2-table-text-default);
+  background: var(--prizm-table-row-background, var(--prizm-background-fill-primary));
 
-  background: var(--prizm-table-row-background, var(--prizm-v2-table-background-default));
-
-  &:nth-child(odd) {
-    background: var(--prizm-table-row-odd-background, var(--prizm-v2-table-zebra));
+  &:nth-child(even) {
+    background: var(--prizm-table-row-odd-background, var(--prizm-table-fill-row-zebra_default));
   }
 
   &:hover {
-    background: var(--prizm-table-row-hover-background, var(--prizm-v2-table-background-default-hover));
+    background: var(--prizm-table-row-hover-background, var(--prizm-table-fill-row-hover));
   }
 
   &[status='success'] {
-    background: var(--prizm-v2-table-background-success);
-    color: var(--prizm-v2-table-text-success);
+    background: var(--prizm-status-success-secondary-default);
 
     &:hover {
-      background: var(--prizm-v2-table-background-success-hover);
+      background: var(--prizm-status-success-secondary-hover);
     }
   }
 
   &[status='warning'] {
-    background: var(--prizm-v2-table-background-warning);
-    color: var(--prizm-v2-table-text-warning);
+    background: var(--prizm-status-warning-secondary-default);
 
     &:hover {
-      background: var(--prizm-v2-table-background-warning-hover);
+      background: var(--prizm-status-warning-secondary-hover);
     }
   }
 
   &[status='danger'] {
-    background: var(--prizm-v2-table-background-danger);
-    color: var(--prizm-v2-table-text-danger);
+    background: var(--prizm-status-alarm-secondary-default);
 
     &:hover {
-      background: var(--prizm-v2-table-background-danger-hover);
+      background: var(--prizm-status-alarm-secondary-hover);
     }
+  }
+}
+
+table[prizmTable][border-style='vertical'] {
+  tr[prizmTr]:last-child td[prizmTd] {
+    border-bottom: 1px solid var(--prizm-table-stroke-cell-default);
   }
 }

@@ -4,7 +4,7 @@
     *prizmLet="items && value | prizmCallFunc : getFullObjectOfCurrent : itemList as val"
     [content]="dropdown"
     [isOpen]="$any(opened$ | async)"
-    [prizmDropdownHost]="layoutComponent.el.nativeElement"
+    [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
     [prizmDropdownHostWidth]="dropdownWidth"
     [prizmDropdownMinHeight]="minDropdownHeight"
     [prizmDropdownMaxHeight]="maxDropdownHeight"
@@ -24,14 +24,24 @@
         "
       >
         <ng-container
-          *prizmLet="val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text"
+          *prizmLet="
+            val
+              | prizmCallFunc
+                : stringifyForInner
+                : layoutComponent?.outer
+                : layoutComponent?.label
+                : placeholder
+                : nullContent
+              | async as text
+          "
         >
           <input
             class="input-search"
             #focusableElementRef
-            [style.visibility]="isNotNullish(val) ? 'visible' : 'hidden'"
             [placeholder]="placeholder"
             [disabled]="disabled"
+            [tabIndex]="!disabled ? 0 : -1"
+            [title]="val"
             [readonly]="true"
             [prizmHintDirection]="prizmHintDirection"
             [prizmHintCanShow]="prizmHintCanShow"
@@ -52,6 +62,7 @@
         [ngModelOptions]="{ standalone: true }"
         [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
         [attr.contenteditable]="false"
+        [tabIndex]="!disabled ? 1 : -1"
         [disabled]="disabled"
         (focus)="focused$$.next(true)"
         (blur)="focused$$.next(false)"

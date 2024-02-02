@@ -133,7 +133,15 @@
       >
         Width
       </ng-template>
-
+      <ng-template
+        [(documentationPropertyValue)]="visibility"
+        [documentationPropertyValues]="visibilityVariants"
+        documentationPropertyName="scrollbarVisibility"
+        documentationPropertyType="PrizmScrollbarVisibility"
+        documentationPropertyMode="input"
+      >
+        Scrollbar Visibility
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="confirmButton"
         documentationPropertyName="confirmButton"
@@ -177,6 +185,9 @@
 
 <ng-template #contentTemp>
   Content из <a href="#">шаблона</a>
+  [formControl]="control" [items]="items"
 
-  <prizm-select [items]="items"></prizm-select>
+  <prizm-input-layout label="Validators">
+    <prizm-input-select [items]="items"></prizm-input-select>
+  </prizm-input-layout>
 </ng-template>

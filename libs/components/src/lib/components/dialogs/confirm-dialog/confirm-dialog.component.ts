@@ -11,7 +11,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
 import { PrizmOverlayModule } from '../../../modules';
-import { PrizmThemeModule } from '@prizm-ui/theme';
+import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmButtonModule } from '../../button';
 import { PrizmScrollbarModule } from '../../scrollbar';
 
@@ -43,6 +43,10 @@ export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTe
 
   @Input()
   public close!: () => void;
+
+  get theme(): PrizmTheme {
+    return this.context.theme!;
+  }
 
   @HostBinding('attr.prizm-size')
   public get size(): PrizmDialogSize {

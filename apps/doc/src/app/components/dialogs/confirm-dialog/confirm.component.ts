@@ -19,6 +19,7 @@ import {
   PrizmDialogSize,
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
+  PrizmScrollbarVisibility,
   PrizmSize,
 } from '@prizm-ui/components';
 import { prizmPure } from '@prizm-ui/core';
@@ -42,6 +43,8 @@ export class ConfirmComponent implements AfterViewInit {
   public pressedChange = false;
   public hoveredChange = false;
   public focusVisibleChange = false;
+  public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = ['auto', 'hidden', 'visible'];
+  public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
@@ -149,6 +152,7 @@ export class ConfirmComponent implements AfterViewInit {
         showByVertical: this.showByVertical,
         height: this.height,
         overscroll: this.overscroll,
+        scrollbarVisibility: this.visibility,
         width: this.width,
         position: this.position,
         size: this.size,

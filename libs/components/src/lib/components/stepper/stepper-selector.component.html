@@ -3,11 +3,9 @@
     <li>
       <button
         class="step step--{{ step.status }} step--{{ index }}"
-        [ngClass]="{
-          'step--current': currentStep === step.index,
-          'step--disabled': step.disabled,
-          'step--first': isFirstStep
-        }"
+        [class.step--current]="currentStep === step.index"
+        [class.step--disabled]="step.disabled"
+        [class.step--first]="isFirstStep"
         [disabled]="step.disabled"
         [prizmStepperSelectorItem]="step.index"
         (click)="clickOnStep(step.index)"

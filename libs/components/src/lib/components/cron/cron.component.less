@@ -1,7 +1,11 @@
-@import '../../../styles/ui-local';
+@import '../../../styles/ui-local.less';
+
+:host {
+  color: var(--prizm-text-icon-secondary);
+}
 
 .block {
-  border: 1px solid var(--prizm-border-widget);
+  border: 1px solid var(--prizm-background-stroke);
   border-radius: 2px;
   padding: 6px 0;
 
@@ -38,22 +42,18 @@
   &.title {
     align-items: center;
     justify-content: space-between;
+    color: var(--prizm-text-icon-primary);
   }
 }
 
 .border-bottom {
-  border-bottom: 1px solid var(--prizm-border-widget);
+  border-bottom: 1px solid var(--prizm-background-stroke);
 }
 
 .sub-pages {
   width: 100%;
   display: block;
   padding-top: 16px;
-}
-
-.copy-icon {
-  color: var(--prizm-border-widget);
-  cursor: pointer;
 }
 
 .submit-block {

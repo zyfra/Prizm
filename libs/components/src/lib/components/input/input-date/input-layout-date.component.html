@@ -3,7 +3,7 @@
   [canOpen]="canOpen"
   [isOpen]="open && canOpen"
   [content]="dropdown"
-  [prizmDropdownHost]="layoutComponent.el.nativeElement"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   [closeByEsc]="true"
   (isOpenChange)="onOpenChange($event)"
   prizmDropdownHostWidth="auto"

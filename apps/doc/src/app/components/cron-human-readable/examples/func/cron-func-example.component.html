@@ -1,8 +1,13 @@
-<div>
+<div class="box">
   Input:
   <b>0 0 * ? * * *</b>
 </div>
-<div>
-  Result:
+<div class="box">
+  With function:
   <b>{{ prizmCronHRToString('0 0 * ? * * *', { locale: 'en' }) }}</b>
+  <br />
+  With pipe:
+  <b>
+    <b>{{ '0 0 * ? * * *' | prizmCronHumanReadable : 'en' | async }}</b>
+  </b>
 </div>

@@ -8,17 +8,17 @@
 
 .dropzone {
   padding: 32px;
-  border: 1px dashed var(--prizm-border-forms);
+  border: 1px dashed var(--prizm-form-stroke-default);
   border-radius: 2px;
 
-  background-color: var(--prizm-g2-g11);
+  background-color: var(--prizm-form-fill-default);
 
   display: flex;
   flex-direction: column;
   align-items: center;
   &.active {
-    background-color: var(--prizm-focus-border);
-    border: 1px dashed var(--prizm-index-plan);
+    background-color: var(--prizm-table-fill-row-hover);
+    border: 1px dashed var(--prizm-form-stroke-hover);
   }
 
   &__title {
@@ -26,14 +26,14 @@
     font-size: 16px;
     line-height: 20px;
     margin-bottom: 8px;
-    color: var(--prizm-text-contrast);
+    color: var(--prizm-text-icon-primary);
   }
 
   &__description {
     font-weight: 400;
     font-size: 14px;
     line-height: 20px;
-    color: var(--prizm-border-forms);
+    color: var(--prizm-text-icon-secondary);
   }
 
   &__user-content {
@@ -41,7 +41,7 @@
     font-size: 12px;
     line-height: 16px;
     margin-top: 8px;
-    color: var(--prizm-text-subscript);
+    color: var(--prizm-text-icon-tertiary);
 
     &:empty {
       display: none;
@@ -74,11 +74,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: var(--prizm-disabled-outline);
+    background-color: var(--prizm-form-fill-default);
+    border: 1px solid var(--prizm-form-stroke-default);
+    border-radius: 2px;
   }
 
   &__icon {
-    color: var(--prizm-border-icon);
+    color: var(--prizm-text-icon-secondary);
   }
 
   &__image {
@@ -102,30 +104,28 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
-    color: var(--prizm-text-contrast);
+    color: var(--prizm-text-icon-primary);
   }
   &__size {
     font-size: 10px;
     line-height: 12px;
-    color: var(--prizm-border-forms);
+    color: var(--prizm-text-icon-tertiary);
   }
 
   &__stage {
     font-size: 10px;
     line-height: 12px;
-    color: var(--prizm-border-forms);
+    color: var(--prizm-text-icon-tertiary);
     grid-column-start: 4;
     grid-column-end: 5;
   }
 
   &__retry-btn {
     justify-self: start;
-    color: var(--prizm-border-icon);
     grid-column-start: 5;
   }
 
   &__delete-btn {
-    color: var(--prizm-border-icon);
     grid-column-start: 6;
   }
 
@@ -142,15 +142,15 @@
 
   &__bar {
     &.progress {
-      color: var(--prizm-index-plan);
+      color: var(--prizm-status-info-primary-default);
     }
 
     &.warning {
-      color: var(--prizm-index-danger);
+      color: var(--prizm-status-alarm-primary-default);
     }
 
     &.success {
-      color: var(--prizm-v2-status-success);
+      color: var(--prizm-status-success-primary-default);
     }
   }
 
@@ -159,6 +159,6 @@
     font-weight: 500;
     font-size: 10px;
     line-height: 12px;
-    color: var(--prizm-text-contrast);
+    color: var(--prizm-text-icon-secondary);
   }
 }

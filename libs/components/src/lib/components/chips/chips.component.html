@@ -9,7 +9,7 @@
 >
   <ng-container *ngIf="prizmElementReady.ready$ | async">
     <ng-container
-      *ngFor="let item of chipsList$ | async; let i = index"
+      *ngFor="let item of chipsList$ | async; let i = index; trackBy: trackByIdx"
       [ngTemplateOutlet]="buttonTemplate"
       [ngTemplateOutletContext]="{
         item: item,

@@ -1,12 +1,12 @@
-@import '../../../../styles/ui-local';
+@import '../../../../styles/ui-local.less';
 
 .title {
   .ellipsis();
-  font-weight: var(--prizm-confirm-dialog-title-font-weight, 800);
+  font-weight: var(--prizm-confirm-dialog-title-font-weight, 600);
   font-size: var(--prizm-confirm-dialog-title-font-size, 14px);
   line-height: var(--prizm-confirm-dialog-title-line-height, 20px);
   text-align: var(--prizm-confirm-dialog-title-align, center);
-  color: var(--prizm-confirm-dialog-title, var(--prizm-text-main));
+  color: var(--prizm-confirm-dialog-title, var(--prizm-text-icon-primary));
   white-space: pre-line;
 }
 
@@ -16,7 +16,7 @@
   font-size: var(--prizm-confirm-dialog-description-font-size, 14px);
   line-height: var(--prizm-confirm-dialog-description-line-height, 20px);
   text-align: var(--prizm-confirm-dialog-description-align, center);
-  color: var(--prizm-confirm-dialog-description, var(--prizm-text-subscript));
+  color: var(--prizm-confirm-dialog-description, var(--prizm-text-icon-secondary));
   white-space: pre-line;
 }
 
@@ -25,8 +25,8 @@
 }
 
 .host {
-  background: var(--prizm-confirm-dialog-background, var(--prizm-bg-body));
-  border: 1px solid var(--prizm-border-widget);
+  background: var(--prizm-confirm-dialog-background, var(--prizm-background-fill-overlay));
+  border: 1px solid var(--prizm-background-stroke);
   border-radius: var(--prizm-confirm-dialog-border-radius, 2px);
   margin: var(--prizm-confirm-dialog-margin, 10px);
   pointer-events: all;
@@ -74,7 +74,7 @@
 }
 
 .footer {
-  border-top: 1px solid var(--prizm-border-widget);
+  border-top: 1px solid var(--prizm-background-stroke);
   padding: var(--prizm-confirm-dialog-padding, 14px 16px);
   max-width: 100%;
 

@@ -25,12 +25,7 @@
           />
 
           <ng-container prizm-input-right>
-            <button
-              class="copy-icon"
-              [interactive]="true"
-              (click)="copy()"
-              prizmInputIconButton="editor-copy"
-            ></button>
+            <button [interactive]="true" (click)="copy()" prizmInputIconButton="editor-copy"></button>
           </ng-container>
         </prizm-input-layout>
       </ng-container>
@@ -54,7 +49,7 @@
     >
       <input
         #humarReadableElem
-        *prizmLet="$any(valueAsString$ | async) | prizmCronHumanReadable as humanReadableStr"
+        *prizmLet="$any(valueAsString$ | async) | prizmCronHumanReadable | async as humanReadableStr"
         [prizmHint]="humanReadableStr"
         [readonly]="true"
         [prizmHintCanShow]="prizmIsTextOverflow(humarReadableElem.elementRef.nativeElement)"
@@ -66,7 +61,6 @@
 
       <ng-container prizm-input-right>
         <button
-          class="copy-icon"
           [interactive]="true"
           (click)="copyHumanReadable()"
           prizmInputIconButton="editor-copy"
@@ -87,7 +81,7 @@
 
   <div class="inner-block date-period border-bottom" *ngIf="!hidePeriod">
     <div class="date-block">
-      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']">
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']" size="m">
         <prizm-input-layout-date-time
           [formControl]="startDateControl"
           [max]="endDateControl.value ?? undefined"
@@ -95,7 +89,7 @@
         </prizm-input-layout-date-time>
       </prizm-input-layout>
 
-      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']">
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']" size="m">
         <prizm-input-layout-date-time
           [min]="startDateControl.value ?? undefined"
           [disabled]="indefinitely"

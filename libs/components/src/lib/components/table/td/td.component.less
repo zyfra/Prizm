@@ -6,7 +6,7 @@
 :host {
   padding: 0 8px;
   background: inherit;
-  border: 1px solid var(--prizm-border-widget);
+  border: 1px solid var(--prizm-table-stroke-cell-default);
   border-top: none;
   z-index: 10;
 
@@ -31,32 +31,55 @@
   background: inherit;
   color: inherit;
 
-  &[status='success'] {
-    background: var(--prizm-v2-table-background-success);
-    color: var(--prizm-v2-table-text-success);
+  &:has([prizmInput]:focus) {
+    background-color: var(--prizm-background-fill-primary);
+    box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-active) inset;
   }
+
+  &[status='success'] {
+    background: var(--prizm-status-success-secondary-default);
+
+    &:has([prizmInput]:not(:disabled)):hover,
+    &:has([prizmInput]:focus) {
+      box-shadow: 0 0 0 1px var(--prizm-status-success-primary-default) inset;
+    }
+  }
+
   &[status='default'] {
     background: inherit;
-    color: var(--prizm-v2-table-text-default);
+
+    &:has([prizmInput]:not(:focus):not(:disabled)):hover {
+      box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-hover) inset;
+    }
   }
 
   &[status='warning'] {
-    background: var(--prizm-v2-table-background-warning);
-    color: var(--prizm-v2-table-text-warning);
+    background: var(--prizm-status-warning-secondary-default);
+
+    &:has([prizmInput]:not(:disabled)):hover,
+    &:has([prizmInput]:focus) {
+      box-shadow: 0 0 0 1px var(--prizm-status-warning-primary-default) inset;
+    }
   }
 
   &[status='danger'] {
-    background: var(--prizm-v2-table-background-danger);
-    color: var(--prizm-v2-table-text-danger);
+    background: var(--prizm-status-alarm-secondary-default);
+
+    &:has([prizmInput]:not(:disabled)):hover,
+    &:has([prizmInput]:focus) {
+      box-shadow: 0 0 0 1px var(--prizm-status-alarm-primary-default) inset;
+    }
   }
 }
 
 :host-context([active='true']) {
   &:first-child:before {
-    background: var(--prizm-index-plan);
+    background: var(--prizm-table-active-row-marker-color, var(--prizm-status-info-primary-default));
   }
-  color: var(--prizm-v2-table-text-selected);
-  background: var(--prizm-v2-table-background-selected);
+
+  &[status='default'] {
+    background: var(--prizm-table-fill-row-active);
+  }
 }
 
 :host-context([border-style='vertical']) {
@@ -64,8 +87,13 @@
 }
 
 :host-context([border-style='horizontal']) {
-  border-right: none;
-  border-left: none;
+  &:not(:first-child) {
+    border-left: none;
+  }
+
+  &:not(:last-child) {
+    border-right: none;
+  }
 }
 
 :host-context([data-size='s']) {

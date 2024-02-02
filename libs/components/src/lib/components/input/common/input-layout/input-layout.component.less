@@ -36,7 +36,7 @@
 .prizm-input-label {
   font-weight: 600;
   font-size: 12px;
-  color: var(--prizm-v3-text-icon-tertiary);
+  color: var(--prizm-text-icon-tertiary);
   line-height: 16px;
   transition: top 200ms ease 0s;
   pointer-events: none;
@@ -45,7 +45,7 @@
   gap: 4px;
 
   &-required {
-    color: var(--prizm-v3-status-alarm-primary-default);
+    color: var(--prizm-status-alarm-primary-default);
   }
 
   &-inner {
@@ -88,8 +88,8 @@
 }
 
 .prizm-input-form {
-  background-color: var(--prizm-v3-form-fill-default);
-  border: 1px solid var(--prizm-v3-form-stroke-default);
+  background-color: var(--prizm-form-fill-default);
+  border: 1px solid var(--prizm-form-stroke-default);
   border-radius: 2px;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@
   }
 
   &:hover {
-    border-color: var(--prizm-v3-form-active);
+    border-color: var(--prizm-form-stroke-hover);
   }
 
   &__first {
@@ -127,58 +127,58 @@
 
   &-status {
     &-success {
-      border-color: var(--prizm-v3-status-success-primary-default);
+      border-color: var(--prizm-status-success-primary-default);
       &:hover {
-        border-color: var(--prizm-v3-status-success-primary-hover);
+        border-color: var(--prizm-status-success-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-v3-status-success-primary-default);
+        color: var(--prizm-status-success-primary-default);
       }
     }
 
     &-warning {
-      border-color: var(--prizm-v3-status-warning-primary-default);
+      border-color: var(--prizm-status-warning-primary-default);
       &:hover {
-        border-color: var(--prizm-v3-status-warning-primary-hover);
+        border-color: var(--prizm-status-warning-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-v3-status-warning-primary-default);
+        color: var(--prizm-status-warning-primary-default);
       }
     }
 
     &-danger {
-      border-color: var(--prizm-v3-status-alarm-primary-default);
+      border-color: var(--prizm-status-alarm-primary-default);
       &:hover {
-        border-color: var(--prizm-v3-status-alarm-primary-hover);
+        border-color: var(--prizm-status-alarm-primary-hover);
       }
 
       .prizm-input-form-status-button {
-        color: var(--prizm-v3-status-alarm-primary-default);
+        color: var(--prizm-status-alarm-primary-default);
       }
     }
   }
 
   &-invalid {
     &.prizm-input-form-touched {
-      border-color: var(--prizm-v3-status-alarm-primary-default);
+      border-color: var(--prizm-status-alarm-primary-default);
     }
 
     .prizm-input-form-status-button {
-      color: var(--prizm-v3-status-alarm-primary-default);
+      color: var(--prizm-status-alarm-primary-default);
     }
   }
 
   // rewrite all if focused
   &-focused,
   &:focus-within {
-    border-color: var(--prizm-v3-form-active);
-    box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
+    border-color: var(--prizm-form-active);
+    box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
     position: relative;
 
     &:hover {
-      border-color: var(--prizm-v3-form-active-hover);
+      border-color: var(--prizm-form-active-hover);
     }
 
     .prizm-input-button-default {
@@ -193,6 +193,12 @@
     }
 
     cursor: not-allowed;
+
+    ::ng-deep {
+      [prizmInputIconButton] {
+        display: none;
+      }
+    }
   }
 
   &-inner {
@@ -229,7 +235,7 @@
       .prizm-input-button-default {
         position: absolute;
         z-index: 100;
-        background-color: var(--prizm-v3-form-fill-default);
+        background-color: var(--prizm-form-fill-default);
       }
 
       .prizm-input-button-default {
@@ -250,21 +256,20 @@
 }
 
 .prizm-input-form-subtext {
-  padding-left: 16px;
   font-size: 10px;
   font-weight: 500;
   line-height: 22px;
 
   &-success {
-    color: var(--prizm-v3-status-success-primary-default);
+    color: var(--prizm-status-success-primary-default);
   }
 
   &-warning {
-    color: var(--prizm-v3-status-warning-primary-default);
+    color: var(--prizm-status-warning-primary-default);
   }
 
   &-danger {
-    color: var(--prizm-v3-status-alarm-primary-default);
+    color: var(--prizm-status-alarm-primary-default);
   }
 }
 

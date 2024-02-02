@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PolymorphContent } from '../../../directives/polymorph';
 import { PrizmToastRef } from '../toast-ref';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';

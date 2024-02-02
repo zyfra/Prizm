@@ -9,7 +9,7 @@
   flex-direction: column;
   gap: 8px;
   margin-bottom: 32px;
-  background-color: var(--prizm-v3-background-fill-secondary);
+  background-color: var(--prizm-background-fill-secondary);
   border-radius: 8px;
   padding: 16px;
 }
@@ -24,7 +24,7 @@
 }
 
 .title {
-  color: var(--prizm-v3-text-icon-primary);
+  color: var(--prizm-text-icon-primary);
   font-size: 16px;
   font-family: Inter;
   font-weight: 700;
@@ -44,10 +44,10 @@
 .color-item {
   width: 300px;
   height: 180px;
-  background: var(--prizm-v3-text-icon-exception);
+  background: var(--prizm-text-icon-exception);
   border-radius: 8px;
   overflow: hidden;
-  border: 1px var(--prizm-v3-background-stroke) solid;
+  border: 1px var(--prizm-background-stroke) solid;
   justify-content: flex-start;
   align-items: flex-start;
   display: inline-flex;
@@ -67,7 +67,7 @@
 }
 
 .description-item {
-  color: var(--prizm-v3-text-icon-primary);
+  color: var(--prizm-text-icon-primary);
   font-size: 16px;
   font-family: Inter;
   font-weight: 400;

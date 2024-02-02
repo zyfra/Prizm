@@ -4,10 +4,6 @@ import { PrizmAccordionContentDirective } from './directives/accordion-content.d
 import { AccordionToolsDirective } from './directives/accordion-tools.directive';
 import { PrizmAccordionItemComponent } from './components/accordion-item/accordion-item.component';
 
-/**
- * @deprecated
- * use standalone instead
- * */
 @NgModule({
   imports: [
     PrizmAccordionComponent,

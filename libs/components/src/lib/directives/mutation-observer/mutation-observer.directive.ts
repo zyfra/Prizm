@@ -7,6 +7,7 @@ import { PRIZM_MUTATION_OBSERVER_OPTIONS, PrizmMutationObserveOptions } from './
 @Directive({
   selector: '[prizmMutationObserver]',
   providers: [PrizmDestroyService],
+  standalone: true,
   exportAs: 'prizmMutationObserverEl',
 })
 export class PrizmMutationObserveDirective implements OnInit {

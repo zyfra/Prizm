@@ -11,8 +11,8 @@
     display: flex;
     flex-direction: column;
 
-    background: var(--prizm-bg-body);
-    border: 1px solid var(--prizm-border-widget);
+    background: var(--prizm-background-fill-primary);
+    border: 1px solid var(--prizm-background-stroke);
 
     .content {
       height: 400px;
@@ -46,7 +46,7 @@
       }
 
       &::-webkit-scrollbar-thumb {
-        background-color: var(--prizm-grey-g10-g4);
+        background-color: var(--prizm-form-stroke-default);
         border-radius: 4px;
       }
     }
@@ -76,15 +76,15 @@
         align-items: center;
         justify-content: space-between;
 
-        background: var(--prizm-bg-dashboard-forms);
-        border: 1px solid var(--prizm-border-forms);
+        background: var(--prizm-background-fill-secondary);
+        border: 1px solid var(--prizm-form-stroke-default);
         border-radius: 2px;
 
         font-weight: 400;
         font-size: 14px;
         line-height: 16px;
 
-        color: var(--prizm-text-contrast);
+        color: var(--prizm-text-icon-primary);
 
         transition: 400ms;
 
@@ -96,15 +96,15 @@
           align-items: center;
           justify-content: center;
 
-          color: var(--prizm-border-icon);
+          color: var(--prizm-text-icon-tertiary);
         }
 
         &:hover,
         &:focus {
-          border-color: var(--prizm-index-plan);
+          border-color: var(--prizm-status-info-primary-default);
 
           .zoom-control__select-icon {
-            color: var(--prizm-index-plan);
+            color: var(--prizm-status-info-primary-default);
           }
         }
       }
@@ -116,7 +116,7 @@
   display: flex;
   flex-direction: column;
 
-  background: var(--prizm-bg-body);
+  background: var(--prizm-background-fill-primary);
 
   &.default {
     border: none;
@@ -125,57 +125,7 @@
   &-group {
     padding: 16px 0;
 
-    border-bottom: 1px solid var(--prizm-border-widget);
-
-    &__item {
-      height: 40px;
-      width: 100%;
-      padding: 0 16px;
-
-      display: flex;
-      align-items: center;
-
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 16px;
-
-      color: var(--prizm-text-contrast);
-
-      overflow: hidden;
-      cursor: pointer;
-
-      transition: 400ms;
-
-      &:hover {
-        background: var(--prizm-lite-b130-20);
-
-        .icon,
-        .key {
-          color: var(--prizm-index-plan);
-        }
-      }
-
-      .icon,
-      .key {
-        height: 16px;
-        width: 16px;
-        margin-right: 8px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        color: var(--prizm-border-icon);
-      }
-
-      .key {
-        height: 24px;
-        width: 24px;
-
-        margin-right: 0;
-        margin-left: auto;
-      }
-    }
+    border-bottom: 1px solid var(--prizm-background-stroke);
 
     &:last-child {
       border: none;

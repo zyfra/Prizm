@@ -1,7 +1,7 @@
 :host {
   display: flex;
 
-  background-color: var(--prizm-splitter-gutter-bg, var(--prizm-bg-dashboard-forms));
+  background-color: var(--prizm-splitter-gutter-bg, transparent);
   touch-action: none;
   align-items: center;
   justify-content: center;
@@ -27,13 +27,13 @@
 
   .slider {
     border-radius: 2px;
-    background-color: var(--prizm-palette-g6);
+    background-color: var(--prizm-form-stroke-default);
     &:hover,
     &:focus {
-      background-color: var(--prizm-palette-b2);
+      background-color: var(--prizm-form-stroke-hover);
     }
     &:active {
-      background-color: var(--prizm-palette-b3);
+      background-color: var(--prizm-form-active);
     }
   }
 }

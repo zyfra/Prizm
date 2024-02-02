@@ -6,6 +6,8 @@ import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { PrizmSize, PrizmSizeL, PrizmSizeM } from '../../../util';
 import { PrizmOverscrollMode } from '../../../directives/overscroll/overscroll.model';
 import { PrizmContent } from '../../button';
+import { PrizmScrollbarVisibility } from '../../scrollbar';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 export type PrizmBaseDialogContext<O, T = PrizmDialogBaseOptions> = PrizmContextWithImplicit<Observer<O>> &
   PrizmAriaDialogContext &
@@ -27,6 +29,7 @@ export interface PrizmDialogBaseOptions {
   readonly width?: string | number;
   readonly zIndex?: number;
   readonly height?: string | number;
+  readonly theme?: PrizmTheme;
   readonly id?: string;
   readonly backdrop?: boolean;
   readonly overscroll?: PrizmOverscrollMode;
@@ -48,6 +51,7 @@ export interface PrizmDialogOptions<O = unknown, DATA = unknown> extends PrizmDi
   readonly footerStyle?: string;
   readonly content?: PolymorphContent<PrizmBaseDialogContext<O, PrizmDialogOptions<O, DATA>>>;
   readonly data?: DATA;
+  readonly scrollbarVisibility?: PrizmScrollbarVisibility;
 }
 
 export interface PrizmDialogButton<O = unknown, T = PrizmDialogBaseOptions> {

@@ -1,4 +1,4 @@
-@import '../../../styles/ui-local';
+@import '../../../styles/ui-local.less';
 
 @scroll-width: 12px;
 @scroll-width-large: 14px;
@@ -53,14 +53,14 @@
   border: var(--prizm-scrollbar-thumb-border, 4px solid transparent);
   cursor: pointer;
   pointer-events: auto;
-  background: var(--prizm-scrollbar-thumb-color, var(--prizm-v3-form-stroke-default));
+  background: var(--prizm-scrollbar-thumb-color, var(--prizm-form-stroke-default));
   background-clip: content-box;
   opacity: var(--prizm-scrollbar-thumb-opacity, @scroll-opacity);
   box-sizing: border-box;
   transition-property: width, height;
 
   &[data-prizm-theme='dark'] {
-    background-color: var(--prizm-v3-form-stroke-default);
+    background-color: var(--prizm-form-stroke-default);
   }
 
   &:hover {

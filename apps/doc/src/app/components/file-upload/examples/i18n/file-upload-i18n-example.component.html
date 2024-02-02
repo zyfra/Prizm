@@ -10,5 +10,8 @@
   (filesCountError)="onFilesCountError($event)"
   (retry)="retry($event)"
 >
-  Maximum of three images up to 1MB in size
+  <ng-container *prizmIfLang="'russian'; else eng">
+    Максимум три изображения размером не более 1МБ
+  </ng-container>
+  <ng-template #eng> Maximum of three images up to 1MB in size </ng-template>
 </prizm-file-upload>

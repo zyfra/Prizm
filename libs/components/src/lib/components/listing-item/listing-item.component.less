@@ -1,11 +1,11 @@
 :host {
-  background-color: var(--prizm-v3-background-fill-overlay);
+  background-color: var(--prizm-background-fill-overlay);
   .item-container {
     display: flex;
     align-items: center;
     height: var(--prizm-listing-item-height, 40px);
     padding: 0 16px;
-    background-color: var(--prizm-v3-background-fill-overlay);
+    background-color: var(--prizm-background-fill-overlay);
     cursor: pointer;
 
     .title {
@@ -17,27 +17,32 @@
       font-size: 14px;
       font-weight: 400;
       line-height: 16px;
-      color: var(--prizm-v3-text-icon-secondary);
+      color: var(--prizm-text-icon-secondary);
     }
 
     &:not(.item-container__selected):not(.item-container__disabled):hover {
-      background-color: var(--prizm-listing-item-row-hover, var(--prizm-v3-table-fill-row-hover));
+      background-color: var(--prizm-listing-item-row-hover, var(--prizm-table-fill-row-hover));
+      color: var(--prizm-text-icon-primary);
+
+      .title {
+        color: var(--prizm-text-icon-primary);
+      }
     }
 
-    &.item-container__selected:not(.item-container__disabled):has(.container-left:not(:empty)):hover {
-      background-color: var(--prizm-listing-item-row-instruments-hover, var(--prizm-v3-table-fill-row-hover));
+    &.item-container__selected:not(.item-container__disabled):hover {
+      background-color: var(--prizm-listing-item-row-selected-hover, var(--prizm-table-fill-row-active));
     }
 
     &:active,
     &__selected {
-      background-color: var(--prizm-v3-table-fill-row-active);
+      background-color: var(--prizm-table-fill-row-active);
     }
 
     &__disabled {
       pointer-events: none;
       opacity: 0.3;
       .title {
-        color: var(--prizm-v3-text-icon-secondary);
+        color: var(--prizm-text-icon-secondary);
       }
     }
 

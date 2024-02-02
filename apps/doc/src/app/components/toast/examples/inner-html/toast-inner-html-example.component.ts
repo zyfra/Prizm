@@ -1,5 +1,5 @@
 import { Component, TemplateRef } from '@angular/core';
-import { PrizmToastService, PrizmToastAppearance, PrizmToastPosition } from '@prizm-ui/components';
+import { PrizmToastService, PrizmToastPosition } from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
@@ -14,8 +14,15 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       a {
-        color: #337eff;
+        color: var(--prizm-text-icon-link);
         text-decoration: underline;
+        font-weight: 500;
+      }
+
+      .content {
+        a {
+          font-weight: 400;
+        }
       }
 
       .footer {
@@ -23,7 +30,7 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       .date {
-        color: #a1a5b7;
+        color: var(--prizm-text-icon-tertiary);
         margin: 8px 0;
       }
 

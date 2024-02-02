@@ -6,7 +6,11 @@
     <prizm-doc-example id="base" [content]="exampleBasic" heading="Base">
       <prizm-dialog-service-example></prizm-dialog-service-example>
     </prizm-doc-example>
-    <prizm-doc-example id="outer-header" [content]="exampleBasic" heading="Outer Header With Context">
+    <prizm-doc-example
+      id="outer-header"
+      [content]="exampleWightOuterHeader"
+      heading="Outer Header With Context"
+    >
       <prizm-dialog-outer-header-example></prizm-dialog-outer-header-example>
     </prizm-doc-example>
     <prizm-doc-example id="with-buttons" [content]="exampleWithButtons" heading="With Footer">
@@ -67,6 +71,16 @@
         documentationPropertyMode="input"
       >
         Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="visibility"
+        [documentationPropertyValues]="visibilityVariants"
+        documentationPropertyName="scrollbarVisibility"
+        documentationPropertyType="PrizmScrollbarVisibility"
+        documentationPropertyMode="input"
+      >
+        Scrollbar Visibility
       </ng-template>
 
       <ng-template

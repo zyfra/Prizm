@@ -33,11 +33,6 @@
             "glob": "**/*",
             "input": "node_modules/@taiga-ui/icons/src",
             "output": "assets/taiga-ui/icons"
-          },
-          {
-            "glob": "**/*",
-            "input": "libs/icons/base/src/styles/icons",
-            "output": "assets/prizm-icons/fonts"
           }
         ],
         "styles": [
@@ -113,17 +108,17 @@
     "extract-i18n": {
       "executor": "@angular-devkit/build-angular:extract-i18n",
       "options": {
-        "browserTarget": "doc:build"
+        "buildTarget": "doc:build"
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/doc"],
       "options": {
         "jestConfig": "apps/doc/jest.config.ts",

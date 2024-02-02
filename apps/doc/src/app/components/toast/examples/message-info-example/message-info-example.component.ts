@@ -14,8 +14,15 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       a {
-        color: #337eff;
+        color: var(--prizm-text-icon-link);
         text-decoration: underline;
+        font-weight: 500;
+      }
+
+      .link-content {
+        a {
+          font-weight: 400;
+        }
       }
 
       .footer {
@@ -28,7 +35,7 @@ import { UntypedFormControl } from '@angular/forms';
       }
 
       .date {
-        color: #a1a5b7;
+        color: var(--prizm-text-icon-tertiary);
         margin: 8px 0;
       }
 
