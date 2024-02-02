@@ -36,6 +36,7 @@
     <div class="btn-wrapper">
       <button
         class="accordion__button"
+        [class.accordion_expanded__button]="isExpanded"
         [icon]="'chevrons-double-down'"
         [disabled]="disabled"
         prizmIconButton
