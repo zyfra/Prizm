@@ -6,6 +6,7 @@ import {
   PolymorphModule,
   PrizmButtonModule,
   PrizmCheckboxModule,
+  PrizmChipsModule,
   PrizmDataListModule,
   PrizmDropdownHostModule,
   PrizmIconModule,
@@ -44,6 +45,7 @@ import { PrizmDropdownHostExampleByMethodComponent } from './examples/by-method/
     PrizmLetModule,
     PrizmButtonModule,
     FormsModule,
+    PrizmChipsModule,
   ],
   declarations: [
     PrizmDropdownHostExampleByMethodComponent,
