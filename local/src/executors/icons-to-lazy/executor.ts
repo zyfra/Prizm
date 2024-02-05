@@ -34,7 +34,9 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema) {
     const content = fs.readFileSync(path.join(pathToFolder, file)).toString();
     const newPath = path.join(path.relative(destinationFolder, pathToFolder), fileWithoutExt);
     const exportName = /export const ([^:]+)/g.exec(content)?.[1];
-    result.push(`'${exportName}': () => import('./${newPath}').then((r) => r['${exportName}'])`);
+    const iconName = /name: '([^']+)'/g.exec(content)?.[1];
+
+    result.push(`'${iconName}': () => import('./${newPath}').then((r) => r['${exportName}'])`);
   }
 
   console.warn('IMPORTS SKIPPED:', skipped);
