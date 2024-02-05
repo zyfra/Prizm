@@ -30,7 +30,8 @@
           "plugins": ["removeDimensions"]
         },
         "compileSources": false
-      }
+      },
+      "dependsOn": []
     },
     "generate-icons-16": {
       "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
@@ -57,7 +58,8 @@
           "plugins": ["removeDimensions"]
         },
         "compileSources": false
-      }
+      },
+      "dependsOn": []
     },
     "build": {
       "executor": "@nx/angular:package",
@@ -96,7 +98,8 @@
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_LAZY_SET"
-      }
+      },
+      "dependsOn": ["generate-icons-24"]
     },
     "icons-16-to-lazy": {
       "executor": "local:icons-to-lazy",
@@ -105,7 +108,8 @@
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set-16.ts",
         "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_16_LAZY_SET"
-      }
+      },
+      "dependsOn": ["generate-icons-16"]
     }
   },
   "tags": []
