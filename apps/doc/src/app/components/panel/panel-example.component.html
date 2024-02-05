@@ -56,6 +56,7 @@
         #element
         [style.--prizm-panel-border-radius]="radius"
         [style.--prizm-panel-height]="height"
+        [style.--prizm-panel-background]="background"
         [prizmDocHostElement]="element"
         [withBackButton]="withBackButton"
         [header]="header"
@@ -78,6 +79,15 @@
         documentationPropertyMode="css-var"
       >
         Panel Border Radius (Default none)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="background"
+        documentationPropertyName="prizm-panel-background"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Panel Background Color (Default --prizm-background-fill-panel)
       </ng-template>
 
       <ng-template
