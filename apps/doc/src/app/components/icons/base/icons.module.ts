@@ -10,9 +10,11 @@ import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icons-svg-exampl
   imports: [
     CommonModule,
     PrizmAddonDocModule,
+    PrizmIconSvgBaseExampleComponent,
+    PrizmIconSvgSvgExampleComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(IconsComponent)),
   ],
-  declarations: [PrizmIconSvgBaseExampleComponent, PrizmIconSvgSvgExampleComponent, IconsComponent],
+  declarations: [IconsComponent],
   exports: [IconsComponent],
 })
 export class IconsModule {}

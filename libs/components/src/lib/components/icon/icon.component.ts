@@ -15,7 +15,7 @@ export class PrizmIconComponent extends PrizmAbstractTestId {
   @Input() iconClass: string | null = null;
   @Input() size: string | number = 16;
 
-  override get generateManeTestId(): string {
+  override get generateMainTestId(): string {
     return 'ui_icon' + this.iconClass;
   }
 }

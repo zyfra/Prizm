@@ -431,6 +431,12 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/icon',
         status: 'deprecated',
       },
+      {
+        title: 'Icons',
+        keywords: 'icons, icon, svg, font',
+        route: '/components/icons',
+        status: 'new',
+      },
     ],
   },
   {
@@ -1168,6 +1174,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         keywords: 'icon, svg',
         route: '/components/icon',
         status: 'deprecated',
+      },
+      {
+        title: 'Icons',
+        keywords: 'icons, icon, svg, font',
+        route: '/components/icons',
+        status: 'new',
       },
     ],
   },
