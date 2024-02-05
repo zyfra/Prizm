@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PRIZM_ICONS_16_LOADER, PRIZM_ICONS_LOADER } from './token';
 import { PrizmIconsComponent } from './prizm-icons.component';
+import { PrizmIconsRegistry } from './prizm-icons.registry';
+import { PrizmIcons16Registry } from './prizm-icons-16.registry';
 
 /**
  * Component to display 16px SVG icons.
@@ -17,6 +19,11 @@ import { PrizmIconsComponent } from './prizm-icons.component';
       // Specifies that this component uses a different icon loader for 16px icons
       provide: PRIZM_ICONS_LOADER,
       useExisting: PRIZM_ICONS_16_LOADER,
+    },
+    {
+      // Specifies that this component uses a different registry
+      provide: PrizmIconsRegistry,
+      useExisting: PrizmIcons16Registry,
     },
   ],
 })

@@ -1,4 +1,4 @@
-<prizm-doc-page header="Icon" package="NEXT">
+<prizm-doc-page header="Icons" package="icons">
   <div class="page-description" description>
     Icons can be used as fonts and as svg (examples of usage below). Also with the help of our registry you
     can add your svg icons (example in the file with svg). Also each icon can be connected separately or the
@@ -6,22 +6,20 @@
   </div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleFont" heading="Font">
-      <prizm-icon-base-example></prizm-icon-base-example>
+    <!--    TODO: 4.0.0 rc.2 add support to work as usual fonts -->
+
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+      <prizm-icons-base-example></prizm-icons-base-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="svg" [content]="exampleLazy" heading="With Lazy Load">
-      <prizm-icons-example></prizm-icons-example>
+      <prizm-icons-lazy-example></prizm-icons-lazy-example>
     </prizm-doc-example>
 
-    <h1>Icon set.</h1>
-
-    <div *ngFor="let def of defs">
-      <h4 class="title">{{ def.dir }}</h4>
-
+    <div>
       <div class="icons">
-        <div class="icon-def" *ngFor="let name of def.data" (click)="copy(name)">
-          <!--          <prizm-icons-svg [size]="24" [name]="name"></prizm-icons-svg>-->
+        <div class="icon-def" *ngFor="let name of iconsSet" (click)="copy(name)">
+          <prizm-icons [size]="24" [name]="name"></prizm-icons>
           <div class="name" [title]="name">{{ name }}</div>
         </div>
       </div>
@@ -30,13 +28,33 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <!--      <prizm-icons-svg-->
-      <!--        #element-->
-      <!--        [prizmDocHostElement]="element"-->
-      <!--        [name]="name"-->
-      <!--        [color]="color"-->
-      <!--        [size]="size"-->
-      <!--      ></prizm-icons-svg>-->
+      <div>
+        <div>
+          <h1>Base</h1>
+          <div>
+            <prizm-icons
+              #element
+              [prizmDocHostElement]="element"
+              [name]="name"
+              [color]="color"
+              [size]="size"
+            ></prizm-icons>
+          </div>
+        </div>
+
+        <div>
+          <h1>16 size</h1>
+          <div>
+            <prizm-icons-16
+              #element
+              [prizmDocHostElement]="element"
+              [name]="name"
+              [color]="color"
+              [size]="size"
+            ></prizm-icons-16>
+          </div>
+        </div>
+      </div>
     </prizm-doc-demo>
     <prizm-doc-documentation>
       <ng-template
@@ -46,7 +64,7 @@
         documentationPropertyType="string"
         documentationPropertyMode="input"
       >
-        Icon
+        Icons
       </ng-template>
 
       <ng-template

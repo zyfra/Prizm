@@ -1,22 +1,35 @@
-import { Component } from '@angular/core';
-import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { Component, inject, OnInit } from '@angular/core';
+import {
+  PrizmIcons16Component,
+  PrizmIcons16Registry,
+  prizmIconsArrowsCross,
+  prizmIconsArrowUp,
+  prizmIconsBag,
+  prizmIconsBubbleMessage,
+  PrizmIconsComponent,
+  PrizmIconsRegistry,
+} from '@prizm-ui/icons';
 
 @Component({
-  selector: 'prizm-icon-base-example',
+  selector: 'prizm-icons-base-example',
   templateUrl: './icons-base-example.component.html',
-  styles: [
-    `
-      .icons-24 {
-        font-size: 24px;
-        color: var(--prizm-status-info-primary-default);
-      }
-      .icons-16 {
-        font-size: 16px;
-        color: var(--prizm-status-info-primary-default);
-      }
-    `,
-  ],
+  styleUrls: ['./icons-base-example.component.less'],
   standalone: true,
-  imports: [PrizmIconsComponent],
+  imports: [PrizmIconsComponent, PrizmIcons16Component],
 })
-export class PrizmIconSvgBaseExampleComponent {}
+export class PrizmIconsBaseExampleComponent implements OnInit {
+  <!--    TODO: 4.0.0 rc.2 add different exports with same names -->
+  readonly icons16Registry = inject(PrizmIcons16Registry);
+  readonly iconsBaseRegistry = inject(PrizmIconsRegistry);
+
+  public ngOnInit() {
+    this.iconsBaseRegistry.registerIcons(
+      [
+        prizmIconsArrowUp,
+        prizmIconsArrowsCross,
+        prizmIconsBag,
+        prizmIconsBubbleMessage
+      ]
+    )
+  }
+}

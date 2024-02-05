@@ -1,14 +1,22 @@
 <div>
-  <h4>24 size</h4>
+  <h4>Base size variants</h4>
 
-  <div class="icons-24">
-    <i class="prizm-icons prizm-icons-charts-diagrams_bar-axis"></i>
+  <div style="display: flex; gap: 8px">
+    <prizm-icons [size]="30" [color]="'green'" name="arrow_up"></prizm-icons>
+    <prizm-icons [color]="'var(--prizm-index-plan)'" [size]="30" name="arrows_cross"></prizm-icons>
+    <prizm-icons class="color_by_class" [size]="30" name="bag"></prizm-icons>
+    <prizm-icons [size]="30" name="bubble_message"></prizm-icons>
   </div>
 </div>
 
-<div>
-  <h4>16 size</h4>
-  <div class="icons-16">
-    <i class="prizm-icons prizm-icons-charts-diagrams_bar-axis"></i>
-  </div>
-</div>
+<!--    TODO: 4.0.0 rc.2 add different exports with same names -->
+<!--<div>-->
+<!--  <h4>16 size variants</h4>-->
+
+<!--  <div style="display: flex; gap: 8px">-->
+<!--    <prizm-icons-16 [size]="30" [color]="'green'" name="wifi"></prizm-icons-16>-->
+<!--    <prizm-icons-16 [size]="30" [color]="'var(&#45;&#45;prizm-index-plan)'" name="agenda_fill"></prizm-icons-16>-->
+<!--    <prizm-icons-16 class="color_by_class" [size]="30" name="key"></prizm-icons-16>-->
+<!--    <prizm-icons-16 [size]="30" name="wrench"></prizm-icons-16>-->
+<!--  </div>-->
+<!--</div>-->

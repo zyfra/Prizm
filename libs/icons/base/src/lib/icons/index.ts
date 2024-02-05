@@ -6,3 +6,4 @@ export * from './prizm-icons.registry';
 export * from './prizm-icons-16.registry';
 export * from './types';
 export * from './token';
+export * from './24';
