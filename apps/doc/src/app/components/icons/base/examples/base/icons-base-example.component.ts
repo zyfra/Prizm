@@ -17,8 +17,6 @@ import { PrizmIconsComponent } from '@prizm-ui/icons';
     `,
   ],
   standalone: true,
-  imports: [
-    PrizmIconsComponent,
-  ]
+  imports: [PrizmIconsComponent],
 })
 export class PrizmIconSvgBaseExampleComponent {}

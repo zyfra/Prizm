@@ -1097,7 +1097,8 @@ export const PrizmIconsType = {
   circle_square: 'circle_square' as PrizmIconsType,
   circle_xmark_fill: 'circle_xmark_fill' as PrizmIconsType,
   circle_xmark: 'circle_xmark' as PrizmIconsType,
-  circles_line_left_up_circle_right_down_fill: 'circles_line_left_up_circle_right_down_fill' as PrizmIconsType,
+  circles_line_left_up_circle_right_down_fill:
+    'circles_line_left_up_circle_right_down_fill' as PrizmIconsType,
   circles_line_left_up_circle_right_down: 'circles_line_left_up_circle_right_down' as PrizmIconsType,
   clapperboard_cross: 'clapperboard_cross' as PrizmIconsType,
   clapperboard_open: 'clapperboard_open' as PrizmIconsType,
@@ -1713,7 +1714,7 @@ export const PrizmIconsType = {
   xmark_column_right: 'xmark_column_right' as PrizmIconsType,
   xmark_column_top: 'xmark_column_top' as PrizmIconsType,
   xmark_mini: 'xmark_mini' as PrizmIconsType,
-  xmark: 'xmark' as PrizmIconsType
+  xmark: 'xmark' as PrizmIconsType,
 };
 export interface PrizmIcons {
   name: PrizmIconsEnum;
@@ -2575,5 +2576,5 @@ export enum PrizmIconsEnum {
   XMARK_COLUMN_RIGHT = 'xmark_column_right',
   XMARK_COLUMN_TOP = 'xmark_column_top',
   XMARK_MINI = 'xmark_mini',
-  XMARK = 'xmark'
+  XMARK = 'xmark',
 }
