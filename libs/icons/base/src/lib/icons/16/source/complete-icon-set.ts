@@ -1707,5 +1707,5 @@ export const completeIconSet = [
   prizmIconsWrench,
   prizmIconsXmarkColumnRight,
   prizmIconsXmarkColumnTop,
-  prizmIconsXmark,
+  prizmIconsXmark
 ];

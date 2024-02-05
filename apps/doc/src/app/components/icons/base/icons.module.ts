@@ -4,7 +4,7 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { IconsComponent } from './icons.component';
 import { PrizmIconSvgBaseExampleComponent } from './examples/base/icons-base-example.component';
-import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icons-svg-example.component';
+import { PrizmIconSvgSvgExampleComponent } from './examples/lazy/icons-svg-example.component';
 
 @NgModule({
   imports: [

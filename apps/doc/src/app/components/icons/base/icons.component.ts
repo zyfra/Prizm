@@ -111,9 +111,10 @@ export class IconsComponent implements OnInit {
     TypeScript: import('./examples/base/icons-base-example.component.ts?raw'),
     HTML: import('./examples/base/icons-base-example.component.html?raw'),
   };
-  readonly exampleSvg: TuiDocExample = {
-    TypeScript: import('./examples/svg/icons-svg-example.component.ts?raw'),
-    HTML: import('./examples/svg/icons-svg-example.component.html?raw'),
+
+  readonly exampleLazy: TuiDocExample = {
+    TypeScript: import('./examples/lazy/icons-svg-example.component.ts?raw'),
+    HTML: import('./examples/lazy/icons-svg-example.component.html?raw'),
   };
 
   constructor(

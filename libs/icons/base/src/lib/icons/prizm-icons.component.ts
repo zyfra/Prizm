@@ -33,7 +33,7 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
   private iconName!: string;
 
   // Injects the icon loader token.
-  private iconsLoader = inject(PRIZM_ICONS_LOADER);
+  protected iconsLoader = inject(PRIZM_ICONS_LOADER);
   private destroyIcons$ = new Subject<void>();
 
   constructor(

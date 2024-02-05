@@ -27,7 +27,15 @@
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
-          "plugins": ["removeDimensions"]
+          "plugins": [
+            "removeDimensions",
+            {
+              "name": "prefixIds",
+              "params": {
+                "currentColor": "true"
+              }
+            }
+          ]
         },
         "compileSources": false
       },
@@ -55,7 +63,15 @@
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
-          "plugins": ["removeDimensions"]
+          "plugins": [
+            "removeDimensions",
+            {
+              "name": "prefixIds",
+              "params": {
+                "currentColor": "true"
+              }
+            }
+          ]
         },
         "compileSources": false
       },
