@@ -132,7 +132,7 @@
       "options": {
         "pathToFolder": "libs/icons/base/src/lib/icons/24/source",
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set.ts",
-        "prefix": "prizmIcons",
+        "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_LAZY_SET"
       },
       "dependsOn": ["generate-icons-24"]
