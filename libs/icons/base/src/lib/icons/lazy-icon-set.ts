@@ -1,1721 +1,1513 @@
 export const PRIZM_ICONS_LAZY_SET = {
-  prizmIconsKey: () => import('./24/source/prizmIcons-Key.icon').then(r => r['prizmIconsKey']),
-  prizmIconsAgendaFill: () =>
-    import('./24/source/prizmIcons-agenda-fill.icon').then(r => r['prizmIconsAgendaFill']),
-  prizmIconsAirplaneSideView: () =>
+  key: () => import('./24/source/prizmIcons-Key.icon').then(r => r['prizmIconsKey']),
+  agenda_fill: () => import('./24/source/prizmIcons-agenda-fill.icon').then(r => r['prizmIconsAgendaFill']),
+  airplane_side_view: () =>
     import('./24/source/prizmIcons-airplane-side-view.icon').then(r => r['prizmIconsAirplaneSideView']),
-  prizmIconsAirplaneTopView: () =>
+  airplane_top_view: () =>
     import('./24/source/prizmIcons-airplane-top-view.icon').then(r => r['prizmIconsAirplaneTopView']),
-  prizmIconsAlarmClock: () =>
-    import('./24/source/prizmIcons-alarm-clock.icon').then(r => r['prizmIconsAlarmClock']),
-  prizmIconsAlarmPlus: () =>
-    import('./24/source/prizmIcons-alarm-plus.icon').then(r => r['prizmIconsAlarmPlus']),
-  prizmIconsAlignBottom: () =>
+  alarm_clock: () => import('./24/source/prizmIcons-alarm-clock.icon').then(r => r['prizmIconsAlarmClock']),
+  alarm_plus: () => import('./24/source/prizmIcons-alarm-plus.icon').then(r => r['prizmIconsAlarmPlus']),
+  align_bottom: () =>
     import('./24/source/prizmIcons-align-bottom.icon').then(r => r['prizmIconsAlignBottom']),
-  prizmIconsAlignCenterH: () =>
+  align_center_h: () =>
     import('./24/source/prizmIcons-align-center-h.icon').then(r => r['prizmIconsAlignCenterH']),
-  prizmIconsAlignCenterV: () =>
+  align_center_v: () =>
     import('./24/source/prizmIcons-align-center-v.icon').then(r => r['prizmIconsAlignCenterV']),
-  prizmIconsAlignCenter: () =>
+  align_center: () =>
     import('./24/source/prizmIcons-align-center.icon').then(r => r['prizmIconsAlignCenter']),
-  prizmIconsAlignJustify: () =>
+  align_justify: () =>
     import('./24/source/prizmIcons-align-justify.icon').then(r => r['prizmIconsAlignJustify']),
-  prizmIconsAlignLeft: () =>
-    import('./24/source/prizmIcons-align-left.icon').then(r => r['prizmIconsAlignLeft']),
-  prizmIconsAlignRight: () =>
-    import('./24/source/prizmIcons-align-right.icon').then(r => r['prizmIconsAlignRight']),
-  prizmIconsAlignTop: () =>
-    import('./24/source/prizmIcons-align-top.icon').then(r => r['prizmIconsAlignTop']),
-  prizmIconsAmbulanceSideView: () =>
+  align_left: () => import('./24/source/prizmIcons-align-left.icon').then(r => r['prizmIconsAlignLeft']),
+  align_right: () => import('./24/source/prizmIcons-align-right.icon').then(r => r['prizmIconsAlignRight']),
+  align_top: () => import('./24/source/prizmIcons-align-top.icon').then(r => r['prizmIconsAlignTop']),
+  ambulance_side_view: () =>
     import('./24/source/prizmIcons-ambulance-side-view.icon').then(r => r['prizmIconsAmbulanceSideView']),
-  prizmIconsAndroidPill: () =>
+  android_pill: () =>
     import('./24/source/prizmIcons-android-pill.icon').then(r => r['prizmIconsAndroidPill']),
-  prizmIconsAndroid: () => import('./24/source/prizmIcons-android.icon').then(r => r['prizmIconsAndroid']),
-  prizmIconsAngleLeftRightArrowsDown: () =>
+  android: () => import('./24/source/prizmIcons-android.icon').then(r => r['prizmIconsAndroid']),
+  angle_left_right_arrows_down: () =>
     import('./24/source/prizmIcons-angle-left-right-arrows-down.icon').then(
       r => r['prizmIconsAngleLeftRightArrowsDown']
     ),
-  prizmIconsAngleLeftRight: () =>
+  angle_left_right: () =>
     import('./24/source/prizmIcons-angle-left-right.icon').then(r => r['prizmIconsAngleLeftRight']),
-  prizmIconsAngleLeft: () =>
-    import('./24/source/prizmIcons-angle-left.icon').then(r => r['prizmIconsAngleLeft']),
-  prizmIconsAngleRight: () =>
-    import('./24/source/prizmIcons-angle-right.icon').then(r => r['prizmIconsAngleRight']),
-  prizmIconsArrangeSendToBack: () =>
+  angle_left: () => import('./24/source/prizmIcons-angle-left.icon').then(r => r['prizmIconsAngleLeft']),
+  angle_right: () => import('./24/source/prizmIcons-angle-right.icon').then(r => r['prizmIconsAngleRight']),
+  arrange_send_to_back: () =>
     import('./24/source/prizmIcons-arrange-send-to-back.icon').then(r => r['prizmIconsArrangeSendToBack']),
-  prizmIconsArrayFill: () =>
-    import('./24/source/prizmIcons-array-fill.icon').then(r => r['prizmIconsArrayFill']),
-  prizmIconsArrowBoldDown: () =>
+  array_fill: () => import('./24/source/prizmIcons-array-fill.icon').then(r => r['prizmIconsArrayFill']),
+  arrow_bold_down: () =>
     import('./24/source/prizmIcons-arrow-bold-down.icon').then(r => r['prizmIconsArrowBoldDown']),
-  prizmIconsArrowBoldLeft: () =>
+  arrow_bold_left: () =>
     import('./24/source/prizmIcons-arrow-bold-left.icon').then(r => r['prizmIconsArrowBoldLeft']),
-  prizmIconsArrowBoldRight: () =>
+  arrow_bold_right: () =>
     import('./24/source/prizmIcons-arrow-bold-right.icon').then(r => r['prizmIconsArrowBoldRight']),
-  prizmIconsArrowBoldUp: () =>
+  arrow_bold_up: () =>
     import('./24/source/prizmIcons-arrow-bold-up.icon').then(r => r['prizmIconsArrowBoldUp']),
-  prizmIconsArrowDaw: () =>
-    import('./24/source/prizmIcons-arrow-daw.icon').then(r => r['prizmIconsArrowDaw']),
-  prizmIconsArrowDownBetweenLines: () =>
+  arrow_daw: () => import('./24/source/prizmIcons-arrow-daw.icon').then(r => r['prizmIconsArrowDaw']),
+  arrow_down_between_lines: () =>
     import('./24/source/prizmIcons-arrow-down-between-lines.icon').then(
       r => r['prizmIconsArrowDownBetweenLines']
     ),
-  prizmIconsArrowDownFromDoubleLine: () =>
+  arrow_down_from_double_line: () =>
     import('./24/source/prizmIcons-arrow-down-from-double-line.icon').then(
       r => r['prizmIconsArrowDownFromDoubleLine']
     ),
-  prizmIconsArrowDownFromLine: () =>
+  arrow_down_from_line: () =>
     import('./24/source/prizmIcons-arrow-down-from-line.icon').then(r => r['prizmIconsArrowDownFromLine']),
-  prizmIconsArrowDownInCircleEmpty: () =>
+  arrow_down_in_circle_empty: () =>
     import('./24/source/prizmIcons-arrow-down-in-circle-empty.icon').then(
       r => r['prizmIconsArrowDownInCircleEmpty']
     ),
-  prizmIconsArrowDownToBracket: () =>
+  arrow_down_to_bracket: () =>
     import('./24/source/prizmIcons-arrow-down-to-bracket.icon').then(r => r['prizmIconsArrowDownToBracket']),
-  prizmIconsArrowDownToDoubleLine: () =>
+  arrow_down_to_double_line: () =>
     import('./24/source/prizmIcons-arrow-down-to-double-line.icon').then(
       r => r['prizmIconsArrowDownToDoubleLine']
     ),
-  prizmIconsArrowDownToLine: () =>
+  arrow_down_to_line: () =>
     import('./24/source/prizmIcons-arrow-down-to-line.icon').then(r => r['prizmIconsArrowDownToLine']),
-  prizmIconsArrowDownWideShort: () =>
+  arrow_down_wide_short: () =>
     import('./24/source/prizmIcons-arrow-down-wide-short.icon').then(r => r['prizmIconsArrowDownWideShort']),
-  prizmIconsArrowDown: () =>
-    import('./24/source/prizmIcons-arrow-down.icon').then(r => r['prizmIconsArrowDown']),
-  prizmIconsArrowLeftBetweenLines: () =>
+  arrow_down: () => import('./24/source/prizmIcons-arrow-down.icon').then(r => r['prizmIconsArrowDown']),
+  arrow_left_between_lines: () =>
     import('./24/source/prizmIcons-arrow-left-between-lines.icon').then(
       r => r['prizmIconsArrowLeftBetweenLines']
     ),
-  prizmIconsArrowLeftDown: () =>
+  arrow_left_down: () =>
     import('./24/source/prizmIcons-arrow-left-down.icon').then(r => r['prizmIconsArrowLeftDown']),
-  prizmIconsArrowLeftFromBracket: () =>
+  arrow_left_from_bracket: () =>
     import('./24/source/prizmIcons-arrow-left-from-bracket.icon').then(
       r => r['prizmIconsArrowLeftFromBracket']
     ),
-  prizmIconsArrowLeftInCircleEmpty: () =>
+  arrow_left_in_circle_empty: () =>
     import('./24/source/prizmIcons-arrow-left-in-circle-empty.icon').then(
       r => r['prizmIconsArrowLeftInCircleEmpty']
     ),
-  prizmIconsArrowLeftUp: () =>
+  arrow_left_up: () =>
     import('./24/source/prizmIcons-arrow-left-up.icon').then(r => r['prizmIconsArrowLeftUp']),
-  prizmIconsArrowLeft: () =>
-    import('./24/source/prizmIcons-arrow-left.icon').then(r => r['prizmIconsArrowLeft']),
-  prizmIconsArrowRightBetweenLines: () =>
+  arrow_left: () => import('./24/source/prizmIcons-arrow-left.icon').then(r => r['prizmIconsArrowLeft']),
+  arrow_right_between_lines: () =>
     import('./24/source/prizmIcons-arrow-right-between-lines.icon').then(
       r => r['prizmIconsArrowRightBetweenLines']
     ),
-  prizmIconsArrowRightDown: () =>
+  arrow_right_down: () =>
     import('./24/source/prizmIcons-arrow-right-down.icon').then(r => r['prizmIconsArrowRightDown']),
-  prizmIconsArrowRightFromBracket: () =>
+  arrow_right_from_bracket: () =>
     import('./24/source/prizmIcons-arrow-right-from-bracket.icon').then(
       r => r['prizmIconsArrowRightFromBracket']
     ),
-  prizmIconsArrowRightInCircleEmpty: () =>
+  arrow_right_in_circle_empty: () =>
     import('./24/source/prizmIcons-arrow-right-in-circle-empty.icon').then(
       r => r['prizmIconsArrowRightInCircleEmpty']
     ),
-  prizmIconsArrowRightUp: () =>
+  arrow_right_up: () =>
     import('./24/source/prizmIcons-arrow-right-up.icon').then(r => r['prizmIconsArrowRightUp']),
-  prizmIconsArrowRight: () =>
-    import('./24/source/prizmIcons-arrow-right.icon').then(r => r['prizmIconsArrowRight']),
-  prizmIconsArrowRotateLeft: () =>
+  arrow_right: () => import('./24/source/prizmIcons-arrow-right.icon').then(r => r['prizmIconsArrowRight']),
+  arrow_rotate_left: () =>
     import('./24/source/prizmIcons-arrow-rotate-left.icon').then(r => r['prizmIconsArrowRotateLeft']),
-  prizmIconsArrowRotateRight: () =>
+  arrow_rotate_right: () =>
     import('./24/source/prizmIcons-arrow-rotate-right.icon').then(r => r['prizmIconsArrowRotateRight']),
-  prizmIconsArrowTurnDownLeft: () =>
+  arrow_turn_down_left: () =>
     import('./24/source/prizmIcons-arrow-turn-down-left.icon').then(r => r['prizmIconsArrowTurnDownLeft']),
-  prizmIconsArrowTurnDownRight: () =>
+  arrow_turn_down_right: () =>
     import('./24/source/prizmIcons-arrow-turn-down-right.icon').then(r => r['prizmIconsArrowTurnDownRight']),
-  prizmIconsArrowTurnLeftDown: () =>
+  arrow_turn_left_down: () =>
     import('./24/source/prizmIcons-arrow-turn-left-down.icon').then(r => r['prizmIconsArrowTurnLeftDown']),
-  prizmIconsArrowTurnLeftUp: () =>
+  arrow_turn_left_up: () =>
     import('./24/source/prizmIcons-arrow-turn-left-up.icon').then(r => r['prizmIconsArrowTurnLeftUp']),
-  prizmIconsArrowTurnRightDown: () =>
+  arrow_turn_right_down: () =>
     import('./24/source/prizmIcons-arrow-turn-right-down.icon').then(r => r['prizmIconsArrowTurnRightDown']),
-  prizmIconsArrowTurnRightUp: () =>
+  arrow_turn_right_up: () =>
     import('./24/source/prizmIcons-arrow-turn-right-up.icon').then(r => r['prizmIconsArrowTurnRightUp']),
-  prizmIconsArrowTurnUpLeft: () =>
+  arrow_turn_up_left: () =>
     import('./24/source/prizmIcons-arrow-turn-up-left.icon').then(r => r['prizmIconsArrowTurnUpLeft']),
-  prizmIconsArrowTurnUpRight: () =>
+  arrow_turn_up_right: () =>
     import('./24/source/prizmIcons-arrow-turn-up-right.icon').then(r => r['prizmIconsArrowTurnUpRight']),
-  prizmIconsArrowUpArrowDownH: () =>
+  arrow_up_arrow_down_h: () =>
     import('./24/source/prizmIcons-arrow-up-arrow-down-h.icon').then(r => r['prizmIconsArrowUpArrowDownH']),
-  prizmIconsArrowUpArrowDownV: () =>
+  arrow_up_arrow_down_v: () =>
     import('./24/source/prizmIcons-arrow-up-arrow-down-v.icon').then(r => r['prizmIconsArrowUpArrowDownV']),
-  prizmIconsArrowUpBetweenLines: () =>
+  arrow_up_between_lines: () =>
     import('./24/source/prizmIcons-arrow-up-between-lines.icon').then(
       r => r['prizmIconsArrowUpBetweenLines']
     ),
-  prizmIconsArrowUpFromBracket: () =>
+  arrow_up_from_bracket: () =>
     import('./24/source/prizmIcons-arrow-up-from-bracket.icon').then(r => r['prizmIconsArrowUpFromBracket']),
-  prizmIconsArrowUpFromDoubleLine: () =>
+  arrow_up_from_double_line: () =>
     import('./24/source/prizmIcons-arrow-up-from-double-line.icon').then(
       r => r['prizmIconsArrowUpFromDoubleLine']
     ),
-  prizmIconsArrowUpFromLine: () =>
+  arrow_up_from_line: () =>
     import('./24/source/prizmIcons-arrow-up-from-line.icon').then(r => r['prizmIconsArrowUpFromLine']),
-  prizmIconsArrowUpInCircleEmpty: () =>
+  arrow_up_in_circle_empty: () =>
     import('./24/source/prizmIcons-arrow-up-in-circle-empty.icon').then(
       r => r['prizmIconsArrowUpInCircleEmpty']
     ),
-  prizmIconsArrowUpToDottedLine: () =>
+  arrow_up_to_dotted_line: () =>
     import('./24/source/prizmIcons-arrow-up-to-dotted-line.icon').then(
       r => r['prizmIconsArrowUpToDottedLine']
     ),
-  prizmIconsArrowUpToDoubleLine: () =>
+  arrow_up_to_double_line: () =>
     import('./24/source/prizmIcons-arrow-up-to-double-line.icon').then(
       r => r['prizmIconsArrowUpToDoubleLine']
     ),
-  prizmIconsArrowUpToLine: () =>
+  arrow_up_to_line: () =>
     import('./24/source/prizmIcons-arrow-up-to-line.icon').then(r => r['prizmIconsArrowUpToLine']),
-  prizmIconsArrowUpWideShort: () =>
+  arrow_up_wide_short: () =>
     import('./24/source/prizmIcons-arrow-up-wide-short.icon').then(r => r['prizmIconsArrowUpWideShort']),
-  prizmIconsArrowUp: () => import('./24/source/prizmIcons-arrow-up.icon').then(r => r['prizmIconsArrowUp']),
-  prizmIconsArrowsAllDirections: () =>
+  arrow_up: () => import('./24/source/prizmIcons-arrow-up.icon').then(r => r['prizmIconsArrowUp']),
+  arrows_all_directions: () =>
     import('./24/source/prizmIcons-arrows-all-directions.icon').then(r => r['prizmIconsArrowsAllDirections']),
-  prizmIconsArrowsCompare: () =>
+  arrows_compare: () =>
     import('./24/source/prizmIcons-arrows-compare.icon').then(r => r['prizmIconsArrowsCompare']),
-  prizmIconsArrowsCross: () =>
+  arrows_cross: () =>
     import('./24/source/prizmIcons-arrows-cross.icon').then(r => r['prizmIconsArrowsCross']),
-  prizmIconsArrowsDirectionToTheLines: () =>
+  arrows_direction_to_the_lines: () =>
     import('./24/source/prizmIcons-arrows-direction-to-the-lines.icon').then(
       r => r['prizmIconsArrowsDirectionToTheLines']
     ),
-  prizmIconsArrowsInside: () =>
+  arrows_inside: () =>
     import('./24/source/prizmIcons-arrows-inside.icon').then(r => r['prizmIconsArrowsInside']),
-  prizmIconsArrowsLeftRightBrackets: () =>
+  arrows_left_right_brackets: () =>
     import('./24/source/prizmIcons-arrows-left-right-brackets.icon').then(
       r => r['prizmIconsArrowsLeftRightBrackets']
     ),
-  prizmIconsArrowsLeftRightToLines: () =>
+  arrows_left_right_to_lines: () =>
     import('./24/source/prizmIcons-arrows-left-right-to-lines.icon').then(
       r => r['prizmIconsArrowsLeftRightToLines']
     ),
-  prizmIconsArrowsMaximize: () =>
+  arrows_maximize: () =>
     import('./24/source/prizmIcons-arrows-maximize.icon').then(r => r['prizmIconsArrowsMaximize']),
-  prizmIconsArrowsMinimize: () =>
+  arrows_minimize: () =>
     import('./24/source/prizmIcons-arrows-minimize.icon').then(r => r['prizmIconsArrowsMinimize']),
-  prizmIconsArrowsOut: () =>
-    import('./24/source/prizmIcons-arrows-out.icon').then(r => r['prizmIconsArrowsOut']),
-  prizmIconsArrowsRepeatH: () =>
+  arrows_out: () => import('./24/source/prizmIcons-arrows-out.icon').then(r => r['prizmIconsArrowsOut']),
+  arrows_repeat_h: () =>
     import('./24/source/prizmIcons-arrows-repeat-h.icon').then(r => r['prizmIconsArrowsRepeatH']),
-  prizmIconsArrowsRepeatV: () =>
+  arrows_repeat_v: () =>
     import('./24/source/prizmIcons-arrows-repeat-v.icon').then(r => r['prizmIconsArrowsRepeatV']),
-  prizmIconsArrowsRotateH: () =>
+  arrows_rotate_h: () =>
     import('./24/source/prizmIcons-arrows-rotate-h.icon').then(r => r['prizmIconsArrowsRotateH']),
-  prizmIconsArrowsRotateV: () =>
+  arrows_rotate_v: () =>
     import('./24/source/prizmIcons-arrows-rotate-v.icon').then(r => r['prizmIconsArrowsRotateV']),
-  prizmIconsArrowsShuffle: () =>
+  arrows_shuffle: () =>
     import('./24/source/prizmIcons-arrows-shuffle.icon').then(r => r['prizmIconsArrowsShuffle']),
-  prizmIconsArrowsSwapH: () =>
+  arrows_swap_h: () =>
     import('./24/source/prizmIcons-arrows-swap-h.icon').then(r => r['prizmIconsArrowsSwapH']),
-  prizmIconsArrowsSwapV: () =>
+  arrows_swap_v: () =>
     import('./24/source/prizmIcons-arrows-swap-v.icon').then(r => r['prizmIconsArrowsSwapV']),
-  prizmIconsArrowsUpDownToLines: () =>
+  arrows_up_down_to_lines: () =>
     import('./24/source/prizmIcons-arrows-up-down-to-lines.icon').then(
       r => r['prizmIconsArrowsUpDownToLines']
     ),
-  prizmIconsAtSign: () => import('./24/source/prizmIcons-at-sign.icon').then(r => r['prizmIconsAtSign']),
-  prizmIconsAudioSpeakers: () =>
+  at_sign: () => import('./24/source/prizmIcons-at-sign.icon').then(r => r['prizmIconsAtSign']),
+  audio_speakers: () =>
     import('./24/source/prizmIcons-audio-speakers.icon').then(r => r['prizmIconsAudioSpeakers']),
-  prizmIconsAward: () => import('./24/source/prizmIcons-award.icon').then(r => r['prizmIconsAward']),
-  prizmIconsBag: () => import('./24/source/prizmIcons-bag.icon').then(r => r['prizmIconsBag']),
-  prizmIconsBalloon: () => import('./24/source/prizmIcons-balloon.icon').then(r => r['prizmIconsBalloon']),
-  prizmIconsBan: () => import('./24/source/prizmIcons-ban.icon').then(r => r['prizmIconsBan']),
-  prizmIconsBarAxis: () => import('./24/source/prizmIcons-bar-axis.icon').then(r => r['prizmIconsBarAxis']),
-  prizmIconsBarBasic: () =>
-    import('./24/source/prizmIcons-bar-basic.icon').then(r => r['prizmIconsBarBasic']),
-  prizmIconsBarColumnsAxisX: () =>
+  award: () => import('./24/source/prizmIcons-award.icon').then(r => r['prizmIconsAward']),
+  bag: () => import('./24/source/prizmIcons-bag.icon').then(r => r['prizmIconsBag']),
+  balloon: () => import('./24/source/prizmIcons-balloon.icon').then(r => r['prizmIconsBalloon']),
+  ban: () => import('./24/source/prizmIcons-ban.icon').then(r => r['prizmIconsBan']),
+  bar_axis: () => import('./24/source/prizmIcons-bar-axis.icon').then(r => r['prizmIconsBarAxis']),
+  bar_basic: () => import('./24/source/prizmIcons-bar-basic.icon').then(r => r['prizmIconsBarBasic']),
+  bar_columns_axis_x: () =>
     import('./24/source/prizmIcons-bar-columns-axis-x.icon').then(r => r['prizmIconsBarColumnsAxisX']),
-  prizmIconsBarColumns: () =>
-    import('./24/source/prizmIcons-bar-columns.icon').then(r => r['prizmIconsBarColumns']),
-  prizmIconsBarHistogram: () =>
+  bar_columns: () => import('./24/source/prizmIcons-bar-columns.icon').then(r => r['prizmIconsBarColumns']),
+  bar_histogram: () =>
     import('./24/source/prizmIcons-bar-histogram.icon').then(r => r['prizmIconsBarHistogram']),
-  prizmIconsBarSquare: () =>
-    import('./24/source/prizmIcons-bar-square.icon').then(r => r['prizmIconsBarSquare']),
-  prizmIconsBarStackedAxis: () =>
+  bar_square: () => import('./24/source/prizmIcons-bar-square.icon').then(r => r['prizmIconsBarSquare']),
+  bar_stacked_axis: () =>
     import('./24/source/prizmIcons-bar-stacked-axis.icon').then(r => r['prizmIconsBarStackedAxis']),
-  prizmIconsBarStacked: () =>
-    import('./24/source/prizmIcons-bar-stacked.icon').then(r => r['prizmIconsBarStacked']),
-  prizmIconsBarcode: () => import('./24/source/prizmIcons-barcode.icon').then(r => r['prizmIconsBarcode']),
-  prizmIconsBarsSort: () =>
-    import('./24/source/prizmIcons-bars-sort.icon').then(r => r['prizmIconsBarsSort']),
-  prizmIconsBars: () => import('./24/source/prizmIcons-bars.icon').then(r => r['prizmIconsBars']),
-  prizmIconsBatteryBolt: () =>
+  bar_stacked: () => import('./24/source/prizmIcons-bar-stacked.icon').then(r => r['prizmIconsBarStacked']),
+  barcode: () => import('./24/source/prizmIcons-barcode.icon').then(r => r['prizmIconsBarcode']),
+  bars_sort: () => import('./24/source/prizmIcons-bars-sort.icon').then(r => r['prizmIconsBarsSort']),
+  bars: () => import('./24/source/prizmIcons-bars.icon').then(r => r['prizmIconsBars']),
+  battery_bolt: () =>
     import('./24/source/prizmIcons-battery-bolt.icon').then(r => r['prizmIconsBatteryBolt']),
-  prizmIconsBatteryEmpty: () =>
+  battery_empty: () =>
     import('./24/source/prizmIcons-battery-empty.icon').then(r => r['prizmIconsBatteryEmpty']),
-  prizmIconsBatteryExclametionMark: () =>
+  battery_exclametion_mark: () =>
     import('./24/source/prizmIcons-battery-exclametion-mark.icon').then(
       r => r['prizmIconsBatteryExclametionMark']
     ),
-  prizmIconsBatteryFull: () =>
+  battery_full: () =>
     import('./24/source/prizmIcons-battery-full.icon').then(r => r['prizmIconsBatteryFull']),
-  prizmIconsBatteryHalf: () =>
+  battery_half: () =>
     import('./24/source/prizmIcons-battery-half.icon').then(r => r['prizmIconsBatteryHalf']),
-  prizmIconsBatteryMinus: () =>
+  battery_minus: () =>
     import('./24/source/prizmIcons-battery-minus.icon').then(r => r['prizmIconsBatteryMinus']),
-  prizmIconsBatteryPlus: () =>
+  battery_plus: () =>
     import('./24/source/prizmIcons-battery-plus.icon').then(r => r['prizmIconsBatteryPlus']),
-  prizmIconsBatteryQuarter: () =>
+  battery_quarter: () =>
     import('./24/source/prizmIcons-battery-quarter.icon').then(r => r['prizmIconsBatteryQuarter']),
-  prizmIconsBatteryThreeQuarters: () =>
+  battery_three_quarters: () =>
     import('./24/source/prizmIcons-battery-three-quarters.icon').then(
       r => r['prizmIconsBatteryThreeQuarters']
     ),
-  prizmIconsBdrvAdministration: () =>
+  bdrv_administration: () =>
     import('./24/source/prizmIcons-bdrv-administration.icon').then(r => r['prizmIconsBdrvAdministration']),
-  prizmIconsBellFill: () =>
-    import('./24/source/prizmIcons-bell-fill.icon').then(r => r['prizmIconsBellFill']),
-  prizmIconsBellPlus: () =>
-    import('./24/source/prizmIcons-bell-plus.icon').then(r => r['prizmIconsBellPlus']),
-  prizmIconsBellRingFill: () =>
+  bell_fill: () => import('./24/source/prizmIcons-bell-fill.icon').then(r => r['prizmIconsBellFill']),
+  bell_plus: () => import('./24/source/prizmIcons-bell-plus.icon').then(r => r['prizmIconsBellPlus']),
+  bell_ring_fill: () =>
     import('./24/source/prizmIcons-bell-ring-fill.icon').then(r => r['prizmIconsBellRingFill']),
-  prizmIconsBellRing: () =>
-    import('./24/source/prizmIcons-bell-ring.icon').then(r => r['prizmIconsBellRing']),
-  prizmIconsBellSlash: () =>
-    import('./24/source/prizmIcons-bell-slash.icon').then(r => r['prizmIconsBellSlash']),
-  prizmIconsBell: () => import('./24/source/prizmIcons-bell.icon').then(r => r['prizmIconsBell']),
-  prizmIconsBezierCurve: () =>
+  bell_ring: () => import('./24/source/prizmIcons-bell-ring.icon').then(r => r['prizmIconsBellRing']),
+  bell_slash: () => import('./24/source/prizmIcons-bell-slash.icon').then(r => r['prizmIconsBellSlash']),
+  bell: () => import('./24/source/prizmIcons-bell.icon').then(r => r['prizmIconsBell']),
+  bezier_curve: () =>
     import('./24/source/prizmIcons-bezier-curve.icon').then(r => r['prizmIconsBezierCurve']),
-  prizmIconsBitcoin: () => import('./24/source/prizmIcons-bitcoin.icon').then(r => r['prizmIconsBitcoin']),
-  prizmIconsBluetooth: () =>
-    import('./24/source/prizmIcons-bluetooth.icon').then(r => r['prizmIconsBluetooth']),
-  prizmIconsBoilerHotWaterGasAndOil: () =>
+  bitcoin: () => import('./24/source/prizmIcons-bitcoin.icon').then(r => r['prizmIconsBitcoin']),
+  bluetooth: () => import('./24/source/prizmIcons-bluetooth.icon').then(r => r['prizmIconsBluetooth']),
+  boiler_hot_water_gas_and_oil: () =>
     import('./24/source/prizmIcons-boiler-hot-water-gas-and-oil.icon').then(
       r => r['prizmIconsBoilerHotWaterGasAndOil']
     ),
-  prizmIconsBoiler: () => import('./24/source/prizmIcons-boiler.icon').then(r => r['prizmIconsBoiler']),
-  prizmIconsBold: () => import('./24/source/prizmIcons-bold.icon').then(r => r['prizmIconsBold']),
-  prizmIconsBookCheck: () =>
-    import('./24/source/prizmIcons-book-check.icon').then(r => r['prizmIconsBookCheck']),
-  prizmIconsBookClosed: () =>
-    import('./24/source/prizmIcons-book-closed.icon').then(r => r['prizmIconsBookClosed']),
-  prizmIconsBookOpenPlus: () =>
+  boiler: () => import('./24/source/prizmIcons-boiler.icon').then(r => r['prizmIconsBoiler']),
+  bold: () => import('./24/source/prizmIcons-bold.icon').then(r => r['prizmIconsBold']),
+  book_check: () => import('./24/source/prizmIcons-book-check.icon').then(r => r['prizmIconsBookCheck']),
+  book_closed: () => import('./24/source/prizmIcons-book-closed.icon').then(r => r['prizmIconsBookClosed']),
+  book_open_plus: () =>
     import('./24/source/prizmIcons-book-open-plus.icon').then(r => r['prizmIconsBookOpenPlus']),
-  prizmIconsBookOpenReArrowLeft: () =>
+  book_open_re_arrow_left: () =>
     import('./24/source/prizmIcons-book-open-re-arrow-left.icon').then(
       r => r['prizmIconsBookOpenReArrowLeft']
     ),
-  prizmIconsBookOpenReArrowRight: () =>
+  book_open_re_arrow_right: () =>
     import('./24/source/prizmIcons-book-open-re-arrow-right.icon').then(
       r => r['prizmIconsBookOpenReArrowRight']
     ),
-  prizmIconsBookOpenText: () =>
+  book_open_text: () =>
     import('./24/source/prizmIcons-book-open-text.icon').then(r => r['prizmIconsBookOpenText']),
-  prizmIconsBookOpenWithPage: () =>
+  book_open_with_page: () =>
     import('./24/source/prizmIcons-book-open-with-page.icon').then(r => r['prizmIconsBookOpenWithPage']),
-  prizmIconsBookOpen: () =>
-    import('./24/source/prizmIcons-book-open.icon').then(r => r['prizmIconsBookOpen']),
-  prizmIconsBookStack: () =>
-    import('./24/source/prizmIcons-book_stack.icon').then(r => r['prizmIconsBookStack']),
-  prizmIconsBookmarkCheckFill: () =>
+  book_open: () => import('./24/source/prizmIcons-book-open.icon').then(r => r['prizmIconsBookOpen']),
+  book_stack: () => import('./24/source/prizmIcons-book_stack.icon').then(r => r['prizmIconsBookStack']),
+  bookmark_check_fill: () =>
     import('./24/source/prizmIcons-bookmark-check-fill.icon').then(r => r['prizmIconsBookmarkCheckFill']),
-  prizmIconsBookmarkCheck: () =>
+  bookmark_check: () =>
     import('./24/source/prizmIcons-bookmark-check.icon').then(r => r['prizmIconsBookmarkCheck']),
-  prizmIconsBookmarkCrossFill: () =>
+  bookmark_cross_fill: () =>
     import('./24/source/prizmIcons-bookmark-cross-fill.icon').then(r => r['prizmIconsBookmarkCrossFill']),
-  prizmIconsBookmarkCross: () =>
+  bookmark_cross: () =>
     import('./24/source/prizmIcons-bookmark-cross.icon').then(r => r['prizmIconsBookmarkCross']),
-  prizmIconsBookmarkFill: () =>
+  bookmark_fill: () =>
     import('./24/source/prizmIcons-bookmark-fill.icon').then(r => r['prizmIconsBookmarkFill']),
-  prizmIconsBookmarkMusicFill: () =>
+  bookmark_music_fill: () =>
     import('./24/source/prizmIcons-bookmark-music-fill.icon').then(r => r['prizmIconsBookmarkMusicFill']),
-  prizmIconsBookmarkMusic: () =>
+  bookmark_music: () =>
     import('./24/source/prizmIcons-bookmark-music.icon').then(r => r['prizmIconsBookmarkMusic']),
-  prizmIconsBookmarkPlusFill: () =>
+  bookmark_plus_fill: () =>
     import('./24/source/prizmIcons-bookmark-plus-fill.icon').then(r => r['prizmIconsBookmarkPlusFill']),
-  prizmIconsBookmarkPlus: () =>
+  bookmark_plus: () =>
     import('./24/source/prizmIcons-bookmark-plus.icon').then(r => r['prizmIconsBookmarkPlus']),
-  prizmIconsBookmark: () => import('./24/source/prizmIcons-bookmark.icon').then(r => r['prizmIconsBookmark']),
-  prizmIconsBorderAll: () =>
-    import('./24/source/prizmIcons-border-all.icon').then(r => r['prizmIconsBorderAll']),
-  prizmIconsBorderBottom: () =>
+  bookmark: () => import('./24/source/prizmIcons-bookmark.icon').then(r => r['prizmIconsBookmark']),
+  border_all: () => import('./24/source/prizmIcons-border-all.icon').then(r => r['prizmIconsBorderAll']),
+  border_bottom: () =>
     import('./24/source/prizmIcons-border-bottom.icon').then(r => r['prizmIconsBorderBottom']),
-  prizmIconsBorderCenterH: () =>
+  border_center_h: () =>
     import('./24/source/prizmIcons-border-center-h.icon').then(r => r['prizmIconsBorderCenterH']),
-  prizmIconsBorderCenterV: () =>
+  border_center_v: () =>
     import('./24/source/prizmIcons-border-center-v.icon').then(r => r['prizmIconsBorderCenterV']),
-  prizmIconsBorderInner: () =>
+  border_inner: () =>
     import('./24/source/prizmIcons-border-inner.icon').then(r => r['prizmIconsBorderInner']),
-  prizmIconsBorderLeft: () =>
-    import('./24/source/prizmIcons-border-left.icon').then(r => r['prizmIconsBorderLeft']),
-  prizmIconsBorderNone: () =>
-    import('./24/source/prizmIcons-border-none.icon').then(r => r['prizmIconsBorderNone']),
-  prizmIconsBorderOuter: () =>
+  border_left: () => import('./24/source/prizmIcons-border-left.icon').then(r => r['prizmIconsBorderLeft']),
+  border_none: () => import('./24/source/prizmIcons-border-none.icon').then(r => r['prizmIconsBorderNone']),
+  border_outer: () =>
     import('./24/source/prizmIcons-border-outer.icon').then(r => r['prizmIconsBorderOuter']),
-  prizmIconsBorderRight: () =>
+  border_right: () =>
     import('./24/source/prizmIcons-border-right.icon').then(r => r['prizmIconsBorderRight']),
-  prizmIconsBorderTopLeft: () =>
+  border_top_left: () =>
     import('./24/source/prizmIcons-border-top-left.icon').then(r => r['prizmIconsBorderTopLeft']),
-  prizmIconsBorderTop: () =>
-    import('./24/source/prizmIcons-border-top.icon').then(r => r['prizmIconsBorderTop']),
-  prizmIconsBoxOpenArrowDown: () =>
+  border_top: () => import('./24/source/prizmIcons-border-top.icon').then(r => r['prizmIconsBorderTop']),
+  box_open_arrow_down: () =>
     import('./24/source/prizmIcons-box-open-arrow-down.icon').then(r => r['prizmIconsBoxOpenArrowDown']),
-  prizmIconsBox: () => import('./24/source/prizmIcons-box.icon').then(r => r['prizmIconsBox']),
-  prizmIconsBracketsCurly: () =>
+  box: () => import('./24/source/prizmIcons-box.icon').then(r => r['prizmIconsBox']),
+  brackets_curly: () =>
     import('./24/source/prizmIcons-brackets-curly.icon').then(r => r['prizmIconsBracketsCurly']),
-  prizmIconsBracketsSquare: () =>
+  brackets_square: () =>
     import('./24/source/prizmIcons-brackets-square.icon').then(r => r['prizmIconsBracketsSquare']),
-  prizmIconsBroom: () => import('./24/source/prizmIcons-broom.icon').then(r => r['prizmIconsBroom']),
-  prizmIconsBrowser: () => import('./24/source/prizmIcons-browser.icon').then(r => r['prizmIconsBrowser']),
-  prizmIconsBrush: () => import('./24/source/prizmIcons-brush.icon').then(r => r['prizmIconsBrush']),
-  prizmIconsBubbleMessageAdd: () =>
+  broom: () => import('./24/source/prizmIcons-broom.icon').then(r => r['prizmIconsBroom']),
+  browser: () => import('./24/source/prizmIcons-browser.icon').then(r => r['prizmIconsBrowser']),
+  brush: () => import('./24/source/prizmIcons-brush.icon').then(r => r['prizmIconsBrush']),
+  bubble_message_add: () =>
     import('./24/source/prizmIcons-bubble-message-add.icon').then(r => r['prizmIconsBubbleMessageAdd']),
-  prizmIconsBubbleMessageAttention: () =>
+  bubble_message_attention: () =>
     import('./24/source/prizmIcons-bubble-message-attention.icon').then(
       r => r['prizmIconsBubbleMessageAttention']
     ),
-  prizmIconsBubbleMessageCircle: () =>
+  bubble_message_circle: () =>
     import('./24/source/prizmIcons-bubble-message-circle.icon').then(r => r['prizmIconsBubbleMessageCircle']),
-  prizmIconsBubbleMessageEmpty: () =>
+  bubble_message_empty: () =>
     import('./24/source/prizmIcons-bubble-message-empty.icon').then(r => r['prizmIconsBubbleMessageEmpty']),
-  prizmIconsBubbleMessageOff: () =>
+  bubble_message_off: () =>
     import('./24/source/prizmIcons-bubble-message-off.icon').then(r => r['prizmIconsBubbleMessageOff']),
-  prizmIconsBubbleMessageQuestion: () =>
+  bubble_message_question: () =>
     import('./24/source/prizmIcons-bubble-message-question.icon').then(
       r => r['prizmIconsBubbleMessageQuestion']
     ),
-  prizmIconsBubbleMessageText: () =>
+  bubble_message_text: () =>
     import('./24/source/prizmIcons-bubble-message-text.icon').then(r => r['prizmIconsBubbleMessageText']),
-  prizmIconsBubbleMessage: () =>
+  bubble_message: () =>
     import('./24/source/prizmIcons-bubble-message.icon').then(r => r['prizmIconsBubbleMessage']),
-  prizmIconsBurn: () => import('./24/source/prizmIcons-burn.icon').then(r => r['prizmIconsBurn']),
-  prizmIconsCalculatorArrowRotateLeft: () =>
+  burn: () => import('./24/source/prizmIcons-burn.icon').then(r => r['prizmIconsBurn']),
+  calculator_arrow_rotate_left: () =>
     import('./24/source/prizmIcons-calculator-arrow-rotate-left.icon').then(
       r => r['prizmIconsCalculatorArrowRotateLeft']
     ),
-  prizmIconsCalculatorFunction: () =>
+  calculator_function: () =>
     import('./24/source/prizmIcons-calculator-function.icon').then(r => r['prizmIconsCalculatorFunction']),
-  prizmIconsCalculator: () =>
-    import('./24/source/prizmIcons-calculator.icon').then(r => r['prizmIconsCalculator']),
-  prizmIconsCalendarBlank: () =>
+  calculator: () => import('./24/source/prizmIcons-calculator.icon').then(r => r['prizmIconsCalculator']),
+  calendar_blank: () =>
     import('./24/source/prizmIcons-calendar-blank.icon').then(r => r['prizmIconsCalendarBlank']),
-  prizmIconsCalendarCheck: () =>
+  calendar_check: () =>
     import('./24/source/prizmIcons-calendar-check.icon').then(r => r['prizmIconsCalendarCheck']),
-  prizmIconsCalendarClock: () =>
+  calendar_clock: () =>
     import('./24/source/prizmIcons-calendar-clock.icon').then(r => r['prizmIconsCalendarClock']),
-  prizmIconsCalendarDeleted: () =>
+  calendar_deleted: () =>
     import('./24/source/prizmIcons-calendar-deleted.icon').then(r => r['prizmIconsCalendarDeleted']),
-  prizmIconsCalendarEvent: () =>
+  calendar_event: () =>
     import('./24/source/prizmIcons-calendar-event.icon').then(r => r['prizmIconsCalendarEvent']),
-  prizmIconsCalendarPlus: () =>
+  calendar_plus: () =>
     import('./24/source/prizmIcons-calendar-plus.icon').then(r => r['prizmIconsCalendarPlus']),
-  prizmIconsCalendarQuestion: () =>
+  calendar_question: () =>
     import('./24/source/prizmIcons-calendar-question.icon').then(r => r['prizmIconsCalendarQuestion']),
-  prizmIconsCalendarRange: () =>
+  calendar_range: () =>
     import('./24/source/prizmIcons-calendar-range.icon').then(r => r['prizmIconsCalendarRange']),
-  prizmIconsCalendarToday: () =>
+  calendar_today: () =>
     import('./24/source/prizmIcons-calendar-today.icon').then(r => r['prizmIconsCalendarToday']),
-  prizmIconsCalendar: () => import('./24/source/prizmIcons-calendar.icon').then(r => r['prizmIconsCalendar']),
-  prizmIconsCalibrationCharacteristicsZql: () =>
+  calendar: () => import('./24/source/prizmIcons-calendar.icon').then(r => r['prizmIconsCalendar']),
+  calibration_characteristics_zql: () =>
     import('./24/source/prizmIcons-calibration-characteristics-zql.icon').then(
       r => r['prizmIconsCalibrationCharacteristicsZql']
     ),
-  prizmIconsCameraFront: () =>
+  camera_front: () =>
     import('./24/source/prizmIcons-camera-front.icon').then(r => r['prizmIconsCameraFront']),
-  prizmIconsCameraMovieCross: () =>
+  camera_movie_cross: () =>
     import('./24/source/prizmIcons-camera-movie-cross.icon').then(r => r['prizmIconsCameraMovieCross']),
-  prizmIconsCameraMovie: () =>
+  camera_movie: () =>
     import('./24/source/prizmIcons-camera-movie.icon').then(r => r['prizmIconsCameraMovie']),
-  prizmIconsCamera: () => import('./24/source/prizmIcons-camera.icon').then(r => r['prizmIconsCamera']),
-  prizmIconsCarJeepSideView: () =>
+  camera: () => import('./24/source/prizmIcons-camera.icon').then(r => r['prizmIconsCamera']),
+  car_jeep_side_view: () =>
     import('./24/source/prizmIcons-car-jeep-side-view.icon').then(r => r['prizmIconsCarJeepSideView']),
-  prizmIconsCarLightSideView: () =>
+  car_light_side_view: () =>
     import('./24/source/prizmIcons-car-light-side-view.icon').then(r => r['prizmIconsCarLightSideView']),
-  prizmIconsCarbon: () => import('./24/source/prizmIcons-carbon.icon').then(r => r['prizmIconsCarbon']),
-  prizmIconsCarouselFill: () =>
+  carbon: () => import('./24/source/prizmIcons-carbon.icon').then(r => r['prizmIconsCarbon']),
+  carousel_fill: () =>
     import('./24/source/prizmIcons-carousel-fill.icon').then(r => r['prizmIconsCarouselFill']),
-  prizmIconsCartFlatbedContainer: () =>
+  cart_flatbed_container: () =>
     import('./24/source/prizmIcons-cart-flatbed-container.icon').then(
       r => r['prizmIconsCartFlatbedContainer']
     ),
-  prizmIconsCartPlus: () =>
-    import('./24/source/prizmIcons-cart-plus.icon').then(r => r['prizmIconsCartPlus']),
-  prizmIconsCart: () => import('./24/source/prizmIcons-cart.icon').then(r => r['prizmIconsCart']),
-  prizmIconsCellphoneWireless: () =>
+  cart_plus: () => import('./24/source/prizmIcons-cart-plus.icon').then(r => r['prizmIconsCartPlus']),
+  cart: () => import('./24/source/prizmIcons-cart.icon').then(r => r['prizmIconsCart']),
+  cellphone_wireless: () =>
     import('./24/source/prizmIcons-cellphone-wireless.icon').then(r => r['prizmIconsCellphoneWireless']),
-  prizmIconsCellphone: () =>
-    import('./24/source/prizmIcons-cellphone.icon').then(r => r['prizmIconsCellphone']),
-  prizmIconsChartsIqcZql: () =>
+  cellphone: () => import('./24/source/prizmIcons-cellphone.icon').then(r => r['prizmIconsCellphone']),
+  charts_iqc_zql: () =>
     import('./24/source/prizmIcons-charts-iqc-zql.icon').then(r => r['prizmIconsChartsIqcZql']),
-  prizmIconsCheckDouble: () =>
+  check_double: () =>
     import('./24/source/prizmIcons-check-double.icon').then(r => r['prizmIconsCheckDouble']),
-  prizmIconsCheckerboard: () =>
+  checkerboard: () =>
     import('./24/source/prizmIcons-checkerboard.icon').then(r => r['prizmIconsCheckerboard']),
-  prizmIconsChek: () => import('./24/source/prizmIcons-chek.icon').then(r => r['prizmIconsChek']),
-  prizmIconsChevronDownToDoubleLine: () =>
+  chek: () => import('./24/source/prizmIcons-chek.icon').then(r => r['prizmIconsChek']),
+  chevron_down_to_double_line: () =>
     import('./24/source/prizmIcons-chevron-down-to-double-line.icon').then(
       r => r['prizmIconsChevronDownToDoubleLine']
     ),
-  prizmIconsChevronDown: () =>
+  chevron_down: () =>
     import('./24/source/prizmIcons-chevron-down.icon').then(r => r['prizmIconsChevronDown']),
-  prizmIconsChevronLeft: () =>
+  chevron_left: () =>
     import('./24/source/prizmIcons-chevron-left.icon').then(r => r['prizmIconsChevronLeft']),
-  prizmIconsChevronMiniLeft: () =>
+  chevron_mini_left: () =>
     import('./24/source/prizmIcons-chevron-mini-left.icon').then(r => r['prizmIconsChevronMiniLeft']),
-  prizmIconsChevronMiniRight: () =>
+  chevron_mini_right: () =>
     import('./24/source/prizmIcons-chevron-mini-right.icon').then(r => r['prizmIconsChevronMiniRight']),
-  prizmIconsChevronRightAboveDoubleLine: () =>
+  chevron_right_above_double_line: () =>
     import('./24/source/prizmIcons-chevron-right-above-double-line.icon').then(
       r => r['prizmIconsChevronRightAboveDoubleLine']
     ),
-  prizmIconsChevronRight: () =>
+  chevron_right: () =>
     import('./24/source/prizmIcons-chevron-right.icon').then(r => r['prizmIconsChevronRight']),
-  prizmIconsChevronUp: () =>
-    import('./24/source/prizmIcons-chevron-up.icon').then(r => r['prizmIconsChevronUp']),
-  prizmIconsChevronsDoubleDown: () =>
+  chevron_up: () => import('./24/source/prizmIcons-chevron-up.icon').then(r => r['prizmIconsChevronUp']),
+  chevrons_double_down: () =>
     import('./24/source/prizmIcons-chevrons-double-down.icon').then(r => r['prizmIconsChevronsDoubleDown']),
-  prizmIconsChevronsDoubleLeft: () =>
+  chevrons_double_left: () =>
     import('./24/source/prizmIcons-chevrons-double-left.icon').then(r => r['prizmIconsChevronsDoubleLeft']),
-  prizmIconsChevronsDoubleMiniLeft: () =>
+  chevrons_double_mini_left: () =>
     import('./24/source/prizmIcons-chevrons-double-mini-left.icon').then(
       r => r['prizmIconsChevronsDoubleMiniLeft']
     ),
-  prizmIconsChevronsDoubleMiniRight: () =>
+  chevrons_double_mini_right: () =>
     import('./24/source/prizmIcons-chevrons-double-mini-right.icon').then(
       r => r['prizmIconsChevronsDoubleMiniRight']
     ),
-  prizmIconsChevronsDoubleRight: () =>
+  chevrons_double_right: () =>
     import('./24/source/prizmIcons-chevrons-double-right.icon').then(r => r['prizmIconsChevronsDoubleRight']),
-  prizmIconsChevronsDoubleUp: () =>
+  chevrons_double_up: () =>
     import('./24/source/prizmIcons-chevrons-double-up.icon').then(r => r['prizmIconsChevronsDoubleUp']),
-  prizmIconsChevronsInsideHorizontally: () =>
+  chevrons_inside_horizontally: () =>
     import('./24/source/prizmIcons-chevrons-inside_horizontally.icon').then(
       r => r['prizmIconsChevronsInsideHorizontally']
     ),
-  prizmIconsChevronsInsideVertically: () =>
+  chevrons_inside_vertically: () =>
     import('./24/source/prizmIcons-chevrons-inside_vertically.icon').then(
       r => r['prizmIconsChevronsInsideVertically']
     ),
-  prizmIconsChevronsOutsideHorizontally: () =>
+  chevrons_outside_horizontally: () =>
     import('./24/source/prizmIcons-chevrons-outside_horizontally.icon').then(
       r => r['prizmIconsChevronsOutsideHorizontally']
     ),
-  prizmIconsChevronsOutsideVertically: () =>
+  chevrons_outside_vertically: () =>
     import('./24/source/prizmIcons-chevrons-outside_vertically.icon').then(
       r => r['prizmIconsChevronsOutsideVertically']
     ),
-  prizmIconsCircleChekEmpty: () =>
+  circle_chek_empty: () =>
     import('./24/source/prizmIcons-circle-chek-empty.icon').then(r => r['prizmIconsCircleChekEmpty']),
-  prizmIconsCircleChekFill: () =>
+  circle_chek_fill: () =>
     import('./24/source/prizmIcons-circle-chek-fill.icon').then(r => r['prizmIconsCircleChekFill']),
-  prizmIconsCircleExclamationEmpty: () =>
+  circle_exclamation_empty: () =>
     import('./24/source/prizmIcons-circle-exclamation-empty.icon').then(
       r => r['prizmIconsCircleExclamationEmpty']
     ),
-  prizmIconsCircleExclamationFill: () =>
+  circle_exclamation_fill: () =>
     import('./24/source/prizmIcons-circle-exclamation-fill.icon').then(
       r => r['prizmIconsCircleExclamationFill']
     ),
-  prizmIconsCircleInHexagon: () =>
+  circle_in_hexagon: () =>
     import('./24/source/prizmIcons-circle-in-hexagon.icon').then(r => r['prizmIconsCircleInHexagon']),
-  prizmIconsCircleInfoEmpty: () =>
+  circle_info_empty: () =>
     import('./24/source/prizmIcons-circle-info-empty.icon').then(r => r['prizmIconsCircleInfoEmpty']),
-  prizmIconsCircleInfoFill: () =>
+  circle_info_fill: () =>
     import('./24/source/prizmIcons-circle-info-fill.icon').then(r => r['prizmIconsCircleInfoFill']),
-  prizmIconsCircleMusic: () =>
+  circle_music: () =>
     import('./24/source/prizmIcons-circle-music.icon').then(r => r['prizmIconsCircleMusic']),
-  prizmIconsCirclePlusFill: () =>
+  circle_plus_fill: () =>
     import('./24/source/prizmIcons-circle-plus-fill.icon').then(r => r['prizmIconsCirclePlusFill']),
-  prizmIconsCirclePlus: () =>
-    import('./24/source/prizmIcons-circle-plus.icon').then(r => r['prizmIconsCirclePlus']),
-  prizmIconsCircleQuestionEmpty: () =>
+  circle_plus: () => import('./24/source/prizmIcons-circle-plus.icon').then(r => r['prizmIconsCirclePlus']),
+  circle_question_empty: () =>
     import('./24/source/prizmIcons-circle-question-empty.icon').then(r => r['prizmIconsCircleQuestionEmpty']),
-  prizmIconsCircleQuestionFill: () =>
+  circle_question_fill: () =>
     import('./24/source/prizmIcons-circle-question-fill.icon').then(r => r['prizmIconsCircleQuestionFill']),
-  prizmIconsCircleSquareFill: () =>
+  circle_square_fill: () =>
     import('./24/source/prizmIcons-circle-square-fill.icon').then(r => r['prizmIconsCircleSquareFill']),
-  prizmIconsCircleSquareInSquare: () =>
+  circle_square_in_square: () =>
     import('./24/source/prizmIcons-circle-square-in-square.icon').then(
       r => r['prizmIconsCircleSquareInSquare']
     ),
-  prizmIconsCircleSquare: () =>
+  circle_square: () =>
     import('./24/source/prizmIcons-circle-square.icon').then(r => r['prizmIconsCircleSquare']),
-  prizmIconsCircleXmarkFill: () =>
+  circle_xmark_fill: () =>
     import('./24/source/prizmIcons-circle-xmark-fill.icon').then(r => r['prizmIconsCircleXmarkFill']),
-  prizmIconsCircleXmark: () =>
+  circle_xmark: () =>
     import('./24/source/prizmIcons-circle-xmark.icon').then(r => r['prizmIconsCircleXmark']),
-  prizmIconsCirclesLineLeftUpCircleRightDownFill: () =>
+  circles_line_left_up_circle_right_down_fill: () =>
     import('./24/source/prizmIcons-circles-line-left-up-circle-right-down-fill.icon').then(
       r => r['prizmIconsCirclesLineLeftUpCircleRightDownFill']
     ),
-  prizmIconsCirclesLineLeftUpCircleRightDown: () =>
+  circles_line_left_up_circle_right_down: () =>
     import('./24/source/prizmIcons-circles-line-left-up-circle-right-down.icon').then(
       r => r['prizmIconsCirclesLineLeftUpCircleRightDown']
     ),
-  prizmIconsClapperboardCross: () =>
+  clapperboard_cross: () =>
     import('./24/source/prizmIcons-clapperboard-cross.icon').then(r => r['prizmIconsClapperboardCross']),
-  prizmIconsClapperboardOpen: () =>
+  clapperboard_open: () =>
     import('./24/source/prizmIcons-clapperboard-open.icon').then(r => r['prizmIconsClapperboardOpen']),
-  prizmIconsClockAdd: () =>
-    import('./24/source/prizmIcons-clock-add.icon').then(r => r['prizmIconsClockAdd']),
-  prizmIconsClockArrowDown: () =>
+  clock_add: () => import('./24/source/prizmIcons-clock-add.icon').then(r => r['prizmIconsClockAdd']),
+  clock_arrow_down: () =>
     import('./24/source/prizmIcons-clock-arrow-down.icon').then(r => r['prizmIconsClockArrowDown']),
-  prizmIconsClockArrowRight: () =>
+  clock_arrow_right: () =>
     import('./24/source/prizmIcons-clock-arrow-right.icon').then(r => r['prizmIconsClockArrowRight']),
-  prizmIconsClockArrowUp: () =>
+  clock_arrow_up: () =>
     import('./24/source/prizmIcons-clock-arrow-up.icon').then(r => r['prizmIconsClockArrowUp']),
-  prizmIconsClockDeleted: () =>
+  clock_deleted: () =>
     import('./24/source/prizmIcons-clock-deleted.icon').then(r => r['prizmIconsClockDeleted']),
-  prizmIconsClockExclamation: () =>
+  clock_exclamation: () =>
     import('./24/source/prizmIcons-clock-exclamation.icon').then(r => r['prizmIconsClockExclamation']),
-  prizmIconsClockLineEnd: () =>
+  clock_line_end: () =>
     import('./24/source/prizmIcons-clock-line-end.icon').then(r => r['prizmIconsClockLineEnd']),
-  prizmIconsClockRotateLeft: () =>
+  clock_rotate_left: () =>
     import('./24/source/prizmIcons-clock-rotate-left.icon').then(r => r['prizmIconsClockRotateLeft']),
-  prizmIconsClockRotateRight: () =>
+  clock_rotate_right: () =>
     import('./24/source/prizmIcons-clock-rotate-right.icon').then(r => r['prizmIconsClockRotateRight']),
-  prizmIconsClock: () => import('./24/source/prizmIcons-clock.icon').then(r => r['prizmIconsClock']),
-  prizmIconsCloudArrowDown: () =>
+  clock: () => import('./24/source/prizmIcons-clock.icon').then(r => r['prizmIconsClock']),
+  cloud_arrow_down: () =>
     import('./24/source/prizmIcons-cloud-arrow_down.icon').then(r => r['prizmIconsCloudArrowDown']),
-  prizmIconsCloudArrowUp: () =>
+  cloud_arrow_up: () =>
     import('./24/source/prizmIcons-cloud-arrow_up.icon').then(r => r['prizmIconsCloudArrowUp']),
-  prizmIconsCloudArrowUpInside: () =>
+  cloud_arrow_up_inside: () =>
     import('./24/source/prizmIcons-cloud-arrow_up_inside.icon').then(r => r['prizmIconsCloudArrowUpInside']),
-  prizmIconsCloudCheck: () =>
-    import('./24/source/prizmIcons-cloud-check.icon').then(r => r['prizmIconsCloudCheck']),
-  prizmIconsCloud: () => import('./24/source/prizmIcons-cloud.icon').then(r => r['prizmIconsCloud']),
-  prizmIconsCodeDownload: () =>
+  cloud_check: () => import('./24/source/prizmIcons-cloud-check.icon').then(r => r['prizmIconsCloudCheck']),
+  cloud: () => import('./24/source/prizmIcons-cloud.icon').then(r => r['prizmIconsCloud']),
+  code_download: () =>
     import('./24/source/prizmIcons-code-download.icon').then(r => r['prizmIconsCodeDownload']),
-  prizmIconsCodeSimple: () =>
-    import('./24/source/prizmIcons-code-simple.icon').then(r => r['prizmIconsCodeSimple']),
-  prizmIconsCode: () => import('./24/source/prizmIcons-code.icon').then(r => r['prizmIconsCode']),
-  prizmIconsCollageFill: () =>
+  code_simple: () => import('./24/source/prizmIcons-code-simple.icon').then(r => r['prizmIconsCodeSimple']),
+  code: () => import('./24/source/prizmIcons-code.icon').then(r => r['prizmIconsCode']),
+  collage_fill: () =>
     import('./24/source/prizmIcons-collage-fill.icon').then(r => r['prizmIconsCollageFill']),
-  prizmIconsCollection: () =>
-    import('./24/source/prizmIcons-collection.icon').then(r => r['prizmIconsCollection']),
-  prizmIconsCollector: () =>
-    import('./24/source/prizmIcons-collector.icon').then(r => r['prizmIconsCollector']),
-  prizmIconsColumnFill: () =>
-    import('./24/source/prizmIcons-column-fill.icon').then(r => r['prizmIconsColumnFill']),
-  prizmIconsColumn: () => import('./24/source/prizmIcons-column.icon').then(r => r['prizmIconsColumn']),
-  prizmIconsCompass: () => import('./24/source/prizmIcons-compass.icon').then(r => r['prizmIconsCompass']),
-  prizmIconsComponent: () =>
-    import('./24/source/prizmIcons-component.icon').then(r => r['prizmIconsComponent']),
-  prizmIconsConcreteMixerSideView: () =>
+  collection: () => import('./24/source/prizmIcons-collection.icon').then(r => r['prizmIconsCollection']),
+  collector: () => import('./24/source/prizmIcons-collector.icon').then(r => r['prizmIconsCollector']),
+  column_fill: () => import('./24/source/prizmIcons-column-fill.icon').then(r => r['prizmIconsColumnFill']),
+  column: () => import('./24/source/prizmIcons-column.icon').then(r => r['prizmIconsColumn']),
+  compass: () => import('./24/source/prizmIcons-compass.icon').then(r => r['prizmIconsCompass']),
+  component: () => import('./24/source/prizmIcons-component.icon').then(r => r['prizmIconsComponent']),
+  concrete_mixer_side_view: () =>
     import('./24/source/prizmIcons-concrete-mixer-side-view.icon').then(
       r => r['prizmIconsConcreteMixerSideView']
     ),
-  prizmIconsContainerV1: () =>
+  container_v_1: () =>
     import('./24/source/prizmIcons-container-v1.icon').then(r => r['prizmIconsContainerV1']),
-  prizmIconsContainerV2: () =>
+  container_v_2: () =>
     import('./24/source/prizmIcons-container-v2.icon').then(r => r['prizmIconsContainerV2']),
-  prizmIconsContainers: () =>
-    import('./24/source/prizmIcons-containers.icon').then(r => r['prizmIconsContainers']),
-  prizmIconsControlChartsZql: () =>
+  containers: () => import('./24/source/prizmIcons-containers.icon').then(r => r['prizmIconsContainers']),
+  control_charts_zql: () =>
     import('./24/source/prizmIcons-control-charts-zql.icon').then(r => r['prizmIconsControlChartsZql']),
-  prizmIconsCopyColumn: () =>
-    import('./24/source/prizmIcons-copy-column.icon').then(r => r['prizmIconsCopyColumn']),
-  prizmIconsCopyRow: () => import('./24/source/prizmIcons-copy-row.icon').then(r => r['prizmIconsCopyRow']),
-  prizmIconsCopy: () => import('./24/source/prizmIcons-copy.icon').then(r => r['prizmIconsCopy']),
-  prizmIconsCrane: () => import('./24/source/prizmIcons-crane.icon').then(r => r['prizmIconsCrane']),
-  prizmIconsCreditCardPlus: () =>
+  copy_column: () => import('./24/source/prizmIcons-copy-column.icon').then(r => r['prizmIconsCopyColumn']),
+  copy_row: () => import('./24/source/prizmIcons-copy-row.icon').then(r => r['prizmIconsCopyRow']),
+  copy: () => import('./24/source/prizmIcons-copy.icon').then(r => r['prizmIconsCopy']),
+  crane: () => import('./24/source/prizmIcons-crane.icon').then(r => r['prizmIconsCrane']),
+  credit_card_plus: () =>
     import('./24/source/prizmIcons-credit-card-plus.icon').then(r => r['prizmIconsCreditCardPlus']),
-  prizmIconsCreditCardSlash: () =>
+  credit_card_slash: () =>
     import('./24/source/prizmIcons-credit-card-slash.icon').then(r => r['prizmIconsCreditCardSlash']),
-  prizmIconsCreditCard: () =>
-    import('./24/source/prizmIcons-credit-card.icon').then(r => r['prizmIconsCreditCard']),
-  prizmIconsCrop: () => import('./24/source/prizmIcons-crop.icon').then(r => r['prizmIconsCrop']),
-  prizmIconsCrosshairsDot: () =>
+  credit_card: () => import('./24/source/prizmIcons-credit-card.icon').then(r => r['prizmIconsCreditCard']),
+  crop: () => import('./24/source/prizmIcons-crop.icon').then(r => r['prizmIconsCrop']),
+  crosshairs_dot: () =>
     import('./24/source/prizmIcons-crosshairs-dot.icon').then(r => r['prizmIconsCrosshairsDot']),
-  prizmIconsCrosshairsSimple: () =>
+  crosshairs_simple: () =>
     import('./24/source/prizmIcons-crosshairs-simple.icon').then(r => r['prizmIconsCrosshairsSimple']),
-  prizmIconsCubeEmpty: () =>
-    import('./24/source/prizmIcons-cube-empty.icon').then(r => r['prizmIconsCubeEmpty']),
-  prizmIconsCubeFill: () =>
-    import('./24/source/prizmIcons-cube-fill.icon').then(r => r['prizmIconsCubeFill']),
-  prizmIconsCubes: () => import('./24/source/prizmIcons-cubes.icon').then(r => r['prizmIconsCubes']),
-  prizmIconsDashboardFill: () =>
+  cube_empty: () => import('./24/source/prizmIcons-cube-empty.icon').then(r => r['prizmIconsCubeEmpty']),
+  cube_fill: () => import('./24/source/prizmIcons-cube-fill.icon').then(r => r['prizmIconsCubeFill']),
+  cubes: () => import('./24/source/prizmIcons-cubes.icon').then(r => r['prizmIconsCubes']),
+  dashboard_fill: () =>
     import('./24/source/prizmIcons-dashboard-fill.icon').then(r => r['prizmIconsDashboardFill']),
-  prizmIconsDashboardVariantFill: () =>
+  dashboard_variant_fill: () =>
     import('./24/source/prizmIcons-dashboard-variant-fill.icon').then(
       r => r['prizmIconsDashboardVariantFill']
     ),
-  prizmIconsDatabaseChek: () =>
+  database_chek: () =>
     import('./24/source/prizmIcons-database-chek.icon').then(r => r['prizmIconsDatabaseChek']),
-  prizmIconsDatabaseJson: () =>
+  database_json: () =>
     import('./24/source/prizmIcons-database-json.icon').then(r => r['prizmIconsDatabaseJson']),
-  prizmIconsDatabaseMagnifyingGlass: () =>
+  database_magnifying_glass: () =>
     import('./24/source/prizmIcons-database-magnifying-glass.icon').then(
       r => r['prizmIconsDatabaseMagnifyingGlass']
     ),
-  prizmIconsDatabaseMinus: () =>
+  database_minus: () =>
     import('./24/source/prizmIcons-database-minus.icon').then(r => r['prizmIconsDatabaseMinus']),
-  prizmIconsDatabasePlus: () =>
+  database_plus: () =>
     import('./24/source/prizmIcons-database-plus.icon').then(r => r['prizmIconsDatabasePlus']),
-  prizmIconsDatabaseSql: () =>
+  database_sql: () =>
     import('./24/source/prizmIcons-database-sql.icon').then(r => r['prizmIconsDatabaseSql']),
-  prizmIconsDatabaseXmark: () =>
+  database_xmark: () =>
     import('./24/source/prizmIcons-database-xmark.icon').then(r => r['prizmIconsDatabaseXmark']),
-  prizmIconsDatabase: () => import('./24/source/prizmIcons-database.icon').then(r => r['prizmIconsDatabase']),
-  prizmIconsDayFill: () => import('./24/source/prizmIcons-day-fill.icon').then(r => r['prizmIconsDayFill']),
-  prizmIconsDecagramChekEmpty: () =>
+  database: () => import('./24/source/prizmIcons-database.icon').then(r => r['prizmIconsDatabase']),
+  day_fill: () => import('./24/source/prizmIcons-day-fill.icon').then(r => r['prizmIconsDayFill']),
+  decagram_chek_empty: () =>
     import('./24/source/prizmIcons-decagram-chek-empty.icon').then(r => r['prizmIconsDecagramChekEmpty']),
-  prizmIconsDecagramChekFill: () =>
+  decagram_chek_fill: () =>
     import('./24/source/prizmIcons-decagram-chek-fill.icon').then(r => r['prizmIconsDecagramChekFill']),
-  prizmIconsDecagramExclamationEmpty: () =>
+  decagram_exclamation_empty: () =>
     import('./24/source/prizmIcons-decagram-exclamation-empty.icon').then(
       r => r['prizmIconsDecagramExclamationEmpty']
     ),
-  prizmIconsDecagramExclamationFill: () =>
+  decagram_exclamation_fill: () =>
     import('./24/source/prizmIcons-decagram-exclamation-fill.icon').then(
       r => r['prizmIconsDecagramExclamationFill']
     ),
-  prizmIconsDefaultIco: () =>
-    import('./24/source/prizmIcons-default-ico.icon').then(r => r['prizmIconsDefaultIco']),
-  prizmIconsDeleteContent: () =>
+  default_ico: () => import('./24/source/prizmIcons-default-ico.icon').then(r => r['prizmIconsDefaultIco']),
+  delete_content: () =>
     import('./24/source/prizmIcons-delete-content.icon').then(r => r['prizmIconsDeleteContent']),
-  prizmIconsDesktopTower: () =>
+  desktop_tower: () =>
     import('./24/source/prizmIcons-desktop-tower.icon').then(r => r['prizmIconsDesktopTower']),
-  prizmIconsDiscreteSet: () =>
+  discrete_set: () =>
     import('./24/source/prizmIcons-discrete-set.icon').then(r => r['prizmIconsDiscreteSet']),
-  prizmIconsDollarSlash: () =>
+  dollar_slash: () =>
     import('./24/source/prizmIcons-dollar-slash.icon').then(r => r['prizmIconsDollarSlash']),
-  prizmIconsDollar: () => import('./24/source/prizmIcons-dollar.icon').then(r => r['prizmIconsDollar']),
-  prizmIconsDoughnut: () => import('./24/source/prizmIcons-doughnut.icon').then(r => r['prizmIconsDoughnut']),
-  prizmIconsDropletSlash: () =>
+  dollar: () => import('./24/source/prizmIcons-dollar.icon').then(r => r['prizmIconsDollar']),
+  doughnut: () => import('./24/source/prizmIcons-doughnut.icon').then(r => r['prizmIconsDoughnut']),
+  droplet_slash: () =>
     import('./24/source/prizmIcons-droplet-slash.icon').then(r => r['prizmIconsDropletSlash']),
-  prizmIconsDroplet: () => import('./24/source/prizmIcons-droplet.icon').then(r => r['prizmIconsDroplet']),
-  prizmIconsEarlyVersion: () =>
+  droplet: () => import('./24/source/prizmIcons-droplet.icon').then(r => r['prizmIconsDroplet']),
+  early_version: () =>
     import('./24/source/prizmIcons-early-version.icon').then(r => r['prizmIconsEarlyVersion']),
-  prizmIconsEarth: () => import('./24/source/prizmIcons-earth.icon').then(r => r['prizmIconsEarth']),
-  prizmIconsEditorDown: () =>
-    import('./24/source/prizmIcons-editor-down.icon').then(r => r['prizmIconsEditorDown']),
-  prizmIconsEditorRight: () =>
+  earth: () => import('./24/source/prizmIcons-earth.icon').then(r => r['prizmIconsEarth']),
+  editor_down: () => import('./24/source/prizmIcons-editor-down.icon').then(r => r['prizmIconsEditorDown']),
+  editor_right: () =>
     import('./24/source/prizmIcons-editor-right.icon').then(r => r['prizmIconsEditorRight']),
-  prizmIconsElectrics: () =>
-    import('./24/source/prizmIcons-electrics.icon').then(r => r['prizmIconsElectrics']),
-  prizmIconsEllipsisGrid: () =>
+  electrics: () => import('./24/source/prizmIcons-electrics.icon').then(r => r['prizmIconsElectrics']),
+  ellipsis_grid: () =>
     import('./24/source/prizmIcons-ellipsis-grid.icon').then(r => r['prizmIconsEllipsisGrid']),
-  prizmIconsEllipsisH: () =>
-    import('./24/source/prizmIcons-ellipsis-h.icon').then(r => r['prizmIconsEllipsisH']),
-  prizmIconsEllipsisV: () =>
-    import('./24/source/prizmIcons-ellipsis-v.icon').then(r => r['prizmIconsEllipsisV']),
-  prizmIconsEnergyCheck: () =>
+  ellipsis_h: () => import('./24/source/prizmIcons-ellipsis-h.icon').then(r => r['prizmIconsEllipsisH']),
+  ellipsis_v: () => import('./24/source/prizmIcons-ellipsis-v.icon').then(r => r['prizmIconsEllipsisV']),
+  energy_check: () =>
     import('./24/source/prizmIcons-energy-check.icon').then(r => r['prizmIconsEnergyCheck']),
-  prizmIconsEnergySlash: () =>
+  energy_slash: () =>
     import('./24/source/prizmIcons-energy-slash.icon').then(r => r['prizmIconsEnergySlash']),
-  prizmIconsEnergy: () => import('./24/source/prizmIcons-energy.icon').then(r => r['prizmIconsEnergy']),
-  prizmIconsEquipmentZql: () =>
+  energy: () => import('./24/source/prizmIcons-energy.icon').then(r => r['prizmIconsEnergy']),
+  equipment_zql: () =>
     import('./24/source/prizmIcons-equipment-zql.icon').then(r => r['prizmIconsEquipmentZql']),
-  prizmIconsEraser: () => import('./24/source/prizmIcons-eraser.icon').then(r => r['prizmIconsEraser']),
-  prizmIconsEthernet: () => import('./24/source/prizmIcons-ethernet.icon').then(r => r['prizmIconsEthernet']),
-  prizmIconsExchanger: () =>
-    import('./24/source/prizmIcons-exchanger.icon').then(r => r['prizmIconsExchanger']),
-  prizmIconsExclamation: () =>
-    import('./24/source/prizmIcons-exclamation.icon').then(r => r['prizmIconsExclamation']),
-  prizmIconsEyeClosed: () =>
-    import('./24/source/prizmIcons-eye-closed.icon').then(r => r['prizmIconsEyeClosed']),
-  prizmIconsEyeSlash: () =>
-    import('./24/source/prizmIcons-eye-slash.icon').then(r => r['prizmIconsEyeSlash']),
-  prizmIconsEye: () => import('./24/source/prizmIcons-eye.icon').then(r => r['prizmIconsEye']),
-  prizmIconsFaceFrown: () =>
-    import('./24/source/prizmIcons-face-frown.icon').then(r => r['prizmIconsFaceFrown']),
-  prizmIconsFaceSmile: () =>
-    import('./24/source/prizmIcons-face-smile.icon').then(r => r['prizmIconsFaceSmile']),
-  prizmIconsFactoryPipe: () =>
+  eraser: () => import('./24/source/prizmIcons-eraser.icon').then(r => r['prizmIconsEraser']),
+  ethernet: () => import('./24/source/prizmIcons-ethernet.icon').then(r => r['prizmIconsEthernet']),
+  exchanger: () => import('./24/source/prizmIcons-exchanger.icon').then(r => r['prizmIconsExchanger']),
+  exclamation: () => import('./24/source/prizmIcons-exclamation.icon').then(r => r['prizmIconsExclamation']),
+  eye_closed: () => import('./24/source/prizmIcons-eye-closed.icon').then(r => r['prizmIconsEyeClosed']),
+  eye_slash: () => import('./24/source/prizmIcons-eye-slash.icon').then(r => r['prizmIconsEyeSlash']),
+  eye: () => import('./24/source/prizmIcons-eye.icon').then(r => r['prizmIconsEye']),
+  face_frown: () => import('./24/source/prizmIcons-face-frown.icon').then(r => r['prizmIconsFaceFrown']),
+  face_smile: () => import('./24/source/prizmIcons-face-smile.icon').then(r => r['prizmIconsFaceSmile']),
+  factory_pipe: () =>
     import('./24/source/prizmIcons-factory-pipe.icon').then(r => r['prizmIconsFactoryPipe']),
-  prizmIconsFactoryPipes: () =>
+  factory_pipes: () =>
     import('./24/source/prizmIcons-factory-pipes.icon').then(r => r['prizmIconsFactoryPipes']),
-  prizmIconsFactory: () => import('./24/source/prizmIcons-factory.icon').then(r => r['prizmIconsFactory']),
-  prizmIconsFan: () => import('./24/source/prizmIcons-fan.icon').then(r => r['prizmIconsFan']),
-  prizmIconsFileArrow: () =>
-    import('./24/source/prizmIcons-file-arrow.icon').then(r => r['prizmIconsFileArrow']),
-  prizmIconsFileArrowDown: () =>
+  factory: () => import('./24/source/prizmIcons-factory.icon').then(r => r['prizmIconsFactory']),
+  fan: () => import('./24/source/prizmIcons-fan.icon').then(r => r['prizmIconsFan']),
+  file_arrow: () => import('./24/source/prizmIcons-file-arrow.icon').then(r => r['prizmIconsFileArrow']),
+  file_arrow_down: () =>
     import('./24/source/prizmIcons-file-arrow_down.icon').then(r => r['prizmIconsFileArrowDown']),
-  prizmIconsFileArrowDownLeft: () =>
+  file_arrow_down_left: () =>
     import('./24/source/prizmIcons-file-arrow_down_left.icon').then(r => r['prizmIconsFileArrowDownLeft']),
-  prizmIconsFileArrowUp: () =>
+  file_arrow_up: () =>
     import('./24/source/prizmIcons-file-arrow_up.icon').then(r => r['prizmIconsFileArrowUp']),
-  prizmIconsFileArrowsUpRight: () =>
+  file_arrows_up_right: () =>
     import('./24/source/prizmIcons-file-arrows_up_right.icon').then(r => r['prizmIconsFileArrowsUpRight']),
-  prizmIconsFileCamera: () =>
-    import('./24/source/prizmIcons-file-camera.icon').then(r => r['prizmIconsFileCamera']),
-  prizmIconsFileCross: () =>
-    import('./24/source/prizmIcons-file-cross.icon').then(r => r['prizmIconsFileCross']),
-  prizmIconsFileCrossOut: () =>
+  file_camera: () => import('./24/source/prizmIcons-file-camera.icon').then(r => r['prizmIconsFileCamera']),
+  file_cross: () => import('./24/source/prizmIcons-file-cross.icon').then(r => r['prizmIconsFileCross']),
+  file_cross_out: () =>
     import('./24/source/prizmIcons-file-cross_out.icon').then(r => r['prizmIconsFileCrossOut']),
-  prizmIconsFileDoc: () => import('./24/source/prizmIcons-file-doc.icon').then(r => r['prizmIconsFileDoc']),
-  prizmIconsFileDocx: () =>
-    import('./24/source/prizmIcons-file-docx.icon').then(r => r['prizmIconsFileDocx']),
-  prizmIconsFileDot: () => import('./24/source/prizmIcons-file-dot.icon').then(r => r['prizmIconsFileDot']),
-  prizmIconsFileEmpty: () =>
-    import('./24/source/prizmIcons-file-empty.icon').then(r => r['prizmIconsFileEmpty']),
-  prizmIconsFileExclamation: () =>
+  file_doc: () => import('./24/source/prizmIcons-file-doc.icon').then(r => r['prizmIconsFileDoc']),
+  file_docx: () => import('./24/source/prizmIcons-file-docx.icon').then(r => r['prizmIconsFileDocx']),
+  file_dot: () => import('./24/source/prizmIcons-file-dot.icon').then(r => r['prizmIconsFileDot']),
+  file_empty: () => import('./24/source/prizmIcons-file-empty.icon').then(r => r['prizmIconsFileEmpty']),
+  file_exclamation: () =>
     import('./24/source/prizmIcons-file-exclamation.icon').then(r => r['prizmIconsFileExclamation']),
-  prizmIconsFileEye: () => import('./24/source/prizmIcons-file-eye.icon').then(r => r['prizmIconsFileEye']),
-  prizmIconsFileFilled: () =>
-    import('./24/source/prizmIcons-file-filled.icon').then(r => r['prizmIconsFileFilled']),
-  prizmIconsFileImage: () =>
-    import('./24/source/prizmIcons-file-image.icon').then(r => r['prizmIconsFileImage']),
-  prizmIconsFileMagnifyingGlass: () =>
+  file_eye: () => import('./24/source/prizmIcons-file-eye.icon').then(r => r['prizmIconsFileEye']),
+  file_filled: () => import('./24/source/prizmIcons-file-filled.icon').then(r => r['prizmIconsFileFilled']),
+  file_image: () => import('./24/source/prizmIcons-file-image.icon').then(r => r['prizmIconsFileImage']),
+  file_magnifying_glass: () =>
     import('./24/source/prizmIcons-file-magnifying_glass.icon').then(r => r['prizmIconsFileMagnifyingGlass']),
-  prizmIconsFileMinus: () =>
-    import('./24/source/prizmIcons-file-minus.icon').then(r => r['prizmIconsFileMinus']),
-  prizmIconsFileMusic: () =>
-    import('./24/source/prizmIcons-file-music.icon').then(r => r['prizmIconsFileMusic']),
-  prizmIconsFilePdf: () => import('./24/source/prizmIcons-file-pdf.icon').then(r => r['prizmIconsFilePdf']),
-  prizmIconsFilePen: () => import('./24/source/prizmIcons-file-pen.icon').then(r => r['prizmIconsFilePen']),
-  prizmIconsFilePlay: () =>
-    import('./24/source/prizmIcons-file-play.icon').then(r => r['prizmIconsFilePlay']),
-  prizmIconsFilePlus: () =>
-    import('./24/source/prizmIcons-file-plus.icon').then(r => r['prizmIconsFilePlus']),
-  prizmIconsFilePpt: () => import('./24/source/prizmIcons-file-ppt.icon').then(r => r['prizmIconsFilePpt']),
-  prizmIconsFilePptx: () =>
-    import('./24/source/prizmIcons-file-pptx.icon').then(r => r['prizmIconsFilePptx']),
-  prizmIconsFileTxt: () => import('./24/source/prizmIcons-file-txt.icon').then(r => r['prizmIconsFileTxt']),
-  prizmIconsFileUpRight: () =>
+  file_minus: () => import('./24/source/prizmIcons-file-minus.icon').then(r => r['prizmIconsFileMinus']),
+  file_music: () => import('./24/source/prizmIcons-file-music.icon').then(r => r['prizmIconsFileMusic']),
+  file_pdf: () => import('./24/source/prizmIcons-file-pdf.icon').then(r => r['prizmIconsFilePdf']),
+  file_pen: () => import('./24/source/prizmIcons-file-pen.icon').then(r => r['prizmIconsFilePen']),
+  file_play: () => import('./24/source/prizmIcons-file-play.icon').then(r => r['prizmIconsFilePlay']),
+  file_plus: () => import('./24/source/prizmIcons-file-plus.icon').then(r => r['prizmIconsFilePlus']),
+  file_ppt: () => import('./24/source/prizmIcons-file-ppt.icon').then(r => r['prizmIconsFilePpt']),
+  file_pptx: () => import('./24/source/prizmIcons-file-pptx.icon').then(r => r['prizmIconsFilePptx']),
+  file_txt: () => import('./24/source/prizmIcons-file-txt.icon').then(r => r['prizmIconsFileTxt']),
+  file_up_right: () =>
     import('./24/source/prizmIcons-file-up_right.icon').then(r => r['prizmIconsFileUpRight']),
-  prizmIconsFileXls: () => import('./24/source/prizmIcons-file-xls.icon').then(r => r['prizmIconsFileXls']),
-  prizmIconsFileXlsx: () =>
-    import('./24/source/prizmIcons-file-xlsx.icon').then(r => r['prizmIconsFileXlsx']),
-  prizmIconsFilesMode: () =>
-    import('./24/source/prizmIcons-files-mode.icon').then(r => r['prizmIconsFilesMode']),
-  prizmIconsFill: () => import('./24/source/prizmIcons-fill.icon').then(r => r['prizmIconsFill']),
-  prizmIconsFilmCross: () =>
-    import('./24/source/prizmIcons-film-cross.icon').then(r => r['prizmIconsFilmCross']),
-  prizmIconsFilm: () => import('./24/source/prizmIcons-film.icon').then(r => r['prizmIconsFilm']),
-  prizmIconsFilterGear: () =>
-    import('./24/source/prizmIcons-filter-gear.icon').then(r => r['prizmIconsFilterGear']),
-  prizmIconsFilterOntology: () =>
+  file_xls: () => import('./24/source/prizmIcons-file-xls.icon').then(r => r['prizmIconsFileXls']),
+  file_xlsx: () => import('./24/source/prizmIcons-file-xlsx.icon').then(r => r['prizmIconsFileXlsx']),
+  files_mode: () => import('./24/source/prizmIcons-files-mode.icon').then(r => r['prizmIconsFilesMode']),
+  fill: () => import('./24/source/prizmIcons-fill.icon').then(r => r['prizmIconsFill']),
+  film_cross: () => import('./24/source/prizmIcons-film-cross.icon').then(r => r['prizmIconsFilmCross']),
+  film: () => import('./24/source/prizmIcons-film.icon').then(r => r['prizmIconsFilm']),
+  filter_gear: () => import('./24/source/prizmIcons-filter-gear.icon').then(r => r['prizmIconsFilterGear']),
+  filter_ontology: () =>
     import('./24/source/prizmIcons-filter-ontology.icon').then(r => r['prizmIconsFilterOntology']),
-  prizmIconsFilter: () => import('./24/source/prizmIcons-filter.icon').then(r => r['prizmIconsFilter']),
-  prizmIconsFinanceScanner: () =>
+  filter: () => import('./24/source/prizmIcons-filter.icon').then(r => r['prizmIconsFilter']),
+  finance_scanner: () =>
     import('./24/source/prizmIcons-finance-scanner.icon').then(r => r['prizmIconsFinanceScanner']),
-  prizmIconsFire: () => import('./24/source/prizmIcons-fire.icon').then(r => r['prizmIconsFire']),
-  prizmIconsFlagFillRed: () =>
+  fire: () => import('./24/source/prizmIcons-fire.icon').then(r => r['prizmIconsFire']),
+  flag_fill_red: () =>
     import('./24/source/prizmIcons-flag-fill-red.icon').then(r => r['prizmIconsFlagFillRed']),
-  prizmIconsFlagFill: () =>
-    import('./24/source/prizmIcons-flag-fill.icon').then(r => r['prizmIconsFlagFill']),
-  prizmIconsFlag: () => import('./24/source/prizmIcons-flag.icon').then(r => r['prizmIconsFlag']),
-  prizmIconsFlaskRoundPotion: () =>
+  flag_fill: () => import('./24/source/prizmIcons-flag-fill.icon').then(r => r['prizmIconsFlagFill']),
+  flag: () => import('./24/source/prizmIcons-flag.icon').then(r => r['prizmIconsFlag']),
+  flask_round_potion: () =>
     import('./24/source/prizmIcons-flask-round-potion.icon').then(r => r['prizmIconsFlaskRoundPotion']),
-  prizmIconsFlask: () => import('./24/source/prizmIcons-flask.icon').then(r => r['prizmIconsFlask']),
-  prizmIconsFloppyCross: () =>
+  flask: () => import('./24/source/prizmIcons-flask.icon').then(r => r['prizmIconsFlask']),
+  floppy_cross: () =>
     import('./24/source/prizmIcons-floppy-cross.icon').then(r => r['prizmIconsFloppyCross']),
-  prizmIconsFloppyCrossOut: () =>
+  floppy_cross_out: () =>
     import('./24/source/prizmIcons-floppy-cross_out.icon').then(r => r['prizmIconsFloppyCrossOut']),
-  prizmIconsFloppyPen: () =>
-    import('./24/source/prizmIcons-floppy-pen.icon').then(r => r['prizmIconsFloppyPen']),
-  prizmIconsFloppyStar: () =>
-    import('./24/source/prizmIcons-floppy-star.icon').then(r => r['prizmIconsFloppyStar']),
-  prizmIconsFloppy: () => import('./24/source/prizmIcons-floppy.icon').then(r => r['prizmIconsFloppy']),
-  prizmIconsFolderArrowDown: () =>
+  floppy_pen: () => import('./24/source/prizmIcons-floppy-pen.icon').then(r => r['prizmIconsFloppyPen']),
+  floppy_star: () => import('./24/source/prizmIcons-floppy-star.icon').then(r => r['prizmIconsFloppyStar']),
+  floppy: () => import('./24/source/prizmIcons-floppy.icon').then(r => r['prizmIconsFloppy']),
+  folder_arrow_down: () =>
     import('./24/source/prizmIcons-folder-arrow_down.icon').then(r => r['prizmIconsFolderArrowDown']),
-  prizmIconsFolderArrowDownLeft: () =>
+  folder_arrow_down_left: () =>
     import('./24/source/prizmIcons-folder-arrow_down_left.icon').then(
       r => r['prizmIconsFolderArrowDownLeft']
     ),
-  prizmIconsFolderArrowUpRight: () =>
+  folder_arrow_up_right: () =>
     import('./24/source/prizmIcons-folder-arrow_up_right.icon').then(r => r['prizmIconsFolderArrowUpRight']),
-  prizmIconsFolderCross: () =>
+  folder_cross: () =>
     import('./24/source/prizmIcons-folder-cross.icon').then(r => r['prizmIconsFolderCross']),
-  prizmIconsFolderDot: () =>
-    import('./24/source/prizmIcons-folder-dot.icon').then(r => r['prizmIconsFolderDot']),
-  prizmIconsFolderMinus: () =>
+  folder_dot: () => import('./24/source/prizmIcons-folder-dot.icon').then(r => r['prizmIconsFolderDot']),
+  folder_minus: () =>
     import('./24/source/prizmIcons-folder-minus.icon').then(r => r['prizmIconsFolderMinus']),
-  prizmIconsFolderPlus: () =>
-    import('./24/source/prizmIcons-folder-plus.icon').then(r => r['prizmIconsFolderPlus']),
-  prizmIconsFolder: () => import('./24/source/prizmIcons-folder.icon').then(r => r['prizmIconsFolder']),
-  prizmIconsFolderOpen: () =>
-    import('./24/source/prizmIcons-folder_open.icon').then(r => r['prizmIconsFolderOpen']),
-  prizmIconsFolderUnderlineMinus: () =>
+  folder_plus: () => import('./24/source/prizmIcons-folder-plus.icon').then(r => r['prizmIconsFolderPlus']),
+  folder: () => import('./24/source/prizmIcons-folder.icon').then(r => r['prizmIconsFolder']),
+  folder_open: () => import('./24/source/prizmIcons-folder_open.icon').then(r => r['prizmIconsFolderOpen']),
+  folder_underline_minus: () =>
     import('./24/source/prizmIcons-folder_underline-minus.icon').then(
       r => r['prizmIconsFolderUnderlineMinus']
     ),
-  prizmIconsFolderUnderlinePlus: () =>
+  folder_underline_plus: () =>
     import('./24/source/prizmIcons-folder_underline-plus.icon').then(r => r['prizmIconsFolderUnderlinePlus']),
-  prizmIconsFolderUnderline: () =>
+  folder_underline: () =>
     import('./24/source/prizmIcons-folder_underline.icon').then(r => r['prizmIconsFolderUnderline']),
-  prizmIconsForvardStep: () =>
+  forvard_step: () =>
     import('./24/source/prizmIcons-forvard-step.icon').then(r => r['prizmIconsForvardStep']),
-  prizmIconsForward: () => import('./24/source/prizmIcons-forward.icon').then(r => r['prizmIconsForward']),
-  prizmIconsFuelOilTank: () =>
+  forward: () => import('./24/source/prizmIcons-forward.icon').then(r => r['prizmIconsForward']),
+  fuel_oil_tank: () =>
     import('./24/source/prizmIcons-fuel-oil-tank.icon').then(r => r['prizmIconsFuelOilTank']),
-  prizmIconsFunction: () => import('./24/source/prizmIcons-function.icon').then(r => r['prizmIconsFunction']),
-  prizmIconsGantt: () => import('./24/source/prizmIcons-gantt.icon').then(r => r['prizmIconsGantt']),
-  prizmIconsGasMonitoring: () =>
+  function: () => import('./24/source/prizmIcons-function.icon').then(r => r['prizmIconsFunction']),
+  gantt: () => import('./24/source/prizmIcons-gantt.icon').then(r => r['prizmIconsGantt']),
+  gas_monitoring: () =>
     import('./24/source/prizmIcons-gas-monitoring.icon').then(r => r['prizmIconsGasMonitoring']),
-  prizmIconsGasPump: () => import('./24/source/prizmIcons-gas-pump.icon').then(r => r['prizmIconsGasPump']),
-  prizmIconsGas: () => import('./24/source/prizmIcons-gas.icon').then(r => r['prizmIconsGas']),
-  prizmIconsGauge: () => import('./24/source/prizmIcons-gauge.icon').then(r => r['prizmIconsGauge']),
-  prizmIconsGear5Edge: () =>
-    import('./24/source/prizmIcons-gear-5-edge.icon').then(r => r['prizmIconsGear5Edge']),
-  prizmIconsGear8Edge: () =>
-    import('./24/source/prizmIcons-gear-8-edge.icon').then(r => r['prizmIconsGear8Edge']),
-  prizmIconsGearCooling: () =>
+  gas_pump: () => import('./24/source/prizmIcons-gas-pump.icon').then(r => r['prizmIconsGasPump']),
+  gas: () => import('./24/source/prizmIcons-gas.icon').then(r => r['prizmIconsGas']),
+  gauge: () => import('./24/source/prizmIcons-gauge.icon').then(r => r['prizmIconsGauge']),
+  gear_5_edge: () => import('./24/source/prizmIcons-gear-5-edge.icon').then(r => r['prizmIconsGear5Edge']),
+  gear_8_edge: () => import('./24/source/prizmIcons-gear-8-edge.icon').then(r => r['prizmIconsGear8Edge']),
+  gear_cooling: () =>
     import('./24/source/prizmIcons-gear-cooling.icon').then(r => r['prizmIconsGearCooling']),
-  prizmIconsGenerator: () =>
-    import('./24/source/prizmIcons-generator.icon').then(r => r['prizmIconsGenerator']),
-  prizmIconsGift: () => import('./24/source/prizmIcons-gift.icon').then(r => r['prizmIconsGift']),
-  prizmIconsGitLab: () => import('./24/source/prizmIcons-git-lab.icon').then(r => r['prizmIconsGitLab']),
-  prizmIconsGlobe: () => import('./24/source/prizmIcons-globe.icon').then(r => r['prizmIconsGlobe']),
-  prizmIconsGridFill: () =>
-    import('./24/source/prizmIcons-grid-fill.icon').then(r => r['prizmIconsGridFill']),
-  prizmIconsGrid: () => import('./24/source/prizmIcons-grid.icon').then(r => r['prizmIconsGrid']),
-  prizmIconsGripDotsVertical: () =>
+  generator: () => import('./24/source/prizmIcons-generator.icon').then(r => r['prizmIconsGenerator']),
+  gift: () => import('./24/source/prizmIcons-gift.icon').then(r => r['prizmIconsGift']),
+  git_lab: () => import('./24/source/prizmIcons-git-lab.icon').then(r => r['prizmIconsGitLab']),
+  globe: () => import('./24/source/prizmIcons-globe.icon').then(r => r['prizmIconsGlobe']),
+  grid_fill: () => import('./24/source/prizmIcons-grid-fill.icon').then(r => r['prizmIconsGridFill']),
+  grid: () => import('./24/source/prizmIcons-grid.icon').then(r => r['prizmIconsGrid']),
+  grip_dots_vertical: () =>
     import('./24/source/prizmIcons-grip-dots-vertical.icon').then(r => r['prizmIconsGripDotsVertical']),
-  prizmIconsHardDriveOutline: () =>
+  hard_drive_outline: () =>
     import('./24/source/prizmIcons-hard-drive-outline.icon').then(r => r['prizmIconsHardDriveOutline']),
-  prizmIconsHashDash: () =>
-    import('./24/source/prizmIcons-hash-dash.icon').then(r => r['prizmIconsHashDash']),
-  prizmIconsHash: () => import('./24/source/prizmIcons-hash.icon').then(r => r['prizmIconsHash']),
-  prizmIconsHashtag: () => import('./24/source/prizmIcons-hashtag.icon').then(r => r['prizmIconsHashtag']),
-  prizmIconsHeadlineFill: () =>
+  hash_dash: () => import('./24/source/prizmIcons-hash-dash.icon').then(r => r['prizmIconsHashDash']),
+  hash: () => import('./24/source/prizmIcons-hash.icon').then(r => r['prizmIconsHash']),
+  hashtag: () => import('./24/source/prizmIcons-hashtag.icon').then(r => r['prizmIconsHashtag']),
+  headline_fill: () =>
     import('./24/source/prizmIcons-headline-fill.icon').then(r => r['prizmIconsHeadlineFill']),
-  prizmIconsHeadphones: () =>
-    import('./24/source/prizmIcons-headphones.icon').then(r => r['prizmIconsHeadphones']),
-  prizmIconsHeartEmpty: () =>
-    import('./24/source/prizmIcons-heart-empty.icon').then(r => r['prizmIconsHeartEmpty']),
-  prizmIconsHeartFill: () =>
-    import('./24/source/prizmIcons-heart-fill.icon').then(r => r['prizmIconsHeartFill']),
-  prizmIconsHelicopterSideView: () =>
+  headphones: () => import('./24/source/prizmIcons-headphones.icon').then(r => r['prizmIconsHeadphones']),
+  heart_empty: () => import('./24/source/prizmIcons-heart-empty.icon').then(r => r['prizmIconsHeartEmpty']),
+  heart_fill: () => import('./24/source/prizmIcons-heart-fill.icon').then(r => r['prizmIconsHeartFill']),
+  helicopter_side_view: () =>
     import('./24/source/prizmIcons-helicopter-side-view.icon').then(r => r['prizmIconsHelicopterSideView']),
-  prizmIconsHexagonExclamationEmpty: () =>
+  hexagon_exclamation_empty: () =>
     import('./24/source/prizmIcons-hexagon-exclamation-empty.icon').then(
       r => r['prizmIconsHexagonExclamationEmpty']
     ),
-  prizmIconsHexagonExclamationFill: () =>
+  hexagon_exclamation_fill: () =>
     import('./24/source/prizmIcons-hexagon-exclamation-fill.icon').then(
       r => r['prizmIconsHexagonExclamationFill']
     ),
-  prizmIconsHexagonFill: () =>
+  hexagon_fill: () =>
     import('./24/source/prizmIcons-hexagon-fill.icon').then(r => r['prizmIconsHexagonFill']),
-  prizmIconsHexagon: () => import('./24/source/prizmIcons-hexagon.icon').then(r => r['prizmIconsHexagon']),
-  prizmIconsHexagonsAxis: () =>
+  hexagon: () => import('./24/source/prizmIcons-hexagon.icon').then(r => r['prizmIconsHexagon']),
+  hexagons_axis: () =>
     import('./24/source/prizmIcons-hexagons-axis.icon').then(r => r['prizmIconsHexagonsAxis']),
-  prizmIconsHexagons: () => import('./24/source/prizmIcons-hexagons.icon').then(r => r['prizmIconsHexagons']),
-  prizmIconsHistogramAxis: () =>
+  hexagons: () => import('./24/source/prizmIcons-hexagons.icon').then(r => r['prizmIconsHexagons']),
+  histogram_axis: () =>
     import('./24/source/prizmIcons-histogram-axis.icon').then(r => r['prizmIconsHistogramAxis']),
-  prizmIconsHouseMini: () =>
-    import('./24/source/prizmIcons-house-mini.icon').then(r => r['prizmIconsHouseMini']),
-  prizmIconsHouse: () => import('./24/source/prizmIcons-house.icon').then(r => r['prizmIconsHouse']),
-  prizmIconsImage: () => import('./24/source/prizmIcons-image.icon').then(r => r['prizmIconsImage']),
-  prizmIconsImportersZql: () =>
+  house_mini: () => import('./24/source/prizmIcons-house-mini.icon').then(r => r['prizmIconsHouseMini']),
+  house: () => import('./24/source/prizmIcons-house.icon').then(r => r['prizmIconsHouse']),
+  image: () => import('./24/source/prizmIcons-image.icon').then(r => r['prizmIconsImage']),
+  importers_zql: () =>
     import('./24/source/prizmIcons-importers-zql.icon').then(r => r['prizmIconsImportersZql']),
-  prizmIconsIndentArrowLeft: () =>
+  indent_arrow_left: () =>
     import('./24/source/prizmIcons-indent-arrow-left.icon').then(r => r['prizmIconsIndentArrowLeft']),
-  prizmIconsIndentArrowRight: () =>
+  indent_arrow_right: () =>
     import('./24/source/prizmIcons-indent-arrow-right.icon').then(r => r['prizmIconsIndentArrowRight']),
-  prizmIconsInfinity: () => import('./24/source/prizmIcons-infinity.icon').then(r => r['prizmIconsInfinity']),
-  prizmIconsInfo: () => import('./24/source/prizmIcons-info.icon').then(r => r['prizmIconsInfo']),
-  prizmIconsInputDevice: () =>
+  infinity: () => import('./24/source/prizmIcons-infinity.icon').then(r => r['prizmIconsInfinity']),
+  info: () => import('./24/source/prizmIcons-info.icon').then(r => r['prizmIconsInfo']),
+  input_device: () =>
     import('./24/source/prizmIcons-input-device.icon').then(r => r['prizmIconsInputDevice']),
-  prizmIconsInstagram: () =>
-    import('./24/source/prizmIcons-instagram.icon').then(r => r['prizmIconsInstagram']),
-  prizmIconsItalic: () => import('./24/source/prizmIcons-italic.icon').then(r => r['prizmIconsItalic']),
-  prizmIconsKeyboardClose: () =>
+  instagram: () => import('./24/source/prizmIcons-instagram.icon').then(r => r['prizmIconsInstagram']),
+  italic: () => import('./24/source/prizmIcons-italic.icon').then(r => r['prizmIconsItalic']),
+  keyboard_close: () =>
     import('./24/source/prizmIcons-keyboard-close.icon').then(r => r['prizmIconsKeyboardClose']),
-  prizmIconsKeyboard: () => import('./24/source/prizmIcons-keyboard.icon').then(r => r['prizmIconsKeyboard']),
-  prizmIconsLabelCross: () =>
-    import('./24/source/prizmIcons-label-cross.icon').then(r => r['prizmIconsLabelCross']),
-  prizmIconsLabelExclamationMark: () =>
+  keyboard: () => import('./24/source/prizmIcons-keyboard.icon').then(r => r['prizmIconsKeyboard']),
+  label_cross: () => import('./24/source/prizmIcons-label-cross.icon').then(r => r['prizmIconsLabelCross']),
+  label_exclamation_mark: () =>
     import('./24/source/prizmIcons-label-exclamation-mark.icon').then(
       r => r['prizmIconsLabelExclamationMark']
     ),
-  prizmIconsLabelFill: () =>
-    import('./24/source/prizmIcons-label-fill.icon').then(r => r['prizmIconsLabelFill']),
-  prizmIconsLabelMagnifyingGlass: () =>
+  label_fill: () => import('./24/source/prizmIcons-label-fill.icon').then(r => r['prizmIconsLabelFill']),
+  label_magnifying_glass: () =>
     import('./24/source/prizmIcons-label-magnifying-glass.icon').then(
       r => r['prizmIconsLabelMagnifyingGlass']
     ),
-  prizmIconsLabelPlus: () =>
-    import('./24/source/prizmIcons-label-plus.icon').then(r => r['prizmIconsLabelPlus']),
-  prizmIconsLabelQuestion: () =>
+  label_plus: () => import('./24/source/prizmIcons-label-plus.icon').then(r => r['prizmIconsLabelPlus']),
+  label_question: () =>
     import('./24/source/prizmIcons-label-question.icon').then(r => r['prizmIconsLabelQuestion']),
-  prizmIconsLabelText: () =>
-    import('./24/source/prizmIcons-label-text.icon').then(r => r['prizmIconsLabelText']),
-  prizmIconsLabel: () => import('./24/source/prizmIcons-label.icon').then(r => r['prizmIconsLabel']),
-  prizmIconsLanConnect: () =>
-    import('./24/source/prizmIcons-lan-connect.icon').then(r => r['prizmIconsLanConnect']),
-  prizmIconsLanDisconnect: () =>
+  label_text: () => import('./24/source/prizmIcons-label-text.icon').then(r => r['prizmIconsLabelText']),
+  label: () => import('./24/source/prizmIcons-label.icon').then(r => r['prizmIconsLabel']),
+  lan_connect: () => import('./24/source/prizmIcons-lan-connect.icon').then(r => r['prizmIconsLanConnect']),
+  lan_disconnect: () =>
     import('./24/source/prizmIcons-lan-disconnect.icon').then(r => r['prizmIconsLanDisconnect']),
-  prizmIconsLanPending: () =>
-    import('./24/source/prizmIcons-lan-pending.icon').then(r => r['prizmIconsLanPending']),
-  prizmIconsLaptopPhoneSlash: () =>
+  lan_pending: () => import('./24/source/prizmIcons-lan-pending.icon').then(r => r['prizmIconsLanPending']),
+  laptop_phone_slash: () =>
     import('./24/source/prizmIcons-laptop-phone-slash.icon').then(r => r['prizmIconsLaptopPhoneSlash']),
-  prizmIconsLaptopPhone: () =>
+  laptop_phone: () =>
     import('./24/source/prizmIcons-laptop-phone.icon').then(r => r['prizmIconsLaptopPhone']),
-  prizmIconsLaptopSlash: () =>
+  laptop_slash: () =>
     import('./24/source/prizmIcons-laptop-slash.icon').then(r => r['prizmIconsLaptopSlash']),
-  prizmIconsLaptop: () => import('./24/source/prizmIcons-laptop.icon').then(r => r['prizmIconsLaptop']),
-  prizmIconsLayerGroupSlash: () =>
+  laptop: () => import('./24/source/prizmIcons-laptop.icon').then(r => r['prizmIconsLaptop']),
+  layer_group_slash: () =>
     import('./24/source/prizmIcons-layer-group-slash.icon').then(r => r['prizmIconsLayerGroupSlash']),
-  prizmIconsLayerGroup: () =>
-    import('./24/source/prizmIcons-layer-group.icon').then(r => r['prizmIconsLayerGroup']),
-  prizmIconsLayerNetwork: () =>
+  layer_group: () => import('./24/source/prizmIcons-layer-group.icon').then(r => r['prizmIconsLayerGroup']),
+  layer_network: () =>
     import('./24/source/prizmIcons-layer-network.icon').then(r => r['prizmIconsLayerNetwork']),
-  prizmIconsLetterDay: () =>
-    import('./24/source/prizmIcons-letter-day.icon').then(r => r['prizmIconsLetterDay']),
-  prizmIconsLetterHour: () =>
-    import('./24/source/prizmIcons-letter-hour.icon').then(r => r['prizmIconsLetterHour']),
-  prizmIconsLetterMinute: () =>
+  letter_day: () => import('./24/source/prizmIcons-letter-day.icon').then(r => r['prizmIconsLetterDay']),
+  letter_hour: () => import('./24/source/prizmIcons-letter-hour.icon').then(r => r['prizmIconsLetterHour']),
+  letter_minute: () =>
     import('./24/source/prizmIcons-letter-minute.icon').then(r => r['prizmIconsLetterMinute']),
-  prizmIconsLetterMonth: () =>
+  letter_month: () =>
     import('./24/source/prizmIcons-letter-month.icon').then(r => r['prizmIconsLetterMonth']),
-  prizmIconsLetterSecond: () =>
+  letter_second: () =>
     import('./24/source/prizmIcons-letter-second.icon').then(r => r['prizmIconsLetterSecond']),
-  prizmIconsLetterTime: () =>
-    import('./24/source/prizmIcons-letter-time.icon').then(r => r['prizmIconsLetterTime']),
-  prizmIconsLetterYear: () =>
-    import('./24/source/prizmIcons-letter-year.icon').then(r => r['prizmIconsLetterYear']),
-  prizmIconsLibraryPlus: () =>
+  letter_time: () => import('./24/source/prizmIcons-letter-time.icon').then(r => r['prizmIconsLetterTime']),
+  letter_year: () => import('./24/source/prizmIcons-letter-year.icon').then(r => r['prizmIconsLetterYear']),
+  library_plus: () =>
     import('./24/source/prizmIcons-library-plus.icon').then(r => r['prizmIconsLibraryPlus']),
-  prizmIconsLightbulb: () =>
-    import('./24/source/prizmIcons-lightbulb.icon').then(r => r['prizmIconsLightbulb']),
-  prizmIconsLineAxisArrowDown: () =>
+  lightbulb: () => import('./24/source/prizmIcons-lightbulb.icon').then(r => r['prizmIconsLightbulb']),
+  line_axis_arrow_down: () =>
     import('./24/source/prizmIcons-line-axis-arrow-down.icon').then(r => r['prizmIconsLineAxisArrowDown']),
-  prizmIconsLineAxisX: () =>
-    import('./24/source/prizmIcons-line-axis-x.icon').then(r => r['prizmIconsLineAxisX']),
-  prizmIconsLineAxis: () =>
-    import('./24/source/prizmIcons-line-axis.icon').then(r => r['prizmIconsLineAxis']),
-  prizmIconsLineDown: () =>
-    import('./24/source/prizmIcons-line-down.icon').then(r => r['prizmIconsLineDown']),
-  prizmIconsLineHeight: () =>
-    import('./24/source/prizmIcons-line-height.icon').then(r => r['prizmIconsLineHeight']),
-  prizmIconsLineMultipleYAxisX: () =>
+  line_axis_x: () => import('./24/source/prizmIcons-line-axis-x.icon').then(r => r['prizmIconsLineAxisX']),
+  line_axis: () => import('./24/source/prizmIcons-line-axis.icon').then(r => r['prizmIconsLineAxis']),
+  line_down: () => import('./24/source/prizmIcons-line-down.icon').then(r => r['prizmIconsLineDown']),
+  line_height: () => import('./24/source/prizmIcons-line-height.icon').then(r => r['prizmIconsLineHeight']),
+  line_multiple_y_axis_x: () =>
     import('./24/source/prizmIcons-line-multiple-y-axis-x.icon').then(r => r['prizmIconsLineMultipleYAxisX']),
-  prizmIconsLineMultipleYAxis: () =>
+  line_multiple_y_axis: () =>
     import('./24/source/prizmIcons-line-multiple-y-axis.icon').then(r => r['prizmIconsLineMultipleYAxis']),
-  prizmIconsLineUp: () => import('./24/source/prizmIcons-line-up.icon').then(r => r['prizmIconsLineUp']),
-  prizmIconsLine: () => import('./24/source/prizmIcons-line.icon').then(r => r['prizmIconsLine']),
-  prizmIconsLinkBreak: () =>
-    import('./24/source/prizmIcons-link-break.icon').then(r => r['prizmIconsLinkBreak']),
-  prizmIconsLinkMinus: () =>
-    import('./24/source/prizmIcons-link-minus.icon').then(r => r['prizmIconsLinkMinus']),
-  prizmIconsLinkPlus: () =>
-    import('./24/source/prizmIcons-link-plus.icon').then(r => r['prizmIconsLinkPlus']),
-  prizmIconsLinkSimpleH: () =>
+  line_up: () => import('./24/source/prizmIcons-line-up.icon').then(r => r['prizmIconsLineUp']),
+  line: () => import('./24/source/prizmIcons-line.icon').then(r => r['prizmIconsLine']),
+  link_break: () => import('./24/source/prizmIcons-link-break.icon').then(r => r['prizmIconsLinkBreak']),
+  link_minus: () => import('./24/source/prizmIcons-link-minus.icon').then(r => r['prizmIconsLinkMinus']),
+  link_plus: () => import('./24/source/prizmIcons-link-plus.icon').then(r => r['prizmIconsLinkPlus']),
+  link_simple_h: () =>
     import('./24/source/prizmIcons-link-simple-h.icon').then(r => r['prizmIconsLinkSimpleH']),
-  prizmIconsLinkSimple: () =>
-    import('./24/source/prizmIcons-link-simple.icon').then(r => r['prizmIconsLinkSimple']),
-  prizmIconsListFill: () =>
-    import('./24/source/prizmIcons-list-fill.icon').then(r => r['prizmIconsListFill']),
-  prizmIconsListOl: () => import('./24/source/prizmIcons-list-ol.icon').then(r => r['prizmIconsListOl']),
-  prizmIconsListTreeArchive: () =>
+  link_simple: () => import('./24/source/prizmIcons-link-simple.icon').then(r => r['prizmIconsLinkSimple']),
+  list_fill: () => import('./24/source/prizmIcons-list-fill.icon').then(r => r['prizmIconsListFill']),
+  list_ol: () => import('./24/source/prizmIcons-list-ol.icon').then(r => r['prizmIconsListOl']),
+  list_tree_archive: () =>
     import('./24/source/prizmIcons-list-tree-archive.icon').then(r => r['prizmIconsListTreeArchive']),
-  prizmIconsListTree: () =>
-    import('./24/source/prizmIcons-list-tree.icon').then(r => r['prizmIconsListTree']),
-  prizmIconsListUl: () => import('./24/source/prizmIcons-list-ul.icon').then(r => r['prizmIconsListUl']),
-  prizmIconsList: () => import('./24/source/prizmIcons-list.icon').then(r => r['prizmIconsList']),
-  prizmIconsListSquare: () =>
-    import('./24/source/prizmIcons-list_square.icon').then(r => r['prizmIconsListSquare']),
-  prizmIconsLngStorage: () =>
-    import('./24/source/prizmIcons-lng-storage.icon').then(r => r['prizmIconsLngStorage']),
-  prizmIconsLoader: () => import('./24/source/prizmIcons-loader.icon').then(r => r['prizmIconsLoader']),
-  prizmIconsLocationArrow: () =>
+  list_tree: () => import('./24/source/prizmIcons-list-tree.icon').then(r => r['prizmIconsListTree']),
+  list_ul: () => import('./24/source/prizmIcons-list-ul.icon').then(r => r['prizmIconsListUl']),
+  list: () => import('./24/source/prizmIcons-list.icon').then(r => r['prizmIconsList']),
+  list_square: () => import('./24/source/prizmIcons-list_square.icon').then(r => r['prizmIconsListSquare']),
+  lng_storage: () => import('./24/source/prizmIcons-lng-storage.icon').then(r => r['prizmIconsLngStorage']),
+  loader: () => import('./24/source/prizmIcons-loader.icon').then(r => r['prizmIconsLoader']),
+  location_arrow: () =>
     import('./24/source/prizmIcons-location-arrow.icon').then(r => r['prizmIconsLocationArrow']),
-  prizmIconsLocationDirectly: () =>
+  location_directly: () =>
     import('./24/source/prizmIcons-location-directly.icon').then(r => r['prizmIconsLocationDirectly']),
-  prizmIconsLocationDot: () =>
+  location_dot: () =>
     import('./24/source/prizmIcons-location-dot.icon').then(r => r['prizmIconsLocationDot']),
-  prizmIconsLocationMinus: () =>
+  location_minus: () =>
     import('./24/source/prizmIcons-location-minus.icon').then(r => r['prizmIconsLocationMinus']),
-  prizmIconsLocationPlus: () =>
+  location_plus: () =>
     import('./24/source/prizmIcons-location-plus.icon').then(r => r['prizmIconsLocationPlus']),
-  prizmIconsLocationSlash: () =>
+  location_slash: () =>
     import('./24/source/prizmIcons-location-slash.icon').then(r => r['prizmIconsLocationSlash']),
-  prizmIconsLocationUser: () =>
+  location_user: () =>
     import('./24/source/prizmIcons-location-user.icon').then(r => r['prizmIconsLocationUser']),
-  prizmIconsLock: () => import('./24/source/prizmIcons-lock.icon').then(r => r['prizmIconsLock']),
-  prizmIconsLogoGreyZ: () =>
-    import('./24/source/prizmIcons-logo-grey-z.icon').then(r => r['prizmIconsLogoGreyZ']),
-  prizmIconsMagicWand: () =>
-    import('./24/source/prizmIcons-magic-wand.icon').then(r => r['prizmIconsMagicWand']),
-  prizmIconsMagnifyingGlassExclamation: () =>
+  lock: () => import('./24/source/prizmIcons-lock.icon').then(r => r['prizmIconsLock']),
+  logo_grey_z: () => import('./24/source/prizmIcons-logo-grey-z.icon').then(r => r['prizmIconsLogoGreyZ']),
+  magic_wand: () => import('./24/source/prizmIcons-magic-wand.icon').then(r => r['prizmIconsMagicWand']),
+  magnifying_glass_exclamation: () =>
     import('./24/source/prizmIcons-magnifying-glass-exclamation.icon').then(
       r => r['prizmIconsMagnifyingGlassExclamation']
     ),
-  prizmIconsMagnifyingGlassMinus: () =>
+  magnifying_glass_minus: () =>
     import('./24/source/prizmIcons-magnifying-glass-minus.icon').then(
       r => r['prizmIconsMagnifyingGlassMinus']
     ),
-  prizmIconsMagnifyingGlassOntology: () =>
+  magnifying_glass_ontology: () =>
     import('./24/source/prizmIcons-magnifying-glass-ontology.icon').then(
       r => r['prizmIconsMagnifyingGlassOntology']
     ),
-  prizmIconsMagnifyingGlassPlus: () =>
+  magnifying_glass_plus: () =>
     import('./24/source/prizmIcons-magnifying-glass-plus.icon').then(r => r['prizmIconsMagnifyingGlassPlus']),
-  prizmIconsMagnifyingGlassTagsWords: () =>
+  magnifying_glass_tags_words: () =>
     import('./24/source/prizmIcons-magnifying-glass-tags-words.icon').then(
       r => r['prizmIconsMagnifyingGlassTagsWords']
     ),
-  prizmIconsMagnifyingGlassTopFromBracket: () =>
+  magnifying_glass_top_from_bracket: () =>
     import('./24/source/prizmIcons-magnifying-glass-top-from-bracket.icon').then(
       r => r['prizmIconsMagnifyingGlassTopFromBracket']
     ),
-  prizmIconsMagnifyingGlassTriangleDown: () =>
+  magnifying_glass_triangle_down: () =>
     import('./24/source/prizmIcons-magnifying-glass-triangle-down.icon').then(
       r => r['prizmIconsMagnifyingGlassTriangleDown']
     ),
-  prizmIconsMagnifyingGlassXmark: () =>
+  magnifying_glass_xmark: () =>
     import('./24/source/prizmIcons-magnifying-glass-xmark.icon').then(
       r => r['prizmIconsMagnifyingGlassXmark']
     ),
-  prizmIconsMagnifyingGlass: () =>
+  magnifying_glass: () =>
     import('./24/source/prizmIcons-magnifying-glass.icon').then(r => r['prizmIconsMagnifyingGlass']),
-  prizmIconsMailOpen: () =>
-    import('./24/source/prizmIcons-mail-open.icon').then(r => r['prizmIconsMailOpen']),
-  prizmIconsMail: () => import('./24/source/prizmIcons-mail.icon').then(r => r['prizmIconsMail']),
-  prizmIconsMailbox: () => import('./24/source/prizmIcons-mailbox.icon').then(r => r['prizmIconsMailbox']),
-  prizmIconsMapBase: () => import('./24/source/prizmIcons-map-base.icon').then(r => r['prizmIconsMapBase']),
-  prizmIconsMapMarkerDateV1: () =>
+  mail_open: () => import('./24/source/prizmIcons-mail-open.icon').then(r => r['prizmIconsMailOpen']),
+  mail: () => import('./24/source/prizmIcons-mail.icon').then(r => r['prizmIconsMail']),
+  mailbox: () => import('./24/source/prizmIcons-mailbox.icon').then(r => r['prizmIconsMailbox']),
+  map_base: () => import('./24/source/prizmIcons-map-base.icon').then(r => r['prizmIconsMapBase']),
+  map_marker_date_v_1: () =>
     import('./24/source/prizmIcons-map-marker-date-v1.icon').then(r => r['prizmIconsMapMarkerDateV1']),
-  prizmIconsMapMarkerDateV2: () =>
+  map_marker_date_v_2: () =>
     import('./24/source/prizmIcons-map-marker-date-v2.icon').then(r => r['prizmIconsMapMarkerDateV2']),
-  prizmIconsMapPin: () => import('./24/source/prizmIcons-map-pin.icon').then(r => r['prizmIconsMapPin']),
-  prizmIconsMap: () => import('./24/source/prizmIcons-map.icon').then(r => r['prizmIconsMap']),
-  prizmIconsMedical: () => import('./24/source/prizmIcons-medical.icon').then(r => r['prizmIconsMedical']),
-  prizmIconsMerge: () => import('./24/source/prizmIcons-merge.icon').then(r => r['prizmIconsMerge']),
-  prizmIconsMessagingTelegramSend: () =>
+  map_pin: () => import('./24/source/prizmIcons-map-pin.icon').then(r => r['prizmIconsMapPin']),
+  map: () => import('./24/source/prizmIcons-map.icon').then(r => r['prizmIconsMap']),
+  medical: () => import('./24/source/prizmIcons-medical.icon').then(r => r['prizmIconsMedical']),
+  merge: () => import('./24/source/prizmIcons-merge.icon').then(r => r['prizmIconsMerge']),
+  messaging_telegram_send: () =>
     import('./24/source/prizmIcons-messaging-telegram-send.icon').then(
       r => r['prizmIconsMessagingTelegramSend']
     ),
-  prizmIconsMessagingTelegram: () =>
+  messaging_telegram: () =>
     import('./24/source/prizmIcons-messaging-telegram.icon').then(r => r['prizmIconsMessagingTelegram']),
-  prizmIconsMicrophoneSlash: () =>
+  microphone_slash: () =>
     import('./24/source/prizmIcons-microphone-slash.icon').then(r => r['prizmIconsMicrophoneSlash']),
-  prizmIconsMicrophone: () =>
-    import('./24/source/prizmIcons-microphone.icon').then(r => r['prizmIconsMicrophone']),
-  prizmIconsMinibusSideView: () =>
+  microphone: () => import('./24/source/prizmIcons-microphone.icon').then(r => r['prizmIconsMicrophone']),
+  minibus_side_view: () =>
     import('./24/source/prizmIcons-minibus-side-view.icon').then(r => r['prizmIconsMinibusSideView']),
-  prizmIconsMinusCircleFill: () =>
+  minus_circle_fill: () =>
     import('./24/source/prizmIcons-minus-circle-fill.icon').then(r => r['prizmIconsMinusCircleFill']),
-  prizmIconsMinusCircle: () =>
+  minus_circle: () =>
     import('./24/source/prizmIcons-minus-circle.icon').then(r => r['prizmIconsMinusCircle']),
-  prizmIconsMinus: () => import('./24/source/prizmIcons-minus.icon').then(r => r['prizmIconsMinus']),
-  prizmIconsModuleFill: () =>
-    import('./24/source/prizmIcons-module-fill.icon').then(r => r['prizmIconsModuleFill']),
-  prizmIconsMonitor: () => import('./24/source/prizmIcons-monitor.icon').then(r => r['prizmIconsMonitor']),
-  prizmIconsMoon: () => import('./24/source/prizmIcons-moon.icon').then(r => r['prizmIconsMoon']),
-  prizmIconsMusicSlash: () =>
-    import('./24/source/prizmIcons-music-slash.icon').then(r => r['prizmIconsMusicSlash']),
-  prizmIconsMusic: () => import('./24/source/prizmIcons-music.icon').then(r => r['prizmIconsMusic']),
-  prizmIconsNetworkExternalLink: () =>
+  minus: () => import('./24/source/prizmIcons-minus.icon').then(r => r['prizmIconsMinus']),
+  module_fill: () => import('./24/source/prizmIcons-module-fill.icon').then(r => r['prizmIconsModuleFill']),
+  monitor: () => import('./24/source/prizmIcons-monitor.icon').then(r => r['prizmIconsMonitor']),
+  moon: () => import('./24/source/prizmIcons-moon.icon').then(r => r['prizmIconsMoon']),
+  music_slash: () => import('./24/source/prizmIcons-music-slash.icon').then(r => r['prizmIconsMusicSlash']),
+  music: () => import('./24/source/prizmIcons-music.icon').then(r => r['prizmIconsMusic']),
+  network_external_link: () =>
     import('./24/source/prizmIcons-network-external-link.icon').then(r => r['prizmIconsNetworkExternalLink']),
-  prizmIconsNetworkV1: () =>
-    import('./24/source/prizmIcons-network-v1.icon').then(r => r['prizmIconsNetworkV1']),
-  prizmIconsNetworkV2: () =>
-    import('./24/source/prizmIcons-network-v2.icon').then(r => r['prizmIconsNetworkV2']),
-  prizmIconsNetworkV3: () =>
-    import('./24/source/prizmIcons-network-v3.icon').then(r => r['prizmIconsNetworkV3']),
-  prizmIconsNetworkWired: () =>
+  network_v_1: () => import('./24/source/prizmIcons-network-v1.icon').then(r => r['prizmIconsNetworkV1']),
+  network_v_2: () => import('./24/source/prizmIcons-network-v2.icon').then(r => r['prizmIconsNetworkV2']),
+  network_v_3: () => import('./24/source/prizmIcons-network-v3.icon').then(r => r['prizmIconsNetworkV3']),
+  network_wired: () =>
     import('./24/source/prizmIcons-network-wired.icon').then(r => r['prizmIconsNetworkWired']),
-  prizmIconsNiFiLogo: () =>
-    import('./24/source/prizmIcons-ni-fi-logo.icon').then(r => r['prizmIconsNiFiLogo']),
-  prizmIconsNormdocsZql: () =>
+  ni_fi_logo: () => import('./24/source/prizmIcons-ni-fi-logo.icon').then(r => r['prizmIconsNiFiLogo']),
+  normdocs_zql: () =>
     import('./24/source/prizmIcons-normdocs-zql.icon').then(r => r['prizmIconsNormdocsZql']),
-  prizmIconsNpm: () => import('./24/source/prizmIcons-npm.icon').then(r => r['prizmIconsNpm']),
-  prizmIconsObjectDownSubtract: () =>
+  npm: () => import('./24/source/prizmIcons-npm.icon').then(r => r['prizmIconsNpm']),
+  object_down_subtract: () =>
     import('./24/source/prizmIcons-object-down-subtract.icon').then(r => r['prizmIconsObjectDownSubtract']),
-  prizmIconsObjectExclude: () =>
+  object_exclude: () =>
     import('./24/source/prizmIcons-object-exclude.icon').then(r => r['prizmIconsObjectExclude']),
-  prizmIconsObjectIntersect: () =>
+  object_intersect: () =>
     import('./24/source/prizmIcons-object-intersect.icon').then(r => r['prizmIconsObjectIntersect']),
-  prizmIconsObjectSelection: () =>
+  object_selection: () =>
     import('./24/source/prizmIcons-object-selection.icon').then(r => r['prizmIconsObjectSelection']),
-  prizmIconsObjectUnion: () =>
+  object_union: () =>
     import('./24/source/prizmIcons-object-union.icon').then(r => r['prizmIconsObjectUnion']),
-  prizmIconsObjectUpSubtract: () =>
+  object_up_subtract: () =>
     import('./24/source/prizmIcons-object-up-subtract.icon').then(r => r['prizmIconsObjectUpSubtract']),
-  prizmIconsObject: () => import('./24/source/prizmIcons-object.icon').then(r => r['prizmIconsObject']),
-  prizmIconsOilBarrel: () =>
-    import('./24/source/prizmIcons-oil-barrel.icon').then(r => r['prizmIconsOilBarrel']),
-  prizmIconsOilCanister: () =>
+  object: () => import('./24/source/prizmIcons-object.icon').then(r => r['prizmIconsObject']),
+  oil_barrel: () => import('./24/source/prizmIcons-oil-barrel.icon').then(r => r['prizmIconsOilBarrel']),
+  oil_canister: () =>
     import('./24/source/prizmIcons-oil-canister.icon').then(r => r['prizmIconsOilCanister']),
-  prizmIconsOilDropletArrowsAll: () =>
+  oil_droplet_arrows_all: () =>
     import('./24/source/prizmIcons-oil-droplet-arrows-all.icon').then(
       r => r['prizmIconsOilDropletArrowsAll']
     ),
-  prizmIconsOilDropletArrowsRepeatH: () =>
+  oil_droplet_arrows_repeat_h: () =>
     import('./24/source/prizmIcons-oil-droplet-arrows-repeat-h.icon').then(
       r => r['prizmIconsOilDropletArrowsRepeatH']
     ),
-  prizmIconsOilDropletChek: () =>
+  oil_droplet_chek: () =>
     import('./24/source/prizmIcons-oil-droplet-chek.icon').then(r => r['prizmIconsOilDropletChek']),
-  prizmIconsOilDroplet: () =>
-    import('./24/source/prizmIcons-oil-droplet.icon').then(r => r['prizmIconsOilDroplet']),
-  prizmIconsOilField: () =>
-    import('./24/source/prizmIcons-oil-field.icon').then(r => r['prizmIconsOilField']),
-  prizmIconsOilTank: () => import('./24/source/prizmIcons-oil-tank.icon').then(r => r['prizmIconsOilTank']),
-  prizmIconsOntology: () => import('./24/source/prizmIcons-ontology.icon').then(r => r['prizmIconsOntology']),
-  prizmIconsOwl: () => import('./24/source/prizmIcons-owl.icon').then(r => r['prizmIconsOwl']),
-  prizmIconsPalette: () => import('./24/source/prizmIcons-palette.icon').then(r => r['prizmIconsPalette']),
-  prizmIconsPanelDown: () =>
-    import('./24/source/prizmIcons-panel-down.icon').then(r => r['prizmIconsPanelDown']),
-  prizmIconsPanelLeft: () =>
-    import('./24/source/prizmIcons-panel-left.icon').then(r => r['prizmIconsPanelLeft']),
-  prizmIconsPanelRight: () =>
-    import('./24/source/prizmIcons-panel-right.icon').then(r => r['prizmIconsPanelRight']),
-  prizmIconsPanelTop: () =>
-    import('./24/source/prizmIcons-panel-top.icon').then(r => r['prizmIconsPanelTop']),
-  prizmIconsPantone: () => import('./24/source/prizmIcons-pantone.icon').then(r => r['prizmIconsPantone']),
-  prizmIconsPaperclipVertical: () =>
+  oil_droplet: () => import('./24/source/prizmIcons-oil-droplet.icon').then(r => r['prizmIconsOilDroplet']),
+  oil_field: () => import('./24/source/prizmIcons-oil-field.icon').then(r => r['prizmIconsOilField']),
+  oil_tank: () => import('./24/source/prizmIcons-oil-tank.icon').then(r => r['prizmIconsOilTank']),
+  ontology: () => import('./24/source/prizmIcons-ontology.icon').then(r => r['prizmIconsOntology']),
+  owl: () => import('./24/source/prizmIcons-owl.icon').then(r => r['prizmIconsOwl']),
+  palette: () => import('./24/source/prizmIcons-palette.icon').then(r => r['prizmIconsPalette']),
+  panel_down: () => import('./24/source/prizmIcons-panel-down.icon').then(r => r['prizmIconsPanelDown']),
+  panel_left: () => import('./24/source/prizmIcons-panel-left.icon').then(r => r['prizmIconsPanelLeft']),
+  panel_right: () => import('./24/source/prizmIcons-panel-right.icon').then(r => r['prizmIconsPanelRight']),
+  panel_top: () => import('./24/source/prizmIcons-panel-top.icon').then(r => r['prizmIconsPanelTop']),
+  pantone: () => import('./24/source/prizmIcons-pantone.icon').then(r => r['prizmIconsPantone']),
+  paperclip_vertical: () =>
     import('./24/source/prizmIcons-paperclip-vertical.icon').then(r => r['prizmIconsPaperclipVertical']),
-  prizmIconsPaperclip: () =>
-    import('./24/source/prizmIcons-paperclip.icon').then(r => r['prizmIconsPaperclip']),
-  prizmIconsPause: () => import('./24/source/prizmIcons-pause.icon').then(r => r['prizmIconsPause']),
-  prizmIconsPaverSideView: () =>
+  paperclip: () => import('./24/source/prizmIcons-paperclip.icon').then(r => r['prizmIconsPaperclip']),
+  pause: () => import('./24/source/prizmIcons-pause.icon').then(r => r['prizmIconsPause']),
+  paver_side_view: () =>
     import('./24/source/prizmIcons-paver-side-view.icon').then(r => r['prizmIconsPaverSideView']),
-  prizmIconsPenHammer: () =>
-    import('./24/source/prizmIcons-pen-hammer.icon').then(r => r['prizmIconsPenHammer']),
-  prizmIconsPencilArrowRight: () =>
+  pen_hammer: () => import('./24/source/prizmIcons-pen-hammer.icon').then(r => r['prizmIconsPenHammer']),
+  pencil_arrow_right: () =>
     import('./24/source/prizmIcons-pencil-arrow-right.icon').then(r => r['prizmIconsPencilArrowRight']),
-  prizmIconsPencilLineBottom: () =>
+  pencil_line_bottom: () =>
     import('./24/source/prizmIcons-pencil-line-bottom.icon').then(r => r['prizmIconsPencilLineBottom']),
-  prizmIconsPencilTriangleDown: () =>
+  pencil_triangle_down: () =>
     import('./24/source/prizmIcons-pencil-triangle-down.icon').then(r => r['prizmIconsPencilTriangleDown']),
-  prizmIconsPencilTriangleLeft: () =>
+  pencil_triangle_left: () =>
     import('./24/source/prizmIcons-pencil-triangle-left.icon').then(r => r['prizmIconsPencilTriangleLeft']),
-  prizmIconsPencil: () => import('./24/source/prizmIcons-pencil.icon').then(r => r['prizmIconsPencil']),
-  prizmIconsPentagonFill: () =>
+  pencil: () => import('./24/source/prizmIcons-pencil.icon').then(r => r['prizmIconsPencil']),
+  pentagon_fill: () =>
     import('./24/source/prizmIcons-pentagon-fill.icon').then(r => r['prizmIconsPentagonFill']),
-  prizmIconsPentagon: () => import('./24/source/prizmIcons-pentagon.icon').then(r => r['prizmIconsPentagon']),
-  prizmIconsPercent: () => import('./24/source/prizmIcons-percent.icon').then(r => r['prizmIconsPercent']),
-  prizmIconsPhoneActiveCall: () =>
+  pentagon: () => import('./24/source/prizmIcons-pentagon.icon').then(r => r['prizmIconsPentagon']),
+  percent: () => import('./24/source/prizmIcons-percent.icon').then(r => r['prizmIconsPercent']),
+  phone_active_call: () =>
     import('./24/source/prizmIcons-phone-active-call.icon').then(r => r['prizmIconsPhoneActiveCall']),
-  prizmIconsPhoneCancelled: () =>
+  phone_cancelled: () =>
     import('./24/source/prizmIcons-phone-cancelled.icon').then(r => r['prizmIconsPhoneCancelled']),
-  prizmIconsPhoneMinus: () =>
-    import('./24/source/prizmIcons-phone-minus.icon').then(r => r['prizmIconsPhoneMinus']),
-  prizmIconsPhoneOff: () =>
-    import('./24/source/prizmIcons-phone-off.icon').then(r => r['prizmIconsPhoneOff']),
-  prizmIconsPhonePaused: () =>
+  phone_minus: () => import('./24/source/prizmIcons-phone-minus.icon').then(r => r['prizmIconsPhoneMinus']),
+  phone_off: () => import('./24/source/prizmIcons-phone-off.icon').then(r => r['prizmIconsPhoneOff']),
+  phone_paused: () =>
     import('./24/source/prizmIcons-phone-paused.icon').then(r => r['prizmIconsPhonePaused']),
-  prizmIconsPhonePlus: () =>
-    import('./24/source/prizmIcons-phone-plus.icon').then(r => r['prizmIconsPhonePlus']),
-  prizmIconsPhone: () => import('./24/source/prizmIcons-phone.icon').then(r => r['prizmIconsPhone']),
-  prizmIconsPi: () => import('./24/source/prizmIcons-pi.icon').then(r => r['prizmIconsPi']),
-  prizmIconsPieLineNested: () =>
+  phone_plus: () => import('./24/source/prizmIcons-phone-plus.icon').then(r => r['prizmIconsPhonePlus']),
+  phone: () => import('./24/source/prizmIcons-phone.icon').then(r => r['prizmIconsPhone']),
+  pi: () => import('./24/source/prizmIcons-pi.icon').then(r => r['prizmIconsPi']),
+  pie_line_nested: () =>
     import('./24/source/prizmIcons-pie-line-nested.icon').then(r => r['prizmIconsPieLineNested']),
-  prizmIconsPieLine: () => import('./24/source/prizmIcons-pie-line.icon').then(r => r['prizmIconsPieLine']),
-  prizmIconsPiePentagon: () =>
+  pie_line: () => import('./24/source/prizmIcons-pie-line.icon').then(r => r['prizmIconsPieLine']),
+  pie_pentagon: () =>
     import('./24/source/prizmIcons-pie-pentagon.icon').then(r => r['prizmIconsPiePentagon']),
-  prizmIconsPieSeveralParts: () =>
+  pie_several_parts: () =>
     import('./24/source/prizmIcons-pie-several-parts.icon').then(r => r['prizmIconsPieSeveralParts']),
-  prizmIconsPieSimple: () =>
-    import('./24/source/prizmIcons-pie-simple.icon').then(r => r['prizmIconsPieSimple']),
-  prizmIconsPie: () => import('./24/source/prizmIcons-pie.icon').then(r => r['prizmIconsPie']),
-  prizmIconsPipeNodeSideView: () =>
+  pie_simple: () => import('./24/source/prizmIcons-pie-simple.icon').then(r => r['prizmIconsPieSimple']),
+  pie: () => import('./24/source/prizmIcons-pie.icon').then(r => r['prizmIconsPie']),
+  pipe_node_side_view: () =>
     import('./24/source/prizmIcons-pipe-node-side-view.icon').then(r => r['prizmIconsPipeNodeSideView']),
-  prizmIconsPipeSensor: () =>
-    import('./24/source/prizmIcons-pipe-sensor.icon').then(r => r['prizmIconsPipeSensor']),
-  prizmIconsPipeSlash: () =>
-    import('./24/source/prizmIcons-pipe-slash.icon').then(r => r['prizmIconsPipeSlash']),
-  prizmIconsPipeValve: () =>
-    import('./24/source/prizmIcons-pipe-valve.icon').then(r => r['prizmIconsPipeValve']),
-  prizmIconsPipelineV1: () =>
-    import('./24/source/prizmIcons-pipeline-v1.icon').then(r => r['prizmIconsPipelineV1']),
-  prizmIconsPipelineV2: () =>
-    import('./24/source/prizmIcons-pipeline-v2.icon').then(r => r['prizmIconsPipelineV2']),
-  prizmIconsPipette: () => import('./24/source/prizmIcons-pipette.icon').then(r => r['prizmIconsPipette']),
-  prizmIconsPlane: () => import('./24/source/prizmIcons-plane.icon').then(r => r['prizmIconsPlane']),
-  prizmIconsPlayBack: () =>
-    import('./24/source/prizmIcons-play-back.icon').then(r => r['prizmIconsPlayBack']),
-  prizmIconsPlay: () => import('./24/source/prizmIcons-play.icon').then(r => r['prizmIconsPlay']),
-  prizmIconsPlusColumnRight: () =>
+  pipe_sensor: () => import('./24/source/prizmIcons-pipe-sensor.icon').then(r => r['prizmIconsPipeSensor']),
+  pipe_slash: () => import('./24/source/prizmIcons-pipe-slash.icon').then(r => r['prizmIconsPipeSlash']),
+  pipe_valve: () => import('./24/source/prizmIcons-pipe-valve.icon').then(r => r['prizmIconsPipeValve']),
+  pipeline_v_1: () => import('./24/source/prizmIcons-pipeline-v1.icon').then(r => r['prizmIconsPipelineV1']),
+  pipeline_v_2: () => import('./24/source/prizmIcons-pipeline-v2.icon').then(r => r['prizmIconsPipelineV2']),
+  pipette: () => import('./24/source/prizmIcons-pipette.icon').then(r => r['prizmIconsPipette']),
+  plane: () => import('./24/source/prizmIcons-plane.icon').then(r => r['prizmIconsPlane']),
+  play_back: () => import('./24/source/prizmIcons-play-back.icon').then(r => r['prizmIconsPlayBack']),
+  play: () => import('./24/source/prizmIcons-play.icon').then(r => r['prizmIconsPlay']),
+  plus_column_right: () =>
     import('./24/source/prizmIcons-plus-column-right.icon').then(r => r['prizmIconsPlusColumnRight']),
-  prizmIconsPlusColumnTop: () =>
+  plus_column_top: () =>
     import('./24/source/prizmIcons-plus-column-top.icon').then(r => r['prizmIconsPlusColumnTop']),
-  prizmIconsPlusTriangleDown: () =>
+  plus_triangle_down: () =>
     import('./24/source/prizmIcons-plus-triangle-down.icon').then(r => r['prizmIconsPlusTriangleDown']),
-  prizmIconsPlus: () => import('./24/source/prizmIcons-plus.icon').then(r => r['prizmIconsPlus']),
-  prizmIconsPolyline: () => import('./24/source/prizmIcons-polyline.icon').then(r => r['prizmIconsPolyline']),
-  prizmIconsPortfel: () => import('./24/source/prizmIcons-portfel.icon').then(r => r['prizmIconsPortfel']),
-  prizmIconsPower: () => import('./24/source/prizmIcons-power.icon').then(r => r['prizmIconsPower']),
-  prizmIconsPremisesZql: () =>
+  plus: () => import('./24/source/prizmIcons-plus.icon').then(r => r['prizmIconsPlus']),
+  polyline: () => import('./24/source/prizmIcons-polyline.icon').then(r => r['prizmIconsPolyline']),
+  portfel: () => import('./24/source/prizmIcons-portfel.icon').then(r => r['prizmIconsPortfel']),
+  power: () => import('./24/source/prizmIcons-power.icon').then(r => r['prizmIconsPower']),
+  premises_zql: () =>
     import('./24/source/prizmIcons-premises-zql.icon').then(r => r['prizmIconsPremisesZql']),
-  prizmIconsPress: () => import('./24/source/prizmIcons-press.icon').then(r => r['prizmIconsPress']),
-  prizmIconsPrinter: () => import('./24/source/prizmIcons-printer.icon').then(r => r['prizmIconsPrinter']),
-  prizmIconsProcess: () => import('./24/source/prizmIcons-process.icon').then(r => r['prizmIconsProcess']),
-  prizmIconsPulse: () => import('./24/source/prizmIcons-pulse.icon').then(r => r['prizmIconsPulse']),
-  prizmIconsPumpTriangleDown: () =>
+  press: () => import('./24/source/prizmIcons-press.icon').then(r => r['prizmIconsPress']),
+  printer: () => import('./24/source/prizmIcons-printer.icon').then(r => r['prizmIconsPrinter']),
+  process: () => import('./24/source/prizmIcons-process.icon').then(r => r['prizmIconsProcess']),
+  pulse: () => import('./24/source/prizmIcons-pulse.icon').then(r => r['prizmIconsPulse']),
+  pump_triangle_down: () =>
     import('./24/source/prizmIcons-pump-triangle-down.icon').then(r => r['prizmIconsPumpTriangleDown']),
-  prizmIconsPump: () => import('./24/source/prizmIcons-pump.icon').then(r => r['prizmIconsPump']),
-  prizmIconsPushButtonCellphone: () =>
+  pump: () => import('./24/source/prizmIcons-pump.icon').then(r => r['prizmIconsPump']),
+  push_button_cellphone: () =>
     import('./24/source/prizmIcons-push-button-cellphone.icon').then(r => r['prizmIconsPushButtonCellphone']),
-  prizmIconsQr: () => import('./24/source/prizmIcons-qr.icon').then(r => r['prizmIconsQr']),
-  prizmIconsQuestion: () => import('./24/source/prizmIcons-question.icon').then(r => r['prizmIconsQuestion']),
-  prizmIconsQuiltFill: () =>
-    import('./24/source/prizmIcons-quilt-fill.icon').then(r => r['prizmIconsQuiltFill']),
-  prizmIconsRadiation: () =>
-    import('./24/source/prizmIcons-radiation.icon').then(r => r['prizmIconsRadiation']),
-  prizmIconsRailcarHopperSideView: () =>
+  qr: () => import('./24/source/prizmIcons-qr.icon').then(r => r['prizmIconsQr']),
+  question: () => import('./24/source/prizmIcons-question.icon').then(r => r['prizmIconsQuestion']),
+  quilt_fill: () => import('./24/source/prizmIcons-quilt-fill.icon').then(r => r['prizmIconsQuiltFill']),
+  radiation: () => import('./24/source/prizmIcons-radiation.icon').then(r => r['prizmIconsRadiation']),
+  railcar_hopper_side_view: () =>
     import('./24/source/prizmIcons-railcar-hopper-side-view.icon').then(
       r => r['prizmIconsRailcarHopperSideView']
     ),
-  prizmIconsRailcarSideView: () =>
+  railcar_side_view: () =>
     import('./24/source/prizmIcons-railcar-side-view.icon').then(r => r['prizmIconsRailcarSideView']),
-  prizmIconsRange: () => import('./24/source/prizmIcons-range.icon').then(r => r['prizmIconsRange']),
-  prizmIconsReplay: () => import('./24/source/prizmIcons-replay.icon').then(r => r['prizmIconsReplay']),
-  prizmIconsRespiratorV1: () =>
+  range: () => import('./24/source/prizmIcons-range.icon').then(r => r['prizmIconsRange']),
+  replay: () => import('./24/source/prizmIcons-replay.icon').then(r => r['prizmIconsReplay']),
+  respirator_v_1: () =>
     import('./24/source/prizmIcons-respirator-v1.icon').then(r => r['prizmIconsRespiratorV1']),
-  prizmIconsRespiratorV2: () =>
+  respirator_v_2: () =>
     import('./24/source/prizmIcons-respirator-v2.icon').then(r => r['prizmIconsRespiratorV2']),
-  prizmIconsRespiratorV3: () =>
+  respirator_v_3: () =>
     import('./24/source/prizmIcons-respirator-v3.icon').then(r => r['prizmIconsRespiratorV3']),
-  prizmIconsRespiratorV4: () =>
+  respirator_v_4: () =>
     import('./24/source/prizmIcons-respirator-v4.icon').then(r => r['prizmIconsRespiratorV4']),
-  prizmIconsRespiratorV5: () =>
+  respirator_v_5: () =>
     import('./24/source/prizmIcons-respirator-v5.icon').then(r => r['prizmIconsRespiratorV5']),
-  prizmIconsRespiratorV6: () =>
+  respirator_v_6: () =>
     import('./24/source/prizmIcons-respirator-v6.icon').then(r => r['prizmIconsRespiratorV6']),
-  prizmIconsReturnStep: () =>
-    import('./24/source/prizmIcons-return-step.icon').then(r => r['prizmIconsReturnStep']),
-  prizmIconsReturn: () => import('./24/source/prizmIcons-return.icon').then(r => r['prizmIconsReturn']),
-  prizmIconsRhombusFill: () =>
+  return_step: () => import('./24/source/prizmIcons-return-step.icon').then(r => r['prizmIconsReturnStep']),
+  return: () => import('./24/source/prizmIcons-return.icon').then(r => r['prizmIconsReturn']),
+  rhombus_fill: () =>
     import('./24/source/prizmIcons-rhombus-fill.icon').then(r => r['prizmIconsRhombusFill']),
-  prizmIconsRhombus: () => import('./24/source/prizmIcons-rhombus.icon').then(r => r['prizmIconsRhombus']),
-  prizmIconsRingInSquare: () =>
+  rhombus: () => import('./24/source/prizmIcons-rhombus.icon').then(r => r['prizmIconsRhombus']),
+  ring_in_square: () =>
     import('./24/source/prizmIcons-ring-in-square.icon').then(r => r['prizmIconsRingInSquare']),
-  prizmIconsRulerIndexZql: () =>
+  ruler_index_zql: () =>
     import('./24/source/prizmIcons-ruler-index-zql.icon').then(r => r['prizmIconsRulerIndexZql']),
-  prizmIconsRuler: () => import('./24/source/prizmIcons-ruler.icon').then(r => r['prizmIconsRuler']),
-  prizmIconsSampleLogsZql: () =>
+  ruler: () => import('./24/source/prizmIcons-ruler.icon').then(r => r['prizmIconsRuler']),
+  sample_logs_zql: () =>
     import('./24/source/prizmIcons-sample-logs-zql.icon').then(r => r['prizmIconsSampleLogsZql']),
-  prizmIconsSampleTemplatesZql: () =>
+  sample_templates_zql: () =>
     import('./24/source/prizmIcons-sample-templates-zql.icon').then(r => r['prizmIconsSampleTemplatesZql']),
-  prizmIconsSandglass: () =>
-    import('./24/source/prizmIcons-sandglass.icon').then(r => r['prizmIconsSandglass']),
-  prizmIconsScatterAxis: () =>
+  sandglass: () => import('./24/source/prizmIcons-sandglass.icon').then(r => r['prizmIconsSandglass']),
+  scatter_axis: () =>
     import('./24/source/prizmIcons-scatter-axis.icon').then(r => r['prizmIconsScatterAxis']),
-  prizmIconsScatterBasic: () =>
+  scatter_basic: () =>
     import('./24/source/prizmIcons-scatter-basic.icon').then(r => r['prizmIconsScatterBasic']),
-  prizmIconsScatter: () => import('./24/source/prizmIcons-scatter.icon').then(r => r['prizmIconsScatter']),
-  prizmIconsScissors: () => import('./24/source/prizmIcons-scissors.icon').then(r => r['prizmIconsScissors']),
-  prizmIconsSeedlingCircle: () =>
+  scatter: () => import('./24/source/prizmIcons-scatter.icon').then(r => r['prizmIconsScatter']),
+  scissors: () => import('./24/source/prizmIcons-scissors.icon').then(r => r['prizmIconsScissors']),
+  seedling_circle: () =>
     import('./24/source/prizmIcons-seedling-circle.icon').then(r => r['prizmIconsSeedlingCircle']),
-  prizmIconsSeedlingRectangle: () =>
+  seedling_rectangle: () =>
     import('./24/source/prizmIcons-seedling-rectangle.icon').then(r => r['prizmIconsSeedlingRectangle']),
-  prizmIconsSeedling: () => import('./24/source/prizmIcons-seedling.icon').then(r => r['prizmIconsSeedling']),
-  prizmIconsSelectionCheckedEmpty: () =>
+  seedling: () => import('./24/source/prizmIcons-seedling.icon').then(r => r['prizmIconsSeedling']),
+  selection_checked_empty: () =>
     import('./24/source/prizmIcons-selection-checked-empty.icon').then(
       r => r['prizmIconsSelectionCheckedEmpty']
     ),
-  prizmIconsSendBackward: () =>
+  send_backward: () =>
     import('./24/source/prizmIcons-send-backward.icon').then(r => r['prizmIconsSendBackward']),
-  prizmIconsSendForward: () =>
+  send_forward: () =>
     import('./24/source/prizmIcons-send-forward.icon').then(r => r['prizmIconsSendForward']),
-  prizmIconsSeparator: () =>
-    import('./24/source/prizmIcons-separator.icon').then(r => r['prizmIconsSeparator']),
-  prizmIconsSequentialFill: () =>
+  separator: () => import('./24/source/prizmIcons-separator.icon').then(r => r['prizmIconsSeparator']),
+  sequential_fill: () =>
     import('./24/source/prizmIcons-sequential-fill.icon').then(r => r['prizmIconsSequentialFill']),
-  prizmIconsServerNetworkClose: () =>
+  server_network_close: () =>
     import('./24/source/prizmIcons-server-network-close.icon').then(r => r['prizmIconsServerNetworkClose']),
-  prizmIconsServerNetworkDownload: () =>
+  server_network_download: () =>
     import('./24/source/prizmIcons-server-network-download.icon').then(
       r => r['prizmIconsServerNetworkDownload']
     ),
-  prizmIconsServerNetworkMinus: () =>
+  server_network_minus: () =>
     import('./24/source/prizmIcons-server-network-minus.icon').then(r => r['prizmIconsServerNetworkMinus']),
-  prizmIconsServerNetworkPlus: () =>
+  server_network_plus: () =>
     import('./24/source/prizmIcons-server-network-plus.icon').then(r => r['prizmIconsServerNetworkPlus']),
-  prizmIconsServerNetworkSecurity: () =>
+  server_network_security: () =>
     import('./24/source/prizmIcons-server-network-security.icon').then(
       r => r['prizmIconsServerNetworkSecurity']
     ),
-  prizmIconsServerNetworkUpload: () =>
+  server_network_upload: () =>
     import('./24/source/prizmIcons-server-network-upload.icon').then(r => r['prizmIconsServerNetworkUpload']),
-  prizmIconsServerNetwork: () =>
+  server_network: () =>
     import('./24/source/prizmIcons-server-network.icon').then(r => r['prizmIconsServerNetwork']),
-  prizmIconsServerShield: () =>
+  server_shield: () =>
     import('./24/source/prizmIcons-server-shield.icon').then(r => r['prizmIconsServerShield']),
-  prizmIconsServerSlashUpLine: () =>
+  server_slash_up_line: () =>
     import('./24/source/prizmIcons-server-slash-up-line.icon').then(r => r['prizmIconsServerSlashUpLine']),
-  prizmIconsServerSlash: () =>
+  server_slash: () =>
     import('./24/source/prizmIcons-server-slash.icon').then(r => r['prizmIconsServerSlash']),
-  prizmIconsServerUpLine: () =>
+  server_up_line: () =>
     import('./24/source/prizmIcons-server-up-line.icon').then(r => r['prizmIconsServerUpLine']),
-  prizmIconsServer: () => import('./24/source/prizmIcons-server.icon').then(r => r['prizmIconsServer']),
-  prizmIconsShapeLinkFill: () =>
+  server: () => import('./24/source/prizmIcons-server.icon').then(r => r['prizmIconsServer']),
+  shape_link_fill: () =>
     import('./24/source/prizmIcons-shape-link-fill.icon').then(r => r['prizmIconsShapeLinkFill']),
-  prizmIconsShapeLink: () =>
-    import('./24/source/prizmIcons-shape-link.icon').then(r => r['prizmIconsShapeLink']),
-  prizmIconsShapePlus: () =>
-    import('./24/source/prizmIcons-shape-plus.icon').then(r => r['prizmIconsShapePlus']),
-  prizmIconsShareLeft: () =>
-    import('./24/source/prizmIcons-share-left.icon').then(r => r['prizmIconsShareLeft']),
-  prizmIconsShareRight: () =>
-    import('./24/source/prizmIcons-share-right.icon').then(r => r['prizmIconsShareRight']),
-  prizmIconsShareing: () => import('./24/source/prizmIcons-shareing.icon').then(r => r['prizmIconsShareing']),
-  prizmIconsShieldExclamation: () =>
+  shape_link: () => import('./24/source/prizmIcons-shape-link.icon').then(r => r['prizmIconsShapeLink']),
+  shape_plus: () => import('./24/source/prizmIcons-shape-plus.icon').then(r => r['prizmIconsShapePlus']),
+  share_left: () => import('./24/source/prizmIcons-share-left.icon').then(r => r['prizmIconsShareLeft']),
+  share_right: () => import('./24/source/prizmIcons-share-right.icon').then(r => r['prizmIconsShareRight']),
+  shareing: () => import('./24/source/prizmIcons-shareing.icon').then(r => r['prizmIconsShareing']),
+  shield_exclamation: () =>
     import('./24/source/prizmIcons-shield-exclamation.icon').then(r => r['prizmIconsShieldExclamation']),
-  prizmIconsShieldSlash: () =>
+  shield_slash: () =>
     import('./24/source/prizmIcons-shield-slash.icon').then(r => r['prizmIconsShieldSlash']),
-  prizmIconsShield: () => import('./24/source/prizmIcons-shield.icon').then(r => r['prizmIconsShield']),
-  prizmIconsShipFrontView: () =>
+  shield: () => import('./24/source/prizmIcons-shield.icon').then(r => r['prizmIconsShield']),
+  ship_front_view: () =>
     import('./24/source/prizmIcons-ship-front-view.icon').then(r => r['prizmIconsShipFrontView']),
-  prizmIconsShipSideView: () =>
+  ship_side_view: () =>
     import('./24/source/prizmIcons-ship-side-view.icon').then(r => r['prizmIconsShipSideView']),
-  prizmIconsShoppingBox: () =>
+  shopping_box: () =>
     import('./24/source/prizmIcons-shopping-box.icon').then(r => r['prizmIconsShoppingBox']),
-  prizmIconsShovel: () => import('./24/source/prizmIcons-shovel.icon').then(r => r['prizmIconsShovel']),
-  prizmIconsSigma: () => import('./24/source/prizmIcons-sigma.icon').then(r => r['prizmIconsSigma']),
-  prizmIconsSignalAccessPoint: () =>
+  shovel: () => import('./24/source/prizmIcons-shovel.icon').then(r => r['prizmIconsShovel']),
+  sigma: () => import('./24/source/prizmIcons-sigma.icon').then(r => r['prizmIconsSigma']),
+  signal_access_point: () =>
     import('./24/source/prizmIcons-signal-access-point.icon').then(r => r['prizmIconsSignalAccessPoint']),
-  prizmIconsSignalOff: () =>
-    import('./24/source/prizmIcons-signal-off.icon').then(r => r['prizmIconsSignalOff']),
-  prizmIconsSignalRadioTower: () =>
+  signal_off: () => import('./24/source/prizmIcons-signal-off.icon').then(r => r['prizmIconsSignalOff']),
+  signal_radio_tower: () =>
     import('./24/source/prizmIcons-signal-radio-tower.icon').then(r => r['prizmIconsSignalRadioTower']),
-  prizmIconsSignal: () => import('./24/source/prizmIcons-signal.icon').then(r => r['prizmIconsSignal']),
-  prizmIconsSlidersH: () =>
-    import('./24/source/prizmIcons-sliders-h.icon').then(r => r['prizmIconsSlidersH']),
-  prizmIconsSlidersV: () =>
-    import('./24/source/prizmIcons-sliders-v.icon').then(r => r['prizmIconsSlidersV']),
-  prizmIconsSnakeCup: () =>
-    import('./24/source/prizmIcons-snake-cup.icon').then(r => r['prizmIconsSnakeCup']),
-  prizmIconsSnowflakeUpToBracket: () =>
+  signal: () => import('./24/source/prizmIcons-signal.icon').then(r => r['prizmIconsSignal']),
+  sliders_h: () => import('./24/source/prizmIcons-sliders-h.icon').then(r => r['prizmIconsSlidersH']),
+  sliders_v: () => import('./24/source/prizmIcons-sliders-v.icon').then(r => r['prizmIconsSlidersV']),
+  snake_cup: () => import('./24/source/prizmIcons-snake-cup.icon').then(r => r['prizmIconsSnakeCup']),
+  snowflake_up_to_bracket: () =>
     import('./24/source/prizmIcons-snowflake-up-to-bracket.icon').then(
       r => r['prizmIconsSnowflakeUpToBracket']
     ),
-  prizmIconsSnowflake: () =>
-    import('./24/source/prizmIcons-snowflake.icon').then(r => r['prizmIconsSnowflake']),
-  prizmIconsSortFilterRemove: () =>
+  snowflake: () => import('./24/source/prizmIcons-snowflake.icon').then(r => r['prizmIconsSnowflake']),
+  sort_filter_remove: () =>
     import('./24/source/prizmIcons-sort-filter-remove.icon').then(r => r['prizmIconsSortFilterRemove']),
-  prizmIconsSpecification: () =>
+  specification: () =>
     import('./24/source/prizmIcons-specification.icon').then(r => r['prizmIconsSpecification']),
-  prizmIconsSpecsZql: () =>
-    import('./24/source/prizmIcons-specs-zql.icon').then(r => r['prizmIconsSpecsZql']),
-  prizmIconsSpeedReductionCooling: () =>
+  specs_zql: () => import('./24/source/prizmIcons-specs-zql.icon').then(r => r['prizmIconsSpecsZql']),
+  speed_reduction_cooling: () =>
     import('./24/source/prizmIcons-speed-reduction-cooling.icon').then(
       r => r['prizmIconsSpeedReductionCooling']
     ),
-  prizmIconsSquareArrowsCurveRightDown: () =>
+  square_arrows_curve_right_down: () =>
     import('./24/source/prizmIcons-square-arrows_curve_right_down.icon').then(
       r => r['prizmIconsSquareArrowsCurveRightDown']
     ),
-  prizmIconsSquareArrowsCurveUpRight: () =>
+  square_arrows_curve_up_right: () =>
     import('./24/source/prizmIcons-square-arrows_curve_up_right.icon').then(
       r => r['prizmIconsSquareArrowsCurveUpRight']
     ),
-  prizmIconsSquareBracketCurlyLeft: () =>
+  square_bracket_curly_left: () =>
     import('./24/source/prizmIcons-square-bracket-curly-left.icon').then(
       r => r['prizmIconsSquareBracketCurlyLeft']
     ),
-  prizmIconsSquareBracketCurlyRight: () =>
+  square_bracket_curly_right: () =>
     import('./24/source/prizmIcons-square-bracket-curly-right.icon').then(
       r => r['prizmIconsSquareBracketCurlyRight']
     ),
-  prizmIconsSquareBracketLeft: () =>
+  square_bracket_left: () =>
     import('./24/source/prizmIcons-square-bracket-left.icon').then(r => r['prizmIconsSquareBracketLeft']),
-  prizmIconsSquareBracketRight: () =>
+  square_bracket_right: () =>
     import('./24/source/prizmIcons-square-bracket-right.icon').then(r => r['prizmIconsSquareBracketRight']),
-  prizmIconsSquareCirclePlusTriangleFill: () =>
+  square_circle_plus_triangle_fill: () =>
     import('./24/source/prizmIcons-square-circle-plus-triangle-fill.icon').then(
       r => r['prizmIconsSquareCirclePlusTriangleFill']
     ),
-  prizmIconsSquareCircleTriangleCrossFill: () =>
+  square_circle_triangle_cross_fill: () =>
     import('./24/source/prizmIcons-square-circle-triangle-cross-fill.icon').then(
       r => r['prizmIconsSquareCircleTriangleCrossFill']
     ),
-  prizmIconsSquareCircleTriangleCross: () =>
+  square_circle_triangle_cross: () =>
     import('./24/source/prizmIcons-square-circle-triangle-cross.icon').then(
       r => r['prizmIconsSquareCircleTriangleCross']
     ),
-  prizmIconsSquareDivide: () =>
+  square_divide: () =>
     import('./24/source/prizmIcons-square-divide.icon').then(r => r['prizmIconsSquareDivide']),
-  prizmIconsSquareExcel: () =>
+  square_excel: () =>
     import('./24/source/prizmIcons-square-excel.icon').then(r => r['prizmIconsSquareExcel']),
-  prizmIconsSquareExclamationEmpty: () =>
+  square_exclamation_empty: () =>
     import('./24/source/prizmIcons-square-exclamation-empty.icon').then(
       r => r['prizmIconsSquareExclamationEmpty']
     ),
-  prizmIconsSquareExclamationFill: () =>
+  square_exclamation_fill: () =>
     import('./24/source/prizmIcons-square-exclamation-fill.icon').then(
       r => r['prizmIconsSquareExclamationFill']
     ),
-  prizmIconsSquareFill: () =>
-    import('./24/source/prizmIcons-square-fill.icon').then(r => r['prizmIconsSquareFill']),
-  prizmIconsSquareHexagonCircleFill: () =>
+  square_fill: () => import('./24/source/prizmIcons-square-fill.icon').then(r => r['prizmIconsSquareFill']),
+  square_hexagon_circle_fill: () =>
     import('./24/source/prizmIcons-square-hexagon-circle-fill.icon').then(
       r => r['prizmIconsSquareHexagonCircleFill']
     ),
-  prizmIconsSquareHexagonCircle: () =>
+  square_hexagon_circle: () =>
     import('./24/source/prizmIcons-square-hexagon-circle.icon').then(r => r['prizmIconsSquareHexagonCircle']),
-  prizmIconsSquareInSquare: () =>
+  square_in_square: () =>
     import('./24/source/prizmIcons-square-in-square.icon').then(r => r['prizmIconsSquareInSquare']),
-  prizmIconsSquareInfoEmpty: () =>
+  square_info_empty: () =>
     import('./24/source/prizmIcons-square-info-empty.icon').then(r => r['prizmIconsSquareInfoEmpty']),
-  prizmIconsSquareInfoFill: () =>
+  square_info_fill: () =>
     import('./24/source/prizmIcons-square-info-fill.icon').then(r => r['prizmIconsSquareInfoFill']),
-  prizmIconsSquareMinus: () =>
+  square_minus: () =>
     import('./24/source/prizmIcons-square-minus.icon').then(r => r['prizmIconsSquareMinus']),
-  prizmIconsSquareMultiply: () =>
+  square_multiply: () =>
     import('./24/source/prizmIcons-square-multiply.icon').then(r => r['prizmIconsSquareMultiply']),
-  prizmIconsSquareMusicDouble: () =>
+  square_music_double: () =>
     import('./24/source/prizmIcons-square-music-double.icon').then(r => r['prizmIconsSquareMusicDouble']),
-  prizmIconsSquareMusic: () =>
+  square_music: () =>
     import('./24/source/prizmIcons-square-music.icon').then(r => r['prizmIconsSquareMusic']),
-  prizmIconsSquarePercent: () =>
+  square_percent: () =>
     import('./24/source/prizmIcons-square-percent.icon').then(r => r['prizmIconsSquarePercent']),
-  prizmIconsSquarePlus: () =>
-    import('./24/source/prizmIcons-square-plus.icon').then(r => r['prizmIconsSquarePlus']),
-  prizmIconsSquarePowerpoint: () =>
+  square_plus: () => import('./24/source/prizmIcons-square-plus.icon').then(r => r['prizmIconsSquarePlus']),
+  square_powerpoint: () =>
     import('./24/source/prizmIcons-square-powerpoint.icon').then(r => r['prizmIconsSquarePowerpoint']),
-  prizmIconsSquareQuestionEmpty: () =>
+  square_question_empty: () =>
     import('./24/source/prizmIcons-square-question-empty.icon').then(r => r['prizmIconsSquareQuestionEmpty']),
-  prizmIconsSquareQuestionFill: () =>
+  square_question_fill: () =>
     import('./24/source/prizmIcons-square-question-fill.icon').then(r => r['prizmIconsSquareQuestionFill']),
-  prizmIconsSquareTriangleCircleTriangleFill: () =>
+  square_triangle_circle_triangle_fill: () =>
     import('./24/source/prizmIcons-square-triangle-circle-triangle-fill.icon').then(
       r => r['prizmIconsSquareTriangleCircleTriangleFill']
     ),
-  prizmIconsSquareTriangleCircleTriangle: () =>
+  square_triangle_circle_triangle: () =>
     import('./24/source/prizmIcons-square-triangle-circle-triangle.icon').then(
       r => r['prizmIconsSquareTriangleCircleTriangle']
     ),
-  prizmIconsSquareWord: () =>
-    import('./24/source/prizmIcons-square-word.icon').then(r => r['prizmIconsSquareWord']),
-  prizmIconsStarEmpty: () =>
-    import('./24/source/prizmIcons-star-empty.icon').then(r => r['prizmIconsStarEmpty']),
-  prizmIconsStarFill: () =>
-    import('./24/source/prizmIcons-star-fill.icon').then(r => r['prizmIconsStarFill']),
-  prizmIconsStarHalfFill: () =>
+  square_word: () => import('./24/source/prizmIcons-square-word.icon').then(r => r['prizmIconsSquareWord']),
+  star_empty: () => import('./24/source/prizmIcons-star-empty.icon').then(r => r['prizmIconsStarEmpty']),
+  star_fill: () => import('./24/source/prizmIcons-star-fill.icon').then(r => r['prizmIconsStarFill']),
+  star_half_fill: () =>
     import('./24/source/prizmIcons-star-half-fill.icon').then(r => r['prizmIconsStarHalfFill']),
-  prizmIconsStarLine: () =>
-    import('./24/source/prizmIcons-star-line.icon').then(r => r['prizmIconsStarLine']),
-  prizmIconsSteamBoiler: () =>
+  star_line: () => import('./24/source/prizmIcons-star-line.icon').then(r => r['prizmIconsStarLine']),
+  steam_boiler: () =>
     import('./24/source/prizmIcons-steam-boiler.icon').then(r => r['prizmIconsSteamBoiler']),
-  prizmIconsSteamTurbine: () =>
+  steam_turbine: () =>
     import('./24/source/prizmIcons-steam-turbine.icon').then(r => r['prizmIconsSteamTurbine']),
-  prizmIconsSteam: () => import('./24/source/prizmIcons-steam.icon').then(r => r['prizmIconsSteam']),
-  prizmIconsStop: () => import('./24/source/prizmIcons-stop.icon').then(r => r['prizmIconsStop']),
-  prizmIconsStopwatch: () =>
-    import('./24/source/prizmIcons-stopwatch.icon').then(r => r['prizmIconsStopwatch']),
-  prizmIconsStorage: () => import('./24/source/prizmIcons-storage.icon').then(r => r['prizmIconsStorage']),
-  prizmIconsStrikethrough: () =>
+  steam: () => import('./24/source/prizmIcons-steam.icon').then(r => r['prizmIconsSteam']),
+  stop: () => import('./24/source/prizmIcons-stop.icon').then(r => r['prizmIconsStop']),
+  stopwatch: () => import('./24/source/prizmIcons-stopwatch.icon').then(r => r['prizmIconsStopwatch']),
+  storage: () => import('./24/source/prizmIcons-storage.icon').then(r => r['prizmIconsStorage']),
+  strikethrough: () =>
     import('./24/source/prizmIcons-strikethrough.icon').then(r => r['prizmIconsStrikethrough']),
-  prizmIconsSubskritDown: () =>
+  subskrit_down: () =>
     import('./24/source/prizmIcons-subskrit-down.icon').then(r => r['prizmIconsSubskritDown']),
-  prizmIconsSubskritUp: () =>
-    import('./24/source/prizmIcons-subskrit-up.icon').then(r => r['prizmIconsSubskritUp']),
-  prizmIconsSumbolAsterisk: () =>
+  subskrit_up: () => import('./24/source/prizmIcons-subskrit-up.icon').then(r => r['prizmIconsSubskritUp']),
+  sumbol_asterisk: () =>
     import('./24/source/prizmIcons-sumbol-asterisk.icon').then(r => r['prizmIconsSumbolAsterisk']),
-  prizmIconsSun: () => import('./24/source/prizmIcons-sun.icon').then(r => r['prizmIconsSun']),
-  prizmIconsSupportMan: () =>
-    import('./24/source/prizmIcons-support-man.icon').then(r => r['prizmIconsSupportMan']),
-  prizmIconsTableDown: () =>
-    import('./24/source/prizmIcons-table-down.icon').then(r => r['prizmIconsTableDown']),
-  prizmIconsTableGear: () =>
-    import('./24/source/prizmIcons-table-gear.icon').then(r => r['prizmIconsTableGear']),
-  prizmIconsTableMagnifyingGlass: () =>
+  sun: () => import('./24/source/prizmIcons-sun.icon').then(r => r['prizmIconsSun']),
+  support_man: () => import('./24/source/prizmIcons-support-man.icon').then(r => r['prizmIconsSupportMan']),
+  table_down: () => import('./24/source/prizmIcons-table-down.icon').then(r => r['prizmIconsTableDown']),
+  table_gear: () => import('./24/source/prizmIcons-table-gear.icon').then(r => r['prizmIconsTableGear']),
+  table_magnifying_glass: () =>
     import('./24/source/prizmIcons-table-magnifying-glass.icon').then(
       r => r['prizmIconsTableMagnifyingGlass']
     ),
-  prizmIconsTableRight: () =>
-    import('./24/source/prizmIcons-table-right.icon').then(r => r['prizmIconsTableRight']),
-  prizmIconsTableTransposeRight: () =>
+  table_right: () => import('./24/source/prizmIcons-table-right.icon').then(r => r['prizmIconsTableRight']),
+  table_transpose_right: () =>
     import('./24/source/prizmIcons-table-transpose-right.icon').then(r => r['prizmIconsTableTransposeRight']),
-  prizmIconsTableTransposeTop: () =>
+  table_transpose_top: () =>
     import('./24/source/prizmIcons-table-transpose-top.icon').then(r => r['prizmIconsTableTransposeTop']),
-  prizmIconsTableTranspose: () =>
+  table_transpose: () =>
     import('./24/source/prizmIcons-table-transpose.icon').then(r => r['prizmIconsTableTranspose']),
-  prizmIconsTable: () => import('./24/source/prizmIcons-table.icon').then(r => r['prizmIconsTable']),
-  prizmIconsTabletIqcZql: () =>
+  table: () => import('./24/source/prizmIcons-table.icon').then(r => r['prizmIconsTable']),
+  tablet_iqc_zql: () =>
     import('./24/source/prizmIcons-tablet-iqc-zql.icon').then(r => r['prizmIconsTabletIqcZql']),
-  prizmIconsTablet: () => import('./24/source/prizmIcons-tablet.icon').then(r => r['prizmIconsTablet']),
-  prizmIconsTank: () => import('./24/source/prizmIcons-tank.icon').then(r => r['prizmIconsTank']),
-  prizmIconsTankcarOilSideView: () =>
+  tablet: () => import('./24/source/prizmIcons-tablet.icon').then(r => r['prizmIconsTablet']),
+  tank: () => import('./24/source/prizmIcons-tank.icon').then(r => r['prizmIconsTank']),
+  tankcar_oil_side_view: () =>
     import('./24/source/prizmIcons-tankcar-oil-side-view.icon').then(r => r['prizmIconsTankcarOilSideView']),
-  prizmIconsTankcarSideView: () =>
+  tankcar_side_view: () =>
     import('./24/source/prizmIcons-tankcar-side-view.icon').then(r => r['prizmIconsTankcarSideView']),
-  prizmIconsTechsZql: () =>
-    import('./24/source/prizmIcons-techs-zql.icon').then(r => r['prizmIconsTechsZql']),
-  prizmIconsTemperatureMinus: () =>
+  techs_zql: () => import('./24/source/prizmIcons-techs-zql.icon').then(r => r['prizmIconsTechsZql']),
+  temperature_minus: () =>
     import('./24/source/prizmIcons-temperature-minus.icon').then(r => r['prizmIconsTemperatureMinus']),
-  prizmIconsTemperaturePlus: () =>
+  temperature_plus: () =>
     import('./24/source/prizmIcons-temperature-plus.icon').then(r => r['prizmIconsTemperaturePlus']),
-  prizmIconsTemperature: () =>
-    import('./24/source/prizmIcons-temperature.icon').then(r => r['prizmIconsTemperature']),
-  prizmIconsTemplate: () => import('./24/source/prizmIcons-template.icon').then(r => r['prizmIconsTemplate']),
-  prizmIconsTextColor: () =>
-    import('./24/source/prizmIcons-text-color.icon').then(r => r['prizmIconsTextColor']),
-  prizmIconsText: () => import('./24/source/prizmIcons-text.icon').then(r => r['prizmIconsText']),
-  prizmIconsThumbDown: () =>
-    import('./24/source/prizmIcons-thumb-down.icon').then(r => r['prizmIconsThumbDown']),
-  prizmIconsThumbUp: () => import('./24/source/prizmIcons-thumb-up.icon').then(r => r['prizmIconsThumbUp']),
-  prizmIconsThumbtackDirectly: () =>
+  temperature: () => import('./24/source/prizmIcons-temperature.icon').then(r => r['prizmIconsTemperature']),
+  template: () => import('./24/source/prizmIcons-template.icon').then(r => r['prizmIconsTemplate']),
+  text_color: () => import('./24/source/prizmIcons-text-color.icon').then(r => r['prizmIconsTextColor']),
+  text: () => import('./24/source/prizmIcons-text.icon').then(r => r['prizmIconsText']),
+  thumb_down: () => import('./24/source/prizmIcons-thumb-down.icon').then(r => r['prizmIconsThumbDown']),
+  thumb_up: () => import('./24/source/prizmIcons-thumb-up.icon').then(r => r['prizmIconsThumbUp']),
+  thumbtack_directly: () =>
     import('./24/source/prizmIcons-thumbtack-directly.icon').then(r => r['prizmIconsThumbtackDirectly']),
-  prizmIconsThumbtack: () =>
-    import('./24/source/prizmIcons-thumbtack.icon').then(r => r['prizmIconsThumbtack']),
-  prizmIconsTouchpad: () => import('./24/source/prizmIcons-touchpad.icon').then(r => r['prizmIconsTouchpad']),
-  prizmIconsTrainCargo: () =>
-    import('./24/source/prizmIcons-train-cargo.icon').then(r => r['prizmIconsTrainCargo']),
-  prizmIconsTrainPassenger: () =>
+  thumbtack: () => import('./24/source/prizmIcons-thumbtack.icon').then(r => r['prizmIconsThumbtack']),
+  touchpad: () => import('./24/source/prizmIcons-touchpad.icon').then(r => r['prizmIconsTouchpad']),
+  train_cargo: () => import('./24/source/prizmIcons-train-cargo.icon').then(r => r['prizmIconsTrainCargo']),
+  train_passenger: () =>
     import('./24/source/prizmIcons-train-passenger.icon').then(r => r['prizmIconsTrainPassenger']),
-  prizmIconsTransmitter: () =>
-    import('./24/source/prizmIcons-transmitter.icon').then(r => r['prizmIconsTransmitter']),
-  prizmIconsTrashEmpty: () =>
-    import('./24/source/prizmIcons-trash-empty.icon').then(r => r['prizmIconsTrashEmpty']),
-  prizmIconsTrash: () => import('./24/source/prizmIcons-trash.icon').then(r => r['prizmIconsTrash']),
-  prizmIconsTriangleCircleSquareFill: () =>
+  transmitter: () => import('./24/source/prizmIcons-transmitter.icon').then(r => r['prizmIconsTransmitter']),
+  trash_empty: () => import('./24/source/prizmIcons-trash-empty.icon').then(r => r['prizmIconsTrashEmpty']),
+  trash: () => import('./24/source/prizmIcons-trash.icon').then(r => r['prizmIconsTrash']),
+  triangle_circle_square_fill: () =>
     import('./24/source/prizmIcons-triangle-circle-square-fill.icon').then(
       r => r['prizmIconsTriangleCircleSquareFill']
     ),
-  prizmIconsTriangleCircleSquare: () =>
+  triangle_circle_square: () =>
     import('./24/source/prizmIcons-triangle-circle-square.icon').then(
       r => r['prizmIconsTriangleCircleSquare']
     ),
-  prizmIconsTriangleCrossEmpty: () =>
+  triangle_cross_empty: () =>
     import('./24/source/prizmIcons-triangle-cross-empty.icon').then(r => r['prizmIconsTriangleCrossEmpty']),
-  prizmIconsTriangleDown: () =>
+  triangle_down: () =>
     import('./24/source/prizmIcons-triangle-down.icon').then(r => r['prizmIconsTriangleDown']),
-  prizmIconsTriangleExclamationEmpty: () =>
+  triangle_exclamation_empty: () =>
     import('./24/source/prizmIcons-triangle-exclamation-empty.icon').then(
       r => r['prizmIconsTriangleExclamationEmpty']
     ),
-  prizmIconsTriangleExclamationFill: () =>
+  triangle_exclamation_fill: () =>
     import('./24/source/prizmIcons-triangle-exclamation-fill.icon').then(
       r => r['prizmIconsTriangleExclamationFill']
     ),
-  prizmIconsTriangleFill: () =>
+  triangle_fill: () =>
     import('./24/source/prizmIcons-triangle-fill.icon').then(r => r['prizmIconsTriangleFill']),
-  prizmIconsTriangleInfoEmpty: () =>
+  triangle_info_empty: () =>
     import('./24/source/prizmIcons-triangle-info-empty.icon').then(r => r['prizmIconsTriangleInfoEmpty']),
-  prizmIconsTriangleInfoFill: () =>
+  triangle_info_fill: () =>
     import('./24/source/prizmIcons-triangle-info-fill.icon').then(r => r['prizmIconsTriangleInfoFill']),
-  prizmIconsTriangleLeft: () =>
+  triangle_left: () =>
     import('./24/source/prizmIcons-triangle-left.icon').then(r => r['prizmIconsTriangleLeft']),
-  prizmIconsTrianglePlusEmpty: () =>
+  triangle_plus_empty: () =>
     import('./24/source/prizmIcons-triangle-plus-empty.icon').then(r => r['prizmIconsTrianglePlusEmpty']),
-  prizmIconsTriangleRight: () =>
+  triangle_right: () =>
     import('./24/source/prizmIcons-triangle-right.icon').then(r => r['prizmIconsTriangleRight']),
-  prizmIconsTriangleUpDown: () =>
+  triangle_up_down: () =>
     import('./24/source/prizmIcons-triangle-up-down.icon').then(r => r['prizmIconsTriangleUpDown']),
-  prizmIconsTriangleUp: () =>
-    import('./24/source/prizmIcons-triangle-up.icon').then(r => r['prizmIconsTriangleUp']),
-  prizmIconsTriangle: () => import('./24/source/prizmIcons-triangle.icon').then(r => r['prizmIconsTriangle']),
-  prizmIconsTruckDumpSideView: () =>
+  triangle_up: () => import('./24/source/prizmIcons-triangle-up.icon').then(r => r['prizmIconsTriangleUp']),
+  triangle: () => import('./24/source/prizmIcons-triangle.icon').then(r => r['prizmIconsTriangle']),
+  truck_dump_side_view: () =>
     import('./24/source/prizmIcons-truck-dump-side-view.icon').then(r => r['prizmIconsTruckDumpSideView']),
-  prizmIconsTruckEmptySideView: () =>
+  truck_empty_side_view: () =>
     import('./24/source/prizmIcons-truck-empty-side-view.icon').then(r => r['prizmIconsTruckEmptySideView']),
-  prizmIconsTruckGarbageSideView: () =>
+  truck_garbage_side_view: () =>
     import('./24/source/prizmIcons-truck-garbage-side-view.icon').then(
       r => r['prizmIconsTruckGarbageSideView']
     ),
-  prizmIconsTruckGasolineSideView: () =>
+  truck_gasoline_side_view: () =>
     import('./24/source/prizmIcons-truck-gasoline-side-view.icon').then(
       r => r['prizmIconsTruckGasolineSideView']
     ),
-  prizmIconsTruckSideView: () =>
+  truck_side_view: () =>
     import('./24/source/prizmIcons-truck-side-view.icon').then(r => r['prizmIconsTruckSideView']),
-  prizmIconsTv: () => import('./24/source/prizmIcons-tv.icon').then(r => r['prizmIconsTv']),
-  prizmIconsUmbrella: () => import('./24/source/prizmIcons-umbrella.icon').then(r => r['prizmIconsUmbrella']),
-  prizmIconsUnderlined: () =>
-    import('./24/source/prizmIcons-underlined.icon').then(r => r['prizmIconsUnderlined']),
-  prizmIconsUnlock: () => import('./24/source/prizmIcons-unlock.icon').then(r => r['prizmIconsUnlock']),
-  prizmIconsUserArrowsSwap: () =>
+  tv: () => import('./24/source/prizmIcons-tv.icon').then(r => r['prizmIconsTv']),
+  umbrella: () => import('./24/source/prizmIcons-umbrella.icon').then(r => r['prizmIconsUmbrella']),
+  underlined: () => import('./24/source/prizmIcons-underlined.icon').then(r => r['prizmIconsUnderlined']),
+  unlock: () => import('./24/source/prizmIcons-unlock.icon').then(r => r['prizmIconsUnlock']),
+  user_arrows_swap: () =>
     import('./24/source/prizmIcons-user-arrows-swap.icon').then(r => r['prizmIconsUserArrowsSwap']),
-  prizmIconsUserCard: () =>
-    import('./24/source/prizmIcons-user-card.icon').then(r => r['prizmIconsUserCard']),
-  prizmIconsUserCheck: () =>
-    import('./24/source/prizmIcons-user-check.icon').then(r => r['prizmIconsUserCheck']),
-  prizmIconsUserCircle: () =>
-    import('./24/source/prizmIcons-user-circle.icon').then(r => r['prizmIconsUserCircle']),
-  prizmIconsUserCross: () =>
-    import('./24/source/prizmIcons-user-cross.icon').then(r => r['prizmIconsUserCross']),
-  prizmIconsUserGear: () =>
-    import('./24/source/prizmIcons-user-gear.icon').then(r => r['prizmIconsUserGear']),
-  prizmIconsUserGroup: () =>
-    import('./24/source/prizmIcons-user-group.icon').then(r => r['prizmIconsUserGroup']),
-  prizmIconsUserLocation: () =>
+  user_card: () => import('./24/source/prizmIcons-user-card.icon').then(r => r['prizmIconsUserCard']),
+  user_check: () => import('./24/source/prizmIcons-user-check.icon').then(r => r['prizmIconsUserCheck']),
+  user_circle: () => import('./24/source/prizmIcons-user-circle.icon').then(r => r['prizmIconsUserCircle']),
+  user_cross: () => import('./24/source/prizmIcons-user-cross.icon').then(r => r['prizmIconsUserCross']),
+  user_gear: () => import('./24/source/prizmIcons-user-gear.icon').then(r => r['prizmIconsUserGear']),
+  user_group: () => import('./24/source/prizmIcons-user-group.icon').then(r => r['prizmIconsUserGroup']),
+  user_location: () =>
     import('./24/source/prizmIcons-user-location.icon').then(r => r['prizmIconsUserLocation']),
-  prizmIconsUserMinus: () =>
-    import('./24/source/prizmIcons-user-minus.icon').then(r => r['prizmIconsUserMinus']),
-  prizmIconsUserPen: () => import('./24/source/prizmIcons-user-pen.icon').then(r => r['prizmIconsUserPen']),
-  prizmIconsUserPlus: () =>
-    import('./24/source/prizmIcons-user-plus.icon').then(r => r['prizmIconsUserPlus']),
-  prizmIconsUserShield: () =>
-    import('./24/source/prizmIcons-user-shield.icon').then(r => r['prizmIconsUserShield']),
-  prizmIconsUserWorker: () =>
-    import('./24/source/prizmIcons-user-worker.icon').then(r => r['prizmIconsUserWorker']),
-  prizmIconsUser: () => import('./24/source/prizmIcons-user.icon').then(r => r['prizmIconsUser']),
-  prizmIconsUsersArrowRight: () =>
+  user_minus: () => import('./24/source/prizmIcons-user-minus.icon').then(r => r['prizmIconsUserMinus']),
+  user_pen: () => import('./24/source/prizmIcons-user-pen.icon').then(r => r['prizmIconsUserPen']),
+  user_plus: () => import('./24/source/prizmIcons-user-plus.icon').then(r => r['prizmIconsUserPlus']),
+  user_shield: () => import('./24/source/prizmIcons-user-shield.icon').then(r => r['prizmIconsUserShield']),
+  user_worker: () => import('./24/source/prizmIcons-user-worker.icon').then(r => r['prizmIconsUserWorker']),
+  user: () => import('./24/source/prizmIcons-user.icon').then(r => r['prizmIconsUser']),
+  users_arrow_right: () =>
     import('./24/source/prizmIcons-users-arrow-right.icon').then(r => r['prizmIconsUsersArrowRight']),
-  prizmIconsUsersArrowUpZql: () =>
+  users_arrow_up_zql: () =>
     import('./24/source/prizmIcons-users-arrow-up-zql.icon').then(r => r['prizmIconsUsersArrowUpZql']),
-  prizmIconsUsersGear: () =>
-    import('./24/source/prizmIcons-users-gear.icon').then(r => r['prizmIconsUsersGear']),
-  prizmIconsUsersKey: () =>
-    import('./24/source/prizmIcons-users-key.icon').then(r => r['prizmIconsUsersKey']),
-  prizmIconsUsersLocation: () =>
+  users_gear: () => import('./24/source/prizmIcons-users-gear.icon').then(r => r['prizmIconsUsersGear']),
+  users_key: () => import('./24/source/prizmIcons-users-key.icon').then(r => r['prizmIconsUsersKey']),
+  users_location: () =>
     import('./24/source/prizmIcons-users-location.icon').then(r => r['prizmIconsUsersLocation']),
-  prizmIconsUsersMinus: () =>
-    import('./24/source/prizmIcons-users-minus.icon').then(r => r['prizmIconsUsersMinus']),
-  prizmIconsUsersPlus: () =>
-    import('./24/source/prizmIcons-users-plus.icon').then(r => r['prizmIconsUsersPlus']),
-  prizmIconsUsers: () => import('./24/source/prizmIcons-users.icon').then(r => r['prizmIconsUsers']),
-  prizmIconsVectorCircleOnePoint: () =>
+  users_minus: () => import('./24/source/prizmIcons-users-minus.icon').then(r => r['prizmIconsUsersMinus']),
+  users_plus: () => import('./24/source/prizmIcons-users-plus.icon').then(r => r['prizmIconsUsersPlus']),
+  users: () => import('./24/source/prizmIcons-users.icon').then(r => r['prizmIconsUsers']),
+  vector_circle_one_point: () =>
     import('./24/source/prizmIcons-vector-circle-one-point.icon').then(
       r => r['prizmIconsVectorCircleOnePoint']
     ),
-  prizmIconsVectorCircleTwoPoint: () =>
+  vector_circle_two_point: () =>
     import('./24/source/prizmIcons-vector-circle-two-point.icon').then(
       r => r['prizmIconsVectorCircleTwoPoint']
     ),
-  prizmIconsVectorCircle: () =>
+  vector_circle: () =>
     import('./24/source/prizmIcons-vector-circle.icon').then(r => r['prizmIconsVectorCircle']),
-  prizmIconsVectorLine: () =>
-    import('./24/source/prizmIcons-vector-line.icon').then(r => r['prizmIconsVectorLine']),
-  prizmIconsVectorPoint: () =>
+  vector_line: () => import('./24/source/prizmIcons-vector-line.icon').then(r => r['prizmIconsVectorLine']),
+  vector_point: () =>
     import('./24/source/prizmIcons-vector-point.icon').then(r => r['prizmIconsVectorPoint']),
-  prizmIconsVectorPolygon: () =>
+  vector_polygon: () =>
     import('./24/source/prizmIcons-vector-polygon.icon').then(r => r['prizmIconsVectorPolygon']),
-  prizmIconsVectorRectangle: () =>
+  vector_rectangle: () =>
     import('./24/source/prizmIcons-vector-rectangle.icon').then(r => r['prizmIconsVectorRectangle']),
-  prizmIconsVectorSquare: () =>
+  vector_square: () =>
     import('./24/source/prizmIcons-vector-square.icon').then(r => r['prizmIconsVectorSquare']),
-  prizmIconsVectorTriangle: () =>
+  vector_triangle: () =>
     import('./24/source/prizmIcons-vector-triangle.icon').then(r => r['prizmIconsVectorTriangle']),
-  prizmIconsVectorsRadius: () =>
+  vectors_radius: () =>
     import('./24/source/prizmIcons-vectors-radius.icon').then(r => r['prizmIconsVectorsRadius']),
-  prizmIconsVialArrowRotateLeft: () =>
+  vial_arrow_rotate_left: () =>
     import('./24/source/prizmIcons-vial-arrow-rotate-left.icon').then(
       r => r['prizmIconsVialArrowRotateLeft']
     ),
-  prizmIconsVialFlask: () =>
-    import('./24/source/prizmIcons-vial-flask.icon').then(r => r['prizmIconsVialFlask']),
-  prizmIconsVialPlus: () =>
-    import('./24/source/prizmIcons-vial-plus.icon').then(r => r['prizmIconsVialPlus']),
-  prizmIconsVialXmark: () =>
-    import('./24/source/prizmIcons-vial-xmark.icon').then(r => r['prizmIconsVialXmark']),
-  prizmIconsVial: () => import('./24/source/prizmIcons-vial.icon').then(r => r['prizmIconsVial']),
-  prizmIconsVideoCross: () =>
-    import('./24/source/prizmIcons-video-cross.icon').then(r => r['prizmIconsVideoCross']),
-  prizmIconsVideoSlash: () =>
-    import('./24/source/prizmIcons-video-slash.icon').then(r => r['prizmIconsVideoSlash']),
-  prizmIconsVideo: () => import('./24/source/prizmIcons-video.icon').then(r => r['prizmIconsVideo']),
-  prizmIconsVoicemail: () =>
-    import('./24/source/prizmIcons-voicemail.icon').then(r => r['prizmIconsVoicemail']),
-  prizmIconsVolumeCross: () =>
+  vial_flask: () => import('./24/source/prizmIcons-vial-flask.icon').then(r => r['prizmIconsVialFlask']),
+  vial_plus: () => import('./24/source/prizmIcons-vial-plus.icon').then(r => r['prizmIconsVialPlus']),
+  vial_xmark: () => import('./24/source/prizmIcons-vial-xmark.icon').then(r => r['prizmIconsVialXmark']),
+  vial: () => import('./24/source/prizmIcons-vial.icon').then(r => r['prizmIconsVial']),
+  video_cross: () => import('./24/source/prizmIcons-video-cross.icon').then(r => r['prizmIconsVideoCross']),
+  video_slash: () => import('./24/source/prizmIcons-video-slash.icon').then(r => r['prizmIconsVideoSlash']),
+  video: () => import('./24/source/prizmIcons-video.icon').then(r => r['prizmIconsVideo']),
+  voicemail: () => import('./24/source/prizmIcons-voicemail.icon').then(r => r['prizmIconsVoicemail']),
+  volume_cross: () =>
     import('./24/source/prizmIcons-volume-cross.icon').then(r => r['prizmIconsVolumeCross']),
-  prizmIconsVolumeLow: () =>
-    import('./24/source/prizmIcons-volume-low.icon').then(r => r['prizmIconsVolumeLow']),
-  prizmIconsVolumeMinus: () =>
+  volume_low: () => import('./24/source/prizmIcons-volume-low.icon').then(r => r['prizmIconsVolumeLow']),
+  volume_minus: () =>
     import('./24/source/prizmIcons-volume-minus.icon').then(r => r['prizmIconsVolumeMinus']),
-  prizmIconsVolumeOff: () =>
-    import('./24/source/prizmIcons-volume-off.icon').then(r => r['prizmIconsVolumeOff']),
-  prizmIconsVolumePlus: () =>
-    import('./24/source/prizmIcons-volume-plus.icon').then(r => r['prizmIconsVolumePlus']),
-  prizmIconsVolumeSlash: () =>
+  volume_off: () => import('./24/source/prizmIcons-volume-off.icon').then(r => r['prizmIconsVolumeOff']),
+  volume_plus: () => import('./24/source/prizmIcons-volume-plus.icon').then(r => r['prizmIconsVolumePlus']),
+  volume_slash: () =>
     import('./24/source/prizmIcons-volume-slash.icon').then(r => r['prizmIconsVolumeSlash']),
-  prizmIconsVolume: () => import('./24/source/prizmIcons-volume.icon').then(r => r['prizmIconsVolume']),
-  prizmIconsWallet: () => import('./24/source/prizmIcons-wallet.icon').then(r => r['prizmIconsWallet']),
-  prizmIconsWatch: () => import('./24/source/prizmIcons-watch.icon').then(r => r['prizmIconsWatch']),
-  prizmIconsWaterHeater: () =>
+  volume: () => import('./24/source/prizmIcons-volume.icon').then(r => r['prizmIconsVolume']),
+  wallet: () => import('./24/source/prizmIcons-wallet.icon').then(r => r['prizmIconsWallet']),
+  watch: () => import('./24/source/prizmIcons-watch.icon').then(r => r['prizmIconsWatch']),
+  water_heater: () =>
     import('./24/source/prizmIcons-water-heater.icon').then(r => r['prizmIconsWaterHeater']),
-  prizmIconsWaterPump: () =>
-    import('./24/source/prizmIcons-water-pump.icon').then(r => r['prizmIconsWaterPump']),
-  prizmIconsWebcam: () => import('./24/source/prizmIcons-webcam.icon').then(r => r['prizmIconsWebcam']),
-  prizmIconsWifiOff: () => import('./24/source/prizmIcons-wifi-off.icon').then(r => r['prizmIconsWifiOff']),
-  prizmIconsWifi: () => import('./24/source/prizmIcons-wifi.icon').then(r => r['prizmIconsWifi']),
-  prizmIconsWindow: () => import('./24/source/prizmIcons-window.icon').then(r => r['prizmIconsWindow']),
-  prizmIconsWrench: () => import('./24/source/prizmIcons-wrench.icon').then(r => r['prizmIconsWrench']),
-  prizmIconsXmarkColumnRight: () =>
+  water_pump: () => import('./24/source/prizmIcons-water-pump.icon').then(r => r['prizmIconsWaterPump']),
+  webcam: () => import('./24/source/prizmIcons-webcam.icon').then(r => r['prizmIconsWebcam']),
+  wifi_off: () => import('./24/source/prizmIcons-wifi-off.icon').then(r => r['prizmIconsWifiOff']),
+  wifi: () => import('./24/source/prizmIcons-wifi.icon').then(r => r['prizmIconsWifi']),
+  window: () => import('./24/source/prizmIcons-window.icon').then(r => r['prizmIconsWindow']),
+  wrench: () => import('./24/source/prizmIcons-wrench.icon').then(r => r['prizmIconsWrench']),
+  xmark_column_right: () =>
     import('./24/source/prizmIcons-xmark-column-right.icon').then(r => r['prizmIconsXmarkColumnRight']),
-  prizmIconsXmarkColumnTop: () =>
+  xmark_column_top: () =>
     import('./24/source/prizmIcons-xmark-column-top.icon').then(r => r['prizmIconsXmarkColumnTop']),
-  prizmIconsXmarkMini: () =>
-    import('./24/source/prizmIcons-xmark-mini.icon').then(r => r['prizmIconsXmarkMini']),
-  prizmIconsXmark: () => import('./24/source/prizmIcons-xmark.icon').then(r => r['prizmIconsXmark']),
+  xmark_mini: () => import('./24/source/prizmIcons-xmark-mini.icon').then(r => r['prizmIconsXmarkMini']),
+  xmark: () => import('./24/source/prizmIcons-xmark.icon').then(r => r['prizmIconsXmark']),
 };

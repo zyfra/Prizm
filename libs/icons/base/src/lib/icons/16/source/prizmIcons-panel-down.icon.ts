@@ -4,5 +4,5 @@ export const prizmIconsPanelDown: {
   data: string;
 } = {
   name: 'panel_down',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_397_11484)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 0.5C1.17157 0.5 0.5 1.17157 0.5 2V11V14C0.5 14.8284 1.17157 15.5 2 15.5H14C14.8284 15.5 15.5 14.8284 15.5 14V11V2C15.5 1.17157 14.8284 0.5 14 0.5H2ZM14.5 10.5V2C14.5 1.72386 14.2761 1.5 14 1.5H2C1.72386 1.5 1.5 1.72386 1.5 2V10.5H14.5ZM1.5 11.5H14.5V14C14.5 14.2761 14.2761 14.5 14 14.5H2C1.72386 14.5 1.5 14.2761 1.5 14V11.5Z" fill="#6E778C"/></g><defs><clipPath id="clip0_397_11484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#panel-down_svg__clip0_397_11484)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 0.5C1.17157 0.5 0.5 1.17157 0.5 2V11V14C0.5 14.8284 1.17157 15.5 2 15.5H14C14.8284 15.5 15.5 14.8284 15.5 14V11V2C15.5 1.17157 14.8284 0.5 14 0.5H2ZM14.5 10.5V2C14.5 1.72386 14.2761 1.5 14 1.5H2C1.72386 1.5 1.5 1.72386 1.5 2V10.5H14.5ZM1.5 11.5H14.5V14C14.5 14.2761 14.2761 14.5 14 14.5H2C1.72386 14.5 1.5 14.2761 1.5 14V11.5Z" fill="currentColor"/></g><defs><clipPath id="panel-down_svg__clip0_397_11484"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
 };

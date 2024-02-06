@@ -348,7 +348,7 @@ export type PrizmIconsType =
   | 'file_docx'
   | 'file_dot'
   | 'file_empty'
-  | 'file_exclamatioт'
+  | 'file_exclamation'
   | 'file_eye'
   | 'file_filled'
   | 'file_image'
@@ -1206,7 +1206,7 @@ export const PrizmIconsType = {
   file_docx: 'file_docx' as PrizmIconsType,
   file_dot: 'file_dot' as PrizmIconsType,
   file_empty: 'file_empty' as PrizmIconsType,
-  file_exclamatioт: 'file_exclamatioт' as PrizmIconsType,
+  file_exclamation: 'file_exclamation' as PrizmIconsType,
   file_eye: 'file_eye' as PrizmIconsType,
   file_filled: 'file_filled' as PrizmIconsType,
   file_image: 'file_image' as PrizmIconsType,
@@ -2068,7 +2068,7 @@ export enum PrizmIconsEnum {
   FILE_DOCX = 'file_docx',
   FILE_DOT = 'file_dot',
   FILE_EMPTY = 'file_empty',
-  FILE_EXCLAMATIOТ = 'file_exclamatioт',
+  FILE_EXCLAMATION = 'file_exclamation',
   FILE_EYE = 'file_eye',
   FILE_FILLED = 'file_filled',
   FILE_IMAGE = 'file_image',

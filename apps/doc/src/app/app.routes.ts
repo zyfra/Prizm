@@ -374,6 +374,13 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/icons',
+    loadChildren: () => import('./components/icons/base/icons.module').then(i => i.IconsModule),
+    data: {
+      title: 'Icons',
+    },
+  },
+  {
     path: 'components/flag-icons',
     loadChildren: () => import('./components/icons/flags/flags.module').then(i => i.FlagsModule),
     data: {

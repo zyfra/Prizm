@@ -346,7 +346,7 @@ import { prizmIconsFileDoc } from './prizmIcons-file-doc.icon';
 import { prizmIconsFileDocx } from './prizmIcons-file-docx.icon';
 import { prizmIconsFileDot } from './prizmIcons-file-dot.icon';
 import { prizmIconsFileEmpty } from './prizmIcons-file-empty.icon';
-import { prizmIconsFileExclamatioт } from './prizmIcons-file-exclamatioт.icon';
+import { prizmIconsFileExclamation } from './prizmIcons-file-exclamation.icon';
 import { prizmIconsFileEye } from './prizmIcons-file-eye.icon';
 import { prizmIconsFileFilled } from './prizmIcons-file-filled.icon';
 import { prizmIconsFileImage } from './prizmIcons-file-image.icon';
@@ -1203,7 +1203,7 @@ export const completeIconSet = [
   prizmIconsFileDocx,
   prizmIconsFileDot,
   prizmIconsFileEmpty,
-  prizmIconsFileExclamatioт,
+  prizmIconsFileExclamation,
   prizmIconsFileEye,
   prizmIconsFileFilled,
   prizmIconsFileImage,
