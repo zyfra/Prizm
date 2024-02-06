@@ -13,7 +13,7 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
   // Define the destination folder and source folder for the icons
   const destinationFolder = path.join(__dirname, '../../../../', options.dist);
   const pathToFolder = path.join(__dirname, '../../../../', options.src);
-  const locationPostfix = options.locationPostfix ?? 'Location';
+  const locationPostfix = options.locationPostfix ?? '-location';
   const seperateLocation = options.seperateLocation ?? true;
   // Check the existence of the source folder
   if (!fs.existsSync(pathToFolder)) {

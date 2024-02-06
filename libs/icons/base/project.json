@@ -122,7 +122,7 @@
       "options": {
         "src": "libs/icons/base/assets/16",
         "dist": "libs/icons/base/src/styles/icons-full",
-        "fontName": "prizmIconsFull",
+        "fontName": "prizm-icons-full",
         "css": true
       },
       "dependsOn": []
