@@ -4,6 +4,11 @@
       "implementation": "./src/executors/icons-to-lazy/executor",
       "schema": "./src/executors/icons-to-lazy/schema.json",
       "description": "icons-to-lazy executor"
+    },
+    "svg-to-font": {
+      "implementation": "./src/executors/svg-to-font/executor",
+      "schema": "./src/executors/svg-to-font/schema.json",
+      "description": "svg-to-font executor"
     }
   }
 }

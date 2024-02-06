@@ -107,6 +107,26 @@
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
       }
     },
+    "svg-to-font": {
+      "executor": "local:svg-to-font",
+      "options": {
+        "src": "libs/icons/base/assets/24",
+        "dist": "libs/icons/base/src/styles/icons-base",
+        "fontName": "prizmIconsBase",
+        "css": true
+      },
+      "dependsOn": []
+    },
+    "svg-16-to-font": {
+      "executor": "local:svg-to-font",
+      "options": {
+        "src": "libs/icons/base/assets/16",
+        "dist": "libs/icons/base/src/styles/icons-full",
+        "fontName": "prizmIconsFull",
+        "css": true
+      },
+      "dependsOn": []
+    },
     "icons-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {
