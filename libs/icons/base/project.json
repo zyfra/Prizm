@@ -107,12 +107,32 @@
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
       }
     },
+    "svg-to-font": {
+      "executor": "local:svg-to-font",
+      "options": {
+        "src": "libs/icons/base/assets/24",
+        "dist": "libs/icons/base/src/styles/icons-base",
+        "fontName": "prizmIconsBase",
+        "css": true
+      },
+      "dependsOn": []
+    },
+    "svg-16-to-font": {
+      "executor": "local:svg-to-font",
+      "options": {
+        "src": "libs/icons/base/assets/16",
+        "dist": "libs/icons/base/src/styles/icons-full",
+        "fontName": "prizmIconsFull",
+        "css": true
+      },
+      "dependsOn": []
+    },
     "icons-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {
         "pathToFolder": "libs/icons/base/src/lib/icons/24/source",
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set.ts",
-        "prefix": "prizmIcons-",
+        "prefix": "prizmIcons",
         "exportName": "PRIZM_ICONS_LAZY_SET"
       },
       "dependsOn": ["generate-icons-24"]
