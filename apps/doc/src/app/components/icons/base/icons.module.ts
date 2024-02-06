@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { IconsComponent } from './icons.component';
-import { PrizmIcons16Component, PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullComponent, PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsLazyExampleComponent } from './examples/lazy/icons-lazy-example.component';
 import { PrizmIconsBaseExampleComponent } from './examples/base/icons-base-example.component';
 
@@ -14,7 +14,7 @@ import { PrizmIconsBaseExampleComponent } from './examples/base/icons-base-examp
     PrizmIconsLazyExampleComponent,
     PrizmIconsBaseExampleComponent,
     PrizmIconsComponent,
-    PrizmIcons16Component,
+    PrizmIconsFullComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(IconsComponent)),
   ],
   declarations: [IconsComponent],

@@ -1,7 +1,7 @@
 ```ts
 // Использование svg
 import { NgModule } from '@angular/core';
-import { PrizmIconsComponent, PrizmIcons16Component } from '@prizm-ui/icons';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 // ...
 
@@ -9,8 +9,8 @@ import { PrizmIconsComponent, PrizmIcons16Component } from '@prizm-ui/icons';
   imports: [
     // for base variant
     PrizmIconsComponent,
-    // for 16 varian
-    PrizmIcons16Component,
+    // for full variant
+    PrizmIconsFullComponent,
   ],
 })
 export class MyModule {}
