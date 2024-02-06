@@ -1,6 +1,6 @@
 import { Component, inject, OnInit } from '@angular/core';
 import {
-  PrizmIcons16Component,
+  PrizmIconsFullComponent,
   PrizmIcons16Registry,
   prizmIconsArrowsCross,
   prizmIconsArrowUp,
@@ -15,7 +15,7 @@ import {
   templateUrl: './icons-base-example.component.html',
   styleUrls: ['./icons-base-example.component.less'],
   standalone: true,
-  imports: [PrizmIconsComponent, PrizmIcons16Component],
+  imports: [PrizmIconsComponent, PrizmIconsFullComponent],
 })
 export class PrizmIconsBaseExampleComponent implements OnInit {
   // TODO: 4.0.0 rc.2 add different exports with same names
