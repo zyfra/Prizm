@@ -1,7 +1,12 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsArrowsCross, prizmIconsArrowUp, prizmIconsBag, prizmIconsBubbleMessage } from '@prizm-ui/icons/base';
+import {
+  prizmIconsArrowsCross,
+  prizmIconsArrowUp,
+  prizmIconsBag,
+  prizmIconsBubbleMessage,
+} from '@prizm-ui/icons/base';
 import {
   prizmIconsArrowsCross as prizmIconsArrowsCrossFull,
   prizmIconsArrowUp as prizmIconsArrowUpFull,

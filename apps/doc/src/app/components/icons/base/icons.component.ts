@@ -35,7 +35,7 @@ export class IconsComponent {
 
   constructor(
     @Inject(Clipboard) public readonly clipboard: Clipboard,
-    private readonly toastService: PrizmToastService,
+    private readonly toastService: PrizmToastService
   ) {}
 
   public copy(value: string): void {
