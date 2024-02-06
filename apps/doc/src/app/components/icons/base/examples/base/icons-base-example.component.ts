@@ -23,13 +23,11 @@ export class PrizmIconsBaseExampleComponent implements OnInit {
   readonly iconsBaseRegistry = inject(PrizmIconsRegistry);
 
   public ngOnInit() {
-    this.iconsBaseRegistry.registerIcons(
-      [
-        prizmIconsArrowUp,
-        prizmIconsArrowsCross,
-        prizmIconsBag,
-        prizmIconsBubbleMessage
-      ]
-    )
+    this.iconsBaseRegistry.registerIcons([
+      prizmIconsArrowUp,
+      prizmIconsArrowsCross,
+      prizmIconsBag,
+      prizmIconsBubbleMessage,
+    ]);
   }
 }
