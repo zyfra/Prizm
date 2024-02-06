@@ -9,7 +9,7 @@ import { PrizmIconsRegistry } from './prizm-icons.registry';
 @Injectable({
   providedIn: 'root',
 })
-export class PrizmIcons16Registry extends PrizmIconsRegistry {
+export class PrizmIconsFullRegistry extends PrizmIconsRegistry {
   // Since there is no new functionality, no additional code is required.
   // If specific behavior for 16px icons is needed in the future, it can be implemented here.
 }
