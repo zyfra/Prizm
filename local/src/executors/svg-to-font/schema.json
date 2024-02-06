@@ -20,6 +20,14 @@
       "alias": "f",
       "description": "Name of font"
     },
+    "locationPostfix": {
+      "type": "string",
+      "description": "Postfix for location"
+    },
+    "seperateLocation": {
+      "type": "boolean",
+      "description": "Seperate font locations files"
+    },
     "dist": {
       "type": "string",
       "alias": "o",
