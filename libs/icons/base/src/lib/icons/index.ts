@@ -1,9 +1,3 @@
-export * from './lazy-icon-set';
-export * from './lazy-icon-set-16';
-export * from './prizm-icons.component';
-export * from './prizm-icons-full.component';
-export * from './prizm-icons.registry';
-export * from './prizm-icons-full.registry';
-export * from './types';
-export * from './token';
-export * from './24';
+export * from './icons.component';
+export * from './icons-full.component';
+

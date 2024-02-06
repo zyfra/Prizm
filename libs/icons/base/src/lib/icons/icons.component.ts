@@ -11,10 +11,10 @@ import {
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
-import { PrizmIconsRegistry } from './prizm-icons.registry';
-import { PRIZM_ICONS_LOADER } from './token';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PRIZM_ICONS_LOADER } from '@prizm-ui/icons/base';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
 
 /**
  * @component PrizmIconsComponent
@@ -23,7 +23,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Component({
   selector: 'prizm-icons',
   template: ` <ng-content></ng-content> `,
-  styleUrls: ['./prizm-icons.component.less'],
+  styleUrls: ['./icons.component.less'],
   standalone: true,
   providers: [PrizmDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,

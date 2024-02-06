@@ -1,14 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsArrowsCross, prizmIconsArrowUp, prizmIconsBag, prizmIconsBubbleMessage } from '@prizm-ui/icons/base';
 import {
-  PrizmIconsFullComponent,
-  PrizmIconsFullRegistry,
-  prizmIconsArrowsCross,
-  prizmIconsArrowUp,
-  prizmIconsBag,
-  prizmIconsBubbleMessage,
-  PrizmIconsComponent,
-  PrizmIconsRegistry,
-} from '@prizm-ui/icons';
+  prizmIconsArrowsCross as prizmIconsArrowsCrossFull,
+  prizmIconsArrowUp as prizmIconsArrowUpFull,
+  prizmIconsBag as prizmIconsBagFull,
+  prizmIconsBubbleMessage as prizmIconsBubbleMessageFull,
+} from '@prizm-ui/icons/full';
 
 @Component({
   selector: 'prizm-icons-base-example',
@@ -18,8 +17,7 @@ import {
   imports: [PrizmIconsComponent, PrizmIconsFullComponent],
 })
 export class PrizmIconsBaseExampleComponent implements OnInit {
-  // TODO: 4.0.0 rc.2 add different exports with same names
-  readonly icons16Registry = inject(PrizmIconsFullRegistry);
+  readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   readonly iconsBaseRegistry = inject(PrizmIconsRegistry);
 
   public ngOnInit() {
@@ -28,6 +26,12 @@ export class PrizmIconsBaseExampleComponent implements OnInit {
       prizmIconsArrowsCross,
       prizmIconsBag,
       prizmIconsBubbleMessage,
+    ]);
+    this.iconsFullRegistry.registerIcons([
+      prizmIconsArrowUpFull,
+      prizmIconsArrowsCrossFull,
+      prizmIconsBagFull,
+      prizmIconsBubbleMessageFull,
     ]);
   }
 }

@@ -1,6 +1,3 @@
-import { InjectionToken } from '@angular/core';
-import { PRIZM_ICONS_LAZY_SET } from './lazy-icon-set';
-import { PRIZM_ICONS_16_LAZY_SET } from './lazy-icon-set-16';
 import { from, map, Observable, of } from 'rxjs';
 
 // Define a type for the lazy icon set which maps icon names to lazy loader functions.
@@ -23,15 +20,3 @@ export function prizmCreateIconsLoader(lazySet: PrizmIconsLazySet): PrizmIconsLo
     return typeof lazyIcon === 'function' ? from(lazyIcon()).pipe(map(icon => icon.data)) : of(null);
   };
 }
-
-// Create an InjectionToken for the standard size icons loader.
-// It uses the `createIconLoader` function with the standard size lazy icon set.
-export const PRIZM_ICONS_LOADER = new InjectionToken<PrizmIconsLoader>('PRIZM_ICONS_LOADER', {
-  factory: () => prizmCreateIconsLoader(PRIZM_ICONS_LAZY_SET),
-});
-
-// Create an InjectionToken for the 16px size icons loader.
-// It uses the `createIconLoader` function with the 16px size lazy icon set.
-export const PRIZM_ICONS_16_LOADER = new InjectionToken<PrizmIconsLoader>('PRIZM_ICONS_16_LOADER', {
-  factory: () => prizmCreateIconsLoader(PRIZM_ICONS_16_LAZY_SET),
-});

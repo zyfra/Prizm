@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { PrizmIconsRegistry } from './prizm-icons.registry';
+import { PrizmIconsRegistry } from './icons.registry';
 
 /**
  * Service for registering and retrieving 16px size icons. It extends the PrizmIconsRegistry class.

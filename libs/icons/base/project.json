@@ -123,7 +123,7 @@
         "pathToFolder": "libs/icons/base/src/lib/icons/16/source",
         "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set-16.ts",
         "prefix": "prizmIcons-",
-        "exportName": "PRIZM_ICONS_16_LAZY_SET"
+        "exportName": "PRIZM_ICONS_FULL_LAZY_SET"
       },
       "dependsOn": ["generate-icons-16"]
     }

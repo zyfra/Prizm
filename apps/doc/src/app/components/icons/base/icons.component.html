@@ -19,7 +19,10 @@
     <div>
       <div class="icons">
         <div class="icon-def" *ngFor="let name of iconsSet" (click)="copy(name)">
-          <prizm-icons [size]="24" [name]="name"></prizm-icons>
+          <div class="both-size">
+            <prizm-icons title="Base Size" [size]="24" [name]="name"></prizm-icons>
+            <prizm-icons-full title="Full Size" [size]="24" [name]="name"></prizm-icons-full>
+          </div>
           <div class="name" [title]="name">{{ name }}</div>
         </div>
       </div>
