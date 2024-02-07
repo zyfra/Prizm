@@ -23,7 +23,7 @@ import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-hand
 import { PRIZM_DATE_TIME_SEPARATOR } from '../../../constants/date-time-separator';
 import { prizmDefaultProp, prizmPure } from '@prizm-ui/core';
 import { PRIZM_DATE_TIME_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
-import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
+import { PRIZM_DATE_TEXTS, PRIZM_INPUT_LAYOUT_DATE_TIME, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
 import { PrizmContextWithImplicit } from '../../../types/context-with-implicit';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { PrizmDateMode } from '../../../types/date-mode';
@@ -36,8 +36,8 @@ import { prizmClamp } from '../../../util/math/clamp';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmInputControl, PrizmInputNgControl } from '../common';
+import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
+import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective } from '../common';
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmLifecycleModule } from '../../../directives/lifecycle';
@@ -57,6 +57,7 @@ import { PrizmLinkComponent } from '../../link';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
+import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -70,6 +71,7 @@ import { PrizmPreventDefaultDirective } from '../../../directives';
     ...prizmI18nInitWithKeys({
       time: PRIZM_TIME_TEXTS,
       dateTexts: PRIZM_DATE_TEXTS,
+      inputLayoutDateTime: PRIZM_INPUT_LAYOUT_DATE_TIME,
     }),
     ...PRIZM_INPUT_DATE_TIME_PROVIDERS,
     {
@@ -100,6 +102,7 @@ import { PrizmPreventDefaultDirective } from '../../../directives';
     PrizmValueAccessorModule,
     PrizmInputNativeValueModule,
     PrizmListingItemComponent,
+    PrizmPluckPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
@@ -114,6 +117,9 @@ export class PrizmInputLayoutDateTimeComponent
 
   @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
   public override readonly focusableElement?: PrizmInputZoneDirective;
+
+  @ViewChild(PrizmInputStatusTextDirective, { static: true })
+  override statusText!: PrizmInputStatusTextDirective;
 
   @Input()
   @prizmDefaultProp()
@@ -179,6 +185,8 @@ export class PrizmInputLayoutDateTimeComponent
     injector: Injector,
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
+    @Inject(PRIZM_INPUT_LAYOUT_DATE_TIME)
+    public readonly dictionary$: Observable<PrizmLanguageInputLayoutDateTime['inputLayoutDateTime']>,
     @Optional()
     @Inject(PRIZM_DATE_TIME_VALUE_TRANSFORMER)
     valueTransformer: PrizmControlValueTransformer<[PrizmDay | null, PrizmTime | null] | null> | null

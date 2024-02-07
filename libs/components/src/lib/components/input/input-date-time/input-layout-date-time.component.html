@@ -10,7 +10,6 @@
   [closeByEsc]="true"
   (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
 >
-  <ng-template prizmInputStatusText>Ошибка! Неправильный формат</ng-template>
   <div
     class="multiple-input-box"
     #focusableElementRef="prizmInputZone"
@@ -117,4 +116,8 @@
       </prizm-listing-item>
     </ng-container>
   </prizm-data-list>
+</ng-template>
+
+<ng-template [enable]="!!ngControl.errors?.requiredPattern" prizmInputStatusText status="danger">
+  {{ dictionary$ | async | prizmPluck : 'wrongFormat' }}
 </ng-template>
