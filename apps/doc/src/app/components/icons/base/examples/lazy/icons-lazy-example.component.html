@@ -4,7 +4,7 @@
   <prizm-loader [showLoader]="showLoader$ | async">
     <div style="display: flex; gap: 8px" *ngIf="(showLoader$ | async) === false; else loading">
         <prizm-icons [size]="30" [color]="'green'" name="wifi"></prizm-icons>
-        <prizm-icons [color]="'var(--prizm-index-plan)'" [size]="30" name="agenda_fill"></prizm-icons>
+        <prizm-icons [color]="'var(--prizm-index-plan)'" [size]="30" name="agenda-fill"></prizm-icons>
         <prizm-icons class="color_by_class" [size]="30" name="key"></prizm-icons>
         <prizm-icons [size]="30" name="wrench"></prizm-icons>
     </div>
@@ -18,7 +18,7 @@
   <prizm-loader [showLoader]="showLoader$ | async">
     <div style="display: flex; gap: 8px" *ngIf="(showLoader$ | async) === false; else loading">
       <prizm-icons-full [size]="30" [color]="'green'" name="wifi"></prizm-icons-full>
-      <prizm-icons-full [size]="30" [color]="'var(--prizm-index-plan)'" name="agenda_fill"></prizm-icons-full>
+      <prizm-icons-full [size]="30" [color]="'var(--prizm-index-plan)'" name="agenda-fill"></prizm-icons-full>
       <prizm-icons-full class="color_by_class" [size]="30" name="key"></prizm-icons-full>
       <prizm-icons-full [size]="30" name="wrench"></prizm-icons-full>
     </div>
