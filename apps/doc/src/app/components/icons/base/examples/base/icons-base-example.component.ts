@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { PrizmIconsComponent, PrizmIconsFullComponent, prizmIconsNameToClass } from '@prizm-ui/icons';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsArrowsCross,
@@ -39,6 +39,4 @@ export class PrizmIconsBaseExampleComponent implements OnInit {
       prizmIconsBubbleMessageFull,
     ]);
   }
-
-  protected readonly prizmIconsNameToClass = prizmIconsNameToClass;
 }

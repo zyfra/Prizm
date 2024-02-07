@@ -46,11 +46,25 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
       .then(() => {
         console.log('Prepare for generate fonts. Fixing svg');
         svgForFontSource = pathToOutputFixedSvg;
+
+        const changeFileNames = options.changeFileNames ?? true;
+        if (changeFileNames) {
+          const files = fs.readdirSync(svgForFontSource);
+          for (const file of files) {
+           fs.renameSync(
+             path.join(svgForFontSource, file),
+             path.join(svgForFontSource, file.replace(/[_]/g, '-')),
+           )
+          }
+        }
+
       })
       .catch(err => {
         throw err;
       });
   }
+
+
 
   console.log('Starting to convert svg to font');
 

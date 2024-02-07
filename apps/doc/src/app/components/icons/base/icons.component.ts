@@ -4,7 +4,6 @@ import { Clipboard } from '@angular/cdk/clipboard';
 import { PrizmToastService } from '@prizm-ui/components';
 import { copyToClipboard } from '../../../util';
 import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
-import { prizmIconsNameToClass } from '@prizm-ui/icons';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
 
@@ -20,7 +19,6 @@ export class IconsComponent {
   public colored = false;
   readonly sizeVariants = ['32px', 24, 16];
   public size = this.sizeVariants[0];
-  protected readonly prizmIconsNameToClass = prizmIconsNameToClass;
 
   public readonly iconsSet = Object.keys(PRIZM_ICONS_LAZY_SET);
   readonly nameVariants = this.iconsSet;

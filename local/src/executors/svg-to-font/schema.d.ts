@@ -6,6 +6,7 @@ export interface IconsSvgToFontSchema {
   locationPostfix?: string;
   separateLocation?: boolean;
   urlLocation?: string;
+  changeFileNames?: string;
 
   fixSvgForFont?: boolean;
   pathToOutputFixedSvg?: string;

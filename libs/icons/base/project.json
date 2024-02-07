@@ -10,7 +10,7 @@
       "options": {
         "conversionType": "files",
         "srcFiles": ["libs/icons/base/assets/24/*.svg"],
-        "outputDirectory": "libs/icons/base/src/lib/icons/24",
+        "outputDirectory": "libs/icons/base/base/src/lib",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
@@ -20,6 +20,7 @@
         "enumName": "PrizmIconsEnum",
         "fileName": "icons",
         "iconsFolderName": "source",
+        "delimiter": "KEBAB",
         "barrelFileName": "index",
         "generateType": true,
         "generateTypeObject": true,
@@ -37,8 +38,9 @@
       "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
       "options": {
         "conversionType": "files",
+        "delimiter": "KEBAB",
         "srcFiles": ["libs/icons/base/assets/16/*.svg"],
-        "outputDirectory": "libs/icons/base/src/lib/icons/16",
+        "outputDirectory": "libs/icons/base/full/src/lib",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
@@ -120,8 +122,8 @@
     "icons-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {
-        "pathToFolder": "libs/icons/base/src/lib/icons/24/source",
-        "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set.ts",
+        "pathToFolder": "libs/icons/base/base/src/lib/source",
+        "pathToOutputFile": "libs/icons/base/base/src/lib/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_LAZY_SET"
       },
@@ -130,8 +132,8 @@
     "icons-16-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {
-        "pathToFolder": "libs/icons/base/src/lib/icons/16/source",
-        "pathToOutputFile": "libs/icons/base/src/lib/icons/lazy-icon-set-16.ts",
+        "pathToFolder": "libs/icons/base/full/src/lib/source",
+        "pathToOutputFile": "libs/icons/base/full/src/lib/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
         "exportName": "PRIZM_ICONS_FULL_LAZY_SET"
       },
