@@ -7,6 +7,7 @@ import {
   PrizmLanguageCron,
   PrizmLanguageFileUpload,
   PrizmLanguageInputLayoutDateRelative,
+  PrizmLanguageInputLayoutDateTime,
   PrizmLanguageKit,
   PrizmLanguagePaginator,
 } from '@prizm-ui/i18n';
@@ -18,6 +19,10 @@ export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFile
 export const PRIZM_INPUT_LAYOUT_DATE_RELATIVE = new InjectionToken<
   Observable<PrizmLanguageInputLayoutDateRelative['inputLayoutDateRelative']>
 >(`Localized for input layout date relative component`);
+
+export const PRIZM_INPUT_LAYOUT_DATE_TIME = new InjectionToken<
+  Observable<PrizmLanguageInputLayoutDateTime['inputLayoutDateTime']>
+>(`Localized for input layout date time component`);
 
 export const PRIZM_CRON = new InjectionToken<Observable<PrizmLanguageCron['cron']>>(
   `Localized for cron component`

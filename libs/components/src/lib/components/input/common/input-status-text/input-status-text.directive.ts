@@ -23,11 +23,11 @@ export class PrizmInputStatusTextDirective extends DefaultInputInvalidTextClass 
 
   protected override setInvalidText(text: string): void {
     super.setInvalidText(text);
-
     this.changed.next();
   }
 
   public getStatusMessage(): PolymorphContent {
-    return this.invalidText || this.templateRef;
+    const isTemplateEmpty = !this.templateRef.createEmbeddedView(null).rootNodes[0];
+    return isTemplateEmpty ? this.invalidText : this.templateRef;
   }
 }
