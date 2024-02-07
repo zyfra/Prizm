@@ -4,5 +4,5 @@ export const prizmIconsAlignCenterV: {
   data: string;
 } = {
   name: 'align_center_v',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#align-center-v_svg__clip0_389_13090)"><path d="M15 8H10M10 8L12 6M10 8L12 10" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 8H6M6 8L4 6M6 8L4 10" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 1V15" stroke="#6E778C" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="align-center-v_svg__clip0_389_13090"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#align-center-v_svg__clip0_389_13090)"><path d="M15 8H10M10 8L12 6M10 8L12 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 8H6M6 8L4 6M6 8L4 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 1V15" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="align-center-v_svg__clip0_389_13090"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
 };

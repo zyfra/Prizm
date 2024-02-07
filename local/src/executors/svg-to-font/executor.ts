@@ -1,7 +1,9 @@
 import { IconsSvgToFontSchema } from './schema';
 import * as fs from 'fs';
 import * as path from 'path';
-import * as svgtofont from 'svgtofont';
+import * as SVGFixer from 'oslllo-svg-fixer';
+import { FontAssetType, generateFonts, OtherAssetType } from 'fantasticon';
+import { createDirectoriesSafely } from './util';
 
 /**
  * Function that converts svg icons to font files
@@ -10,11 +12,12 @@ import * as svgtofont from 'svgtofont';
  * @returns {Object} - An object with a success property of true or false
  */
 export default async function runExecutor(options: IconsSvgToFontSchema) {
+  console.log('Starting...');
   // Define the destination folder and source folder for the icons
   const destinationFolder = path.join(__dirname, '../../../../', options.dist);
   const pathToFolder = path.join(__dirname, '../../../../', options.src);
   const locationPostfix = options.locationPostfix ?? '-location';
-  const seperateLocation = options.seperateLocation ?? true;
+  const separateLocation = options.separateLocation ?? true;
   // Check the existence of the source folder
   if (!fs.existsSync(pathToFolder)) {
     return { success: false };
@@ -27,19 +30,48 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
     return { success: false };
   }
 
-  // Convert SVG icons to font files
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  await svgtofont({
-    src: pathToFolder,
-    dist: destinationFolder,
-    fontName: options.fontName, // Name of the font
-    css: options.css ?? true, // Whether to create CSS files or not
+  const fixSvgForFont = options.fixSvgForFont;
+  const pathToOutputFixedSvg = options.pathToOutputFixedSvg;
+  let svgForFontSource = pathToFolder;
+  if (fixSvgForFont && pathToOutputFixedSvg) {
+    const fullPathToOutputFixedSvg = path.join(__dirname, '../../../../', pathToOutputFixedSvg);
+
+    if (!fs.existsSync(fullPathToOutputFixedSvg)) {
+      console.log('Creating folder for output fixed svg...');
+      fs.mkdirSync(fullPathToOutputFixedSvg);
+    }
+
+    await SVGFixer(svgForFontSource, pathToOutputFixedSvg)
+      .fix()
+      .then(() => {
+        console.log('Prepare for generate fonts. Fixing svg');
+        svgForFontSource = pathToOutputFixedSvg;
+      })
+      .catch(err => {
+        throw err;
+      });
+  }
+
+  console.log('Starting to convert svg to font');
+
+  createDirectoriesSafely(destinationFolder);
+
+  await generateFonts({
+    inputDir: svgForFontSource, // (required)
+    outputDir: destinationFolder, // (required)
+    name: options.fontName,
+    prefix: options.fontName,
+    fontTypes: [FontAssetType.EOT, FontAssetType.WOFF2, FontAssetType.WOFF, FontAssetType.TTF],
+    assetTypes: [OtherAssetType.CSS, OtherAssetType.SCSS],
+  }).then(() => {
+    console.log('All fonts are successfully generated');
   });
 
-  if (!seperateLocation) {
+  if (!separateLocation) {
     return { success: true };
   }
+
+  console.log('Separating locations from generate font styles');
 
   // Define the types of stylesheets extensions we're interested in
   const exts = ['less', 'css', 'scss'];
@@ -49,6 +81,7 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
 
   // If no stylesheet files were found, return false
   if (!outputStyleFiles.length) {
+    console.log('Can not find files with stylesheets');
     return { success: false };
   }
 
@@ -67,9 +100,17 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
 
     // Find font-face CSS block
     const locationRegex = /(@font-face {[^{}]+})/g;
-    const location = locationRegex.exec(content)?.[1];
+    let location = locationRegex.exec(content)?.[1];
     if (!location) {
       return { success: false };
+    }
+
+    if (options.urlLocation) {
+      const regex = /url\(["']{1}([^"']+)["']{1}\)/g;
+      const matches = location.matchAll(regex);
+      for (const math of matches) {
+        location = location.replace(math[1], `${path.join(options.urlLocation, math[1])}`);
+      }
     }
 
     // Remove the font-face CSS block from font file

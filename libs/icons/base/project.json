@@ -27,15 +27,7 @@
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
-          "plugins": [
-            "removeDimensions",
-            {
-              "name": "prefixIds",
-              "params": {
-                "currentColor": "true"
-              }
-            }
-          ]
+          "plugins": ["removeDimensions"]
         },
         "compileSources": false
       },
@@ -63,15 +55,7 @@
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
-          "plugins": [
-            "removeDimensions",
-            {
-              "name": "prefixIds",
-              "params": {
-                "currentColor": "true"
-              }
-            }
-          ]
+          "plugins": ["removeDimensions"]
         },
         "compileSources": false
       },
@@ -112,8 +96,11 @@
       "options": {
         "src": "libs/icons/base/assets/24",
         "dist": "libs/icons/base/src/styles/icons-base",
-        "fontName": "prizmIconsBase",
-        "css": true
+        "urlLocation": "/assets/prizm/icons/base",
+        "fontName": "prizm-base-icons",
+        "css": true,
+        "fixSvgForFont": true,
+        "pathToOutputFixedSvg": "dist/icons-base-font-24"
       },
       "dependsOn": []
     },
@@ -122,8 +109,11 @@
       "options": {
         "src": "libs/icons/base/assets/16",
         "dist": "libs/icons/base/src/styles/icons-full",
-        "fontName": "prizm-icons-full",
-        "css": true
+        "fontName": "prizm-full-icons",
+        "urlLocation": "/assets/prizm/icons/full",
+        "css": true,
+        "fixSvgForFont": true,
+        "pathToOutputFixedSvg": "dist/icons-base-font-16"
       },
       "dependsOn": []
     },

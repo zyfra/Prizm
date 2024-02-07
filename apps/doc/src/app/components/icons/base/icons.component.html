@@ -17,11 +17,37 @@
     </prizm-doc-example>
 
     <div>
-      <div class="icons">
-        <div class="icon-def" *ngFor="let name of iconsSet" (click)="copy(name)">
+      <div class="header">
+        <div class="search">
+          <prizm-input-layout [label]="null" size="m">
+            <input
+              [placeholder]="'Search icons'"
+              [ngModel]="search"
+              (ngModelChange)="filterIcons($event)"
+              prizmInput
+            />
+          </prizm-input-layout>
+        </div>
+        <div class="change-color-toggle">
+          <ng-container *prizmIfLang="'russian'; else eng"> Изменить цвет </ng-container>
+          <ng-template #eng> Change color </ng-template>
+
+          <prizm-toggle [ngModel]="colored" (ngModelChange)="colored = $event"></prizm-toggle>
+        </div>
+      </div>
+      <div class="icons" [class.colored]="colored">
+        <div class="icon-def" *ngFor="let name of filteredIcons$ | async" (click)="copy(name)">
           <div class="both-size">
-            <prizm-icons [size]="24" [name]="name" title="Base Size"></prizm-icons>
-            <prizm-icons-full [size]="24" [name]="name" title="Full Size"></prizm-icons-full>
+            <prizm-icons [size]="24" [name]="name" title="SVG: Base Size"></prizm-icons>
+            <prizm-icons-full [size]="24" [name]="name" title="SVG: Full Size"></prizm-icons-full>
+            <i
+              class="base-icon prizm-base-icons-{{ prizmIconsNameToClass(name) }}"
+              title="Font: Base Size"
+            ></i>
+            <i
+              class="full-icon prizm-full-icons-{{ prizmIconsNameToClass(name) }}"
+              title="Font: Full Size"
+            ></i>
           </div>
           <div class="name" [title]="name">{{ name }}</div>
         </div>

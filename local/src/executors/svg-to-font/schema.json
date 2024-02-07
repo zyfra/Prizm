@@ -24,7 +24,7 @@
       "type": "string",
       "description": "Postfix for location"
     },
-    "seperateLocation": {
+    "separateLocation": {
       "type": "boolean",
       "description": "Seperate font locations files"
     },
