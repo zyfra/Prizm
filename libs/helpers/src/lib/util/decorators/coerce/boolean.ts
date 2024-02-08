@@ -17,7 +17,7 @@
  * ```
  */
 export function PrizmCoerceBoolean() {
-  return function(target: any, key: string, propertyDescriptor?: PropertyDescriptor): void {
+  return function (target: any, key: string, propertyDescriptor?: PropertyDescriptor): void {
     // Choose the strategy based on whether accessors are defined for target property
     // If accessors are defined, leverage them, otherwise create them
     !!propertyDescriptor && !!propertyDescriptor.set
@@ -34,11 +34,11 @@ export function PrizmCoerceBoolean() {
   function coerceUsingAccessors(propertyDescriptor: PropertyDescriptor): void {
     const original = propertyDescriptor.set;
 
-    propertyDescriptor.set = function(next) {
+    propertyDescriptor.set = function (next) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       original.apply(this, [coerceValue(next)]);
-    }
+    };
   }
 
   /**
@@ -46,13 +46,13 @@ export function PrizmCoerceBoolean() {
    * we define our own get and set accessors for the property.
    */
   function coerceWithoutAccessors(target: any, key: string): void {
-    const getter = function() {
+    const getter = function () {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       return this['__' + key];
     };
 
-    const setter = function(next: any) {
+    const setter = function (next: any) {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       this['__' + key] = coerceValue(next);
@@ -62,7 +62,7 @@ export function PrizmCoerceBoolean() {
       get: getter,
       set: setter,
       enumerable: true,
-      configurable: true
+      configurable: true,
     });
   }
 

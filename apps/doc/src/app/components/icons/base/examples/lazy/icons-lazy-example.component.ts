@@ -10,14 +10,8 @@ import { AsyncPipe, NgIf } from '@angular/common';
   templateUrl: './icons-lazy-example.component.html',
   styleUrls: ['./icons-lazy-example.component.less'],
   standalone: true,
-  imports: [
-    AsyncPipe,
-    NgIf,
-    PrizmIconsComponent, PrizmIconsFullComponent, PrizmLoaderComponent],
+  imports: [AsyncPipe, NgIf, PrizmIconsComponent, PrizmIconsFullComponent, PrizmLoaderComponent],
 })
 export class PrizmIconsLazyExampleComponent {
-  readonly showLoader$ = of(false).pipe(
-    delay(10000),
-    startWith(true)
-  )
+  readonly showLoader$ = of(false).pipe(delay(10000), startWith(true));
 }

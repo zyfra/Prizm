@@ -1,7 +1,8 @@
 @font-face {
-    font-family: "prizm-base-icons";
-    src: url("/assets/prizm/icons/base/prizm-base-icons.eot?d38b50a8897750651b788177357b5736#iefix") format("embedded-opentype"),
-url("/assets/prizm/icons/base/prizm-base-icons.woff2?d38b50a8897750651b788177357b5736") format("woff2"),
-url("/assets/prizm/icons/base/prizm-base-icons.woff?d38b50a8897750651b788177357b5736") format("woff"),
-url("/assets/prizm/icons/base/prizm-base-icons.ttf?d38b50a8897750651b788177357b5736") format("truetype");
+  font-family: 'prizm-base-icons';
+  src: url('/assets/prizm/icons/base/prizm-base-icons.eot?d38b50a8897750651b788177357b5736#iefix')
+      format('embedded-opentype'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff2?d38b50a8897750651b788177357b5736') format('woff2'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff?d38b50a8897750651b788177357b5736') format('woff'),
+    url('/assets/prizm/icons/base/prizm-base-icons.ttf?d38b50a8897750651b788177357b5736') format('truetype');
 }

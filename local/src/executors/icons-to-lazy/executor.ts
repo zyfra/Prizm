@@ -38,29 +38,18 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema) {
     /* fix names kebab between text + number (v1 > v-1) */
     if (content) {
       const matches = content.matchAll(/name: '[^']+([a-zA-Z]+-[0-9]+)'/g);
-      if (matches) for (const match of matches) {
-        const oldPart = match[1];
-        const newPath = match[1].replace(/-/g, '');
+      if (matches)
+        for (const match of matches) {
+          const oldPart = match[1];
+          const newPath = match[1].replace(/-/g, '');
 
-        const changedPart = match[0].replace(
-          oldPart,
-          newPath
-        );
+          const changedPart = match[0].replace(oldPart, newPath);
 
-        content = content.replaceAll(
-          match[0],
-          changedPart
-        );
+          content = content.replaceAll(match[0], changedPart);
 
-        fs.writeFileSync(
-          path.join(
-            pathToFolder,
-            file
-          ),
-          content,
-        );
-        fixedNames.push(`${oldPart}>${newPath}`);
-      }
+          fs.writeFileSync(path.join(pathToFolder, file), content);
+          fixedNames.push(`${oldPart}>${newPath}`);
+        }
     }
 
     const exportName = /export const ([^:]+)/g.exec(content)?.[1];

@@ -1,3446 +1,3445 @@
-$prizm-base-icons-font: "prizm-base-icons";
+$prizm-base-icons-font: 'prizm-base-icons';
 
-
-
-i[class^="prizm-base-icons-"]:before, i[class*=" prizm-base-icons-"]:before {
-    font-family: prizm-base-icons !important;
-    font-style: normal;
-    font-weight: normal !important;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+i[class^='prizm-base-icons-']:before,
+i[class*=' prizm-base-icons-']:before {
+  font-family: prizm-base-icons !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 $prizm-base-icons-map: (
-    "agenda-fill": "\f101",
-    "airplane-side-view": "\f102",
-    "airplane-top-view": "\f103",
-    "alarm-clock": "\f104",
-    "alarm-plus": "\f105",
-    "align-bottom": "\f106",
-    "align-center-h": "\f107",
-    "align-center-v": "\f108",
-    "align-center": "\f109",
-    "align-justify": "\f10a",
-    "align-left": "\f10b",
-    "align-right": "\f10c",
-    "align-top": "\f10d",
-    "ambulance-side-view": "\f10e",
-    "android-pill": "\f10f",
-    "android": "\f110",
-    "angle-left-right-arrows-down": "\f111",
-    "angle-left-right": "\f112",
-    "angle-left": "\f113",
-    "angle-right": "\f114",
-    "arrange-send-to-back": "\f115",
-    "array-fill": "\f116",
-    "arrow-bold-down": "\f117",
-    "arrow-bold-left": "\f118",
-    "arrow-bold-right": "\f119",
-    "arrow-bold-up": "\f11a",
-    "arrow-daw": "\f11b",
-    "arrow-down-between-lines": "\f11c",
-    "arrow-down-from-double-line": "\f11d",
-    "arrow-down-from-line": "\f11e",
-    "arrow-down-in-circle-empty": "\f11f",
-    "arrow-down-to-bracket": "\f120",
-    "arrow-down-to-double-line": "\f121",
-    "arrow-down-to-line": "\f122",
-    "arrow-down-wide-short": "\f123",
-    "arrow-down": "\f124",
-    "arrow-left-between-lines": "\f125",
-    "arrow-left-down": "\f126",
-    "arrow-left-from-bracket": "\f127",
-    "arrow-left-in-circle-empty": "\f128",
-    "arrow-left-up": "\f129",
-    "arrow-left": "\f12a",
-    "arrow-right-between-lines": "\f12b",
-    "arrow-right-down": "\f12c",
-    "arrow-right-from-bracket": "\f12d",
-    "arrow-right-in-circle-empty": "\f12e",
-    "arrow-right-up": "\f12f",
-    "arrow-right": "\f130",
-    "arrow-rotate-left": "\f131",
-    "arrow-rotate-right": "\f132",
-    "arrow-turn-down-left": "\f133",
-    "arrow-turn-down-right": "\f134",
-    "arrow-turn-left-down": "\f135",
-    "arrow-turn-left-up": "\f136",
-    "arrow-turn-right-down": "\f137",
-    "arrow-turn-right-up": "\f138",
-    "arrow-turn-up-left": "\f139",
-    "arrow-turn-up-right": "\f13a",
-    "arrow-up-arrow-down-h": "\f13b",
-    "arrow-up-arrow-down-v": "\f13c",
-    "arrow-up-between-lines": "\f13d",
-    "arrow-up-from-bracket": "\f13e",
-    "arrow-up-from-double-line": "\f13f",
-    "arrow-up-from-line": "\f140",
-    "arrow-up-in-circle-empty": "\f141",
-    "arrow-up-to-dotted-line": "\f142",
-    "arrow-up-to-double-line": "\f143",
-    "arrow-up-to-line": "\f144",
-    "arrow-up-wide-short": "\f145",
-    "arrow-up": "\f146",
-    "arrows-all-directions": "\f147",
-    "arrows-compare": "\f148",
-    "arrows-cross": "\f149",
-    "arrows-direction-to-the-lines": "\f14a",
-    "arrows-inside": "\f14b",
-    "arrows-left-right-brackets": "\f14c",
-    "arrows-left-right-to-lines": "\f14d",
-    "arrows-maximize": "\f14e",
-    "arrows-minimize": "\f14f",
-    "arrows-out": "\f150",
-    "arrows-repeat-h": "\f151",
-    "arrows-repeat-v": "\f152",
-    "arrows-rotate-h": "\f153",
-    "arrows-rotate-v": "\f154",
-    "arrows-shuffle": "\f155",
-    "arrows-swap-h": "\f156",
-    "arrows-swap-v": "\f157",
-    "arrows-up-down-to-lines": "\f158",
-    "at-sign": "\f159",
-    "audio-speakers": "\f15a",
-    "award": "\f15b",
-    "bag": "\f15c",
-    "balloon": "\f15d",
-    "ban": "\f15e",
-    "bar-axis": "\f15f",
-    "bar-basic": "\f160",
-    "bar-columns-axis-x": "\f161",
-    "bar-columns": "\f162",
-    "bar-histogram": "\f163",
-    "bar-square": "\f164",
-    "bar-stacked-axis": "\f165",
-    "bar-stacked": "\f166",
-    "barcode": "\f167",
-    "bars-sort": "\f168",
-    "bars": "\f169",
-    "battery-bolt": "\f16a",
-    "battery-empty": "\f16b",
-    "battery-exclametion-mark": "\f16c",
-    "battery-full": "\f16d",
-    "battery-half": "\f16e",
-    "battery-minus": "\f16f",
-    "battery-plus": "\f170",
-    "battery-quarter": "\f171",
-    "battery-three-quarters": "\f172",
-    "bdrv-administration": "\f173",
-    "bell-fill": "\f174",
-    "bell-plus": "\f175",
-    "bell-ring-fill": "\f176",
-    "bell-ring": "\f177",
-    "bell-slash": "\f178",
-    "bell": "\f179",
-    "bezier-curve": "\f17a",
-    "bitcoin": "\f17b",
-    "bluetooth": "\f17c",
-    "boiler-hot-water-gas-and-oil": "\f17d",
-    "boiler": "\f17e",
-    "bold": "\f17f",
-    "book-check": "\f180",
-    "book-closed": "\f181",
-    "book-open-plus": "\f182",
-    "book-open-re-arrow-left": "\f183",
-    "book-open-re-arrow-right": "\f184",
-    "book-open-text": "\f185",
-    "book-open-with-page": "\f186",
-    "book-open": "\f187",
-    "book-stack": "\f188",
-    "bookmark-check-fill": "\f189",
-    "bookmark-check": "\f18a",
-    "bookmark-cross-fill": "\f18b",
-    "bookmark-cross": "\f18c",
-    "bookmark-fill": "\f18d",
-    "bookmark-music-fill": "\f18e",
-    "bookmark-music": "\f18f",
-    "bookmark-plus-fill": "\f190",
-    "bookmark-plus": "\f191",
-    "bookmark": "\f192",
-    "border-all": "\f193",
-    "border-bottom": "\f194",
-    "border-center-h": "\f195",
-    "border-center-v": "\f196",
-    "border-inner": "\f197",
-    "border-left": "\f198",
-    "border-none": "\f199",
-    "border-outer": "\f19a",
-    "border-right": "\f19b",
-    "border-top-left": "\f19c",
-    "border-top": "\f19d",
-    "box-open-arrow-down": "\f19e",
-    "box": "\f19f",
-    "brackets-curly": "\f1a0",
-    "brackets-square": "\f1a1",
-    "broom": "\f1a2",
-    "browser": "\f1a3",
-    "brush": "\f1a4",
-    "bubble-message-add": "\f1a5",
-    "bubble-message-attention": "\f1a6",
-    "bubble-message-circle": "\f1a7",
-    "bubble-message-empty": "\f1a8",
-    "bubble-message-off": "\f1a9",
-    "bubble-message-question": "\f1aa",
-    "bubble-message-text": "\f1ab",
-    "bubble-message": "\f1ac",
-    "burn": "\f1ad",
-    "calculator-arrow-rotate-left": "\f1ae",
-    "calculator-function": "\f1af",
-    "calculator": "\f1b0",
-    "calendar-blank": "\f1b1",
-    "calendar-check": "\f1b2",
-    "calendar-clock": "\f1b3",
-    "calendar-deleted": "\f1b4",
-    "calendar-event": "\f1b5",
-    "calendar-plus": "\f1b6",
-    "calendar-question": "\f1b7",
-    "calendar-range": "\f1b8",
-    "calendar-today": "\f1b9",
-    "calendar": "\f1ba",
-    "calibration-characteristics-zql": "\f1bb",
-    "camera-front": "\f1bc",
-    "camera-movie-cross": "\f1bd",
-    "camera-movie": "\f1be",
-    "camera": "\f1bf",
-    "car-jeep-side-view": "\f1c0",
-    "car-light-side-view": "\f1c1",
-    "carbon": "\f1c2",
-    "carousel-fill": "\f1c3",
-    "cart-flatbed-container": "\f1c4",
-    "cart-plus": "\f1c5",
-    "cart": "\f1c6",
-    "cellphone-wireless": "\f1c7",
-    "cellphone": "\f1c8",
-    "charts-iqc-zql": "\f1c9",
-    "check-double": "\f1ca",
-    "checkerboard": "\f1cb",
-    "chek": "\f1cc",
-    "chevron-down-to-double-line": "\f1cd",
-    "chevron-down": "\f1ce",
-    "chevron-left": "\f1cf",
-    "chevron-mini-left": "\f1d0",
-    "chevron-mini-right": "\f1d1",
-    "chevron-right-above-double-line": "\f1d2",
-    "chevron-right": "\f1d3",
-    "chevron-up": "\f1d4",
-    "chevrons-double-down": "\f1d5",
-    "chevrons-double-left": "\f1d6",
-    "chevrons-double-mini-left": "\f1d7",
-    "chevrons-double-mini-right": "\f1d8",
-    "chevrons-double-right": "\f1d9",
-    "chevrons-double-up": "\f1da",
-    "chevrons-inside-horizontally": "\f1db",
-    "chevrons-inside-vertically": "\f1dc",
-    "chevrons-outside-horizontally": "\f1dd",
-    "chevrons-outside-vertically": "\f1de",
-    "circle-chek-empty": "\f1df",
-    "circle-chek-fill": "\f1e0",
-    "circle-exclamation-empty": "\f1e1",
-    "circle-exclamation-fill": "\f1e2",
-    "circle-in-hexagon": "\f1e3",
-    "circle-info-empty": "\f1e4",
-    "circle-info-fill": "\f1e5",
-    "circle-music": "\f1e6",
-    "circle-plus-fill": "\f1e7",
-    "circle-plus": "\f1e8",
-    "circle-question-empty": "\f1e9",
-    "circle-question-fill": "\f1ea",
-    "circle-square-fill": "\f1eb",
-    "circle-square-in-square": "\f1ec",
-    "circle-square": "\f1ed",
-    "circle-xmark-fill": "\f1ee",
-    "circle-xmark": "\f1ef",
-    "circles-line-left-up-circle-right-down-fill": "\f1f0",
-    "circles-line-left-up-circle-right-down": "\f1f1",
-    "clapperboard-cross": "\f1f2",
-    "clapperboard-open": "\f1f3",
-    "clock-add": "\f1f4",
-    "clock-arrow-down": "\f1f5",
-    "clock-arrow-right": "\f1f6",
-    "clock-arrow-up": "\f1f7",
-    "clock-deleted": "\f1f8",
-    "clock-exclamation": "\f1f9",
-    "clock-line-end": "\f1fa",
-    "clock-rotate-left": "\f1fb",
-    "clock-rotate-right": "\f1fc",
-    "clock": "\f1fd",
-    "cloud-arrow-down": "\f1fe",
-    "cloud-arrow-up-inside": "\f1ff",
-    "cloud-arrow-up": "\f200",
-    "cloud-check": "\f201",
-    "cloud": "\f202",
-    "code-download": "\f203",
-    "code-simple": "\f204",
-    "code": "\f205",
-    "collage-fill": "\f206",
-    "collection": "\f207",
-    "collector": "\f208",
-    "column-fill": "\f209",
-    "column": "\f20a",
-    "compass": "\f20b",
-    "component": "\f20c",
-    "concrete-mixer-side-view": "\f20d",
-    "container-v1": "\f20e",
-    "container-v2": "\f20f",
-    "containers": "\f210",
-    "control-charts-zql": "\f211",
-    "copy-column": "\f212",
-    "copy-row": "\f213",
-    "copy": "\f214",
-    "crane": "\f215",
-    "credit-card-plus": "\f216",
-    "credit-card-slash": "\f217",
-    "credit-card": "\f218",
-    "crop": "\f219",
-    "crosshairs-dot": "\f21a",
-    "crosshairs-simple": "\f21b",
-    "cube-empty": "\f21c",
-    "cube-fill": "\f21d",
-    "cubes": "\f21e",
-    "dashboard-fill": "\f21f",
-    "dashboard-variant-fill": "\f220",
-    "database-chek": "\f221",
-    "database-json": "\f222",
-    "database-magnifying-glass": "\f223",
-    "database-minus": "\f224",
-    "database-plus": "\f225",
-    "database-sql": "\f226",
-    "database-xmark": "\f227",
-    "database": "\f228",
-    "day-fill": "\f229",
-    "decagram-chek-empty": "\f22a",
-    "decagram-chek-fill": "\f22b",
-    "decagram-exclamation-empty": "\f22c",
-    "decagram-exclamation-fill": "\f22d",
-    "default-ico": "\f22e",
-    "delete-content": "\f22f",
-    "desktop-tower": "\f230",
-    "discrete-set": "\f231",
-    "dollar-slash": "\f232",
-    "dollar": "\f233",
-    "doughnut": "\f234",
-    "droplet-slash": "\f235",
-    "droplet": "\f236",
-    "early-version": "\f237",
-    "earth": "\f238",
-    "editor-down": "\f239",
-    "editor-right": "\f23a",
-    "electrics": "\f23b",
-    "ellipsis-grid": "\f23c",
-    "ellipsis-h": "\f23d",
-    "ellipsis-v": "\f23e",
-    "energy-check": "\f23f",
-    "energy-slash": "\f240",
-    "energy": "\f241",
-    "equipment-zql": "\f242",
-    "eraser": "\f243",
-    "ethernet": "\f244",
-    "exchanger": "\f245",
-    "exclamation": "\f246",
-    "eye-closed": "\f247",
-    "eye-slash": "\f248",
-    "eye": "\f249",
-    "face-frown": "\f24a",
-    "face-smile": "\f24b",
-    "factory-pipe": "\f24c",
-    "factory-pipes": "\f24d",
-    "factory": "\f24e",
-    "fan": "\f24f",
-    "file-arrow-down-left": "\f250",
-    "file-arrow-down": "\f251",
-    "file-arrow-up": "\f252",
-    "file-arrow": "\f253",
-    "file-arrows-up-right": "\f254",
-    "file-camera": "\f255",
-    "file-cross-out": "\f256",
-    "file-cross": "\f257",
-    "file-doc": "\f258",
-    "file-docx": "\f259",
-    "file-dot": "\f25a",
-    "file-empty": "\f25b",
-    "file-exclamation": "\f25c",
-    "file-eye": "\f25d",
-    "file-filled": "\f25e",
-    "file-image": "\f25f",
-    "file-magnifying-glass": "\f260",
-    "file-minus": "\f261",
-    "file-music": "\f262",
-    "file-pdf": "\f263",
-    "file-pen": "\f264",
-    "file-play": "\f265",
-    "file-plus": "\f266",
-    "file-ppt": "\f267",
-    "file-pptx": "\f268",
-    "file-txt": "\f269",
-    "file-up-right": "\f26a",
-    "file-xls": "\f26b",
-    "file-xlsx": "\f26c",
-    "files-mode": "\f26d",
-    "fill": "\f26e",
-    "film-cross": "\f26f",
-    "film": "\f270",
-    "filter-gear": "\f271",
-    "filter-ontology": "\f272",
-    "filter": "\f273",
-    "finance-scanner": "\f274",
-    "fire": "\f275",
-    "flag-fill-red": "\f276",
-    "flag-fill": "\f277",
-    "flag": "\f278",
-    "flask-round-potion": "\f279",
-    "flask": "\f27a",
-    "floppy-cross-out": "\f27b",
-    "floppy-cross": "\f27c",
-    "floppy-pen": "\f27d",
-    "floppy-star": "\f27e",
-    "floppy": "\f27f",
-    "folder-arrow-down-left": "\f280",
-    "folder-arrow-down": "\f281",
-    "folder-arrow-up-right": "\f282",
-    "folder-cross": "\f283",
-    "folder-dot": "\f284",
-    "folder-minus": "\f285",
-    "folder-open": "\f286",
-    "folder-plus": "\f287",
-    "folder-underline-minus": "\f288",
-    "folder-underline-plus": "\f289",
-    "folder-underline": "\f28a",
-    "folder": "\f28b",
-    "forvard-step": "\f28c",
-    "forward": "\f28d",
-    "fuel-oil-tank": "\f28e",
-    "function": "\f28f",
-    "gantt": "\f290",
-    "gas-monitoring": "\f291",
-    "gas-pump": "\f292",
-    "gas": "\f293",
-    "gauge": "\f294",
-    "gear-5-edge": "\f295",
-    "gear-8-edge": "\f296",
-    "gear-cooling": "\f297",
-    "generator": "\f298",
-    "gift": "\f299",
-    "git-lab": "\f29a",
-    "globe": "\f29b",
-    "grid-fill": "\f29c",
-    "grid": "\f29d",
-    "grip-dots-vertical": "\f29e",
-    "hard-drive-outline": "\f29f",
-    "hash-dash": "\f2a0",
-    "hash": "\f2a1",
-    "hashtag": "\f2a2",
-    "headline-fill": "\f2a3",
-    "headphones": "\f2a4",
-    "heart-empty": "\f2a5",
-    "heart-fill": "\f2a6",
-    "helicopter-side-view": "\f2a7",
-    "hexagon-exclamation-empty": "\f2a8",
-    "hexagon-exclamation-fill": "\f2a9",
-    "hexagon-fill": "\f2aa",
-    "hexagon": "\f2ab",
-    "hexagons-axis": "\f2ac",
-    "hexagons": "\f2ad",
-    "histogram-axis": "\f2ae",
-    "house-mini": "\f2af",
-    "house": "\f2b0",
-    "image": "\f2b1",
-    "importers-zql": "\f2b2",
-    "indent-arrow-left": "\f2b3",
-    "indent-arrow-right": "\f2b4",
-    "infinity": "\f2b5",
-    "info": "\f2b6",
-    "input-device": "\f2b7",
-    "instagram": "\f2b8",
-    "italic": "\f2b9",
-    "key": "\f2ba",
-    "keyboard-close": "\f2bb",
-    "keyboard": "\f2bc",
-    "label-cross": "\f2bd",
-    "label-exclamation-mark": "\f2be",
-    "label-fill": "\f2bf",
-    "label-magnifying-glass": "\f2c0",
-    "label-plus": "\f2c1",
-    "label-question": "\f2c2",
-    "label-text": "\f2c3",
-    "label": "\f2c4",
-    "lan-connect": "\f2c5",
-    "lan-disconnect": "\f2c6",
-    "lan-pending": "\f2c7",
-    "laptop-phone-slash": "\f2c8",
-    "laptop-phone": "\f2c9",
-    "laptop-slash": "\f2ca",
-    "laptop": "\f2cb",
-    "layer-group-slash": "\f2cc",
-    "layer-group": "\f2cd",
-    "layer-network": "\f2ce",
-    "letter-day": "\f2cf",
-    "letter-hour": "\f2d0",
-    "letter-minute": "\f2d1",
-    "letter-month": "\f2d2",
-    "letter-second": "\f2d3",
-    "letter-time": "\f2d4",
-    "letter-year": "\f2d5",
-    "library-plus": "\f2d6",
-    "lightbulb": "\f2d7",
-    "line-axis-arrow-down": "\f2d8",
-    "line-axis-x": "\f2d9",
-    "line-axis": "\f2da",
-    "line-down": "\f2db",
-    "line-height": "\f2dc",
-    "line-multiple-y-axis-x": "\f2dd",
-    "line-multiple-y-axis": "\f2de",
-    "line-up": "\f2df",
-    "line": "\f2e0",
-    "link-break": "\f2e1",
-    "link-minus": "\f2e2",
-    "link-plus": "\f2e3",
-    "link-simple-h": "\f2e4",
-    "link-simple": "\f2e5",
-    "list-fill": "\f2e6",
-    "list-ol": "\f2e7",
-    "list-square": "\f2e8",
-    "list-tree-archive": "\f2e9",
-    "list-tree": "\f2ea",
-    "list-ul": "\f2eb",
-    "list": "\f2ec",
-    "lng-storage": "\f2ed",
-    "loader": "\f2ee",
-    "location-arrow": "\f2ef",
-    "location-directly": "\f2f0",
-    "location-dot": "\f2f1",
-    "location-minus": "\f2f2",
-    "location-plus": "\f2f3",
-    "location-slash": "\f2f4",
-    "location-user": "\f2f5",
-    "lock": "\f2f6",
-    "logo-grey-z": "\f2f7",
-    "logo-s-grey": "\f2f8",
-    "magic-wand": "\f2f9",
-    "magnifying-glass-exclamation": "\f2fa",
-    "magnifying-glass-minus": "\f2fb",
-    "magnifying-glass-ontology": "\f2fc",
-    "magnifying-glass-plus": "\f2fd",
-    "magnifying-glass-tags-words": "\f2fe",
-    "magnifying-glass-top-from-bracket": "\f2ff",
-    "magnifying-glass-triangle-down": "\f300",
-    "magnifying-glass-xmark": "\f301",
-    "magnifying-glass": "\f302",
-    "mail-open": "\f303",
-    "mail": "\f304",
-    "mailbox": "\f305",
-    "map-base": "\f306",
-    "map-marker-date-v1": "\f307",
-    "map-marker-date-v2": "\f308",
-    "map-pin": "\f309",
-    "map": "\f30a",
-    "medical": "\f30b",
-    "merge": "\f30c",
-    "messaging-telegram-send": "\f30d",
-    "messaging-telegram": "\f30e",
-    "microphone-slash": "\f30f",
-    "microphone": "\f310",
-    "minibus-side-view": "\f311",
-    "minus-circle-fill": "\f312",
-    "minus-circle": "\f313",
-    "minus": "\f314",
-    "module-fill": "\f315",
-    "monitor": "\f316",
-    "moon": "\f317",
-    "music-slash": "\f318",
-    "music": "\f319",
-    "network-external-link": "\f31a",
-    "network-v1": "\f31b",
-    "network-v2": "\f31c",
-    "network-v3": "\f31d",
-    "network-wired": "\f31e",
-    "ni-fi-logo": "\f31f",
-    "normdocs-zql": "\f320",
-    "npm": "\f321",
-    "object-down-subtract": "\f322",
-    "object-exclude": "\f323",
-    "object-intersect": "\f324",
-    "object-selection": "\f325",
-    "object-union": "\f326",
-    "object-up-subtract": "\f327",
-    "object": "\f328",
-    "oil-barrel": "\f329",
-    "oil-canister": "\f32a",
-    "oil-droplet-arrows-all": "\f32b",
-    "oil-droplet-arrows-repeat-h": "\f32c",
-    "oil-droplet-chek": "\f32d",
-    "oil-droplet": "\f32e",
-    "oil-field": "\f32f",
-    "oil-tank": "\f330",
-    "ontology": "\f331",
-    "owl": "\f332",
-    "palette": "\f333",
-    "panel-down": "\f334",
-    "panel-left": "\f335",
-    "panel-right": "\f336",
-    "panel-top": "\f337",
-    "pantone": "\f338",
-    "paperclip-vertical": "\f339",
-    "paperclip": "\f33a",
-    "pause": "\f33b",
-    "paver-side-view": "\f33c",
-    "pen-hammer": "\f33d",
-    "pencil-arrow-right": "\f33e",
-    "pencil-line-bottom": "\f33f",
-    "pencil-triangle-down": "\f340",
-    "pencil-triangle-left": "\f341",
-    "pencil": "\f342",
-    "pentagon-fill": "\f343",
-    "pentagon": "\f344",
-    "percent": "\f345",
-    "phone-active-call": "\f346",
-    "phone-cancelled": "\f347",
-    "phone-minus": "\f348",
-    "phone-off": "\f349",
-    "phone-paused": "\f34a",
-    "phone-plus": "\f34b",
-    "phone": "\f34c",
-    "pi": "\f34d",
-    "pie-line-nested": "\f34e",
-    "pie-line": "\f34f",
-    "pie-pentagon": "\f350",
-    "pie-several-parts": "\f351",
-    "pie-simple": "\f352",
-    "pie": "\f353",
-    "pipe-node-side-view": "\f354",
-    "pipe-sensor": "\f355",
-    "pipe-slash": "\f356",
-    "pipe-valve": "\f357",
-    "pipeline-v1": "\f358",
-    "pipeline-v2": "\f359",
-    "pipette": "\f35a",
-    "plane": "\f35b",
-    "play-back": "\f35c",
-    "play": "\f35d",
-    "plus-column-right": "\f35e",
-    "plus-column-top": "\f35f",
-    "plus-triangle-down": "\f360",
-    "plus": "\f361",
-    "polyline": "\f362",
-    "portfel": "\f363",
-    "power": "\f364",
-    "premises-zql": "\f365",
-    "press": "\f366",
-    "printer": "\f367",
-    "process": "\f368",
-    "pulse": "\f369",
-    "pump-triangle-down": "\f36a",
-    "pump": "\f36b",
-    "push-button-cellphone": "\f36c",
-    "qr": "\f36d",
-    "question": "\f36e",
-    "quilt-fill": "\f36f",
-    "radiation": "\f370",
-    "railcar-hopper-side-view": "\f371",
-    "railcar-side-view": "\f372",
-    "range": "\f373",
-    "replay": "\f374",
-    "respirator-v1": "\f375",
-    "respirator-v2": "\f376",
-    "respirator-v3": "\f377",
-    "respirator-v4": "\f378",
-    "respirator-v5": "\f379",
-    "respirator-v6": "\f37a",
-    "return-step": "\f37b",
-    "return": "\f37c",
-    "rhombus-fill": "\f37d",
-    "rhombus": "\f37e",
-    "ring-in-square": "\f37f",
-    "ruler-index-zql": "\f380",
-    "ruler": "\f381",
-    "sample-logs-zql": "\f382",
-    "sample-templates-zql": "\f383",
-    "sandglass": "\f384",
-    "scatter-axis": "\f385",
-    "scatter-basic": "\f386",
-    "scatter": "\f387",
-    "scissors": "\f388",
-    "seedling-circle": "\f389",
-    "seedling-rectangle": "\f38a",
-    "seedling": "\f38b",
-    "selection-checked-empty": "\f38c",
-    "send-backward": "\f38d",
-    "send-forward": "\f38e",
-    "separator": "\f38f",
-    "sequential-fill": "\f390",
-    "server-network-close": "\f391",
-    "server-network-download": "\f392",
-    "server-network-minus": "\f393",
-    "server-network-plus": "\f394",
-    "server-network-security": "\f395",
-    "server-network-upload": "\f396",
-    "server-network": "\f397",
-    "server-shield": "\f398",
-    "server-slash-up-line": "\f399",
-    "server-slash": "\f39a",
-    "server-up-line": "\f39b",
-    "server": "\f39c",
-    "shape-link-fill": "\f39d",
-    "shape-link": "\f39e",
-    "shape-plus": "\f39f",
-    "share-left": "\f3a0",
-    "share-right": "\f3a1",
-    "shareing": "\f3a2",
-    "shield-exclamation": "\f3a3",
-    "shield-slash": "\f3a4",
-    "shield": "\f3a5",
-    "ship-front-view": "\f3a6",
-    "ship-side-view": "\f3a7",
-    "shopping-box": "\f3a8",
-    "shovel": "\f3a9",
-    "sigma": "\f3aa",
-    "signal-access-point": "\f3ab",
-    "signal-off": "\f3ac",
-    "signal-radio-tower": "\f3ad",
-    "signal": "\f3ae",
-    "sliders-h": "\f3af",
-    "sliders-v": "\f3b0",
-    "snake-cup": "\f3b1",
-    "snowflake-up-to-bracket": "\f3b2",
-    "snowflake": "\f3b3",
-    "sort-filter-remove": "\f3b4",
-    "specification": "\f3b5",
-    "specs-zql": "\f3b6",
-    "speed-reduction-cooling": "\f3b7",
-    "square-arrows-curve-right-down": "\f3b8",
-    "square-arrows-curve-up-right": "\f3b9",
-    "square-bracket-curly-left": "\f3ba",
-    "square-bracket-curly-right": "\f3bb",
-    "square-bracket-left": "\f3bc",
-    "square-bracket-right": "\f3bd",
-    "square-circle-plus-triangle-fill": "\f3be",
-    "square-circle-triangle-cross-fill": "\f3bf",
-    "square-circle-triangle-cross": "\f3c0",
-    "square-divide": "\f3c1",
-    "square-excel": "\f3c2",
-    "square-exclamation-empty": "\f3c3",
-    "square-exclamation-fill": "\f3c4",
-    "square-fill": "\f3c5",
-    "square-hexagon-circle-fill": "\f3c6",
-    "square-hexagon-circle": "\f3c7",
-    "square-in-square": "\f3c8",
-    "square-info-empty": "\f3c9",
-    "square-info-fill": "\f3ca",
-    "square-minus": "\f3cb",
-    "square-multiply": "\f3cc",
-    "square-music-double": "\f3cd",
-    "square-music": "\f3ce",
-    "square-percent": "\f3cf",
-    "square-plus": "\f3d0",
-    "square-powerpoint": "\f3d1",
-    "square-question-empty": "\f3d2",
-    "square-question-fill": "\f3d3",
-    "square-triangle-circle-triangle-fill": "\f3d4",
-    "square-triangle-circle-triangle": "\f3d5",
-    "square-word": "\f3d6",
-    "star-empty": "\f3d7",
-    "star-fill": "\f3d8",
-    "star-half-fill": "\f3d9",
-    "star-line": "\f3da",
-    "steam-boiler": "\f3db",
-    "steam-turbine": "\f3dc",
-    "steam": "\f3dd",
-    "stop": "\f3de",
-    "stopwatch": "\f3df",
-    "storage": "\f3e0",
-    "strikethrough": "\f3e1",
-    "subskrit-down": "\f3e2",
-    "subskrit-up": "\f3e3",
-    "sumbol-asterisk": "\f3e4",
-    "sun": "\f3e5",
-    "support-man": "\f3e6",
-    "table-down": "\f3e7",
-    "table-gear": "\f3e8",
-    "table-magnifying-glass": "\f3e9",
-    "table-right": "\f3ea",
-    "table-transpose-right": "\f3eb",
-    "table-transpose-top": "\f3ec",
-    "table-transpose": "\f3ed",
-    "table": "\f3ee",
-    "tablet-iqc-zql": "\f3ef",
-    "tablet": "\f3f0",
-    "tank": "\f3f1",
-    "tankcar-oil-side-view": "\f3f2",
-    "tankcar-side-view": "\f3f3",
-    "techs-zql": "\f3f4",
-    "temperature-minus": "\f3f5",
-    "temperature-plus": "\f3f6",
-    "temperature": "\f3f7",
-    "template": "\f3f8",
-    "text-color": "\f3f9",
-    "text": "\f3fa",
-    "thumb-down": "\f3fb",
-    "thumb-up": "\f3fc",
-    "thumbtack-directly": "\f3fd",
-    "thumbtack": "\f3fe",
-    "touchpad": "\f3ff",
-    "train-cargo": "\f400",
-    "train-passenger": "\f401",
-    "transmitter": "\f402",
-    "trash-empty": "\f403",
-    "trash": "\f404",
-    "triangle-circle-square-fill": "\f405",
-    "triangle-circle-square": "\f406",
-    "triangle-cross-empty": "\f407",
-    "triangle-down": "\f408",
-    "triangle-exclamation-empty": "\f409",
-    "triangle-exclamation-fill": "\f40a",
-    "triangle-fill": "\f40b",
-    "triangle-info-empty": "\f40c",
-    "triangle-info-fill": "\f40d",
-    "triangle-left": "\f40e",
-    "triangle-plus-empty": "\f40f",
-    "triangle-right": "\f410",
-    "triangle-up-down": "\f411",
-    "triangle-up": "\f412",
-    "triangle": "\f413",
-    "truck-dump-side-view": "\f414",
-    "truck-empty-side-view": "\f415",
-    "truck-garbage-side-view": "\f416",
-    "truck-gasoline-side-view": "\f417",
-    "truck-side-view": "\f418",
-    "tv": "\f419",
-    "umbrella": "\f41a",
-    "underlined": "\f41b",
-    "unlock": "\f41c",
-    "user-arrows-swap": "\f41d",
-    "user-card": "\f41e",
-    "user-check": "\f41f",
-    "user-circle": "\f420",
-    "user-cross": "\f421",
-    "user-gear": "\f422",
-    "user-group": "\f423",
-    "user-location": "\f424",
-    "user-minus": "\f425",
-    "user-pen": "\f426",
-    "user-plus": "\f427",
-    "user-shield": "\f428",
-    "user-worker": "\f429",
-    "user": "\f42a",
-    "users-arrow-right": "\f42b",
-    "users-arrow-up-zql": "\f42c",
-    "users-gear": "\f42d",
-    "users-key": "\f42e",
-    "users-location": "\f42f",
-    "users-minus": "\f430",
-    "users-plus": "\f431",
-    "users": "\f432",
-    "vector-circle-one-point": "\f433",
-    "vector-circle-two-point": "\f434",
-    "vector-circle": "\f435",
-    "vector-line": "\f436",
-    "vector-point": "\f437",
-    "vector-polygon": "\f438",
-    "vector-rectangle": "\f439",
-    "vector-square": "\f43a",
-    "vector-triangle": "\f43b",
-    "vectors-radius": "\f43c",
-    "vial-arrow-rotate-left": "\f43d",
-    "vial-flask": "\f43e",
-    "vial-plus": "\f43f",
-    "vial-xmark": "\f440",
-    "vial": "\f441",
-    "video-cross": "\f442",
-    "video-slash": "\f443",
-    "video": "\f444",
-    "voicemail": "\f445",
-    "volume-cross": "\f446",
-    "volume-low": "\f447",
-    "volume-minus": "\f448",
-    "volume-off": "\f449",
-    "volume-plus": "\f44a",
-    "volume-slash": "\f44b",
-    "volume": "\f44c",
-    "wallet": "\f44d",
-    "watch": "\f44e",
-    "water-heater": "\f44f",
-    "water-pump": "\f450",
-    "webcam": "\f451",
-    "wifi-off": "\f452",
-    "wifi": "\f453",
-    "window": "\f454",
-    "wrench": "\f455",
-    "xmark-column-right": "\f456",
-    "xmark-column-top": "\f457",
-    "xmark-mini": "\f458",
-    "xmark": "\f459",
+  'agenda-fill': '\f101',
+  'airplane-side-view': '\f102',
+  'airplane-top-view': '\f103',
+  'alarm-clock': '\f104',
+  'alarm-plus': '\f105',
+  'align-bottom': '\f106',
+  'align-center-h': '\f107',
+  'align-center-v': '\f108',
+  'align-center': '\f109',
+  'align-justify': '\f10a',
+  'align-left': '\f10b',
+  'align-right': '\f10c',
+  'align-top': '\f10d',
+  'ambulance-side-view': '\f10e',
+  'android-pill': '\f10f',
+  'android': '\f110',
+  'angle-left-right-arrows-down': '\f111',
+  'angle-left-right': '\f112',
+  'angle-left': '\f113',
+  'angle-right': '\f114',
+  'arrange-send-to-back': '\f115',
+  'array-fill': '\f116',
+  'arrow-bold-down': '\f117',
+  'arrow-bold-left': '\f118',
+  'arrow-bold-right': '\f119',
+  'arrow-bold-up': '\f11a',
+  'arrow-daw': '\f11b',
+  'arrow-down-between-lines': '\f11c',
+  'arrow-down-from-double-line': '\f11d',
+  'arrow-down-from-line': '\f11e',
+  'arrow-down-in-circle-empty': '\f11f',
+  'arrow-down-to-bracket': '\f120',
+  'arrow-down-to-double-line': '\f121',
+  'arrow-down-to-line': '\f122',
+  'arrow-down-wide-short': '\f123',
+  'arrow-down': '\f124',
+  'arrow-left-between-lines': '\f125',
+  'arrow-left-down': '\f126',
+  'arrow-left-from-bracket': '\f127',
+  'arrow-left-in-circle-empty': '\f128',
+  'arrow-left-up': '\f129',
+  'arrow-left': '\f12a',
+  'arrow-right-between-lines': '\f12b',
+  'arrow-right-down': '\f12c',
+  'arrow-right-from-bracket': '\f12d',
+  'arrow-right-in-circle-empty': '\f12e',
+  'arrow-right-up': '\f12f',
+  'arrow-right': '\f130',
+  'arrow-rotate-left': '\f131',
+  'arrow-rotate-right': '\f132',
+  'arrow-turn-down-left': '\f133',
+  'arrow-turn-down-right': '\f134',
+  'arrow-turn-left-down': '\f135',
+  'arrow-turn-left-up': '\f136',
+  'arrow-turn-right-down': '\f137',
+  'arrow-turn-right-up': '\f138',
+  'arrow-turn-up-left': '\f139',
+  'arrow-turn-up-right': '\f13a',
+  'arrow-up-arrow-down-h': '\f13b',
+  'arrow-up-arrow-down-v': '\f13c',
+  'arrow-up-between-lines': '\f13d',
+  'arrow-up-from-bracket': '\f13e',
+  'arrow-up-from-double-line': '\f13f',
+  'arrow-up-from-line': '\f140',
+  'arrow-up-in-circle-empty': '\f141',
+  'arrow-up-to-dotted-line': '\f142',
+  'arrow-up-to-double-line': '\f143',
+  'arrow-up-to-line': '\f144',
+  'arrow-up-wide-short': '\f145',
+  'arrow-up': '\f146',
+  'arrows-all-directions': '\f147',
+  'arrows-compare': '\f148',
+  'arrows-cross': '\f149',
+  'arrows-direction-to-the-lines': '\f14a',
+  'arrows-inside': '\f14b',
+  'arrows-left-right-brackets': '\f14c',
+  'arrows-left-right-to-lines': '\f14d',
+  'arrows-maximize': '\f14e',
+  'arrows-minimize': '\f14f',
+  'arrows-out': '\f150',
+  'arrows-repeat-h': '\f151',
+  'arrows-repeat-v': '\f152',
+  'arrows-rotate-h': '\f153',
+  'arrows-rotate-v': '\f154',
+  'arrows-shuffle': '\f155',
+  'arrows-swap-h': '\f156',
+  'arrows-swap-v': '\f157',
+  'arrows-up-down-to-lines': '\f158',
+  'at-sign': '\f159',
+  'audio-speakers': '\f15a',
+  'award': '\f15b',
+  'bag': '\f15c',
+  'balloon': '\f15d',
+  'ban': '\f15e',
+  'bar-axis': '\f15f',
+  'bar-basic': '\f160',
+  'bar-columns-axis-x': '\f161',
+  'bar-columns': '\f162',
+  'bar-histogram': '\f163',
+  'bar-square': '\f164',
+  'bar-stacked-axis': '\f165',
+  'bar-stacked': '\f166',
+  'barcode': '\f167',
+  'bars-sort': '\f168',
+  'bars': '\f169',
+  'battery-bolt': '\f16a',
+  'battery-empty': '\f16b',
+  'battery-exclametion-mark': '\f16c',
+  'battery-full': '\f16d',
+  'battery-half': '\f16e',
+  'battery-minus': '\f16f',
+  'battery-plus': '\f170',
+  'battery-quarter': '\f171',
+  'battery-three-quarters': '\f172',
+  'bdrv-administration': '\f173',
+  'bell-fill': '\f174',
+  'bell-plus': '\f175',
+  'bell-ring-fill': '\f176',
+  'bell-ring': '\f177',
+  'bell-slash': '\f178',
+  'bell': '\f179',
+  'bezier-curve': '\f17a',
+  'bitcoin': '\f17b',
+  'bluetooth': '\f17c',
+  'boiler-hot-water-gas-and-oil': '\f17d',
+  'boiler': '\f17e',
+  'bold': '\f17f',
+  'book-check': '\f180',
+  'book-closed': '\f181',
+  'book-open-plus': '\f182',
+  'book-open-re-arrow-left': '\f183',
+  'book-open-re-arrow-right': '\f184',
+  'book-open-text': '\f185',
+  'book-open-with-page': '\f186',
+  'book-open': '\f187',
+  'book-stack': '\f188',
+  'bookmark-check-fill': '\f189',
+  'bookmark-check': '\f18a',
+  'bookmark-cross-fill': '\f18b',
+  'bookmark-cross': '\f18c',
+  'bookmark-fill': '\f18d',
+  'bookmark-music-fill': '\f18e',
+  'bookmark-music': '\f18f',
+  'bookmark-plus-fill': '\f190',
+  'bookmark-plus': '\f191',
+  'bookmark': '\f192',
+  'border-all': '\f193',
+  'border-bottom': '\f194',
+  'border-center-h': '\f195',
+  'border-center-v': '\f196',
+  'border-inner': '\f197',
+  'border-left': '\f198',
+  'border-none': '\f199',
+  'border-outer': '\f19a',
+  'border-right': '\f19b',
+  'border-top-left': '\f19c',
+  'border-top': '\f19d',
+  'box-open-arrow-down': '\f19e',
+  'box': '\f19f',
+  'brackets-curly': '\f1a0',
+  'brackets-square': '\f1a1',
+  'broom': '\f1a2',
+  'browser': '\f1a3',
+  'brush': '\f1a4',
+  'bubble-message-add': '\f1a5',
+  'bubble-message-attention': '\f1a6',
+  'bubble-message-circle': '\f1a7',
+  'bubble-message-empty': '\f1a8',
+  'bubble-message-off': '\f1a9',
+  'bubble-message-question': '\f1aa',
+  'bubble-message-text': '\f1ab',
+  'bubble-message': '\f1ac',
+  'burn': '\f1ad',
+  'calculator-arrow-rotate-left': '\f1ae',
+  'calculator-function': '\f1af',
+  'calculator': '\f1b0',
+  'calendar-blank': '\f1b1',
+  'calendar-check': '\f1b2',
+  'calendar-clock': '\f1b3',
+  'calendar-deleted': '\f1b4',
+  'calendar-event': '\f1b5',
+  'calendar-plus': '\f1b6',
+  'calendar-question': '\f1b7',
+  'calendar-range': '\f1b8',
+  'calendar-today': '\f1b9',
+  'calendar': '\f1ba',
+  'calibration-characteristics-zql': '\f1bb',
+  'camera-front': '\f1bc',
+  'camera-movie-cross': '\f1bd',
+  'camera-movie': '\f1be',
+  'camera': '\f1bf',
+  'car-jeep-side-view': '\f1c0',
+  'car-light-side-view': '\f1c1',
+  'carbon': '\f1c2',
+  'carousel-fill': '\f1c3',
+  'cart-flatbed-container': '\f1c4',
+  'cart-plus': '\f1c5',
+  'cart': '\f1c6',
+  'cellphone-wireless': '\f1c7',
+  'cellphone': '\f1c8',
+  'charts-iqc-zql': '\f1c9',
+  'check-double': '\f1ca',
+  'checkerboard': '\f1cb',
+  'chek': '\f1cc',
+  'chevron-down-to-double-line': '\f1cd',
+  'chevron-down': '\f1ce',
+  'chevron-left': '\f1cf',
+  'chevron-mini-left': '\f1d0',
+  'chevron-mini-right': '\f1d1',
+  'chevron-right-above-double-line': '\f1d2',
+  'chevron-right': '\f1d3',
+  'chevron-up': '\f1d4',
+  'chevrons-double-down': '\f1d5',
+  'chevrons-double-left': '\f1d6',
+  'chevrons-double-mini-left': '\f1d7',
+  'chevrons-double-mini-right': '\f1d8',
+  'chevrons-double-right': '\f1d9',
+  'chevrons-double-up': '\f1da',
+  'chevrons-inside-horizontally': '\f1db',
+  'chevrons-inside-vertically': '\f1dc',
+  'chevrons-outside-horizontally': '\f1dd',
+  'chevrons-outside-vertically': '\f1de',
+  'circle-chek-empty': '\f1df',
+  'circle-chek-fill': '\f1e0',
+  'circle-exclamation-empty': '\f1e1',
+  'circle-exclamation-fill': '\f1e2',
+  'circle-in-hexagon': '\f1e3',
+  'circle-info-empty': '\f1e4',
+  'circle-info-fill': '\f1e5',
+  'circle-music': '\f1e6',
+  'circle-plus-fill': '\f1e7',
+  'circle-plus': '\f1e8',
+  'circle-question-empty': '\f1e9',
+  'circle-question-fill': '\f1ea',
+  'circle-square-fill': '\f1eb',
+  'circle-square-in-square': '\f1ec',
+  'circle-square': '\f1ed',
+  'circle-xmark-fill': '\f1ee',
+  'circle-xmark': '\f1ef',
+  'circles-line-left-up-circle-right-down-fill': '\f1f0',
+  'circles-line-left-up-circle-right-down': '\f1f1',
+  'clapperboard-cross': '\f1f2',
+  'clapperboard-open': '\f1f3',
+  'clock-add': '\f1f4',
+  'clock-arrow-down': '\f1f5',
+  'clock-arrow-right': '\f1f6',
+  'clock-arrow-up': '\f1f7',
+  'clock-deleted': '\f1f8',
+  'clock-exclamation': '\f1f9',
+  'clock-line-end': '\f1fa',
+  'clock-rotate-left': '\f1fb',
+  'clock-rotate-right': '\f1fc',
+  'clock': '\f1fd',
+  'cloud-arrow-down': '\f1fe',
+  'cloud-arrow-up-inside': '\f1ff',
+  'cloud-arrow-up': '\f200',
+  'cloud-check': '\f201',
+  'cloud': '\f202',
+  'code-download': '\f203',
+  'code-simple': '\f204',
+  'code': '\f205',
+  'collage-fill': '\f206',
+  'collection': '\f207',
+  'collector': '\f208',
+  'column-fill': '\f209',
+  'column': '\f20a',
+  'compass': '\f20b',
+  'component': '\f20c',
+  'concrete-mixer-side-view': '\f20d',
+  'container-v1': '\f20e',
+  'container-v2': '\f20f',
+  'containers': '\f210',
+  'control-charts-zql': '\f211',
+  'copy-column': '\f212',
+  'copy-row': '\f213',
+  'copy': '\f214',
+  'crane': '\f215',
+  'credit-card-plus': '\f216',
+  'credit-card-slash': '\f217',
+  'credit-card': '\f218',
+  'crop': '\f219',
+  'crosshairs-dot': '\f21a',
+  'crosshairs-simple': '\f21b',
+  'cube-empty': '\f21c',
+  'cube-fill': '\f21d',
+  'cubes': '\f21e',
+  'dashboard-fill': '\f21f',
+  'dashboard-variant-fill': '\f220',
+  'database-chek': '\f221',
+  'database-json': '\f222',
+  'database-magnifying-glass': '\f223',
+  'database-minus': '\f224',
+  'database-plus': '\f225',
+  'database-sql': '\f226',
+  'database-xmark': '\f227',
+  'database': '\f228',
+  'day-fill': '\f229',
+  'decagram-chek-empty': '\f22a',
+  'decagram-chek-fill': '\f22b',
+  'decagram-exclamation-empty': '\f22c',
+  'decagram-exclamation-fill': '\f22d',
+  'default-ico': '\f22e',
+  'delete-content': '\f22f',
+  'desktop-tower': '\f230',
+  'discrete-set': '\f231',
+  'dollar-slash': '\f232',
+  'dollar': '\f233',
+  'doughnut': '\f234',
+  'droplet-slash': '\f235',
+  'droplet': '\f236',
+  'early-version': '\f237',
+  'earth': '\f238',
+  'editor-down': '\f239',
+  'editor-right': '\f23a',
+  'electrics': '\f23b',
+  'ellipsis-grid': '\f23c',
+  'ellipsis-h': '\f23d',
+  'ellipsis-v': '\f23e',
+  'energy-check': '\f23f',
+  'energy-slash': '\f240',
+  'energy': '\f241',
+  'equipment-zql': '\f242',
+  'eraser': '\f243',
+  'ethernet': '\f244',
+  'exchanger': '\f245',
+  'exclamation': '\f246',
+  'eye-closed': '\f247',
+  'eye-slash': '\f248',
+  'eye': '\f249',
+  'face-frown': '\f24a',
+  'face-smile': '\f24b',
+  'factory-pipe': '\f24c',
+  'factory-pipes': '\f24d',
+  'factory': '\f24e',
+  'fan': '\f24f',
+  'file-arrow-down-left': '\f250',
+  'file-arrow-down': '\f251',
+  'file-arrow-up': '\f252',
+  'file-arrow': '\f253',
+  'file-arrows-up-right': '\f254',
+  'file-camera': '\f255',
+  'file-cross-out': '\f256',
+  'file-cross': '\f257',
+  'file-doc': '\f258',
+  'file-docx': '\f259',
+  'file-dot': '\f25a',
+  'file-empty': '\f25b',
+  'file-exclamation': '\f25c',
+  'file-eye': '\f25d',
+  'file-filled': '\f25e',
+  'file-image': '\f25f',
+  'file-magnifying-glass': '\f260',
+  'file-minus': '\f261',
+  'file-music': '\f262',
+  'file-pdf': '\f263',
+  'file-pen': '\f264',
+  'file-play': '\f265',
+  'file-plus': '\f266',
+  'file-ppt': '\f267',
+  'file-pptx': '\f268',
+  'file-txt': '\f269',
+  'file-up-right': '\f26a',
+  'file-xls': '\f26b',
+  'file-xlsx': '\f26c',
+  'files-mode': '\f26d',
+  'fill': '\f26e',
+  'film-cross': '\f26f',
+  'film': '\f270',
+  'filter-gear': '\f271',
+  'filter-ontology': '\f272',
+  'filter': '\f273',
+  'finance-scanner': '\f274',
+  'fire': '\f275',
+  'flag-fill-red': '\f276',
+  'flag-fill': '\f277',
+  'flag': '\f278',
+  'flask-round-potion': '\f279',
+  'flask': '\f27a',
+  'floppy-cross-out': '\f27b',
+  'floppy-cross': '\f27c',
+  'floppy-pen': '\f27d',
+  'floppy-star': '\f27e',
+  'floppy': '\f27f',
+  'folder-arrow-down-left': '\f280',
+  'folder-arrow-down': '\f281',
+  'folder-arrow-up-right': '\f282',
+  'folder-cross': '\f283',
+  'folder-dot': '\f284',
+  'folder-minus': '\f285',
+  'folder-open': '\f286',
+  'folder-plus': '\f287',
+  'folder-underline-minus': '\f288',
+  'folder-underline-plus': '\f289',
+  'folder-underline': '\f28a',
+  'folder': '\f28b',
+  'forvard-step': '\f28c',
+  'forward': '\f28d',
+  'fuel-oil-tank': '\f28e',
+  'function': '\f28f',
+  'gantt': '\f290',
+  'gas-monitoring': '\f291',
+  'gas-pump': '\f292',
+  'gas': '\f293',
+  'gauge': '\f294',
+  'gear-5-edge': '\f295',
+  'gear-8-edge': '\f296',
+  'gear-cooling': '\f297',
+  'generator': '\f298',
+  'gift': '\f299',
+  'git-lab': '\f29a',
+  'globe': '\f29b',
+  'grid-fill': '\f29c',
+  'grid': '\f29d',
+  'grip-dots-vertical': '\f29e',
+  'hard-drive-outline': '\f29f',
+  'hash-dash': '\f2a0',
+  'hash': '\f2a1',
+  'hashtag': '\f2a2',
+  'headline-fill': '\f2a3',
+  'headphones': '\f2a4',
+  'heart-empty': '\f2a5',
+  'heart-fill': '\f2a6',
+  'helicopter-side-view': '\f2a7',
+  'hexagon-exclamation-empty': '\f2a8',
+  'hexagon-exclamation-fill': '\f2a9',
+  'hexagon-fill': '\f2aa',
+  'hexagon': '\f2ab',
+  'hexagons-axis': '\f2ac',
+  'hexagons': '\f2ad',
+  'histogram-axis': '\f2ae',
+  'house-mini': '\f2af',
+  'house': '\f2b0',
+  'image': '\f2b1',
+  'importers-zql': '\f2b2',
+  'indent-arrow-left': '\f2b3',
+  'indent-arrow-right': '\f2b4',
+  'infinity': '\f2b5',
+  'info': '\f2b6',
+  'input-device': '\f2b7',
+  'instagram': '\f2b8',
+  'italic': '\f2b9',
+  'key': '\f2ba',
+  'keyboard-close': '\f2bb',
+  'keyboard': '\f2bc',
+  'label-cross': '\f2bd',
+  'label-exclamation-mark': '\f2be',
+  'label-fill': '\f2bf',
+  'label-magnifying-glass': '\f2c0',
+  'label-plus': '\f2c1',
+  'label-question': '\f2c2',
+  'label-text': '\f2c3',
+  'label': '\f2c4',
+  'lan-connect': '\f2c5',
+  'lan-disconnect': '\f2c6',
+  'lan-pending': '\f2c7',
+  'laptop-phone-slash': '\f2c8',
+  'laptop-phone': '\f2c9',
+  'laptop-slash': '\f2ca',
+  'laptop': '\f2cb',
+  'layer-group-slash': '\f2cc',
+  'layer-group': '\f2cd',
+  'layer-network': '\f2ce',
+  'letter-day': '\f2cf',
+  'letter-hour': '\f2d0',
+  'letter-minute': '\f2d1',
+  'letter-month': '\f2d2',
+  'letter-second': '\f2d3',
+  'letter-time': '\f2d4',
+  'letter-year': '\f2d5',
+  'library-plus': '\f2d6',
+  'lightbulb': '\f2d7',
+  'line-axis-arrow-down': '\f2d8',
+  'line-axis-x': '\f2d9',
+  'line-axis': '\f2da',
+  'line-down': '\f2db',
+  'line-height': '\f2dc',
+  'line-multiple-y-axis-x': '\f2dd',
+  'line-multiple-y-axis': '\f2de',
+  'line-up': '\f2df',
+  'line': '\f2e0',
+  'link-break': '\f2e1',
+  'link-minus': '\f2e2',
+  'link-plus': '\f2e3',
+  'link-simple-h': '\f2e4',
+  'link-simple': '\f2e5',
+  'list-fill': '\f2e6',
+  'list-ol': '\f2e7',
+  'list-square': '\f2e8',
+  'list-tree-archive': '\f2e9',
+  'list-tree': '\f2ea',
+  'list-ul': '\f2eb',
+  'list': '\f2ec',
+  'lng-storage': '\f2ed',
+  'loader': '\f2ee',
+  'location-arrow': '\f2ef',
+  'location-directly': '\f2f0',
+  'location-dot': '\f2f1',
+  'location-minus': '\f2f2',
+  'location-plus': '\f2f3',
+  'location-slash': '\f2f4',
+  'location-user': '\f2f5',
+  'lock': '\f2f6',
+  'logo-grey-z': '\f2f7',
+  'logo-s-grey': '\f2f8',
+  'magic-wand': '\f2f9',
+  'magnifying-glass-exclamation': '\f2fa',
+  'magnifying-glass-minus': '\f2fb',
+  'magnifying-glass-ontology': '\f2fc',
+  'magnifying-glass-plus': '\f2fd',
+  'magnifying-glass-tags-words': '\f2fe',
+  'magnifying-glass-top-from-bracket': '\f2ff',
+  'magnifying-glass-triangle-down': '\f300',
+  'magnifying-glass-xmark': '\f301',
+  'magnifying-glass': '\f302',
+  'mail-open': '\f303',
+  'mail': '\f304',
+  'mailbox': '\f305',
+  'map-base': '\f306',
+  'map-marker-date-v1': '\f307',
+  'map-marker-date-v2': '\f308',
+  'map-pin': '\f309',
+  'map': '\f30a',
+  'medical': '\f30b',
+  'merge': '\f30c',
+  'messaging-telegram-send': '\f30d',
+  'messaging-telegram': '\f30e',
+  'microphone-slash': '\f30f',
+  'microphone': '\f310',
+  'minibus-side-view': '\f311',
+  'minus-circle-fill': '\f312',
+  'minus-circle': '\f313',
+  'minus': '\f314',
+  'module-fill': '\f315',
+  'monitor': '\f316',
+  'moon': '\f317',
+  'music-slash': '\f318',
+  'music': '\f319',
+  'network-external-link': '\f31a',
+  'network-v1': '\f31b',
+  'network-v2': '\f31c',
+  'network-v3': '\f31d',
+  'network-wired': '\f31e',
+  'ni-fi-logo': '\f31f',
+  'normdocs-zql': '\f320',
+  'npm': '\f321',
+  'object-down-subtract': '\f322',
+  'object-exclude': '\f323',
+  'object-intersect': '\f324',
+  'object-selection': '\f325',
+  'object-union': '\f326',
+  'object-up-subtract': '\f327',
+  'object': '\f328',
+  'oil-barrel': '\f329',
+  'oil-canister': '\f32a',
+  'oil-droplet-arrows-all': '\f32b',
+  'oil-droplet-arrows-repeat-h': '\f32c',
+  'oil-droplet-chek': '\f32d',
+  'oil-droplet': '\f32e',
+  'oil-field': '\f32f',
+  'oil-tank': '\f330',
+  'ontology': '\f331',
+  'owl': '\f332',
+  'palette': '\f333',
+  'panel-down': '\f334',
+  'panel-left': '\f335',
+  'panel-right': '\f336',
+  'panel-top': '\f337',
+  'pantone': '\f338',
+  'paperclip-vertical': '\f339',
+  'paperclip': '\f33a',
+  'pause': '\f33b',
+  'paver-side-view': '\f33c',
+  'pen-hammer': '\f33d',
+  'pencil-arrow-right': '\f33e',
+  'pencil-line-bottom': '\f33f',
+  'pencil-triangle-down': '\f340',
+  'pencil-triangle-left': '\f341',
+  'pencil': '\f342',
+  'pentagon-fill': '\f343',
+  'pentagon': '\f344',
+  'percent': '\f345',
+  'phone-active-call': '\f346',
+  'phone-cancelled': '\f347',
+  'phone-minus': '\f348',
+  'phone-off': '\f349',
+  'phone-paused': '\f34a',
+  'phone-plus': '\f34b',
+  'phone': '\f34c',
+  'pi': '\f34d',
+  'pie-line-nested': '\f34e',
+  'pie-line': '\f34f',
+  'pie-pentagon': '\f350',
+  'pie-several-parts': '\f351',
+  'pie-simple': '\f352',
+  'pie': '\f353',
+  'pipe-node-side-view': '\f354',
+  'pipe-sensor': '\f355',
+  'pipe-slash': '\f356',
+  'pipe-valve': '\f357',
+  'pipeline-v1': '\f358',
+  'pipeline-v2': '\f359',
+  'pipette': '\f35a',
+  'plane': '\f35b',
+  'play-back': '\f35c',
+  'play': '\f35d',
+  'plus-column-right': '\f35e',
+  'plus-column-top': '\f35f',
+  'plus-triangle-down': '\f360',
+  'plus': '\f361',
+  'polyline': '\f362',
+  'portfel': '\f363',
+  'power': '\f364',
+  'premises-zql': '\f365',
+  'press': '\f366',
+  'printer': '\f367',
+  'process': '\f368',
+  'pulse': '\f369',
+  'pump-triangle-down': '\f36a',
+  'pump': '\f36b',
+  'push-button-cellphone': '\f36c',
+  'qr': '\f36d',
+  'question': '\f36e',
+  'quilt-fill': '\f36f',
+  'radiation': '\f370',
+  'railcar-hopper-side-view': '\f371',
+  'railcar-side-view': '\f372',
+  'range': '\f373',
+  'replay': '\f374',
+  'respirator-v1': '\f375',
+  'respirator-v2': '\f376',
+  'respirator-v3': '\f377',
+  'respirator-v4': '\f378',
+  'respirator-v5': '\f379',
+  'respirator-v6': '\f37a',
+  'return-step': '\f37b',
+  'return': '\f37c',
+  'rhombus-fill': '\f37d',
+  'rhombus': '\f37e',
+  'ring-in-square': '\f37f',
+  'ruler-index-zql': '\f380',
+  'ruler': '\f381',
+  'sample-logs-zql': '\f382',
+  'sample-templates-zql': '\f383',
+  'sandglass': '\f384',
+  'scatter-axis': '\f385',
+  'scatter-basic': '\f386',
+  'scatter': '\f387',
+  'scissors': '\f388',
+  'seedling-circle': '\f389',
+  'seedling-rectangle': '\f38a',
+  'seedling': '\f38b',
+  'selection-checked-empty': '\f38c',
+  'send-backward': '\f38d',
+  'send-forward': '\f38e',
+  'separator': '\f38f',
+  'sequential-fill': '\f390',
+  'server-network-close': '\f391',
+  'server-network-download': '\f392',
+  'server-network-minus': '\f393',
+  'server-network-plus': '\f394',
+  'server-network-security': '\f395',
+  'server-network-upload': '\f396',
+  'server-network': '\f397',
+  'server-shield': '\f398',
+  'server-slash-up-line': '\f399',
+  'server-slash': '\f39a',
+  'server-up-line': '\f39b',
+  'server': '\f39c',
+  'shape-link-fill': '\f39d',
+  'shape-link': '\f39e',
+  'shape-plus': '\f39f',
+  'share-left': '\f3a0',
+  'share-right': '\f3a1',
+  'shareing': '\f3a2',
+  'shield-exclamation': '\f3a3',
+  'shield-slash': '\f3a4',
+  'shield': '\f3a5',
+  'ship-front-view': '\f3a6',
+  'ship-side-view': '\f3a7',
+  'shopping-box': '\f3a8',
+  'shovel': '\f3a9',
+  'sigma': '\f3aa',
+  'signal-access-point': '\f3ab',
+  'signal-off': '\f3ac',
+  'signal-radio-tower': '\f3ad',
+  'signal': '\f3ae',
+  'sliders-h': '\f3af',
+  'sliders-v': '\f3b0',
+  'snake-cup': '\f3b1',
+  'snowflake-up-to-bracket': '\f3b2',
+  'snowflake': '\f3b3',
+  'sort-filter-remove': '\f3b4',
+  'specification': '\f3b5',
+  'specs-zql': '\f3b6',
+  'speed-reduction-cooling': '\f3b7',
+  'square-arrows-curve-right-down': '\f3b8',
+  'square-arrows-curve-up-right': '\f3b9',
+  'square-bracket-curly-left': '\f3ba',
+  'square-bracket-curly-right': '\f3bb',
+  'square-bracket-left': '\f3bc',
+  'square-bracket-right': '\f3bd',
+  'square-circle-plus-triangle-fill': '\f3be',
+  'square-circle-triangle-cross-fill': '\f3bf',
+  'square-circle-triangle-cross': '\f3c0',
+  'square-divide': '\f3c1',
+  'square-excel': '\f3c2',
+  'square-exclamation-empty': '\f3c3',
+  'square-exclamation-fill': '\f3c4',
+  'square-fill': '\f3c5',
+  'square-hexagon-circle-fill': '\f3c6',
+  'square-hexagon-circle': '\f3c7',
+  'square-in-square': '\f3c8',
+  'square-info-empty': '\f3c9',
+  'square-info-fill': '\f3ca',
+  'square-minus': '\f3cb',
+  'square-multiply': '\f3cc',
+  'square-music-double': '\f3cd',
+  'square-music': '\f3ce',
+  'square-percent': '\f3cf',
+  'square-plus': '\f3d0',
+  'square-powerpoint': '\f3d1',
+  'square-question-empty': '\f3d2',
+  'square-question-fill': '\f3d3',
+  'square-triangle-circle-triangle-fill': '\f3d4',
+  'square-triangle-circle-triangle': '\f3d5',
+  'square-word': '\f3d6',
+  'star-empty': '\f3d7',
+  'star-fill': '\f3d8',
+  'star-half-fill': '\f3d9',
+  'star-line': '\f3da',
+  'steam-boiler': '\f3db',
+  'steam-turbine': '\f3dc',
+  'steam': '\f3dd',
+  'stop': '\f3de',
+  'stopwatch': '\f3df',
+  'storage': '\f3e0',
+  'strikethrough': '\f3e1',
+  'subskrit-down': '\f3e2',
+  'subskrit-up': '\f3e3',
+  'sumbol-asterisk': '\f3e4',
+  'sun': '\f3e5',
+  'support-man': '\f3e6',
+  'table-down': '\f3e7',
+  'table-gear': '\f3e8',
+  'table-magnifying-glass': '\f3e9',
+  'table-right': '\f3ea',
+  'table-transpose-right': '\f3eb',
+  'table-transpose-top': '\f3ec',
+  'table-transpose': '\f3ed',
+  'table': '\f3ee',
+  'tablet-iqc-zql': '\f3ef',
+  'tablet': '\f3f0',
+  'tank': '\f3f1',
+  'tankcar-oil-side-view': '\f3f2',
+  'tankcar-side-view': '\f3f3',
+  'techs-zql': '\f3f4',
+  'temperature-minus': '\f3f5',
+  'temperature-plus': '\f3f6',
+  'temperature': '\f3f7',
+  'template': '\f3f8',
+  'text-color': '\f3f9',
+  'text': '\f3fa',
+  'thumb-down': '\f3fb',
+  'thumb-up': '\f3fc',
+  'thumbtack-directly': '\f3fd',
+  'thumbtack': '\f3fe',
+  'touchpad': '\f3ff',
+  'train-cargo': '\f400',
+  'train-passenger': '\f401',
+  'transmitter': '\f402',
+  'trash-empty': '\f403',
+  'trash': '\f404',
+  'triangle-circle-square-fill': '\f405',
+  'triangle-circle-square': '\f406',
+  'triangle-cross-empty': '\f407',
+  'triangle-down': '\f408',
+  'triangle-exclamation-empty': '\f409',
+  'triangle-exclamation-fill': '\f40a',
+  'triangle-fill': '\f40b',
+  'triangle-info-empty': '\f40c',
+  'triangle-info-fill': '\f40d',
+  'triangle-left': '\f40e',
+  'triangle-plus-empty': '\f40f',
+  'triangle-right': '\f410',
+  'triangle-up-down': '\f411',
+  'triangle-up': '\f412',
+  'triangle': '\f413',
+  'truck-dump-side-view': '\f414',
+  'truck-empty-side-view': '\f415',
+  'truck-garbage-side-view': '\f416',
+  'truck-gasoline-side-view': '\f417',
+  'truck-side-view': '\f418',
+  'tv': '\f419',
+  'umbrella': '\f41a',
+  'underlined': '\f41b',
+  'unlock': '\f41c',
+  'user-arrows-swap': '\f41d',
+  'user-card': '\f41e',
+  'user-check': '\f41f',
+  'user-circle': '\f420',
+  'user-cross': '\f421',
+  'user-gear': '\f422',
+  'user-group': '\f423',
+  'user-location': '\f424',
+  'user-minus': '\f425',
+  'user-pen': '\f426',
+  'user-plus': '\f427',
+  'user-shield': '\f428',
+  'user-worker': '\f429',
+  'user': '\f42a',
+  'users-arrow-right': '\f42b',
+  'users-arrow-up-zql': '\f42c',
+  'users-gear': '\f42d',
+  'users-key': '\f42e',
+  'users-location': '\f42f',
+  'users-minus': '\f430',
+  'users-plus': '\f431',
+  'users': '\f432',
+  'vector-circle-one-point': '\f433',
+  'vector-circle-two-point': '\f434',
+  'vector-circle': '\f435',
+  'vector-line': '\f436',
+  'vector-point': '\f437',
+  'vector-polygon': '\f438',
+  'vector-rectangle': '\f439',
+  'vector-square': '\f43a',
+  'vector-triangle': '\f43b',
+  'vectors-radius': '\f43c',
+  'vial-arrow-rotate-left': '\f43d',
+  'vial-flask': '\f43e',
+  'vial-plus': '\f43f',
+  'vial-xmark': '\f440',
+  'vial': '\f441',
+  'video-cross': '\f442',
+  'video-slash': '\f443',
+  'video': '\f444',
+  'voicemail': '\f445',
+  'volume-cross': '\f446',
+  'volume-low': '\f447',
+  'volume-minus': '\f448',
+  'volume-off': '\f449',
+  'volume-plus': '\f44a',
+  'volume-slash': '\f44b',
+  'volume': '\f44c',
+  'wallet': '\f44d',
+  'watch': '\f44e',
+  'water-heater': '\f44f',
+  'water-pump': '\f450',
+  'webcam': '\f451',
+  'wifi-off': '\f452',
+  'wifi': '\f453',
+  'window': '\f454',
+  'wrench': '\f455',
+  'xmark-column-right': '\f456',
+  'xmark-column-top': '\f457',
+  'xmark-mini': '\f458',
+  'xmark': '\f459',
 );
 
 .prizm-base-icons-agenda-fill:before {
-    content: map-get($prizm-base-icons-map, "agenda-fill");
+  content: map-get($prizm-base-icons-map, 'agenda-fill');
 }
 .prizm-base-icons-airplane-side-view:before {
-    content: map-get($prizm-base-icons-map, "airplane-side-view");
+  content: map-get($prizm-base-icons-map, 'airplane-side-view');
 }
 .prizm-base-icons-airplane-top-view:before {
-    content: map-get($prizm-base-icons-map, "airplane-top-view");
+  content: map-get($prizm-base-icons-map, 'airplane-top-view');
 }
 .prizm-base-icons-alarm-clock:before {
-    content: map-get($prizm-base-icons-map, "alarm-clock");
+  content: map-get($prizm-base-icons-map, 'alarm-clock');
 }
 .prizm-base-icons-alarm-plus:before {
-    content: map-get($prizm-base-icons-map, "alarm-plus");
+  content: map-get($prizm-base-icons-map, 'alarm-plus');
 }
 .prizm-base-icons-align-bottom:before {
-    content: map-get($prizm-base-icons-map, "align-bottom");
+  content: map-get($prizm-base-icons-map, 'align-bottom');
 }
 .prizm-base-icons-align-center-h:before {
-    content: map-get($prizm-base-icons-map, "align-center-h");
+  content: map-get($prizm-base-icons-map, 'align-center-h');
 }
 .prizm-base-icons-align-center-v:before {
-    content: map-get($prizm-base-icons-map, "align-center-v");
+  content: map-get($prizm-base-icons-map, 'align-center-v');
 }
 .prizm-base-icons-align-center:before {
-    content: map-get($prizm-base-icons-map, "align-center");
+  content: map-get($prizm-base-icons-map, 'align-center');
 }
 .prizm-base-icons-align-justify:before {
-    content: map-get($prizm-base-icons-map, "align-justify");
+  content: map-get($prizm-base-icons-map, 'align-justify');
 }
 .prizm-base-icons-align-left:before {
-    content: map-get($prizm-base-icons-map, "align-left");
+  content: map-get($prizm-base-icons-map, 'align-left');
 }
 .prizm-base-icons-align-right:before {
-    content: map-get($prizm-base-icons-map, "align-right");
+  content: map-get($prizm-base-icons-map, 'align-right');
 }
 .prizm-base-icons-align-top:before {
-    content: map-get($prizm-base-icons-map, "align-top");
+  content: map-get($prizm-base-icons-map, 'align-top');
 }
 .prizm-base-icons-ambulance-side-view:before {
-    content: map-get($prizm-base-icons-map, "ambulance-side-view");
+  content: map-get($prizm-base-icons-map, 'ambulance-side-view');
 }
 .prizm-base-icons-android-pill:before {
-    content: map-get($prizm-base-icons-map, "android-pill");
+  content: map-get($prizm-base-icons-map, 'android-pill');
 }
 .prizm-base-icons-android:before {
-    content: map-get($prizm-base-icons-map, "android");
+  content: map-get($prizm-base-icons-map, 'android');
 }
 .prizm-base-icons-angle-left-right-arrows-down:before {
-    content: map-get($prizm-base-icons-map, "angle-left-right-arrows-down");
+  content: map-get($prizm-base-icons-map, 'angle-left-right-arrows-down');
 }
 .prizm-base-icons-angle-left-right:before {
-    content: map-get($prizm-base-icons-map, "angle-left-right");
+  content: map-get($prizm-base-icons-map, 'angle-left-right');
 }
 .prizm-base-icons-angle-left:before {
-    content: map-get($prizm-base-icons-map, "angle-left");
+  content: map-get($prizm-base-icons-map, 'angle-left');
 }
 .prizm-base-icons-angle-right:before {
-    content: map-get($prizm-base-icons-map, "angle-right");
+  content: map-get($prizm-base-icons-map, 'angle-right');
 }
 .prizm-base-icons-arrange-send-to-back:before {
-    content: map-get($prizm-base-icons-map, "arrange-send-to-back");
+  content: map-get($prizm-base-icons-map, 'arrange-send-to-back');
 }
 .prizm-base-icons-array-fill:before {
-    content: map-get($prizm-base-icons-map, "array-fill");
+  content: map-get($prizm-base-icons-map, 'array-fill');
 }
 .prizm-base-icons-arrow-bold-down:before {
-    content: map-get($prizm-base-icons-map, "arrow-bold-down");
+  content: map-get($prizm-base-icons-map, 'arrow-bold-down');
 }
 .prizm-base-icons-arrow-bold-left:before {
-    content: map-get($prizm-base-icons-map, "arrow-bold-left");
+  content: map-get($prizm-base-icons-map, 'arrow-bold-left');
 }
 .prizm-base-icons-arrow-bold-right:before {
-    content: map-get($prizm-base-icons-map, "arrow-bold-right");
+  content: map-get($prizm-base-icons-map, 'arrow-bold-right');
 }
 .prizm-base-icons-arrow-bold-up:before {
-    content: map-get($prizm-base-icons-map, "arrow-bold-up");
+  content: map-get($prizm-base-icons-map, 'arrow-bold-up');
 }
 .prizm-base-icons-arrow-daw:before {
-    content: map-get($prizm-base-icons-map, "arrow-daw");
+  content: map-get($prizm-base-icons-map, 'arrow-daw');
 }
 .prizm-base-icons-arrow-down-between-lines:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-between-lines");
+  content: map-get($prizm-base-icons-map, 'arrow-down-between-lines');
 }
 .prizm-base-icons-arrow-down-from-double-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-from-double-line");
+  content: map-get($prizm-base-icons-map, 'arrow-down-from-double-line');
 }
 .prizm-base-icons-arrow-down-from-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-from-line");
+  content: map-get($prizm-base-icons-map, 'arrow-down-from-line');
 }
 .prizm-base-icons-arrow-down-in-circle-empty:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-in-circle-empty");
+  content: map-get($prizm-base-icons-map, 'arrow-down-in-circle-empty');
 }
 .prizm-base-icons-arrow-down-to-bracket:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-to-bracket");
+  content: map-get($prizm-base-icons-map, 'arrow-down-to-bracket');
 }
 .prizm-base-icons-arrow-down-to-double-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-to-double-line");
+  content: map-get($prizm-base-icons-map, 'arrow-down-to-double-line');
 }
 .prizm-base-icons-arrow-down-to-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-to-line");
+  content: map-get($prizm-base-icons-map, 'arrow-down-to-line');
 }
 .prizm-base-icons-arrow-down-wide-short:before {
-    content: map-get($prizm-base-icons-map, "arrow-down-wide-short");
+  content: map-get($prizm-base-icons-map, 'arrow-down-wide-short');
 }
 .prizm-base-icons-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "arrow-down");
+  content: map-get($prizm-base-icons-map, 'arrow-down');
 }
 .prizm-base-icons-arrow-left-between-lines:before {
-    content: map-get($prizm-base-icons-map, "arrow-left-between-lines");
+  content: map-get($prizm-base-icons-map, 'arrow-left-between-lines');
 }
 .prizm-base-icons-arrow-left-down:before {
-    content: map-get($prizm-base-icons-map, "arrow-left-down");
+  content: map-get($prizm-base-icons-map, 'arrow-left-down');
 }
 .prizm-base-icons-arrow-left-from-bracket:before {
-    content: map-get($prizm-base-icons-map, "arrow-left-from-bracket");
+  content: map-get($prizm-base-icons-map, 'arrow-left-from-bracket');
 }
 .prizm-base-icons-arrow-left-in-circle-empty:before {
-    content: map-get($prizm-base-icons-map, "arrow-left-in-circle-empty");
+  content: map-get($prizm-base-icons-map, 'arrow-left-in-circle-empty');
 }
 .prizm-base-icons-arrow-left-up:before {
-    content: map-get($prizm-base-icons-map, "arrow-left-up");
+  content: map-get($prizm-base-icons-map, 'arrow-left-up');
 }
 .prizm-base-icons-arrow-left:before {
-    content: map-get($prizm-base-icons-map, "arrow-left");
+  content: map-get($prizm-base-icons-map, 'arrow-left');
 }
 .prizm-base-icons-arrow-right-between-lines:before {
-    content: map-get($prizm-base-icons-map, "arrow-right-between-lines");
+  content: map-get($prizm-base-icons-map, 'arrow-right-between-lines');
 }
 .prizm-base-icons-arrow-right-down:before {
-    content: map-get($prizm-base-icons-map, "arrow-right-down");
+  content: map-get($prizm-base-icons-map, 'arrow-right-down');
 }
 .prizm-base-icons-arrow-right-from-bracket:before {
-    content: map-get($prizm-base-icons-map, "arrow-right-from-bracket");
+  content: map-get($prizm-base-icons-map, 'arrow-right-from-bracket');
 }
 .prizm-base-icons-arrow-right-in-circle-empty:before {
-    content: map-get($prizm-base-icons-map, "arrow-right-in-circle-empty");
+  content: map-get($prizm-base-icons-map, 'arrow-right-in-circle-empty');
 }
 .prizm-base-icons-arrow-right-up:before {
-    content: map-get($prizm-base-icons-map, "arrow-right-up");
+  content: map-get($prizm-base-icons-map, 'arrow-right-up');
 }
 .prizm-base-icons-arrow-right:before {
-    content: map-get($prizm-base-icons-map, "arrow-right");
+  content: map-get($prizm-base-icons-map, 'arrow-right');
 }
 .prizm-base-icons-arrow-rotate-left:before {
-    content: map-get($prizm-base-icons-map, "arrow-rotate-left");
+  content: map-get($prizm-base-icons-map, 'arrow-rotate-left');
 }
 .prizm-base-icons-arrow-rotate-right:before {
-    content: map-get($prizm-base-icons-map, "arrow-rotate-right");
+  content: map-get($prizm-base-icons-map, 'arrow-rotate-right');
 }
 .prizm-base-icons-arrow-turn-down-left:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-down-left");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-down-left');
 }
 .prizm-base-icons-arrow-turn-down-right:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-down-right");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-down-right');
 }
 .prizm-base-icons-arrow-turn-left-down:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-left-down");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-left-down');
 }
 .prizm-base-icons-arrow-turn-left-up:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-left-up");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-left-up');
 }
 .prizm-base-icons-arrow-turn-right-down:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-right-down");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-right-down');
 }
 .prizm-base-icons-arrow-turn-right-up:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-right-up");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-right-up');
 }
 .prizm-base-icons-arrow-turn-up-left:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-up-left");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-up-left');
 }
 .prizm-base-icons-arrow-turn-up-right:before {
-    content: map-get($prizm-base-icons-map, "arrow-turn-up-right");
+  content: map-get($prizm-base-icons-map, 'arrow-turn-up-right');
 }
 .prizm-base-icons-arrow-up-arrow-down-h:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-arrow-down-h");
+  content: map-get($prizm-base-icons-map, 'arrow-up-arrow-down-h');
 }
 .prizm-base-icons-arrow-up-arrow-down-v:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-arrow-down-v");
+  content: map-get($prizm-base-icons-map, 'arrow-up-arrow-down-v');
 }
 .prizm-base-icons-arrow-up-between-lines:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-between-lines");
+  content: map-get($prizm-base-icons-map, 'arrow-up-between-lines');
 }
 .prizm-base-icons-arrow-up-from-bracket:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-from-bracket");
+  content: map-get($prizm-base-icons-map, 'arrow-up-from-bracket');
 }
 .prizm-base-icons-arrow-up-from-double-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-from-double-line");
+  content: map-get($prizm-base-icons-map, 'arrow-up-from-double-line');
 }
 .prizm-base-icons-arrow-up-from-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-from-line");
+  content: map-get($prizm-base-icons-map, 'arrow-up-from-line');
 }
 .prizm-base-icons-arrow-up-in-circle-empty:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-in-circle-empty");
+  content: map-get($prizm-base-icons-map, 'arrow-up-in-circle-empty');
 }
 .prizm-base-icons-arrow-up-to-dotted-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-to-dotted-line");
+  content: map-get($prizm-base-icons-map, 'arrow-up-to-dotted-line');
 }
 .prizm-base-icons-arrow-up-to-double-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-to-double-line");
+  content: map-get($prizm-base-icons-map, 'arrow-up-to-double-line');
 }
 .prizm-base-icons-arrow-up-to-line:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-to-line");
+  content: map-get($prizm-base-icons-map, 'arrow-up-to-line');
 }
 .prizm-base-icons-arrow-up-wide-short:before {
-    content: map-get($prizm-base-icons-map, "arrow-up-wide-short");
+  content: map-get($prizm-base-icons-map, 'arrow-up-wide-short');
 }
 .prizm-base-icons-arrow-up:before {
-    content: map-get($prizm-base-icons-map, "arrow-up");
+  content: map-get($prizm-base-icons-map, 'arrow-up');
 }
 .prizm-base-icons-arrows-all-directions:before {
-    content: map-get($prizm-base-icons-map, "arrows-all-directions");
+  content: map-get($prizm-base-icons-map, 'arrows-all-directions');
 }
 .prizm-base-icons-arrows-compare:before {
-    content: map-get($prizm-base-icons-map, "arrows-compare");
+  content: map-get($prizm-base-icons-map, 'arrows-compare');
 }
 .prizm-base-icons-arrows-cross:before {
-    content: map-get($prizm-base-icons-map, "arrows-cross");
+  content: map-get($prizm-base-icons-map, 'arrows-cross');
 }
 .prizm-base-icons-arrows-direction-to-the-lines:before {
-    content: map-get($prizm-base-icons-map, "arrows-direction-to-the-lines");
+  content: map-get($prizm-base-icons-map, 'arrows-direction-to-the-lines');
 }
 .prizm-base-icons-arrows-inside:before {
-    content: map-get($prizm-base-icons-map, "arrows-inside");
+  content: map-get($prizm-base-icons-map, 'arrows-inside');
 }
 .prizm-base-icons-arrows-left-right-brackets:before {
-    content: map-get($prizm-base-icons-map, "arrows-left-right-brackets");
+  content: map-get($prizm-base-icons-map, 'arrows-left-right-brackets');
 }
 .prizm-base-icons-arrows-left-right-to-lines:before {
-    content: map-get($prizm-base-icons-map, "arrows-left-right-to-lines");
+  content: map-get($prizm-base-icons-map, 'arrows-left-right-to-lines');
 }
 .prizm-base-icons-arrows-maximize:before {
-    content: map-get($prizm-base-icons-map, "arrows-maximize");
+  content: map-get($prizm-base-icons-map, 'arrows-maximize');
 }
 .prizm-base-icons-arrows-minimize:before {
-    content: map-get($prizm-base-icons-map, "arrows-minimize");
+  content: map-get($prizm-base-icons-map, 'arrows-minimize');
 }
 .prizm-base-icons-arrows-out:before {
-    content: map-get($prizm-base-icons-map, "arrows-out");
+  content: map-get($prizm-base-icons-map, 'arrows-out');
 }
 .prizm-base-icons-arrows-repeat-h:before {
-    content: map-get($prizm-base-icons-map, "arrows-repeat-h");
+  content: map-get($prizm-base-icons-map, 'arrows-repeat-h');
 }
 .prizm-base-icons-arrows-repeat-v:before {
-    content: map-get($prizm-base-icons-map, "arrows-repeat-v");
+  content: map-get($prizm-base-icons-map, 'arrows-repeat-v');
 }
 .prizm-base-icons-arrows-rotate-h:before {
-    content: map-get($prizm-base-icons-map, "arrows-rotate-h");
+  content: map-get($prizm-base-icons-map, 'arrows-rotate-h');
 }
 .prizm-base-icons-arrows-rotate-v:before {
-    content: map-get($prizm-base-icons-map, "arrows-rotate-v");
+  content: map-get($prizm-base-icons-map, 'arrows-rotate-v');
 }
 .prizm-base-icons-arrows-shuffle:before {
-    content: map-get($prizm-base-icons-map, "arrows-shuffle");
+  content: map-get($prizm-base-icons-map, 'arrows-shuffle');
 }
 .prizm-base-icons-arrows-swap-h:before {
-    content: map-get($prizm-base-icons-map, "arrows-swap-h");
+  content: map-get($prizm-base-icons-map, 'arrows-swap-h');
 }
 .prizm-base-icons-arrows-swap-v:before {
-    content: map-get($prizm-base-icons-map, "arrows-swap-v");
+  content: map-get($prizm-base-icons-map, 'arrows-swap-v');
 }
 .prizm-base-icons-arrows-up-down-to-lines:before {
-    content: map-get($prizm-base-icons-map, "arrows-up-down-to-lines");
+  content: map-get($prizm-base-icons-map, 'arrows-up-down-to-lines');
 }
 .prizm-base-icons-at-sign:before {
-    content: map-get($prizm-base-icons-map, "at-sign");
+  content: map-get($prizm-base-icons-map, 'at-sign');
 }
 .prizm-base-icons-audio-speakers:before {
-    content: map-get($prizm-base-icons-map, "audio-speakers");
+  content: map-get($prizm-base-icons-map, 'audio-speakers');
 }
 .prizm-base-icons-award:before {
-    content: map-get($prizm-base-icons-map, "award");
+  content: map-get($prizm-base-icons-map, 'award');
 }
 .prizm-base-icons-bag:before {
-    content: map-get($prizm-base-icons-map, "bag");
+  content: map-get($prizm-base-icons-map, 'bag');
 }
 .prizm-base-icons-balloon:before {
-    content: map-get($prizm-base-icons-map, "balloon");
+  content: map-get($prizm-base-icons-map, 'balloon');
 }
 .prizm-base-icons-ban:before {
-    content: map-get($prizm-base-icons-map, "ban");
+  content: map-get($prizm-base-icons-map, 'ban');
 }
 .prizm-base-icons-bar-axis:before {
-    content: map-get($prizm-base-icons-map, "bar-axis");
+  content: map-get($prizm-base-icons-map, 'bar-axis');
 }
 .prizm-base-icons-bar-basic:before {
-    content: map-get($prizm-base-icons-map, "bar-basic");
+  content: map-get($prizm-base-icons-map, 'bar-basic');
 }
 .prizm-base-icons-bar-columns-axis-x:before {
-    content: map-get($prizm-base-icons-map, "bar-columns-axis-x");
+  content: map-get($prizm-base-icons-map, 'bar-columns-axis-x');
 }
 .prizm-base-icons-bar-columns:before {
-    content: map-get($prizm-base-icons-map, "bar-columns");
+  content: map-get($prizm-base-icons-map, 'bar-columns');
 }
 .prizm-base-icons-bar-histogram:before {
-    content: map-get($prizm-base-icons-map, "bar-histogram");
+  content: map-get($prizm-base-icons-map, 'bar-histogram');
 }
 .prizm-base-icons-bar-square:before {
-    content: map-get($prizm-base-icons-map, "bar-square");
+  content: map-get($prizm-base-icons-map, 'bar-square');
 }
 .prizm-base-icons-bar-stacked-axis:before {
-    content: map-get($prizm-base-icons-map, "bar-stacked-axis");
+  content: map-get($prizm-base-icons-map, 'bar-stacked-axis');
 }
 .prizm-base-icons-bar-stacked:before {
-    content: map-get($prizm-base-icons-map, "bar-stacked");
+  content: map-get($prizm-base-icons-map, 'bar-stacked');
 }
 .prizm-base-icons-barcode:before {
-    content: map-get($prizm-base-icons-map, "barcode");
+  content: map-get($prizm-base-icons-map, 'barcode');
 }
 .prizm-base-icons-bars-sort:before {
-    content: map-get($prizm-base-icons-map, "bars-sort");
+  content: map-get($prizm-base-icons-map, 'bars-sort');
 }
 .prizm-base-icons-bars:before {
-    content: map-get($prizm-base-icons-map, "bars");
+  content: map-get($prizm-base-icons-map, 'bars');
 }
 .prizm-base-icons-battery-bolt:before {
-    content: map-get($prizm-base-icons-map, "battery-bolt");
+  content: map-get($prizm-base-icons-map, 'battery-bolt');
 }
 .prizm-base-icons-battery-empty:before {
-    content: map-get($prizm-base-icons-map, "battery-empty");
+  content: map-get($prizm-base-icons-map, 'battery-empty');
 }
 .prizm-base-icons-battery-exclametion-mark:before {
-    content: map-get($prizm-base-icons-map, "battery-exclametion-mark");
+  content: map-get($prizm-base-icons-map, 'battery-exclametion-mark');
 }
 .prizm-base-icons-battery-full:before {
-    content: map-get($prizm-base-icons-map, "battery-full");
+  content: map-get($prizm-base-icons-map, 'battery-full');
 }
 .prizm-base-icons-battery-half:before {
-    content: map-get($prizm-base-icons-map, "battery-half");
+  content: map-get($prizm-base-icons-map, 'battery-half');
 }
 .prizm-base-icons-battery-minus:before {
-    content: map-get($prizm-base-icons-map, "battery-minus");
+  content: map-get($prizm-base-icons-map, 'battery-minus');
 }
 .prizm-base-icons-battery-plus:before {
-    content: map-get($prizm-base-icons-map, "battery-plus");
+  content: map-get($prizm-base-icons-map, 'battery-plus');
 }
 .prizm-base-icons-battery-quarter:before {
-    content: map-get($prizm-base-icons-map, "battery-quarter");
+  content: map-get($prizm-base-icons-map, 'battery-quarter');
 }
 .prizm-base-icons-battery-three-quarters:before {
-    content: map-get($prizm-base-icons-map, "battery-three-quarters");
+  content: map-get($prizm-base-icons-map, 'battery-three-quarters');
 }
 .prizm-base-icons-bdrv-administration:before {
-    content: map-get($prizm-base-icons-map, "bdrv-administration");
+  content: map-get($prizm-base-icons-map, 'bdrv-administration');
 }
 .prizm-base-icons-bell-fill:before {
-    content: map-get($prizm-base-icons-map, "bell-fill");
+  content: map-get($prizm-base-icons-map, 'bell-fill');
 }
 .prizm-base-icons-bell-plus:before {
-    content: map-get($prizm-base-icons-map, "bell-plus");
+  content: map-get($prizm-base-icons-map, 'bell-plus');
 }
 .prizm-base-icons-bell-ring-fill:before {
-    content: map-get($prizm-base-icons-map, "bell-ring-fill");
+  content: map-get($prizm-base-icons-map, 'bell-ring-fill');
 }
 .prizm-base-icons-bell-ring:before {
-    content: map-get($prizm-base-icons-map, "bell-ring");
+  content: map-get($prizm-base-icons-map, 'bell-ring');
 }
 .prizm-base-icons-bell-slash:before {
-    content: map-get($prizm-base-icons-map, "bell-slash");
+  content: map-get($prizm-base-icons-map, 'bell-slash');
 }
 .prizm-base-icons-bell:before {
-    content: map-get($prizm-base-icons-map, "bell");
+  content: map-get($prizm-base-icons-map, 'bell');
 }
 .prizm-base-icons-bezier-curve:before {
-    content: map-get($prizm-base-icons-map, "bezier-curve");
+  content: map-get($prizm-base-icons-map, 'bezier-curve');
 }
 .prizm-base-icons-bitcoin:before {
-    content: map-get($prizm-base-icons-map, "bitcoin");
+  content: map-get($prizm-base-icons-map, 'bitcoin');
 }
 .prizm-base-icons-bluetooth:before {
-    content: map-get($prizm-base-icons-map, "bluetooth");
+  content: map-get($prizm-base-icons-map, 'bluetooth');
 }
 .prizm-base-icons-boiler-hot-water-gas-and-oil:before {
-    content: map-get($prizm-base-icons-map, "boiler-hot-water-gas-and-oil");
+  content: map-get($prizm-base-icons-map, 'boiler-hot-water-gas-and-oil');
 }
 .prizm-base-icons-boiler:before {
-    content: map-get($prizm-base-icons-map, "boiler");
+  content: map-get($prizm-base-icons-map, 'boiler');
 }
 .prizm-base-icons-bold:before {
-    content: map-get($prizm-base-icons-map, "bold");
+  content: map-get($prizm-base-icons-map, 'bold');
 }
 .prizm-base-icons-book-check:before {
-    content: map-get($prizm-base-icons-map, "book-check");
+  content: map-get($prizm-base-icons-map, 'book-check');
 }
 .prizm-base-icons-book-closed:before {
-    content: map-get($prizm-base-icons-map, "book-closed");
+  content: map-get($prizm-base-icons-map, 'book-closed');
 }
 .prizm-base-icons-book-open-plus:before {
-    content: map-get($prizm-base-icons-map, "book-open-plus");
+  content: map-get($prizm-base-icons-map, 'book-open-plus');
 }
 .prizm-base-icons-book-open-re-arrow-left:before {
-    content: map-get($prizm-base-icons-map, "book-open-re-arrow-left");
+  content: map-get($prizm-base-icons-map, 'book-open-re-arrow-left');
 }
 .prizm-base-icons-book-open-re-arrow-right:before {
-    content: map-get($prizm-base-icons-map, "book-open-re-arrow-right");
+  content: map-get($prizm-base-icons-map, 'book-open-re-arrow-right');
 }
 .prizm-base-icons-book-open-text:before {
-    content: map-get($prizm-base-icons-map, "book-open-text");
+  content: map-get($prizm-base-icons-map, 'book-open-text');
 }
 .prizm-base-icons-book-open-with-page:before {
-    content: map-get($prizm-base-icons-map, "book-open-with-page");
+  content: map-get($prizm-base-icons-map, 'book-open-with-page');
 }
 .prizm-base-icons-book-open:before {
-    content: map-get($prizm-base-icons-map, "book-open");
+  content: map-get($prizm-base-icons-map, 'book-open');
 }
 .prizm-base-icons-book-stack:before {
-    content: map-get($prizm-base-icons-map, "book-stack");
+  content: map-get($prizm-base-icons-map, 'book-stack');
 }
 .prizm-base-icons-bookmark-check-fill:before {
-    content: map-get($prizm-base-icons-map, "bookmark-check-fill");
+  content: map-get($prizm-base-icons-map, 'bookmark-check-fill');
 }
 .prizm-base-icons-bookmark-check:before {
-    content: map-get($prizm-base-icons-map, "bookmark-check");
+  content: map-get($prizm-base-icons-map, 'bookmark-check');
 }
 .prizm-base-icons-bookmark-cross-fill:before {
-    content: map-get($prizm-base-icons-map, "bookmark-cross-fill");
+  content: map-get($prizm-base-icons-map, 'bookmark-cross-fill');
 }
 .prizm-base-icons-bookmark-cross:before {
-    content: map-get($prizm-base-icons-map, "bookmark-cross");
+  content: map-get($prizm-base-icons-map, 'bookmark-cross');
 }
 .prizm-base-icons-bookmark-fill:before {
-    content: map-get($prizm-base-icons-map, "bookmark-fill");
+  content: map-get($prizm-base-icons-map, 'bookmark-fill');
 }
 .prizm-base-icons-bookmark-music-fill:before {
-    content: map-get($prizm-base-icons-map, "bookmark-music-fill");
+  content: map-get($prizm-base-icons-map, 'bookmark-music-fill');
 }
 .prizm-base-icons-bookmark-music:before {
-    content: map-get($prizm-base-icons-map, "bookmark-music");
+  content: map-get($prizm-base-icons-map, 'bookmark-music');
 }
 .prizm-base-icons-bookmark-plus-fill:before {
-    content: map-get($prizm-base-icons-map, "bookmark-plus-fill");
+  content: map-get($prizm-base-icons-map, 'bookmark-plus-fill');
 }
 .prizm-base-icons-bookmark-plus:before {
-    content: map-get($prizm-base-icons-map, "bookmark-plus");
+  content: map-get($prizm-base-icons-map, 'bookmark-plus');
 }
 .prizm-base-icons-bookmark:before {
-    content: map-get($prizm-base-icons-map, "bookmark");
+  content: map-get($prizm-base-icons-map, 'bookmark');
 }
 .prizm-base-icons-border-all:before {
-    content: map-get($prizm-base-icons-map, "border-all");
+  content: map-get($prizm-base-icons-map, 'border-all');
 }
 .prizm-base-icons-border-bottom:before {
-    content: map-get($prizm-base-icons-map, "border-bottom");
+  content: map-get($prizm-base-icons-map, 'border-bottom');
 }
 .prizm-base-icons-border-center-h:before {
-    content: map-get($prizm-base-icons-map, "border-center-h");
+  content: map-get($prizm-base-icons-map, 'border-center-h');
 }
 .prizm-base-icons-border-center-v:before {
-    content: map-get($prizm-base-icons-map, "border-center-v");
+  content: map-get($prizm-base-icons-map, 'border-center-v');
 }
 .prizm-base-icons-border-inner:before {
-    content: map-get($prizm-base-icons-map, "border-inner");
+  content: map-get($prizm-base-icons-map, 'border-inner');
 }
 .prizm-base-icons-border-left:before {
-    content: map-get($prizm-base-icons-map, "border-left");
+  content: map-get($prizm-base-icons-map, 'border-left');
 }
 .prizm-base-icons-border-none:before {
-    content: map-get($prizm-base-icons-map, "border-none");
+  content: map-get($prizm-base-icons-map, 'border-none');
 }
 .prizm-base-icons-border-outer:before {
-    content: map-get($prizm-base-icons-map, "border-outer");
+  content: map-get($prizm-base-icons-map, 'border-outer');
 }
 .prizm-base-icons-border-right:before {
-    content: map-get($prizm-base-icons-map, "border-right");
+  content: map-get($prizm-base-icons-map, 'border-right');
 }
 .prizm-base-icons-border-top-left:before {
-    content: map-get($prizm-base-icons-map, "border-top-left");
+  content: map-get($prizm-base-icons-map, 'border-top-left');
 }
 .prizm-base-icons-border-top:before {
-    content: map-get($prizm-base-icons-map, "border-top");
+  content: map-get($prizm-base-icons-map, 'border-top');
 }
 .prizm-base-icons-box-open-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "box-open-arrow-down");
+  content: map-get($prizm-base-icons-map, 'box-open-arrow-down');
 }
 .prizm-base-icons-box:before {
-    content: map-get($prizm-base-icons-map, "box");
+  content: map-get($prizm-base-icons-map, 'box');
 }
 .prizm-base-icons-brackets-curly:before {
-    content: map-get($prizm-base-icons-map, "brackets-curly");
+  content: map-get($prizm-base-icons-map, 'brackets-curly');
 }
 .prizm-base-icons-brackets-square:before {
-    content: map-get($prizm-base-icons-map, "brackets-square");
+  content: map-get($prizm-base-icons-map, 'brackets-square');
 }
 .prizm-base-icons-broom:before {
-    content: map-get($prizm-base-icons-map, "broom");
+  content: map-get($prizm-base-icons-map, 'broom');
 }
 .prizm-base-icons-browser:before {
-    content: map-get($prizm-base-icons-map, "browser");
+  content: map-get($prizm-base-icons-map, 'browser');
 }
 .prizm-base-icons-brush:before {
-    content: map-get($prizm-base-icons-map, "brush");
+  content: map-get($prizm-base-icons-map, 'brush');
 }
 .prizm-base-icons-bubble-message-add:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-add");
+  content: map-get($prizm-base-icons-map, 'bubble-message-add');
 }
 .prizm-base-icons-bubble-message-attention:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-attention");
+  content: map-get($prizm-base-icons-map, 'bubble-message-attention');
 }
 .prizm-base-icons-bubble-message-circle:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-circle");
+  content: map-get($prizm-base-icons-map, 'bubble-message-circle');
 }
 .prizm-base-icons-bubble-message-empty:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-empty");
+  content: map-get($prizm-base-icons-map, 'bubble-message-empty');
 }
 .prizm-base-icons-bubble-message-off:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-off");
+  content: map-get($prizm-base-icons-map, 'bubble-message-off');
 }
 .prizm-base-icons-bubble-message-question:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-question");
+  content: map-get($prizm-base-icons-map, 'bubble-message-question');
 }
 .prizm-base-icons-bubble-message-text:before {
-    content: map-get($prizm-base-icons-map, "bubble-message-text");
+  content: map-get($prizm-base-icons-map, 'bubble-message-text');
 }
 .prizm-base-icons-bubble-message:before {
-    content: map-get($prizm-base-icons-map, "bubble-message");
+  content: map-get($prizm-base-icons-map, 'bubble-message');
 }
 .prizm-base-icons-burn:before {
-    content: map-get($prizm-base-icons-map, "burn");
+  content: map-get($prizm-base-icons-map, 'burn');
 }
 .prizm-base-icons-calculator-arrow-rotate-left:before {
-    content: map-get($prizm-base-icons-map, "calculator-arrow-rotate-left");
+  content: map-get($prizm-base-icons-map, 'calculator-arrow-rotate-left');
 }
 .prizm-base-icons-calculator-function:before {
-    content: map-get($prizm-base-icons-map, "calculator-function");
+  content: map-get($prizm-base-icons-map, 'calculator-function');
 }
 .prizm-base-icons-calculator:before {
-    content: map-get($prizm-base-icons-map, "calculator");
+  content: map-get($prizm-base-icons-map, 'calculator');
 }
 .prizm-base-icons-calendar-blank:before {
-    content: map-get($prizm-base-icons-map, "calendar-blank");
+  content: map-get($prizm-base-icons-map, 'calendar-blank');
 }
 .prizm-base-icons-calendar-check:before {
-    content: map-get($prizm-base-icons-map, "calendar-check");
+  content: map-get($prizm-base-icons-map, 'calendar-check');
 }
 .prizm-base-icons-calendar-clock:before {
-    content: map-get($prizm-base-icons-map, "calendar-clock");
+  content: map-get($prizm-base-icons-map, 'calendar-clock');
 }
 .prizm-base-icons-calendar-deleted:before {
-    content: map-get($prizm-base-icons-map, "calendar-deleted");
+  content: map-get($prizm-base-icons-map, 'calendar-deleted');
 }
 .prizm-base-icons-calendar-event:before {
-    content: map-get($prizm-base-icons-map, "calendar-event");
+  content: map-get($prizm-base-icons-map, 'calendar-event');
 }
 .prizm-base-icons-calendar-plus:before {
-    content: map-get($prizm-base-icons-map, "calendar-plus");
+  content: map-get($prizm-base-icons-map, 'calendar-plus');
 }
 .prizm-base-icons-calendar-question:before {
-    content: map-get($prizm-base-icons-map, "calendar-question");
+  content: map-get($prizm-base-icons-map, 'calendar-question');
 }
 .prizm-base-icons-calendar-range:before {
-    content: map-get($prizm-base-icons-map, "calendar-range");
+  content: map-get($prizm-base-icons-map, 'calendar-range');
 }
 .prizm-base-icons-calendar-today:before {
-    content: map-get($prizm-base-icons-map, "calendar-today");
+  content: map-get($prizm-base-icons-map, 'calendar-today');
 }
 .prizm-base-icons-calendar:before {
-    content: map-get($prizm-base-icons-map, "calendar");
+  content: map-get($prizm-base-icons-map, 'calendar');
 }
 .prizm-base-icons-calibration-characteristics-zql:before {
-    content: map-get($prizm-base-icons-map, "calibration-characteristics-zql");
+  content: map-get($prizm-base-icons-map, 'calibration-characteristics-zql');
 }
 .prizm-base-icons-camera-front:before {
-    content: map-get($prizm-base-icons-map, "camera-front");
+  content: map-get($prizm-base-icons-map, 'camera-front');
 }
 .prizm-base-icons-camera-movie-cross:before {
-    content: map-get($prizm-base-icons-map, "camera-movie-cross");
+  content: map-get($prizm-base-icons-map, 'camera-movie-cross');
 }
 .prizm-base-icons-camera-movie:before {
-    content: map-get($prizm-base-icons-map, "camera-movie");
+  content: map-get($prizm-base-icons-map, 'camera-movie');
 }
 .prizm-base-icons-camera:before {
-    content: map-get($prizm-base-icons-map, "camera");
+  content: map-get($prizm-base-icons-map, 'camera');
 }
 .prizm-base-icons-car-jeep-side-view:before {
-    content: map-get($prizm-base-icons-map, "car-jeep-side-view");
+  content: map-get($prizm-base-icons-map, 'car-jeep-side-view');
 }
 .prizm-base-icons-car-light-side-view:before {
-    content: map-get($prizm-base-icons-map, "car-light-side-view");
+  content: map-get($prizm-base-icons-map, 'car-light-side-view');
 }
 .prizm-base-icons-carbon:before {
-    content: map-get($prizm-base-icons-map, "carbon");
+  content: map-get($prizm-base-icons-map, 'carbon');
 }
 .prizm-base-icons-carousel-fill:before {
-    content: map-get($prizm-base-icons-map, "carousel-fill");
+  content: map-get($prizm-base-icons-map, 'carousel-fill');
 }
 .prizm-base-icons-cart-flatbed-container:before {
-    content: map-get($prizm-base-icons-map, "cart-flatbed-container");
+  content: map-get($prizm-base-icons-map, 'cart-flatbed-container');
 }
 .prizm-base-icons-cart-plus:before {
-    content: map-get($prizm-base-icons-map, "cart-plus");
+  content: map-get($prizm-base-icons-map, 'cart-plus');
 }
 .prizm-base-icons-cart:before {
-    content: map-get($prizm-base-icons-map, "cart");
+  content: map-get($prizm-base-icons-map, 'cart');
 }
 .prizm-base-icons-cellphone-wireless:before {
-    content: map-get($prizm-base-icons-map, "cellphone-wireless");
+  content: map-get($prizm-base-icons-map, 'cellphone-wireless');
 }
 .prizm-base-icons-cellphone:before {
-    content: map-get($prizm-base-icons-map, "cellphone");
+  content: map-get($prizm-base-icons-map, 'cellphone');
 }
 .prizm-base-icons-charts-iqc-zql:before {
-    content: map-get($prizm-base-icons-map, "charts-iqc-zql");
+  content: map-get($prizm-base-icons-map, 'charts-iqc-zql');
 }
 .prizm-base-icons-check-double:before {
-    content: map-get($prizm-base-icons-map, "check-double");
+  content: map-get($prizm-base-icons-map, 'check-double');
 }
 .prizm-base-icons-checkerboard:before {
-    content: map-get($prizm-base-icons-map, "checkerboard");
+  content: map-get($prizm-base-icons-map, 'checkerboard');
 }
 .prizm-base-icons-chek:before {
-    content: map-get($prizm-base-icons-map, "chek");
+  content: map-get($prizm-base-icons-map, 'chek');
 }
 .prizm-base-icons-chevron-down-to-double-line:before {
-    content: map-get($prizm-base-icons-map, "chevron-down-to-double-line");
+  content: map-get($prizm-base-icons-map, 'chevron-down-to-double-line');
 }
 .prizm-base-icons-chevron-down:before {
-    content: map-get($prizm-base-icons-map, "chevron-down");
+  content: map-get($prizm-base-icons-map, 'chevron-down');
 }
 .prizm-base-icons-chevron-left:before {
-    content: map-get($prizm-base-icons-map, "chevron-left");
+  content: map-get($prizm-base-icons-map, 'chevron-left');
 }
 .prizm-base-icons-chevron-mini-left:before {
-    content: map-get($prizm-base-icons-map, "chevron-mini-left");
+  content: map-get($prizm-base-icons-map, 'chevron-mini-left');
 }
 .prizm-base-icons-chevron-mini-right:before {
-    content: map-get($prizm-base-icons-map, "chevron-mini-right");
+  content: map-get($prizm-base-icons-map, 'chevron-mini-right');
 }
 .prizm-base-icons-chevron-right-above-double-line:before {
-    content: map-get($prizm-base-icons-map, "chevron-right-above-double-line");
+  content: map-get($prizm-base-icons-map, 'chevron-right-above-double-line');
 }
 .prizm-base-icons-chevron-right:before {
-    content: map-get($prizm-base-icons-map, "chevron-right");
+  content: map-get($prizm-base-icons-map, 'chevron-right');
 }
 .prizm-base-icons-chevron-up:before {
-    content: map-get($prizm-base-icons-map, "chevron-up");
+  content: map-get($prizm-base-icons-map, 'chevron-up');
 }
 .prizm-base-icons-chevrons-double-down:before {
-    content: map-get($prizm-base-icons-map, "chevrons-double-down");
+  content: map-get($prizm-base-icons-map, 'chevrons-double-down');
 }
 .prizm-base-icons-chevrons-double-left:before {
-    content: map-get($prizm-base-icons-map, "chevrons-double-left");
+  content: map-get($prizm-base-icons-map, 'chevrons-double-left');
 }
 .prizm-base-icons-chevrons-double-mini-left:before {
-    content: map-get($prizm-base-icons-map, "chevrons-double-mini-left");
+  content: map-get($prizm-base-icons-map, 'chevrons-double-mini-left');
 }
 .prizm-base-icons-chevrons-double-mini-right:before {
-    content: map-get($prizm-base-icons-map, "chevrons-double-mini-right");
+  content: map-get($prizm-base-icons-map, 'chevrons-double-mini-right');
 }
 .prizm-base-icons-chevrons-double-right:before {
-    content: map-get($prizm-base-icons-map, "chevrons-double-right");
+  content: map-get($prizm-base-icons-map, 'chevrons-double-right');
 }
 .prizm-base-icons-chevrons-double-up:before {
-    content: map-get($prizm-base-icons-map, "chevrons-double-up");
+  content: map-get($prizm-base-icons-map, 'chevrons-double-up');
 }
 .prizm-base-icons-chevrons-inside-horizontally:before {
-    content: map-get($prizm-base-icons-map, "chevrons-inside-horizontally");
+  content: map-get($prizm-base-icons-map, 'chevrons-inside-horizontally');
 }
 .prizm-base-icons-chevrons-inside-vertically:before {
-    content: map-get($prizm-base-icons-map, "chevrons-inside-vertically");
+  content: map-get($prizm-base-icons-map, 'chevrons-inside-vertically');
 }
 .prizm-base-icons-chevrons-outside-horizontally:before {
-    content: map-get($prizm-base-icons-map, "chevrons-outside-horizontally");
+  content: map-get($prizm-base-icons-map, 'chevrons-outside-horizontally');
 }
 .prizm-base-icons-chevrons-outside-vertically:before {
-    content: map-get($prizm-base-icons-map, "chevrons-outside-vertically");
+  content: map-get($prizm-base-icons-map, 'chevrons-outside-vertically');
 }
 .prizm-base-icons-circle-chek-empty:before {
-    content: map-get($prizm-base-icons-map, "circle-chek-empty");
+  content: map-get($prizm-base-icons-map, 'circle-chek-empty');
 }
 .prizm-base-icons-circle-chek-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-chek-fill");
+  content: map-get($prizm-base-icons-map, 'circle-chek-fill');
 }
 .prizm-base-icons-circle-exclamation-empty:before {
-    content: map-get($prizm-base-icons-map, "circle-exclamation-empty");
+  content: map-get($prizm-base-icons-map, 'circle-exclamation-empty');
 }
 .prizm-base-icons-circle-exclamation-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-exclamation-fill");
+  content: map-get($prizm-base-icons-map, 'circle-exclamation-fill');
 }
 .prizm-base-icons-circle-in-hexagon:before {
-    content: map-get($prizm-base-icons-map, "circle-in-hexagon");
+  content: map-get($prizm-base-icons-map, 'circle-in-hexagon');
 }
 .prizm-base-icons-circle-info-empty:before {
-    content: map-get($prizm-base-icons-map, "circle-info-empty");
+  content: map-get($prizm-base-icons-map, 'circle-info-empty');
 }
 .prizm-base-icons-circle-info-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-info-fill");
+  content: map-get($prizm-base-icons-map, 'circle-info-fill');
 }
 .prizm-base-icons-circle-music:before {
-    content: map-get($prizm-base-icons-map, "circle-music");
+  content: map-get($prizm-base-icons-map, 'circle-music');
 }
 .prizm-base-icons-circle-plus-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-plus-fill");
+  content: map-get($prizm-base-icons-map, 'circle-plus-fill');
 }
 .prizm-base-icons-circle-plus:before {
-    content: map-get($prizm-base-icons-map, "circle-plus");
+  content: map-get($prizm-base-icons-map, 'circle-plus');
 }
 .prizm-base-icons-circle-question-empty:before {
-    content: map-get($prizm-base-icons-map, "circle-question-empty");
+  content: map-get($prizm-base-icons-map, 'circle-question-empty');
 }
 .prizm-base-icons-circle-question-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-question-fill");
+  content: map-get($prizm-base-icons-map, 'circle-question-fill');
 }
 .prizm-base-icons-circle-square-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-square-fill");
+  content: map-get($prizm-base-icons-map, 'circle-square-fill');
 }
 .prizm-base-icons-circle-square-in-square:before {
-    content: map-get($prizm-base-icons-map, "circle-square-in-square");
+  content: map-get($prizm-base-icons-map, 'circle-square-in-square');
 }
 .prizm-base-icons-circle-square:before {
-    content: map-get($prizm-base-icons-map, "circle-square");
+  content: map-get($prizm-base-icons-map, 'circle-square');
 }
 .prizm-base-icons-circle-xmark-fill:before {
-    content: map-get($prizm-base-icons-map, "circle-xmark-fill");
+  content: map-get($prizm-base-icons-map, 'circle-xmark-fill');
 }
 .prizm-base-icons-circle-xmark:before {
-    content: map-get($prizm-base-icons-map, "circle-xmark");
+  content: map-get($prizm-base-icons-map, 'circle-xmark');
 }
 .prizm-base-icons-circles-line-left-up-circle-right-down-fill:before {
-    content: map-get($prizm-base-icons-map, "circles-line-left-up-circle-right-down-fill");
+  content: map-get($prizm-base-icons-map, 'circles-line-left-up-circle-right-down-fill');
 }
 .prizm-base-icons-circles-line-left-up-circle-right-down:before {
-    content: map-get($prizm-base-icons-map, "circles-line-left-up-circle-right-down");
+  content: map-get($prizm-base-icons-map, 'circles-line-left-up-circle-right-down');
 }
 .prizm-base-icons-clapperboard-cross:before {
-    content: map-get($prizm-base-icons-map, "clapperboard-cross");
+  content: map-get($prizm-base-icons-map, 'clapperboard-cross');
 }
 .prizm-base-icons-clapperboard-open:before {
-    content: map-get($prizm-base-icons-map, "clapperboard-open");
+  content: map-get($prizm-base-icons-map, 'clapperboard-open');
 }
 .prizm-base-icons-clock-add:before {
-    content: map-get($prizm-base-icons-map, "clock-add");
+  content: map-get($prizm-base-icons-map, 'clock-add');
 }
 .prizm-base-icons-clock-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "clock-arrow-down");
+  content: map-get($prizm-base-icons-map, 'clock-arrow-down');
 }
 .prizm-base-icons-clock-arrow-right:before {
-    content: map-get($prizm-base-icons-map, "clock-arrow-right");
+  content: map-get($prizm-base-icons-map, 'clock-arrow-right');
 }
 .prizm-base-icons-clock-arrow-up:before {
-    content: map-get($prizm-base-icons-map, "clock-arrow-up");
+  content: map-get($prizm-base-icons-map, 'clock-arrow-up');
 }
 .prizm-base-icons-clock-deleted:before {
-    content: map-get($prizm-base-icons-map, "clock-deleted");
+  content: map-get($prizm-base-icons-map, 'clock-deleted');
 }
 .prizm-base-icons-clock-exclamation:before {
-    content: map-get($prizm-base-icons-map, "clock-exclamation");
+  content: map-get($prizm-base-icons-map, 'clock-exclamation');
 }
 .prizm-base-icons-clock-line-end:before {
-    content: map-get($prizm-base-icons-map, "clock-line-end");
+  content: map-get($prizm-base-icons-map, 'clock-line-end');
 }
 .prizm-base-icons-clock-rotate-left:before {
-    content: map-get($prizm-base-icons-map, "clock-rotate-left");
+  content: map-get($prizm-base-icons-map, 'clock-rotate-left');
 }
 .prizm-base-icons-clock-rotate-right:before {
-    content: map-get($prizm-base-icons-map, "clock-rotate-right");
+  content: map-get($prizm-base-icons-map, 'clock-rotate-right');
 }
 .prizm-base-icons-clock:before {
-    content: map-get($prizm-base-icons-map, "clock");
+  content: map-get($prizm-base-icons-map, 'clock');
 }
 .prizm-base-icons-cloud-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "cloud-arrow-down");
+  content: map-get($prizm-base-icons-map, 'cloud-arrow-down');
 }
 .prizm-base-icons-cloud-arrow-up-inside:before {
-    content: map-get($prizm-base-icons-map, "cloud-arrow-up-inside");
+  content: map-get($prizm-base-icons-map, 'cloud-arrow-up-inside');
 }
 .prizm-base-icons-cloud-arrow-up:before {
-    content: map-get($prizm-base-icons-map, "cloud-arrow-up");
+  content: map-get($prizm-base-icons-map, 'cloud-arrow-up');
 }
 .prizm-base-icons-cloud-check:before {
-    content: map-get($prizm-base-icons-map, "cloud-check");
+  content: map-get($prizm-base-icons-map, 'cloud-check');
 }
 .prizm-base-icons-cloud:before {
-    content: map-get($prizm-base-icons-map, "cloud");
+  content: map-get($prizm-base-icons-map, 'cloud');
 }
 .prizm-base-icons-code-download:before {
-    content: map-get($prizm-base-icons-map, "code-download");
+  content: map-get($prizm-base-icons-map, 'code-download');
 }
 .prizm-base-icons-code-simple:before {
-    content: map-get($prizm-base-icons-map, "code-simple");
+  content: map-get($prizm-base-icons-map, 'code-simple');
 }
 .prizm-base-icons-code:before {
-    content: map-get($prizm-base-icons-map, "code");
+  content: map-get($prizm-base-icons-map, 'code');
 }
 .prizm-base-icons-collage-fill:before {
-    content: map-get($prizm-base-icons-map, "collage-fill");
+  content: map-get($prizm-base-icons-map, 'collage-fill');
 }
 .prizm-base-icons-collection:before {
-    content: map-get($prizm-base-icons-map, "collection");
+  content: map-get($prizm-base-icons-map, 'collection');
 }
 .prizm-base-icons-collector:before {
-    content: map-get($prizm-base-icons-map, "collector");
+  content: map-get($prizm-base-icons-map, 'collector');
 }
 .prizm-base-icons-column-fill:before {
-    content: map-get($prizm-base-icons-map, "column-fill");
+  content: map-get($prizm-base-icons-map, 'column-fill');
 }
 .prizm-base-icons-column:before {
-    content: map-get($prizm-base-icons-map, "column");
+  content: map-get($prizm-base-icons-map, 'column');
 }
 .prizm-base-icons-compass:before {
-    content: map-get($prizm-base-icons-map, "compass");
+  content: map-get($prizm-base-icons-map, 'compass');
 }
 .prizm-base-icons-component:before {
-    content: map-get($prizm-base-icons-map, "component");
+  content: map-get($prizm-base-icons-map, 'component');
 }
 .prizm-base-icons-concrete-mixer-side-view:before {
-    content: map-get($prizm-base-icons-map, "concrete-mixer-side-view");
+  content: map-get($prizm-base-icons-map, 'concrete-mixer-side-view');
 }
 .prizm-base-icons-container-v1:before {
-    content: map-get($prizm-base-icons-map, "container-v1");
+  content: map-get($prizm-base-icons-map, 'container-v1');
 }
 .prizm-base-icons-container-v2:before {
-    content: map-get($prizm-base-icons-map, "container-v2");
+  content: map-get($prizm-base-icons-map, 'container-v2');
 }
 .prizm-base-icons-containers:before {
-    content: map-get($prizm-base-icons-map, "containers");
+  content: map-get($prizm-base-icons-map, 'containers');
 }
 .prizm-base-icons-control-charts-zql:before {
-    content: map-get($prizm-base-icons-map, "control-charts-zql");
+  content: map-get($prizm-base-icons-map, 'control-charts-zql');
 }
 .prizm-base-icons-copy-column:before {
-    content: map-get($prizm-base-icons-map, "copy-column");
+  content: map-get($prizm-base-icons-map, 'copy-column');
 }
 .prizm-base-icons-copy-row:before {
-    content: map-get($prizm-base-icons-map, "copy-row");
+  content: map-get($prizm-base-icons-map, 'copy-row');
 }
 .prizm-base-icons-copy:before {
-    content: map-get($prizm-base-icons-map, "copy");
+  content: map-get($prizm-base-icons-map, 'copy');
 }
 .prizm-base-icons-crane:before {
-    content: map-get($prizm-base-icons-map, "crane");
+  content: map-get($prizm-base-icons-map, 'crane');
 }
 .prizm-base-icons-credit-card-plus:before {
-    content: map-get($prizm-base-icons-map, "credit-card-plus");
+  content: map-get($prizm-base-icons-map, 'credit-card-plus');
 }
 .prizm-base-icons-credit-card-slash:before {
-    content: map-get($prizm-base-icons-map, "credit-card-slash");
+  content: map-get($prizm-base-icons-map, 'credit-card-slash');
 }
 .prizm-base-icons-credit-card:before {
-    content: map-get($prizm-base-icons-map, "credit-card");
+  content: map-get($prizm-base-icons-map, 'credit-card');
 }
 .prizm-base-icons-crop:before {
-    content: map-get($prizm-base-icons-map, "crop");
+  content: map-get($prizm-base-icons-map, 'crop');
 }
 .prizm-base-icons-crosshairs-dot:before {
-    content: map-get($prizm-base-icons-map, "crosshairs-dot");
+  content: map-get($prizm-base-icons-map, 'crosshairs-dot');
 }
 .prizm-base-icons-crosshairs-simple:before {
-    content: map-get($prizm-base-icons-map, "crosshairs-simple");
+  content: map-get($prizm-base-icons-map, 'crosshairs-simple');
 }
 .prizm-base-icons-cube-empty:before {
-    content: map-get($prizm-base-icons-map, "cube-empty");
+  content: map-get($prizm-base-icons-map, 'cube-empty');
 }
 .prizm-base-icons-cube-fill:before {
-    content: map-get($prizm-base-icons-map, "cube-fill");
+  content: map-get($prizm-base-icons-map, 'cube-fill');
 }
 .prizm-base-icons-cubes:before {
-    content: map-get($prizm-base-icons-map, "cubes");
+  content: map-get($prizm-base-icons-map, 'cubes');
 }
 .prizm-base-icons-dashboard-fill:before {
-    content: map-get($prizm-base-icons-map, "dashboard-fill");
+  content: map-get($prizm-base-icons-map, 'dashboard-fill');
 }
 .prizm-base-icons-dashboard-variant-fill:before {
-    content: map-get($prizm-base-icons-map, "dashboard-variant-fill");
+  content: map-get($prizm-base-icons-map, 'dashboard-variant-fill');
 }
 .prizm-base-icons-database-chek:before {
-    content: map-get($prizm-base-icons-map, "database-chek");
+  content: map-get($prizm-base-icons-map, 'database-chek');
 }
 .prizm-base-icons-database-json:before {
-    content: map-get($prizm-base-icons-map, "database-json");
+  content: map-get($prizm-base-icons-map, 'database-json');
 }
 .prizm-base-icons-database-magnifying-glass:before {
-    content: map-get($prizm-base-icons-map, "database-magnifying-glass");
+  content: map-get($prizm-base-icons-map, 'database-magnifying-glass');
 }
 .prizm-base-icons-database-minus:before {
-    content: map-get($prizm-base-icons-map, "database-minus");
+  content: map-get($prizm-base-icons-map, 'database-minus');
 }
 .prizm-base-icons-database-plus:before {
-    content: map-get($prizm-base-icons-map, "database-plus");
+  content: map-get($prizm-base-icons-map, 'database-plus');
 }
 .prizm-base-icons-database-sql:before {
-    content: map-get($prizm-base-icons-map, "database-sql");
+  content: map-get($prizm-base-icons-map, 'database-sql');
 }
 .prizm-base-icons-database-xmark:before {
-    content: map-get($prizm-base-icons-map, "database-xmark");
+  content: map-get($prizm-base-icons-map, 'database-xmark');
 }
 .prizm-base-icons-database:before {
-    content: map-get($prizm-base-icons-map, "database");
+  content: map-get($prizm-base-icons-map, 'database');
 }
 .prizm-base-icons-day-fill:before {
-    content: map-get($prizm-base-icons-map, "day-fill");
+  content: map-get($prizm-base-icons-map, 'day-fill');
 }
 .prizm-base-icons-decagram-chek-empty:before {
-    content: map-get($prizm-base-icons-map, "decagram-chek-empty");
+  content: map-get($prizm-base-icons-map, 'decagram-chek-empty');
 }
 .prizm-base-icons-decagram-chek-fill:before {
-    content: map-get($prizm-base-icons-map, "decagram-chek-fill");
+  content: map-get($prizm-base-icons-map, 'decagram-chek-fill');
 }
 .prizm-base-icons-decagram-exclamation-empty:before {
-    content: map-get($prizm-base-icons-map, "decagram-exclamation-empty");
+  content: map-get($prizm-base-icons-map, 'decagram-exclamation-empty');
 }
 .prizm-base-icons-decagram-exclamation-fill:before {
-    content: map-get($prizm-base-icons-map, "decagram-exclamation-fill");
+  content: map-get($prizm-base-icons-map, 'decagram-exclamation-fill');
 }
 .prizm-base-icons-default-ico:before {
-    content: map-get($prizm-base-icons-map, "default-ico");
+  content: map-get($prizm-base-icons-map, 'default-ico');
 }
 .prizm-base-icons-delete-content:before {
-    content: map-get($prizm-base-icons-map, "delete-content");
+  content: map-get($prizm-base-icons-map, 'delete-content');
 }
 .prizm-base-icons-desktop-tower:before {
-    content: map-get($prizm-base-icons-map, "desktop-tower");
+  content: map-get($prizm-base-icons-map, 'desktop-tower');
 }
 .prizm-base-icons-discrete-set:before {
-    content: map-get($prizm-base-icons-map, "discrete-set");
+  content: map-get($prizm-base-icons-map, 'discrete-set');
 }
 .prizm-base-icons-dollar-slash:before {
-    content: map-get($prizm-base-icons-map, "dollar-slash");
+  content: map-get($prizm-base-icons-map, 'dollar-slash');
 }
 .prizm-base-icons-dollar:before {
-    content: map-get($prizm-base-icons-map, "dollar");
+  content: map-get($prizm-base-icons-map, 'dollar');
 }
 .prizm-base-icons-doughnut:before {
-    content: map-get($prizm-base-icons-map, "doughnut");
+  content: map-get($prizm-base-icons-map, 'doughnut');
 }
 .prizm-base-icons-droplet-slash:before {
-    content: map-get($prizm-base-icons-map, "droplet-slash");
+  content: map-get($prizm-base-icons-map, 'droplet-slash');
 }
 .prizm-base-icons-droplet:before {
-    content: map-get($prizm-base-icons-map, "droplet");
+  content: map-get($prizm-base-icons-map, 'droplet');
 }
 .prizm-base-icons-early-version:before {
-    content: map-get($prizm-base-icons-map, "early-version");
+  content: map-get($prizm-base-icons-map, 'early-version');
 }
 .prizm-base-icons-earth:before {
-    content: map-get($prizm-base-icons-map, "earth");
+  content: map-get($prizm-base-icons-map, 'earth');
 }
 .prizm-base-icons-editor-down:before {
-    content: map-get($prizm-base-icons-map, "editor-down");
+  content: map-get($prizm-base-icons-map, 'editor-down');
 }
 .prizm-base-icons-editor-right:before {
-    content: map-get($prizm-base-icons-map, "editor-right");
+  content: map-get($prizm-base-icons-map, 'editor-right');
 }
 .prizm-base-icons-electrics:before {
-    content: map-get($prizm-base-icons-map, "electrics");
+  content: map-get($prizm-base-icons-map, 'electrics');
 }
 .prizm-base-icons-ellipsis-grid:before {
-    content: map-get($prizm-base-icons-map, "ellipsis-grid");
+  content: map-get($prizm-base-icons-map, 'ellipsis-grid');
 }
 .prizm-base-icons-ellipsis-h:before {
-    content: map-get($prizm-base-icons-map, "ellipsis-h");
+  content: map-get($prizm-base-icons-map, 'ellipsis-h');
 }
 .prizm-base-icons-ellipsis-v:before {
-    content: map-get($prizm-base-icons-map, "ellipsis-v");
+  content: map-get($prizm-base-icons-map, 'ellipsis-v');
 }
 .prizm-base-icons-energy-check:before {
-    content: map-get($prizm-base-icons-map, "energy-check");
+  content: map-get($prizm-base-icons-map, 'energy-check');
 }
 .prizm-base-icons-energy-slash:before {
-    content: map-get($prizm-base-icons-map, "energy-slash");
+  content: map-get($prizm-base-icons-map, 'energy-slash');
 }
 .prizm-base-icons-energy:before {
-    content: map-get($prizm-base-icons-map, "energy");
+  content: map-get($prizm-base-icons-map, 'energy');
 }
 .prizm-base-icons-equipment-zql:before {
-    content: map-get($prizm-base-icons-map, "equipment-zql");
+  content: map-get($prizm-base-icons-map, 'equipment-zql');
 }
 .prizm-base-icons-eraser:before {
-    content: map-get($prizm-base-icons-map, "eraser");
+  content: map-get($prizm-base-icons-map, 'eraser');
 }
 .prizm-base-icons-ethernet:before {
-    content: map-get($prizm-base-icons-map, "ethernet");
+  content: map-get($prizm-base-icons-map, 'ethernet');
 }
 .prizm-base-icons-exchanger:before {
-    content: map-get($prizm-base-icons-map, "exchanger");
+  content: map-get($prizm-base-icons-map, 'exchanger');
 }
 .prizm-base-icons-exclamation:before {
-    content: map-get($prizm-base-icons-map, "exclamation");
+  content: map-get($prizm-base-icons-map, 'exclamation');
 }
 .prizm-base-icons-eye-closed:before {
-    content: map-get($prizm-base-icons-map, "eye-closed");
+  content: map-get($prizm-base-icons-map, 'eye-closed');
 }
 .prizm-base-icons-eye-slash:before {
-    content: map-get($prizm-base-icons-map, "eye-slash");
+  content: map-get($prizm-base-icons-map, 'eye-slash');
 }
 .prizm-base-icons-eye:before {
-    content: map-get($prizm-base-icons-map, "eye");
+  content: map-get($prizm-base-icons-map, 'eye');
 }
 .prizm-base-icons-face-frown:before {
-    content: map-get($prizm-base-icons-map, "face-frown");
+  content: map-get($prizm-base-icons-map, 'face-frown');
 }
 .prizm-base-icons-face-smile:before {
-    content: map-get($prizm-base-icons-map, "face-smile");
+  content: map-get($prizm-base-icons-map, 'face-smile');
 }
 .prizm-base-icons-factory-pipe:before {
-    content: map-get($prizm-base-icons-map, "factory-pipe");
+  content: map-get($prizm-base-icons-map, 'factory-pipe');
 }
 .prizm-base-icons-factory-pipes:before {
-    content: map-get($prizm-base-icons-map, "factory-pipes");
+  content: map-get($prizm-base-icons-map, 'factory-pipes');
 }
 .prizm-base-icons-factory:before {
-    content: map-get($prizm-base-icons-map, "factory");
+  content: map-get($prizm-base-icons-map, 'factory');
 }
 .prizm-base-icons-fan:before {
-    content: map-get($prizm-base-icons-map, "fan");
+  content: map-get($prizm-base-icons-map, 'fan');
 }
 .prizm-base-icons-file-arrow-down-left:before {
-    content: map-get($prizm-base-icons-map, "file-arrow-down-left");
+  content: map-get($prizm-base-icons-map, 'file-arrow-down-left');
 }
 .prizm-base-icons-file-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "file-arrow-down");
+  content: map-get($prizm-base-icons-map, 'file-arrow-down');
 }
 .prizm-base-icons-file-arrow-up:before {
-    content: map-get($prizm-base-icons-map, "file-arrow-up");
+  content: map-get($prizm-base-icons-map, 'file-arrow-up');
 }
 .prizm-base-icons-file-arrow:before {
-    content: map-get($prizm-base-icons-map, "file-arrow");
+  content: map-get($prizm-base-icons-map, 'file-arrow');
 }
 .prizm-base-icons-file-arrows-up-right:before {
-    content: map-get($prizm-base-icons-map, "file-arrows-up-right");
+  content: map-get($prizm-base-icons-map, 'file-arrows-up-right');
 }
 .prizm-base-icons-file-camera:before {
-    content: map-get($prizm-base-icons-map, "file-camera");
+  content: map-get($prizm-base-icons-map, 'file-camera');
 }
 .prizm-base-icons-file-cross-out:before {
-    content: map-get($prizm-base-icons-map, "file-cross-out");
+  content: map-get($prizm-base-icons-map, 'file-cross-out');
 }
 .prizm-base-icons-file-cross:before {
-    content: map-get($prizm-base-icons-map, "file-cross");
+  content: map-get($prizm-base-icons-map, 'file-cross');
 }
 .prizm-base-icons-file-doc:before {
-    content: map-get($prizm-base-icons-map, "file-doc");
+  content: map-get($prizm-base-icons-map, 'file-doc');
 }
 .prizm-base-icons-file-docx:before {
-    content: map-get($prizm-base-icons-map, "file-docx");
+  content: map-get($prizm-base-icons-map, 'file-docx');
 }
 .prizm-base-icons-file-dot:before {
-    content: map-get($prizm-base-icons-map, "file-dot");
+  content: map-get($prizm-base-icons-map, 'file-dot');
 }
 .prizm-base-icons-file-empty:before {
-    content: map-get($prizm-base-icons-map, "file-empty");
+  content: map-get($prizm-base-icons-map, 'file-empty');
 }
 .prizm-base-icons-file-exclamation:before {
-    content: map-get($prizm-base-icons-map, "file-exclamation");
+  content: map-get($prizm-base-icons-map, 'file-exclamation');
 }
 .prizm-base-icons-file-eye:before {
-    content: map-get($prizm-base-icons-map, "file-eye");
+  content: map-get($prizm-base-icons-map, 'file-eye');
 }
 .prizm-base-icons-file-filled:before {
-    content: map-get($prizm-base-icons-map, "file-filled");
+  content: map-get($prizm-base-icons-map, 'file-filled');
 }
 .prizm-base-icons-file-image:before {
-    content: map-get($prizm-base-icons-map, "file-image");
+  content: map-get($prizm-base-icons-map, 'file-image');
 }
 .prizm-base-icons-file-magnifying-glass:before {
-    content: map-get($prizm-base-icons-map, "file-magnifying-glass");
+  content: map-get($prizm-base-icons-map, 'file-magnifying-glass');
 }
 .prizm-base-icons-file-minus:before {
-    content: map-get($prizm-base-icons-map, "file-minus");
+  content: map-get($prizm-base-icons-map, 'file-minus');
 }
 .prizm-base-icons-file-music:before {
-    content: map-get($prizm-base-icons-map, "file-music");
+  content: map-get($prizm-base-icons-map, 'file-music');
 }
 .prizm-base-icons-file-pdf:before {
-    content: map-get($prizm-base-icons-map, "file-pdf");
+  content: map-get($prizm-base-icons-map, 'file-pdf');
 }
 .prizm-base-icons-file-pen:before {
-    content: map-get($prizm-base-icons-map, "file-pen");
+  content: map-get($prizm-base-icons-map, 'file-pen');
 }
 .prizm-base-icons-file-play:before {
-    content: map-get($prizm-base-icons-map, "file-play");
+  content: map-get($prizm-base-icons-map, 'file-play');
 }
 .prizm-base-icons-file-plus:before {
-    content: map-get($prizm-base-icons-map, "file-plus");
+  content: map-get($prizm-base-icons-map, 'file-plus');
 }
 .prizm-base-icons-file-ppt:before {
-    content: map-get($prizm-base-icons-map, "file-ppt");
+  content: map-get($prizm-base-icons-map, 'file-ppt');
 }
 .prizm-base-icons-file-pptx:before {
-    content: map-get($prizm-base-icons-map, "file-pptx");
+  content: map-get($prizm-base-icons-map, 'file-pptx');
 }
 .prizm-base-icons-file-txt:before {
-    content: map-get($prizm-base-icons-map, "file-txt");
+  content: map-get($prizm-base-icons-map, 'file-txt');
 }
 .prizm-base-icons-file-up-right:before {
-    content: map-get($prizm-base-icons-map, "file-up-right");
+  content: map-get($prizm-base-icons-map, 'file-up-right');
 }
 .prizm-base-icons-file-xls:before {
-    content: map-get($prizm-base-icons-map, "file-xls");
+  content: map-get($prizm-base-icons-map, 'file-xls');
 }
 .prizm-base-icons-file-xlsx:before {
-    content: map-get($prizm-base-icons-map, "file-xlsx");
+  content: map-get($prizm-base-icons-map, 'file-xlsx');
 }
 .prizm-base-icons-files-mode:before {
-    content: map-get($prizm-base-icons-map, "files-mode");
+  content: map-get($prizm-base-icons-map, 'files-mode');
 }
 .prizm-base-icons-fill:before {
-    content: map-get($prizm-base-icons-map, "fill");
+  content: map-get($prizm-base-icons-map, 'fill');
 }
 .prizm-base-icons-film-cross:before {
-    content: map-get($prizm-base-icons-map, "film-cross");
+  content: map-get($prizm-base-icons-map, 'film-cross');
 }
 .prizm-base-icons-film:before {
-    content: map-get($prizm-base-icons-map, "film");
+  content: map-get($prizm-base-icons-map, 'film');
 }
 .prizm-base-icons-filter-gear:before {
-    content: map-get($prizm-base-icons-map, "filter-gear");
+  content: map-get($prizm-base-icons-map, 'filter-gear');
 }
 .prizm-base-icons-filter-ontology:before {
-    content: map-get($prizm-base-icons-map, "filter-ontology");
+  content: map-get($prizm-base-icons-map, 'filter-ontology');
 }
 .prizm-base-icons-filter:before {
-    content: map-get($prizm-base-icons-map, "filter");
+  content: map-get($prizm-base-icons-map, 'filter');
 }
 .prizm-base-icons-finance-scanner:before {
-    content: map-get($prizm-base-icons-map, "finance-scanner");
+  content: map-get($prizm-base-icons-map, 'finance-scanner');
 }
 .prizm-base-icons-fire:before {
-    content: map-get($prizm-base-icons-map, "fire");
+  content: map-get($prizm-base-icons-map, 'fire');
 }
 .prizm-base-icons-flag-fill-red:before {
-    content: map-get($prizm-base-icons-map, "flag-fill-red");
+  content: map-get($prizm-base-icons-map, 'flag-fill-red');
 }
 .prizm-base-icons-flag-fill:before {
-    content: map-get($prizm-base-icons-map, "flag-fill");
+  content: map-get($prizm-base-icons-map, 'flag-fill');
 }
 .prizm-base-icons-flag:before {
-    content: map-get($prizm-base-icons-map, "flag");
+  content: map-get($prizm-base-icons-map, 'flag');
 }
 .prizm-base-icons-flask-round-potion:before {
-    content: map-get($prizm-base-icons-map, "flask-round-potion");
+  content: map-get($prizm-base-icons-map, 'flask-round-potion');
 }
 .prizm-base-icons-flask:before {
-    content: map-get($prizm-base-icons-map, "flask");
+  content: map-get($prizm-base-icons-map, 'flask');
 }
 .prizm-base-icons-floppy-cross-out:before {
-    content: map-get($prizm-base-icons-map, "floppy-cross-out");
+  content: map-get($prizm-base-icons-map, 'floppy-cross-out');
 }
 .prizm-base-icons-floppy-cross:before {
-    content: map-get($prizm-base-icons-map, "floppy-cross");
+  content: map-get($prizm-base-icons-map, 'floppy-cross');
 }
 .prizm-base-icons-floppy-pen:before {
-    content: map-get($prizm-base-icons-map, "floppy-pen");
+  content: map-get($prizm-base-icons-map, 'floppy-pen');
 }
 .prizm-base-icons-floppy-star:before {
-    content: map-get($prizm-base-icons-map, "floppy-star");
+  content: map-get($prizm-base-icons-map, 'floppy-star');
 }
 .prizm-base-icons-floppy:before {
-    content: map-get($prizm-base-icons-map, "floppy");
+  content: map-get($prizm-base-icons-map, 'floppy');
 }
 .prizm-base-icons-folder-arrow-down-left:before {
-    content: map-get($prizm-base-icons-map, "folder-arrow-down-left");
+  content: map-get($prizm-base-icons-map, 'folder-arrow-down-left');
 }
 .prizm-base-icons-folder-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "folder-arrow-down");
+  content: map-get($prizm-base-icons-map, 'folder-arrow-down');
 }
 .prizm-base-icons-folder-arrow-up-right:before {
-    content: map-get($prizm-base-icons-map, "folder-arrow-up-right");
+  content: map-get($prizm-base-icons-map, 'folder-arrow-up-right');
 }
 .prizm-base-icons-folder-cross:before {
-    content: map-get($prizm-base-icons-map, "folder-cross");
+  content: map-get($prizm-base-icons-map, 'folder-cross');
 }
 .prizm-base-icons-folder-dot:before {
-    content: map-get($prizm-base-icons-map, "folder-dot");
+  content: map-get($prizm-base-icons-map, 'folder-dot');
 }
 .prizm-base-icons-folder-minus:before {
-    content: map-get($prizm-base-icons-map, "folder-minus");
+  content: map-get($prizm-base-icons-map, 'folder-minus');
 }
 .prizm-base-icons-folder-open:before {
-    content: map-get($prizm-base-icons-map, "folder-open");
+  content: map-get($prizm-base-icons-map, 'folder-open');
 }
 .prizm-base-icons-folder-plus:before {
-    content: map-get($prizm-base-icons-map, "folder-plus");
+  content: map-get($prizm-base-icons-map, 'folder-plus');
 }
 .prizm-base-icons-folder-underline-minus:before {
-    content: map-get($prizm-base-icons-map, "folder-underline-minus");
+  content: map-get($prizm-base-icons-map, 'folder-underline-minus');
 }
 .prizm-base-icons-folder-underline-plus:before {
-    content: map-get($prizm-base-icons-map, "folder-underline-plus");
+  content: map-get($prizm-base-icons-map, 'folder-underline-plus');
 }
 .prizm-base-icons-folder-underline:before {
-    content: map-get($prizm-base-icons-map, "folder-underline");
+  content: map-get($prizm-base-icons-map, 'folder-underline');
 }
 .prizm-base-icons-folder:before {
-    content: map-get($prizm-base-icons-map, "folder");
+  content: map-get($prizm-base-icons-map, 'folder');
 }
 .prizm-base-icons-forvard-step:before {
-    content: map-get($prizm-base-icons-map, "forvard-step");
+  content: map-get($prizm-base-icons-map, 'forvard-step');
 }
 .prizm-base-icons-forward:before {
-    content: map-get($prizm-base-icons-map, "forward");
+  content: map-get($prizm-base-icons-map, 'forward');
 }
 .prizm-base-icons-fuel-oil-tank:before {
-    content: map-get($prizm-base-icons-map, "fuel-oil-tank");
+  content: map-get($prizm-base-icons-map, 'fuel-oil-tank');
 }
 .prizm-base-icons-function:before {
-    content: map-get($prizm-base-icons-map, "function");
+  content: map-get($prizm-base-icons-map, 'function');
 }
 .prizm-base-icons-gantt:before {
-    content: map-get($prizm-base-icons-map, "gantt");
+  content: map-get($prizm-base-icons-map, 'gantt');
 }
 .prizm-base-icons-gas-monitoring:before {
-    content: map-get($prizm-base-icons-map, "gas-monitoring");
+  content: map-get($prizm-base-icons-map, 'gas-monitoring');
 }
 .prizm-base-icons-gas-pump:before {
-    content: map-get($prizm-base-icons-map, "gas-pump");
+  content: map-get($prizm-base-icons-map, 'gas-pump');
 }
 .prizm-base-icons-gas:before {
-    content: map-get($prizm-base-icons-map, "gas");
+  content: map-get($prizm-base-icons-map, 'gas');
 }
 .prizm-base-icons-gauge:before {
-    content: map-get($prizm-base-icons-map, "gauge");
+  content: map-get($prizm-base-icons-map, 'gauge');
 }
 .prizm-base-icons-gear-5-edge:before {
-    content: map-get($prizm-base-icons-map, "gear-5-edge");
+  content: map-get($prizm-base-icons-map, 'gear-5-edge');
 }
 .prizm-base-icons-gear-8-edge:before {
-    content: map-get($prizm-base-icons-map, "gear-8-edge");
+  content: map-get($prizm-base-icons-map, 'gear-8-edge');
 }
 .prizm-base-icons-gear-cooling:before {
-    content: map-get($prizm-base-icons-map, "gear-cooling");
+  content: map-get($prizm-base-icons-map, 'gear-cooling');
 }
 .prizm-base-icons-generator:before {
-    content: map-get($prizm-base-icons-map, "generator");
+  content: map-get($prizm-base-icons-map, 'generator');
 }
 .prizm-base-icons-gift:before {
-    content: map-get($prizm-base-icons-map, "gift");
+  content: map-get($prizm-base-icons-map, 'gift');
 }
 .prizm-base-icons-git-lab:before {
-    content: map-get($prizm-base-icons-map, "git-lab");
+  content: map-get($prizm-base-icons-map, 'git-lab');
 }
 .prizm-base-icons-globe:before {
-    content: map-get($prizm-base-icons-map, "globe");
+  content: map-get($prizm-base-icons-map, 'globe');
 }
 .prizm-base-icons-grid-fill:before {
-    content: map-get($prizm-base-icons-map, "grid-fill");
+  content: map-get($prizm-base-icons-map, 'grid-fill');
 }
 .prizm-base-icons-grid:before {
-    content: map-get($prizm-base-icons-map, "grid");
+  content: map-get($prizm-base-icons-map, 'grid');
 }
 .prizm-base-icons-grip-dots-vertical:before {
-    content: map-get($prizm-base-icons-map, "grip-dots-vertical");
+  content: map-get($prizm-base-icons-map, 'grip-dots-vertical');
 }
 .prizm-base-icons-hard-drive-outline:before {
-    content: map-get($prizm-base-icons-map, "hard-drive-outline");
+  content: map-get($prizm-base-icons-map, 'hard-drive-outline');
 }
 .prizm-base-icons-hash-dash:before {
-    content: map-get($prizm-base-icons-map, "hash-dash");
+  content: map-get($prizm-base-icons-map, 'hash-dash');
 }
 .prizm-base-icons-hash:before {
-    content: map-get($prizm-base-icons-map, "hash");
+  content: map-get($prizm-base-icons-map, 'hash');
 }
 .prizm-base-icons-hashtag:before {
-    content: map-get($prizm-base-icons-map, "hashtag");
+  content: map-get($prizm-base-icons-map, 'hashtag');
 }
 .prizm-base-icons-headline-fill:before {
-    content: map-get($prizm-base-icons-map, "headline-fill");
+  content: map-get($prizm-base-icons-map, 'headline-fill');
 }
 .prizm-base-icons-headphones:before {
-    content: map-get($prizm-base-icons-map, "headphones");
+  content: map-get($prizm-base-icons-map, 'headphones');
 }
 .prizm-base-icons-heart-empty:before {
-    content: map-get($prizm-base-icons-map, "heart-empty");
+  content: map-get($prizm-base-icons-map, 'heart-empty');
 }
 .prizm-base-icons-heart-fill:before {
-    content: map-get($prizm-base-icons-map, "heart-fill");
+  content: map-get($prizm-base-icons-map, 'heart-fill');
 }
 .prizm-base-icons-helicopter-side-view:before {
-    content: map-get($prizm-base-icons-map, "helicopter-side-view");
+  content: map-get($prizm-base-icons-map, 'helicopter-side-view');
 }
 .prizm-base-icons-hexagon-exclamation-empty:before {
-    content: map-get($prizm-base-icons-map, "hexagon-exclamation-empty");
+  content: map-get($prizm-base-icons-map, 'hexagon-exclamation-empty');
 }
 .prizm-base-icons-hexagon-exclamation-fill:before {
-    content: map-get($prizm-base-icons-map, "hexagon-exclamation-fill");
+  content: map-get($prizm-base-icons-map, 'hexagon-exclamation-fill');
 }
 .prizm-base-icons-hexagon-fill:before {
-    content: map-get($prizm-base-icons-map, "hexagon-fill");
+  content: map-get($prizm-base-icons-map, 'hexagon-fill');
 }
 .prizm-base-icons-hexagon:before {
-    content: map-get($prizm-base-icons-map, "hexagon");
+  content: map-get($prizm-base-icons-map, 'hexagon');
 }
 .prizm-base-icons-hexagons-axis:before {
-    content: map-get($prizm-base-icons-map, "hexagons-axis");
+  content: map-get($prizm-base-icons-map, 'hexagons-axis');
 }
 .prizm-base-icons-hexagons:before {
-    content: map-get($prizm-base-icons-map, "hexagons");
+  content: map-get($prizm-base-icons-map, 'hexagons');
 }
 .prizm-base-icons-histogram-axis:before {
-    content: map-get($prizm-base-icons-map, "histogram-axis");
+  content: map-get($prizm-base-icons-map, 'histogram-axis');
 }
 .prizm-base-icons-house-mini:before {
-    content: map-get($prizm-base-icons-map, "house-mini");
+  content: map-get($prizm-base-icons-map, 'house-mini');
 }
 .prizm-base-icons-house:before {
-    content: map-get($prizm-base-icons-map, "house");
+  content: map-get($prizm-base-icons-map, 'house');
 }
 .prizm-base-icons-image:before {
-    content: map-get($prizm-base-icons-map, "image");
+  content: map-get($prizm-base-icons-map, 'image');
 }
 .prizm-base-icons-importers-zql:before {
-    content: map-get($prizm-base-icons-map, "importers-zql");
+  content: map-get($prizm-base-icons-map, 'importers-zql');
 }
 .prizm-base-icons-indent-arrow-left:before {
-    content: map-get($prizm-base-icons-map, "indent-arrow-left");
+  content: map-get($prizm-base-icons-map, 'indent-arrow-left');
 }
 .prizm-base-icons-indent-arrow-right:before {
-    content: map-get($prizm-base-icons-map, "indent-arrow-right");
+  content: map-get($prizm-base-icons-map, 'indent-arrow-right');
 }
 .prizm-base-icons-infinity:before {
-    content: map-get($prizm-base-icons-map, "infinity");
+  content: map-get($prizm-base-icons-map, 'infinity');
 }
 .prizm-base-icons-info:before {
-    content: map-get($prizm-base-icons-map, "info");
+  content: map-get($prizm-base-icons-map, 'info');
 }
 .prizm-base-icons-input-device:before {
-    content: map-get($prizm-base-icons-map, "input-device");
+  content: map-get($prizm-base-icons-map, 'input-device');
 }
 .prizm-base-icons-instagram:before {
-    content: map-get($prizm-base-icons-map, "instagram");
+  content: map-get($prizm-base-icons-map, 'instagram');
 }
 .prizm-base-icons-italic:before {
-    content: map-get($prizm-base-icons-map, "italic");
+  content: map-get($prizm-base-icons-map, 'italic');
 }
 .prizm-base-icons-key:before {
-    content: map-get($prizm-base-icons-map, "key");
+  content: map-get($prizm-base-icons-map, 'key');
 }
 .prizm-base-icons-keyboard-close:before {
-    content: map-get($prizm-base-icons-map, "keyboard-close");
+  content: map-get($prizm-base-icons-map, 'keyboard-close');
 }
 .prizm-base-icons-keyboard:before {
-    content: map-get($prizm-base-icons-map, "keyboard");
+  content: map-get($prizm-base-icons-map, 'keyboard');
 }
 .prizm-base-icons-label-cross:before {
-    content: map-get($prizm-base-icons-map, "label-cross");
+  content: map-get($prizm-base-icons-map, 'label-cross');
 }
 .prizm-base-icons-label-exclamation-mark:before {
-    content: map-get($prizm-base-icons-map, "label-exclamation-mark");
+  content: map-get($prizm-base-icons-map, 'label-exclamation-mark');
 }
 .prizm-base-icons-label-fill:before {
-    content: map-get($prizm-base-icons-map, "label-fill");
+  content: map-get($prizm-base-icons-map, 'label-fill');
 }
 .prizm-base-icons-label-magnifying-glass:before {
-    content: map-get($prizm-base-icons-map, "label-magnifying-glass");
+  content: map-get($prizm-base-icons-map, 'label-magnifying-glass');
 }
 .prizm-base-icons-label-plus:before {
-    content: map-get($prizm-base-icons-map, "label-plus");
+  content: map-get($prizm-base-icons-map, 'label-plus');
 }
 .prizm-base-icons-label-question:before {
-    content: map-get($prizm-base-icons-map, "label-question");
+  content: map-get($prizm-base-icons-map, 'label-question');
 }
 .prizm-base-icons-label-text:before {
-    content: map-get($prizm-base-icons-map, "label-text");
+  content: map-get($prizm-base-icons-map, 'label-text');
 }
 .prizm-base-icons-label:before {
-    content: map-get($prizm-base-icons-map, "label");
+  content: map-get($prizm-base-icons-map, 'label');
 }
 .prizm-base-icons-lan-connect:before {
-    content: map-get($prizm-base-icons-map, "lan-connect");
+  content: map-get($prizm-base-icons-map, 'lan-connect');
 }
 .prizm-base-icons-lan-disconnect:before {
-    content: map-get($prizm-base-icons-map, "lan-disconnect");
+  content: map-get($prizm-base-icons-map, 'lan-disconnect');
 }
 .prizm-base-icons-lan-pending:before {
-    content: map-get($prizm-base-icons-map, "lan-pending");
+  content: map-get($prizm-base-icons-map, 'lan-pending');
 }
 .prizm-base-icons-laptop-phone-slash:before {
-    content: map-get($prizm-base-icons-map, "laptop-phone-slash");
+  content: map-get($prizm-base-icons-map, 'laptop-phone-slash');
 }
 .prizm-base-icons-laptop-phone:before {
-    content: map-get($prizm-base-icons-map, "laptop-phone");
+  content: map-get($prizm-base-icons-map, 'laptop-phone');
 }
 .prizm-base-icons-laptop-slash:before {
-    content: map-get($prizm-base-icons-map, "laptop-slash");
+  content: map-get($prizm-base-icons-map, 'laptop-slash');
 }
 .prizm-base-icons-laptop:before {
-    content: map-get($prizm-base-icons-map, "laptop");
+  content: map-get($prizm-base-icons-map, 'laptop');
 }
 .prizm-base-icons-layer-group-slash:before {
-    content: map-get($prizm-base-icons-map, "layer-group-slash");
+  content: map-get($prizm-base-icons-map, 'layer-group-slash');
 }
 .prizm-base-icons-layer-group:before {
-    content: map-get($prizm-base-icons-map, "layer-group");
+  content: map-get($prizm-base-icons-map, 'layer-group');
 }
 .prizm-base-icons-layer-network:before {
-    content: map-get($prizm-base-icons-map, "layer-network");
+  content: map-get($prizm-base-icons-map, 'layer-network');
 }
 .prizm-base-icons-letter-day:before {
-    content: map-get($prizm-base-icons-map, "letter-day");
+  content: map-get($prizm-base-icons-map, 'letter-day');
 }
 .prizm-base-icons-letter-hour:before {
-    content: map-get($prizm-base-icons-map, "letter-hour");
+  content: map-get($prizm-base-icons-map, 'letter-hour');
 }
 .prizm-base-icons-letter-minute:before {
-    content: map-get($prizm-base-icons-map, "letter-minute");
+  content: map-get($prizm-base-icons-map, 'letter-minute');
 }
 .prizm-base-icons-letter-month:before {
-    content: map-get($prizm-base-icons-map, "letter-month");
+  content: map-get($prizm-base-icons-map, 'letter-month');
 }
 .prizm-base-icons-letter-second:before {
-    content: map-get($prizm-base-icons-map, "letter-second");
+  content: map-get($prizm-base-icons-map, 'letter-second');
 }
 .prizm-base-icons-letter-time:before {
-    content: map-get($prizm-base-icons-map, "letter-time");
+  content: map-get($prizm-base-icons-map, 'letter-time');
 }
 .prizm-base-icons-letter-year:before {
-    content: map-get($prizm-base-icons-map, "letter-year");
+  content: map-get($prizm-base-icons-map, 'letter-year');
 }
 .prizm-base-icons-library-plus:before {
-    content: map-get($prizm-base-icons-map, "library-plus");
+  content: map-get($prizm-base-icons-map, 'library-plus');
 }
 .prizm-base-icons-lightbulb:before {
-    content: map-get($prizm-base-icons-map, "lightbulb");
+  content: map-get($prizm-base-icons-map, 'lightbulb');
 }
 .prizm-base-icons-line-axis-arrow-down:before {
-    content: map-get($prizm-base-icons-map, "line-axis-arrow-down");
+  content: map-get($prizm-base-icons-map, 'line-axis-arrow-down');
 }
 .prizm-base-icons-line-axis-x:before {
-    content: map-get($prizm-base-icons-map, "line-axis-x");
+  content: map-get($prizm-base-icons-map, 'line-axis-x');
 }
 .prizm-base-icons-line-axis:before {
-    content: map-get($prizm-base-icons-map, "line-axis");
+  content: map-get($prizm-base-icons-map, 'line-axis');
 }
 .prizm-base-icons-line-down:before {
-    content: map-get($prizm-base-icons-map, "line-down");
+  content: map-get($prizm-base-icons-map, 'line-down');
 }
 .prizm-base-icons-line-height:before {
-    content: map-get($prizm-base-icons-map, "line-height");
+  content: map-get($prizm-base-icons-map, 'line-height');
 }
 .prizm-base-icons-line-multiple-y-axis-x:before {
-    content: map-get($prizm-base-icons-map, "line-multiple-y-axis-x");
+  content: map-get($prizm-base-icons-map, 'line-multiple-y-axis-x');
 }
 .prizm-base-icons-line-multiple-y-axis:before {
-    content: map-get($prizm-base-icons-map, "line-multiple-y-axis");
+  content: map-get($prizm-base-icons-map, 'line-multiple-y-axis');
 }
 .prizm-base-icons-line-up:before {
-    content: map-get($prizm-base-icons-map, "line-up");
+  content: map-get($prizm-base-icons-map, 'line-up');
 }
 .prizm-base-icons-line:before {
-    content: map-get($prizm-base-icons-map, "line");
+  content: map-get($prizm-base-icons-map, 'line');
 }
 .prizm-base-icons-link-break:before {
-    content: map-get($prizm-base-icons-map, "link-break");
+  content: map-get($prizm-base-icons-map, 'link-break');
 }
 .prizm-base-icons-link-minus:before {
-    content: map-get($prizm-base-icons-map, "link-minus");
+  content: map-get($prizm-base-icons-map, 'link-minus');
 }
 .prizm-base-icons-link-plus:before {
-    content: map-get($prizm-base-icons-map, "link-plus");
+  content: map-get($prizm-base-icons-map, 'link-plus');
 }
 .prizm-base-icons-link-simple-h:before {
-    content: map-get($prizm-base-icons-map, "link-simple-h");
+  content: map-get($prizm-base-icons-map, 'link-simple-h');
 }
 .prizm-base-icons-link-simple:before {
-    content: map-get($prizm-base-icons-map, "link-simple");
+  content: map-get($prizm-base-icons-map, 'link-simple');
 }
 .prizm-base-icons-list-fill:before {
-    content: map-get($prizm-base-icons-map, "list-fill");
+  content: map-get($prizm-base-icons-map, 'list-fill');
 }
 .prizm-base-icons-list-ol:before {
-    content: map-get($prizm-base-icons-map, "list-ol");
+  content: map-get($prizm-base-icons-map, 'list-ol');
 }
 .prizm-base-icons-list-square:before {
-    content: map-get($prizm-base-icons-map, "list-square");
+  content: map-get($prizm-base-icons-map, 'list-square');
 }
 .prizm-base-icons-list-tree-archive:before {
-    content: map-get($prizm-base-icons-map, "list-tree-archive");
+  content: map-get($prizm-base-icons-map, 'list-tree-archive');
 }
 .prizm-base-icons-list-tree:before {
-    content: map-get($prizm-base-icons-map, "list-tree");
+  content: map-get($prizm-base-icons-map, 'list-tree');
 }
 .prizm-base-icons-list-ul:before {
-    content: map-get($prizm-base-icons-map, "list-ul");
+  content: map-get($prizm-base-icons-map, 'list-ul');
 }
 .prizm-base-icons-list:before {
-    content: map-get($prizm-base-icons-map, "list");
+  content: map-get($prizm-base-icons-map, 'list');
 }
 .prizm-base-icons-lng-storage:before {
-    content: map-get($prizm-base-icons-map, "lng-storage");
+  content: map-get($prizm-base-icons-map, 'lng-storage');
 }
 .prizm-base-icons-loader:before {
-    content: map-get($prizm-base-icons-map, "loader");
+  content: map-get($prizm-base-icons-map, 'loader');
 }
 .prizm-base-icons-location-arrow:before {
-    content: map-get($prizm-base-icons-map, "location-arrow");
+  content: map-get($prizm-base-icons-map, 'location-arrow');
 }
 .prizm-base-icons-location-directly:before {
-    content: map-get($prizm-base-icons-map, "location-directly");
+  content: map-get($prizm-base-icons-map, 'location-directly');
 }
 .prizm-base-icons-location-dot:before {
-    content: map-get($prizm-base-icons-map, "location-dot");
+  content: map-get($prizm-base-icons-map, 'location-dot');
 }
 .prizm-base-icons-location-minus:before {
-    content: map-get($prizm-base-icons-map, "location-minus");
+  content: map-get($prizm-base-icons-map, 'location-minus');
 }
 .prizm-base-icons-location-plus:before {
-    content: map-get($prizm-base-icons-map, "location-plus");
+  content: map-get($prizm-base-icons-map, 'location-plus');
 }
 .prizm-base-icons-location-slash:before {
-    content: map-get($prizm-base-icons-map, "location-slash");
+  content: map-get($prizm-base-icons-map, 'location-slash');
 }
 .prizm-base-icons-location-user:before {
-    content: map-get($prizm-base-icons-map, "location-user");
+  content: map-get($prizm-base-icons-map, 'location-user');
 }
 .prizm-base-icons-lock:before {
-    content: map-get($prizm-base-icons-map, "lock");
+  content: map-get($prizm-base-icons-map, 'lock');
 }
 .prizm-base-icons-logo-grey-z:before {
-    content: map-get($prizm-base-icons-map, "logo-grey-z");
+  content: map-get($prizm-base-icons-map, 'logo-grey-z');
 }
 .prizm-base-icons-logo-s-grey:before {
-    content: map-get($prizm-base-icons-map, "logo-s-grey");
+  content: map-get($prizm-base-icons-map, 'logo-s-grey');
 }
 .prizm-base-icons-magic-wand:before {
-    content: map-get($prizm-base-icons-map, "magic-wand");
+  content: map-get($prizm-base-icons-map, 'magic-wand');
 }
 .prizm-base-icons-magnifying-glass-exclamation:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-exclamation");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-exclamation');
 }
 .prizm-base-icons-magnifying-glass-minus:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-minus");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-minus');
 }
 .prizm-base-icons-magnifying-glass-ontology:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-ontology");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-ontology');
 }
 .prizm-base-icons-magnifying-glass-plus:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-plus");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-plus');
 }
 .prizm-base-icons-magnifying-glass-tags-words:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-tags-words");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-tags-words');
 }
 .prizm-base-icons-magnifying-glass-top-from-bracket:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-top-from-bracket");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-top-from-bracket');
 }
 .prizm-base-icons-magnifying-glass-triangle-down:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-triangle-down");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-triangle-down');
 }
 .prizm-base-icons-magnifying-glass-xmark:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass-xmark");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass-xmark');
 }
 .prizm-base-icons-magnifying-glass:before {
-    content: map-get($prizm-base-icons-map, "magnifying-glass");
+  content: map-get($prizm-base-icons-map, 'magnifying-glass');
 }
 .prizm-base-icons-mail-open:before {
-    content: map-get($prizm-base-icons-map, "mail-open");
+  content: map-get($prizm-base-icons-map, 'mail-open');
 }
 .prizm-base-icons-mail:before {
-    content: map-get($prizm-base-icons-map, "mail");
+  content: map-get($prizm-base-icons-map, 'mail');
 }
 .prizm-base-icons-mailbox:before {
-    content: map-get($prizm-base-icons-map, "mailbox");
+  content: map-get($prizm-base-icons-map, 'mailbox');
 }
 .prizm-base-icons-map-base:before {
-    content: map-get($prizm-base-icons-map, "map-base");
+  content: map-get($prizm-base-icons-map, 'map-base');
 }
 .prizm-base-icons-map-marker-date-v1:before {
-    content: map-get($prizm-base-icons-map, "map-marker-date-v1");
+  content: map-get($prizm-base-icons-map, 'map-marker-date-v1');
 }
 .prizm-base-icons-map-marker-date-v2:before {
-    content: map-get($prizm-base-icons-map, "map-marker-date-v2");
+  content: map-get($prizm-base-icons-map, 'map-marker-date-v2');
 }
 .prizm-base-icons-map-pin:before {
-    content: map-get($prizm-base-icons-map, "map-pin");
+  content: map-get($prizm-base-icons-map, 'map-pin');
 }
 .prizm-base-icons-map:before {
-    content: map-get($prizm-base-icons-map, "map");
+  content: map-get($prizm-base-icons-map, 'map');
 }
 .prizm-base-icons-medical:before {
-    content: map-get($prizm-base-icons-map, "medical");
+  content: map-get($prizm-base-icons-map, 'medical');
 }
 .prizm-base-icons-merge:before {
-    content: map-get($prizm-base-icons-map, "merge");
+  content: map-get($prizm-base-icons-map, 'merge');
 }
 .prizm-base-icons-messaging-telegram-send:before {
-    content: map-get($prizm-base-icons-map, "messaging-telegram-send");
+  content: map-get($prizm-base-icons-map, 'messaging-telegram-send');
 }
 .prizm-base-icons-messaging-telegram:before {
-    content: map-get($prizm-base-icons-map, "messaging-telegram");
+  content: map-get($prizm-base-icons-map, 'messaging-telegram');
 }
 .prizm-base-icons-microphone-slash:before {
-    content: map-get($prizm-base-icons-map, "microphone-slash");
+  content: map-get($prizm-base-icons-map, 'microphone-slash');
 }
 .prizm-base-icons-microphone:before {
-    content: map-get($prizm-base-icons-map, "microphone");
+  content: map-get($prizm-base-icons-map, 'microphone');
 }
 .prizm-base-icons-minibus-side-view:before {
-    content: map-get($prizm-base-icons-map, "minibus-side-view");
+  content: map-get($prizm-base-icons-map, 'minibus-side-view');
 }
 .prizm-base-icons-minus-circle-fill:before {
-    content: map-get($prizm-base-icons-map, "minus-circle-fill");
+  content: map-get($prizm-base-icons-map, 'minus-circle-fill');
 }
 .prizm-base-icons-minus-circle:before {
-    content: map-get($prizm-base-icons-map, "minus-circle");
+  content: map-get($prizm-base-icons-map, 'minus-circle');
 }
 .prizm-base-icons-minus:before {
-    content: map-get($prizm-base-icons-map, "minus");
+  content: map-get($prizm-base-icons-map, 'minus');
 }
 .prizm-base-icons-module-fill:before {
-    content: map-get($prizm-base-icons-map, "module-fill");
+  content: map-get($prizm-base-icons-map, 'module-fill');
 }
 .prizm-base-icons-monitor:before {
-    content: map-get($prizm-base-icons-map, "monitor");
+  content: map-get($prizm-base-icons-map, 'monitor');
 }
 .prizm-base-icons-moon:before {
-    content: map-get($prizm-base-icons-map, "moon");
+  content: map-get($prizm-base-icons-map, 'moon');
 }
 .prizm-base-icons-music-slash:before {
-    content: map-get($prizm-base-icons-map, "music-slash");
+  content: map-get($prizm-base-icons-map, 'music-slash');
 }
 .prizm-base-icons-music:before {
-    content: map-get($prizm-base-icons-map, "music");
+  content: map-get($prizm-base-icons-map, 'music');
 }
 .prizm-base-icons-network-external-link:before {
-    content: map-get($prizm-base-icons-map, "network-external-link");
+  content: map-get($prizm-base-icons-map, 'network-external-link');
 }
 .prizm-base-icons-network-v1:before {
-    content: map-get($prizm-base-icons-map, "network-v1");
+  content: map-get($prizm-base-icons-map, 'network-v1');
 }
 .prizm-base-icons-network-v2:before {
-    content: map-get($prizm-base-icons-map, "network-v2");
+  content: map-get($prizm-base-icons-map, 'network-v2');
 }
 .prizm-base-icons-network-v3:before {
-    content: map-get($prizm-base-icons-map, "network-v3");
+  content: map-get($prizm-base-icons-map, 'network-v3');
 }
 .prizm-base-icons-network-wired:before {
-    content: map-get($prizm-base-icons-map, "network-wired");
+  content: map-get($prizm-base-icons-map, 'network-wired');
 }
 .prizm-base-icons-ni-fi-logo:before {
-    content: map-get($prizm-base-icons-map, "ni-fi-logo");
+  content: map-get($prizm-base-icons-map, 'ni-fi-logo');
 }
 .prizm-base-icons-normdocs-zql:before {
-    content: map-get($prizm-base-icons-map, "normdocs-zql");
+  content: map-get($prizm-base-icons-map, 'normdocs-zql');
 }
 .prizm-base-icons-npm:before {
-    content: map-get($prizm-base-icons-map, "npm");
+  content: map-get($prizm-base-icons-map, 'npm');
 }
 .prizm-base-icons-object-down-subtract:before {
-    content: map-get($prizm-base-icons-map, "object-down-subtract");
+  content: map-get($prizm-base-icons-map, 'object-down-subtract');
 }
 .prizm-base-icons-object-exclude:before {
-    content: map-get($prizm-base-icons-map, "object-exclude");
+  content: map-get($prizm-base-icons-map, 'object-exclude');
 }
 .prizm-base-icons-object-intersect:before {
-    content: map-get($prizm-base-icons-map, "object-intersect");
+  content: map-get($prizm-base-icons-map, 'object-intersect');
 }
 .prizm-base-icons-object-selection:before {
-    content: map-get($prizm-base-icons-map, "object-selection");
+  content: map-get($prizm-base-icons-map, 'object-selection');
 }
 .prizm-base-icons-object-union:before {
-    content: map-get($prizm-base-icons-map, "object-union");
+  content: map-get($prizm-base-icons-map, 'object-union');
 }
 .prizm-base-icons-object-up-subtract:before {
-    content: map-get($prizm-base-icons-map, "object-up-subtract");
+  content: map-get($prizm-base-icons-map, 'object-up-subtract');
 }
 .prizm-base-icons-object:before {
-    content: map-get($prizm-base-icons-map, "object");
+  content: map-get($prizm-base-icons-map, 'object');
 }
 .prizm-base-icons-oil-barrel:before {
-    content: map-get($prizm-base-icons-map, "oil-barrel");
+  content: map-get($prizm-base-icons-map, 'oil-barrel');
 }
 .prizm-base-icons-oil-canister:before {
-    content: map-get($prizm-base-icons-map, "oil-canister");
+  content: map-get($prizm-base-icons-map, 'oil-canister');
 }
 .prizm-base-icons-oil-droplet-arrows-all:before {
-    content: map-get($prizm-base-icons-map, "oil-droplet-arrows-all");
+  content: map-get($prizm-base-icons-map, 'oil-droplet-arrows-all');
 }
 .prizm-base-icons-oil-droplet-arrows-repeat-h:before {
-    content: map-get($prizm-base-icons-map, "oil-droplet-arrows-repeat-h");
+  content: map-get($prizm-base-icons-map, 'oil-droplet-arrows-repeat-h');
 }
 .prizm-base-icons-oil-droplet-chek:before {
-    content: map-get($prizm-base-icons-map, "oil-droplet-chek");
+  content: map-get($prizm-base-icons-map, 'oil-droplet-chek');
 }
 .prizm-base-icons-oil-droplet:before {
-    content: map-get($prizm-base-icons-map, "oil-droplet");
+  content: map-get($prizm-base-icons-map, 'oil-droplet');
 }
 .prizm-base-icons-oil-field:before {
-    content: map-get($prizm-base-icons-map, "oil-field");
+  content: map-get($prizm-base-icons-map, 'oil-field');
 }
 .prizm-base-icons-oil-tank:before {
-    content: map-get($prizm-base-icons-map, "oil-tank");
+  content: map-get($prizm-base-icons-map, 'oil-tank');
 }
 .prizm-base-icons-ontology:before {
-    content: map-get($prizm-base-icons-map, "ontology");
+  content: map-get($prizm-base-icons-map, 'ontology');
 }
 .prizm-base-icons-owl:before {
-    content: map-get($prizm-base-icons-map, "owl");
+  content: map-get($prizm-base-icons-map, 'owl');
 }
 .prizm-base-icons-palette:before {
-    content: map-get($prizm-base-icons-map, "palette");
+  content: map-get($prizm-base-icons-map, 'palette');
 }
 .prizm-base-icons-panel-down:before {
-    content: map-get($prizm-base-icons-map, "panel-down");
+  content: map-get($prizm-base-icons-map, 'panel-down');
 }
 .prizm-base-icons-panel-left:before {
-    content: map-get($prizm-base-icons-map, "panel-left");
+  content: map-get($prizm-base-icons-map, 'panel-left');
 }
 .prizm-base-icons-panel-right:before {
-    content: map-get($prizm-base-icons-map, "panel-right");
+  content: map-get($prizm-base-icons-map, 'panel-right');
 }
 .prizm-base-icons-panel-top:before {
-    content: map-get($prizm-base-icons-map, "panel-top");
+  content: map-get($prizm-base-icons-map, 'panel-top');
 }
 .prizm-base-icons-pantone:before {
-    content: map-get($prizm-base-icons-map, "pantone");
+  content: map-get($prizm-base-icons-map, 'pantone');
 }
 .prizm-base-icons-paperclip-vertical:before {
-    content: map-get($prizm-base-icons-map, "paperclip-vertical");
+  content: map-get($prizm-base-icons-map, 'paperclip-vertical');
 }
 .prizm-base-icons-paperclip:before {
-    content: map-get($prizm-base-icons-map, "paperclip");
+  content: map-get($prizm-base-icons-map, 'paperclip');
 }
 .prizm-base-icons-pause:before {
-    content: map-get($prizm-base-icons-map, "pause");
+  content: map-get($prizm-base-icons-map, 'pause');
 }
 .prizm-base-icons-paver-side-view:before {
-    content: map-get($prizm-base-icons-map, "paver-side-view");
+  content: map-get($prizm-base-icons-map, 'paver-side-view');
 }
 .prizm-base-icons-pen-hammer:before {
-    content: map-get($prizm-base-icons-map, "pen-hammer");
+  content: map-get($prizm-base-icons-map, 'pen-hammer');
 }
 .prizm-base-icons-pencil-arrow-right:before {
-    content: map-get($prizm-base-icons-map, "pencil-arrow-right");
+  content: map-get($prizm-base-icons-map, 'pencil-arrow-right');
 }
 .prizm-base-icons-pencil-line-bottom:before {
-    content: map-get($prizm-base-icons-map, "pencil-line-bottom");
+  content: map-get($prizm-base-icons-map, 'pencil-line-bottom');
 }
 .prizm-base-icons-pencil-triangle-down:before {
-    content: map-get($prizm-base-icons-map, "pencil-triangle-down");
+  content: map-get($prizm-base-icons-map, 'pencil-triangle-down');
 }
 .prizm-base-icons-pencil-triangle-left:before {
-    content: map-get($prizm-base-icons-map, "pencil-triangle-left");
+  content: map-get($prizm-base-icons-map, 'pencil-triangle-left');
 }
 .prizm-base-icons-pencil:before {
-    content: map-get($prizm-base-icons-map, "pencil");
+  content: map-get($prizm-base-icons-map, 'pencil');
 }
 .prizm-base-icons-pentagon-fill:before {
-    content: map-get($prizm-base-icons-map, "pentagon-fill");
+  content: map-get($prizm-base-icons-map, 'pentagon-fill');
 }
 .prizm-base-icons-pentagon:before {
-    content: map-get($prizm-base-icons-map, "pentagon");
+  content: map-get($prizm-base-icons-map, 'pentagon');
 }
 .prizm-base-icons-percent:before {
-    content: map-get($prizm-base-icons-map, "percent");
+  content: map-get($prizm-base-icons-map, 'percent');
 }
 .prizm-base-icons-phone-active-call:before {
-    content: map-get($prizm-base-icons-map, "phone-active-call");
+  content: map-get($prizm-base-icons-map, 'phone-active-call');
 }
 .prizm-base-icons-phone-cancelled:before {
-    content: map-get($prizm-base-icons-map, "phone-cancelled");
+  content: map-get($prizm-base-icons-map, 'phone-cancelled');
 }
 .prizm-base-icons-phone-minus:before {
-    content: map-get($prizm-base-icons-map, "phone-minus");
+  content: map-get($prizm-base-icons-map, 'phone-minus');
 }
 .prizm-base-icons-phone-off:before {
-    content: map-get($prizm-base-icons-map, "phone-off");
+  content: map-get($prizm-base-icons-map, 'phone-off');
 }
 .prizm-base-icons-phone-paused:before {
-    content: map-get($prizm-base-icons-map, "phone-paused");
+  content: map-get($prizm-base-icons-map, 'phone-paused');
 }
 .prizm-base-icons-phone-plus:before {
-    content: map-get($prizm-base-icons-map, "phone-plus");
+  content: map-get($prizm-base-icons-map, 'phone-plus');
 }
 .prizm-base-icons-phone:before {
-    content: map-get($prizm-base-icons-map, "phone");
+  content: map-get($prizm-base-icons-map, 'phone');
 }
 .prizm-base-icons-pi:before {
-    content: map-get($prizm-base-icons-map, "pi");
+  content: map-get($prizm-base-icons-map, 'pi');
 }
 .prizm-base-icons-pie-line-nested:before {
-    content: map-get($prizm-base-icons-map, "pie-line-nested");
+  content: map-get($prizm-base-icons-map, 'pie-line-nested');
 }
 .prizm-base-icons-pie-line:before {
-    content: map-get($prizm-base-icons-map, "pie-line");
+  content: map-get($prizm-base-icons-map, 'pie-line');
 }
 .prizm-base-icons-pie-pentagon:before {
-    content: map-get($prizm-base-icons-map, "pie-pentagon");
+  content: map-get($prizm-base-icons-map, 'pie-pentagon');
 }
 .prizm-base-icons-pie-several-parts:before {
-    content: map-get($prizm-base-icons-map, "pie-several-parts");
+  content: map-get($prizm-base-icons-map, 'pie-several-parts');
 }
 .prizm-base-icons-pie-simple:before {
-    content: map-get($prizm-base-icons-map, "pie-simple");
+  content: map-get($prizm-base-icons-map, 'pie-simple');
 }
 .prizm-base-icons-pie:before {
-    content: map-get($prizm-base-icons-map, "pie");
+  content: map-get($prizm-base-icons-map, 'pie');
 }
 .prizm-base-icons-pipe-node-side-view:before {
-    content: map-get($prizm-base-icons-map, "pipe-node-side-view");
+  content: map-get($prizm-base-icons-map, 'pipe-node-side-view');
 }
 .prizm-base-icons-pipe-sensor:before {
-    content: map-get($prizm-base-icons-map, "pipe-sensor");
+  content: map-get($prizm-base-icons-map, 'pipe-sensor');
 }
 .prizm-base-icons-pipe-slash:before {
-    content: map-get($prizm-base-icons-map, "pipe-slash");
+  content: map-get($prizm-base-icons-map, 'pipe-slash');
 }
 .prizm-base-icons-pipe-valve:before {
-    content: map-get($prizm-base-icons-map, "pipe-valve");
+  content: map-get($prizm-base-icons-map, 'pipe-valve');
 }
 .prizm-base-icons-pipeline-v1:before {
-    content: map-get($prizm-base-icons-map, "pipeline-v1");
+  content: map-get($prizm-base-icons-map, 'pipeline-v1');
 }
 .prizm-base-icons-pipeline-v2:before {
-    content: map-get($prizm-base-icons-map, "pipeline-v2");
+  content: map-get($prizm-base-icons-map, 'pipeline-v2');
 }
 .prizm-base-icons-pipette:before {
-    content: map-get($prizm-base-icons-map, "pipette");
+  content: map-get($prizm-base-icons-map, 'pipette');
 }
 .prizm-base-icons-plane:before {
-    content: map-get($prizm-base-icons-map, "plane");
+  content: map-get($prizm-base-icons-map, 'plane');
 }
 .prizm-base-icons-play-back:before {
-    content: map-get($prizm-base-icons-map, "play-back");
+  content: map-get($prizm-base-icons-map, 'play-back');
 }
 .prizm-base-icons-play:before {
-    content: map-get($prizm-base-icons-map, "play");
+  content: map-get($prizm-base-icons-map, 'play');
 }
 .prizm-base-icons-plus-column-right:before {
-    content: map-get($prizm-base-icons-map, "plus-column-right");
+  content: map-get($prizm-base-icons-map, 'plus-column-right');
 }
 .prizm-base-icons-plus-column-top:before {
-    content: map-get($prizm-base-icons-map, "plus-column-top");
+  content: map-get($prizm-base-icons-map, 'plus-column-top');
 }
 .prizm-base-icons-plus-triangle-down:before {
-    content: map-get($prizm-base-icons-map, "plus-triangle-down");
+  content: map-get($prizm-base-icons-map, 'plus-triangle-down');
 }
 .prizm-base-icons-plus:before {
-    content: map-get($prizm-base-icons-map, "plus");
+  content: map-get($prizm-base-icons-map, 'plus');
 }
 .prizm-base-icons-polyline:before {
-    content: map-get($prizm-base-icons-map, "polyline");
+  content: map-get($prizm-base-icons-map, 'polyline');
 }
 .prizm-base-icons-portfel:before {
-    content: map-get($prizm-base-icons-map, "portfel");
+  content: map-get($prizm-base-icons-map, 'portfel');
 }
 .prizm-base-icons-power:before {
-    content: map-get($prizm-base-icons-map, "power");
+  content: map-get($prizm-base-icons-map, 'power');
 }
 .prizm-base-icons-premises-zql:before {
-    content: map-get($prizm-base-icons-map, "premises-zql");
+  content: map-get($prizm-base-icons-map, 'premises-zql');
 }
 .prizm-base-icons-press:before {
-    content: map-get($prizm-base-icons-map, "press");
+  content: map-get($prizm-base-icons-map, 'press');
 }
 .prizm-base-icons-printer:before {
-    content: map-get($prizm-base-icons-map, "printer");
+  content: map-get($prizm-base-icons-map, 'printer');
 }
 .prizm-base-icons-process:before {
-    content: map-get($prizm-base-icons-map, "process");
+  content: map-get($prizm-base-icons-map, 'process');
 }
 .prizm-base-icons-pulse:before {
-    content: map-get($prizm-base-icons-map, "pulse");
+  content: map-get($prizm-base-icons-map, 'pulse');
 }
 .prizm-base-icons-pump-triangle-down:before {
-    content: map-get($prizm-base-icons-map, "pump-triangle-down");
+  content: map-get($prizm-base-icons-map, 'pump-triangle-down');
 }
 .prizm-base-icons-pump:before {
-    content: map-get($prizm-base-icons-map, "pump");
+  content: map-get($prizm-base-icons-map, 'pump');
 }
 .prizm-base-icons-push-button-cellphone:before {
-    content: map-get($prizm-base-icons-map, "push-button-cellphone");
+  content: map-get($prizm-base-icons-map, 'push-button-cellphone');
 }
 .prizm-base-icons-qr:before {
-    content: map-get($prizm-base-icons-map, "qr");
+  content: map-get($prizm-base-icons-map, 'qr');
 }
 .prizm-base-icons-question:before {
-    content: map-get($prizm-base-icons-map, "question");
+  content: map-get($prizm-base-icons-map, 'question');
 }
 .prizm-base-icons-quilt-fill:before {
-    content: map-get($prizm-base-icons-map, "quilt-fill");
+  content: map-get($prizm-base-icons-map, 'quilt-fill');
 }
 .prizm-base-icons-radiation:before {
-    content: map-get($prizm-base-icons-map, "radiation");
+  content: map-get($prizm-base-icons-map, 'radiation');
 }
 .prizm-base-icons-railcar-hopper-side-view:before {
-    content: map-get($prizm-base-icons-map, "railcar-hopper-side-view");
+  content: map-get($prizm-base-icons-map, 'railcar-hopper-side-view');
 }
 .prizm-base-icons-railcar-side-view:before {
-    content: map-get($prizm-base-icons-map, "railcar-side-view");
+  content: map-get($prizm-base-icons-map, 'railcar-side-view');
 }
 .prizm-base-icons-range:before {
-    content: map-get($prizm-base-icons-map, "range");
+  content: map-get($prizm-base-icons-map, 'range');
 }
 .prizm-base-icons-replay:before {
-    content: map-get($prizm-base-icons-map, "replay");
+  content: map-get($prizm-base-icons-map, 'replay');
 }
 .prizm-base-icons-respirator-v1:before {
-    content: map-get($prizm-base-icons-map, "respirator-v1");
+  content: map-get($prizm-base-icons-map, 'respirator-v1');
 }
 .prizm-base-icons-respirator-v2:before {
-    content: map-get($prizm-base-icons-map, "respirator-v2");
+  content: map-get($prizm-base-icons-map, 'respirator-v2');
 }
 .prizm-base-icons-respirator-v3:before {
-    content: map-get($prizm-base-icons-map, "respirator-v3");
+  content: map-get($prizm-base-icons-map, 'respirator-v3');
 }
 .prizm-base-icons-respirator-v4:before {
-    content: map-get($prizm-base-icons-map, "respirator-v4");
+  content: map-get($prizm-base-icons-map, 'respirator-v4');
 }
 .prizm-base-icons-respirator-v5:before {
-    content: map-get($prizm-base-icons-map, "respirator-v5");
+  content: map-get($prizm-base-icons-map, 'respirator-v5');
 }
 .prizm-base-icons-respirator-v6:before {
-    content: map-get($prizm-base-icons-map, "respirator-v6");
+  content: map-get($prizm-base-icons-map, 'respirator-v6');
 }
 .prizm-base-icons-return-step:before {
-    content: map-get($prizm-base-icons-map, "return-step");
+  content: map-get($prizm-base-icons-map, 'return-step');
 }
 .prizm-base-icons-return:before {
-    content: map-get($prizm-base-icons-map, "return");
+  content: map-get($prizm-base-icons-map, 'return');
 }
 .prizm-base-icons-rhombus-fill:before {
-    content: map-get($prizm-base-icons-map, "rhombus-fill");
+  content: map-get($prizm-base-icons-map, 'rhombus-fill');
 }
 .prizm-base-icons-rhombus:before {
-    content: map-get($prizm-base-icons-map, "rhombus");
+  content: map-get($prizm-base-icons-map, 'rhombus');
 }
 .prizm-base-icons-ring-in-square:before {
-    content: map-get($prizm-base-icons-map, "ring-in-square");
+  content: map-get($prizm-base-icons-map, 'ring-in-square');
 }
 .prizm-base-icons-ruler-index-zql:before {
-    content: map-get($prizm-base-icons-map, "ruler-index-zql");
+  content: map-get($prizm-base-icons-map, 'ruler-index-zql');
 }
 .prizm-base-icons-ruler:before {
-    content: map-get($prizm-base-icons-map, "ruler");
+  content: map-get($prizm-base-icons-map, 'ruler');
 }
 .prizm-base-icons-sample-logs-zql:before {
-    content: map-get($prizm-base-icons-map, "sample-logs-zql");
+  content: map-get($prizm-base-icons-map, 'sample-logs-zql');
 }
 .prizm-base-icons-sample-templates-zql:before {
-    content: map-get($prizm-base-icons-map, "sample-templates-zql");
+  content: map-get($prizm-base-icons-map, 'sample-templates-zql');
 }
 .prizm-base-icons-sandglass:before {
-    content: map-get($prizm-base-icons-map, "sandglass");
+  content: map-get($prizm-base-icons-map, 'sandglass');
 }
 .prizm-base-icons-scatter-axis:before {
-    content: map-get($prizm-base-icons-map, "scatter-axis");
+  content: map-get($prizm-base-icons-map, 'scatter-axis');
 }
 .prizm-base-icons-scatter-basic:before {
-    content: map-get($prizm-base-icons-map, "scatter-basic");
+  content: map-get($prizm-base-icons-map, 'scatter-basic');
 }
 .prizm-base-icons-scatter:before {
-    content: map-get($prizm-base-icons-map, "scatter");
+  content: map-get($prizm-base-icons-map, 'scatter');
 }
 .prizm-base-icons-scissors:before {
-    content: map-get($prizm-base-icons-map, "scissors");
+  content: map-get($prizm-base-icons-map, 'scissors');
 }
 .prizm-base-icons-seedling-circle:before {
-    content: map-get($prizm-base-icons-map, "seedling-circle");
+  content: map-get($prizm-base-icons-map, 'seedling-circle');
 }
 .prizm-base-icons-seedling-rectangle:before {
-    content: map-get($prizm-base-icons-map, "seedling-rectangle");
+  content: map-get($prizm-base-icons-map, 'seedling-rectangle');
 }
 .prizm-base-icons-seedling:before {
-    content: map-get($prizm-base-icons-map, "seedling");
+  content: map-get($prizm-base-icons-map, 'seedling');
 }
 .prizm-base-icons-selection-checked-empty:before {
-    content: map-get($prizm-base-icons-map, "selection-checked-empty");
+  content: map-get($prizm-base-icons-map, 'selection-checked-empty');
 }
 .prizm-base-icons-send-backward:before {
-    content: map-get($prizm-base-icons-map, "send-backward");
+  content: map-get($prizm-base-icons-map, 'send-backward');
 }
 .prizm-base-icons-send-forward:before {
-    content: map-get($prizm-base-icons-map, "send-forward");
+  content: map-get($prizm-base-icons-map, 'send-forward');
 }
 .prizm-base-icons-separator:before {
-    content: map-get($prizm-base-icons-map, "separator");
+  content: map-get($prizm-base-icons-map, 'separator');
 }
 .prizm-base-icons-sequential-fill:before {
-    content: map-get($prizm-base-icons-map, "sequential-fill");
+  content: map-get($prizm-base-icons-map, 'sequential-fill');
 }
 .prizm-base-icons-server-network-close:before {
-    content: map-get($prizm-base-icons-map, "server-network-close");
+  content: map-get($prizm-base-icons-map, 'server-network-close');
 }
 .prizm-base-icons-server-network-download:before {
-    content: map-get($prizm-base-icons-map, "server-network-download");
+  content: map-get($prizm-base-icons-map, 'server-network-download');
 }
 .prizm-base-icons-server-network-minus:before {
-    content: map-get($prizm-base-icons-map, "server-network-minus");
+  content: map-get($prizm-base-icons-map, 'server-network-minus');
 }
 .prizm-base-icons-server-network-plus:before {
-    content: map-get($prizm-base-icons-map, "server-network-plus");
+  content: map-get($prizm-base-icons-map, 'server-network-plus');
 }
 .prizm-base-icons-server-network-security:before {
-    content: map-get($prizm-base-icons-map, "server-network-security");
+  content: map-get($prizm-base-icons-map, 'server-network-security');
 }
 .prizm-base-icons-server-network-upload:before {
-    content: map-get($prizm-base-icons-map, "server-network-upload");
+  content: map-get($prizm-base-icons-map, 'server-network-upload');
 }
 .prizm-base-icons-server-network:before {
-    content: map-get($prizm-base-icons-map, "server-network");
+  content: map-get($prizm-base-icons-map, 'server-network');
 }
 .prizm-base-icons-server-shield:before {
-    content: map-get($prizm-base-icons-map, "server-shield");
+  content: map-get($prizm-base-icons-map, 'server-shield');
 }
 .prizm-base-icons-server-slash-up-line:before {
-    content: map-get($prizm-base-icons-map, "server-slash-up-line");
+  content: map-get($prizm-base-icons-map, 'server-slash-up-line');
 }
 .prizm-base-icons-server-slash:before {
-    content: map-get($prizm-base-icons-map, "server-slash");
+  content: map-get($prizm-base-icons-map, 'server-slash');
 }
 .prizm-base-icons-server-up-line:before {
-    content: map-get($prizm-base-icons-map, "server-up-line");
+  content: map-get($prizm-base-icons-map, 'server-up-line');
 }
 .prizm-base-icons-server:before {
-    content: map-get($prizm-base-icons-map, "server");
+  content: map-get($prizm-base-icons-map, 'server');
 }
 .prizm-base-icons-shape-link-fill:before {
-    content: map-get($prizm-base-icons-map, "shape-link-fill");
+  content: map-get($prizm-base-icons-map, 'shape-link-fill');
 }
 .prizm-base-icons-shape-link:before {
-    content: map-get($prizm-base-icons-map, "shape-link");
+  content: map-get($prizm-base-icons-map, 'shape-link');
 }
 .prizm-base-icons-shape-plus:before {
-    content: map-get($prizm-base-icons-map, "shape-plus");
+  content: map-get($prizm-base-icons-map, 'shape-plus');
 }
 .prizm-base-icons-share-left:before {
-    content: map-get($prizm-base-icons-map, "share-left");
+  content: map-get($prizm-base-icons-map, 'share-left');
 }
 .prizm-base-icons-share-right:before {
-    content: map-get($prizm-base-icons-map, "share-right");
+  content: map-get($prizm-base-icons-map, 'share-right');
 }
 .prizm-base-icons-shareing:before {
-    content: map-get($prizm-base-icons-map, "shareing");
+  content: map-get($prizm-base-icons-map, 'shareing');
 }
 .prizm-base-icons-shield-exclamation:before {
-    content: map-get($prizm-base-icons-map, "shield-exclamation");
+  content: map-get($prizm-base-icons-map, 'shield-exclamation');
 }
 .prizm-base-icons-shield-slash:before {
-    content: map-get($prizm-base-icons-map, "shield-slash");
+  content: map-get($prizm-base-icons-map, 'shield-slash');
 }
 .prizm-base-icons-shield:before {
-    content: map-get($prizm-base-icons-map, "shield");
+  content: map-get($prizm-base-icons-map, 'shield');
 }
 .prizm-base-icons-ship-front-view:before {
-    content: map-get($prizm-base-icons-map, "ship-front-view");
+  content: map-get($prizm-base-icons-map, 'ship-front-view');
 }
 .prizm-base-icons-ship-side-view:before {
-    content: map-get($prizm-base-icons-map, "ship-side-view");
+  content: map-get($prizm-base-icons-map, 'ship-side-view');
 }
 .prizm-base-icons-shopping-box:before {
-    content: map-get($prizm-base-icons-map, "shopping-box");
+  content: map-get($prizm-base-icons-map, 'shopping-box');
 }
 .prizm-base-icons-shovel:before {
-    content: map-get($prizm-base-icons-map, "shovel");
+  content: map-get($prizm-base-icons-map, 'shovel');
 }
 .prizm-base-icons-sigma:before {
-    content: map-get($prizm-base-icons-map, "sigma");
+  content: map-get($prizm-base-icons-map, 'sigma');
 }
 .prizm-base-icons-signal-access-point:before {
-    content: map-get($prizm-base-icons-map, "signal-access-point");
+  content: map-get($prizm-base-icons-map, 'signal-access-point');
 }
 .prizm-base-icons-signal-off:before {
-    content: map-get($prizm-base-icons-map, "signal-off");
+  content: map-get($prizm-base-icons-map, 'signal-off');
 }
 .prizm-base-icons-signal-radio-tower:before {
-    content: map-get($prizm-base-icons-map, "signal-radio-tower");
+  content: map-get($prizm-base-icons-map, 'signal-radio-tower');
 }
 .prizm-base-icons-signal:before {
-    content: map-get($prizm-base-icons-map, "signal");
+  content: map-get($prizm-base-icons-map, 'signal');
 }
 .prizm-base-icons-sliders-h:before {
-    content: map-get($prizm-base-icons-map, "sliders-h");
+  content: map-get($prizm-base-icons-map, 'sliders-h');
 }
 .prizm-base-icons-sliders-v:before {
-    content: map-get($prizm-base-icons-map, "sliders-v");
+  content: map-get($prizm-base-icons-map, 'sliders-v');
 }
 .prizm-base-icons-snake-cup:before {
-    content: map-get($prizm-base-icons-map, "snake-cup");
+  content: map-get($prizm-base-icons-map, 'snake-cup');
 }
 .prizm-base-icons-snowflake-up-to-bracket:before {
-    content: map-get($prizm-base-icons-map, "snowflake-up-to-bracket");
+  content: map-get($prizm-base-icons-map, 'snowflake-up-to-bracket');
 }
 .prizm-base-icons-snowflake:before {
-    content: map-get($prizm-base-icons-map, "snowflake");
+  content: map-get($prizm-base-icons-map, 'snowflake');
 }
 .prizm-base-icons-sort-filter-remove:before {
-    content: map-get($prizm-base-icons-map, "sort-filter-remove");
+  content: map-get($prizm-base-icons-map, 'sort-filter-remove');
 }
 .prizm-base-icons-specification:before {
-    content: map-get($prizm-base-icons-map, "specification");
+  content: map-get($prizm-base-icons-map, 'specification');
 }
 .prizm-base-icons-specs-zql:before {
-    content: map-get($prizm-base-icons-map, "specs-zql");
+  content: map-get($prizm-base-icons-map, 'specs-zql');
 }
 .prizm-base-icons-speed-reduction-cooling:before {
-    content: map-get($prizm-base-icons-map, "speed-reduction-cooling");
+  content: map-get($prizm-base-icons-map, 'speed-reduction-cooling');
 }
 .prizm-base-icons-square-arrows-curve-right-down:before {
-    content: map-get($prizm-base-icons-map, "square-arrows-curve-right-down");
+  content: map-get($prizm-base-icons-map, 'square-arrows-curve-right-down');
 }
 .prizm-base-icons-square-arrows-curve-up-right:before {
-    content: map-get($prizm-base-icons-map, "square-arrows-curve-up-right");
+  content: map-get($prizm-base-icons-map, 'square-arrows-curve-up-right');
 }
 .prizm-base-icons-square-bracket-curly-left:before {
-    content: map-get($prizm-base-icons-map, "square-bracket-curly-left");
+  content: map-get($prizm-base-icons-map, 'square-bracket-curly-left');
 }
 .prizm-base-icons-square-bracket-curly-right:before {
-    content: map-get($prizm-base-icons-map, "square-bracket-curly-right");
+  content: map-get($prizm-base-icons-map, 'square-bracket-curly-right');
 }
 .prizm-base-icons-square-bracket-left:before {
-    content: map-get($prizm-base-icons-map, "square-bracket-left");
+  content: map-get($prizm-base-icons-map, 'square-bracket-left');
 }
 .prizm-base-icons-square-bracket-right:before {
-    content: map-get($prizm-base-icons-map, "square-bracket-right");
+  content: map-get($prizm-base-icons-map, 'square-bracket-right');
 }
 .prizm-base-icons-square-circle-plus-triangle-fill:before {
-    content: map-get($prizm-base-icons-map, "square-circle-plus-triangle-fill");
+  content: map-get($prizm-base-icons-map, 'square-circle-plus-triangle-fill');
 }
 .prizm-base-icons-square-circle-triangle-cross-fill:before {
-    content: map-get($prizm-base-icons-map, "square-circle-triangle-cross-fill");
+  content: map-get($prizm-base-icons-map, 'square-circle-triangle-cross-fill');
 }
 .prizm-base-icons-square-circle-triangle-cross:before {
-    content: map-get($prizm-base-icons-map, "square-circle-triangle-cross");
+  content: map-get($prizm-base-icons-map, 'square-circle-triangle-cross');
 }
 .prizm-base-icons-square-divide:before {
-    content: map-get($prizm-base-icons-map, "square-divide");
+  content: map-get($prizm-base-icons-map, 'square-divide');
 }
 .prizm-base-icons-square-excel:before {
-    content: map-get($prizm-base-icons-map, "square-excel");
+  content: map-get($prizm-base-icons-map, 'square-excel');
 }
 .prizm-base-icons-square-exclamation-empty:before {
-    content: map-get($prizm-base-icons-map, "square-exclamation-empty");
+  content: map-get($prizm-base-icons-map, 'square-exclamation-empty');
 }
 .prizm-base-icons-square-exclamation-fill:before {
-    content: map-get($prizm-base-icons-map, "square-exclamation-fill");
+  content: map-get($prizm-base-icons-map, 'square-exclamation-fill');
 }
 .prizm-base-icons-square-fill:before {
-    content: map-get($prizm-base-icons-map, "square-fill");
+  content: map-get($prizm-base-icons-map, 'square-fill');
 }
 .prizm-base-icons-square-hexagon-circle-fill:before {
-    content: map-get($prizm-base-icons-map, "square-hexagon-circle-fill");
+  content: map-get($prizm-base-icons-map, 'square-hexagon-circle-fill');
 }
 .prizm-base-icons-square-hexagon-circle:before {
-    content: map-get($prizm-base-icons-map, "square-hexagon-circle");
+  content: map-get($prizm-base-icons-map, 'square-hexagon-circle');
 }
 .prizm-base-icons-square-in-square:before {
-    content: map-get($prizm-base-icons-map, "square-in-square");
+  content: map-get($prizm-base-icons-map, 'square-in-square');
 }
 .prizm-base-icons-square-info-empty:before {
-    content: map-get($prizm-base-icons-map, "square-info-empty");
+  content: map-get($prizm-base-icons-map, 'square-info-empty');
 }
 .prizm-base-icons-square-info-fill:before {
-    content: map-get($prizm-base-icons-map, "square-info-fill");
+  content: map-get($prizm-base-icons-map, 'square-info-fill');
 }
 .prizm-base-icons-square-minus:before {
-    content: map-get($prizm-base-icons-map, "square-minus");
+  content: map-get($prizm-base-icons-map, 'square-minus');
 }
 .prizm-base-icons-square-multiply:before {
-    content: map-get($prizm-base-icons-map, "square-multiply");
+  content: map-get($prizm-base-icons-map, 'square-multiply');
 }
 .prizm-base-icons-square-music-double:before {
-    content: map-get($prizm-base-icons-map, "square-music-double");
+  content: map-get($prizm-base-icons-map, 'square-music-double');
 }
 .prizm-base-icons-square-music:before {
-    content: map-get($prizm-base-icons-map, "square-music");
+  content: map-get($prizm-base-icons-map, 'square-music');
 }
 .prizm-base-icons-square-percent:before {
-    content: map-get($prizm-base-icons-map, "square-percent");
+  content: map-get($prizm-base-icons-map, 'square-percent');
 }
 .prizm-base-icons-square-plus:before {
-    content: map-get($prizm-base-icons-map, "square-plus");
+  content: map-get($prizm-base-icons-map, 'square-plus');
 }
 .prizm-base-icons-square-powerpoint:before {
-    content: map-get($prizm-base-icons-map, "square-powerpoint");
+  content: map-get($prizm-base-icons-map, 'square-powerpoint');
 }
 .prizm-base-icons-square-question-empty:before {
-    content: map-get($prizm-base-icons-map, "square-question-empty");
+  content: map-get($prizm-base-icons-map, 'square-question-empty');
 }
 .prizm-base-icons-square-question-fill:before {
-    content: map-get($prizm-base-icons-map, "square-question-fill");
+  content: map-get($prizm-base-icons-map, 'square-question-fill');
 }
 .prizm-base-icons-square-triangle-circle-triangle-fill:before {
-    content: map-get($prizm-base-icons-map, "square-triangle-circle-triangle-fill");
+  content: map-get($prizm-base-icons-map, 'square-triangle-circle-triangle-fill');
 }
 .prizm-base-icons-square-triangle-circle-triangle:before {
-    content: map-get($prizm-base-icons-map, "square-triangle-circle-triangle");
+  content: map-get($prizm-base-icons-map, 'square-triangle-circle-triangle');
 }
 .prizm-base-icons-square-word:before {
-    content: map-get($prizm-base-icons-map, "square-word");
+  content: map-get($prizm-base-icons-map, 'square-word');
 }
 .prizm-base-icons-star-empty:before {
-    content: map-get($prizm-base-icons-map, "star-empty");
+  content: map-get($prizm-base-icons-map, 'star-empty');
 }
 .prizm-base-icons-star-fill:before {
-    content: map-get($prizm-base-icons-map, "star-fill");
+  content: map-get($prizm-base-icons-map, 'star-fill');
 }
 .prizm-base-icons-star-half-fill:before {
-    content: map-get($prizm-base-icons-map, "star-half-fill");
+  content: map-get($prizm-base-icons-map, 'star-half-fill');
 }
 .prizm-base-icons-star-line:before {
-    content: map-get($prizm-base-icons-map, "star-line");
+  content: map-get($prizm-base-icons-map, 'star-line');
 }
 .prizm-base-icons-steam-boiler:before {
-    content: map-get($prizm-base-icons-map, "steam-boiler");
+  content: map-get($prizm-base-icons-map, 'steam-boiler');
 }
 .prizm-base-icons-steam-turbine:before {
-    content: map-get($prizm-base-icons-map, "steam-turbine");
+  content: map-get($prizm-base-icons-map, 'steam-turbine');
 }
 .prizm-base-icons-steam:before {
-    content: map-get($prizm-base-icons-map, "steam");
+  content: map-get($prizm-base-icons-map, 'steam');
 }
 .prizm-base-icons-stop:before {
-    content: map-get($prizm-base-icons-map, "stop");
+  content: map-get($prizm-base-icons-map, 'stop');
 }
 .prizm-base-icons-stopwatch:before {
-    content: map-get($prizm-base-icons-map, "stopwatch");
+  content: map-get($prizm-base-icons-map, 'stopwatch');
 }
 .prizm-base-icons-storage:before {
-    content: map-get($prizm-base-icons-map, "storage");
+  content: map-get($prizm-base-icons-map, 'storage');
 }
 .prizm-base-icons-strikethrough:before {
-    content: map-get($prizm-base-icons-map, "strikethrough");
+  content: map-get($prizm-base-icons-map, 'strikethrough');
 }
 .prizm-base-icons-subskrit-down:before {
-    content: map-get($prizm-base-icons-map, "subskrit-down");
+  content: map-get($prizm-base-icons-map, 'subskrit-down');
 }
 .prizm-base-icons-subskrit-up:before {
-    content: map-get($prizm-base-icons-map, "subskrit-up");
+  content: map-get($prizm-base-icons-map, 'subskrit-up');
 }
 .prizm-base-icons-sumbol-asterisk:before {
-    content: map-get($prizm-base-icons-map, "sumbol-asterisk");
+  content: map-get($prizm-base-icons-map, 'sumbol-asterisk');
 }
 .prizm-base-icons-sun:before {
-    content: map-get($prizm-base-icons-map, "sun");
+  content: map-get($prizm-base-icons-map, 'sun');
 }
 .prizm-base-icons-support-man:before {
-    content: map-get($prizm-base-icons-map, "support-man");
+  content: map-get($prizm-base-icons-map, 'support-man');
 }
 .prizm-base-icons-table-down:before {
-    content: map-get($prizm-base-icons-map, "table-down");
+  content: map-get($prizm-base-icons-map, 'table-down');
 }
 .prizm-base-icons-table-gear:before {
-    content: map-get($prizm-base-icons-map, "table-gear");
+  content: map-get($prizm-base-icons-map, 'table-gear');
 }
 .prizm-base-icons-table-magnifying-glass:before {
-    content: map-get($prizm-base-icons-map, "table-magnifying-glass");
+  content: map-get($prizm-base-icons-map, 'table-magnifying-glass');
 }
 .prizm-base-icons-table-right:before {
-    content: map-get($prizm-base-icons-map, "table-right");
+  content: map-get($prizm-base-icons-map, 'table-right');
 }
 .prizm-base-icons-table-transpose-right:before {
-    content: map-get($prizm-base-icons-map, "table-transpose-right");
+  content: map-get($prizm-base-icons-map, 'table-transpose-right');
 }
 .prizm-base-icons-table-transpose-top:before {
-    content: map-get($prizm-base-icons-map, "table-transpose-top");
+  content: map-get($prizm-base-icons-map, 'table-transpose-top');
 }
 .prizm-base-icons-table-transpose:before {
-    content: map-get($prizm-base-icons-map, "table-transpose");
+  content: map-get($prizm-base-icons-map, 'table-transpose');
 }
 .prizm-base-icons-table:before {
-    content: map-get($prizm-base-icons-map, "table");
+  content: map-get($prizm-base-icons-map, 'table');
 }
 .prizm-base-icons-tablet-iqc-zql:before {
-    content: map-get($prizm-base-icons-map, "tablet-iqc-zql");
+  content: map-get($prizm-base-icons-map, 'tablet-iqc-zql');
 }
 .prizm-base-icons-tablet:before {
-    content: map-get($prizm-base-icons-map, "tablet");
+  content: map-get($prizm-base-icons-map, 'tablet');
 }
 .prizm-base-icons-tank:before {
-    content: map-get($prizm-base-icons-map, "tank");
+  content: map-get($prizm-base-icons-map, 'tank');
 }
 .prizm-base-icons-tankcar-oil-side-view:before {
-    content: map-get($prizm-base-icons-map, "tankcar-oil-side-view");
+  content: map-get($prizm-base-icons-map, 'tankcar-oil-side-view');
 }
 .prizm-base-icons-tankcar-side-view:before {
-    content: map-get($prizm-base-icons-map, "tankcar-side-view");
+  content: map-get($prizm-base-icons-map, 'tankcar-side-view');
 }
 .prizm-base-icons-techs-zql:before {
-    content: map-get($prizm-base-icons-map, "techs-zql");
+  content: map-get($prizm-base-icons-map, 'techs-zql');
 }
 .prizm-base-icons-temperature-minus:before {
-    content: map-get($prizm-base-icons-map, "temperature-minus");
+  content: map-get($prizm-base-icons-map, 'temperature-minus');
 }
 .prizm-base-icons-temperature-plus:before {
-    content: map-get($prizm-base-icons-map, "temperature-plus");
+  content: map-get($prizm-base-icons-map, 'temperature-plus');
 }
 .prizm-base-icons-temperature:before {
-    content: map-get($prizm-base-icons-map, "temperature");
+  content: map-get($prizm-base-icons-map, 'temperature');
 }
 .prizm-base-icons-template:before {
-    content: map-get($prizm-base-icons-map, "template");
+  content: map-get($prizm-base-icons-map, 'template');
 }
 .prizm-base-icons-text-color:before {
-    content: map-get($prizm-base-icons-map, "text-color");
+  content: map-get($prizm-base-icons-map, 'text-color');
 }
 .prizm-base-icons-text:before {
-    content: map-get($prizm-base-icons-map, "text");
+  content: map-get($prizm-base-icons-map, 'text');
 }
 .prizm-base-icons-thumb-down:before {
-    content: map-get($prizm-base-icons-map, "thumb-down");
+  content: map-get($prizm-base-icons-map, 'thumb-down');
 }
 .prizm-base-icons-thumb-up:before {
-    content: map-get($prizm-base-icons-map, "thumb-up");
+  content: map-get($prizm-base-icons-map, 'thumb-up');
 }
 .prizm-base-icons-thumbtack-directly:before {
-    content: map-get($prizm-base-icons-map, "thumbtack-directly");
+  content: map-get($prizm-base-icons-map, 'thumbtack-directly');
 }
 .prizm-base-icons-thumbtack:before {
-    content: map-get($prizm-base-icons-map, "thumbtack");
+  content: map-get($prizm-base-icons-map, 'thumbtack');
 }
 .prizm-base-icons-touchpad:before {
-    content: map-get($prizm-base-icons-map, "touchpad");
+  content: map-get($prizm-base-icons-map, 'touchpad');
 }
 .prizm-base-icons-train-cargo:before {
-    content: map-get($prizm-base-icons-map, "train-cargo");
+  content: map-get($prizm-base-icons-map, 'train-cargo');
 }
 .prizm-base-icons-train-passenger:before {
-    content: map-get($prizm-base-icons-map, "train-passenger");
+  content: map-get($prizm-base-icons-map, 'train-passenger');
 }
 .prizm-base-icons-transmitter:before {
-    content: map-get($prizm-base-icons-map, "transmitter");
+  content: map-get($prizm-base-icons-map, 'transmitter');
 }
 .prizm-base-icons-trash-empty:before {
-    content: map-get($prizm-base-icons-map, "trash-empty");
+  content: map-get($prizm-base-icons-map, 'trash-empty');
 }
 .prizm-base-icons-trash:before {
-    content: map-get($prizm-base-icons-map, "trash");
+  content: map-get($prizm-base-icons-map, 'trash');
 }
 .prizm-base-icons-triangle-circle-square-fill:before {
-    content: map-get($prizm-base-icons-map, "triangle-circle-square-fill");
+  content: map-get($prizm-base-icons-map, 'triangle-circle-square-fill');
 }
 .prizm-base-icons-triangle-circle-square:before {
-    content: map-get($prizm-base-icons-map, "triangle-circle-square");
+  content: map-get($prizm-base-icons-map, 'triangle-circle-square');
 }
 .prizm-base-icons-triangle-cross-empty:before {
-    content: map-get($prizm-base-icons-map, "triangle-cross-empty");
+  content: map-get($prizm-base-icons-map, 'triangle-cross-empty');
 }
 .prizm-base-icons-triangle-down:before {
-    content: map-get($prizm-base-icons-map, "triangle-down");
+  content: map-get($prizm-base-icons-map, 'triangle-down');
 }
 .prizm-base-icons-triangle-exclamation-empty:before {
-    content: map-get($prizm-base-icons-map, "triangle-exclamation-empty");
+  content: map-get($prizm-base-icons-map, 'triangle-exclamation-empty');
 }
 .prizm-base-icons-triangle-exclamation-fill:before {
-    content: map-get($prizm-base-icons-map, "triangle-exclamation-fill");
+  content: map-get($prizm-base-icons-map, 'triangle-exclamation-fill');
 }
 .prizm-base-icons-triangle-fill:before {
-    content: map-get($prizm-base-icons-map, "triangle-fill");
+  content: map-get($prizm-base-icons-map, 'triangle-fill');
 }
 .prizm-base-icons-triangle-info-empty:before {
-    content: map-get($prizm-base-icons-map, "triangle-info-empty");
+  content: map-get($prizm-base-icons-map, 'triangle-info-empty');
 }
 .prizm-base-icons-triangle-info-fill:before {
-    content: map-get($prizm-base-icons-map, "triangle-info-fill");
+  content: map-get($prizm-base-icons-map, 'triangle-info-fill');
 }
 .prizm-base-icons-triangle-left:before {
-    content: map-get($prizm-base-icons-map, "triangle-left");
+  content: map-get($prizm-base-icons-map, 'triangle-left');
 }
 .prizm-base-icons-triangle-plus-empty:before {
-    content: map-get($prizm-base-icons-map, "triangle-plus-empty");
+  content: map-get($prizm-base-icons-map, 'triangle-plus-empty');
 }
 .prizm-base-icons-triangle-right:before {
-    content: map-get($prizm-base-icons-map, "triangle-right");
+  content: map-get($prizm-base-icons-map, 'triangle-right');
 }
 .prizm-base-icons-triangle-up-down:before {
-    content: map-get($prizm-base-icons-map, "triangle-up-down");
+  content: map-get($prizm-base-icons-map, 'triangle-up-down');
 }
 .prizm-base-icons-triangle-up:before {
-    content: map-get($prizm-base-icons-map, "triangle-up");
+  content: map-get($prizm-base-icons-map, 'triangle-up');
 }
 .prizm-base-icons-triangle:before {
-    content: map-get($prizm-base-icons-map, "triangle");
+  content: map-get($prizm-base-icons-map, 'triangle');
 }
 .prizm-base-icons-truck-dump-side-view:before {
-    content: map-get($prizm-base-icons-map, "truck-dump-side-view");
+  content: map-get($prizm-base-icons-map, 'truck-dump-side-view');
 }
 .prizm-base-icons-truck-empty-side-view:before {
-    content: map-get($prizm-base-icons-map, "truck-empty-side-view");
+  content: map-get($prizm-base-icons-map, 'truck-empty-side-view');
 }
 .prizm-base-icons-truck-garbage-side-view:before {
-    content: map-get($prizm-base-icons-map, "truck-garbage-side-view");
+  content: map-get($prizm-base-icons-map, 'truck-garbage-side-view');
 }
 .prizm-base-icons-truck-gasoline-side-view:before {
-    content: map-get($prizm-base-icons-map, "truck-gasoline-side-view");
+  content: map-get($prizm-base-icons-map, 'truck-gasoline-side-view');
 }
 .prizm-base-icons-truck-side-view:before {
-    content: map-get($prizm-base-icons-map, "truck-side-view");
+  content: map-get($prizm-base-icons-map, 'truck-side-view');
 }
 .prizm-base-icons-tv:before {
-    content: map-get($prizm-base-icons-map, "tv");
+  content: map-get($prizm-base-icons-map, 'tv');
 }
 .prizm-base-icons-umbrella:before {
-    content: map-get($prizm-base-icons-map, "umbrella");
+  content: map-get($prizm-base-icons-map, 'umbrella');
 }
 .prizm-base-icons-underlined:before {
-    content: map-get($prizm-base-icons-map, "underlined");
+  content: map-get($prizm-base-icons-map, 'underlined');
 }
 .prizm-base-icons-unlock:before {
-    content: map-get($prizm-base-icons-map, "unlock");
+  content: map-get($prizm-base-icons-map, 'unlock');
 }
 .prizm-base-icons-user-arrows-swap:before {
-    content: map-get($prizm-base-icons-map, "user-arrows-swap");
+  content: map-get($prizm-base-icons-map, 'user-arrows-swap');
 }
 .prizm-base-icons-user-card:before {
-    content: map-get($prizm-base-icons-map, "user-card");
+  content: map-get($prizm-base-icons-map, 'user-card');
 }
 .prizm-base-icons-user-check:before {
-    content: map-get($prizm-base-icons-map, "user-check");
+  content: map-get($prizm-base-icons-map, 'user-check');
 }
 .prizm-base-icons-user-circle:before {
-    content: map-get($prizm-base-icons-map, "user-circle");
+  content: map-get($prizm-base-icons-map, 'user-circle');
 }
 .prizm-base-icons-user-cross:before {
-    content: map-get($prizm-base-icons-map, "user-cross");
+  content: map-get($prizm-base-icons-map, 'user-cross');
 }
 .prizm-base-icons-user-gear:before {
-    content: map-get($prizm-base-icons-map, "user-gear");
+  content: map-get($prizm-base-icons-map, 'user-gear');
 }
 .prizm-base-icons-user-group:before {
-    content: map-get($prizm-base-icons-map, "user-group");
+  content: map-get($prizm-base-icons-map, 'user-group');
 }
 .prizm-base-icons-user-location:before {
-    content: map-get($prizm-base-icons-map, "user-location");
+  content: map-get($prizm-base-icons-map, 'user-location');
 }
 .prizm-base-icons-user-minus:before {
-    content: map-get($prizm-base-icons-map, "user-minus");
+  content: map-get($prizm-base-icons-map, 'user-minus');
 }
 .prizm-base-icons-user-pen:before {
-    content: map-get($prizm-base-icons-map, "user-pen");
+  content: map-get($prizm-base-icons-map, 'user-pen');
 }
 .prizm-base-icons-user-plus:before {
-    content: map-get($prizm-base-icons-map, "user-plus");
+  content: map-get($prizm-base-icons-map, 'user-plus');
 }
 .prizm-base-icons-user-shield:before {
-    content: map-get($prizm-base-icons-map, "user-shield");
+  content: map-get($prizm-base-icons-map, 'user-shield');
 }
 .prizm-base-icons-user-worker:before {
-    content: map-get($prizm-base-icons-map, "user-worker");
+  content: map-get($prizm-base-icons-map, 'user-worker');
 }
 .prizm-base-icons-user:before {
-    content: map-get($prizm-base-icons-map, "user");
+  content: map-get($prizm-base-icons-map, 'user');
 }
 .prizm-base-icons-users-arrow-right:before {
-    content: map-get($prizm-base-icons-map, "users-arrow-right");
+  content: map-get($prizm-base-icons-map, 'users-arrow-right');
 }
 .prizm-base-icons-users-arrow-up-zql:before {
-    content: map-get($prizm-base-icons-map, "users-arrow-up-zql");
+  content: map-get($prizm-base-icons-map, 'users-arrow-up-zql');
 }
 .prizm-base-icons-users-gear:before {
-    content: map-get($prizm-base-icons-map, "users-gear");
+  content: map-get($prizm-base-icons-map, 'users-gear');
 }
 .prizm-base-icons-users-key:before {
-    content: map-get($prizm-base-icons-map, "users-key");
+  content: map-get($prizm-base-icons-map, 'users-key');
 }
 .prizm-base-icons-users-location:before {
-    content: map-get($prizm-base-icons-map, "users-location");
+  content: map-get($prizm-base-icons-map, 'users-location');
 }
 .prizm-base-icons-users-minus:before {
-    content: map-get($prizm-base-icons-map, "users-minus");
+  content: map-get($prizm-base-icons-map, 'users-minus');
 }
 .prizm-base-icons-users-plus:before {
-    content: map-get($prizm-base-icons-map, "users-plus");
+  content: map-get($prizm-base-icons-map, 'users-plus');
 }
 .prizm-base-icons-users:before {
-    content: map-get($prizm-base-icons-map, "users");
+  content: map-get($prizm-base-icons-map, 'users');
 }
 .prizm-base-icons-vector-circle-one-point:before {
-    content: map-get($prizm-base-icons-map, "vector-circle-one-point");
+  content: map-get($prizm-base-icons-map, 'vector-circle-one-point');
 }
 .prizm-base-icons-vector-circle-two-point:before {
-    content: map-get($prizm-base-icons-map, "vector-circle-two-point");
+  content: map-get($prizm-base-icons-map, 'vector-circle-two-point');
 }
 .prizm-base-icons-vector-circle:before {
-    content: map-get($prizm-base-icons-map, "vector-circle");
+  content: map-get($prizm-base-icons-map, 'vector-circle');
 }
 .prizm-base-icons-vector-line:before {
-    content: map-get($prizm-base-icons-map, "vector-line");
+  content: map-get($prizm-base-icons-map, 'vector-line');
 }
 .prizm-base-icons-vector-point:before {
-    content: map-get($prizm-base-icons-map, "vector-point");
+  content: map-get($prizm-base-icons-map, 'vector-point');
 }
 .prizm-base-icons-vector-polygon:before {
-    content: map-get($prizm-base-icons-map, "vector-polygon");
+  content: map-get($prizm-base-icons-map, 'vector-polygon');
 }
 .prizm-base-icons-vector-rectangle:before {
-    content: map-get($prizm-base-icons-map, "vector-rectangle");
+  content: map-get($prizm-base-icons-map, 'vector-rectangle');
 }
 .prizm-base-icons-vector-square:before {
-    content: map-get($prizm-base-icons-map, "vector-square");
+  content: map-get($prizm-base-icons-map, 'vector-square');
 }
 .prizm-base-icons-vector-triangle:before {
-    content: map-get($prizm-base-icons-map, "vector-triangle");
+  content: map-get($prizm-base-icons-map, 'vector-triangle');
 }
 .prizm-base-icons-vectors-radius:before {
-    content: map-get($prizm-base-icons-map, "vectors-radius");
+  content: map-get($prizm-base-icons-map, 'vectors-radius');
 }
 .prizm-base-icons-vial-arrow-rotate-left:before {
-    content: map-get($prizm-base-icons-map, "vial-arrow-rotate-left");
+  content: map-get($prizm-base-icons-map, 'vial-arrow-rotate-left');
 }
 .prizm-base-icons-vial-flask:before {
-    content: map-get($prizm-base-icons-map, "vial-flask");
+  content: map-get($prizm-base-icons-map, 'vial-flask');
 }
 .prizm-base-icons-vial-plus:before {
-    content: map-get($prizm-base-icons-map, "vial-plus");
+  content: map-get($prizm-base-icons-map, 'vial-plus');
 }
 .prizm-base-icons-vial-xmark:before {
-    content: map-get($prizm-base-icons-map, "vial-xmark");
+  content: map-get($prizm-base-icons-map, 'vial-xmark');
 }
 .prizm-base-icons-vial:before {
-    content: map-get($prizm-base-icons-map, "vial");
+  content: map-get($prizm-base-icons-map, 'vial');
 }
 .prizm-base-icons-video-cross:before {
-    content: map-get($prizm-base-icons-map, "video-cross");
+  content: map-get($prizm-base-icons-map, 'video-cross');
 }
 .prizm-base-icons-video-slash:before {
-    content: map-get($prizm-base-icons-map, "video-slash");
+  content: map-get($prizm-base-icons-map, 'video-slash');
 }
 .prizm-base-icons-video:before {
-    content: map-get($prizm-base-icons-map, "video");
+  content: map-get($prizm-base-icons-map, 'video');
 }
 .prizm-base-icons-voicemail:before {
-    content: map-get($prizm-base-icons-map, "voicemail");
+  content: map-get($prizm-base-icons-map, 'voicemail');
 }
 .prizm-base-icons-volume-cross:before {
-    content: map-get($prizm-base-icons-map, "volume-cross");
+  content: map-get($prizm-base-icons-map, 'volume-cross');
 }
 .prizm-base-icons-volume-low:before {
-    content: map-get($prizm-base-icons-map, "volume-low");
+  content: map-get($prizm-base-icons-map, 'volume-low');
 }
 .prizm-base-icons-volume-minus:before {
-    content: map-get($prizm-base-icons-map, "volume-minus");
+  content: map-get($prizm-base-icons-map, 'volume-minus');
 }
 .prizm-base-icons-volume-off:before {
-    content: map-get($prizm-base-icons-map, "volume-off");
+  content: map-get($prizm-base-icons-map, 'volume-off');
 }
 .prizm-base-icons-volume-plus:before {
-    content: map-get($prizm-base-icons-map, "volume-plus");
+  content: map-get($prizm-base-icons-map, 'volume-plus');
 }
 .prizm-base-icons-volume-slash:before {
-    content: map-get($prizm-base-icons-map, "volume-slash");
+  content: map-get($prizm-base-icons-map, 'volume-slash');
 }
 .prizm-base-icons-volume:before {
-    content: map-get($prizm-base-icons-map, "volume");
+  content: map-get($prizm-base-icons-map, 'volume');
 }
 .prizm-base-icons-wallet:before {
-    content: map-get($prizm-base-icons-map, "wallet");
+  content: map-get($prizm-base-icons-map, 'wallet');
 }
 .prizm-base-icons-watch:before {
-    content: map-get($prizm-base-icons-map, "watch");
+  content: map-get($prizm-base-icons-map, 'watch');
 }
 .prizm-base-icons-water-heater:before {
-    content: map-get($prizm-base-icons-map, "water-heater");
+  content: map-get($prizm-base-icons-map, 'water-heater');
 }
 .prizm-base-icons-water-pump:before {
-    content: map-get($prizm-base-icons-map, "water-pump");
+  content: map-get($prizm-base-icons-map, 'water-pump');
 }
 .prizm-base-icons-webcam:before {
-    content: map-get($prizm-base-icons-map, "webcam");
+  content: map-get($prizm-base-icons-map, 'webcam');
 }
 .prizm-base-icons-wifi-off:before {
-    content: map-get($prizm-base-icons-map, "wifi-off");
+  content: map-get($prizm-base-icons-map, 'wifi-off');
 }
 .prizm-base-icons-wifi:before {
-    content: map-get($prizm-base-icons-map, "wifi");
+  content: map-get($prizm-base-icons-map, 'wifi');
 }
 .prizm-base-icons-window:before {
-    content: map-get($prizm-base-icons-map, "window");
+  content: map-get($prizm-base-icons-map, 'window');
 }
 .prizm-base-icons-wrench:before {
-    content: map-get($prizm-base-icons-map, "wrench");
+  content: map-get($prizm-base-icons-map, 'wrench');
 }
 .prizm-base-icons-xmark-column-right:before {
-    content: map-get($prizm-base-icons-map, "xmark-column-right");
+  content: map-get($prizm-base-icons-map, 'xmark-column-right');
 }
 .prizm-base-icons-xmark-column-top:before {
-    content: map-get($prizm-base-icons-map, "xmark-column-top");
+  content: map-get($prizm-base-icons-map, 'xmark-column-top');
 }
 .prizm-base-icons-xmark-mini:before {
-    content: map-get($prizm-base-icons-map, "xmark-mini");
+  content: map-get($prizm-base-icons-map, 'xmark-mini');
 }
 .prizm-base-icons-xmark:before {
-    content: map-get($prizm-base-icons-map, "xmark");
+  content: map-get($prizm-base-icons-map, 'xmark');
 }

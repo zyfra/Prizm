@@ -1094,7 +1094,8 @@ export const PrizmIconsType = {
   'circle-square': 'circle-square' as PrizmIconsType,
   'circle-xmark-fill': 'circle-xmark-fill' as PrizmIconsType,
   'circle-xmark': 'circle-xmark' as PrizmIconsType,
-  'circles-line-left-up-circle-right-down-fill': 'circles-line-left-up-circle-right-down-fill' as PrizmIconsType,
+  'circles-line-left-up-circle-right-down-fill':
+    'circles-line-left-up-circle-right-down-fill' as PrizmIconsType,
   'circles-line-left-up-circle-right-down': 'circles-line-left-up-circle-right-down' as PrizmIconsType,
   'clapperboard-cross': 'clapperboard-cross' as PrizmIconsType,
   'clapperboard-open': 'clapperboard-open' as PrizmIconsType,
@@ -1709,7 +1710,7 @@ export const PrizmIconsType = {
   wrench: 'wrench' as PrizmIconsType,
   'xmark-column-right': 'xmark-column-right' as PrizmIconsType,
   'xmark-column-top': 'xmark-column-top' as PrizmIconsType,
-  xmark: 'xmark' as PrizmIconsType
+  xmark: 'xmark' as PrizmIconsType,
 };
 export interface PrizmIcons {
   name: PrizmIconsEnum;
@@ -2569,5 +2570,5 @@ export enum PrizmIconsEnum {
   WRENCH = 'wrench',
   XMARK_COLUMN_RIGHT = 'xmark-column-right',
   XMARK_COLUMN_TOP = 'xmark-column-top',
-  XMARK = 'xmark'
+  XMARK = 'xmark',
 }
