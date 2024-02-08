@@ -103,15 +103,16 @@ export class PrizmNavigationMenuGroupService<
     this.searchState$$,
   ]).pipe(
     map(([modeBasedItems, searchState]) => {
-      if (searchState.enabled && searchState.value === '') {
-        return [];
-      }
-
       if (searchState.enabled) {
-        const filtered = filterItems(modeBasedItems, item =>
-          item.text.toLowerCase().includes(searchState.value.toLowerCase())
-        );
-        traverseAllDeep(filtered, item => this.temporaryExpandedItemsMap.set(item, true));
+        const searchValue =
+          searchState.value !== null && searchState.value !== undefined
+            ? searchState.value.toLowerCase()
+            : '';
+
+        const filtered = filterItems(modeBasedItems, item => item.text.toLowerCase().includes(searchValue));
+        if (searchValue !== '') {
+          traverseAllDeep(filtered, item => this.temporaryExpandedItemsMap.set(item, true));
+        }
         return filtered;
       }
 
