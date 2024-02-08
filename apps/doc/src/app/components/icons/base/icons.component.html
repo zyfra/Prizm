@@ -38,15 +38,15 @@
       <div class="icons" [class.colored]="colored">
         <div class="icon-def" *ngFor="let name of filteredIcons$ | async" (click)="copy(name)">
           <div class="both-size">
-            <prizm-icons [size]="24" [name]="name" title="SVG: Base Size"></prizm-icons>
-            <prizm-icons-full [size]="24" [name]="name" title="SVG: Full Size"></prizm-icons-full>
+            <prizm-icons [size]="24" [name]="name" prizmHint="SVG: Base Size"></prizm-icons>
+            <prizm-icons-full [size]="24" [name]="name" prizmHint="SVG: Full Size"></prizm-icons-full>
             <i
               class="base-icon prizm-base-icons-{{ name }}"
-              title="Font: Base Size"
+              prizmHint="Font: Base Size"
             ></i>
             <i
               class="full-icon prizm-full-icons-{{ name }}"
-              title="Font: Full Size"
+              prizmHint="Font: Full Size"
             ></i>
           </div>
           <div class="name" [title]="name">{{ name }}</div>
