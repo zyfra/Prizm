@@ -77,7 +77,9 @@ export class PrizmNavigationMenuComponent<
   @Input() headerExtraTemplate!: TemplateRef<unknown>;
 
   @Input() set activeItem(activeItem: UserItem | null) {
-    this.menuService.setActiveItem(activeItem as UserItem);
+    queueMicrotask(() => {
+      this.menuService.setActiveItem(activeItem as UserItem);
+    });
   }
   @Input() set itemKeyName(keyName: string) {
     this.menuService.setItemKeyName(keyName);
