@@ -122,6 +122,10 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
     this.mutationDetector$.complete();
   }
 
+  public forceUpdateView() {
+    setTimeout(() => this.cdRef.detectChanges());
+  }
+
   private calculateOverflowState(): void {
     const containerWidth = this.containerRef.nativeElement.clientWidth;
     const contentWidth = this.breadcrumbsElementsWidth;
