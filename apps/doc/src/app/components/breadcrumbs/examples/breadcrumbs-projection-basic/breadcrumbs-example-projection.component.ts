@@ -1,5 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
 import { IBreadcrumb } from '@prizm-ui/components';
+import { map, tap, timer } from 'rxjs';
 
 @Component({
   selector: 'prizm-breadcrumbs-example-projection',
@@ -8,11 +9,18 @@ import { IBreadcrumb } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsExampleProjectionComponent {
+  @ViewChild('crumbs') public crumbs!: any;
+
   public breadcrumbs = [
     { link: '/components/button', name: 'Button' },
     { link: '/components/split-button', name: 'Split' },
     { link: '/components/icon-button', name: 'Icon' },
   ];
+
+  breadcrumbs$ = timer(2000).pipe(
+    map(() => this.breadcrumbs),
+    tap(() => this.crumbs.forceUpdateView())
+  );
 
   private currentBreadcrumb: IBreadcrumb | null = null;
 
