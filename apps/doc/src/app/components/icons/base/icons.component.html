@@ -16,6 +16,14 @@
       <prizm-icons-lazy-example></prizm-icons-lazy-example>
     </prizm-doc-example>
 
+    <prizm-doc-example
+      id="migrate-from-old-name"
+      [content]="exampleOldName"
+      heading="Old Name Mapper Transformer"
+    >
+      <prizm-icons-old-transformer-example></prizm-icons-old-transformer-example>
+    </prizm-doc-example>
+
     <div>
       <div class="header">
         <div class="search">
@@ -123,5 +131,9 @@
         <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Old Icons">
+    <prizm-old-icon-example></prizm-old-icon-example>
   </ng-template>
 </prizm-doc-page>

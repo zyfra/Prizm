@@ -38,6 +38,11 @@ export class IconsComponent {
     HTML: import('./examples/base/icons-base-example.component.html?raw'),
     CSS: import('./examples/base/icons-base-example.component.less?raw'),
   };
+  readonly exampleOldName: TuiDocExample = {
+    TypeScript: import('./examples/old-transformer/icons-old-transformer-example.component.ts?raw'),
+    HTML: import('./examples/old-transformer/icons-old-transformer-example.component.html?raw'),
+    CSS: import('./examples/old-transformer/icons-old-transformer-example.component.less?raw'),
+  };
 
   readonly exampleLazy: TuiDocExample = {
     TypeScript: import('./examples/lazy/icons-lazy-example.component.ts?raw'),

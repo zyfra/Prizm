@@ -1,0 +1,17 @@
+<div>
+  <h4>SVG: Base/Full size</h4>
+
+  <div style="display: flex; gap: 8px">
+    <prizm-icons [size]="30" [color]="'green'" [name]="oldName"></prizm-icons>
+    <prizm-icons-full [size]="30" [color]="'green'" [name]="oldName"></prizm-icons-full>
+  </div>
+</div>
+
+<div>
+  <h4>Font: Base/Full size</h4>
+
+  <div style="display: flex; gap: 8px">
+    <i class="base-icon prizm-base-icons-{{ prizmIconsGetNameByOld(oldName) }}" style="color: green"> </i>
+    <i class="base-icon prizm-full-icons-{{ prizmIconsGetNameByOld(oldName) }}" style="color: green"> </i>
+  </div>
+</div>

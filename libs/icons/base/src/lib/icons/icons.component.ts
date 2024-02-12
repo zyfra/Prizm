@@ -3,11 +3,9 @@ import {
   Component,
   ElementRef,
   HostBinding,
-  Inject,
   inject,
   Input,
   OnDestroy,
-  Optional,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
@@ -15,6 +13,7 @@ import { Subject, takeUntil, tap } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_ICONS_LOADER } from '@prizm-ui/icons/base';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_NAME_TRANSFORMER } from './icons.options';
 
 /**
  * @component PrizmIconsComponent
@@ -35,14 +34,12 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
   // Injects the icon loader token.
   protected iconsLoader = inject(PRIZM_ICONS_LOADER);
   private destroyIcons$ = new Subject<void>();
-
-  constructor(
-    private element: ElementRef,
-    private iconRegistry: PrizmIconsRegistry,
-    @Optional() @Inject(DOCUMENT) private document: Document
-  ) {
-    super();
-  }
+  private document = inject(DOCUMENT);
+  private iconRegistry = inject(PrizmIconsRegistry);
+  private element = inject(ElementRef);
+  readonly nameTransformer = inject(PRIZM_ICONS_NAME_TRANSFORMER, {
+    optional: true,
+  });
 
   /**
    * @method ngOnDestroy
@@ -60,11 +57,13 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
    */
   @Input()
   set name(iconName: string) {
-    this.iconName = iconName;
+    const iconCurrentName = this.nameTransformer ? this.nameTransformer(iconName) : iconName;
+    if (!iconCurrentName) return;
+    this.iconName = iconCurrentName;
     this.destroyIcons$.next();
     // Get the SVG data and create an SVG element.
     this.iconRegistry
-      .getIcon(iconName, this.iconsLoader)
+      .getIcon(this.iconName, this.iconsLoader)
       .pipe(
         tap(() => {
           // Remove the previous SVG icon if present.
