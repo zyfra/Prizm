@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, ViewChild } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { IBreadcrumb } from '@prizm-ui/components';
 import { map, timer } from 'rxjs';
 
@@ -9,8 +9,6 @@ import { map, timer } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BreadcrumbsExampleProjectionComponent {
-  @ViewChild('crumbs') public crumbs!: any;
-
   public breadcrumbs = [
     { link: '/components/button', name: 'Button' },
     { link: '/components/split-button', name: 'Split' },
