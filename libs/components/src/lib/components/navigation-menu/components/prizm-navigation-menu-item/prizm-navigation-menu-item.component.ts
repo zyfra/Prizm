@@ -39,6 +39,7 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Input() itemExtraTemplate!: TemplateRef<unknown>;
   @Input() isExpandable!: boolean;
   @Input() isExpanded!: boolean;
+  @Input() isActiveNode!: boolean;
   @Input() isActive!: boolean;
   @Input() item!: InternalPrizmNavigationMenuItem<T>;
   @Input() mode!: ViewMode;
