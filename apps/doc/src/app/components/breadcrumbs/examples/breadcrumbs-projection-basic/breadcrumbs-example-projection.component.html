@@ -1,4 +1,4 @@
-<prizm-breadcrumbs #crumbs>
+<prizm-breadcrumbs>
   <ng-container *ngFor="let item of breadcrumbs$ | async">
     <a *prizmBreadcrumb [routerLink]="item.link">
       {{ item.name }}
