@@ -109,7 +109,12 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
       })
     );
 
-    merge($breadcrumbsChange, $mutation)
+    const $templateChage = this.breadcrumbsItem.changes.pipe(
+      debounceTime(200),
+      observeOn(animationFrameScheduler)
+    );
+
+    merge($breadcrumbsChange, $mutation, $templateChage)
       .pipe(debounceTime(200), takeUntil(this.destroy))
       .subscribe(() => this.cdRef.detectChanges());
   }
@@ -117,10 +122,6 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
   public ngOnDestroy(): void {
     this.resizeObserver.disconnect();
     this.mutationDetector$.complete();
-  }
-
-  public forceUpdateView() {
-    setTimeout(() => this.cdRef.detectChanges());
   }
 
   private calculateOverflowState(): void {
