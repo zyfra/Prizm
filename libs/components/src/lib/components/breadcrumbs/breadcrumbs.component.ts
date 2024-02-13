@@ -109,10 +109,7 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
       })
     );
 
-    const $templateChage = this.breadcrumbsItem.changes.pipe(
-      debounceTime(200),
-      observeOn(animationFrameScheduler)
-    );
+    const $templateChage = this.breadcrumbsItem.changes.pipe(observeOn(animationFrameScheduler));
 
     merge($breadcrumbsChange, $mutation, $templateChage)
       .pipe(debounceTime(200), takeUntil(this.destroy))
