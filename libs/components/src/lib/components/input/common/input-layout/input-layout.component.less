@@ -118,6 +118,9 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
+
+    // Hack for height in percents for buttons inside controls
+    height: 1px;
   }
 
   &-body {
@@ -204,11 +207,23 @@
   &-inner {
     min-height: 44px;
 
+    &:not(:has(prizm-chips)) {
+      max-height: 44px;
+    }
+
     &[data-size='l'] {
       min-height: 44px;
+
+      &:not(:has(prizm-chips)) {
+        max-height: 44px;
+      }
     }
     &[data-size='m'] {
       min-height: 36px;
+
+      &:not(:has(prizm-chips)) {
+        max-height: 36px;
+      }
     }
   }
 
@@ -218,14 +233,30 @@
   &-outer {
     min-height: 32px;
 
+    &:not(:has(prizm-chips)) {
+      max-height: 32px;
+    }
+
     &[data-size='l'] {
       min-height: 40px;
+
+      &:not(:has(prizm-chips)) {
+        max-height: 40px;
+      }
     }
     &[data-size='m'] {
       min-height: 32px;
+
+      &:not(:has(prizm-chips)) {
+        max-height: 32px;
+      }
     }
     &[data-size='s'] {
       min-height: 24px;
+
+      &:not(:has(prizm-chips)) {
+        max-height: 24px;
+      }
     }
   }
 
