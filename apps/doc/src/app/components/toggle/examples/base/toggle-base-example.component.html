@@ -33,8 +33,8 @@
         [(ngModel)]="value"
         [ngModelOptions]="{ standalone: true }"
         size="m"
-        iconOn="selection-checkbox-marked-circle"
-        iconOff="selection-checkbox-marked-circle-chanel"
+        iconOn="circle-chek-empty"
+        iconOff="circle-xmark"
         >Ng Model</prizm-toggle
       >
     </div>
@@ -58,12 +58,7 @@
     </div>
     <div>
       with icon
-      <prizm-toggle
-        [formControl]="value2"
-        size="l"
-        iconOn="arrows-chevron-left"
-        iconOff="arrows-chevron-right"
-      ></prizm-toggle>
+      <prizm-toggle [formControl]="value2" size="l" iconOn="angle-left" iconOff="angle-right"></prizm-toggle>
     </div>
   </div>
 </div>
