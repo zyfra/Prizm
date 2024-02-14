@@ -17,8 +17,11 @@ export class PrizmIconsRegistry {
    * Registers a list of icons to make them available for retrieval.
    * @param {PrizmIcon[]} icons - An array of PrizmIcon objects to register.
    */
-  public registerIcons(icons: PrizmIcon[]): void {
-    icons.forEach(icon => this.registry.set(icon.name, icon.data));
+  public registerIcons(...icons: PrizmIcon[]): void;
+  public registerIcons(icons: PrizmIcon[]): void;
+  public registerIcons(icons: PrizmIcon[] | PrizmIcon, ...otherIcons: PrizmIcon[]): void {
+    const arr = Array.isArray(icons) ? [...icons, ...otherIcons] : [icons, ...otherIcons];
+    arr.forEach(icon => this.registry.set(icon.name, icon.data));
   }
 
   /**
