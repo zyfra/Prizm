@@ -97,7 +97,7 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
     return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');
   }
 
-  @HostBinding('style.width') private _styleWidth: string = '24px';
+  @HostBinding('style.width') protected _styleWidth: string = '24px';
 
   /**
    * Sets the size of the icon and updates the host element's style.

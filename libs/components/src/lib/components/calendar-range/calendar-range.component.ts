@@ -3,7 +3,6 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
-  HostBinding,
   Inject,
   Input,
   Optional,
@@ -33,12 +32,14 @@ import { prizmI18nInitWithKey } from '../../services';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmMapperPipeModule } from '../../pipes';
-import { PrizmButtonModule } from '../button';
-import { PrizmPreventDefaultModule } from '../../directives';
-import { PrizmCalendarComponent, PrizmCalendarModule } from '../calendar';
-import { PrizmIconComponent, PrizmIconModule } from '../icon';
-import { PrizmDataListComponent, PrizmDataListModule } from '../data-list';
+import { PrizmButtonComponent } from '../button';
+import { PrizmPreventDefaultDirective } from '../../directives';
+import { PrizmCalendarComponent } from '../calendar';
+import { PrizmDataListComponent } from '../data-list';
 import { PrizmPrimitiveCalendarRangeModule } from '../internal';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsChek } from '@prizm-ui/icons/full/source/chek';
 
 @Component({
   selector: `prizm-calendar-range`,
@@ -49,12 +50,13 @@ import { PrizmPrimitiveCalendarRangeModule } from '../internal';
   imports: [
     CommonModule,
     PrizmMapperPipeModule,
-    PrizmButtonModule,
-    PrizmPreventDefaultModule,
-    PrizmIconComponent,
+    PrizmButtonComponent,
+    PrizmPreventDefaultDirective,
     PrizmDataListComponent,
     PrizmPrimitiveCalendarRangeModule,
     PrizmCalendarComponent,
+    PrizmIconsComponent,
+    PrizmIconsFullComponent,
   ],
   providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
 })
@@ -115,9 +117,11 @@ export class PrizmCalendarRangeComponent
     valueChanges: Observable<PrizmDayRange | null> | null,
     @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
     @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
+    private iconsFullRegistry: PrizmIconsFullRegistry,
     @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>
   ) {
     super();
+    iconsFullRegistry.registerIcons(prizmIconsChek);
     if (!valueChanges) {
       return;
     }
