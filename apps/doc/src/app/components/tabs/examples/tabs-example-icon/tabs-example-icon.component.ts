@@ -10,17 +10,17 @@ import { PrizmTabItem } from '@prizm-ui/components';
 export class TabsExampleIconComponent {
   public tabs: PrizmTabItem[] = [
     {
-      icon: 'view-menu-arrow-right',
+      icon: 'arrow-right-between-lines',
     },
     {
-      icon: 'view-menu-arrow-left',
+      icon: 'arrow-left-between-lines',
     },
     {
-      icon: 'view-menu-arrow-down',
+      icon: 'arrow-down-between-lines',
       disabled: true,
     },
     {
-      icon: 'view-menu-arrow-up',
+      icon: 'arrow-up-between-lines',
     },
   ];
 

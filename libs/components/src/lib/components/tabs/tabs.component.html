@@ -73,7 +73,9 @@
               <ng-container *ngIf="tab.icon || hasIcons" leftBox>
                 <ng-container *ngIf="tab.icon as icon; else placeholder">
                   <ng-container *polymorphOutlet="icon; context: $any({ idx: i, tab: tab })">
-                    <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>
+                    <!--                    <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>-->
+                    <prizm-icons-full class="icon icon__mark" [size]="16" [name]="$any(icon)">
+                    </prizm-icons-full>
                   </ng-container>
                 </ng-container>
                 <ng-template #placeholder>
@@ -100,13 +102,20 @@
                   [disabled]="tab._counterOptions.disabled"
                   [maxValue]="tab._counterOptions.maxValue"
                 ></prizm-counter>
-                <prizm-icon
+                <!--                <prizm-icon-->
+                <!--                  class="icon"-->
+                <!--                  [class.hidden]="!tab.closable"-->
+                <!--                  [iconClass]="'cancel-close'"-->
+                <!--                  [size]="16"-->
+                <!--                  (click)="closeTab($any(tabElement.idx))"-->
+                <!--                ></prizm-icon>-->
+                <prizm-icons-full
                   class="icon"
                   [class.hidden]="!tab.closable"
-                  [iconClass]="'cancel-close'"
+                  [name]="'xmark'"
                   [size]="16"
                   (click)="closeTab($any(tabElement.idx))"
-                ></prizm-icon>
+                ></prizm-icons-full>
               </ng-container>
             </prizm-listing-item>
           </ng-container>
