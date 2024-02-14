@@ -1,4 +1,5 @@
 import { from, map, Observable, of } from 'rxjs';
+import { considerSettingUpAutocompletion } from '@angular/cli/src/utilities/completion';
 
 // Define a type for the lazy icon set which maps icon names to lazy loader functions.
 export type PrizmIconsLazySet = { [iconName: string]: () => Promise<{ data: string }> };

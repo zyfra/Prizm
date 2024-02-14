@@ -3,6 +3,9 @@ import * as fs from 'fs';
 import * as path from 'path';
 
 export default async function runExecutor(options: IconsToLazyExecutorSchema) {
+  const generateIconSet = options.generateIconSet ?? false;
+  const iconSetNameFileName = options.iconSetNameFileName ?? 'icon-set';
+  const iconSetNameExportName = options.iconSetNameExportName ?? 'ICONS_SET';
   const destinationFile = path.join(__dirname, '../../../../', options.pathToOutputFile);
   const destinationFolder = destinationFile.split('/').slice(0, -1).join('/');
   const pathToFolder = path.join(__dirname, '../../../../', options.pathToFolder);
@@ -22,9 +25,12 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema) {
   }
 
   const result: string[] = [];
+  const importsInIconsSet: string[] = [];
+  const exportsInIconsSet: string[] = [];
   let skipped = 0;
 
   const fixedNames: string[] = [];
+
   for (const file of files) {
     if (options.prefix && !file.toLowerCase().startsWith(options.prefix.toLowerCase())) {
       console.warn('SKIP FILE:', file);
@@ -33,7 +39,6 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema) {
     }
     const fileWithoutExt = file.split('.').slice(0, -1).join('.');
     let content = fs.readFileSync(path.join(pathToFolder, file)).toString();
-    const newPath = path.join(path.relative(destinationFolder, pathToFolder), fileWithoutExt);
 
     /* fix names kebab between text + number (v1 > v-1) */
     if (content) {
@@ -55,13 +60,61 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema) {
     const exportName = /export const ([^:]+)/g.exec(content)?.[1];
     const iconName = /name: '([^']+)'/g.exec(content)?.[1];
 
+    if (!exportName || !iconName) {
+      console.log('Can not find export name in file:', file);
+      continue;
+    }
+
+    // создать папку
+    fs.mkdirSync(path.join(pathToFolder, iconName), 0o777);
+    console.log('CREATE FOLDER:', path.join(pathToFolder, iconName));
+
+    // переместить файл
+    fs.renameSync(path.join(pathToFolder, file), path.join(pathToFolder, iconName, file));
+
+    // создать ng-package.json
+    const ngPackageJsonName = 'ng-package.json';
+    fs.copyFileSync(
+      path.join(__dirname, ngPackageJsonName),
+      path.join(pathToFolder, iconName, ngPackageJsonName)
+    );
+
+    // создать index.ts
+    // добавить в index.ts импорт
+    const indexTsName = 'index.ts';
+    fs.writeFileSync(path.join(pathToFolder, iconName, indexTsName), `export * from './${fileWithoutExt}';`);
+
+    // add to lazy file
+    const newPath = path.join(path.relative(destinationFolder, pathToFolder), iconName, fileWithoutExt);
     result.push(`'${iconName}': () => import('./${newPath}').then((r) => r['${exportName}'])`);
+
+    if (generateIconSet) {
+      importsInIconsSet.push(`import { ${exportName} } from './${iconName}/${fileWithoutExt}';`);
+      exportsInIconsSet.push(exportName);
+    }
+  }
+
+  if (generateIconSet) {
+    console.log('Generating icon set...');
+    const destinationIconSet = path.join(pathToFolder, `${iconSetNameFileName}.ts`);
+    // generate complete icon set
+    fs.writeFileSync(
+      destinationIconSet,
+      `
+      ${importsInIconsSet.join('\n')}
+
+    export const ${iconSetNameExportName} = [
+       ${exportsInIconsSet.join(',\n')}
+    ];
+    `
+    );
   }
 
   console.warn('FIXED NAMES:', fixedNames);
   console.warn('IMPORTS SKIPPED:', skipped);
   console.warn('IMPORTS ADDED:', result.length);
 
+  // generate lazy load file with exports
   fs.writeFileSync(
     destinationFile,
     `export const ${exportConstName} = {

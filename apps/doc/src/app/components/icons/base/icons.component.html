@@ -6,13 +6,11 @@
   </div>
 
   <ng-template prizmDocPageTab>
-    <!--    TODO: 4.0.0 rc.2 add support to work as usual fonts -->
-
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-icons-base-example></prizm-icons-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="svg" [content]="exampleLazy" heading="With Lazy Load">
+    <prizm-doc-example id="lazy" [content]="exampleLazy" heading="With Lazy Load">
       <prizm-icons-lazy-example></prizm-icons-lazy-example>
     </prizm-doc-example>
 
@@ -23,38 +21,6 @@
     >
       <prizm-icons-old-transformer-example></prizm-icons-old-transformer-example>
     </prizm-doc-example>
-
-    <div>
-      <div class="header">
-        <div class="search">
-          <prizm-input-layout [label]="null" size="m">
-            <input
-              [placeholder]="'Search icons'"
-              [ngModel]="search"
-              (ngModelChange)="filterIcons($event)"
-              prizmInput
-            />
-          </prizm-input-layout>
-        </div>
-        <div class="change-color-toggle">
-          <ng-container *prizmIfLang="'russian'; else eng"> Изменить цвет </ng-container>
-          <ng-template #eng> Change color </ng-template>
-
-          <prizm-toggle [ngModel]="colored" (ngModelChange)="colored = $event"></prizm-toggle>
-        </div>
-      </div>
-      <div class="icons" [class.colored]="colored">
-        <div class="icon-def" *ngFor="let name of filteredIcons$ | async" (click)="copy(name)">
-          <div class="both-size">
-            <prizm-icons [size]="24" [name]="name" prizmHint="SVG: Base Size"></prizm-icons>
-            <prizm-icons-full [size]="24" [name]="name" prizmHint="SVG: Full Size"></prizm-icons-full>
-            <i class="base-icon prizm-base-icons-{{ name }}" prizmHint="Font: Base Size"></i>
-            <i class="full-icon prizm-full-icons-{{ name }}" prizmHint="Font: Full Size"></i>
-          </div>
-          <div class="name" [title]="name">{{ name }}</div>
-        </div>
-      </div>
-    </div>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -131,6 +97,10 @@
         <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="All Icons">
+    <prizm-all-icon></prizm-all-icon>
   </ng-template>
 
   <ng-template prizmDocPageTab="Old Icons">

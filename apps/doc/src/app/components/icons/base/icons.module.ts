@@ -7,6 +7,7 @@ import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsLazyExampleComponent } from './examples/lazy/icons-lazy-example.component';
 import { PrizmIconsBaseExampleComponent } from './examples/base/icons-base-example.component';
 import {
+  PolymorphOutletDirective,
   PrizmHintDirective,
   PrizmIconComponent,
   PrizmInputTextModule,
@@ -16,11 +17,13 @@ import { FormsModule } from '@angular/forms';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 import { OldIconComponent } from './old/old-icon.component';
 import { PrizmIconsOldTransformerExampleComponent } from './examples/old-transformer/icons-old-transformer-example.component';
+import { AllIconComponent } from './all/all-icon.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
+    PolymorphOutletDirective,
     FormsModule,
     PrizmInputTextModule,
     PrizmIconsLazyExampleComponent,
@@ -32,7 +35,7 @@ import { PrizmIconsOldTransformerExampleComponent } from './examples/old-transfo
     PrizmToggleComponent,
     PrizmIfLanguageDirective,
     PrizmHintDirective,
-    PrizmIconComponent,
+    AllIconComponent,
   ],
   declarations: [IconsComponent, OldIconComponent],
   exports: [IconsComponent],

@@ -1,0 +1,74 @@
+.both-size {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  font-size: 24px;
+  gap: 0.5rem;
+
+  .base-icon,
+  .full-icon {
+    height: 24px;
+    width: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.icons {
+  &.colored {
+    color: var(--prizm-index-plan);
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 4px;
+  gap: 8px;
+}
+
+prizm-icons,
+prizm-icons-full,
+.base-icon,
+.full-icon {
+  border: 1px solid var(--prizm-background-stroke);
+}
+
+.icon-def {
+  display: flex;
+  width: 100px;
+  height: 100px;
+  max-width: 100px;
+  flex-direction: column;
+  align-items: center;
+  margin: 4px;
+  padding: 8px 8px 0 8px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: var(--prizm-background-fill-secondary);
+  }
+}
+
+.name {
+  font-size: 12px;
+  text-align: center;
+  margin-top: 12px;
+  word-wrap: break-word;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+}
+
+.icons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pagination {
+  margin-top: 16px;
+}

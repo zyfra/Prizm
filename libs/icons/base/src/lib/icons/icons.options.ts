@@ -7,7 +7,7 @@ export const PRIZM_ICONS_NAME_TRANSFORMER = new InjectionToken<PrizmIconsNameTra
 );
 
 export function prizmIconsProvideOldNameTransformer() {
-  return prizmIconsProvideTransformer(prizmIconsGetNameByOld);
+  return prizmIconsProvideTransformer(name => prizmIconsGetNameByOld(name) ?? name);
 }
 
 export function prizmIconsProvideTransformer(transformer: PrizmIconsNameTransformer) {

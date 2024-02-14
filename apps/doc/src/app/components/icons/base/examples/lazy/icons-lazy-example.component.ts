@@ -4,7 +4,6 @@ import { PrizmLoaderComponent } from '@prizm-ui/components';
 import { of } from 'rxjs';
 import { delay, startWith } from 'rxjs/operators';
 import { AsyncPipe, NgIf } from '@angular/common';
-
 @Component({
   selector: 'prizm-icons-lazy-example',
   templateUrl: './icons-lazy-example.component.html',

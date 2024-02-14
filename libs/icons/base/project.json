@@ -10,13 +10,12 @@
       "options": {
         "conversionType": "files",
         "srcFiles": ["libs/icons/base/assets/24/*.svg"],
-        "outputDirectory": "libs/icons/base/base/src/lib",
+        "outputDirectory": "libs/icons/base/base",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
-        "exportCompleteIconSet": true,
-        "generateCompleteIconSet": true,
-        "completeIconSetName": "PRIZM_ICONS_SET",
+        "exportCompleteIconSet": false,
+        "generateCompleteIconSet": false,
         "enumName": "PrizmIconsEnum",
         "fileName": "icons",
         "iconsFolderName": "source",
@@ -40,13 +39,12 @@
         "conversionType": "files",
         "delimiter": "KEBAB",
         "srcFiles": ["libs/icons/base/assets/16/*.svg"],
-        "outputDirectory": "libs/icons/base/full/src/lib",
+        "outputDirectory": "libs/icons/base/full",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
-        "exportCompleteIconSet": true,
-        "generateCompleteIconSet": true,
-        "completeIconSetName": "PRIZM_ICONS_SET",
+        "exportCompleteIconSet": false,
+        "generateCompleteIconSet": false,
         "enumName": "PrizmIconsEnum",
         "fileName": "icons",
         "iconsFolderName": "source",
@@ -122,20 +120,28 @@
     "icons-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {
-        "pathToFolder": "libs/icons/base/base/src/lib/source",
-        "pathToOutputFile": "libs/icons/base/base/src/lib/lazy-icon-set.ts",
+        "pathToFolder": "libs/icons/base/base/source",
+        "pathToOutputFile": "libs/icons/base/base/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
-        "exportName": "PRIZM_ICONS_LAZY_SET"
+        "exportName": "PRIZM_ICONS_LAZY_SET",
+
+        "generateIconSet": true,
+        "iconSetNameExportName": "PRIZM_ICONS_SET",
+        "iconSetNameFileName": "icon-set"
       },
       "dependsOn": ["generate-icons-24"]
     },
     "icons-16-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {
-        "pathToFolder": "libs/icons/base/full/src/lib/source",
-        "pathToOutputFile": "libs/icons/base/full/src/lib/lazy-icon-set.ts",
+        "pathToFolder": "libs/icons/base/full/source",
+        "pathToOutputFile": "libs/icons/base/full/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
-        "exportName": "PRIZM_ICONS_FULL_LAZY_SET"
+        "exportName": "PRIZM_ICONS_FULL_LAZY_SET",
+
+        "generateIconSet": true,
+        "iconSetNameExportName": "PRIZM_ICONS_FULL_SET",
+        "iconSetNameFileName": "icon-set"
       },
       "dependsOn": ["generate-icons-16"]
     }
