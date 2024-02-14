@@ -2,12 +2,18 @@
 <tr *ngIf="heading">
   <th class="heading" [colSpan]="columnsCount">
     <div class="heading__container">
-      <prizm-icon
+      <!--      <prizm-icon-->
+      <!--        class="heading__icon"-->
+      <!--        [class.heading__icon_expanded]="open"-->
+      <!--        (click)="onClick()"-->
+      <!--        iconClass="arrows-chevron-right"-->
+      <!--      ></prizm-icon>-->
+      <prizm-icons
         class="heading__icon"
         [class.heading__icon_expanded]="open"
         (click)="onClick()"
-        iconClass="arrows-chevron-right"
-      ></prizm-icon>
+        name="angle-right"
+      ></prizm-icons>
       <span class="heading__content">
         <ng-container *polymorphOutlet="heading as text">{{ text }}</ng-container>
       </span>

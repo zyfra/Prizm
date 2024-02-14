@@ -26,6 +26,7 @@ import { PrizmTableLoadingDirective } from './directives/loading.directive';
 import { PrizmTableEmptyDirective } from './directives/empty.directive';
 import { PrizmTableRowInitDirective } from './directives/row-init.directive';
 import { PrizmTrDirective } from './tr/tr.directive';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { PrizmTrDirective } from './tr/tr.directive';
     PrizmMapperPipeModule,
     PolymorphModule,
     PrizmIconModule,
+    PrizmIconsComponent,
   ],
   declarations: [
     PrizmTableTreeLoadingDirective,
