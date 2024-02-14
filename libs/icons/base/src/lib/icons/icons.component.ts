@@ -97,7 +97,7 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
     return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');
   }
 
-  @HostBinding('style.width') private _styleWidth: string = '16px';
+  @HostBinding('style.width') private _styleWidth: string = '24px';
 
   /**
    * Sets the size of the icon and updates the host element's style.
@@ -107,13 +107,15 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
    */
   @Input()
   set size(size: string | number) {
-    if (typeof size === 'number') {
+    if (typeof size === 'number' || !prizmIsValidSizeString(size)) {
       this._styleWidth = prizmPx(size);
     } else if (prizmIsValidSizeString(size)) {
       this._styleWidth = size;
     } else {
       console.warn('Invalid size value:', size);
     }
+
+    console.log('#mz size:', prizmIsValidSizeString(size.toString()), this._styleWidth, size);
   }
 
   /**
