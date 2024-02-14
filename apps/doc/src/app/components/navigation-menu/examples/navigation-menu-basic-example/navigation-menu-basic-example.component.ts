@@ -24,7 +24,7 @@ export class NavigationMenuBasicExampleComponent {
     this.iconRegistry.registerIcons(PRIZM_ICONS_SVG_SET);
 
     const childItemsArray = this.items[0].children as PrizmNavigationMenuItem[];
-    this.activeItem = childItemsArray[1];
+    this.activeItem = childItemsArray[0];
   }
 
   public toggleLoading(): void {
