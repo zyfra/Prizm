@@ -6,24 +6,21 @@
   </div>
 
   <ng-template prizmDocPageTab>
-    <!--    TODO: 4.0.0 rc.2 add support to work as usual fonts -->
-
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-icons-base-example></prizm-icons-base-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="svg" [content]="exampleLazy" heading="With Lazy Load">
+    <prizm-doc-example id="lazy" [content]="exampleLazy" heading="With Lazy Load">
       <prizm-icons-lazy-example></prizm-icons-lazy-example>
     </prizm-doc-example>
 
-    <div>
-      <div class="icons">
-        <div class="icon-def" *ngFor="let name of iconsSet" (click)="copy(name)">
-          <prizm-icons [size]="24" [name]="name"></prizm-icons>
-          <div class="name" [title]="name">{{ name }}</div>
-        </div>
-      </div>
-    </div>
+    <prizm-doc-example
+      id="migrate-from-old-name"
+      [content]="exampleOldName"
+      heading="Old Name Mapper Transformer"
+    >
+      <prizm-icons-old-transformer-example></prizm-icons-old-transformer-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -100,5 +97,13 @@
         <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
       </li>
     </ol>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="All Icons">
+    <prizm-all-icon></prizm-all-icon>
+  </ng-template>
+
+  <ng-template prizmDocPageTab="Old Icons">
+    <prizm-old-icon-example></prizm-old-icon-example>
   </ng-template>
 </prizm-doc-page>

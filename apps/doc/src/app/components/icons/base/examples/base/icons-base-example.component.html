@@ -1,22 +1,46 @@
 <div>
-  <h4>Base size</h4>
+  <h4>SVG: Base size</h4>
 
   <div style="display: flex; gap: 8px">
-    <prizm-icons [size]="30" [color]="'green'" name="arrow_up"></prizm-icons>
-    <prizm-icons [color]="'var(--prizm-index-plan)'" [size]="30" name="arrows_cross"></prizm-icons>
+    <prizm-icons [size]="30" [color]="'green'" name="arrow-up"></prizm-icons>
+    <prizm-icons [color]="'var(--prizm-index-plan)'" [size]="30" name="arrows-cross"></prizm-icons>
     <prizm-icons class="color_by_class" [size]="30" name="bag"></prizm-icons>
-    <prizm-icons [size]="30" name="bubble_message"></prizm-icons>
+    <prizm-icons [size]="30" name="bubble-message"></prizm-icons>
   </div>
 </div>
 
-<!--    TODO: 4.0.0 rc.2 add different exports with same names -->
-<!--<div>-->
-<!--  <h4>Full size </h4>-->
+<div>
+  <h4>SVG: Full size</h4>
 
-<!--  <div style="display: flex; gap: 8px">-->
-<!--    <prizm-icons-full [size]="30" [color]="'green'" name="wifi"></prizm-icons-full>-->
-<!--    <prizm-icons-full [size]="30" [color]="'var(&#45;&#45;prizm-index-plan)'" name="agenda_fill"></prizm-icons-full>-->
-<!--    <prizm-icons-full class="color_by_class" [size]="30" name="key"></prizm-icons-full>-->
-<!--    <prizm-icons-full [size]="30" name="wrench"></prizm-icons-full>-->
-<!--  </div>-->
-<!--</div>-->
+  <div style="display: flex; gap: 8px">
+    <prizm-icons-full [size]="30" [color]="'green'" name="arrow-up"></prizm-icons-full>
+    <prizm-icons-full [color]="'var(--prizm-index-plan)'" [size]="30" name="arrows-cross"></prizm-icons-full>
+    <prizm-icons-full class="color_by_class" [size]="30" name="bag"></prizm-icons-full>
+    <prizm-icons-full [size]="30" name="bubble-message"></prizm-icons-full>
+  </div>
+</div>
+
+<div>
+  <h4>Font: Base size</h4>
+
+  <div style="display: flex; gap: 8px">
+    <i class="base-icon prizm-base-icons-{{ 'arrow-up' }}" style="color: green"> </i>
+    <i class="base-icon prizm-base-icons-{{ 'arrows-cross' }}" style="color: var(--prizm-index-plan)"> </i>
+    <i class="color_by_class base-icon prizm-base-icons-bag"> </i>
+    <i class="base-icon prizm-base-icons-{{ 'bubble-message' }}"> </i>
+  </div>
+</div>
+
+<div>
+  <h4>Font: Full size</h4>
+
+  <div style="display: flex; gap: 8px">
+    <i class="base-icon prizm-full-icons-{{ 'arrow-up' }}" style="color: green"> </i>
+
+    <i class="base-icon prizm-full-icons-{{ 'arrows-cross' }}" style="color: var(--prizm-index-plan)"> </i>
+
+    <i class="color_by_class base-icon prizm-full-icons-bag"> </i>
+
+    <i class="base-icon prizm-full-icons-{{ 'bubble-message' }}"> </i>
+  </div>
+</div>
