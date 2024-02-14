@@ -7,14 +7,14 @@ import { PrizmColumnStatus } from '../column-settings.model';
 })
 export class PrizmColumnIconPipe implements PipeTransform {
   public transform(status: PrizmColumnStatus): string {
-    let icon = 'sort-eye';
+    let icon = 'eye';
     switch (status) {
       case 'hidden':
-        icon = 'sort-eye-off-2';
+        icon = 'eye-closed';
         break;
 
       case 'sticky':
-        icon = 'account-lock';
+        icon = 'lock';
         break;
     }
     return icon;
