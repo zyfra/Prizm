@@ -16,7 +16,6 @@ import { PrizmThGroupComponent } from './th-group/th-group.component';
 import { PrizmTrComponent } from './tr/tr.component';
 import { PrizmMapperPipeModule } from '../../pipes';
 import { PolymorphModule } from '../../directives';
-import { PrizmIconModule } from '../icon';
 import { SearchableContentComponent } from './components/searchable-content/searchable-content.component';
 import { SpaceNumberPipe } from './pipes/space-number.pipe';
 import { PrizmCallFuncModule } from '@prizm-ui/helpers';
@@ -35,7 +34,6 @@ import { PrizmIconsComponent } from '@prizm-ui/icons';
     PrizmCallFuncModule,
     PrizmMapperPipeModule,
     PolymorphModule,
-    PrizmIconModule,
     PrizmIconsComponent,
   ],
   declarations: [
