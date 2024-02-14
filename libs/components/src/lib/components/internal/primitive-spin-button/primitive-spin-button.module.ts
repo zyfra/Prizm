@@ -4,11 +4,11 @@ import {
   PrizmFocusableModule,
   PrizmFocusedModule,
   PrizmFocusVisibleModule,
-  PrizmPreventDefaultModule,
+  PrizmPreventDefaultDirective,
 } from '../../../directives';
-import { PrizmButtonModule } from '../../button/button.module';
 
 import { PrizmPrimitiveSpinButtonComponent } from './primitive-spin-button.component';
+import { PrizmButtonComponent } from '../../button';
 
 @NgModule({
   imports: [
@@ -16,8 +16,8 @@ import { PrizmPrimitiveSpinButtonComponent } from './primitive-spin-button.compo
     PrizmFocusVisibleModule,
     PrizmFocusedModule,
     PrizmFocusableModule,
-    PrizmPreventDefaultModule,
-    PrizmButtonModule,
+    PrizmPreventDefaultDirective,
+    PrizmButtonComponent,
   ],
   declarations: [PrizmPrimitiveSpinButtonComponent],
   exports: [PrizmPrimitiveSpinButtonComponent],

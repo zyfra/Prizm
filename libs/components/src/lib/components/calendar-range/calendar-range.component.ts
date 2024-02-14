@@ -117,7 +117,7 @@ export class PrizmCalendarRangeComponent
     valueChanges: Observable<PrizmDayRange | null> | null,
     @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
     @Inject(PrizmDestroyService) destroy$: PrizmDestroyService,
-    private iconsFullRegistry: PrizmIconsFullRegistry,
+    private readonly iconsFullRegistry: PrizmIconsFullRegistry,
     @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>
   ) {
     super();
