@@ -6,7 +6,7 @@ import { IconButtonComponent } from './icon-button.component';
 import { PrizmButtonModule } from '@prizm-ui/components';
 import { PrizmIconsYourIconSetExampleComponent } from './examples/your-icon-set/icons-your-icon-set-example.component';
 import { PrizmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
-import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
+import { PrizmIconsComponent, PrizmIconsSvgComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
@@ -15,6 +15,7 @@ import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
     PrizmIconsSvgComponent,
     PrizmButtonModule,
     RouterModule.forChild(prizmDocGenerateRoutes(IconButtonComponent)),
+    PrizmIconsComponent,
   ],
   declarations: [
     PrizmIconsYourIconSetExampleComponent,
