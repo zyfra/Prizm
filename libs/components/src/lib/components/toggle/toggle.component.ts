@@ -25,12 +25,12 @@ import {
   PrizmFocusableModule,
   PrizmFocusedModule,
   PrizmFocusVisibleModule,
-  PrizmHoveredModule,
-  PrizmPressedModule,
-  PrizmWrapperModule,
+  PrizmHoveredDirective,
+  PrizmPressedDirective,
+  PrizmWrapperComponent,
 } from '../../directives';
-import { PrizmLoaderModule } from '../loader';
-import { PrizmIconModule } from '../icon';
+import { PrizmLoaderComponent } from '../loader';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-toggle',
@@ -43,13 +43,13 @@ import { PrizmIconModule } from '../icon';
     PrizmFocusedModule,
     PrizmFocusableModule,
     PrizmFocusVisibleModule,
-    PrizmHoveredModule,
-    PrizmPressedModule,
+    PrizmHoveredDirective,
+    PrizmPressedDirective,
     PrizmCheckedModule,
-    PrizmWrapperModule,
-    PrizmLoaderModule,
+    PrizmWrapperComponent,
+    PrizmLoaderComponent,
     PolymorphModule,
-    PrizmIconModule,
+    PrizmIconsFullComponent,
   ],
 })
 export class PrizmToggleComponent extends AbstractPrizmControl<boolean> {

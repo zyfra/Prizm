@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
 import { PrizmIconsComponent } from './icons.component';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import { PRIZM_ICONS_LOADER } from '@prizm-ui/icons/base';
@@ -30,4 +30,5 @@ import { PRIZM_ICONS_FULL_LOADER } from '@prizm-ui/icons/full';
 export class PrizmIconsFullComponent extends PrizmIconsComponent {
   // No additional logic required here as of now.
   // Future customizations for 16px icons can be implemented in this class.
+  @HostBinding('style.width') protected override _styleWidth: string = '16px';
 }

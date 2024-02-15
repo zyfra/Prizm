@@ -50,7 +50,7 @@
     [interactive]="true"
     [disabled]="disabled"
     (click)="focusableElementRef.elementRef.nativeElement.click()"
-    prizmInputIconButton="date-update"
+    prizmInputIconButton="clock-rotate-right"
   ></button>
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>

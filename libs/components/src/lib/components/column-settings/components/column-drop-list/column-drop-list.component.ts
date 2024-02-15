@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
@@ -10,10 +10,15 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmColumnIconPipe } from '../../pipes/column-icon.pipe';
 import { PrizmButtonComponent } from '../../../button/button.component';
 import { PrizmToggleComponent } from '../../../toggle/toggle.component';
-import { PrizmIconComponent } from '../../../icon/icon.component';
 import { PrizmScrollbarComponent } from '../../../scrollbar/scrollbar.component';
 import { PrizmHintDirective } from '../../../../directives/hint/hint.directive';
 import { PrizmListingItemComponent } from '../../../listing-item';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/base/source/grip-dots-vertical';
+import { prizmIconsEye } from '@prizm-ui/icons/full/source/eye';
+import { prizmIconsEyeClosed } from '@prizm-ui/icons/full/source/eye-closed';
+import { prizmIconsLock } from '@prizm-ui/icons/full/source/lock';
 
 const DragConfig: DragDropConfig = {
   zIndex: 9999,
@@ -31,7 +36,6 @@ const DragConfig: DragDropConfig = {
     PrizmButtonComponent,
     PrizmToggleComponent,
     DragDropModule,
-    PrizmIconComponent,
     PrizmScrollbarComponent,
     PrizmLetDirective,
     PrizmPluckPipe,
@@ -40,6 +44,7 @@ const DragConfig: DragDropConfig = {
     PrizmThemeModule,
     PrizmColumnIconPipe,
     PrizmListingItemComponent,
+    PrizmIconsComponent,
   ],
 })
 export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
@@ -49,6 +54,17 @@ export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
   @Output() statusChanged = new EventEmitter<void>();
 
   override readonly testId_ = 'ui_column_drop-list';
+
+  private readonly _iconRegistry = inject(PrizmIconsRegistry);
+  private readonly _iconFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    super();
+
+    this._iconRegistry.registerIcons(prizmIconsGripDotsVertical);
+
+    this._iconFullRegistry.registerIcons(prizmIconsEye, prizmIconsEyeClosed, prizmIconsLock);
+  }
 
   public toggleColumnStatus(column: PrizmColumnSettings): void {
     if (column.status === 'default') {

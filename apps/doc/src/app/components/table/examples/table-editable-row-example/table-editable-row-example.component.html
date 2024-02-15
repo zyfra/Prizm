@@ -50,36 +50,66 @@
         </td>
         <td *prizmCell="'actions'" prizmTd>
           <div class="edit-buttons-container" (click)="$event.stopPropagation()">
-            <prizm-icon
+            <!--            <prizm-icon-->
+            <!--              class="edit-buttons"-->
+            <!--              *ngIf="currentEditableRow !== item"-->
+            <!--              (click)="onRowEditInit(item)"-->
+            <!--              size="16"-->
+            <!--              iconClass="editor-mode"-->
+            <!--            ></prizm-icon> -->
+            <prizm-icons-full
               class="edit-buttons"
               *ngIf="currentEditableRow !== item"
               (click)="onRowEditInit(item)"
               size="16"
-              iconClass="editor-mode"
-            ></prizm-icon>
+              name="filter"
+            ></prizm-icons-full>
 
-            <prizm-icon
+            <!--            <prizm-icon-->
+            <!--              class="edit-buttons"-->
+            <!--              *ngIf="currentEditableRow === item"-->
+            <!--              (click)="onRowEditSave()"-->
+            <!--              size="16"-->
+            <!--              iconClass="selection-choice"-->
+            <!--            ></prizm-icon>-->
+
+            <prizm-icons-full
               class="edit-buttons"
               *ngIf="currentEditableRow === item"
               (click)="onRowEditSave()"
               size="16"
-              iconClass="selection-choice"
-            ></prizm-icon>
+              name="circle-chek-empty"
+            ></prizm-icons-full>
 
-            <prizm-icon
+            <!--            <prizm-icon-->
+            <!--              class="edit-buttons"-->
+            <!--              *ngIf="currentEditableRow === item"-->
+            <!--              (click)="onRowEditCancel(item)"-->
+            <!--              size="16"-->
+            <!--              iconClass="cancel-close"-->
+            <!--            ></prizm-icon>-->
+
+            <prizm-icons-full
               class="edit-buttons"
               *ngIf="currentEditableRow === item"
               (click)="onRowEditCancel(item)"
               size="16"
-              iconClass="cancel-close"
-            ></prizm-icon>
+              name="xmark"
+            ></prizm-icons-full>
 
-            <prizm-icon
+            <!--            <prizm-icon-->
+            <!--              class="edit-buttons"-->
+            <!--              (click)="onRowDelete(item)"-->
+            <!--              size="16"-->
+            <!--              iconClass="delete"-->
+            <!--            ></prizm-icon>-->
+
+            <prizm-icons-full
               class="edit-buttons"
               (click)="onRowDelete(item)"
               size="16"
-              iconClass="delete"
-            ></prizm-icon>
+              name="trash-empty"
+            ></prizm-icons-full>
           </div>
         </td>
       </tr>

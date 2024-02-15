@@ -1,14 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import {
-  PrizmButtonModule,
-  PrizmHintDirective,
-  PrizmHintModule,
-  PrizmIconComponent,
-  PrizmIconModule,
-  PrizmInputTextModule,
-} from '@prizm-ui/components';
+import { PrizmButtonModule, PrizmHintDirective, PrizmInputTextModule } from '@prizm-ui/components';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
@@ -25,17 +18,18 @@ import { InputFormControlExampleComponent } from './examples/input-form-control-
 import { InputSearchExampleComponent } from './examples/input-search-example/input-search-example.component';
 import { InputEmptyLabelExampleComponent } from './examples/input-empty-label-example/input-empty-label-example.component';
 import { InputCustomClearButtonExampleComponent } from './examples/input-custom-clear-button-example/input-custom-clear-button-example.component';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
     PrizmHintDirective,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
-    PrizmIconComponent,
     PrizmInputTextModule,
     PrizmButtonModule,
     ReactiveFormsModule,
     FormsModule,
+    PrizmIconsFullComponent,
   ],
   declarations: [
     InputComponent,

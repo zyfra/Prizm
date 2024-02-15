@@ -47,15 +47,14 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { CommonModule } from '@angular/common';
 import {
   PolymorphOutletDirective,
-  PrizmLifecycleModule,
-  PrizmPreventDefaultModule,
+  PrizmLifecycleDirective,
+  PrizmPreventDefaultDirective,
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmCalendarModule } from '../../calendar';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmIconComponent } from '../../icon';
-import { PrizmLinkModule } from '../../link';
+import { PrizmLinkComponent } from '../../link';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 
 @Component({
@@ -77,14 +76,13 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmMaskModule,
     PolymorphOutletDirective,
-    PrizmPreventDefaultModule,
+    PrizmPreventDefaultDirective,
     PrizmCalendarModule,
     PrizmInputTextModule,
-    PrizmIconComponent,
-    PrizmLinkModule,
+    PrizmLinkComponent,
     FormsModule,
     PrizmDropdownHostComponent,
     PrizmValueAccessorModule,

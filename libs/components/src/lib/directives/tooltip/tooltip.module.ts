@@ -2,20 +2,20 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PolymorphModule } from '../polymorph';
 import { PrizmTooltipDirective } from './tooltip.directive';
-import { PrizmHintModule } from '../hint';
+import { PrizmHintDirective } from '../hint';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
-import { PrizmIconModule } from '../../components/icon';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmFocusTrapModule } from '../focus-trap';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
     PrizmFocusTrapModule,
-    PrizmHintModule,
+    PrizmHintDirective,
     PrizmScrollbarModule,
-    PrizmIconModule,
+    PrizmIconsFullComponent,
   ],
   declarations: [PrizmTooltipDirective, PrizmTooltipContainerComponent],
   exports: [PrizmTooltipDirective],

@@ -24,8 +24,11 @@ import {
 import {
   PolymorphContent,
   PolymorphModule,
+  PrizmDropdownZoneDirective,
   PrizmDropdownZoneModule,
+  PrizmLifecycleDirective,
   PrizmLifecycleModule,
+  PrizmMutationObserveDirective,
   PrizmMutationObserveModule,
   PrizmZoneEventModule,
 } from '../../../directives';
@@ -47,6 +50,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmDropdownHostControlDirective } from './dropdown-host-control.directive';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmZoneEventService } from '../../../directives/zone-event/zone-event.service';
+import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -59,13 +63,13 @@ import { PrizmZoneEventService } from '../../../directives/zone-event/zone-event
   imports: [
     PrizmDropdownHostControlDirective,
     CommonModule,
-    PrizmOverlayModule,
+    PrizmOverlayComponent,
     PrizmThemeModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmZoneEventModule,
     PolymorphModule,
-    PrizmDropdownZoneModule,
-    PrizmMutationObserveModule,
+    PrizmDropdownZoneDirective,
+    PrizmMutationObserveDirective,
   ],
 })
 export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit {

@@ -32,9 +32,8 @@ import { PrizmDateButton } from '../../../types';
 import { prizmI18nInitWithKey } from '../../../services';
 import { prizmIsNativeFocusedIn } from '../../../util';
 import { CommonModule } from '@angular/common';
-import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
+import { PolymorphOutletDirective, PrizmLifecycleDirective } from '../../../directives';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relative.directive';
 import { PrizmDataListComponent } from '../../data-list';
@@ -61,11 +60,10 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
   imports: [
     CommonModule,
     PolymorphOutletDirective,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     FormsModule,
     PrizmInputTextModule,
     PrizmPluckPipe,
-    PrizmIconComponent,
     ReactiveFormsModule,
     PrizmInputLayoutDateRelativeDirective,
     PrizmDropdownHostComponent,

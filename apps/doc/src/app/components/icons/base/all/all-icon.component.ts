@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
-  IconDefs,
   PrizmHintDirective,
   PrizmInputCommonModule,
   PrizmInputTextModule,
@@ -19,7 +18,7 @@ import {
 } from '@prizm-ui/icons';
 import { copyToClipboard } from '../../../../util';
 import { BehaviorSubject, combineLatest } from 'rxjs';
-import { debounceTime, map, tap } from 'rxjs/operators';
+import { debounceTime, map } from 'rxjs/operators';
 import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -62,7 +61,6 @@ export class AllIconComponent {
   public readonly iconsSet = Object.keys(PRIZM_ICONS_LAZY_SET);
   public readonly iconsAmount = this.iconsSet.length;
   public search = '';
-  public defs = IconDefs;
   public colored = false;
   private search$$ = new BehaviorSubject<string | null>(null);
   public page$$ = new BehaviorSubject<number>(1);

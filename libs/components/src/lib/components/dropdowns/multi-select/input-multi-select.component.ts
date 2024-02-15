@@ -5,6 +5,7 @@ import {
   ElementRef,
   forwardRef,
   HostBinding,
+  inject,
   Inject,
   Injector,
   Input,
@@ -43,10 +44,12 @@ import { PrizmOverlayOutsidePlacement } from '../../../modules/overlay/models';
 import { PrizmScrollbarComponent, PrizmScrollbarVisibility } from '../../scrollbar';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmCheckboxComponent } from '../../checkbox';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -65,7 +68,6 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     CommonModule,
     PrizmLetDirective,
     PrizmHintDirective,
-    PrizmIconComponent,
     PrizmCallFuncPipe,
     PrizmAutoFocusModule,
     PrizmScrollbarComponent,
@@ -74,6 +76,7 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     PrizmCheckboxComponent,
     PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
+    PrizmIconsFullComponent,
   ],
   providers: [
     {
@@ -190,7 +193,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     return this.layoutComponent?.size ?? 'l';
   }
 
-  public readonly defaultIcon = 'chevrons-dropdown';
+  public readonly defaultIcon = 'triangle-down';
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 
@@ -217,11 +220,16 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   override get empty(): boolean {
     return !this.value?.length;
   }
+
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
     @Inject(Injector) injector: Injector
   ) {
     super(injector);
+
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown);
   }
 
   public ngAfterViewInit(): void {

@@ -4,7 +4,8 @@
   <ng-template #dropdown let-zone="zone">
     <prizm-data-list [style.--prizm-data-list-border]="0">
       <div class="header" header>
-        <prizm-icon iconClass="date-calendar-range"></prizm-icon>
+        <!--        <prizm-icon iconClass="date-calendar-range"></prizm-icon>-->
+        <prizm-icons-full name="calendar-range"></prizm-icons-full>
         <span class="title">Выбор периода</span>
         <div class="add-block">
           <button
@@ -90,16 +91,27 @@
         ></prizm-radio-button>
       </div>
       <div class="btns">
-        <prizm-icon
+        <!--        <prizm-icon-->
+        <!--          class="edit-icon"-->
+        <!--          (click)="isNew ? editNew(item) : editCurrent(item, idx)"-->
+        <!--          iconClass="editor-mode"-->
+        <!--        ></prizm-icon>-->
+        <!--        <prizm-icon-->
+        <!--          class="trash-icon"-->
+        <!--          (click)="isNew ? removeNew() : remove(idx); elem.reCalculatePositions()"-->
+        <!--          iconClass="delete"-->
+        <!--        ></prizm-icon>-->
+
+        <prizm-icons-full
           class="edit-icon"
           (click)="isNew ? editNew(item) : editCurrent(item, idx)"
-          iconClass="editor-mode"
-        ></prizm-icon>
-        <prizm-icon
+          name="pencil"
+        ></prizm-icons-full>
+        <prizm-icons-full
           class="trash-icon"
           (click)="isNew ? removeNew() : remove(idx); elem.reCalculatePositions()"
-          iconClass="delete"
-        ></prizm-icon>
+          name="trash-empty"
+        ></prizm-icons-full>
       </div>
     </div>
   </ng-template>

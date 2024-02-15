@@ -52,12 +52,11 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host/dropdo
 import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PrizmDataListComponent } from '../../data-list/data-list.component';
-import { PrizmIconComponent } from '../../icon/icon.component';
-import { PrizmPreventDefaultModule } from '../../../directives/prevent-default/prevent-default.module';
 import { PrizmCalendarComponent } from '../../calendar';
 import { PrizmLinkComponent } from '../../link';
 import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 import { PrizmListingItemComponent } from '../../listing-item';
+import { PrizmPreventDefaultDirective } from '../../../directives';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -83,7 +82,6 @@ import { PrizmListingItemComponent } from '../../listing-item';
   ],
   standalone: true,
   imports: [
-    PrizmInputLayoutDateTimeComponent,
     PrizmDropdownHostComponent,
     PrizmInputTextModule,
     NgIf,
@@ -92,11 +90,10 @@ import { PrizmListingItemComponent } from '../../listing-item';
     PrizmMaskModule,
     PrizmDataListComponent,
     PolymorphOutletDirective,
-    PrizmIconComponent,
     PrizmInputZoneModule,
     FormsModule,
     PrizmLifecycleModule,
-    PrizmPreventDefaultModule,
+    PrizmPreventDefaultDirective,
     PrizmCalendarComponent,
     PrizmLinkComponent,
     PrizmDropdownHostComponent,

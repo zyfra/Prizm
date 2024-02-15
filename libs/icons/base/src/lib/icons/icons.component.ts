@@ -8,7 +8,7 @@ import {
   OnDestroy,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
+import { PrizmAbstractTestId, prizmIsValidSizeString, prizmPx } from '@prizm-ui/core';
 import { Subject, takeUntil, tap } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PRIZM_ICONS_LOADER } from '@prizm-ui/icons/base';
@@ -97,21 +97,25 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
     return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');
   }
 
-  /**
-   * @method _size
-   * @description This method sets the width of the icon. Defaults to '16px'.
-   */
-  @HostBinding('style.width')
-  _size = '16px';
+  @HostBinding('style.width') protected _styleWidth: string = '24px';
 
   /**
-   * @method size
-   * @description This method sets the size of the icon and updates the host element's style.
-   * @param {string | number} size - The size of the icon in pixels or as a string with a unit.
+   * Sets the size of the icon and updates the host element's style.
+   * Accepts either a string with units or a number, which is converted to pixels.
+   *
+   * @param {string | number} size - The size to set, either as a string with units or a number.
    */
   @Input()
   set size(size: string | number) {
-    this._size = typeof size === 'number' ? prizmPx(size) : size;
+    if (typeof size === 'number' || !prizmIsValidSizeString(size)) {
+      this._styleWidth = prizmPx(size);
+    } else if (prizmIsValidSizeString(size)) {
+      this._styleWidth = size;
+    } else {
+      console.warn('Invalid size value:', size);
+    }
+
+    console.log('#mz size:', prizmIsValidSizeString(size.toString()), this._styleWidth, size);
   }
 
   /**

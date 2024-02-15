@@ -1,12 +1,7 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import {
-  IconDefs,
-  PolymorphContent,
-  PrizmAppearance,
-  PrizmAppearanceType,
-  PrizmSize,
-} from '@prizm-ui/components';
+import { PolymorphContent, PrizmAppearance, PrizmAppearanceType, PrizmSize } from '@prizm-ui/components';
+import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
 
 @Component({
   selector: 'prizm-button-example',
@@ -29,7 +24,8 @@ export class ButtonComponent {
   public focusVisibleChange = false;
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a: any[], c) => a.concat(c?.data), []),
+    // ...IconDefs.reduce((a: any[], c) => a.concat(c?.data), []),
+    ...Object.keys(PRIZM_ICONS_LAZY_SET),
   ];
   testIdPostfix!: string;
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
