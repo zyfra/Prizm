@@ -4,9 +4,8 @@ import { PrizmShadowType } from '../../directives/shadow';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmCardComponent } from '../card';
-import { PrizmIconComponent } from '../icon';
 import { PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmButtonModule } from '../button';
+import { PrizmButtonComponent } from '../button';
 
 @Component({
   selector: 'prizm-widget',
@@ -18,10 +17,9 @@ import { PrizmButtonModule } from '../button';
   imports: [
     CommonModule,
     PrizmCardComponent,
-    PrizmIconComponent,
     PrizmThemeModule,
     PolymorphOutletDirective,
-    PrizmButtonModule,
+    PrizmButtonComponent,
   ],
 })
 export class PrizmWidgetComponent extends PrizmAbstractTestId {
