@@ -8,10 +8,15 @@
       'checkbox__icon--no-icon': indeterminate === false && checked === false,
       'checkbox__icon--checked': indeterminate === false && checked === true,
       'checkbox__icon--indeterminate': indeterminate,
-      'selection-check-simple': indeterminate === false && checked === true,
-      'delete-minus': indeterminate === true
     }"
-  ></div>
+  >
+    <ng-container *ngIf="indeterminate === true">
+      <prizm-icons-full [size]="16" name="minus"></prizm-icons-full>
+    </ng-container>
+    <ng-container *ngIf="indeterminate === false && checked === true">
+      <prizm-icons-full [size]="16" name="chek"></prizm-icons-full>
+    </ng-container>
+  </div>
 </div>
 
 <div class="label label--size-{{ size }}"><ng-content></ng-content></div>
