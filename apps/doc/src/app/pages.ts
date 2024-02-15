@@ -414,12 +414,12 @@ export const pages: PrizmOrderedDocPage = [
     section: SectionNameEnum.components,
     title: 'Icons',
     subPages: [
-      {
-        title: 'Icon',
-        keywords: 'иконка, old-icon, deprecated',
-        route: '/components/old-icon',
-        status: 'deprecated',
-      },
+      // {
+      //   title: 'Icon',
+      //   keywords: 'иконка, old-icon, deprecated',
+      //   route: '/components/old-icon',
+      //   status: 'deprecated',
+      // },
       {
         title: 'Flags',
         keywords: 'иконка, флаги. flags',

@@ -6,7 +6,6 @@ import { InputSelectComponent } from './input-select.component';
 import {
   PolymorphModule,
   PrizmButtonModule,
-  PrizmIconModule,
   PrizmInputSelectModule,
   PrizmScrollbarModule,
 } from '@prizm-ui/components';
@@ -14,7 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSelectWithTemplateExampleComponent } from './examples/with-template/select-with-template-example.component';
 import { PrizmSelectBaseExampleComponent } from './examples/base/select-base-example.component';
 import { PrizmSelectWithSearchExampleComponent } from './examples/with-search/select-with-search-example.component';
-import { PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmSelectWithObjectExampleComponent } from './examples/with-object/select-with-object-example.component';
 import { PrizmSelectWithBackendSearchExampleComponent } from './examples/with-backend-search/select-with-backend-search-example.component';
 import { PrizmSelectFullWidthExampleComponent } from './examples/full-width/select-full-width-example.component';
@@ -26,6 +25,7 @@ import { PrizmSelectStringifyObservableExampleComponent } from './examples/strin
 import { PrizmSelectAsyncExampleComponent } from './examples/async/select-async-example.component';
 import { PrizmSelectVirtualScrollExampleComponent } from './examples/virtual-scroll/select-virtual-scroll-example.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
@@ -35,12 +35,12 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmLetModule,
+    PrizmLetDirective,
     PrizmScrollbarModule,
     PrizmButtonModule,
-    PrizmIconModule,
     PrizmInputSelectModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputSelectComponent)),
+    PrizmIconsFullComponent,
   ],
   declarations: [
     PrizmSelectAsyncExampleComponent,

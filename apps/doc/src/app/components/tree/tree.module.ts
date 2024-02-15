@@ -3,13 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { TreeComponent } from './tree.component';
-import {
-  PrizmButtonComponent,
-  PrizmButtonModule,
-  PrizmIconComponent,
-  PrizmSidebarComponent,
-  PrizmTreeModule,
-} from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmSidebarComponent, PrizmTreeModule } from '@prizm-ui/components';
 import { TreeBaseExampleComponent } from './examples/base/tree-base-example.component';
 import { TreeArrayExampleComponent } from './examples/array/tree-array-example.component';
 import { TreeTemplateExampleComponent } from './examples/template/tree-template-example.component';

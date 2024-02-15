@@ -3,7 +3,6 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmInputLayoutTimeComponent } from './input-layout-time.component';
 
 /**
- * @deprecated
  * use standalone
  * */
 @NgModule({

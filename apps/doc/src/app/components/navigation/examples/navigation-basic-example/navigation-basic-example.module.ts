@@ -3,9 +3,7 @@ import { NavigationBasicExampleComponent } from './navigation-basic-example.comp
 import { CommonModule } from '@angular/common';
 import {
   PrizmButtonComponent,
-  PrizmButtonModule,
   PrizmHeaderModule,
-  PrizmIconModule,
   PrizmNavigationModule,
   PrizmScrollbarModule,
 } from '@prizm-ui/components';

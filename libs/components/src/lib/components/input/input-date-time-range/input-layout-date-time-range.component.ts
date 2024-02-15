@@ -54,13 +54,12 @@ import { CommonModule } from '@angular/common';
 import { PrizmMaskModule } from '../../../modules';
 import {
   PolymorphOutletDirective,
-  PrizmLifecycleModule,
+  PrizmLifecycleDirective,
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmInputLayoutTimeModule } from '../input-time';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 
@@ -87,16 +86,14 @@ import { PrizmCalendarRangeComponent } from '../../calendar-range';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmInputLayoutDateTimeRangeComponent,
     PrizmMaskModule,
     PrizmInputZoneModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmLetDirective,
     PrizmDataListComponent,
     PrizmInputLayoutTimeModule,
     PolymorphOutletDirective,
     PrizmInputTextModule,
-    PrizmIconComponent,
     PrizmDropdownHostComponent,
     PrizmCalendarRangeComponent,
     PrizmValueAccessorModule,

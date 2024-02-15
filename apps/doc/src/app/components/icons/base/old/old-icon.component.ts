@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
-import { IconDefs, PrizmToastService } from '@prizm-ui/components';
+import { PrizmToastService } from '@prizm-ui/components';
 import { Clipboard } from '@angular/cdk/clipboard';
 import {
   PRIZM_OLD_ICONS_REPLACE_SET,
@@ -22,14 +22,14 @@ type IconObj = {
   providers: [prizmIconsProvideOldNameTransformer()],
 })
 export class OldIconComponent {
-  readonly oldIcons = IconDefs.reduce((a: unknown[], c) => a.concat(c.data), []);
-  readonly iconsNew = this.oldIcons.map(name => ({
-    old: name,
-    new: prizmIconsGetNameByOld(name as keyof typeof PRIZM_OLD_ICONS_REPLACE_SET),
-  }));
-  readonly existIcons = this.iconsNew.filter(obj => obj.new) as PrizmNonNullableProperties<IconObj>[];
-  readonly removedIcons = this.iconsNew.filter(obj => !obj.new);
-  public defs = IconDefs;
+  // readonly oldIcons = IconDefs.reduce((a: unknown[], c) => a.concat(c.data), []);
+  // readonly iconsNew = this.oldIcons.map(name => ({
+  //   old: name,
+  //   new: prizmIconsGetNameByOld(name as keyof typeof PRIZM_OLD_ICONS_REPLACE_SET),
+  // }));
+  // readonly existIcons = this.iconsNew.filter(obj => obj.new) as PrizmNonNullableProperties<IconObj>[];
+  // readonly removedIcons = this.iconsNew.filter(obj => !obj.new);
+  // public defs = IconDefs;
 
   constructor(
     @Inject(Clipboard) public readonly clipboard: Clipboard,

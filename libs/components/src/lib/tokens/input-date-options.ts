@@ -11,7 +11,7 @@ export interface PrizmInputDateOptions {
 }
 
 export const PRIZM_INPUT_DATE_DEFAULT_OPTIONS: PrizmInputDateOptions = {
-  icon: () => `date-calendar-blank`,
+  icon: () => `calendar-blank`,
   min: PRIZM_FIRST_DAY,
   max: PRIZM_LAST_DAY,
   readonly: true,

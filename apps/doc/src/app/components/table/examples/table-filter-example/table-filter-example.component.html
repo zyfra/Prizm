@@ -12,12 +12,18 @@
             [content]="dropdown"
             prizmDropdownHostWidth="auto"
           >
-            <prizm-icon
+            <!--            <prizm-icon-->
+            <!--              class="filter__category"-->
+            <!--              [class.filter__category_active]="filterOpen || filterOn"-->
+            <!--              (click)="filterOpen = !filterOpen"-->
+            <!--              iconClass="sort-filter"-->
+            <!--            ></prizm-icon>-->
+            <prizm-icons-full
               class="filter__category"
               [class.filter__category_active]="filterOpen || filterOn"
               (click)="filterOpen = !filterOpen"
-              iconClass="sort-filter"
-            ></prizm-icon>
+              name="filter"
+            ></prizm-icons-full>
           </prizm-dropdown-host>
         </th>
         <th *prizmHead="'count'" prizmTh>Количество</th>

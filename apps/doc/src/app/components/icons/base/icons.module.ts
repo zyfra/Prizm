@@ -9,7 +9,6 @@ import { PrizmIconsBaseExampleComponent } from './examples/base/icons-base-examp
 import {
   PolymorphOutletDirective,
   PrizmHintDirective,
-  PrizmIconComponent,
   PrizmInputTextModule,
   PrizmToggleComponent,
 } from '@prizm-ui/components';
