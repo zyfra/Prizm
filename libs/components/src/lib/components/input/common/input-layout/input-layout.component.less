@@ -118,7 +118,9 @@
     display: flex;
     align-items: center;
     flex-grow: 1;
+  }
 
+  &:not(:has([prizm-input-bottom])) &__first {
     // Hack for height in percents for buttons inside controls
     height: 1px;
   }
