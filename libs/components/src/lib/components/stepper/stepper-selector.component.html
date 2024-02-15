@@ -18,13 +18,20 @@
         >
           {{ step.index }}
         </span>
-        <prizm-icon
+        <!--        <prizm-icon-->
+        <!--          class="step__icon"-->
+        <!--          *ngIf="(currentStep === step.index && step.status !== 'default') || step.status === null"-->
+        <!--          [@inOut]-->
+        <!--          [size]="24"-->
+        <!--          [iconClass]="step.status === 'success' ? 'success-circle-fill' : 'alerts-circle-fill'"-->
+        <!--        ></prizm-icon>-->
+        <prizm-icons
           class="step__icon"
           *ngIf="(currentStep === step.index && step.status !== 'default') || step.status === null"
           [@inOut]
           [size]="24"
-          [iconClass]="step.status === 'success' ? 'success-circle-fill' : 'alerts-circle-fill'"
-        ></prizm-icon>
+          [name]="step.status === 'success' ? 'success-circle-fill' : 'alerts-circle-fill'"
+        ></prizm-icons>
         <span class="step__title">{{ step.title }}</span>
       </button>
     </li>
