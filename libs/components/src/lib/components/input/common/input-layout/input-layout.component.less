@@ -120,7 +120,7 @@
     flex-grow: 1;
   }
 
-  &:not(:has([prizm-input-bottom])) &__first {
+  &:not(:has([prizm-input-bottom])):not(.prizm-input-form-textarea) &__first {
     // Hack for height in percents for buttons inside controls
     height: 1px;
   }
