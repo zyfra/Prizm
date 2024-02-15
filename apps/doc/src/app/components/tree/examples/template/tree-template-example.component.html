@@ -7,7 +7,7 @@
 
 <ng-template #content let-value let-node="node">
   <div class="wrapper">
-    <prizm-icon *ngIf="value.icon" [iconClass]="value.icon" size="16"></prizm-icon>
+    <prizm-icons-full *ngIf="value.icon" [name]="value.icon" size="16"></prizm-icons-full>
     {{ value.text }}
   </div>
 </ng-template>
