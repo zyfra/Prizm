@@ -1,1 +1,1 @@
-export * from './prizmIcons-folder_underline-minus.icon';
+export * from './prizmIcons-folder-underline-minus.icon';

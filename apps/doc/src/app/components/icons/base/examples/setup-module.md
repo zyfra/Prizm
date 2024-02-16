@@ -16,13 +16,26 @@ import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 export class MyModule {}
 ```
 
-<!--    TODO: 4.0.0 rc.2 add font support for icons -->
-
-[//]: # '```bash'
-[//]: # ' # Использование шрифтов'
-[//]: # ' # Добавить в конфиг файл ангуляра для использования шрифтов'
-[//]: # ' "styles": ['
-[//]: # '    ...'
-[//]: # '    "@prizm-ui/icons/base/src/styles/styles.less"'
-[//]: # '  ],'
-[//]: # '```'
+```text
+ # Использование шрифтов
+ # Добавить в конфиг файл ангуляра для использования шрифтов
+ "assets": [
+      {
+        "glob": "**/*",
+        "input": "@prizm-ui/icons/src/styles/icons-base",
+        "output": "assets/prizm/icons/base"
+      },
+      {
+        "glob": "**/*",
+        "input": "@prizm-ui/icons/src/styles/icons-full",
+        "output": "assets/prizm/icons/full"
+      }
+  ],
+  "styles": [
+    "@prizm-ui/icons/src/styles/styles.less",
+    "@prizm-ui/icons/src/styles/icons-base/prizm-base-icons.css",
+    "@prizm-ui/icons/src/styles/icons-base/prizm-base-icons-location.css",
+    "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons.css",
+    "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css"
+   ],
+```

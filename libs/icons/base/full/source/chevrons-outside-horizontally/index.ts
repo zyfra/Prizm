@@ -1,1 +1,1 @@
-export * from './prizmIcons-chevrons-outside_horizontally.icon';
+export * from './prizmIcons-chevrons-outside-horizontally.icon';

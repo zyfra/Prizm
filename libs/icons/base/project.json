@@ -117,6 +117,27 @@
       },
       "dependsOn": []
     },
+    "build-icons-24": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx generate-icons-24 icons", "nx icons-to-lazy icons", "nx svg-to-font icons"],
+        "parallel": false
+      }
+    },
+    "build-icons-16": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx generate-icons-16 icons", "nx icons-16-to-lazy icons", "nx svg-16-to-font icons"],
+        "parallel": false
+      }
+    },
+    "build-icons": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build-icons-16 icons", "nx build-icons-24 icons"],
+        "parallel": false
+      }
+    },
     "icons-to-lazy": {
       "executor": "local:icons-to-lazy",
       "options": {

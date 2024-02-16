@@ -1,1 +1,1 @@
-export * from './prizmIcons-circle-square-in-square-.icon';
+export * from './prizmIcons-circle-square-in-square.icon';

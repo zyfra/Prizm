@@ -1,1 +1,1 @@
-export * from './prizmIcons-book_stack.icon';
+export * from './prizmIcons-book-stack.icon';

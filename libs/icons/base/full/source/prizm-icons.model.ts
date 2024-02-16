@@ -19,6 +19,8 @@ export type PrizmIconsType =
   | 'android'
   | 'angle-left-right-arrows-down'
   | 'angle-left-right'
+  | 'angle-left'
+  | 'angle-right'
   | 'arrange-send-to-back'
   | 'array-fill'
   | 'arrow-bold-down'
@@ -127,7 +129,6 @@ export type PrizmIconsType =
   | 'boiler-hot-water-gas-and-oil'
   | 'boiler'
   | 'bold'
-  | 'book-stack'
   | 'book-check'
   | 'book-closed'
   | 'book-open-plus'
@@ -136,6 +137,7 @@ export type PrizmIconsType =
   | 'book-open-text'
   | 'book-open-with-page'
   | 'book-open'
+  | 'book-stack'
   | 'bookmark-check-fill'
   | 'bookmark-check'
   | 'bookmark-cross-fill'
@@ -202,8 +204,8 @@ export type PrizmIconsType =
   | 'cellphone'
   | 'charts-iqc-zql'
   | 'check-double'
+  | 'check'
   | 'checkerboard'
-  | 'chek'
   | 'chevron-down-to-double-line'
   | 'chevron-down'
   | 'chevron-left'
@@ -222,8 +224,8 @@ export type PrizmIconsType =
   | 'chevrons-inside-vertically'
   | 'chevrons-outside-horizontally'
   | 'chevrons-outside-vertically'
-  | 'circle-chek-empty'
-  | 'circle-chek-fill'
+  | 'circle-check-empty'
+  | 'circle-check-fill'
   | 'circle-exclamation-empty'
   | 'circle-exclamation-fill'
   | 'circle-in-hexagon'
@@ -288,7 +290,7 @@ export type PrizmIconsType =
   | 'cubes'
   | 'dashboard-fill'
   | 'dashboard-variant-fill'
-  | 'database-chek'
+  | 'database-check'
   | 'database-json'
   | 'database-magnifying-glass'
   | 'database-minus'
@@ -297,8 +299,8 @@ export type PrizmIconsType =
   | 'database-xmark'
   | 'database'
   | 'day-fill'
-  | 'decagram-chek-empty'
-  | 'decagram-chek-fill'
+  | 'decagram-check-empty'
+  | 'decagram-check-fill'
   | 'decagram-exclamation-empty'
   | 'decagram-exclamation-fill'
   | 'default-ico'
@@ -316,6 +318,8 @@ export type PrizmIconsType =
   | 'editor-down'
   | 'editor-right'
   | 'electrics'
+  | 'ellipsis-2'
+  | 'ellipsis-4'
   | 'ellipsis-grid'
   | 'ellipsis-h'
   | 'ellipsis-v'
@@ -348,7 +352,7 @@ export type PrizmIconsType =
   | 'file-docx'
   | 'file-dot'
   | 'file-empty'
-  | 'file-exclamation'
+  | 'file-exclamatioт'
   | 'file-eye'
   | 'file-filled'
   | 'file-image'
@@ -384,17 +388,17 @@ export type PrizmIconsType =
   | 'floppy-pen'
   | 'floppy-star'
   | 'floppy'
-  | 'folder-open'
-  | 'folder-underline-minus'
-  | 'folder-underline-plus'
-  | 'folder-underline'
   | 'folder-arrow-down-left'
   | 'folder-arrow-down'
   | 'folder-arrow-up-right'
   | 'folder-cross'
   | 'folder-dot'
   | 'folder-minus'
+  | 'folder-open'
   | 'folder-plus'
+  | 'folder-underline-minus'
+  | 'folder-underline-plus'
+  | 'folder-underline'
   | 'folder'
   | 'forvard-step'
   | 'forward'
@@ -434,6 +438,7 @@ export type PrizmIconsType =
   | 'house-mini'
   | 'house'
   | 'image'
+  | 'importers-zql'
   | 'indent-arrow-left'
   | 'indent-arrow-right'
   | 'infinity'
@@ -485,9 +490,9 @@ export type PrizmIconsType =
   | 'link-plus'
   | 'link-simple-h'
   | 'link-simple'
-  | 'list-square'
   | 'list-fill'
   | 'list-ol'
+  | 'list-square'
   | 'list-tree-archive'
   | 'list-tree'
   | 'list-ul'
@@ -508,6 +513,7 @@ export type PrizmIconsType =
   | 'magnifying-glass-minus'
   | 'magnifying-glass-ontology'
   | 'magnifying-glass-plus'
+  | 'magnifying-glass-qr-code'
   | 'magnifying-glass-tags-words'
   | 'magnifying-glass-top-from-bracket'
   | 'magnifying-glass-triangle-down'
@@ -555,7 +561,7 @@ export type PrizmIconsType =
   | 'oil-canister'
   | 'oil-droplet-arrows-all'
   | 'oil-droplet-arrows-repeat-h'
-  | 'oil-droplet-chek'
+  | 'oil-droplet-check'
   | 'oil-droplet'
   | 'oil-field'
   | 'oil-tank'
@@ -769,6 +775,7 @@ export type PrizmIconsType =
   | 'train-cargo'
   | 'train-passenger'
   | 'transmitter'
+  | 'trash-drop'
   | 'trash-empty'
   | 'trash'
   | 'triangle-circle-square-fill'
@@ -794,7 +801,6 @@ export type PrizmIconsType =
   | 'tv'
   | 'umbrella'
   | 'underlined'
-  | 'union'
   | 'unlock'
   | 'user-arrows-swap'
   | 'user-card'
@@ -805,6 +811,7 @@ export type PrizmIconsType =
   | 'user-group'
   | 'user-location'
   | 'user-minus'
+  | 'user-pen'
   | 'user-plus'
   | 'user-shield'
   | 'user-worker'
@@ -854,6 +861,7 @@ export type PrizmIconsType =
   | 'wrench'
   | 'xmark-column-right'
   | 'xmark-column-top'
+  | 'xmark-mini'
   | 'xmark';
 export const PrizmIconsType = {
   'agenda-fill': 'agenda-fill' as PrizmIconsType,
@@ -874,6 +882,8 @@ export const PrizmIconsType = {
   android: 'android' as PrizmIconsType,
   'angle-left-right-arrows-down': 'angle-left-right-arrows-down' as PrizmIconsType,
   'angle-left-right': 'angle-left-right' as PrizmIconsType,
+  'angle-left': 'angle-left' as PrizmIconsType,
+  'angle-right': 'angle-right' as PrizmIconsType,
   'arrange-send-to-back': 'arrange-send-to-back' as PrizmIconsType,
   'array-fill': 'array-fill' as PrizmIconsType,
   'arrow-bold-down': 'arrow-bold-down' as PrizmIconsType,
@@ -982,7 +992,6 @@ export const PrizmIconsType = {
   'boiler-hot-water-gas-and-oil': 'boiler-hot-water-gas-and-oil' as PrizmIconsType,
   boiler: 'boiler' as PrizmIconsType,
   bold: 'bold' as PrizmIconsType,
-  'book-stack': 'book-stack' as PrizmIconsType,
   'book-check': 'book-check' as PrizmIconsType,
   'book-closed': 'book-closed' as PrizmIconsType,
   'book-open-plus': 'book-open-plus' as PrizmIconsType,
@@ -991,6 +1000,7 @@ export const PrizmIconsType = {
   'book-open-text': 'book-open-text' as PrizmIconsType,
   'book-open-with-page': 'book-open-with-page' as PrizmIconsType,
   'book-open': 'book-open' as PrizmIconsType,
+  'book-stack': 'book-stack' as PrizmIconsType,
   'bookmark-check-fill': 'bookmark-check-fill' as PrizmIconsType,
   'bookmark-check': 'bookmark-check' as PrizmIconsType,
   'bookmark-cross-fill': 'bookmark-cross-fill' as PrizmIconsType,
@@ -1057,8 +1067,8 @@ export const PrizmIconsType = {
   cellphone: 'cellphone' as PrizmIconsType,
   'charts-iqc-zql': 'charts-iqc-zql' as PrizmIconsType,
   'check-double': 'check-double' as PrizmIconsType,
+  check: 'check' as PrizmIconsType,
   checkerboard: 'checkerboard' as PrizmIconsType,
-  chek: 'chek' as PrizmIconsType,
   'chevron-down-to-double-line': 'chevron-down-to-double-line' as PrizmIconsType,
   'chevron-down': 'chevron-down' as PrizmIconsType,
   'chevron-left': 'chevron-left' as PrizmIconsType,
@@ -1077,8 +1087,8 @@ export const PrizmIconsType = {
   'chevrons-inside-vertically': 'chevrons-inside-vertically' as PrizmIconsType,
   'chevrons-outside-horizontally': 'chevrons-outside-horizontally' as PrizmIconsType,
   'chevrons-outside-vertically': 'chevrons-outside-vertically' as PrizmIconsType,
-  'circle-chek-empty': 'circle-chek-empty' as PrizmIconsType,
-  'circle-chek-fill': 'circle-chek-fill' as PrizmIconsType,
+  'circle-check-empty': 'circle-check-empty' as PrizmIconsType,
+  'circle-check-fill': 'circle-check-fill' as PrizmIconsType,
   'circle-exclamation-empty': 'circle-exclamation-empty' as PrizmIconsType,
   'circle-exclamation-fill': 'circle-exclamation-fill' as PrizmIconsType,
   'circle-in-hexagon': 'circle-in-hexagon' as PrizmIconsType,
@@ -1144,7 +1154,7 @@ export const PrizmIconsType = {
   cubes: 'cubes' as PrizmIconsType,
   'dashboard-fill': 'dashboard-fill' as PrizmIconsType,
   'dashboard-variant-fill': 'dashboard-variant-fill' as PrizmIconsType,
-  'database-chek': 'database-chek' as PrizmIconsType,
+  'database-check': 'database-check' as PrizmIconsType,
   'database-json': 'database-json' as PrizmIconsType,
   'database-magnifying-glass': 'database-magnifying-glass' as PrizmIconsType,
   'database-minus': 'database-minus' as PrizmIconsType,
@@ -1153,8 +1163,8 @@ export const PrizmIconsType = {
   'database-xmark': 'database-xmark' as PrizmIconsType,
   database: 'database' as PrizmIconsType,
   'day-fill': 'day-fill' as PrizmIconsType,
-  'decagram-chek-empty': 'decagram-chek-empty' as PrizmIconsType,
-  'decagram-chek-fill': 'decagram-chek-fill' as PrizmIconsType,
+  'decagram-check-empty': 'decagram-check-empty' as PrizmIconsType,
+  'decagram-check-fill': 'decagram-check-fill' as PrizmIconsType,
   'decagram-exclamation-empty': 'decagram-exclamation-empty' as PrizmIconsType,
   'decagram-exclamation-fill': 'decagram-exclamation-fill' as PrizmIconsType,
   'default-ico': 'default-ico' as PrizmIconsType,
@@ -1172,6 +1182,8 @@ export const PrizmIconsType = {
   'editor-down': 'editor-down' as PrizmIconsType,
   'editor-right': 'editor-right' as PrizmIconsType,
   electrics: 'electrics' as PrizmIconsType,
+  'ellipsis-2': 'ellipsis-2' as PrizmIconsType,
+  'ellipsis-4': 'ellipsis-4' as PrizmIconsType,
   'ellipsis-grid': 'ellipsis-grid' as PrizmIconsType,
   'ellipsis-h': 'ellipsis-h' as PrizmIconsType,
   'ellipsis-v': 'ellipsis-v' as PrizmIconsType,
@@ -1204,7 +1216,7 @@ export const PrizmIconsType = {
   'file-docx': 'file-docx' as PrizmIconsType,
   'file-dot': 'file-dot' as PrizmIconsType,
   'file-empty': 'file-empty' as PrizmIconsType,
-  'file-exclamation': 'file-exclamation' as PrizmIconsType,
+  'file-exclamatioт': 'file-exclamatioт' as PrizmIconsType,
   'file-eye': 'file-eye' as PrizmIconsType,
   'file-filled': 'file-filled' as PrizmIconsType,
   'file-image': 'file-image' as PrizmIconsType,
@@ -1240,17 +1252,17 @@ export const PrizmIconsType = {
   'floppy-pen': 'floppy-pen' as PrizmIconsType,
   'floppy-star': 'floppy-star' as PrizmIconsType,
   floppy: 'floppy' as PrizmIconsType,
-  'folder-open': 'folder-open' as PrizmIconsType,
-  'folder-underline-minus': 'folder-underline-minus' as PrizmIconsType,
-  'folder-underline-plus': 'folder-underline-plus' as PrizmIconsType,
-  'folder-underline': 'folder-underline' as PrizmIconsType,
   'folder-arrow-down-left': 'folder-arrow-down-left' as PrizmIconsType,
   'folder-arrow-down': 'folder-arrow-down' as PrizmIconsType,
   'folder-arrow-up-right': 'folder-arrow-up-right' as PrizmIconsType,
   'folder-cross': 'folder-cross' as PrizmIconsType,
   'folder-dot': 'folder-dot' as PrizmIconsType,
   'folder-minus': 'folder-minus' as PrizmIconsType,
+  'folder-open': 'folder-open' as PrizmIconsType,
   'folder-plus': 'folder-plus' as PrizmIconsType,
+  'folder-underline-minus': 'folder-underline-minus' as PrizmIconsType,
+  'folder-underline-plus': 'folder-underline-plus' as PrizmIconsType,
+  'folder-underline': 'folder-underline' as PrizmIconsType,
   folder: 'folder' as PrizmIconsType,
   'forvard-step': 'forvard-step' as PrizmIconsType,
   forward: 'forward' as PrizmIconsType,
@@ -1290,6 +1302,7 @@ export const PrizmIconsType = {
   'house-mini': 'house-mini' as PrizmIconsType,
   house: 'house' as PrizmIconsType,
   image: 'image' as PrizmIconsType,
+  'importers-zql': 'importers-zql' as PrizmIconsType,
   'indent-arrow-left': 'indent-arrow-left' as PrizmIconsType,
   'indent-arrow-right': 'indent-arrow-right' as PrizmIconsType,
   infinity: 'infinity' as PrizmIconsType,
@@ -1341,9 +1354,9 @@ export const PrizmIconsType = {
   'link-plus': 'link-plus' as PrizmIconsType,
   'link-simple-h': 'link-simple-h' as PrizmIconsType,
   'link-simple': 'link-simple' as PrizmIconsType,
-  'list-square': 'list-square' as PrizmIconsType,
   'list-fill': 'list-fill' as PrizmIconsType,
   'list-ol': 'list-ol' as PrizmIconsType,
+  'list-square': 'list-square' as PrizmIconsType,
   'list-tree-archive': 'list-tree-archive' as PrizmIconsType,
   'list-tree': 'list-tree' as PrizmIconsType,
   'list-ul': 'list-ul' as PrizmIconsType,
@@ -1364,6 +1377,7 @@ export const PrizmIconsType = {
   'magnifying-glass-minus': 'magnifying-glass-minus' as PrizmIconsType,
   'magnifying-glass-ontology': 'magnifying-glass-ontology' as PrizmIconsType,
   'magnifying-glass-plus': 'magnifying-glass-plus' as PrizmIconsType,
+  'magnifying-glass-qr-code': 'magnifying-glass-qr-code' as PrizmIconsType,
   'magnifying-glass-tags-words': 'magnifying-glass-tags-words' as PrizmIconsType,
   'magnifying-glass-top-from-bracket': 'magnifying-glass-top-from-bracket' as PrizmIconsType,
   'magnifying-glass-triangle-down': 'magnifying-glass-triangle-down' as PrizmIconsType,
@@ -1411,7 +1425,7 @@ export const PrizmIconsType = {
   'oil-canister': 'oil-canister' as PrizmIconsType,
   'oil-droplet-arrows-all': 'oil-droplet-arrows-all' as PrizmIconsType,
   'oil-droplet-arrows-repeat-h': 'oil-droplet-arrows-repeat-h' as PrizmIconsType,
-  'oil-droplet-chek': 'oil-droplet-chek' as PrizmIconsType,
+  'oil-droplet-check': 'oil-droplet-check' as PrizmIconsType,
   'oil-droplet': 'oil-droplet' as PrizmIconsType,
   'oil-field': 'oil-field' as PrizmIconsType,
   'oil-tank': 'oil-tank' as PrizmIconsType,
@@ -1625,6 +1639,7 @@ export const PrizmIconsType = {
   'train-cargo': 'train-cargo' as PrizmIconsType,
   'train-passenger': 'train-passenger' as PrizmIconsType,
   transmitter: 'transmitter' as PrizmIconsType,
+  'trash-drop': 'trash-drop' as PrizmIconsType,
   'trash-empty': 'trash-empty' as PrizmIconsType,
   trash: 'trash' as PrizmIconsType,
   'triangle-circle-square-fill': 'triangle-circle-square-fill' as PrizmIconsType,
@@ -1650,7 +1665,6 @@ export const PrizmIconsType = {
   tv: 'tv' as PrizmIconsType,
   umbrella: 'umbrella' as PrizmIconsType,
   underlined: 'underlined' as PrizmIconsType,
-  union: 'union' as PrizmIconsType,
   unlock: 'unlock' as PrizmIconsType,
   'user-arrows-swap': 'user-arrows-swap' as PrizmIconsType,
   'user-card': 'user-card' as PrizmIconsType,
@@ -1661,6 +1675,7 @@ export const PrizmIconsType = {
   'user-group': 'user-group' as PrizmIconsType,
   'user-location': 'user-location' as PrizmIconsType,
   'user-minus': 'user-minus' as PrizmIconsType,
+  'user-pen': 'user-pen' as PrizmIconsType,
   'user-plus': 'user-plus' as PrizmIconsType,
   'user-shield': 'user-shield' as PrizmIconsType,
   'user-worker': 'user-worker' as PrizmIconsType,
@@ -1710,6 +1725,7 @@ export const PrizmIconsType = {
   wrench: 'wrench' as PrizmIconsType,
   'xmark-column-right': 'xmark-column-right' as PrizmIconsType,
   'xmark-column-top': 'xmark-column-top' as PrizmIconsType,
+  'xmark-mini': 'xmark-mini' as PrizmIconsType,
   xmark: 'xmark' as PrizmIconsType,
 };
 export interface PrizmIcons {
@@ -1735,6 +1751,8 @@ export enum PrizmIconsEnum {
   ANDROID = 'android',
   ANGLE_LEFT_RIGHT_ARROWS_DOWN = 'angle-left-right-arrows-down',
   ANGLE_LEFT_RIGHT = 'angle-left-right',
+  ANGLE_LEFT = 'angle-left',
+  ANGLE_RIGHT = 'angle-right',
   ARRANGE_SEND_TO_BACK = 'arrange-send-to-back',
   ARRAY_FILL = 'array-fill',
   ARROW_BOLD_DOWN = 'arrow-bold-down',
@@ -1843,7 +1861,6 @@ export enum PrizmIconsEnum {
   BOILER_HOT_WATER_GAS_AND_OIL = 'boiler-hot-water-gas-and-oil',
   BOILER = 'boiler',
   BOLD = 'bold',
-  BOOK_STACK = 'book-stack',
   BOOK_CHECK = 'book-check',
   BOOK_CLOSED = 'book-closed',
   BOOK_OPEN_PLUS = 'book-open-plus',
@@ -1852,6 +1869,7 @@ export enum PrizmIconsEnum {
   BOOK_OPEN_TEXT = 'book-open-text',
   BOOK_OPEN_WITH_PAGE = 'book-open-with-page',
   BOOK_OPEN = 'book-open',
+  BOOK_STACK = 'book-stack',
   BOOKMARK_CHECK_FILL = 'bookmark-check-fill',
   BOOKMARK_CHECK = 'bookmark-check',
   BOOKMARK_CROSS_FILL = 'bookmark-cross-fill',
@@ -1918,8 +1936,8 @@ export enum PrizmIconsEnum {
   CELLPHONE = 'cellphone',
   CHARTS_IQC_ZQL = 'charts-iqc-zql',
   CHECK_DOUBLE = 'check-double',
+  CHECK = 'check',
   CHECKERBOARD = 'checkerboard',
-  CHEK = 'chek',
   CHEVRON_DOWN_TO_DOUBLE_LINE = 'chevron-down-to-double-line',
   CHEVRON_DOWN = 'chevron-down',
   CHEVRON_LEFT = 'chevron-left',
@@ -1938,8 +1956,8 @@ export enum PrizmIconsEnum {
   CHEVRONS_INSIDE_VERTICALLY = 'chevrons-inside-vertically',
   CHEVRONS_OUTSIDE_HORIZONTALLY = 'chevrons-outside-horizontally',
   CHEVRONS_OUTSIDE_VERTICALLY = 'chevrons-outside-vertically',
-  CIRCLE_CHEK_EMPTY = 'circle-chek-empty',
-  CIRCLE_CHEK_FILL = 'circle-chek-fill',
+  CIRCLE_CHECK_EMPTY = 'circle-check-empty',
+  CIRCLE_CHECK_FILL = 'circle-check-fill',
   CIRCLE_EXCLAMATION_EMPTY = 'circle-exclamation-empty',
   CIRCLE_EXCLAMATION_FILL = 'circle-exclamation-fill',
   CIRCLE_IN_HEXAGON = 'circle-in-hexagon',
@@ -2004,7 +2022,7 @@ export enum PrizmIconsEnum {
   CUBES = 'cubes',
   DASHBOARD_FILL = 'dashboard-fill',
   DASHBOARD_VARIANT_FILL = 'dashboard-variant-fill',
-  DATABASE_CHEK = 'database-chek',
+  DATABASE_CHECK = 'database-check',
   DATABASE_JSON = 'database-json',
   DATABASE_MAGNIFYING_GLASS = 'database-magnifying-glass',
   DATABASE_MINUS = 'database-minus',
@@ -2013,8 +2031,8 @@ export enum PrizmIconsEnum {
   DATABASE_XMARK = 'database-xmark',
   DATABASE = 'database',
   DAY_FILL = 'day-fill',
-  DECAGRAM_CHEK_EMPTY = 'decagram-chek-empty',
-  DECAGRAM_CHEK_FILL = 'decagram-chek-fill',
+  DECAGRAM_CHECK_EMPTY = 'decagram-check-empty',
+  DECAGRAM_CHECK_FILL = 'decagram-check-fill',
   DECAGRAM_EXCLAMATION_EMPTY = 'decagram-exclamation-empty',
   DECAGRAM_EXCLAMATION_FILL = 'decagram-exclamation-fill',
   DEFAULT_ICO = 'default-ico',
@@ -2032,6 +2050,8 @@ export enum PrizmIconsEnum {
   EDITOR_DOWN = 'editor-down',
   EDITOR_RIGHT = 'editor-right',
   ELECTRICS = 'electrics',
+  ELLIPSIS_2 = 'ellipsis-2',
+  ELLIPSIS_4 = 'ellipsis-4',
   ELLIPSIS_GRID = 'ellipsis-grid',
   ELLIPSIS_H = 'ellipsis-h',
   ELLIPSIS_V = 'ellipsis-v',
@@ -2064,7 +2084,7 @@ export enum PrizmIconsEnum {
   FILE_DOCX = 'file-docx',
   FILE_DOT = 'file-dot',
   FILE_EMPTY = 'file-empty',
-  FILE_EXCLAMATION = 'file-exclamation',
+  FILE_EXCLAMATIOТ = 'file-exclamatioт',
   FILE_EYE = 'file-eye',
   FILE_FILLED = 'file-filled',
   FILE_IMAGE = 'file-image',
@@ -2100,17 +2120,17 @@ export enum PrizmIconsEnum {
   FLOPPY_PEN = 'floppy-pen',
   FLOPPY_STAR = 'floppy-star',
   FLOPPY = 'floppy',
-  FOLDER_OPEN = 'folder-open',
-  FOLDER_UNDERLINE_MINUS = 'folder-underline-minus',
-  FOLDER_UNDERLINE_PLUS = 'folder-underline-plus',
-  FOLDER_UNDERLINE = 'folder-underline',
   FOLDER_ARROW_DOWN_LEFT = 'folder-arrow-down-left',
   FOLDER_ARROW_DOWN = 'folder-arrow-down',
   FOLDER_ARROW_UP_RIGHT = 'folder-arrow-up-right',
   FOLDER_CROSS = 'folder-cross',
   FOLDER_DOT = 'folder-dot',
   FOLDER_MINUS = 'folder-minus',
+  FOLDER_OPEN = 'folder-open',
   FOLDER_PLUS = 'folder-plus',
+  FOLDER_UNDERLINE_MINUS = 'folder-underline-minus',
+  FOLDER_UNDERLINE_PLUS = 'folder-underline-plus',
+  FOLDER_UNDERLINE = 'folder-underline',
   FOLDER = 'folder',
   FORVARD_STEP = 'forvard-step',
   FORWARD = 'forward',
@@ -2150,6 +2170,7 @@ export enum PrizmIconsEnum {
   HOUSE_MINI = 'house-mini',
   HOUSE = 'house',
   IMAGE = 'image',
+  IMPORTERS_ZQL = 'importers-zql',
   INDENT_ARROW_LEFT = 'indent-arrow-left',
   INDENT_ARROW_RIGHT = 'indent-arrow-right',
   INFINITY = 'infinity',
@@ -2201,9 +2222,9 @@ export enum PrizmIconsEnum {
   LINK_PLUS = 'link-plus',
   LINK_SIMPLE_H = 'link-simple-h',
   LINK_SIMPLE = 'link-simple',
-  LIST_SQUARE = 'list-square',
   LIST_FILL = 'list-fill',
   LIST_OL = 'list-ol',
+  LIST_SQUARE = 'list-square',
   LIST_TREE_ARCHIVE = 'list-tree-archive',
   LIST_TREE = 'list-tree',
   LIST_UL = 'list-ul',
@@ -2224,6 +2245,7 @@ export enum PrizmIconsEnum {
   MAGNIFYING_GLASS_MINUS = 'magnifying-glass-minus',
   MAGNIFYING_GLASS_ONTOLOGY = 'magnifying-glass-ontology',
   MAGNIFYING_GLASS_PLUS = 'magnifying-glass-plus',
+  MAGNIFYING_GLASS_QR_CODE = 'magnifying-glass-qr-code',
   MAGNIFYING_GLASS_TAGS_WORDS = 'magnifying-glass-tags-words',
   MAGNIFYING_GLASS_TOP_FROM_BRACKET = 'magnifying-glass-top-from-bracket',
   MAGNIFYING_GLASS_TRIANGLE_DOWN = 'magnifying-glass-triangle-down',
@@ -2271,7 +2293,7 @@ export enum PrizmIconsEnum {
   OIL_CANISTER = 'oil-canister',
   OIL_DROPLET_ARROWS_ALL = 'oil-droplet-arrows-all',
   OIL_DROPLET_ARROWS_REPEAT_H = 'oil-droplet-arrows-repeat-h',
-  OIL_DROPLET_CHEK = 'oil-droplet-chek',
+  OIL_DROPLET_CHECK = 'oil-droplet-check',
   OIL_DROPLET = 'oil-droplet',
   OIL_FIELD = 'oil-field',
   OIL_TANK = 'oil-tank',
@@ -2485,6 +2507,7 @@ export enum PrizmIconsEnum {
   TRAIN_CARGO = 'train-cargo',
   TRAIN_PASSENGER = 'train-passenger',
   TRANSMITTER = 'transmitter',
+  TRASH_DROP = 'trash-drop',
   TRASH_EMPTY = 'trash-empty',
   TRASH = 'trash',
   TRIANGLE_CIRCLE_SQUARE_FILL = 'triangle-circle-square-fill',
@@ -2510,7 +2533,6 @@ export enum PrizmIconsEnum {
   TV = 'tv',
   UMBRELLA = 'umbrella',
   UNDERLINED = 'underlined',
-  UNION = 'union',
   UNLOCK = 'unlock',
   USER_ARROWS_SWAP = 'user-arrows-swap',
   USER_CARD = 'user-card',
@@ -2521,6 +2543,7 @@ export enum PrizmIconsEnum {
   USER_GROUP = 'user-group',
   USER_LOCATION = 'user-location',
   USER_MINUS = 'user-minus',
+  USER_PEN = 'user-pen',
   USER_PLUS = 'user-plus',
   USER_SHIELD = 'user-shield',
   USER_WORKER = 'user-worker',
@@ -2570,5 +2593,6 @@ export enum PrizmIconsEnum {
   WRENCH = 'wrench',
   XMARK_COLUMN_RIGHT = 'xmark-column-right',
   XMARK_COLUMN_TOP = 'xmark-column-top',
+  XMARK_MINI = 'xmark-mini',
   XMARK = 'xmark',
 }

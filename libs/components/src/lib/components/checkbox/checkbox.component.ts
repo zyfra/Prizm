@@ -25,7 +25,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsMinus } from '@prizm-ui/icons/full/source/minus';
-import { prizmIconsChek } from '@prizm-ui/icons/full/source/chek';
+import { prizmIconsCheck } from '@prizm-ui/icons/full/source/check';
 
 @Component({
   selector: 'prizm-checkbox',
@@ -87,7 +87,7 @@ export class PrizmCheckboxComponent
       this.ngControl.valueAccessor = this;
     }
 
-    this.iconsFullRegistry.registerIcons(prizmIconsMinus, prizmIconsChek);
+    this.iconsFullRegistry.registerIcons(prizmIconsMinus, prizmIconsCheck);
   }
 
   ngOnInit(): void {

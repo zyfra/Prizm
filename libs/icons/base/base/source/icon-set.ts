@@ -121,6 +121,7 @@ import { prizmIconsBellSlash } from './bell-slash/prizmIcons-bell-slash.icon';
 import { prizmIconsBell } from './bell/prizmIcons-bell.icon';
 import { prizmIconsBezierCurve } from './bezier-curve/prizmIcons-bezier-curve.icon';
 import { prizmIconsBitcoin } from './bitcoin/prizmIcons-bitcoin.icon';
+import { prizmIconsBlockLines } from './block-lines/prizmIcons-block-lines.icon';
 import { prizmIconsBluetooth } from './bluetooth/prizmIcons-bluetooth.icon';
 import { prizmIconsBoilerHotWaterGasAndOil } from './boiler-hot-water-gas-and-oil/prizmIcons-boiler-hot-water-gas-and-oil.icon';
 import { prizmIconsBoiler } from './boiler/prizmIcons-boiler.icon';
@@ -133,7 +134,7 @@ import { prizmIconsBookOpenReArrowRight } from './book-open-re-arrow-right/prizm
 import { prizmIconsBookOpenText } from './book-open-text/prizmIcons-book-open-text.icon';
 import { prizmIconsBookOpenWithPage } from './book-open-with-page/prizmIcons-book-open-with-page.icon';
 import { prizmIconsBookOpen } from './book-open/prizmIcons-book-open.icon';
-import { prizmIconsBookStack } from './book-stack/prizmIcons-book_stack.icon';
+import { prizmIconsBookStack } from './book-stack/prizmIcons-book-stack.icon';
 import { prizmIconsBookmarkCheckFill } from './bookmark-check-fill/prizmIcons-bookmark-check-fill.icon';
 import { prizmIconsBookmarkCheck } from './bookmark-check/prizmIcons-bookmark-check.icon';
 import { prizmIconsBookmarkCrossFill } from './bookmark-cross-fill/prizmIcons-bookmark-cross-fill.icon';
@@ -200,8 +201,8 @@ import { prizmIconsCellphoneWireless } from './cellphone-wireless/prizmIcons-cel
 import { prizmIconsCellphone } from './cellphone/prizmIcons-cellphone.icon';
 import { prizmIconsChartsIqcZql } from './charts-iqc-zql/prizmIcons-charts-iqc-zql.icon';
 import { prizmIconsCheckDouble } from './check-double/prizmIcons-check-double.icon';
+import { prizmIconsCheck } from './check/prizmIcons-check.icon';
 import { prizmIconsCheckerboard } from './checkerboard/prizmIcons-checkerboard.icon';
-import { prizmIconsChek } from './chek/prizmIcons-chek.icon';
 import { prizmIconsChevronDownToDoubleLine } from './chevron-down-to-double-line/prizmIcons-chevron-down-to-double-line.icon';
 import { prizmIconsChevronDown } from './chevron-down/prizmIcons-chevron-down.icon';
 import { prizmIconsChevronLeft } from './chevron-left/prizmIcons-chevron-left.icon';
@@ -216,12 +217,12 @@ import { prizmIconsChevronsDoubleMiniLeft } from './chevrons-double-mini-left/pr
 import { prizmIconsChevronsDoubleMiniRight } from './chevrons-double-mini-right/prizmIcons-chevrons-double-mini-right.icon';
 import { prizmIconsChevronsDoubleRight } from './chevrons-double-right/prizmIcons-chevrons-double-right.icon';
 import { prizmIconsChevronsDoubleUp } from './chevrons-double-up/prizmIcons-chevrons-double-up.icon';
-import { prizmIconsChevronsInsideHorizontally } from './chevrons-inside-horizontally/prizmIcons-chevrons-inside_horizontally.icon';
-import { prizmIconsChevronsInsideVertically } from './chevrons-inside-vertically/prizmIcons-chevrons-inside_vertically.icon';
-import { prizmIconsChevronsOutsideHorizontally } from './chevrons-outside-horizontally/prizmIcons-chevrons-outside_horizontally.icon';
-import { prizmIconsChevronsOutsideVertically } from './chevrons-outside-vertically/prizmIcons-chevrons-outside_vertically.icon';
-import { prizmIconsCircleChekEmpty } from './circle-chek-empty/prizmIcons-circle-chek-empty.icon';
-import { prizmIconsCircleChekFill } from './circle-chek-fill/prizmIcons-circle-chek-fill.icon';
+import { prizmIconsChevronsInsideHorizontally } from './chevrons-inside-horizontally/prizmIcons-chevrons-inside-horizontally.icon';
+import { prizmIconsChevronsInsideVertically } from './chevrons-inside-vertically/prizmIcons-chevrons-inside-vertically.icon';
+import { prizmIconsChevronsOutsideHorizontally } from './chevrons-outside-horizontally/prizmIcons-chevrons-outside-horizontally.icon';
+import { prizmIconsChevronsOutsideVertically } from './chevrons-outside-vertically/prizmIcons-chevrons-outside-vertically.icon';
+import { prizmIconsCircleCheckEmpty } from './circle-check-empty/prizmIcons-circle-check-empty.icon';
+import { prizmIconsCircleCheckFill } from './circle-check-fill/prizmIcons-circle-check-fill.icon';
 import { prizmIconsCircleExclamationEmpty } from './circle-exclamation-empty/prizmIcons-circle-exclamation-empty.icon';
 import { prizmIconsCircleExclamationFill } from './circle-exclamation-fill/prizmIcons-circle-exclamation-fill.icon';
 import { prizmIconsCircleInHexagon } from './circle-in-hexagon/prizmIcons-circle-in-hexagon.icon';
@@ -251,9 +252,9 @@ import { prizmIconsClockLineEnd } from './clock-line-end/prizmIcons-clock-line-e
 import { prizmIconsClockRotateLeft } from './clock-rotate-left/prizmIcons-clock-rotate-left.icon';
 import { prizmIconsClockRotateRight } from './clock-rotate-right/prizmIcons-clock-rotate-right.icon';
 import { prizmIconsClock } from './clock/prizmIcons-clock.icon';
-import { prizmIconsCloudArrowDown } from './cloud-arrow-down/prizmIcons-cloud-arrow_down.icon';
-import { prizmIconsCloudArrowUp } from './cloud-arrow-up/prizmIcons-cloud-arrow_up.icon';
-import { prizmIconsCloudArrowUpInside } from './cloud-arrow-up-inside/prizmIcons-cloud-arrow_up_inside.icon';
+import { prizmIconsCloudArrowDown } from './cloud-arrow-down/prizmIcons-cloud-arrow-down.icon';
+import { prizmIconsCloudArrowUp } from './cloud-arrow-up/prizmIcons-cloud-arrow-up.icon';
+import { prizmIconsCloudArrowUpInside } from './cloud-arrow-up-inside/prizmIcons-cloud-arrow-up_inside.icon';
 import { prizmIconsCloudCheck } from './cloud-check/prizmIcons-cloud-check.icon';
 import { prizmIconsCloud } from './cloud/prizmIcons-cloud.icon';
 import { prizmIconsCodeDownload } from './code-download/prizmIcons-code-download.icon';
@@ -286,7 +287,7 @@ import { prizmIconsCubeFill } from './cube-fill/prizmIcons-cube-fill.icon';
 import { prizmIconsCubes } from './cubes/prizmIcons-cubes.icon';
 import { prizmIconsDashboardFill } from './dashboard-fill/prizmIcons-dashboard-fill.icon';
 import { prizmIconsDashboardVariantFill } from './dashboard-variant-fill/prizmIcons-dashboard-variant-fill.icon';
-import { prizmIconsDatabaseChek } from './database-chek/prizmIcons-database-chek.icon';
+import { prizmIconsDatabaseCheck } from './database-check/prizmIcons-database-check.icon';
 import { prizmIconsDatabaseJson } from './database-json/prizmIcons-database-json.icon';
 import { prizmIconsDatabaseMagnifyingGlass } from './database-magnifying-glass/prizmIcons-database-magnifying-glass.icon';
 import { prizmIconsDatabaseMinus } from './database-minus/prizmIcons-database-minus.icon';
@@ -295,8 +296,8 @@ import { prizmIconsDatabaseSql } from './database-sql/prizmIcons-database-sql.ic
 import { prizmIconsDatabaseXmark } from './database-xmark/prizmIcons-database-xmark.icon';
 import { prizmIconsDatabase } from './database/prizmIcons-database.icon';
 import { prizmIconsDayFill } from './day-fill/prizmIcons-day-fill.icon';
-import { prizmIconsDecagramChekEmpty } from './decagram-chek-empty/prizmIcons-decagram-chek-empty.icon';
-import { prizmIconsDecagramChekFill } from './decagram-chek-fill/prizmIcons-decagram-chek-fill.icon';
+import { prizmIconsDecagramCheckEmpty } from './decagram-check-empty/prizmIcons-decagram-check-empty.icon';
+import { prizmIconsDecagramCheckFill } from './decagram-check-fill/prizmIcons-decagram-check-fill.icon';
 import { prizmIconsDecagramExclamationEmpty } from './decagram-exclamation-empty/prizmIcons-decagram-exclamation-empty.icon';
 import { prizmIconsDecagramExclamationFill } from './decagram-exclamation-fill/prizmIcons-decagram-exclamation-fill.icon';
 import { prizmIconsDefaultIco } from './default-ico/prizmIcons-default-ico.icon';
@@ -310,9 +311,12 @@ import { prizmIconsDropletSlash } from './droplet-slash/prizmIcons-droplet-slash
 import { prizmIconsDroplet } from './droplet/prizmIcons-droplet.icon';
 import { prizmIconsEarlyVersion } from './early-version/prizmIcons-early-version.icon';
 import { prizmIconsEarth } from './earth/prizmIcons-earth.icon';
+import { prizmIconsEditorAlfavit } from './editor-alfavit/prizmIcons-editor-alfavit.icon';
 import { prizmIconsEditorDown } from './editor-down/prizmIcons-editor-down.icon';
 import { prizmIconsEditorRight } from './editor-right/prizmIcons-editor-right.icon';
 import { prizmIconsElectrics } from './electrics/prizmIcons-electrics.icon';
+import { prizmIconsEllipsis2 } from './ellipsis2/prizmIcons-ellipsis-2.icon';
+import { prizmIconsEllipsis4 } from './ellipsis4/prizmIcons-ellipsis-4.icon';
 import { prizmIconsEllipsisGrid } from './ellipsis-grid/prizmIcons-ellipsis-grid.icon';
 import { prizmIconsEllipsisH } from './ellipsis-h/prizmIcons-ellipsis-h.icon';
 import { prizmIconsEllipsisV } from './ellipsis-v/prizmIcons-ellipsis-v.icon';
@@ -333,23 +337,23 @@ import { prizmIconsFactoryPipe } from './factory-pipe/prizmIcons-factory-pipe.ic
 import { prizmIconsFactoryPipes } from './factory-pipes/prizmIcons-factory-pipes.icon';
 import { prizmIconsFactory } from './factory/prizmIcons-factory.icon';
 import { prizmIconsFan } from './fan/prizmIcons-fan.icon';
+import { prizmIconsFileArrowDown } from './file-arrow-down/prizmIcons-file-arrow-down.icon';
+import { prizmIconsFileArrowDownLeft } from './file-arrow-down-left/prizmIcons-file-arrow-down_left.icon';
+import { prizmIconsFileArrowUp } from './file-arrow-up/prizmIcons-file-arrow-up.icon';
 import { prizmIconsFileArrow } from './file-arrow/prizmIcons-file-arrow.icon';
-import { prizmIconsFileArrowDown } from './file-arrow-down/prizmIcons-file-arrow_down.icon';
-import { prizmIconsFileArrowDownLeft } from './file-arrow-down-left/prizmIcons-file-arrow_down_left.icon';
-import { prizmIconsFileArrowUp } from './file-arrow-up/prizmIcons-file-arrow_up.icon';
-import { prizmIconsFileArrowsUpRight } from './file-arrows-up-right/prizmIcons-file-arrows_up_right.icon';
+import { prizmIconsFileArrowsUpRight } from './file-arrows-up-right/prizmIcons-file-arrows-up_right.icon';
 import { prizmIconsFileCamera } from './file-camera/prizmIcons-file-camera.icon';
+import { prizmIconsFileCrossOut } from './file-cross-out/prizmIcons-file-cross-out.icon';
 import { prizmIconsFileCross } from './file-cross/prizmIcons-file-cross.icon';
-import { prizmIconsFileCrossOut } from './file-cross-out/prizmIcons-file-cross_out.icon';
 import { prizmIconsFileDoc } from './file-doc/prizmIcons-file-doc.icon';
 import { prizmIconsFileDocx } from './file-docx/prizmIcons-file-docx.icon';
 import { prizmIconsFileDot } from './file-dot/prizmIcons-file-dot.icon';
 import { prizmIconsFileEmpty } from './file-empty/prizmIcons-file-empty.icon';
-import { prizmIconsFileExclamation } from './file-exclamation/prizmIcons-file-exclamation.icon';
+import { prizmIconsFileExclamatioт } from './file-exclamatioт/prizmIcons-file-exclamatioт.icon';
 import { prizmIconsFileEye } from './file-eye/prizmIcons-file-eye.icon';
 import { prizmIconsFileFilled } from './file-filled/prizmIcons-file-filled.icon';
 import { prizmIconsFileImage } from './file-image/prizmIcons-file-image.icon';
-import { prizmIconsFileMagnifyingGlass } from './file-magnifying-glass/prizmIcons-file-magnifying_glass.icon';
+import { prizmIconsFileMagnifyingGlass } from './file-magnifying-glass/prizmIcons-file-magnifying-glass.icon';
 import { prizmIconsFileMinus } from './file-minus/prizmIcons-file-minus.icon';
 import { prizmIconsFileMusic } from './file-music/prizmIcons-file-music.icon';
 import { prizmIconsFilePdf } from './file-pdf/prizmIcons-file-pdf.icon';
@@ -359,7 +363,7 @@ import { prizmIconsFilePlus } from './file-plus/prizmIcons-file-plus.icon';
 import { prizmIconsFilePpt } from './file-ppt/prizmIcons-file-ppt.icon';
 import { prizmIconsFilePptx } from './file-pptx/prizmIcons-file-pptx.icon';
 import { prizmIconsFileTxt } from './file-txt/prizmIcons-file-txt.icon';
-import { prizmIconsFileUpRight } from './file-up-right/prizmIcons-file-up_right.icon';
+import { prizmIconsFileUpRight } from './file-up-right/prizmIcons-file-up-right.icon';
 import { prizmIconsFileXls } from './file-xls/prizmIcons-file-xls.icon';
 import { prizmIconsFileXlsx } from './file-xlsx/prizmIcons-file-xlsx.icon';
 import { prizmIconsFilesMode } from './files-mode/prizmIcons-files-mode.icon';
@@ -376,23 +380,23 @@ import { prizmIconsFlagFill } from './flag-fill/prizmIcons-flag-fill.icon';
 import { prizmIconsFlag } from './flag/prizmIcons-flag.icon';
 import { prizmIconsFlaskRoundPotion } from './flask-round-potion/prizmIcons-flask-round-potion.icon';
 import { prizmIconsFlask } from './flask/prizmIcons-flask.icon';
+import { prizmIconsFloppyCrossOut } from './floppy-cross-out/prizmIcons-floppy-cross-out.icon';
 import { prizmIconsFloppyCross } from './floppy-cross/prizmIcons-floppy-cross.icon';
-import { prizmIconsFloppyCrossOut } from './floppy-cross-out/prizmIcons-floppy-cross_out.icon';
 import { prizmIconsFloppyPen } from './floppy-pen/prizmIcons-floppy-pen.icon';
 import { prizmIconsFloppyStar } from './floppy-star/prizmIcons-floppy-star.icon';
 import { prizmIconsFloppy } from './floppy/prizmIcons-floppy.icon';
-import { prizmIconsFolderArrowDown } from './folder-arrow-down/prizmIcons-folder-arrow_down.icon';
-import { prizmIconsFolderArrowDownLeft } from './folder-arrow-down-left/prizmIcons-folder-arrow_down_left.icon';
-import { prizmIconsFolderArrowUpRight } from './folder-arrow-up-right/prizmIcons-folder-arrow_up_right.icon';
+import { prizmIconsFolderArrowDown } from './folder-arrow-down/prizmIcons-folder-arrow-down.icon';
+import { prizmIconsFolderArrowDownLeft } from './folder-arrow-down-left/prizmIcons-folder-arrow-down_left.icon';
+import { prizmIconsFolderArrowUpRight } from './folder-arrow-up-right/prizmIcons-folder-arrow-up_right.icon';
 import { prizmIconsFolderCross } from './folder-cross/prizmIcons-folder-cross.icon';
 import { prizmIconsFolderDot } from './folder-dot/prizmIcons-folder-dot.icon';
 import { prizmIconsFolderMinus } from './folder-minus/prizmIcons-folder-minus.icon';
+import { prizmIconsFolderOpen } from './folder-open/prizmIcons-folder-open.icon';
 import { prizmIconsFolderPlus } from './folder-plus/prizmIcons-folder-plus.icon';
+import { prizmIconsFolderUnderlineMinus } from './folder-underline-minus/prizmIcons-folder-underline-minus.icon';
+import { prizmIconsFolderUnderlinePlus } from './folder-underline-plus/prizmIcons-folder-underline-plus.icon';
+import { prizmIconsFolderUnderline } from './folder-underline/prizmIcons-folder-underline.icon';
 import { prizmIconsFolder } from './folder/prizmIcons-folder.icon';
-import { prizmIconsFolderOpen } from './folder-open/prizmIcons-folder_open.icon';
-import { prizmIconsFolderUnderlineMinus } from './folder-underline-minus/prizmIcons-folder_underline-minus.icon';
-import { prizmIconsFolderUnderlinePlus } from './folder-underline-plus/prizmIcons-folder_underline-plus.icon';
-import { prizmIconsFolderUnderline } from './folder-underline/prizmIcons-folder_underline.icon';
 import { prizmIconsForvardStep } from './forvard-step/prizmIcons-forvard-step.icon';
 import { prizmIconsForward } from './forward/prizmIcons-forward.icon';
 import { prizmIconsFuelOilTank } from './fuel-oil-tank/prizmIcons-fuel-oil-tank.icon';
@@ -485,11 +489,11 @@ import { prizmIconsLinkSimpleH } from './link-simple-h/prizmIcons-link-simple-h.
 import { prizmIconsLinkSimple } from './link-simple/prizmIcons-link-simple.icon';
 import { prizmIconsListFill } from './list-fill/prizmIcons-list-fill.icon';
 import { prizmIconsListOl } from './list-ol/prizmIcons-list-ol.icon';
+import { prizmIconsListSquare } from './list-square/prizmIcons-list-square.icon';
 import { prizmIconsListTreeArchive } from './list-tree-archive/prizmIcons-list-tree-archive.icon';
 import { prizmIconsListTree } from './list-tree/prizmIcons-list-tree.icon';
 import { prizmIconsListUl } from './list-ul/prizmIcons-list-ul.icon';
 import { prizmIconsList } from './list/prizmIcons-list.icon';
-import { prizmIconsListSquare } from './list-square/prizmIcons-list_square.icon';
 import { prizmIconsLngStorage } from './lng-storage/prizmIcons-lng-storage.icon';
 import { prizmIconsLoader } from './loader/prizmIcons-loader.icon';
 import { prizmIconsLocationArrow } from './location-arrow/prizmIcons-location-arrow.icon';
@@ -506,6 +510,7 @@ import { prizmIconsMagnifyingGlassExclamation } from './magnifying-glass-exclama
 import { prizmIconsMagnifyingGlassMinus } from './magnifying-glass-minus/prizmIcons-magnifying-glass-minus.icon';
 import { prizmIconsMagnifyingGlassOntology } from './magnifying-glass-ontology/prizmIcons-magnifying-glass-ontology.icon';
 import { prizmIconsMagnifyingGlassPlus } from './magnifying-glass-plus/prizmIcons-magnifying-glass-plus.icon';
+import { prizmIconsMagnifyingGlassQrCode } from './magnifying-glass-qr-code/prizmIcons-magnifying-glass-qr-code.icon';
 import { prizmIconsMagnifyingGlassTagsWords } from './magnifying-glass-tags-words/prizmIcons-magnifying-glass-tags-words.icon';
 import { prizmIconsMagnifyingGlassTopFromBracket } from './magnifying-glass-top-from-bracket/prizmIcons-magnifying-glass-top-from-bracket.icon';
 import { prizmIconsMagnifyingGlassTriangleDown } from './magnifying-glass-triangle-down/prizmIcons-magnifying-glass-triangle-down.icon';
@@ -553,7 +558,7 @@ import { prizmIconsOilBarrel } from './oil-barrel/prizmIcons-oil-barrel.icon';
 import { prizmIconsOilCanister } from './oil-canister/prizmIcons-oil-canister.icon';
 import { prizmIconsOilDropletArrowsAll } from './oil-droplet-arrows-all/prizmIcons-oil-droplet-arrows-all.icon';
 import { prizmIconsOilDropletArrowsRepeatH } from './oil-droplet-arrows-repeat-h/prizmIcons-oil-droplet-arrows-repeat-h.icon';
-import { prizmIconsOilDropletChek } from './oil-droplet-chek/prizmIcons-oil-droplet-chek.icon';
+import { prizmIconsOilDropletCheck } from './oil-droplet-check/prizmIcons-oil-droplet-check.icon';
 import { prizmIconsOilDroplet } from './oil-droplet/prizmIcons-oil-droplet.icon';
 import { prizmIconsOilField } from './oil-field/prizmIcons-oil-field.icon';
 import { prizmIconsOilTank } from './oil-tank/prizmIcons-oil-tank.icon';
@@ -692,8 +697,8 @@ import { prizmIconsSortFilterRemove } from './sort-filter-remove/prizmIcons-sort
 import { prizmIconsSpecification } from './specification/prizmIcons-specification.icon';
 import { prizmIconsSpecsZql } from './specs-zql/prizmIcons-specs-zql.icon';
 import { prizmIconsSpeedReductionCooling } from './speed-reduction-cooling/prizmIcons-speed-reduction-cooling.icon';
-import { prizmIconsSquareArrowsCurveRightDown } from './square-arrows-curve-right-down/prizmIcons-square-arrows_curve_right_down.icon';
-import { prizmIconsSquareArrowsCurveUpRight } from './square-arrows-curve-up-right/prizmIcons-square-arrows_curve_up_right.icon';
+import { prizmIconsSquareArrowsCurveRightDown } from './square-arrows-curve-right-down/prizmIcons-square-arrows-curve-right-down.icon';
+import { prizmIconsSquareArrowsCurveUpRight } from './square-arrows-curve-up-right/prizmIcons-square-arrows-curve-up-right.icon';
 import { prizmIconsSquareBracketCurlyLeft } from './square-bracket-curly-left/prizmIcons-square-bracket-curly-left.icon';
 import { prizmIconsSquareBracketCurlyRight } from './square-bracket-curly-right/prizmIcons-square-bracket-curly-right.icon';
 import { prizmIconsSquareBracketLeft } from './square-bracket-left/prizmIcons-square-bracket-left.icon';
@@ -767,6 +772,7 @@ import { prizmIconsTouchpad } from './touchpad/prizmIcons-touchpad.icon';
 import { prizmIconsTrainCargo } from './train-cargo/prizmIcons-train-cargo.icon';
 import { prizmIconsTrainPassenger } from './train-passenger/prizmIcons-train-passenger.icon';
 import { prizmIconsTransmitter } from './transmitter/prizmIcons-transmitter.icon';
+import { prizmIconsTrashDrop } from './trash-drop/prizmIcons-trash-drop.icon';
 import { prizmIconsTrashEmpty } from './trash-empty/prizmIcons-trash-empty.icon';
 import { prizmIconsTrash } from './trash/prizmIcons-trash.icon';
 import { prizmIconsTriangleCircleSquareFill } from './triangle-circle-square-fill/prizmIcons-triangle-circle-square-fill.icon';
@@ -825,9 +831,9 @@ import { prizmIconsVectorRectangle } from './vector-rectangle/prizmIcons-vector-
 import { prizmIconsVectorSquare } from './vector-square/prizmIcons-vector-square.icon';
 import { prizmIconsVectorTriangle } from './vector-triangle/prizmIcons-vector-triangle.icon';
 import { prizmIconsVectorsRadius } from './vectors-radius/prizmIcons-vectors-radius.icon';
-import { prizmIconsVialArrowRotateLeft } from './vial-arrow-rotate-left/prizmIcons-vial-arrow-rotate-left.icon';
 import { prizmIconsVialFlask } from './vial-flask/prizmIcons-vial-flask.icon';
 import { prizmIconsVialPlus } from './vial-plus/prizmIcons-vial-plus.icon';
+import { prizmIconsVialRotateLeft } from './vial-rotate-left/prizmIcons-vial-rotate-left.icon';
 import { prizmIconsVialXmark } from './vial-xmark/prizmIcons-vial-xmark.icon';
 import { prizmIconsVial } from './vial/prizmIcons-vial.icon';
 import { prizmIconsVideoCross } from './video-cross/prizmIcons-video-cross.icon';
@@ -979,6 +985,7 @@ export const PRIZM_ICONS_SET = [
   prizmIconsBell,
   prizmIconsBezierCurve,
   prizmIconsBitcoin,
+  prizmIconsBlockLines,
   prizmIconsBluetooth,
   prizmIconsBoilerHotWaterGasAndOil,
   prizmIconsBoiler,
@@ -1058,8 +1065,8 @@ export const PRIZM_ICONS_SET = [
   prizmIconsCellphone,
   prizmIconsChartsIqcZql,
   prizmIconsCheckDouble,
+  prizmIconsCheck,
   prizmIconsCheckerboard,
-  prizmIconsChek,
   prizmIconsChevronDownToDoubleLine,
   prizmIconsChevronDown,
   prizmIconsChevronLeft,
@@ -1078,8 +1085,8 @@ export const PRIZM_ICONS_SET = [
   prizmIconsChevronsInsideVertically,
   prizmIconsChevronsOutsideHorizontally,
   prizmIconsChevronsOutsideVertically,
-  prizmIconsCircleChekEmpty,
-  prizmIconsCircleChekFill,
+  prizmIconsCircleCheckEmpty,
+  prizmIconsCircleCheckFill,
   prizmIconsCircleExclamationEmpty,
   prizmIconsCircleExclamationFill,
   prizmIconsCircleInHexagon,
@@ -1144,7 +1151,7 @@ export const PRIZM_ICONS_SET = [
   prizmIconsCubes,
   prizmIconsDashboardFill,
   prizmIconsDashboardVariantFill,
-  prizmIconsDatabaseChek,
+  prizmIconsDatabaseCheck,
   prizmIconsDatabaseJson,
   prizmIconsDatabaseMagnifyingGlass,
   prizmIconsDatabaseMinus,
@@ -1153,8 +1160,8 @@ export const PRIZM_ICONS_SET = [
   prizmIconsDatabaseXmark,
   prizmIconsDatabase,
   prizmIconsDayFill,
-  prizmIconsDecagramChekEmpty,
-  prizmIconsDecagramChekFill,
+  prizmIconsDecagramCheckEmpty,
+  prizmIconsDecagramCheckFill,
   prizmIconsDecagramExclamationEmpty,
   prizmIconsDecagramExclamationFill,
   prizmIconsDefaultIco,
@@ -1168,9 +1175,12 @@ export const PRIZM_ICONS_SET = [
   prizmIconsDroplet,
   prizmIconsEarlyVersion,
   prizmIconsEarth,
+  prizmIconsEditorAlfavit,
   prizmIconsEditorDown,
   prizmIconsEditorRight,
   prizmIconsElectrics,
+  prizmIconsEllipsis2,
+  prizmIconsEllipsis4,
   prizmIconsEllipsisGrid,
   prizmIconsEllipsisH,
   prizmIconsEllipsisV,
@@ -1191,19 +1201,19 @@ export const PRIZM_ICONS_SET = [
   prizmIconsFactoryPipes,
   prizmIconsFactory,
   prizmIconsFan,
-  prizmIconsFileArrow,
   prizmIconsFileArrowDown,
   prizmIconsFileArrowDownLeft,
   prizmIconsFileArrowUp,
+  prizmIconsFileArrow,
   prizmIconsFileArrowsUpRight,
   prizmIconsFileCamera,
-  prizmIconsFileCross,
   prizmIconsFileCrossOut,
+  prizmIconsFileCross,
   prizmIconsFileDoc,
   prizmIconsFileDocx,
   prizmIconsFileDot,
   prizmIconsFileEmpty,
-  prizmIconsFileExclamation,
+  prizmIconsFileExclamatioт,
   prizmIconsFileEye,
   prizmIconsFileFilled,
   prizmIconsFileImage,
@@ -1234,8 +1244,8 @@ export const PRIZM_ICONS_SET = [
   prizmIconsFlag,
   prizmIconsFlaskRoundPotion,
   prizmIconsFlask,
-  prizmIconsFloppyCross,
   prizmIconsFloppyCrossOut,
+  prizmIconsFloppyCross,
   prizmIconsFloppyPen,
   prizmIconsFloppyStar,
   prizmIconsFloppy,
@@ -1245,12 +1255,12 @@ export const PRIZM_ICONS_SET = [
   prizmIconsFolderCross,
   prizmIconsFolderDot,
   prizmIconsFolderMinus,
-  prizmIconsFolderPlus,
-  prizmIconsFolder,
   prizmIconsFolderOpen,
+  prizmIconsFolderPlus,
   prizmIconsFolderUnderlineMinus,
   prizmIconsFolderUnderlinePlus,
   prizmIconsFolderUnderline,
+  prizmIconsFolder,
   prizmIconsForvardStep,
   prizmIconsForward,
   prizmIconsFuelOilTank,
@@ -1343,11 +1353,11 @@ export const PRIZM_ICONS_SET = [
   prizmIconsLinkSimple,
   prizmIconsListFill,
   prizmIconsListOl,
+  prizmIconsListSquare,
   prizmIconsListTreeArchive,
   prizmIconsListTree,
   prizmIconsListUl,
   prizmIconsList,
-  prizmIconsListSquare,
   prizmIconsLngStorage,
   prizmIconsLoader,
   prizmIconsLocationArrow,
@@ -1364,6 +1374,7 @@ export const PRIZM_ICONS_SET = [
   prizmIconsMagnifyingGlassMinus,
   prizmIconsMagnifyingGlassOntology,
   prizmIconsMagnifyingGlassPlus,
+  prizmIconsMagnifyingGlassQrCode,
   prizmIconsMagnifyingGlassTagsWords,
   prizmIconsMagnifyingGlassTopFromBracket,
   prizmIconsMagnifyingGlassTriangleDown,
@@ -1411,7 +1422,7 @@ export const PRIZM_ICONS_SET = [
   prizmIconsOilCanister,
   prizmIconsOilDropletArrowsAll,
   prizmIconsOilDropletArrowsRepeatH,
-  prizmIconsOilDropletChek,
+  prizmIconsOilDropletCheck,
   prizmIconsOilDroplet,
   prizmIconsOilField,
   prizmIconsOilTank,
@@ -1625,6 +1636,7 @@ export const PRIZM_ICONS_SET = [
   prizmIconsTrainCargo,
   prizmIconsTrainPassenger,
   prizmIconsTransmitter,
+  prizmIconsTrashDrop,
   prizmIconsTrashEmpty,
   prizmIconsTrash,
   prizmIconsTriangleCircleSquareFill,
@@ -1683,9 +1695,9 @@ export const PRIZM_ICONS_SET = [
   prizmIconsVectorSquare,
   prizmIconsVectorTriangle,
   prizmIconsVectorsRadius,
-  prizmIconsVialArrowRotateLeft,
   prizmIconsVialFlask,
   prizmIconsVialPlus,
+  prizmIconsVialRotateLeft,
   prizmIconsVialXmark,
   prizmIconsVial,
   prizmIconsVideoCross,

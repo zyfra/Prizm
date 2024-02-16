@@ -1,1 +1,1 @@
-export * from './prizmIcons-square-arrows_curve_right_down.icon';
+export * from './prizmIcons-square-arrows-curve-right-down.icon';
