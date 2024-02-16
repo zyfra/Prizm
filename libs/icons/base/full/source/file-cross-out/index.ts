@@ -1,1 +1,1 @@
-export * from './prizmIcons-file-cross_out.icon';
+export * from './prizmIcons-file-cross-out.icon';

@@ -1,1 +1,1 @@
-export * from './prizmIcons-file-magnifying_glass.icon';
+export * from './prizmIcons-file-magnifying-glass.icon';

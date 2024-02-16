@@ -1,1 +1,1 @@
-export * from './prizmIcons-list_square.icon';
+export * from './prizmIcons-list-square.icon';

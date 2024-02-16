@@ -39,7 +39,7 @@ import { PrizmDataListComponent } from '../data-list';
 import { PrizmPrimitiveCalendarRangeModule } from '../internal';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsChek } from '@prizm-ui/icons/full/source/chek';
+import { prizmIconsCheck } from '@prizm-ui/icons/full/source/check';
 
 @Component({
   selector: `prizm-calendar-range`,
@@ -121,7 +121,7 @@ export class PrizmCalendarRangeComponent
     @Inject(PRIZM_OTHER_DATE_TEXT) readonly otherDateText$: Observable<string>
   ) {
     super();
-    iconsFullRegistry.registerIcons(prizmIconsChek);
+    iconsFullRegistry.registerIcons(prizmIconsCheck);
     if (!valueChanges) {
       return;
     }

@@ -8,6 +8,7 @@ import {
 } from '@prizm-ui/icons';
 import { copyToClipboard } from '../../../../util';
 import { PrizmNonNullableProperties } from '@prizm-ui/helpers';
+import { IconOldDefs } from './const';
 
 type IconObj = {
   old: string;
@@ -22,14 +23,14 @@ type IconObj = {
   providers: [prizmIconsProvideOldNameTransformer()],
 })
 export class OldIconComponent {
-  // readonly oldIcons = IconDefs.reduce((a: unknown[], c) => a.concat(c.data), []);
-  // readonly iconsNew = this.oldIcons.map(name => ({
-  //   old: name,
-  //   new: prizmIconsGetNameByOld(name as keyof typeof PRIZM_OLD_ICONS_REPLACE_SET),
-  // }));
-  // readonly existIcons = this.iconsNew.filter(obj => obj.new) as PrizmNonNullableProperties<IconObj>[];
-  // readonly removedIcons = this.iconsNew.filter(obj => !obj.new);
-  // public defs = IconDefs;
+  readonly oldIcons = IconOldDefs.reduce((a: unknown[], c) => a.concat(c.data), []);
+  readonly iconsNew = this.oldIcons.map(name => ({
+    old: name,
+    new: prizmIconsGetNameByOld(name as keyof typeof PRIZM_OLD_ICONS_REPLACE_SET),
+  }));
+  readonly existIcons = this.iconsNew.filter(obj => obj.new) as PrizmNonNullableProperties<IconObj>[];
+  readonly removedIcons = this.iconsNew.filter(obj => !obj.new);
+  public defs = IconOldDefs;
 
   constructor(
     @Inject(Clipboard) public readonly clipboard: Clipboard,

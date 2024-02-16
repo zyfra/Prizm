@@ -18,6 +18,16 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
   const pathToFolder = path.join(__dirname, '../../../../', options.src);
   const locationPostfix = options.locationPostfix ?? '-location';
   const separateLocation = options.separateLocation ?? true;
+
+  if (fs.existsSync(destinationFolder)) {
+    console.log('Removing old destination folder...');
+    fs.rmdirSync(destinationFolder, { recursive: true });
+
+    console.log('Creating new destination empty folder...');
+
+    createDirectoriesSafely(destinationFolder);
+  }
+
   // Check the existence of the source folder
   if (!fs.existsSync(pathToFolder)) {
     return { success: false };
@@ -25,6 +35,7 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
   // Read the contents of the source folder and get a list of files
   const files = fs.readdirSync(pathToFolder);
 
+  console.log('Counted files - ' + files.length);
   // If the source folder is empty, return false
   if (!files.length) {
     return { success: false };
@@ -34,6 +45,7 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
   const pathToOutputFixedSvg = options.pathToOutputFixedSvg;
   let svgForFontSource = pathToFolder;
   if (fixSvgForFont && pathToOutputFixedSvg) {
+    console.log('Fixing svg');
     const fullPathToOutputFixedSvg = path.join(__dirname, '../../../../', pathToOutputFixedSvg);
 
     if (!fs.existsSync(fullPathToOutputFixedSvg)) {

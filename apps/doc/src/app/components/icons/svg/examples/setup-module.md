@@ -14,7 +14,7 @@ import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 export class MyModule {}
 ```
 
-```bash
+```text
  # Использование шрифтов
  # Добавить в конфиг файл ангуляра для использования шрифтов
  "styles": [

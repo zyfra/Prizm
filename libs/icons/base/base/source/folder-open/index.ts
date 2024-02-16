@@ -1,1 +1,1 @@
-export * from './prizmIcons-folder_open.icon';
+export * from './prizmIcons-folder-open.icon';
