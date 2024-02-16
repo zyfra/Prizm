@@ -15,7 +15,7 @@ export class PrizmTabsService implements OnDestroy {
     return this.changeParent$_;
   }
   readonly closeTab$$ = new Subject<Map<number, PrizmTabComponent>>();
-  private readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
+  public readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
   readonly activeTabIdx$ = this.activeTabIdx$$.pipe(distinctUntilChanged());
 
   get activeTabIdx() {
@@ -72,6 +72,11 @@ export class PrizmTabsService implements OnDestroy {
     this.changes$$.next(this.tabs);
   }
 
+  public addTab(tab: PrizmTabComponent, tabIdx: number): void {
+    this.tabs.set(tabIdx, tab);
+    this.changes$$.next(this.tabs);
+  }
+
   public removeTab(tab: PrizmTabComponent): void {
     const idx = this.findTabIdx(tab);
     this.tabs.delete(idx);
@@ -94,7 +99,6 @@ export class PrizmTabsService implements OnDestroy {
   }
   public selectTab(tab: PrizmTabComponent): void {
     const idx = this.findTabIdx(tab);
-
     if (idx === -1) {
       return;
     }
