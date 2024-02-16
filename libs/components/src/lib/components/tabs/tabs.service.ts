@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, combineLatest, concat, Observable, of, Subject } from 'rxjs';
-import { distinctUntilChanged, filter, map, startWith, take, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabComponent } from './components/tab.component';
 import { filterTruthy, PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
@@ -46,6 +46,14 @@ export class PrizmTabsService implements OnDestroy {
 
   public getTabByIdx(idx: number): PrizmTabComponent {
     return this.tabs.get(idx) as PrizmTabComponent;
+  }
+
+  public close(tabIdx: number): boolean {
+    const tab = this.getTabByIdx(tabIdx);
+    if (!tab) return false;
+
+    tab.close();
+    return true;
   }
 
   public moveTab(idx: number, toIndex: number, tab: PrizmTabComponent): void {
