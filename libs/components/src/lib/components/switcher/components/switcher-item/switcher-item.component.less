@@ -50,8 +50,11 @@
     overflow: hidden;
 
     &_active_disabled {
-      background: var(--prizm-v3-button-secondary-ghost-active);
-      color: var(--prizm-v3-button-secondary-solid-active);
+      ::ng-deep prizm-wrapper {
+        &[data-state='disabled'][data-state='disabled'] {
+          background: var(--prizm-v3-button-disable);
+        }
+      }
     }
 
     &_icon {
