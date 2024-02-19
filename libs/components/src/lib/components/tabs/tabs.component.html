@@ -105,7 +105,7 @@
                   [class.hidden]="!tab.closable"
                   [iconClass]="'cancel-close'"
                   [size]="16"
-                  (click)="closeTab($any(tabElement.idx))"
+                  (click)="closeTab(tabElement.idx!)"
                 ></prizm-icon>
               </ng-container>
             </prizm-listing-item>

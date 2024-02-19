@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { IBreadcrumb } from '@prizm-ui/components';
+import { map, timer } from 'rxjs';
 
 @Component({
   selector: 'prizm-breadcrumbs-example-projection',
@@ -13,6 +14,8 @@ export class BreadcrumbsExampleProjectionComponent {
     { link: '/components/split-button', name: 'Split' },
     { link: '/components/icon-button', name: 'Icon' },
   ];
+
+  breadcrumbs$ = timer(2000).pipe(map(() => this.breadcrumbs));
 
   private currentBreadcrumb: IBreadcrumb | null = null;
 

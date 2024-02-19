@@ -32,7 +32,8 @@
       [style.--prizm-data-list-border]="0"
     >
       <div class="list-search-item" *ngIf="searchable">
-        <prizm-input-layout size="m" label="Поиск">
+        <!-- TODO remove default text value in 4.0, bc #dr -->
+        <prizm-input-layout [label]="(searchLabelTranslation$ | async) ?? 'Поиск'" size="m">
           <input
             class="input-search"
             #input

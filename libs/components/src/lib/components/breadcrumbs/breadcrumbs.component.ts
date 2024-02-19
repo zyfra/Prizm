@@ -15,7 +15,7 @@ import {
   ViewChildren,
 } from '@angular/core';
 import { IBreadcrumb } from './breadcrumb.interface';
-import { animationFrameScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
+import { animationFrameScheduler, asyncScheduler, BehaviorSubject, merge, Subject } from 'rxjs';
 import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
@@ -109,8 +109,10 @@ export class PrizmBreadcrumbsComponent<Breadcrumb extends IBreadcrumb>
       })
     );
 
-    merge($breadcrumbsChange, $mutation)
-      .pipe(debounceTime(200), takeUntil(this.destroy))
+    const $templateChage = this.breadcrumbsItem.changes.pipe(observeOn(animationFrameScheduler));
+
+    merge($breadcrumbsChange, $mutation, $templateChage)
+      .pipe(observeOn(asyncScheduler), takeUntil(this.destroy))
       .subscribe(() => this.cdRef.detectChanges());
   }
 

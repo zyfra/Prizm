@@ -9,7 +9,7 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmHintDirective } from '../../../../directives';
 import { CommonModule } from '@angular/common';
-import { PrizmButtonComponent, PrizmButtonModule } from '../../../button';
+import { PrizmButtonComponent } from '../../../button';
 
 @Component({
   selector: 'prizm-switcher-item',

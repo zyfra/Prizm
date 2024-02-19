@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import {
   PrizmButtonModule,
   PrizmHintDirective,
-  PrizmHintModule,
   PrizmIconComponent,
-  PrizmIconModule,
   PrizmInputTextModule,
 } from '@prizm-ui/components';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
