@@ -30,7 +30,7 @@ import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PrizmDateMode } from '../../../types/date-mode';
 import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
-import { PRIZM_DATE_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
+import { PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
@@ -247,7 +247,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     @Optional()
-    @Inject(PRIZM_DATE_RANGE_VALUE_TRANSFORMER)
+    @Inject(PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER)
     override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
   ) {
     super(injector);
