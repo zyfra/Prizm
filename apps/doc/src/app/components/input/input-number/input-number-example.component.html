@@ -66,7 +66,7 @@
               prizm-input-right
             ></prizm-input-number-auxiliary-controls>
 
-            <ng-template prizmInputStatusText>Текст статуса</ng-template>
+            <ng-template [control]="prizmInputNumber" prizmInputStatusText></ng-template>
           </prizm-input-layout>
         </div>
         <div>
@@ -93,6 +93,7 @@
             ></button>
 
             <input
+              #prizmCounter
               #inputCounter="prizmInputNumber"
               [formControl]="requiredInputControl"
               [min]="min"
@@ -117,7 +118,7 @@
               prizm-input-right
             ></button>
 
-            <ng-template prizmInputStatusText>Текст статуса</ng-template>
+            <ng-template [control]="prizmCounter" prizmInputStatusText></ng-template>
           </prizm-input-layout>
         </div>
       </div>

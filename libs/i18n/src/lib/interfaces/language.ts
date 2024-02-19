@@ -21,6 +21,11 @@ export interface PrizmLanguageInputLayoutDateRelative {
     wrongFormat: string;
   };
 }
+export interface PrizmLanguageInputLayoutDateTime {
+  inputLayoutDateTime: {
+    wrongFormat: string;
+  };
+}
 export interface PrizmLanguageCron {
   cron: {
     title: string;
@@ -221,6 +226,7 @@ export interface PrizmLanguage
     PrizmLanguageMeta,
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
+    PrizmLanguageInputLayoutDateTime,
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
     PrizmLanguagePaginator {}
