@@ -89,6 +89,8 @@ import { PrizmInputSelectDataListDirective } from './input-select-data-list.dire
 import { BooleanInput } from '@angular/cdk/coercion';
 import { PrizmScrollbarDirective } from '../../scrollbar/scrollbar.directive';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { PRIZM_SEARCH_TEXT } from '../../../tokens';
+import { prizmI18nInitWithKey } from '../../../services';
 
 @Component({
   selector: 'prizm-input-select',
@@ -128,6 +130,7 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     PrizmDestroyService,
     PrizmInputSelectOptionService,
     { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
+    ...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search'),
   ],
   exportAs: 'prizmSelectInput',
 })
@@ -255,7 +258,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   });
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
-    @Inject(Injector) injector: Injector
+    @Inject(Injector) injector: Injector,
+    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>
   ) {
     super(injector);
   }

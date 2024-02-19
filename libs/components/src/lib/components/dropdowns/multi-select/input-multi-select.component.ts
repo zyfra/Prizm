@@ -47,6 +47,8 @@ import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmCheckboxComponent } from '../../checkbox';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { prizmI18nInitWithKey } from '../../../services';
+import { PRIZM_SEARCH_TEXT } from '../../../tokens/i18n';
 
 // TODO create abstract select component and move to abstract common logic
 @Component({
@@ -83,6 +85,7 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputMultiSelectComponent },
+    ...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search'),
   ],
 })
 export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
@@ -218,6 +221,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     return !this.value?.length;
   }
   constructor(
+    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>,
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
     @Inject(Injector) injector: Injector
   ) {
