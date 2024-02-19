@@ -15,7 +15,7 @@ export class PrizmTabsService implements OnDestroy {
     return this.changeParent$_;
   }
   readonly closeTab$$ = new Subject<Map<number, PrizmTabComponent>>();
-  public readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
+  private readonly activeTabIdx$$ = new BehaviorSubject<number>(0);
   readonly activeTabIdx$ = this.activeTabIdx$$.pipe(distinctUntilChanged());
 
   get activeTabIdx() {
