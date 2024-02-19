@@ -70,6 +70,7 @@ export class PrizmNavigationMenuGroupService<
     this.viewMode$$,
   ]).pipe(
     switchMap(([internalItems, viewMode]) => {
+      console.log(22222);
       if (viewMode === 'rubricator') {
         const rubricatorItems = toRubricatorItems(internalItems);
         rubricatorItems.forEach(rootLevelItem => this.temporaryExpandedItemsMap.set(rootLevelItem, false));
@@ -103,16 +104,21 @@ export class PrizmNavigationMenuGroupService<
     this.searchState$$,
   ]).pipe(
     map(([modeBasedItems, searchState]) => {
-      if (searchState.enabled && searchState.value === '') {
-        return [];
+      if (searchState.enabled) {
+        const searchValue =
+          searchState.value !== null && searchState.value !== undefined
+            ? searchState.value.toLowerCase()
+            : '';
+
+        const filtered = filterItems(modeBasedItems, item => item.text.toLowerCase().includes(searchValue));
+        if (searchValue !== '') {
+          traverseAllDeep(filtered, item => this.temporaryExpandedItemsMap.set(item, true));
+        }
+        return filtered;
       }
 
-      if (searchState.enabled) {
-        const filtered = filterItems(modeBasedItems, item =>
-          item.text.toLowerCase().includes(searchState.value.toLowerCase())
-        );
-        traverseAllDeep(filtered, item => this.temporaryExpandedItemsMap.set(item, true));
-        return filtered;
+      if (!searchState.enabled) {
+        this.temporaryExpandedItemsMap.clear();
       }
 
       return modeBasedItems;

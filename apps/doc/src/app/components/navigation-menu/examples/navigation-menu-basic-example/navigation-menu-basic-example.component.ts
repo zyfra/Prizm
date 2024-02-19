@@ -18,9 +18,13 @@ export class NavigationMenuBasicExampleComponent {
   };
 
   items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
+  activeItem: PrizmNavigationMenuItem;
 
   constructor(private readonly iconRegistry: PrizmIconsSvgRegistry, private cdr: ChangeDetectorRef) {
     this.iconRegistry.registerIcons(PRIZM_ICONS_SVG_SET);
+
+    const childItemsArray = this.items[0].children as PrizmNavigationMenuItem[];
+    this.activeItem = childItemsArray[0];
   }
 
   public toggleLoading(): void {
