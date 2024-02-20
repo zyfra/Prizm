@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/input-button): input button size set to 100% height of container
 - fix(components/input-date-time-range): incorrect injection token for date time value transformer #1364
 - fix(components/tabs): issue with close tabs logic #1360
+- fix(doc/input-mask): input mask demo placeholder property added
 
 ## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
 
