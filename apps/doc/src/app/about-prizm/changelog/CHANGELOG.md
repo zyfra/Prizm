@@ -15,7 +15,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/navigation-menu): navigation menu search error #1344
 - fix(components/navigation): navigation menu active item setter error #1213
 - fix(components/breadcrumbs): breadcrumbs force update for content projection usage #1282
-- fix(components/input-number): incorrect height of InputNumberDefaultControlsComponent #1308
+- fix(components/input-number): incorrect height of InputNumberDefaultControlsComponent #1308, #1383
 - fix(components/inputs): incorrect controls height #1179
 - fix(components/input-button): input button size set to 100% height of container
 - fix(components/input-date-time-range): incorrect injection token for date time value transformer #1364
