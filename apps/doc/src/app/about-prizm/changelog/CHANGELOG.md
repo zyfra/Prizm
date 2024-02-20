@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/input-multiselect) search label translation added #1323
 - fix(components/input-select): extra title in input select #1286
 - fix(components/input-layout-date-time): custom error not shown for inputLayoutDateTime #185
+- fix(components/input-layout): clear button in inputs with position=center has incorrect placement #1385
 - fix(doc/inputStatusText): inputStatusText examples fixed
 - fix(components/switcher): switcher active item disabled statate colors changed #1348
 - fix(components/navigation-menu): navigation menu search error #1344
