@@ -27,6 +27,7 @@
           [prizmHintCanShow]="prizmHintCanShow"
           [required]="required"
           [value]="value"
+          [placeholder]="placeholder"
           prizmDocHostElementKey="PrizmInputText"
           prizmInput
         />
@@ -81,6 +82,15 @@
         documentationPropertyMode="input"
       >
         Required
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="placeholder"
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Placeholder
       </ng-template>
 
       <ng-template
