@@ -45,7 +45,7 @@
         <li class="options__item option" *ngFor="let option of filteredData">
           <prizm-checkbox class="option__checkbox" [(ngModel)]="option.checked">
             <div class="option__label">
-              <span class="option__title">{{ option.label.title }}</span>
+              <prizm-chips-item [deletable]="false">{{ option.label.title }}</prizm-chips-item>
               <span class="option__subtitle">{{ option.label.subtitle }}</span>
             </div>
           </prizm-checkbox>
