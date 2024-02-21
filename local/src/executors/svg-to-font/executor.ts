@@ -91,6 +91,7 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
     outputDir: destinationFolder, // (required)
     name: options.fontName,
     prefix: options.fontName,
+    tag: options.tag ?? '',
     fontTypes: [FontAssetType.EOT, FontAssetType.WOFF2, FontAssetType.WOFF, FontAssetType.TTF],
     assetTypes: [OtherAssetType.CSS, OtherAssetType.SCSS],
   }).then(() => {

@@ -1,5 +1,5 @@
-i[class^='prizm-base-icons-']:before,
-i[class*=' prizm-base-icons-']:before {
+[class^='prizm-base-icons-']:before,
+[class*=' prizm-base-icons-']:before {
   font-family: prizm-base-icons !important;
   font-style: normal;
   font-weight: normal !important;

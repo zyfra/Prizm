@@ -1,7 +1,7 @@
 $prizm-full-icons-font: 'prizm-full-icons';
 
-i[class^='prizm-full-icons-']:before,
-i[class*=' prizm-full-icons-']:before {
+[class^='prizm-full-icons-']:before,
+[class*=' prizm-full-icons-']:before {
   font-family: prizm-full-icons !important;
   font-style: normal;
   font-weight: normal !important;
