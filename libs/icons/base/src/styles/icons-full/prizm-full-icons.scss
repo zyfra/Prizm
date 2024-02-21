@@ -782,109 +782,144 @@ $prizm-full-icons-map: (
   'tankcar-oil-side-view': '\f3ff',
   'tankcar-side-view': '\f400',
   'techs-zql': '\f401',
-  'temperature-minus': '\f402',
-  'temperature-plus': '\f403',
-  'temperature': '\f404',
-  'template': '\f405',
-  'text-color': '\f406',
-  'text': '\f407',
-  'thumb-down': '\f408',
-  'thumb-up': '\f409',
-  'thumbtack-directly': '\f40a',
-  'thumbtack': '\f40b',
-  'touchpad': '\f40c',
-  'train-cargo': '\f40d',
-  'train-passenger': '\f40e',
-  'transmitter': '\f40f',
-  'trash-drop': '\f410',
-  'trash-empty': '\f411',
-  'trash': '\f412',
-  'triangle-circle-square-fill': '\f413',
-  'triangle-circle-square': '\f414',
-  'triangle-cross-empty': '\f415',
-  'triangle-down': '\f416',
-  'triangle-exclamation-empty': '\f417',
-  'triangle-exclamation-fill': '\f418',
-  'triangle-fill': '\f419',
-  'triangle-info-empty': '\f41a',
-  'triangle-info-fill': '\f41b',
-  'triangle-left': '\f41c',
-  'triangle-plus-empty': '\f41d',
-  'triangle-right': '\f41e',
-  'triangle-up-down': '\f41f',
-  'triangle-up': '\f420',
-  'triangle': '\f421',
-  'truck-dump-side-view': '\f422',
-  'truck-empty-side-view': '\f423',
-  'truck-garbage-side-view': '\f424',
-  'truck-gasoline-side-view': '\f425',
-  'truck-side-view': '\f426',
-  'tv': '\f427',
-  'umbrella': '\f428',
-  'underlined': '\f429',
-  'union': '\f42a',
-  'unlock': '\f42b',
-  'user-arrows-swap': '\f42c',
-  'user-card': '\f42d',
-  'user-check': '\f42e',
-  'user-circle': '\f42f',
-  'user-cross': '\f430',
-  'user-gear': '\f431',
-  'user-group': '\f432',
-  'user-location': '\f433',
-  'user-minus': '\f434',
-  'user-pen': '\f435',
-  'user-plus': '\f436',
-  'user-shield': '\f437',
-  'user-worker': '\f438',
-  'user': '\f439',
-  'users-arrow-right': '\f43a',
-  'users-arrow-up-zql': '\f43b',
-  'users-gear': '\f43c',
-  'users-key': '\f43d',
-  'users-location': '\f43e',
-  'users-minus': '\f43f',
-  'users-plus': '\f440',
-  'users': '\f441',
-  'vector-circle-one-point': '\f442',
-  'vector-circle-two-point': '\f443',
-  'vector-circle': '\f444',
-  'vector-line': '\f445',
-  'vector-point': '\f446',
-  'vector-polygon': '\f447',
-  'vector-rectangle': '\f448',
-  'vector-square': '\f449',
-  'vector-triangle': '\f44a',
-  'vectors-radius': '\f44b',
-  'vial-flask': '\f44c',
-  'vial-plus': '\f44d',
-  'vial-rotate-left': '\f44e',
-  'vial-xmark': '\f44f',
-  'vial': '\f450',
-  'video-cross': '\f451',
-  'video-slash': '\f452',
-  'video': '\f453',
-  'voicemail': '\f454',
-  'volume-cross': '\f455',
-  'volume-low': '\f456',
-  'volume-minus': '\f457',
-  'volume-off': '\f458',
-  'volume-plus': '\f459',
-  'volume-slash': '\f45a',
-  'volume': '\f45b',
-  'wallet': '\f45c',
-  'watch': '\f45d',
-  'water-heater': '\f45e',
-  'water-pump': '\f45f',
-  'webcam': '\f460',
-  'wifi-off': '\f461',
-  'wifi': '\f462',
-  'window': '\f463',
-  'wrench': '\f464',
-  'xmark-column-right': '\f465',
-  'xmark-column-top': '\f466',
-  'xmark-mini': '\f467',
-  'xmark': '\f468',
+  'temp-add-shape-square-plus': '\f402',
+  'temp-alerts-alarm-light': '\f403',
+  'temp-alerts-circle-mini': '\f404',
+  'temp-arrows-corner-chek-in': '\f405',
+  'temp-arrows-down-double-top-2': '\f406',
+  'temp-arrows-up-double-top-2': '\f407',
+  'temp-audio-artist': '\f408',
+  'temp-badges-tag-multiple': '\f409',
+  'temp-chevrons-dropdown-small': '\f40a',
+  'temp-chevrons-menu-left-small': '\f40b',
+  'temp-date-inform-delete': '\f40c',
+  'temp-editor-discrete-set': '\f40d',
+  'temp-editor-wrap-text': '\f40e',
+  'temp-files-import-1c': '\f40f',
+  'temp-location-localization-down-list': '\f410',
+  'temp-network-library': '\f411',
+  'temp-poi-difference': '\f412',
+  'temp-product-grade-according-to-specification': '\f413',
+  'temp-selection-checkbox-blank-circle': '\f414',
+  'temp-selection-checkbox-blank': '\f415',
+  'temp-selection-checkbox-marked-circle-chanel': '\f416',
+  'temp-selection-checked-1': '\f417',
+  'temp-selection-checked-2': '\f418',
+  'temp-selection-checked': '\f419',
+  'temp-selection-radio-off': '\f41a',
+  'temp-selection-radio-on': '\f41b',
+  'temp-selection-toggle-left': '\f41c',
+  'temp-selection-toggle-right': '\f41d',
+  'temp-selection-unchoice': '\f41e',
+  'temp-shapes-checkbox-intermediate': '\f41f',
+  'temp-signal-cast': '\f420',
+  'temp-signal-rss-box': '\f421',
+  'temp-social-tab': '\f422',
+  'temp-sort-version': '\f423',
+  'temp-tools-solver': '\f424',
+  'temperature-minus': '\f425',
+  'temperature-plus': '\f426',
+  'temperature': '\f427',
+  'template': '\f428',
+  'text-color': '\f429',
+  'text': '\f42a',
+  'thumb-down': '\f42b',
+  'thumb-up': '\f42c',
+  'thumbtack-directly': '\f42d',
+  'thumbtack': '\f42e',
+  'touchpad': '\f42f',
+  'train-cargo': '\f430',
+  'train-passenger': '\f431',
+  'transmitter': '\f432',
+  'trash-drop': '\f433',
+  'trash-empty': '\f434',
+  'trash': '\f435',
+  'triangle-circle-square-fill': '\f436',
+  'triangle-circle-square': '\f437',
+  'triangle-cross-empty': '\f438',
+  'triangle-down': '\f439',
+  'triangle-exclamation-empty': '\f43a',
+  'triangle-exclamation-fill': '\f43b',
+  'triangle-fill': '\f43c',
+  'triangle-info-empty': '\f43d',
+  'triangle-info-fill': '\f43e',
+  'triangle-left': '\f43f',
+  'triangle-plus-empty': '\f440',
+  'triangle-right': '\f441',
+  'triangle-up-down': '\f442',
+  'triangle-up': '\f443',
+  'triangle': '\f444',
+  'truck-dump-side-view': '\f445',
+  'truck-empty-side-view': '\f446',
+  'truck-garbage-side-view': '\f447',
+  'truck-gasoline-side-view': '\f448',
+  'truck-side-view': '\f449',
+  'tv': '\f44a',
+  'umbrella': '\f44b',
+  'underlined': '\f44c',
+  'union': '\f44d',
+  'unlock': '\f44e',
+  'user-arrows-swap': '\f44f',
+  'user-card': '\f450',
+  'user-check': '\f451',
+  'user-circle': '\f452',
+  'user-cross': '\f453',
+  'user-gear': '\f454',
+  'user-group': '\f455',
+  'user-location': '\f456',
+  'user-minus': '\f457',
+  'user-pen': '\f458',
+  'user-plus': '\f459',
+  'user-shield': '\f45a',
+  'user-worker': '\f45b',
+  'user': '\f45c',
+  'users-arrow-right': '\f45d',
+  'users-arrow-up-zql': '\f45e',
+  'users-gear': '\f45f',
+  'users-key': '\f460',
+  'users-location': '\f461',
+  'users-minus': '\f462',
+  'users-plus': '\f463',
+  'users': '\f464',
+  'vector-circle-one-point': '\f465',
+  'vector-circle-two-point': '\f466',
+  'vector-circle': '\f467',
+  'vector-line': '\f468',
+  'vector-point': '\f469',
+  'vector-polygon': '\f46a',
+  'vector-rectangle': '\f46b',
+  'vector-square': '\f46c',
+  'vector-triangle': '\f46d',
+  'vectors-radius': '\f46e',
+  'vial-flask': '\f46f',
+  'vial-plus': '\f470',
+  'vial-rotate-left': '\f471',
+  'vial-xmark': '\f472',
+  'vial': '\f473',
+  'video-cross': '\f474',
+  'video-slash': '\f475',
+  'video': '\f476',
+  'voicemail': '\f477',
+  'volume-cross': '\f478',
+  'volume-low': '\f479',
+  'volume-minus': '\f47a',
+  'volume-off': '\f47b',
+  'volume-plus': '\f47c',
+  'volume-slash': '\f47d',
+  'volume': '\f47e',
+  'wallet': '\f47f',
+  'watch': '\f480',
+  'water-heater': '\f481',
+  'water-pump': '\f482',
+  'webcam': '\f483',
+  'wifi-off': '\f484',
+  'wifi': '\f485',
+  'window': '\f486',
+  'wrench': '\f487',
+  'xmark-column-right': '\f488',
+  'xmark-column-top': '\f489',
+  'xmark-mini': '\f48a',
+  'xmark': '\f48b',
 );
 
 .prizm-full-icons-agenda-fill:before {
@@ -3193,6 +3228,111 @@ $prizm-full-icons-map: (
 }
 .prizm-full-icons-techs-zql:before {
   content: map-get($prizm-full-icons-map, 'techs-zql');
+}
+.prizm-full-icons-temp-add-shape-square-plus:before {
+  content: map-get($prizm-full-icons-map, 'temp-add-shape-square-plus');
+}
+.prizm-full-icons-temp-alerts-alarm-light:before {
+  content: map-get($prizm-full-icons-map, 'temp-alerts-alarm-light');
+}
+.prizm-full-icons-temp-alerts-circle-mini:before {
+  content: map-get($prizm-full-icons-map, 'temp-alerts-circle-mini');
+}
+.prizm-full-icons-temp-arrows-corner-chek-in:before {
+  content: map-get($prizm-full-icons-map, 'temp-arrows-corner-chek-in');
+}
+.prizm-full-icons-temp-arrows-down-double-top-2:before {
+  content: map-get($prizm-full-icons-map, 'temp-arrows-down-double-top-2');
+}
+.prizm-full-icons-temp-arrows-up-double-top-2:before {
+  content: map-get($prizm-full-icons-map, 'temp-arrows-up-double-top-2');
+}
+.prizm-full-icons-temp-audio-artist:before {
+  content: map-get($prizm-full-icons-map, 'temp-audio-artist');
+}
+.prizm-full-icons-temp-badges-tag-multiple:before {
+  content: map-get($prizm-full-icons-map, 'temp-badges-tag-multiple');
+}
+.prizm-full-icons-temp-chevrons-dropdown-small:before {
+  content: map-get($prizm-full-icons-map, 'temp-chevrons-dropdown-small');
+}
+.prizm-full-icons-temp-chevrons-menu-left-small:before {
+  content: map-get($prizm-full-icons-map, 'temp-chevrons-menu-left-small');
+}
+.prizm-full-icons-temp-date-inform-delete:before {
+  content: map-get($prizm-full-icons-map, 'temp-date-inform-delete');
+}
+.prizm-full-icons-temp-editor-discrete-set:before {
+  content: map-get($prizm-full-icons-map, 'temp-editor-discrete-set');
+}
+.prizm-full-icons-temp-editor-wrap-text:before {
+  content: map-get($prizm-full-icons-map, 'temp-editor-wrap-text');
+}
+.prizm-full-icons-temp-files-import-1c:before {
+  content: map-get($prizm-full-icons-map, 'temp-files-import-1c');
+}
+.prizm-full-icons-temp-location-localization-down-list:before {
+  content: map-get($prizm-full-icons-map, 'temp-location-localization-down-list');
+}
+.prizm-full-icons-temp-network-library:before {
+  content: map-get($prizm-full-icons-map, 'temp-network-library');
+}
+.prizm-full-icons-temp-poi-difference:before {
+  content: map-get($prizm-full-icons-map, 'temp-poi-difference');
+}
+.prizm-full-icons-temp-product-grade-according-to-specification:before {
+  content: map-get($prizm-full-icons-map, 'temp-product-grade-according-to-specification');
+}
+.prizm-full-icons-temp-selection-checkbox-blank-circle:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-checkbox-blank-circle');
+}
+.prizm-full-icons-temp-selection-checkbox-blank:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-checkbox-blank');
+}
+.prizm-full-icons-temp-selection-checkbox-marked-circle-chanel:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-checkbox-marked-circle-chanel');
+}
+.prizm-full-icons-temp-selection-checked-1:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-checked-1');
+}
+.prizm-full-icons-temp-selection-checked-2:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-checked-2');
+}
+.prizm-full-icons-temp-selection-checked:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-checked');
+}
+.prizm-full-icons-temp-selection-radio-off:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-radio-off');
+}
+.prizm-full-icons-temp-selection-radio-on:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-radio-on');
+}
+.prizm-full-icons-temp-selection-toggle-left:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-toggle-left');
+}
+.prizm-full-icons-temp-selection-toggle-right:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-toggle-right');
+}
+.prizm-full-icons-temp-selection-unchoice:before {
+  content: map-get($prizm-full-icons-map, 'temp-selection-unchoice');
+}
+.prizm-full-icons-temp-shapes-checkbox-intermediate:before {
+  content: map-get($prizm-full-icons-map, 'temp-shapes-checkbox-intermediate');
+}
+.prizm-full-icons-temp-signal-cast:before {
+  content: map-get($prizm-full-icons-map, 'temp-signal-cast');
+}
+.prizm-full-icons-temp-signal-rss-box:before {
+  content: map-get($prizm-full-icons-map, 'temp-signal-rss-box');
+}
+.prizm-full-icons-temp-social-tab:before {
+  content: map-get($prizm-full-icons-map, 'temp-social-tab');
+}
+.prizm-full-icons-temp-sort-version:before {
+  content: map-get($prizm-full-icons-map, 'temp-sort-version');
+}
+.prizm-full-icons-temp-tools-solver:before {
+  content: map-get($prizm-full-icons-map, 'temp-tools-solver');
 }
 .prizm-full-icons-temperature-minus:before {
   content: map-get($prizm-full-icons-map, 'temperature-minus');

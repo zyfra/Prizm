@@ -2317,312 +2317,417 @@ i[class*=' prizm-full-icons-']:before {
 .prizm-full-icons-techs-zql:before {
   content: '\f401';
 }
-.prizm-full-icons-temperature-minus:before {
+.prizm-full-icons-temp-add-shape-square-plus:before {
   content: '\f402';
 }
-.prizm-full-icons-temperature-plus:before {
+.prizm-full-icons-temp-alerts-alarm-light:before {
   content: '\f403';
 }
-.prizm-full-icons-temperature:before {
+.prizm-full-icons-temp-alerts-circle-mini:before {
   content: '\f404';
 }
-.prizm-full-icons-template:before {
+.prizm-full-icons-temp-arrows-corner-chek-in:before {
   content: '\f405';
 }
-.prizm-full-icons-text-color:before {
+.prizm-full-icons-temp-arrows-down-double-top-2:before {
   content: '\f406';
 }
-.prizm-full-icons-text:before {
+.prizm-full-icons-temp-arrows-up-double-top-2:before {
   content: '\f407';
 }
-.prizm-full-icons-thumb-down:before {
+.prizm-full-icons-temp-audio-artist:before {
   content: '\f408';
 }
-.prizm-full-icons-thumb-up:before {
+.prizm-full-icons-temp-badges-tag-multiple:before {
   content: '\f409';
 }
-.prizm-full-icons-thumbtack-directly:before {
+.prizm-full-icons-temp-chevrons-dropdown-small:before {
   content: '\f40a';
 }
-.prizm-full-icons-thumbtack:before {
+.prizm-full-icons-temp-chevrons-menu-left-small:before {
   content: '\f40b';
 }
-.prizm-full-icons-touchpad:before {
+.prizm-full-icons-temp-date-inform-delete:before {
   content: '\f40c';
 }
-.prizm-full-icons-train-cargo:before {
+.prizm-full-icons-temp-editor-discrete-set:before {
   content: '\f40d';
 }
-.prizm-full-icons-train-passenger:before {
+.prizm-full-icons-temp-editor-wrap-text:before {
   content: '\f40e';
 }
-.prizm-full-icons-transmitter:before {
+.prizm-full-icons-temp-files-import-1c:before {
   content: '\f40f';
 }
-.prizm-full-icons-trash-drop:before {
+.prizm-full-icons-temp-location-localization-down-list:before {
   content: '\f410';
 }
-.prizm-full-icons-trash-empty:before {
+.prizm-full-icons-temp-network-library:before {
   content: '\f411';
 }
-.prizm-full-icons-trash:before {
+.prizm-full-icons-temp-poi-difference:before {
   content: '\f412';
 }
-.prizm-full-icons-triangle-circle-square-fill:before {
+.prizm-full-icons-temp-product-grade-according-to-specification:before {
   content: '\f413';
 }
-.prizm-full-icons-triangle-circle-square:before {
+.prizm-full-icons-temp-selection-checkbox-blank-circle:before {
   content: '\f414';
 }
-.prizm-full-icons-triangle-cross-empty:before {
+.prizm-full-icons-temp-selection-checkbox-blank:before {
   content: '\f415';
 }
-.prizm-full-icons-triangle-down:before {
+.prizm-full-icons-temp-selection-checkbox-marked-circle-chanel:before {
   content: '\f416';
 }
-.prizm-full-icons-triangle-exclamation-empty:before {
+.prizm-full-icons-temp-selection-checked-1:before {
   content: '\f417';
 }
-.prizm-full-icons-triangle-exclamation-fill:before {
+.prizm-full-icons-temp-selection-checked-2:before {
   content: '\f418';
 }
-.prizm-full-icons-triangle-fill:before {
+.prizm-full-icons-temp-selection-checked:before {
   content: '\f419';
 }
-.prizm-full-icons-triangle-info-empty:before {
+.prizm-full-icons-temp-selection-radio-off:before {
   content: '\f41a';
 }
-.prizm-full-icons-triangle-info-fill:before {
+.prizm-full-icons-temp-selection-radio-on:before {
   content: '\f41b';
 }
-.prizm-full-icons-triangle-left:before {
+.prizm-full-icons-temp-selection-toggle-left:before {
   content: '\f41c';
 }
-.prizm-full-icons-triangle-plus-empty:before {
+.prizm-full-icons-temp-selection-toggle-right:before {
   content: '\f41d';
 }
-.prizm-full-icons-triangle-right:before {
+.prizm-full-icons-temp-selection-unchoice:before {
   content: '\f41e';
 }
-.prizm-full-icons-triangle-up-down:before {
+.prizm-full-icons-temp-shapes-checkbox-intermediate:before {
   content: '\f41f';
 }
-.prizm-full-icons-triangle-up:before {
+.prizm-full-icons-temp-signal-cast:before {
   content: '\f420';
 }
-.prizm-full-icons-triangle:before {
+.prizm-full-icons-temp-signal-rss-box:before {
   content: '\f421';
 }
-.prizm-full-icons-truck-dump-side-view:before {
+.prizm-full-icons-temp-social-tab:before {
   content: '\f422';
 }
-.prizm-full-icons-truck-empty-side-view:before {
+.prizm-full-icons-temp-sort-version:before {
   content: '\f423';
 }
-.prizm-full-icons-truck-garbage-side-view:before {
+.prizm-full-icons-temp-tools-solver:before {
   content: '\f424';
 }
-.prizm-full-icons-truck-gasoline-side-view:before {
+.prizm-full-icons-temperature-minus:before {
   content: '\f425';
 }
-.prizm-full-icons-truck-side-view:before {
+.prizm-full-icons-temperature-plus:before {
   content: '\f426';
 }
-.prizm-full-icons-tv:before {
+.prizm-full-icons-temperature:before {
   content: '\f427';
 }
-.prizm-full-icons-umbrella:before {
+.prizm-full-icons-template:before {
   content: '\f428';
 }
-.prizm-full-icons-underlined:before {
+.prizm-full-icons-text-color:before {
   content: '\f429';
 }
-.prizm-full-icons-union:before {
+.prizm-full-icons-text:before {
   content: '\f42a';
 }
-.prizm-full-icons-unlock:before {
+.prizm-full-icons-thumb-down:before {
   content: '\f42b';
 }
-.prizm-full-icons-user-arrows-swap:before {
+.prizm-full-icons-thumb-up:before {
   content: '\f42c';
 }
-.prizm-full-icons-user-card:before {
+.prizm-full-icons-thumbtack-directly:before {
   content: '\f42d';
 }
-.prizm-full-icons-user-check:before {
+.prizm-full-icons-thumbtack:before {
   content: '\f42e';
 }
-.prizm-full-icons-user-circle:before {
+.prizm-full-icons-touchpad:before {
   content: '\f42f';
 }
-.prizm-full-icons-user-cross:before {
+.prizm-full-icons-train-cargo:before {
   content: '\f430';
 }
-.prizm-full-icons-user-gear:before {
+.prizm-full-icons-train-passenger:before {
   content: '\f431';
 }
-.prizm-full-icons-user-group:before {
+.prizm-full-icons-transmitter:before {
   content: '\f432';
 }
-.prizm-full-icons-user-location:before {
+.prizm-full-icons-trash-drop:before {
   content: '\f433';
 }
-.prizm-full-icons-user-minus:before {
+.prizm-full-icons-trash-empty:before {
   content: '\f434';
 }
-.prizm-full-icons-user-pen:before {
+.prizm-full-icons-trash:before {
   content: '\f435';
 }
-.prizm-full-icons-user-plus:before {
+.prizm-full-icons-triangle-circle-square-fill:before {
   content: '\f436';
 }
-.prizm-full-icons-user-shield:before {
+.prizm-full-icons-triangle-circle-square:before {
   content: '\f437';
 }
-.prizm-full-icons-user-worker:before {
+.prizm-full-icons-triangle-cross-empty:before {
   content: '\f438';
 }
-.prizm-full-icons-user:before {
+.prizm-full-icons-triangle-down:before {
   content: '\f439';
 }
-.prizm-full-icons-users-arrow-right:before {
+.prizm-full-icons-triangle-exclamation-empty:before {
   content: '\f43a';
 }
-.prizm-full-icons-users-arrow-up-zql:before {
+.prizm-full-icons-triangle-exclamation-fill:before {
   content: '\f43b';
 }
-.prizm-full-icons-users-gear:before {
+.prizm-full-icons-triangle-fill:before {
   content: '\f43c';
 }
-.prizm-full-icons-users-key:before {
+.prizm-full-icons-triangle-info-empty:before {
   content: '\f43d';
 }
-.prizm-full-icons-users-location:before {
+.prizm-full-icons-triangle-info-fill:before {
   content: '\f43e';
 }
-.prizm-full-icons-users-minus:before {
+.prizm-full-icons-triangle-left:before {
   content: '\f43f';
 }
-.prizm-full-icons-users-plus:before {
+.prizm-full-icons-triangle-plus-empty:before {
   content: '\f440';
 }
-.prizm-full-icons-users:before {
+.prizm-full-icons-triangle-right:before {
   content: '\f441';
 }
-.prizm-full-icons-vector-circle-one-point:before {
+.prizm-full-icons-triangle-up-down:before {
   content: '\f442';
 }
-.prizm-full-icons-vector-circle-two-point:before {
+.prizm-full-icons-triangle-up:before {
   content: '\f443';
 }
-.prizm-full-icons-vector-circle:before {
+.prizm-full-icons-triangle:before {
   content: '\f444';
 }
-.prizm-full-icons-vector-line:before {
+.prizm-full-icons-truck-dump-side-view:before {
   content: '\f445';
 }
-.prizm-full-icons-vector-point:before {
+.prizm-full-icons-truck-empty-side-view:before {
   content: '\f446';
 }
-.prizm-full-icons-vector-polygon:before {
+.prizm-full-icons-truck-garbage-side-view:before {
   content: '\f447';
 }
-.prizm-full-icons-vector-rectangle:before {
+.prizm-full-icons-truck-gasoline-side-view:before {
   content: '\f448';
 }
-.prizm-full-icons-vector-square:before {
+.prizm-full-icons-truck-side-view:before {
   content: '\f449';
 }
-.prizm-full-icons-vector-triangle:before {
+.prizm-full-icons-tv:before {
   content: '\f44a';
 }
-.prizm-full-icons-vectors-radius:before {
+.prizm-full-icons-umbrella:before {
   content: '\f44b';
 }
-.prizm-full-icons-vial-flask:before {
+.prizm-full-icons-underlined:before {
   content: '\f44c';
 }
-.prizm-full-icons-vial-plus:before {
+.prizm-full-icons-union:before {
   content: '\f44d';
 }
-.prizm-full-icons-vial-rotate-left:before {
+.prizm-full-icons-unlock:before {
   content: '\f44e';
 }
-.prizm-full-icons-vial-xmark:before {
+.prizm-full-icons-user-arrows-swap:before {
   content: '\f44f';
 }
-.prizm-full-icons-vial:before {
+.prizm-full-icons-user-card:before {
   content: '\f450';
 }
-.prizm-full-icons-video-cross:before {
+.prizm-full-icons-user-check:before {
   content: '\f451';
 }
-.prizm-full-icons-video-slash:before {
+.prizm-full-icons-user-circle:before {
   content: '\f452';
 }
-.prizm-full-icons-video:before {
+.prizm-full-icons-user-cross:before {
   content: '\f453';
 }
-.prizm-full-icons-voicemail:before {
+.prizm-full-icons-user-gear:before {
   content: '\f454';
 }
-.prizm-full-icons-volume-cross:before {
+.prizm-full-icons-user-group:before {
   content: '\f455';
 }
-.prizm-full-icons-volume-low:before {
+.prizm-full-icons-user-location:before {
   content: '\f456';
 }
-.prizm-full-icons-volume-minus:before {
+.prizm-full-icons-user-minus:before {
   content: '\f457';
 }
-.prizm-full-icons-volume-off:before {
+.prizm-full-icons-user-pen:before {
   content: '\f458';
 }
-.prizm-full-icons-volume-plus:before {
+.prizm-full-icons-user-plus:before {
   content: '\f459';
 }
-.prizm-full-icons-volume-slash:before {
+.prizm-full-icons-user-shield:before {
   content: '\f45a';
 }
-.prizm-full-icons-volume:before {
+.prizm-full-icons-user-worker:before {
   content: '\f45b';
 }
-.prizm-full-icons-wallet:before {
+.prizm-full-icons-user:before {
   content: '\f45c';
 }
-.prizm-full-icons-watch:before {
+.prizm-full-icons-users-arrow-right:before {
   content: '\f45d';
 }
-.prizm-full-icons-water-heater:before {
+.prizm-full-icons-users-arrow-up-zql:before {
   content: '\f45e';
 }
-.prizm-full-icons-water-pump:before {
+.prizm-full-icons-users-gear:before {
   content: '\f45f';
 }
-.prizm-full-icons-webcam:before {
+.prizm-full-icons-users-key:before {
   content: '\f460';
 }
-.prizm-full-icons-wifi-off:before {
+.prizm-full-icons-users-location:before {
   content: '\f461';
 }
-.prizm-full-icons-wifi:before {
+.prizm-full-icons-users-minus:before {
   content: '\f462';
 }
-.prizm-full-icons-window:before {
+.prizm-full-icons-users-plus:before {
   content: '\f463';
 }
-.prizm-full-icons-wrench:before {
+.prizm-full-icons-users:before {
   content: '\f464';
 }
-.prizm-full-icons-xmark-column-right:before {
+.prizm-full-icons-vector-circle-one-point:before {
   content: '\f465';
 }
-.prizm-full-icons-xmark-column-top:before {
+.prizm-full-icons-vector-circle-two-point:before {
   content: '\f466';
 }
-.prizm-full-icons-xmark-mini:before {
+.prizm-full-icons-vector-circle:before {
   content: '\f467';
 }
-.prizm-full-icons-xmark:before {
+.prizm-full-icons-vector-line:before {
   content: '\f468';
+}
+.prizm-full-icons-vector-point:before {
+  content: '\f469';
+}
+.prizm-full-icons-vector-polygon:before {
+  content: '\f46a';
+}
+.prizm-full-icons-vector-rectangle:before {
+  content: '\f46b';
+}
+.prizm-full-icons-vector-square:before {
+  content: '\f46c';
+}
+.prizm-full-icons-vector-triangle:before {
+  content: '\f46d';
+}
+.prizm-full-icons-vectors-radius:before {
+  content: '\f46e';
+}
+.prizm-full-icons-vial-flask:before {
+  content: '\f46f';
+}
+.prizm-full-icons-vial-plus:before {
+  content: '\f470';
+}
+.prizm-full-icons-vial-rotate-left:before {
+  content: '\f471';
+}
+.prizm-full-icons-vial-xmark:before {
+  content: '\f472';
+}
+.prizm-full-icons-vial:before {
+  content: '\f473';
+}
+.prizm-full-icons-video-cross:before {
+  content: '\f474';
+}
+.prizm-full-icons-video-slash:before {
+  content: '\f475';
+}
+.prizm-full-icons-video:before {
+  content: '\f476';
+}
+.prizm-full-icons-voicemail:before {
+  content: '\f477';
+}
+.prizm-full-icons-volume-cross:before {
+  content: '\f478';
+}
+.prizm-full-icons-volume-low:before {
+  content: '\f479';
+}
+.prizm-full-icons-volume-minus:before {
+  content: '\f47a';
+}
+.prizm-full-icons-volume-off:before {
+  content: '\f47b';
+}
+.prizm-full-icons-volume-plus:before {
+  content: '\f47c';
+}
+.prizm-full-icons-volume-slash:before {
+  content: '\f47d';
+}
+.prizm-full-icons-volume:before {
+  content: '\f47e';
+}
+.prizm-full-icons-wallet:before {
+  content: '\f47f';
+}
+.prizm-full-icons-watch:before {
+  content: '\f480';
+}
+.prizm-full-icons-water-heater:before {
+  content: '\f481';
+}
+.prizm-full-icons-water-pump:before {
+  content: '\f482';
+}
+.prizm-full-icons-webcam:before {
+  content: '\f483';
+}
+.prizm-full-icons-wifi-off:before {
+  content: '\f484';
+}
+.prizm-full-icons-wifi:before {
+  content: '\f485';
+}
+.prizm-full-icons-window:before {
+  content: '\f486';
+}
+.prizm-full-icons-wrench:before {
+  content: '\f487';
+}
+.prizm-full-icons-xmark-column-right:before {
+  content: '\f488';
+}
+.prizm-full-icons-xmark-column-top:before {
+  content: '\f489';
+}
+.prizm-full-icons-xmark-mini:before {
+  content: '\f48a';
+}
+.prizm-full-icons-xmark:before {
+  content: '\f48b';
 }

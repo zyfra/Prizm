@@ -11,7 +11,7 @@ export class TabsExampleInPanelComponent {
   public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
-      icon: 'charts-donut',
+      icon: 'pie-line',
     },
     {
       title: 'Вкладка 2',

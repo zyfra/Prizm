@@ -42,12 +42,24 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema) {
 
     /* fix names kebab between text + number (v1 > v-1) */
     if (content) {
-      const matches = content.matchAll(/name: '[^']+([a-zA-Z]+-[0-9]+)'/g);
+      // const matches = content.matchAll(/name: '[^']+([a-zA-Z]+-[0-9]+)'/g);
+      const matches = content.matchAll(/name: '([^']+)'/g);
+
       if (matches)
         for (const match of matches) {
+          if (!match[1]) continue;
           const oldPart = match[1];
-          const newPath = match[1].replace(/-/g, '');
 
+          const changeSymbolWithDash = /-([a-zA-Z]{2,})([0-9]+)/g;
+          let newPath = match[1].replace(changeSymbolWithDash, '-$1-$2');
+
+          const changeSymbolWithDash2 = /-([a-zA-Z]{1})-([0-9]+)/g;
+          newPath = match[1].replace(changeSymbolWithDash2, '-$1$2');
+
+          const changeSymbolWithDash3 = /-([0-9]+)-([a-z]+)/g;
+          newPath = match[1].replace(changeSymbolWithDash3, '-$1$2');
+
+          if (oldPart === newPath) continue;
           const changedPart = match[0].replace(oldPart, newPath);
 
           content = content.replaceAll(match[0], changedPart);

@@ -11,7 +11,7 @@ export class PanelExampleWithPagesComponent {
   public pages: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
-      icon: 'charts-donut',
+      icon: 'pie-line',
     },
     {
       title: 'Вкладка 2',

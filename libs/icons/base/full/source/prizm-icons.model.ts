@@ -761,6 +761,41 @@ export type PrizmIconsType =
   | 'tankcar-oil-side-view'
   | 'tankcar-side-view'
   | 'techs-zql'
+  | 'temp-add-shape-square-plus'
+  | 'temp-alerts-alarm-light'
+  | 'temp-alerts-circle-mini'
+  | 'temp-arrows-corner-chek-in'
+  | 'temp-arrows-down-double-top-2'
+  | 'temp-arrows-up-double-top-2'
+  | 'temp-audio-artist'
+  | 'temp-badges-tag-multiple'
+  | 'temp-chevrons-dropdown-small'
+  | 'temp-chevrons-menu-left-small'
+  | 'temp-date-inform-delete'
+  | 'temp-editor-discrete-set'
+  | 'temp-editor-wrap-text'
+  | 'temp-files-import-1-c'
+  | 'temp-location-localization-down-list'
+  | 'temp-network-library'
+  | 'temp-poi-difference'
+  | 'temp-product-grade-according-to-specification'
+  | 'temp-selection-checkbox-blank-circle'
+  | 'temp-selection-checkbox-blank'
+  | 'temp-selection-checkbox-marked-circle-chanel'
+  | 'temp-selection-checked-1'
+  | 'temp-selection-checked-2'
+  | 'temp-selection-checked'
+  | 'temp-selection-radio-off'
+  | 'temp-selection-radio-on'
+  | 'temp-selection-toggle-left'
+  | 'temp-selection-toggle-right'
+  | 'temp-selection-unchoice'
+  | 'temp-shapes-checkbox-intermediate'
+  | 'temp-signal-cast'
+  | 'temp-signal-rss-box'
+  | 'temp-social-tab'
+  | 'temp-sort-version'
+  | 'temp-tools-solver'
   | 'temperature-minus'
   | 'temperature-plus'
   | 'temperature'
@@ -1625,6 +1660,43 @@ export const PrizmIconsType = {
   'tankcar-oil-side-view': 'tankcar-oil-side-view' as PrizmIconsType,
   'tankcar-side-view': 'tankcar-side-view' as PrizmIconsType,
   'techs-zql': 'techs-zql' as PrizmIconsType,
+  'temp-add-shape-square-plus': 'temp-add-shape-square-plus' as PrizmIconsType,
+  'temp-alerts-alarm-light': 'temp-alerts-alarm-light' as PrizmIconsType,
+  'temp-alerts-circle-mini': 'temp-alerts-circle-mini' as PrizmIconsType,
+  'temp-arrows-corner-chek-in': 'temp-arrows-corner-chek-in' as PrizmIconsType,
+  'temp-arrows-down-double-top-2': 'temp-arrows-down-double-top-2' as PrizmIconsType,
+  'temp-arrows-up-double-top-2': 'temp-arrows-up-double-top-2' as PrizmIconsType,
+  'temp-audio-artist': 'temp-audio-artist' as PrizmIconsType,
+  'temp-badges-tag-multiple': 'temp-badges-tag-multiple' as PrizmIconsType,
+  'temp-chevrons-dropdown-small': 'temp-chevrons-dropdown-small' as PrizmIconsType,
+  'temp-chevrons-menu-left-small': 'temp-chevrons-menu-left-small' as PrizmIconsType,
+  'temp-date-inform-delete': 'temp-date-inform-delete' as PrizmIconsType,
+  'temp-editor-discrete-set': 'temp-editor-discrete-set' as PrizmIconsType,
+  'temp-editor-wrap-text': 'temp-editor-wrap-text' as PrizmIconsType,
+  'temp-files-import-1-c': 'temp-files-import-1-c' as PrizmIconsType,
+  'temp-location-localization-down-list': 'temp-location-localization-down-list' as PrizmIconsType,
+  'temp-network-library': 'temp-network-library' as PrizmIconsType,
+  'temp-poi-difference': 'temp-poi-difference' as PrizmIconsType,
+  'temp-product-grade-according-to-specification':
+    'temp-product-grade-according-to-specification' as PrizmIconsType,
+  'temp-selection-checkbox-blank-circle': 'temp-selection-checkbox-blank-circle' as PrizmIconsType,
+  'temp-selection-checkbox-blank': 'temp-selection-checkbox-blank' as PrizmIconsType,
+  'temp-selection-checkbox-marked-circle-chanel':
+    'temp-selection-checkbox-marked-circle-chanel' as PrizmIconsType,
+  'temp-selection-checked-1': 'temp-selection-checked-1' as PrizmIconsType,
+  'temp-selection-checked-2': 'temp-selection-checked-2' as PrizmIconsType,
+  'temp-selection-checked': 'temp-selection-checked' as PrizmIconsType,
+  'temp-selection-radio-off': 'temp-selection-radio-off' as PrizmIconsType,
+  'temp-selection-radio-on': 'temp-selection-radio-on' as PrizmIconsType,
+  'temp-selection-toggle-left': 'temp-selection-toggle-left' as PrizmIconsType,
+  'temp-selection-toggle-right': 'temp-selection-toggle-right' as PrizmIconsType,
+  'temp-selection-unchoice': 'temp-selection-unchoice' as PrizmIconsType,
+  'temp-shapes-checkbox-intermediate': 'temp-shapes-checkbox-intermediate' as PrizmIconsType,
+  'temp-signal-cast': 'temp-signal-cast' as PrizmIconsType,
+  'temp-signal-rss-box': 'temp-signal-rss-box' as PrizmIconsType,
+  'temp-social-tab': 'temp-social-tab' as PrizmIconsType,
+  'temp-sort-version': 'temp-sort-version' as PrizmIconsType,
+  'temp-tools-solver': 'temp-tools-solver' as PrizmIconsType,
   'temperature-minus': 'temperature-minus' as PrizmIconsType,
   'temperature-plus': 'temperature-plus' as PrizmIconsType,
   temperature: 'temperature' as PrizmIconsType,
@@ -2493,6 +2565,41 @@ export enum PrizmIconsEnum {
   TANKCAR_OIL_SIDE_VIEW = 'tankcar-oil-side-view',
   TANKCAR_SIDE_VIEW = 'tankcar-side-view',
   TECHS_ZQL = 'techs-zql',
+  TEMP_ADD_SHAPE_SQUARE_PLUS = 'temp-add-shape-square-plus',
+  TEMP_ALERTS_ALARM_LIGHT = 'temp-alerts-alarm-light',
+  TEMP_ALERTS_CIRCLE_MINI = 'temp-alerts-circle-mini',
+  TEMP_ARROWS_CORNER_CHEK_IN = 'temp-arrows-corner-chek-in',
+  TEMP_ARROWS_DOWN_DOUBLE_TOP_2 = 'temp-arrows-down-double-top-2',
+  TEMP_ARROWS_UP_DOUBLE_TOP_2 = 'temp-arrows-up-double-top-2',
+  TEMP_AUDIO_ARTIST = 'temp-audio-artist',
+  TEMP_BADGES_TAG_MULTIPLE = 'temp-badges-tag-multiple',
+  TEMP_CHEVRONS_DROPDOWN_SMALL = 'temp-chevrons-dropdown-small',
+  TEMP_CHEVRONS_MENU_LEFT_SMALL = 'temp-chevrons-menu-left-small',
+  TEMP_DATE_INFORM_DELETE = 'temp-date-inform-delete',
+  TEMP_EDITOR_DISCRETE_SET = 'temp-editor-discrete-set',
+  TEMP_EDITOR_WRAP_TEXT = 'temp-editor-wrap-text',
+  TEMP_FILES_IMPORT_1_C = 'temp-files-import-1-c',
+  TEMP_LOCATION_LOCALIZATION_DOWN_LIST = 'temp-location-localization-down-list',
+  TEMP_NETWORK_LIBRARY = 'temp-network-library',
+  TEMP_POI_DIFFERENCE = 'temp-poi-difference',
+  TEMP_PRODUCT_GRADE_ACCORDING_TO_SPECIFICATION = 'temp-product-grade-according-to-specification',
+  TEMP_SELECTION_CHECKBOX_BLANK_CIRCLE = 'temp-selection-checkbox-blank-circle',
+  TEMP_SELECTION_CHECKBOX_BLANK = 'temp-selection-checkbox-blank',
+  TEMP_SELECTION_CHECKBOX_MARKED_CIRCLE_CHANEL = 'temp-selection-checkbox-marked-circle-chanel',
+  TEMP_SELECTION_CHECKED_1 = 'temp-selection-checked-1',
+  TEMP_SELECTION_CHECKED_2 = 'temp-selection-checked-2',
+  TEMP_SELECTION_CHECKED = 'temp-selection-checked',
+  TEMP_SELECTION_RADIO_OFF = 'temp-selection-radio-off',
+  TEMP_SELECTION_RADIO_ON = 'temp-selection-radio-on',
+  TEMP_SELECTION_TOGGLE_LEFT = 'temp-selection-toggle-left',
+  TEMP_SELECTION_TOGGLE_RIGHT = 'temp-selection-toggle-right',
+  TEMP_SELECTION_UNCHOICE = 'temp-selection-unchoice',
+  TEMP_SHAPES_CHECKBOX_INTERMEDIATE = 'temp-shapes-checkbox-intermediate',
+  TEMP_SIGNAL_CAST = 'temp-signal-cast',
+  TEMP_SIGNAL_RSS_BOX = 'temp-signal-rss-box',
+  TEMP_SOCIAL_TAB = 'temp-social-tab',
+  TEMP_SORT_VERSION = 'temp-sort-version',
+  TEMP_TOOLS_SOLVER = 'temp-tools-solver',
   TEMPERATURE_MINUS = 'temperature-minus',
   TEMPERATURE_PLUS = 'temperature-plus',
   TEMPERATURE = 'temperature',

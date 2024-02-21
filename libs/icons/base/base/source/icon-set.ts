@@ -268,8 +268,8 @@ import { prizmIconsColumn } from './column/prizmIcons-column.icon';
 import { prizmIconsCompass } from './compass/prizmIcons-compass.icon';
 import { prizmIconsComponent } from './component/prizmIcons-component.icon';
 import { prizmIconsConcreteMixerSideView } from './concrete-mixer-side-view/prizmIcons-concrete-mixer-side-view.icon';
-import { prizmIconsContainerV1 } from './container-v1/prizmIcons-container-v1.icon';
-import { prizmIconsContainerV2 } from './container-v2/prizmIcons-container-v2.icon';
+import { prizmIconsContainerV1 } from './container-v-1/prizmIcons-container-v1.icon';
+import { prizmIconsContainerV2 } from './container-v-2/prizmIcons-container-v2.icon';
 import { prizmIconsContainers } from './containers/prizmIcons-containers.icon';
 import { prizmIconsControlChartsZql } from './control-charts-zql/prizmIcons-control-charts-zql.icon';
 import { prizmIconsCopyColumn } from './copy-column/prizmIcons-copy-column.icon';
@@ -315,8 +315,8 @@ import { prizmIconsEditorAlfavit } from './editor-alfavit/prizmIcons-editor-alfa
 import { prizmIconsEditorDown } from './editor-down/prizmIcons-editor-down.icon';
 import { prizmIconsEditorRight } from './editor-right/prizmIcons-editor-right.icon';
 import { prizmIconsElectrics } from './electrics/prizmIcons-electrics.icon';
-import { prizmIconsEllipsis2 } from './ellipsis2/prizmIcons-ellipsis-2.icon';
-import { prizmIconsEllipsis4 } from './ellipsis4/prizmIcons-ellipsis-4.icon';
+import { prizmIconsEllipsis2 } from './ellipsis-2/prizmIcons-ellipsis-2.icon';
+import { prizmIconsEllipsis4 } from './ellipsis-4/prizmIcons-ellipsis-4.icon';
 import { prizmIconsEllipsisGrid } from './ellipsis-grid/prizmIcons-ellipsis-grid.icon';
 import { prizmIconsEllipsisH } from './ellipsis-h/prizmIcons-ellipsis-h.icon';
 import { prizmIconsEllipsisV } from './ellipsis-v/prizmIcons-ellipsis-v.icon';
@@ -406,8 +406,8 @@ import { prizmIconsGasMonitoring } from './gas-monitoring/prizmIcons-gas-monitor
 import { prizmIconsGasPump } from './gas-pump/prizmIcons-gas-pump.icon';
 import { prizmIconsGas } from './gas/prizmIcons-gas.icon';
 import { prizmIconsGauge } from './gauge/prizmIcons-gauge.icon';
-import { prizmIconsGear5Edge } from './gear-5-edge/prizmIcons-gear-5-edge.icon';
-import { prizmIconsGear8Edge } from './gear-8-edge/prizmIcons-gear-8-edge.icon';
+import { prizmIconsGear5Edge } from './gear-5edge/prizmIcons-gear-5-edge.icon';
+import { prizmIconsGear8Edge } from './gear-8edge/prizmIcons-gear-8-edge.icon';
 import { prizmIconsGearCooling } from './gear-cooling/prizmIcons-gear-cooling.icon';
 import { prizmIconsGenerator } from './generator/prizmIcons-generator.icon';
 import { prizmIconsGift } from './gift/prizmIcons-gift.icon';
@@ -520,8 +520,8 @@ import { prizmIconsMailOpen } from './mail-open/prizmIcons-mail-open.icon';
 import { prizmIconsMail } from './mail/prizmIcons-mail.icon';
 import { prizmIconsMailbox } from './mailbox/prizmIcons-mailbox.icon';
 import { prizmIconsMapBase } from './map-base/prizmIcons-map-base.icon';
-import { prizmIconsMapMarkerDateV1 } from './map-marker-date-v1/prizmIcons-map-marker-date-v1.icon';
-import { prizmIconsMapMarkerDateV2 } from './map-marker-date-v2/prizmIcons-map-marker-date-v2.icon';
+import { prizmIconsMapMarkerDateV1 } from './map-marker-date-v-1/prizmIcons-map-marker-date-v1.icon';
+import { prizmIconsMapMarkerDateV2 } from './map-marker-date-v-2/prizmIcons-map-marker-date-v2.icon';
 import { prizmIconsMapPin } from './map-pin/prizmIcons-map-pin.icon';
 import { prizmIconsMap } from './map/prizmIcons-map.icon';
 import { prizmIconsMedical } from './medical/prizmIcons-medical.icon';
@@ -540,9 +540,9 @@ import { prizmIconsMoon } from './moon/prizmIcons-moon.icon';
 import { prizmIconsMusicSlash } from './music-slash/prizmIcons-music-slash.icon';
 import { prizmIconsMusic } from './music/prizmIcons-music.icon';
 import { prizmIconsNetworkExternalLink } from './network-external-link/prizmIcons-network-external-link.icon';
-import { prizmIconsNetworkV1 } from './network-v1/prizmIcons-network-v1.icon';
-import { prizmIconsNetworkV2 } from './network-v2/prizmIcons-network-v2.icon';
-import { prizmIconsNetworkV3 } from './network-v3/prizmIcons-network-v3.icon';
+import { prizmIconsNetworkV1 } from './network-v-1/prizmIcons-network-v1.icon';
+import { prizmIconsNetworkV2 } from './network-v-2/prizmIcons-network-v2.icon';
+import { prizmIconsNetworkV3 } from './network-v-3/prizmIcons-network-v3.icon';
 import { prizmIconsNetworkWired } from './network-wired/prizmIcons-network-wired.icon';
 import { prizmIconsNiFiLogo } from './ni-fi-logo/prizmIcons-ni-fi-logo.icon';
 import { prizmIconsNormdocsZql } from './normdocs-zql/prizmIcons-normdocs-zql.icon';
@@ -601,8 +601,8 @@ import { prizmIconsPipeNodeSideView } from './pipe-node-side-view/prizmIcons-pip
 import { prizmIconsPipeSensor } from './pipe-sensor/prizmIcons-pipe-sensor.icon';
 import { prizmIconsPipeSlash } from './pipe-slash/prizmIcons-pipe-slash.icon';
 import { prizmIconsPipeValve } from './pipe-valve/prizmIcons-pipe-valve.icon';
-import { prizmIconsPipelineV1 } from './pipeline-v1/prizmIcons-pipeline-v1.icon';
-import { prizmIconsPipelineV2 } from './pipeline-v2/prizmIcons-pipeline-v2.icon';
+import { prizmIconsPipelineV1 } from './pipeline-v-1/prizmIcons-pipeline-v1.icon';
+import { prizmIconsPipelineV2 } from './pipeline-v-2/prizmIcons-pipeline-v2.icon';
 import { prizmIconsPipette } from './pipette/prizmIcons-pipette.icon';
 import { prizmIconsPlane } from './plane/prizmIcons-plane.icon';
 import { prizmIconsPlayBack } from './play-back/prizmIcons-play-back.icon';
@@ -630,12 +630,12 @@ import { prizmIconsRailcarHopperSideView } from './railcar-hopper-side-view/priz
 import { prizmIconsRailcarSideView } from './railcar-side-view/prizmIcons-railcar-side-view.icon';
 import { prizmIconsRange } from './range/prizmIcons-range.icon';
 import { prizmIconsReplay } from './replay/prizmIcons-replay.icon';
-import { prizmIconsRespiratorV1 } from './respirator-v1/prizmIcons-respirator-v1.icon';
-import { prizmIconsRespiratorV2 } from './respirator-v2/prizmIcons-respirator-v2.icon';
-import { prizmIconsRespiratorV3 } from './respirator-v3/prizmIcons-respirator-v3.icon';
-import { prizmIconsRespiratorV4 } from './respirator-v4/prizmIcons-respirator-v4.icon';
-import { prizmIconsRespiratorV5 } from './respirator-v5/prizmIcons-respirator-v5.icon';
-import { prizmIconsRespiratorV6 } from './respirator-v6/prizmIcons-respirator-v6.icon';
+import { prizmIconsRespiratorV1 } from './respirator-v-1/prizmIcons-respirator-v1.icon';
+import { prizmIconsRespiratorV2 } from './respirator-v-2/prizmIcons-respirator-v2.icon';
+import { prizmIconsRespiratorV3 } from './respirator-v-3/prizmIcons-respirator-v3.icon';
+import { prizmIconsRespiratorV4 } from './respirator-v-4/prizmIcons-respirator-v4.icon';
+import { prizmIconsRespiratorV5 } from './respirator-v-5/prizmIcons-respirator-v5.icon';
+import { prizmIconsRespiratorV6 } from './respirator-v-6/prizmIcons-respirator-v6.icon';
 import { prizmIconsReturnStep } from './return-step/prizmIcons-return-step.icon';
 import { prizmIconsReturn } from './return/prizmIcons-return.icon';
 import { prizmIconsRhombusFill } from './rhombus-fill/prizmIcons-rhombus-fill.icon';
@@ -758,6 +758,41 @@ import { prizmIconsTank } from './tank/prizmIcons-tank.icon';
 import { prizmIconsTankcarOilSideView } from './tankcar-oil-side-view/prizmIcons-tankcar-oil-side-view.icon';
 import { prizmIconsTankcarSideView } from './tankcar-side-view/prizmIcons-tankcar-side-view.icon';
 import { prizmIconsTechsZql } from './techs-zql/prizmIcons-techs-zql.icon';
+import { prizmIconsTempAddShapeSquarePlus } from './temp-add-shape-square-plus/prizmIcons-temp-add-shape-square-plus.icon';
+import { prizmIconsTempAlertsAlarmLight } from './temp-alerts-alarm-light/prizmIcons-temp-alerts-alarm-light.icon';
+import { prizmIconsTempAlertsCircleMini } from './temp-alerts-circle-mini/prizmIcons-temp-alerts-circle-mini.icon';
+import { prizmIconsTempArrowsCornerChekIn } from './temp-arrows-corner-chek-in/prizmIcons-temp-arrows-corner-chek-in.icon';
+import { prizmIconsTempArrowsDownDoubleTop2 } from './temp-arrows-down-double-top-2/prizmIcons-temp-arrows-down-double-top-2.icon';
+import { prizmIconsTempArrowsUpDoubleTop2 } from './temp-arrows-up-double-top-2/prizmIcons-temp-arrows-up-double-top-2.icon';
+import { prizmIconsTempAudioArtist } from './temp-audio-artist/prizmIcons-temp-audio-artist.icon';
+import { prizmIconsTempBadgesTagMultiple } from './temp-badges-tag-multiple/prizmIcons-temp-badges-tag-multiple.icon';
+import { prizmIconsTempChevronsDropdownSmall } from './temp-chevrons-dropdown-small/prizmIcons-temp-chevrons-dropdown-small.icon';
+import { prizmIconsTempChevronsMenuLeftSmall } from './temp-chevrons-menu-left-small/prizmIcons-temp-chevrons-menu-left-small.icon';
+import { prizmIconsTempDateInformDelete } from './temp-date-inform-delete/prizmIcons-temp-date-inform-delete.icon';
+import { prizmIconsTempEditorDiscreteSet } from './temp-editor-discrete-set/prizmIcons-temp-editor-discrete-set.icon';
+import { prizmIconsTempEditorWrapText } from './temp-editor-wrap-text/prizmIcons-temp-editor-wrap-text.icon';
+import { prizmIconsTempFilesImport1C } from './temp-files-import-1c/prizmIcons-temp-files-import-1c.icon';
+import { prizmIconsTempLocationLocalizationDownList } from './temp-location-localization-down-list/prizmIcons-temp-location-localization-down-list.icon';
+import { prizmIconsTempNetworkLibrary } from './temp-network-library/prizmIcons-temp-network-library.icon';
+import { prizmIconsTempPoiDifference } from './temp-poi-difference/prizmIcons-temp-poi-difference.icon';
+import { prizmIconsTempProductGradeAccordingToSpecification } from './temp-product-grade-according-to-specification/prizmIcons-temp-product-grade-according-to-specification.icon';
+import { prizmIconsTempSelectionCheckboxBlankCircle } from './temp-selection-checkbox-blank-circle/prizmIcons-temp-selection-checkbox-blank-circle.icon';
+import { prizmIconsTempSelectionCheckboxBlank } from './temp-selection-checkbox-blank/prizmIcons-temp-selection-checkbox-blank.icon';
+import { prizmIconsTempSelectionCheckboxMarkedCircleChanel } from './temp-selection-checkbox-marked-circle-chanel/prizmIcons-temp-selection-checkbox-marked-circle-chanel.icon';
+import { prizmIconsTempSelectionChecked1 } from './temp-selection-checked-1/prizmIcons-temp-selection-checked-1.icon';
+import { prizmIconsTempSelectionChecked2 } from './temp-selection-checked-2/prizmIcons-temp-selection-checked-2.icon';
+import { prizmIconsTempSelectionChecked } from './temp-selection-checked/prizmIcons-temp-selection-checked.icon';
+import { prizmIconsTempSelectionRadioOff } from './temp-selection-radio-off/prizmIcons-temp-selection-radio-off.icon';
+import { prizmIconsTempSelectionRadioOn } from './temp-selection-radio-on/prizmIcons-temp-selection-radio-on.icon';
+import { prizmIconsTempSelectionToggleLeft } from './temp-selection-toggle-left/prizmIcons-temp-selection-toggle-left.icon';
+import { prizmIconsTempSelectionToggleRight } from './temp-selection-toggle-right/prizmIcons-temp-selection-toggle-right.icon';
+import { prizmIconsTempSelectionUnchoice } from './temp-selection-unchoice/prizmIcons-temp-selection-unchoice.icon';
+import { prizmIconsTempShapesCheckboxIntermediate } from './temp-shapes-checkbox-intermediate/prizmIcons-temp-shapes-checkbox-intermediate.icon';
+import { prizmIconsTempSignalCast } from './temp-signal-cast/prizmIcons-temp-signal-cast.icon';
+import { prizmIconsTempSignalRssBox } from './temp-signal-rss-box/prizmIcons-temp-signal-rss-box.icon';
+import { prizmIconsTempSocialTab } from './temp-social-tab/prizmIcons-temp-social-tab.icon';
+import { prizmIconsTempSortVersion } from './temp-sort-version/prizmIcons-temp-sort-version.icon';
+import { prizmIconsTempToolsSolver } from './temp-tools-solver/prizmIcons-temp-tools-solver.icon';
 import { prizmIconsTemperatureMinus } from './temperature-minus/prizmIcons-temperature-minus.icon';
 import { prizmIconsTemperaturePlus } from './temperature-plus/prizmIcons-temperature-plus.icon';
 import { prizmIconsTemperature } from './temperature/prizmIcons-temperature.icon';
@@ -1622,6 +1657,41 @@ export const PRIZM_ICONS_SET = [
   prizmIconsTankcarOilSideView,
   prizmIconsTankcarSideView,
   prizmIconsTechsZql,
+  prizmIconsTempAddShapeSquarePlus,
+  prizmIconsTempAlertsAlarmLight,
+  prizmIconsTempAlertsCircleMini,
+  prizmIconsTempArrowsCornerChekIn,
+  prizmIconsTempArrowsDownDoubleTop2,
+  prizmIconsTempArrowsUpDoubleTop2,
+  prizmIconsTempAudioArtist,
+  prizmIconsTempBadgesTagMultiple,
+  prizmIconsTempChevronsDropdownSmall,
+  prizmIconsTempChevronsMenuLeftSmall,
+  prizmIconsTempDateInformDelete,
+  prizmIconsTempEditorDiscreteSet,
+  prizmIconsTempEditorWrapText,
+  prizmIconsTempFilesImport1C,
+  prizmIconsTempLocationLocalizationDownList,
+  prizmIconsTempNetworkLibrary,
+  prizmIconsTempPoiDifference,
+  prizmIconsTempProductGradeAccordingToSpecification,
+  prizmIconsTempSelectionCheckboxBlankCircle,
+  prizmIconsTempSelectionCheckboxBlank,
+  prizmIconsTempSelectionCheckboxMarkedCircleChanel,
+  prizmIconsTempSelectionChecked1,
+  prizmIconsTempSelectionChecked2,
+  prizmIconsTempSelectionChecked,
+  prizmIconsTempSelectionRadioOff,
+  prizmIconsTempSelectionRadioOn,
+  prizmIconsTempSelectionToggleLeft,
+  prizmIconsTempSelectionToggleRight,
+  prizmIconsTempSelectionUnchoice,
+  prizmIconsTempShapesCheckboxIntermediate,
+  prizmIconsTempSignalCast,
+  prizmIconsTempSignalRssBox,
+  prizmIconsTempSocialTab,
+  prizmIconsTempSortVersion,
+  prizmIconsTempToolsSolver,
   prizmIconsTemperatureMinus,
   prizmIconsTemperaturePlus,
   prizmIconsTemperature,

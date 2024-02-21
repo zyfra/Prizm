@@ -769,10 +769,10 @@ export const PRIZM_ICONS_LAZY_SET = {
     import('./source/concrete-mixer-side-view/prizmIcons-concrete-mixer-side-view.icon').then(
       r => r['prizmIconsConcreteMixerSideView']
     ),
-  'container-v1': () =>
-    import('./source/container-v1/prizmIcons-container-v1.icon').then(r => r['prizmIconsContainerV1']),
-  'container-v2': () =>
-    import('./source/container-v2/prizmIcons-container-v2.icon').then(r => r['prizmIconsContainerV2']),
+  'container-v-1': () =>
+    import('./source/container-v-1/prizmIcons-container-v1.icon').then(r => r['prizmIconsContainerV1']),
+  'container-v-2': () =>
+    import('./source/container-v-2/prizmIcons-container-v2.icon').then(r => r['prizmIconsContainerV2']),
   containers: () =>
     import('./source/containers/prizmIcons-containers.icon').then(r => r['prizmIconsContainers']),
   'control-charts-zql': () =>
@@ -871,10 +871,10 @@ export const PRIZM_ICONS_LAZY_SET = {
   'editor-right': () =>
     import('./source/editor-right/prizmIcons-editor-right.icon').then(r => r['prizmIconsEditorRight']),
   electrics: () => import('./source/electrics/prizmIcons-electrics.icon').then(r => r['prizmIconsElectrics']),
-  ellipsis2: () =>
-    import('./source/ellipsis2/prizmIcons-ellipsis-2.icon').then(r => r['prizmIconsEllipsis2']),
-  ellipsis4: () =>
-    import('./source/ellipsis4/prizmIcons-ellipsis-4.icon').then(r => r['prizmIconsEllipsis4']),
+  'ellipsis-2': () =>
+    import('./source/ellipsis-2/prizmIcons-ellipsis-2.icon').then(r => r['prizmIconsEllipsis2']),
+  'ellipsis-4': () =>
+    import('./source/ellipsis-4/prizmIcons-ellipsis-4.icon').then(r => r['prizmIconsEllipsis4']),
   'ellipsis-grid': () =>
     import('./source/ellipsis-grid/prizmIcons-ellipsis-grid.icon').then(r => r['prizmIconsEllipsisGrid']),
   'ellipsis-h': () =>
@@ -1054,10 +1054,10 @@ export const PRIZM_ICONS_LAZY_SET = {
   'gas-pump': () => import('./source/gas-pump/prizmIcons-gas-pump.icon').then(r => r['prizmIconsGasPump']),
   gas: () => import('./source/gas/prizmIcons-gas.icon').then(r => r['prizmIconsGas']),
   gauge: () => import('./source/gauge/prizmIcons-gauge.icon').then(r => r['prizmIconsGauge']),
-  'gear-5-edge': () =>
-    import('./source/gear-5-edge/prizmIcons-gear-5-edge.icon').then(r => r['prizmIconsGear5Edge']),
-  'gear-8-edge': () =>
-    import('./source/gear-8-edge/prizmIcons-gear-8-edge.icon').then(r => r['prizmIconsGear8Edge']),
+  'gear-5edge': () =>
+    import('./source/gear-5edge/prizmIcons-gear-5-edge.icon').then(r => r['prizmIconsGear5Edge']),
+  'gear-8edge': () =>
+    import('./source/gear-8edge/prizmIcons-gear-8-edge.icon').then(r => r['prizmIconsGear8Edge']),
   'gear-cooling': () =>
     import('./source/gear-cooling/prizmIcons-gear-cooling.icon').then(r => r['prizmIconsGearCooling']),
   generator: () => import('./source/generator/prizmIcons-generator.icon').then(r => r['prizmIconsGenerator']),
@@ -1304,12 +1304,12 @@ export const PRIZM_ICONS_LAZY_SET = {
   mail: () => import('./source/mail/prizmIcons-mail.icon').then(r => r['prizmIconsMail']),
   mailbox: () => import('./source/mailbox/prizmIcons-mailbox.icon').then(r => r['prizmIconsMailbox']),
   'map-base': () => import('./source/map-base/prizmIcons-map-base.icon').then(r => r['prizmIconsMapBase']),
-  'map-marker-date-v1': () =>
-    import('./source/map-marker-date-v1/prizmIcons-map-marker-date-v1.icon').then(
+  'map-marker-date-v-1': () =>
+    import('./source/map-marker-date-v-1/prizmIcons-map-marker-date-v1.icon').then(
       r => r['prizmIconsMapMarkerDateV1']
     ),
-  'map-marker-date-v2': () =>
-    import('./source/map-marker-date-v2/prizmIcons-map-marker-date-v2.icon').then(
+  'map-marker-date-v-2': () =>
+    import('./source/map-marker-date-v-2/prizmIcons-map-marker-date-v2.icon').then(
       r => r['prizmIconsMapMarkerDateV2']
     ),
   'map-pin': () => import('./source/map-pin/prizmIcons-map-pin.icon').then(r => r['prizmIconsMapPin']),
@@ -1352,12 +1352,12 @@ export const PRIZM_ICONS_LAZY_SET = {
     import('./source/network-external-link/prizmIcons-network-external-link.icon').then(
       r => r['prizmIconsNetworkExternalLink']
     ),
-  'network-v1': () =>
-    import('./source/network-v1/prizmIcons-network-v1.icon').then(r => r['prizmIconsNetworkV1']),
-  'network-v2': () =>
-    import('./source/network-v2/prizmIcons-network-v2.icon').then(r => r['prizmIconsNetworkV2']),
-  'network-v3': () =>
-    import('./source/network-v3/prizmIcons-network-v3.icon').then(r => r['prizmIconsNetworkV3']),
+  'network-v-1': () =>
+    import('./source/network-v-1/prizmIcons-network-v1.icon').then(r => r['prizmIconsNetworkV1']),
+  'network-v-2': () =>
+    import('./source/network-v-2/prizmIcons-network-v2.icon').then(r => r['prizmIconsNetworkV2']),
+  'network-v-3': () =>
+    import('./source/network-v-3/prizmIcons-network-v3.icon').then(r => r['prizmIconsNetworkV3']),
   'network-wired': () =>
     import('./source/network-wired/prizmIcons-network-wired.icon').then(r => r['prizmIconsNetworkWired']),
   'ni-fi-logo': () =>
@@ -1494,10 +1494,10 @@ export const PRIZM_ICONS_LAZY_SET = {
     import('./source/pipe-slash/prizmIcons-pipe-slash.icon').then(r => r['prizmIconsPipeSlash']),
   'pipe-valve': () =>
     import('./source/pipe-valve/prizmIcons-pipe-valve.icon').then(r => r['prizmIconsPipeValve']),
-  'pipeline-v1': () =>
-    import('./source/pipeline-v1/prizmIcons-pipeline-v1.icon').then(r => r['prizmIconsPipelineV1']),
-  'pipeline-v2': () =>
-    import('./source/pipeline-v2/prizmIcons-pipeline-v2.icon').then(r => r['prizmIconsPipelineV2']),
+  'pipeline-v-1': () =>
+    import('./source/pipeline-v-1/prizmIcons-pipeline-v1.icon').then(r => r['prizmIconsPipelineV1']),
+  'pipeline-v-2': () =>
+    import('./source/pipeline-v-2/prizmIcons-pipeline-v2.icon').then(r => r['prizmIconsPipelineV2']),
   pipette: () => import('./source/pipette/prizmIcons-pipette.icon').then(r => r['prizmIconsPipette']),
   plane: () => import('./source/plane/prizmIcons-plane.icon').then(r => r['prizmIconsPlane']),
   'play-back': () =>
@@ -1549,18 +1549,18 @@ export const PRIZM_ICONS_LAZY_SET = {
     ),
   range: () => import('./source/range/prizmIcons-range.icon').then(r => r['prizmIconsRange']),
   replay: () => import('./source/replay/prizmIcons-replay.icon').then(r => r['prizmIconsReplay']),
-  'respirator-v1': () =>
-    import('./source/respirator-v1/prizmIcons-respirator-v1.icon').then(r => r['prizmIconsRespiratorV1']),
-  'respirator-v2': () =>
-    import('./source/respirator-v2/prizmIcons-respirator-v2.icon').then(r => r['prizmIconsRespiratorV2']),
-  'respirator-v3': () =>
-    import('./source/respirator-v3/prizmIcons-respirator-v3.icon').then(r => r['prizmIconsRespiratorV3']),
-  'respirator-v4': () =>
-    import('./source/respirator-v4/prizmIcons-respirator-v4.icon').then(r => r['prizmIconsRespiratorV4']),
-  'respirator-v5': () =>
-    import('./source/respirator-v5/prizmIcons-respirator-v5.icon').then(r => r['prizmIconsRespiratorV5']),
-  'respirator-v6': () =>
-    import('./source/respirator-v6/prizmIcons-respirator-v6.icon').then(r => r['prizmIconsRespiratorV6']),
+  'respirator-v-1': () =>
+    import('./source/respirator-v-1/prizmIcons-respirator-v1.icon').then(r => r['prizmIconsRespiratorV1']),
+  'respirator-v-2': () =>
+    import('./source/respirator-v-2/prizmIcons-respirator-v2.icon').then(r => r['prizmIconsRespiratorV2']),
+  'respirator-v-3': () =>
+    import('./source/respirator-v-3/prizmIcons-respirator-v3.icon').then(r => r['prizmIconsRespiratorV3']),
+  'respirator-v-4': () =>
+    import('./source/respirator-v-4/prizmIcons-respirator-v4.icon').then(r => r['prizmIconsRespiratorV4']),
+  'respirator-v-5': () =>
+    import('./source/respirator-v-5/prizmIcons-respirator-v5.icon').then(r => r['prizmIconsRespiratorV5']),
+  'respirator-v-6': () =>
+    import('./source/respirator-v-6/prizmIcons-respirator-v6.icon').then(r => r['prizmIconsRespiratorV6']),
   'return-step': () =>
     import('./source/return-step/prizmIcons-return-step.icon').then(r => r['prizmIconsReturnStep']),
   return: () => import('./source/return/prizmIcons-return.icon').then(r => r['prizmIconsReturn']),
@@ -1886,6 +1886,146 @@ export const PRIZM_ICONS_LAZY_SET = {
     ),
   'techs-zql': () =>
     import('./source/techs-zql/prizmIcons-techs-zql.icon').then(r => r['prizmIconsTechsZql']),
+  'temp-add-shape-square-plus': () =>
+    import('./source/temp-add-shape-square-plus/prizmIcons-temp-add-shape-square-plus.icon').then(
+      r => r['prizmIconsTempAddShapeSquarePlus']
+    ),
+  'temp-alerts-alarm-light': () =>
+    import('./source/temp-alerts-alarm-light/prizmIcons-temp-alerts-alarm-light.icon').then(
+      r => r['prizmIconsTempAlertsAlarmLight']
+    ),
+  'temp-alerts-circle-mini': () =>
+    import('./source/temp-alerts-circle-mini/prizmIcons-temp-alerts-circle-mini.icon').then(
+      r => r['prizmIconsTempAlertsCircleMini']
+    ),
+  'temp-arrows-corner-chek-in': () =>
+    import('./source/temp-arrows-corner-chek-in/prizmIcons-temp-arrows-corner-chek-in.icon').then(
+      r => r['prizmIconsTempArrowsCornerChekIn']
+    ),
+  'temp-arrows-down-double-top-2': () =>
+    import('./source/temp-arrows-down-double-top-2/prizmIcons-temp-arrows-down-double-top-2.icon').then(
+      r => r['prizmIconsTempArrowsDownDoubleTop2']
+    ),
+  'temp-arrows-up-double-top-2': () =>
+    import('./source/temp-arrows-up-double-top-2/prizmIcons-temp-arrows-up-double-top-2.icon').then(
+      r => r['prizmIconsTempArrowsUpDoubleTop2']
+    ),
+  'temp-audio-artist': () =>
+    import('./source/temp-audio-artist/prizmIcons-temp-audio-artist.icon').then(
+      r => r['prizmIconsTempAudioArtist']
+    ),
+  'temp-badges-tag-multiple': () =>
+    import('./source/temp-badges-tag-multiple/prizmIcons-temp-badges-tag-multiple.icon').then(
+      r => r['prizmIconsTempBadgesTagMultiple']
+    ),
+  'temp-chevrons-dropdown-small': () =>
+    import('./source/temp-chevrons-dropdown-small/prizmIcons-temp-chevrons-dropdown-small.icon').then(
+      r => r['prizmIconsTempChevronsDropdownSmall']
+    ),
+  'temp-chevrons-menu-left-small': () =>
+    import('./source/temp-chevrons-menu-left-small/prizmIcons-temp-chevrons-menu-left-small.icon').then(
+      r => r['prizmIconsTempChevronsMenuLeftSmall']
+    ),
+  'temp-date-inform-delete': () =>
+    import('./source/temp-date-inform-delete/prizmIcons-temp-date-inform-delete.icon').then(
+      r => r['prizmIconsTempDateInformDelete']
+    ),
+  'temp-editor-discrete-set': () =>
+    import('./source/temp-editor-discrete-set/prizmIcons-temp-editor-discrete-set.icon').then(
+      r => r['prizmIconsTempEditorDiscreteSet']
+    ),
+  'temp-editor-wrap-text': () =>
+    import('./source/temp-editor-wrap-text/prizmIcons-temp-editor-wrap-text.icon').then(
+      r => r['prizmIconsTempEditorWrapText']
+    ),
+  'temp-files-import-1c': () =>
+    import('./source/temp-files-import-1c/prizmIcons-temp-files-import-1c.icon').then(
+      r => r['prizmIconsTempFilesImport1C']
+    ),
+  'temp-location-localization-down-list': () =>
+    import(
+      './source/temp-location-localization-down-list/prizmIcons-temp-location-localization-down-list.icon'
+    ).then(r => r['prizmIconsTempLocationLocalizationDownList']),
+  'temp-network-library': () =>
+    import('./source/temp-network-library/prizmIcons-temp-network-library.icon').then(
+      r => r['prizmIconsTempNetworkLibrary']
+    ),
+  'temp-poi-difference': () =>
+    import('./source/temp-poi-difference/prizmIcons-temp-poi-difference.icon').then(
+      r => r['prizmIconsTempPoiDifference']
+    ),
+  'temp-product-grade-according-to-specification': () =>
+    import(
+      './source/temp-product-grade-according-to-specification/prizmIcons-temp-product-grade-according-to-specification.icon'
+    ).then(r => r['prizmIconsTempProductGradeAccordingToSpecification']),
+  'temp-selection-checkbox-blank-circle': () =>
+    import(
+      './source/temp-selection-checkbox-blank-circle/prizmIcons-temp-selection-checkbox-blank-circle.icon'
+    ).then(r => r['prizmIconsTempSelectionCheckboxBlankCircle']),
+  'temp-selection-checkbox-blank': () =>
+    import('./source/temp-selection-checkbox-blank/prizmIcons-temp-selection-checkbox-blank.icon').then(
+      r => r['prizmIconsTempSelectionCheckboxBlank']
+    ),
+  'temp-selection-checkbox-marked-circle-chanel': () =>
+    import(
+      './source/temp-selection-checkbox-marked-circle-chanel/prizmIcons-temp-selection-checkbox-marked-circle-chanel.icon'
+    ).then(r => r['prizmIconsTempSelectionCheckboxMarkedCircleChanel']),
+  'temp-selection-checked-1': () =>
+    import('./source/temp-selection-checked-1/prizmIcons-temp-selection-checked-1.icon').then(
+      r => r['prizmIconsTempSelectionChecked1']
+    ),
+  'temp-selection-checked-2': () =>
+    import('./source/temp-selection-checked-2/prizmIcons-temp-selection-checked-2.icon').then(
+      r => r['prizmIconsTempSelectionChecked2']
+    ),
+  'temp-selection-checked': () =>
+    import('./source/temp-selection-checked/prizmIcons-temp-selection-checked.icon').then(
+      r => r['prizmIconsTempSelectionChecked']
+    ),
+  'temp-selection-radio-off': () =>
+    import('./source/temp-selection-radio-off/prizmIcons-temp-selection-radio-off.icon').then(
+      r => r['prizmIconsTempSelectionRadioOff']
+    ),
+  'temp-selection-radio-on': () =>
+    import('./source/temp-selection-radio-on/prizmIcons-temp-selection-radio-on.icon').then(
+      r => r['prizmIconsTempSelectionRadioOn']
+    ),
+  'temp-selection-toggle-left': () =>
+    import('./source/temp-selection-toggle-left/prizmIcons-temp-selection-toggle-left.icon').then(
+      r => r['prizmIconsTempSelectionToggleLeft']
+    ),
+  'temp-selection-toggle-right': () =>
+    import('./source/temp-selection-toggle-right/prizmIcons-temp-selection-toggle-right.icon').then(
+      r => r['prizmIconsTempSelectionToggleRight']
+    ),
+  'temp-selection-unchoice': () =>
+    import('./source/temp-selection-unchoice/prizmIcons-temp-selection-unchoice.icon').then(
+      r => r['prizmIconsTempSelectionUnchoice']
+    ),
+  'temp-shapes-checkbox-intermediate': () =>
+    import(
+      './source/temp-shapes-checkbox-intermediate/prizmIcons-temp-shapes-checkbox-intermediate.icon'
+    ).then(r => r['prizmIconsTempShapesCheckboxIntermediate']),
+  'temp-signal-cast': () =>
+    import('./source/temp-signal-cast/prizmIcons-temp-signal-cast.icon').then(
+      r => r['prizmIconsTempSignalCast']
+    ),
+  'temp-signal-rss-box': () =>
+    import('./source/temp-signal-rss-box/prizmIcons-temp-signal-rss-box.icon').then(
+      r => r['prizmIconsTempSignalRssBox']
+    ),
+  'temp-social-tab': () =>
+    import('./source/temp-social-tab/prizmIcons-temp-social-tab.icon').then(
+      r => r['prizmIconsTempSocialTab']
+    ),
+  'temp-sort-version': () =>
+    import('./source/temp-sort-version/prizmIcons-temp-sort-version.icon').then(
+      r => r['prizmIconsTempSortVersion']
+    ),
+  'temp-tools-solver': () =>
+    import('./source/temp-tools-solver/prizmIcons-temp-tools-solver.icon').then(
+      r => r['prizmIconsTempToolsSolver']
+    ),
   'temperature-minus': () =>
     import('./source/temperature-minus/prizmIcons-temperature-minus.icon').then(
       r => r['prizmIconsTemperatureMinus']

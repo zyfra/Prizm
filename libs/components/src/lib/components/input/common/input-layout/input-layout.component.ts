@@ -62,7 +62,7 @@ export class PrizmInputLayoutComponent
 
   @Input() outer = false;
 
-  @Input() clearButton: PolymorphContent<PrizmInputLayoutClearButtonContext> = 'cancel-delete-content';
+  @Input() clearButton: PolymorphContent<PrizmInputLayoutClearButtonContext> = 'delete-content';
 
   @Input() border = true;
   @Input() position: PrizmInputPosition = 'left';
