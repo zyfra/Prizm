@@ -72,7 +72,6 @@ All notable changes to this project will be documented in this file.
 - fix(components/input-date-time-range): incorrect injection token for date time value transformer #1364
 - fix(components/tabs): issue with close tabs logic #1360
 - fix(doc/input-mask): input mask demo placeholder property added
-  <<<<<<< HEAD
 - fix(doc/dropdown-host): select panel example styles fix #1283
 - fix(components/shadow): shadow enum values fix
 - fix(components/paginator): updated i18n #1390 #1391
