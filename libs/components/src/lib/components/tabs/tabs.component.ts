@@ -16,7 +16,7 @@ import {
 } from '@angular/core';
 import { PrizmTabSize } from './tabs.interface';
 import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
-import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, observeOn, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
@@ -72,6 +72,7 @@ import { prizmIsTextOverflow$ } from '../../util';
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.data-size') public size: PrizmTabSize = 'adaptive';
   @Input() public set activeTabIndex(idx: number) {
+    this.activeTabIndexLastChanged = idx;
     if (idx === this.tabsService.activeTabIdx) return;
     this.tabsService.updateActiveTab(idx);
   }
@@ -85,6 +86,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   get canOpen() {
     return this.tabsService.canOpenTab;
   }
+  private activeTabIndexLastChanged: number | null = null;
   @Output() readonly activeTabIndexChange: EventEmitter<number> = new EventEmitter<number>();
   @ViewChild('tabsContainer', { static: true }) public tabsContainer!: ElementRef;
   @ViewChild('tabsDropdown', { static: true }) public tabsDropdown!: PrizmDropdownHostComponent;
@@ -142,6 +144,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   private initTabClickListener(): void {
     this.tabsService.activeTabIdx$
       .pipe(
+        skip(1),
+        debounceTime(0),
         tap(idx => {
           this.tabClickHandler(idx);
         }),
@@ -158,7 +162,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   }
 
   public tabClickHandler(idx: number): void {
-    this.activeTabIndex = idx;
+    if (this.activeTabIndexLastChanged === idx) return;
+    this.activeTabIndex = this.activeTabIndexLastChanged = idx;
     this.activeTabIndexChange.emit(this.activeTabIndex);
     this.focusTabByIdx(idx);
   }

@@ -4,7 +4,6 @@ import { PrizmTabsComponent } from './tabs.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
 
 /**
- * @deprecated
  * use standalone
  * */
 @NgModule({
