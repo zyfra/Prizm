@@ -70,7 +70,6 @@ export class PrizmNavigationMenuGroupService<
     this.viewMode$$,
   ]).pipe(
     switchMap(([internalItems, viewMode]) => {
-      console.log(22222);
       if (viewMode === 'rubricator') {
         const rubricatorItems = toRubricatorItems(internalItems);
         rubricatorItems.forEach(rootLevelItem => this.temporaryExpandedItemsMap.set(rootLevelItem, false));

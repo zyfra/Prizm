@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnDestroy, OnInit } from '@angular/core';
+import { Directive, Input, OnInit } from '@angular/core';
 import { PrizmDocHostElementService } from './host-element.service';
 
 @Directive({
