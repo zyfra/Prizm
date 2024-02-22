@@ -60,6 +60,7 @@ export interface PrizmLanguageColumnSettings {
 export interface PrizmLanguagePaginator {
   paginator: {
     linesShown: string;
+    fromText: string;
   };
 }
 

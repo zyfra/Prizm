@@ -27,7 +27,7 @@
       {{ paginator$ | async | prizmPluck : ['linesShown'] }} {{ (currentPage - 1) * rows + 1 }}-{{
         currentPage * rows > $any(totalRecords) ? totalRecords : currentPage * rows
       }}
-      из {{ realTotalRecord }}
+      {{ paginator$ | async | prizmPluck : ['fromText'] }} {{ realTotalRecord }}
     </span>
     <div
       class="paginator paginator__finite"
