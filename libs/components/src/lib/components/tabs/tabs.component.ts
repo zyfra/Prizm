@@ -16,7 +16,7 @@ import {
 } from '@angular/core';
 import { PrizmTabSize } from './tabs.interface';
 import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
-import { debounceTime, observeOn, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, observeOn, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
 import { PrizmTabMenuItemDirective } from './tab-menu-item.directive';
@@ -142,6 +142,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   private initTabClickListener(): void {
     this.tabsService.activeTabIdx$
       .pipe(
+        skip(1),
+        debounceTime(0),
         tap(idx => {
           this.tabClickHandler(idx);
         }),
@@ -158,6 +160,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   }
 
   public tabClickHandler(idx: number): void {
+    if (idx === this.activeTabIndex) return;
     this.activeTabIndex = idx;
     this.activeTabIndexChange.emit(this.activeTabIndex);
     this.focusTabByIdx(idx);
