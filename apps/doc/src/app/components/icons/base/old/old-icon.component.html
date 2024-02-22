@@ -1,8 +1,15 @@
-<h1>Иконки</h1>
+<div class="title-block">
+  <h1>Иконки</h1>
+
+  <div class="show-none">
+    <span>Показать пропущенные</span>
+    <prizm-toggle [ngModel]="showOnlyHide" (ngModelChange)="showOnlyHide = $event"></prizm-toggle>
+  </div>
+</div>
 
 <div>
   <h4 class="title">Иконки - {{ existIcons.length }}</h4>
-  <div class="icons">
+  <div class="icons" [class.show-only-hide]="showOnlyHide">
     <div class="icon-def" *ngFor="let obj of existIcons" (click)="copy(obj.new)">
       <prizm-icons [size]="24" [name]="obj.old"></prizm-icons>
       <div class="name">{{ obj.old }}</div>

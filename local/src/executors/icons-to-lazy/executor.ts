@@ -64,7 +64,7 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema): P
       const oldPart = match[1];
 
       // Применение правил для изменения имен
-      let newPath = oldPart
+      const newPath = oldPart
         .replace(/-([a-zA-Z]{2,})([0-9]+)/g, '-$1-$2')
         .replace(/-([a-zA-Z]{1})-([0-9]+)/g, '-$1$2')
         .replace(/-([0-9]+)-([a-z]+)/g, '-$1$2');

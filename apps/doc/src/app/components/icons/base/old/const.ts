@@ -1093,7 +1093,6 @@ export const IconOldDefs = [
       'view-headline',
       'view-list',
       'view-logo-grey-z',
-      'view-logo-s.grey',
       'view-menu-2',
       'view-menu-arrow-down',
       'view-menu-arrow-left',
