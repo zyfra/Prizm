@@ -76,7 +76,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/shadow): shadow enum values fix
 - fix(components/paginator): updated i18n #1390 #1391
   !!! if you use custom i18n dictionary you can get bc (our [ADR](https://jira.zyfra.com/wiki/x/crs6Dw))
-- # fix(component/tabs): error with double emitted index on close tabs #1392 #1003 #1389
+- fix(component/tabs): error with double emitted index on close tabs #1392 #1003 #1389
 
 ## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
 
@@ -105,7 +105,6 @@ All notable changes to this project will be documented in this file.
 - fix(theme/service): recognize current theme #1287 #1292
 - fix(components/tabs): set stacking context to isolate #1291
 - fix(components/input-text): show status on clear required fields #1284
-  > > > > > > > fbc4bfbca (fix: input mask demo placeholder property added)
 
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
