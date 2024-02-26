@@ -10,18 +10,21 @@
   padding: 0;
   border-radius: var(--prizm-button-radius, 2px);
   background: transparent;
-  // TODO 4.0.0: set default min-width 120px according to prizm button component description
-  min-width: var(--prizm-button-min-width, unset);
+  min-width: var(--prizm-button-min-width, 120px);
 
   &._focused {
     box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
     transition: 0.3s;
   }
 
-  &[prizmIconButton] .z-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  &[prizmIconButton] {
+    min-width: var(--prizm-button-min-width, unset);
+
+    .z-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
   }
 
   .z-wrapper {

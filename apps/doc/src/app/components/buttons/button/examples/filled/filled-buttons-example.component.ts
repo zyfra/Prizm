@@ -15,7 +15,6 @@ import { Component } from '@angular/core';
         .content {
           display: flex;
           gap: 1rem;
-          --prizm-button-min-width: 120px;
         }
       }
     `,
