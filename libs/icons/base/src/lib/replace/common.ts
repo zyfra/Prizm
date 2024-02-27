@@ -939,7 +939,7 @@ export const PRIZM_OLD_ICONS_REPLACE_SET = {
   'cancel-block,': 'ban',
   'cancel,': 'ban',
   'files-loader': 'loader',
-  'add-plus': 'plus-triangle-down',
+  'add-plus': 'plus',
   'add-plus-drop-down-list': 'plus-triangle-down',
   'add-line-add': 'plus-triangle-down',
   'add-circle': 'circle-plus',
