@@ -14,9 +14,9 @@ export class WidgetExampleComponent {
   public title = 'Заголовок виджета';
   public icons: PrizmWidgetIcons[] = [];
   public iconVariants: ReadonlyArray<PolymorphContent | null> = [
-    ['account-circle', 'account-circle', 'account-key'],
+    ['user-circle', 'user-circle', 'users-key'],
     '',
-    ['account-key'],
+    ['users-key'],
   ];
   public content = 'Содержимое виджета';
 
