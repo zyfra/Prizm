@@ -52,7 +52,7 @@ const DefaultRelativeMenuItems = {
     {
       id: 'minus',
       groupId: 'direction',
-      icon: 'delete-minus-circle',
+      icon: 'minus-circle',
       label: 'Смещение назад',
     },
   ],
