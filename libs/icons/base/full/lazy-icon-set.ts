@@ -1054,10 +1054,10 @@ export const PRIZM_ICONS_FULL_LAZY_SET = {
   'gas-pump': () => import('./source/gas-pump/prizmIcons-gas-pump.icon').then(m => m['prizmIconsGasPump']),
   gas: () => import('./source/gas/prizmIcons-gas.icon').then(m => m['prizmIconsGas']),
   gauge: () => import('./source/gauge/prizmIcons-gauge.icon').then(m => m['prizmIconsGauge']),
-  'gear-5edge': () =>
-    import('./source/gear-5edge/prizmIcons-gear-5-edge.icon').then(m => m['prizmIconsGear5Edge']),
-  'gear-8edge': () =>
-    import('./source/gear-8edge/prizmIcons-gear-8-edge.icon').then(m => m['prizmIconsGear8Edge']),
+  'gear-5-edge': () =>
+    import('./source/gear-5-edge/prizmIcons-gear-5-edge.icon').then(m => m['prizmIconsGear5Edge']),
+  'gear-8-edge': () =>
+    import('./source/gear-8-edge/prizmIcons-gear-8-edge.icon').then(m => m['prizmIconsGear8Edge']),
   'gear-cooling': () =>
     import('./source/gear-cooling/prizmIcons-gear-cooling.icon').then(m => m['prizmIconsGearCooling']),
   generator: () => import('./source/generator/prizmIcons-generator.icon').then(m => m['prizmIconsGenerator']),
@@ -2142,6 +2142,8 @@ export const PRIZM_ICONS_FULL_LAZY_SET = {
     import('./source/user-card/prizmIcons-user-card.icon').then(m => m['prizmIconsUserCard']),
   'user-check': () =>
     import('./source/user-check/prizmIcons-user-check.icon').then(m => m['prizmIconsUserCheck']),
+  'user-chevron': () =>
+    import('./source/user-chevron/prizmIcons-user-chevron.icon').then(m => m['prizmIconsUserChevron']),
   'user-circle': () =>
     import('./source/user-circle/prizmIcons-user-circle.icon').then(m => m['prizmIconsUserCircle']),
   'user-cross': () =>

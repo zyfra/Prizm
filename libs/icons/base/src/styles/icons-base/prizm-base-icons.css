@@ -2563,180 +2563,183 @@
 .prizm-base-icons-user-check:before {
   content: '\f453';
 }
-.prizm-base-icons-user-circle:before {
+.prizm-base-icons-user-chevron:before {
   content: '\f454';
 }
-.prizm-base-icons-user-cross:before {
+.prizm-base-icons-user-circle:before {
   content: '\f455';
 }
-.prizm-base-icons-user-gear:before {
+.prizm-base-icons-user-cross:before {
   content: '\f456';
 }
-.prizm-base-icons-user-group:before {
+.prizm-base-icons-user-gear:before {
   content: '\f457';
 }
-.prizm-base-icons-user-location:before {
+.prizm-base-icons-user-group:before {
   content: '\f458';
 }
-.prizm-base-icons-user-minus:before {
+.prizm-base-icons-user-location:before {
   content: '\f459';
 }
-.prizm-base-icons-user-pen:before {
+.prizm-base-icons-user-minus:before {
   content: '\f45a';
 }
-.prizm-base-icons-user-plus:before {
+.prizm-base-icons-user-pen:before {
   content: '\f45b';
 }
-.prizm-base-icons-user-shield:before {
+.prizm-base-icons-user-plus:before {
   content: '\f45c';
 }
-.prizm-base-icons-user-worker:before {
+.prizm-base-icons-user-shield:before {
   content: '\f45d';
 }
-.prizm-base-icons-user:before {
+.prizm-base-icons-user-worker:before {
   content: '\f45e';
 }
-.prizm-base-icons-users-arrow-right:before {
+.prizm-base-icons-user:before {
   content: '\f45f';
 }
-.prizm-base-icons-users-arrow-up-zql:before {
+.prizm-base-icons-users-arrow-right:before {
   content: '\f460';
 }
-.prizm-base-icons-users-gear:before {
+.prizm-base-icons-users-arrow-up-zql:before {
   content: '\f461';
 }
-.prizm-base-icons-users-key:before {
+.prizm-base-icons-users-gear:before {
   content: '\f462';
 }
-.prizm-base-icons-users-location:before {
+.prizm-base-icons-users-key:before {
   content: '\f463';
 }
-.prizm-base-icons-users-minus:before {
+.prizm-base-icons-users-location:before {
   content: '\f464';
 }
-.prizm-base-icons-users-plus:before {
+.prizm-base-icons-users-minus:before {
   content: '\f465';
 }
-.prizm-base-icons-users:before {
+.prizm-base-icons-users-plus:before {
   content: '\f466';
 }
-.prizm-base-icons-vector-circle-one-point:before {
+.prizm-base-icons-users:before {
   content: '\f467';
 }
-.prizm-base-icons-vector-circle-two-point:before {
+.prizm-base-icons-vector-circle-one-point:before {
   content: '\f468';
 }
-.prizm-base-icons-vector-circle:before {
+.prizm-base-icons-vector-circle-two-point:before {
   content: '\f469';
 }
-.prizm-base-icons-vector-line:before {
+.prizm-base-icons-vector-circle:before {
   content: '\f46a';
 }
-.prizm-base-icons-vector-point:before {
+.prizm-base-icons-vector-line:before {
   content: '\f46b';
 }
-.prizm-base-icons-vector-polygon:before {
+.prizm-base-icons-vector-point:before {
   content: '\f46c';
 }
-.prizm-base-icons-vector-rectangle:before {
+.prizm-base-icons-vector-polygon:before {
   content: '\f46d';
 }
-.prizm-base-icons-vector-square:before {
+.prizm-base-icons-vector-rectangle:before {
   content: '\f46e';
 }
-.prizm-base-icons-vector-triangle:before {
+.prizm-base-icons-vector-square:before {
   content: '\f46f';
 }
-.prizm-base-icons-vectors-radius:before {
+.prizm-base-icons-vector-triangle:before {
   content: '\f470';
 }
-.prizm-base-icons-vial-arrow-rotate-left:before {
+.prizm-base-icons-vectors-radius:before {
   content: '\f471';
 }
-.prizm-base-icons-vial-flask:before {
+.prizm-base-icons-vial-arrow-rotate-left:before {
   content: '\f472';
 }
-.prizm-base-icons-vial-plus:before {
+.prizm-base-icons-vial-flask:before {
   content: '\f473';
 }
-.prizm-base-icons-vial-rotate-left:before {
+.prizm-base-icons-vial-plus:before {
   content: '\f474';
 }
-.prizm-base-icons-vial-xmark:before {
+.prizm-base-icons-vial-rotate-left:before {
   content: '\f475';
 }
-.prizm-base-icons-vial:before {
+.prizm-base-icons-vial-xmark:before {
   content: '\f476';
 }
-.prizm-base-icons-video-cross:before {
+.prizm-base-icons-vial:before {
   content: '\f477';
 }
-.prizm-base-icons-video-slash:before {
+.prizm-base-icons-video-cross:before {
   content: '\f478';
 }
-.prizm-base-icons-video:before {
+.prizm-base-icons-video-slash:before {
   content: '\f479';
 }
-.prizm-base-icons-voicemail:before {
+.prizm-base-icons-video:before {
   content: '\f47a';
 }
-.prizm-base-icons-volume-cross:before {
+.prizm-base-icons-voicemail:before {
   content: '\f47b';
 }
-.prizm-base-icons-volume-low:before {
+.prizm-base-icons-volume-cross:before {
   content: '\f47c';
 }
-.prizm-base-icons-volume-minus:before {
+.prizm-base-icons-volume-low:before {
   content: '\f47d';
 }
-.prizm-base-icons-volume-off:before {
+.prizm-base-icons-volume-minus:before {
   content: '\f47e';
 }
-.prizm-base-icons-volume-plus:before {
+.prizm-base-icons-volume-off:before {
   content: '\f47f';
 }
-.prizm-base-icons-volume-slash:before {
+.prizm-base-icons-volume-plus:before {
   content: '\f480';
 }
-.prizm-base-icons-volume:before {
+.prizm-base-icons-volume-slash:before {
   content: '\f481';
 }
-.prizm-base-icons-wallet:before {
+.prizm-base-icons-volume:before {
   content: '\f482';
 }
-.prizm-base-icons-watch:before {
+.prizm-base-icons-wallet:before {
   content: '\f483';
 }
-.prizm-base-icons-water-heater:before {
+.prizm-base-icons-watch:before {
   content: '\f484';
 }
-.prizm-base-icons-water-pump:before {
+.prizm-base-icons-water-heater:before {
   content: '\f485';
 }
-.prizm-base-icons-webcam:before {
+.prizm-base-icons-water-pump:before {
   content: '\f486';
 }
-.prizm-base-icons-wifi-off:before {
+.prizm-base-icons-webcam:before {
   content: '\f487';
 }
-.prizm-base-icons-wifi:before {
+.prizm-base-icons-wifi-off:before {
   content: '\f488';
 }
-.prizm-base-icons-window:before {
+.prizm-base-icons-wifi:before {
   content: '\f489';
 }
-.prizm-base-icons-wrench:before {
+.prizm-base-icons-window:before {
   content: '\f48a';
 }
-.prizm-base-icons-xmark-column-right:before {
+.prizm-base-icons-wrench:before {
   content: '\f48b';
 }
-.prizm-base-icons-xmark-column-top:before {
+.prizm-base-icons-xmark-column-right:before {
   content: '\f48c';
 }
-.prizm-base-icons-xmark-mini:before {
+.prizm-base-icons-xmark-column-top:before {
   content: '\f48d';
 }
-.prizm-base-icons-xmark:before {
+.prizm-base-icons-xmark-mini:before {
   content: '\f48e';
+}
+.prizm-base-icons-xmark:before {
+  content: '\f48f';
 }

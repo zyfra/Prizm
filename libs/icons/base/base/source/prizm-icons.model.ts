@@ -840,6 +840,7 @@ export type PrizmIconsType =
   | 'user-arrows-swap'
   | 'user-card'
   | 'user-check'
+  | 'user-chevron'
   | 'user-circle'
   | 'user-cross'
   | 'user-gear'
@@ -1741,6 +1742,7 @@ export const PrizmIconsType = {
   'user-arrows-swap': 'user-arrows-swap' as PrizmIconsType,
   'user-card': 'user-card' as PrizmIconsType,
   'user-check': 'user-check' as PrizmIconsType,
+  'user-chevron': 'user-chevron' as PrizmIconsType,
   'user-circle': 'user-circle' as PrizmIconsType,
   'user-cross': 'user-cross' as PrizmIconsType,
   'user-gear': 'user-gear' as PrizmIconsType,
@@ -2644,6 +2646,7 @@ export enum PrizmIconsEnum {
   USER_ARROWS_SWAP = 'user-arrows-swap',
   USER_CARD = 'user-card',
   USER_CHECK = 'user-check',
+  USER_CHEVRON = 'user-chevron',
   USER_CIRCLE = 'user-circle',
   USER_CROSS = 'user-cross',
   USER_GEAR = 'user-gear',

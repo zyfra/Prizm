@@ -406,8 +406,8 @@ import { prizmIconsGasMonitoring } from './gas-monitoring/prizmIcons-gas-monitor
 import { prizmIconsGasPump } from './gas-pump/prizmIcons-gas-pump.icon';
 import { prizmIconsGas } from './gas/prizmIcons-gas.icon';
 import { prizmIconsGauge } from './gauge/prizmIcons-gauge.icon';
-import { prizmIconsGear5Edge } from './gear-5edge/prizmIcons-gear-5-edge.icon';
-import { prizmIconsGear8Edge } from './gear-8edge/prizmIcons-gear-8-edge.icon';
+import { prizmIconsGear5Edge } from './gear-5-edge/prizmIcons-gear-5-edge.icon';
+import { prizmIconsGear8Edge } from './gear-8-edge/prizmIcons-gear-8-edge.icon';
 import { prizmIconsGearCooling } from './gear-cooling/prizmIcons-gear-cooling.icon';
 import { prizmIconsGenerator } from './generator/prizmIcons-generator.icon';
 import { prizmIconsGift } from './gift/prizmIcons-gift.icon';
@@ -837,6 +837,7 @@ import { prizmIconsUnlock } from './unlock/prizmIcons-unlock.icon';
 import { prizmIconsUserArrowsSwap } from './user-arrows-swap/prizmIcons-user-arrows-swap.icon';
 import { prizmIconsUserCard } from './user-card/prizmIcons-user-card.icon';
 import { prizmIconsUserCheck } from './user-check/prizmIcons-user-check.icon';
+import { prizmIconsUserChevron } from './user-chevron/prizmIcons-user-chevron.icon';
 import { prizmIconsUserCircle } from './user-circle/prizmIcons-user-circle.icon';
 import { prizmIconsUserCross } from './user-cross/prizmIcons-user-cross.icon';
 import { prizmIconsUserGear } from './user-gear/prizmIcons-user-gear.icon';
@@ -1736,6 +1737,7 @@ export const PRIZM_ICONS_FULL_SET = [
   prizmIconsUserArrowsSwap,
   prizmIconsUserCard,
   prizmIconsUserCheck,
+  prizmIconsUserChevron,
   prizmIconsUserCircle,
   prizmIconsUserCross,
   prizmIconsUserGear,
