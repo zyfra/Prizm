@@ -1,7 +1,7 @@
 $prizm-base-icons-font: 'prizm-base-icons';
 
-i[class^='prizm-base-icons-']:before,
-i[class*=' prizm-base-icons-']:before {
+[class^='prizm-base-icons-']:before,
+[class*=' prizm-base-icons-']:before {
   font-family: prizm-base-icons !important;
   font-style: normal;
   font-weight: normal !important;
@@ -718,173 +718,212 @@ $prizm-base-icons-map: (
   'snowflake-up-to-bracket': '\f3bf',
   'snowflake': '\f3c0',
   'sort-filter-remove': '\f3c1',
-  'specification': '\f3c2',
-  'specs-zql': '\f3c3',
-  'speed-reduction-cooling': '\f3c4',
-  'square-arrows-curve-right-down': '\f3c5',
-  'square-arrows-curve-up-right': '\f3c6',
-  'square-bracket-curly-left': '\f3c7',
-  'square-bracket-curly-right': '\f3c8',
-  'square-bracket-left': '\f3c9',
-  'square-bracket-right': '\f3ca',
-  'square-circle-plus-triangle-fill': '\f3cb',
-  'square-circle-triangle-cross-fill': '\f3cc',
-  'square-circle-triangle-cross': '\f3cd',
-  'square-divide': '\f3ce',
-  'square-excel': '\f3cf',
-  'square-exclamation-empty': '\f3d0',
-  'square-exclamation-fill': '\f3d1',
-  'square-fill': '\f3d2',
-  'square-hexagon-circle-fill': '\f3d3',
-  'square-hexagon-circle': '\f3d4',
-  'square-in-square': '\f3d5',
-  'square-info-empty': '\f3d6',
-  'square-info-fill': '\f3d7',
-  'square-minus': '\f3d8',
-  'square-multiply': '\f3d9',
-  'square-music-double': '\f3da',
-  'square-music': '\f3db',
-  'square-percent': '\f3dc',
-  'square-plus': '\f3dd',
-  'square-powerpoint': '\f3de',
-  'square-question-empty': '\f3df',
-  'square-question-fill': '\f3e0',
-  'square-triangle-circle-triangle-fill': '\f3e1',
-  'square-triangle-circle-triangle': '\f3e2',
-  'square-word': '\f3e3',
-  'star-empty': '\f3e4',
-  'star-fill': '\f3e5',
-  'star-half-fill': '\f3e6',
-  'star-line': '\f3e7',
-  'steam-boiler': '\f3e8',
-  'steam-turbine': '\f3e9',
-  'steam': '\f3ea',
-  'stop': '\f3eb',
-  'stopwatch': '\f3ec',
-  'storage': '\f3ed',
-  'strikethrough': '\f3ee',
-  'subskrit-down': '\f3ef',
-  'subskrit-up': '\f3f0',
-  'sumbol-asterisk': '\f3f1',
-  'sun': '\f3f2',
-  'support-man': '\f3f3',
-  'table-down': '\f3f4',
-  'table-gear': '\f3f5',
-  'table-magnifying-glass': '\f3f6',
-  'table-right': '\f3f7',
-  'table-transpose-right': '\f3f8',
-  'table-transpose-top': '\f3f9',
-  'table-transpose': '\f3fa',
-  'table': '\f3fb',
-  'tablet-iqc-zql': '\f3fc',
-  'tablet': '\f3fd',
-  'tank': '\f3fe',
-  'tankcar-oil-side-view': '\f3ff',
-  'tankcar-side-view': '\f400',
-  'techs-zql': '\f401',
-  'temperature-minus': '\f402',
-  'temperature-plus': '\f403',
-  'temperature': '\f404',
-  'template': '\f405',
-  'text-color': '\f406',
-  'text': '\f407',
-  'thumb-down': '\f408',
-  'thumb-up': '\f409',
-  'thumbtack-directly': '\f40a',
-  'thumbtack': '\f40b',
-  'touchpad': '\f40c',
-  'train-cargo': '\f40d',
-  'train-passenger': '\f40e',
-  'transmitter': '\f40f',
-  'trash-drop': '\f410',
-  'trash-empty': '\f411',
-  'trash': '\f412',
-  'triangle-circle-square-fill': '\f413',
-  'triangle-circle-square': '\f414',
-  'triangle-cross-empty': '\f415',
-  'triangle-down': '\f416',
-  'triangle-exclamation-empty': '\f417',
-  'triangle-exclamation-fill': '\f418',
-  'triangle-fill': '\f419',
-  'triangle-info-empty': '\f41a',
-  'triangle-info-fill': '\f41b',
-  'triangle-left': '\f41c',
-  'triangle-plus-empty': '\f41d',
-  'triangle-right': '\f41e',
-  'triangle-up-down': '\f41f',
-  'triangle-up': '\f420',
-  'triangle': '\f421',
-  'truck-dump-side-view': '\f422',
-  'truck-empty-side-view': '\f423',
-  'truck-garbage-side-view': '\f424',
-  'truck-gasoline-side-view': '\f425',
-  'truck-side-view': '\f426',
-  'tv': '\f427',
-  'umbrella': '\f428',
-  'underlined': '\f429',
-  'unlock': '\f42a',
-  'user-arrows-swap': '\f42b',
-  'user-card': '\f42c',
-  'user-check': '\f42d',
-  'user-circle': '\f42e',
-  'user-cross': '\f42f',
-  'user-gear': '\f430',
-  'user-group': '\f431',
-  'user-location': '\f432',
-  'user-minus': '\f433',
-  'user-pen': '\f434',
-  'user-plus': '\f435',
-  'user-shield': '\f436',
-  'user-worker': '\f437',
-  'user': '\f438',
-  'users-arrow-right': '\f439',
-  'users-arrow-up-zql': '\f43a',
-  'users-gear': '\f43b',
-  'users-key': '\f43c',
-  'users-location': '\f43d',
-  'users-minus': '\f43e',
-  'users-plus': '\f43f',
-  'users': '\f440',
-  'vector-circle-one-point': '\f441',
-  'vector-circle-two-point': '\f442',
-  'vector-circle': '\f443',
-  'vector-line': '\f444',
-  'vector-point': '\f445',
-  'vector-polygon': '\f446',
-  'vector-rectangle': '\f447',
-  'vector-square': '\f448',
-  'vector-triangle': '\f449',
-  'vectors-radius': '\f44a',
-  'vial-arrow-rotate-left': '\f44b',
-  'vial-flask': '\f44c',
-  'vial-plus': '\f44d',
-  'vial-rotate-left': '\f44e',
-  'vial-xmark': '\f44f',
-  'vial': '\f450',
-  'video-cross': '\f451',
-  'video-slash': '\f452',
-  'video': '\f453',
-  'voicemail': '\f454',
-  'volume-cross': '\f455',
-  'volume-low': '\f456',
-  'volume-minus': '\f457',
-  'volume-off': '\f458',
-  'volume-plus': '\f459',
-  'volume-slash': '\f45a',
-  'volume': '\f45b',
-  'wallet': '\f45c',
-  'watch': '\f45d',
-  'water-heater': '\f45e',
-  'water-pump': '\f45f',
-  'webcam': '\f460',
-  'wifi-off': '\f461',
-  'wifi': '\f462',
-  'window': '\f463',
-  'wrench': '\f464',
-  'xmark-column-right': '\f465',
-  'xmark-column-top': '\f466',
-  'xmark-mini': '\f467',
-  'xmark': '\f468',
+  'sort-version': '\f3c2',
+  'specification': '\f3c3',
+  'specs-zql': '\f3c4',
+  'speed-reduction-cooling': '\f3c5',
+  'square-arrows-curve-right-down': '\f3c6',
+  'square-arrows-curve-up-right': '\f3c7',
+  'square-bracket-curly-left': '\f3c8',
+  'square-bracket-curly-right': '\f3c9',
+  'square-bracket-left': '\f3ca',
+  'square-bracket-right': '\f3cb',
+  'square-circle-plus-triangle-fill': '\f3cc',
+  'square-circle-triangle-cross-fill': '\f3cd',
+  'square-circle-triangle-cross': '\f3ce',
+  'square-divide': '\f3cf',
+  'square-excel': '\f3d0',
+  'square-exclamation-empty': '\f3d1',
+  'square-exclamation-fill': '\f3d2',
+  'square-fill': '\f3d3',
+  'square-hexagon-circle-fill': '\f3d4',
+  'square-hexagon-circle': '\f3d5',
+  'square-in-square': '\f3d6',
+  'square-info-empty': '\f3d7',
+  'square-info-fill': '\f3d8',
+  'square-minus': '\f3d9',
+  'square-multiply': '\f3da',
+  'square-music-double': '\f3db',
+  'square-music': '\f3dc',
+  'square-percent': '\f3dd',
+  'square-plus': '\f3de',
+  'square-powerpoint': '\f3df',
+  'square-question-empty': '\f3e0',
+  'square-question-fill': '\f3e1',
+  'square-triangle-circle-triangle-fill': '\f3e2',
+  'square-triangle-circle-triangle': '\f3e3',
+  'square-word': '\f3e4',
+  'star-empty': '\f3e5',
+  'star-fill': '\f3e6',
+  'star-half-fill': '\f3e7',
+  'star-line': '\f3e8',
+  'steam-boiler': '\f3e9',
+  'steam-turbine': '\f3ea',
+  'steam': '\f3eb',
+  'stop': '\f3ec',
+  'stopwatch': '\f3ed',
+  'storage': '\f3ee',
+  'strikethrough': '\f3ef',
+  'subskrit-down': '\f3f0',
+  'subskrit-up': '\f3f1',
+  'sumbol-asterisk': '\f3f2',
+  'sun': '\f3f3',
+  'support-man': '\f3f4',
+  'table-down': '\f3f5',
+  'table-gear': '\f3f6',
+  'table-magnifying-glass': '\f3f7',
+  'table-right': '\f3f8',
+  'table-transpose-right': '\f3f9',
+  'table-transpose-top': '\f3fa',
+  'table-transpose': '\f3fb',
+  'table': '\f3fc',
+  'tablet-iqc-zql': '\f3fd',
+  'tablet': '\f3fe',
+  'tank': '\f3ff',
+  'tankcar-oil-side-view': '\f400',
+  'tankcar-side-view': '\f401',
+  'techs-zql': '\f402',
+  'temp-add-shape-square-plus': '\f403',
+  'temp-alerts-alarm-light': '\f404',
+  'temp-alerts-circle-mini': '\f405',
+  'temp-arrows-corner-chek-in': '\f406',
+  'temp-arrows-down-double-top-2': '\f407',
+  'temp-arrows-up-double-top-2': '\f408',
+  'temp-audio-artist': '\f409',
+  'temp-badges-tag-multiple': '\f40a',
+  'temp-chevrons-dropdown-small': '\f40b',
+  'temp-chevrons-menu-left-small': '\f40c',
+  'temp-date-inform-delete': '\f40d',
+  'temp-editor-discrete-set': '\f40e',
+  'temp-editor-wrap-text': '\f40f',
+  'temp-files-import-1c': '\f410',
+  'temp-files-import-1s': '\f411',
+  'temp-location-localization-down-list': '\f412',
+  'temp-network-library': '\f413',
+  'temp-poi-difference': '\f414',
+  'temp-product-grade-according-to-specification': '\f415',
+  'temp-selection-checkbox-blank-circle': '\f416',
+  'temp-selection-checkbox-blank': '\f417',
+  'temp-selection-checkbox-marked-circle-chanel': '\f418',
+  'temp-selection-checked-1': '\f419',
+  'temp-selection-checked-2': '\f41a',
+  'temp-selection-checked': '\f41b',
+  'temp-selection-radio-off': '\f41c',
+  'temp-selection-radio-on': '\f41d',
+  'temp-selection-toggle-left': '\f41e',
+  'temp-selection-toggle-right': '\f41f',
+  'temp-selection-unchoice': '\f420',
+  'temp-shapes-checkbox-intermediate': '\f421',
+  'temp-signal-cast': '\f422',
+  'temp-signal-rss-box': '\f423',
+  'temp-social-tab': '\f424',
+  'temp-sort-version': '\f425',
+  'temp-tools-solver': '\f426',
+  'temperature-minus': '\f427',
+  'temperature-plus': '\f428',
+  'temperature': '\f429',
+  'template': '\f42a',
+  'text-color': '\f42b',
+  'text': '\f42c',
+  'thumb-down': '\f42d',
+  'thumb-up': '\f42e',
+  'thumbtack-directly': '\f42f',
+  'thumbtack': '\f430',
+  'tools-solver': '\f431',
+  'touchpad': '\f432',
+  'train-cargo': '\f433',
+  'train-passenger': '\f434',
+  'transmitter': '\f435',
+  'trash-drop': '\f436',
+  'trash-empty': '\f437',
+  'trash': '\f438',
+  'triangle-circle-square-fill': '\f439',
+  'triangle-circle-square': '\f43a',
+  'triangle-cross-empty': '\f43b',
+  'triangle-down': '\f43c',
+  'triangle-exclamation-empty': '\f43d',
+  'triangle-exclamation-fill': '\f43e',
+  'triangle-fill': '\f43f',
+  'triangle-info-empty': '\f440',
+  'triangle-info-fill': '\f441',
+  'triangle-left': '\f442',
+  'triangle-plus-empty': '\f443',
+  'triangle-right': '\f444',
+  'triangle-up-down': '\f445',
+  'triangle-up': '\f446',
+  'triangle': '\f447',
+  'truck-dump-side-view': '\f448',
+  'truck-empty-side-view': '\f449',
+  'truck-garbage-side-view': '\f44a',
+  'truck-gasoline-side-view': '\f44b',
+  'truck-side-view': '\f44c',
+  'tv': '\f44d',
+  'umbrella': '\f44e',
+  'underlined': '\f44f',
+  'unlock': '\f450',
+  'user-arrows-swap': '\f451',
+  'user-card': '\f452',
+  'user-check': '\f453',
+  'user-chevron': '\f454',
+  'user-circle': '\f455',
+  'user-cross': '\f456',
+  'user-gear': '\f457',
+  'user-group': '\f458',
+  'user-location': '\f459',
+  'user-minus': '\f45a',
+  'user-pen': '\f45b',
+  'user-plus': '\f45c',
+  'user-shield': '\f45d',
+  'user-worker': '\f45e',
+  'user': '\f45f',
+  'users-arrow-right': '\f460',
+  'users-arrow-up-zql': '\f461',
+  'users-gear': '\f462',
+  'users-key': '\f463',
+  'users-location': '\f464',
+  'users-minus': '\f465',
+  'users-plus': '\f466',
+  'users': '\f467',
+  'vector-circle-one-point': '\f468',
+  'vector-circle-two-point': '\f469',
+  'vector-circle': '\f46a',
+  'vector-line': '\f46b',
+  'vector-point': '\f46c',
+  'vector-polygon': '\f46d',
+  'vector-rectangle': '\f46e',
+  'vector-square': '\f46f',
+  'vector-triangle': '\f470',
+  'vectors-radius': '\f471',
+  'vial-arrow-rotate-left': '\f472',
+  'vial-flask': '\f473',
+  'vial-plus': '\f474',
+  'vial-rotate-left': '\f475',
+  'vial-xmark': '\f476',
+  'vial': '\f477',
+  'video-cross': '\f478',
+  'video-slash': '\f479',
+  'video': '\f47a',
+  'voicemail': '\f47b',
+  'volume-cross': '\f47c',
+  'volume-low': '\f47d',
+  'volume-minus': '\f47e',
+  'volume-off': '\f47f',
+  'volume-plus': '\f480',
+  'volume-slash': '\f481',
+  'volume': '\f482',
+  'wallet': '\f483',
+  'watch': '\f484',
+  'water-heater': '\f485',
+  'water-pump': '\f486',
+  'webcam': '\f487',
+  'wifi-off': '\f488',
+  'wifi': '\f489',
+  'window': '\f48a',
+  'wrench': '\f48b',
+  'xmark-column-right': '\f48c',
+  'xmark-column-top': '\f48d',
+  'xmark-mini': '\f48e',
+  'xmark': '\f48f',
 );
 
 .prizm-base-icons-agenda-fill:before {
@@ -3002,6 +3041,9 @@ $prizm-base-icons-map: (
 .prizm-base-icons-sort-filter-remove:before {
   content: map-get($prizm-base-icons-map, 'sort-filter-remove');
 }
+.prizm-base-icons-sort-version:before {
+  content: map-get($prizm-base-icons-map, 'sort-version');
+}
 .prizm-base-icons-specification:before {
   content: map-get($prizm-base-icons-map, 'specification');
 }
@@ -3194,6 +3236,114 @@ $prizm-base-icons-map: (
 .prizm-base-icons-techs-zql:before {
   content: map-get($prizm-base-icons-map, 'techs-zql');
 }
+.prizm-base-icons-temp-add-shape-square-plus:before {
+  content: map-get($prizm-base-icons-map, 'temp-add-shape-square-plus');
+}
+.prizm-base-icons-temp-alerts-alarm-light:before {
+  content: map-get($prizm-base-icons-map, 'temp-alerts-alarm-light');
+}
+.prizm-base-icons-temp-alerts-circle-mini:before {
+  content: map-get($prizm-base-icons-map, 'temp-alerts-circle-mini');
+}
+.prizm-base-icons-temp-arrows-corner-chek-in:before {
+  content: map-get($prizm-base-icons-map, 'temp-arrows-corner-chek-in');
+}
+.prizm-base-icons-temp-arrows-down-double-top-2:before {
+  content: map-get($prizm-base-icons-map, 'temp-arrows-down-double-top-2');
+}
+.prizm-base-icons-temp-arrows-up-double-top-2:before {
+  content: map-get($prizm-base-icons-map, 'temp-arrows-up-double-top-2');
+}
+.prizm-base-icons-temp-audio-artist:before {
+  content: map-get($prizm-base-icons-map, 'temp-audio-artist');
+}
+.prizm-base-icons-temp-badges-tag-multiple:before {
+  content: map-get($prizm-base-icons-map, 'temp-badges-tag-multiple');
+}
+.prizm-base-icons-temp-chevrons-dropdown-small:before {
+  content: map-get($prizm-base-icons-map, 'temp-chevrons-dropdown-small');
+}
+.prizm-base-icons-temp-chevrons-menu-left-small:before {
+  content: map-get($prizm-base-icons-map, 'temp-chevrons-menu-left-small');
+}
+.prizm-base-icons-temp-date-inform-delete:before {
+  content: map-get($prizm-base-icons-map, 'temp-date-inform-delete');
+}
+.prizm-base-icons-temp-editor-discrete-set:before {
+  content: map-get($prizm-base-icons-map, 'temp-editor-discrete-set');
+}
+.prizm-base-icons-temp-editor-wrap-text:before {
+  content: map-get($prizm-base-icons-map, 'temp-editor-wrap-text');
+}
+.prizm-base-icons-temp-files-import-1c:before {
+  content: map-get($prizm-base-icons-map, 'temp-files-import-1c');
+}
+.prizm-base-icons-temp-files-import-1s:before {
+  content: map-get($prizm-base-icons-map, 'temp-files-import-1s');
+}
+.prizm-base-icons-temp-location-localization-down-list:before {
+  content: map-get($prizm-base-icons-map, 'temp-location-localization-down-list');
+}
+.prizm-base-icons-temp-network-library:before {
+  content: map-get($prizm-base-icons-map, 'temp-network-library');
+}
+.prizm-base-icons-temp-poi-difference:before {
+  content: map-get($prizm-base-icons-map, 'temp-poi-difference');
+}
+.prizm-base-icons-temp-product-grade-according-to-specification:before {
+  content: map-get($prizm-base-icons-map, 'temp-product-grade-according-to-specification');
+}
+.prizm-base-icons-temp-selection-checkbox-blank-circle:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-checkbox-blank-circle');
+}
+.prizm-base-icons-temp-selection-checkbox-blank:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-checkbox-blank');
+}
+.prizm-base-icons-temp-selection-checkbox-marked-circle-chanel:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-checkbox-marked-circle-chanel');
+}
+.prizm-base-icons-temp-selection-checked-1:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-checked-1');
+}
+.prizm-base-icons-temp-selection-checked-2:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-checked-2');
+}
+.prizm-base-icons-temp-selection-checked:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-checked');
+}
+.prizm-base-icons-temp-selection-radio-off:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-radio-off');
+}
+.prizm-base-icons-temp-selection-radio-on:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-radio-on');
+}
+.prizm-base-icons-temp-selection-toggle-left:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-toggle-left');
+}
+.prizm-base-icons-temp-selection-toggle-right:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-toggle-right');
+}
+.prizm-base-icons-temp-selection-unchoice:before {
+  content: map-get($prizm-base-icons-map, 'temp-selection-unchoice');
+}
+.prizm-base-icons-temp-shapes-checkbox-intermediate:before {
+  content: map-get($prizm-base-icons-map, 'temp-shapes-checkbox-intermediate');
+}
+.prizm-base-icons-temp-signal-cast:before {
+  content: map-get($prizm-base-icons-map, 'temp-signal-cast');
+}
+.prizm-base-icons-temp-signal-rss-box:before {
+  content: map-get($prizm-base-icons-map, 'temp-signal-rss-box');
+}
+.prizm-base-icons-temp-social-tab:before {
+  content: map-get($prizm-base-icons-map, 'temp-social-tab');
+}
+.prizm-base-icons-temp-sort-version:before {
+  content: map-get($prizm-base-icons-map, 'temp-sort-version');
+}
+.prizm-base-icons-temp-tools-solver:before {
+  content: map-get($prizm-base-icons-map, 'temp-tools-solver');
+}
 .prizm-base-icons-temperature-minus:before {
   content: map-get($prizm-base-icons-map, 'temperature-minus');
 }
@@ -3223,6 +3373,9 @@ $prizm-base-icons-map: (
 }
 .prizm-base-icons-thumbtack:before {
   content: map-get($prizm-base-icons-map, 'thumbtack');
+}
+.prizm-base-icons-tools-solver:before {
+  content: map-get($prizm-base-icons-map, 'tools-solver');
 }
 .prizm-base-icons-touchpad:before {
   content: map-get($prizm-base-icons-map, 'touchpad');
@@ -3325,6 +3478,9 @@ $prizm-base-icons-map: (
 }
 .prizm-base-icons-user-check:before {
   content: map-get($prizm-base-icons-map, 'user-check');
+}
+.prizm-base-icons-user-chevron:before {
+  content: map-get($prizm-base-icons-map, 'user-chevron');
 }
 .prizm-base-icons-user-circle:before {
   content: map-get($prizm-base-icons-map, 'user-circle');

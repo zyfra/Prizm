@@ -4,5 +4,5 @@ export const prizmIconsExclamation: {
   data: string;
 } = {
   name: 'exclamation',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 1.5C8.5 1.22386 8.27614 1 8 1C7.72386 1 7.5 1.22386 7.5 1.5V11.5C7.5 11.7761 7.72386 12 8 12C8.27614 12 8.5 11.7761 8.5 11.5V1.5ZM8 15C8.27614 15 8.5 14.7761 8.5 14.5C8.5 14.2239 8.27614 14 8 14C7.72386 14 7.5 14.2239 7.5 14.5C7.5 14.7761 7.72386 15 8 15Z" fill="#6E778C"/></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 1.5C8.5 1.22386 8.27614 1 8 1C7.72386 1 7.5 1.22386 7.5 1.5V11.5C7.5 11.7761 7.72386 12 8 12C8.27614 12 8.5 11.7761 8.5 11.5V1.5ZM8 15C8.27614 15 8.5 14.7761 8.5 14.5C8.5 14.2239 8.27614 14 8 14C7.72386 14 7.5 14.2239 7.5 14.5C7.5 14.7761 7.72386 15 8 15Z" fill="currentColor"/></svg>`,
 };
