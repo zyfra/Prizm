@@ -34,13 +34,7 @@ export class ToggleExampleComponent {
   size: PrizmSizeL | PrizmSizeM = this.sizeVariants[0];
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> =
-    [
-      '',
-      'selection-checkbox-marked-circle',
-      'temp-selection-checkbox-marked-circle-chanel',
-      'angle-left',
-      'angle-right',
-    ];
+    ['', 'temp-selection-checkbox-marked-circle-chanel', 'angle-left', 'angle-right'];
   iconOn: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
   iconOff: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

@@ -4,5 +4,5 @@ export const prizmIconsTempSelectionCheckboxBlankCircle: {
   data: string;
 } = {
   name: 'temp-selection-checkbox-blank-circle',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_6095_31)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0.5C3.85786 0.5 0.5 3.85786 0.5 8C0.5 12.1421 3.85786 15.5 8 15.5C12.1421 15.5 15.5 12.1421 15.5 8C15.5 3.85786 12.1421 0.5 8 0.5Z" fill="#777B92"/></g><defs><clipPath id="clip0_6095_31"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_6095_31)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 0.5C3.85786 0.5 0.5 3.85786 0.5 8C0.5 12.1421 3.85786 15.5 8 15.5C12.1421 15.5 15.5 12.1421 15.5 8C15.5 3.85786 12.1421 0.5 8 0.5Z" fill="currentColor"/></g><defs><clipPath id="clip0_6095_31"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
 };
