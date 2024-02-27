@@ -38,6 +38,7 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relative.directive';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmListingItemComponent } from '../../listing-item';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -69,6 +70,7 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
     PrizmDropdownHostComponent,
     PrizmDataListComponent,
     PrizmListingItemComponent,
+    PrizmIconsComponent,
   ],
 })
 export class PrizmInputLayoutDateRelativeComponent
