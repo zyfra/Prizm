@@ -137,6 +137,7 @@ export interface PrizmLanguageKit {
     drop: string;
     dropMultiple: string;
   };
+  search: string;
 }
 
 export interface PrizmLanguageEditor {
