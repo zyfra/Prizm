@@ -54,7 +54,7 @@ export class NavigationMenuGroupsExampleComponent {
 
   homeBreadcrumb: IBreadcrumb = {
     name: '',
-    icon: 'social-home-breadcrumbs',
+    icon: 'house-mini',
   };
 
   breadcrumbs: IBreadcrumb[] = [this.homeBreadcrumb];

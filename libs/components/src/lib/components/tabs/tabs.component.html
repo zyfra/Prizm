@@ -1,7 +1,7 @@
 <div class="container">
   <div class="control" [class.control_active]="isLeftBtnActive">
     <button
-      [icon]="'arrows-chevron-left'"
+      [icon]="'angle-left'"
       (click)="decrease()"
       prizmIconButton
       appearanceType="ghost"
@@ -18,7 +18,7 @@
       prizmDropdownHostWidth="auto"
     >
       <button
-        [icon]="'settings-more-vert'"
+        [icon]="'ellipsis-v'"
         (click)="openLeft = !openLeft"
         prizmIconButton
         appearanceType="ghost"
@@ -42,7 +42,7 @@
       prizmDropdownHostWidth="auto"
     >
       <button
-        [icon]="'settings-more-vert'"
+        [icon]="'ellipsis-v'"
         (click)="openRight = !openRight"
         prizmIconButton
         appearanceType="ghost"
@@ -51,7 +51,7 @@
       ></button>
     </prizm-dropdown-host>
     <button
-      [icon]="'arrows-chevron-right'"
+      [icon]="'angle-right'"
       (click)="increase()"
       prizmIconButton
       appearanceType="ghost"

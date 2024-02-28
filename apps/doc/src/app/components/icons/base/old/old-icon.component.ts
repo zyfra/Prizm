@@ -23,6 +23,7 @@ type IconObj = {
   providers: [prizmIconsProvideOldNameTransformer()],
 })
 export class OldIconComponent {
+  showOnlyHide = false;
   readonly oldIcons = IconOldDefs.reduce((a: unknown[], c) => a.concat(c.data), []);
   readonly iconsNew = this.oldIcons.map(name => ({
     old: name,

@@ -28,7 +28,7 @@ export class PrizmIndicatorComponent extends PrizmAbstractTestId {
   public readonly iconMap = {
     info: 'info',
     secondary: 'info',
-    success: 'chek',
+    success: 'check',
     warning: 'exclamation',
     danger: 'exclamation',
   };

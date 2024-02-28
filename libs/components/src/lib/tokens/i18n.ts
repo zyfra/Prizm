@@ -61,3 +61,7 @@ export const PRIZM_COLUMN_SETTINGS = new InjectionToken<
 export const PRIZM_PAGINATOR = new InjectionToken<Observable<PrizmLanguagePaginator['paginator']>>(
   `paginator texts`
 );
+
+export const PRIZM_SEARCH_TEXT = new InjectionToken<Observable<PrizmLanguageKit['search']>>(
+  `search i18n text`
+);

@@ -47,6 +47,8 @@ import { CommonModule } from '@angular/common';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmCheckboxComponent } from '../../checkbox';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { prizmI18nInitWithKey } from '../../../services';
+import { PRIZM_SEARCH_TEXT } from '../../../tokens/i18n';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
@@ -86,6 +88,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputMultiSelectComponent },
+    ...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search'),
   ],
 })
 export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> implements AfterViewInit {
@@ -224,6 +227,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(
+    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>,
     @Inject(PRIZM_MULTI_SELECT_OPTIONS) private readonly options: PrizmMultiSelectOptions<T>,
     @Inject(Injector) injector: Injector
   ) {

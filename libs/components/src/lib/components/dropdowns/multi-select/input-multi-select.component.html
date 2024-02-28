@@ -32,7 +32,7 @@
       [style.--prizm-data-list-border]="0"
     >
       <div class="list-search-item" *ngIf="searchable">
-        <prizm-input-layout size="m" label="Поиск">
+        <prizm-input-layout [label]="searchLabelTranslation$ | async" size="m">
           <input
             class="input-search"
             #input
@@ -41,7 +41,7 @@
             prizmInput
             prizmAutoFocus
           />
-          <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
+          <button [interactive]="true" prizmInputIconButton="magnifying-glass" prizm-input-right></button>
         </prizm-input-layout>
       </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">

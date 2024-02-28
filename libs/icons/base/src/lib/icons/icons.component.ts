@@ -114,8 +114,6 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
     } else {
       console.warn('Invalid size value:', size);
     }
-
-    console.log('#mz size:', prizmIsValidSizeString(size.toString()), this._styleWidth, size);
   }
 
   /**

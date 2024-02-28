@@ -63,10 +63,17 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
         if (changeFileNames) {
           const files = fs.readdirSync(svgForFontSource);
           for (const file of files) {
-            fs.renameSync(
-              path.join(svgForFontSource, file),
-              path.join(svgForFontSource, file.replace(/[_]/g, '-'))
-            );
+            // change with underline dash
+            let newFile = file.replace(/[_]/g, '-');
+
+            // change symbol with dash
+            const changeSymbolWithDash = /-([a-zA-Z]{2,})([0-9]+)/g;
+            if (newFile.match(changeSymbolWithDash)?.length) {
+              newFile = newFile.replace(changeSymbolWithDash, '-$1-$2');
+            }
+
+            if (newFile !== file)
+              fs.renameSync(path.join(svgForFontSource, file), path.join(svgForFontSource, newFile));
           }
         }
       })
@@ -84,6 +91,7 @@ export default async function runExecutor(options: IconsSvgToFontSchema) {
     outputDir: destinationFolder, // (required)
     name: options.fontName,
     prefix: options.fontName,
+    tag: options.tag ?? '',
     fontTypes: [FontAssetType.EOT, FontAssetType.WOFF2, FontAssetType.WOFF, FontAssetType.TTF],
     assetTypes: [OtherAssetType.CSS, OtherAssetType.SCSS],
   }).then(() => {

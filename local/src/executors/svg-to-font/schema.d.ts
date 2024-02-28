@@ -2,6 +2,7 @@ export interface IconsSvgToFontSchema {
   src: string;
   dist: string;
   fontName: string;
+  tag?: string;
   css?: boolean;
   locationPostfix?: string;
   separateLocation?: boolean;

@@ -10,6 +10,14 @@ h4 {
 .icons {
   display: flex;
   flex-wrap: wrap;
+
+  &.show-only-hide {
+    .icon-def {
+      &:not(:has(> prizm-icons:empty)) {
+        display: none;
+      }
+    }
+  }
 }
 
 .icon-def {
@@ -23,6 +31,11 @@ h4 {
   margin: 4px;
   padding: 8px 8px 0 8px;
   border-radius: 4px;
+  border: 1px solid transparent;
+
+  &:has(> prizm-icons:empty) {
+    border: 1px solid var(--prizm-index-fact);
+  }
 
   &:hover {
     background-color: var(--prizm-background-fill-secondary);
@@ -44,4 +57,15 @@ h4 {
 .title,
 .name {
   color: var(--prizm-text-icon-secondary);
+}
+
+.title-block {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .show-none {
+    display: flex;
+    gap: 8px;
+  }
 }

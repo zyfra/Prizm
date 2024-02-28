@@ -36,7 +36,7 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
   @Input() icon: PolymorphContent<PrizmTabContext> | null = null;
   @Input() content: PolymorphContent<PrizmTabContext> | null = null;
-  @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
+  @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'xmark';
   @Input() count = 0;
 
   public _counterOptions: PrizmTabCounterOptions = {

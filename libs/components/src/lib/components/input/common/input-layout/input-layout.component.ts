@@ -62,7 +62,7 @@ export class PrizmInputLayoutComponent
 
   @Input() outer = false;
 
-  @Input() clearButton: PolymorphContent<PrizmInputLayoutClearButtonContext> = 'cancel-delete-content';
+  @Input() clearButton: PolymorphContent<PrizmInputLayoutClearButtonContext> = 'delete-content';
 
   @Input() border = true;
   @Input() position: PrizmInputPosition = 'left';
@@ -203,15 +203,15 @@ export class PrizmInputLayoutComponent
 
     switch (this.correctedStatus) {
       case 'warning':
-        statusIcon = 'alerts-warning';
+        statusIcon = 'triangle-exclamation-fill';
         break;
 
       case 'success':
-        statusIcon = 'success-circle-fill';
+        statusIcon = 'circle-check-fill';
         break;
 
       case 'danger':
-        statusIcon = 'alerts-info-circle-fill';
+        statusIcon = 'circle-info-fill';
         break;
 
       case 'default':
@@ -220,7 +220,7 @@ export class PrizmInputLayoutComponent
     }
 
     if (this.control.invalid) {
-      statusIcon = 'alerts-info-circle-fill';
+      statusIcon = 'circle-info-fill';
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

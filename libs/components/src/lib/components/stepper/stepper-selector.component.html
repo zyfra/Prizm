@@ -30,7 +30,7 @@
           *ngIf="(currentStep === step.index && step.status !== 'default') || step.status === null"
           [@inOut]
           [size]="24"
-          [name]="step.status === 'success' ? 'success-circle-fill' : 'alerts-circle-fill'"
+          [name]="step.status === 'success' ? 'circle-check-fill' : 'circle-exclamation-fill'"
         ></prizm-icons>
         <span class="step__title">{{ step.title }}</span>
       </button>

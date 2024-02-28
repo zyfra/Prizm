@@ -2,7 +2,7 @@
   <prizm-panel header="Заголовок">
     <div class="toggle-container" instruments>
       <button
-        [icon]="'editor-panel-right'"
+        [icon]="'panel-right'"
         [pseudoPressed]="isSideMenuOpened"
         (click)="toggleSideMenu()"
         prizmIconButton
@@ -51,14 +51,10 @@
               <prizm-icons-full
                 class="instruments__icon"
                 [size]="16"
-                name="cancel-delete-content"
+                name="delete-content"
               ></prizm-icons-full>
               <!--              <prizm-icon class="instruments__icon" [size]="16" iconClass="tools-content-save"></prizm-icon>-->
-              <prizm-icons-full
-                class="instruments__icon"
-                [size]="16"
-                name="tools-content-save"
-              ></prizm-icons-full>
+              <prizm-icons-full class="instruments__icon" [size]="16" name="floppy"></prizm-icons-full>
             </div>
           </div>
         </prizm-panel>

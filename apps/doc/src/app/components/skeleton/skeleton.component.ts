@@ -19,10 +19,10 @@ export class SkeletonComponent {
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>>> =
     [
       '',
-      'selection-checkbox-marked-circle',
-      'selection-checkbox-marked-circle-chanel',
-      'arrows-chevron-left',
-      'arrows-chevron-right',
+      'temp-selection-checkbox-marked-circle-chanel',
+      'temp-selection-checkbox-marked-circle-chanel',
+      'angle-left',
+      'angle-right',
     ];
   iconOn: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
   iconOff: PolymorphContent<PrizmContextWithImplicit<PrizmSizeL | PrizmSizeM>> = this.iconVariants[0];
