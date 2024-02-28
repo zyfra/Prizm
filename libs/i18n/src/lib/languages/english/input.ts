@@ -1,6 +1,6 @@
 import { PrizmLanguageInputLayout } from '../../interfaces';
 
-export const PRIZM_RUSSIAN_INPUT: PrizmLanguageInputLayout = {
+export const PRIZM_ENGLISH_INPUT: PrizmLanguageInputLayout = {
   inputLayout: {
     required: 'Required field',
     pattern: 'Wrong format',
