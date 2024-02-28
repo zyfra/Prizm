@@ -48,7 +48,7 @@
     [disabled]="!!disabled"
     [interactive]="true"
     (click)="onOpenChange(!open)"
-    prizmInputIconButton="date-calendar-blank"
+    prizmInputIconButton="calendar-blank"
   ></button>
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>

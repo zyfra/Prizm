@@ -38,7 +38,8 @@
       tabindex="0"
     >
       <ng-container leftBox>
-        <i class="prizm-icon relative-menu-icon {{ item.icon }}"></i>
+        <!--        <i class="relative-menu-icon prizm-base-icons{{ item.icon }}"></i>-->
+        <prizm-icons class="relative-menu-icon prizm-base-icons" [size]="16" [name]="item.icon"></prizm-icons>
       </ng-container>
       {{ item.label }}
     </prizm-listing-item>
@@ -50,7 +51,7 @@
     [interactive]="true"
     [disabled]="disabled"
     (click)="focusableElementRef.elementRef.nativeElement.click()"
-    prizmInputIconButton="date-update"
+    prizmInputIconButton="clock-rotate-right"
   ></button>
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>

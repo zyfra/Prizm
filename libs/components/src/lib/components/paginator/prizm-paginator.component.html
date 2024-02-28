@@ -47,7 +47,7 @@
       <button
         class="control control_left"
         *ngIf="!leftButtonLabel; else leftLabelBtn"
-        [icon]="'arrows-chevron-left'"
+        [icon]="'angle-left'"
         [disabled]="disabled || currentPage === 1"
         (click)="decrease()"
         prizmIconButton
@@ -59,7 +59,7 @@
         <button
           class="control control_left"
           *ngIf="leftButtonLabel"
-          [icon]="'arrows-chevron-left'"
+          [icon]="'angle-left'"
           [disabled]="disabled || currentPage === 1"
           (click)="decrease()"
           prizmButton
@@ -132,7 +132,7 @@
       <button
         class="control control_right"
         *ngIf="!rightButtonLabel; else rightLabelBtn"
-        [icon]="'arrows-chevron-right'"
+        [icon]="'angle-right'"
         [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
         (click)="increase()"
         prizmIconButton
@@ -143,7 +143,7 @@
       <ng-template #rightLabelBtn>
         <button
           class="control_right"
-          [iconRight]="'arrows-chevron-right'"
+          [iconRight]="'angle-right'"
           [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
           (click)="increase()"
           prizmButton

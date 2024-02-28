@@ -30,7 +30,7 @@ export class TreeButtonComponent {
   public clickIcon!: void;
   public clickButton!: void;
 
-  iconVariants: ReadonlyArray<PrizmContent> = ['chevrons-dropdown', ''];
+  iconVariants: ReadonlyArray<PrizmContent> = ['triangle-down', ''];
   icon: PrizmContent = this.iconVariants[0];
   iconRight: PrizmContent = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [

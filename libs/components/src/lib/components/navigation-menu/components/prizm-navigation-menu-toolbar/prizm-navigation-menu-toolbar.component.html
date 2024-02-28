@@ -40,7 +40,7 @@
         <button
           *ngIf="toolbarConfig.closeAll"
           [size]="'m'"
-          [icon]="'chevrons-close-all'"
+          [icon]="'chevron-down-to-double-line'"
           [appearance]="'secondary'"
           [appearanceType]="'ghost'"
           (click)="toolbarService.closeAll()"
@@ -51,7 +51,7 @@
           *ngIf="toolbarConfig.search"
           [pseudoPressed]="searchVisible"
           [size]="'m'"
-          [icon]="'sort-zoom-in'"
+          [icon]="'magnifying-glass'"
           [appearance]="'secondary'"
           [appearanceType]="'ghost'"
           (click)="toolbarService.toggleSearch()"

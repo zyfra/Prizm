@@ -114,7 +114,7 @@
               prizmInput
               prizmAutoFocus
             />
-            <button [interactive]="true" prizmInputIconButton="sort-zoom-in" prizm-input-right></button>
+            <button [interactive]="true" prizmInputIconButton="magnifying-glass" prizm-input-right></button>
           </prizm-input-layout>
         </div>
         <ng-container *ngIf="items?.length; else emptyTemplate">
@@ -187,15 +187,24 @@
         context: $any({ opened: opened$ | async, disabled: disabled })
       "
     >
-      <prizm-icon
+      <!--      <prizm-icon-->
+      <!--        [class.disabled]="disabled"-->
+      <!--        [class.opened]="opened$ | async"-->
+      <!--        [class.active]="(focused$ | async) || (opened$ | async)"-->
+      <!--        [class.icon-dropdown]="iconName === defaultIcon"-->
+      <!--        [iconClass]="$any(iconName)"-->
+      <!--        (click)="(!disabled)"-->
+      <!--      >-->
+      <!--      </prizm-icon>-->
+      <prizm-icons-full
         [class.disabled]="disabled"
         [class.opened]="opened$ | async"
         [class.active]="(focused$ | async) || (opened$ | async)"
         [class.icon-dropdown]="iconName === defaultIcon"
-        [iconClass]="$any(iconName)"
+        [name]="$any(iconName)"
         (click)="(!disabled)"
       >
-      </prizm-icon>
+      </prizm-icons-full>
     </ng-container>
   </ng-container>
 </ng-container>

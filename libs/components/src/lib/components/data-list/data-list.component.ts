@@ -22,7 +22,6 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PolymorphContent, PolymorphModule } from '../../directives';
 import { PrizmDataListDirective } from './data-list.directive';
 import { CommonModule } from '@angular/common';
-import { PrizmIconModule } from '../icon';
 
 @Component({
   selector: 'prizm-data-list',
@@ -31,7 +30,7 @@ import { PrizmIconModule } from '../icon';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
   standalone: true,
-  imports: [PrizmDataListDirective, CommonModule, PolymorphModule, PrizmIconModule, PrizmScrollbarModule],
+  imports: [PrizmDataListDirective, CommonModule, PolymorphModule, PrizmScrollbarModule],
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
   host: {
     class: 'prizm-data-list',

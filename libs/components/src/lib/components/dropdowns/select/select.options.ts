@@ -58,7 +58,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   searchable: false,
   outer: false,
   search: null,
-  icon: 'chevrons-dropdown',
+  icon: 'triangle-down',
 
   forceClear: null,
   dropdownWidth: '100%',

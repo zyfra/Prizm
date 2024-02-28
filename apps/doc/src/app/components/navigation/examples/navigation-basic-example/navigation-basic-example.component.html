@@ -2,7 +2,8 @@
   <prizm-header class="header" [prizmTheme]="'dark'">
     <div class="project" [class.project_active]="openNavigation" (click)="toggleNavigation()">
       <div class="project__menu">
-        <prizm-icon iconClass="view-menu"></prizm-icon>
+        <!--        <prizm-icon iconClass="view-menu"></prizm-icon>-->
+        <prizm-icons-full name="bars"></prizm-icons-full>
       </div>
       <img [src]="logo" alt="" />
     </div>
@@ -21,7 +22,7 @@
     <div class="instruments">
       <prizm-header-module-btn [alertsCount]="2" status="danger"></prizm-header-module-btn>
 
-      <prizm-header-module-btn icon="network-database"></prizm-header-module-btn>
+      <prizm-header-module-btn icon="database"></prizm-header-module-btn>
     </div>
 
     <div class="kebab">

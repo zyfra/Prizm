@@ -26,7 +26,6 @@ import { CommonModule } from '@angular/common';
 import { PrizmCardComponent } from '../card';
 import { PrizmButtonComponent } from '../button';
 import { PrizmToggleComponent } from '../toggle';
-import { PrizmIconComponent } from '../icon';
 import { PrizmScrollbarComponent } from '../scrollbar';
 import { PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmHintDirective } from '../../directives';
@@ -47,7 +46,6 @@ import { PrizmColumnDropListComponent } from './components/column-drop-list/colu
     PrizmButtonComponent,
     PrizmToggleComponent,
     DragDropModule,
-    PrizmIconComponent,
     PrizmScrollbarComponent,
     PrizmColumnDropListComponent,
     PrizmLetDirective,

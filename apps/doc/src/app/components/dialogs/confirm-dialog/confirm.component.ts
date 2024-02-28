@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
-  IconDefs,
   PolymorphContent,
   PrizmAppearance,
   PrizmAppearanceType,
@@ -24,6 +23,7 @@ import {
 } from '@prizm-ui/components';
 import { prizmPure } from '@prizm-ui/core';
 import { generatePolymorphVariants } from '../../../util';
+import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
 
 @Component({
   selector: 'prizm-tooltip-example',
@@ -48,7 +48,8 @@ export class ConfirmComponent implements AfterViewInit {
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
+    // ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
+    ...Object.keys(PRIZM_ICONS_LAZY_SET),
   ];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];

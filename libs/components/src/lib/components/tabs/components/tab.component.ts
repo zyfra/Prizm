@@ -20,8 +20,8 @@ import { filter, first, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PrizmIconComponent } from '../../icon';
-import { PrizmCounterModule } from '../../counter';
+import { PrizmCounterComponent } from '../../counter';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-tab',
@@ -29,14 +29,14 @@ import { PrizmCounterModule } from '../../counter';
   styleUrls: ['./tab.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
-  imports: [CommonModule, PrizmIconComponent, PolymorphOutletDirective, PrizmCounterModule],
+  imports: [CommonModule, PolymorphOutletDirective, PrizmCounterComponent, PrizmIconsFullComponent],
   standalone: true,
 })
 export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() @HostBinding('attr.tab-type') public type: PrizmTabType = 'line';
   @Input() icon: PolymorphContent<PrizmTabContext> | null = null;
   @Input() content: PolymorphContent<PrizmTabContext> | null = null;
-  @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'cancel-close';
+  @Input() closeIcon: PolymorphContent<PrizmTabContext> = 'xmark';
   @Input() count = 0;
 
   public _counterOptions: PrizmTabCounterOptions = {

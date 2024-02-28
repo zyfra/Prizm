@@ -10,7 +10,7 @@ import { PrizmSwitcherItem } from '@prizm-ui/components';
 export class SwitcherOnlyIconExampleComponent {
   public readonly switchers: PrizmSwitcherItem[] = [
     {
-      icon: 'editor-table',
+      icon: 'table',
       hint: {
         value: 'Таблицы',
         options: {
@@ -20,7 +20,7 @@ export class SwitcherOnlyIconExampleComponent {
       },
     },
     {
-      icon: 'network-scheme',
+      icon: 'network-v2',
       hint: {
         value: 'Мнемосхемы',
         options: {
@@ -33,7 +33,7 @@ export class SwitcherOnlyIconExampleComponent {
       },
     },
     {
-      icon: 'view-dashboard',
+      icon: 'dashboard-fill',
       hint: {
         value: 'Дашборды',
       },

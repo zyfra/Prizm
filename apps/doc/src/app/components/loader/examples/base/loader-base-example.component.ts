@@ -18,10 +18,6 @@ import { Component } from '@angular/core';
           font-size: 20px;
           flex-wrap: wrap;
         }
-
-        prizm-icon {
-          cursor: pointer;
-        }
       }
     `,
   ],

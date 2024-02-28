@@ -1,7 +1,7 @@
 <button
   class="z-button"
   *ngIf="isExpandable"
-  [icon]="(context.$implicit.expanded$ | async) ? 'chevrons-down' : 'chevrons-right'"
+  [icon]="(context.$implicit.expanded$ | async) ? 'chevron-down' : 'chevron-right'"
   [class.t-button_expanded]="isExpanded"
   (click)="onClick()"
   prizmIconButton

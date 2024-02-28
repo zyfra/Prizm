@@ -1,11 +1,11 @@
-import { trigger, transition, style, animate } from '@angular/animations';
+import { animate, style, transition, trigger } from '@angular/animations';
 import { Component, EventEmitter, HostBinding, Input, Output, QueryList, ViewChildren } from '@angular/core';
 import { PrizmStepperSelectorItemDirective } from './stepper-selector-item.directive';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
-import { PrizmIconComponent } from '../icon/icon.component';
 import { prizmEmptyQueryList } from '@prizm-ui/helpers';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-stepper-selector',
@@ -17,7 +17,7 @@ import { prizmEmptyQueryList } from '@prizm-ui/helpers';
     ]),
   ],
   standalone: true,
-  imports: [CommonModule, PrizmIconComponent, PrizmStepperSelectorItemDirective],
+  imports: [CommonModule, PrizmStepperSelectorItemDirective, PrizmIconsComponent],
 })
 export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
   @Input() steps: PrizmStepperStepDirective[] = [];

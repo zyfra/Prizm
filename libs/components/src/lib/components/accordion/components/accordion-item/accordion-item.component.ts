@@ -13,17 +13,13 @@ import { PrizmAccordionContentDirective } from '../../directives/accordion-conte
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
 import { expandAnimation } from '../../accordion.animation';
 import { Subject } from 'rxjs';
-import {
-  PolymorphContent,
-  PolymorphModule,
-  PolymorphOutletDirective,
-} from '../../../../directives/polymorph';
+import { PolymorphContent, PolymorphOutletDirective } from '../../../../directives/polymorph';
 import { PrizmAccordionItemData } from '../../model';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PrizmIconModule } from '../../../icon';
 import { PrizmButtonComponent } from '../../../button';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -31,7 +27,7 @@ import { PrizmButtonComponent } from '../../../button';
   styleUrls: ['./accordion-item.component.less'],
   animations: [expandAnimation],
   standalone: true,
-  imports: [CommonModule, PrizmIconModule, PolymorphOutletDirective, PrizmButtonComponent],
+  imports: [CommonModule, PolymorphOutletDirective, PrizmButtonComponent, PrizmIconsComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {

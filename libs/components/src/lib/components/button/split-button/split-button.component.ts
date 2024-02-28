@@ -32,7 +32,7 @@ export class PrizmSplitButtonComponent extends PrizmAbstractTestId {
 
   /** can pass template or icon class */
   @Input()
-  icon: PolymorphContent<{ size: PrizmSize }> = 'chevrons-dropdown';
+  icon: PolymorphContent<{ size: PrizmSize }> = 'triangle-down';
 
   @Input()
   @HostBinding('attr.data-appearance')

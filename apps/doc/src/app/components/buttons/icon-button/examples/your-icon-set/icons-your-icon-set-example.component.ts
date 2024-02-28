@@ -1,11 +1,7 @@
 import { Component } from '@angular/core';
-import {
-  PrizmIconsSvgRegistry,
-  prizmIconSvgDateTimeCalendarPlus,
-  PrizmIconSvgEnum,
-  prizmIconSvgProductionIndustrySnakeCup,
-  prizmIconSvgSettingsToolsBan,
-} from '@prizm-ui/icons';
+import { PrizmIconSvgEnum } from '@prizm-ui/icons';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsAgendaFill } from '@prizm-ui/icons/base/source/agenda-fill';
 
 @Component({
   selector: 'prizm-icons-your-icon-set-example',
@@ -29,19 +25,8 @@ import {
 })
 export class PrizmIconsYourIconSetExampleComponent {
   readonly PrizmIconSvgEnum = PrizmIconSvgEnum;
-  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {
+  constructor(private readonly iconRegistry: PrizmIconsRegistry) {
     /** Также можете добавить свою иконку */
-    this.iconRegistry.registerIcons([
-      prizmIconSvgSettingsToolsBan,
-      prizmIconSvgProductionIndustrySnakeCup,
-      prizmIconSvgDateTimeCalendarPlus,
-    ]);
-
-    /** для добавление всего сета наших иконок
-     * используйте PRIZM_ICONS_SVG_SET
-     * */
-    // this.iconRegistry.registerIcons([
-    //   ...PRIZM_ICONS_SVG_SET
-    // ]);
+    this.iconRegistry.registerIcons([prizmIconsAgendaFill]);
   }
 }

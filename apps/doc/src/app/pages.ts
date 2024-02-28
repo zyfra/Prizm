@@ -414,12 +414,12 @@ export const pages: PrizmOrderedDocPage = [
     section: SectionNameEnum.components,
     title: 'Icons',
     subPages: [
-      {
-        title: 'Icon',
-        keywords: 'иконка, old-icon, deprecated',
-        route: '/components/old-icon',
-        status: 'deprecated',
-      },
+      // {
+      //   title: 'Icon',
+      //   keywords: 'иконка, old-icon, deprecated',
+      //   route: '/components/old-icon',
+      //   status: 'deprecated',
+      // },
       {
         title: 'Flags',
         keywords: 'иконка, флаги. flags',
@@ -430,6 +430,12 @@ export const pages: PrizmOrderedDocPage = [
         keywords: 'иконка, icon, svg',
         route: '/components/icon',
         status: 'deprecated',
+      },
+      {
+        title: 'Icons',
+        keywords: 'icons, icon, svg, font',
+        route: '/components/icons',
+        status: 'new',
       },
     ],
   },
@@ -1168,6 +1174,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         keywords: 'icon, svg',
         route: '/components/icon',
         status: 'deprecated',
+      },
+      {
+        title: 'Icons',
+        keywords: 'icons, icon, svg, font',
+        route: '/components/icons',
+        status: 'new',
       },
     ],
   },

@@ -11,23 +11,19 @@ export class BreadcrumbsExampleWithIconComponent {
   public breadcrumbs: IBreadcrumb[] = [
     {
       name: '',
-      icon: 'social-home-breadcrumbs',
+      icon: 'house-mini',
     },
     {
       name: 'Lady',
-      icon: 'account',
+      icon: 'user',
     },
     {
       name: "I'm your knight in",
-      icon: 'account-contact-sync',
+      icon: 'user-arrows-swap',
     },
     {
-      name: 'Shining',
-      icon: 'alerts-alarm-light',
-    },
-    {
-      name: 'Armor',
-      icon: 'account-shield-1',
+      name: 'Battery',
+      icon: 'battery-full',
     },
   ];
 

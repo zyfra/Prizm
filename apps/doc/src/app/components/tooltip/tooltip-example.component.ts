@@ -3,14 +3,14 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
   PRIZM_TOOLTIP_DEFAULT_OPTIONS,
-  PrizmOverlayOutsidePlacement,
-  PrizmTooltipOptions,
-  PrizmAppearanceType,
   PrizmAppearance,
-  IconDefs,
+  PrizmAppearanceType,
   PrizmDialogSize,
+  PrizmOverlayOutsidePlacement,
   PrizmSize,
+  PrizmTooltipOptions,
 } from '@prizm-ui/components';
+import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
 
 @Component({
   selector: 'prizm-tooltip-example',
@@ -33,7 +33,8 @@ export class TooltipExampleComponent {
 
   iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
     '',
-    ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
+    // ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
+    ...Object.keys(PRIZM_ICONS_LAZY_SET),
   ];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];

@@ -12,6 +12,7 @@ import { prizmIsNativeFocusedIn } from '../../util/is-native-focused-in';
 import { prizmBlurNativeFocused } from '../../util/blur-native-focused';
 import { PrizmSize, prizmSizeBigger } from '../../util/size-bigger';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-loader',
@@ -35,12 +36,12 @@ export class PrizmLoaderComponent extends PrizmAbstractTestId {
   textContent: TemplateRef<unknown> | null = null;
 
   @Input()
-  set showLoader(value: boolean) {
+  set showLoader(value: BooleanInput) {
     if (value && this.focused) {
       prizmBlurNativeFocused(this.documentRef);
     }
 
-    this.loading = value;
+    this.loading = coerceBooleanProperty(value);
   }
 
   @HostBinding('class._loading')
