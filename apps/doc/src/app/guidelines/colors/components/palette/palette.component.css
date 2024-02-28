@@ -74,3 +74,21 @@
   line-height: 20px;
   word-wrap: break-word;
 }
+
+.description-text-header {
+  color: var(--prizm-v3-text-icon-primary);
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 400;
+  line-height: 20px;
+  word-wrap: break-word;
+}
+
+.description-text {
+  flex: 1 1 0;
+  color: var(--prizm-v3-text-icon-secondary);
+  font-size: 16px;
+  font-family: Inter;
+  font-weight: 500;
+  line-height: 20px;
+}
