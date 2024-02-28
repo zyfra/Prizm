@@ -1,6 +1,6 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, combineLatest, concat, Observable, of, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, map, take, takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, take, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabComponent } from './components/tab.component';
 import { filterTruthy, PrizmDestroyService, prizmFromMutationObserver$ } from '@prizm-ui/helpers';
 import { PrizmTabCanOpen } from './tabs.model';
