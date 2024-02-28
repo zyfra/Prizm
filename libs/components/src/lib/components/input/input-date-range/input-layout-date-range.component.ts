@@ -48,7 +48,6 @@ import {
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 
@@ -79,7 +78,6 @@ import { PrizmCalendarRangeComponent } from '../../calendar-range';
     PrizmLetDirective,
     PolymorphOutletDirective,
     PrizmInputTextModule,
-    PrizmIconComponent,
     PrizmDropdownHostComponent,
     PrizmCalendarRangeComponent,
     PrizmValueAccessorModule,

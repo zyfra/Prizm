@@ -16,7 +16,6 @@ import { PrizmThGroupComponent } from './th-group/th-group.component';
 import { PrizmTrComponent } from './tr/tr.component';
 import { PrizmMapperPipeModule } from '../../pipes';
 import { PolymorphModule } from '../../directives';
-import { PrizmIconModule } from '../icon';
 import { SearchableContentComponent } from './components/searchable-content/searchable-content.component';
 import { SpaceNumberPipe } from './pipes/space-number.pipe';
 import { PrizmCallFuncModule } from '@prizm-ui/helpers';
@@ -26,6 +25,7 @@ import { PrizmTableLoadingDirective } from './directives/loading.directive';
 import { PrizmTableEmptyDirective } from './directives/empty.directive';
 import { PrizmTableRowInitDirective } from './directives/row-init.directive';
 import { PrizmTrDirective } from './tr/tr.directive';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
@@ -34,7 +34,7 @@ import { PrizmTrDirective } from './tr/tr.directive';
     PrizmCallFuncModule,
     PrizmMapperPipeModule,
     PolymorphModule,
-    PrizmIconModule,
+    PrizmIconsComponent,
   ],
   declarations: [
     PrizmTableTreeLoadingDirective,

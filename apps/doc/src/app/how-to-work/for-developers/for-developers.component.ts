@@ -8,10 +8,25 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ForDevelopersComponent {
   public readonly joinSvgFonts = `
+  "assets": [
+      {
+        "glob": "**/*",
+        "input": "@prizm-ui/icons/src/styles/icons-base",
+        "output": "assets/prizm/icons/base"
+      },
+      {
+        "glob": "**/*",
+        "input": "@prizm-ui/icons/src/styles/icons-full",
+        "output": "assets/prizm/icons/full"
+      }
+  ],
   "styles": [
-     ...
-     "@prizm-ui/icons/src/styles/styles.less"
-   ],";
+    "@prizm-ui/icons/src/styles/styles.less",
+    "@prizm-ui/icons/src/styles/icons-base/prizm-base-icons.css",
+    "@prizm-ui/icons/src/styles/icons-base/prizm-base-icons-location.css",
+    "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons.css",
+    "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css"
+   ],
    `;
   public readonly joinSvgFontsForImport = `
   @import "~@prizm-ui/icons/src/styles/icons-24/prizm-icons.css;

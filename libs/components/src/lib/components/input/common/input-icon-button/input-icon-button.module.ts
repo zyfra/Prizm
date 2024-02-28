@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
-import { PrizmIconModule } from '../../../icon/icon.module';
 import { PrizmInputIconButtonComponent } from './input-icon-button.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  imports: [PrizmIconModule],
-  declarations: [PrizmInputIconButtonComponent],
+  imports: [PrizmInputIconButtonComponent],
   exports: [PrizmInputIconButtonComponent],
 })
 export class PrizmInputIconButtonModule {}

@@ -81,7 +81,6 @@ import {
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
 import { prizmWatch } from '../../../observables';
 import { PrizmSelectInputItemComponent } from './input-select-item.component';
@@ -89,6 +88,11 @@ import { PrizmInputSelectDataListDirective } from './input-select-data-list.dire
 import { BooleanInput } from '@angular/cdk/coercion';
 import { PrizmScrollbarDirective } from '../../scrollbar/scrollbar.directive';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { PRIZM_SEARCH_TEXT } from '../../../tokens';
+import { prizmI18nInitWithKey } from '../../../services';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
 
 @Component({
   selector: 'prizm-input-select',
@@ -108,7 +112,6 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     PrizmLetDirective,
     PrizmAutoFocusModule,
     PrizmHintDirective,
-    PrizmIconComponent,
     PrizmCallFuncPipe,
     PrizmScrollbarDirective,
     PrizmDropdownControllerModule,
@@ -118,6 +121,7 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     PrizmDropdownHostComponent,
     PrizmToObservablePipe,
     PrizmInputSelectOptionDirective,
+    PrizmIconsFullComponent,
   ],
   providers: [
     {
@@ -128,6 +132,7 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
     PrizmDestroyService,
     PrizmInputSelectOptionService,
     { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
+    ...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search'),
   ],
   exportAs: 'prizmSelectInput',
 })
@@ -236,7 +241,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
   public readonly items$ = new BehaviorSubject([]);
-  public readonly defaultIcon = 'chevrons-dropdown';
+  public readonly defaultIcon = 'triangle-down';
   public readonly nativeElementType = 'select';
   public readonly hasClearButton = true;
   readonly isNullish = Compare.isNullish;
@@ -253,11 +258,15 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   private readonly inputSelectOptionService = inject(PrizmInputSelectOptionService, {
     self: true,
   });
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
-    @Inject(Injector) injector: Injector
+    @Inject(Injector) injector: Injector,
+    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>
   ) {
     super(injector);
+
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown);
   }
 
   private initSelectListener() {

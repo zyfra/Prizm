@@ -34,15 +34,17 @@ import {
   PolymorphOutletDirective,
   PrizmDropdownControllerModule,
   PrizmHintDirective,
-  PrizmLifecycleModule,
+  PrizmLifecycleDirective,
 } from '../../directives';
-import { PrizmButtonModule } from '../button';
+import { PrizmButtonComponent } from '../button';
 import { PrizmDataListComponent } from '../data-list';
 import { PrizmListingItemComponent } from '../listing-item';
 import { PrizmCounterComponent } from '../counter';
-import { PrizmIconModule } from '../icon';
 import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 import { prizmIsTextOverflow$ } from '../../util';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsXmark } from '@prizm-ui/icons/full/source/xmark';
 
 @Component({
   selector: 'prizm-tabs',
@@ -54,19 +56,19 @@ import { prizmIsTextOverflow$ } from '../../util';
   imports: [
     CommonModule,
     PolymorphOutletDirective,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
     PrizmCallFuncPipe,
     PrizmLetDirective,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmDropdownControllerModule,
     PrizmDataListComponent,
     PrizmTabComponent,
     PrizmListingItemComponent,
     PrizmCounterComponent,
-    PrizmIconModule,
     PrizmIconTabsPipe,
     PrizmHintDirective,
+    PrizmIconsFullComponent,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
@@ -113,11 +115,13 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
   constructor(
     private readonly cdRef: ChangeDetectorRef,
-    private readonly elRef: ElementRef,
+    private readonly iconsFullRegistry: PrizmIconsFullRegistry,
     private readonly destroy$: PrizmDestroyService,
     private readonly tabsService: PrizmTabsService
   ) {
     super();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsXmark);
   }
 
   public ngOnInit(): void {

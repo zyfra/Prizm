@@ -95,11 +95,16 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   get icon$(): Observable<string> {
     return this.sorterService.changes$.pipe(
       map(() =>
+        // !this.isCurrent
+        //   ? 'arrows-swap-vert-2'
+        //   : this.sorterService.cellOrder(this.key as string) === 'asc'
+        //   ? `sort-asc-arr`
+        //   : `sort-desc-arr`
         !this.isCurrent
-          ? 'arrows-swap-vert-2'
+          ? 'arrow-up-arrow-down-v'
           : this.sorterService.cellOrder(this.key as string) === 'asc'
-          ? `sort-asc-arr`
-          : `sort-desc-arr`
+          ? `arrow-down-wide-short`
+          : `arrow-up-wide-short`
       )
     );
   }

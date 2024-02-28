@@ -26,11 +26,11 @@ import { PrizmFocusVisibleService } from '../../directives/focus-visible/focus-v
 import { PrizmHoveredService } from '../../services';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
-import { CommonModule, NgIf, NgTemplateOutlet } from '@angular/common';
-import { PrizmIconComponent, PrizmIconModule } from '../icon';
-import { PrizmLoaderComponent, PrizmLoaderModule } from '../loader';
+import { NgIf, NgTemplateOutlet } from '@angular/common';
+import { PrizmLoaderComponent } from '../loader';
 import { PrizmWrapperComponent } from '../../directives/wrapper/wrapper.component';
 import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -44,9 +44,9 @@ import { PolymorphOutletDirective } from '../../directives/polymorph/directives/
     NgTemplateOutlet,
     PrizmWrapperComponent,
     PolymorphOutletDirective,
-    PrizmIconComponent,
     PrizmLoaderComponent,
     PrizmCallFuncPipe,
+    PrizmIconsFullComponent,
   ],
   providers: [
     PrizmDestroyService,
@@ -106,7 +106,7 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
     return this.focusable ? 0 : -1;
   }
 
-  override get generateManeTestId() {
+  override get generateMainTestId() {
     return this.hasIcon ? 'ui_button' : 'ui_icon_button';
   }
 

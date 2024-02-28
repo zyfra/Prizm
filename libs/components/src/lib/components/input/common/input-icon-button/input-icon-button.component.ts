@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -13,6 +14,8 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
     '[class.interactive]': 'interactive',
     '[attr.tabindex]': 'tabindex',
   },
+  standalone: true,
+  imports: [PrizmIconsFullComponent],
 })
 export class PrizmInputIconButtonComponent extends PrizmAbstractTestId {
   @Input() size = 16;

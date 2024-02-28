@@ -12,7 +12,7 @@ import { ReactiveFormsModule, UntypedFormControl } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { PrizmButtonModule } from '../../../button';
+import { PrizmButtonComponent } from '../../../button';
 import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
 import { PrizmInputTextComponent } from '../../../input';
 
@@ -23,7 +23,7 @@ import { PrizmInputTextComponent } from '../../../input';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
   standalone: true,
-  imports: [PrizmButtonModule, ReactiveFormsModule, PrizmInputCommonModule, PrizmInputTextComponent],
+  imports: [PrizmButtonComponent, ReactiveFormsModule, PrizmInputCommonModule, PrizmInputTextComponent],
 })
 export class PrizmNavigationMenuSearchComponent extends PrizmAbstractTestId implements AfterViewInit {
   @ViewChild('searchInput', {

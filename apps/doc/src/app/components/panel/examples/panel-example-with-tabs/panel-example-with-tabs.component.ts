@@ -11,19 +11,19 @@ export class PanelExampleWithTabsComponent {
   public tabs: PrizmTabItem[] = [
     {
       title: 'Вкладка 1',
-      icon: 'charts-donut',
+      icon: 'pie-line',
     },
     {
       title: 'Вкладка 2',
-      icon: 'selection-radio-off',
+      icon: 'temp-selection-radio-off',
     },
     {
       title: 'Вкладка 3',
-      icon: 'location-person-pin-circle',
+      icon: 'location-user',
     },
     {
       title: 'Вкладка 4',
-      icon: 'editor-format-textdirection-l-to-r',
+      icon: 'pi',
     },
   ];
 

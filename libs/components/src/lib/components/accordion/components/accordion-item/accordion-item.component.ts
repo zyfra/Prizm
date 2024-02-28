@@ -18,10 +18,10 @@ import { PrizmAccordionItemData } from '../../model';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PrizmIconModule } from '../../../icon';
 import { PrizmButtonComponent } from '../../../button';
 import { PrizmHintDirective } from '../../../../directives';
 import { prizmIsTextOverflow } from '../../../../util';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -31,9 +31,9 @@ import { prizmIsTextOverflow } from '../../../../util';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmIconModule,
     PolymorphOutletDirective,
     PrizmButtonComponent,
+    PrizmIconsComponent,
     PrizmHintDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
