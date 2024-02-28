@@ -3,11 +3,14 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
+  ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
+  OnInit,
   Output,
   TemplateRef,
+  ViewChild,
 } from '@angular/core';
 import { PrizmAccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
@@ -38,7 +41,7 @@ import { PrizmIconsComponent } from '@prizm-ui/icons';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
+export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() icon!: PolymorphContent<PrizmAccordionItemData>;
   @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
@@ -50,6 +53,8 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   set disabled(value: BooleanInput) {
     this._disabled = coerceBooleanProperty(value);
   }
+
+  @ViewChild('container', { static: true }) container!: ElementRef;
 
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;
   private _disabled = false;
@@ -73,8 +78,15 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
   public readonly accordionTools!: TemplateRef<AccordionToolsDirective>;
 
+  private resizeObserver!: ResizeObserver;
+
   constructor(private readonly cdRef: ChangeDetectorRef) {
     super();
+  }
+
+  public ngOnInit(): void {
+    this.resizeObserver = new ResizeObserver(() => this.cdRef.markForCheck());
+    this.resizeObserver.observe(this.container.nativeElement);
   }
 
   public toggle$: Subject<void> = new Subject<void>();
