@@ -493,7 +493,7 @@ export class ThemeForDesignersComponent {
     {
       name: 'Shadow-Mini-Right',
       description: 'Маленькая тень справа',
-      variable: '--prizm-v3-shadow-mini-righ',
+      variable: '--prizm-v3-shadow-mini-right',
     },
     {
       name: 'Shadow-Mini-Left',
