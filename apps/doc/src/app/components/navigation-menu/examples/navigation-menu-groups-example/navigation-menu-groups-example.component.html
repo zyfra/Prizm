@@ -27,7 +27,7 @@
   >
     <prizm-navigation-menu-group
       *ngIf="fruitsGroup$ | async as group"
-      [icon]="'battery-flash-ok'"
+      [icon]="'carbon'"
       [title]="group.title"
       [groupId]="group.title"
       [items]="group.items"
@@ -37,7 +37,7 @@
     ></prizm-navigation-menu-group>
     <prizm-navigation-menu-group
       *ngIf="musicalInstrumentsGroup$ | async as group"
-      [icon]="'alerts-pulse'"
+      [icon]="'pulse'"
       [title]="group.title"
       [groupId]="group.title"
       [items]="group.items"
