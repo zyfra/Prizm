@@ -56,7 +56,7 @@ export class PrizmFlagIconsComponent extends PrizmAbstractTestId {
     this._size = typeof size === 'number' ? prizmPx(size) : size;
   }
 
-  override get generateManeTestId(): string {
+  override get generateMainTestId(): string {
     return 'ui_flag_icons' + (this.name ? `--${this.name}` : '');
   }
 

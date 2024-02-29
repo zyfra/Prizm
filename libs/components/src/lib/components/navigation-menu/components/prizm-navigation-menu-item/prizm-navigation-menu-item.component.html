@@ -4,6 +4,8 @@
   [class.prizm-navigation-menu-item_hovered]="isHovered"
   [class.prizm-navigation-menu-item_expandable]="isExpandable"
   [tabindex]="0"
+  [prizmHint]="item.text"
+  [prizmHintCanShow]="prizmIsTextOverflow(elem)"
   (keydown.space)="interaction.emit(item)"
   (keydown.enter)="interaction.emit(item)"
   (click)="interaction.emit(item)"
@@ -14,7 +16,7 @@
     *ngIf="item.icon"
     [name]="item.icon"
   ></prizm-icons-svg>
-  <p class="prizm-navigation-menu-item__text">
+  <p class="prizm-navigation-menu-item__text" #elem>
     {{ item.text }}
   </p>
   <div class="prizm-navigation-menu-item__extra">
@@ -47,7 +49,7 @@
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     [size]="'m'"
-    [icon]="isExpanded ? 'chevrons-down' : 'chevrons-right'"
+    [icon]="isExpanded ? 'chevron-down' : 'chevron-right'"
     [class.t-button_expanded]="isExpanded"
     (click)="$event.stopPropagation(); toggleExpanded.emit(item)"
     prizmIconButton

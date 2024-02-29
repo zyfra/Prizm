@@ -5,7 +5,6 @@ import { PrizmSelectInputItemComponent } from './input-select-item.component';
 import { PrizmInputSelectDataListDirective } from './input-select-data-list.directive';
 
 /**
- * @deprecated
  * use standalone directives
  * */
 @NgModule({

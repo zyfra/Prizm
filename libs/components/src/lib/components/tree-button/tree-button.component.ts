@@ -1,12 +1,17 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PolymorphContent } from '../../directives/polymorph/types/content';
+import { PolymorphModule } from '../../directives';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: `prizm-tree-button`,
   templateUrl: `./tree-button.component.html`,
   styleUrls: [`./tree-button.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [PolymorphModule, CommonModule, PrizmIconsFullComponent],
   exportAs: 'prizmTreeButton',
 })
 export class PrizmTreeButtonComponent<T extends Partial<Record<keyof T, any>>> {
@@ -32,11 +37,11 @@ export class PrizmTreeButtonComponent<T extends Partial<Record<keyof T, any>>> {
 
   @Input()
   @prizmDefaultProp()
-  iconOpen: PolymorphContent<{ size: number }> = 'chevrons-down';
+  iconOpen: PolymorphContent<{ size: number }> = 'chevron-down';
 
   @Input()
   @prizmDefaultProp()
-  iconClose: PolymorphContent<{ size: number }> = 'chevrons-right';
+  iconClose: PolymorphContent<{ size: number }> = 'chevron-right';
 
   @Input()
   @prizmDefaultProp()

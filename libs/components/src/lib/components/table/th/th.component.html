@@ -5,7 +5,8 @@
     <span class="sorter__number" [style.visibility]="count > 1 && num ? 'visible' : 'hidden'">{{
       num ?? '0'
     }}</span>
-    <prizm-icon class="sorter__icon" [iconClass]="$any(icon$ | async)"></prizm-icon>
+    <!--    <prizm-icon class="sorter__icon" [iconClass]="$any(icon$ | async)"></prizm-icon>-->
+    <prizm-icons class="sorter__icon" [name]="$any(icon$ | async)"> </prizm-icons>
   </span>
 </button>
 <ng-template #content>

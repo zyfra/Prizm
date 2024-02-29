@@ -19,13 +19,15 @@
   <div class="toggle">
     <span class="icon-wrapper">
       <ng-container *polymorphOutlet="iconOn as content; context: { $implicit: size }">
-        <prizm-icon class="icon" *ngIf="content" [iconClass]="$any(content)" size="16"></prizm-icon>
+        <!--        <prizm-icon class="icon" *ngIf="content" [iconClass]="$any(content)" size="16"></prizm-icon>-->
+        <prizm-icons-full class="icon" *ngIf="content" [name]="$any(content)" size="16"></prizm-icons-full>
       </ng-container>
     </span>
     <div class="circle"></div>
     <span class="icon-wrapper">
       <ng-container *polymorphOutlet="iconOff as content; context: { $implicit: size }">
-        <prizm-icon class="icon" *ngIf="content" [iconClass]="$any(content)" size="16"></prizm-icon>
+        <!--        <prizm-icon class="icon" *ngIf="content" [iconClass]="$any(content)" size="16"></prizm-icon>-->
+        <prizm-icons-full class="icon" *ngIf="content" [name]="$any(content)" size="16"></prizm-icons-full>
       </ng-container>
     </span>
   </div>

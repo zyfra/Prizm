@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "version": 2,
+  "title": "Svg To Fonts executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "src": {
+      "type": "string",
+      "alias": "i",
+      "description": "Path to folder with svg"
+    },
+    "css": {
+      "type": "boolean",
+      "alias": "i",
+      "description": "Generate CSS"
+    },
+    "fontName": {
+      "type": "string",
+      "alias": "f",
+      "description": "Name of font"
+    },
+    "locationPostfix": {
+      "type": "string",
+      "description": "Postfix for location"
+    },
+    "separateLocation": {
+      "type": "boolean",
+      "description": "Seperate font locations files"
+    },
+    "dist": {
+      "type": "string",
+      "alias": "o",
+      "description": "Path to output with lazy imports"
+    }
+  },
+  "required": ["fontName", "dist", "src"]
+}

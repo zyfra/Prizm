@@ -3,4 +3,8 @@ export interface IconsToLazyExecutorSchema {
   pathToFolder: string;
   exportName?: string;
   pathToOutputFile: string;
-} // eslint-disable-line
+
+  generateIconSet?: boolean;
+  iconSetNameExportName?: string;
+  iconSetNameFileName?: string;
+}

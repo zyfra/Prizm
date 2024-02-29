@@ -4,9 +4,9 @@ import { PrizmNavigationComponent } from './prizm-navigation.component';
 
 import { PrizmNavigationItemSimpleComponent } from './components/prizm-navigation-item-simple/prizm-navigation-item-simple.component';
 import { PrizmNavigationItemExpandableComponent } from './components/prizm-navigation-item-expandable/prizm-navigation-item-expandable.component';
-import { PrizmIconModule } from '../icon';
 import { ActiveNavigationItemService } from './services/active-navigation-item.service';
-import { PrizmHintModule } from '../../directives';
+import { PrizmHintDirective } from '../../directives';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @NgModule({
   declarations: [
@@ -14,7 +14,7 @@ import { PrizmHintModule } from '../../directives';
     PrizmNavigationItemSimpleComponent,
     PrizmNavigationItemExpandableComponent,
   ],
-  imports: [CommonModule, PrizmIconModule, PrizmHintModule],
+  imports: [CommonModule, PrizmHintDirective, PrizmIconsFullComponent],
   exports: [PrizmNavigationComponent],
   providers: [ActiveNavigationItemService],
 })

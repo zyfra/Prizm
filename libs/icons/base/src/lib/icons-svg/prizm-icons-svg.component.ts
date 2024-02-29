@@ -83,7 +83,7 @@ export class PrizmIconsSvgComponent extends PrizmAbstractTestId {
    * Generates a test ID based on the icon name.
    * @returns A test ID string.
    */
-  override get generateManeTestId(): string {
+  override get generateMainTestId(): string {
     return 'ui_icon' + (this.iconName ? `--${this.iconName}` : '');
   }
 

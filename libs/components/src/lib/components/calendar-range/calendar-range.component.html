@@ -62,10 +62,14 @@
       >
         <div class="btn-content">
           <span>{{ item }}</span>
-          <prizm-icon
+          <!--          <prizm-icon-->
+          <!--            [style.visibility]="isItemActive(item) ? '' : 'hidden'"-->
+          <!--            iconClass="selection-check-simple"-->
+          <!--          ></prizm-icon>-->
+          <prizm-icons-full
             [style.visibility]="isItemActive(item) ? '' : 'hidden'"
-            iconClass="selection-check-simple"
-          ></prizm-icon>
+            name="check"
+          ></prizm-icons-full>
         </div>
       </button>
     </prizm-data-list>
