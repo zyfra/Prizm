@@ -11,9 +11,11 @@ import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
-import { PrizmButtonModule } from '../../../button/button.module';
 import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
 import { PrizmHoveredModule } from '../../../../directives/hovered';
+import { PrizmHintDirective } from '../../../../directives';
+import { PrizmButtonComponent } from '../../../button';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-navigation-menu-item',
@@ -27,7 +29,8 @@ import { PrizmHoveredModule } from '../../../../directives/hovered';
     NgIf,
     NgTemplateOutlet,
     PrizmInputCommonModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
+    PrizmHintDirective,
   ],
 })
 export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
@@ -44,7 +47,8 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Input() mode!: ViewMode;
   @Input() showGoToButtons!: boolean;
 
-  isHovered = false;
+  public readonly prizmIsTextOverflow = prizmIsTextOverflow;
+  public isHovered = false;
 
   get expandButtonVisible(): boolean {
     return this.mode === 'rubricator' ? !!this.item.isRubricator : this.isExpandable;
