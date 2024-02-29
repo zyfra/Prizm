@@ -79,7 +79,6 @@
     "dompurify": "^2.3.8",
     "highlight.js": "^11.5.1",
     "highlightjs-line-numbers.js": "^2.8.0",
-    "lodash-es": "^4.17.21",
     "marked": "^9.0.0",
     "ngx-markdown": "17.1.1",
     "ngx-mask": "17.0.4",

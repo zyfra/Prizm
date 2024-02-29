@@ -6,3 +6,6 @@ export * from './decorators';
 export * from './uuid';
 export * from './style';
 export * from './number';
+export * from './is-equal';
+export * from './merge';
+export * from './order-by';

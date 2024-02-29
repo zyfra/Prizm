@@ -27,10 +27,9 @@ import { prizmInspectAny } from '../../utils/inspect';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
 import { PRIZM_HOST_COMPONENT_INFO_TOKEN, PrizmHostComponentInfo } from './token';
 import { PrizmDocHostElementListenerService } from '../host';
-import orderBy from 'lodash-es/orderBy';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { UntypedFormControl, Validators } from '@angular/forms';
-import { prizmEmptyQueryList, PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { orderBy, prizmEmptyQueryList, PrizmFormControlHelpers } from '@prizm-ui/helpers';
 // @bad TODO subscribe propertiesConnectors changes
 // @bad TODO refactor to make more flexible
 @Component({

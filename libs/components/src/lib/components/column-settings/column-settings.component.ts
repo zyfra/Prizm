@@ -21,7 +21,6 @@ import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
 import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
-import cloneDeep from 'lodash-es/cloneDeep';
 import { CommonModule } from '@angular/common';
 import { PrizmCardComponent } from '../card';
 import { PrizmButtonComponent } from '../button';
@@ -64,7 +63,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   public _settings!: PrizmTableSettings;
   @Input() set settings(value: PrizmTableSettings) {
-    this._settings = cloneDeep(value);
+    this._settings = structuredClone(value);
   }
   @Input() defaultSettings: PrizmTableSettings | undefined;
   @Input() stickySettings = false;
@@ -94,7 +93,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
   }
 
   public resetToDeafault(): void {
-    this._settings = cloneDeep(this.defaultSettings as PrizmTableSettings);
+    this._settings = structuredClone(this.defaultSettings as PrizmTableSettings);
     this.checkIsLastShown();
   }
 
