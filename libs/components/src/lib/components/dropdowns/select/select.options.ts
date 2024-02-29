@@ -83,7 +83,6 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   listItemTemplate: null as any,
   placeholder: '',
   size: 'l',
-  label: 'Выберите из списка',
 };
 
 export const PRIZM_SELECT_OPTIONS = new InjectionToken<PrizmSelectOptions<unknown>>(

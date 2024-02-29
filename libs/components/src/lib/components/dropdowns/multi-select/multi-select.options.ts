@@ -80,7 +80,6 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
   valueContent: '',
   placeholder: '',
   size: 'l',
-  label: 'Выберите из списка',
 };
 
 export const PRIZM_MULTI_SELECT_OPTIONS = new InjectionToken<PrizmMultiSelectOptions<unknown>>(
