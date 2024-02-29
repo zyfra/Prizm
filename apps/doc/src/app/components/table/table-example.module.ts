@@ -9,7 +9,6 @@ import {
   PrizmCheckboxComponent,
   PrizmColumnSettingsComponent,
   PrizmDropdownHostComponent,
-  PrizmIconComponent,
   PrizmInputTextModule,
   PrizmLoaderComponent,
   PrizmPaginatorComponent,
@@ -46,6 +45,7 @@ import { TableColumnSettingsExampleComponent } from './examples/table-column-set
 import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/pipes/column-sticky-pipe.pipe';
 import { PrizmStickyHeaderPipe } from './examples/table-column-settings-example/pipes/header-sticky-pipe.pipe';
 import { TableTrackByExampleComponent } from './examples/table-track-by-example/table-track-by-example.component';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @NgModule({
   declarations: [
@@ -89,7 +89,6 @@ import { TableTrackByExampleComponent } from './examples/table-track-by-example/
     ReactiveFormsModule,
     PrizmLoaderComponent,
     PrizmInputTextModule,
-    PrizmIconComponent,
     PrizmPaginatorComponent,
     PrizmPanelModule,
     PrizmScrollbarComponent,
@@ -98,6 +97,7 @@ import { TableTrackByExampleComponent } from './examples/table-track-by-example/
     PrizmButtonComponent,
     PrizmWidgetModule,
     PrizmColumnSettingsComponent,
+    PrizmIconsFullComponent,
   ],
 })
 export class TableExampleModule {}

@@ -13,15 +13,15 @@ export class SwitcherExampleComponent {
   public readonly switchers: PrizmSwitcherItem[] = [
     {
       title: 'Таблицы',
-      icon: 'editor-table',
+      icon: 'table',
     },
     {
       title: 'Мнемосхемы',
-      icon: 'network-scheme',
+      icon: 'network-v2',
     },
     {
       title: 'Дашборды',
-      icon: 'view-dashboard',
+      icon: 'dashboard-fill',
     },
   ];
   public control = new FormControl();

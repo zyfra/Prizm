@@ -35,9 +35,10 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../button';
 import { PrizmProgressBarComponent } from '../progress';
-import { PrizmIconComponent } from '../icon';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source/file-empty';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -53,7 +54,7 @@ import { PrizmFileSizePipe } from './pipes/file-size.pipe';
     PrizmLetDirective,
     PrizmProgressBarComponent,
     PrizmButtonComponent,
-    PrizmIconComponent,
+    PrizmIconsFullComponent,
   ],
   standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
@@ -62,6 +63,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   @ViewChild('dropzone') dropzoneElementRef!: ElementRef<HTMLDivElement>;
 
   override readonly testId_ = 'ui_file_upload';
+  readonly icon = prizmIconsFileEmpty;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
   constructor(

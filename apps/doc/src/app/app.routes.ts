@@ -359,18 +359,25 @@ export const ROUTES: Routes = [
       title: 'Counter',
     },
   },
-  {
-    path: 'components/old-icon',
-    loadChildren: () => import('./components/icons/old/icon.module').then(i => i.IconModule),
-    data: {
-      title: 'Old Icon',
-    },
-  },
+  // {
+  //   path: 'components/old-icon',
+  //   loadChildren: () => import('./components/icons/old/icon.module').then(i => i.IconModule),
+  //   data: {
+  //     title: 'Old Icon',
+  //   },
+  // },
   {
     path: 'components/icon',
     loadChildren: () => import('./components/icons/svg/icon.module').then(i => i.IconModule),
     data: {
       title: 'Icon',
+    },
+  },
+  {
+    path: 'components/icons',
+    loadChildren: () => import('./components/icons/base/icons.module').then(i => i.IconsModule),
+    data: {
+      title: 'Icons',
     },
   },
   {

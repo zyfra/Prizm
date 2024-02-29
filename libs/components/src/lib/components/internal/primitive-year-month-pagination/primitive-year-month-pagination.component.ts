@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../../@core/date-time/days.const';
 import { PrizmMonth } from '../../../@core/date-time/month';
 import { PrizmYear } from '../../../@core/date-time/year';
@@ -11,8 +11,10 @@ import { CommonModule } from '@angular/common';
 import { PrizmFocusableModule } from '../../../directives';
 import { PrizmPrimitiveSpinButtonModule } from '../primitive-spin-button';
 import { PrizmLinkComponent } from '../../link';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmMonthPipeModule } from '../../../pipes';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,
@@ -25,8 +27,8 @@ import { PrizmMonthPipeModule } from '../../../pipes';
     PrizmFocusableModule,
     PrizmPrimitiveSpinButtonModule,
     PrizmLinkComponent,
-    PrizmIconComponent,
     PrizmMonthPipeModule,
+    PrizmIconsFullComponent,
   ],
 })
 export class PrizmPrimitiveYearMonthPaginationComponent
@@ -67,6 +69,13 @@ export class PrizmPrimitiveYearMonthPaginationComponent
   readonly monthClick = new EventEmitter<PrizmMonth>();
 
   override readonly testId_ = 'ui_primitive_year_month_pagination';
+  readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    super();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown);
+  }
 
   public get prevMonthDisabled(): boolean {
     return this.value.monthSameOrBefore?.(this.min);

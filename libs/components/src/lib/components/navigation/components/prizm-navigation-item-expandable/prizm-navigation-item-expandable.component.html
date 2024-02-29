@@ -1,7 +1,8 @@
 <div class="container">
   <div class="nav" [class.nav_active]="isActive$ | async" (click)="navClick()">
     <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? 8 + 16 * deep : 0">
-      <prizm-icon [iconClass]="menuItem?.icon || 'files-folder'"></prizm-icon>
+      <!--      <prizm-icon [iconClass]="menuItem?.icon || 'files-folder'"></prizm-icon>-->
+      <prizm-icons-full [name]="menuItem?.icon || 'folder'"></prizm-icons-full>
     </div>
     <span class="nav__title">{{ menuItem?.title }}</span>
 
@@ -14,7 +15,8 @@
     </div>
 
     <button class="nav__chevron" [class.nav__chevron_expanded]="isExpanded" (click)="toggle($event)">
-      <prizm-icon class="icon" iconClass="arrows-chevron-right"></prizm-icon>
+      <!--      <prizm-icon class="icon" iconClass="arrows-chevron-right"></prizm-icon>-->
+      <prizm-icons-full class="icon" name="angle-right"></prizm-icons-full>
     </button>
   </div>
 

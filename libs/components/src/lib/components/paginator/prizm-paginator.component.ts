@@ -23,10 +23,9 @@ import { PRIZM_PAGINATOR } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
 import { CommonModule } from '@angular/common';
 import { PrizmCallFuncPipe, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
-import { PrizmIconComponent } from '../icon';
 import { PrizmInputSelectModule } from '../dropdowns/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrizmButtonModule } from '../button';
+import { PrizmButtonComponent } from '../button';
 
 @Component({
   selector: 'prizm-paginator',
@@ -40,11 +39,10 @@ import { PrizmButtonModule } from '../button';
     PrizmCallFuncPipe,
     PolymorphOutletDirective,
     PrizmLetDirective,
-    PrizmIconComponent,
     PrizmInputSelectModule,
     ReactiveFormsModule,
     FormsModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmPluckPipe,
   ],
 })

@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, Input, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { IndicatorStatus, IndicatorType } from './indicator.models';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { NgIf } from '@angular/common';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-indicator',
@@ -9,7 +10,7 @@ import { NgIf } from '@angular/common';
   styleUrls: ['./indicator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf],
+  imports: [NgIf, PrizmIconsComponent],
 })
 export class PrizmIndicatorComponent extends PrizmAbstractTestId {
   @Input() public type: IndicatorType = 'simple';
@@ -17,12 +18,19 @@ export class PrizmIndicatorComponent extends PrizmAbstractTestId {
 
   override readonly testId_ = 'ui_indicator';
 
+  // public readonly iconMap = {
+  //   info: 'alerts-information-variant',
+  //   secondary: 'alerts-information-variant',
+  //   success: 'selection-check-simple',
+  //   warning: 'alerts-mark',
+  //   danger: 'alerts-mark',
+  // };
   public readonly iconMap = {
-    info: 'alerts-information-variant',
-    secondary: 'alerts-information-variant',
-    success: 'selection-check-simple',
-    warning: 'alerts-mark',
-    danger: 'alerts-mark',
+    info: 'info',
+    secondary: 'info',
+    success: 'check',
+    warning: 'exclamation',
+    danger: 'exclamation',
   };
 }
 /**

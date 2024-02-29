@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import {
   PrizmButtonModule,
   PrizmHeaderModule,
-  PrizmIconModule,
   PrizmNavigationModule,
   PrizmScrollbarModule,
 } from '@prizm-ui/components';
@@ -23,7 +22,6 @@ import { NavigationBasicExampleModule } from './examples/navigation-basic-exampl
     PrizmButtonModule,
     PrizmThemeModule,
     PrizmAddonDocModule,
-    PrizmIconModule,
     NavigationBasicExampleModule,
     RouterModule.forChild(prizmDocGenerateRoutes(NavigationExampleComponent)),
   ],

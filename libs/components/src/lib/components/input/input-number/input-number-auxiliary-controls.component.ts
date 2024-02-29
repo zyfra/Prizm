@@ -11,14 +11,14 @@ import { PrizmInputCommonModule } from '../common';
       [interactive]="!inputNumber.disabled"
       [disabled]="inputNumber.disabled"
       (click)="increment()"
-      prizmInputIconButton="chevrons-up"
+      prizmInputIconButton="chevron-up"
     ></button>
     <button
       [size]="size"
       [interactive]="!inputNumber.disabled"
       [disabled]="inputNumber.disabled"
       (click)="decrement()"
-      prizmInputIconButton="chevrons-down"
+      prizmInputIconButton="chevron-down"
     ></button>
   </div> `,
   styleUrls: ['./input-number-auxiliary-controls.component.less'],

@@ -7,13 +7,13 @@ export abstract class PrizmAbstractTestId {
   @Input()
   @HostBinding('attr.data-testid')
   get testId() {
-    return this.generateManeTestId + (this.testIdPostfix ? `--${this.testIdPostfix}` : '');
+    return this.generateMainTestId + (this.testIdPostfix ? `--${this.testIdPostfix}` : '');
   }
   set testId(value: string) {
     this.testIdPostfix = value;
   }
 
-  public get generateManeTestId() {
+  public get generateMainTestId() {
     return this.testId_;
   }
   protected testId_!: string;

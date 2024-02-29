@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Inject,
   Input,
   Output,
@@ -16,6 +17,9 @@ import { PrizmAppearanceTypeGhost } from '../../../types/appearance.types';
 import { prizmIsNativeFocused } from '../../../util/is-native-focused';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsAngleLeft } from '@prizm-ui/icons/base/source/angle-left';
+import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source/angle-right';
 
 // @dynamic
 @Component({
@@ -59,8 +63,12 @@ export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive 
 
   override readonly testId_ = 'ui_primitive_spin_button';
 
+  private readonly registry = inject(PrizmIconsFullRegistry);
+
   constructor(@Inject(PRIZM_SPIN_TEXTS) readonly spinTexts$: Observable<[string, string]>) {
     super();
+
+    this.registry.registerIcons(prizmIconsAngleLeft, prizmIconsAngleRight);
   }
 
   public get focused(): boolean {

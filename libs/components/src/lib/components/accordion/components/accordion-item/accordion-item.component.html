@@ -16,7 +16,8 @@
     <ng-container *ngIf="icon">
       <ng-container *polymorphOutlet="icon as content; context: data">
         <!-- TODO add type string-->
-        <prizm-icon class="header-icon" [iconClass]="$any(content)" size="16"></prizm-icon>
+        <!--        <prizm-icon class="header-icon" [iconClass]="$any(content)" size="16"></prizm-icon>-->
+        <prizm-icons class="header-icon" [name]="$any(content)" size="16"></prizm-icons>
       </ng-container>
     </ng-container>
     <div class="title" *ngIf="title">

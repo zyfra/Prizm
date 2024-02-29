@@ -1,0 +1,10 @@
+$prizm-base-icons-font: 'prizm-base-icons';
+
+@font-face {
+  font-family: $prizm-base-icons-font;
+  src: url('/assets/prizm/icons/base/prizm-base-icons.eot?6113bc5504ba877a706ba26b09698b81#iefix')
+      format('embedded-opentype'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff2?6113bc5504ba877a706ba26b09698b81') format('woff2'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff?6113bc5504ba877a706ba26b09698b81') format('woff'),
+    url('/assets/prizm/icons/base/prizm-base-icons.ttf?6113bc5504ba877a706ba26b09698b81') format('truetype');
+}
