@@ -32,7 +32,7 @@ import { PrizmInputPasswordDirective } from './input-password.directive';
       }
 
       .btn {
-        display: block;
+        display: flex;
       }
     `,
   ],
