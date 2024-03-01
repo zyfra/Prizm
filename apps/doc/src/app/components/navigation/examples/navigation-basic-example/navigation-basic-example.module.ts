@@ -9,7 +9,7 @@ import {
 } from '@prizm-ui/components';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmAddonDocModule } from '@prizm-ui/doc';
-import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullComponent, prizmIconsProvideOldNameTransformer } from '@prizm-ui/icons';
 
 @NgModule({
   declarations: [NavigationBasicExampleComponent],
@@ -23,6 +23,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmAddonDocModule,
     PrizmIconsFullComponent,
   ],
+  providers: [prizmIconsProvideOldNameTransformer()],
   exports: [NavigationBasicExampleComponent],
 })
 export class NavigationBasicExampleModule {}
