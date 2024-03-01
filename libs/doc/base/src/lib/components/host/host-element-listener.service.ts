@@ -1,12 +1,6 @@
-import { ElementRef, Injectable, OnDestroy } from '@angular/core';
-import { Subject, Subscription } from 'rxjs';
-import {
-  PrizmDocumentationPropertyType,
-  PrizmPageComponentEvent,
-  PrizmPageComponentInfoEvent,
-  PrizmPageInfo,
-} from '../../types/pages';
-import { take, takeUntil, tap } from 'rxjs/operators';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
+import { PrizmPageComponentEvent, PrizmPageComponentInfoEvent, PrizmPageInfo } from '../../types/pages';
 
 @Injectable({
   providedIn: 'root',

@@ -114,7 +114,7 @@
                   [class.hidden]="!tab.closable"
                   [name]="'xmark'"
                   [size]="16"
-                  (click)="closeTab($any(tabElement.idx))"
+                  (click)="closeTab(tabElement.idx!)"
                 ></prizm-icons-full>
               </ng-container>
             </prizm-listing-item>

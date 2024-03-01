@@ -6,6 +6,7 @@
   [size]="size"
   [appearanceType]="data?.appearanceType ?? 'ghost'"
   [appearance]="data?.appearance ?? 'secondary'"
+  [class.switcher_active_disabled]="isActive && isDisabled"
   [pseudoPressed]="isActive"
   prizmButton
 >

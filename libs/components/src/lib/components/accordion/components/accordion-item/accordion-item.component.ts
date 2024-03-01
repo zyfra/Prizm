@@ -112,5 +112,6 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
 
   public ngOnDestroy(): void {
     this.toggle$.complete();
+    this.resizeObserver.disconnect();
   }
 }

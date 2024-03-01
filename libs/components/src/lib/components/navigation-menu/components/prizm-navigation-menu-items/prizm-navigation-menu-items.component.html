@@ -13,6 +13,7 @@
       [item]="item"
       [mode]="mode"
       [itemExtraTemplate]="itemExtraTemplate"
+      [isActiveNode]="getItemIsActiveNode(item)"
       [isActive]="getItemIsActive(item)"
       [isExpandable]="menuItemsChildrenHandler(item).length > 0"
       [isExpanded]="getItemIsExpanded(item)"

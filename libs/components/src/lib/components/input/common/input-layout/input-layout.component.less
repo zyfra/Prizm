@@ -6,7 +6,10 @@
   .prizm-input-form-status-button,
   .prizm-input-button-default {
     flex-shrink: 0;
-    height: 100%;
+  }
+
+  .prizm-input-form-status-button {
+    align-self: center;
   }
 
   .prizm-input-button-default {
@@ -16,7 +19,7 @@
   &:hover,
   &:focus-within {
     .prizm-input-button-default {
-      display: block;
+      display: flex;
     }
   }
 }
@@ -120,6 +123,11 @@
     flex-grow: 1;
   }
 
+  &:not(:has([prizm-input-bottom])):not(.prizm-input-form-textarea) &__first {
+    // Hack for height in percents for buttons inside controls
+    height: 1px;
+  }
+
   &-body {
     position: relative;
     width: 100%;
@@ -182,7 +190,7 @@
     }
 
     .prizm-input-button-default {
-      display: block;
+      display: flex;
     }
   }
 
@@ -204,11 +212,23 @@
   &-inner {
     min-height: 44px;
 
+    &:not(:has(prizm-chips > .chips-list)) {
+      max-height: 44px;
+    }
+
     &[data-size='l'] {
       min-height: 44px;
+
+      &:not(:has(prizm-chips > .chips-list)) {
+        max-height: 44px;
+      }
     }
     &[data-size='m'] {
       min-height: 36px;
+
+      &:not(:has(prizm-chips > .chips-list)) {
+        max-height: 36px;
+      }
     }
   }
 
@@ -218,14 +238,30 @@
   &-outer {
     min-height: 32px;
 
+    &:not(:has(prizm-chips > .chips-list)) {
+      max-height: 32px;
+    }
+
     &[data-size='l'] {
       min-height: 40px;
+
+      &:not(:has(prizm-chips > .chips-list)) {
+        max-height: 40px;
+      }
     }
     &[data-size='m'] {
       min-height: 32px;
+
+      &:not(:has(prizm-chips > .chips-list)) {
+        max-height: 32px;
+      }
     }
     &[data-size='s'] {
       min-height: 24px;
+
+      &:not(:has(prizm-chips > .chips-list)) {
+        max-height: 24px;
+      }
     }
   }
 
@@ -236,10 +272,11 @@
         position: absolute;
         z-index: 100;
         background-color: var(--prizm-form-fill-default);
+        height: auto;
       }
 
       .prizm-input-button-default {
-        right: 32px;
+        right: 24px;
 
         &.alone {
           right: 0;
