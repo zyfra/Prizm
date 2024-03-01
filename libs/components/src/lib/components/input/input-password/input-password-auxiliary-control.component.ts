@@ -49,7 +49,7 @@ export class PrizmInputPasswordDefaultControlComponent {
   ) {}
 
   get icon(): string {
-    return this.inputPassword.passwordHidden ? 'sort-eye' : 'sort-eye-off-2';
+    return this.inputPassword.passwordHidden ? 'eye' : 'eye-closed';
   }
 
   public toggle(): void {
