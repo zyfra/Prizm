@@ -459,6 +459,52 @@ export class ThemeForDesignersComponent {
       description: 'Заблокированная кнопка',
       variable: '--prizm-v3-button-disable',
     },
+    {
+      groupName: 'Shadow',
+      name: 'Shadow',
+      description: 'Цвет теней',
+      variable: '--prizm-v3-shadow-color',
+    },
+    {
+      name: 'Shadow-Big-Top',
+      description: 'Большая тень сверху',
+      variable: '--prizm-v3-shadow-big-top',
+    },
+    {
+      name: 'Shadow-Big-Right',
+      description: 'Большая тень справа',
+      variable: '--prizm-v3-shadow-big-right',
+    },
+    {
+      name: 'Shadow-Big-Left',
+      description: 'Большая тень слева',
+      variable: '--prizm-v3-shadow-big-left',
+    },
+    {
+      name: 'Shadow-Big-Bottom',
+      description: 'Большая тень снизу',
+      variable: '--prizm-v3-shadow-big-bottom',
+    },
+    {
+      name: 'Shadow-Mini-Top',
+      description: 'Маленькая тень сверху',
+      variable: '--prizm-v3-shadow-mini-top',
+    },
+    {
+      name: 'Shadow-Mini-Right',
+      description: 'Маленькая тень справа',
+      variable: '--prizm-v3-shadow-mini-right',
+    },
+    {
+      name: 'Shadow-Mini-Left',
+      description: 'Маленькая тень слева',
+      variable: '--prizm-v3-shadow-mini-left',
+    },
+    {
+      name: 'Shadow-Mini-Bottom',
+      description: 'Маленькая тень снизу',
+      variable: '--prizm-v3-shadow-mini-bottom',
+    },
   ];
 
   constructor(
