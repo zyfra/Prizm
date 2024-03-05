@@ -40,4 +40,5 @@ export const PRIZM_ENGLISH_LANGUAGE_KIT: PrizmLanguageKit = {
     drop: 'Drop file here',
     dropMultiple: 'Drop files here',
   },
+  search: `Search`,
 };

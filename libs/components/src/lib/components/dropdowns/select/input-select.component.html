@@ -41,7 +41,6 @@
             [placeholder]="placeholder"
             [disabled]="disabled"
             [tabIndex]="!disabled ? 0 : -1"
-            [title]="val"
             [readonly]="true"
             [prizmHintDirection]="prizmHintDirection"
             [prizmHintCanShow]="prizmHintCanShow"
@@ -105,7 +104,7 @@
         [style.--prizm-data-list-border]="0"
       >
         <div class="list-search-item" *ngIf="searchable">
-          <prizm-input-layout size="m" label="Поиск">
+          <prizm-input-layout [label]="searchLabelTranslation$ | async">
             <input
               class="input-search"
               [ngModel]="printing$.value"

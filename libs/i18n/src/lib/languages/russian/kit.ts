@@ -53,4 +53,5 @@ export const PRIZM_RUSSIAN_LANGUAGE_KIT: PrizmLanguageKit = {
     drop: `Поместите файл сюда`,
     dropMultiple: `Поместите файлы сюда`,
   },
+  search: `Поиск`,
 };

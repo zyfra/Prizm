@@ -2,13 +2,17 @@
   display: inline-flex;
   width: 100%;
 
+  &.single-line:not(:empty) {
+    margin-bottom: 8px;
+  }
+
   .chips-list {
     width: 100%;
-    padding: 0 12px 12px 0px;
+    padding: 0 12px 8px 0px;
 
     display: flex;
     flex-wrap: wrap;
-    gap: 4px;
+    gap: 8px;
 
     prizm-chips-item {
       visibility: hidden;
@@ -28,8 +32,7 @@
     }
 
     &.hidden {
-      height: 20px;
-      padding-top: 1px;
+      height: 18px;
       width: 100%;
     }
   }

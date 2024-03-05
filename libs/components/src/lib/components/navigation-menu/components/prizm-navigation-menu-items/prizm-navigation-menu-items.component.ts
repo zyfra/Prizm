@@ -96,13 +96,19 @@ export class PrizmNavigationMenuItemsComponent<
     return this.expandedItemsMap.get(item) ?? false;
   }
 
-  public getItemIsActive(item: InternalPrizmNavigationMenuItem<T>): boolean {
+  public getItemIsActiveNode(item: InternalPrizmNavigationMenuItem<T>): boolean {
     if (item === this.activeItem) return true;
 
     if (!this.getItemIsExpanded(item) && item.children && this.mode !== 'rubricator') {
       const anyActiveChild = findItem(item.children, item => item === this.activeItem);
       return !!anyActiveChild;
     }
+
+    return false;
+  }
+
+  public getItemIsActive(item: InternalPrizmNavigationMenuItem<T>): boolean {
+    if (item === this.activeItem) return true;
 
     return false;
   }

@@ -1,3 +1,12 @@
 <prizm-input-layout label="Введите дату">
   <prizm-input-layout-date-time [formControl]="value"></prizm-input-layout-date-time>
 </prizm-input-layout>
+
+<br />
+
+<h3>With custom error text</h3>
+
+<prizm-input-layout label="Введите дату">
+  <prizm-input-layout-date-time #control [formControl]="customErrorValue"></prizm-input-layout-date-time>
+  <ng-template #statusText [control]="control" prizmInputStatusText>Warning text</ng-template>
+</prizm-input-layout>

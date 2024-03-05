@@ -32,9 +32,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmTreeModule } from '../../../tree';
 import { PrizmIconsSvgModule } from '@prizm-ui/icons';
 import { PrizmButtonComponent } from '../../../button';
-import { PolymorphOutletDirective, PrizmHoveredDirective } from '../../../../directives';
+import { PolymorphOutletDirective, PrizmHintDirective, PrizmHoveredDirective } from '../../../../directives';
 import { PrizmAccordionComponent } from '../../../accordion';
 import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-navigation-menu',
@@ -53,6 +54,7 @@ import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-to
     PolymorphOutletDirective,
     PrizmNavigationMenuGroupComponent,
     PrizmNavigationMenuToolbarComponent,
+    PrizmHintDirective,
   ],
   providers: [PrizmNavigationMenuService, PrizmNavigationMenuToolbarService, PrizmDestroyService],
 })
@@ -77,7 +79,9 @@ export class PrizmNavigationMenuComponent<
   @Input() headerExtraTemplate!: TemplateRef<unknown>;
 
   @Input() set activeItem(activeItem: UserItem | null) {
-    this.menuService.setActiveItem(activeItem as UserItem);
+    queueMicrotask(() => {
+      this.menuService.setActiveItem(activeItem as UserItem);
+    });
   }
   @Input() set itemKeyName(keyName: string) {
     this.menuService.setItemKeyName(keyName);
@@ -123,6 +127,8 @@ export class PrizmNavigationMenuComponent<
   headerConfiguration: PrizmNavigationMenuHeaderConfig = DEFAULT_HEADER_CONFIG;
 
   headerIsHovered!: boolean;
+
+  public readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   constructor(
     private menuService: PrizmNavigationMenuService<UserItem>,

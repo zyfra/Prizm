@@ -52,6 +52,60 @@ All notable changes to this project will be documented in this file.
 - bc(components): removed select, multiselect #1247
 - feat: add styling for table cell with prizmInput (breaking change) #1226
 
+## [1.15.1, 2.12.1, 3.11.1](https://github.com/zyfra/Prizm) (19-02-2023)
+
+### Bug fixes
+
+- fix(components/input-select) search label translation added #1323
+- fix(components/input-multiselect) search label translation added #1323
+- fix(components/input-select): extra title in input select #1286
+- fix(components/input-layout-date-time): custom error not shown for inputLayoutDateTime #185
+- fix(components/input-layout): clear button in inputs with position=center has incorrect placement #1385
+- fix(doc/inputStatusText): inputStatusText examples fixed
+- fix(components/switcher): switcher active item disabled statate colors changed #1348
+- fix(components/navigation-menu): navigation menu search error #1344
+- fix(components/navigation): navigation menu active item setter error #1213
+- fix(components/breadcrumbs): breadcrumbs force update for content projection usage #1282
+- fix(components/input-number): incorrect height of InputNumberDefaultControlsComponent #1308, #1383
+- fix(components/inputs): incorrect controls height #1179
+- fix(components/input-button): input button size set to 100% height of container
+- fix(components/input-date-time-range): incorrect injection token for date time value transformer #1364
+- fix(components/tabs): issue with close tabs logic #1360
+- fix(doc/input-mask): input mask demo placeholder property added
+- fix(doc/dropdown-host): select panel example styles fix #1283
+- fix(components/shadow): shadow enum values fix
+- fix(components/paginator): updated i18n #1390 #1391
+  !!! if you use custom i18n dictionary you can get bc (our [ADR](https://jira.zyfra.com/wiki/x/crs6Dw))
+- fix(component/tabs): error with double emitted index on close tabs #1392 #1003 #1389
+
+## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
+
+## Features
+
+- feat(components/navigation-menu): add hint to navigation menu items and titles when text overflows #1216, #1312
+- feat(components/accordion): add hint to accordion title when text overflows #1216, #1312
+
+### Bug fixes
+
+- fix(components/listing-item): listing item selected item hover #1280
+- fix(components/input-dat-relative): selected item hover #1280
+- fix(components/accordion): accordion focus shadow overlaps on hover #1116,
+- fix(components/accordion): accordion incorrect background color #1236,
+- fix(components/accordion): nested accordion button incorect behavior #1285
+- fix(components/accordion): custom title accordion example fix #1240
+
+## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
+
+## Features
+
+- feat(doc): save current theme in local storage on change
+
+### Bug fixes
+
+- fix(theme/service): recognize current theme #1287 #1292
+- fix(components/tabs): set stacking context to isolate #1291
+- fix(components/input-text): show status on clear required fields #1284
+
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
 ## Features

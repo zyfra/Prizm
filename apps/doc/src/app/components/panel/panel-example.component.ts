@@ -13,6 +13,7 @@ export class PanelExampleComponent {
   public radius: string | null = null;
   public height: string | null = null;
   public subheader = 'Subheader text is here';
+  public background: string | null = null;
 
   public readonly panelBasicExample: TuiDocExample = {
     TypeScript: import('./examples/panel-example-basic/panel-example-basic.component?raw'),

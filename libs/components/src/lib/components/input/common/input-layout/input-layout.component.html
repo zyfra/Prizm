@@ -104,6 +104,7 @@
             class="prizm-input-label-clear-btn prizm-input-button-default clear-icon"
             *ngSwitchCase="true"
             [interactive]="true"
+            [class.alone]="!showStatusButton"
             [disabled]="$.disabled"
             [prizmInputIconButton]="$any(clearButton) ?? 'delete-content'"
             (click)="onClearClick($event)"

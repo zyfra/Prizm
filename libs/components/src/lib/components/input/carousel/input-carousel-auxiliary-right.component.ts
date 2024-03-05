@@ -26,6 +26,7 @@ import { PrizmInputCommonModule } from '../common';
       :host {
         display: flex;
         align-items: center;
+        height: 100%;
       }
     `,
   ],

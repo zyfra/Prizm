@@ -19,4 +19,9 @@ export class PrizmInputLayoutDateTimeRequiredExampleComponent {
     [new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)],
     [Validators.required]
   );
+
+  public readonly customErrorValue = new UntypedFormControl(
+    [new PrizmDay(2017, 2, 15), new PrizmTime(12, 30)],
+    [Validators.required]
+  );
 }

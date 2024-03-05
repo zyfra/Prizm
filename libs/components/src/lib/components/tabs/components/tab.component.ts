@@ -160,16 +160,13 @@ export class PrizmTabComponent extends PrizmAbstractTestId implements OnInit, On
     );
   }
 
-  public onClose(event: MouseEvent): void {
-    event.stopPropagation();
-    this.tab$.pipe(
-      first(),
-      tap(tab => {
-        tab.closeTab.emit();
-      }),
-      takeUntil(this.destroy)
-    );
-
+  public close(): void {
+    this.tabsService.removeTab(this);
     this.closeTab.emit();
+  }
+
+  protected onClose(event: MouseEvent): void {
+    event.stopPropagation();
+    this.close();
   }
 }

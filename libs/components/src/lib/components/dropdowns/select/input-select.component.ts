@@ -88,6 +88,8 @@ import { PrizmInputSelectDataListDirective } from './input-select-data-list.dire
 import { BooleanInput } from '@angular/cdk/coercion';
 import { PrizmScrollbarDirective } from '../../scrollbar/scrollbar.directive';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { PRIZM_SEARCH_TEXT } from '../../../tokens';
+import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
@@ -130,6 +132,7 @@ import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-dow
     PrizmDestroyService,
     PrizmInputSelectOptionService,
     { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
+    ...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search'),
   ],
   exportAs: 'prizmSelectInput',
 })
@@ -258,7 +261,8 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
-    @Inject(Injector) injector: Injector
+    @Inject(Injector) injector: Injector,
+    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>
   ) {
     super(injector);
 

@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 
 @Injectable()
 export class InputValidationCustomTextsService extends PrizmInputValidationTexts {
-  private readonly invalidTextCustomMap = new Map<string, string>([['required', 'Обязательное поле']]);
+  private readonly invalidTextCustomMap = new Map<string, string>([['required', 'Самое обязательное поле']]);
 
   public override getText(
     key: string,

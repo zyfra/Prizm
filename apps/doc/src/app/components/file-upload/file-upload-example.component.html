@@ -33,7 +33,10 @@
         (filesCountError)="onFilesCountError($event)"
         (retry)="retry($event)"
       >
-        {{ userContent }}
+        <ng-container *prizmIfLang="'russian'; else eng">
+          {{ userContentRu }}
+        </ng-container>
+        <ng-template #eng> {{ userContentEng }}</ng-template>
       </prizm-file-upload>
 
       <br />
