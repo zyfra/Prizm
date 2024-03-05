@@ -58,7 +58,7 @@ export class PrizmChipsComponent
     this.chipsList = data;
   }
   @Input() public deletable = true;
-  @Input() public singleLine = true;
+  @Input() @HostBinding('class.single-line') public singleLine = true;
   @Input() public hintCanShow = true;
   @Input() public hintDirection: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 
