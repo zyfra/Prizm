@@ -21,11 +21,21 @@ export interface PrizmLanguageInputLayoutDateRelative {
     wrongFormat: string;
   };
 }
+export interface PrizmLanguageInputLayout {
+  inputLayout: {
+    required: string;
+    pattern: string;
+    min: string;
+    max: string;
+  };
+}
+
 export interface PrizmLanguageInputLayoutDateTime {
   inputLayoutDateTime: {
     wrongFormat: string;
   };
 }
+
 export interface PrizmLanguageCron {
   cron: {
     title: string;
@@ -224,6 +234,7 @@ export interface PrizmLanguage
     PrizmLanguageEditor,
     PrizmLanguagePreview,
     PrizmLanguageMeta,
+    PrizmLanguageInputLayout,
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
     PrizmLanguageInputLayoutDateTime,
