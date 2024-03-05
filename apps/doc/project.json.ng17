@@ -36,8 +36,13 @@
           },
           {
             "glob": "**/*",
-            "input": "libs/icons/base/src/styles/icons",
-            "output": "assets/prizm-icons/fonts"
+            "input": "libs/icons/base/src/styles/icons-base",
+            "output": "assets/prizm/icons/base"
+          },
+          {
+            "glob": "**/*",
+            "input": "libs/icons/base/src/styles/icons-full",
+            "output": "assets/prizm/icons/full"
           }
         ],
         "styles": [
@@ -51,7 +56,13 @@
           "libs/components/src/styles/icons-16/icons-16.less",
           "node_modules/prismjs/themes/prism-okaidia.css",
           "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
-          "libs/icons/base/src/styles/styles.less"
+          "libs/icons/base/src/styles/styles.less",
+
+          "libs/icons/base/src/styles/icons-base/prizm-base-icons.css",
+          "libs/icons/base/src/styles/icons-base/prizm-base-icons-location.css",
+
+          "libs/icons/base/src/styles/icons-full/prizm-full-icons.css",
+          "libs/icons/base/src/styles/icons-full/prizm-full-icons-location.css"
         ],
         "scripts": [
           "node_modules/marked/bin/marked.js",
@@ -117,13 +128,13 @@
       }
     },
     "lint": {
-      "executor": "@nrwl/linter:eslint",
+      "executor": "@nx/linter:eslint",
       "options": {
         "lintFilePatterns": ["apps/doc/src/**/*.ts", "apps/doc/src/**/*.html"]
       }
     },
     "test": {
-      "executor": "@nrwl/jest:jest",
+      "executor": "@nx/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/apps/doc"],
       "options": {
         "jestConfig": "apps/doc/jest.config.ts",

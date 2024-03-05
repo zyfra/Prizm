@@ -8,13 +8,43 @@
     "generate-icons-24": {
       "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
       "options": {
-        "exportCompleteIconSet": true,
         "conversionType": "files",
         "srcFiles": ["libs/icons/base/assets/24/*.svg"],
-        "outputDirectory": "libs/icons/base/src/lib/icons/24",
+        "outputDirectory": "libs/icons/base/base",
         "interfaceName": "PrizmIcons",
         "typeName": "PrizmIconsType",
         "generateEnum": true,
+        "exportCompleteIconSet": false,
+        "generateCompleteIconSet": false,
+        "enumName": "PrizmIconsEnum",
+        "fileName": "icons",
+        "iconsFolderName": "source",
+        "delimiter": "KEBAB",
+        "barrelFileName": "index",
+        "generateType": true,
+        "generateTypeObject": true,
+        "prefix": "prizmIcons",
+        "optimizeForLazyLoading": true,
+        "modelFileName": "prizm-icons.model",
+        "svgoConfig": {
+          "plugins": ["removeDimensions"]
+        },
+        "compileSources": false
+      },
+      "dependsOn": []
+    },
+    "generate-icons-16": {
+      "executor": "@angular-extensions/svg-icons-builder:svg-icons-files-builder",
+      "options": {
+        "conversionType": "files",
+        "delimiter": "KEBAB",
+        "srcFiles": ["libs/icons/base/assets/16/*.svg"],
+        "outputDirectory": "libs/icons/base/full",
+        "interfaceName": "PrizmIcons",
+        "typeName": "PrizmIconsType",
+        "generateEnum": true,
+        "exportCompleteIconSet": false,
+        "generateCompleteIconSet": false,
         "enumName": "PrizmIconsEnum",
         "fileName": "icons",
         "iconsFolderName": "source",
@@ -28,7 +58,8 @@
           "plugins": ["removeDimensions"]
         },
         "compileSources": false
-      }
+      },
+      "dependsOn": []
     },
     "build": {
       "executor": "@nx/angular:package",
@@ -59,6 +90,81 @@
       "options": {
         "lintFilePatterns": ["libs/icons/base/src/**/*.ts", "libs/icons/base/src/**/*.html"]
       }
+    },
+    "svg-to-font": {
+      "executor": "local:svg-to-font",
+      "options": {
+        "src": "libs/icons/base/assets/24",
+        "dist": "libs/icons/base/src/styles/icons-base",
+        "urlLocation": "/assets/prizm/icons/base",
+        "fontName": "prizm-base-icons",
+        "css": true,
+        "fixSvgForFont": true,
+        "pathToOutputFixedSvg": "dist/icons-base-font-24"
+      },
+      "dependsOn": []
+    },
+    "svg-16-to-font": {
+      "executor": "local:svg-to-font",
+      "options": {
+        "src": "libs/icons/base/assets/16",
+        "dist": "libs/icons/base/src/styles/icons-full",
+        "fontName": "prizm-full-icons",
+        "urlLocation": "/assets/prizm/icons/full",
+        "css": true,
+        "fixSvgForFont": true,
+        "pathToOutputFixedSvg": "dist/icons-base-font-16"
+      },
+      "dependsOn": []
+    },
+    "build-icons-24": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx generate-icons-24 icons", "nx icons-to-lazy icons", "nx svg-to-font icons"],
+        "parallel": false
+      }
+    },
+    "build-icons-16": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx generate-icons-16 icons", "nx icons-16-to-lazy icons", "nx svg-16-to-font icons"],
+        "parallel": false
+      }
+    },
+    "build-icons": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx build-icons-16 icons", "nx build-icons-24 icons"],
+        "parallel": false
+      }
+    },
+    "icons-to-lazy": {
+      "executor": "local:icons-to-lazy",
+      "options": {
+        "pathToFolder": "libs/icons/base/base/source",
+        "pathToOutputFile": "libs/icons/base/base/lazy-icon-set.ts",
+        "prefix": "prizmIcons-",
+        "exportName": "PRIZM_ICONS_LAZY_SET",
+
+        "generateIconSet": true,
+        "iconSetNameExportName": "PRIZM_ICONS_SET",
+        "iconSetNameFileName": "icon-set"
+      },
+      "dependsOn": ["generate-icons-24"]
+    },
+    "icons-16-to-lazy": {
+      "executor": "local:icons-to-lazy",
+      "options": {
+        "pathToFolder": "libs/icons/base/full/source",
+        "pathToOutputFile": "libs/icons/base/full/lazy-icon-set.ts",
+        "prefix": "prizmIcons-",
+        "exportName": "PRIZM_ICONS_FULL_LAZY_SET",
+
+        "generateIconSet": true,
+        "iconSetNameExportName": "PRIZM_ICONS_FULL_SET",
+        "iconSetNameFileName": "icon-set"
+      },
+      "dependsOn": ["generate-icons-16"]
     }
   },
   "tags": []
