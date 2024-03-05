@@ -147,7 +147,6 @@
     "jest-preset-angular": "13.1.6",
     "jest-util": "^29.5.0",
     "lint-staged": "^12.1.4",
-    "lodash": "^4.17.21",
     "markdown-it": "^14.0.0",
     "mock-fs": "^5.2.0",
     "ng-morph": "^2.1.3",
