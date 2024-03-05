@@ -23,6 +23,7 @@ import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { isPolymorphPrimitive, PolymorphContent } from '../../../../directives/polymorph';
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+import { PrizmI18nService } from '../../../../services';
 
 export type PrizmInputLayoutClearButtonContext = {
   clear: (event: MouseEvent) => void;
@@ -43,7 +44,7 @@ export type PrizmInputLayoutClearButtonContext = {
   host: {
     class: 'prizm-input-layout',
   },
-  providers: [PrizmDestroyService],
+  providers: [PrizmDestroyService, PrizmI18nService],
 })
 export class PrizmInputLayoutComponent
   extends PrizmAbstractTestId
