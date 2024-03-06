@@ -15,7 +15,7 @@ import { TuiSwipeService } from '@taiga-ui/cdk';
 import { TuiBrightness, TuiModeDirective } from '@taiga-ui/core';
 import { skip, Subject } from 'rxjs';
 import { PrizmThemeService } from '@prizm-ui/theme';
-import { takeUntil, tap } from 'rxjs/operators';
+import { distinctUntilChanged, filter, takeUntil, tap } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
@@ -58,7 +58,8 @@ export class PrizmDocMainComponent implements OnInit {
     // update taiga theme on change prizm theme
     this.themeSwitcher.change$
       .pipe(
-        skip(1),
+        filter(i => i?.el === this.themeSwitcher.rootElement),
+        distinctUntilChanged((a, b) => a.theme === b.theme),
         tap(theme => {
           this.onMode(theme.theme === 'dark');
           this.cdRef.markForCheck();
