@@ -93,6 +93,11 @@ export class TooltipExampleComponent {
     HTML: import('./examples/with-template/tooltip-with-template-example.component.html?raw'),
   };
 
+  readonly exampleWithContext: TuiDocExample = {
+    TypeScript: import('./examples/with-custom-context/tooltip-with-custom-context-example.component.ts?raw'),
+    HTML: import('./examples/with-custom-context/tooltip-with-custom-context-example.component.html?raw'),
+  };
+
   readonly exampleWithComponent: TuiDocExample = {
     TypeScript: import('./examples/with-component/tooltip-with-component-example.component.ts?raw'),
     HTML: import('./examples/with-component/tooltip-with-component-example.component.html?raw'),

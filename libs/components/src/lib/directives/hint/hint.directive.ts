@@ -226,11 +226,6 @@ export class PrizmHintDirective<
           map(([thisHovered, containerHovered]) => {
             return thisHovered || containerHovered;
           }),
-          // filter(
-          //   () => {
-          //     this
-          //   }
-          // ),
           tap(hovered => this.show$.next(hovered)),
           takeUntil(this.destroyListeners$),
           takeUntil(this.destroy$)
@@ -248,6 +243,7 @@ export class PrizmHintDirective<
       hideDelay: this.prizmHintHideDelay,
       host: this.host,
       context: this.prizmHintContext,
+      $implicit: this.prizmHintContext,
     } as CONTEXT;
   }
 }

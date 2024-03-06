@@ -1,0 +1,13 @@
+<button
+  [prizmHintContext]="{ name: 'Moscow', country: 'Russia' }"
+  [prizmHint]="dropdown"
+  type="button"
+  prizmButton
+>
+  City
+</button>
+
+<ng-template #dropdown let-context>
+  <div>{{ context.name }}</div>
+  <div>{{ context.country }}</div>
+</ng-template>
