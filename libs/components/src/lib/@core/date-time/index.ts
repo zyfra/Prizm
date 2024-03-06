@@ -14,3 +14,4 @@ export * from './time';
 export * from './time-range';
 export * from './year';
 export * from './day-time-range';
+export * from './time-limit';
