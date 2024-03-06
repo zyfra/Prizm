@@ -514,7 +514,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   public updateTimeTo(value: PrizmTime): void {
-    // TODO: #mz add min max
+    // TODO: feature > safe add min max limiter
     if (
       value &&
       this.value?.timeRange?.to instanceof PrizmTime &&
@@ -526,16 +526,14 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   public updateTimeFrom(value: PrizmTime): void {
-    // TODO: #mz add min max
+    // TODO: feature > safe add min max limiter
     if (
       value &&
       this.value?.timeRange?.from instanceof PrizmTime &&
       this.value?.timeRange?.from?.isSameTime(value)
     )
       return;
-    // const range = PrizmDateTimeRange.safeUpdateTimeFrom(this.value, value);
-    // this.updateValue(range?.copy());
-    this.nativeValueTimeFrom$$.next(value.toString(this.timeMode));
+    this.nativeValueTimeFrom$$.next(value?.toString(this.timeMode) ?? '');
   }
 
   public referFocusToMain(referFocus = true) {
