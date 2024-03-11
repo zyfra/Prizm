@@ -593,7 +593,7 @@ export const PRIZM_OLD_ICONS_REPLACE_SET = {
   'date-now': 'letter-time',
   'date-second': 'letter-second',
   'date-month': 'letter-month',
-  'date-asterisk': 'sumbol-asterisk',
+  'date-asterisk': 'symbol-asterisk',
   'control-charts-zql': 'control-charts-zql',
   'battery-10': 'battery-empty',
   'battery-charging': 'battery-bolt',
