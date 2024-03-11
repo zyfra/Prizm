@@ -10,6 +10,7 @@ import {
   OnInit,
   Output,
   Renderer2,
+  SimpleChanges,
   Type,
 } from '@angular/core';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
@@ -130,7 +131,10 @@ export class PrizmHintDirective<
     return this.prizmHintHost ?? this.elementRef.nativeElement;
   }
 
-  public ngOnChanges(): void {
+  public ngOnChanges(changes?: SimpleChanges): void {
+    if (changes && changes['prizmHint'].currentValue !== changes['prizmHint'].previousValue) {
+      this.show_ = false;
+    }
     this.initOverlayController();
   }
 
