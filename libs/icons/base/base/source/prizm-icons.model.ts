@@ -352,7 +352,7 @@ export type PrizmIconsType =
   | 'file-docx'
   | 'file-dot'
   | 'file-empty'
-  | 'file-exclamatioт'
+  | 'file-exclamation'
   | 'file-eye'
   | 'file-filled'
   | 'file-image'
@@ -744,9 +744,9 @@ export type PrizmIconsType =
   | 'strikethrough'
   | 'subskrit-down'
   | 'subskrit-up'
-  | 'sumbol-asterisk'
   | 'sun'
   | 'support-man'
+  | 'symbol-asterisk'
   | 'table-down'
   | 'table-gear'
   | 'table-magnifying-glass'
@@ -1140,8 +1140,7 @@ export const PrizmIconsType = {
   'circle-square': 'circle-square' as PrizmIconsType,
   'circle-xmark-fill': 'circle-xmark-fill' as PrizmIconsType,
   'circle-xmark': 'circle-xmark' as PrizmIconsType,
-  'circles-line-left-up-circle-right-down-fill':
-    'circles-line-left-up-circle-right-down-fill' as PrizmIconsType,
+  'circles-line-left-up-circle-right-down-fill': 'circles-line-left-up-circle-right-down-fill' as PrizmIconsType,
   'circles-line-left-up-circle-right-down': 'circles-line-left-up-circle-right-down' as PrizmIconsType,
   'clapperboard-cross': 'clapperboard-cross' as PrizmIconsType,
   'clapperboard-open': 'clapperboard-open' as PrizmIconsType,
@@ -1252,7 +1251,7 @@ export const PrizmIconsType = {
   'file-docx': 'file-docx' as PrizmIconsType,
   'file-dot': 'file-dot' as PrizmIconsType,
   'file-empty': 'file-empty' as PrizmIconsType,
-  'file-exclamatioт': 'file-exclamatioт' as PrizmIconsType,
+  'file-exclamation': 'file-exclamation' as PrizmIconsType,
   'file-eye': 'file-eye' as PrizmIconsType,
   'file-filled': 'file-filled' as PrizmIconsType,
   'file-image': 'file-image' as PrizmIconsType,
@@ -1644,9 +1643,9 @@ export const PrizmIconsType = {
   strikethrough: 'strikethrough' as PrizmIconsType,
   'subskrit-down': 'subskrit-down' as PrizmIconsType,
   'subskrit-up': 'subskrit-up' as PrizmIconsType,
-  'sumbol-asterisk': 'sumbol-asterisk' as PrizmIconsType,
   sun: 'sun' as PrizmIconsType,
   'support-man': 'support-man' as PrizmIconsType,
+  'symbol-asterisk': 'symbol-asterisk' as PrizmIconsType,
   'table-down': 'table-down' as PrizmIconsType,
   'table-gear': 'table-gear' as PrizmIconsType,
   'table-magnifying-glass': 'table-magnifying-glass' as PrizmIconsType,
@@ -1678,12 +1677,10 @@ export const PrizmIconsType = {
   'temp-location-localization-down-list': 'temp-location-localization-down-list' as PrizmIconsType,
   'temp-network-library': 'temp-network-library' as PrizmIconsType,
   'temp-poi-difference': 'temp-poi-difference' as PrizmIconsType,
-  'temp-product-grade-according-to-specification':
-    'temp-product-grade-according-to-specification' as PrizmIconsType,
+  'temp-product-grade-according-to-specification': 'temp-product-grade-according-to-specification' as PrizmIconsType,
   'temp-selection-checkbox-blank-circle': 'temp-selection-checkbox-blank-circle' as PrizmIconsType,
   'temp-selection-checkbox-blank': 'temp-selection-checkbox-blank' as PrizmIconsType,
-  'temp-selection-checkbox-marked-circle-chanel':
-    'temp-selection-checkbox-marked-circle-chanel' as PrizmIconsType,
+  'temp-selection-checkbox-marked-circle-chanel': 'temp-selection-checkbox-marked-circle-chanel' as PrizmIconsType,
   'temp-selection-checked-1': 'temp-selection-checked-1' as PrizmIconsType,
   'temp-selection-checked-2': 'temp-selection-checked-2' as PrizmIconsType,
   'temp-selection-checked': 'temp-selection-checked' as PrizmIconsType,
@@ -1800,7 +1797,7 @@ export const PrizmIconsType = {
   'xmark-column-right': 'xmark-column-right' as PrizmIconsType,
   'xmark-column-top': 'xmark-column-top' as PrizmIconsType,
   'xmark-mini': 'xmark-mini' as PrizmIconsType,
-  xmark: 'xmark' as PrizmIconsType,
+  xmark: 'xmark' as PrizmIconsType
 };
 export interface PrizmIcons {
   name: PrizmIconsEnum;
@@ -2158,7 +2155,7 @@ export enum PrizmIconsEnum {
   FILE_DOCX = 'file-docx',
   FILE_DOT = 'file-dot',
   FILE_EMPTY = 'file-empty',
-  FILE_EXCLAMATIOТ = 'file-exclamatioт',
+  FILE_EXCLAMATION = 'file-exclamation',
   FILE_EYE = 'file-eye',
   FILE_FILLED = 'file-filled',
   FILE_IMAGE = 'file-image',
@@ -2550,9 +2547,9 @@ export enum PrizmIconsEnum {
   STRIKETHROUGH = 'strikethrough',
   SUBSKRIT_DOWN = 'subskrit-down',
   SUBSKRIT_UP = 'subskrit-up',
-  SUMBOL_ASTERISK = 'sumbol-asterisk',
   SUN = 'sun',
   SUPPORT_MAN = 'support-man',
+  SYMBOL_ASTERISK = 'symbol-asterisk',
   TABLE_DOWN = 'table-down',
   TABLE_GEAR = 'table-gear',
   TABLE_MAGNIFYING_GLASS = 'table-magnifying-glass',
@@ -2704,5 +2701,5 @@ export enum PrizmIconsEnum {
   XMARK_COLUMN_RIGHT = 'xmark-column-right',
   XMARK_COLUMN_TOP = 'xmark-column-top',
   XMARK_MINI = 'xmark-mini',
-  XMARK = 'xmark',
+  XMARK = 'xmark'
 }

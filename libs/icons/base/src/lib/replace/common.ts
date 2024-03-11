@@ -440,7 +440,7 @@ export const PRIZM_OLD_ICONS_REPLACE_SET = {
   'files-import-csv': 'file-arrow-down',
   'files-import-xlsx': 'file-arrow-down',
   'files-import-pdf': 'file-arrow-down',
-  'files-alarm': 'file-exclamatioт',
+  'files-alarm': 'file-exclamation',
   'files-file-ppt': 'file-ppt',
   'files-file-pptx': 'file-pptx',
   'files-file-pdf': 'file-pdf',

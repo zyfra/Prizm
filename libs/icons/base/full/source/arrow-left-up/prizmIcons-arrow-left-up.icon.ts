@@ -4,5 +4,5 @@ export const prizmIconsArrowLeftUp: {
   data: string;
 } = {
   name: 'arrow-left-up',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_418_11684)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.3535 15.3536C15.5488 15.1583 15.5488 14.8417 15.3535 14.6464L2.20711 1.5H12C12.2761 1.5 12.5 1.27614 12.5 1C12.5 0.723858 12.2761 0.5 12 0.5H1C0.723858 0.5 0.5 0.723858 0.5 1V12C0.5 12.2761 0.723858 12.5 1 12.5C1.27614 12.5 1.5 12.2761 1.5 12V2.20711L14.6464 15.3536C14.8417 15.5488 15.1583 15.5488 15.3535 15.3536Z" fill="currentColor"/></g><defs><clipPath id="clip0_418_11684"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_418_11684)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.3535 15.3536C15.5488 15.1583 15.5488 14.8417 15.3535 14.6464L2.20711 1.5H12C12.2761 1.5 12.5 1.27614 12.5 1C12.5 0.723858 12.2761 0.5 12 0.5H1C0.723858 0.5 0.5 0.723858 0.5 1V12C0.5 12.2761 0.723858 12.5 1 12.5C1.27614 12.5 1.5 12.2761 1.5 12V2.20711L14.6464 15.3536C14.8417 15.5488 15.1583 15.5488 15.3535 15.3536Z" fill="currentColor"/></g><defs><clipPath id="clip0_418_11684"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsTempChevronsDropdownSmall: {
   data: string;
 } = {
   name: 'temp-chevrons-dropdown-small',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.9194 10H10.0806C9.24211 10 8.77593 10.9699 9.29974 11.6247L11.2191 14.0239C11.6194 14.5243 12.3805 14.5243 12.7809 14.0239L14.7002 11.6247C15.224 10.9699 14.7579 10 13.9194 10Z" fill="currentColor"/></svg>`,
+  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.9194 10H10.0806C9.24211 10 8.77593 10.9699 9.29974 11.6247L11.2191 14.0239C11.6194 14.5243 12.3805 14.5243 12.7809 14.0239L14.7002 11.6247C15.224 10.9699 14.7579 10 13.9194 10Z" fill="currentColor"/></svg>`
 };

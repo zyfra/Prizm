@@ -4,5 +4,5 @@ export const prizmIconsBlockLines: {
   data: string;
 } = {
   name: 'block-lines',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V9V15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15V9V5ZM5 16V19H19V16H5ZM19 14H5V10H19V14ZM19 5V8H5V5H19Z" fill="currentColor"/></svg>`,
+  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5C3 3.89543 3.89543 3 5 3H19C20.1046 3 21 3.89543 21 5V9V15V19C21 20.1046 20.1046 21 19 21H5C3.89543 21 3 20.1046 3 19V15V9V5ZM5 16V19H19V16H5ZM19 14H5V10H19V14ZM19 5V8H5V5H19Z" fill="currentColor"/></svg>`
 };

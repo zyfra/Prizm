@@ -4,5 +4,5 @@ export const prizmIconsSquareBracketRight: {
   data: string;
 } = {
   name: 'square-bracket-right',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13135)"><rect x="1" y="1" width="14" height="14" rx="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 4C7 4 9 5.33333 9 8C9 10.6667 7 12 7 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_389_13135"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13135)"><rect x="1" y="1" width="14" height="14" rx="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M7 4C7 4 9 5.33333 9 8C9 10.6667 7 12 7 12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_389_13135"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`
 };
