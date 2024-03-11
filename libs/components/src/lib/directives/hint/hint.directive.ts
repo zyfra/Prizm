@@ -10,6 +10,7 @@ import {
   OnInit,
   Output,
   Renderer2,
+  SimpleChanges,
   Type,
 } from '@angular/core';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
@@ -130,7 +131,8 @@ export class PrizmHintDirective<
     return this.prizmHintHost ?? this.elementRef.nativeElement;
   }
 
-  public ngOnChanges(): void {
+  public ngOnChanges(changes?: SimpleChanges): void {
+    this.show_ = false;
     this.initOverlayController();
   }
 
@@ -226,11 +228,6 @@ export class PrizmHintDirective<
           map(([thisHovered, containerHovered]) => {
             return thisHovered || containerHovered;
           }),
-          // filter(
-          //   () => {
-          //     this
-          //   }
-          // ),
           tap(hovered => this.show$.next(hovered)),
           takeUntil(this.destroyListeners$),
           takeUntil(this.destroy$)
@@ -248,6 +245,7 @@ export class PrizmHintDirective<
       hideDelay: this.prizmHintHideDelay,
       host: this.host,
       context: this.prizmHintContext,
+      $implicit: this.prizmHintContext,
     } as CONTEXT;
   }
 }

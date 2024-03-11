@@ -21,12 +21,13 @@ import {
   ],
 })
 export class PrizmInputLayoutDateTimeBaseTransformerExampleComponent {
+  readonly defaultDate = new Date(2024, 2, 16);
   public readonly value = new UntypedFormControl(
     new PrizmDateTime(new PrizmDay(2022, 2, 15), new PrizmTime(12, 30))
   );
 
   public setDefaultValue(): void {
-    this.value.setValue(PrizmDateTime.fromLocalNativeDate(new Date()));
+    this.value.setValue(PrizmDateTime.fromLocalNativeDate(this.defaultDate));
   }
 
   public clear(): void {

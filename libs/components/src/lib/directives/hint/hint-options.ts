@@ -21,6 +21,7 @@ export interface PrizmHintContext {
   hideDelay: number;
   host: HTMLElement;
   context?: Record<string, unknown>;
+  $implicit?: Record<string, unknown>;
 }
 
 /** Default values for hint options */

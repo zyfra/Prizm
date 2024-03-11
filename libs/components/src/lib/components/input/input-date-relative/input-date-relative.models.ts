@@ -36,7 +36,7 @@ const DefaultRelativeMenuItems = {
     {
       id: 'current',
       groupId: 'time',
-      icon: 'sumbol-asterisk',
+      icon: 'symbol-asterisk',
       label: 'Текущее время',
     },
     {

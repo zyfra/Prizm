@@ -58,6 +58,7 @@ import { PrizmValueAccessorModule } from '../../../directives/value-accessor/val
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
 import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
+import { prizmTimeLimitWithinRange } from '../../../@core/date-time/time-limit';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -321,27 +322,25 @@ export class PrizmInputLayoutDateTimeComponent
   private updateWithCorrectDateAndTime(value: [PrizmDay | null, PrizmTime | null]): void {
     if (!value) return;
     let [date, time] = value;
+
+    const dateMin = this.min instanceof PrizmDay ? this.min : this.min && this.min[0];
+    const dateMax = this.max instanceof PrizmDay ? this.max : this.max && this.max[0];
+
     // correct min max time
-    if (date)
-      date = date.dayLimit(
-        this.min instanceof PrizmDay ? this.min : this.min && this.min[0],
-        this.max instanceof PrizmDay ? this.max : this.max && this.max[0]
-      );
+    if (date) date = date.dayLimit(dateMin, dateMax);
 
-    const timeMin = Array.isArray(this.min) && this.min[1] ? this.min[1] : null;
-    const timeMax = Array.isArray(this.max) && this.max[1] ? this.max[1] : null;
-    if (time && (timeMin || timeMax)) {
-      time = time.timeLimit(timeMin, timeMax);
-    }
+    if (date) time = this.limitTime(date, time, dateMin, dateMax);
 
-    this.focusableElement?.updateNativeValues({
-      idx: 0,
-      value: date?.toString() ?? '',
-    });
-    this.focusableElement?.updateNativeValues({
-      idx: 1,
-      value: time?.toString() ?? '',
-    });
+    this.focusableElement?.updateNativeValues(
+      {
+        idx: 0,
+        value: date?.toString() ?? '',
+      },
+      {
+        idx: 1,
+        value: time?.toString() ?? '',
+      }
+    );
 
     // force update native value
     this.nativeValue$$.next([
@@ -350,6 +349,13 @@ export class PrizmInputLayoutDateTimeComponent
     ]);
 
     this.updateValue([date, time]);
+  }
+
+  private limitTime(date: PrizmDay, time: PrizmTime | null, dateMin: PrizmDay, dateMax: PrizmDay) {
+    const timeMin = Array.isArray(this.min) && this.min[1] ? this.min[1] : null;
+    const timeMax = Array.isArray(this.max) && this.max[1] ? this.max[1] : null;
+
+    return prizmTimeLimitWithinRange(date, time, dateMin, dateMax, timeMin, timeMax);
   }
 
   public onTimeValueChange(value: string): void {

@@ -14,8 +14,8 @@
     <prizm-doc-demo>
       <prizm-input-date-multi
         #element
+        [(currentIdx)]="currentIdx"
         [prizmDocHostElement]="element"
-        [currentIdx]="currentIdx"
         [items]="dateTime | prizmCallFunc : getItems : dateRelativeTime"
       >
       </prizm-input-date-multi>

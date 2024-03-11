@@ -936,9 +936,9 @@ export const PRIZM_ICONS_LAZY_SET = {
   'file-dot': () => import('./source/file-dot/prizmIcons-file-dot.icon').then(m => m['prizmIconsFileDot']),
   'file-empty': () =>
     import('./source/file-empty/prizmIcons-file-empty.icon').then(m => m['prizmIconsFileEmpty']),
-  'file-exclamatioт': () =>
-    import('./source/file-exclamatioт/prizmIcons-file-exclamatioт.icon').then(
-      m => m['prizmIconsFileExclamatioт']
+  'file-exclamation': () =>
+    import('./source/file-exclamation/prizmIcons-file-exclamation.icon').then(
+      m => m['prizmIconsFileExclamation']
     ),
   'file-eye': () => import('./source/file-eye/prizmIcons-file-eye.icon').then(m => m['prizmIconsFileEye']),
   'file-filled': () =>
@@ -1842,13 +1842,13 @@ export const PRIZM_ICONS_LAZY_SET = {
     import('./source/subskrit-down/prizmIcons-subskrit-down.icon').then(m => m['prizmIconsSubskritDown']),
   'subskrit-up': () =>
     import('./source/subskrit-up/prizmIcons-subskrit-up.icon').then(m => m['prizmIconsSubskritUp']),
-  'sumbol-asterisk': () =>
-    import('./source/sumbol-asterisk/prizmIcons-sumbol-asterisk.icon').then(
-      m => m['prizmIconsSumbolAsterisk']
-    ),
   sun: () => import('./source/sun/prizmIcons-sun.icon').then(m => m['prizmIconsSun']),
   'support-man': () =>
     import('./source/support-man/prizmIcons-support-man.icon').then(m => m['prizmIconsSupportMan']),
+  'symbol-asterisk': () =>
+    import('./source/symbol-asterisk/prizmIcons-symbol-asterisk.icon').then(
+      m => m['prizmIconsSymbolAsterisk']
+    ),
   'table-down': () =>
     import('./source/table-down/prizmIcons-table-down.icon').then(m => m['prizmIconsTableDown']),
   'table-gear': () =>

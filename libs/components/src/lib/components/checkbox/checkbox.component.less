@@ -50,14 +50,7 @@
 
     color: var(--prizm-text-icon-exception);
     opacity: 0;
-
     pointer-events: none;
-
-    //&--no-icon {
-    //  &:before {
-    //    content: '';
-    //  }
-    //}
 
     &--size-s {
       height: 9px;
@@ -77,6 +70,7 @@
     &--indeterminate {
       opacity: 1;
       transition: 0.3s;
+      //overflow: hidden;
     }
   }
 }
@@ -131,4 +125,8 @@
       border-color: var(--prizm-background-stroke-focus);
     }
   }
+}
+
+.hidden {
+  visibility: hidden;
 }

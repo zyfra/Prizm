@@ -10,6 +10,7 @@ import {
   PRIZM_SECONDS_IN_MINUTE,
 } from './date-time';
 import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
+import { PrizmDay } from './day';
 
 /**
  * Immutable time object with hours, minutes, seconds and ms

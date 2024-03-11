@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'prizm-full-icons';
-  src: url('/assets/prizm/icons/full/prizm-full-icons.eot?48b4875628e369c89edf8a09877aaf16#iefix')
+  src: url('/assets/prizm/icons/full/prizm-full-icons.eot?1294d13d5626e76041fab5cca0903128#iefix')
       format('embedded-opentype'),
-    url('/assets/prizm/icons/full/prizm-full-icons.woff2?48b4875628e369c89edf8a09877aaf16') format('woff2'),
-    url('/assets/prizm/icons/full/prizm-full-icons.woff?48b4875628e369c89edf8a09877aaf16') format('woff'),
-    url('/assets/prizm/icons/full/prizm-full-icons.ttf?48b4875628e369c89edf8a09877aaf16') format('truetype');
+    url('/assets/prizm/icons/full/prizm-full-icons.woff2?1294d13d5626e76041fab5cca0903128') format('woff2'),
+    url('/assets/prizm/icons/full/prizm-full-icons.woff?1294d13d5626e76041fab5cca0903128') format('woff'),
+    url('/assets/prizm/icons/full/prizm-full-icons.ttf?1294d13d5626e76041fab5cca0903128') format('truetype');
 }

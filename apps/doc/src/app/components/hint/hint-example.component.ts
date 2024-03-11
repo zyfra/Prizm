@@ -96,6 +96,10 @@ export class HintExampleComponent {
     TypeScript: import('./examples/with-template/hint-with-template-example.component.ts?raw'),
     HTML: import('./examples/with-template/hint-with-template-example.component.html?raw'),
   };
+  readonly exampleWithContext: TuiDocExample = {
+    TypeScript: import('./examples/with-custom-context/hint-with-custom-context-example.component.ts?raw'),
+    HTML: import('./examples/with-custom-context/hint-with-custom-context-example.component.html?raw'),
+  };
 
   readonly exampleWithComponent: TuiDocExample = {
     TypeScript: import('./examples/with-component/hint-with-component-example.component.ts?raw'),

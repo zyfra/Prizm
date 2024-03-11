@@ -349,7 +349,7 @@ import { prizmIconsFileDoc } from './file-doc/prizmIcons-file-doc.icon';
 import { prizmIconsFileDocx } from './file-docx/prizmIcons-file-docx.icon';
 import { prizmIconsFileDot } from './file-dot/prizmIcons-file-dot.icon';
 import { prizmIconsFileEmpty } from './file-empty/prizmIcons-file-empty.icon';
-import { prizmIconsFileExclamatioт } from './file-exclamatioт/prizmIcons-file-exclamatioт.icon';
+import { prizmIconsFileExclamation } from './file-exclamation/prizmIcons-file-exclamation.icon';
 import { prizmIconsFileEye } from './file-eye/prizmIcons-file-eye.icon';
 import { prizmIconsFileFilled } from './file-filled/prizmIcons-file-filled.icon';
 import { prizmIconsFileImage } from './file-image/prizmIcons-file-image.icon';
@@ -741,9 +741,9 @@ import { prizmIconsStorage } from './storage/prizmIcons-storage.icon';
 import { prizmIconsStrikethrough } from './strikethrough/prizmIcons-strikethrough.icon';
 import { prizmIconsSubskritDown } from './subskrit-down/prizmIcons-subskrit-down.icon';
 import { prizmIconsSubskritUp } from './subskrit-up/prizmIcons-subskrit-up.icon';
-import { prizmIconsSumbolAsterisk } from './sumbol-asterisk/prizmIcons-sumbol-asterisk.icon';
 import { prizmIconsSun } from './sun/prizmIcons-sun.icon';
 import { prizmIconsSupportMan } from './support-man/prizmIcons-support-man.icon';
+import { prizmIconsSymbolAsterisk } from './symbol-asterisk/prizmIcons-symbol-asterisk.icon';
 import { prizmIconsTableDown } from './table-down/prizmIcons-table-down.icon';
 import { prizmIconsTableGear } from './table-gear/prizmIcons-table-gear.icon';
 import { prizmIconsTableMagnifyingGlass } from './table-magnifying-glass/prizmIcons-table-magnifying-glass.icon';
@@ -1249,7 +1249,7 @@ export const PRIZM_ICONS_FULL_SET = [
   prizmIconsFileDocx,
   prizmIconsFileDot,
   prizmIconsFileEmpty,
-  prizmIconsFileExclamatioт,
+  prizmIconsFileExclamation,
   prizmIconsFileEye,
   prizmIconsFileFilled,
   prizmIconsFileImage,
@@ -1641,9 +1641,9 @@ export const PRIZM_ICONS_FULL_SET = [
   prizmIconsStrikethrough,
   prizmIconsSubskritDown,
   prizmIconsSubskritUp,
-  prizmIconsSumbolAsterisk,
   prizmIconsSun,
   prizmIconsSupportMan,
+  prizmIconsSymbolAsterisk,
   prizmIconsTableDown,
   prizmIconsTableGear,
   prizmIconsTableMagnifyingGlass,

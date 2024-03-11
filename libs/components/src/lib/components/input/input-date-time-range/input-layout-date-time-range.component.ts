@@ -366,10 +366,10 @@ export class PrizmInputLayoutDateTimeRangeComponent
           if (!toTimeValue || toTimeValue.length !== this.computedTimeMask.length) return;
 
           if (
-            fromValue === this.value?.dayRange?.from.toString() &&
-            fromTimeValue === this.value?.timeRange?.from.toString(this.timeMode) &&
-            toValue === this.value?.dayRange?.to.toString() &&
-            toTimeValue === this.value?.timeRange?.to.toString(this.timeMode)
+            fromValue === this.value?.dayRange?.from?.toString() &&
+            fromTimeValue === this.value?.timeRange?.from?.toString(this.timeMode) &&
+            toValue === this.value?.dayRange?.to?.toString() &&
+            toTimeValue === this.value?.timeRange?.to?.toString(this.timeMode)
           ) {
             return;
           }
