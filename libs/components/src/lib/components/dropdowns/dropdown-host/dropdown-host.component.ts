@@ -8,6 +8,7 @@ import {
   Host,
   HostListener,
   Inject,
+  inject,
   Injector,
   Input,
   Optional,
@@ -17,7 +18,6 @@ import {
 } from '@angular/core';
 import {
   PrizmOverlayControl,
-  PrizmOverlayModule,
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../../modules/overlay';
@@ -25,11 +25,8 @@ import {
   PolymorphContent,
   PolymorphModule,
   PrizmDropdownZoneDirective,
-  PrizmDropdownZoneModule,
   PrizmLifecycleDirective,
-  PrizmLifecycleModule,
   PrizmMutationObserveDirective,
-  PrizmMutationObserveModule,
   PrizmZoneEventModule,
 } from '../../../directives';
 import { debounceTime, delay, distinctUntilChanged, skip, takeUntil, tap } from 'rxjs/operators';
@@ -51,6 +48,7 @@ import { PrizmDropdownHostControlDirective } from './dropdown-host-control.direc
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmZoneEventService } from '../../../directives/zone-event/zone-event.service';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
+import { PrizmDropdownHostDirective } from './dropdown-host.directive';
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -148,6 +146,10 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   @Input() dropdownClasses: PrizmDropdownHostClasses;
   @ViewChild('temp') temp!: TemplateRef<HTMLDivElement>;
 
+  private get host() {
+    return this.prizmDropdownHost ?? this.dropdownHostDirective?.el ?? this.el.nativeElement;
+  }
+
   @Output() readonly isOpenChange = new EventEmitter<boolean>();
   private overlay!: PrizmOverlayControl;
   protected isOpen$ = new BehaviorSubject(false);
@@ -159,6 +161,10 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   readonly wrapper_class = 'prizm-overlay-dropdown-host no-overflow';
 
   @ViewChild('contentBlockRef') contentBlockRef!: ElementRef;
+
+  private readonly dropdownHostDirective = inject(PrizmDropdownHostDirective, {
+    optional: true,
+  });
 
   constructor(
     public readonly prizmOverlayService: PrizmOverlayService,
@@ -238,7 +244,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     this.position = new PrizmOverlayRelativePosition({
       placement: this.placement,
       autoReposition: this.autoReposition,
-      element: this.prizmDropdownHost ?? this.el.nativeElement,
+      element: this.host,
     });
     this.updateWidth();
     this.overlay = this.prizmOverlayService

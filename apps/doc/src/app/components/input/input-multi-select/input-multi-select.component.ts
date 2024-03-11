@@ -62,7 +62,7 @@ export class InputInputMultiSelectComponent {
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
     null as any,
-    'sort-zoom-in',
+    'magnifying-glass',
   ];
   readonly control = new UntypedFormControl();
   searchable = false;

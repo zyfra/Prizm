@@ -182,7 +182,7 @@ export class InputSelectComponent {
 
   readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
     null as any,
-    'sort-zoom-in',
+    'magnifying-glass',
   ];
 
   @prizmPure
