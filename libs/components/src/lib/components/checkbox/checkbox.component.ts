@@ -22,10 +22,10 @@ import { prizmWatch } from '../../observables';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
-import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsMinus } from '@prizm-ui/icons/full/source/minus';
-import { prizmIconsCheck } from '@prizm-ui/icons/full/source/check';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMinus } from '@prizm-ui/icons/base/source/minus';
+import { prizmIconsCheck } from '@prizm-ui/icons/base/source/check';
 
 @Component({
   selector: 'prizm-checkbox',
@@ -38,7 +38,7 @@ import { prizmIconsCheck } from '@prizm-ui/icons/full/source/check';
     '[attr.tabindex]': "disabled ? null : '0'",
   },
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, PrizmIconsFullComponent, PrizmIconsComponent],
+  imports: [CommonModule, ReactiveFormsModule, PrizmIconsComponent],
 })
 export class PrizmCheckboxComponent
   extends PrizmAbstractTestId
@@ -58,7 +58,7 @@ export class PrizmCheckboxComponent
     this._disabled = coerceBooleanProperty(value);
   }
   private _disabled = false;
-  private iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private iconsFullRegistry = inject(PrizmIconsRegistry);
 
   private _checked = false;
   get checked(): boolean {
