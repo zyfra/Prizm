@@ -10,12 +10,17 @@
       'checkbox__icon--indeterminate': indeterminate,
     }"
   >
-    <ng-container *ngIf="indeterminate === true">
+    <ng-container *ngIf="indeterminate === true; else showMarkTemplate">
       <prizm-icons [size]="16" name="minus"></prizm-icons>
     </ng-container>
-    <ng-container *ngIf="indeterminate === false && checked === true">
-      <prizm-icons [size]="16" name="check"></prizm-icons>
-    </ng-container>
+
+    <ng-template #showMarkTemplate>
+      <prizm-icons
+        [class.hidden]="!(indeterminate === false && checked === true)"
+        [size]="16"
+        name="check"
+      ></prizm-icons>
+    </ng-template>
   </div>
 </div>
 
