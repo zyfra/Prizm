@@ -1,9 +1,10 @@
-$prizm-base-icons-font: "prizm-base-icons";
+$prizm-base-icons-font: 'prizm-base-icons';
 
 @font-face {
-    font-family: $prizm-base-icons-font;
-    src: url("/assets/prizm/icons/base/prizm-base-icons.eot?44c3553a2d1ad16ea1c02010e109b17a#iefix") format("embedded-opentype"),
-url("/assets/prizm/icons/base/prizm-base-icons.woff2?44c3553a2d1ad16ea1c02010e109b17a") format("woff2"),
-url("/assets/prizm/icons/base/prizm-base-icons.woff?44c3553a2d1ad16ea1c02010e109b17a") format("woff"),
-url("/assets/prizm/icons/base/prizm-base-icons.ttf?44c3553a2d1ad16ea1c02010e109b17a") format("truetype");
+  font-family: $prizm-base-icons-font;
+  src: url('/assets/prizm/icons/base/prizm-base-icons.eot?44c3553a2d1ad16ea1c02010e109b17a#iefix')
+      format('embedded-opentype'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff2?44c3553a2d1ad16ea1c02010e109b17a') format('woff2'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff?44c3553a2d1ad16ea1c02010e109b17a') format('woff'),
+    url('/assets/prizm/icons/base/prizm-base-icons.ttf?44c3553a2d1ad16ea1c02010e109b17a') format('truetype');
 }

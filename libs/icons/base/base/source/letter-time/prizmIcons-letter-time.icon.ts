@@ -4,5 +4,5 @@ export const prizmIconsLetterTime: {
   data: string;
 } = {
   name: 'letter-time',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6.94824V5H18V6.94824H13.1621V20H10.8303V6.94824H6Z" fill="#6E778C"/></svg>`
+  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6.94824V5H18V6.94824H13.1621V20H10.8303V6.94824H6Z" fill="#6E778C"/></svg>`,
 };

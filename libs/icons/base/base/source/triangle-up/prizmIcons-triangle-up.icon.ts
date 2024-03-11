@@ -4,5 +4,5 @@ export const prizmIconsTriangleUp: {
   data: string;
 } = {
   name: 'triangle-up',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0568 15H8.94317C8.1298 15 7.65667 14.0806 8.12944 13.4188L11.1862 9.13922C11.5851 8.58087 12.4149 8.58087 12.8137 9.13922L15.8705 13.4188C16.3433 14.0806 15.8702 15 15.0568 15Z" fill="currentColor"/></svg>`
+  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.0568 15H8.94317C8.1298 15 7.65667 14.0806 8.12944 13.4188L11.1862 9.13922C11.5851 8.58087 12.4149 8.58087 12.8137 9.13922L15.8705 13.4188C16.3433 14.0806 15.8702 15 15.0568 15Z" fill="currentColor"/></svg>`,
 };

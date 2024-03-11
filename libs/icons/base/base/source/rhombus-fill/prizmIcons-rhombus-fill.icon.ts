@@ -4,5 +4,5 @@ export const prizmIconsRhombusFill: {
   data: string;
 } = {
   name: 'rhombus-fill',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4142 2.99997C12.6331 2.21892 11.3668 2.21892 10.5858 2.99997L2.99997 10.5858C2.21892 11.3668 2.21892 12.6331 2.99997 13.4142L10.5858 21C11.3668 21.781 12.6331 21.781 13.4142 21L21 13.4142C21.781 12.6331 21.781 11.3668 21 10.5858L13.4142 2.99997Z" fill="currentColor"/></svg>`
+  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.4142 2.99997C12.6331 2.21892 11.3668 2.21892 10.5858 2.99997L2.99997 10.5858C2.21892 11.3668 2.21892 12.6331 2.99997 13.4142L10.5858 21C11.3668 21.781 12.6331 21.781 13.4142 21L21 13.4142C21.781 12.6331 21.781 11.3668 21 10.5858L13.4142 2.99997Z" fill="currentColor"/></svg>`,
 };
