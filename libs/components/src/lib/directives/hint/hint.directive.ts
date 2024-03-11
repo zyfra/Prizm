@@ -132,13 +132,7 @@ export class PrizmHintDirective<
   }
 
   public ngOnChanges(changes?: SimpleChanges): void {
-    if (
-      changes &&
-      changes['prizmHint'] &&
-      changes['prizmHint'].currentValue !== changes['prizmHint'].previousValue
-    ) {
-      this.show_ = false;
-    }
+    this.show_ = false;
     this.initOverlayController();
   }
 
