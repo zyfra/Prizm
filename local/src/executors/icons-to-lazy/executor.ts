@@ -12,6 +12,7 @@ import * as path from 'path';
  */
 export default async function runExecutor(options: IconsToLazyExecutorSchema): Promise<{ success: boolean }> {
   // Установка значений по умолчанию для необязательных параметров
+  const createNgPackage = options.createNgPackage ?? false;
   const generateIconSet = options.generateIconSet ?? false;
   const iconSetNameFileName = options.iconSetNameFileName ?? 'icon-set';
   const iconSetNameExportName = options.iconSetNameExportName ?? 'ICONS_SET';
@@ -95,9 +96,11 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema): P
 
     fs.renameSync(path.join(pathToFolder, file), path.join(iconFolderPath, file));
 
-    // Создание ng-package.json и index.ts для каждой иконки
-    const ngPackageJsonName = 'ng-package.json';
-    fs.copyFileSync(path.join(__dirname, ngPackageJsonName), path.join(iconFolderPath, ngPackageJsonName));
+    if (createNgPackage) {
+      // Создание ng-package.json и index.ts для каждой иконки
+      const ngPackageJsonName = 'ng-package.json';
+      fs.copyFileSync(path.join(__dirname, ngPackageJsonName), path.join(iconFolderPath, ngPackageJsonName));
+    }
 
     const indexTsName = 'index.ts';
     fs.writeFileSync(path.join(iconFolderPath, indexTsName), `export * from './${fileWithoutExt}';`);

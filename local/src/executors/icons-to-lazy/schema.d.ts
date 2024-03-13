@@ -3,6 +3,7 @@ export interface IconsToLazyExecutorSchema {
   pathToFolder: string;
   exportName?: string;
   pathToOutputFile: string;
+  createNgPackage?: boolean;
 
   generateIconSet?: boolean;
   iconSetNameExportName?: string;
