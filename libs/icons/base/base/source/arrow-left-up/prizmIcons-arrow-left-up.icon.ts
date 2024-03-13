@@ -4,5 +4,5 @@ export const prizmIconsArrowLeftUp: {
   data: string;
 } = {
   name: 'arrow-left-up',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.7071 17.7071C18.0976 17.3166 18.0976 16.6834 17.7071 16.2929L9.41422 8.00006H15C15.5523 8.00006 16 7.55235 16 7.00006C16 6.44778 15.5523 6.00006 15 6.00006H7C6.44772 6.00006 6 6.44778 6 7.00006L6 15C6 15.5523 6.44771 16 7 16C7.55228 16 8 15.5523 8 15L8 9.41427L16.2929 17.7071C16.6834 18.0977 17.3166 18.0977 17.7071 17.7071Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.707 17.707a1 1 0 0 0 0-1.414L9.414 8H15a1 1 0 1 0 0-2H7a1 1 0 0 0-1 1v8a1 1 0 1 0 2 0V9.414l8.293 8.293a1 1 0 0 0 1.414 0Z" fill="currentColor"/></svg>`,
 };

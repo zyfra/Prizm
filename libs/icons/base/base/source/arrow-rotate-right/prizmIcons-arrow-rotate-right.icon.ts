@@ -4,5 +4,5 @@ export const prizmIconsArrowRotateRight: {
   data: string;
 } = {
   name: 'arrow-rotate-right',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 12C3 7.02944 7.02944 3 12 3C14.2752 3 16.3912 3.84543 18 5.24407V4C18 3.44772 18.4477 3 19 3C19.5523 3 20 3.44772 20 4V8C20 8.55228 19.5523 9 19 9H15C14.4477 9 14 8.55228 14 8C14 7.44772 14.4477 7 15 7H16.9572C15.677 5.76514 13.9119 5 12 5C8.13401 5 5 8.13401 5 12C5 15.866 8.13401 19 12 19C15.866 19 19 15.866 19 12C19 11.4477 19.4477 11 20 11C20.5523 11 21 11.4477 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 12a9 9 0 0 1 9-9 9.15 9.15 0 0 1 6 2.244V4a1 1 0 1 1 2 0v4a1 1 0 0 1-1 1h-4a1 1 0 1 1 0-2h1.957A7.151 7.151 0 0 0 12 5a7 7 0 1 0 7 7 1 1 0 1 1 2 0 9 9 0 1 1-18 0Z" fill="currentColor"/></svg>`,
 };

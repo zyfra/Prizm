@@ -4,5 +4,5 @@ export const prizmIconsForward: {
   data: string;
 } = {
   name: 'forward',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.2 6.40003C4.88153 5.41118 3 6.35194 3 8.00003V16C3 17.6481 4.88153 18.5889 6.2 17.6L11 14V16C11 17.6481 12.8815 18.5889 14.2 17.6L19.5333 13.6C20.6 12.8 20.6 11.2 19.5333 10.4L14.2 6.40003C12.8815 5.41118 11 6.35194 11 8.00003V10L6.2 6.40003ZM5 8.00003L10.3333 12L5 16V8.00003ZM13 8.00003L18.3333 12L13 16V8.00003Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.2 6.4C4.882 5.411 3 6.352 3 8v8c0 1.648 1.882 2.589 3.2 1.6L11 14v2c0 1.648 1.882 2.589 3.2 1.6l5.333-4a2 2 0 0 0 0-3.2l-5.333-4C12.882 5.411 11 6.352 11 8v2L6.2 6.4ZM5 8l5.333 4L5 16V8Zm8 0 5.333 4L13 16V8Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsFolderUnderline: {
   data: string;
 } = {
   name: 'folder-underline',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 3C2 1.89543 2.89543 1 4 1H8.58579C9.11622 1 9.62493 1.21071 10 1.58579L12.4142 4H20C21.1046 4 22 4.89543 22 6V16C22 17.1046 21.1046 18 20 18H13V20H19C19.5523 20 20 20.4477 20 21C20 21.5523 19.5523 22 19 22H12H5C4.44772 22 4 21.5523 4 21C4 20.4477 4.44772 20 5 20H11V18H4C2.89543 18 2 17.1046 2 16V3ZM12 16H20V6H12.4142C11.8838 6 11.3751 5.78929 11 5.41421L8.58579 3H4V16H12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 3a2 2 0 0 1 2-2h4.586A2 2 0 0 1 10 1.586L12.414 4H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-7v2h6a1 1 0 1 1 0 2H5a1 1 0 1 1 0-2h6v-2H4a2 2 0 0 1-2-2V3Zm10 13h8V6h-7.586A2 2 0 0 1 11 5.414L8.586 3H4v13h8Z" fill="currentColor"/></svg>`,
 };

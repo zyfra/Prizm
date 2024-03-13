@@ -4,5 +4,5 @@ export const prizmIconsTempNetworkLibrary: {
   data: string;
 } = {
   name: 'temp-network-library',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 2C6.89543 2 6 2.89543 6 4V5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21H17C18.1046 21 19 20.1046 19 19V18H20C21.1046 18 22 17.1046 22 16V4C22 2.89543 21.1046 2 20 2H8ZM17 18V19H5V7L6 7V16C6 17.1046 6.89543 18 8 18H17ZM8 6V16H18H20V4L8 4V6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 2a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1h1a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8Zm9 16v1H5V7h1v9a2 2 0 0 0 2 2h9ZM8 6v10h12V4H8v2Z" fill="currentColor"/></svg>`,
 };

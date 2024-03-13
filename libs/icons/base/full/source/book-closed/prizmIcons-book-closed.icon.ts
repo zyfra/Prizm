@@ -4,5 +4,5 @@ export const prizmIconsBookClosed: {
   data: string;
 } = {
   name: 'book-closed',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 0.5C2.17157 0.5 1.5 1.17157 1.5 2V13V14C1.5 14.8284 2.17157 15.5 3 15.5H13C13.8284 15.5 14.5 14.8284 14.5 14V12V2C14.5 1.17157 13.8284 0.5 13 0.5H3ZM13.5 11.5V2C13.5 1.72386 13.2761 1.5 13 1.5H3C2.72386 1.5 2.5 1.72386 2.5 2V11.5854C2.65639 11.5301 2.82468 11.5 3 11.5H13.5ZM2.5 13C2.5 12.7239 2.72386 12.5 3 12.5H13.5V14C13.5 14.2761 13.2761 14.5 13 14.5H3C2.72386 14.5 2.5 14.2761 2.5 14V13Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5A1.5 1.5 0 0 0 1.5 2v12A1.5 1.5 0 0 0 3 15.5h10a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 13 .5H3Zm10.5 11V2a.5.5 0 0 0-.5-.5H3a.5.5 0 0 0-.5.5v9.585c.156-.055.325-.085.5-.085h10.5ZM2.5 13a.5.5 0 0 1 .5-.5h10.5V14a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5v-1Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsSquareBracketCurlyLeft: {
   data: string;
 } = {
   name: 'square-bracket-curly-left',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13139)"><rect x="1" y="1" width="14" height="14" rx="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 4H8V7L6 8L8 9V12H10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_389_13139"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="14" height="14" rx="1"/><path d="M10 4H8v3L6 8l2 1v3h2"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
 };

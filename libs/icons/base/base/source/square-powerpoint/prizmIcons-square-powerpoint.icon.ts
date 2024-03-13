@@ -4,5 +4,5 @@ export const prizmIconsSquarePowerpoint: {
   data: string;
 } = {
   name: 'square-powerpoint',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2C2.89543 2 2 2.89543 2 4V20C2 21.1046 2.89543 22 4 22H20C21.1046 22 22 21.1046 22 20V4C22 2.89543 21.1046 2 20 2H4ZM4 4L20 4V20H4V4ZM11 8C9.89543 8 9 8.89543 9 10V13V15C9 15.5523 9.44772 16 10 16C10.5523 16 11 15.5523 11 15V14H13C14.6569 14 16 12.6569 16 11C16 9.34315 14.6569 8 13 8H11ZM13 12H11V10H13C13.5523 10 14 10.4477 14 11C14 11.5523 13.5523 12 13 12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4Zm0 2h16v16H4V4Zm7 4a2 2 0 0 0-2 2v5a1 1 0 1 0 2 0v-1h2a3 3 0 1 0 0-6h-2Zm2 4h-2v-2h2a1 1 0 1 1 0 2Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsPie: {
   data: string;
 } = {
   name: 'pie',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 11V4.06189C16.6187 4.51314 19.4869 7.38128 19.9381 11H13ZM11 12V4.06189C7.05369 4.55399 4 7.92038 4 12C4 16.0796 7.05369 19.446 11 19.9381V12ZM13 13H19.9381C19.4869 16.6187 16.6187 19.4869 13 19.9381V13ZM22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 11V4.062A8.004 8.004 0 0 1 19.938 11H13Zm-2 1V4.062a8.001 8.001 0 0 0 0 15.876V12Zm2 1h6.938A8.004 8.004 0 0 1 13 19.938V13Zm9-1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2s10 4.477 10 10Z" fill="currentColor"/></svg>`,
 };

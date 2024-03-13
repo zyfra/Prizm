@@ -4,5 +4,5 @@ import { PrizmIcons } from './source/prizm-icons.model';
 
 export type PrizmIconsNameSubset<T extends Readonly<PrizmIcons[]>> = T[number]['name'];
 
-export * from './lazy-icon-set';
 export * from './token';
+export * from './lazy-icon-set';

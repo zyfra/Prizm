@@ -4,5 +4,5 @@ export const prizmIconsTempSelectionToggleRight: {
   data: string;
 } = {
   name: 'temp-selection-toggle-right',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 5C5.13401 5 2 8.13401 2 12C2 15.866 5.13401 19 9 19H15C18.866 19 22 15.866 22 12C22 8.13401 18.866 5 15 5H9ZM4 12C4 9.23858 6.23858 7 9 7H15C17.7614 7 20 9.23858 20 12C20 14.7614 17.7614 17 15 17H9C6.23858 17 4 14.7614 4 12ZM14 12C14 11.4477 14.4477 11 15 11C15.5523 11 16 11.4477 16 12C16 12.5523 15.5523 13 15 13C14.4477 13 14 12.5523 14 12ZM15 9C13.3431 9 12 10.3431 12 12C12 13.6569 13.3431 15 15 15C16.6569 15 18 13.6569 18 12C18 10.3431 16.6569 9 15 9Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 5a7 7 0 0 0 0 14h6a7 7 0 1 0 0-14H9Zm-5 7a5 5 0 0 1 5-5h6a5 5 0 0 1 0 10H9a5 5 0 0 1-5-5Zm10 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></svg>`,
 };

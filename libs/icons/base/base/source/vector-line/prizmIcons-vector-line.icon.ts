@@ -4,5 +4,5 @@ export const prizmIconsVectorLine: {
   data: string;
 } = {
   name: 'vector-line',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 3C17 1.89543 17.8954 1 19 1H21C22.1046 1 23 1.89543 23 3V5C23 6.10457 22.1046 7 21 7H19C18.8208 7 18.6472 6.97644 18.482 6.93226L6.93226 18.482C6.97644 18.6472 7 18.8208 7 19V21C7 22.1046 6.10457 23 5 23H3C1.89543 23 1 22.1046 1 21V19C1 17.8954 1.89543 17 3 17H5C5.17916 17 5.35282 17.0236 5.51804 17.0677L17.0677 5.51804C17.0236 5.35282 17 5.17916 17 5V3ZM21 3H19V5H21V3ZM5 19H3V21H5V19Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2c-.18 0-.353-.024-.518-.068l-11.55 11.55c.044.165.068.339.068.518v2a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h2c.18 0 .353.024.518.068l11.55-11.55A2.006 2.006 0 0 1 17 5V3Zm4 0h-2v2h2V3ZM5 19H3v2h2v-2Z" fill="currentColor"/></svg>`,
 };

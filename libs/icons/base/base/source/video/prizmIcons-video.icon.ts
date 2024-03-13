@@ -4,5 +4,5 @@ export const prizmIconsVideo: {
   data: string;
 } = {
   name: 'video',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5C2.89543 5 2 5.89543 2 7V17C2 18.1046 2.89543 19 4 19H16C17.1046 19 18 18.1046 18 17V14.8508L18.4383 15.3986C19.6193 16.8749 22 16.0398 22 14.1492V9.85078C22 7.96022 19.6193 7.12512 18.4383 8.60139L18 9.14922V7C18 5.89543 17.1046 5 16 5H4ZM4 7L16 7V17L4 17V7ZM18.2806 12L20 9.85078V14.1492L18.2806 12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2.15l.438.549c1.181 1.476 3.562.64 3.562-1.25V9.851c0-1.89-2.38-2.726-3.562-1.25L18 9.15V7a2 2 0 0 0-2-2H4Zm0 2h12v10H4V7Zm14.28 5L20 9.85v4.3L18.28 12Z" fill="currentColor"/></svg>`,
 };

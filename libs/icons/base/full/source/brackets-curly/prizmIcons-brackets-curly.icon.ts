@@ -4,5 +4,5 @@ export const prizmIconsBracketsCurly: {
   data: string;
 } = {
   name: 'brackets-curly',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13066)"><circle cx="5" cy="12" r="1" fill="currentColor"/><circle cx="8" cy="12" r="1" fill="currentColor"/><circle cx="11" cy="12" r="1" fill="currentColor"/><path d="M4 1H2V6L1 8L2 10V15H4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 1L14 1V6L15 8L14 10V15H12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_389_13066"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><circle cx="5" cy="12" r="1" fill="currentColor"/><circle cx="8" cy="12" r="1" fill="currentColor"/><circle cx="11" cy="12" r="1" fill="currentColor"/><path d="M4 1H2v5L1 8l1 2v5h2M12 1h2v5l1 2-1 2v5h-2" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
 };

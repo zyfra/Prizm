@@ -4,5 +4,5 @@ export const prizmIconsArrowDownFromDoubleLine: {
   data: string;
 } = {
   name: 'arrow-down-from-double-line',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 5C6 4.44772 6.44772 4 7 4H17C17.5523 4 18 4.44772 18 5C18 5.55228 17.5523 6 17 6H7C6.44772 6 6 5.55228 6 5ZM13 9H17C17.5523 9 18 8.55228 18 8C18 7.44772 17.5523 7 17 7H12H7C6.44772 7 6 7.44772 6 8C6 8.55228 6.44772 9 7 9H11V16.5858L8.70711 14.2929C8.31658 13.9024 7.68342 13.9024 7.29289 14.2929C6.90237 14.6834 6.90237 15.3166 7.29289 15.7071L11.2929 19.7071C11.6834 20.0976 12.3166 20.0976 12.7071 19.7071L16.7071 15.7071C17.0976 15.3166 17.0976 14.6834 16.7071 14.2929C16.3166 13.9024 15.6834 13.9024 15.2929 14.2929L13 16.5858V9Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Zm7 4h4a1 1 0 1 0 0-2H7a1 1 0 0 0 0 2h4v7.586l-2.293-2.293a1 1 0 0 0-1.414 1.414l4 4a1 1 0 0 0 1.414 0l4-4a1 1 0 0 0-1.414-1.414L13 16.586V9Z" fill="currentColor"/></svg>`,
 };

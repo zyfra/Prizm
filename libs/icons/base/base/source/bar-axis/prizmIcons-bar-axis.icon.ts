@@ -4,5 +4,5 @@ export const prizmIconsBarAxis: {
   data: string;
 } = {
   name: 'bar-axis',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 4C5 3.44772 4.55228 3 4 3C3.44772 3 3 3.44772 3 4V19C3 20.1046 3.89543 21 5 21H9H14H19H20C20.5523 21 21 20.5523 21 20C21 19.4477 20.5523 19 20 19V8C20 7.44772 19.5523 7 19 7C18.4477 7 18 7.44772 18 8L18 19H15V6C15 5.44772 14.5523 5 14 5C13.4477 5 13 5.44772 13 6V19H10L10 10C10 9.44772 9.55228 9 9 9C8.44772 9 8 9.44772 8 10L8 19H5V4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 4a1 1 0 0 0-2 0v15a2 2 0 0 0 2 2h15a1 1 0 1 0 0-2V8a1 1 0 1 0-2 0v11h-3V6a1 1 0 1 0-2 0v13h-3v-9a1 1 0 0 0-2 0v9H5V4Z" fill="currentColor"/></svg>`,
 };

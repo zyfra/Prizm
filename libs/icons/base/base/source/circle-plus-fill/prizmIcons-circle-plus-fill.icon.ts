@@ -4,5 +4,5 @@ export const prizmIconsCirclePlusFill: {
   data: string;
 } = {
   name: 'circle-plus-fill',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM13 10C13 9.44772 12.5523 9 12 9C11.4477 9 11 9.44772 11 10V11H10C9.44772 11 9 11.4477 9 12C9 12.5523 9.44772 13 10 13H11V14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14V13H14C14.5523 13 15 12.5523 15 12C15 11.4477 14.5523 11 14 11H13V10Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2Zm1 8a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1v-1Z" fill="currentColor"/></svg>`,
 };

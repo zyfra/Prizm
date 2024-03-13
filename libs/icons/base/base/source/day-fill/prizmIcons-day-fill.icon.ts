@@ -4,5 +4,5 @@ export const prizmIconsDayFill: {
   data: string;
 } = {
   name: 'day-fill',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 4C3 3.44772 3.44772 3 4 3L20 3C20.5523 3 21 3.44772 21 4V5C21 5.55228 20.5523 6 20 6L4 6C3.44772 6 3 5.55228 3 5L3 4ZM3 9C3 8.44772 3.44772 8 4 8L20 8C20.5523 8 21 8.44772 21 9L21 15C21 15.5523 20.5523 16 20 16L4 16C3.44772 16 3 15.5523 3 15L3 9ZM4 18C3.44772 18 3 18.4477 3 19V20C3 20.5523 3.44772 21 4 21L20 21C20.5523 21 21 20.5523 21 20V19C21 18.4477 20.5523 18 20 18L4 18Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4Zm0 5a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9Zm1 9a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-1a1 1 0 0 0-1-1H4Z" fill="currentColor"/></svg>`,
 };

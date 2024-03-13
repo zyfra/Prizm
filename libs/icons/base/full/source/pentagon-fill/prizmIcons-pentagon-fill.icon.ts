@@ -4,5 +4,5 @@ export const prizmIconsPentagonFill: {
   data: string;
 } = {
   name: 'pentagon-fill',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.85387 1.98297C8.3402 1.62736 7.65991 1.62736 7.14624 1.98297L1.83209 5.662C1.28397 6.04147 1.05207 6.73717 1.26288 7.36963L3.29779 13.4743C3.50196 14.0869 4.07517 14.5 4.72081 14.5H11.2793C11.9249 14.5 12.4981 14.0869 12.7023 13.4743L14.7372 7.36963C14.948 6.73717 14.7161 6.04147 14.168 5.662L8.85387 1.98297Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.854 1.983a1.5 1.5 0 0 0-1.708 0L1.832 5.662a1.5 1.5 0 0 0-.57 1.708l2.036 6.104A1.5 1.5 0 0 0 4.72 14.5h6.558a1.5 1.5 0 0 0 1.423-1.026l2.035-6.104a1.5 1.5 0 0 0-.569-1.708L8.854 1.983Z" fill="currentColor"/></svg>`,
 };

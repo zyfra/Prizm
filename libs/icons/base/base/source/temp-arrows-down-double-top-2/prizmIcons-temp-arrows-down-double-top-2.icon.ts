@@ -4,5 +4,5 @@ export const prizmIconsTempArrowsDownDoubleTop2: {
   data: string;
 } = {
   name: 'temp-arrows-down-double-top-2',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 4C6.44772 4 6 4.44772 6 5C6 5.55228 6.44772 6 7 6H17C17.5523 6 18 5.55228 18 5C18 4.44772 17.5523 4 17 4H7ZM7 7C6.44772 7 6 7.44772 6 8C6 8.55228 6.44772 9 7 9H17C17.5523 9 18 8.55228 18 8C18 7.44772 17.5523 7 17 7H7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 4a1 1 0 0 0 0 2h10a1 1 0 1 0 0-2H7Zm0 3a1 1 0 0 0 0 2h10a1 1 0 1 0 0-2H7Z" fill="currentColor"/></svg>`,
 };

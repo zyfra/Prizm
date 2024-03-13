@@ -4,5 +4,5 @@ export const prizmIconsPrinter: {
   data: string;
 } = {
   name: 'printer',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3C6.89543 3 6 3.89543 6 5V7H4C2.89543 7 2 7.89543 2 9V17C2 18.1046 2.89543 19 4 19H6C6 20.1046 6.89543 21 8 21H16C17.1046 21 18 20.1046 18 19H20C21.1046 19 22 18.1046 22 17V9C22 7.89543 21.1046 7 20 7H18V5C18 3.89543 17.1046 3 16 3H8ZM8 18V19H16V18V15H8V18ZM6 17H4V9H7C7.14652 9 7.28567 8.96849 7.41106 8.91188C7.59725 8.96916 7.79502 9 8 9H16C16.205 9 16.4028 8.96916 16.5889 8.91188C16.7143 8.96849 16.8535 9 17 9H20V17H18V15C18 13.8954 17.1046 13 16 13H8C6.89543 13 6 13.8954 6 15V17ZM8 5H16V7H8V5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a2 2 0 0 0-2 2v2H4a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2V5a2 2 0 0 0-2-2H8Zm0 15v1h8v-4H8v3Zm-2-1H4V9h3a.996.996 0 0 0 .411-.088A2 2 0 0 0 8 9h8c.205 0 .403-.03.589-.088A.997.997 0 0 0 17 9h3v8h-2v-2a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2ZM8 5h8v2H8V5Z" fill="currentColor"/></svg>`,
 };

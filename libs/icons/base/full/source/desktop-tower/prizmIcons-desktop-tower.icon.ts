@@ -4,5 +4,5 @@ export const prizmIconsDesktopTower: {
   data: string;
 } = {
   name: 'desktop-tower',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 0.5C3.17157 0.5 2.5 1.17157 2.5 2V4V8V14C2.5 14.8284 3.17157 15.5 4 15.5H12C12.8284 15.5 13.5 14.8284 13.5 14V8V4V2C13.5 1.17157 12.8284 0.5 12 0.5H4ZM3.5 14V8.5H12.5V14C12.5 14.2761 12.2761 14.5 12 14.5H4C3.72386 14.5 3.5 14.2761 3.5 14ZM3.5 7.5H12.5V4.5H3.5V7.5ZM12.5 3.5V2C12.5 1.72386 12.2761 1.5 12 1.5H4C3.72386 1.5 3.5 1.72386 3.5 2V3.5H12.5ZM11.5 14C11.7761 14 12 13.7761 12 13.5C12 13.2239 11.7761 13 11.5 13C11.2239 13 11 13.2239 11 13.5C11 13.7761 11.2239 14 11.5 14Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 .5A1.5 1.5 0 0 0 2.5 2v12A1.5 1.5 0 0 0 4 15.5h8a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 12 .5H4ZM3.5 14V8.5h9V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5Zm0-6.5h9v-3h-9v3Zm9-4V2a.5.5 0 0 0-.5-.5H4a.5.5 0 0 0-.5.5v1.5h9Zm-1 10.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`,
 };

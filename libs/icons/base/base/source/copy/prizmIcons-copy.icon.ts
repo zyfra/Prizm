@@ -4,5 +4,5 @@ export const prizmIconsCopy: {
   data: string;
 } = {
   name: 'copy',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3C3.89543 3 3 3.89543 3 5V13C3 14.1046 3.89543 15 5 15H9V19C9 20.1046 9.89543 21 11 21H19C20.1046 21 21 20.1046 21 19V11C21 9.89543 20.1046 9 19 9H15V5C15 3.89543 14.1046 3 13 3H5ZM13 9V5L5 5V13H9V11C9 9.89543 9.89543 9 11 9H13ZM11 14V19H19V11H14H11V14Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4v4a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8a2 2 0 0 0-2-2h-4V5a2 2 0 0 0-2-2H5Zm8 6V5H5v8h4v-2a2 2 0 0 1 2-2h2Zm-2 5v5h8v-8h-8v3Z" fill="currentColor"/></svg>`,
 };

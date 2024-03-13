@@ -4,5 +4,5 @@ export const prizmIconsColumnFill: {
   data: string;
 } = {
   name: 'column-fill',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C2 3.44772 2.44772 3 3 3H6C6.55228 3 7 3.44772 7 4V20C7 20.5523 6.55228 21 6 21H3C2.44772 21 2 20.5523 2 20V4ZM17 4C17 3.44772 17.4477 3 18 3H21C21.5523 3 22 3.44772 22 4V20C22 20.5523 21.5523 21 21 21H18C17.4477 21 17 20.5523 17 20V4ZM10 3C9.44772 3 9 3.44772 9 4V20C9 20.5523 9.44772 21 10 21H14C14.5523 21 15 20.5523 15 20V4C15 3.44772 14.5523 3 14 3H10Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V4Zm15 0a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1h-3a1 1 0 0 1-1-1V4Zm-7-1a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1h-4Z" fill="currentColor"/></svg>`,
 };

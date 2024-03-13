@@ -4,5 +4,5 @@ export const prizmIconsCartFlatbedContainer: {
   data: string;
 } = {
   name: 'cart-flatbed-container',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3C4 2.44772 4.44772 2 5 2H6C7.10457 2 8 2.89543 8 4L8 14C9.48056 14 10.7733 14.8044 11.4649 16H19C19.5523 16 20 16.4477 20 17C20 17.5523 19.5523 18 19 18H12C12 20.2091 10.2091 22 8 22C5.79086 22 4 20.2091 4 18C4 16.5194 4.8044 15.2267 6 14.5351L6 4H5C4.44772 4 4 3.55228 4 3ZM10 5C10 4.44772 10.4477 4 11 4L17 4C17.5523 4 18 4.44772 18 5V13C18 13.5523 17.5523 14 17 14L11 14C10.4477 14 10 13.5523 10 13L10 5ZM12 8L12 12H15L12 8ZM13 6L16 10V6L13 6ZM8 16C6.89543 16 6 16.8954 6 18C6 19.1046 6.89543 20 8 20C9.10457 20 10 19.1046 10 18C10 16.8954 9.10457 16 8 16Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 1 1-1h1a2 2 0 0 1 2 2v10c1.48 0 2.773.804 3.465 2H19a1 1 0 1 1 0 2h-7a4 4 0 1 1-6-3.465V4H5a1 1 0 0 1-1-1Zm6 2a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1V5Zm2 3v4h3l-3-4Zm1-2 3 4V6h-3ZM8 16a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsFileCross: {
   data: string;
 } = {
   name: 'file-cross',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 20V4C5 3.44772 5.44772 3 6 3H12.5858C12.851 3 13.1054 3.10536 13.2929 3.29289L18.7071 8.70711C18.8946 8.89464 19 9.149 19 9.41421V20C19 20.5523 18.5523 21 18 21H6C5.44772 21 5 20.5523 5 20Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 4V8C13 8.55228 13.4477 9 14 9H18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 13L10 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 13L14 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20V4a1 1 0 0 1 1-1h6.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V20a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 4v4a1 1 0 0 0 1 1h4M14 13l-4 4M10 13l4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };

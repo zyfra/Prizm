@@ -4,5 +4,5 @@ export const prizmIconsCheckerboard: {
   data: string;
 } = {
   name: 'checkerboard',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C2 2.89543 2.89543 2 4 2H20C21.1046 2 22 2.89543 22 4V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V4ZM4 4L12 4V11C12 11.5523 12.4477 12 13 12H20V20H12V13C12 12.4477 11.5523 12 11 12H4V4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm2 0h8v7a1 1 0 0 0 1 1h7v8h-8v-7a1 1 0 0 0-1-1H4V4Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsFileEmpty: {
   data: string;
 } = {
   name: 'file-empty',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 0.5C3.17157 0.5 2.5 1.17157 2.5 2V14C2.5 14.8284 3.17157 15.5 4 15.5H12C12.8284 15.5 13.5 14.8284 13.5 14V5.41421C13.5 5.01639 13.342 4.63486 13.0607 4.35355L9.64645 0.93934C9.36514 0.658035 8.98361 0.5 8.58579 0.5H4ZM3.5 2C3.5 1.72386 3.72386 1.5 4 1.5H8.5V4C8.5 4.82843 9.17157 5.5 10 5.5H12.5V14C12.5 14.2761 12.2761 14.5 12 14.5H4C3.72386 14.5 3.5 14.2761 3.5 14V2ZM11.7929 4.5L9.5 2.20711V4C9.5 4.27614 9.72386 4.5 10 4.5H11.7929Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 .5A1.5 1.5 0 0 0 2.5 2v12A1.5 1.5 0 0 0 4 15.5h8a1.5 1.5 0 0 0 1.5-1.5V5.414a1.5 1.5 0 0 0-.44-1.06L9.647.939A1.5 1.5 0 0 0 8.586.5H4ZM3.5 2a.5.5 0 0 1 .5-.5h4.5V4A1.5 1.5 0 0 0 10 5.5h2.5V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2Zm8.293 2.5L9.5 2.207V4a.5.5 0 0 0 .5.5h1.793Z" fill="currentColor"/></svg>`,
 };

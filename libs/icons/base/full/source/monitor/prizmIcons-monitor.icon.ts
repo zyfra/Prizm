@@ -4,5 +4,5 @@ export const prizmIconsMonitor: {
   data: string;
 } = {
   name: 'monitor',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 3C0.5 2.17157 1.17157 1.5 2 1.5H14C14.8284 1.5 15.5 2.17157 15.5 3V10C15.5 10.8284 14.8284 11.5 14 11.5H8.5V13.5H11C11.2761 13.5 11.5 13.7239 11.5 14C11.5 14.2761 11.2761 14.5 11 14.5H8H5C4.72386 14.5 4.5 14.2761 4.5 14C4.5 13.7239 4.72386 13.5 5 13.5H7.5V11.5H2C1.17157 11.5 0.5 10.8284 0.5 10V3ZM14 10.5H8H2C1.72386 10.5 1.5 10.2761 1.5 10V3C1.5 2.72386 1.72386 2.5 2 2.5H14C14.2761 2.5 14.5 2.72386 14.5 3V10C14.5 10.2761 14.2761 10.5 14 10.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 3A1.5 1.5 0 0 1 2 1.5h12A1.5 1.5 0 0 1 15.5 3v7a1.5 1.5 0 0 1-1.5 1.5H8.5v2H11a.5.5 0 0 1 0 1H5a.5.5 0 0 1 0-1h2.5v-2H2A1.5 1.5 0 0 1 .5 10V3ZM14 10.5H2a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5Z" fill="currentColor"/></svg>`,
 };

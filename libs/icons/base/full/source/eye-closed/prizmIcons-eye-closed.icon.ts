@@ -4,5 +4,5 @@ export const prizmIconsEyeClosed: {
   data: string;
 } = {
   name: 'eye-closed',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 11C10.4441 11 13.1488 9.50121 14.7484 6.50362C14.9129 6.19553 14.8812 5.82373 14.6436 5.5678C13.8726 4.73733 11.805 3 8 3C4.19503 3 2.1274 4.73733 1.3564 5.5678C1.1188 5.82373 1.08714 6.19553 1.25156 6.50362C2.85123 9.50121 5.55592 11 8 11Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 13L8 11" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.5 11.5L12 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 11.5L3.5 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M8 11c2.444 0 5.149-1.499 6.748-4.496a.805.805 0 0 0-.104-.936C13.873 4.738 11.805 3 8 3S2.127 4.737 1.356 5.568a.805.805 0 0 0-.104.936C2.852 9.5 5.556 11 8 11ZM8 13v-2M13.5 11.5 12 10M2 11.5 3.5 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 };
