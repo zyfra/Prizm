@@ -8,9 +8,6 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "peerDependencies": {
-    "@prizm-ui/helpers": "^4.0.0"
-  },
   "dependencies": {
     "tslib": "^2.3.0"
   }
