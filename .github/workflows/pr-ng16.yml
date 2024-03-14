@@ -28,7 +28,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng15') }}
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
@@ -94,7 +94,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng15') }}
+          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_16-
 
