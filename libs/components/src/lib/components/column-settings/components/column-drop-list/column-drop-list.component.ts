@@ -15,10 +15,8 @@ import { PrizmHintDirective } from '../../../../directives/hint/hint.directive';
 import { PrizmListingItemComponent } from '../../../listing-item';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/base/source/grip-dots-vertical';
-import { prizmIconsEye } from '@prizm-ui/icons/full/source/eye';
-import { prizmIconsEyeClosed } from '@prizm-ui/icons/full/source/eye-closed';
-import { prizmIconsLock } from '@prizm-ui/icons/full/source/lock';
+import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/base/source';
+import { prizmIconsEye, prizmIconsEyeClosed, prizmIconsLock } from '@prizm-ui/icons/full/source';
 
 const DragConfig: DragDropConfig = {
   zIndex: 9999,

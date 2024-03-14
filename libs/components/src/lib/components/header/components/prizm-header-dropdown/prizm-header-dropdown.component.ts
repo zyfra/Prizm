@@ -7,8 +7,8 @@ import { PrizmDataListComponent } from '../../../data-list';
 import { PrizmButtonComponent } from '../../../button';
 import { PrizmHintDirective } from '../../../../directives';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsFolder } from '@prizm-ui/icons/full/source/folder';
-import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source/angle-right';
+import { prizmIconsFolder } from '@prizm-ui/icons/full/source';
+import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-header-dropdown',

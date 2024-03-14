@@ -14,7 +14,7 @@ import { PrizmLinkComponent } from '../../link';
 import { PrizmMonthPipeModule } from '../../../pipes';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-primitive-year-month-pagination`,

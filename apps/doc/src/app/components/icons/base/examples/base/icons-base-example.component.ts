@@ -2,14 +2,18 @@ import { Component, inject, OnInit } from '@angular/core';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 
-import { prizmIconsArrowUp } from '@prizm-ui/icons/base/source/arrow-up/prizmIcons-arrow-up.icon';
-import { prizmIconsArrowUp as prizmIconsArrowUpFull } from '@prizm-ui/icons/full/source/arrow-up/prizmIcons-arrow-up.icon';
-import { prizmIconsArrowsCross } from '@prizm-ui/icons/base/source/arrows-cross';
-import { prizmIconsArrowsCross as prizmIconsArrowsCrossFull } from '@prizm-ui/icons/full/source/arrows-cross';
-import { prizmIconsBag } from '@prizm-ui/icons/base/source/bag';
-import { prizmIconsBag as prizmIconsBagFull } from '@prizm-ui/icons/full/source/bag';
-import { prizmIconsBubbleMessage } from '@prizm-ui/icons/base/source/bubble-message';
-import { prizmIconsBubbleMessage as prizmIconsBubbleMessageFull } from '@prizm-ui/icons/full/source/bubble-message';
+import {
+  prizmIconsArrowsCross,
+  prizmIconsArrowUp,
+  prizmIconsBag,
+  prizmIconsBubbleMessage,
+} from '@prizm-ui/icons/base/source';
+import {
+  prizmIconsArrowsCross as prizmIconsArrowsCrossFull,
+  prizmIconsArrowUp as prizmIconsArrowUpFull,
+  prizmIconsBag as prizmIconsBagFull,
+  prizmIconsBubbleMessage as prizmIconsBubbleMessageFull,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-icons-base-example',

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { PrizmIconSvgEnum } from '@prizm-ui/icons';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsAgendaFill } from '@prizm-ui/icons/base/source/agenda-fill';
+import { prizmIconsAgendaFill } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-icons-your-icon-set-example',

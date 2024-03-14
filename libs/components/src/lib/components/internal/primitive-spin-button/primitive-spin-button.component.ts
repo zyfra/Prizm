@@ -18,8 +18,7 @@ import { prizmIsNativeFocused } from '../../../util/is-native-focused';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsAngleLeft } from '@prizm-ui/icons/base/source/angle-left';
-import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source/angle-right';
+import { prizmIconsAngleLeft, prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
 
 // @dynamic
 @Component({

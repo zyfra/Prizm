@@ -39,7 +39,7 @@ import { PrizmDataListComponent } from '../data-list';
 import { PrizmPrimitiveCalendarRangeModule } from '../internal';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsCheck } from '@prizm-ui/icons/full/source/check';
+import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-calendar-range`,

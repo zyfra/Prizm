@@ -27,7 +27,17 @@
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
-          "plugins": ["removeDimensions"]
+          "plugins": [
+            "preset-default",
+            "removeDimensions",
+            "cleanupAttrs",
+            {
+              "name": "convertColors",
+              "params": {
+                "currentColor": true
+              }
+            }
+          ]
         },
         "compileSources": false
       },
@@ -55,7 +65,17 @@
         "optimizeForLazyLoading": true,
         "modelFileName": "prizm-icons.model",
         "svgoConfig": {
-          "plugins": ["removeDimensions"]
+          "plugins": [
+            "preset-default",
+            "removeDimensions",
+            "cleanupAttrs",
+            {
+              "name": "convertColors",
+              "params": {
+                "currentColor": true
+              }
+            }
+          ]
         },
         "compileSources": false
       },
@@ -144,6 +164,7 @@
         "pathToFolder": "libs/icons/base/base/source",
         "pathToOutputFile": "libs/icons/base/base/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
+        "createNgPackage": true,
         "exportName": "PRIZM_ICONS_LAZY_SET",
 
         "generateIconSet": true,
@@ -158,6 +179,7 @@
         "pathToFolder": "libs/icons/base/full/source",
         "pathToOutputFile": "libs/icons/base/full/lazy-icon-set.ts",
         "prefix": "prizmIcons-",
+        "createNgPackage": true,
         "exportName": "PRIZM_ICONS_FULL_LAZY_SET",
 
         "generateIconSet": true,

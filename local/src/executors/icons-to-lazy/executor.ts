@@ -12,6 +12,8 @@ import * as path from 'path';
  */
 export default async function runExecutor(options: IconsToLazyExecutorSchema): Promise<{ success: boolean }> {
   // Установка значений по умолчанию для необязательных параметров
+  const ngPackageJsonName = 'ng-package.json';
+  const addExportToSingleFile = options.addExportToSingleFile ?? false;
   const createNgPackage = options.createNgPackage ?? false;
   const generateIconSet = options.generateIconSet ?? false;
   const iconSetNameFileName = options.iconSetNameFileName ?? 'icon-set';
@@ -41,6 +43,7 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema): P
   // Инициализация переменных для сбора результатов
   const result: string[] = [];
   const importsInIconsSet: string[] = [];
+  const exportFromSingleFile: string[] = [];
   const exportsInIconsSet: string[] = [];
   let skipped = 0;
   const fixedNames: string[] = [];
@@ -98,7 +101,6 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema): P
 
     if (createNgPackage) {
       // Создание ng-package.json и index.ts для каждой иконки
-      const ngPackageJsonName = 'ng-package.json';
       fs.copyFileSync(path.join(__dirname, ngPackageJsonName), path.join(iconFolderPath, ngPackageJsonName));
     }
 
@@ -113,6 +115,20 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema): P
     if (generateIconSet) {
       importsInIconsSet.push(`import { ${exportName} } from './${iconName}/${fileWithoutExt}';`);
       exportsInIconsSet.push(exportName);
+    }
+
+    // Добавление всего экспорта в один файл, если требуется
+    if (addExportToSingleFile) {
+      exportFromSingleFile.push(`export { ${exportName} } from './${iconName}/${fileWithoutExt}';`);
+    }
+  }
+
+  if (exportFromSingleFile.length) {
+    fs.writeFileSync(path.join(pathToFolder, 'index.ts'), exportFromSingleFile.join('\n'));
+
+    if (createNgPackage) {
+      // Создание ng-package.json
+      fs.copyFileSync(path.join(__dirname, ngPackageJsonName), path.join(pathToFolder, ngPackageJsonName));
     }
   }
 
