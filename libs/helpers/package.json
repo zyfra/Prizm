@@ -8,6 +8,11 @@
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
+  "peerDependencies": {
+    "@angular/common": "^17.1.0",
+    "@angular/forms": "^17.1.0",
+    "@angular/core": "^17.1.0"
+  },
   "dependencies": {
     "tslib": "^2.3.0"
   }
