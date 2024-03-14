@@ -1,4 +1,4 @@
-.picker(@itemSize) {
+.picker(@itemWidth, @itemHeight) {
   :host {
     display: block;
     font: var(--prizm-font-text-m);
@@ -8,13 +8,17 @@
     .createStackingContext();
     display: flex;
     justify-content: space-between;
-    height: 2.25rem;
+    height: @itemHeight;
   }
 
   .z-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     flex: 1;
-    line-height: 2rem;
+    // height: 100%;
+    height: @itemHeight;
     border-radius: 2px;
     color: var(--prizm-text-icon-secondary);
     font-weight: 600;
@@ -37,13 +41,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: @itemSize;
+    width: @itemWidth;
     text-align: center;
     outline: none;
     cursor: pointer;
     background-clip: content-box;
     box-sizing: border-box;
-    border: 2px solid transparent;
 
     &_today {
       border-radius: 2px;
@@ -57,8 +60,10 @@
       }
 
       .z-item {
-        border: 1px solid var(--prizm-button-primary-solid-default);
-        color: var(--prizm-button-primary-solid-default);
+        border: 1px solid var(--prizm-v3-button-primary-solid-default);
+        color: var(--prizm-v3-button-primary-solid-default);
+        // height: @itemHeight;
+        width: @itemWidth;
 
         &_unavailable {
           color: var(--prizm-text-icon-disable);
@@ -87,7 +92,7 @@
       }
 
       &:not(:last-child):before {
-        right: -@itemSize;
+        // right: -@itemWidth;
       }
 
       &:last-child:first-child:before {

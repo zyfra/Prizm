@@ -1,12 +1,15 @@
 @import '../../../styles/ui-local.less';
 
-.picker(3.6875rem);
+@itemWidth: 85px;
+@itemHeight: 45px;
+
+.picker(@itemWidth, @itemHeight);
 
 :host {
   display: block;
-  height: 13.625rem;
-  width: 15.75rem;
-  padding: 1.125rem;
+  height: 222px;
+  width: 256px;
+  padding: 16px;
   box-sizing: content-box;
 
   .year-btn {
@@ -16,15 +19,11 @@
 
 .z-row {
   flex-wrap: wrap;
-  margin-top: 1.4375rem;
+  justify-content: center;
 }
 
 .z-cell {
   box-sizing: content-box;
-
-  &:nth-child(n + 5) {
-    margin-top: 1.75rem;
-  }
 
   &:not([data-range='start']):not([data-range='single']):not([data-range='end']):hover {
     background-color: var(--prizm-button-ghost-hover);
