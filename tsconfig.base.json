@@ -39,6 +39,7 @@
       "@prizm-ui/icons/core": ["libs/icons/base/core/src/index.ts"],
       "@prizm-ui/icons/full": ["libs/icons/base/full/index.ts"],
       "@prizm-ui/icons/full/source/*": ["libs/icons/base/full/source/*"],
+      "@prizm-ui/nx-mv": ["libs/nxmv/src/index.ts"],
       "@prizm-ui/nx-plugin": ["libs/plugin/src/index.ts"],
       "@prizm-ui/theme": ["libs/theme/src/index.ts"],
       "@prizm/test": ["libs/test/src/index.ts"],
