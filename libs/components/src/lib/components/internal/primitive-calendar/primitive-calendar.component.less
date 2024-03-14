@@ -1,11 +1,15 @@
 @import '../../../../styles/ui-local.less';
 
-@itemSize: 2.25rem;
+@itemSize: 40px;
 
-.picker(@itemSize);
+.picker(@itemSize, @itemSize);
 
 :host {
   width: @itemSize * 7;
+
+  .footer:not(:empty) {
+    margin-top: 8px;
+  }
 }
 
 .z-item {

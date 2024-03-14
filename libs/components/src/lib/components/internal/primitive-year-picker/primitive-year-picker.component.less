@@ -1,21 +1,14 @@
 @import '../../../../styles/ui-local.less';
 
-@itemSize: 3.9375rem;
+@itemWidth: 93px;
+@itemHeight: 56px;
 
-.picker(@itemSize);
+.picker(@itemWidth, @itemHeight);
 
 :host {
-  width: @itemSize * 4;
+  width: 280px;
 }
 
-.z-row {
-  margin: 0.875rem 0;
-
-  &:first-child {
-    margin-top: 0;
-  }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
+.z-cell {
+  flex-grow: 1;
 }
