@@ -2,5 +2,5 @@ import { getJestProjects } from '@nrwl/jest';
 
 export default {
   projects: getJestProjects(),
-  transformIgnorePatterns: ['node_modules/(?!(@lodash-es)/)'],
+  transformIgnorePatterns: ['node_modules/(?!.*.mjs$)'],
 };
