@@ -9,7 +9,6 @@
     "registry": "https://registry.npmjs.org/"
   },
   "peerDependencies": {
-    "lodash-es": "^4.17.21",
     "@angular/common": "^17.1.0",
     "@angular/core": "^17.1.0",
     "@angular/cdk": "^17.1.0",
