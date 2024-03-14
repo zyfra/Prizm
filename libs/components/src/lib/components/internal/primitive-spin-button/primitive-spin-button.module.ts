@@ -4,6 +4,7 @@ import {
   PrizmFocusableModule,
   PrizmFocusedModule,
   PrizmFocusVisibleModule,
+  PrizmHintDirective,
   PrizmPreventDefaultModule,
 } from '../../../directives';
 import { PrizmButtonModule } from '../../button/button.module';
@@ -18,6 +19,7 @@ import { PrizmPrimitiveSpinButtonComponent } from './primitive-spin-button.compo
     PrizmFocusableModule,
     PrizmPreventDefaultModule,
     PrizmButtonModule,
+    PrizmHintDirective,
   ],
   declarations: [PrizmPrimitiveSpinButtonComponent],
   exports: [PrizmPrimitiveSpinButtonComponent],

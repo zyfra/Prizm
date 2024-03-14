@@ -16,7 +16,7 @@ import { PrizmDay, PrizmDayWithStatus } from '@prizm-ui/components';
 export class PrizmCalendarBaseExampleComponent {
   public day = new PrizmDay(2017, 0, 15);
   public daysWithStatus = [
-    new PrizmDayWithStatus(2017, 0, 10, 'index'),
+    new PrizmDayWithStatus(2017, 0, 1, 'index'),
     new PrizmDayWithStatus(2017, 0, 11, 'warning'),
     new PrizmDayWithStatus(2017, 0, 12, 'danger'),
     new PrizmDayWithStatus(2017, 0, 13, 'success'),
