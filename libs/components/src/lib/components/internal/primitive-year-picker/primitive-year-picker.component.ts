@@ -135,14 +135,6 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
       return value.year === item ? PrizmRangeState.Single : null;
     }
 
-    // TODO add after add support intervals or delete
-    // if (
-    //   (value instanceof PrizmDayRange || value instanceof PrizmMonthRange) &&
-    //   value.isYearInRange(new PrizmYear(item))
-    // ) {
-    //   return PrizmRangeState.Single;
-    // }
-
     if (
       (value.from.year === item && !value.from.yearSame(value.to)) ||
       (hoveredItem !== null &&
@@ -192,7 +184,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   }
 
   /**
-   * TODO with support intervals
+   *  with support intervals
    * */
   public itemIsIntervalNew(item: number): boolean {
     const { value, hoveredItem } = this;
