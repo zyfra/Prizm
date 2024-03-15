@@ -133,12 +133,13 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
       return value.month === item && value.year === this.currentYear ? PrizmRangeState.Single : null;
     }
 
-    if (
-      this.value instanceof PrizmDayRange &&
-      this.value.isMonthInRange(new PrizmMonth(this.currentYear, item))
-    ) {
-      return PrizmRangeState.Single;
-    }
+    // TODO finish it after add support intervals or delete
+    // if (
+    //   this.value instanceof PrizmDayRange &&
+    //   this.value.isMonthInRange(new PrizmMonth(this.currentYear, item))
+    // ) {
+    //   return PrizmRangeState.Single;
+    // }
 
     if (
       (value.from.month === item && !value.from.monthSame(value.to)) ||
