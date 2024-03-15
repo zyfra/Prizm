@@ -28,7 +28,6 @@ import { CommonModule } from '@angular/common';
 import {
   PrizmFocusableModule,
   PrizmHoveredDirective,
-  PrizmHoveredModule,
   PrizmPressedModule,
   PrizmStopPropagationModule,
 } from '../../directives';

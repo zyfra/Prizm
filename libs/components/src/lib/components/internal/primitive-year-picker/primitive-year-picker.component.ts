@@ -59,6 +59,10 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   @prizmDefaultProp()
   disabledItemHandler: PrizmBooleanHandler<number> = PRIZM_ALWAYS_FALSE_HANDLER;
 
+  @Input()
+  @prizmDefaultProp()
+  intervalSupport = false;
+
   @Output()
   readonly yearClick = new EventEmitter<PrizmYear>();
 
@@ -131,12 +135,13 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
       return value.year === item ? PrizmRangeState.Single : null;
     }
 
-    if (
-      (value instanceof PrizmDayRange || value instanceof PrizmMonthRange) &&
-      value.isYearInRange(new PrizmYear(item))
-    ) {
-      return PrizmRangeState.Single;
-    }
+    // TODO add after add support intervals or delete
+    // if (
+    //   (value instanceof PrizmDayRange || value instanceof PrizmMonthRange) &&
+    //   value.isYearInRange(new PrizmYear(item))
+    // ) {
+    //   return PrizmRangeState.Single;
+    // }
 
     if (
       (value.from.year === item && !value.from.yearSame(value.to)) ||
@@ -183,7 +188,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
    * not support interval
    * */
   public itemIsInterval(item: number): boolean {
-    return false;
+    return this.intervalSupport ? this.itemIsIntervalNew(item) : false;
   }
 
   /**

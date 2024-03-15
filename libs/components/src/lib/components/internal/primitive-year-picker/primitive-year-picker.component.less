@@ -1,12 +1,12 @@
 @import '../../../../styles/ui-local.less';
 
-@itemWidth: 93px;
-@itemHeight: 56px;
+@itemWidth: var(--prizm-year-item-widtn, 93px);
+@itemHeight: var(--prizm-year-item-height, 56px);
 
 .picker(@itemWidth, @itemHeight);
 
 :host {
-  width: 280px;
+  width: var(--prizm-year-picker-widtn, 280px);
 }
 
 .z-cell {
