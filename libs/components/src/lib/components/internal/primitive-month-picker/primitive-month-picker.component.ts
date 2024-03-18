@@ -19,6 +19,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
 import { PrizmMonthPipeModule } from '../../../pipes';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 const ITEMS_IN_ROW = 3;
 const ROWS = 4;
@@ -69,6 +70,17 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
   @Input()
   @prizmDefaultProp()
   disabledItemHandler: PrizmBooleanHandler<number> = PRIZM_ALWAYS_FALSE_HANDLER;
+
+  @Input()
+  @prizmDefaultProp()
+  rangeState: PrizmRangeState = PrizmRangeState.Single;
+
+  @Input()
+  @prizmDefaultProp()
+  set intervalSupport(value: BooleanInput) {
+    this._intervalSupport = coerceBooleanProperty(value);
+  }
+  private _intervalSupport = false;
 
   @Output()
   readonly monthClick = new EventEmitter<PrizmMonth>();
@@ -144,29 +156,22 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
         hoveredItem === value.from.month &&
         value.from.monthSame(value.to))
     ) {
-      return PrizmRangeState.Single;
-
-      // TODO finish it after add support intervals
-      // return PrizmRangeState.Start;
+      return this.rangeState === PrizmRangeState.Start || this._intervalSupport ? this.rangeState : null;
     }
 
-    // TODO finish it after add support intervals
-    // if (
-    //     (value.to.month === item && !value.from.monthSame(value.to)) ||
-    //     (hoveredItem !== null &&
-    //         hoveredItem < value.from.month &&
-    //         value.from.month === item &&
-    //         value.from.monthSame(value.to)) ||
-    //     (hoveredItem !== null &&
-    //         hoveredItem === item &&
-    //         hoveredItem > value.from.month &&
-    //         value.from.monthSame(value.to))
-    // ) {
-    //   return PrizmRangeState.Single;
-    //
-    //
-    //   // return PrizmRangeState.End;
-    // }
+    if (
+      (value.to.month === item && !value.from.monthSame(value.to)) ||
+      (hoveredItem !== null &&
+        hoveredItem < value.from.month &&
+        value.from.month === item &&
+        value.from.monthSame(value.to)) ||
+      (hoveredItem !== null &&
+        hoveredItem === item &&
+        hoveredItem > value.from.month &&
+        value.from.monthSame(value.to))
+    ) {
+      return this.rangeState === PrizmRangeState.End || this._intervalSupport ? this.rangeState : null;
+    }
 
     return value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear
       ? PrizmRangeState.Single
@@ -181,7 +186,7 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
    * not support interval
    * */
   public itemIsInterval(item: number): boolean {
-    return false;
+    return this._intervalSupport ? this.itemIsIntervalNew(item) : false;
   }
 
   /**

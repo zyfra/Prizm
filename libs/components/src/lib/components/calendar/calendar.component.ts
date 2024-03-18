@@ -12,7 +12,7 @@ import { PrizmMapper } from '../../types/mapper';
 import { PrizmMarkerHandler } from '../../types/marker-handler';
 import { PrizmWithOptionalMinMax } from '../../types/with-optional-min-max';
 import { prizmNullableSame } from '../../util/common/nullable-same';
-import { PrizmDayWithStatus } from '../../@core';
+import { PrizmDayWithStatus, PrizmRangeState } from '../../@core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmPrimitiveCalendarComponent } from '../internal/primitive-calendar';
@@ -82,6 +82,10 @@ export class PrizmCalendarComponent extends PrizmAbstractTestId implements Prizm
   @Input()
   @prizmDefaultProp()
   markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
+
+  @Input()
+  @prizmDefaultProp()
+  rangeState: PrizmRangeState = PrizmRangeState.Single;
 
   @Output()
   readonly dayClick = new EventEmitter<PrizmDay>();

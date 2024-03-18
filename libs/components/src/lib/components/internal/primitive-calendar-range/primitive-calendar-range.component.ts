@@ -24,6 +24,7 @@ import { PrizmBooleanHandler } from '../../../types/handler';
 import { PrizmMapper } from '../../../types/mapper';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
+import { PrizmRangeState } from '../../../@core/enums';
 
 /**
  * @internal
@@ -63,6 +64,8 @@ export class PrizmPrimitiveCalendarRangeComponent extends PrizmAbstractTestId im
   @Input()
   @prizmDefaultProp()
   value: PrizmDayRange | null = null;
+
+  readonly rangeStates = [PrizmRangeState.Start, PrizmRangeState.End];
 
   @Output()
   readonly dayClick = new EventEmitter<PrizmDay>();
