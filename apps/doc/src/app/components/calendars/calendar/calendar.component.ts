@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PrizmDay } from '@prizm-ui/components';
+import { PrizmDay, PrizmRangeState } from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
@@ -12,6 +12,7 @@ import { UntypedFormControl } from '@angular/forms';
 export class CalendarComponent {
   public day = new PrizmDay(2017, 0, 15);
   public showAdjacent = true;
+  public rangeState: PrizmRangeState = PrizmRangeState.Single;
   public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

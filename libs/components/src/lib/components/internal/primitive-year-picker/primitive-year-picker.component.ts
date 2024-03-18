@@ -16,6 +16,7 @@ import {
 import { PrizmRangeState } from '../../../@core/enums/range-state';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 const LIMIT = 100;
 const ITEMS_IN_ROW = 3;
@@ -61,7 +62,14 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
 
   @Input()
   @prizmDefaultProp()
-  intervalSupport = false;
+  rangeState: PrizmRangeState = PrizmRangeState.Single;
+
+  @Input()
+  @prizmDefaultProp()
+  set intervalSupport(value: BooleanInput) {
+    this._intervalSupport = coerceBooleanProperty(value);
+  }
+  private _intervalSupport = false;
 
   @Output()
   readonly yearClick = new EventEmitter<PrizmYear>();
@@ -146,10 +154,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
         hoveredItem < value.from.year &&
         value.from.yearSame(value.to))
     ) {
-      return PrizmRangeState.Single;
-
-      // TODO add after add support intervals
-      // return PrizmRangeState.Start;
+      return this.rangeState === PrizmRangeState.Start || this._intervalSupport ? this.rangeState : null;
     }
 
     if (
@@ -163,10 +168,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
         hoveredItem > value.from.year &&
         value.from.yearSame(value.to))
     ) {
-      return PrizmRangeState.Single;
-
-      // TODO add after add support intervals
-      // return PrizmRangeState.End;
+      return this.rangeState === PrizmRangeState.End || this._intervalSupport ? this.rangeState : null;
     }
 
     return value.from.yearSame(value.to) && value.from.year === item ? PrizmRangeState.Single : null;
@@ -180,7 +182,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
    * not support interval
    * */
   public itemIsInterval(item: number): boolean {
-    return this.intervalSupport ? this.itemIsIntervalNew(item) : false;
+    return this._intervalSupport ? this.itemIsIntervalNew(item) : false;
   }
 
   /**
