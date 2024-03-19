@@ -110,6 +110,18 @@
         border-radius: 0;
         color: var(--prizm-button-primary-solid-default);
       }
+
+      &[data-range='start'] > .z-item:before,
+      &[data-range='start'] > .z-item:after {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &[data-range='end'] > .z-item:before,
+      &[data-range='end'] > .z-item:after {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
 
     &[data-range] {

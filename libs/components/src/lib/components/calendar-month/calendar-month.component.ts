@@ -180,7 +180,7 @@ export class PrizmCalendarMonthComponent
     }
 
     if (!value.isSingleMonth) {
-      return value.from.monthSameOrBefore(month) && value.to.monthAfter(month);
+      return value.from.monthSameOrBefore(month) && value.to.monthSameOrAfter(month);
     }
 
     if (hoveredItem === null) {
