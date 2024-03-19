@@ -154,7 +154,9 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
         hoveredItem < value.from.year &&
         value.from.yearSame(value.to))
     ) {
-      return this.rangeState === PrizmRangeState.Start || this._intervalSupport ? this.rangeState : null;
+      return this.rangeState === PrizmRangeState.Start || this._intervalSupport
+        ? PrizmRangeState.Start
+        : null;
     }
 
     if (
@@ -168,7 +170,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
         hoveredItem > value.from.year &&
         value.from.yearSame(value.to))
     ) {
-      return this.rangeState === PrizmRangeState.End || this._intervalSupport ? this.rangeState : null;
+      return this.rangeState === PrizmRangeState.End || this._intervalSupport ? PrizmRangeState.End : null;
     }
 
     return value.from.yearSame(value.to) && value.from.year === item ? PrizmRangeState.Single : null;
@@ -196,7 +198,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
     }
 
     if (!value.from.yearSame(value.to)) {
-      return value.from.year <= item && value.to.year > item;
+      return value.from.year <= item && value.to.year >= item;
     }
 
     if (hoveredItem === null || value.from.year === hoveredItem) {
