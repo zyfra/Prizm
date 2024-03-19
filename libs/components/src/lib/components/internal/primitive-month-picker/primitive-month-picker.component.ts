@@ -135,7 +135,7 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
   }
 
   public getItemRange(item: number): PrizmRangeState | null {
-    const { value, hoveredItem } = this;
+    const { value } = this;
 
     if (value === null) {
       return null;
@@ -145,37 +145,27 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
       return value.month === item && value.year === this.currentYear ? PrizmRangeState.Single : null;
     }
 
-    if (
-      (value.from.month === item && !value.from.monthSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem > value.from.month &&
-        value.from.month === item &&
-        value.from.monthSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem === item &&
-        hoveredItem === value.from.month &&
-        value.from.monthSame(value.to))
-    ) {
-      return this.rangeState === PrizmRangeState.Start || this._intervalSupport ? this.rangeState : null;
+    if (this._intervalSupport) {
+      return value.from.month === item && value.from.year === this.currentYear
+        ? PrizmRangeState.Start
+        : value.to.month === item && value.from.year === this.currentYear
+        ? PrizmRangeState.End
+        : null;
     }
 
-    if (
-      (value.to.month === item && !value.from.monthSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem < value.from.month &&
-        value.from.month === item &&
-        value.from.monthSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem === item &&
-        hoveredItem > value.from.month &&
-        value.from.monthSame(value.to))
-    ) {
-      return this.rangeState === PrizmRangeState.End || this._intervalSupport ? this.rangeState : null;
+    if (this.rangeState === PrizmRangeState.Start && value.from.month === item) {
+      return PrizmRangeState.Start;
     }
 
-    return value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear
-      ? PrizmRangeState.Single
-      : null;
+    if (this.rangeState === PrizmRangeState.End && value.to.month === item) {
+      return PrizmRangeState.End;
+    }
+
+    if (value.from.monthSame(value.to) && value.from.month === item && value.from.year === this.currentYear) {
+      return PrizmRangeState.Single;
+    }
+
+    return null;
   }
 
   public itemIsToday(item: number): boolean {

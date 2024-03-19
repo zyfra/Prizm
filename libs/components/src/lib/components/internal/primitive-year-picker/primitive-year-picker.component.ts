@@ -133,7 +133,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   }
 
   public getItemRange(item: number): PrizmRangeState | null {
-    const { value, hoveredItem } = this;
+    const { value } = this;
 
     if (value === null) {
       return null;
@@ -143,37 +143,27 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
       return value.year === item ? PrizmRangeState.Single : null;
     }
 
-    if (
-      (value.from.year === item && !value.from.yearSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem > value.from.year &&
-        value.from.year === item &&
-        value.from.yearSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem === item &&
-        hoveredItem < value.from.year &&
-        value.from.yearSame(value.to))
-    ) {
-      return this.rangeState === PrizmRangeState.Start || this._intervalSupport
+    if (this._intervalSupport) {
+      return value.from.year === item
         ? PrizmRangeState.Start
+        : value.to.year === item
+        ? PrizmRangeState.End
         : null;
     }
 
-    if (
-      (value.to.year === item && !value.from.yearSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem < value.from.year &&
-        value.from.year === item &&
-        value.from.yearSame(value.to)) ||
-      (hoveredItem !== null &&
-        hoveredItem === item &&
-        hoveredItem > value.from.year &&
-        value.from.yearSame(value.to))
-    ) {
-      return this.rangeState === PrizmRangeState.End || this._intervalSupport ? PrizmRangeState.End : null;
+    if (this.rangeState === PrizmRangeState.Start && value.from.year === item) {
+      return PrizmRangeState.Start;
     }
 
-    return value.from.yearSame(value.to) && value.from.year === item ? PrizmRangeState.Single : null;
+    if (this.rangeState === PrizmRangeState.End && value.to.year === item) {
+      return PrizmRangeState.End;
+    }
+
+    if (value.from.yearSame(value.to) && value.from.year === item) {
+      return PrizmRangeState.Single;
+    }
+
+    return null;
   }
 
   public itemIsToday(item: number): boolean {
