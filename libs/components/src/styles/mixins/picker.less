@@ -60,8 +60,8 @@
       }
 
       .z-item {
-        border-color: var(--prizm-v3-button-primary-solid-default);
-        color: var(--prizm-v3-button-primary-solid-default);
+        border-color: var(--prizm-button-primary-solid-default);
+        color: var(--prizm-button-primary-solid-default);
         width: @itemWidth;
 
         &_unavailable {
@@ -83,7 +83,7 @@
 
     &_interval {
       & > .z-item {
-        border-color: var(--prizm-v3-button-primary-ghost-active);
+        border-color: var(--prizm-button-primary-ghost-active);
       }
       &:before {
         background: var(--prizm-button-primary-ghost-active);
@@ -128,8 +128,8 @@
 
     &[data-range] {
       &:not([data-state='hovered']) > .z-item {
-        color: var(--prizm-v3-text-icon-exception);
-        border-color: var(--prizm-v3-button-primary-solid-default);
+        color: var(--prizm-text-icon-exception);
+        border-color: var(--prizm-button-primary-solid-default);
 
         &:before,
         &:after {
@@ -138,9 +138,9 @@
       }
 
       &[data-state='hovered'] > .z-item {
-        background-color: var(--prizm-v3-button-ghost-hover);
-        color: var(--prizm-v3-button-primary-solid-hover);
-        border-color: var(--prizm-v3-button-ghost-hover);
+        background-color: var(--prizm-button-ghost-hover);
+        color: var(--prizm-button-primary-solid-hover);
+        border-color: var(--prizm-button-ghost-hover);
       }
 
       &[data-state='hovered'] > .z-item:before,
@@ -192,9 +192,9 @@
     }
 
     &[data-state='hovered']:not([data-range]):not(.z-cell_today) > .z-item {
-      background-color: var(--prizm-v3-button-ghost-hover);
-      border-color: var(--prizm-v3-button-ghost-hover);
-      color: var(--prizm-v3-button-primary-solid-hover);
+      background-color: var(--prizm-button-ghost-hover);
+      border-color: var(--prizm-button-ghost-hover);
+      color: var(--prizm-button-primary-solid-hover);
     }
 
     &[data-state='pressed']:hover:not([data-range]) > .z-item {
