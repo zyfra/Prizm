@@ -20,6 +20,7 @@
     appearance="secondary"
     [class.z-arrow_hidden]="leftComputedDisabled"
     [prizmHint]="texts[0]"
+    [prizmHintDirection]="'b'"
     [focusable]="false"
     (click)="onLeftClick()"
   ></button>
@@ -37,6 +38,7 @@
     [appearanceType]="mode"
     [class.z-arrow_hidden]="rightComputedDisabled"
     [prizmHint]="texts[1]"
+    [prizmHintDirection]="'b'"
     [focusable]="false"
     (click)="onRightClick()"
   ></button>
