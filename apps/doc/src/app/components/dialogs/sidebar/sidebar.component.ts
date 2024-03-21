@@ -17,7 +17,7 @@ import {
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
 import { of } from 'rxjs';
-import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
+import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
 
 @Component({
   selector: 'prizm-tooltip-example',
@@ -38,11 +38,7 @@ export class SidebarComponent {
   public hoveredChange = false;
   public focusVisibleChange = false;
 
-  iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = [
-    '',
-    // ...IconDefs.reduce((a: any[], c) => a.concat(c.data), []),
-    ...Object.keys(PRIZM_ICONS_LAZY_SET),
-  ];
+  iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = ['', ...PRIZM_ICONS_NAMES];
   icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
   appearanceVariants: ReadonlyArray<PrizmAppearance> = [

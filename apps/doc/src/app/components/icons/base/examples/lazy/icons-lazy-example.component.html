@@ -1,3 +1,24 @@
+<ng-container *prizmIfLang="'russian'; else eng">
+  <div class="description">
+    Для использования иконок без необходимости их предварительной регистрации используйте наш провайдер иконок
+    из нужного вам набора. В этом случае каждая иконка будет отдельно загружаться при первом её использовании.
+
+    <br />
+    <br />
+    Важно запомнить, что все иконки в этом случае попадут в вашу сборку.
+  </div>
+</ng-container>
+
+<ng-template #eng>
+  <div class="description">
+    To use icons without the need for their preliminary registration, use our icon provider from the set you
+    need. In this case, each icon will be loaded individually upon its first use.
+    <br />
+    <br />
+    It's important to remember that, in this case, all the icons will be included in your build.
+  </div>
+</ng-template>
+
 <div>
   <h4>Base size</h4>
 

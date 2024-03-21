@@ -1,3 +1,20 @@
+<ng-container *prizmIfLang="'russian'; else eng">
+  <div class="description">
+    При использовании старых названий удаленного компонента prizm-icon с 4-й версии.<br />
+    Чтобы не переводить все названия на подходящие из нового набора иконок, вы можете использовать наш
+    маппер.<br />
+    Для этого достаточно использовать наш провайдер.<br />
+  </div>
+</ng-container>
+
+<ng-template #eng>
+  <div class="description">
+    When using old names of the remote component prizm-icon from version 4.<br />
+    To avoid translating all the names to those suitable from the new icon set, you can use our mapper.<br />
+    For this, you just need to use our provider.<br />
+  </div>
+</ng-template>
+
 <div>
   <h4>SVG: Base/Full size</h4>
 

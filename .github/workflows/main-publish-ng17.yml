@@ -274,6 +274,34 @@ jobs:
 
       - run: cd dist/libs/icons/base && npm publish --access public --verbose
 
+  publish-icons-loader:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_17-
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
+
+      - run: cd dist/libs/icons/loader && npm publish --access public --verbose
+
   publish-flags:
     needs: build
     runs-on: ubuntu-latest

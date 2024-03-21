@@ -5,14 +5,13 @@ import {
   HostBinding,
   inject,
   Input,
-  OnDestroy,
+  OnInit,
 } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
 import { PrizmAbstractTestId, prizmIsValidSizeString, prizmPx } from '@prizm-ui/core';
-import { Subject, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, of, switchMap, takeUntil, tap } from 'rxjs';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PRIZM_ICONS_LOADER } from '@prizm-ui/icons/base';
-import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_LOADER, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import { PRIZM_ICONS_NAME_TRANSFORMER } from './icons.options';
 
 /**
@@ -27,44 +26,32 @@ import { PRIZM_ICONS_NAME_TRANSFORMER } from './icons.options';
   providers: [PrizmDestroyService],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestroy {
+export class PrizmIconsComponent extends PrizmAbstractTestId implements OnInit {
   private svgIcon!: SVGElement;
   private iconName!: string;
 
-  // Injects the icon loader token.
-  protected iconsLoader = inject(PRIZM_ICONS_LOADER);
-  private destroyIcons$ = new Subject<void>();
   private document = inject(DOCUMENT);
   private iconRegistry = inject(PrizmIconsRegistry);
   private element = inject(ElementRef);
   readonly nameTransformer = inject(PRIZM_ICONS_NAME_TRANSFORMER, {
     optional: true,
   });
+  readonly destroy$ = inject(PrizmDestroyService);
+  // Injects the icon loader token.
+  protected iconsLoader = inject(PRIZM_ICONS_LOADER, {
+    optional: true,
+  });
 
-  /**
-   * @method ngOnDestroy
-   * @description This method is used to clean up resources when the component is destroyed.
-   */
-  ngOnDestroy(): void {
-    this.destroyIcons$.next();
-    this.destroyIcons$.complete();
-  }
-
-  /**
-   * @method name
-   * @description This method sets the name of the icon to be displayed and attempts to fetch and append the icon to the host element.
-   * @param {string} iconName - The name of the icon to fetch and display.
-   */
-  @Input()
-  set name(iconName: string) {
-    const iconCurrentName = this.nameTransformer ? this.nameTransformer(iconName) : iconName;
-    if (!iconCurrentName) return;
-    this.iconName = iconCurrentName;
-    this.destroyIcons$.next();
-    // Get the SVG data and create an SVG element.
-    this.iconRegistry
-      .getIcon(this.iconName, this.iconsLoader)
+  ngOnInit(): void {
+    this.name$
       .pipe(
+        switchMap(iconCurrentName => {
+          if (!iconCurrentName) return of(null);
+          this.iconName = iconCurrentName;
+
+          // Get the SVG data and create an SVG element.
+          return this.iconRegistry.getIcon(this.iconName, this.iconsLoader);
+        }),
         tap(() => {
           // Remove the previous SVG icon if present.
           if (this.svgIcon) {
@@ -76,9 +63,21 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnDestro
           this.svgIcon = this.svgElementFromString(svgData);
           this.element.nativeElement.appendChild(this.svgIcon);
         }),
-        takeUntil(this.destroyIcons$)
+        takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  private readonly name$ = new BehaviorSubject<string | null>(null);
+  /**
+   * @method name
+   * @description This method sets the name of the icon to be displayed and attempts to fetch and append the icon to the host element.
+   * @param {string} iconName - The name of the icon to fetch and display.
+   */
+  @Input()
+  set name(iconName: string) {
+    const iconCurrentName = this.nameTransformer ? this.nameTransformer(iconName) : iconName;
+    this.name$.next(iconCurrentName);
   }
 
   /**

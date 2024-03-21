@@ -3,7 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { PrizmToastService } from '@prizm-ui/components';
 import { copyToClipboard } from '../../../util';
-import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
+import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
 
 @Component({
   selector: 'prizm-icon-example',
@@ -16,7 +16,7 @@ export class IconsComponent {
   readonly sizeVariants = ['32px', 24, 16];
   public size = this.sizeVariants[0];
 
-  public readonly iconsSet = Object.keys(PRIZM_ICONS_LAZY_SET);
+  public readonly iconsSet = PRIZM_ICONS_NAMES;
   readonly nameVariants = this.iconsSet;
   public name = this.nameVariants[0];
 

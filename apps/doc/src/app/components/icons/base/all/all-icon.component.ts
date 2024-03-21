@@ -11,15 +11,10 @@ import {
   PrizmToggleComponent,
 } from '@prizm-ui/components';
 import { Clipboard } from '@angular/cdk/clipboard';
-import {
-  PrizmIconsComponent,
-  PrizmIconsFullComponent,
-  prizmIconsProvideOldNameTransformer,
-} from '@prizm-ui/icons';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { copyToClipboard } from '../../../../util';
 import { BehaviorSubject, combineLatest } from 'rxjs';
 import { debounceTime, map } from 'rxjs/operators';
-import { PRIZM_ICONS_LAZY_SET } from '@prizm-ui/icons/base';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
@@ -29,13 +24,16 @@ import {
   CdkVirtualScrollViewport,
   ScrollingModule,
 } from '@angular/cdk/scrolling';
+import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
+import { prizmIconsProvideLazyLoader } from '@prizm-ui/icons-loader';
 
 @Component({
   selector: 'prizm-all-icon',
   templateUrl: './all-icon.component.html',
   styleUrls: ['./all-icon.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [prizmIconsProvideOldNameTransformer()],
+  providers: [prizmIconsFullProvideLazyLoader(), prizmIconsProvideLazyLoader()],
   standalone: true,
   imports: [
     CommonModule,
@@ -58,7 +56,7 @@ import {
   ],
 })
 export class AllIconComponent {
-  public readonly iconsSet = Object.keys(PRIZM_ICONS_LAZY_SET);
+  public readonly iconsSet = PRIZM_ICONS_NAMES;
   public readonly iconsAmount = this.iconsSet.length;
   public search = '';
   public colored = false;
