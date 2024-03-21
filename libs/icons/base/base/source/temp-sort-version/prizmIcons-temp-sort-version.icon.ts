@@ -4,5 +4,5 @@ export const prizmIconsTempSortVersion: {
   data: string;
 } = {
   name: 'temp-sort-version',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4C2 2.89543 2.89543 2 4 2H10C11.1046 2 12 2.89543 12 4V6H15C16.1046 6 17 6.89543 17 8V10H20C21.1046 10 22 10.8954 22 12V20C22 21.1046 21.1046 22 20 22H14C12.8954 22 12 21.1046 12 20V18H9C7.89543 18 7 17.1046 7 16V14H4C2.89543 14 2 13.1046 2 12V4ZM14 18V20H20V12H17V16C17 17.1046 16.1046 18 15 18H14ZM15 11V16H13H9V14H10C11.1046 14 12 13.1046 12 12V8H15V11ZM10 4V7V12H8H4V4L10 4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-2H9a2 2 0 0 1-2-2v-2H4a2 2 0 0 1-2-2V4Zm12 14v2h6v-8h-3v4a2 2 0 0 1-2 2h-1Zm1-7v5H9v-2h1a2 2 0 0 0 2-2V8h3v3Zm-5-7v8H4V4h6Z" fill="currentColor"/></svg>`,
 };

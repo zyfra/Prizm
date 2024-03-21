@@ -20,6 +20,10 @@
       "alias": "i",
       "description": "Name of exported constant"
     },
+    "addExportToSingleFile": {
+      "type": "boolean",
+      "description": "Add all file exports to single file"
+    },
     "pathToOutputFile": {
       "type": "string",
       "alias": "o",

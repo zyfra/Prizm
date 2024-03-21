@@ -4,5 +4,5 @@ export const prizmIconsSquareMultiply: {
   data: string;
 } = {
   name: 'square-multiply',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13137)"><rect x="1" y="1" width="14" height="14" rx="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M10 6L6 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M6 6L10 10" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_389_13137"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="1" width="14" height="14" rx="1"/><path d="m10 6-4 4M6 6l4 4"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsTriangleExclamationEmpty: {
   data: string;
 } = {
   name: 'triangle-exclamation-empty',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.7308 1.99378C12.9605 0.663201 11.0395 0.663213 10.2691 1.99378L1.00358 17.9979C0.231653 19.3313 1.19378 21 2.73444 21H21.2655C22.8062 21 23.7683 19.3312 22.9964 17.9979L13.7308 1.99378ZM12 2.99585L21.2655 19L2.73444 19L12 2.99585ZM12 7.99999C12.5523 7.99999 13 8.4477 13 8.99999V13C13 13.5523 12.5523 14 12 14C11.4477 14 11 13.5523 11 13V8.99999C11 8.4477 11.4477 7.99999 12 7.99999ZM13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16C11 15.4477 11.4477 15 12 15C12.5523 15 13 15.4477 13 16Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.73 1.994c-.77-1.33-2.69-1.33-3.46 0L1.003 17.998C.232 19.33 1.194 21 2.734 21h18.532c1.54 0 2.502-1.669 1.73-3.002L13.731 1.994ZM12 2.996 21.265 19H2.735L12 2.996ZM12 8a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1Zm1 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" fill="currentColor"/></svg>`,
 };

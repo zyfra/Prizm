@@ -4,5 +4,5 @@ export const prizmIconsFilePlus: {
   data: string;
 } = {
   name: 'file-plus',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2C4.89543 2 4 2.89543 4 4V20C4 21.1046 4.89543 22 6 22H18C19.1046 22 20 21.1046 20 20V9.41421C20 8.88378 19.7893 8.37507 19.4142 8L14 2.58579C13.6249 2.21071 13.1162 2 12.5858 2H6ZM12 4H6V20H18V10H14C12.8954 10 12 9.10457 12 8V4ZM16.5858 8L14 5.41421V8H16.5858ZM12 11C12.5523 11 13 11.4477 13 12V13H14C14.5523 13 15 13.4477 15 14C15 14.5523 14.5523 15 14 15H13V16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16V15H10C9.44772 15 9 14.5523 9 14C9 13.4477 9.44772 13 10 13H11V12C11 11.4477 11.4477 11 12 11Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.414A2 2 0 0 0 19.414 8L14 2.586A2 2 0 0 0 12.586 2H6Zm6 2H6v16h12V10h-4a2 2 0 0 1-2-2V4Zm4.586 4L14 5.414V8h2.586ZM12 11a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
 };

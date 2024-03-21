@@ -24,8 +24,7 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsMinus } from '@prizm-ui/icons/base/source/minus';
-import { prizmIconsCheck } from '@prizm-ui/icons/base/source/check';
+import { prizmIconsMinus, prizmIconsCheck } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-checkbox',

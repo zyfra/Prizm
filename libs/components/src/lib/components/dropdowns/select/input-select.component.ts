@@ -92,7 +92,7 @@ import { PRIZM_SEARCH_TEXT } from '../../../tokens';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-input-select',

@@ -38,7 +38,7 @@ import { PrizmProgressBarComponent } from '../progress';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source/file-empty';
+import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-file-upload',

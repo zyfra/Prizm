@@ -3,7 +3,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as SVGFixer from 'oslllo-svg-fixer';
 import { FontAssetType, generateFonts, OtherAssetType } from 'fantasticon';
-import { createDirectoriesSafely } from './util';
+import { createDirectoriesSafely } from '../../util';
 
 /**
  * Function that converts svg icons to font files

@@ -41,16 +41,18 @@ import { PrizmDataListComponent } from '../../data-list';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsLetterTime } from '@prizm-ui/icons/base/source/letter-time';
-import { prizmIconsCirclePlus } from '@prizm-ui/icons/base/source/circle-plus';
-import { prizmIconsMinusCircle } from '@prizm-ui/icons/base/source/minus-circle';
-import { prizmIconsLetterYear } from '@prizm-ui/icons/base/source/letter-year';
-import { prizmIconsLetterMonth } from '@prizm-ui/icons/base/source/letter-month';
-import { prizmIconsLetterDay } from '@prizm-ui/icons/base/source/letter-day';
-import { prizmIconsLetterHour } from '@prizm-ui/icons/base/source/letter-hour';
-import { prizmIconsLetterMinute } from '@prizm-ui/icons/base/source/letter-minute';
-import { prizmIconsLetterSecond } from '@prizm-ui/icons/base/source/letter-second';
-import { prizmIconsSymbolAsterisk } from '@prizm-ui/icons/base/source/symbol-asterisk';
+import {
+  prizmIconsLetterTime,
+  prizmIconsCirclePlus,
+  prizmIconsMinusCircle,
+  prizmIconsLetterYear,
+  prizmIconsLetterMonth,
+  prizmIconsLetterDay,
+  prizmIconsLetterHour,
+  prizmIconsLetterMinute,
+  prizmIconsLetterSecond,
+  prizmIconsSymbolAsterisk,
+} from '@prizm-ui/icons/base/source';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 

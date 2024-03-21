@@ -4,5 +4,5 @@ export const prizmIconsTempSignalRssBox: {
   data: string;
 } = {
   name: 'temp-signal-rss-box',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3H5ZM5 5H19V19H5V5ZM8 7C7.44772 7 7 7.44772 7 8C7 8.55228 7.44772 9 8 9C11.866 9 15 12.134 15 16C15 16.5523 15.4477 17 16 17C16.5523 17 17 16.5523 17 16C17 11.0294 12.9706 7 8 7ZM7 12C7 11.4477 7.44772 11 8 11C10.7614 11 13 13.2386 13 16C13 16.5523 12.5523 17 12 17C11.4477 17 11 16.5523 11 16C11 14.3431 9.65685 13 8 13C7.44772 13 7 12.5523 7 12ZM8 17C8.55228 17 9 16.5523 9 16C9 15.4477 8.55228 15 8 15C7.44772 15 7 15.4477 7 16C7 16.5523 7.44772 17 8 17Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h14v14H5V5Zm3 2a1 1 0 0 0 0 2 7 7 0 0 1 7 7 1 1 0 1 0 2 0 9 9 0 0 0-9-9Zm-1 5a1 1 0 0 1 1-1 5 5 0 0 1 5 5 1 1 0 1 1-2 0 3 3 0 0 0-3-3 1 1 0 0 1-1-1Zm1 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
 };

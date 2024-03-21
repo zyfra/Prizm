@@ -4,5 +4,5 @@ export const prizmIconsBorderAll: {
   data: string;
 } = {
   name: 'border-all',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13113)"><path fill-rule="evenodd" clip-rule="evenodd" d="M0.5 2C0.5 1.17157 1.17157 0.5 2 0.5H8H14C14.8284 0.5 15.5 1.17157 15.5 2V8V14C15.5 14.8284 14.8284 15.5 14 15.5H8H2C1.17157 15.5 0.5 14.8284 0.5 14V8V2ZM1.5 8.5V14C1.5 14.2761 1.72386 14.5 2 14.5H7.5V8.5H1.5ZM7.5 7.5H1.5V2C1.5 1.72386 1.72386 1.5 2 1.5H7.5V7.5ZM8.5 8.5V14.5H14C14.2761 14.5 14.5 14.2761 14.5 14V8.5H8.5ZM14.5 7.5H8.5V1.5H14C14.2761 1.5 14.5 1.72386 14.5 2V7.5Z" fill="currentColor"/></g><defs><clipPath id="clip0_389_13113"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h12A1.5 1.5 0 0 1 15.5 2v12a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 14V2Zm1 6.5V14a.5.5 0 0 0 .5.5h5.5v-6h-6Zm6-1h-6V2a.5.5 0 0 1 .5-.5h5.5v6Zm1 1v6H14a.5.5 0 0 0 .5-.5V8.5h-6Zm6-1h-6v-6H14a.5.5 0 0 1 .5.5v5.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsPanelTop: {
   data: string;
 } = {
   name: 'panel-top',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3C3.89543 3 3 3.89543 3 5V9V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V9V5C21 3.89543 20.1046 3 19 3H5ZM19 8V5H5V8H19ZM5 10H19V19H5V10Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm14 5V5H5v3h14ZM5 10h14v9H5v-9Z" fill="currentColor"/></svg>`,
 };

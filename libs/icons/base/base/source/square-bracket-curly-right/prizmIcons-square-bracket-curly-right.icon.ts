@@ -4,5 +4,5 @@ export const prizmIconsSquareBracketCurlyRight: {
   data: string;
 } = {
   name: 'square-bracket-curly-right',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3H5ZM5 5H19V19H5V5ZM10 7C9.44772 7 9 7.44772 9 8C9 8.55228 9.44772 9 10 9H11V10.382C11 11.0285 11.3118 11.6277 11.8243 12C11.3118 12.3723 11 12.9715 11 13.618V15H10C9.44772 15 9 15.4477 9 16C9 16.5523 9.44772 17 10 17H11C12.1046 17 13 16.1046 13 15V13.618L14.4472 12.8944C14.786 12.725 15 12.3788 15 12C15 11.6212 14.786 11.275 14.4472 11.1056L13 10.382V9C13 7.89543 12.1046 7 11 7H10Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h14v14H5V5Zm5 2a1 1 0 0 0 0 2h1v1.382A2 2 0 0 0 11.824 12 2 2 0 0 0 11 13.618V15h-1a1 1 0 1 0 0 2h1a2 2 0 0 0 2-2v-1.382l1.447-.724a1 1 0 0 0 0-1.788L13 10.382V9a2 2 0 0 0-2-2h-1Z" fill="currentColor"/></svg>`,
 };

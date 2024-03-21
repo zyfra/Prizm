@@ -24,7 +24,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsChevronRight } from '@prizm-ui/icons/full/source/chevron-right';
+import { prizmIconsChevronRight } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-breadcrumbs',

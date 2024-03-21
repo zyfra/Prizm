@@ -4,5 +4,5 @@ export const prizmIconsMail: {
   data: string;
 } = {
   name: 'mail',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5C1.17157 2.5 0.5 3.17157 0.5 4V12C0.5 12.8284 1.17157 13.5 2 13.5H14C14.8284 13.5 15.5 12.8284 15.5 12V4C15.5 3.17157 14.8284 2.5 14 2.5H2ZM1.5 4.10813V12C1.5 12.2761 1.72386 12.5 2 12.5H14C14.2761 12.5 14.5 12.2761 14.5 12V4.10813L8.85381 8.01703C8.34015 8.37264 7.65985 8.37264 7.14618 8.01703L1.5 4.10813ZM13.6216 3.5H2.37841L7.71539 7.19484C7.88662 7.31337 8.11338 7.31337 8.2846 7.19484L13.6216 3.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5A1.5 1.5 0 0 0 .5 4v8A1.5 1.5 0 0 0 2 13.5h12a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H2Zm-.5 1.608V12a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V4.108L8.854 8.017a1.5 1.5 0 0 1-1.708 0L1.5 4.108ZM13.622 3.5H2.378l5.337 3.695a.5.5 0 0 0 .57 0L13.622 3.5Z" fill="currentColor"/></svg>`,
 };

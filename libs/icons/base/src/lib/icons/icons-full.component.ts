@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component, HostBinding } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Optional } from '@angular/core';
 import { PrizmIconsComponent } from './icons.component';
-import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import { PRIZM_ICONS_LOADER } from '@prizm-ui/icons/base';
-import { PRIZM_ICONS_FULL_LOADER } from '@prizm-ui/icons/full';
+import {
+  PRIZM_ICONS_FULL_LOADER,
+  PRIZM_ICONS_LOADER,
+  PrizmIconsFullRegistry,
+  PrizmIconsRegistry,
+} from '@prizm-ui/icons/core';
 
 /**
  * Component to display full size SVG icons.
@@ -18,7 +21,10 @@ import { PRIZM_ICONS_FULL_LOADER } from '@prizm-ui/icons/full';
     {
       // Specifies that this component uses a different icon loader for 16px icons
       provide: PRIZM_ICONS_LOADER,
-      useExisting: PRIZM_ICONS_FULL_LOADER,
+      useFactory: (icons?: any) => {
+        return icons ?? null;
+      },
+      deps: [[new Optional(), PRIZM_ICONS_FULL_LOADER]],
     },
     {
       // Specifies that this component uses a different registry

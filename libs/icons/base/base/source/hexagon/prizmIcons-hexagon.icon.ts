@@ -4,5 +4,5 @@ export const prizmIconsHexagon: {
   data: string;
 } = {
   name: 'hexagon',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.1056 2.32919C11.6686 2.04766 12.3314 2.04766 12.8944 2.32919L19.8944 5.82919C20.572 6.16797 21 6.8605 21 7.61804V16.382C21 17.1395 20.572 17.832 19.8944 18.1708L12.8944 21.6708C12.3314 21.9524 11.6686 21.9524 11.1056 21.6708L4.10557 18.1708C3.428 17.832 3 17.1395 3 16.382V7.61804C3 6.8605 3.428 6.16797 4.10557 5.82919L11.1056 2.32919ZM19 7.61804L12 4.11804L5 7.61804V16.382L12 19.882L19 16.382V7.61804Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.106 2.33a2 2 0 0 1 1.788 0l7 3.5A2 2 0 0 1 21 7.617v8.764a2 2 0 0 1-1.106 1.789l-7 3.5a2 2 0 0 1-1.788 0l-7-3.5A2 2 0 0 1 3 16.382V7.618a2 2 0 0 1 1.106-1.789l7-3.5ZM19 7.617l-7-3.5-7 3.5v8.764l7 3.5 7-3.5V7.618Z" fill="currentColor"/></svg>`,
 };

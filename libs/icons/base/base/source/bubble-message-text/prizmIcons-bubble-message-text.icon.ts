@@ -4,5 +4,5 @@ export const prizmIconsBubbleMessageText: {
   data: string;
 } = {
   name: 'bubble-message-text',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5C2 3.89543 2.89543 3 4 3H20C21.1046 3 22 3.89543 22 5V17C22 18.1046 21.1046 19 20 19H8.27698L5.02899 20.9488C3.69595 21.7486 2 20.7884 2 19.2338V5ZM20 5H4V19.2338L7.24799 17.285C7.55882 17.0985 7.9145 17 8.27698 17H20V5ZM7 9C7 8.44772 7.44772 8 8 8H16C16.5523 8 17 8.44772 17 9C17 9.55228 16.5523 10 16 10H8C7.44772 10 7 9.55228 7 9ZM8 12C7.44772 12 7 12.4477 7 13C7 13.5523 7.44772 14 8 14H12C12.5523 14 13 13.5523 13 13C13 12.4477 12.5523 12 12 12H8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8.277l-3.248 1.949c-1.333.8-3.029-.16-3.029-1.715V5Zm18 0H4v14.234l3.248-1.949A2 2 0 0 1 8.277 17H20V5ZM7 9a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2H8Z" fill="currentColor"/></svg>`,
 };

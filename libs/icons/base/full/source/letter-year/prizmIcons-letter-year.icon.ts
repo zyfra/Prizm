@@ -4,5 +4,5 @@ export const prizmIconsLetterYear: {
   data: string;
 } = {
   name: 'letter-year',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1H3.55769L7.9351 7.16992H8.0649L12.4423 1H14L8.67067 8.36963V14H7.32933V8.36963L2 1Z" fill="#6E778C"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2 1h1.558l4.377 6.17h.13L12.442 1H14L8.67 8.37V14H7.33V8.37L2 1Z" fill="currentColor"/></svg>`,
 };

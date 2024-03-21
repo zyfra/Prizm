@@ -4,5 +4,5 @@ export const prizmIconsSigma: {
   data: string;
 } = {
   name: 'sigma',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.69845 6.31701C5.56693 5.02384 6.48528 3 8.2036 3H17.9998C18.5521 3 18.9998 3.44772 18.9998 4C18.9998 4.55228 18.5521 5 17.9998 5H8.2036L13.1762 10.683C13.836 11.437 13.836 12.563 13.1762 13.317L8.2036 19L17.9998 19C18.5521 19 18.9998 19.4477 18.9998 20C18.9998 20.5523 18.5521 21 17.9998 21H8.2036C6.48529 21 5.56692 18.9762 6.69845 17.683L11.6711 12L6.69845 6.31701Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.698 6.317C5.567 5.024 6.485 3 8.204 3H18a1 1 0 1 1 0 2H8.204l4.972 5.683a2 2 0 0 1 0 2.634L8.204 19H18a1 1 0 1 1 0 2H8.204c-1.719 0-2.637-2.024-1.506-3.317L11.671 12 6.698 6.317Z" fill="currentColor"/></svg>`,
 };

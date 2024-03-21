@@ -44,7 +44,7 @@ import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 import { prizmIsTextOverflow$ } from '../../util';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsXmark } from '@prizm-ui/icons/full/source/xmark';
+import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-tabs',

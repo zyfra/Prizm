@@ -50,7 +50,7 @@ import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.componen
 import { prizmI18nInitWithKey } from '../../../services';
 import { PRIZM_SEARCH_TEXT } from '../../../tokens/i18n';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 // TODO create abstract select component and move to abstract common logic

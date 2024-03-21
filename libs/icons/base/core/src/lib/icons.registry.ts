@@ -31,7 +31,7 @@ export class PrizmIconsRegistry {
    * @param {PrizmIconsLoader} [loader] - An optional loader function to load the icon if it's not registered.
    * @returns {Observable<string | null>} An observable that emits the icon data or null if not found.
    */
-  public getIcon(name: string, loader?: PrizmIconsLoader): Observable<string | null> {
+  public getIcon(name: string, loader: PrizmIconsLoader | null = null): Observable<string | null> {
     // Check if the icon is already in the registry.
     if (this.registry.has(name)) {
       // Return the icon data as an observable.

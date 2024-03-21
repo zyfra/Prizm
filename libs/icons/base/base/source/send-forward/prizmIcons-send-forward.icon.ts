@@ -4,5 +4,5 @@ export const prizmIconsSendForward: {
   data: string;
 } = {
   name: 'send-forward',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2C2.89543 2 2 2.89543 2 4V16C2 17.1046 2.89543 18 4 18H16C17.1046 18 18 17.1046 18 16V4C18 2.89543 17.1046 2 16 2H4ZM4 4L16 4V16H4V4ZM22 7C22 6.44772 21.5523 6 21 6C20.4477 6 20 6.44772 20 7V20H7C6.44772 20 6 20.4477 6 21C6 21.5523 6.44772 22 7 22H20C21.1046 22 22 21.1046 22 20V7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4Zm0 2h12v12H4V4Zm18 3a1 1 0 1 0-2 0v13H7a1 1 0 1 0 0 2h13a2 2 0 0 0 2-2V7Z" fill="currentColor"/></svg>`,
 };

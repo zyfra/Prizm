@@ -4,5 +4,5 @@ export const prizmIconsTempEditorDiscreteSet: {
   data: string;
 } = {
   name: 'temp-editor-discrete-set',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_6095_119)"><rect x="1" y="1" width="14" height="3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><rect x="1" y="12" width="14" height="3" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M13.3333 6.66666L14.6667 8M13.3333 6.66666L12 8M13.3333 6.66666V9.33333" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="M2.33333 9.33334L3.66667 8M2.33333 9.33334L1 8M2.33333 9.33334V6.66667" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></g><defs><clipPath id="clip0_6095_119"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1h14v3H1zM1 12h14v3H1zM13.333 6.667 14.667 8m-1.334-1.333L12 8m1.333-1.333v2.666M2.333 9.333 3.667 8M2.333 9.333 1 8m1.333 1.333V6.667"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
 };

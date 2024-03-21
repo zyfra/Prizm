@@ -4,5 +4,5 @@ export const prizmIconsEraser: {
   data: string;
 } = {
   name: 'eraser',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_389_13038)"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.90911 0.646447C9.71385 0.451184 9.39726 0.451184 9.202 0.646447L0.646447 9.202C0.451184 9.39726 0.451184 9.71385 0.646447 9.90911L6.09089 15.3536C6.28615 15.5488 6.60274 15.5488 6.798 15.3536L15.3536 6.798C15.5488 6.60274 15.5488 6.28615 15.3536 6.09089L9.90911 0.646447ZM6.44444 14.2929L1.70711 9.55556L3.77778 7.48488L8.51512 12.2222L6.44444 14.2929ZM9.22222 11.5151L14.2929 6.44444L9.55556 1.70711L4.48488 6.77778L9.22222 11.5151Z" fill="currentColor"/></g><defs><clipPath id="clip0_389_13038"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.91.646a.5.5 0 0 0-.708 0L.646 9.202a.5.5 0 0 0 0 .707l5.445 5.445a.5.5 0 0 0 .707 0l8.556-8.556a.5.5 0 0 0 0-.707L9.909.646ZM6.443 14.293 1.707 9.556l2.07-2.071 4.738 4.737-2.07 2.07Zm2.778-2.778 5.07-5.07-4.736-4.738-5.071 5.07 4.737 4.738Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
 };

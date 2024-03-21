@@ -4,5 +4,5 @@ export const prizmIconsCarouselFill: {
   data: string;
 } = {
   name: 'carousel-fill',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4C8 3.44772 8.44772 3 9 3H15C15.5523 3 16 3.44772 16 4V20C16 20.5523 15.5523 21 15 21H9C8.44772 21 8 20.5523 8 20V4ZM18 7C18 6.44772 18.4477 6 19 6H20C20.5523 6 21 6.44772 21 7V17C21 17.5523 20.5523 18 20 18H19C18.4477 18 18 17.5523 18 17V7ZM4 6C3.44772 6 3 6.44772 3 7V17C3 17.5523 3.44772 18 4 18H5C5.55228 18 6 17.5523 6 17V7C6 6.44772 5.55228 6 5 6H4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V4Zm10 3a1 1 0 0 1 1-1h1a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1h-1a1 1 0 0 1-1-1V7ZM4 6a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h1a1 1 0 0 0 1-1V7a1 1 0 0 0-1-1H4Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsClockLineEnd: {
   data: string;
 } = {
   name: 'clock-line-end',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C9.23858 4 7 6.23858 7 9C7 11.7614 9.23858 14 12 14C14.7614 14 17 11.7614 17 9C17 6.23858 14.7614 4 12 4ZM5 9C5 5.13401 8.13401 2 12 2C15.866 2 19 5.13401 19 9C19 12.866 15.866 16 12 16C8.13401 16 5 12.866 5 9ZM12 6C12.5523 6 13 6.44772 13 7V8H14C14.5523 8 15 8.44772 15 9C15 9.55228 14.5523 10 14 10H13C11.8954 10 11 9.10457 11 8V7C11 6.44772 11.4477 6 12 6ZM19 17C19 16.4477 18.5523 16 18 16C17.4477 16 17 16.4477 17 17V18H6C5.44772 18 5 18.4477 5 19C5 19.5523 5.44772 20 6 20H17V21C17 21.5523 17.4477 22 18 22C18.5523 22 19 21.5523 19 21V19V17Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9Zm7-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1Zm7 11a1 1 0 1 0-2 0v1H6a1 1 0 1 0 0 2h11v1a1 1 0 1 0 2 0v-4Z" fill="currentColor"/></svg>`,
 };

@@ -4,5 +4,5 @@ export const prizmIconsReturn: {
   data: string;
 } = {
   name: 'return',
-  data: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.9998 8.00003C11.9998 6.35194 10.1183 5.41118 8.79984 6.40003L3.4665 10.4C2.39984 11.2 2.39984 12.8 3.4665 13.6L8.79984 17.6C10.1183 18.5889 11.9998 17.6481 11.9998 16V14L16.7998 17.6C18.1183 18.5889 19.9998 17.6481 19.9998 16V8.00003C19.9998 6.35194 18.1183 5.41118 16.7998 6.40003L11.9998 10V8.00003ZM4.6665 12L9.99984 8.00003V16L4.6665 12ZM12.6665 12L17.9998 8.00003V16L12.6665 12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 8c0-1.648-1.882-2.589-3.2-1.6l-5.334 4a2 2 0 0 0 0 3.2l5.334 4c1.318.989 3.2.048 3.2-1.6v-2l4.8 3.6c1.318.989 3.2.048 3.2-1.6V8c0-1.648-1.882-2.589-3.2-1.6L12 10V8Zm-7.333 4L10 8v8l-5.333-4Zm8 0L18 8v8l-5.334-4Z" fill="currentColor"/></svg>`,
 };

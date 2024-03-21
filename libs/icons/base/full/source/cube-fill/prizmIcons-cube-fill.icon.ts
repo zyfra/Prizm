@@ -4,5 +4,5 @@ export const prizmIconsCubeFill: {
   data: string;
 } = {
   name: 'cube-fill',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.67082 0.776401C8.24853 0.565256 7.75147 0.565255 7.32918 0.776401L2.32918 3.2764C1.821 3.53049 1.5 4.04988 1.5 4.61804V11.382C1.5 11.9501 1.821 12.4695 2.32918 12.7236L7.32918 15.2236C7.75147 15.4348 8.24853 15.4348 8.67082 15.2236L13.6708 12.7236C14.179 12.4695 14.5 11.9501 14.5 11.382V4.61804C14.5 4.04988 14.179 3.53049 13.6708 3.2764L8.67082 0.776401ZM4 4.99916L8 2.99916L12 4.99916L8 6.99916L4 4.99916Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.67.776a1.5 1.5 0 0 0-1.34 0l-5 2.5a1.5 1.5 0 0 0-.83 1.342v6.764a1.5 1.5 0 0 0 .83 1.342l5 2.5a1.5 1.5 0 0 0 1.34 0l5-2.5a1.5 1.5 0 0 0 .83-1.342V4.618a1.5 1.5 0 0 0-.83-1.342l-5-2.5ZM4 5l4-2 4 2-4 2-4-2Z" fill="currentColor"/></svg>`,
 };

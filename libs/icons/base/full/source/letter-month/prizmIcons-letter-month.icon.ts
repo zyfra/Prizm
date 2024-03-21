@@ -4,5 +4,5 @@ export const prizmIconsLetterMonth: {
   data: string;
 } = {
   name: 'letter-month',
-  data: `<svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 1H3.33884L7.94421 12.3242H8.05578L12.6612 1H14V14H12.9091V3.50732H12.8099L8.52686 14H7.47314L3.19008 3.50732H3.09091V14H2V1Z" fill="#6E778C"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M2 1h1.339l4.605 11.324h.112L12.66 1H14v13h-1.09V3.507h-.1L8.527 14H7.473L3.19 3.507h-.1V14H2V1Z" fill="currentColor"/></svg>`,
 };
