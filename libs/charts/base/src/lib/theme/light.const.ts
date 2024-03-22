@@ -26,7 +26,6 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   prizm: {
     components: {
       bar: {
-        color: PRIZM_CHART_LIGHT_THEME_DATA_COLORS,
         xAxis: {
           minTickInterval: 10,
           grid: {
@@ -712,11 +711,11 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   },
   overflowLabels: {
     style: {
-      fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
+      fill: '#FFFFFF',
       fontSize: 12,
       fontFamily:
         '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-      stroke: '#FFFFFF',
+      stroke: null,
       lineWidth: 1,
     },
   },
@@ -734,40 +733,8 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   'circle-axis-subTick-line': false,
   'radius-axis-subTick-line': false,
   styleSheet: {
-    brandColor: 'rgba(51, 126, 255, 1)',
-    paletteQualitative10: [
-      'rgba(51, 126, 255, 1)',
-      'rgba(241, 65, 65, 1)',
-      'rgba(73, 171, 77, 1)',
-      'rgba(255, 124, 10, 1)',
-      'rgba(192, 90, 255, 1)',
-      'rgba(162, 226, 255, 1)',
-      'rgba(130, 253, 231, 1)',
-      'rgba(255, 208, 41, 1)',
-      'rgba(161, 165, 183, 1)',
-      'rgba(255, 140, 188, 1)',
-    ],
-    paletteQualitative20: [
-      '#5B8FF9',
-      '#CDDDFD',
-      '#5AD8A6',
-      '#CDF3E4',
-      '#5D7092',
-      '#CED4DE',
-      '#F6BD16',
-      '#FCEBB9',
-      '#6F5EF9',
-      '#D3CEFD',
-      '#6DC8EC',
-      '#D3EEF9',
-      '#945FB9',
-      '#DECFEA',
-      '#FF9845',
-      '#FFE0C7',
-      '#1E9493',
-      '#BBDEDE',
-      '#FF99C3',
-      '#FFE0ED',
-    ],
+    brandColor: PRIZM_CHART_LIGHT_THEME_DATA_COLORS[0],
+    paletteQualitative10: PRIZM_CHART_LIGHT_THEME_DATA_COLORS,
+    paletteQualitative20: PRIZM_CHART_LIGHT_THEME_DATA_COLORS,
   },
 };
