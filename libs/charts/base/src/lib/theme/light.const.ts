@@ -1,18 +1,46 @@
 import { PrizmChartThemeObject } from './types';
 
+export const PRIZM_CHART_LIGHT_THEME_DATA_COLORS = [
+  '#336666',
+  '#9933FF',
+  '#3366CC',
+  '#606580',
+  '#996600',
+  '#CC3366',
+  '#003300',
+  '#990099',
+  '#6633FF',
+  '#663333',
+  '#666600',
+];
+
+export const PRIZM_LIGHT_THEME_AXIS_COLOR = '#c3c7cf';
+
+export const PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY = '#3f4759';
+
+export const PRIZM_LIGHT_THEME_TEXT_COLOR_DISABLE = '#a7acb8';
+
+export const PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY = '#ffffff';
+
 export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   prizm: {
     components: {
       bar: {
-        color: ['#AD52BC', '#00BCD4', '#337EFF'],
         xAxis: {
+          minTickInterval: 10,
           grid: {
             line: {
               style: {
-                stroke: '#A1A5B7',
+                stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               },
             },
           },
+          line: {
+            style: {
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
+            },
+          },
+          range: [0, 1],
         },
       },
       area: {
@@ -21,13 +49,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           grid: {
             line: {
               style: {
-                stroke: '#A1A5B7',
+                stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#A1A5B7',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
             },
           },
           range: [0, 1],
@@ -37,13 +65,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           grid: {
             line: {
               style: {
-                stroke: '#A1A5B7',
+                stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#A1A5B7',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
             },
           },
           range: [0, 1],
@@ -55,13 +83,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           grid: {
             line: {
               style: {
-                stroke: '#A1A5B7',
+                stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#A1A5B7',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
             },
           },
           range: [0, 1],
@@ -71,13 +99,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           grid: {
             line: {
               style: {
-                stroke: '#A1A5B7',
+                stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#A1A5B7',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
             },
           },
           range: [0, 1],
@@ -85,10 +113,11 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       },
     },
   },
-  background: '#ffffff',
+  background: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
+  // TODO: reseacrh why this subColor here #dr
   subColor: 'rgba(214, 219, 231, 1)',
-  semanticRed: 'rgba(241, 65, 65, 1)',
-  semanticGreen: 'rgba(73, 171, 77, 1)',
+  semanticRed: '#CC0000',
+  semanticGreen: '#006600',
   padding: 'auto',
   fontFamily:
     '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
@@ -97,6 +126,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   minColumnWidth: null,
   roseWidthRatio: 0.9999999,
   multiplePieWidthRatio: 0.7692307692307692,
+  // TODO: reseacrh why this colors here #dr
   sequenceColors: [
     '#B8E1FF',
     '#9AC5FF',
@@ -143,7 +173,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           position: 'center',
           spacing: 12,
           style: {
-            fill: '#595959',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             fontSize: 12,
             lineHeight: 12,
             textBaseline: 'middle',
@@ -162,7 +192,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           },
           offset: 8,
           style: {
-            fill: 'rgba(80, 84, 107, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             fontSize: 12,
             lineHeight: 12,
             fontFamily:
@@ -172,14 +202,14 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         line: {
           style: {
             lineWidth: 1,
-            stroke: 'rgba(191, 198, 215, 1)',
+            stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
           },
         },
         grid: {
           line: {
             type: 'line',
             style: {
-              stroke: '#A1A5B7',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               lineWidth: 1,
               lineDash: null,
             },
@@ -187,21 +217,18 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           alignTick: true,
           animate: true,
         },
-        tickLine: {
-          style: {
-            lineWidth: 1,
-            stroke: 'rgba(191, 198, 215, 1)',
-          },
-          alignTick: true,
-          length: 4,
-        },
+        tickLine: null,
         subTickLine: null,
         animate: true,
       },
       top: {
         position: 'top',
         grid: null,
-        title: null,
+        title: {
+          style: {
+            fontSize: 12,
+          },
+        },
         verticalLimitLength: 0.5,
       },
       bottom: {
@@ -216,14 +243,22 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       },
       left: {
         position: 'left',
-        title: null,
+        title: {
+          style: {
+            fontSize: 12,
+          },
+        },
         line: null,
         tickLine: null,
         verticalLimitLength: 0.3333333333333333,
       },
       right: {
         position: 'right',
-        title: null,
+        title: {
+          style: {
+            fontSize: 12,
+          },
+        },
         line: null,
         tickLine: null,
         verticalLimitLength: 0.3333333333333333,
@@ -234,7 +269,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           line: {
             type: 'line',
             style: {
-              stroke: 'rgba(80, 84, 107, 1)',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               lineWidth: 1,
               lineDash: null,
             },
@@ -249,7 +284,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         },
         tickLine: {
           style: {
-            stroke: 'rgba(80, 84, 107, 1)',
+            stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
           },
         },
       },
@@ -257,14 +292,14 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         title: {
           style: {
             fontSize: 0,
-            fill: 'rgba(80, 84, 107, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         grid: {
           line: {
             type: 'circle',
             style: {
-              stroke: 'rgba(80, 84, 107, 1)',
+              stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
               lineWidth: 1,
               lineDash: null,
             },
@@ -274,7 +309,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         },
         label: {
           style: {
-            fill: 'rgba(80, 84, 107, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
           },
         },
       },
@@ -287,13 +322,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           spacing: 4,
           style: {
             r: 4,
-            fill: '#5B8FF9',
+            fill: '#4075FF',
           },
         },
         itemName: {
           spacing: 5,
           style: {
-            fill: 'rgba(32, 34, 43, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             fontFamily:
               '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
             fontSize: 12,
@@ -311,16 +346,16 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           },
           unchecked: {
             nameStyle: {
-              fill: '#D8D8D8',
+              fill: PRIZM_LIGHT_THEME_TEXT_COLOR_DISABLE,
             },
             markerStyle: {
-              fill: '#D8D8D8',
-              stroke: '#D8D8D8',
+              fill: PRIZM_LIGHT_THEME_TEXT_COLOR_DISABLE,
+              stroke: PRIZM_LIGHT_THEME_TEXT_COLOR_DISABLE,
             },
           },
           inactive: {
             nameStyle: {
-              fill: '#D8D8D8',
+              fill: PRIZM_LIGHT_THEME_TEXT_COLOR_DISABLE,
             },
             markerStyle: {
               opacity: 0.2,
@@ -332,15 +367,15 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           marker: {
             style: {
               size: 12,
-              inactiveFill: 'rgba(119, 123, 146, 0.3)',
+              inactiveFill: '#f3f4f5',
               inactiveOpacity: 12,
-              fill: 'rgba(119, 123, 146, 1)',
+              fill: '#6e778c',
               opacity: 1,
             },
           },
           text: {
             style: {
-              fill: 'rgba(80, 84, 107, 1)',
+              fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
               fontSize: 12,
             },
           },
@@ -377,7 +412,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           size: 12,
           defaultLength: 100,
           style: {
-            fill: 'rgba(80, 84, 107, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             stroke: null,
             lineWidth: 0,
           },
@@ -387,7 +422,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           spacing: 12,
           formatter: null,
           style: {
-            fill: 'rgba(80, 84, 107, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             fontSize: 12,
             lineHeight: 16,
             textBaseline: 'middle',
@@ -398,8 +433,8 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         handler: {
           size: 8,
           style: {
-            fill: 'rgba(80, 84, 107, 1)',
-            stroke: 'rgba(80, 84, 107, 1)',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
+            stroke: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         slidable: true,
@@ -416,7 +451,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       position: 'auto',
       marker: {
         symbol: 'circle',
-        stroke: 'rgba(19, 21, 28, 1)',
+        stroke: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
         shadowBlur: 10,
         shadowOffsetX: 0,
         shadowOffsetY: 0,
@@ -447,11 +482,11 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           position: 'absolute',
           visibility: 'hidden',
           zIndex: 8,
-          boxShadow: '0px -2px 4px var(--prizm-shadow)',
+          boxShadow: 'var(--prizm-shadow-big-bottom)',
           transition:
             'left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s',
-          backgroundColor: 'var(--prizm-grey-g3-g11)',
-          color: 'var(--prizm-grey-g12-g2)',
+          backgroundColor: 'var(--prizm-background-fill-overlay)',
+          color: 'var(--prizm-text-icon-primary)',
           overflow: 'hidden',
           fontFamily: 'Inter',
           opacity: 0.95,
@@ -476,6 +511,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           marginTop: '12px',
           marginLeft: 0,
           marginRight: 0,
+          color: 'var(--prizm-text-icon-secondary)',
         },
         'g2-tooltip-marker': {
           width: '8px',
@@ -494,14 +530,14 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
     annotation: {
       arc: {
         style: {
-          stroke: '#D9D9D9',
+          stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
           lineWidth: 1,
         },
         animate: true,
       },
       line: {
         style: {
-          stroke: '#BFBFBF',
+          stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
           lineDash: null,
           lineWidth: 1,
         },
@@ -509,7 +545,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           position: 'start',
           autoRotate: true,
           style: {
-            fill: '#595959',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             stroke: null,
             lineWidth: 0,
             fontSize: 12,
@@ -523,7 +559,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       },
       text: {
         style: {
-          fill: '#595959',
+          fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
           stroke: null,
           lineWidth: 0,
           fontSize: 12,
@@ -553,13 +589,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         point: {
           style: {
             r: 3,
-            stroke: '#5B8FF9',
+            stroke: '#4075FF',
             lineWidth: 2,
           },
         },
         line: {
           style: {
-            stroke: '#BFBFBF',
+            stroke: PRIZM_LIGHT_THEME_AXIS_COLOR,
             lineWidth: 1,
           },
           length: 16,
@@ -567,7 +603,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
         text: {
           style: {
             textAlign: 'start',
-            fill: '#595959',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             stroke: null,
             lineWidth: 0,
             fontSize: 12,
@@ -588,7 +624,7 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
           text: {
             textAlign: 'center',
             textBaseline: 'bottom',
-            fill: '#595959',
+            fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
             stroke: null,
             lineWidth: 0,
             fontSize: 12,
@@ -603,25 +639,25 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       common: {
         padding: [8, 8, 8, 8],
         backgroundStyle: {
-          fill: 'rgba(244, 246, 251, 1)',
+          fill: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
           opacity: 0.5,
         },
         foregroundStyle: {
-          fill: 'rgba(244, 246, 251, 1)',
+          fill: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
           opacity: 0.25,
         },
         handlerStyle: {
           width: 8,
           height: 24,
-          fill: 'rgba(244, 246, 251, 1)',
+          fill: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
           opacity: 1,
-          stroke: 'rgba(191, 198, 215, 1)',
+          stroke: '#6e778c',
           lineWidth: 1,
           radius: 2,
           highLightFill: '#FFF',
         },
         textStyle: {
-          fill: 'rgba(119, 123, 146, 1)',
+          fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
           opacity: 1,
           fontSize: 12,
           lineHeight: 12,
@@ -637,13 +673,13 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
       },
       default: {
         style: {
-          trackColor: 'rgba(244, 246, 251, 1)',
-          thumbColor: 'rgba(191, 198, 215, 1)',
+          trackColor: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
+          thumbColor: '#c3c7cf',
         },
       },
       hover: {
         style: {
-          thumbColor: 'rgba(119, 123, 146, 1)',
+          thumbColor: '#9ba1af',
         },
       },
     },
@@ -651,11 +687,11 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   labels: {
     offset: 12,
     style: {
-      fill: 'rgba(19, 21, 28, 1)',
+      fill: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
       fontSize: 12,
       fontFamily:
         '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-      stroke: 'rgba(244, 246, 251, 1)',
+      stroke: PRIZM_LIGHT_THEME_TEXT_COLOR_SECONDARY,
       lineWidth: null,
     },
     fillColorDark: '#2c3542',
@@ -675,11 +711,11 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   },
   overflowLabels: {
     style: {
-      fill: '#595959',
+      fill: '#FFFFFF',
       fontSize: 12,
       fontFamily:
         '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-      stroke: '#FFFFFF',
+      stroke: null,
       lineWidth: 1,
     },
   },
@@ -697,40 +733,8 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
   'circle-axis-subTick-line': false,
   'radius-axis-subTick-line': false,
   styleSheet: {
-    brandColor: 'rgba(51, 126, 255, 1)',
-    paletteQualitative10: [
-      'rgba(51, 126, 255, 1)',
-      'rgba(241, 65, 65, 1)',
-      'rgba(73, 171, 77, 1)',
-      'rgba(255, 124, 10, 1)',
-      'rgba(192, 90, 255, 1)',
-      'rgba(162, 226, 255, 1)',
-      'rgba(130, 253, 231, 1)',
-      'rgba(255, 208, 41, 1)',
-      'rgba(161, 165, 183, 1)',
-      'rgba(255, 140, 188, 1)',
-    ],
-    paletteQualitative20: [
-      '#5B8FF9',
-      '#CDDDFD',
-      '#5AD8A6',
-      '#CDF3E4',
-      '#5D7092',
-      '#CED4DE',
-      '#F6BD16',
-      '#FCEBB9',
-      '#6F5EF9',
-      '#D3CEFD',
-      '#6DC8EC',
-      '#D3EEF9',
-      '#945FB9',
-      '#DECFEA',
-      '#FF9845',
-      '#FFE0C7',
-      '#1E9493',
-      '#BBDEDE',
-      '#FF99C3',
-      '#FFE0ED',
-    ],
+    brandColor: PRIZM_CHART_LIGHT_THEME_DATA_COLORS[0],
+    paletteQualitative10: PRIZM_CHART_LIGHT_THEME_DATA_COLORS,
+    paletteQualitative20: PRIZM_CHART_LIGHT_THEME_DATA_COLORS,
   },
 };
