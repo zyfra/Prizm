@@ -38,7 +38,7 @@ export class PrizmChartsWaterfallExampleComponent {
       },
     },
     label: {
-      style: { fontSize: 10, fill: 'rgba(0,0,0,0.65)' },
+      style: { fontSize: 10 },
       layout: [{ type: 'interval-adjust-position' }],
     },
     total: {
