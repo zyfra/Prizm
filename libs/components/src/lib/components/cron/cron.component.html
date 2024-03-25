@@ -49,7 +49,7 @@
     >
       <input
         #humarReadableElem
-        *prizmLet="$any(valueAsString$ | async) | prizmCronHumanReadable | async as humanReadableStr"
+        *prizmLet="$any(valueAsString$ | async) | prizmCronHumanReadable as humanReadableStr"
         [prizmHint]="humanReadableStr"
         [readonly]="true"
         [prizmHintCanShow]="prizmIsTextOverflow(humarReadableElem.elementRef.nativeElement)"
