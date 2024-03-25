@@ -1,4 +1,4 @@
-.picker(@itemSize) {
+.picker(@itemWidth, @itemHeight) {
   :host {
     display: block;
     font: var(--prizm-font-text-m);
@@ -8,13 +8,17 @@
     .createStackingContext();
     display: flex;
     justify-content: space-between;
-    height: 2.25rem;
+    height: @itemHeight;
   }
 
   .z-item {
+    border: 1px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
     flex: 1;
-    line-height: 2rem;
+    height: @itemHeight;
     border-radius: 2px;
     color: var(--prizm-v3-text-icon-secondary);
     font-weight: 600;
@@ -37,13 +41,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: @itemSize;
+    width: @itemWidth;
     text-align: center;
     outline: none;
     cursor: pointer;
     background-clip: content-box;
     box-sizing: border-box;
-    border: 2px solid transparent;
 
     &_today {
       border-radius: 2px;
@@ -57,8 +60,9 @@
       }
 
       .z-item {
-        border: 1px solid var(--prizm-v3-button-primary-solid-default);
+        border-color: var(--prizm-v3-button-primary-solid-default);
         color: var(--prizm-v3-button-primary-solid-default);
+        width: @itemWidth;
 
         &_unavailable {
           color: var(--prizm-v3-text-icon-disable);
@@ -78,16 +82,16 @@
     }
 
     &_interval {
+      & > .z-item {
+        border-color: var(--prizm-v3-button-primary-ghost-active);
+      }
       &:before {
         background: var(--prizm-v3-button-primary-ghost-active);
+        border-radius: unset;
 
         :host._single & {
           background-color: var(--prizm-v3-button-primary-ghost-active);
         }
-      }
-
-      &:not(:last-child):before {
-        right: -@itemSize;
       }
 
       &:last-child:first-child:before {
@@ -108,11 +112,24 @@
         border-radius: 0;
         color: var(--prizm-v3-button-primary-solid-default);
       }
+
+      &[data-range='start'] > .z-item:before,
+      &[data-range='start'] > .z-item:after {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+
+      &[data-range='end'] > .z-item:before,
+      &[data-range='end'] > .z-item:after {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
     }
 
     &[data-range] {
       &:not([data-state='hovered']) > .z-item {
         color: var(--prizm-v3-text-icon-exception);
+        border-color: var(--prizm-v3-button-primary-solid-default);
 
         &:before,
         &:after {
@@ -123,6 +140,7 @@
       &[data-state='hovered'] > .z-item {
         background-color: var(--prizm-v3-button-ghost-hover);
         color: var(--prizm-v3-button-primary-solid-hover);
+        border-color: var(--prizm-v3-button-ghost-hover);
       }
 
       &[data-state='hovered'] > .z-item:before,
@@ -175,6 +193,7 @@
 
     &[data-state='hovered']:not([data-range]):not(.z-cell_today) > .z-item {
       background-color: var(--prizm-v3-button-ghost-hover);
+      border-color: var(--prizm-v3-button-ghost-hover);
       color: var(--prizm-v3-button-primary-solid-hover);
     }
 

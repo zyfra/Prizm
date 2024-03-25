@@ -20,6 +20,7 @@
         [max]="max"
         [initialItem]="year"
         [value]="value"
+        [rangeState]="rangeState"
         (yearClick)="onPickerYearClick($event)"
         automation-id="prizm-calendar__year"
       ></prizm-primitive-year-picker>
@@ -30,6 +31,7 @@
           [initialItem]="$any(clickedMonth)"
           [value]="value"
           [currentYear]="month.year"
+          [rangeState]="rangeState"
           (monthClick)="onPickerMonthClick($event)"
           automation-id="prizm-calendar__year"
         ></prizm-primitive-month-picker>
