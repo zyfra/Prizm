@@ -63,6 +63,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat: update tags for npm delpoy ci pipelines for v3 version (updated tags instead of latest, beta, next)
 - feat: update angular to 17 version
 - feat: update icons set
 - feat: i18n support for base input text of validation #1354 #1402
