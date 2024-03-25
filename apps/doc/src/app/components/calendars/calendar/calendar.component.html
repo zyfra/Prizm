@@ -15,6 +15,7 @@
         [prizmDocHostElement]="element"
         [value]="day"
         [showAdjacent]="showAdjacent"
+        [rangeState]="rangeState"
         (dayClick)="onDayClick($event)"
       ></prizm-calendar>
     </prizm-doc-demo>
@@ -97,6 +98,14 @@
         documentationPropertyMode="input"
       >
         Marker Handler
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="rangeState"
+        documentationPropertyType="PrizmRangeState"
+        documentationPropertyMode="input"
+      >
+        Range State
       </ng-template>
 
       <ng-template

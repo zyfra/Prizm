@@ -19,7 +19,8 @@
     icon="angle-left"
     appearance="secondary"
     [class.z-arrow_hidden]="leftComputedDisabled"
-    [title]="texts[0]"
+    [prizmHint]="texts[0]"
+    [prizmHintDirection]="'b'"
     [focusable]="false"
     (click)="onLeftClick()"
   ></button>
@@ -36,7 +37,8 @@
     icon="angle-right"
     [appearanceType]="mode"
     [class.z-arrow_hidden]="rightComputedDisabled"
-    [title]="texts[1]"
+    [prizmHint]="texts[1]"
+    [prizmHintDirection]="'b'"
     [focusable]="false"
     (click)="onRightClick()"
   ></button>

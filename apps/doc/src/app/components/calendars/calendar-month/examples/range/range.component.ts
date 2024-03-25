@@ -10,7 +10,7 @@ import { PrizmMonth, PrizmMonthRange } from '@prizm-ui/components';
 export class PrizmMonthExample2Component {
   value: PrizmMonthRange | null = null;
 
-  max = new PrizmMonth(2021, 7);
+  max = new PrizmMonth(2024, 3);
   min = new PrizmMonth(2019, 7);
 
   public onMonthClick(month: PrizmMonth): void {

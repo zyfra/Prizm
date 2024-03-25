@@ -1,11 +1,15 @@
 @import '../../../../styles/ui-local.less';
 
-@itemSize: 2.25rem;
+@itemSize: 40px;
 
-.picker(@itemSize);
+.picker(@itemSize, @itemSize);
 
 :host {
   width: @itemSize * 7;
+
+  .footer:not(:empty) {
+    margin-top: 8px;
+  }
 }
 
 .z-item {
@@ -63,7 +67,6 @@
   height: 4px;
   width: 50%;
   bottom: 4px;
-  transform: translateX(50%);
   border-radius: 2px;
   background-color: var(--prizm-status-day-color);
 
@@ -81,5 +84,16 @@
 
   &[data-prizm-status='success'] {
     background-color: var(--prizm-calendar-day-status-success, var(--prizm-status-success-primary-default));
+  }
+}
+
+[data-range='single']:not([data-state='hovered']) {
+  .z-status {
+    &[data-prizm-status='index'] {
+      background-color: var(
+        --prizm-calendar-day-status-secondary-default,
+        var(--prizm-status-info-secondary-default)
+      );
+    }
   }
 }
