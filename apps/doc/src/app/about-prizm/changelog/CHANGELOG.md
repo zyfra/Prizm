@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.16.0, 2.13.0, 3.12.0](https://github.com/zyfra/Prizm) (23-03-2023)
+
+## Features
+
+- feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs #1297
+- feat(components/checkbox): change the focus to focus-visible for checkbox #1297
+- feat(components/radio-button): change the focus to focus-visible for radio-button #1297
+- feat(components/chips): change the focus to focus-visible for chips #1297
+- feat(components/input-icon-button): change the focus to focus-visible for input-icon-button #1297
+- feat(components/slider): change the focus to focus-visible for slider cnob #1297
+- feat(components/stepper): change the focus to focus-visible for stepper button #1297
+- feat(components/input-icon-button): change the focus to focus-visible for toggle #1297
+- feat(components/input-icon-button): change the focus to focus-visible for button #1297
+- feat(docs/theme): add shadow color to docs #900
+
+### Bug fixes
+
+- fix(components/calendar): replace default 'title' attribute by prizm hint in calendar year pagination buttons #1457
+- fix(components/calendar-range): incorrect markup for year and month screens fix #1445
+- fix(components/input-layout-date-time): incorrect control markup fix #1242
+- fix(components/input-layout-date-time-range): incorrect control markup fix #1242
+- fix(components/calendar-month): incorrect control markup fix #1242
+- fix(components/calendar-range): single year should be highlighted in calendar range #1465
+- fix(components/calendar-range): single month should be highlighted in calendar range #1464
+- fix(components/calendar): index marker color blends with the background of the selected date #1461
+- fix(components/input-date-time-range): afte clear time values in calendar got error #1368
+- fix(components/input-date-time): min/max does not work correctly in InputLayoutDateTime #1421
+- fix(chore): stackblitz for v3 #1209
+- fix(docs/colors): fix documentation styles for dark theme
+- fix(components/file-upload) fileupload buttons incorrect gap #1482
+- fix(components/navigation-menu): hint icon margins added for navigation menu #1329
+
 ## [1.15.1, 2.12.1, 3.11.1](https://github.com/zyfra/Prizm) (19-02-2023)
 
 ### Bug fixes
