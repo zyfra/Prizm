@@ -26,7 +26,7 @@ All notable changes to this project will be documented in this file.
 - feat(icons): migrate lazy load icons functions to icons-loader
   now you can use lazy load function separately if you don't want to load all icons to your build
   but remember you need to inject our provider to active this mode
-  you can show [example](http://localhost:4200/components/icons#lazy) on our doc
+  you can find [example](http://localhost:4200/components/icons#lazy) on our doc
 - feat(icons): now you can load all icons at once, we update doc
 - feat(doc/icons): added more information easy to understand
 - feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs https://github.com/zyfra/Prizm/issues/1297
