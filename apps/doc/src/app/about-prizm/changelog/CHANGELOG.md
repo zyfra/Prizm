@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(doc): stackblitz for v4 version now available https://stackblitz.com/edit/prizm-v4-demo
 - feat(icons): migrate lazy load icons functions to icons-loader
   now you can use lazy load function separately if you don't want to load all icons to your build
   but remember you need to inject our provider to active this mode
