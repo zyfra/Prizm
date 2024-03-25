@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 
-//  You must all icons from common set
+//  You must import all icons from common set
 import * as allBaseIcons from '@prizm-ui/icons/base/source';
 import * as fullBaseIcons from '@prizm-ui/icons/full/source';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
