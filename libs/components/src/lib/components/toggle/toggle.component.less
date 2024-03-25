@@ -30,7 +30,7 @@
     }
   }
 
-  &:focus-within:not(._disabled) {
+  &:has(:focus-visible):not(._disabled) {
     box-shadow: 0 0 0 2px var(--prizm-v3-background-stroke-focus);
     transition: 0.3s;
   }
