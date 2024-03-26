@@ -162,10 +162,18 @@
       "executor": "local:icons-to-lazy",
       "options": {
         "pathToFolder": "libs/icons/base/base/source",
-        "pathToOutputFile": "libs/icons/base/base/lazy-icon-set.ts",
+        "pathToOutputFile": "libs/icons/base/base/lazy/icons.ts",
         "prefix": "prizmIcons-",
         "createNgPackage": true,
+        "addExportToSingleFile": true,
         "exportName": "PRIZM_ICONS_LAZY_SET",
+
+        "pathToOutputFolderWithNames": "libs/icons/base/base/names",
+        "exportNameWithNames": "PRIZM_ICONS_NAMES",
+
+        "pathToOutputFolderForArray": "libs/icons/base/base/set",
+        "generateArraySet": true,
+        "iconArraySetNameExportName": "PRIZM_ICONS_ARRAY",
 
         "generateIconSet": true,
         "iconSetNameExportName": "PRIZM_ICONS_SET",
@@ -177,10 +185,18 @@
       "executor": "local:icons-to-lazy",
       "options": {
         "pathToFolder": "libs/icons/base/full/source",
-        "pathToOutputFile": "libs/icons/base/full/lazy-icon-set.ts",
+        "pathToOutputFile": "libs/icons/base/full/lazy/icons.ts",
         "prefix": "prizmIcons-",
         "createNgPackage": true,
+        "addExportToSingleFile": true,
         "exportName": "PRIZM_ICONS_FULL_LAZY_SET",
+
+        "pathToOutputFolderWithNames": "libs/icons/base/full/names",
+        "exportNameWithNames": "PRIZM_FULL_ICONS_NAMES",
+
+        "pathToOutputFolderForArray": "libs/icons/base/full/set",
+        "generateArraySet": true,
+        "iconArraySetNameExportName": "PRIZM_ICONS_FULL_ARRAY",
 
         "generateIconSet": true,
         "iconSetNameExportName": "PRIZM_ICONS_FULL_SET",
