@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.1](https://github.com/zyfra/Prizm) (25-03-2024)
+
+### Bug fixes
+
+- fix(components/cron): switcher in cron returns incorrect value #1519
+
 ## [4.1.0](https://github.com/zyfra/Prizm) (25-03-2024)
 
 ### Bug fixes
