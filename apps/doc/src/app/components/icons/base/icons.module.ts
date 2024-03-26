@@ -17,6 +17,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 import { OldIconComponent } from './old/old-icon.component';
 import { PrizmIconsOldTransformerExampleComponent } from './examples/old-transformer/icons-old-transformer-example.component';
 import { AllIconComponent } from './all/all-icon.component';
+import { PrizmIconsAllExampleComponent } from './examples/all/icons-all-example.component';
 
 @NgModule({
   imports: [
@@ -27,6 +28,7 @@ import { AllIconComponent } from './all/all-icon.component';
     PrizmInputTextModule,
     PrizmIconsLazyExampleComponent,
     PrizmIconsBaseExampleComponent,
+    PrizmIconsAllExampleComponent,
     PrizmIconsComponent,
     PrizmIconsFullComponent,
     PrizmIconsOldTransformerExampleComponent,

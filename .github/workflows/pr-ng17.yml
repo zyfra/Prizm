@@ -49,7 +49,7 @@ jobs:
 
       - name: 'Increase max memory limit'
         run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: 'Set version 17'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v17
@@ -115,7 +115,7 @@ jobs:
 
       - name: 'Increase max memory limit'
         run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       #      - run: npx nx workspace-lint
       #      - run: npx nx clear-cache

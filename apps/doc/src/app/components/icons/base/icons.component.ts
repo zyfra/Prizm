@@ -27,6 +27,11 @@ export class IconsComponent {
     HTML: import('./examples/base/icons-base-example.component.html?raw'),
     CSS: import('./examples/base/icons-base-example.component.less?raw'),
   };
+  readonly exampleAll: TuiDocExample = {
+    TypeScript: import('./examples/all/icons-all-example.component.ts?raw'),
+    HTML: import('./examples/all/icons-all-example.component.html?raw'),
+    CSS: import('./examples/all/icons-all-example.component.less?raw'),
+  };
   readonly exampleOldName: TuiDocExample = {
     TypeScript: import('./examples/old-transformer/icons-old-transformer-example.component.ts?raw'),
     HTML: import('./examples/old-transformer/icons-old-transformer-example.component.html?raw'),

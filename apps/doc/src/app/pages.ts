@@ -1158,12 +1158,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     section: SectionNameEnglishEnum.components,
     title: 'Icons',
     subPages: [
-      {
-        title: 'Icon',
-        keywords: 'icon, deprecated',
-        route: '/components/old-icon',
-        status: 'deprecated',
-      },
+      // {
+      //   title: 'Icon',
+      //   keywords: 'icon, deprecated',
+      //   route: '/components/old-icon',
+      //   status: 'deprecated',
+      // },
       {
         title: 'Flags',
         keywords: 'icon, flags',

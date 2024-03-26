@@ -44,7 +44,7 @@ export function getPrizmOtherDeps(version: PrizmDocDemoMainVersion) {
       '@antv/g2plot': '^2.4.22',
       uuid: '^8.3.2',
 
-      marked: '4.0.0',
+      marked: '4.1.0',
       clipboard: '^2.0.11',
       prismjs: '1.29.0',
     };

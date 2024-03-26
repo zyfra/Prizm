@@ -33,6 +33,9 @@ export class PrizmIconsComponent extends PrizmAbstractTestId implements OnInit {
   private document = inject(DOCUMENT);
   private iconRegistry = inject(PrizmIconsRegistry);
   private element = inject(ElementRef);
+  /**
+   * @developer-preview
+   * */
   readonly nameTransformer = inject(PRIZM_ICONS_NAME_TRANSFORMER, {
     optional: true,
   });

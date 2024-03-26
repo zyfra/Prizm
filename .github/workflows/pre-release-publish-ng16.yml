@@ -52,12 +52,12 @@ jobs:
 
       - name: 'Increase max memory limit'
         run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            (npm view @prizm-ui/components versions --tag next --json 2>/dev/null || echo '3.10.0-next.0') | jq '([.[] | select(startswith("3.10.0-next"))] | last // "3.10.0-next.0")' 2>/dev/null || echo '3.10.0-next.0'
+            (npm view @prizm-ui/components versions --tag ng16next --json 2>/dev/null || echo '3.10.0-next.0') | jq '([.[] | select(startswith("3.10.0-next"))] | last // "3.10.0-next.0")' 2>/dev/null || echo '3.10.0-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
@@ -139,7 +139,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/components && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/components && npm publish --tag ng16next --access public --verbose
 
   publish-i18n:
     needs: build
@@ -166,7 +166,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/i18n && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/i18n && npm publish --tag ng16next --access public --verbose
 
   publish-helpers:
     needs: build
@@ -193,7 +193,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/helpers && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/helpers && npm publish --tag ng16next --access public --verbose
 
   publish-core:
     needs: build
@@ -219,7 +219,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/core && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/core && npm publish --tag ng16next --access public --verbose
 
   publish-theme:
     needs: build
@@ -246,7 +246,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/theme && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/theme && npm publish --tag ng16next --access public --verbose
 
   publish-icons:
     needs: build
@@ -273,7 +273,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/icons/base && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/icons/base && npm publish --tag ng16next --access public --verbose
 
   publish-flags:
     needs: build
@@ -300,7 +300,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/icons/flags && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/icons/flags && npm publish --tag ng16next --access public --verbose
 
   publish-plugin:
     needs: build
@@ -327,7 +327,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/plugin && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/plugin && npm publish --tag ng16next --access public --verbose
 
   publish-ast:
     needs: build
@@ -354,7 +354,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/ast && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/ast && npm publish --tag ng16next --access public --verbose
 
   publish-charts:
     needs: build
@@ -381,7 +381,7 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/charts && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/charts && npm publish --tag ng16next --access public --verbose
 
   publish-nxmv:
     needs: build
@@ -408,4 +408,4 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
-      - run: cd dist/libs/nxmv && npm publish --tag next --access public --verbose
+      - run: cd dist/libs/nxmv && npm publish --tag ng16next --access public --verbose

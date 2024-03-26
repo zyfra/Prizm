@@ -2,6 +2,133 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.0](https://github.com/zyfra/Prizm) (25-03-2024)
+
+### Bug fixes
+
+- fix(components/navigation-menu): hint icon margins added for navigation menu https://github.com/zyfra/Prizm/issues/1329
+- fix(components/calendar): replace default 'title' attribute by prizm hint in calendar year pagination buttons https://github.com/zyfra/Prizm/issues/1457
+- fix(components/calendar-range): incorrect markup for year and month screens fix https://github.com/zyfra/Prizm/issues/1445
+- fix(components/input-layout-date-time): incorrect control markup fix https://github.com/zyfra/Prizm/issues/1242
+- fix(components/input-layout-date-time-range): incorrect control markup fix https://github.com/zyfra/Prizm/issues/1242
+- fix(components/calendar-month): incorrect control markup fix https://github.com/zyfra/Prizm/issues/1242
+- fix(components/calendar-range): single year should be highlighted in calendar range https://github.com/zyfra/Prizm/issues/1465
+- fix(components/calendar-range): single month should be highlighted in calendar range https://github.com/zyfra/Prizm/issues/1464
+- fix(components/calendar): index marker color blends with the background of the selected date https://github.com/zyfra/Prizm/issues/1461
+- fix(components/file-upload) fileupload buttons incorrect gap https://github.com/zyfra/Prizm/issues/1482
+- fix(ci): increase max memory for gitlab ci pipelines
+- fix(ci): increase max memory for github actions pipelines
+- fix(ci): fix pipelines for 4.x version to build demo doc after created pr
+
+### Features
+
+- feat(doc): stackblitz for v4 version now available https://stackblitz.com/edit/prizm-v4-demo
+- feat(icons): migrate lazy load icons functions to icons-loader
+  now you can use lazy load function separately if you don't want to load all icons to your build
+  but remember you need to inject our provider to active this mode
+  you can find [example](http://localhost:4200/components/icons#lazy) on our doc
+- feat(icons): now you can load all icons at once, we update doc
+- feat(doc/icons): added more information easy to understand
+- feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs https://github.com/zyfra/Prizm/issues/1297
+- feat(components/checkbox): change the focus to focus-visible for checkbox https://github.com/zyfra/Prizm/issues/1297
+- feat(components/radio-button): change the focus to focus-visible for radio-button https://github.com/zyfra/Prizm/issues/1297
+- feat(components/chips): change the focus to focus-visible for chips https://github.com/zyfra/Prizm/issues/1297
+- feat(components/input-icon-button): change the focus to focus-visible for input-icon-button https://github.com/zyfra/Prizm/issues/1297
+- feat(components/slider): change the focus to focus-visible for slider cnob https://github.com/zyfra/Prizm/issues/1297
+- feat(components/stepper): change the focus to focus-visible for stepper button https://github.com/zyfra/Prizm/issues/1297
+- feat(components/input-icon-button): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
+- feat(components/input-icon-button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
+
+## [4.0.0](https://github.com/zyfra/Prizm) (11-03-2024)
+
+### Bug fixes
+
+- fix(doc/input-date-time): set static default time
+- fix(chore): stackblitz import style error #1209 #1410
+  @alexhawkins94 for check
+  https://stackblitz.com/edit/prizm-v3-demo-s2pfqz?file=src%2Fapp%2Fapp.component.ts
+- fix(components/date-time): time validation does not always affect control display #1419
+- fix(doc): when a hint appears, some storefront elements change theme #1407
+- fix(doc/input-date-multi): update currentIdx on changes on api page
+- fix(components/checkbox): removed unnecessary right margin for label-less checkboxes
+- fix(components/table): added hover and focus styles for cells containing `prizmInput` and `prizmInputLayout`
+- fix(components/panel): adjusted margins in `PrizmPanel` component
+- fix(components/inputs): layout update for Input Chips eliminates the need for additional margins
+- fix(components/inputs): removed default label from PrizmSelectOptions and PrizmMultiSelectOptions
+- fix(components/file-upload): `PrizmFileUploadOptions` interface updated, status names to be added via translations
+- fix(components/file-upload): added fields for file upload status translations in `PrizmLanguageFileUpload`
+- fix(i18n): added `search` field to `PrizmLanguageKit` for InputSelect and InputMultiSelect search translations
+- fix(components/input-date-time-range): afte clear time values in calendar got error #1368
+- fix(components/input-date-time): min/max does not work correctly in InputLayoutDateTime #1421
+
+### Features
+
+- feat: update tags for npm delpoy ci pipelines for v3 version (updated tags instead of latest, beta, next)
+- feat: update angular to 17 version
+- feat: update icons set
+- feat: i18n support for base input text of validation #1354 #1402
+- feat(ci): new action to deploy doc for angular with 17 version
+- feat(components/hint): add passing context as $implicit to templates #291
+- feat(components/tooltip): add passing context as $implicit to templates #291
+- feat(components/table): discuss extending hover and focus styles to other controls
+- feat(i18n): enhanced search translation support for InputSelect and InputMultiSelect
+
+### Breacking Changes
+
+#### Removed components
+
+- `input-date-time`
+- `input-date-time-range`
+- `input-time`
+- `input-date`
+- `input-month`
+- `input-month-range`
+- `input-date-range`
+- `input-date-relative`
+- `select`
+- `multi-select`
+- `carousel`
+
+These components will no longer be supported and a replacement must be found to find alternative components with input-layout.
+
+#### Theme
+
+- Legacy color tokens (v1, v2) have been completely removed. Mapping for new colors will be provided where possible. Colors without direct analogues in the new color scheme will require manual redefinition in projects.
+- Tokens with the prizm-v3 prefix have been replaced with prizm-
+
+#### Icons
+
+The `prizm-icon` component has been removed. Instead, a new set of icons has been introduced in the `prizm-icons` component, where the icons have new names. For each of the old icons, alternative names are provided. You can find a complete table of correspondence between old and new icon names at the link: https://prizm.site/components/icons/Old_Icons.
+
+The following components used the legacy icon component:
+
+- accordion
+- table
+- breadcrumbs
+- tabs
+- button
+- icon-button
+- split-button
+- primitive-spin-button
+- primitive-year-month-pagination
+- calendar-range
+- column-settings
+- toggle
+- input-select
+- input-multi-select
+  -file-upload
+- navigation-menu
+- indicator
+- input-icon-button
+- dropdown-host
+- tree
+- stepper
+- checkbox
+- tooltip
+  -paginator
+
+This means that when using the above components in your projects, you will need to either manually update the icon names to new ones, or use our service, which will automatically update the icon names to their new versions. Instructions for using this service are available at: https://prizm.site/components/icons#migrate-from-old-name.
+
 ## [4.0.0-next.2](https://github.com/zyfra/Prizm) (17-01-2024)
 
 ## Features

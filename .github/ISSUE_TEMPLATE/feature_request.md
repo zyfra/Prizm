@@ -12,6 +12,7 @@ assignees: ''
 - [ ] `@prizm-ui/components`
 - [ ] `@prizm-ui/install`
 - [ ] `@prizm-ui/icons`
+- [ ] `@prizm-ui/icons-loader`
 - [ ] `@prizm-ui/flag-icons`
 - [ ] `@prizm-ui/theme`
 - [ ] `@prizm-ui/charts`
