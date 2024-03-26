@@ -32,7 +32,7 @@ All notable changes to this project will be documented in this file.
 - feat(icons): migrate lazy load icons functions to icons-loader
   now you can use lazy load function separately if you don't want to load all icons to your build
   but remember you need to inject our provider to active this mode
-  you can find [example](http://localhost:4200/components/icons#lazy) on our doc
+  you can find [example](http://prizm.site/components/icons#lazy) on our doc
 - feat(icons): now you can load all icons at once, we update doc
 - feat(doc/icons): added more information easy to understand
 - feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs https://github.com/zyfra/Prizm/issues/1297
@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/stepper): change the focus to focus-visible for stepper button https://github.com/zyfra/Prizm/issues/1297
 - feat(components/toggle): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
 - feat(components/button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
+- feat(docs/theme): add shadow color to docs https://github.com/zyfra/Prizm/issues/900
 
 ## [4.0.0](https://github.com/zyfra/Prizm) (11-03-2024)
 
