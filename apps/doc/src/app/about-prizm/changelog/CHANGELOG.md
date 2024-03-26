@@ -42,8 +42,8 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-icon-button): change the focus to focus-visible for input-icon-button https://github.com/zyfra/Prizm/issues/1297
 - feat(components/slider): change the focus to focus-visible for slider cnob https://github.com/zyfra/Prizm/issues/1297
 - feat(components/stepper): change the focus to focus-visible for stepper button https://github.com/zyfra/Prizm/issues/1297
-- feat(components/input-icon-button): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
-- feat(components/input-icon-button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
+- feat(components/toggle): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
+- feat(components/button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
 
 ## [4.0.0](https://github.com/zyfra/Prizm) (11-03-2024)
 
