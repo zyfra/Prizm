@@ -13,8 +13,8 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-icon-button): change the focus to focus-visible for input-icon-button #1297
 - feat(components/slider): change the focus to focus-visible for slider cnob #1297
 - feat(components/stepper): change the focus to focus-visible for stepper button #1297
-- feat(components/input-icon-button): change the focus to focus-visible for toggle #1297
-- feat(components/input-icon-button): change the focus to focus-visible for button #1297
+- feat(components/toggle): change the focus to focus-visible for toggle #1297
+- feat(components/button): change the focus to focus-visible for button #1297
 - feat(docs/theme): add shadow color to docs #900
 
 ### Bug fixes
