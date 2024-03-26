@@ -33,7 +33,6 @@ All notable changes to this project will be documented in this file.
 - fix(docs/colors): fix documentation styles for dark theme
 - fix(components/file-upload) fileupload buttons incorrect gap #1482
 - fix(components/navigation-menu): hint icon margins added for navigation menu #1329
-- fix (components/cron): switcher used in Cron incorrectly displays selected tab #1494
 
 ## [1.15.1, 2.12.1, 3.11.1](https://github.com/zyfra/Prizm) (19-02-2023)
 
