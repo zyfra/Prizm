@@ -1,15 +1,14 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { INavigationTree } from '@prizm-ui/components';
 import { NAVIGATION_EXAMPLE } from './navigation-example.const';
-import { prizmIconsProvideOldNameTransformer } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-navigation-example',
   templateUrl: './navigation-example.component.html',
   styleUrls: ['./navigation-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [prizmIconsProvideOldNameTransformer()],
+  providers: [],
 })
 export class NavigationExampleComponent {
   public readonly exampleNavigationBasic: TuiDocExample = {

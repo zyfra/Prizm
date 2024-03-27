@@ -84,14 +84,6 @@ registerLocaleData(localeRu);
   ],
   declarations: [AppComponent],
   providers: [
-    /**
-     * use our loader for the get the full icons without having to register
-     * */
-    prizmIconsFullProvideLazyLoader(),
-    /**
-     * use our loader for the get the icons without having to register
-     * */
-    prizmIconsProvideLazyLoader(),
     ...prizmLanguageSwitcher(async lang => {
       if (lang === 'russian') return PRIZM_RUSSIAN_LANGUAGE;
       if (lang === 'english') return { ...PRIZM_ENGLISH_LANGUAGE };
