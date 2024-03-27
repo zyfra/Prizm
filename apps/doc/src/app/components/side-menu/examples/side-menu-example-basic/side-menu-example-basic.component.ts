@@ -1,4 +1,6 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsDeleteContent, prizmIconsEditorDown, prizmIconsFloppy } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-side-menu-example-basic',
@@ -34,5 +36,11 @@ export class SideMenuExampleBasicComponent {
 
   public toggleSideMenu(): void {
     this.isSideMenuOpened = !this.isSideMenuOpened;
+  }
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsEditorDown, prizmIconsDeleteContent, prizmIconsFloppy);
   }
 }
