@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.1.1](https://github.com/zyfra/Prizm) (27-03-2024)
+
+### Bug fixes
+
+- fix(components/cron): switcher in cron returns incorrect value #1519
+- fix(components/cron): fix(components/navigation-menu): add icons, remove transformer from doc #1521
+
 ## [4.1.0](https://github.com/zyfra/Prizm) (25-03-2024)
 
 ### Bug fixes
