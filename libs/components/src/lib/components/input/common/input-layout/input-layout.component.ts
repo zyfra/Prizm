@@ -24,6 +24,7 @@ import { isPolymorphPrimitive, PolymorphContent } from '../../../../directives/p
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmI18nService } from '../../../../services';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 export type PrizmInputLayoutClearButtonContext = {
   clear: (event: MouseEvent) => void;
@@ -44,7 +45,7 @@ export type PrizmInputLayoutClearButtonContext = {
   host: {
     class: 'prizm-input-layout',
   },
-  providers: [PrizmDestroyService, PrizmI18nService],
+  providers: [PrizmDestroyService, PrizmI18nService, prizmIconsFullProvideLazyLoader()],
 })
 export class PrizmInputLayoutComponent
   extends PrizmAbstractTestId
