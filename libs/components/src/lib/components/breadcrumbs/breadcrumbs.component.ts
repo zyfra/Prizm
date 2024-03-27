@@ -25,13 +25,14 @@ import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsChevronRight } from '@prizm-ui/icons/full/source';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 @Component({
   selector: 'prizm-breadcrumbs',
   templateUrl: './breadcrumbs.component.html',
   styleUrls: ['./breadcrumbs.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [PrizmDestroyService],
+  providers: [PrizmDestroyService, prizmIconsFullProvideLazyLoader()],
   standalone: true,
   imports: [CommonModule, PrizmDropdownHostModule, PrizmIconsFullComponent],
 })
