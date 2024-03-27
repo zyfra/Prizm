@@ -31,6 +31,7 @@ import { PrizmLoaderComponent } from '../loader';
 import { PrizmWrapperComponent } from '../../directives/wrapper/wrapper.component';
 import { PolymorphOutletDirective } from '../../directives/polymorph/directives/outlet';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -50,6 +51,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
   ],
   providers: [
     PrizmDestroyService,
+    prizmIconsFullProvideLazyLoader(),
     {
       provide: PRIZM_FOCUSABLE_ITEM_ACCESSOR,
       useExisting: forwardRef(() => PrizmButtonComponent),
