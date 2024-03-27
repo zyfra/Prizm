@@ -26,6 +26,8 @@ import { PrizmTableEmptyDirective } from './directives/empty.directive';
 import { PrizmTableRowInitDirective } from './directives/row-init.directive';
 import { PrizmTrDirective } from './tr/tr.directive';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { prizmIconsProvideLazyLoader } from '@prizm-ui/icons-loader';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 @NgModule({
   imports: [
@@ -81,6 +83,6 @@ import { PrizmIconsComponent } from '@prizm-ui/icons';
     SearchableContentComponent,
     SpaceNumberPipe,
   ],
-  providers: [DecimalPipe],
+  providers: [DecimalPipe, prizmIconsProvideLazyLoader(), prizmIconsFullProvideLazyLoader()],
 })
 export class PrizmTableModule {}
