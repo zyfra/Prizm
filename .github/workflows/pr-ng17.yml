@@ -1,10 +1,8 @@
-name: PR NG 16
+name: PR NG 17
 on:
-  workflow_dispatch:
-  workflow_call:
-#  pull_request_target:
-#    branches:
-#      - main
+  pull_request_target:
+    branches:
+      - main
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
@@ -28,14 +26,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
-      - name: 'Initial changes 16'
+      - name: 'Initial changes 17'
         run: |
-          cp -f package.json.ng16 package.json
-          cp -f package-lock.json.ng16 package-lock.json
+          cp -f package.json.ng17 package.json
+          cp -f package-lock.json.ng17 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -53,8 +51,8 @@ jobs:
         run: |
           export NODE_OPTIONS="--max_old_space_size=8192"
 
-      - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+      - name: 'Set version 17'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
 
       - name: 'Clears all the cached Nx artifacts and metadata '
         run: npx nx reset
@@ -62,13 +60,13 @@ jobs:
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
 
-      - name: 'Upload to Firebase HOSTING (ng16)'
+      - name: 'Upload to Firebase HOSTING (ng17)'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           expires: 5d
-          target: v3
+          target: v4
           projectId: prizmui
 
   lint_build_test:
@@ -94,14 +92,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
-      - name: 'Initial changes 16'
+      - name: 'Initial changes 17'
         run: |
-          cp -f package.json.ng16 package.json
-          cp -f package-lock.json.ng16 package-lock.json
+          cp -f package.json.ng17 package.json
+          cp -f package-lock.json.ng17 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -122,8 +120,8 @@ jobs:
       #      - run: npx nx workspace-lint
       #      - run: npx nx clear-cache
 
-      - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+      - name: 'Set version 17'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
 
       - name: 'Clears all the cached Nx artifacts and metadata '
         run: npx nx reset

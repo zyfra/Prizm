@@ -1,8 +1,10 @@
 name: PR NG 14
 on:
-  pull_request_target:
-    branches:
-      - main
+  workflow_dispatch:
+  workflow_call:
+#  pull_request_target:
+#    branches:
+#      - main
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
@@ -52,7 +54,7 @@ jobs:
 
       - name: 'Increase max memory limit'
         run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: 'Clears all the cached Nx artifacts and metadata '
         run: npx nx reset
@@ -115,7 +117,7 @@ jobs:
 
       - name: 'Increase max memory limit'
         run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       #      - run: npx nx workspace-lint
       #      - run: npx nx clear-cache

@@ -53,12 +53,12 @@ jobs:
 
       - name: 'Increase max memory limit'
         run: |
-          export NODE_OPTIONS="--max_old_space_size=4096"
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: Set up environment variables
         run: |
           last_v1_version=$(
-            echo '1.16.0'
+            echo '1.14.0'
           )
           echo "LAST_V1_VERSION=${last_v1_version}" >> $GITHUB_ENV
 
