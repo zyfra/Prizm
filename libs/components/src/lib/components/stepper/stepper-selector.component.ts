@@ -1,11 +1,22 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, HostBinding, Input, Output, QueryList, ViewChildren } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  HostBinding,
+  Input,
+  Output,
+  QueryList,
+  ViewChildren,
+  inject,
+} from '@angular/core';
 import { PrizmStepperSelectorItemDirective } from './stepper-selector-item.directive';
 import { PrizmStepperStepDirective } from './stepper-step.directive';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { prizmEmptyQueryList } from '@prizm-ui/helpers';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCircleCheckFill, prizmIconsCircleExclamationFill } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-stepper-selector',
@@ -31,6 +42,13 @@ export class PrizmStepperSelectorComponent extends PrizmAbstractTestId {
   @ViewChildren(PrizmStepperSelectorItemDirective)
   selectorItems: QueryList<PrizmStepperSelectorItemDirective> = prizmEmptyQueryList();
   override readonly testId_ = 'ui_stepper--selector';
+
+  private readonly iconsRegistry = inject(PrizmIconsRegistry);
+
+  constructor() {
+    super();
+    this.iconsRegistry.registerIcons(prizmIconsCircleCheckFill, prizmIconsCircleExclamationFill);
+  }
 
   public clickOnStep(index: number): void {
     if (this.currentStep !== index) {

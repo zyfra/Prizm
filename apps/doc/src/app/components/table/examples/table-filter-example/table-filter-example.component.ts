@@ -1,9 +1,11 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
 import { UntypedFormControl, UntypedFormGroup } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsFilter } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-table-filter-example',
@@ -36,4 +38,10 @@ export class TableFilterExampleComponent {
     }),
     startWith(this.products)
   );
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsFilter);
+  }
 }

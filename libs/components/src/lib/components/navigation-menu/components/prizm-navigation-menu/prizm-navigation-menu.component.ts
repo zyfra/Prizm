@@ -3,6 +3,7 @@ import {
   Component,
   ContentChildren,
   EventEmitter,
+  inject,
   Input,
   Output,
   QueryList,
@@ -36,6 +37,8 @@ import { PolymorphOutletDirective, PrizmHintDirective, PrizmHoveredDirective } f
 import { PrizmAccordionComponent } from '../../../accordion';
 import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
 import { prizmIsTextOverflow } from '../../../../util';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsGear8Edge, prizmIconsHouse } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-navigation-menu',
@@ -130,12 +133,15 @@ export class PrizmNavigationMenuComponent<
 
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   constructor(
     private menuService: PrizmNavigationMenuService<UserItem>,
     private destroy$: PrizmDestroyService
   ) {
     super();
     this.forwardEvents();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsGear8Edge, prizmIconsHouse);
   }
 
   public handleHomeClicked(): void {

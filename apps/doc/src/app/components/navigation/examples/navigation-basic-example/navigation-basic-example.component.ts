@@ -1,8 +1,14 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, inject } from '@angular/core';
 import { INavigationTree } from '@prizm-ui/components';
 import { NAVIGATION_EXAMPLE } from '../../navigation-example.const';
-import { map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsBars,
+  prizmIconsBatteryThreeQuarters,
+  prizmIconsList,
+  prizmIconsMusic,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-navigation-basic-example',
@@ -21,7 +27,16 @@ export class NavigationBasicExampleComponent {
 
   public readonly logo = 'assets/example/logo-dark.png';
 
-  constructor(private readonly themeSwitcher: PrizmThemeService) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(private readonly themeSwitcher: PrizmThemeService) {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsBars,
+      prizmIconsMusic,
+      prizmIconsList,
+      prizmIconsBatteryThreeQuarters
+    );
+  }
 
   public toggleNavigation(): void {
     this.openNavigation = !this.openNavigation;

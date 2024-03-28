@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
+  inject,
   Input,
   Output,
   TemplateRef,
@@ -16,6 +17,13 @@ import { PrizmHoveredModule } from '../../../../directives/hovered';
 import { PrizmHintDirective } from '../../../../directives';
 import { PrizmButtonComponent } from '../../../button';
 import { prizmIsTextOverflow } from '../../../../util';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsArrowTurnLeftUp,
+  prizmIconsArrowUpToDottedLine,
+  prizmIconsChevronDown,
+  prizmIconsChevronRight,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-navigation-menu-item',
@@ -48,6 +56,7 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
   @Input() mode!: ViewMode;
   @Input() showGoToButtons!: boolean;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;
   public isHovered = false;
 
@@ -63,5 +72,12 @@ export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {
 
   constructor(public cdr: ChangeDetectorRef) {
     super();
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsArrowTurnLeftUp,
+      prizmIconsArrowUpToDottedLine,
+      prizmIconsChevronDown,
+      prizmIconsChevronRight
+    );
   }
 }

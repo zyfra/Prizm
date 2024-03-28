@@ -1,15 +1,17 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { INavigationTree } from '@prizm-ui/components';
 import { NAVIGATION_EXAMPLE } from './navigation-example.const';
-import { prizmIconsProvideOldNameTransformer } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsBars, prizmIconsBatteryThreeQuarters, prizmIconsList } from '@prizm-ui/icons/full/source';
+import { prizmIconsMusic } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-navigation-example',
   templateUrl: './navigation-example.component.html',
   styleUrls: ['./navigation-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [prizmIconsProvideOldNameTransformer()],
+  providers: [],
 })
 export class NavigationExampleComponent {
   public readonly exampleNavigationBasic: TuiDocExample = {
@@ -23,4 +25,10 @@ export class NavigationExampleComponent {
 
   public navigationTree: INavigationTree[] = NAVIGATION_EXAMPLE;
   activeElement = NAVIGATION_EXAMPLE[1];
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsMusic, prizmIconsList, prizmIconsBatteryThreeQuarters);
+  }
 }

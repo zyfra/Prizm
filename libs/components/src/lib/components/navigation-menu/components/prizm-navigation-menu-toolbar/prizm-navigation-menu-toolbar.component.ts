@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, Input, TemplateRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, TemplateRef, inject } from '@angular/core';
 import { PrizmNavigationMenuSearchConfig, PrizmNavigationMenuToolbarConfig } from '../../interfaces';
 import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigation-menu-toolbar.service';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
@@ -6,6 +6,14 @@ import { CommonModule } from '@angular/common';
 import { PrizmNavigationMenuSearchComponent } from '../prizm-navigation-menu-search/prizm-navigation-menu-search.component';
 import { PrizmButtonModule } from '../../../button/button.module';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsChevronDownToDoubleLine,
+  prizmIconsEditorAlfavit,
+  prizmIconsFilesMode,
+  prizmIconsFolder,
+  prizmIconsMagnifyingGlass,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-navigation-menu-toolbar',
@@ -24,6 +32,8 @@ export class PrizmNavigationMenuToolbarComponent extends PrizmAbstractTestId {
 
   @Input() hideGroupAppearance!: boolean;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   get toolbarIsVisible(): boolean {
     return !this.hideGroupAppearance && this.toolbarConfig && Object.values(this.toolbarConfig).some(Boolean);
   }
@@ -31,5 +41,13 @@ export class PrizmNavigationMenuToolbarComponent extends PrizmAbstractTestId {
 
   constructor(public toolbarService: PrizmNavigationMenuToolbarService) {
     super();
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsFilesMode,
+      prizmIconsEditorAlfavit,
+      prizmIconsFolder,
+      prizmIconsChevronDownToDoubleLine,
+      prizmIconsMagnifyingGlass
+    );
   }
 }
