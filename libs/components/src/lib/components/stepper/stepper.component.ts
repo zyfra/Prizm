@@ -16,7 +16,6 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { PrizmStepperSelectorComponent } from './stepper-selector.component';
 import { prizmEmptyQueryList } from '@prizm-ui/helpers';
-import { prizmIconsProvideLazyLoader } from '@prizm-ui/icons-loader';
 
 @Component({
   selector: 'prizm-stepper',
@@ -29,7 +28,6 @@ import { prizmIconsProvideLazyLoader } from '@prizm-ui/icons-loader';
   },
   standalone: true,
   imports: [CommonModule, PrizmStepperSelectorComponent],
-  providers: [prizmIconsProvideLazyLoader()],
 })
 export class PrizmStepperComponent extends PrizmAbstractTestId implements AfterContentInit {
   @Input() title = '';

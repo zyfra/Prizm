@@ -7,6 +7,7 @@ import {
   ContentChildren,
   EventEmitter,
   forwardRef,
+  inject,
   Inject,
   Input,
   OnDestroy,
@@ -31,6 +32,8 @@ import { PrizmTableSorterService } from '../service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableDataSourceInput } from '../table.types';
 import { PrizmTrComponent } from '../tr/tr.component';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -147,6 +150,8 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
     end: Number.MAX_VALUE,
   });
 
+  private readonly iconsRegistry = inject(PrizmIconsRegistry);
+
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
     readonly table: PrizmTableDirective<T>,
@@ -154,7 +159,9 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
     public readonly tableTreeService: PrizmTableTreeService,
     private readonly destroy$: PrizmDestroyService,
     private changeDetectorRef: ChangeDetectorRef
-  ) {}
+  ) {
+    this.iconsRegistry.registerIcons(prizmIconsAngleRight);
+  }
 
   ngAfterViewInit(): void {
     this.table.tableService.tableMaxColspan$
