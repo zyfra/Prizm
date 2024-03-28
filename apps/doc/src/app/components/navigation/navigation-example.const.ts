@@ -3,7 +3,7 @@ import { INavigationTree } from '@prizm-ui/components';
 export const NAVIGATION_EXAMPLE: INavigationTree[] = [
   {
     title: 'Раздел 1',
-    icon: 'audio-music',
+    icon: 'music',
     children: [
       {
         title: 'Подраздел 1.1',
@@ -39,7 +39,7 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
   },
   {
     title: 'Раздел 2',
-    icon: 'files-method',
+    icon: 'list',
     isExpanded: true,
     children: [
       {
@@ -67,7 +67,7 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
   },
   {
     title: 'Раздел 3',
-    icon: 'battery-80',
+    icon: 'battery-three-quarters',
     children: [
       {
         title: 'Страница 1',
