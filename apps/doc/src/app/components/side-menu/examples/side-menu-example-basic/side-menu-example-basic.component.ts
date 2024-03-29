@@ -1,6 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsDeleteContent, prizmIconsEditorDown, prizmIconsFloppy } from '@prizm-ui/icons/full/source';
+import {
+  prizmIconsDeleteContent,
+  prizmIconsEditorDown,
+  prizmIconsFloppy,
+  prizmIconsPanelRight,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-side-menu-example-basic',
@@ -41,6 +46,11 @@ export class SideMenuExampleBasicComponent {
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor() {
-    this.iconsFullRegistry.registerIcons(prizmIconsEditorDown, prizmIconsDeleteContent, prizmIconsFloppy);
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsEditorDown,
+      prizmIconsDeleteContent,
+      prizmIconsFloppy,
+      prizmIconsPanelRight
+    );
   }
 }
