@@ -2,11 +2,13 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PolymorphContent, PrizmAppearance, PrizmAppearanceType, PrizmSize } from '@prizm-ui/components';
 import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 @Component({
   selector: 'prizm-button-example',
   templateUrl: './button.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [prizmIconsFullProvideLazyLoader()],
 })
 export class ButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
