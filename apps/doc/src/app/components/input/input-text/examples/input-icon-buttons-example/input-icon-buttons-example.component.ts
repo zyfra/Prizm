@@ -3,7 +3,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsArrowRotateRight,
   prizmIconsCirclePlus,
-  prizmIconsTempBadgesTagMultiple,
+  prizmIconsLabel,
 } from '@prizm-ui/icons/full/source';
 
 @Component({
@@ -16,10 +16,6 @@ export class InputIconButtonsExampleComponent {
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor() {
-    this.iconsFullRegistry.registerIcons(
-      prizmIconsCirclePlus,
-      prizmIconsArrowRotateRight,
-      prizmIconsTempBadgesTagMultiple
-    );
+    this.iconsFullRegistry.registerIcons(prizmIconsCirclePlus, prizmIconsArrowRotateRight, prizmIconsLabel);
   }
 }
