@@ -1,5 +1,6 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PrizmTabItem } from '@prizm-ui/components';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsLocationUser,
@@ -13,6 +14,7 @@ import {
   templateUrl: './tabs-example-in-panel.component.html',
   styleUrls: ['./tabs-example-in-panel.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [prizmIconsFullProvideLazyLoader()],
 })
 export class TabsExampleInPanelComponent {
   public tabs: PrizmTabItem[] = [
