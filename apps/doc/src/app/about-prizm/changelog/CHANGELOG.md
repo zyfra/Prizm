@@ -138,7 +138,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [4.0.0-next.2](https://github.com/zyfra/Prizm) (17-01-2024)
 
-## Features
+### Features
 
 - feat(doc): added ability to change current theme tokens
 - feat(theme): added export all token list with palette and base
@@ -146,7 +146,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
-## Features
+### Features
 
 - feat(doc): save current theme in local storage on change
 
@@ -158,22 +158,22 @@ This means that when using the above components in your projects, you will need 
 
 ## [4.0.0-rc.1](https://github.com/zyfra/Prizm) (15-01-2024)
 
-## Features
+### Features
 
 - feat(components): remove deprecation from complex modules #1271
 - feat(doc): language changer was added #1265
 - feat(doc): search by status (new|preview|deprecated) #1257
 
-## Bug fixes
+### Bug fixes
 
 - fix: check box extra margin #1189 #1193
 
-## Deprecations
+### Deprecations
 
 - chore(flag-icons): deprecated flag-icons #1267
 - chore(icons): deprecated prizm-icons-svg #1266
 
-## Breacking Changes
+### Breacking Changes
 
 - bc(components): carousel deleted #1258
 - bc(components): remove old themes and remove v3 prefix from new theme tokens #1270
@@ -214,7 +214,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
 
-## Features
+### Features
 
 - feat(components/navigation-menu): add hint to navigation menu items and titles when text overflows #1216, #1312
 - feat(components/accordion): add hint to accordion title when text overflows #1216, #1312
@@ -230,7 +230,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
-## Features
+### Features
 
 - feat(doc): save current theme in local storage on change
 
@@ -242,7 +242,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
-## Features
+### Features
 
 - feat(components/sticky): update on changes #1085
 - feat(component/event-zone): directive to standalone #1260 #1276
