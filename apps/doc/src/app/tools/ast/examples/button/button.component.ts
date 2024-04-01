@@ -58,9 +58,8 @@ export class PrizmAstBaseExampleComponent implements OnInit {
   //     },
   //   }
   // ];
-  readonly zyfraButtonHtml = `
-  <zyfra-button label='123' iconPos='left'></zyfra-button>
-  <zyfra-button (onFocus)='null'>Test</zyfra-button>
+  readonly zyfraButtonHtml = `<zyfra-button label='123' iconPos='left'></zyfra-button>
+<zyfra-button (onFocus)='null'>Test</zyfra-button>
 `;
   resultZyfraButtonHtml!: string;
 

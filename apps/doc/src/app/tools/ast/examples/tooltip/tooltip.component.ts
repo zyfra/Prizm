@@ -63,8 +63,7 @@ export class PrizmAstTooltipExampleComponent implements OnInit {
   //     },
   //   }
   // ];
-  readonly html = `
-<ng-template #someTemplate><span>Show me</span></div></ng-template>
+  readonly html = `<ng-template #someTemplate><span>Show me</span></div></ng-template>
 <button zyfraButton
     class="class"
     type="button"

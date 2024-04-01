@@ -49,8 +49,7 @@ export class PrizmAstSpinnerExampleComponent implements OnInit {
   //     },
   //   }
   // ];
-  readonly html = `
-<zyfra-spinner
+  readonly html = `<zyfra-spinner
   size="50px"
   color="success"
   [style]="{ opacity: 0.5 }"
