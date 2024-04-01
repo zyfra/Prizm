@@ -1,10 +1,12 @@
-import { ChangeDetectionStrategy, Component, forwardRef, HostBinding, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, forwardRef, HostBinding, inject, Inject } from '@angular/core';
 import { POLYMORPH_CONTEXT } from '../../../../directives';
 
 import { PRIZM_DEFAULT_TREE_CONTROLLER } from '../../misc/tree.constants';
 import { PrizmTreeController, PrizmTreeItemContext } from '../../misc/tree.interfaces';
 import { PRIZM_TREE_CONTROLLER } from '../../misc/tree.tokens';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsChevronDown, prizmIconsChevronRight } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-tree-item-content',
@@ -15,12 +17,16 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 export class PrizmTreeItemContentComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_tree_item_content';
 
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(POLYMORPH_CONTEXT) readonly context: PrizmTreeItemContext,
     @Inject(forwardRef(() => PRIZM_TREE_CONTROLLER))
     private readonly controller: PrizmTreeController
   ) {
     super();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsChevronDown, prizmIconsChevronRight);
   }
 
   public get isExpanded(): boolean {
