@@ -117,8 +117,7 @@ export class PrizmAstMultiSelectExampleComponent implements OnInit {
   //   },
   //
   // ];
-  readonly html = `
-<zyfra-multiselect
+  readonly html = `<zyfra-multiselect
   [(ngModel)]="model"
   [options]="cities"
   [optionLabel]="name"

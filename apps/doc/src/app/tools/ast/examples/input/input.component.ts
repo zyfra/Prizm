@@ -22,8 +22,7 @@ import { ZyfraInputTemplateTasks } from '@prizm-ui/ast/cb3-template-examples';
 })
 export class PrizmAstInputExampleComponent implements OnInit {
   readonly tasks: PrizmTemplateTask[] = ZyfraInputTemplateTasks;
-  readonly html = `
-<zyfra-input
+  readonly html = `<zyfra-input
   [id]="id"
   [type]="type"
   [(ngModel)]="ngModel"

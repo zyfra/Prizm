@@ -66,8 +66,7 @@ export class PrizmAstToggleButtonExampleComponent implements OnInit {
   //     },
   //   }
   // ];
-  readonly html = `
-<zyfra-toggle-button
+  readonly html = `<zyfra-toggle-button
   onLabel="onLabel"
   offLabel="offLabel"
   onIcon="onLabel"

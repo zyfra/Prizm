@@ -52,8 +52,7 @@ export class PrizmAstBreadcrumbExampleComponent implements OnInit {
   //   },
   //
   // ];
-  readonly html = `
-<zyfra-breadcrumb
+  readonly html = `<zyfra-breadcrumb
   [model]="items"
   [home]="home"
   [style]="style"

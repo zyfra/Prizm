@@ -23,8 +23,7 @@ import { ZyfraInputNumberTemplateTasks } from '@prizm-ui/ast/cb3-template-exampl
 export class PrizmAstInputNumberExampleComponent implements OnInit {
   readonly tasks: PrizmTemplateTask[] = ZyfraInputNumberTemplateTasks;
 
-  readonly html = `
-<zyfra-input-number
+  readonly html = `<zyfra-input-number
     [(ngModel)]="model"
     [formControl]="formControl"
     [formControlName]="formControlName"
