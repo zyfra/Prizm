@@ -7,7 +7,7 @@ import { PrizmCheckboxModule } from '@prizm-ui/components';
 @NgModule({
   imports: [
     // ...
-    PrizmCheckboxModuleModule,
+    PrizmCheckboxModule,
   ],
 })
 export class MyModule {}
