@@ -1,6 +1,13 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsCircleCheckEmpty,
+  prizmIconsPencil,
+  prizmIconsTrashEmpty,
+  prizmIconsXmark,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-table-editable-row-example',
@@ -15,6 +22,17 @@ export class TableEditableRowExampleComponent {
   public categories: string[] = [...new Set(this.products.map(i => i.category))];
   public updatedRow: ITableProduct | null = null;
   public currentEditableRow: ITableProduct | null = null;
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsPencil,
+      prizmIconsXmark,
+      prizmIconsCircleCheckEmpty,
+      prizmIconsTrashEmpty
+    );
+  }
 
   public onRowEditInit(item: ITableProduct): void {
     this.currentEditableRow = item;
