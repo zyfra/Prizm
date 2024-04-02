@@ -136,6 +136,10 @@ export const PRIZM_CHART_LIGHT_THEME: PrizmChartThemeObject = {
             },
           },
         },
+        pieStyle: {
+          lineWidth: 1,
+          stroke: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
+        },
       },
       'radial-bar': {
         interactions: [{ type: 'element-active' }],
