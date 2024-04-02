@@ -2,12 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.1.1](https://github.com/zyfra/Prizm) (27-03-2024)
+## [4.1.1](https://github.com/zyfra/Prizm) (03-04-2024)
 
 ### Bug fixes
 
 - fix(components/cron): switcher in cron returns incorrect value #1519
 - fix(components/navigation-menu): add icons, remove transformer from doc #1525
+- fix(components/icons): remove icons lazy loading for prizm components
+- fix(components/link): removed circular dependency. [BUG] @prizm-ui/components - PrizmLinkComponent imports itself (likely the cause that ng-mocks fails with SO error) #1535
 
 ## [4.1.0](https://github.com/zyfra/Prizm) (25-03-2024)
 
