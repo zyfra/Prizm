@@ -22,6 +22,8 @@ export const PRIZM_DARK_THEME_TEXT_COLOR_DISABLE = '#545f77';
 
 export const PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY = '#1e222a';
 
+export const PRIZM_DARK_THEME_STROKE_HOVER_COLOR = '#ffffff';
+
 export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
   prizm: {
     components: {
@@ -110,6 +112,42 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
             },
           },
           range: [0, 1],
+        },
+      },
+      waterfall: {
+        interactions: [{ type: 'element-active' }],
+        state: {
+          active: {
+            animate: { duration: 100, easing: 'easeLinear' },
+            style: {
+              lineWidth: 1,
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
+      pie: {
+        interactions: [{ type: 'element-active' }],
+        state: {
+          active: {
+            animate: { duration: 100, easing: 'easeLinear' },
+            style: {
+              lineWidth: 1,
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
+      'radial-bar': {
+        interactions: [{ type: 'element-active' }],
+        state: {
+          active: {
+            animate: { duration: 100, easing: 'easeLinear' },
+            style: {
+              lineWidth: 1,
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
         },
       },
     },
