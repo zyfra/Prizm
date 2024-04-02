@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrizmChartsBarOptions } from '@prizm-ui/charts';
 import { PrizmThemeService } from '@prizm-ui/theme';
 
 @Component({
@@ -106,6 +107,15 @@ export class PrizmChartsStackedBarExampleComponent {
       type: 'Bor',
     },
   ];
+
+  public label: PrizmChartsBarOptions['label'] = {
+    position: 'middle', // 'left', 'middle', 'right'
+    layout: [
+      { type: 'interval-adjust-position' },
+      { type: 'interval-hide-overlap' },
+      { type: 'adjust-color' },
+    ],
+  };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}
 }
