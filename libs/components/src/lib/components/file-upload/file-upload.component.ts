@@ -37,6 +37,8 @@ import { PrizmButtonComponent } from '../button';
 import { PrizmProgressBarComponent } from '../progress';
 import { PrizmIconComponent } from '../icon';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
+import { PrizmFileNamePipe } from './pipes/file-name.pipe';
+import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 
 @Component({
@@ -47,6 +49,8 @@ import { PrizmFileSizePipe } from './pipes/file-size.pipe';
   imports: [
     CommonModule,
     PrizmUploadStatusPipe,
+    PrizmFileNamePipe,
+    PrizmFileExtensionPipe,
     PrizmFileSizePipe,
     PrizmSanitizerPipe,
     PrizmPluckPipe,
