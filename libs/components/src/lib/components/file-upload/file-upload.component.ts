@@ -36,6 +36,8 @@ import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../button';
 import { PrizmProgressBarComponent } from '../progress';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
+import { PrizmFileNamePipe } from './pipes/file-name.pipe';
+import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
@@ -48,6 +50,8 @@ import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
   imports: [
     CommonModule,
     PrizmUploadStatusPipe,
+    PrizmFileNamePipe,
+    PrizmFileExtensionPipe,
     PrizmFileSizePipe,
     PrizmSanitizerPipe,
     PrizmPluckPipe,
