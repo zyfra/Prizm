@@ -23,7 +23,7 @@
     background-color: var(--prizm-v3-form-active);
   }
 
-  &:hover:not(._disabled) {
+  &:hover:not(._disabled):not(._loading) {
     prizm-wrapper {
       background-color: var(--prizm-v3-form-active-hover);
       transition: 0.3s;
@@ -45,8 +45,11 @@
       color: var(--prizm-v3-text-icon-tertiary);
     }
 
-    &:hover:not(._disabled) {
+    &:hover:not(._disabled):not(._loading) {
       outline: 1px solid var(--prizm-v3-form-stroke-hover);
+    }
+
+    &:hover:not(._disabled) {
       prizm-wrapper {
         background-color: var(--prizm-v3-form-fill-default);
       }
