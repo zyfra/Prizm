@@ -47,8 +47,8 @@
         </ng-template>
       </div>
 
-      <div class="file__info">
-        <span class="file__name">{{ item.key | prizmFileName }}</span>
+      <div class="file__info" [prizmHint]="item.key" [prizmHintCanShow]="prizmIsTextOverflow(fileName)">
+        <span class="file__name" #fileName>{{ item.key | prizmFileName }}</span>
         <span class="file__extension">{{ item.key | prizmFileExtension }}</span>
         <span class="file__size">{{ item.value.file.size | prizmFileSize }}</span>
       </div>
