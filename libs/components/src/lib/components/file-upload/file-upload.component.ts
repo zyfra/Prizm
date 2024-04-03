@@ -41,6 +41,8 @@ import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
+import { PrizmHintDirective } from '../../directives';
+import { prizmIsTextOverflow } from '../../util';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -59,6 +61,7 @@ import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
     PrizmProgressBarComponent,
     PrizmButtonComponent,
     PrizmIconsFullComponent,
+    PrizmHintDirective,
   ],
   standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
@@ -68,6 +71,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
 
   override readonly testId_ = 'ui_file_upload';
   readonly icon = prizmIconsFileEmpty;
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
   constructor(
