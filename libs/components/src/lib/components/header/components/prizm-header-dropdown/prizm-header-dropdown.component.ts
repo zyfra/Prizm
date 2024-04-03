@@ -9,6 +9,7 @@ import { PrizmHintDirective } from '../../../../directives';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsFolder } from '@prizm-ui/icons/full/source';
 import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-header-dropdown',
@@ -35,6 +36,8 @@ export class PrizmHeaderDropdownComponent {
   readonly iconFilesFolder = prizmIconsFolder;
 
   readonly iconAngleRight = prizmIconsAngleRight;
+
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
   public changeScreen(idx: number): void {
     if (this.currentScreenIdx === idx) return;
 

@@ -20,7 +20,15 @@
         class="screen__icon"
         [name]="data[currentScreenIdx]?.icon || iconFilesFolder.name"
       ></prizm-icons-full>
-      <span class="screen__title">{{ data[currentScreenIdx]?.title }}</span>
+      <span
+        class="screen__title"
+        #title
+        [prizmHint]="data[currentScreenIdx]?.title"
+        [prizmHintCanShow]="prizmIsTextOverflow(title)"
+        prizmHintDirection="b"
+      >
+        {{ data[currentScreenIdx]?.title }}
+      </span>
     </div>
     <!--    <prizm-icon class="dropdown__icon" iconClass="chevrons-menu-right"></prizm-icon>-->
     <prizm-icons-full class="dropdown__icon" [name]="iconAngleRight.name"></prizm-icons-full>
@@ -38,7 +46,14 @@
       <div class="screen">
         <!--        <prizm-icon class="screen__icon" [iconClass]="item?.icon || 'files-folder'"></prizm-icon>-->
         <prizm-icons-full class="screen__icon" [name]="item?.icon || iconFilesFolder.name"></prizm-icons-full>
-        <span class="screen__title">{{ item?.title }}</span>
+        <span
+          class="screen__title"
+          #title
+          [prizmHint]="item?.title"
+          [prizmHintCanShow]="prizmIsTextOverflow(title)"
+        >
+          {{ item?.title }}
+        </span>
       </div>
     </div>
   </prizm-data-list>

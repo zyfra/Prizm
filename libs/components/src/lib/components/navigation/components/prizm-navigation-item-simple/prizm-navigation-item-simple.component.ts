@@ -4,6 +4,7 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { ActiveNavigationItemService } from '../../services/active-navigation-item.service';
 import { map } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { prizmIsTextOverflow } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-navigation-item-simple',
@@ -17,6 +18,7 @@ export class PrizmNavigationItemSimpleComponent extends PrizmAbstractTestId {
   }
   @Input() public deep!: number;
   override readonly testId_ = 'ui_navigation--item-simple';
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   public data$: BehaviorSubject<INavigationTree | null> = new BehaviorSubject<INavigationTree | null>(null);
   public isActive$: Observable<boolean> = combineLatest([
