@@ -3,7 +3,15 @@
     <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? 8 + 16 * deep : 0">
       <prizm-icon [iconClass]="menuItem?.icon || 'files-folder'"></prizm-icon>
     </div>
-    <span class="nav__title">{{ menuItem?.title }}</span>
+    <span
+      class="nav__title"
+      #title
+      [prizmHint]="menuItem?.title"
+      [prizmHintCanShow]="prizmIsTextOverflow(title)"
+      prizmHintDirection="b"
+    >
+      {{ menuItem?.title }}
+    </span>
 
     <div class="nav__status">
       <div

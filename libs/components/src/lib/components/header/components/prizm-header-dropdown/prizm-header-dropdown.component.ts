@@ -7,6 +7,7 @@ import { PrizmDropdownHostModule } from '../../../dropdowns/dropdown-host';
 import { PrizmDataListModule } from '../../../data-list';
 import { PrizmButtonModule } from '../../../button';
 import { PrizmHintModule } from '../../../../directives';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-header-dropdown',
@@ -28,6 +29,8 @@ export class PrizmHeaderDropdownComponent {
   @Input() public data: IScreen[] = [];
   @Input() public currentScreenIdx = 0;
   @Output() screenIdxChange: EventEmitter<number> = new EventEmitter<number>();
+
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   public openDropdown = false;
 
