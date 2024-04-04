@@ -7,8 +7,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForDevelopersComponent {
-  public readonly joinSvgFonts = `
-  "assets": [
+  public readonly joinSvgFonts = `"assets": [
       {
         "glob": "**/*",
         "input": "node_modules/@prizm-ui/icons/src/styles/icons-base",
@@ -28,8 +27,7 @@ export class ForDevelopersComponent {
     "node_modules/@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css"
    ],
    `;
-  public readonly joinSvgFontsForImport = `
-  @import "~@prizm-ui/icons/src/styles/icons-24/prizm-icons.css;
+  public readonly joinSvgFontsForImport = `@import "~@prizm-ui/icons/src/styles/icons-24/prizm-icons.css;
 
   @font-face {
     font-family: 'prizm-icons';
@@ -39,14 +37,12 @@ export class ForDevelopersComponent {
       url('[YOUR PATH TO STYLES]/icons-24/prizm-icons.woff2?1772816e867a80e18921a5b7d83b4205') format('woff2');
     };
    `;
-  public readonly updateAngularStylesFileCode = `
- // (Required) Add for use our theme
+  public readonly updateAngularStylesFileCode = `// (Required) Add for use our theme
  @import "~@prizm-ui/theme/src/styles/styles.less";
  // (Optional) Add only for use our components library
  @import "~@prizm-ui/components/src/styles/styles.less";
    `;
-  public readonly updateAngularStylesCode = `
-   "assets": [
+  public readonly updateAngularStylesCode = `"assets": [
      // ....
     ],
    "styles": [
