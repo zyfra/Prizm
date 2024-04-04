@@ -5,7 +5,6 @@
     [prizmHint]="menuItem?.title"
     [prizmHintCanShow]="prizmIsTextOverflow(title)"
     (click)="navClick()"
-    prizmHintDirection="b"
   >
     <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? 8 + 16 * deep : 0">
       <prizm-icon [iconClass]="menuItem?.icon || 'files-folder'"></prizm-icon>
