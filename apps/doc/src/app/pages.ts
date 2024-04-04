@@ -115,6 +115,13 @@ export const pages: PrizmOrderedDocPage = [
     route: 'how-to-work/codestyle',
     order: 6,
   },
+  {
+    section: SectionNameEnum.howToWork,
+    title: 'Версии',
+    keywords: 'версия, версии, versions',
+    route: 'how-to-work/versions',
+    order: 7,
+  },
   //For ZIIoT
   {
     section: SectionNameEnum.forZIIoT,
@@ -859,6 +866,13 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     keywords: 'code, codestyle',
     route: 'how-to-work/codestyle',
     order: 6,
+  },
+  {
+    section: SectionNameEnglishEnum.howToWork,
+    title: 'Versions',
+    keywords: 'версия, версии, versions',
+    route: 'how-to-work/versions',
+    order: 7,
   },
   //For ZIIoT
   {

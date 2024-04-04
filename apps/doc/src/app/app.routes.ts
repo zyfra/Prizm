@@ -130,6 +130,13 @@ export const ROUTES: Routes = [
         },
       },
       {
+        path: 'versions',
+        loadChildren: () => import('./how-to-work/versions/versions.module').then(i => i.VersionsModule),
+        data: {
+          title: 'Versions',
+        },
+      },
+      {
         path: '**',
         redirectTo: 'for-developers',
       },
