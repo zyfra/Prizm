@@ -37,9 +37,7 @@ export class ForDevelopersComponent {
       url('[YOUR PATH TO STYLES]/icons-24/prizm-icons.woff?1772816e867a80e18921a5b7d83b4205') format('woff'),
       url('[YOUR PATH TO STYLES]/icons-24/prizm-icons.eot?1772816e867a80e18921a5b7d83b4205#iefix') format('embedded-opentype'),
       url('[YOUR PATH TO STYLES]/icons-24/prizm-icons.woff2?1772816e867a80e18921a5b7d83b4205') format('woff2');
-    }
-
-  ";
+    };
    `;
   public readonly updateAngularStylesFileCode = `
  // (Required) Add for use our theme
