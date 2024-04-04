@@ -9,20 +9,17 @@
     class="dropdown"
     *ngIf="data.length > 0"
     [class.dropdown_active]="openDropdown"
+    [prizmHint]="data[currentScreenIdx]?.title"
+    [prizmHintCanShow]="prizmIsTextOverflow(title)"
     (click)="openDropdown = !openDropdown"
+    prizmHintDirection="b"
   >
     <div class="screen">
       <prizm-icon
         class="screen__icon"
         [iconClass]="data[currentScreenIdx]?.icon || 'files-folder'"
       ></prizm-icon>
-      <span
-        class="screen__title"
-        #title
-        [prizmHint]="data[currentScreenIdx]?.title"
-        [prizmHintCanShow]="prizmIsTextOverflow(title)"
-        prizmHintDirection="b"
-      >
+      <span class="screen__title" #title>
         {{ data[currentScreenIdx]?.title }}
       </span>
     </div>
@@ -36,16 +33,13 @@
       class="screen-list__item"
       *ngFor="let item of data; let i = index"
       [class.selected]="i === currentScreenIdx"
+      [prizmHint]="item?.title"
+      [prizmHintCanShow]="prizmIsTextOverflow(title)"
       (click)="changeScreen(i)"
     >
       <div class="screen">
         <prizm-icon class="screen__icon" [iconClass]="item?.icon || 'files-folder'"></prizm-icon>
-        <span
-          class="screen__title"
-          #title
-          [prizmHint]="item?.title"
-          [prizmHintCanShow]="prizmIsTextOverflow(title)"
-        >
+        <span class="screen__title" #title>
           {{ item?.title }}
         </span>
       </div>
