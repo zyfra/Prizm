@@ -4,6 +4,7 @@ import {
   ElementRef,
   forwardRef,
   HostBinding,
+  inject,
   Inject,
   Injector,
   Input,
@@ -41,6 +42,8 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmButtonComponent } from '../../button';
 import { PrizmListingItemComponent } from '../../listing-item';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsClock } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-input-layout-time`,
@@ -113,6 +116,8 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   public open = false;
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(PRIZM_TIME_TEXTS)
     private readonly timeTexts$: Observable<Record<PrizmTimeMode, string>>,
@@ -122,6 +127,8 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   ) {
     super(injector);
     this.extraButtonInjector = injector;
+
+    this.iconsFullRegistry.registerIcons(prizmIconsClock);
   }
 
   public override ngOnInit(): void {

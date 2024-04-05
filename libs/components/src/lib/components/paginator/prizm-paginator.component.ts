@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
+  inject,
   Inject,
   Input,
   OnInit,
@@ -26,6 +27,13 @@ import { PrizmCallFuncPipe, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/
 import { PrizmInputSelectModule } from '../dropdowns/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmButtonComponent } from '../button';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsAngleLeft,
+  prizmIconsAngleRight,
+  prizmIconsChevronsDoubleLeft,
+  prizmIconsChevronsDoubleRight,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-paginator',
@@ -122,12 +130,21 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
 
   public readonly initialized = this.initialized$$.asObservable();
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(PRIZM_PAGINATOR)
     public readonly paginator$: Observable<PrizmLanguagePaginator['paginator']>,
     private readonly changeDetectorRef: ChangeDetectorRef
   ) {
     super();
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsChevronsDoubleLeft,
+      prizmIconsChevronsDoubleRight,
+      prizmIconsAngleRight,
+      prizmIconsAngleLeft
+    );
   }
 
   ngOnInit(): void {

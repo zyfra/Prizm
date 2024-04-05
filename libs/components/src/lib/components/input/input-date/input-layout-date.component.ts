@@ -4,6 +4,7 @@ import {
   ElementRef,
   forwardRef,
   HostBinding,
+  inject,
   Inject,
   Injector,
   Input,
@@ -56,6 +57,8 @@ import { PrizmCalendarModule } from '../../calendar';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmLinkComponent } from '../../link';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-input-layout-date`,
@@ -142,6 +145,8 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
 
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(Injector) injector: Injector,
     @Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService,
@@ -157,6 +162,8 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
   ) {
     super(injector, valueTransformer);
     this.extraButtonInjector = injector;
+
+    this.iconsFullRegistry.registerIcons(prizmIconsCalendarBlank);
   }
 
   public override ngOnInit(): void {

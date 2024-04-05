@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PolymorphContent, PrizmAppearance, PrizmAppearanceType, PrizmSize } from '@prizm-ui/components';
 import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 @Component({
   selector: 'prizm-split-button-example',
@@ -23,6 +24,7 @@ import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
       }
     `,
   ],
+  providers: [prizmIconsFullProvideLazyLoader()],
 })
 export class SplitButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];

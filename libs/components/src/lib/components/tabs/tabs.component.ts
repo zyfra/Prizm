@@ -44,7 +44,12 @@ import { PrizmIconTabsPipe } from './pipes/icon-tabs.pipe';
 import { prizmIsTextOverflow$ } from '../../util';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
+import {
+  prizmIconsAngleLeft,
+  prizmIconsAngleLeftRight,
+  prizmIconsEllipsisV,
+  prizmIconsXmark,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-tabs',
@@ -123,7 +128,12 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   ) {
     super();
 
-    this.iconsFullRegistry.registerIcons(prizmIconsXmark);
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsXmark,
+      prizmIconsEllipsisV,
+      prizmIconsAngleLeft,
+      prizmIconsAngleLeftRight
+    );
   }
 
   public ngOnInit(): void {

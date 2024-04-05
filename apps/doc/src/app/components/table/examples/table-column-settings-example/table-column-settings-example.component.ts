@@ -1,6 +1,8 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { Component, ChangeDetectionStrategy, ChangeDetectorRef, inject } from '@angular/core';
 import { PrizmTableCellStatus, PrizmTableSettings } from '@prizm-ui/components';
 import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsGear8Edge } from '@prizm-ui/icons/full/source';
 
 export interface ITableProduct {
   id?: number | string;
@@ -114,7 +116,11 @@ export class TableColumnSettingsExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
   public showColumnSettings = false;
 
-  constructor(public readonly cdr: ChangeDetectorRef) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(public readonly cdr: ChangeDetectorRef) {
+    this.iconsFullRegistry.registerIcons(prizmIconsGear8Edge);
+  }
 
   public toggleColumnSettings(): void {
     this.showColumnSettings = !this.showColumnSettings;

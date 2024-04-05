@@ -1,5 +1,12 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PrizmTabItem } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsLocationUser,
+  prizmIconsPi,
+  prizmIconsPieLine,
+  prizmIconsTempSelectionRadioOff,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-panel-with-pages',
@@ -26,6 +33,17 @@ export class PanelExampleWithPagesComponent {
       icon: 'pi',
     },
   ];
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsPieLine,
+      prizmIconsTempSelectionRadioOff,
+      prizmIconsLocationUser,
+      prizmIconsPi
+    );
+  }
 
   public tabCancelClick(tab: PrizmTabItem): void {
     if (this.pages.length < 2) return;

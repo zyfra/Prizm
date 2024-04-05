@@ -40,7 +40,7 @@ import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relat
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
-import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsLetterTime,
   prizmIconsCirclePlus,
@@ -53,6 +53,7 @@ import {
   prizmIconsLetterSecond,
   prizmIconsSymbolAsterisk,
 } from '@prizm-ui/icons/base/source';
+import { prizmIconsClockRotateRight } from '@prizm-ui/icons/full/source';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -94,6 +95,7 @@ export class PrizmInputLayoutDateRelativeComponent
   readonly nativeElementType = 'input-layout-date-relative';
   readonly hasClearButton = true;
   readonly iconsRegistry = inject(PrizmIconsRegistry);
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   @ViewChild(PrizmInputStatusTextDirective, { static: true })
   override statusText!: PrizmInputStatusTextDirective;
@@ -151,6 +153,8 @@ export class PrizmInputLayoutDateRelativeComponent
       prizmIconsLetterMinute,
       prizmIconsLetterSecond
     );
+
+    this.iconsFullRegistry.registerIcons(prizmIconsClockRotateRight);
   }
 
   public override ngOnInit(): void {

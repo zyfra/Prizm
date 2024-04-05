@@ -19,6 +19,8 @@ import { fromEvent, merge, Subject } from 'rxjs';
 import { map, takeUntil, tap, throttleTime } from 'rxjs/operators';
 import { PrizmDecimal } from '@prizm-ui/core';
 import { PrizmHintDirective } from '../../../directives';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMinus, prizmIconsPlus } from '@prizm-ui/icons/full/source';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -115,12 +117,16 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.input$$.next(data);
   }
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Self() public readonly ngControl: NgControl,
     @Host() private readonly el: ElementRef<HTMLInputElement>
   ) {
     super();
     this.el.nativeElement.type = 'number';
+
+    this.iconsFullRegistry.registerIcons(prizmIconsMinus, prizmIconsPlus);
   }
 
   private detectSymbols(value: boolean): void {

@@ -1,4 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject } from '@angular/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-select-panel-example',
@@ -16,7 +18,11 @@ export class PrizmSelectPanelExampleComponent {
 
   filteredData = [...this.data];
 
-  constructor(public readonly cdRef: ChangeDetectorRef) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(public readonly cdRef: ChangeDetectorRef) {
+    this.iconsFullRegistry.registerIcons(prizmIconsMagnifyingGlass);
+  }
 
   get someChecked(): boolean {
     return this.data.some(item => item.checked) && this.allChecked === false;

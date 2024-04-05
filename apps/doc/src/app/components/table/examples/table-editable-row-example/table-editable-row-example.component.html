@@ -50,13 +50,6 @@
         </td>
         <td *prizmCell="'actions'" prizmTd>
           <div class="edit-buttons-container" (click)="$event.stopPropagation()">
-            <!--            <prizm-icon-->
-            <!--              class="edit-buttons"-->
-            <!--              *ngIf="currentEditableRow !== item"-->
-            <!--              (click)="onRowEditInit(item)"-->
-            <!--              size="16"-->
-            <!--              iconClass="editor-mode"-->
-            <!--            ></prizm-icon> -->
             <prizm-icons-full
               class="edit-buttons"
               *ngIf="currentEditableRow !== item"
@@ -64,15 +57,6 @@
               size="16"
               name="pencil"
             ></prizm-icons-full>
-
-            <!--            <prizm-icon-->
-            <!--              class="edit-buttons"-->
-            <!--              *ngIf="currentEditableRow === item"-->
-            <!--              (click)="onRowEditSave()"-->
-            <!--              size="16"-->
-            <!--              iconClass="selection-choice"-->
-            <!--            ></prizm-icon>-->
-
             <prizm-icons-full
               class="edit-buttons"
               *ngIf="currentEditableRow === item"
@@ -80,15 +64,6 @@
               size="16"
               name="circle-check-empty"
             ></prizm-icons-full>
-
-            <!--            <prizm-icon-->
-            <!--              class="edit-buttons"-->
-            <!--              *ngIf="currentEditableRow === item"-->
-            <!--              (click)="onRowEditCancel(item)"-->
-            <!--              size="16"-->
-            <!--              iconClass="xmark"-->
-            <!--            ></prizm-icon>-->
-
             <prizm-icons-full
               class="edit-buttons"
               *ngIf="currentEditableRow === item"
@@ -96,14 +71,6 @@
               size="16"
               name="xmark"
             ></prizm-icons-full>
-
-            <!--            <prizm-icon-->
-            <!--              class="edit-buttons"-->
-            <!--              (click)="onRowDelete(item)"-->
-            <!--              size="16"-->
-            <!--              iconClass="delete"-->
-            <!--            ></prizm-icon>-->
-
             <prizm-icons-full
               class="edit-buttons"
               (click)="onRowDelete(item)"

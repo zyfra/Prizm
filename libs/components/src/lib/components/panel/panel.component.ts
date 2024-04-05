@@ -6,8 +6,11 @@ import {
   EventEmitter,
   ViewChild,
   ElementRef,
+  inject,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsArrowLeft } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-panel',
@@ -24,6 +27,13 @@ export class PanelComponent extends PrizmAbstractTestId {
   @ViewChild('headerElement', { static: true }) public headerRef!: ElementRef;
 
   override readonly testId_ = 'ui_panel';
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    super();
+    this.iconsFullRegistry.registerIcons(prizmIconsArrowLeft);
+  }
 
   public back(): void {
     this.backClick.emit();

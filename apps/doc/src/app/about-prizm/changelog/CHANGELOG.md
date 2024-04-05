@@ -2,11 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.1.1](https://github.com/zyfra/Prizm) (25-03-2024)
+## [4.1.1](https://github.com/zyfra/Prizm) (05-04-2024)
 
 ### Bug fixes
 
-- fix(components/cron): switcher in cron returns incorrect value #1519
+- fix(components/cron): switcher in cron returns incorrect value https://github.com/zyfra/Prizm/issues/1519
+- fix(components/navigation-menu): add icons, remove transformer from doc https://github.com/zyfra/Prizm/issues/1525
+- fix(components/icons): replace icons lazy loading for prizm components with targeting registry (breaking change) (our ADR: https://github.com/zyfra/Prizm/discussions/1564)
+- fix(documentation/setup): correct information about icons setup https://github.com/zyfra/Prizm/issues/1558
+- fix(components/link): removed circular dependency from prizmLink. https://github.com/zyfra/Prizm/issues/1535
 
 ## [4.1.0](https://github.com/zyfra/Prizm) (25-03-2024)
 
@@ -32,7 +36,7 @@ All notable changes to this project will be documented in this file.
 - feat(icons): migrate lazy load icons functions to icons-loader
   now you can use lazy load function separately if you don't want to load all icons to your build
   but remember you need to inject our provider to active this mode
-  you can find [example](http://prizm.site/components/icons#lazy) on our doc
+  you can find [example](http://localhost:4200/components/icons#lazy) on our doc
 - feat(icons): now you can load all icons at once, we update doc
 - feat(doc/icons): added more information easy to understand
 - feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs https://github.com/zyfra/Prizm/issues/1297
@@ -42,9 +46,8 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-icon-button): change the focus to focus-visible for input-icon-button https://github.com/zyfra/Prizm/issues/1297
 - feat(components/slider): change the focus to focus-visible for slider cnob https://github.com/zyfra/Prizm/issues/1297
 - feat(components/stepper): change the focus to focus-visible for stepper button https://github.com/zyfra/Prizm/issues/1297
-- feat(components/toggle): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
-- feat(components/button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
-- feat(docs/theme): add shadow color to docs https://github.com/zyfra/Prizm/issues/900
+- feat(components/input-icon-button): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
+- feat(components/input-icon-button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
 
 ## [4.0.0](https://github.com/zyfra/Prizm) (11-03-2024)
 

@@ -11,6 +11,7 @@ import {
   Output,
   Renderer2,
   ViewChild,
+  inject,
 } from '@angular/core';
 
 import {
@@ -38,7 +39,12 @@ import { PrizmProgressBarComponent } from '../progress';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
+import {
+  prizmIconsArrowRotateRight,
+  prizmIconsFileEmpty,
+  prizmIconsTrashEmpty,
+} from '@prizm-ui/icons/full/source';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -66,6 +72,9 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   readonly icon = prizmIconsFileEmpty;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     private renderer: Renderer2,
     @Inject(PRIZM_FILE_UPLOAD) public readonly fileUpload$: Observable<PrizmLanguageFileUpload['fileUpload']>,
@@ -73,6 +82,12 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   ) {
     super();
     this.options = { ...this.options, ...customOptions };
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsArrowRotateRight,
+      prizmIconsTrashEmpty,
+      prizmIconsFileEmpty
+    );
   }
 
   private listeners: Array<() => void> = [];
