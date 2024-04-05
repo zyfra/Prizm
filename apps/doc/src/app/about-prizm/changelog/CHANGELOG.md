@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/cron): switcher in cron returns incorrect value https://github.com/zyfra/Prizm/issues/1519
 - fix(components/navigation-menu): add icons, remove transformer from doc https://github.com/zyfra/Prizm/issues/1525
-- fix(components/icons): replace icons lazy loading for prizm components with targeting registry (breaking change) (our ADR: https://jira.zyfra.com/wiki/x/7UlcE)
+- fix(components/icons): replace icons lazy loading for prizm components with targeting registry (breaking change) (our ADR: https://github.com/zyfra/Prizm/discussions/1564)
 - fix(documentation/setup): correct information about icons setup https://github.com/zyfra/Prizm/issues/1558
 - fix(components/link): removed circular dependency from prizmLink. https://github.com/zyfra/Prizm/issues/1535
 
