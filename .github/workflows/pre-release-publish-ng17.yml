@@ -103,7 +103,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: 'Build doc app for firebase hosting'
-        run: printenv && npm run build:doc
+        run: npm run build:doc
 
       - name: Deploy doc to firebase
         uses: FirebaseExtended/action-hosting-deploy@v0
