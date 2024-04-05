@@ -1,10 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
   PrizmSelectStringify,
 } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsUserCheck } from '@prizm-ui/icons/full/source';
 import { tap } from 'rxjs/operators';
 
 type PrizmItem = {
@@ -42,6 +44,12 @@ export class PrizmSelectWithObjectExampleComponent {
   readonly stringify: PrizmSelectStringify<PrizmItem> = (item: PrizmItem) => {
     return item?.name;
   };
+
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsUserCheck);
+  }
 
   public setDefaultValue(): void {
     this.valueControl.setValue(this.items[0]);

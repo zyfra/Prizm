@@ -1,6 +1,12 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PolymorphContent, PrizmContextWithImplicit, PrizmSizeL, PrizmSizeM } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsAngleLeft,
+  prizmIconsAngleRight,
+  prizmIconsTempSelectionCheckboxMarkedCircleChanel,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-toggle-example',
@@ -43,4 +49,14 @@ export class ToggleExampleComponent {
     TypeScript: import('./examples/base/toggle-base-example.component.ts?raw'),
     HTML: import('./examples/base/toggle-base-example.component.html?raw'),
   };
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsTempSelectionCheckboxMarkedCircleChanel,
+      prizmIconsAngleLeft,
+      prizmIconsAngleRight
+    );
+  }
 }

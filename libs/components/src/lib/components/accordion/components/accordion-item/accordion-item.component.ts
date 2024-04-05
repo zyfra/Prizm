@@ -11,6 +11,7 @@ import {
   Output,
   TemplateRef,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { PrizmAccordionContentDirective } from '../../directives/accordion-content.directive';
 import { AccordionToolsDirective } from '../../directives/accordion-tools.directive';
@@ -25,6 +26,8 @@ import { PrizmButtonComponent } from '../../../button';
 import { PrizmHintDirective } from '../../../../directives';
 import { prizmIsTextOverflow } from '../../../../util';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsChevronsDoubleDown } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-accordion-item',
@@ -80,8 +83,12 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
 
   private resizeObserver!: ResizeObserver;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(private readonly cdRef: ChangeDetectorRef) {
     super();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsChevronsDoubleDown);
   }
 
   public ngOnInit(): void {

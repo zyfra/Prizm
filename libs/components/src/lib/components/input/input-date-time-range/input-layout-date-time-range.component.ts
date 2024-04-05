@@ -4,6 +4,7 @@ import {
   Component,
   ContentChild,
   forwardRef,
+  inject,
   Inject,
   Injector,
   Input,
@@ -62,6 +63,8 @@ import { PrizmInputLayoutTimeModule } from '../input-time';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -233,6 +236,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return this.empty$;
   }
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(ChangeDetectorRef) changeDetectorRef: ChangeDetectorRef,
     @Inject(Injector) injector: Injector,
@@ -248,6 +253,8 @@ export class PrizmInputLayoutDateTimeRangeComponent
     override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
   ) {
     super(injector);
+
+    this.iconsFullRegistry.registerIcons(prizmIconsCalendarRange, prizmIconsClock);
   }
 
   public get focused(): Observable<boolean> {

@@ -8,7 +8,6 @@
 
 <ng-template #valueTemplate let-value let-nullContent="nullContent">
   <div class="item" *ngIf="value; else empty">
-    <!--    <prizm-icon [style.color]="getColor(value)" iconClass="account-done"></prizm-icon>-->
     <prizm-icons-full [style.color]="getColor(value)" name="user-check"></prizm-icons-full>
     <span>{{ value }}</span>
   </div>

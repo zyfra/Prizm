@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmMultiSelectIdentityMatcher,
@@ -6,6 +6,8 @@ import {
   PrizmMultiSelectItemStringifyItem,
   PrizmMultiSelectSearchMatcher,
 } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsUserCheck } from '@prizm-ui/icons/full/source';
 
 type PrizmItem = {
   id: number;
@@ -42,4 +44,10 @@ export class PrizmInputMultiSelectWithObjectExampleComponent {
   ) => {
     return item.obj?.name;
   };
+
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsUserCheck);
+  }
 }

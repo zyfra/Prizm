@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmSelectIdentityMatcher,
@@ -6,6 +6,8 @@ import {
   PrizmSelectStringify,
   PrizmSelectValueTransformver,
 } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsUserCheck } from '@prizm-ui/icons/full/source';
 
 type PrizmItem = {
   id: number;
@@ -43,6 +45,12 @@ export class PrizmSelectWithTransformerExampleComponent {
   readonly stringify: PrizmSelectStringify<PrizmItem> = (item: PrizmItem): any => {
     return item?.name;
   };
+
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsUserCheck);
+  }
 
   public setDefaultValue(): void {
     this.valueControl.setValue(this.items[0].id);
