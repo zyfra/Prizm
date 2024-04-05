@@ -1,5 +1,6 @@
 .table {
   display: block;
+  min-width: 585px;
 
   .row {
     display: grid;
@@ -14,14 +15,14 @@
 
     &.header {
       font-weight: 600;
-      color: black;
+      color: var(--prizm-text-icon-primary);
     }
 
     &.footer,
     &.header,
     .sticky {
-      background-color: #d0cece;
-      color: white;
+      background-color: var(--prizm-table-fill-row-zebra_default);
+      color: var(--prizm-text-icon-secondary);
     }
   }
 }
