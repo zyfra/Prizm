@@ -15,7 +15,8 @@
         ></prizm-radio-button>
       </div>
       <div class="content row">
-        {{ cronI18n$ | async | prizmPluck : ['day', 'every'] }}
+        {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
+        {{ cronI18n$ | async | prizmPluck : ['day', 'day'] }}
       </div>
     </label>
   </ng-container>
@@ -70,13 +71,13 @@
         ></prizm-radio-button>
       </div>
       <div class="content">
-        Каждый
+        {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
         <prizm-cron-carousel
           [content]="cronUiState.afterDayOfWeekListDays"
           [value]="cronUiState.afterDayOfWeekListDaysValue"
           (valueChange)="cronUiState.updateAfterDayOfWeek({ afterDayOfWeekListDaysValue: $event })"
         ></prizm-cron-carousel>
-        день, начиная с
+        {{ cronI18n$ | async | prizmPluck : ['day', 'daySince'] }}
         <prizm-cron-carousel
           [content]="cronUiState.carouselWeekAfterDayOfWeek"
           [value]="cronUiState.afterDayOfWeekListDayOfWeeksValue"
@@ -106,19 +107,19 @@
         ></prizm-radio-button>
       </div>
       <div class="content">
-        Каждый
+        {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
         <prizm-cron-carousel
           [content]="cronUiState.afterDayOfMonthListRepeatDays"
           [value]="cronUiState.afterDayOfMonthListRepeatDaysValue"
           (valueChange)="cronUiState.updateAfterDayOfMonth($event)"
         ></prizm-cron-carousel>
-        день, начиная с
+        {{ cronI18n$ | async | prizmPluck : ['day', 'daySince'] }}
         <prizm-cron-carousel
           [content]="cronUiState.afterDayOfMonthListDays"
           [value]="cronUiState.afterDayOfMonthListDaysValue"
           (valueChange)="cronUiState.updateAfterDayOfMonth(null, $event)"
         ></prizm-cron-carousel>
-        числа месяца
+        {{ cronI18n$ | async | prizmPluck : ['day', 'ofMonth'] }}
       </div>
     </label>
   </ng-container>
@@ -139,7 +140,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content column">
-        <span>По определённым дням недели (выбор одного или нескольких)</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['day', 'specific', 'weekDays'] }}</span>
         <prizm-cron-schedule
           #schedule
           [items]="cronUiState.dayOfWeekItems"
@@ -170,7 +171,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content column">
-        <span>По определённым дням месяца (выбор одного или нескольких)</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['day', 'specific', 'monthDays'] }}</span>
         <prizm-cron-schedule
           #scheduleDayOfMonthItems
           [items]="cronUiState.dayOfMonthItems"
@@ -196,7 +197,7 @@
           (changeEvent)="cronUiState.setLastDayOfMonth()"
         ></prizm-radio-button>
       </div>
-      <div class="content">Последний день месяца</div>
+      <div class="content">{{ cronI18n$ | async | prizmPluck : ['day', 'last', 'dayOfMonth'] }}</div>
     </label>
   </ng-container>
 
@@ -215,7 +216,7 @@
           (changeEvent)="cronUiState.setLastWeekDayOfMonth()"
         ></prizm-radio-button>
       </div>
-      <div class="content">Последний рабочий день месяца</div>
+      <div class="content">{{ cronI18n$ | async | prizmPluck : ['day', 'last', 'workingDayOfMonth'] }}</div>
     </label>
   </ng-container>
 
@@ -235,7 +236,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content">
-        В последний (-юю, -ее)
+        {{ cronI18n$ | async | prizmPluck : ['day', 'last', 'dayOfWeek'] }}
         <prizm-cron-carousel
           #cronCarouselComponent
           [content]="cronUiState.carouselWeekLastChosenDayOfWeek"
@@ -246,7 +247,7 @@
             {{ value | prizmCronWeek }}
           </ng-template>
         </prizm-cron-carousel>
-        месяца
+        {{ cronI18n$ | async | prizmPluck : ['day', 'last', 'ofMonth'] }}
       </div>
     </label>
   </ng-container>
@@ -269,13 +270,13 @@
         ></prizm-radio-button>
       </div>
       <div class="content">
-        В последний(-ие)
+        {{ cronI18n$ | async | prizmPluck : ['day', 'last', 'day'] }}
         <prizm-cron-carousel
           [content]="cronUiState.contentLastChosenDayOfMonth"
           [value]="cronUiState.lastChosenDayOfMonthValue"
           (valueChange)="cronUiState.updateLastChosenDayOfMonth($event)"
         ></prizm-cron-carousel>
-        день (дня, дней) до конца месяца
+        {{ cronI18n$ | async | prizmPluck : ['day', 'last', 'untilEndOfMonth'] }}
       </div>
     </label>
   </ng-container>
@@ -300,13 +301,13 @@
         ></prizm-radio-button>
       </div>
       <div class="content">
-        Ближайший рабочий день (Понедельник - Пятница) к
+        {{ cronI18n$ | async | prizmPluck : ['day', 'nearest', 'workingDay'] }}
         <prizm-cron-carousel
           [content]="cronUiState.nearestDayOfMonth"
           [value]="cronUiState.nearestDayOfMonthValue"
           (valueChange)="cronUiState.updateNearestDayOfMonth($event)"
         ></prizm-cron-carousel>
-        числу месяца
+        {{ cronI18n$ | async | prizmPluck : ['day', 'nearest', 'toDayOfMonth'] }}
       </div>
     </label>
   </ng-container>
@@ -329,7 +330,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content">
-        В
+        {{ cronI18n$ | async | prizmPluck : ['general', 'at'] }}
         <prizm-cron-carousel
           [content]="cronUiState.afterNumberOfWeekList"
           [value]="cronUiState.onNumberOfWeekListValue"

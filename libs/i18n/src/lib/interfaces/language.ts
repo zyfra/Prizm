@@ -44,8 +44,58 @@ export interface PrizmLanguageCron {
     startDateLabel: string;
     endDateLabel: string;
     indefinitelyLabel: string;
+    general: {
+      everyMale: string;
+      everyFemale: string;
+      from: string;
+      to: string;
+      at: string;
+    };
+    second: {
+      second: string;
+      secondSince: string;
+      selectedSecond: string;
+    };
+    minute: {
+      minute: string;
+      minuteSince: string;
+      selectedMinute: string;
+    };
+    hour: {
+      hour: string;
+      hourSince: string;
+      selectedHour: string;
+    };
     day: {
-      every: string;
+      day: string;
+      daySince: string;
+      ofMonth: string;
+      specific: {
+        weekDays: string;
+        monthDays: string;
+      };
+      last: {
+        dayOfMonth: string;
+        workingDayOfMonth: string;
+        dayOfWeek: string;
+        ofMonth: string;
+        day: string;
+        untilEndOfMonth: string;
+      };
+      nearest: {
+        workingDay: string;
+        toDayOfMonth: string;
+      };
+    };
+    month: {
+      month: string;
+      monthSince: string;
+      selectedMonth: string;
+    };
+    year: {
+      year: string;
+      yearSince: string;
+      selectedYear: string;
     };
   };
 }
