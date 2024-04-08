@@ -135,6 +135,18 @@ const PRIZM_CHART_LIGHT_THEME_COLOR_SCEME = {
           },
         },
       },
+      treemap: {
+        rectStyle: {
+          stroke: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,
+        },
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_LIGHT_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
     },
   },
   background: PRIZM_LIGHT_THEME_BACKGROUND_COLOR_PRIMARY,

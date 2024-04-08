@@ -135,6 +135,18 @@ const PRIZM_CHART_DARK_THEME_COLOR_SCEME = {
           },
         },
       },
+      treemap: {
+        rectStyle: {
+          stroke: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
+        },
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
     },
   },
   background: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,

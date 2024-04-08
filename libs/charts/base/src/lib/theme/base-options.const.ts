@@ -46,6 +46,14 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
           },
         },
       },
+      treemap: {
+        interactions: [{ type: 'element-active' }],
+        state: {
+          active: {
+            animate: { duration: 100, easing: 'easeLinear' },
+          },
+        },
+      },
     },
   },
   padding: 'auto',
