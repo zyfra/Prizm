@@ -2,7 +2,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { PrizmBreadcrumbsComponent } from './breadcrumbs.component';
 import { PrizmDropdownHostModule } from '../dropdowns/dropdown-host/dropdown-host.module';
-import { PrizmIconModule } from '../icon/icon.module';
 
 describe('BreadcrumbsComponent', () => {
   let component: PrizmBreadcrumbsComponent<any>;
@@ -20,7 +19,7 @@ describe('BreadcrumbsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [PrizmDropdownHostModule, PrizmIconModule, PrizmBreadcrumbsComponent],
+      imports: [PrizmDropdownHostModule, PrizmBreadcrumbsComponent],
     }).compileComponents();
   });
 
