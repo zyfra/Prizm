@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [4.1.2](https://github.com/zyfra/Prizm) (08-04-2024)
 
--fix(ci): remove nx cloud token
+- fix(ci): remove nx cloud token
 
 ## [4.1.1](https://github.com/zyfra/Prizm) (05-04-2024)
 
