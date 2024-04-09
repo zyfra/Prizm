@@ -10,10 +10,21 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
     components: {
       bar: {
         xAxis: PRIZM_DEFAULT_AXIS_OPTIONS,
+        barStyle: {
+          fillOpacity: 1,
+        },
+      },
+      column: {
+        columnStyle: {
+          fillOpacity: 1,
+        },
       },
       area: {
         xAxis: PRIZM_DEFAULT_AXIS_OPTIONS,
         yAxis: PRIZM_DEFAULT_AXIS_OPTIONS,
+        areaStyle: {
+          lineOpacity: 1,
+        },
       },
       scatter: {
         xAxis: PRIZM_DEFAULT_AXIS_OPTIONS,
@@ -26,6 +37,9 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
             animate: { duration: 100, easing: 'easeLinear' },
           },
         },
+        waterfallStyle: {
+          fillOpacity: 1,
+        },
       },
       pie: {
         interactions: [{ type: 'element-active' }],
@@ -36,6 +50,7 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
         },
         pieStyle: {
           lineWidth: 1,
+          fillOpacity: 1,
         },
       },
       'radial-bar': {
@@ -45,6 +60,9 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
             animate: { duration: 100, easing: 'easeLinear' },
           },
         },
+        barStyle: {
+          fillOpacity: 1,
+        },
       },
       treemap: {
         interactions: [{ type: 'element-active' }],
@@ -52,6 +70,9 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
           active: {
             animate: { duration: 100, easing: 'easeLinear' },
           },
+        },
+        rectStyle: {
+          fillOpacity: 1,
         },
       },
     },
