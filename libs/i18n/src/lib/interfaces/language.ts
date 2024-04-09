@@ -53,27 +53,32 @@ export interface PrizmLanguageCron {
     startDateLabel: string;
     endDateLabel: string;
     indefinitelyLabel: string;
-    switcherTitles: any;
+    switcherTitles: PrizmLanguageCronSwitcherTitles;
 
-    everyMale: string;
-    everyFemale: string;
-    from: string;
+    every: string;
     to: string;
     at: string;
 
     second: string;
     secondSince: string;
     selectedSecond: string;
+    everySecond: string;
+    everySecondFrom: string;
 
     minute: string;
     minuteSince: string;
     selectedMinute: string;
+    everyMinute: string;
+    everyMinuteFrom: string;
 
     hour: string;
     hourSince: string;
     selectedHour: string;
+    everyHour: string;
+    everyHourFrom: string;
 
     day: string;
+    everyDay: string;
     daySince: string;
     dayOfMonth: string;
     ofMonth: string;
@@ -94,10 +99,14 @@ export interface PrizmLanguageCron {
     month: string;
     monthSince: string;
     selectedMonth: string;
+    everyMonth: string;
+    everyMonthFrom: string;
 
     year: string;
     yearSince: string;
     selectedYear: string;
+    everyYear: string;
+    everyYearFrom: string;
   };
 }
 

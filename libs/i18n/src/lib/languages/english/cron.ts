@@ -17,25 +17,30 @@ export const PRIZM_ENGLISH_CRON: PrizmLanguageCron = {
       year: 'Years',
     },
 
-    everyMale: 'Every',
-    everyFemale: 'Every',
-    from: 'from',
+    every: 'Every',
     to: 'to',
     at: 'At',
 
     second: 'second',
     secondSince: 'second since',
     selectedSecond: 'Selected second (select one or more)',
+    everySecond: 'Every second',
+    everySecondFrom: 'Every second from',
 
     minute: 'minute',
     minuteSince: 'minute since',
     selectedMinute: 'Selected minute (select one or more)',
+    everyMinute: 'Every minute',
+    everyMinuteFrom: 'Every minute from',
 
     hour: 'hour',
     hourSince: 'hour since',
     selectedHour: 'Selected hour (select one or more)',
+    everyHour: 'Every hour',
+    everyHourFrom: 'Every hour from',
 
     day: 'day',
+    everyDay: 'Every day',
     daySince: 'day since',
     dayOfMonth: 'day of the month',
     ofMonth: 'of the month',
@@ -56,9 +61,13 @@ export const PRIZM_ENGLISH_CRON: PrizmLanguageCron = {
     month: 'month',
     monthSince: 'month since',
     selectedMonth: 'Selected month (select one or more)',
+    everyMonth: 'Every month',
+    everyMonthFrom: 'Every month from',
 
     year: 'year',
     yearSince: 'year since',
     selectedYear: 'Selected year (select one or more)',
+    everyYear: 'Every year',
+    everyYearFrom: 'Every year from',
   },
 };

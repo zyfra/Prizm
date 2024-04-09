@@ -17,25 +17,30 @@ export const PRIZM_RUSSIAN_CRON: PrizmLanguageCron = {
       year: 'Годы',
     },
 
-    everyMale: 'Каждый',
-    everyFemale: 'Каждая',
-    from: 'с',
+    every: 'Каждый',
     to: 'до',
     at: 'В',
 
     second: 'секунда',
     secondSince: 'секунда, начиная с',
     selectedSecond: 'Выбранная секунда (выбор одной или нескольких)',
+    everySecond: 'Каждая секунда',
+    everySecondFrom: 'Каждая секунда с',
 
     minute: 'минута',
     minuteSince: 'минута, начиная с',
     selectedMinute: 'Выбранная минута (выбор одной или нескольких)',
+    everyMinute: 'Каждая минута',
+    everyMinuteFrom: 'Каждый минута с',
 
     hour: 'час',
     hourSince: 'час, начиная с',
     selectedHour: 'Выбранный час (выбор одного или нескольких)',
+    everyHour: 'Каждый час',
+    everyHourFrom: 'Каждый час с',
 
     day: 'день',
+    everyDay: 'Каждый день',
     daySince: 'день, начиная с',
     dayOfMonth: 'числа месяца',
     ofMonth: 'месяца',
@@ -56,9 +61,13 @@ export const PRIZM_RUSSIAN_CRON: PrizmLanguageCron = {
     month: 'месяц',
     monthSince: 'месяц, начиная с',
     selectedMonth: 'Выбранный месяц (выбор одного или нескольких)',
+    everyMonth: 'Каждый месяц',
+    everyMonthFrom: 'Каждый месяц с',
 
     year: 'год',
     yearSince: 'год, начиная с',
     selectedYear: 'Выбранный год (выбор одного или нескольких)',
+    everyYear: 'Каждый год',
+    everyYearFrom: 'Каждый год с',
   },
 };
