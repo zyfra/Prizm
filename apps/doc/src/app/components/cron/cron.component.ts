@@ -18,7 +18,7 @@ export class CronComponent {
   public disabled = false;
   public minHeight: string | null = null;
   public width: string | null = null;
-  public title: string | null = null;
+  public cronTitle: string | null = null;
   public autoSubmit = false;
   public hidePeriod = false;
   public showHumanReadable = true;

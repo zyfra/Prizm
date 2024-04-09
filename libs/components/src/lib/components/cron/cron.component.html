@@ -1,7 +1,7 @@
 <div class="block">
   <div class="title py-none inner-block small-padding">
     <span class="prizm-font-title-h4">
-      {{ title ?? (cronI18n$ | async | prizmPluck : ['title']) }}
+      {{ cronTitle ?? (cronI18n$ | async | prizmPluck : ['title']) }}
     </span>
     <div class="submit-block" *ngIf="!hideResult || !autoSubmit">
       <ng-container *ngIf="!hideResult">
