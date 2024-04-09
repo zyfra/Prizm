@@ -133,7 +133,6 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   @Input()
   set selected(selected: PrizmCronTabItem) {
-    this._selected = selected;
     this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
   }
 
@@ -145,13 +144,12 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
       return i;
     });
 
-    if (tabs.length && !tabs.includes(this._selected)) {
+    if (tabs.length && !tabs.includes(this.selected)) {
       this.selectedChange.emit((this.selected = tabs[0]));
     }
   }
 
   private _tabs: PrizmCronTabItem[] = [];
-  private _selected: PrizmCronTabItem = 'second';
 
   public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [];
 
