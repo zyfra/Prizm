@@ -157,6 +157,15 @@
                 tuiTextfieldSize="m"
               ></tui-primitive-textfield>
             </ng-container>
+
+            <tui-input-number
+              *ngSwitchCase="'decimal'"
+              [nativeId]="propertyConnector.attrName"
+              [tuiTextfieldLabelOutside]="true"
+              [ngModel]="propertyConnector.documentationPropertyValue"
+              (ngModelChange)="propertyConnector.onValueChange($event)"
+              tuiTextfieldSize="m"
+            ></tui-input-number>
           </ng-container>
         </ng-template>
       </ng-container>
