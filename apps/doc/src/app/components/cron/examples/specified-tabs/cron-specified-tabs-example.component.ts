@@ -16,6 +16,6 @@ import { PrizmCronTabItem } from '@prizm-ui/components';
 export class PrizmCronSpecifiedTabsExampleComponent {
   public value = true;
 
-  public selected: PrizmCronTabItem = 'month';
+  public selected: PrizmCronTabItem = 'day';
   readonly tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
 }

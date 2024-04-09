@@ -36,6 +36,15 @@ export interface PrizmLanguageInputLayoutDateTime {
   };
 }
 
+export interface PrizmLanguageCronSwitcherTitles {
+  second: string;
+  minute: string;
+  hour: string;
+  day: string;
+  month: string;
+  year: string;
+}
+
 export interface PrizmLanguageCron {
   cron: {
     title: string;
@@ -44,59 +53,51 @@ export interface PrizmLanguageCron {
     startDateLabel: string;
     endDateLabel: string;
     indefinitelyLabel: string;
-    general: {
-      everyMale: string;
-      everyFemale: string;
-      from: string;
-      to: string;
-      at: string;
-    };
-    second: {
-      second: string;
-      secondSince: string;
-      selectedSecond: string;
-    };
-    minute: {
-      minute: string;
-      minuteSince: string;
-      selectedMinute: string;
-    };
-    hour: {
-      hour: string;
-      hourSince: string;
-      selectedHour: string;
-    };
-    day: {
-      day: string;
-      daySince: string;
-      ofMonth: string;
-      specific: {
-        weekDays: string;
-        monthDays: string;
-      };
-      last: {
-        dayOfMonth: string;
-        workingDayOfMonth: string;
-        dayOfWeek: string;
-        ofMonth: string;
-        day: string;
-        untilEndOfMonth: string;
-      };
-      nearest: {
-        workingDay: string;
-        toDayOfMonth: string;
-      };
-    };
-    month: {
-      month: string;
-      monthSince: string;
-      selectedMonth: string;
-    };
-    year: {
-      year: string;
-      yearSince: string;
-      selectedYear: string;
-    };
+    switcherTitles: any;
+
+    everyMale: string;
+    everyFemale: string;
+    from: string;
+    to: string;
+    at: string;
+
+    second: string;
+    secondSince: string;
+    selectedSecond: string;
+
+    minute: string;
+    minuteSince: string;
+    selectedMinute: string;
+
+    hour: string;
+    hourSince: string;
+    selectedHour: string;
+
+    day: string;
+    daySince: string;
+    dayOfMonth: string;
+    ofMonth: string;
+
+    specificWeekDays: string;
+    specificMonthDays: string;
+
+    last_dayOfMonth: string;
+    last_workingDayOfMonth: string;
+    last_dayOfWeek: string;
+    last_ofMonth: string;
+    last_day: string;
+    untilEndOfMonth: string;
+
+    nearestWorkingDay: string;
+    nearestToDayOfMonth: string;
+
+    month: string;
+    monthSince: string;
+    selectedMonth: string;
+
+    year: string;
+    yearSince: string;
+    selectedYear: string;
   };
 }
 

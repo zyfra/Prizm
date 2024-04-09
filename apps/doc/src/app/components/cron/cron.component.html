@@ -46,7 +46,7 @@
         [hidePeriod]="hidePeriod"
         [hideResult]="hideResult"
         [autoSubmit]="autoSubmit"
-        [title]="title"
+        [cronTitle]="cronTitle"
       >
       </prizm-cron>
     </prizm-doc-demo>
@@ -71,12 +71,12 @@
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="title"
-        documentationPropertyName="title"
+        [(documentationPropertyValue)]="cronTitle"
+        documentationPropertyName="cronTitle"
         documentationPropertyType="string"
         documentationPropertyMode="input"
       >
-        Title
+        Cron title
       </ng-template>
 
       <ng-template

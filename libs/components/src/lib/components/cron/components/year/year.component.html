@@ -15,8 +15,8 @@
         ></prizm-radio-button>
       </div>
       <div class="content row">
-        {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
-        {{ cronI18n$ | async | prizmPluck : ['year', 'year'] }}
+        {{ cronI18n$ | async | prizmPluck : ['everyMale'] }}
+        {{ cronI18n$ | async | prizmPluck : ['year'] }}
       </div>
     </label>
   </ng-container>
@@ -37,7 +37,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content row">
-        <span>{{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['everyMale'] }}</span>
         <prizm-cron-carousel
           [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
           [value]="cronUiState.state$ | async | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
@@ -47,7 +47,7 @@
             {{ value }}
           </ng-template>
         </prizm-cron-carousel>
-        <span>{{ cronI18n$ | async | prizmPluck : ['year', 'yearSince'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['yearSince'] }}</span>
 
         <prizm-cron-carousel
           [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'after']"
@@ -74,7 +74,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content column year">
-        <span>{{ cronI18n$ | async | prizmPluck : ['year', 'selectedYear'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['selectedYear'] }}</span>
         <div>
           <prizm-input-layout
             class="year-input"
@@ -150,9 +150,9 @@
       </div>
       <div class="content">
         <span>
-          {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
-          {{ cronI18n$ | async | prizmPluck : ['year', 'year'] }}
-          {{ cronI18n$ | async | prizmPluck : ['general', 'from'] }}
+          {{ cronI18n$ | async | prizmPluck : ['everyMale'] }}
+          {{ cronI18n$ | async | prizmPluck : ['year'] }}
+          {{ cronI18n$ | async | prizmPluck : ['from'] }}
         </span>
         <prizm-cron-carousel
           #start
@@ -160,7 +160,7 @@
           [value]="cronUiState.state$ | async | prizmPluck : ['between', 'start']"
           (valueChange)="cronUiState.updateBetween({ start: $event })"
         ></prizm-cron-carousel>
-        <span>{{ cronI18n$ | async | prizmPluck : ['general', 'to'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['to'] }}</span>
         <prizm-cron-carousel
           #end
           [content]="cronUiState.list.between.end"

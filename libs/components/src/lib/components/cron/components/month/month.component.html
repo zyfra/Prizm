@@ -15,8 +15,8 @@
         ></prizm-radio-button>
       </div>
       <div class="content row">
-        {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
-        {{ cronI18n$ | async | prizmPluck : ['month', 'month'] }}
+        {{ cronI18n$ | async | prizmPluck : ['everyMale'] }}
+        {{ cronI18n$ | async | prizmPluck : ['month'] }}
       </div>
     </label>
   </ng-container>
@@ -37,7 +37,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content row">
-        <span>{{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['everyMale'] }}</span>
         <prizm-cron-carousel
           [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
           [value]="cronUiState.state$ | async | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
@@ -47,7 +47,7 @@
             {{ value }}
           </ng-template>
         </prizm-cron-carousel>
-        <span>{{ cronI18n$ | async | prizmPluck : ['month', 'monthSince'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['monthSince'] }}</span>
 
         <prizm-cron-carousel
           [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'after']"
@@ -78,7 +78,7 @@
         ></prizm-radio-button>
       </div>
       <div class="content column">
-        <span>{{ cronI18n$ | async | prizmPluck : ['month', 'selectedMonth'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['selectedMonth'] }}</span>
         <prizm-cron-schedule
           #schedule
           [items]="cronUiState.list.specified"
@@ -110,9 +110,9 @@
       </div>
       <div class="content">
         <span>
-          {{ cronI18n$ | async | prizmPluck : ['general', 'everyMale'] }}
-          {{ cronI18n$ | async | prizmPluck : ['month', 'month'] }}
-          {{ cronI18n$ | async | prizmPluck : ['general', 'from'] }}
+          {{ cronI18n$ | async | prizmPluck : ['everyMale'] }}
+          {{ cronI18n$ | async | prizmPluck : ['month'] }}
+          {{ cronI18n$ | async | prizmPluck : ['from'] }}
         </span>
         <prizm-cron-carousel
           [content]="cronUiState.list.between.start"
@@ -123,7 +123,7 @@
             {{ (value ?? 1) - 1 | prizmCronMonth }}
           </ng-template>
         </prizm-cron-carousel>
-        <span>{{ cronI18n$ | async | prizmPluck : ['general', 'to'] }}</span>
+        <span>{{ cronI18n$ | async | prizmPluck : ['to'] }}</span>
         <prizm-cron-carousel
           [content]="cronUiState.list.between.end"
           [value]="cronUiState.state$ | async | prizmPluck : ['between', 'end']"

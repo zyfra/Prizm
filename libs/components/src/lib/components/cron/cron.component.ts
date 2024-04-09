@@ -54,7 +54,7 @@ import { PrizmCronHumanReadablePipe } from '../cron-human-readable';
   imports: [PrizmCronHumanReadablePipe, PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
-  @Input() public title: string | null = null;
+  @Input() public cronTitle: string | null = null;
   @Input() public set value(value: string) {
     if (!value) return;
     this.cron.updateWith(value);
@@ -133,47 +133,27 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   @Input()
   set selected(selected: PrizmCronTabItem) {
+    this._selected = selected;
     this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
   }
 
   @Input() specifiedList: PrizmCronTabSpecifiedList | null = null;
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
+    this._tabs = tabs;
     this.switchers = this.switchers.map(i => {
       i.hide = !tabs.includes(i.id as any);
       return i;
     });
 
-    if (tabs.length && !tabs.includes(this.selected)) {
+    if (tabs.length && !tabs.includes(this._selected)) {
       this.selectedChange.emit((this.selected = tabs[0]));
     }
   }
 
-  public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [
-    {
-      title: 'Секунды',
-      id: 'second',
-    },
-    {
-      title: 'Минуты',
-      id: 'minute',
-    },
-    {
-      title: 'Часы',
-      id: 'hour',
-    },
-    {
-      title: 'Дни',
-      id: 'day',
-    },
-    {
-      title: 'Месяцы',
-      id: 'month',
-    },
-    {
-      title: 'Годы',
-      id: 'year',
-    },
-  ];
+  private _tabs: PrizmCronTabItem[] = [];
+  private _selected: PrizmCronTabItem = 'second';
+
+  public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [];
 
   initialValue!: string;
   public readonly value$ = this.cron.value$;
@@ -211,6 +191,22 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     this.cronUiMinuteState.init();
     this.initEndDateStateChanger();
     this.saveInitialValue();
+
+    this.cronI18n$.pipe(takeUntil(this.destroy$)).subscribe(cronI18n => {
+      const switchers = Object.entries(cronI18n.switcherTitles).map(([key, value]) => ({
+        title: value,
+        id: key,
+      })) as PrizmSwitcherItem<PrizmCronTabItem>[];
+
+      if (this._tabs.length) {
+        switchers.map(i => {
+          i.hide = !this._tabs.includes(i.id as any);
+          return i;
+        });
+      }
+
+      this.switchers = switchers;
+    });
   }
 
   private endDateStateCorrector(): void {
