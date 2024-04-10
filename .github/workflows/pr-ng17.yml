@@ -3,8 +3,6 @@ on:
   pull_request_target:
     branches:
       - main
-env:
-  NX_NO_CLOUD: 'true'
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
