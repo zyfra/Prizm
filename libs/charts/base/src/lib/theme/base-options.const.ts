@@ -29,6 +29,9 @@ export const PRIZM_CHART_BASE_OPTIONS: PrizmChartBaseOptions = {
       scatter: {
         xAxis: PRIZM_DEFAULT_AXIS_OPTIONS,
         yAxis: PRIZM_DEFAULT_AXIS_OPTIONS,
+        pointStyle: {
+          stroke: null,
+        },
       },
       waterfall: {
         interactions: [{ type: 'element-active' }],
