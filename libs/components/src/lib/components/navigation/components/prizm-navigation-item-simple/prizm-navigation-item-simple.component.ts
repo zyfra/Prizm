@@ -4,7 +4,7 @@ import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { ActiveNavigationItemService } from '../../services/active-navigation-item.service';
 import { map } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { prizmIsTextOverflow } from '@prizm-ui/components';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-navigation-item-simple',
