@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 
@@ -12,7 +12,6 @@ import {
 import { PRIZM_CURRENT_VERSION } from './current.const';
 import { LanguageManagerService } from './language-manager.service';
 import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
-import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-version-manager',
@@ -29,8 +28,8 @@ export class VersionManagerComponent {
     public readonly languageSwitcher: PrizmLanguageSwitcher,
     public readonly languageManager: LanguageManagerService,
     @Inject(SELECTED_VERSION_META) public initialVersion: PrizmVersionMeta | null,
-    @Inject(LOCATION) private readonly locationRef: Location,
-    @Inject(Router) private readonly router: Router
+    @Inject(LOCATION) public readonly locationRef: Location,
+    @Inject(Router) public readonly router: Router
   ) {
     this.initByVersion();
     this.initIfItIsNotLocal();
@@ -48,14 +47,6 @@ export class VersionManagerComponent {
             i => this.locationRef.hostname === i.hostname || version.cb?.(this.locationRef.hostname, version)
           )
         ) ?? null;
-    }
-  }
-
-  public getVersionHref(version: PrizmVersionMeta): string {
-    if (version.baseHref) {
-      return `${this.locationRef.origin}/${version.baseHref}${this.router.url}${this.locationRef.search}`;
-    } else {
-      return version.link?.href;
     }
   }
 

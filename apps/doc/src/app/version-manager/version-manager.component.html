@@ -53,7 +53,7 @@
       </div>
     </a>
 
-    <a class="version-link" [href]="getVersionHref(version)">
+    <a class="version-link" [href]="version | prizmVersionLink : locationRef : router.url">
       {{ version.label }}
     </a>
   </div>

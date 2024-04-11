@@ -7,6 +7,7 @@ import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule 
 import { VersionManagerComponent } from './version-manager.component';
 import { PrizmButtonModule } from '@prizm-ui/components';
 import { PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmVersionLinkPipe } from './pipes/versionLink.pipe';
 
 @NgModule({
   imports: [
@@ -19,6 +20,7 @@ import { PrizmLetModule } from '@prizm-ui/helpers';
     TuiTextfieldControllerModule,
     TuiStringifyPipeModule,
     TuiStringifyContentPipeModule,
+    PrizmVersionLinkPipe,
   ],
   declarations: [VersionManagerComponent],
   exports: [VersionManagerComponent],
