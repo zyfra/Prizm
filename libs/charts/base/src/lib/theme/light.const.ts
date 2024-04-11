@@ -1,6 +1,6 @@
-import { merge } from '@prizm-ui/helpers';
 import { PrizmChartThemeObject } from './types';
 import { PRIZM_CHART_BASE_OPTIONS } from './base-options.const';
+import { merge } from 'lodash';
 
 export const PRIZM_CHART_LIGHT_THEME_DATA_COLORS = [
   '#336666',
