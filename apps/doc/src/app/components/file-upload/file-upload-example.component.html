@@ -29,7 +29,7 @@
         [maxFileSize]="maxFileSize"
         [disabled]="disabled"
         (filesChange)="onFilesChange($event)"
-        (filesValidationErrors)="onfilesValidationErrors($any($event))"
+        (filesValidationErrors)="onfilesValidationErrors($event)"
         (filesCountError)="onFilesCountError($event)"
         (retry)="retry($event)"
       >
@@ -147,7 +147,7 @@
         documentationPropertyName="filesValidationErrors"
         documentationPropertyType="Event"
         documentationPropertyMode="output"
-        documentationPropertyType="Map<filename, PrizmFileValidationErrors>"
+        documentationPropertyType="[p: string]: PrizmFileValidationErrors"
       >
         FilesValidationErrors
       </ng-template>
