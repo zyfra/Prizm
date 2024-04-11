@@ -104,6 +104,13 @@ const PRIZM_CHART_LIGHT_THEME_COLOR_SCEME = {
             },
           },
         },
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_LIGHT_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
       },
       waterfall: {
         state: {
