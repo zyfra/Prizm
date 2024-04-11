@@ -25,7 +25,6 @@
 
 <ng-template #valueTemplate let-value>
   <div class="item" *ngIf="value.obj.id !== -1; else allTemplate">
-    <!--    <prizm-icon iconClass="account-done"></prizm-icon>-->
     <prizm-icons-full name="user-check"></prizm-icons-full>
     <span>{{ value.stringify }}</span>
   </div>

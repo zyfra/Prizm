@@ -6,6 +6,7 @@ import {
   Input,
   OnInit,
   Output,
+  inject,
 } from '@angular/core';
 import { PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
@@ -31,6 +32,8 @@ import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
 import { PrizmCronWeekPipe } from './pipes/cron-week.pipe';
 import { PrizmCronInnerModule } from './cron-inner.module';
 import { PrizmCronHumanReadablePipe } from '../cron-human-readable';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCopy } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-cron',
@@ -184,6 +187,8 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   public selectedSwitcherIdx = 0;
   public readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(PRIZM_LANGUAGE)
     readonly language$: Observable<PrizmLanguage>,
@@ -198,6 +203,8 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     private readonly cronUiDayState: PrizmCronUiDayState
   ) {
     super();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsCopy);
   }
 
   public ngOnInit(): void {

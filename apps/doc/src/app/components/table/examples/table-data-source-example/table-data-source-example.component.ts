@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild, inject } from '@angular/core';
 import {
   PrizmPaginatorComponent,
   PrizmTableCellStatus,
@@ -6,6 +6,8 @@ import {
   PrizmTableDirective,
   prizmTableDefaultColumnSort,
 } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source';
 
 export interface ITableProduct {
   id?: number;
@@ -98,8 +100,11 @@ export class TableDataSourceExampleComponent implements OnInit {
 
   dataSource: PrizmTableDataSource<ITableProduct>;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor() {
     this.dataSource = new PrizmTableDataSource(TABLE_EXAMPLE_SORT);
+    this.iconsFullRegistry.registerIcons(prizmIconsMagnifyingGlass);
   }
 
   ngOnInit(): void {

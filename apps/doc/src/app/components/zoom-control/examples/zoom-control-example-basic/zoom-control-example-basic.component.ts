@@ -1,4 +1,21 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  ElementRef,
+  ViewChild,
+  inject,
+} from '@angular/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsArrowsLeftRightToLines,
+  prizmIconsArrowsMaximize,
+  prizmIconsArrowsUpDownToLines,
+  prizmIconsBorderOuter,
+  prizmIconsMagnifyingGlassMinus,
+  prizmIconsMagnifyingGlassPlus,
+  prizmIconsTriangleDown,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-zoom-control-example-basic',
@@ -13,7 +30,19 @@ export class ZoomControlExampleBasicComponent {
   public scaleIdx = 3;
   public currentScale = this.scalesList[this.scaleIdx];
 
-  constructor(private cdRef: ChangeDetectorRef) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(private cdRef: ChangeDetectorRef) {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsTriangleDown,
+      prizmIconsMagnifyingGlassMinus,
+      prizmIconsMagnifyingGlassPlus,
+      prizmIconsArrowsMaximize,
+      prizmIconsBorderOuter,
+      prizmIconsArrowsUpDownToLines,
+      prizmIconsArrowsLeftRightToLines
+    );
+  }
 
   public get contentWidth(): number {
     return this.contentElement.nativeElement.offsetWidth;

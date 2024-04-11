@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import {
   PrizmMultiSelectIdentityMatcher,
@@ -7,6 +7,8 @@ import {
   PrizmMultiSelectSearchMatcher,
   PrizmMultiSelectValueTransformer,
 } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsUserCheck } from '@prizm-ui/icons/full/source';
 
 type PrizmItem = {
   id: number;
@@ -48,6 +50,12 @@ export class PrizmInputMultiSelectWithTransformerExampleComponent {
   ) => {
     return item.obj?.name;
   };
+
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsUserCheck);
+  }
 
   public setDefaultValue(): void {
     this.valueControl.setValue([this.items[0].id]);

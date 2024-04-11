@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, inject } from '@angular/core';
 import { IndicatorStatus, IndicatorType } from './indicator.models';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { NgIf } from '@angular/common';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCheck, prizmIconsExclamation, prizmIconsInfo } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-indicator',
@@ -32,6 +34,13 @@ export class PrizmIndicatorComponent extends PrizmAbstractTestId {
     warning: 'exclamation',
     danger: 'exclamation',
   };
+
+  private readonly iconsRegistry = inject(PrizmIconsRegistry);
+
+  constructor() {
+    super();
+    this.iconsRegistry.registerIcons(prizmIconsInfo, prizmIconsCheck, prizmIconsExclamation);
+  }
 }
 /**
  * TODO v5: remove

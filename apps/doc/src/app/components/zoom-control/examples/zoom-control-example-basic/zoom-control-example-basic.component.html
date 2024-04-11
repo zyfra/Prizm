@@ -14,7 +14,6 @@
       <prizm-dropdown-host [(isOpen)]="openDropdown" [content]="dropdown" prizmDropdownHostWidth="100%">
         <button class="zoom-control__select" (click)="openDropdown = !openDropdown">
           {{ currentScale | number : '.0-1' }}%
-          <!--          <prizm-icon class="zoom-control__select-icon" iconClass="chevrons-dropdown"></prizm-icon>-->
           <prizm-icons-full class="zoom-control__select-icon" name="triangle-down"></prizm-icons-full>
         </button>
       </prizm-dropdown-host>
@@ -52,7 +51,6 @@
     <div class="settings-group">
       <prizm-listing-item (click)="scaleDecrease()">
         <ng-container leftBox>
-          <!--          <prizm-icon class="icon" iconClass="sort-zoom-out"></prizm-icon>-->
           <prizm-icons-full class="icon" name="magnifying-glass-minus"></prizm-icons-full>
         </ng-container>
         Уменьшить
@@ -63,7 +61,6 @@
 
       <prizm-listing-item (click)="scaleIncrease()">
         <ng-container leftBox>
-          <!--          <prizm-icon class="icon" iconClass="sort-maximize"></prizm-icon>-->
           <prizm-icons-full class="icon" name="magnifying-glass-plus"></prizm-icons-full>
         </ng-container>
         Увеличить
@@ -76,7 +73,6 @@
     <div class="settings-group">
       <prizm-listing-item (click)="setScale(100)">
         <ng-container leftBox>
-          <!--          <prizm-icon class="icon" iconClass="arrows-expand-all"></prizm-icon>-->
           <prizm-icons-full class="icon" name="arrows-maximize"></prizm-icons-full>
         </ng-container>
         Полный размер
@@ -87,7 +83,6 @@
 
       <prizm-listing-item (click)="setScale(100)">
         <ng-container leftBox>
-          <!--          <prizm-icon class="icon" iconClass="editor-border-outer"></prizm-icon>-->
           <prizm-icons-full class="icon" name="border-outer"></prizm-icons-full>
         </ng-container>
         Вписать
@@ -100,7 +95,6 @@
     <div class="settings-group">
       <prizm-listing-item (click)="setScale((400 / 250) * 100)">
         <ng-container leftBox>
-          <!--          <prizm-icon class="icon" iconClass="arrows-arrow-expand-vertical"></prizm-icon>-->
           <prizm-icons-full class="icon" name="arrows-up-down-to-lines"></prizm-icons-full>
         </ng-container>
         По высоте
@@ -111,7 +105,6 @@
 
       <prizm-listing-item (click)="setScale((contentWidth / 250) * 100)">
         <ng-container leftBox>
-          <!--          <prizm-icon class="icon" iconClass="arrows-arrow-expand-horizontal"></prizm-icon>-->
           <prizm-icons-full class="icon" name="arrows-left-right-to-lines"></prizm-icons-full>
         </ng-container>
         По ширине

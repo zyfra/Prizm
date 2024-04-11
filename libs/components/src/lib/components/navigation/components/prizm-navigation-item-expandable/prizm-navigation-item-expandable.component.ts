@@ -1,11 +1,13 @@
-import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, inject } from '@angular/core';
 import { INavigationTree } from './../../navigation.interfaces';
 import { expandAnimation } from '../../../accordion/accordion.animation';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ActiveNavigationItemService } from '../../services/active-navigation-item.service';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { prizmIsTextOverflow } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsAngleRight, prizmIconsFolder } from '@prizm-ui/icons/full/source';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-navigation-item-expandable',
@@ -35,8 +37,12 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
     return this.data$.getValue();
   }
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(public activeItemService: ActiveNavigationItemService) {
     super();
+
+    this.iconsFullRegistry.registerIcons(prizmIconsFolder, prizmIconsAngleRight);
   }
 
   public toggle($event: Event): void {

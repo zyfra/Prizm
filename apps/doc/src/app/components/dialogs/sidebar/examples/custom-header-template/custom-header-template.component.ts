@@ -1,5 +1,7 @@
-import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, Inject, TemplateRef, ViewChild, inject } from '@angular/core';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCircleXmarkFill } from '@prizm-ui/icons/full/source';
 import { of } from 'rxjs';
 
 @Component({
@@ -27,7 +29,11 @@ export class PrizmSidebarCustomHeaderTemplateExampleComponent {
   @ViewChild('headerTemplate') headerTemplate!: TemplateRef<any>;
   @ViewChild('outerTemplate') outerTemplate!: TemplateRef<any>;
 
-  constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {
+    this.iconsFullRegistry.registerIcons(prizmIconsCircleXmarkFill);
+  }
 
   public show(): void {
     this.sidebarService
