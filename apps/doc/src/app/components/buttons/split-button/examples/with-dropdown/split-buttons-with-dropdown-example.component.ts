@@ -1,4 +1,6 @@
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component, inject } from '@angular/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-split-with-dropdown-example',
@@ -29,5 +31,9 @@ import { ChangeDetectorRef, Component } from '@angular/core';
 export class PrizmSplitButtonsWithDropdownExampleComponent {
   public open = false;
 
-  constructor(public readonly cdRef: ChangeDetectorRef) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(public readonly cdRef: ChangeDetectorRef) {
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown);
+  }
 }

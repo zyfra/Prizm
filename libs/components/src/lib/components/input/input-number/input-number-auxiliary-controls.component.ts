@@ -1,7 +1,9 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { PrizmInputLayoutComponent } from '../common/input-layout/input-layout.component';
 import { PrizmInputNumberComponent } from './input-number.component';
 import { PrizmInputCommonModule } from '../common';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsChevronDown, prizmIconsChevronUp } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-input-number-auxiliary-controls',
@@ -28,7 +30,11 @@ import { PrizmInputCommonModule } from '../common';
 export class PrizmInputNumberDefaultControlsComponent {
   @Input() inputNumber!: PrizmInputNumberComponent;
 
-  constructor(private readonly layout: PrizmInputLayoutComponent) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(private readonly layout: PrizmInputLayoutComponent) {
+    this.iconsFullRegistry.registerIcons(prizmIconsChevronDown, prizmIconsChevronUp);
+  }
 
   get size(): number {
     const { outer, size } = this.layout;

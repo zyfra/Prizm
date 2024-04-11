@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsUserCard } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-icons-buttons-example',
@@ -20,4 +22,10 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './icons-buttons-example.component.html',
 })
-export class PrizmIconsButtonsExampleComponent {}
+export class PrizmIconsButtonsExampleComponent {
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsUserCard);
+  }
+}

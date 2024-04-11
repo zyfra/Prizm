@@ -2,12 +2,14 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PolymorphContent, PrizmAccordionItemData } from '@prizm-ui/components';
 import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
+import { prizmIconsProvideLazyLoader } from '@prizm-ui/icons-loader';
 
 @Component({
   selector: 'prizm-accordion-example',
   templateUrl: './accordion-example.component.html',
   styleUrls: ['./accordion-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [prizmIconsProvideLazyLoader()],
 })
 export class AccordionExampleComponent {
   public disabled = false;

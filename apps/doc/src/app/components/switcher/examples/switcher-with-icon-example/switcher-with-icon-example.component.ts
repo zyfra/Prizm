@@ -1,5 +1,7 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsDashboardFill, prizmIconsNetworkV2, prizmIconsTable } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-switcher-with-icon-example',
@@ -22,4 +24,10 @@ export class SwitcherWithIconExampleComponent {
       icon: 'dashboard-fill',
     },
   ];
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsTable, prizmIconsNetworkV2, prizmIconsDashboardFill);
+  }
 }

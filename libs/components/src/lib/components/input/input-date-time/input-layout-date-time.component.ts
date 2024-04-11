@@ -3,6 +3,7 @@ import {
   ChangeDetectionStrategy,
   Component,
   forwardRef,
+  inject,
   Inject,
   Injector,
   Input,
@@ -59,6 +60,8 @@ import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
 import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
 import { prizmTimeLimitWithinRange } from '../../../@core/date-time/time-limit';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -177,6 +180,9 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Optional() @Inject(DOCUMENT) private document: Document,
     @Inject(PRIZM_DATE_FORMAT) readonly dateFormat: PrizmDateMode,
@@ -194,6 +200,8 @@ export class PrizmInputLayoutDateTimeComponent
   ) {
     super(injector, valueTransformer);
     this.extraButtonInjector = injector;
+
+    this.iconsFullRegistry.registerIcons(prizmIconsCalendarBlank, prizmIconsClock);
   }
 
   ngAfterViewInit(): void {

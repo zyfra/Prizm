@@ -11,6 +11,7 @@ import {
   Output,
   Renderer2,
   ViewChild,
+  inject,
 } from '@angular/core';
 
 import {
@@ -43,6 +44,8 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
 import { PrizmHintDirective } from '../../directives';
 import { prizmIsTextOverflow } from '../../util';
+import { prizmIconsArrowRotateRight, prizmIconsTrashEmpty } from '@prizm-ui/icons/full/source';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -74,6 +77,9 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     private renderer: Renderer2,
     @Inject(PRIZM_FILE_UPLOAD) public readonly fileUpload$: Observable<PrizmLanguageFileUpload['fileUpload']>,
@@ -81,6 +87,12 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   ) {
     super();
     this.options = { ...this.options, ...customOptions };
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsArrowRotateRight,
+      prizmIconsTrashEmpty,
+      prizmIconsFileEmpty
+    );
   }
 
   private listeners: Array<() => void> = [];

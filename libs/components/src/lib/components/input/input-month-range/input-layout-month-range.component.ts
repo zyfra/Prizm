@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   forwardRef,
+  inject,
   Inject,
   Injector,
   Input,
@@ -34,6 +35,8 @@ import { PrizmCalendarMonthModule } from '../../calendar-month';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
 import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
 import { PrizmInputTextModule } from '../input-text';
+import { prizmIconsCalendarRange } from '@prizm-ui/icons/full/source';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
   selector: `prizm-input-layout-month-range`,
@@ -99,6 +102,8 @@ export class PrizmInputLayoutMonthRangeComponent extends PrizmInputNgControl<Pri
     return !this.disabled;
   }
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(PRIZM_MONTH_FORMATTER)
     readonly formatter: PrizmHandler<PrizmMonth | null, Observable<string>>,
@@ -107,6 +112,8 @@ export class PrizmInputLayoutMonthRangeComponent extends PrizmInputNgControl<Pri
     @Inject(Injector) injector: Injector
   ) {
     super(injector);
+
+    this.iconsFullRegistry.registerIcons(prizmIconsCalendarRange);
   }
 
   public get nativeFocusableElement(): HTMLInputElement | null {

@@ -23,21 +23,21 @@ const configFile = {
   assets: [
     {
       glob: '**/*',
-      input: '@prizm-ui/icons/src/styles/icons-base',
+      input: 'node_modules/@prizm-ui/icons/src/styles/icons-base',
       output: 'assets/prizm/icons/base',
     },
     {
       glob: '**/*',
-      input: '@prizm-ui/icons/src/styles/icons-full',
+      input: 'node_modules/@prizm-ui/icons/src/styles/icons-full',
       output: 'assets/prizm/icons/full',
     },
   ],
   styles: [
-    '@prizm-ui/icons/src/styles/styles.less',
-    '@prizm-ui/icons/src/styles/icons-base/prizm-base-icons.css',
-    '@prizm-ui/icons/src/styles/icons-base/prizm-base-icons-location.css',
-    '@prizm-ui/icons/src/styles/icons-full/prizm-full-icons.css',
-    '@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css',
+    'node_modules/@prizm-ui/icons/src/styles/styles.less',
+    'node_modules/@prizm-ui/icons/src/styles/icons-base/prizm-base-icons.css',
+    'node_modules/@prizm-ui/icons/src/styles/icons-base/prizm-base-icons-location.css',
+    'node_modules/@prizm-ui/icons/src/styles/icons-full/prizm-full-icons.css',
+    'node_modules/@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css',
   ],
 };
 ```

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   PrizmTableCellSorter,
   PrizmTableCellSorterHandler,
@@ -6,6 +6,8 @@ import {
   prizmTableDefaultColumnSort,
   PrizmTableSorterService,
 } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source';
 import { BehaviorSubject, of } from 'rxjs';
 import { delay, map, switchMap, tap } from 'rxjs/operators';
 
@@ -118,7 +120,12 @@ export class TableServerSortExampleComponent {
     }),
     tap(() => this.showLoader$.next(false))
   );
-  constructor(private readonly tableSorterService: PrizmTableSorterService<ITableProduct>) {}
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(private readonly tableSorterService: PrizmTableSorterService<ITableProduct>) {
+    this.iconsFullRegistry.registerIcons(prizmIconsMagnifyingGlass);
+  }
   public showLoader$ = new BehaviorSubject(false);
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
     this.searchString = value.toLowerCase();
