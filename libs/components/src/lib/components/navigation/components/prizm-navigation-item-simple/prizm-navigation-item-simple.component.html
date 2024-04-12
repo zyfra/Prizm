@@ -1,5 +1,6 @@
 <div
   class="nav"
+  #container
   [class.nav_active]="isActive$ | async"
   [prizmHint]="menuItem?.title"
   [prizmHintCanShow]="prizmIsTextOverflow(title)"

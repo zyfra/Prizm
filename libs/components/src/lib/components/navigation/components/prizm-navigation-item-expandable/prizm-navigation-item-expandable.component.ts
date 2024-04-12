@@ -1,4 +1,14 @@
-import { Component, ChangeDetectionStrategy, Input, inject } from '@angular/core';
+import {
+  Component,
+  ChangeDetectionStrategy,
+  Input,
+  inject,
+  ChangeDetectorRef,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+  ElementRef,
+} from '@angular/core';
 import { INavigationTree } from './../../navigation.interfaces';
 import { expandAnimation } from '../../../accordion/accordion.animation';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
@@ -16,7 +26,8 @@ import { prizmIsTextOverflow } from '../../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [expandAnimation],
 })
-export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId {
+export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
+  @ViewChild('container', { static: true }) container!: ElementRef;
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
@@ -39,10 +50,26 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
-  constructor(public activeItemService: ActiveNavigationItemService) {
+  private resizeObserver!: ResizeObserver;
+
+  constructor(
+    public activeItemService: ActiveNavigationItemService,
+    private readonly cdRef: ChangeDetectorRef
+  ) {
     super();
 
     this.iconsFullRegistry.registerIcons(prizmIconsFolder, prizmIconsAngleRight);
+  }
+
+  public ngOnInit(): void {
+    this.resizeObserver = new ResizeObserver(() => {
+      this.cdRef.markForCheck();
+    });
+    this.resizeObserver.observe(this.container.nativeElement);
+  }
+
+  public ngOnDestroy(): void {
+    this.resizeObserver.disconnect();
   }
 
   public toggle($event: Event): void {
