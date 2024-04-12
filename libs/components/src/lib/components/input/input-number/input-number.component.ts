@@ -113,15 +113,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @HostListener('input', ['$event.data'])
   @HostListener('paste', ['$event.clipboardData.getData("Text")'])
   public onInput(data: string) {
-    this.validateMax();
     this.input$$.next(data);
   }
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
-  @HostListener('blur')
-  public onBlur() {
-    this.validateMin();
-  }
 
   constructor(
     @Self() public readonly ngControl: NgControl,
@@ -136,20 +131,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   private detectSymbols(value: boolean): void {
     this.hasSymbol = value;
     this.stateChanges.next();
-  }
-
-  private validateMax() {
-    if (this.max !== null && this.max < this.value) {
-      this.el.nativeElement.value = this.max.toString();
-      this.stateChanges.next();
-    }
-  }
-
-  private validateMin() {
-    if (this.min !== null && this.min > this.value) {
-      this.stateChanges.next();
-      return;
-    }
   }
 
   public clear(ev: MouseEvent): void {
