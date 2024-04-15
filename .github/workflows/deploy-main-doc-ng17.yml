@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Deploy doc main 17
+name: Deploy doc main 17 (v4 and main)
 on:
   workflow_dispatch:
   workflow_call:
