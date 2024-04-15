@@ -6,7 +6,14 @@
       num ?? '0'
     }}</span>
     <!--    <prizm-icon class="sorter__icon" [iconClass]="$any(icon$ | async)"></prizm-icon>-->
-    <prizm-icons class="sorter__icon" [size]="16" [name]="$any(icon$ | async)"> </prizm-icons>
+    <button
+      class="sorter__icon"
+      [icon]="$any(icon$ | async)"
+      [appearance]="isCurrent ? 'primary' : 'secondary'"
+      prizmIconButton
+      appearanceType="ghost"
+      size="s"
+    ></button>
   </span>
 </button>
 <ng-template #content>
