@@ -87,7 +87,7 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
   },
   {
     title: 'Очень очень длинный раздел 4',
-    icon: 'transport-airplane',
+    icon: 'battery-80',
     isExpanded: true,
     children: [
       {
