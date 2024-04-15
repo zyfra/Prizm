@@ -91,5 +91,12 @@ export class InputNumberExampleComponent {
     HTML: import('./examples/input-number-invalid-example/input-number-invalid-example.component.html?raw'),
   };
 
+  public readonly prizmInputNumberMinMax: TuiDocExample = {
+    TypeScript: import(
+      './examples/input-number-min-max-example/input-number-min-max-example.component.ts?raw'
+    ),
+    HTML: import('./examples/input-number-min-max-example/input-number-min-max-example.component.html?raw'),
+  };
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }
