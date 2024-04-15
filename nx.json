@@ -1,4 +1,6 @@
 {
+  // The following will cause all attempts to connect your workspace to Nx Cloud to fail
+  "neverConnectToCloud": true,
   "affected": {
     "defaultBase": "master"
   },
@@ -65,6 +67,5 @@
       "!{projectRoot}/jest.config.[jt]s",
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
-  },
-  "nxCloudAccessToken": "ZWY1YjhmMzItYzY0NC00YTY0LWE0NmItYTE3ODAwMzAwZWRkfHJlYWQtd3JpdGU="
+  }
 }

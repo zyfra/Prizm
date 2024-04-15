@@ -104,6 +104,10 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
+
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
 

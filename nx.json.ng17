@@ -1,4 +1,6 @@
 {
+  // The following will cause all attempts to connect your workspace to Nx Cloud to fail
+  "neverConnectToCloud": true,
   "affected": {
     "defaultBase": "master"
   },
