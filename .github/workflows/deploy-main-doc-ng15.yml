@@ -60,19 +60,6 @@ jobs:
           )
           echo "LAST_V2_VERSION=${last_v2_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 15'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v15
-
-      - name: 'Build main versions'
-        run: npx nx run-many --target=build --all --parallel --max-parallel=3
-
-      - name: Upload dist as artifacts...
-        id: dist-cache-save
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: ./dist
-
   deploy_to_doc:
     needs: build
     runs-on: ubuntu-latest
@@ -102,6 +89,9 @@ jobs:
       - name: 'Increase max memory limit'
         run: |
           export NODE_OPTIONS="--max_old_space_size=8192"
+
+      - name: 'Set version 15'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v15
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
