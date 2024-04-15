@@ -13,7 +13,10 @@
 
 <br />
 
-<p>Пользовательский текст валидации</p>
+<p>
+  <ng-container *prizmIfLang="'russian'; else eng"> Пользовательский текст валидации </ng-container>
+  <ng-template #eng> Custom validation text </ng-template>
+</p>
 
 <br />
 
@@ -28,6 +31,9 @@
     placeholder="Введите число"
   />
   <ng-template [control]="inputNumber" prizmInputStatusText>
-    Максимально допустимное значение - {{ max }}, минимально допустимое значение - {{ min }}
+    <ng-container *prizmIfLang="'russian'; else eng">
+      Максимально допустимное значение - {{ max }}, минимально допустимое значение - {{ min }}
+    </ng-container>
+    <ng-template #eng> The maximum value is {{ max }}, the minimum value is {{ min }}. </ng-template>
   </ng-template>
 </prizm-input-layout>

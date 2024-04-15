@@ -11,6 +11,7 @@ import { InputNumberCounterExampleComponent } from './examples/input-number-coun
 import { InputNumberCounterFloatExampleComponent } from './examples/input-number-counter-float-example/input-number-counter-float-example.component';
 import { InputNumberInvalidExampleComponent } from './examples/input-number-invalid-example/input-number-invalid-example.component';
 import { InputNumberMinMaxExampleComponent } from './examples/input-number-min-max-example/input-number-min-max-example.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { InputNumberMinMaxExampleComponent } from './examples/input-number-min-m
     ReactiveFormsModule,
     FormsModule,
     PrizmInputNumberModule,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     InputNumberInvalidExampleComponent,
