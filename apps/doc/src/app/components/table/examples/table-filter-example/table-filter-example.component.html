@@ -12,12 +12,15 @@
             [content]="dropdown"
             prizmDropdownHostWidth="auto"
           >
-            <prizm-icon
+            <button
               class="filter__category"
-              [class.filter__category_active]="filterOpen || filterOn"
+              [appearance]="filterOpen || filterOn ? 'primary' : 'secondary'"
               (click)="filterOpen = !filterOpen"
-              iconClass="sort-filter"
-            ></prizm-icon>
+              icon="sort-filter"
+              prizmIconButton
+              appearanceType="ghost"
+              size="s"
+            ></button>
           </prizm-dropdown-host>
         </th>
         <th *prizmHead="'count'" prizmTh>Количество</th>
