@@ -35,6 +35,7 @@ export class InputNumberExampleComponent {
   nullContent = 'Не выбрано';
   minDropdownHeight = 0;
   maxDropdownHeight = 342;
+  title = '';
 
   value = 1;
   public requiredInputControl = new UntypedFormControl('', Validators.required);
