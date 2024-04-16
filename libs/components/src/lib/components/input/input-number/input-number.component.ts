@@ -82,6 +82,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @HostBinding('attr.placeholder')
   placeholder?: string;
 
+  @Input()
+  @HostBinding('attr.title')
+  title = '';
+
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   // TODO later create input with support zero postfix for number
