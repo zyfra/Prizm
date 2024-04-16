@@ -20,7 +20,12 @@
 
 <br />
 
-<prizm-input-layout label="Заголовок" size="l" status="default">
+<prizm-input-layout
+  [status]="minMaxInputControlCustom.valid ? 'default' : 'danger'"
+  label="Заголовок"
+  size="l"
+  status="default"
+>
   <input
     #inputNumber="prizmInputNumber"
     [min]="min"
@@ -30,10 +35,11 @@
     prizmInput
     placeholder="Введите число"
   />
-  <ng-template [control]="inputNumber" prizmInputStatusText>
+  <ng-template #statusText [control]="inputNumber" prizmInputStatusText>
     <ng-container *prizmIfLang="'russian'; else eng">
       Максимально допустимное значение - {{ max }}, минимально допустимое значение - {{ min }}
     </ng-container>
     <ng-template #eng> The maximum value is {{ max }}, the minimum value is {{ min }}. </ng-template>
   </ng-template>
+  <div *ngTemplateOutlet="statusText" prizm-input-subtext></div>
 </prizm-input-layout>
