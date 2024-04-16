@@ -140,6 +140,7 @@ export class PrizmInputLayoutComponent
   readonly onClearClick = (event: MouseEvent) => {
     this.clear.next(event);
     this.control.clear(event);
+    this.control.stateChanges.next();
     this.actualizeStatusIcon();
   };
 
