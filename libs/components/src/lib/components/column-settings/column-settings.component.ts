@@ -5,6 +5,7 @@ import {
   EventEmitter,
   Inject,
   Input,
+  OnChanges,
   Output,
   ViewChild,
 } from '@angular/core';
@@ -56,7 +57,7 @@ import { PrizmColumnDropListComponent } from './components/column-drop-list/colu
   ],
   providers: [...prizmI18nInitWithKey(PRIZM_COLUMN_SETTINGS, 'columnSettings')],
 })
-export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements AfterViewInit {
+export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements AfterViewInit, OnChanges {
   @ViewChild('stickyLeftList', { read: CdkDropList }) stickyLeftList: CdkDropList | undefined;
   @ViewChild('columnList', { read: CdkDropList }) columnList: CdkDropList | undefined;
   @ViewChild('stickyRightList', { read: CdkDropList }) stickyRightList: CdkDropList | undefined;
@@ -82,6 +83,10 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
     public readonly columnSettings$: Observable<PrizmLanguageColumnSettings['columnSettings']>
   ) {
     super();
+  }
+
+  ngOnChanges(): void {
+    this.checkIsLastShown();
   }
 
   ngAfterViewInit(): void {
