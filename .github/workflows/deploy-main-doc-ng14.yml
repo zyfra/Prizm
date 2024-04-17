@@ -61,22 +61,6 @@ jobs:
           )
           echo "LAST_V1_VERSION=${last_v1_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 14'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v14
-
-      #      - name: 'Update main versions'
-      #        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="1.*.*.up" --all --currentVersion="${{ env.LAST_V1_VERSION }}"
-
-      - name: 'Build main versions'
-        run: npx nx run-many --target=build --all --parallel --max-parallel=3
-
-      - name: Upload dist as artifacts...
-        id: dist-cache-save
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: ./dist
-
   deploy_to_doc:
     needs: build
     runs-on: ubuntu-latest
@@ -103,6 +87,13 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
+
+      - name: 'Set version 14'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v14
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
