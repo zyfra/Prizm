@@ -1,5 +1,11 @@
 <div class="blocks">
-  <ng-container *prizmLet="cronI18n$ | async as cronI18n">
+  <ng-container
+    *prizmLet="{
+      cron: cronI18n$ | async,
+      months: (monthsI18n$ | async) ?? [],
+      shortMonths: (shortMonthsI18n$ | async) ?? []
+    } as i18n"
+  >
     <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.every)">
       <label
         class="every value-block block"
@@ -16,7 +22,7 @@
           ></prizm-radio-button>
         </div>
         <div class="content row">
-          {{ cronI18n | prizmPluck : ['everyMonth'] }}
+          {{ i18n.cron | prizmPluck : ['everyMonth'] }}
         </div>
       </label>
     </ng-container>
@@ -37,7 +43,7 @@
           ></prizm-radio-button>
         </div>
         <div class="content row">
-          <span>{{ cronI18n | prizmPluck : ['every'] }}</span>
+          <span>{{ i18n.cron | prizmPluck : ['every'] }}</span>
           <prizm-cron-carousel
             [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
             [value]="cronUiState.state$ | async | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
@@ -47,7 +53,7 @@
               {{ value }}
             </ng-template>
           </prizm-cron-carousel>
-          <span>{{ cronI18n | prizmPluck : ['monthSince'] }}</span>
+          <span>{{ i18n.cron | prizmPluck : ['monthSince'] }}</span>
 
           <prizm-cron-carousel
             [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'after']"
@@ -55,7 +61,7 @@
             (valueChange)="cronUiState.updateOn({ after: $event })"
           >
             <ng-template #content let-value="content">
-              {{ (value ?? 1) - 1 | prizmCronMonth }}
+              {{ i18n.months[(value ?? 1) - 1] }}
             </ng-template>
           </prizm-cron-carousel>
         </div>
@@ -78,7 +84,7 @@
           ></prizm-radio-button>
         </div>
         <div class="content column">
-          <span>{{ cronI18n | prizmPluck : ['selectedMonth'] }}</span>
+          <span>{{ i18n.cron | prizmPluck : ['selectedMonth'] }}</span>
           <prizm-cron-schedule
             #schedule
             [items]="cronUiState.list.specified"
@@ -86,7 +92,8 @@
             (selectedChange)="cronUiState.updateSpecified($event)"
           >
             <ng-template #content let-item="item">
-              {{ item.value | prizmCronMonth : 1 : 'MMM' }}
+              <!--{{ item.value | prizmCronMonth : 1 : 'MMM' }}-->
+              {{ i18n.shortMonths[item.value] }}
             </ng-template>
           </prizm-cron-schedule>
         </div>
@@ -110,7 +117,7 @@
         </div>
         <div class="content">
           <span>
-            {{ cronI18n | prizmPluck : ['everyMonthFrom'] }}
+            {{ i18n.cron | prizmPluck : ['everyMonthFrom'] }}
           </span>
           <prizm-cron-carousel
             [content]="cronUiState.list.between.start"
@@ -118,17 +125,17 @@
             (valueChange)="cronUiState.updateBetween({ start: $event })"
           >
             <ng-template #content let-value="content">
-              {{ (value ?? 1) - 1 | prizmCronMonth }}
+              {{ i18n.months[(value ?? 1) - 1] }}
             </ng-template>
           </prizm-cron-carousel>
-          <span>{{ cronI18n | prizmPluck : ['to'] }}</span>
+          <span>{{ i18n.cron | prizmPluck : ['to'] }}</span>
           <prizm-cron-carousel
             [content]="cronUiState.list.between.end"
             [value]="cronUiState.state$ | async | prizmPluck : ['between', 'end']"
             (valueChange)="cronUiState.updateBetween({ end: $event })"
           >
             <ng-template #content let-value="content">
-              {{ (value ?? 1) - 1 | prizmCronMonth }}
+              {{ i18n.months[(value ?? 1) - 1] }}
             </ng-template>
           </prizm-cron-carousel>
         </div>

@@ -40,9 +40,9 @@ import {
   Observable,
   timer,
 } from 'rxjs';
-import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n';
+import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron, PrizmLanguageKit } from '@prizm-ui/i18n';
 import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
-import { PRIZM_CRON } from '../../tokens';
+import { PRIZM_CALENDAR_MONTHS, PRIZM_CRON, PRIZM_MONTHS } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { PrizmCronMonthPipe } from './pipes/cron-month.pipe';
@@ -67,6 +67,8 @@ import { PrizmCronHumanReadablePipe } from '../cron-human-readable';
     PrizmCronUiYearState,
     PrizmCronUiMinuteState,
     ...prizmI18nInitWithKey(PRIZM_CRON, 'cron'),
+    ...prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
+    ...prizmI18nInitWithKey(PRIZM_CALENDAR_MONTHS, 'shortCalendarMonths'),
   ],
   standalone: true,
   imports: [PrizmCronHumanReadablePipe, PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],

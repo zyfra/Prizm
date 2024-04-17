@@ -69,5 +69,8 @@ export const PRIZM_RUSSIAN_CRON: PrizmLanguageCron = {
     selectedYear: 'Выбранный год (выбор одного или нескольких)',
     everyYear: 'Каждый год',
     everyYearFrom: 'Каждый год с',
+
+    weekDays: ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'],
+    shortWeekDays: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
   },
 };

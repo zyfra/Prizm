@@ -69,5 +69,8 @@ export const PRIZM_ENGLISH_CRON: PrizmLanguageCron = {
     selectedYear: 'Selected year (select one or more)',
     everyYear: 'Every year',
     everyYearFrom: 'Every year from',
+
+    weekDays: ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+    shortWeekDays: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
   },
 };

@@ -107,6 +107,9 @@ export interface PrizmLanguageCron {
     selectedYear: string;
     everyYear: string;
     everyYearFrom: string;
+
+    weekDays: [string, string, string, string, string, string, string];
+    shortWeekDays: [string, string, string, string, string, string, string];
   };
 }
 
