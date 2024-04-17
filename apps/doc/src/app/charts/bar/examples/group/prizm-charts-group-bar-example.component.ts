@@ -77,5 +77,7 @@ export class PrizmChartsBarGroupExampleComponent {
     ],
   };
 
+  public options = { isGroup: true };
+
   constructor(public readonly prizmTheme: PrizmThemeService) {}
 }
