@@ -22,7 +22,7 @@ prizm-wrapper {
   border-radius: @radius;
   outline: 1px solid transparent;
 
-  &:hover:not(._disabled) {
+  &:hover:not(._disabled):not(._loading) {
     prizm-wrapper {
       background-color: var(--prizm-form-active-hover);
       transition: 0.3s;
@@ -44,8 +44,11 @@ prizm-wrapper {
       color: var(--prizm-text-icon-tertiary);
     }
 
-    &:hover:not(._disabled) {
+    &:hover:not(._disabled):not(._loading) {
       outline: 1px solid var(--prizm-form-stroke-hover);
+    }
+
+    &:hover:not(._disabled) {
       prizm-wrapper {
         background-color: var(--prizm-form-fill-default);
       }
