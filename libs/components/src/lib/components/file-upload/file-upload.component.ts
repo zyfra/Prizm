@@ -37,7 +37,11 @@ import { PrizmButtonComponent } from '../button';
 import { PrizmProgressBarComponent } from '../progress';
 import { PrizmIconComponent } from '../icon';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
+import { PrizmFileNamePipe } from './pipes/file-name.pipe';
+import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
+import { PrizmHintDirective } from '../../directives';
+import { prizmIsTextOverflow } from '../../util';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -47,6 +51,8 @@ import { PrizmFileSizePipe } from './pipes/file-size.pipe';
   imports: [
     CommonModule,
     PrizmUploadStatusPipe,
+    PrizmFileNamePipe,
+    PrizmFileExtensionPipe,
     PrizmFileSizePipe,
     PrizmSanitizerPipe,
     PrizmPluckPipe,
@@ -54,6 +60,7 @@ import { PrizmFileSizePipe } from './pipes/file-size.pipe';
     PrizmProgressBarComponent,
     PrizmButtonComponent,
     PrizmIconComponent,
+    PrizmHintDirective,
   ],
   standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
@@ -62,6 +69,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
   @ViewChild('dropzone') dropzoneElementRef!: ElementRef<HTMLDivElement>;
 
   override readonly testId_ = 'ui_file_upload';
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
   constructor(

@@ -94,19 +94,28 @@
     grid-column-end: 4;
     padding-right: 8px;
     overflow: hidden;
-    text-overflow: ellipsis;
     display: flex;
-    gap: 8px;
     align-items: baseline;
   }
 
-  &__name {
+  &__full-name {
+    display: flex;
+    overflow: hidden;
+  }
+  &__name,
+  &__extension {
     font-weight: 600;
     font-size: 14px;
     line-height: 20px;
     color: var(--prizm-v3-text-icon-primary);
   }
+  &__name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
   &__size {
+    margin-left: 8px;
     font-size: 10px;
     line-height: 12px;
     color: var(--prizm-v3-text-icon-tertiary);
