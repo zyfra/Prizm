@@ -23,6 +23,14 @@
     <prizm-doc-example id="counter-invalid" [content]="prizmInputNumberInvalid" heading="Form group">
       <prizm-input-number-invalid-example></prizm-input-number-invalid-example>
     </prizm-doc-example>
+
+    <prizm-doc-example
+      id="number-min-max"
+      [content]="prizmInputNumberMinMax"
+      heading="Input number min max example"
+    >
+      <prizm-input-number-min-max-example></prizm-input-number-min-max-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -106,6 +114,7 @@
               [prizmHintDirection]="prizmHintDirection"
               [prizmHintCanShow]="prizmHintCanShow"
               [required]="required"
+              [title]="title"
               prizmInputNumber
             />
 
@@ -157,6 +166,15 @@
         documentationPropertyMode="input"
       >
         Placeholder
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="title"
+        documentationPropertyName="title"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Title attributre
       </ng-template>
 
       <ng-template

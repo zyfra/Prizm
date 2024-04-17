@@ -1,0 +1,45 @@
+<prizm-input-layout label="Заголовок" size="l" status="default">
+  <input
+    #inputNumber="prizmInputNumber"
+    [min]="min"
+    [max]="max"
+    [formControl]="minMaxInputControl"
+    type="number"
+    prizmInput
+    placeholder="Введите число"
+  />
+  <ng-template [control]="inputNumber" prizmInputStatusText></ng-template>
+</prizm-input-layout>
+
+<br />
+
+<p>
+  <ng-container *prizmIfLang="'russian'; else eng"> Пользовательский текст валидации </ng-container>
+  <ng-template #eng> Custom validation text </ng-template>
+</p>
+
+<br />
+
+<prizm-input-layout
+  [status]="minMaxInputControlCustom.valid ? 'default' : 'danger'"
+  label="Заголовок"
+  size="l"
+  status="default"
+>
+  <input
+    #inputNumber="prizmInputNumber"
+    [min]="min"
+    [max]="max"
+    [formControl]="minMaxInputControlCustom"
+    type="number"
+    prizmInput
+    placeholder="Введите число"
+  />
+  <ng-template #statusText [control]="inputNumber" prizmInputStatusText>
+    <ng-container *prizmIfLang="'russian'; else eng">
+      Максимально допустимное значение - {{ max }}, минимально допустимое значение - {{ min }}
+    </ng-container>
+    <ng-template #eng> The maximum value is {{ max }}, the minimum value is {{ min }}. </ng-template>
+  </ng-template>
+  <div *ngTemplateOutlet="statusText" prizm-input-subtext></div>
+</prizm-input-layout>
