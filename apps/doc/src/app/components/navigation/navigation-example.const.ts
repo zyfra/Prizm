@@ -85,4 +85,29 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
       },
     ],
   },
+  {
+    title: 'Очень очень длинный раздел 4',
+    icon: 'battery-80',
+    isExpanded: true,
+    children: [
+      {
+        title: 'Очень очень длинный подраздел 4.1',
+      },
+      {
+        title: 'Очень очень длинный подраздел 4.2',
+        isExpanded: true,
+        children: [
+          {
+            title: 'Очень очень длинный подраздел 4.2.1',
+          },
+          {
+            title: 'Подраздел 4.2.2',
+          },
+        ],
+      },
+      {
+        title: 'Подраздел 4.3',
+      },
+    ],
+  },
 ];
