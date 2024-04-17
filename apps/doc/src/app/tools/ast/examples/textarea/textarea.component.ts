@@ -61,9 +61,7 @@ export class PrizmAstTextareaExampleComponent implements OnInit {
   //     outputs: {},
   //   },
   // ];
-  readonly html = `
-<zyfra-textarea
-
+  readonly html = `<zyfra-textarea
   [(ngModel)]="modelForTextArea"
   placeholder="Введите текст.."
   class="inputClass"

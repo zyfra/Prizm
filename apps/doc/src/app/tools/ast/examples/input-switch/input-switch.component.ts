@@ -63,8 +63,7 @@ export class PrizmAstInputSwitchExampleComponent implements OnInit {
   //   },
   //
   // ];
-  readonly html = `
-<zyfra-input-switch
+  readonly html = `<zyfra-input-switch
 [disabled]='true'
 [readonly]='true'
 [mini]='true'
