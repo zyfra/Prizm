@@ -1,109 +1,167 @@
+import { PRIZM_CHART_BASE_OPTIONS } from './base-options.const';
 import { PrizmChartThemeObject } from './types';
+import { merge } from '@prizm-ui/helpers';
 
-export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
+export const PRIZM_CHART_DARK_THEME_DATA_COLORS = [
+  '#339999',
+  '#9966FF',
+  '#33CCFF',
+  '#8D91A4',
+  '#CC9933',
+  '#FF99CC',
+  '#99CC99',
+  '#CC66FF',
+  '#9999FF',
+  '#CC9999',
+  '#669900',
+];
+
+export const PRIZM_DARK_THEME_AXIS_COLOR = '#2c313d';
+
+export const PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY = '#a7acb8';
+
+export const PRIZM_DARK_THEME_TEXT_COLOR_DISABLE = '#545f77';
+
+export const PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY = '#1e222a';
+
+export const PRIZM_DARK_THEME_STROKE_HOVER_COLOR = '#ffffff';
+
+const PRIZM_CHART_DARK_THEME_COLOR_SCEME = {
   prizm: {
     components: {
       bar: {
-        color: ['#AD52BC', '#00BCD4', '#337EFF'],
         xAxis: {
-          minTickInterval: 10,
           grid: {
             line: {
               style: {
-                stroke: '#50546B',
+                stroke: PRIZM_DARK_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#50546b',
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
             },
           },
-          range: [0, 1],
-        },
-      },
-      scatter: {
-        xAxis: {
-          minTickInterval: 10,
-          grid: {
-            line: {
-              style: {
-                stroke: '#50546B',
-              },
-            },
-          },
-          line: {
-            style: {
-              stroke: '#50546b',
-            },
-          },
-          range: [0, 1],
-        },
-        yAxis: {
-          minTickInterval: 10,
-          grid: {
-            line: {
-              style: {
-                stroke: '#50546B',
-              },
-            },
-          },
-          line: {
-            style: {
-              stroke: '#50546b',
-            },
-          },
-          range: [0, 1],
         },
       },
       area: {
         xAxis: {
-          minTickInterval: 10,
           grid: {
             line: {
               style: {
-                stroke: '#50546B',
+                stroke: PRIZM_DARK_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#50546b',
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
             },
           },
-          range: [0, 1],
         },
         yAxis: {
-          minTickInterval: 10,
           grid: {
             line: {
               style: {
-                stroke: '#50546B',
+                stroke: PRIZM_DARK_THEME_AXIS_COLOR,
               },
             },
           },
           line: {
             style: {
-              stroke: '#50546b',
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
             },
           },
-          range: [0, 1],
+        },
+      },
+      scatter: {
+        xAxis: {
+          grid: {
+            line: {
+              style: {
+                stroke: PRIZM_DARK_THEME_AXIS_COLOR,
+              },
+            },
+          },
+          line: {
+            style: {
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
+            },
+          },
+        },
+        yAxis: {
+          grid: {
+            line: {
+              style: {
+                stroke: PRIZM_DARK_THEME_AXIS_COLOR,
+              },
+            },
+          },
+          line: {
+            style: {
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
+            },
+          },
+        },
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
+      waterfall: {
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
+      pie: {
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+        pieStyle: {
+          stroke: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
+        },
+      },
+      'radial-bar': {
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
+        },
+      },
+      treemap: {
+        rectStyle: {
+          stroke: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
+        },
+        state: {
+          active: {
+            style: {
+              stroke: PRIZM_DARK_THEME_STROKE_HOVER_COLOR,
+            },
+          },
         },
       },
     },
   },
-  background: 'rgba(32, 34, 43, 1)',
+  background: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
+  // TODO: reseacrh why this subColor here #dr
   subColor: 'rgba(48, 51, 64, 1)',
-  semanticRed: 'rgba(241, 65, 65, 1)',
-  semanticGreen: 'rgba(73, 171, 77, 1)',
-  padding: 'auto',
-  fontFamily:
-    '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-  columnWidthRatio: 0.5,
-  maxColumnWidth: null,
-  minColumnWidth: null,
-  roseWidthRatio: 0.9999999,
-  multiplePieWidthRatio: 0.7692307692307692,
+  semanticRed: '#FF0033',
+  semanticGreen: '#009900',
+  // TODO: reseacrh why this colors here #dr
   sequenceColors: [
     '#B8E1FF',
     '#9AC5FF',
@@ -115,641 +173,257 @@ export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = {
     '#00318A',
     '#001D70',
   ],
-  shapes: {
-    point: [
-      'hollow-circle',
-      'hollow-square',
-      'hollow-bowtie',
-      'hollow-diamond',
-      'hollow-hexagon',
-      'hollow-triangle',
-      'hollow-triangle-down',
-      'circle',
-      'square',
-      'bowtie',
-      'diamond',
-      'hexagon',
-      'triangle',
-      'triangle-down',
-      'cross',
-      'tick',
-      'plus',
-      'hyphen',
-      'line',
-    ],
-    line: ['line', 'dash', 'dot', 'smooth'],
-    area: ['area', 'smooth', 'line', 'smooth-line'],
-    interval: ['rect', 'hollow-rect', 'line', 'tick'],
-  },
-  sizes: [1, 10],
   components: {
     axis: {
       common: {
         title: {
-          autoRotate: true,
-          position: 'center',
-          spacing: 12,
           style: {
-            fill: '#595959',
-            fontSize: 12,
-            lineHeight: 12,
-            textBaseline: 'middle',
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         label: {
-          autoRotate: false,
-          autoEllipsis: false,
-          autoHide: {
-            type: 'equidistance',
-            cfg: {
-              minGap: 6,
-            },
-          },
-          offset: 8,
           style: {
-            fill: 'rgba(161, 165, 183, 1)',
-            fontSize: 12,
-            lineHeight: 12,
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         line: {
           style: {
-            lineWidth: 1,
-            stroke: 'rgba(80, 84, 107, 1)',
+            stroke: PRIZM_DARK_THEME_AXIS_COLOR,
           },
         },
         grid: {
           line: {
-            type: 'line',
             style: {
-              stroke: '#50546B',
-              lineWidth: 1,
-              lineDash: null,
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
             },
           },
-          alignTick: true,
-          animate: true,
         },
-        tickLine: {
-          style: {
-            lineWidth: 1,
-            stroke: 'rgba(80, 84, 107, 1)',
-          },
-          alignTick: true,
-          length: 4,
-        },
-        subTickLine: null,
-        animate: true,
-      },
-      top: {
-        position: 'top',
-        grid: null,
-        title: {
-          style: {
-            fontSize: 12,
-          },
-        },
-        verticalLimitLength: 0.5,
-      },
-      bottom: {
-        position: 'bottom',
-        grid: null,
-        title: {
-          style: {
-            fontSize: 12,
-          },
-        },
-        verticalLimitLength: 0.5,
-      },
-      left: {
-        position: 'left',
-        title: {
-          style: {
-            fontSize: 12,
-          },
-        },
-        line: null,
-        tickLine: null,
-        verticalLimitLength: 0.3333333333333333,
-      },
-      right: {
-        position: 'right',
-        title: {
-          style: {
-            fontSize: 12,
-          },
-        },
-        line: null,
-        tickLine: null,
-        verticalLimitLength: 0.3333333333333333,
       },
       circle: {
-        title: null,
         grid: {
           line: {
-            type: 'line',
             style: {
-              stroke: 'rgba(161, 165, 183, 1)',
-              lineWidth: 1,
-              lineDash: null,
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
             },
-          },
-          alignTick: true,
-          animate: true,
-        },
-        line: {
-          style: {
-            lineWidth: 0,
           },
         },
         tickLine: {
           style: {
-            stroke: 'rgba(161, 165, 183, 1)',
+            stroke: PRIZM_DARK_THEME_AXIS_COLOR,
           },
         },
       },
       radius: {
         title: {
           style: {
-            fontSize: 0,
-            fill: 'rgba(161, 165, 183, 1)',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         grid: {
           line: {
-            type: 'circle',
             style: {
-              stroke: 'rgba(161, 165, 183, 1)',
-              lineWidth: 1,
-              lineDash: null,
+              stroke: PRIZM_DARK_THEME_AXIS_COLOR,
             },
           },
-          alignTick: true,
-          animate: true,
         },
         label: {
           style: {
-            fill: 'rgba(161, 165, 183, 1)',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
       },
     },
     legend: {
       common: {
-        title: null,
         marker: {
-          symbol: 'circle',
-          spacing: 4,
           style: {
-            r: 4,
-            fill: '#5B8FF9',
+            fill: '#4075FF',
           },
         },
         itemName: {
-          spacing: 5,
           style: {
-            fill: 'rgba(244, 246, 251, 1)',
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-            fontSize: 12,
-            lineHeight: 12,
-            fontWeight: 'normal',
-            textAlign: 'start',
-            textBaseline: 'middle',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         itemStates: {
-          active: {
-            nameStyle: {
-              opacity: 0.8,
-            },
-          },
           unchecked: {
             nameStyle: {
-              fill: '#D8D8D8',
+              fill: PRIZM_DARK_THEME_TEXT_COLOR_DISABLE,
             },
             markerStyle: {
-              fill: '#D8D8D8',
-              stroke: '#D8D8D8',
+              fill: PRIZM_DARK_THEME_TEXT_COLOR_DISABLE,
+              stroke: PRIZM_DARK_THEME_TEXT_COLOR_DISABLE,
             },
           },
           inactive: {
             nameStyle: {
-              fill: '#D8D8D8',
-            },
-            markerStyle: {
-              opacity: 0.2,
+              fill: PRIZM_DARK_THEME_TEXT_COLOR_DISABLE,
             },
           },
         },
-        flipPage: true,
         pageNavigator: {
           marker: {
             style: {
-              size: 12,
-              inactiveFill: 'rgba(119, 123, 146, 0.3)',
-              inactiveOpacity: 12,
-              fill: 'rgba(119, 123, 146, 1)',
-              opacity: 1,
+              inactiveFill: '#2c313d',
+              fill: '#6e778c',
             },
           },
           text: {
             style: {
-              fill: 'rgba(191, 198, 215, 1)',
-              fontSize: 12,
+              fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
             },
           },
         },
-        animate: false,
-        maxItemWidth: 200,
-        itemSpacing: 16,
-        itemMarginBottom: 12,
-        padding: [8, 8, 8, 8],
-        legendItemMarginBottom: 16,
-      },
-      right: {
-        layout: 'vertical',
-        padding: [0, 8, 0, 8],
-      },
-      left: {
-        layout: 'vertical',
-        padding: [0, 8, 0, 8],
-      },
-      top: {
-        layout: 'horizontal',
-        padding: [8, 0, 8, 0],
-      },
-      bottom: {
-        layout: 'horizontal',
-        padding: [8, 0, 8, 0],
       },
       continuous: {
-        title: null,
-        background: null,
-        track: {},
         rail: {
-          type: 'color',
-          size: 12,
-          defaultLength: 100,
           style: {
-            fill: 'rgba(191, 198, 215, 1)',
-            stroke: null,
-            lineWidth: 0,
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         label: {
-          align: 'rail',
-          spacing: 12,
-          formatter: null,
           style: {
-            fill: 'rgba(191, 198, 215, 1)',
-            fontSize: 12,
-            lineHeight: 16,
-            textBaseline: 'middle',
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
         handler: {
-          size: 10,
           style: {
-            fill: 'rgba(191, 198, 215, 1)',
-            stroke: 'rgba(191, 198, 215, 1)',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
+            stroke: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
-        slidable: true,
-        padding: [8, 8, 8, 8],
       },
     },
     tooltip: {
-      showContent: true,
-      follow: true,
-      showCrosshairs: false,
-      showMarkers: true,
-      shared: false,
-      enterable: false,
-      position: 'auto',
       marker: {
-        symbol: 'circle',
-        stroke: 'rgba(244, 246, 251, 1)',
-        shadowBlur: 10,
-        shadowOffsetX: 0,
-        shadowOffsetY: 0,
+        stroke: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
         shadowColor: 'rgba(48, 51, 64, 1)',
-        lineWidth: 1,
-        r: 4,
       },
       crosshairs: {
         line: {
           style: {
             stroke: 'rgba(244, 246, 251, 1)',
-            lineWidth: 1,
           },
         },
-        text: null,
         textBackground: {
-          padding: 2,
           style: {
             fill: 'rgba(0, 0, 0, 0.25)',
-            lineWidth: 0,
-            stroke: null,
           },
-        },
-        follow: false,
-      },
-      domStyles: {
-        'g2-tooltip': {
-          position: 'absolute',
-          visibility: 'hidden',
-          zIndex: 8,
-          transition:
-            'left 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s, top 0.4s cubic-bezier(0.23, 1, 0.32, 1) 0s',
-          backgroundColor: 'var(--prizm-grey-g3-g11)',
-          fontFamily: 'Inter',
-          overflow: 'hidden',
-          color: 'var(--prizm-grey-g12-g2)',
-          opacity: 0.95,
-          boxShadow: '0px -2px 4px var(--prizm-shadow)',
-          borderRadius: '2px',
-          fontSize: 14,
-          lineHeight: '12px',
-          padding: '0 12px 0 12px',
-        },
-        'g2-tooltip-title': {
-          marginBottom: '12px',
-          marginTop: '12px',
-        },
-        'g2-tooltip-list': {
-          margin: 0,
-          listStyleType: 'none',
-          padding: 0,
-        },
-        'g2-tooltip-list-item': {
-          listStyleType: 'none',
-          padding: 0,
-          marginBottom: '12px',
-          marginTop: '12px',
-          marginLeft: 0,
-          marginRight: 0,
-        },
-        'g2-tooltip-marker': {
-          width: '8px',
-          height: '8px',
-          borderRadius: '50%',
-          display: 'inline-block',
-          marginRight: '8px',
-        },
-        'g2-tooltip-value': {
-          display: 'inline-block',
-          float: 'right',
-          marginLeft: '30px',
         },
       },
     },
     annotation: {
       arc: {
         style: {
-          stroke: '#D9D9D9',
-          lineWidth: 1,
+          stroke: PRIZM_DARK_THEME_AXIS_COLOR,
         },
-        animate: true,
       },
       line: {
         style: {
-          stroke: '#BFBFBF',
-          lineDash: null,
-          lineWidth: 1,
+          stroke: PRIZM_DARK_THEME_AXIS_COLOR,
         },
         text: {
-          position: 'start',
-          autoRotate: true,
           style: {
-            fill: '#595959',
-            stroke: null,
-            lineWidth: 0,
-            fontSize: 12,
-            textAlign: 'start',
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-            textBaseline: 'bottom',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
-        animate: true,
       },
       text: {
         style: {
-          fill: '#595959',
-          stroke: null,
-          lineWidth: 0,
-          fontSize: 12,
-          textBaseline: 'middle',
-          textAlign: 'start',
-          fontFamily:
-            '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
+          fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
         },
-        animate: true,
       },
       region: {
-        top: false,
         style: {
-          lineWidth: 0,
-          stroke: null,
           fill: '#000',
-          fillOpacity: 0.06,
         },
-        animate: true,
-      },
-      image: {
-        top: false,
-        animate: true,
       },
       dataMarker: {
-        top: true,
         point: {
           style: {
-            r: 3,
-            stroke: '#5B8FF9',
-            lineWidth: 2,
+            stroke: '#4075FF',
           },
         },
         line: {
           style: {
-            stroke: '#BFBFBF',
-            lineWidth: 1,
+            stroke: PRIZM_DARK_THEME_AXIS_COLOR,
           },
-          length: 16,
         },
         text: {
           style: {
-            textAlign: 'start',
-            fill: '#595959',
-            stroke: null,
-            lineWidth: 0,
-            fontSize: 12,
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
-        direction: 'upward',
-        autoAdjust: true,
-        animate: true,
       },
       dataRegion: {
         style: {
           region: {
             fill: '#000',
-            fillOpacity: 0.06,
           },
           text: {
-            textAlign: 'center',
-            textBaseline: 'bottom',
-            fill: '#595959',
-            stroke: null,
-            lineWidth: 0,
-            fontSize: 12,
-            fontFamily:
-              '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
+            fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
           },
         },
-        animate: true,
       },
     },
     slider: {
       common: {
-        padding: [8, 8, 8, 8],
         backgroundStyle: {
-          fill: 'rgba(19, 21, 28, 1)',
-          opacity: 0.5,
+          fill: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
         },
         foregroundStyle: {
-          fill: 'rgba(19, 21, 28, 1)',
-          opacity: 0.25,
+          fill: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
         },
         handlerStyle: {
-          width: 8,
-          height: 24,
-          fill: 'rgba(19, 21, 28, 1)',
-          opacity: 1,
-          stroke: 'rgba(80, 84, 107, 1)',
-          lineWidth: 1,
-          radius: 2,
+          fill: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
+          stroke: '#6e778c',
           highLightFill: '#FFF',
         },
         textStyle: {
-          fill: 'rgba(119, 123, 146, 1)',
-          opacity: 1,
-          fontSize: 12,
-          lineHeight: 12,
-          fontWeight: 'normal',
-          stroke: null,
-          lineWidth: 0,
+          fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
         },
       },
     },
     scrollbar: {
-      common: {
-        padding: [8, 8, 8, 8],
-      },
       default: {
         style: {
-          trackColor: 'rgba(19, 21, 28, 1)',
-          thumbColor: 'rgba(80, 84, 107, 1)',
+          trackColor: PRIZM_DARK_THEME_BACKGROUND_COLOR_PRIMARY,
+          thumbColor: '#545f77',
         },
       },
       hover: {
         style: {
-          thumbColor: 'rgba(119, 123, 146, 1)',
+          thumbColor: '#7e8799',
         },
       },
     },
   },
   labels: {
-    offset: 12,
     style: {
-      fill: 'rgba(244, 246, 251, 1)',
-      fontSize: 12,
-      fontFamily:
-        '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-      stroke: 'rgba(19, 21, 28, 1)',
-      lineWidth: 0,
+      fill: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
+      stroke: PRIZM_DARK_THEME_TEXT_COLOR_SECONDARY,
     },
-    fillColorDark: '#2c3542',
+    fillColorDark: '#ffffff',
     fillColorLight: '#ffffff',
-    autoRotate: true,
   },
   innerLabels: {
     style: {
       fill: '#FFFFFF',
-      fontSize: 12,
-      fontFamily:
-        '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-      stroke: null,
-      lineWidth: 0,
     },
-    autoRotate: true,
   },
   overflowLabels: {
     style: {
-      fill: '#595959',
-      fontSize: 12,
-      fontFamily:
-        '"Segoe UI", Roboto, "Helvetica Neue", Arial,\n    "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",\n    "Noto Color Emoji"',
-      stroke: '#FFFFFF',
-      lineWidth: 1,
+      fill: '#FFFFFF',
     },
   },
-  pieLabels: {
-    labelHeight: 14,
-    offset: 8,
-    labelLine: {
-      style: {
-        lineWidth: 1,
-      },
-    },
-    autoRotate: true,
-  },
-  'bottom-axis-subTick-line': false,
-  'circle-axis-subTick-line': false,
-  'radius-axis-subTick-line': false,
   styleSheet: {
-    brandColor: 'rgba(51, 126, 255, 1)',
-    paletteQualitative10: [
-      'rgba(51, 126, 255, 1)',
-      'rgba(241, 65, 65, 1)',
-      'rgba(73, 171, 77, 1)',
-      'rgba(255, 124, 10, 1)',
-      'rgba(192, 90, 255, 1)',
-      'rgba(162, 226, 255, 1)',
-      'rgba(130, 253, 231, 1)',
-      'rgba(255, 208, 41, 1)',
-      'rgba(161, 165, 183, 1)',
-      'rgba(255, 140, 188, 1)',
-    ],
-    paletteQualitative20: [
-      '#5B8FF9',
-      '#CDDDFD',
-      '#5AD8A6',
-      '#CDF3E4',
-      '#5D7092',
-      '#CED4DE',
-      '#F6BD16',
-      '#FCEBB9',
-      '#6F5EF9',
-      '#D3CEFD',
-      '#6DC8EC',
-      '#D3EEF9',
-      '#945FB9',
-      '#DECFEA',
-      '#FF9845',
-      '#FFE0C7',
-      '#1E9493',
-      '#BBDEDE',
-      '#FF99C3',
-      '#FFE0ED',
-    ],
+    brandColor: PRIZM_CHART_DARK_THEME_DATA_COLORS[0],
+    paletteQualitative10: PRIZM_CHART_DARK_THEME_DATA_COLORS,
+    paletteQualitative20: PRIZM_CHART_DARK_THEME_DATA_COLORS,
   },
 };
+
+export const PRIZM_CHART_DARK_THEME: PrizmChartThemeObject = merge(
+  PRIZM_CHART_DARK_THEME_COLOR_SCEME,
+  PRIZM_CHART_BASE_OPTIONS
+);

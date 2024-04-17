@@ -210,7 +210,7 @@ export class ScatterComponent {
       Team: 'Viktoria Plzen',
       'xG conceded': 0.33,
       'Shot conceded': 7,
-      Result: 3,
+      Result: '3',
     },
     {
       'H/A': 'H',
