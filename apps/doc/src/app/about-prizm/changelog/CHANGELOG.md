@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - feat(component/cron): added custom title #1431
 - feat(charts): update colors for charts to new schema #1196
-  feat(documentation): add decimal input type to live demo documentation
+  - feat(documentation): add decimal input type to live demo documentation
 
 ### Bug fixes
 
