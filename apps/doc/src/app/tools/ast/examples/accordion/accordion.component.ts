@@ -91,8 +91,7 @@ export class PrizmAstAccordionExampleComponent implements OnInit {
   //     }
   //   }
   // ];
-  readonly zyfraAccordionHtml = `
-<zyfra-accordion [multiple]="false"
+  readonly zyfraAccordionHtml = `<zyfra-accordion [multiple]="false"
                  (onOpen)="onOpen($event)"
                  (onClose)="onClose($event)"
                  (activeIndexChange)="activeIndexChange($event)">
