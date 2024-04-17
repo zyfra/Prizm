@@ -63,6 +63,7 @@ export class PrizmOverlayControl {
   }
 
   public open(): void {
+    console.log('#mz overlay-control open', 1);
     if (this.isOpen) return;
     this.destroy$.next();
 
@@ -79,6 +80,7 @@ export class PrizmOverlayControl {
   }
 
   public close(): void {
+    console.log('#mz overlay-control close', 1);
     if (!this.isOpen) return;
 
     this.detach();

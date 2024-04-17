@@ -134,6 +134,7 @@ export class PrizmHintDirective<
   public ngOnChanges(changes?: SimpleChanges): void {
     this.show_ = false;
     this.initOverlayController();
+    console.log('#mz changes', changes);
   }
 
   public ngOnInit(): void {
@@ -166,6 +167,7 @@ export class PrizmHintDirective<
   }
 
   protected open(): void {
+    console.log('#mz hint open', 1);
     if (this.show_) return;
     if (!this.prizmHintCanShow || this.content === '') return;
     this.show_ = true;
@@ -175,7 +177,8 @@ export class PrizmHintDirective<
   }
 
   protected close(): void {
-    if (!this.show_) return;
+    console.log('#mz hint close', 1);
+    // if (!this.show_) return;
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.close();
@@ -198,7 +201,12 @@ export class PrizmHintDirective<
   private initOverlayController(): void {
     this.destroyListeners$.next();
     if (this.show_) this.show$.next(false);
-    this.overlay?.close();
+    // this.overlay?.close();
+    if (this.overlay) {
+      console.log('#mz initOverlayController HAS');
+    } else {
+      console.log('#mz initOverlayController NOT');
+    }
 
     const position = new PrizmOverlayRelativePosition({
       placement: this.prizmHintDirection,

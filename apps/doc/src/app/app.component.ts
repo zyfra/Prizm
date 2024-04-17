@@ -38,7 +38,11 @@ export class AppComponent implements AfterViewInit {
   public element!: HTMLElement;
   @ViewChild('docRef') docEl!: { night: boolean; onMode: (isNight: boolean) => void };
 
-  readonly isNight$ = this.themeSwitcher.change$.pipe(map(i => i.theme === 'dark'));
+  readonly isNight$ = this.themeSwitcher.change$.pipe(
+    map(i => i.theme === 'dark'),
+    debounceTime(0),
+    distinctUntilChanged()
+  );
 
   @HostBinding('attr.data-mode')
   get mode(): TuiBrightness | null {
