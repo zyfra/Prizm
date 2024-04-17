@@ -50,41 +50,36 @@
         </td>
         <td *prizmCell="'actions'" prizmTd>
           <div class="edit-buttons-container" (click)="$event.stopPropagation()">
-            <button
+            <prizm-icon
+              class="edit-buttons"
               *ngIf="currentEditableRow !== item"
               (click)="onRowEditInit(item)"
-              appearance="secondary"
-              icon="editor-mode"
-              prizmIconButton
-              appearanceType="ghost"
-              size="s"
-            ></button>
-            <button
+              size="16"
+              iconClass="editor-mode"
+            ></prizm-icon>
+
+            <prizm-icon
+              class="edit-buttons"
               *ngIf="currentEditableRow === item"
               (click)="onRowEditSave()"
-              appearance="secondary"
-              icon="selection-choice"
-              prizmIconButton
-              appearanceType="ghost"
-              size="s"
-            ></button>
-            <button
+              size="16"
+              iconClass="selection-choice"
+            ></prizm-icon>
+
+            <prizm-icon
+              class="edit-buttons"
               *ngIf="currentEditableRow === item"
               (click)="onRowEditCancel(item)"
-              appearance="secondary"
-              icon="cancel-close"
-              prizmIconButton
-              appearanceType="ghost"
-              size="s"
-            ></button>
-            <button
+              size="16"
+              iconClass="cancel-close"
+            ></prizm-icon>
+
+            <prizm-icon
+              class="edit-buttons"
               (click)="onRowDelete(item)"
-              appearance="secondary"
-              icon="delete-empty"
-              prizmIconButton
-              appearanceType="ghost"
-              size="s"
-            ></button>
+              size="16"
+              iconClass="delete"
+            ></prizm-icon>
           </div>
         </td>
       </tr>
