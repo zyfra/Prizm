@@ -36,7 +36,7 @@
 - [ ] Изменить версии в доке на новую
   - [ ] apps/doc/src/app/version-manager/current.const.ts
   - [ ] apps/doc/src/app/version-manager/current.const.ts.ng17
-- [ ] Изменить версии в массиве версий
+- [ ] Изменить версии в соответствующем массиве
   - apps/doc/src/app/version-manager/versions.constants.ts
 - [ ] Изменить версию в root package файле
   - [ ] package.json
