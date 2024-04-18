@@ -2,6 +2,51 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.17.0, 2.14.0, 3.13.0](https://github.com/zyfra/Prizm) (21-04-2023)
+
+## Features
+
+- feat(component/cron): added custom title #1431
+- feat(charts): update colors for charts to new schema #1196
+- feat(documentation): add decimal input type to live demo documentation
+
+### Bug fixes
+
+- fix(components/input-number): manual input works incorrect when min set for input number #1580
+- fix(components/input-number) remove default title for input number #1599
+- fix(components/inputs): hint status text for required input not shown after force clear #1598
+- fix(component/navigation): hidden overflow for navigation titles. added hints #1510
+- fix(component/header): hidden overflow for navigation titles. added hints #1510
+- fix(component/file-upload): if the name is long it doesn't overlap upload bar. name becomes truncated. expansion remains #1541
+- fix(component/toggle): removed hover and focus if loading #1485
+- fix(documentation): changed filesValidationErrors type in examples and live demo #1371
+- fix(components/paginator): fixed width of rows selector #1466
+- fix(components/column-settings): incorrect display of one unhidden column in column settings #1036
+- fix(theme): remove redundant token from default theme
+- fix(charts): charts tolltip background color error #1488
+- fix(charts/bar): bar chart changing postion on theme chage #1492
+- fix(charts/bar): bar chart x axis shpould be shown for both themes #1490
+- fix(charts): not all charts ascept theming #1489
+- fix(charts/pie/waterfall/radial-bar): wrong stroke color on hover in pie, waterfall and radial bar charts #1508
+- fix(charts/pie): pie line style update for dark theme
+- fix(charts): incorrect data colors displayed in charts #1505
+- fix(documentation/scatter): points on the scatter are not completely hidden when it's hidden in legend #1493
+- fix(documentation/bar): incorrect examples for bar stacked and bar groupd charts #1507
+- fix(documentation/pie): removed extra properties from pie live demo tab
+- fix(documentation/gauge): change percent input type for live demo
+- fix(documentation/bar): colors in bar example works incorrect when theme chages #1491
+- fix(documentation/typography): typography page changed #1497 #1498
+- fix(documentation/sticky): fix scroll in sticky example #670
+- fix(documentation/card): removed shadow variant duplicate #1434
+- fix(documentation): changelog headers formatting #1499
+- fix(documentation/ast): removed first empty string in ast code examples #1501
+- fix(documentation/checkbox): fixed description of checkbox module import #1527
+- fix(documentation/table): search for server sort example fixed #1107
+
+### Refactor
+
+- refactor(charts): replace chart base options from theming to separate object
+
 ## [1.16.0, 2.13.0, 3.12.0](https://github.com/zyfra/Prizm) (23-03-2023)
 
 ## Features
