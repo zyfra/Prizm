@@ -29,7 +29,7 @@
 - [ ] Добавить в каждый тип ваши изменения в этом PR
 - [ ] Удалите не нужные группы изменений для этого PR (Features, Bug Fixes, Breacking Changes, Refactor)
 - [ ] Добавить изменения в changelog о новой версии
-- [ ] Изменить версия в CI для деплоя (пока не автоматизировали
+- [ ] Изменить версии в CI для деплоя (пока не автоматизировали)
   - [ ] .github/workflows/beta-publish-ng17.yml
   - [ ] .github/workflows/main-publish-ng17.yml
   - [ ] .github/workflows/pre-release-publish-ng17.yml
