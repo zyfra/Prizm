@@ -7,6 +7,7 @@
   height: 100%;
   background: var(--prizm-v3-background-fill-primary);
   border-right: 1px solid var(--prizm-v3-background-stroke);
+  border-bottom: 1px solid var(--prizm-v3-background-stroke);
 
   &__header {
     overflow: hidden;
@@ -54,16 +55,13 @@
     }
   }
 
-  .no-groups-content {
-    overflow: auto;
-    height: 100%;
+  .scrollable {
+    width: 100%;
   }
 
   .groups-content {
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    height: 100%;
 
     &__top {
       flex: 1;
@@ -77,13 +75,4 @@
       overflow: hidden;
     }
   }
-}
-
-&::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-&::-webkit-scrollbar-track {
-  background: transparent;
 }

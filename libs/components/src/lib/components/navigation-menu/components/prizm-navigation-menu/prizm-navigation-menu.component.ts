@@ -36,6 +36,7 @@ import { PolymorphOutletDirective, PrizmHintDirective, PrizmHoveredDirective } f
 import { PrizmAccordionComponent } from '../../../accordion';
 import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-toolbar/prizm-navigation-menu-toolbar.component';
 import { prizmIsTextOverflow } from '../../../../util';
+import { PrizmScrollbarComponent } from '../../../scrollbar';
 
 @Component({
   selector: 'prizm-navigation-menu',
@@ -55,6 +56,7 @@ import { prizmIsTextOverflow } from '../../../../util';
     PrizmNavigationMenuGroupComponent,
     PrizmNavigationMenuToolbarComponent,
     PrizmHintDirective,
+    PrizmScrollbarComponent,
   ],
   providers: [PrizmNavigationMenuService, PrizmNavigationMenuToolbarService, PrizmDestroyService],
 })
