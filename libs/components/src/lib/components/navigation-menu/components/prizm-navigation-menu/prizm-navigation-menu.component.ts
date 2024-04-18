@@ -39,6 +39,7 @@ import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-to
 import { prizmIsTextOverflow } from '../../../../util';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsGear8Edge, prizmIconsHouse } from '@prizm-ui/icons/full/source';
+import { PrizmScrollbarComponent } from '../../../scrollbar';
 
 @Component({
   selector: 'prizm-navigation-menu',
@@ -58,6 +59,7 @@ import { prizmIconsGear8Edge, prizmIconsHouse } from '@prizm-ui/icons/full/sourc
     PrizmNavigationMenuGroupComponent,
     PrizmNavigationMenuToolbarComponent,
     PrizmHintDirective,
+    PrizmScrollbarComponent,
   ],
   providers: [PrizmNavigationMenuService, PrizmNavigationMenuToolbarService, PrizmDestroyService],
 })
