@@ -67,3 +67,4 @@
   - [ ] libs/schematics/package.json.ng17
   - [ ] libs/theme/package.json
   - [ ] libs/theme/package.json.ng17
+- [ ] Составить readMe файл с описанием изменений на русском
