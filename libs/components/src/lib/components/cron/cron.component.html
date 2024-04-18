@@ -13,6 +13,7 @@
     <div class="submit-block" *ngIf="!hideResult || !autoSubmit">
       <ng-container *ngIf="!hideResult">
         <prizm-input-layout
+          class="submit-block__input"
           *prizmLet="valueAsString$ | async as valueStr"
           [border]="false"
           [label]="null"
