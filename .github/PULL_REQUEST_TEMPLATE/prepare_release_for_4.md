@@ -3,7 +3,7 @@
 ### Features
 
 - List of new features, example:
-- feat(component/cron): added custom title #1431)
+- feat(component/cron): added custom title #1431
 
 ### Bug Fixes
 
