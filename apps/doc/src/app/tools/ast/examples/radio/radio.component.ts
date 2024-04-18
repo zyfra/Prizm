@@ -60,8 +60,7 @@ export class PrizmAstRadioExampleComponent implements OnInit {
   //   },
   //
   // ];
-  readonly html = `
-<zyfra-radio-button
+  readonly html = `<zyfra-radio-button
    *ngFor="let item of items"
    [name]="name"
    [styleClass]="styleClass"

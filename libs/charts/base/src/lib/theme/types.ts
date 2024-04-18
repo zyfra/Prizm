@@ -8,3 +8,5 @@ export enum PrizmChartDefaultTheme {
 export type PrizmChartTheme = string | PrizmTheme;
 
 export type PrizmChartThemeObject = Record<string, unknown>;
+
+export type PrizmChartBaseOptions = Record<string, unknown>;

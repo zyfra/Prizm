@@ -57,6 +57,7 @@ import { prizmIconsCopy } from '@prizm-ui/icons/full/source';
   imports: [PrizmCronHumanReadablePipe, PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
+  @Input() public cronTitle: string | null = null;
   @Input() public set value(value: string) {
     if (!value) return;
     this.cron.updateWith(value);

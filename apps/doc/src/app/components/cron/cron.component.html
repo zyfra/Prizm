@@ -46,6 +46,7 @@
         [hidePeriod]="hidePeriod"
         [hideResult]="hideResult"
         [autoSubmit]="autoSubmit"
+        [cronTitle]="cronTitle"
       >
       </prizm-cron>
     </prizm-doc-demo>
@@ -67,6 +68,15 @@
         documentationPropertyMode="css-var"
       >
         Max width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="cronTitle"
+        documentationPropertyName="cronTitle"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Cron title
       </ng-template>
 
       <ng-template

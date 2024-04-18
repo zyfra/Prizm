@@ -37,13 +37,14 @@ import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../button';
 import { PrizmProgressBarComponent } from '../progress';
 import { PrizmUploadStatusPipe } from './pipes/upload-status.pipe';
+import { PrizmFileNamePipe } from './pipes/file-name.pipe';
+import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import {
-  prizmIconsArrowRotateRight,
-  prizmIconsFileEmpty,
-  prizmIconsTrashEmpty,
-} from '@prizm-ui/icons/full/source';
+import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
+import { PrizmHintDirective } from '../../directives';
+import { prizmIsTextOverflow } from '../../util';
+import { prizmIconsArrowRotateRight, prizmIconsTrashEmpty } from '@prizm-ui/icons/full/source';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
@@ -54,6 +55,8 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
   imports: [
     CommonModule,
     PrizmUploadStatusPipe,
+    PrizmFileNamePipe,
+    PrizmFileExtensionPipe,
     PrizmFileSizePipe,
     PrizmSanitizerPipe,
     PrizmPluckPipe,
@@ -61,6 +64,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     PrizmProgressBarComponent,
     PrizmButtonComponent,
     PrizmIconsFullComponent,
+    PrizmHintDirective,
   ],
   standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
@@ -70,6 +74,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
 
   override readonly testId_ = 'ui_file_upload';
   readonly icon = prizmIconsFileEmpty;
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
 

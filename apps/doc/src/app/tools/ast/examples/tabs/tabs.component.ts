@@ -91,8 +91,7 @@ export class PrizmAstTabsExampleComponent implements OnInit {
   //     }
   //   }
   // ];
-  readonly html = `
-<zyfra-tab-view
+  readonly html = `<zyfra-tab-view
   [class]="zyfraTabViewTagStyle"
   [activeIndex]="activeIndex"
   [controlClose]="controlClose"

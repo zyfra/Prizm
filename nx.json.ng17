@@ -1,4 +1,5 @@
 {
+  "neverConnectToCloud": true,
   "affected": {
     "defaultBase": "master"
   },
