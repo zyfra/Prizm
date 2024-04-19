@@ -41,10 +41,13 @@ import { PrizmFileNamePipe } from './pipes/file-name.pipe';
 import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
+import {
+  prizmIconsFileEmpty,
+  prizmIconsArrowRotateRight,
+  prizmIconsTrashEmpty,
+} from '@prizm-ui/icons/full/source';
 import { PrizmHintDirective } from '../../directives';
 import { prizmIsTextOverflow } from '../../util';
-import { prizmIconsArrowRotateRight, prizmIconsTrashEmpty } from '@prizm-ui/icons/full/source';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
