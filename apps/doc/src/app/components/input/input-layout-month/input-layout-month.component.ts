@@ -23,6 +23,9 @@ export class InputLayoutMonthComponent {
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   val!: PrizmDay;
   public pseudoInvalid = false;
   public pseudoHovered = false;

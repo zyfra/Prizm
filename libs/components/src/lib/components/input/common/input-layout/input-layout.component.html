@@ -6,6 +6,7 @@
     touched: control.touched | prizmToObservable | async,
     invalid: control.invalid | prizmToObservable | async,
     required: control.required | prizmToObservable | async,
+    inputLayout: inputLayout$ | async,
     emptyLabel: emptyLabel
   } as $"
 >
@@ -43,6 +44,9 @@
           [interactive]="true"
           [disabled]="$.disabled"
           [prizmInputIconButton]="$any(clearButton)"
+          [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
+          [prizmHintDirection]="'b'"
+          [prizmHintCanShow]="!hideClearButtonHint"
           (click)="onClearClick($event)"
         ></button>
 
@@ -107,6 +111,9 @@
             [class.alone]="!showStatusButton"
             [disabled]="$.disabled"
             [prizmInputIconButton]="$any(clearButton) ?? 'delete-content'"
+            [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
+            [prizmHintDirection]="'b'"
+            [prizmHintCanShow]="!hideClearButtonHint"
             (click)="onClearClick($event)"
           ></button>
 

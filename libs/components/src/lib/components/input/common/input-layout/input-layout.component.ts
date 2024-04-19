@@ -7,6 +7,7 @@ import {
   ElementRef,
   EventEmitter,
   HostBinding,
+  Inject,
   Injector,
   Input,
   OnChanges,
@@ -16,7 +17,7 @@ import {
   ViewChild,
   inject,
 } from '@angular/core';
-import { BehaviorSubject, EMPTY, merge, Subject, timer } from 'rxjs';
+import { BehaviorSubject, EMPTY, merge, Observable, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
 import { PrizmInputStatusTextDirective } from '../input-status-text/input-status-text.directive';
 import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '../models/prizm-input.models';
@@ -24,7 +25,7 @@ import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { isPolymorphPrimitive, PolymorphContent } from '../../../../directives/polymorph';
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
-import { PrizmI18nService } from '../../../../services';
+import { PrizmI18nService, prizmI18nInitWithKey } from '../../../../services';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckFill,
@@ -33,6 +34,8 @@ import {
   prizmIconsTempChevronsDropdownSmall,
   prizmIconsTriangleExclamationFill,
 } from '@prizm-ui/icons/full/source';
+import { PRIZM_INPUT_LAYOUT } from '../../../../tokens';
+import { PrizmLanguageInputLayout } from '@prizm-ui/i18n';
 
 export type PrizmInputLayoutClearButtonContext = {
   clear: (event: MouseEvent) => void;
@@ -53,7 +56,11 @@ export type PrizmInputLayoutClearButtonContext = {
   host: {
     class: 'prizm-input-layout',
   },
-  providers: [PrizmDestroyService, PrizmI18nService],
+  providers: [
+    PrizmDestroyService,
+    PrizmI18nService,
+    ...prizmI18nInitWithKey(PRIZM_INPUT_LAYOUT, 'inputLayout'),
+  ],
 })
 export class PrizmInputLayoutComponent
   extends PrizmAbstractTestId
@@ -73,6 +80,7 @@ export class PrizmInputLayoutComponent
   @Input() outer = false;
 
   @Input() clearButton: PolymorphContent<PrizmInputLayoutClearButtonContext> = 'delete-content';
+  @Input() hideClearButtonHint: boolean | null = null;
 
   @Input() border = true;
   @Input() position: PrizmInputPosition = 'left';
@@ -156,7 +164,12 @@ export class PrizmInputLayoutComponent
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
-  constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {
+  constructor(
+    private readonly injector: Injector,
+    public readonly el: ElementRef<HTMLElement>,
+    @Inject(PRIZM_INPUT_LAYOUT)
+    public readonly inputLayout$: Observable<PrizmLanguageInputLayout['inputLayout']>
+  ) {
     super();
 
     this.iconsFullRegistry.registerIcons(

@@ -1,12 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import {
-  PrizmDay,
-  PrizmInputPosition,
-  PrizmInputSize,
-  PrizmInputStatus,
-  PrizmTime,
-} from '@prizm-ui/components';
+import { PrizmDay, PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
@@ -18,6 +12,9 @@ import { UntypedFormControl } from '@angular/forms';
 export class InputLayoutMonthRangeRangeComponent {
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public readOnly = false;
   val!: PrizmDay;

@@ -1,14 +1,9 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
-  PolymorphContent,
-  PrizmContextWithImplicit,
-  PrizmDay,
   PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
-  PrizmSizeL,
-  PrizmSizeM,
   PrizmTime,
   PrizmTimeMode,
 } from '@prizm-ui/components';
@@ -36,6 +31,9 @@ export class InputLayoutTimeTimeComponent {
 
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public pseudoInvalid = false;
   public pseudoHovered = false;
