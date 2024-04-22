@@ -334,10 +334,16 @@ export class PrizmInputLayoutDateTimeComponent
 
     if (date) time = this.limitTime(date, time, dateMin, dateMax);
 
-    this.focusableElement?.updateNativeValues({
-      idx: 0,
-      value: date?.toString() ?? '',
-    });
+    this.focusableElement?.updateNativeValues(
+      {
+        idx: 0,
+        value: date?.toString() ?? '',
+      },
+      {
+        idx: 1,
+        value: time?.toString() ?? '',
+      }
+    );
 
     // force update native value
     this.nativeValue$$.next([
