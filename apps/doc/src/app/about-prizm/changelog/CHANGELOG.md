@@ -52,7 +52,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.16.0, 2.13.0, 3.12.0](https://github.com/zyfra/Prizm) (23-03-2023)
 
-## Features
+### Features
 
 - feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs #1297
 - feat(components/checkbox): change the focus to focus-visible for checkbox #1297
@@ -111,7 +111,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
 
-## Features
+### Features
 
 - feat(components/navigation-menu): add hint to navigation menu items and titles when text overflows #1216, #1312
 - feat(components/accordion): add hint to accordion title when text overflows #1216, #1312
@@ -127,7 +127,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
-## Features
+### Features
 
 - feat(doc): save current theme in local storage on change
 
@@ -139,7 +139,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
-## Features
+### Features
 
 - feat(components/sticky): update on changes #1085
 - feat(component/event-zone): directive to standalone #1260 #1276
