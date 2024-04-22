@@ -15,6 +15,10 @@ export function getPrizmDeps(version: string) {
     case '3':
       prizmVersion = '3.x.x';
       break;
+
+    case '4':
+      prizmVersion = '4.x.x';
+      break;
   }
 
   return {
@@ -91,7 +95,7 @@ export function getAllDeps(version: PrizmDocDemoMainVersion): Record<string, unk
 }
 
 export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
-  let ngVersion = '16.x.x';
+  let ngVersion = '17.x.x';
 
   switch (version) {
     case '1':
@@ -104,6 +108,10 @@ export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
 
     case '3':
       ngVersion = '16.x.x';
+      break;
+
+    case '4':
+      ngVersion = '17.x.x';
       break;
   }
 
