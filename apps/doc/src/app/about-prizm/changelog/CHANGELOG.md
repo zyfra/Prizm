@@ -4,7 +4,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.17.0, 2.14.0, 3.13.0](https://github.com/zyfra/Prizm) (22-04-2023)
 
-## Features
+### Features
 
 - feat: checklist for release 4x version #1611
 - feat: checklist for release 3x version #1612
