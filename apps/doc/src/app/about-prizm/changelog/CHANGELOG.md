@@ -24,7 +24,7 @@ All notable changes to this project will be documented in this file.
 - fix(documentation): changed filesValidationErrors type in examples and live demo #1371
 - fix(components/paginator): fixed width of rows selector #1466
 - fix(components/column-settings): incorrect display of one unhidden column in column settings #1036
-- fix(components/input-layout-date-time): incorrect min max work for manual input #1618
+- fix(components/input-layout-date-time): incorrect min max work for manual input #1618, #883
 - fix(theme): remove redundant token from default theme
 - fix(charts): charts tolltip background color error #1488
 - fix(charts/bar): bar chart changing postion on theme chage #1492
