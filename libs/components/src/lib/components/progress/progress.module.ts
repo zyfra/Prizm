@@ -6,7 +6,6 @@ import { PrizmProgressLabelComponent } from './progress-label/progress-label.com
 import { PrizmProgressSegmentedComponent } from './progress-segmented/progress-segmented.component';
 
 /**
- * @deprecated
  * use standalone
  * */
 @NgModule({
