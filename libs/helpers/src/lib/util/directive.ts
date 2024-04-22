@@ -20,6 +20,10 @@ export function prizmHasChanges(
   const nameArray = Array.isArray(names) ? names : [names];
 
   return nameArray.some(name => {
-    return name in changes && !(ignoreFirstChange && changes[name].isFirstChange());
+    return (
+      name in changes &&
+      !(ignoreFirstChange && changes[name].isFirstChange()) &&
+      changes[name].previousValue !== changes[name].currentValue
+    );
   });
 }
