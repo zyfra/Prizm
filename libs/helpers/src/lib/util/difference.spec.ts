@@ -1,30 +1,38 @@
-import { difference } from './difference'; // Импортируйте вашу функцию
+import { prizmHasChanges } from './directive';
+import { SimpleChanges } from '@angular/core';
 
-describe('difference function tests', () => {
-  it('should return the difference between the first array and additional arrays', () => {
-    expect(difference([2, 1], [2, 3])).toEqual([1]);
-    expect(difference([1, 2, 3, 4, 5], [5, 2, 10])).toEqual([1, 3, 4]);
+describe('prizmHasChanges', () => {
+  it('should return false if changes is undefined', () => {
+    expect(prizmHasChanges(undefined, 'test')).toBe(false);
   });
 
-  it('should return the original array if no additional arrays are provided', () => {
-    expect(difference([1, 2, 3])).toEqual([1, 2, 3]);
+  it('should return false if named change does not exist', () => {
+    const changes = { other: {} } as unknown as SimpleChanges;
+    expect(prizmHasChanges(changes, 'test')).toBe(false);
   });
 
-  it('should handle arrays with undefined, null, and NaN', () => {
-    expect(difference([undefined, null, NaN], [NaN])).toEqual([undefined, null]);
-    expect(difference([undefined, null, NaN], [undefined])).toEqual([null, NaN]);
-    expect(difference([1, null, 3], [null])).toEqual([1, 3]);
+  it('should return true if named change exists', () => {
+    const changes = { test: {} } as unknown as SimpleChanges;
+    expect(prizmHasChanges(changes, 'test')).toBe(true);
   });
 
-  it('should return an empty array if the first array is empty', () => {
-    expect(difference([], [1, 2, 3])).toEqual([]);
+  it('should handle array of names', () => {
+    const changes = { test: {}, other: {} } as unknown as SimpleChanges;
+    expect(prizmHasChanges(changes, ['test', 'other'])).toBe(true);
   });
 
-  it('should return a copy of the first array if no values are excluded', () => {
-    expect(difference([1, 2, 3], [4, 5, 6])).toEqual([1, 2, 3]);
+  it('should handle one of names', () => {
+    const changes = { test: {}, other: {} } as unknown as SimpleChanges;
+    expect(prizmHasChanges(changes, ['test'])).toBe(true);
   });
 
-  it('should handle multiple arrays to exclude values from', () => {
-    expect(difference([1, 2, 3, 4, 5], [2, 3], [4])).toEqual([1, 5]);
+  it('should handle change if one of names does not exist', () => {
+    const changes = { other: {} } as unknown as SimpleChanges;
+    expect(prizmHasChanges(changes, ['test'])).toBe(false);
+  });
+
+  it('should ignore first change if specified', () => {
+    const changes = { test: { isFirstChange: () => true } } as unknown as SimpleChanges;
+    expect(prizmHasChanges(changes, 'test', true)).toBe(false);
   });
 });
