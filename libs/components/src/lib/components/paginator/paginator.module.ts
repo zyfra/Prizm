@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PrizmPaginatorComponent } from './prizm-paginator.component';
+import { PrizmPaginatorComponent } from './paginator.component';
 
 /**
  * @deprecated
