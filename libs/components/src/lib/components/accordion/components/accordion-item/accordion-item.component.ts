@@ -46,7 +46,13 @@ import { prizmIconsChevronsDoubleDown } from '@prizm-ui/icons/full/source';
 })
 export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @Input() icon!: PolymorphContent<PrizmAccordionItemData>;
-  @Input() title: PolymorphContent<PrizmAccordionItemData> = '';
+  @Input()
+  set title(value: PolymorphContent<PrizmAccordionItemData>) {
+    this._title = value;
+    queueMicrotask(() => this.cdRef.markForCheck());
+  }
+
+  public _title: PolymorphContent<PrizmAccordionItemData> = '';
   @Input() isExpanded = false;
 
   @Input()
@@ -67,7 +73,7 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   get data() {
     return {
       icon: this.icon,
-      title: this.title,
+      title: this._title,
       isExpanded: this.isExpanded,
       disabled: this._disabled,
       focused: this.isAccordionFocused,
