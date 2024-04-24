@@ -50,17 +50,23 @@ export class PrizmChartsBarExampleComponent implements AfterViewInit {
       sales: 38,
     },
   ];
-  readonly color: PrizmChartsBarOptions['color'] = data => {
-    return data.sales > 40 ? 'red' : 'green';
+
+  readonly tooltipOptions = {
+    showTitle: false,
+    formatter: item => ({ name: item.type, value: item.sales }),
   };
 
   constructor(public readonly prizmTheme: PrizmThemeService) {}
+
+  readonly color: PrizmChartsBarOptions['color'] = data => {
+    return data.sales > 40 ? 'red' : 'green';
+  };
 
   ngAfterViewInit(): void {
     // we can update options manually
     this.bar.updateOptions({
       legend: false,
-      // color: this.color
+      tooltip: this.tooltipOptions,
     });
   }
 }

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-split-buttons-example',
@@ -20,4 +22,10 @@ import { Component } from '@angular/core';
   ],
   templateUrl: './split-buttons-example.component.html',
 })
-export class PrizmSplitButtonsExampleComponent {}
+export class PrizmSplitButtonsExampleComponent {
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown);
+  }
+}

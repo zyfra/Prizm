@@ -23,7 +23,6 @@
   ></prizm-counter>
   <div class="page__cancel" *ngIf="closable && !disabled" (click)="onClose($event)">
     <ng-container *polymorphOutlet="closeIcon; context: $any({ idx: idx$ | async, tab: this })">
-      <!--      <prizm-icon class="icon" [iconClass]="$any(closeIcon)" [size]="16"></prizm-icon>-->
       <prizm-icons-full class="icon" [name]="$any(closeIcon)" [size]="16"></prizm-icons-full>
     </ng-container>
   </div>

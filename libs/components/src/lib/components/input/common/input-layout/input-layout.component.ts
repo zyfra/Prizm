@@ -14,6 +14,7 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
+  inject,
 } from '@angular/core';
 import { BehaviorSubject, EMPTY, merge, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
@@ -24,6 +25,14 @@ import { isPolymorphPrimitive, PolymorphContent } from '../../../../directives/p
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmI18nService } from '../../../../services';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsCircleCheckFill,
+  prizmIconsCircleInfoFill,
+  prizmIconsDeleteContent,
+  prizmIconsTempChevronsDropdownSmall,
+  prizmIconsTriangleExclamationFill,
+} from '@prizm-ui/icons/full/source';
 
 export type PrizmInputLayoutClearButtonContext = {
   clear: (event: MouseEvent) => void;
@@ -141,11 +150,22 @@ export class PrizmInputLayoutComponent
   readonly onClearClick = (event: MouseEvent) => {
     this.clear.next(event);
     this.control.clear(event);
+    this.control.stateChanges.next();
     this.actualizeStatusIcon();
   };
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(private readonly injector: Injector, public readonly el: ElementRef<HTMLElement>) {
     super();
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsDeleteContent,
+      prizmIconsTriangleExclamationFill,
+      prizmIconsCircleCheckFill,
+      prizmIconsCircleInfoFill,
+      prizmIconsTempChevronsDropdownSmall
+    );
   }
 
   ngOnInit(): void {

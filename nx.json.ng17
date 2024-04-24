@@ -1,4 +1,5 @@
 {
+  "neverConnectToCloud": true,
   "affected": {
     "defaultBase": "master"
   },
@@ -66,5 +67,4 @@
       "!{projectRoot}/src/test-setup.[jt]s"
     ]
   },
-  "nxCloudAccessToken": "ZWY1YjhmMzItYzY0NC00YTY0LWE0NmItYTE3ODAwMzAwZWRkfHJlYWQtd3JpdGU="
 }

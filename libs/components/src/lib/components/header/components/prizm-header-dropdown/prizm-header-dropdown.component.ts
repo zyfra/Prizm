@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { IScreen } from './../../../navigation/navigation.interfaces';
 import { CommonModule } from '@angular/common';
 import { PrizmThemeModule } from '@prizm-ui/theme';
@@ -9,6 +9,8 @@ import { PrizmHintDirective } from '../../../../directives';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsFolder } from '@prizm-ui/icons/full/source';
 import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIsTextOverflow } from '../../../../util';
 
 @Component({
   selector: 'prizm-header-dropdown',
@@ -32,9 +34,17 @@ export class PrizmHeaderDropdownComponent {
   @Output() screenIdxChange: EventEmitter<number> = new EventEmitter<number>();
 
   public openDropdown = false;
+  readonly prizmIsTextOverflow = prizmIsTextOverflow;
+
   readonly iconFilesFolder = prizmIconsFolder;
 
   readonly iconAngleRight = prizmIconsAngleRight;
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsFolder, prizmIconsAngleRight);
+  }
   public changeScreen(idx: number): void {
     if (this.currentScreenIdx === idx) return;
 

@@ -1,6 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { PrizmHandler } from '@prizm-ui/components';
 import { PRIZM_EMPTY_ARRAY } from '@prizm-ui/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsAlarmPlus,
+  prizmIconsShieldExclamation,
+  prizmIconsStarHalfFill,
+} from '@prizm-ui/icons/full/source';
 
 export interface TreeNode {
   readonly text: string;
@@ -48,4 +54,14 @@ export class TreeTemplateExampleComponent {
   };
 
   readonly handler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children || PRIZM_EMPTY_ARRAY;
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsShieldExclamation,
+      prizmIconsStarHalfFill,
+      prizmIconsAlarmPlus
+    );
+  }
 }

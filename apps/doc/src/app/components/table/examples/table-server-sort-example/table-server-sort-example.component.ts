@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import {
   PrizmTableCellSorter,
   PrizmTableCellSorterHandler,
@@ -6,7 +6,9 @@ import {
   prizmTableDefaultColumnSort,
   PrizmTableSorterService,
 } from '@prizm-ui/components';
-import { BehaviorSubject, of } from 'rxjs';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source';
+import { BehaviorSubject } from 'rxjs';
 import { delay, map, switchMap, tap } from 'rxjs/operators';
 
 export interface ITableProduct {
@@ -98,12 +100,13 @@ export class TableServerSortExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_SORT;
 
   public searchString: string | null = null;
-  public searchAllowedProducts: ITableProduct[] = this.products;
+  public searchAllowedProducts$$ = new BehaviorSubject<ITableProduct[]>(this.products);
+
   public sorter$$ = new BehaviorSubject<PrizmTableCellSorter<ITableProduct>[]>([]);
   public readonly data$ = this.sorter$$.pipe(
     tap(() => this.showLoader$.next(true)),
     switchMap((sort: PrizmTableCellSorter<ITableProduct>[]) => {
-      return of(this.products).pipe(
+      return this.searchAllowedProducts$$.pipe(
         delay(3000),
         map(data => {
           return this.tableSorterService.sort(
@@ -118,14 +121,21 @@ export class TableServerSortExampleComponent {
     }),
     tap(() => this.showLoader$.next(false))
   );
-  constructor(private readonly tableSorterService: PrizmTableSorterService<ITableProduct>) {}
   public showLoader$ = new BehaviorSubject(false);
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(private readonly tableSorterService: PrizmTableSorterService<ITableProduct>) {
+    this.iconsFullRegistry.registerIcons(prizmIconsMagnifyingGlass);
+  }
+
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
     this.searchString = value.toLowerCase();
 
-    this.searchAllowedProducts = this.products.filter(product =>
+    const searchAllowedProducts = this.products.filter(product =>
       (product[key] as string).toLowerCase().includes(this.searchString as string)
     );
+    this.searchAllowedProducts$$.next(searchAllowedProducts);
   }
 
   public updateSort(sort: PrizmTableCellSorter<any>[]): void {

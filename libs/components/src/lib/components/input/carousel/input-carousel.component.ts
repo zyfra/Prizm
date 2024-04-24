@@ -5,6 +5,7 @@ import {
   ElementRef,
   forwardRef,
   HostListener,
+  inject,
   Inject,
   Injector,
   Input,
@@ -20,6 +21,13 @@ import { PrizmInputCarousel } from './types';
 import { NgIf } from '@angular/common';
 import { PrizmInputCarouselAuxiliaryLeftComponent } from './input-carousel-auxiliary-left.component';
 import { PrizmInputCarouselAuxiliaryRightComponent } from './input-carousel-auxiliary-right.component';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsChevronLeft,
+  prizmIconsChevronRight,
+  prizmIconsChevronsDoubleLeft,
+  prizmIconsChevronsDoubleRight,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-input-carousel',
@@ -65,12 +73,21 @@ export class PrizmInputCarouselComponent
   nativeElementType = 'carousel';
   focused = false;
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(Injector) injector: Injector,
     private el: ElementRef,
     private readonly cdr: ChangeDetectorRef
   ) {
     super(injector);
+
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsChevronLeft,
+      prizmIconsChevronRight,
+      prizmIconsChevronsDoubleLeft,
+      prizmIconsChevronsDoubleRight
+    );
   }
 
   public override ngOnInit() {

@@ -29,7 +29,7 @@
   <button
     *ngIf="goToButtonsVisible"
     [size]="'m'"
-    [icon]="'arrows-corner-left-up'"
+    [icon]="'arrow-turn-left-up'"
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     (click)="$event.stopPropagation(); goToParentItem.emit(item)"
@@ -38,7 +38,7 @@
   <button
     *ngIf="goToButtonsVisible"
     [size]="'m'"
-    [icon]="'arrows-arrow-up-level'"
+    [icon]="'arrow-up-to-dotted-line'"
     [appearance]="'secondary'"
     [appearanceType]="'ghost'"
     (click)="$event.stopPropagation(); goToRootItem.emit(item)"

@@ -92,7 +92,7 @@ import { PRIZM_SEARCH_TEXT } from '../../../tokens';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
+import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-input-select',
@@ -266,7 +266,7 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   ) {
     super(injector);
 
-    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown);
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown, prizmIconsMagnifyingGlass);
   }
 
   private initSelectListener() {

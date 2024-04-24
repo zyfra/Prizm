@@ -4,6 +4,7 @@ import {
   ElementRef,
   forwardRef,
   HostListener,
+  inject,
   Inject,
   Injector,
   Input,
@@ -38,6 +39,8 @@ import {
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: `prizm-input-layout-month`,
@@ -111,6 +114,9 @@ export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMon
   public onClick(): void {
     this.open = !this.open;
   }
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
   constructor(
     @Inject(PRIZM_MONTH_FORMATTER)
     readonly formatter: PrizmHandler<PrizmMonth | null, Observable<string>>,
@@ -119,6 +125,8 @@ export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMon
     @Inject(Injector) injector: Injector
   ) {
     super(injector);
+
+    this.iconsFullRegistry.registerIcons(prizmIconsCalendarBlank);
   }
 
   public get nativeFocusableElement(): HTMLInputElement | null {

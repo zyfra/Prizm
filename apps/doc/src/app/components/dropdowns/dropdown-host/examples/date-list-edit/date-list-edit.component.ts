@@ -1,7 +1,14 @@
-import { ChangeDetectorRef, Component, Injector } from '@angular/core';
+import { ChangeDetectorRef, Component, Injector, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmDateTime, PrizmDay, PrizmTime } from '@prizm-ui/components';
-import { formatRelative, addDays, addHours, addMonths } from 'date-fns';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsCalendarRange,
+  prizmIconsPencil,
+  prizmIconsPlus,
+  prizmIconsTrashEmpty,
+} from '@prizm-ui/icons/full/source';
+import { addDays, addHours } from 'date-fns';
 
 type DateRangeItem = [PrizmDay, PrizmTime];
 
@@ -63,7 +70,16 @@ export class PrizmDropdownHostDateListEditExampleComponent {
   readonly startControl = new UntypedFormControl();
   readonly endControl = new UntypedFormControl();
 
-  constructor(public readonly cdRef: ChangeDetectorRef, public readonly injector: Injector) {}
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor(public readonly cdRef: ChangeDetectorRef, public readonly injector: Injector) {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsCalendarRange,
+      prizmIconsPlus,
+      prizmIconsPencil,
+      prizmIconsTrashEmpty
+    );
+  }
 
   public select(item: DateItem | null): void {
     if (!item) {

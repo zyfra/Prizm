@@ -32,7 +32,7 @@ export class PrizmFileUploadI18nExampleComponent {
     }
   }
 
-  public onfilesValidationErrors(errors: PrizmFileValidationErrors): void {
+  public onfilesValidationErrors(errors: { [key: string]: PrizmFileValidationErrors }): void {
     for (const filename of Object.keys(errors)) {
       this.toastService.create(JSON.stringify(errors[filename]), {
         title: `Файл ${filename} не прошел валидацию`,

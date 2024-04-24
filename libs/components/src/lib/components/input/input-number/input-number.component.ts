@@ -19,6 +19,8 @@ import { fromEvent, merge, Subject } from 'rxjs';
 import { map, takeUntil, tap, throttleTime } from 'rxjs/operators';
 import { PrizmDecimal } from '@prizm-ui/core';
 import { PrizmHintDirective } from '../../../directives';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsMinus, prizmIconsPlus } from '@prizm-ui/icons/full/source';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -80,6 +82,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @HostBinding('attr.placeholder')
   placeholder?: string;
 
+  @Input()
+  @HostBinding('attr.title')
+  title = '';
+
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   // TODO later create input with support zero postfix for number
@@ -111,9 +117,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @HostListener('input', ['$event.data'])
   @HostListener('paste', ['$event.clipboardData.getData("Text")'])
   public onInput(data: string) {
-    this.validateMinMax();
     this.input$$.next(data);
   }
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(
     @Self() public readonly ngControl: NgControl,
@@ -121,25 +128,13 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   ) {
     super();
     this.el.nativeElement.type = 'number';
+
+    this.iconsFullRegistry.registerIcons(prizmIconsMinus, prizmIconsPlus);
   }
 
   private detectSymbols(value: boolean): void {
     this.hasSymbol = value;
     this.stateChanges.next();
-  }
-
-  private validateMinMax() {
-    if (this.max !== null && this.max < this.value) {
-      this.el.nativeElement.value = this.max.toString();
-      this.stateChanges.next();
-      return;
-    }
-
-    if (this.min !== null && this.min > this.value) {
-      this.el.nativeElement.value = this.min.toString();
-      this.stateChanges.next();
-      return;
-    }
   }
 
   public clear(ev: MouseEvent): void {

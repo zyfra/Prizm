@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PrizmSize } from '@prizm-ui/components';
 import { PrizmChartsWaterfallItem } from '@prizm-ui/charts';
 import { PrizmThemeService } from '@prizm-ui/theme';
 
@@ -33,7 +32,7 @@ export class WaterfallComponent {
       },
     },
     label: {
-      style: { fontSize: 10, fill: 'rgba(0,0,0,0.65)' },
+      style: { fontSize: 10 },
       layout: [{ type: 'interval-adjust-position' }],
     },
     total: {

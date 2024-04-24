@@ -1,7 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PrizmAccordionItemComponent } from './accordion-item.component';
-import { PrizmIconModule } from '../../../icon/icon.module';
 
 describe('AccordionItemComponent', () => {
   let component: PrizmAccordionItemComponent;

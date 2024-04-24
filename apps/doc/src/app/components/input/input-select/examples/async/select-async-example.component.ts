@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
 import {
   PrizmSelectIdentityMatcher,
@@ -7,6 +7,8 @@ import {
 } from '@prizm-ui/components';
 import { delay } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsUserCheck } from '@prizm-ui/icons/full/source';
 type PrizmItem = {
   id: number;
   name: string;
@@ -47,6 +49,12 @@ export class PrizmSelectAsyncExampleComponent {
   readonly stringify: PrizmSelectStringify<PrizmItem> = (item: PrizmItem) => {
     return item?.name;
   };
+
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsUserCheck);
+  }
 
   public setDefaultValue(): void {
     this.valueControl.setValue(this.items[0]);

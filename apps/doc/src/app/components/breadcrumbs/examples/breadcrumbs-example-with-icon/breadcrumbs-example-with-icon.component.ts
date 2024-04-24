@@ -1,5 +1,12 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { IBreadcrumb } from '@prizm-ui/components';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsBatteryFull,
+  prizmIconsHouseMini,
+  prizmIconsUser,
+  prizmIconsUserArrowsSwap,
+} from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-breadcrumbs-example-with-icon',
@@ -28,6 +35,17 @@ export class BreadcrumbsExampleWithIconComponent {
   ];
 
   private currentBreadcrumb: IBreadcrumb | null = null;
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsHouseMini,
+      prizmIconsUser,
+      prizmIconsBatteryFull,
+      prizmIconsUserArrowsSwap
+    );
+  }
 
   public breadcrumbChange(current: IBreadcrumb): void {
     this.currentBreadcrumb = current;

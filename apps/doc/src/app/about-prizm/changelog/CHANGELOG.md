@@ -2,11 +2,69 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.1.1](https://github.com/zyfra/Prizm) (25-03-2024)
+## [4.2.0](https://github.com/zyfra/Prizm) (17-04-2024)
+
+### Features
+
+- feat: checklist for release 4x version #1610
+- feat: checklist for release 3x version #1613
+- feat(component/cron): added custom title #1431
+- feat(charts): update colors for charts to new schema #1196
+- feat(documentation): add decimal input type to live demo documentation
 
 ### Bug fixes
 
-- fix(components/cron): switcher in cron returns incorrect value #1519
+- fix(components/input-number): manual input works incorrect when min set for input number #1580
+- fix(components/input-number) remove default title for input number #1599
+- fix(components/inputs): hint status text for required input not shown after force clear #1598
+- fix: auto deploy doc #1592
+- fix(documentation): changed filesValidationErrors type in examples and live demo #1371
+- fix(component/cron): selected working with specified tabs #1494
+- fix(documentation): typography page changed #1497 #1498
+- fix(documentation/sticky): fix scroll in sticky example #670
+- fix(component/navigation): hidden overflow for navigation titles. added hints #1510
+- fix(component/header): hidden overflow for header. added hints #1510
+- fix(component/file-upload): if the name is long it doesn't overlap upload bar. name becomes truncated. expansion remains #1541
+- fix(component/toggle): removed hover and focus if loading #1485
+- fix(documentation/card): removed shadow variant duplicate #1434
+- fix(components/paginator): fixed width of rows selector #1466
+- fix(documentation): changelog headers formatting #1499
+- fix(documentation): removed first empty string in ast code examples #1501
+- fix(documentation/checkbox): fixed description of checkbox module import #1527
+- fix(documentation/colors): remove 'v3' prefix in documentation theme colors #1496
+- fix(components/column-settings): incorrect display of one unhidden column in column settings #1036
+- fix(documentation/table): search for server sort example fixed #1107
+- fix(charts): charts tolltip background color error #1488
+- fix(charts/bar): bar chart changing postion on theme chage #1492
+- fix(charts/bar): bar chart x axis shpould be shown for both themes #1490
+- fix(charts): not all charts ascept theming #1489
+- fix(charts/pie/waterfall/radial-bar): wrong stroke color on hover in pie, waterfall and radial bar charts #1508
+- fix(documentation/scatter): points on the scatter are not completely hidden when it's hidden in legend #1493
+- fix(charts/pie): pie line style update for dark theme
+- fix(documentation/bar): incorrect examples for bar stacked and bar groupd charts #1507
+- fix(theme): remove redundant token from default theme
+- fix(charts): incorrect data colors displayed in charts #1505
+- fix(documentation/bar): correction of sctacked example code
+- fix(documentation/pie): removed extra properties from pie live demo tab
+- fix(documentation/gauge): change percent input type for live demo
+
+### Refactor
+
+- refactor(charts): replace chart base options from theming to separate object
+
+## [4.1.2](https://github.com/zyfra/Prizm) (08-04-2024)
+
+- fix(ci): remove nx cloud token
+
+## [4.1.1](https://github.com/zyfra/Prizm) (05-04-2024)
+
+### Bug fixes
+
+- fix(components/cron): switcher in cron returns incorrect value https://github.com/zyfra/Prizm/issues/1519
+- fix(components/navigation-menu): add icons, remove transformer from doc https://github.com/zyfra/Prizm/issues/1525
+- fix(components/icons): replace icons lazy loading for prizm components with targeting registry (breaking change) (our ADR: https://github.com/zyfra/Prizm/discussions/1564)
+- fix(documentation/setup): correct information about icons setup https://github.com/zyfra/Prizm/issues/1558
+- fix(components/link): removed circular dependency from prizmLink. https://github.com/zyfra/Prizm/issues/1535
 
 ## [4.1.0](https://github.com/zyfra/Prizm) (25-03-2024)
 
@@ -32,7 +90,7 @@ All notable changes to this project will be documented in this file.
 - feat(icons): migrate lazy load icons functions to icons-loader
   now you can use lazy load function separately if you don't want to load all icons to your build
   but remember you need to inject our provider to active this mode
-  you can find [example](http://prizm.site/components/icons#lazy) on our doc
+  you can find [example](http://localhost:4200/components/icons#lazy) on our doc
 - feat(icons): now you can load all icons at once, we update doc
 - feat(doc/icons): added more information easy to understand
 - feat(components/breadcrumbs): change the focus to focus-visible for breadcrumbs https://github.com/zyfra/Prizm/issues/1297
@@ -42,9 +100,8 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-icon-button): change the focus to focus-visible for input-icon-button https://github.com/zyfra/Prizm/issues/1297
 - feat(components/slider): change the focus to focus-visible for slider cnob https://github.com/zyfra/Prizm/issues/1297
 - feat(components/stepper): change the focus to focus-visible for stepper button https://github.com/zyfra/Prizm/issues/1297
-- feat(components/toggle): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
-- feat(components/button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
-- feat(docs/theme): add shadow color to docs https://github.com/zyfra/Prizm/issues/900
+- feat(components/input-icon-button): change the focus to focus-visible for toggle https://github.com/zyfra/Prizm/issues/1297
+- feat(components/input-icon-button): change the focus to focus-visible for button https://github.com/zyfra/Prizm/issues/1297
 
 ## [4.0.0](https://github.com/zyfra/Prizm) (11-03-2024)
 
@@ -138,7 +195,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [4.0.0-next.2](https://github.com/zyfra/Prizm) (17-01-2024)
 
-## Features
+### Features
 
 - feat(doc): added ability to change current theme tokens
 - feat(theme): added export all token list with palette and base
@@ -146,7 +203,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
-## Features
+### Features
 
 - feat(doc): save current theme in local storage on change
 
@@ -158,22 +215,22 @@ This means that when using the above components in your projects, you will need 
 
 ## [4.0.0-rc.1](https://github.com/zyfra/Prizm) (15-01-2024)
 
-## Features
+### Features
 
 - feat(components): remove deprecation from complex modules #1271
 - feat(doc): language changer was added #1265
 - feat(doc): search by status (new|preview|deprecated) #1257
 
-## Bug fixes
+### Bug fixes
 
 - fix: check box extra margin #1189 #1193
 
-## Deprecations
+### Deprecations
 
 - chore(flag-icons): deprecated flag-icons #1267
 - chore(icons): deprecated prizm-icons-svg #1266
 
-## Breacking Changes
+### Breacking Changes
 
 - bc(components): carousel deleted #1258
 - bc(components): remove old themes and remove v3 prefix from new theme tokens #1270
@@ -214,7 +271,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
 
-## Features
+### Features
 
 - feat(components/navigation-menu): add hint to navigation menu items and titles when text overflows #1216, #1312
 - feat(components/accordion): add hint to accordion title when text overflows #1216, #1312
@@ -230,7 +287,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
 
-## Features
+### Features
 
 - feat(doc): save current theme in local storage on change
 
@@ -242,7 +299,7 @@ This means that when using the above components in your projects, you will need 
 
 ## [1.13.0, 2.10.0, 3.9.0](https://github.com/zyfra/Prizm) (29-12-2023)
 
-## Features
+### Features
 
 - feat(components/sticky): update on changes #1085
 - feat(component/event-zone): directive to standalone #1260 #1276
