@@ -7,6 +7,7 @@ export const PRIZM_ENGLISH_CRON: PrizmLanguageCron = {
     resetText: 'Cancel',
     startDateLabel: 'Start Date',
     endDateLabel: 'End Date',
+    chooseYearLabel: 'Type the year',
     indefinitelyLabel: 'Indefinitely',
     switcherTitles: {
       second: 'Seconds',

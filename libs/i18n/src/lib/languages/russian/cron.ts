@@ -7,6 +7,7 @@ export const PRIZM_RUSSIAN_CRON: PrizmLanguageCron = {
     resetText: 'Отменить',
     startDateLabel: 'Начало работы',
     endDateLabel: 'Конец работы',
+    chooseYearLabel: 'Введите год',
     indefinitelyLabel: 'Бессрочно',
     switcherTitles: {
       second: 'Секунды',

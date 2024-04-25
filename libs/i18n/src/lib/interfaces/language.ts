@@ -52,6 +52,7 @@ export interface PrizmLanguageCron {
     resetText: string;
     startDateLabel: string;
     endDateLabel: string;
+    chooseYearLabel: string;
     indefinitelyLabel: string;
     switcherTitles: PrizmLanguageCronSwitcherTitles;
 

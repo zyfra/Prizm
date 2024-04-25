@@ -90,9 +90,9 @@
                 [(ngModel)]="yearForAdd"
                 [prizmInputAllowedSymbols]="allowedYear"
                 [ngModelOptions]="{ standalone: true }"
+                [placeholder]="cronI18n | prizmPluck : ['chooseYearLabel']"
                 (enter)="onEnter($event, chipsComponent)"
                 prizmInput
-                placeholder="Введите год"
               />
               <prizm-chips
                 #chipsComponent
