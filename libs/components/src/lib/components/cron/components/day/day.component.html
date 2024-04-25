@@ -1,5 +1,5 @@
 <div class="blocks">
-  <ng-container *prizmLet="cronI18n$ | async as cronI18n">
+  <ng-container *ngIf="cronI18n$ | async as cronI18n">
     <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.every)">
       <label
         class="every value-block block"
