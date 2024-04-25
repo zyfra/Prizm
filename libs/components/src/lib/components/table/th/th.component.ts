@@ -18,7 +18,7 @@ import { PrizmTableSortKeyException } from '../../../exceptions';
 import { PrizmTableCellSorter, PrizmTableCellSorterHandler, PrizmTableSorterService } from '../service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsArrowUpArrowDownV,
   prizmIconsArrowDownWideShort,

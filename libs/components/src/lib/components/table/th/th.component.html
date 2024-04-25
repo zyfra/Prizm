@@ -1,21 +1,21 @@
-<button class="sorter" *ngIf="isSortable && table; else content" type="button">
+<div class="sorter" *ngIf="isSortable && table; else content" type="button">
   <ng-container [ngTemplateOutlet]="content"></ng-container>
   {{ table.change$ | async }}
-  <span class="sort__block" [class.sort__block_active]="isCurrent" (click)="updateSorter($event)">
+  <span class="sort__block" [class.sort__block_active]="isCurrent">
     <span class="sorter__number" [style.visibility]="count > 1 && num ? 'visible' : 'hidden'">{{
       num ?? '0'
     }}</span>
-    <!--    <prizm-icon class="sorter__icon" [iconClass]="$any(icon$ | async)"></prizm-icon>-->
     <button
       class="sorter__icon"
       [icon]="$any(icon$ | async)"
       [appearance]="isCurrent ? 'primary' : 'secondary'"
+      (click)="updateSorter($event)"
       prizmIconButton
       appearanceType="ghost"
       size="s"
     ></button>
   </span>
-</button>
+</div>
 <ng-template #content>
   <div class="cell"><ng-content></ng-content></div>
 </ng-template>
