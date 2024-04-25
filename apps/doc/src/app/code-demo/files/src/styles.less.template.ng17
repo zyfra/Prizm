@@ -1,5 +1,11 @@
+@import "@prizm-ui/components/src/styles/styles.less";
+@import "@prizm-ui/theme/src/styles/styles.less";
 @import "@prizm-ui/flag-icons/src/styles/styles.less";
-@import "@prizm-ui/components/src/styles/icons/icons.less";
-@import "prismjs/themes/prism-okaidia.css";
-@import "prismjs/plugins/line-numbers/prism-line-numbers.css";
+// base style for icons
 @import "@prizm-ui/icons/src/styles/styles.less";
+// icons font for base icons
+@import "@prizm-ui/icons/src/styles/icons-base/prizm-base-icons.css";
+@import "@prizm-ui/icons/src/styles/icons-base/prizm-base-icons-location.css";
+// icons font for full icons
+@import "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons.css";
+@import "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css";

@@ -73,9 +73,11 @@ import {
   PrizmChartsTreemapModule,
   PrizmChartsWaterfallModule,
 } from '@prizm-ui/charts';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
+    PrizmIfLanguageDirective,
     // for base variant
     PrizmIconsComponent,
     // for full variant
@@ -155,6 +157,7 @@ import {
     PrizmChartsWaterfallModule,
   ],
   exports: [
+    PrizmIfLanguageDirective,
     PrizmIconsSvgComponent,
     // for base variant
     PrizmIconsComponent,
