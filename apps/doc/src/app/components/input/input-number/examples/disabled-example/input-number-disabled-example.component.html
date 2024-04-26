@@ -1,0 +1,26 @@
+<prizm-input-layout automation-id="layout-button" label="Заголовок" size="l" status="default">
+  <input
+    #inputNumber="prizmInputNumber"
+    [step]="2"
+    [formControl]="requiredInputControl"
+    type="number"
+    prizmInput
+    placeholder="Введите число"
+  />
+  <ng-template [control]="inputNumber" prizmInputStatusText></ng-template>
+  <prizm-input-number-auxiliary-controls
+    [inputNumber]="inputNumber"
+    prizm-input-right
+  ></prizm-input-number-auxiliary-controls>
+</prizm-input-layout>
+
+<br />
+<br />
+
+<button
+  (click)="requiredInputControl.disabled ? requiredInputControl.enable() : requiredInputControl.disable()"
+  prizmButton
+  automation-id="update-state-button"
+>
+  {{ requiredInputControl.disabled ? 'Активировать' : 'Деактивировать' }}
+</button>

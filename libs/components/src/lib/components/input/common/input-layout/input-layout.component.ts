@@ -171,7 +171,7 @@ export class PrizmInputLayoutComponent
   ngOnInit(): void {
     this.control.stateChanges
       .pipe(
-        debounceTime(10),
+        debounceTime(0),
         tap(() => {
           this.actualizeStatusIcon();
           this.cdr.detectChanges();
