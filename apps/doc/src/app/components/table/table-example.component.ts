@@ -14,7 +14,7 @@ export class TableExampleComponent {
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
   public prizmTableRowOddBackground: string | null = null;
   public prizmTableRowBackground: string | null = null;
-  public prizmTableRowCursor = 'pointer';
+  public prizmTableRowCursor = 'default';
   public prizmTableRowHoverBackground: string | null = null;
   public prizmTableActiveRowMarkerColor: string | null = null;
   public columns: string[] = ['code', 'name', 'category', 'count'];
