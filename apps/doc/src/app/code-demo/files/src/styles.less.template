@@ -9,3 +9,9 @@
 // icons font for full icons
 @import "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons.css";
 @import "@prizm-ui/icons/src/styles/icons-full/prizm-full-icons-location.css";
+
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+

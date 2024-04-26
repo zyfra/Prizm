@@ -13,6 +13,7 @@ import {
   PrizmConfirmPopupModule,
   PrizmCronHumanReadablePipe,
   PrizmCronModule,
+  PrizmDataListModule,
   PrizmDialogComponent,
   PrizmDialogConfirmComponent,
   PrizmDropdownHostModule,
@@ -36,6 +37,7 @@ import {
   PrizmInputPasswordModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
+  PrizmListingItemComponent,
   PrizmLoaderComponent,
   PrizmMaskModule,
   PrizmNavigationMenuModule,
@@ -77,7 +79,9 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
+    PrizmDataListModule,
     PrizmIfLanguageDirective,
+    PrizmListingItemComponent,
     // for base variant
     PrizmIconsComponent,
     // for full variant
@@ -157,6 +161,9 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmChartsWaterfallModule,
   ],
   exports: [
+    PrizmListingItemComponent,
+    PrizmDataListModule,
+
     PrizmIfLanguageDirective,
     PrizmIconsSvgComponent,
     // for base variant
