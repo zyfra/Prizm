@@ -1,7 +1,14 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
-import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS, PrizmTableBorderStyle } from '@prizm-ui/components';
+import {
+  PrizmSizeL,
+  PrizmSizeM,
+  PrizmSizeS,
+  PrizmSizeXS,
+  PrizmSizeXl,
+  PrizmTableBorderStyle,
+} from '@prizm-ui/components';
 import { TABLE_EXAMPLE_DATA_1 } from './table-example.const';
 
 @Component({
@@ -28,8 +35,14 @@ export class TableExampleComponent {
   borderStyle: PrizmTableBorderStyle = 'grid';
   borderStyleVariants: Array<PrizmTableBorderStyle> = ['grid', 'horizontal', 'vertical'];
 
-  public size: PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS = 'l';
-  public sizeVariants: (PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS)[] = ['xs', 'l', 'm', 's'];
+  public size: PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS | PrizmSizeXl = 'l';
+  public sizeVariants: (PrizmSizeL | PrizmSizeM | PrizmSizeXS | PrizmSizeS | PrizmSizeXl)[] = [
+    'xs',
+    's',
+    'm',
+    'l',
+    'xl',
+  ];
   public scrollable = false;
   public scrollHeight = null;
   public scrollHeightVariants: string[] = [null as any, '160px', '200px', '300px', '500px'];

@@ -2,6 +2,7 @@
 @height-s: 24px;
 @height-m: 32px;
 @height-l: 40px;
+@height-l: 48px;
 
 :host {
   font-size: 14px;
@@ -91,5 +92,12 @@
   .heading,
   .empty-row {
     height: @height-l;
+  }
+}
+
+:host-context([data-size='xl']) {
+  .heading,
+  .empty-row {
+    height: @height-xl;
   }
 }
