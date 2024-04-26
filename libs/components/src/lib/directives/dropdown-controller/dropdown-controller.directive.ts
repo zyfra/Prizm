@@ -18,6 +18,7 @@ import { PrizmDropdownWidthT } from '../../types/dropdown-width';
       useExisting: forwardRef(() => PrizmDropdownControllerDirective),
     },
   ],
+  standalone: true,
 })
 export class PrizmDropdownControllerDirective implements OnChanges {
   @Input('prizmDropdownMinHeight')
