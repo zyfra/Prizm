@@ -5,7 +5,6 @@ import { PrizmInputNumberDefaultControlsComponent } from './input-number-auxilia
 import { PrizmInputNumberComponent } from './input-number.component';
 
 /**
- * @deprecated
  * */
 @NgModule({
   imports: [

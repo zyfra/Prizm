@@ -34,6 +34,7 @@ import {
   PrizmInputLayoutTimeModule,
   PrizmInputMultiSelectModule,
   PrizmInputNumberComponent,
+  PrizmInputNumberModule,
   PrizmInputPasswordModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
@@ -76,9 +77,12 @@ import {
   PrizmChartsWaterfallModule,
 } from '@prizm-ui/charts';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
 
 @NgModule({
   imports: [
+    PrizmInputNumberModule,
+    PrizmFlagIconsComponent,
     PrizmDataListModule,
     PrizmIfLanguageDirective,
     PrizmListingItemComponent,
@@ -161,6 +165,8 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmChartsWaterfallModule,
   ],
   exports: [
+    PrizmInputNumberModule,
+    PrizmFlagIconsComponent,
     PrizmListingItemComponent,
     PrizmDataListModule,
 

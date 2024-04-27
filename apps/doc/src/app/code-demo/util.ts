@@ -25,6 +25,7 @@ export function getPrizmDeps(version: string) {
     '@prizm-ui/components': prizmVersion,
     '@prizm-ui/charts': prizmVersion,
     '@prizm-ui/core': prizmVersion,
+    ...(prizmVersion === '4.x.x' ? { '@prizm-ui/icons-loader': prizmVersion } : {}),
     '@prizm-ui/helpers': prizmVersion,
     '@prizm-ui/i18n': prizmVersion,
     '@prizm-ui/icons': prizmVersion,
