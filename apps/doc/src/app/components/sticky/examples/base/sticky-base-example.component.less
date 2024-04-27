@@ -1,6 +1,6 @@
 .table {
   display: block;
-  width: 1000px;
+  min-width: 585px;
 
   .row {
     display: grid;
@@ -10,18 +10,19 @@
     .col {
       height: 30px;
       border: 1px solid rgba(128, 128, 128, 0.25);
+      min-width: 65px;
     }
 
     &.header {
       font-weight: 600;
-      color: black;
+      color: var(--prizm-text-icon-primary);
     }
 
     &.footer,
     &.header,
     .sticky {
-      background-color: #d0cece;
-      color: white;
+      background-color: var(--prizm-table-fill-row-zebra_default);
+      color: var(--prizm-text-icon-secondary);
     }
   }
 }

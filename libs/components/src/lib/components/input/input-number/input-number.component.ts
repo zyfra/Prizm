@@ -82,6 +82,10 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @HostBinding('attr.placeholder')
   placeholder?: string;
 
+  @Input()
+  @HostBinding('attr.title')
+  title = '';
+
   @Input() min: number | null = null;
   @Input() max: number | null = null;
   // TODO later create input with support zero postfix for number
@@ -113,7 +117,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   @HostListener('input', ['$event.data'])
   @HostListener('paste', ['$event.clipboardData.getData("Text")'])
   public onInput(data: string) {
-    this.validateMinMax();
     this.input$$.next(data);
   }
 
@@ -132,20 +135,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   private detectSymbols(value: boolean): void {
     this.hasSymbol = value;
     this.stateChanges.next();
-  }
-
-  private validateMinMax() {
-    if (this.max !== null && this.max < this.value) {
-      this.el.nativeElement.value = this.max.toString();
-      this.stateChanges.next();
-      return;
-    }
-
-    if (this.min !== null && this.min > this.value) {
-      this.el.nativeElement.value = this.min.toString();
-      this.stateChanges.next();
-      return;
-    }
   }
 
   public clear(ev: MouseEvent): void {

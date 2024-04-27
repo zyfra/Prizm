@@ -17,6 +17,7 @@ import {
   TuiBadgeModule,
   TuiDataListWrapperModule,
   TuiInputCountModule,
+  TuiInputNumberModule,
   TuiSelectModule,
   TuiToggleModule,
 } from '@taiga-ui/kit';
@@ -52,6 +53,7 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     TuiDataListWrapperModule,
     TuiNotificationModule,
     PrizmCallFuncModule,
+    TuiInputNumberModule,
   ],
   declarations: [PrizmDocDocumentationComponent, PrizmDocDocumentationPropertyConnectorDirective],
   exports: [PrizmDocDocumentationComponent, PrizmDocDocumentationPropertyConnectorDirective],

@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '4.1.0'
+            echo '4.2.0'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
@@ -93,6 +93,10 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc

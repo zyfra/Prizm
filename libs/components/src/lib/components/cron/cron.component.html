@@ -1,11 +1,19 @@
 <div class="block">
   <div class="title py-none inner-block small-padding">
-    <span class="prizm-font-title-h4">
-      {{ cronI18n$ | async | prizmPluck : ['title'] }}
-    </span>
+    <ng-container *prizmLet="cronTitle ?? (cronI18n$ | async | prizmPluck : ['title']) as title">
+      <span
+        class="prizm-font-title-h4 cron-title"
+        #element
+        [prizmHint]="title"
+        [prizmHintCanShow]="prizmIsTextOverflow(element)"
+      >
+        {{ title }}
+      </span>
+    </ng-container>
     <div class="submit-block" *ngIf="!hideResult || !autoSubmit">
       <ng-container *ngIf="!hideResult">
         <prizm-input-layout
+          class="submit-block__input"
           *prizmLet="valueAsString$ | async as valueStr"
           [border]="false"
           [label]="null"

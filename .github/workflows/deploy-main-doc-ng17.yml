@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Deploy doc main 17
+name: Deploy doc main 17 (v4 and main)
 on:
   workflow_dispatch:
   workflow_call:
@@ -61,19 +61,6 @@ jobs:
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 17'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
-
-      - name: 'Build main versions'
-        run: npx nx run-many --target=build --all --parallel --max-parallel=3
-
-      - name: Upload dist as artifacts...
-        id: dist-cache-save
-        uses: actions/upload-artifact@v3
-        with:
-          name: dist
-          path: ./dist
-
   deploy_to_doc:
     needs: build
     runs-on: ubuntu-latest
@@ -94,10 +81,17 @@ jobs:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
 
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
+
+      - name: 'Set version 17'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
+
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
 
-      - name: Deploy doc to firebase
+      - name: Deploy doc to firebase (v4)
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -105,3 +99,12 @@ jobs:
           projectId: prizmui
           channelId: live
           target: v4
+
+      - name: Deploy doc to firebase (main)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
+          target: main

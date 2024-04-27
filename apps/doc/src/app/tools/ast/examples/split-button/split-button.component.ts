@@ -72,8 +72,7 @@ export class PrizmAstSplitButtonExampleComponent implements OnInit {
   //     },
   //   }
   // ];
-  readonly html = `
-<zyfra-split-button
+  readonly html = `<zyfra-split-button
   label="SplitButton"
   icon="old-icon"
   iconPos="left"

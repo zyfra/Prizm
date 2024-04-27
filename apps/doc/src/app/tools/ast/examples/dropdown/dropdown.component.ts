@@ -103,8 +103,7 @@ export class PrizmAstDropdownExampleComponent implements OnInit {
   //   },
   //
   // ];
-  readonly html = `
-<zyfra-dropdown
+  readonly html = `<zyfra-dropdown
   [options]="cities"
   [(ngModel)]="model"
   optionLabel="name"

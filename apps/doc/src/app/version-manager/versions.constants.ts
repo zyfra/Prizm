@@ -27,8 +27,8 @@ export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
 ];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '4.1.2 (ng17)',
-    version: '4.1.2',
+    label: '4.2.0 (ng17)',
+    version: '4.2.0',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
     link: new URL('http://prizm.site'),
     otherLinks: [new URL('https://prizm-v4.web.app')],
@@ -67,8 +67,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '4.1.2-next (ng16)',
-    version: '4.1.2-next',
+    label: '4.2.0-next (ng16)',
+    version: '4.2.0-next',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-next-demo',
     link: new URL('https://prizm-v4-next.web.app'),
     otherLinks: [],

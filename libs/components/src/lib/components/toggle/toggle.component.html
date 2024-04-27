@@ -37,7 +37,7 @@
     [attr.aria-checked]="value"
     [disabled]="disabled"
     [prizmChecked]="checked"
-    [prizmFocusable]="focusable"
+    [prizmFocusable]="!showLoader && focusable"
     (prizmCheckedChange)="onChecked($event)"
     (prizmFocusedChange)="onFocused($event)"
     (prizmHoveredChange)="onHovered($event)"

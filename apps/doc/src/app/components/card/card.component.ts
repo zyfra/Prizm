@@ -22,7 +22,6 @@ export class CardComponent {
     PrizmShadowTypeEnum.bigBottom,
     PrizmShadowTypeEnum.bigLeft,
     PrizmShadowTypeEnum.bigRight,
-    PrizmShadowTypeEnum.bigRight,
   ];
   shadow: PrizmShadowType = PrizmShadowTypeEnum.miniBottom;
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
