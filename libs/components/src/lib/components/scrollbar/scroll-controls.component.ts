@@ -9,7 +9,6 @@ import { PRIZM_ANIMATION_OPTIONS, PRIZM_SCROLL_REF } from '../../tokens';
 import { AnimationOptions } from '@angular/animations';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmScrollbarWrapperDirective } from './scrollbar-wrapper.directive';
 import { PrizmScrollbarDirective } from './scrollbar.directive';
 
@@ -20,14 +19,7 @@ import { PrizmScrollbarDirective } from './scrollbar.directive';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [prizmFadeIn],
   standalone: true,
-  imports: [
-    NgIf,
-    AsyncPipe,
-    PrizmLetDirective,
-    PrizmThemeModule,
-    PrizmScrollbarWrapperDirective,
-    PrizmScrollbarDirective,
-  ],
+  imports: [NgIf, AsyncPipe, PrizmLetDirective, PrizmScrollbarWrapperDirective, PrizmScrollbarDirective],
 })
 export class PrizmScrollControlsComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_scroll_controls';
