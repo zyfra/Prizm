@@ -131,3 +131,9 @@ export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
     },
   };
 }
+
+export function isStandaloneComponent(code: string): boolean {
+  // Этот регулярный выражение ищет строку `standalone: true` с учетом различных вариантов кавычек и пробелов
+  const regex = /@Component\(\s*\{[^@]*['"]?standalone['"]?\s*:\s*true[^@]*\}/;
+  return regex.test(code);
+}
