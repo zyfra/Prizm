@@ -53,8 +53,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     return Boolean(validation && validation.hasOwnProperty('required'));
   }
 
-  readonly prizmHint_ = new PrizmHintDirective();
-
   private readonly inputHint: PrizmInputHintDirective | null = inject(PrizmInputHintDirective, {
     optional: true,
     host: true,
@@ -202,7 +200,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   public ngOnInit(): void {
     // TODO after fix
     // this.overrideSetValueMethod();
-    this.prizmHint_.ngOnInit();
     this.inputHint?.updateHint();
     this.initUpdateParentOnChangeStatus();
 
@@ -219,7 +216,6 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
 
   public ngOnDestroy(): void {
     this.stateChanges.complete();
-    this.prizmHint_.ngOnDestroy();
   }
 
   private initUpdateParentOnChangeStatus() {
