@@ -10,3 +10,4 @@ export * from './is-equal';
 export * from './merge';
 export * from './order-by';
 export * from './difference';
+export * from './directive';

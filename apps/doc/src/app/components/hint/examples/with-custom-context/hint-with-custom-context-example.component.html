@@ -1,13 +1,23 @@
 <button
-  [prizmHintContext]="{ name: 'Moscow', country: 'Russia' }"
+  #button="prizmHint"
+  [prizmHintContext]="context"
   [prizmHint]="dropdown"
   type="button"
+  automation-id="main-button"
   prizmButton
 >
   City
 </button>
 
+<br />
+<br />
+<button (click)="updateContext()" prizmButton automation-id="update-context" appearanceType="outline">
+  Update Context
+</button>
+
 <ng-template #dropdown let-context>
-  <div>{{ context.name }}</div>
-  <div>{{ context.country }}</div>
+  <div automation-id="hint-context-container">
+    <div automation-id="name">{{ context.name }}</div>
+    <div automation-id="country">{{ context.country }}</div>
+  </div>
 </ng-template>

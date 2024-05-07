@@ -1,6 +1,13 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PrizmAccordionItemComponent } from './accordion-item.component';
 
+// for fix ResizeObserver is not defined
+global.ResizeObserver = class {
+  public observe() {}
+  public unobserve() {}
+  public disconnect() {}
+};
+
 describe('AccordionItemComponent', () => {
   let component: PrizmAccordionItemComponent;
   let fixture: ComponentFixture<PrizmAccordionItemComponent>;

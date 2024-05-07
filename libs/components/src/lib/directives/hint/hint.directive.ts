@@ -13,7 +13,7 @@ import {
   SimpleChanges,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId, prizmHasChanges } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
@@ -22,9 +22,9 @@ import {
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../modules/overlay';
-import { combineLatest, of, Subject } from 'rxjs';
+import { combineLatest, merge, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
-import { delay, distinctUntilChanged, filter, map, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { delay, distinctUntilChanged, finalize, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
 import { PrizmTheme } from '@prizm-ui/theme';
@@ -133,12 +133,17 @@ export class PrizmHintDirective<
 
   public ngOnChanges(changes?: SimpleChanges): void {
     this.show_ = false;
-    this.initOverlayController();
+
+    if (prizmHasChanges(changes, ['prizmHintHost', 'prizmHintContext'], true)) {
+      this.initOverlayController();
+    }
   }
 
   public ngOnInit(): void {
     this.initVisibleController();
     this.initShowedChangeListener();
+
+    this.initOverlayController();
   }
 
   protected initShowedChangeListener() {
@@ -198,7 +203,6 @@ export class PrizmHintDirective<
   private initOverlayController(): void {
     this.destroyListeners$.next();
     if (this.show_) this.show$.next(false);
-    this.overlay?.close();
 
     const position = new PrizmOverlayRelativePosition({
       placement: this.prizmHintDirection,
@@ -229,8 +233,10 @@ export class PrizmHintDirective<
             return thisHovered || containerHovered;
           }),
           tap(hovered => this.show$.next(hovered)),
-          takeUntil(this.destroyListeners$),
-          takeUntil(this.destroy$)
+          finalize(() => {
+            this.overlay?.close();
+          }),
+          takeUntil(merge(this.destroyListeners$, this.destroy$))
         )
         .subscribe();
     }

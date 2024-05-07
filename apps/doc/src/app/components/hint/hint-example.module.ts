@@ -21,10 +21,10 @@ import { PrizmHintWithCustomContextExampleComponent } from './examples/with-cust
     PolymorphModule,
     PrizmHintDirective,
     PrizmButtonModule,
+    PrizmHintWithCustomContextExampleComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(HintExampleComponent)),
   ],
   declarations: [
-    PrizmHintWithCustomContextExampleComponent,
     PrizmHintWithTemplateExampleComponent,
     PrizmHintWithComponentExampleComponent,
     PrizmHintSomeComponent,
