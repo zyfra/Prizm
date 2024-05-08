@@ -20,8 +20,14 @@
         <prizm-icons class="header-icon" [name]="$any(content)" size="16"></prizm-icons>
       </ng-container>
     </ng-container>
-    <div class="title" #elem *ngIf="title" [prizmHint]="title" [prizmHintCanShow]="prizmIsTextOverflow(elem)">
-      <ng-container *polymorphOutlet="title as content; context: data">
+    <div
+      class="title"
+      #elem
+      *ngIf="_title"
+      [prizmHint]="_title"
+      [prizmHintCanShow]="prizmIsTextOverflow(elem)"
+    >
+      <ng-container *polymorphOutlet="_title as content; context: data">
         {{ content }}
       </ng-container>
     </div>
