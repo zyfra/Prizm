@@ -11,7 +11,17 @@ import { PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronService, prizmI18nInitWithKey } from '../../services';
-import { distinctUntilChanged, filter, first, map, skip, startWith, takeUntil, tap } from 'rxjs/operators';
+import {
+  distinctUntilChanged,
+  filter,
+  first,
+  map,
+  observeOn,
+  skip,
+  startWith,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
 import { PrizmCronUiSecondState } from './cron-ui-second.state';
 import { PrizmCronUiMinuteState } from './cron-ui-minute.state';
 import { PrizmCronUiHourState } from './cron-ui-hour.state';
@@ -21,7 +31,7 @@ import { prizmIsTextOverflow } from '../../util';
 import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { combineLatest, concat, Observable, timer } from 'rxjs';
+import { asapScheduler, BehaviorSubject, combineLatest, concat, Observable, timer } from 'rxjs';
 import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n';
 import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
 import { PRIZM_CRON } from '../../tokens';
@@ -133,20 +143,16 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   @Input()
   set selected(selected: PrizmCronTabItem) {
-    this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
+    this.selected$.next(selected);
   }
 
   @Input() specifiedList: PrizmCronTabSpecifiedList | null = null;
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
-    this.switchers = this.switchers.map(i => {
-      i.hide = !tabs.includes(i.id as any);
-      return i;
-    });
-
-    if (tabs.length && !tabs.includes(this.selected)) {
-      this.selectedChange.emit((this.selected = tabs[0]));
-    }
+    this.tabs$.next(tabs);
   }
+
+  private tabs$: BehaviorSubject<PrizmCronTabItem[]> = new BehaviorSubject<PrizmCronTabItem[]>([]);
+  private selected$: BehaviorSubject<PrizmCronTabItem> = new BehaviorSubject<PrizmCronTabItem>('second');
 
   public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [
     {
@@ -211,6 +217,26 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     this.cronUiMinuteState.init();
     this.initEndDateStateChanger();
     this.saveInitialValue();
+
+    this.tabs$.pipe(takeUntil(this.destroy$), observeOn(asapScheduler)).subscribe(tabs => {
+      if (tabs.length) {
+        this.switchers = this.switchers.map(i => {
+          i.hide = !tabs.includes(i.id as any);
+          return i;
+        });
+      }
+    });
+
+    this.selected$.pipe(takeUntil(this.destroy$), observeOn(asapScheduler)).subscribe(selected => {
+      this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
+
+      const tabs = this.tabs$.getValue();
+      if (tabs.length && !tabs.includes(selected)) {
+        this.selectedChange.emit(tabs[0]);
+      } else {
+        this.selectedChange.emit(selected);
+      }
+    });
   }
 
   private endDateStateCorrector(): void {
@@ -308,6 +334,6 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   public indexChanged(index: number): void {
     const selected = this.switchers.find((_, i) => i === index);
-    this.selectedChange.emit((this.selected = selected?.id as any));
+    this.selected = selected?.id as any;
   }
 }
