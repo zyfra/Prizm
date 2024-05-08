@@ -38,12 +38,14 @@ export class AppComponent implements AfterViewInit {
   public element!: HTMLElement;
   @ViewChild('docRef') docEl!: { night: boolean; onMode: (isNight: boolean) => void };
 
-  readonly isNight$ = this.themeSwitcher.change$.pipe(map(i => i.theme === 'dark'));
+  readonly isNight$ = this.themeSwitcher.change$.pipe(
+    map(i => i.theme === 'dark'),
+    debounceTime(0),
+    distinctUntilChanged()
+  );
 
   @HostBinding('attr.data-mode')
-  get mode(): TuiBrightness | null {
-    return this.themeSwitcher.getByElement() === 'dark' ? 'onDark' : null;
-  }
+  mode: TuiBrightness | null = null;
 
   constructor(
     private readonly themeSwitcher: PrizmThemeService,
@@ -81,6 +83,7 @@ export class AppComponent implements AfterViewInit {
   public ngAfterViewInit(): void {
     this.onMode(this.docEl.night);
     this.initAnchorScroller();
+    this.initThemeModeChanger();
     this.prizmDocHostElementListenerService.event$
       .pipe(
         tap(event => {
@@ -130,6 +133,19 @@ export class AppComponent implements AfterViewInit {
             }
           );
         })
+      )
+      .subscribe();
+  }
+
+  private initThemeModeChanger() {
+    this.themeSwitcher.change$
+      .pipe(
+        debounceTime(0),
+        map(() => this.themeSwitcher.getByElement()),
+        tap(theme => {
+          this.mode = theme === 'dark' ? 'onDark' : null;
+        }),
+        takeUntil(this.destroy$)
       )
       .subscribe();
   }

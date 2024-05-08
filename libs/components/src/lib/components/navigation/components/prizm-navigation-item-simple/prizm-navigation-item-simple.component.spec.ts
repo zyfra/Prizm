@@ -5,6 +5,13 @@ import { ActiveNavigationItemService } from '../../services/active-navigation-it
 
 import { PrizmNavigationItemSimpleComponent } from './prizm-navigation-item-simple.component';
 
+// for fix ResizeObserver is not defined
+global.ResizeObserver = class {
+  public observe() {}
+  public unobserve() {}
+  public disconnect() {}
+};
+
 describe('PrizmNavigationItemSimpleComponent', () => {
   let component: PrizmNavigationItemSimpleComponent;
   let fixture: ComponentFixture<PrizmNavigationItemSimpleComponent>;

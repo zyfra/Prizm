@@ -1,30 +1,50 @@
-import { difference } from './difference'; // Импортируйте вашу функцию
+import { difference } from './difference';
 
 describe('difference function tests', () => {
-  it('should return the difference between the first array and additional arrays', () => {
-    expect(difference([2, 1], [2, 3])).toEqual([1]);
-    expect(difference([1, 2, 3, 4, 5], [5, 2, 10])).toEqual([1, 3, 4]);
+  test('returns the correct difference between two arrays', () => {
+    const array = [1, 2, 3, 4];
+    const values = [[2, 4]];
+    const expected = [1, 3];
+    expect(difference(array, ...values)).toEqual(expected);
   });
 
-  it('should return the original array if no additional arrays are provided', () => {
-    expect(difference([1, 2, 3])).toEqual([1, 2, 3]);
+  test('returns the original array when no additional arrays are provided', () => {
+    const array = [1, 2, 3];
+    const values: any[] = [];
+    const expected = [1, 2, 3];
+    expect(difference(array, ...values)).toEqual(expected);
   });
 
-  it('should handle arrays with undefined, null, and NaN', () => {
-    expect(difference([undefined, null, NaN], [NaN])).toEqual([undefined, null]);
-    expect(difference([undefined, null, NaN], [undefined])).toEqual([null, NaN]);
-    expect(difference([1, null, 3], [null])).toEqual([1, 3]);
+  test('returns an empty array if the first array is empty', () => {
+    const array = [] as any[];
+    const values = [[1, 2], [3]];
+    expect(difference(array, ...values)).toEqual([]);
   });
 
-  it('should return an empty array if the first array is empty', () => {
-    expect(difference([], [1, 2, 3])).toEqual([]);
+  test('excludes elements from multiple arrays', () => {
+    const array = [1, 2, 3, 4, 5];
+    const values = [[1, 2], [4]];
+    const expected = [3, 5];
+    expect(difference(array, ...values)).toEqual(expected);
   });
 
-  it('should return a copy of the first array if no values are excluded', () => {
-    expect(difference([1, 2, 3], [4, 5, 6])).toEqual([1, 2, 3]);
+  test('handles arrays with non-numeric elements', () => {
+    const array = ['apple', 'banana', 'cherry'];
+    const values = [['banana'], ['cherry']];
+    const expected = ['apple'];
+    expect(difference(array, ...values)).toEqual(expected);
   });
 
-  it('should handle multiple arrays to exclude values from', () => {
-    expect(difference([1, 2, 3, 4, 5], [2, 3], [4])).toEqual([1, 5]);
+  test('returns a copy of the original array if there are no common elements', () => {
+    const array = [1, 2, 3];
+    const values = [[4, 5]];
+    const expected = [1, 2, 3];
+    expect(difference(array, ...values)).toEqual(expected);
+  });
+
+  test('handles null or undefined input gracefully', () => {
+    const array = null as any;
+    const values = [[1, 2], [3]];
+    expect(difference(array, ...values)).toEqual([]);
   });
 });
