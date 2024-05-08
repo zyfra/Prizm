@@ -437,7 +437,7 @@ export const ROUTES: Routes = [
         i => i.InputMultiSelectModule
       ),
     data: {
-      title: 'Input Date',
+      title: 'Input MultiSelect',
     },
   },
   {

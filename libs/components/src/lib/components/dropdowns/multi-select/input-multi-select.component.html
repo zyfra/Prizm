@@ -9,6 +9,7 @@
   [dropdownStyles]="dropdownStyles"
   [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent?.outer"
+  [prizmFocusable]="true"
   (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
 >
   <input
@@ -102,21 +103,13 @@
       context: $any({ opened: opened$ | async, disabled: disabled })
     "
   >
-    <!--    <prizm-icon-->
-    <!--      [class.opened]="opened$ | async"-->
-    <!--      [class.active]="(focused$ | async) || (opened$ | async)"-->
-    <!--      [class.icon-dropdown]="iconName === defaultIcon"-->
-    <!--      [iconClass]="$any(iconName)"-->
-    <!--      [class.disabled]="disabled"-->
-    <!--      (click)="safeOpenModal()"-->
-    <!--    >-->
-    <!--    </prizm-icon>-->
     <prizm-icons-full
       [class.opened]="opened$ | async"
       [class.active]="(focused$ | async) || (opened$ | async)"
       [class.icon-dropdown]="iconName === defaultIcon"
       [name]="$any(iconName)"
       [class.disabled]="disabled"
+      [prizmFocusable]="true"
       (click)="safeOpenModal()"
     >
     </prizm-icons-full>

@@ -18,6 +18,7 @@ import {
   PolymorphOutletDirective,
   PrizmAutoFocusModule,
   PrizmDropdownControllerModule,
+  PrizmFocusableModule,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
@@ -79,6 +80,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
     PrizmIconsFullComponent,
+    PrizmFocusableModule,
   ],
   providers: [
     {

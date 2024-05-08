@@ -22,6 +22,10 @@ export class InputChipsExampleComponent {
   public label = 'Заголовок';
   public hintText = 'Отдельный chips';
 
+  public prizmChipsItemHeight: string | null = null;
+  public prizmChipsItemBackground: string | null = null;
+  public prizmChipsItemColor: string | null = null;
+
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
   public outer!: false;
