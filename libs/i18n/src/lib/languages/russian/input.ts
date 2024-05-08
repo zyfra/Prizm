@@ -6,5 +6,6 @@ export const PRIZM_RUSSIAN_INPUT: PrizmLanguageInputLayout = {
     pattern: 'Неправильный формат',
     min: 'Значение слишком маленькое',
     max: 'Значение слишком большое',
+    clear: 'Очистить',
   },
 };

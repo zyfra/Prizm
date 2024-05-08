@@ -46,6 +46,7 @@
             [position]="inputPosition"
             [status]="status"
             [forceClear]="forceClear"
+            [hideClearButtonHint]="hideClearButtonHint"
           >
             <input
               #prizmInputNumber
@@ -90,6 +91,7 @@
             [position]="inputPosition"
             [status]="status"
             [forceClear]="forceClear"
+            [hideClearButtonHint]="hideClearButtonHint"
           >
             <button
               [inputNumber]="inputCounter"
@@ -267,6 +269,16 @@
         documentationPropertyMode="input"
       >
         Show clear button
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="hideClearButtonHint"
+        [documentationPropertyValues]="hideHintVariants"
+        documentationPropertyName="hideClearButtonHint"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Hide clear button hint
       </ng-template>
 
       <ng-template

@@ -27,6 +27,7 @@ export interface PrizmLanguageInputLayout {
     pattern: string;
     min: string;
     max: string;
+    clear: string;
   };
 }
 

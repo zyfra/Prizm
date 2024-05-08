@@ -51,6 +51,9 @@ export class InputLayoutDateTimeTimeComponent {
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public timeModeVariants: ReadonlyArray<PrizmTimeMode> = ['HH:MM', 'HH:MM:SS', 'HH:MM:SS.MSS'];
   public timeMode: PrizmTimeMode = `HH:MM`;
   public testIdPostfix!: string;

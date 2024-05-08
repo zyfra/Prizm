@@ -176,6 +176,7 @@
         [status]="status"
         [position]="inputPosition"
         [forceClear]="forceClear"
+        [hideClearButtonHint]="hideClearButtonHint"
         [size]="size"
         [border]="border"
         prizmDocHostElementKey="PrizmInputLayout"
@@ -273,6 +274,16 @@
         documentationPropertyMode="input"
       >
         Force Clear
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="hideClearButtonHint"
+        [documentationPropertyValues]="hideHintVariants"
+        documentationPropertyName="hideClearButtonHint"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Hide clear button hint
       </ng-template>
 
       <ng-template

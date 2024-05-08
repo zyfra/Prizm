@@ -6,5 +6,6 @@ export const PRIZM_ENGLISH_INPUT: PrizmLanguageInputLayout = {
     pattern: 'Wrong format',
     min: 'Value too small',
     max: 'Value too large',
+    clear: 'Clear',
   },
 };
