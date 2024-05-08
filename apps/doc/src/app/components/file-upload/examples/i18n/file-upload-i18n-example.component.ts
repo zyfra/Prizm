@@ -1,20 +1,7 @@
 import { Component } from '@angular/core';
-import { PrizmLanguageFileUpload } from '@prizm-ui/i18n';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { PrizmFilesProgress, PrizmFileValidationErrors, PrizmToastService } from '@prizm-ui/components';
-
-export const PRIZM_ENGLISH_FILE_UPLOAD: PrizmLanguageFileUpload = {
-  fileUpload: {
-    dropzone__description: 'Select a file or drag it to this area',
-    dropzone__title: 'File upload',
-    btn__select: 'Browse',
-    idle: 'Waiting to upload',
-    progress: 'Uploading',
-    warning: 'Error',
-    success: 'Uploaded',
-  },
-};
 
 @Component({
   selector: 'prizm-file-upload-i18n-example',
