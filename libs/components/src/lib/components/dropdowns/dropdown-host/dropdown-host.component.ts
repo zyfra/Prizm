@@ -119,7 +119,8 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   private destroyReCalc$ = new Subject<void>();
   private _autoReposition = this.options.autoReposition;
   @Input() set autoReposition(state: boolean) {
-    this.position?.updateConfig({ autoReposition: (this._autoReposition = state) });
+    this._autoReposition = state;
+    this.position?.updateConfig({ autoReposition: this._autoReposition});
   }
   get autoReposition(): boolean {
     return this._autoReposition;
@@ -127,6 +128,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   private _placement: PrizmOverlayOutsidePlacement = this.options.placement;
   @Input() set placement(place: PrizmOverlayOutsidePlacement) {
+    this._placement = place;
     this.position?.updateConfig({ placement: place });
   }
   get placement(): PrizmOverlayOutsidePlacement {
