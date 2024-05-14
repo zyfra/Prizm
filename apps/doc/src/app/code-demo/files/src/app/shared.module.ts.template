@@ -11,6 +11,7 @@ import {
   PrizmCheckboxComponent,
   PrizmChipsModule,
   PrizmConfirmPopupModule,
+  PrizmCounterComponent,
   PrizmCronHumanReadablePipe,
   PrizmCronModule,
   PrizmDataListModule,
@@ -151,6 +152,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmTooltipModule,
     PrizmTreeModule,
     PrizmWidgetModule,
+    PrizmCounterComponent,
 
     // CHARTS
     PrizmChartsAreaModule,
@@ -165,6 +167,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmChartsWaterfallModule,
   ],
   exports: [
+    PrizmCounterComponent,
     PrizmInputNumberModule,
     PrizmFlagIconsComponent,
     PrizmListingItemComponent,
@@ -250,4 +253,4 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmChartsWaterfallModule,
   ],
 })
-export class SharedModuleModule {}
+export class SharedModule {}

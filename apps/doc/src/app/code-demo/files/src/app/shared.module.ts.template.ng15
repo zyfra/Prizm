@@ -253,4 +253,4 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmChartsWaterfallModule,
   ],
 })
-export class SharedModuleModule {}
+export class SharedModule {}

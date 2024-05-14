@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SharedModuleModule } from './shared.module';
+import { SharedModule } from './shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -12,7 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [BrowserModule,
     HttpClientModule,
     AppComponent,
-    BrowserAnimationsModule, FormsModule, ReactiveFormsModule, AppRoutingModule, SharedModuleModule],
+    BrowserAnimationsModule, FormsModule, ReactiveFormsModule, AppRoutingModule, SharedModule],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
