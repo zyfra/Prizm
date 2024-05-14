@@ -1,9 +1,9 @@
-@height-s: 24px;
-@height-m: 32px;
-@height-l: 40px;
+@height: 32px;
+@rows: 5;
 
 :host {
   padding: 0 8px;
+  height: @height;
 
   border: 1px solid var(--prizm-table-stroke-cell-default);
   background: var(--prizm-table-fill-header-default);
@@ -66,10 +66,6 @@
     font-weight: 600;
     color: var(--prizm-text-icon-tertiary);
 
-    border: none;
-    outline: none;
-    background: transparent;
-
     .sort__block {
       margin-left: 4px;
       display: flex;
@@ -80,38 +76,27 @@
       justify-content: center;
 
       &_active {
-        color: var(--prizm-button-primary-solid-active);
+        color: var(--prizm-button-primary-solid-default);
       }
     }
+
+    &__number {
+      min-width: 16px;
+      text-align: end;
+    }
   }
-}
-
-:host-context([data-size='s']),
-:host-context([data-size='xs']) {
-  height: @height-s;
-}
-
-:host-context([data-size='m']) {
-  height: @height-m;
-}
-
-:host-context([data-size='l']) {
-  height: @height-l;
 }
 
 :host-context(tr:not(:first-child)) {
   border-top: none;
 }
 
-:host-context(table[data-size='s'] thead tr:nth-child(2)),
-:host-context(table[data-size='xs'] thead tr:nth-child(2)) {
-  top: @height-s;
+.tr-position-top(@n) when (@n <= @rows) {
+  :host-context(table thead tr:nth-child(@{n})) {
+    top: @height * (@n - 1);
+  }
+
+  .tr-position-top(@n + 1);
 }
 
-:host-context(table[data-size='m'] thead tr:nth-child(2)) {
-  top: @height-m;
-}
-
-:host-context(table[data-size='l'] thead tr:nth-child(2)) {
-  top: @height-l;
-}
+.tr-position-top(2);
