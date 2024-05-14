@@ -13,7 +13,7 @@ import {
   SimpleChanges,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId, prizmHasChanges } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
@@ -133,17 +133,12 @@ export class PrizmHintDirective<
 
   public ngOnChanges(changes?: SimpleChanges): void {
     this.show_ = false;
-
-    if (prizmHasChanges(changes, ['prizmHintHost', 'prizmHintContext'], true)) {
-      this.initOverlayController();
-    }
+    this.initOverlayController();
   }
 
   public ngOnInit(): void {
     this.initVisibleController();
     this.initShowedChangeListener();
-
-    this.initOverlayController();
   }
 
   protected initShowedChangeListener() {
