@@ -5,10 +5,10 @@
   <table class="table" [columns]="columns" [sort]="initSortOptions" prizmTable>
     <thead>
       <tr prizmThGroup>
-        <th *prizmHead="'code'" [sorter]="sorter" [resizable]="true" rowspan="2" prizmTh>Код</th>
+        <th *prizmHead="'code'" [sorter]="sorter" [resizable]="true" rowspan="3" prizmTh>Код</th>
         <th *prizmHead="'name'" [resizable]="true" prizmTh>Наименование</th>
-        <th *prizmHead="'category'" [sorter]="sorter" rowspan="2" prizmTh>Категория</th>
-        <th *prizmHead="'count'" [sorter]="sorter" rowspan="2" prizmTh>Количество</th>
+        <th *prizmHead="'category'" [sorter]="sorter" rowspan="3" prizmTh>Категория</th>
+        <th *prizmHead="'count'" [sorter]="sorter" rowspan="3" prizmTh>Количество</th>
       </tr>
       <tr prizmThGroup>
         <th class="extra-border search-cell" [resizable]="true" prizmTh>
@@ -17,6 +17,16 @@
             [interactive]="true"
             (click)="search(input.value, 'name')"
             prizmInputIconButton="sort-zoom-in"
+          ></button>
+        </th>
+      </tr>
+      <tr prizmThGroup>
+        <th class="extra-border search-cell" [resizable]="true" prizmTh>
+          <input #inputExtra (enter)="doSomething($event, 'name')" prizmInput placeholder="Введите текст" />
+          <button
+            [interactive]="true"
+            (click)="doSomething(inputExtra.value, 'name')"
+            prizmInputIconButton="date-access-alarm"
           ></button>
         </th>
       </tr>

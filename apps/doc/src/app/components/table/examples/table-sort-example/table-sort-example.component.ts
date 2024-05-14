@@ -108,4 +108,8 @@ export class TableSortExampleComponent {
       (product[key] as string).toLowerCase().includes(this.searchString as string)
     );
   }
+
+  public doSomething<T extends keyof ITableProduct>(value: string, key: T): void {
+    console.log(value, key);
+  }
 }
