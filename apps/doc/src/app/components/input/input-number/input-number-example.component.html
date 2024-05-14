@@ -5,6 +5,14 @@
     </prizm-doc-example>
 
     <prizm-doc-example
+      id="disabled"
+      [content]="prizmInputNumberDisabled"
+      heading="Input number disabled example"
+    >
+      <prizm-input-number-disabled-example></prizm-input-number-disabled-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
       id="counter"
       [content]="prizmInputNumberCounter"
       heading="Input number counter example"
@@ -182,7 +190,7 @@
       <ng-template
         [(documentationPropertyValue)]="min"
         documentationPropertyName="min"
-        documentationPropertyType="number"
+        documentationPropertyType="decimal"
         documentationPropertyMode="input"
       >
         Minimum value
@@ -200,7 +208,7 @@
       <ng-template
         [(documentationPropertyValue)]="max"
         documentationPropertyName="max"
-        documentationPropertyType="number"
+        documentationPropertyType="decimal"
         documentationPropertyMode="input"
       >
         Maximum value
@@ -209,7 +217,7 @@
       <ng-template
         [(documentationPropertyValue)]="step"
         documentationPropertyName="step"
-        documentationPropertyType="number"
+        documentationPropertyType="decimal"
         documentationPropertyMode="input"
       >
         Step

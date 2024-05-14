@@ -5,7 +5,7 @@ import {
   prizmTableDefaultColumnSort,
 } from '@prizm-ui/components';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source';
+import { prizmIconsAlarmClock, prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source';
 
 export interface ITableProduct {
   id?: number;
@@ -107,7 +107,7 @@ export class TableSortExampleComponent {
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor() {
-    this.iconsFullRegistry.registerIcons(prizmIconsMagnifyingGlass);
+    this.iconsFullRegistry.registerIcons(prizmIconsMagnifyingGlass, prizmIconsAlarmClock);
   }
 
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
@@ -115,5 +115,9 @@ export class TableSortExampleComponent {
     this.searchAllowedProducts = this.products.filter(product =>
       (product[key] as string).toLowerCase().includes(this.searchString as string)
     );
+  }
+
+  public doSomething<T extends keyof ITableProduct>(value: string, key: T): void {
+    console.log(value, key);
   }
 }

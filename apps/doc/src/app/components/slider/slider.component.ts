@@ -28,7 +28,6 @@ export class PrizmSliderExampleComponent {
       return;
     }
   }
-  minValues = [-400, -200, 0, 200, 400];
 
   _max = 100;
   get max(): number {
@@ -48,9 +47,7 @@ export class PrizmSliderExampleComponent {
       return;
     }
   }
-  maxValues = [-800, -400, -100, 100, 400, 800];
   step = 1;
-  stepValues = [1, 2, 5, 10];
 
   showValue = true;
   showMinMax = true;

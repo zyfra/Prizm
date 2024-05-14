@@ -2,6 +2,7 @@
 @height-s: 24px;
 @height-m: 32px;
 @height-l: 40px;
+@height-xl: 48px;
 
 :host {
   padding: 0 8px;
@@ -110,4 +111,8 @@
 
 :host-context([data-size='l']) {
   height: @height-l;
+}
+
+:host-context([data-size='xl']) {
+  height: @height-xl;
 }
