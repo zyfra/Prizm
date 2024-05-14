@@ -1,6 +1,9 @@
+@height: 32px;
+@rows: 5;
+
 :host {
   padding: 0 8px;
-  height: 32px;
+  height: @height;
 
   border: 1px solid var(--prizm-table-stroke-cell-default);
   background: var(--prizm-table-fill-header-default);
@@ -87,3 +90,13 @@
 :host-context(tr:not(:first-child)) {
   border-top: none;
 }
+
+.tr-position-top(@n) when (@n <= @rows) {
+  :host-context(table thead tr:nth-child(@{n})) {
+    top: @height * (@n - 1);
+  }
+
+  .tr-position-top(@n + 1);
+}
+
+.tr-position-top(2);
