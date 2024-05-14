@@ -1,0 +1,36 @@
+<prizm-input-layout
+  [label]="({ russian: 'Заголовок' } | prizmLang : 'Label' | async)!"
+  automation-id="layout-button"
+  size="l"
+  status="default"
+>
+  <input
+    #inputNumber="prizmInputNumber"
+    [step]="2"
+    [formControl]="requiredInputControl"
+    [placeholder]="({ russian: 'Введите число' } | prizmLang : 'Enter a number' | async)!"
+    type="number"
+    prizmInput
+  />
+  <ng-template [control]="inputNumber" prizmInputStatusText></ng-template>
+  <prizm-input-number-auxiliary-controls
+    [inputNumber]="inputNumber"
+    prizm-input-right
+  ></prizm-input-number-auxiliary-controls>
+</prizm-input-layout>
+
+<br />
+<br />
+
+<button
+  (click)="requiredInputControl.disabled ? requiredInputControl.enable() : requiredInputControl.disable()"
+  prizmButton
+  automation-id="update-state-button"
+>
+  <ng-container *prizmIfLang="'russian'; else eng">
+    {{ requiredInputControl.disabled ? 'Активировать' : 'Деактивировать' }}
+  </ng-container>
+  <ng-template #eng>
+    {{ requiredInputControl.disabled ? 'Active' : 'Disabled' }}
+  </ng-template>
+</button>

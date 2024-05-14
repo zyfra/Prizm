@@ -74,6 +74,10 @@ export class InputNumberExampleComponent {
     TypeScript: import('./examples/input-number-basic-example/input-number-basic-example.component.ts?raw'),
     HTML: import('./examples/input-number-basic-example/input-number-basic-example.component.html?raw'),
   };
+  public readonly prizmInputNumberDisabled: TuiDocExample = {
+    TypeScript: import('./examples/disabled-example/input-number-disabled-example.component.ts?raw'),
+    HTML: import('./examples/disabled-example/input-number-disabled-example.component.html?raw'),
+  };
 
   public readonly prizmInputNumberCounter: TuiDocExample = {
     TypeScript: import(
