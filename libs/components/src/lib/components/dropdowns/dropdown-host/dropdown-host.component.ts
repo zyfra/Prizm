@@ -120,7 +120,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   private _autoReposition = this.options.autoReposition;
   @Input() set autoReposition(state: boolean) {
     this._autoReposition = state;
-    this.position?.updateConfig({ autoReposition: this._autoReposition});
+    this.position?.updateConfig({ autoReposition: this._autoReposition });
   }
   get autoReposition(): boolean {
     return this._autoReposition;
@@ -128,8 +128,8 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
 
   private _placement: PrizmOverlayOutsidePlacement = this.options.placement;
   @Input() set placement(place: PrizmOverlayOutsidePlacement) {
-    this._placement = place;
-    this.position?.updateConfig({ placement: place });
+    this._placement = place ?? 'bl';
+    this.position?.updateConfig({ placement: this._placement });
   }
   get placement(): PrizmOverlayOutsidePlacement {
     return this._placement;
