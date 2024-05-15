@@ -1,9 +1,9 @@
-@height: 32px;
-@rows: 5;
+@height-s: 24px;
+@height-m: 32px;
+@height-l: 40px;
 
 :host {
   padding: 0 8px;
-  height: @height;
 
   border: 1px solid var(--prizm-v3-table-stroke-cell-default);
   background: var(--prizm-v3-table-fill-header-default);
@@ -25,15 +25,6 @@
   &:not(:first-child) {
     border-left: none;
   }
-  // TODO: for 4.0
-  // &:has([prizmInput]:hover) {
-  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
-  // }
-
-  // &:has([prizmInput]:focus) {
-  //   background-color: var(--prizm-v3-background-fill-primary);
-  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
-  // }
 
   .resize-bar {
     height: 100%;
@@ -91,12 +82,71 @@
   border-top: none;
 }
 
-.tr-position-top(@n) when (@n <= @rows) {
-  :host-context(table thead tr:nth-child(@{n})) {
-    top: @height * (@n - 1);
-  }
-
-  .tr-position-top(@n + 1);
+:host-context([data-size='s']),
+:host-context([data-size='xs']) {
+  height: @height-s;
 }
 
-.tr-position-top(2);
+:host-context([data-size='m']) {
+  height: @height-m;
+}
+
+:host-context([data-size='l']) {
+  height: @height-l;
+}
+
+:host-context(tr:not(:first-child)) {
+  border-top: none;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(2)),
+:host-context(table[data-size='xs'] thead tr:nth-child(2)) {
+  top: @height-s;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(2)) {
+  top: @height-m;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(2)) {
+  top: @height-l;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(3)),
+:host-context(table[data-size='xs'] thead tr:nth-child(3)) {
+  top: @height-s * 2;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(3)) {
+  top: @height-m * 2;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(3)) {
+  top: @height-l * 2;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(4)),
+:host-context(table[data-size='xs'] thead tr:nth-child(4)) {
+  top: @height-s * 3;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(4)) {
+  top: @height-m * 3;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(4)) {
+  top: @height-l * 3;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(5)),
+:host-context(table[data-size='xs'] thead tr:nth-child(5)) {
+  top: @height-s * 4;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(5)) {
+  top: @height-m * 4;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(5)) {
+  top: @height-l * 4;
+}
