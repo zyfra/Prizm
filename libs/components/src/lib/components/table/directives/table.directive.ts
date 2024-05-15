@@ -11,7 +11,7 @@ import {
 import { IntersectionObserverService } from '@ng-web-apis/intersection-observer';
 
 import { PRIZM_TABLE_PROVIDERS } from '../providers/table.providers';
-import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS } from '../../../util';
+import { PrizmSizeL, PrizmSizeM, PrizmSizeS, PrizmSizeXS, PrizmSizeXl } from '../../../util';
 import { PrizmComparator, PrizmTableBorderStyle } from '../table.types';
 import { AbstractPrizmController } from '../abstract/controller';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -55,7 +55,7 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   @Input()
   @HostBinding(`attr.data-size`)
   @prizmDefaultProp()
-  size: PrizmSizeXS | PrizmSizeS | PrizmSizeL | PrizmSizeM = `l`;
+  size: PrizmSizeXS | PrizmSizeS | PrizmSizeL | PrizmSizeM | PrizmSizeXl = `l`;
 
   @Input()
   @HostBinding(`attr.border-style`)

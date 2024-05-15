@@ -78,6 +78,7 @@ import { CommonModule } from '@angular/common';
 import {
   PrizmAutoFocusModule,
   PrizmDropdownControllerModule,
+  PrizmFocusableModule,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
@@ -122,6 +123,7 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     PrizmToObservablePipe,
     PrizmInputSelectOptionDirective,
     PrizmIconsFullComponent,
+    PrizmFocusableModule,
   ],
   providers: [
     {

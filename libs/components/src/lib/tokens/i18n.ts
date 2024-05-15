@@ -6,6 +6,7 @@ import {
   PrizmLanguageCore,
   PrizmLanguageCron,
   PrizmLanguageFileUpload,
+  PrizmLanguageInputLayout,
   PrizmLanguageInputLayoutDateRelative,
   PrizmLanguageInputLayoutDateTime,
   PrizmLanguageKit,
@@ -14,6 +15,10 @@ import {
 
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
   `Localized for file upload component`
+);
+
+export const PRIZM_INPUT_LAYOUT = new InjectionToken<Observable<PrizmLanguageInputLayout['inputLayout']>>(
+  `input layout i18n base texts`
 );
 
 export const PRIZM_INPUT_LAYOUT_DATE_RELATIVE = new InjectionToken<

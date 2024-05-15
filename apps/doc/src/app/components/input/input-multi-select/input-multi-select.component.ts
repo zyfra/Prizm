@@ -72,6 +72,10 @@ export class InputInputMultiSelectComponent {
   isChipsDeletable = true;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   forceClear = this.forceClearVariants[0];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   get sizeVariants(): ReadonlyArray<PrizmInputSize> {
     return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
   }

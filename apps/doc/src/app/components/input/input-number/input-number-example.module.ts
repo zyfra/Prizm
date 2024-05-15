@@ -12,6 +12,7 @@ import { InputNumberCounterFloatExampleComponent } from './examples/input-number
 import { InputNumberInvalidExampleComponent } from './examples/input-number-invalid-example/input-number-invalid-example.component';
 import { InputNumberMinMaxExampleComponent } from './examples/input-number-min-max-example/input-number-min-max-example.component';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+import { InputNumberDisabledExampleComponent } from './examples/disabled-example/input-number-disabled-example.component';
 
 @NgModule({
   imports: [
@@ -21,6 +22,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     ReactiveFormsModule,
     FormsModule,
     PrizmInputNumberModule,
+    InputNumberDisabledExampleComponent,
     PrizmIfLanguageDirective,
   ],
   declarations: [

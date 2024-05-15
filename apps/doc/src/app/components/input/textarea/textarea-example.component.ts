@@ -52,6 +52,9 @@ export class TextareaExampleComponent {
   public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   public forceClear = this.forceClearVariants[0];
 
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public readonly textareaBasicExample: TuiDocExample = {
     TypeScript: import('./examples/textarea-basic-example/textarea-basic-example.component.ts?raw'),
     HTML: import('./examples/textarea-basic-example/textarea-basic-example.component.html?raw'),

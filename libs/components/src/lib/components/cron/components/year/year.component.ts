@@ -1,8 +1,11 @@
-import { ChangeDetectionStrategy, Component, Input, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, ViewChild } from '@angular/core';
 import { PrizmCronUiYearState } from '../../cron-ui-year.state';
 import { PrizmCronUiBaseType } from '../../model';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmChipsComponent } from '../../../chips';
+import { PRIZM_CRON } from '@prizm-ui/components';
+import { Observable } from 'rxjs';
+import { PrizmLanguageCron } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-cron-year',
@@ -20,7 +23,10 @@ export class PrizmCronYearComponent {
   public readonly allowedYear = /[0-9]/g;
   @ViewChild(PrizmChipsComponent, { static: true }) chipsComponent!: PrizmChipsComponent;
 
-  constructor(public readonly cronUiState: PrizmCronUiYearState) {}
+  constructor(
+    @Inject(PRIZM_CRON) public readonly cronI18n$: Observable<PrizmLanguageCron['cron']>,
+    public readonly cronUiState: PrizmCronUiYearState
+  ) {}
 
   public removedChips(value: string[]): void {
     const correctedValue = this.corrector(value);

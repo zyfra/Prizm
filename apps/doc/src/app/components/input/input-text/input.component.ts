@@ -43,6 +43,10 @@ export class InputComponent {
 
   public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   public forceClear = this.forceClearVariants[0];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   public readonly prizmHintDirectionVariants: ReadonlyArray<PrizmHintOptions['direction']> = Object.values(
     PrizmOverlayOutsidePlacement
   );

@@ -133,8 +133,7 @@ export class PrizmHintDirective<
 
   public ngOnChanges(changes?: SimpleChanges): void {
     this.show_ = false;
-
-    if (prizmHasChanges(changes, ['prizmHintHost', 'prizmHintContext'], true)) {
+    if (prizmHasChanges(changes, ['prizmHintHost', 'prizmHintCanShow', 'prizmHintContext'], true)) {
       this.initOverlayController();
     }
   }

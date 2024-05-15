@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmPaginatorOptions, PrizmPaginatorOutput, PrizmPaginatorType } from '@prizm-ui/components';
 import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
@@ -43,6 +43,10 @@ export class PaginatorExampleComponent {
   public readonly exampleInfinitePaginator: TuiDocExample = {
     TypeScript: import('./examples/paginator-infinite-example/paginator-infinite-example.component?raw'),
     HTML: import('./examples/paginator-infinite-example/paginator-infinite-example.component.html?raw'),
+  };
+  public readonly exampleI18nPaginator: TuiDocExample = {
+    TypeScript: import('./examples/i18n/paginator-i18n-example.component?raw'),
+    HTML: import('./examples/i18n/paginator-i18n-example.component.html?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

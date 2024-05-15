@@ -31,6 +31,10 @@ export class InputNumberExampleComponent {
   size = this.sizeVariants[0];
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   forceClear = this.forceClearVariants[0];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   emptyContent = 'Ничего не найдено';
   nullContent = 'Не выбрано';
   minDropdownHeight = 0;
@@ -69,6 +73,10 @@ export class InputNumberExampleComponent {
   public readonly prizmInputNumberBasic: TuiDocExample = {
     TypeScript: import('./examples/input-number-basic-example/input-number-basic-example.component.ts?raw'),
     HTML: import('./examples/input-number-basic-example/input-number-basic-example.component.html?raw'),
+  };
+  public readonly prizmInputNumberDisabled: TuiDocExample = {
+    TypeScript: import('./examples/disabled-example/input-number-disabled-example.component.ts?raw'),
+    HTML: import('./examples/disabled-example/input-number-disabled-example.component.html?raw'),
   };
 
   public readonly prizmInputNumberCounter: TuiDocExample = {

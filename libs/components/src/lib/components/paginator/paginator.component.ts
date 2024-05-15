@@ -37,8 +37,8 @@ import {
 
 @Component({
   selector: 'prizm-paginator',
-  templateUrl: './prizm-paginator.component.html',
-  styleUrls: ['./prizm-paginator.component.less'],
+  templateUrl: './paginator.component.html',
+  styleUrls: ['./paginator.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [...prizmI18nInitWithKey(PRIZM_PAGINATOR, 'paginator')],
   standalone: true,

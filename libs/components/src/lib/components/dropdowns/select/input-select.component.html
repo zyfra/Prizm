@@ -186,21 +186,13 @@
         context: $any({ opened: opened$ | async, disabled: disabled })
       "
     >
-      <!--      <prizm-icon-->
-      <!--        [class.disabled]="disabled"-->
-      <!--        [class.opened]="opened$ | async"-->
-      <!--        [class.active]="(focused$ | async) || (opened$ | async)"-->
-      <!--        [class.icon-dropdown]="iconName === defaultIcon"-->
-      <!--        [iconClass]="$any(iconName)"-->
-      <!--        (click)="(!disabled)"-->
-      <!--      >-->
-      <!--      </prizm-icon>-->
       <prizm-icons-full
         [class.disabled]="disabled"
         [class.opened]="opened$ | async"
         [class.active]="(focused$ | async) || (opened$ | async)"
         [class.icon-dropdown]="iconName === defaultIcon"
         [name]="$any(iconName)"
+        [prizmFocusable]="true"
         (click)="(!disabled)"
       >
       </prizm-icons-full>

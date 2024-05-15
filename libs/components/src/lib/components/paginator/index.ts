@@ -1,3 +1,3 @@
-export * from './prizm-paginator.component';
+export * from './paginator.component';
 export * from './interfaces/prizm-paginator.interface';
-export * from './prizm-paginator.module';
+export * from './paginator.module';

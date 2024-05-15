@@ -26,6 +26,9 @@ export class PrizmInputCarouselExampleComponent {
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly controlKey = 'PrizmInputCarouselComponent';
 

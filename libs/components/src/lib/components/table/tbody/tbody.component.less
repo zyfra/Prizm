@@ -2,6 +2,7 @@
 @height-s: 24px;
 @height-m: 32px;
 @height-l: 40px;
+@height-xl: 48px;
 
 :host {
   font-size: 14px;
@@ -42,6 +43,10 @@
 
       &_expanded {
         transform: rotate(90deg);
+      }
+
+      &:hover {
+        color: var(--prizm-button-primary-solid-hover);
       }
     }
 
@@ -91,5 +96,12 @@
   .heading,
   .empty-row {
     height: @height-l;
+  }
+}
+
+:host-context([data-size='xl']) {
+  .heading,
+  .empty-row {
+    height: @height-xl;
   }
 }

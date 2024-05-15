@@ -27,6 +27,7 @@ export interface PrizmLanguageInputLayout {
     pattern: string;
     min: string;
     max: string;
+    clear: string;
   };
 }
 
@@ -36,6 +37,15 @@ export interface PrizmLanguageInputLayoutDateTime {
   };
 }
 
+export interface PrizmLanguageCronSwitcherTitles {
+  second: string;
+  minute: string;
+  hour: string;
+  day: string;
+  month: string;
+  year: string;
+}
+
 export interface PrizmLanguageCron {
   cron: {
     title: string;
@@ -43,10 +53,65 @@ export interface PrizmLanguageCron {
     resetText: string;
     startDateLabel: string;
     endDateLabel: string;
+    chooseYearLabel: string;
     indefinitelyLabel: string;
-    day: {
-      every: string;
-    };
+    switcherTitles: PrizmLanguageCronSwitcherTitles;
+
+    every: string;
+    to: string;
+    at: string;
+
+    second: string;
+    secondSince: string;
+    selectedSecond: string;
+    everySecond: string;
+    everySecondFrom: string;
+
+    minute: string;
+    minuteSince: string;
+    selectedMinute: string;
+    everyMinute: string;
+    everyMinuteFrom: string;
+
+    hour: string;
+    hourSince: string;
+    selectedHour: string;
+    everyHour: string;
+    everyHourFrom: string;
+
+    day: string;
+    everyDay: string;
+    daySince: string;
+    dayOfMonth: string;
+    ofMonth: string;
+
+    specificWeekDays: string;
+    specificMonthDays: string;
+
+    last_dayOfMonth: string;
+    last_workingDayOfMonth: string;
+    last_dayOfWeek: string;
+    last_ofMonth: string;
+    last_day: string;
+    untilEndOfMonth: string;
+
+    nearestWorkingDay: string;
+    nearestToDayOfMonth: string;
+
+    month: string;
+    monthSince: string;
+    selectedMonth: string;
+    everyMonth: string;
+    everyMonthFrom: string;
+
+    year: string;
+    yearSince: string;
+    selectedYear: string;
+    everyYear: string;
+    everyYearFrom: string;
+
+    weekDays: [string, string, string, string, string, string, string];
+    shortWeekDays: [string, string, string, string, string, string, string];
   };
 }
 
