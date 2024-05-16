@@ -17,7 +17,7 @@ import { PRIZM_DOC_EXAMPLE_CONTENT_PROCESSOR } from '../../tokens/example-conten
 import { PRIZM_DOC_EXAMPLE_TEXTS } from '../../tokens/i18n';
 import { prizmRawLoadRecord } from '../../utils/raw-load-record';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
-import { PrizmDocDemoAbstractService, PrizmDocDemoMainVersion, PrizmDocDemoVersion } from '../../services';
+import { PrizmDocDemoAbstractService, PrizmDocDemoMainVersion } from '../../services';
 import { PrizmPageService } from '../page/page.service';
 
 @Component({
@@ -32,6 +32,15 @@ export class PrizmDocExampleComponent {
   isOpen = false;
   @Input()
   heading: PolymorpheusContent = ``;
+
+  @Input()
+  stackblitzVersions: PrizmDocDemoMainVersion[] | null = [
+    // TODO later think about active for example without new icons in doc
+    // '1',
+    // '2',
+    // '3',
+    '4',
+  ];
 
   @Input()
   description: PolymorpheusContent = ``;
@@ -63,6 +72,7 @@ export class PrizmDocExampleComponent {
   readonly loading$ = new Subject<boolean>();
 
   public get hasStackblitz(): boolean {
+    if (!this.stackblitzVersions?.length) return false;
     const keys = Object.keys(this.content ?? {}).filter(
       key =>
         ![

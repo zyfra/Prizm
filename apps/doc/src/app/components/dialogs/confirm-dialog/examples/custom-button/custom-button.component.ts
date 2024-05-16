@@ -36,7 +36,7 @@ export class PrizmDialogCustomButtonExampleComponent {
           position: this.position,
           backdrop: this.backdrop,
           confirmButton: {
-            text: 'ПОДТВЕДИТЬ',
+            text: 'Подтвердить',
             appearance: 'success',
             disabled: of(false).pipe(delay(5000), startWith(true)),
             showLoader: of(false).pipe(delay(5000), startWith(true)),

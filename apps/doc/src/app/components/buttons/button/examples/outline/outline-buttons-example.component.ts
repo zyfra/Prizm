@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrizmButtonModule, PrizmCounterDirective } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-outline-buttons-example',
@@ -19,6 +20,8 @@ import { Component } from '@angular/core';
       }
     `,
   ],
+  standalone: true,
+  imports: [PrizmButtonModule, PrizmCounterDirective],
   templateUrl: './outline-buttons-example.component.html',
 })
 export class PrizmOutlineButtonsExampleComponent {}

@@ -5,7 +5,6 @@ import { PrizmStepperSelectorItemDirective } from './stepper-selector-item.direc
 import { PrizmStepperSelectorComponent } from './stepper-selector.component';
 
 /**
- * @deprecated
  * use standalone
  * */
 @NgModule({

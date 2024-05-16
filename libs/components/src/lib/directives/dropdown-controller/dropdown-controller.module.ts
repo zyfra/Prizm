@@ -2,8 +2,12 @@ import { NgModule } from '@angular/core';
 
 import { PrizmDropdownControllerDirective } from './dropdown-controller.directive';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PrizmDropdownControllerDirective],
+  imports: [PrizmDropdownControllerDirective],
   exports: [PrizmDropdownControllerDirective],
 })
 export class PrizmDropdownControllerModule {}

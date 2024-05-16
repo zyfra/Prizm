@@ -4,7 +4,6 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmInputLayoutDateTimeComponent } from './input-layout-date-time.component';
 
 /**
- * @deprecated
  * use standalone
  * */
 @NgModule({
