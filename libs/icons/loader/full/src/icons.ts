@@ -3226,10 +3226,7 @@ export const PRIZM_ICONS_FULL_LAZY_SET = {
     import('@prizm-ui/icons/full/source/xmark-column-top/prizmIcons-xmark-column-top.icon').then(
       m => m['prizmIconsXmarkColumnTop']
     ),
-  'xmark-mini': () =>
-    import('@prizm-ui/icons/full/source/xmark-mini/prizmIcons-xmark-mini.icon').then(
-      m => m['prizmIconsXmarkMini']
-    ),
+  'xmark-mini': () => import('@prizm-ui/icons/full/source/xmark-mini').then(m => m['prizmIconsXmarkMini']),
   xmark: () =>
     import('@prizm-ui/icons/full/source/xmark/prizmIcons-xmark.icon').then(m => m['prizmIconsXmark']),
 };
