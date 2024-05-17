@@ -134,6 +134,8 @@
           *ngIf="showStatusButton"
           [prizmInputIconButton]="statusIcon"
           [interactive]="false"
+          [prizmHint]="statusMessage"
+          [prizmHintCanShow]="!!statusMessage"
         ></button>
       </div>
 
