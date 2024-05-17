@@ -25,15 +25,6 @@
   &:not(:first-child) {
     border-left: none;
   }
-  // TODO: for 4.0
-  // &:has([prizmInput]:hover) {
-  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-hover) inset;
-  // }
-
-  // &:has([prizmInput]:focus) {
-  //   background-color: var(--prizm-v3-background-fill-primary);
-  //   box-shadow: 0 0 0 1px var(--prizm-v3-table-stroke-cell-active) inset;
-  // }
 
   .resize-bar {
     height: 100%;
@@ -66,10 +57,6 @@
     font-weight: 600;
     color: var(--prizm-v3-text-icon-tertiary);
 
-    border: none;
-    outline: none;
-    background: transparent;
-
     .sort__block {
       margin-left: 4px;
       display: flex;
@@ -80,10 +67,19 @@
       justify-content: center;
 
       &_active {
-        color: var(--prizm-v3-button-primary-solid-active);
+        color: var(--prizm-v3-button-primary-solid-default);
       }
     }
+
+    &__number {
+      min-width: 16px;
+      text-align: end;
+    }
   }
+}
+
+:host-context(tr:not(:first-child)) {
+  border-top: none;
 }
 
 :host-context([data-size='s']),
@@ -114,4 +110,43 @@
 
 :host-context(table[data-size='l'] thead tr:nth-child(2)) {
   top: @height-l;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(3)),
+:host-context(table[data-size='xs'] thead tr:nth-child(3)) {
+  top: @height-s * 2;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(3)) {
+  top: @height-m * 2;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(3)) {
+  top: @height-l * 2;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(4)),
+:host-context(table[data-size='xs'] thead tr:nth-child(4)) {
+  top: @height-s * 3;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(4)) {
+  top: @height-m * 3;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(4)) {
+  top: @height-l * 3;
+}
+
+:host-context(table[data-size='s'] thead tr:nth-child(5)),
+:host-context(table[data-size='xs'] thead tr:nth-child(5)) {
+  top: @height-s * 4;
+}
+
+:host-context(table[data-size='m'] thead tr:nth-child(5)) {
+  top: @height-m * 4;
+}
+
+:host-context(table[data-size='l'] thead tr:nth-child(5)) {
+  top: @height-l * 4;
 }

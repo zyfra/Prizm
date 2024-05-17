@@ -9,6 +9,10 @@
     }
   }
 
+  td:has(.edit-buttons-container) {
+    padding: 0;
+  }
+
   .edit-buttons-container {
     height: 100%;
     width: 100%;
@@ -17,18 +21,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-
-    .edit-buttons {
-      height: 16px;
-      width: 16px;
-
-      display: flex;
-
-      &:hover {
-        color: #337eff;
-      }
-    }
+    gap: 4px;
   }
 
   .row {
@@ -60,7 +53,7 @@
 
   .head {
     &__actions {
-      width: 100px;
+      width: 113px;
     }
   }
 }
