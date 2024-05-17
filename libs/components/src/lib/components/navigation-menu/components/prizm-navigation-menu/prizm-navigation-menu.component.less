@@ -10,7 +10,6 @@
 
   &__header {
     overflow: hidden;
-    border-bottom: 1px solid var(--prizm-v3-background-stroke);
   }
 
   &__content {
@@ -54,36 +53,30 @@
     }
   }
 
-  .no-groups-content {
-    overflow: auto;
+  .scrollable {
     height: 100%;
   }
 
+  .no-groups-content {
+    &__empty {
+      height: 100%;
+    }
+  }
+
   .groups-content {
+    height: 100%;
+    overflow: hidden;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
-    height: 100%;
 
     &__top {
       flex: 1;
-      overflow: auto;
       display: flex;
       flex-direction: column;
     }
 
     &__bottom {
       flex-shrink: 1;
-      overflow: hidden;
     }
   }
-}
-
-&::-webkit-scrollbar {
-  width: 0px;
-  background: transparent;
-}
-
-&::-webkit-scrollbar-track {
-  background: transparent;
 }

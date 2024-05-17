@@ -39,29 +39,33 @@
 
   <main class="prizm-navigation-menu__content groups-content" [ngClass]="settingsConfiguration.selectedSize">
     <ng-container *ngIf="menuGroups.length; else noGroups">
-      <section class="groups-content__top">
-        <ng-content></ng-content>
-        <ng-content select="[top]"></ng-content>
-      </section>
+      <prizm-scrollbar class="scrollable">
+        <section class="groups-content__top">
+          <ng-content></ng-content>
+          <ng-content select="[top]"></ng-content>
+        </section>
+      </prizm-scrollbar>
       <section class="groups-content__bottom">
         <ng-content select="[bottom]"></ng-content>
       </section>
     </ng-container>
 
     <ng-template #noGroups>
-      <div class="no-groups-content">
-        <prizm-navigation-menu-group
-          [groupId]="'prizm-navigation-menu-default-group'"
-          [hideGroupAppearance]="true"
-          [items]="items"
-          [toolbarExtraTemplate]="toolbarExtraTemplate"
-          [itemExtraTemplate]="itemExtraTemplate"
-          [searchConfig]="$any(menuSearchConfig$ | async)"
-          [toolbarConfig]="$any(menuToolbarConfig$ | async)"
-          [emptySearchResultMessageConfig]="$any(emptySearchResultMessageConfig$ | async)"
-          [emptyDataMessageConfig]="$any(emptyDataMessageConfig$ | async)"
-        ></prizm-navigation-menu-group>
-      </div>
+      <prizm-scrollbar class="scrollable">
+        <div class="no-groups-content" [class.no-groups-content__empty]="!items?.length">
+          <prizm-navigation-menu-group
+            [groupId]="'prizm-navigation-menu-default-group'"
+            [hideGroupAppearance]="true"
+            [items]="items"
+            [toolbarExtraTemplate]="toolbarExtraTemplate"
+            [itemExtraTemplate]="itemExtraTemplate"
+            [searchConfig]="$any(menuSearchConfig$ | async)"
+            [toolbarConfig]="$any(menuToolbarConfig$ | async)"
+            [emptySearchResultMessageConfig]="$any(emptySearchResultMessageConfig$ | async)"
+            [emptyDataMessageConfig]="$any(emptyDataMessageConfig$ | async)"
+          ></prizm-navigation-menu-group>
+        </div>
+      </prizm-scrollbar>
     </ng-template>
   </main>
 </div>
