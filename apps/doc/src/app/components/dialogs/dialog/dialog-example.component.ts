@@ -71,6 +71,7 @@ export class DialogExampleComponent {
   public header = 'Static_title_h3 - 16 Medium';
   public content = 'Базовый текст для диалога';
   public footer: PolymorphContent<PrizmBaseDialogContext<any, PrizmDialogOptions<any, any>>> | null = null;
+  public dismissible = true;
 
   public readonly exampleModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
@@ -115,6 +116,7 @@ export class DialogExampleComponent {
         position: this.position,
         closeWord: this.closeWord,
         size: this.size,
+        dismissible: this.dismissible,
       })
       .subscribe(result => console.log('result from dialog', { result }));
   }
