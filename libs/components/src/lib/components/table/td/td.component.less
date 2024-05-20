@@ -71,6 +71,15 @@
       box-shadow: 0 0 0 1px var(--prizm-status-alarm-primary-default) inset;
     }
   }
+
+  &:has([prizmButton][appearanceType='ghost']),
+  &:has([prizmIconButton][appearanceType='ghost']) {
+    ::ng-deep prizm-wrapper {
+      &[data-appearance-type='ghost'][data-state='hovered'] {
+        background-color: transparent;
+      }
+    }
+  }
 }
 
 :host-context([active='true']) {
