@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { PrizmButtonModule, PrizmCounterDirective } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-button-with-counter-example',
@@ -12,6 +13,8 @@ import { Component } from '@angular/core';
       }
     `,
   ],
+  standalone: true,
+  imports: [PrizmButtonModule, PrizmCounterDirective],
 })
 export class PrizmButtonWithCounterExampleComponent {
   public readonly count = 10;

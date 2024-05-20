@@ -1,5 +1,5 @@
 import { inject, Injectable } from '@angular/core';
-import { PrizmDocDemoAbstractService, PrizmDocDemoMainVersion, PrizmDocDemoVersion } from '@prizm-ui/doc';
+import { PrizmDocDemoAbstractService, PrizmDocDemoMainVersion } from '@prizm-ui/doc';
 import { PrizmDocCodeDemoService } from './code-demo/code-demo.service';
 
 @Injectable()

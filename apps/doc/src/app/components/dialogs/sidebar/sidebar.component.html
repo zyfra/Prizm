@@ -3,19 +3,34 @@
     Our sidebar component is a container for navigation and other content.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleBasic" heading="Base">
+    <prizm-doc-example id="base" [stackblitzVersions]="null" [content]="exampleBasic" heading="Base">
       <prizm-sidebar-service-example></prizm-sidebar-service-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="hidden-footer" [content]="exampleHiddenFooter" heading="Hidden Footer">
+    <prizm-doc-example
+      id="hidden-footer"
+      [stackblitzVersions]="null"
+      [content]="exampleHiddenFooter"
+      heading="Hidden Footer"
+    >
       <prizm-sidebar-hidden-footer-example></prizm-sidebar-hidden-footer-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="top-bottom" [content]="exampleTopBottom" heading="Top Bottom">
+    <prizm-doc-example
+      id="top-bottom"
+      [stackblitzVersions]="null"
+      [content]="exampleTopBottom"
+      heading="Top Bottom"
+    >
       <prizm-sidebar-top-bottom-example></prizm-sidebar-top-bottom-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="custom-close-guard" [content]="exampleCustomClose" heading="Custom Close Guard">
+    <prizm-doc-example
+      id="custom-close-guard"
+      [stackblitzVersions]="null"
+      [content]="exampleCustomClose"
+      heading="Custom Close Guard"
+    >
       <prizm-sidebar-custom-close-guard-example></prizm-sidebar-custom-close-guard-example>
     </prizm-doc-example>
 
@@ -27,7 +42,12 @@
       <prizm-sidebar-custom-button-template-example></prizm-sidebar-custom-button-template-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="with-parent" [content]="exampleWithParent" heading="With Parent Container">
+    <prizm-doc-example
+      id="with-parent"
+      [stackblitzVersions]="null"
+      [content]="exampleWithParent"
+      heading="With Parent Container"
+    >
       <prizm-sidebar-with-parent-example></prizm-sidebar-with-parent-example>
     </prizm-doc-example>
 
@@ -41,6 +61,7 @@
 
     <prizm-doc-example
       id="only-confirm-button"
+      [stackblitzVersions]="null"
       [content]="exampleOnlyConfirmButton"
       heading="Only Confirm Button"
     >

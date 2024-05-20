@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import sdk from '@stackblitz/sdk';
-import { getAllDeps, getPrizmDeps } from './util';
+import { getAllDeps, getPrizmDeps, isStandaloneComponent } from './util';
 import { TsFileComponentParser } from './classes';
 import { PrizmDocDemoMainVersion } from '@prizm-ui/doc';
 import { ProjectDependencies } from '@stackblitz/sdk/types/interfaces';
@@ -54,7 +54,9 @@ export class PrizmDocCodeDemoService {
           'src/app/app.component.html': options.html ?? '',
           'src/app/app.component.less': options.less ?? '',
           'src/app/app.component.ts': appCompTs.toString() ?? '',
-          'src/app/app.module.ts': (await import('./files/src/app/app.module.ts.template?raw')).default,
+          'src/app/app.module.ts': isStandaloneComponent(options.ts)
+            ? (await import('./files/src/app/app.module.standalone.ts.template?raw')).default
+            : (await import('./files/src/app/app.module.ts.template?raw')).default,
           'src/app/shared.module.ts': (await import('./files/src/app/shared.module.ts.template?raw')).default,
           'src/app/app-routing.module.ts': (
             await import('./files/src/app/app-routing.module.ts.template?raw')

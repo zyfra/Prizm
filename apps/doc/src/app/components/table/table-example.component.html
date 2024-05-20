@@ -3,26 +3,46 @@
     Our table component is a powerful tool for displaying data in a tabular format.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleBasicTable" heading="Base">
+    <prizm-doc-example id="base" [stackblitzVersions]="null" [content]="exampleBasicTable" heading="Base">
       <prizm-table-basic-example></prizm-table-basic-example>
     </prizm-doc-example>
-    <prizm-doc-example id="track-by" [content]="exampleTrackBy" heading="Track By">
+    <prizm-doc-example
+      id="track-by"
+      [stackblitzVersions]="null"
+      [content]="exampleTrackBy"
+      heading="Track By"
+    >
       <prizm-table-track-by-example></prizm-table-track-by-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="index" [content]="exampleBasicTable" heading="Index">
+    <prizm-doc-example id="index" [stackblitzVersions]="null" [content]="exampleBasicTable" heading="Index">
       <prizm-table-index-example></prizm-table-index-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="borderStyle" [content]="exampleBorderStyleTable" heading="Border styles">
+    <prizm-doc-example
+      id="borderStyle"
+      [stackblitzVersions]="null"
+      [content]="exampleBorderStyleTable"
+      heading="Border styles"
+    >
       <prizm-table-border-style-example></prizm-table-border-style-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="status" [content]="exampleStatusTable" heading="Table with row&cell statuses">
+    <prizm-doc-example
+      id="status"
+      [stackblitzVersions]="null"
+      [content]="exampleStatusTable"
+      heading="Table with row&cell statuses"
+    >
       <prizm-table-status-example></prizm-table-status-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="selectable" [content]="exampleSelectableTable" heading="Selectable">
+    <prizm-doc-example
+      id="selectable"
+      [stackblitzVersions]="null"
+      [content]="exampleSelectableTable"
+      heading="Selectable"
+    >
       <prizm-table-selectable-example></prizm-table-selectable-example>
     </prizm-doc-example>
 
@@ -34,27 +54,43 @@
       <prizm-table-selectable-meta-example></prizm-table-selectable-meta-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="rowGroup" [content]="exampleRowGroupTable" heading="Table row group">
+    <prizm-doc-example
+      id="rowGroup"
+      [stackblitzVersions]="null"
+      [content]="exampleRowGroupTable"
+      heading="Table row group"
+    >
       <prizm-table-row-group-example></prizm-table-row-group-example>
     </prizm-doc-example>
 
     <prizm-doc-example
       id="dynamic-row-group"
+      [stackblitzVersions]="null"
       [content]="exampleDynamicRowGroupTable"
       heading="Dynamic table row group"
     >
       <prizm-table-dynamic-row-group-example></prizm-table-dynamic-row-group-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="filter" [content]="exampleFilterTable" heading="Filter">
+    <prizm-doc-example
+      id="filter"
+      [stackblitzVersions]="null"
+      [content]="exampleFilterTable"
+      heading="Filter"
+    >
       <prizm-table-filter-example></prizm-table-filter-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="search" [content]="exampleSearchTable" heading="Search">
+    <prizm-doc-example
+      id="search"
+      [stackblitzVersions]="null"
+      [content]="exampleSearchTable"
+      heading="Search"
+    >
       <prizm-table-search-example></prizm-table-search-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="sort" [content]="exampleSortTable" heading="Base Sort">
+    <prizm-doc-example id="sort" [stackblitzVersions]="null" [content]="exampleSortTable" heading="Base Sort">
       <prizm-table-sort-example></prizm-table-sort-example>
     </prizm-doc-example>
 
@@ -62,23 +98,38 @@
       <prizm-table-server-sort-example></prizm-table-server-sort-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="datasource" [content]="exampleDataSourceTable" heading="Sort, Search, Pagination">
+    <prizm-doc-example
+      id="datasource"
+      [stackblitzVersions]="null"
+      [content]="exampleDataSourceTable"
+      heading="Sort, Search, Pagination"
+    >
       <prizm-table-data-source-example></prizm-table-data-source-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="editableCol" [content]="exampleEditableColTable" heading="Editable col">
+    <prizm-doc-example
+      id="editableCol"
+      [stackblitzVersions]="null"
+      [content]="exampleEditableColTable"
+      heading="Editable col"
+    >
       <prizm-table-editable-col-example></prizm-table-editable-col-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="editableRow" [content]="exampleEditableRowTable" heading="Editable row">
+    <prizm-doc-example
+      id="editableRow"
+      [stackblitzVersions]="null"
+      [content]="exampleEditableRowTable"
+      heading="Editable row"
+    >
       <prizm-table-editable-row-example></prizm-table-editable-row-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="empty" [content]="exampleEmptyTable" heading="Empty">
+    <prizm-doc-example id="empty" [stackblitzVersions]="null" [content]="exampleEmptyTable" heading="Empty">
       <prizm-table-empty-example></prizm-table-empty-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="tree" [content]="exampleTreeTable" heading="Tree">
+    <prizm-doc-example id="tree" [stackblitzVersions]="null" [content]="exampleTreeTable" heading="Tree">
       <prizm-table-tree-example></prizm-table-tree-example>
     </prizm-doc-example>
 
@@ -86,15 +137,30 @@
       <prizm-table-tree-pagination-example></prizm-table-tree-pagination-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="sticky" [content]="exampleStickyTable" heading="Sticky">
+    <prizm-doc-example
+      id="sticky"
+      [stackblitzVersions]="null"
+      [content]="exampleStickyTable"
+      heading="Sticky"
+    >
       <prizm-table-sticky-example></prizm-table-sticky-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="inherit-cols" [content]="exampleInheritColsTable" heading="Inherit Cols">
+    <prizm-doc-example
+      id="inherit-cols"
+      [stackblitzVersions]="null"
+      [content]="exampleInheritColsTable"
+      heading="Inherit Cols"
+    >
       <prizm-inherit-cols-basic-example></prizm-inherit-cols-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="column-settings" [content]="exampleColumnSettingsTable" heading="Column settings">
+    <prizm-doc-example
+      id="column-settings"
+      [stackblitzVersions]="null"
+      [content]="exampleColumnSettingsTable"
+      heading="Column settings"
+    >
       <prizm-table-column-settings-example></prizm-table-column-settings-example>
     </prizm-doc-example>
   </ng-template>
