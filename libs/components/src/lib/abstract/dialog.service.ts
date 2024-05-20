@@ -48,11 +48,6 @@ export abstract class AbstractPrizmDialogService<
 
       options = options ?? {};
 
-      console.log('#mz options', {
-        options,
-        defaultOptions: this.defaultOptions,
-      });
-
       const dialog = {
         ...this.defaultOptions,
         ...options,
