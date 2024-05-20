@@ -26,11 +26,6 @@ export abstract class AbstractPrizmDialogService<
   protected readonly overlayService: PrizmOverlayService = inject(PrizmOverlayService);
   protected readonly overscrollService: PrizmOverscrollService = inject(PrizmOverscrollService);
 
-  // protected constructor(injector: Injector) {
-  // this.overlayService = injector.get(PrizmOverlayService);
-  // this.overscrollService = injector.get(PrizmOverscrollService);
-  // }
-
   public open<O = unknown, DATA = unknown>(
     content: PolymorphContent<PrizmBaseDialogContext<O>> | unknown,
     options: Partial<T>,
