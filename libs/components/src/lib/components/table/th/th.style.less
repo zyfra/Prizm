@@ -26,6 +26,24 @@
     border-left: none;
   }
 
+  &:has(input[prizmInput]:not([disabled]):hover) {
+    box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-hover) inset;
+  }
+
+  &:has(input[prizmInput]:not([disabled]):focus) {
+    background-color: var(--prizm-background-fill-primary);
+    box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-active) inset;
+  }
+
+  &:has([prizmButton][appearanceType='ghost']),
+  &:has([prizmIconButton][appearanceType='ghost']) {
+    ::ng-deep prizm-wrapper {
+      &[data-appearance-type='ghost'][data-state='hovered'] {
+        background-color: transparent;
+      }
+    }
+  }
+
   .resize-bar {
     height: 100%;
     width: 4px;
