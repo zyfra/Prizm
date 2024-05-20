@@ -4,5 +4,5 @@ export const prizmIconsMinibusSideView: {
   data: string;
 } = {
   name: 'minibus-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5.5a1 1 0 0 1 1-1h11.84a3 3 0 0 1 2.604 1.512l1.124 1.966a1 1 0 0 0 .42.398l1.354.677A3 3 0 0 1 22 11.736V16a1 1 0 0 1-1.05.999 2.5 2.5 0 0 1-4.9.001H7.95a2.5 2.5 0 0 1-4.9 0H3a1 1 0 0 1-1-1V5.5Zm18 6.236V14.5a2.496 2.496 0 0 0-3.5.5H13V6.5h1.84a1 1 0 0 1 .868.504L16.83 8.97a3 3 0 0 0 1.263 1.195l1.353.677a1 1 0 0 1 .553.894ZM11 6.5V15H7.5a2.496 2.496 0 0 0-3.5-.5v-8h7ZM5.5 16a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm13 0a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5.5a1 1 0 0 1 1-1h11.84a3 3 0 0 1 2.604 1.512l1.124 1.966a1 1 0 0 0 .42.398l1.354.677A3 3 0 0 1 22 11.736V16a1 1 0 0 1-1.05.999 2.5 2.5 0 0 1-4.9.001H7.95a2.5 2.5 0 0 1-4.9 0H3a1 1 0 0 1-1-1V5.5Zm18 6.236V14.5a2.496 2.496 0 0 0-3.5.5H13V6.5h1.84a1 1 0 0 1 .868.504L16.83 8.97a3 3 0 0 0 1.263 1.195l1.353.677a1 1 0 0 1 .553.894ZM11 6.5V15H7.5a2.496 2.496 0 0 0-3.5-.5v-8h7ZM5.5 16a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm13 0a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsTempSocialTab: {
   data: string;
 } = {
   name: 'temp-social-tab',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3.5a4.5 4.5 0 0 0 0 9h6a4.5 4.5 0 1 0 0-9H5ZM1.5 8A3.5 3.5 0 0 1 5 4.5h6a3.5 3.5 0 1 1 0 7H5A3.5 3.5 0 0 1 1.5 8ZM6 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3.5a4.5 4.5 0 0 0 0 9h6a4.5 4.5 0 1 0 0-9H5ZM1.5 8A3.5 3.5 0 0 1 5 4.5h6a3.5 3.5 0 1 1 0 7H5A3.5 3.5 0 0 1 1.5 8ZM6 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

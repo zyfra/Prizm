@@ -4,5 +4,5 @@ export const prizmIconsBrush: {
   data: string;
 } = {
   name: 'brush',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.414 5a2 2 0 0 0-2.828 0l-6.107 6.107A4.5 4.5 0 0 0 4 15.5V18a2 2 0 0 0 2 2H8.5a4.5 4.5 0 0 0 4.393-5.48L19 8.415a2 2 0 0 0 0-2.828L18.414 5Zm-6.453 7.624L17.587 7 17 6.414l-5.624 5.625c.212.176.409.373.585.585ZM6 15.5A2.5 2.5 0 1 1 8.5 18H6v-2.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18.414 5a2 2 0 0 0-2.828 0l-6.107 6.107A4.5 4.5 0 0 0 4 15.5V18a2 2 0 0 0 2 2H8.5a4.5 4.5 0 0 0 4.393-5.48L19 8.415a2 2 0 0 0 0-2.828L18.414 5Zm-6.453 7.624L17.587 7 17 6.414l-5.624 5.625c.212.176.409.373.585.585ZM6 15.5A2.5 2.5 0 1 1 8.5 18H6v-2.5Z" fill="currentColor"/></svg>`
 };

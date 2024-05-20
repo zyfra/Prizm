@@ -4,5 +4,5 @@ export const prizmIconsCode: {
   data: string;
 } = {
   name: 'code',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 1 6 15M3 4 1 8l2 4M13 4l2 4-2 4"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M10 1 6 15M3 4 1 8l2 4M13 4l2 4-2 4"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

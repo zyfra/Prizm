@@ -4,5 +4,5 @@ export const prizmIconsCalendarCheck: {
   data: string;
 } = {
   name: 'calendar-check',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 1 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V3ZM7 7V6H5v14h14V6h-2v1a1 1 0 1 1-2 0V6H9v1a1 1 0 0 1-2 0Zm8.707 5.707a1 1 0 0 0-1.414-1.414l-3.226 3.226-1.299-1.56a1 1 0 1 0-1.536 1.281L9.53 15.8a2 2 0 0 0 2.95.134l3.226-3.226Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 3a1 1 0 1 0-2 0v1H9V3a1 1 0 0 0-2 0v1H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V3ZM7 7V6H5v14h14V6h-2v1a1 1 0 1 1-2 0V6H9v1a1 1 0 0 1-2 0Zm8.707 5.707a1 1 0 0 0-1.414-1.414l-3.226 3.226-1.299-1.56a1 1 0 1 0-1.536 1.281L9.53 15.8a2 2 0 0 0 2.95.134l3.226-3.226Z" fill="currentColor"/></svg>`
 };

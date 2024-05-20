@@ -4,5 +4,5 @@ export const prizmIconsClockArrowDown: {
   data: string;
 } = {
   name: 'clock-arrow-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 3.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9ZM.5 8a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM6 5.5a.5.5 0 0 1 .5.5v1.5H8a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5Zm9.354 6.854-1 1a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.146.147V3a.5.5 0 0 1 1 0v8.793l.146-.147a.5.5 0 0 1 .708.708Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 3.5a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9ZM.5 8a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM6 5.5a.5.5 0 0 1 .5.5v1.5H8a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5Zm9.354 6.854-1 1a.5.5 0 0 1-.708 0l-1-1a.5.5 0 0 1 .708-.708l.146.147V3a.5.5 0 0 1 1 0v8.793l.146-.147a.5.5 0 0 1 .708.708Z" fill="currentColor"/></svg>`
 };

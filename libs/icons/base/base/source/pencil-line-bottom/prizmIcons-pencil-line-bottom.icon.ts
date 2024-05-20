@@ -4,5 +4,5 @@ export const prizmIconsPencilLineBottom: {
   data: string;
 } = {
   name: 'pencil-line-bottom',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.586 3a2 2 0 0 1 2.828 0L19 5.586l-.707.707.707-.707a2 2 0 0 1 0 2.828l-8.545 8.545a2 2 0 0 1-1.193.574l-2.91.323a2 2 0 0 1-2.208-2.209l.323-2.909a2 2 0 0 1 .574-1.193l6.247-6.248.005-.004.004-.005L13.586 3Zm-7.13 9.96L12 7.413 14.586 10 9.04 15.545l-2.91.323.324-2.909ZM17.585 7 16 8.586 13.414 6 15 4.414 17.586 7ZM5 20a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2H5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.586 3a2 2 0 0 1 2.828 0L19 5.586l-.707.707.707-.707a2 2 0 0 1 0 2.828l-8.545 8.545a2 2 0 0 1-1.193.574l-2.91.323a2 2 0 0 1-2.208-2.209l.323-2.909a2 2 0 0 1 .574-1.193l6.247-6.248.005-.004.004-.005L13.586 3Zm-7.13 9.96L12 7.413 14.586 10 9.04 15.545l-2.91.323.324-2.909ZM17.585 7 16 8.586 13.414 6 15 4.414 17.586 7ZM5 20a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2H5Z" fill="currentColor"/></svg>`
 };

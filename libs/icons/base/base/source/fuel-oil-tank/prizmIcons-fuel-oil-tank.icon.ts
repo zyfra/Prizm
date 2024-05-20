@@ -4,5 +4,5 @@ export const prizmIconsFuelOilTank: {
   data: string;
 } = {
   name: 'fuel-oil-tank',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1h2V5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v16a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-2h-2v2a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5Zm12 3h-2v4h2V8ZM9 7V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12h6V7Zm4 7h-2v3h2v-3Zm2 3V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v12h-6ZM3 19v2h6v-2H3Zm12 0v2h6v-2h-6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v1h2V5a3 3 0 0 1 3-3h4a3 3 0 0 1 3 3v16a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-2h-2v2a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V5Zm12 3h-2v4h2V8ZM9 7V5a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12h6V7Zm4 7h-2v3h2v-3Zm2 3V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v12h-6ZM3 19v2h6v-2H3Zm12 0v2h6v-2h-6Z" fill="currentColor"/></svg>`
 };

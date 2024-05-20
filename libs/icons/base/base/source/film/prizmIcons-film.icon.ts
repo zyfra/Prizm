@@ -4,5 +4,5 @@ export const prizmIconsFilm: {
   data: string;
 } = {
   name: 'film',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm2 12v2h2v-2H5Zm2-2H5v-2h2v2Zm2 1v3h6V5H9v11Zm10-3v2h-2v-2h2Zm0 4h-2v2h2v-2ZM7 11H5V9h2v2Zm12-2v2h-2V9h2ZM7 7H5V5h2v2Zm12-2v2h-2V5h2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm2 12v2h2v-2H5Zm2-2H5v-2h2v2Zm2 1v3h6V5H9v11Zm10-3v2h-2v-2h2Zm0 4h-2v2h2v-2ZM7 11H5V9h2v2Zm12-2v2h-2V9h2ZM7 7H5V5h2v2Zm12-2v2h-2V5h2Z" fill="currentColor"/></svg>`
 };

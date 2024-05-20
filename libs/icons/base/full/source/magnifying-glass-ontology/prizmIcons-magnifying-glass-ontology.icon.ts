@@ -4,5 +4,5 @@ export const prizmIconsMagnifyingGlassOntology: {
   data: string;
 } = {
   name: 'magnifying-glass-ontology',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="2" r="1"/><circle cx="11" cy="8" r="1"/><circle cx="14" cy="5" r="1"/><circle cx="11" cy="5" r="1"/><circle cx="8" cy="5.143" r="1"/><path d="m15 15-3.5-3.5M7 1a6 6 0 1 0 5.197 9"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="2" r="1"/><circle cx="11" cy="8" r="1"/><circle cx="14" cy="5" r="1"/><circle cx="11" cy="5" r="1"/><circle cx="8" cy="5.143" r="1"/><path d="m15 15-3.5-3.5M7 1a6 6 0 1 0 5.197 9"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

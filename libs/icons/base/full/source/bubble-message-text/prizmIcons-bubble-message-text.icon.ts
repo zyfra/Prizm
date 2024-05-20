@@ -4,5 +4,5 @@ export const prizmIconsBubbleMessageText: {
   data: string;
 } = {
   name: 'bubble-message-text',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v13a.5.5 0 0 0 .777.416l2.748-1.832a.5.5 0 0 1 .278-.084H14a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 14 .5H2ZM1.5 2a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H4.303a1.5 1.5 0 0 0-.832.252L1.5 14.066V2Zm2 3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Zm0 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v13a.5.5 0 0 0 .777.416l2.748-1.832a.5.5 0 0 1 .278-.084H14a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 14 .5H2ZM1.5 2a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v10a.5.5 0 0 1-.5.5H4.303a1.5 1.5 0 0 0-.832.252L1.5 14.066V2Zm2 3a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Zm0 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

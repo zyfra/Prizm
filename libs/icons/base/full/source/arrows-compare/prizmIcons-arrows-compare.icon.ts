@@ -4,5 +4,5 @@ export const prizmIconsArrowsCompare: {
   data: string;
 } = {
   name: 'arrows-compare',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.354 1.354a.5.5 0 0 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L8.207 4.5H15a.5.5 0 0 0 0-1H8.207l2.147-2.146Zm-4 7.292a.5.5 0 1 0-.708.708L7.793 11.5H1a.5.5 0 0 0 0 1h6.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.354 1.354a.5.5 0 0 0-.708-.708l-3 3a.5.5 0 0 0 0 .708l3 3a.5.5 0 0 0 .708-.708L8.207 4.5H15a.5.5 0 0 0 0-1H8.207l2.147-2.146Zm-4 7.292a.5.5 0 1 0-.708.708L7.793 11.5H1a.5.5 0 0 0 0 1h6.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

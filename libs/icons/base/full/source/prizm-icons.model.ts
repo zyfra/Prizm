@@ -1140,8 +1140,7 @@ export const PrizmIconsType = {
   'circle-square': 'circle-square' as PrizmIconsType,
   'circle-xmark-fill': 'circle-xmark-fill' as PrizmIconsType,
   'circle-xmark': 'circle-xmark' as PrizmIconsType,
-  'circles-line-left-up-circle-right-down-fill':
-    'circles-line-left-up-circle-right-down-fill' as PrizmIconsType,
+  'circles-line-left-up-circle-right-down-fill': 'circles-line-left-up-circle-right-down-fill' as PrizmIconsType,
   'circles-line-left-up-circle-right-down': 'circles-line-left-up-circle-right-down' as PrizmIconsType,
   'clapperboard-cross': 'clapperboard-cross' as PrizmIconsType,
   'clapperboard-open': 'clapperboard-open' as PrizmIconsType,
@@ -1678,12 +1677,10 @@ export const PrizmIconsType = {
   'temp-location-localization-down-list': 'temp-location-localization-down-list' as PrizmIconsType,
   'temp-network-library': 'temp-network-library' as PrizmIconsType,
   'temp-poi-difference': 'temp-poi-difference' as PrizmIconsType,
-  'temp-product-grade-according-to-specification':
-    'temp-product-grade-according-to-specification' as PrizmIconsType,
+  'temp-product-grade-according-to-specification': 'temp-product-grade-according-to-specification' as PrizmIconsType,
   'temp-selection-checkbox-blank-circle': 'temp-selection-checkbox-blank-circle' as PrizmIconsType,
   'temp-selection-checkbox-blank': 'temp-selection-checkbox-blank' as PrizmIconsType,
-  'temp-selection-checkbox-marked-circle-chanel':
-    'temp-selection-checkbox-marked-circle-chanel' as PrizmIconsType,
+  'temp-selection-checkbox-marked-circle-chanel': 'temp-selection-checkbox-marked-circle-chanel' as PrizmIconsType,
   'temp-selection-checked-1': 'temp-selection-checked-1' as PrizmIconsType,
   'temp-selection-checked-2': 'temp-selection-checked-2' as PrizmIconsType,
   'temp-selection-checked': 'temp-selection-checked' as PrizmIconsType,
@@ -1800,7 +1797,7 @@ export const PrizmIconsType = {
   'xmark-column-right': 'xmark-column-right' as PrizmIconsType,
   'xmark-column-top': 'xmark-column-top' as PrizmIconsType,
   'xmark-mini': 'xmark-mini' as PrizmIconsType,
-  xmark: 'xmark' as PrizmIconsType,
+  xmark: 'xmark' as PrizmIconsType
 };
 export interface PrizmIcons {
   name: PrizmIconsEnum;
@@ -2704,5 +2701,5 @@ export enum PrizmIconsEnum {
   XMARK_COLUMN_RIGHT = 'xmark-column-right',
   XMARK_COLUMN_TOP = 'xmark-column-top',
   XMARK_MINI = 'xmark-mini',
-  XMARK = 'xmark',
+  XMARK = 'xmark'
 }

@@ -4,5 +4,5 @@ export const prizmIconsMessagingTelegram: {
   data: string;
 } = {
   name: 'messaging-telegram',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.47 1.168a.5.5 0 0 0-.638-.639l-14 5a.5.5 0 0 0 .106.967l7.614.952.952 7.614a.5.5 0 0 0 .967.106l5-14ZM8.82 6.474l-5.674-.71 9.928-3.545L8.82 6.474Zm.706.707.71 5.673 3.545-9.928L9.526 7.18Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.47 1.168a.5.5 0 0 0-.638-.639l-14 5a.5.5 0 0 0 .106.967l7.614.952.952 7.614a.5.5 0 0 0 .967.106l5-14ZM8.82 6.474l-5.674-.71 9.928-3.545L8.82 6.474Zm.706.707.71 5.673 3.545-9.928L9.526 7.18Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

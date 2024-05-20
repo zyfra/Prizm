@@ -4,5 +4,5 @@ export const prizmIconsWatch: {
   data: string;
 } = {
   name: 'watch',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.871 2.89A2 2 0 0 1 10.535 2h2.93a2 2 0 0 1 1.664.89L16.535 5H17a2 2 0 0 1 2 2v4a1 1 0 1 1 0 2v4a2 2 0 0 1-2 2h-.465l-1.406 2.11a2 2 0 0 1-1.664.89h-2.93a2 2 0 0 1-1.664-.89L7.465 19H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h.465L8.87 2.89ZM8.014 17H7V7h10v10H8.014Zm1.855 2 .666 1h2.93l.667-1H9.869Zm3.596-15 .667 1H9.869l.666-1h2.93ZM11 10a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.871 2.89A2 2 0 0 1 10.535 2h2.93a2 2 0 0 1 1.664.89L16.535 5H17a2 2 0 0 1 2 2v4a1 1 0 1 1 0 2v4a2 2 0 0 1-2 2h-.465l-1.406 2.11a2 2 0 0 1-1.664.89h-2.93a2 2 0 0 1-1.664-.89L7.465 19H7a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h.465L8.87 2.89ZM8.014 17H7V7h10v10H8.014Zm1.855 2 .666 1h2.93l.667-1H9.869Zm3.596-15 .667 1H9.869l.666-1h2.93ZM11 10a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsArrowUpFromDoubleLine: {
   data: string;
 } = {
   name: 'arrow-up-from-double-line',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 11.5H13a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1h4.5V2.207L3.354 6.354a.5.5 0 1 1-.708-.708l5-5a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1-.708.708L8.5 2.207V11.5Zm-6 3.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 11.5H13a.5.5 0 0 1 0 1H3a.5.5 0 0 1 0-1h4.5V2.207L3.354 6.354a.5.5 0 1 1-.708-.708l5-5a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1-.708.708L8.5 2.207V11.5Zm-6 3.5a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></svg>`
 };

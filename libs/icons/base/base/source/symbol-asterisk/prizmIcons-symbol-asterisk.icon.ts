@@ -4,5 +4,5 @@ export const prizmIconsSymbolAsterisk: {
   data: string;
 } = {
   name: 'symbol-asterisk',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5a1 1 0 0 1 1 1v4.234l3.486-2.091a1 1 0 1 1 1.029 1.714L13.944 12l3.57 2.143a1 1 0 1 1-1.028 1.714L13 13.768V18a1 1 0 0 1-2 0v-4.234l-3.485 2.091a1 1 0 0 1-1.03-1.714L10.057 12l-3.57-2.143a1 1 0 1 1 1.029-1.714L11 10.233V6a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5a1 1 0 0 1 1 1v4.234l3.486-2.091a1 1 0 1 1 1.029 1.714L13.944 12l3.57 2.143a1 1 0 1 1-1.028 1.714L13 13.768V18a1 1 0 0 1-2 0v-4.234l-3.485 2.091a1 1 0 0 1-1.03-1.714L10.057 12l-3.57-2.143a1 1 0 1 1 1.029-1.714L11 10.233V6a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`
 };

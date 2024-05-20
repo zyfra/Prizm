@@ -4,5 +4,5 @@ export const prizmIconsTempDateInformDelete: {
   data: string;
 } = {
   name: 'temp-date-inform-delete',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 1 1 0A7.5 7.5 0 1 1 8 .5a.5.5 0 0 1 0 1ZM8 6a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5A.5.5 0 0 1 8 6Zm0-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm5-1.293-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3l-1.147-1.146a.5.5 0 0 1 .708-.708L13 2.293l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3l1.147 1.146a.5.5 0 0 1-.708.708L13 3.707Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 1 1 0A7.5 7.5 0 1 1 8 .5a.5.5 0 0 1 0 1ZM8 6a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5A.5.5 0 0 1 8 6Zm0-1a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm5-1.293-1.146 1.147a.5.5 0 0 1-.708-.708L12.293 3l-1.147-1.146a.5.5 0 0 1 .708-.708L13 2.293l1.146-1.147a.5.5 0 0 1 .708.708L13.707 3l1.147 1.146a.5.5 0 0 1-.708.708L13 3.707Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

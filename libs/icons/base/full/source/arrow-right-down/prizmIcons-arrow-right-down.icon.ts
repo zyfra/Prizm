@@ -4,5 +4,5 @@ export const prizmIconsArrowRightDown: {
   data: string;
 } = {
   name: 'arrow-right-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.646.646a.5.5 0 0 1 .708 0L14.5 13.793V4a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h9.793L.646 1.354a.5.5 0 0 1 0-.708Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.646.646a.5.5 0 0 1 .708 0L14.5 13.793V4a.5.5 0 0 1 1 0v11a.5.5 0 0 1-.5.5H4a.5.5 0 0 1 0-1h9.793L.646 1.354a.5.5 0 0 1 0-.708Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

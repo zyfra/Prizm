@@ -4,5 +4,5 @@ export const prizmIconsRhombus: {
   data: string;
 } = {
   name: 'rhombus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.94 1.354a1.5 1.5 0 0 1 2.12 0l5.586 5.585a1.5 1.5 0 0 1 0 2.122l-5.585 5.585a1.5 1.5 0 0 1-2.122 0L1.354 9.061a1.5 1.5 0 0 1 0-2.122l5.585-5.585Zm1.414.707a.5.5 0 0 0-.707 0L2.06 7.646a.5.5 0 0 0 0 .708l5.586 5.585a.5.5 0 0 0 .707 0l5.585-5.585a.5.5 0 0 0 0-.708L8.354 2.061Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.94 1.354a1.5 1.5 0 0 1 2.12 0l5.586 5.585a1.5 1.5 0 0 1 0 2.122l-5.585 5.585a1.5 1.5 0 0 1-2.122 0L1.354 9.061a1.5 1.5 0 0 1 0-2.122l5.585-5.585Zm1.414.707a.5.5 0 0 0-.707 0L2.06 7.646a.5.5 0 0 0 0 .708l5.586 5.585a.5.5 0 0 0 .707 0l5.585-5.585a.5.5 0 0 0 0-.708L8.354 2.061Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

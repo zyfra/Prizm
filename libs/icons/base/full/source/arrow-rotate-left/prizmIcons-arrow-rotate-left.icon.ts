@@ -4,5 +4,5 @@ export const prizmIconsArrowRotateLeft: {
   data: string;
 } = {
   name: 'arrow-rotate-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5a.5.5 0 0 1 .5.5v1.627a6.738 6.738 0 0 1 1.702-1.318C5.232.759 6.444.5 8 .5c4.282 0 7.5 3.364 7.5 7.5a7.5 7.5 0 0 1-15 0 .5.5 0 0 1 1 0 6.5 6.5 0 1 0 13 0c0-3.596-2.782-6.5-6.5-6.5-1.444 0-2.482.24-3.327.691-.593.316-1.112.747-1.62 1.309H5a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5V1A.5.5 0 0 1 2 .5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5a.5.5 0 0 1 .5.5v1.627a6.738 6.738 0 0 1 1.702-1.318C5.232.759 6.444.5 8 .5c4.282 0 7.5 3.364 7.5 7.5a7.5 7.5 0 0 1-15 0 .5.5 0 0 1 1 0 6.5 6.5 0 1 0 13 0c0-3.596-2.782-6.5-6.5-6.5-1.444 0-2.482.24-3.327.691-.593.316-1.112.747-1.62 1.309H5a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5V1A.5.5 0 0 1 2 .5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

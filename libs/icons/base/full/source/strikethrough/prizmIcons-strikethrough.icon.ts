@@ -4,5 +4,5 @@ export const prizmIconsStrikethrough: {
   data: string;
 } = {
   name: 'strikethrough',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h14M13 4.5C13 2.567 10.761 1 8 1S3 2.567 3 4.5 5.239 8 8 8M3 11.5C3 13.433 5.239 15 8 15s5-1.567 5-3.5S10.761 8 8 8"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 8h14M13 4.5C13 2.567 10.761 1 8 1S3 2.567 3 4.5 5.239 8 8 8M3 11.5C3 13.433 5.239 15 8 15s5-1.567 5-3.5S10.761 8 8 8"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

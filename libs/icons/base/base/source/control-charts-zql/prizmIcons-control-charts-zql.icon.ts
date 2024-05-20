@@ -4,5 +4,5 @@ export const prizmIconsControlChartsZql: {
   data: string;
 } = {
   name: 'control-charts-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1a1 1 0 0 1 1 1h4a1 1 0 1 1 2 0h2a3 3 0 0 1 3 3V11.81A6.5 6.5 0 1 1 9.174 18H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h2a1 1 0 0 1 1-1Zm1.019 15A6.5 6.5 0 0 1 18 10.498V8H4v7a1 1 0 0 0 1 1h4.019ZM5 4h2v2H4V5a1 1 0 0 1 1-1Zm8 0H9v2h4V4Zm5 2h-3V4h2a1 1 0 0 1 1 1v1Zm-1.5 8a1 1 0 1 0-2 0v2.586A2 2 0 0 0 15.086 18l1.207 1.207a1 1 0 0 0 1.414-1.414L16.5 16.586V14ZM11 16.5a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1a1 1 0 0 1 1 1h4a1 1 0 1 1 2 0h2a3 3 0 0 1 3 3V11.81A6.5 6.5 0 1 1 9.174 18H5a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3h2a1 1 0 0 1 1-1Zm1.019 15A6.5 6.5 0 0 1 18 10.498V8H4v7a1 1 0 0 0 1 1h4.019ZM5 4h2v2H4V5a1 1 0 0 1 1-1Zm8 0H9v2h4V4Zm5 2h-3V4h2a1 1 0 0 1 1 1v1Zm-1.5 8a1 1 0 1 0-2 0v2.586A2 2 0 0 0 15.086 18l1.207 1.207a1 1 0 0 0 1.414-1.414L16.5 16.586V14ZM11 16.5a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0Z" fill="currentColor"/></svg>`
 };

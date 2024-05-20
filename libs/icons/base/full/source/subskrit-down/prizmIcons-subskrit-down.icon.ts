@@ -4,5 +4,5 @@ export const prizmIconsSubskritDown: {
   data: string;
 } = {
   name: 'subskrit-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h6M1 12 6 1l5 11M15 15h-2s2-1.5 2-3M15 12a1 1 0 1 0-2 0"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h6M1 12 6 1l5 11M15 15h-2s2-1.5 2-3M15 12a1 1 0 1 0-2 0"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

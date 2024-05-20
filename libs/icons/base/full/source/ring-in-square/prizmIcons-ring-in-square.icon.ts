@@ -4,5 +4,5 @@ export const prizmIconsRingInSquare: {
   data: string;
 } = {
   name: 'ring-in-square',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v12A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 14 .5H2ZM8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM3 8a5 5 0 1 1 10 0A5 5 0 0 1 3 8Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v12A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 14 .5H2ZM8 5a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM3 8a5 5 0 1 1 10 0A5 5 0 0 1 3 8Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

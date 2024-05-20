@@ -4,5 +4,5 @@ export const prizmIconsTempSortVersion: {
   data: string;
 } = {
   name: 'temp-sort-version',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-2H9a2 2 0 0 1-2-2v-2H4a2 2 0 0 1-2-2V4Zm12 14v2h6v-8h-3v4a2 2 0 0 1-2 2h-1Zm1-7v5H9v-2h1a2 2 0 0 0 2-2V8h3v3Zm-5-7v8H4V4h6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-2H9a2 2 0 0 1-2-2v-2H4a2 2 0 0 1-2-2V4Zm12 14v2h6v-8h-3v4a2 2 0 0 1-2 2h-1Zm1-7v5H9v-2h1a2 2 0 0 0 2-2V8h3v3Zm-5-7v8H4V4h6Z" fill="currentColor"/></svg>`
 };

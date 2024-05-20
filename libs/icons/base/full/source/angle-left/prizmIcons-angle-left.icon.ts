@@ -4,5 +4,5 @@ export const prizmIconsAngleLeft: {
   data: string;
 } = {
   name: 'angle-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.312 2.61a.5.5 0 0 1 .078.702L6.64 8l3.75 4.688a.5.5 0 1 1-.78.624l-4-5a.5.5 0 0 1 0-.624l4-5a.5.5 0 0 1 .702-.078Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.312 2.61a.5.5 0 0 1 .078.702L6.64 8l3.75 4.688a.5.5 0 1 1-.78.624l-4-5a.5.5 0 0 1 0-.624l4-5a.5.5 0 0 1 .702-.078Z" fill="currentColor"/></svg>`
 };

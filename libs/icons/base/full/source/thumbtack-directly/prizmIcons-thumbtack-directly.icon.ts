@@ -4,5 +4,5 @@ export const prizmIconsThumbtackDirectly: {
   data: string;
 } = {
   name: 'thumbtack-directly',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 1.5h.5v5.191l-1.724.862A.5.5 0 0 0 2.5 8v2a.5.5 0 0 0 .5.5h4.5V15a.5.5 0 0 0 1 0v-4.5H13a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.276-.447L11.5 6.69V1.5h.5a.5.5 0 0 0 0-1H4a.5.5 0 0 0 0 1Zm4.02 8h4.48V8.31l-1.723-.862A.5.5 0 0 1 10.5 7V1.5h-5V7a.5.5 0 0 1-.276.447L3.5 8.31v1.192h4.48a.496.496 0 0 1 .04 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 1.5h.5v5.191l-1.724.862A.5.5 0 0 0 2.5 8v2a.5.5 0 0 0 .5.5h4.5V15a.5.5 0 0 0 1 0v-4.5H13a.5.5 0 0 0 .5-.5V8a.5.5 0 0 0-.276-.447L11.5 6.69V1.5h.5a.5.5 0 0 0 0-1H4a.5.5 0 0 0 0 1Zm4.02 8h4.48V8.31l-1.723-.862A.5.5 0 0 1 10.5 7V1.5h-5V7a.5.5 0 0 1-.276.447L3.5 8.31v1.192h4.48a.496.496 0 0 1 .04 0Z" fill="currentColor"/></svg>`
 };

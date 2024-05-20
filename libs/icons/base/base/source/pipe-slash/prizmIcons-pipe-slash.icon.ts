@@ -4,5 +4,5 @@ export const prizmIconsPipeSlash: {
   data: string;
 } = {
   name: 'pipe-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.707 3.293a1 1 0 0 0-1.414 1.414l16 16a1 1 0 0 0 1.414-1.414l-16-16ZM4 8a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0h6a1 1 0 1 0 0-2H4v-4h.929a1 1 0 1 0 0-2H4Zm18 0a1 1 0 1 0-2 0h-6a1 1 0 1 0 0 2h6v4h-.929a1 1 0 1 0 0 2H20a1 1 0 1 0 2 0V8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.707 3.293a1 1 0 0 0-1.414 1.414l16 16a1 1 0 0 0 1.414-1.414l-16-16ZM4 8a1 1 0 1 0-2 0v8a1 1 0 1 0 2 0h6a1 1 0 1 0 0-2H4v-4h.929a1 1 0 1 0 0-2H4Zm18 0a1 1 0 1 0-2 0h-6a1 1 0 1 0 0 2h6v4h-.929a1 1 0 1 0 0 2H20a1 1 0 1 0 2 0V8Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsCodeDownload: {
   data: string;
 } = {
   name: 'code-download',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.312 2.61a.5.5 0 0 1 .078.702L1.64 8l3.75 4.688a.5.5 0 1 1-.78.624l-4-5a.5.5 0 0 1 0-.624l4-5a.5.5 0 0 1 .702-.078ZM8 4.5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 8.793V5a.5.5 0 0 1 .5-.5Zm3.39-1.812a.5.5 0 1 0-.78.624L14.36 8l-3.75 4.688a.5.5 0 1 0 .78.624l4-5a.5.5 0 0 0 0-.624l-4-5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.312 2.61a.5.5 0 0 1 .078.702L1.64 8l3.75 4.688a.5.5 0 1 1-.78.624l-4-5a.5.5 0 0 1 0-.624l4-5a.5.5 0 0 1 .702-.078ZM8 4.5a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 8.793V5a.5.5 0 0 1 .5-.5Zm3.39-1.812a.5.5 0 1 0-.78.624L14.36 8l-3.75 4.688a.5.5 0 1 0 .78.624l4-5a.5.5 0 0 0 0-.624l-4-5Z" fill="currentColor"/></svg>`
 };

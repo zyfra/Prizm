@@ -4,5 +4,5 @@ export const prizmIconsSignalOff: {
   data: string;
 } = {
   name: 'signal-off',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354.646a.5.5 0 1 0-.708.708l14 14a.5.5 0 0 0 .708-.708l-14-14ZM14.5 1a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0V1Zm-4 12a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2ZM10 3.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5ZM6.5 9a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V9ZM2 9.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354.646a.5.5 0 1 0-.708.708l14 14a.5.5 0 0 0 .708-.708l-14-14ZM14.5 1a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0V1Zm-4 12a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0v-2ZM10 3.5a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V4a.5.5 0 0 1 .5-.5ZM6.5 9a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V9ZM2 9.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

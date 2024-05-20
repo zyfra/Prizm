@@ -4,5 +4,5 @@ export const prizmIconsObjectDownSubtract: {
   data: string;
 } = {
   name: 'object-down-subtract',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 8a2 2 0 0 0-2 2v4H3V3h11v5h-4Zm5.002 2H16a1 1 0 1 0 0-2V3a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h5v5a2 2 0 0 0 2 2h1a1 1 0 1 0 0-2h-1V10h5.002ZM20 8a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0v-1a2 2 0 0 0-2-2h-1Zm3 7a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0v-1Zm0 5a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1a2 2 0 0 0 2-2v-1Zm-8 1a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2h-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 8a2 2 0 0 0-2 2v4H3V3h11v5h-4Zm5.002 2H16a1 1 0 1 0 0-2V3a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h5v5a2 2 0 0 0 2 2h1a1 1 0 1 0 0-2h-1V10h5.002ZM20 8a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0v-1a2 2 0 0 0-2-2h-1Zm3 7a1 1 0 1 0-2 0v1a1 1 0 1 0 2 0v-1Zm0 5a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1a2 2 0 0 0 2-2v-1Zm-8 1a1 1 0 1 0 0 2h1a1 1 0 1 0 0-2h-1Z" fill="currentColor"/></svg>`
 };

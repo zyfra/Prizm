@@ -4,5 +4,5 @@ export const prizmIconsObjectUnion: {
   data: string;
 } = {
   name: 'object-union',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 3H3v11h5a2 2 0 0 1 2 2v5h11V10h-5a2 2 0 0 1-2-2V3ZM3 1h11a2 2 0 0 1 2 2v5h5a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-5H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 3H3v11h5a2 2 0 0 1 2 2v5h11V10h-5a2 2 0 0 1-2-2V3ZM3 1h11a2 2 0 0 1 2 2v5h5a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H10a2 2 0 0 1-2-2v-5H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2Z" fill="currentColor"/></svg>`
 };

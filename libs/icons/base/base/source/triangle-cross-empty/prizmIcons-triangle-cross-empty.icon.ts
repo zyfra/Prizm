@@ -4,5 +4,5 @@ export const prizmIconsTriangleCrossEmpty: {
   data: string;
 } = {
   name: 'triangle-cross-empty',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.73 2.994c-.77-1.33-2.69-1.33-3.46 0L1.003 18.998C.232 20.33 1.194 22 2.734 22h18.532c1.54 0 2.502-1.669 1.73-3.002L13.731 2.994ZM12 3.996 21.265 20H2.735L12 3.996Zm2.707 8.297a1 1 0 0 1 0 1.414L13.414 15l1.293 1.293a1 1 0 0 1-1.414 1.414L12 16.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 15l-1.293-1.293a1 1 0 1 1 1.414-1.414L12 13.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.73 2.994c-.77-1.33-2.69-1.33-3.46 0L1.003 18.998C.232 20.33 1.194 22 2.734 22h18.532c1.54 0 2.502-1.669 1.73-3.002L13.731 2.994ZM12 3.996 21.265 20H2.735L12 3.996Zm2.707 8.297a1 1 0 0 1 0 1.414L13.414 15l1.293 1.293a1 1 0 0 1-1.414 1.414L12 16.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 15l-1.293-1.293a1 1 0 1 1 1.414-1.414L12 13.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsLock: {
   data: string;
 } = {
   name: 'lock',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A2.5 2.5 0 0 0 5.5 4v1.5H4A1.5 1.5 0 0 0 2.5 7v6A1.5 1.5 0 0 0 4 14.5h8a1.5 1.5 0 0 0 1.5-1.5V7A1.5 1.5 0 0 0 12 5.5h-1.5V4A2.5 2.5 0 0 0 8 1.5Zm1.5 4V4a1.5 1.5 0 1 0-3 0v1.5h3ZM6 6.5h6a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V7a.5.5 0 0 1 .5-.5h2Zm2 3a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm-1.5.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A2.5 2.5 0 0 0 5.5 4v1.5H4A1.5 1.5 0 0 0 2.5 7v6A1.5 1.5 0 0 0 4 14.5h8a1.5 1.5 0 0 0 1.5-1.5V7A1.5 1.5 0 0 0 12 5.5h-1.5V4A2.5 2.5 0 0 0 8 1.5Zm1.5 4V4a1.5 1.5 0 1 0-3 0v1.5h3ZM6 6.5h6a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V7a.5.5 0 0 1 .5-.5h2Zm2 3a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm-1.5.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0Z" fill="currentColor"/></svg>`
 };

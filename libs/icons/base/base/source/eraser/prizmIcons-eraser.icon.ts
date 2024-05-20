@@ -4,5 +4,5 @@ export const prizmIconsEraser: {
   data: string;
 } = {
   name: 'eraser',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.414 3a2 2 0 0 0-2.828 0L3 12.586a2 2 0 0 0 0 2.828L8.586 21a2 2 0 0 0 2.828 0L21 11.414a2 2 0 0 0 0-2.828L15.414 3Zm-7.5 7.5L14 4.414 19.586 10 13.5 16.086 7.914 10.5ZM6.5 11.914 4.414 14 10 19.586l2.086-2.086L6.5 11.914Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.414 3a2 2 0 0 0-2.828 0L3 12.586a2 2 0 0 0 0 2.828L8.586 21a2 2 0 0 0 2.828 0L21 11.414a2 2 0 0 0 0-2.828L15.414 3Zm-7.5 7.5L14 4.414 19.586 10 13.5 16.086 7.914 10.5ZM6.5 11.914 4.414 14 10 19.586l2.086-2.086L6.5 11.914Z" fill="currentColor"/></svg>`
 };

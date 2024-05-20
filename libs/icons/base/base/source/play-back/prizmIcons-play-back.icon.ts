@@ -4,5 +4,5 @@ export const prizmIconsPlayBack: {
   data: string;
 } = {
   name: 'play-back',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8 6.4C15.118 5.411 17 6.352 17 8v8c0 1.648-1.882 2.589-3.2 1.6l-5.333-4a2 2 0 0 1 0-3.2l5.333-4ZM15 8l-5.333 4L15 16V8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.8 6.4C15.118 5.411 17 6.352 17 8v8c0 1.648-1.882 2.589-3.2 1.6l-5.333-4a2 2 0 0 1 0-3.2l5.333-4ZM15 8l-5.333 4L15 16V8Z" fill="currentColor"/></svg>`
 };

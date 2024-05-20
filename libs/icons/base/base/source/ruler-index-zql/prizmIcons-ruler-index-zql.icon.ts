@@ -4,5 +4,5 @@ export const prizmIconsRulerIndexZql: {
   data: string;
 } = {
   name: 'ruler-index-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9ZM10 7.5a6.5 6.5 0 1 1 6.415 6.5l-8 8a2 2 0 0 1-2.83 0L2 18.414a2 2 0 0 1 0-2.828l8-8V7.5Zm.474 2.44a6.522 6.522 0 0 0 3.585 3.586L7 20.586 3.415 17 4.5 15.914l1.793 1.793a1 1 0 0 0 1.414-1.414L5.914 14.5 7.5 12.914l.793.793a1 1 0 0 0 1.414-1.414l-.793-.793 1.56-1.56ZM15 7.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 4a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16.5 3a4.5 4.5 0 1 0 0 9 4.5 4.5 0 0 0 0-9ZM10 7.5a6.5 6.5 0 1 1 6.415 6.5l-8 8a2 2 0 0 1-2.83 0L2 18.414a2 2 0 0 1 0-2.828l8-8V7.5Zm.474 2.44a6.522 6.522 0 0 0 3.585 3.586L7 20.586 3.415 17 4.5 15.914l1.793 1.793a1 1 0 0 0 1.414-1.414L5.914 14.5 7.5 12.914l.793.793a1 1 0 0 0 1.414-1.414l-.793-.793 1.56-1.56ZM15 7.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM16.5 4a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" fill="currentColor"/></svg>`
 };

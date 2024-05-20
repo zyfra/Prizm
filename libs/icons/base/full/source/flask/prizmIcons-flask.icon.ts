@@ -4,5 +4,5 @@ export const prizmIconsFlask: {
   data: string;
 } = {
   name: 'flask',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 1.5H5a.5.5 0 0 1 0-1h6a.5.5 0 1 1 0 1h-.5v4.37l4.112 7.401A1.5 1.5 0 0 1 13.3 15.5H2.7a1.5 1.5 0 0 1-1.312-2.229l4.112-7.4V1.5Zm1 0V6a.5.5 0 0 1-.063.243l-4.175 7.514a.5.5 0 0 0 .437.743H13.3a.5.5 0 0 0 .438-.743L9.563 6.243A.5.5 0 0 1 9.5 6V1.5h-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 1.5H5a.5.5 0 0 1 0-1h6a.5.5 0 1 1 0 1h-.5v4.37l4.112 7.401A1.5 1.5 0 0 1 13.3 15.5H2.7a1.5 1.5 0 0 1-1.312-2.229l4.112-7.4V1.5Zm1 0V6a.5.5 0 0 1-.063.243l-4.175 7.514a.5.5 0 0 0 .437.743H13.3a.5.5 0 0 0 .438-.743L9.563 6.243A.5.5 0 0 1 9.5 6V1.5h-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

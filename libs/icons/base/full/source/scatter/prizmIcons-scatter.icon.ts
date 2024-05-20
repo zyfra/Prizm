@@ -4,5 +4,5 @@ export const prizmIconsScatter: {
   data: string;
 } = {
   name: 'scatter',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm7 6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM16 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-6.5 9.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 4.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm3-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm7 6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM16 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-6.5 9.5a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

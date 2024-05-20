@@ -4,5 +4,5 @@ export const prizmIconsCloudArrowDown: {
   data: string;
 } = {
   name: 'cloud-arrow-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 8a3 3 0 1 1 6 0 1 1 0 0 0 1.046.999L16.1 9H17a3 3 0 0 1 1.5 5.6 1 1 0 1 0 1 1.73A5 5 0 0 0 17 7h-.1a5.002 5.002 0 0 0-9.8 0H7a5 5 0 0 0-2.5 9.33 1 1 0 0 0 1-1.73A3 3 0 0 1 7 9H7.9l.05-.001L8 9a1 1 0 0 0 1-1Zm4 4a1 1 0 1 0-2 0v5.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0-1.414-1.414L13 17.586V12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 8a3 3 0 1 1 6 0 1 1 0 0 0 1.046.999L16.1 9H17a3 3 0 0 1 1.5 5.6 1 1 0 1 0 1 1.73A5 5 0 0 0 17 7h-.1a5.002 5.002 0 0 0-9.8 0H7a5 5 0 0 0-2.5 9.33 1 1 0 0 0 1-1.73A3 3 0 0 1 7 9H7.9l.05-.001L8 9a1 1 0 0 0 1-1Zm4 4a1 1 0 1 0-2 0v5.586l-1.293-1.293a1 1 0 0 0-1.414 1.414l3 3a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0-1.414-1.414L13 17.586V12Z" fill="currentColor"/></svg>`
 };

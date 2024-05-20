@@ -4,5 +4,5 @@ export const prizmIconsSandglass: {
   data: string;
 } = {
   name: 'sandglass',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5a.5.5 0 0 0 0 1h.5v2.946c0 .517.266.998.705 1.272L7.057 7.5 4.205 9.282a1.5 1.5 0 0 0-.705 1.272V14.5H3a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1h-.5v-3.946a1.5 1.5 0 0 0-.705-1.272L8.943 7.5l2.852-1.782a1.5 1.5 0 0 0 .705-1.272V1.5h.5a.5.5 0 0 0 0-1H3Zm1.5 1v2.946a.5.5 0 0 0 .235.424L8 6.91l3.265-2.04a.5.5 0 0 0 .235-.424V1.5h-7ZM8 8.09l-3.265 2.04a.5.5 0 0 0-.235.424V14.5h7v-3.946a.5.5 0 0 0-.235-.424L8 8.09Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5a.5.5 0 0 0 0 1h.5v2.946c0 .517.266.998.705 1.272L7.057 7.5 4.205 9.282a1.5 1.5 0 0 0-.705 1.272V14.5H3a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1h-.5v-3.946a1.5 1.5 0 0 0-.705-1.272L8.943 7.5l2.852-1.782a1.5 1.5 0 0 0 .705-1.272V1.5h.5a.5.5 0 0 0 0-1H3Zm1.5 1v2.946a.5.5 0 0 0 .235.424L8 6.91l3.265-2.04a.5.5 0 0 0 .235-.424V1.5h-7ZM8 8.09l-3.265 2.04a.5.5 0 0 0-.235.424V14.5h7v-3.946a.5.5 0 0 0-.235-.424L8 8.09Z" fill="currentColor"/></svg>`
 };

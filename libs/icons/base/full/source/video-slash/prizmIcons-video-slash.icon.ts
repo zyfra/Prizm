@@ -4,5 +4,5 @@ export const prizmIconsVideoSlash: {
   data: string;
 } = {
   name: 'video-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12ZM4.5 3a.5.5 0 0 1 .5-.5h6A1.5 1.5 0 0 1 12.5 4v2.793l2.146-2.147A.5.5 0 0 1 15.5 5v6a.5.5 0 0 1-.854.354L12.5 9.207V10a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H5a.5.5 0 0 1-.5-.5Zm-4 2a.5.5 0 0 1 1 0v7a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 12V5Zm12.207 3L14.5 9.793V6.207L12.707 8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12ZM4.5 3a.5.5 0 0 1 .5-.5h6A1.5 1.5 0 0 1 12.5 4v2.793l2.146-2.147A.5.5 0 0 1 15.5 5v6a.5.5 0 0 1-.854.354L12.5 9.207V10a.5.5 0 0 1-1 0V4a.5.5 0 0 0-.5-.5H5a.5.5 0 0 1-.5-.5Zm-4 2a.5.5 0 0 1 1 0v7a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 12V5Zm12.207 3L14.5 9.793V6.207L12.707 8Z" fill="currentColor"/></svg>`
 };

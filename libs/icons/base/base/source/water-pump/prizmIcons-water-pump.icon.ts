@@ -4,5 +4,5 @@ export const prizmIconsWaterPump: {
   data: string;
 } = {
   name: 'water-pump',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 2a5 5 0 0 0-5 5v1H3a1 1 0 0 0 0 2h5v10H5a1 1 0 1 0 0 2h4a.997.997 0 0 0 .411-.088A2 2 0 0 0 10 22h6c.205 0 .403-.03.589-.088A.997.997 0 0 0 17 22h2a1 1 0 1 0 0-2h-1v-7h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2a5 5 0 0 0-5-5Zm7 9h-2V9h2v2Zm-4-4v13h-6V7a3 3 0 1 1 6 0ZM3.5 15A1.5 1.5 0 0 0 5 13.5c0-.828-1.5-2.5-1.5-2.5S2 12.672 2 13.5A1.5 1.5 0 0 0 3.5 15Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 2a5 5 0 0 0-5 5v1H3a1 1 0 0 0 0 2h5v10H5a1 1 0 1 0 0 2h4a.997.997 0 0 0 .411-.088A2 2 0 0 0 10 22h6c.205 0 .403-.03.589-.088A.997.997 0 0 0 17 22h2a1 1 0 1 0 0-2h-1v-7h2a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-2a5 5 0 0 0-5-5Zm7 9h-2V9h2v2Zm-4-4v13h-6V7a3 3 0 1 1 6 0ZM3.5 15A1.5 1.5 0 0 0 5 13.5c0-.828-1.5-2.5-1.5-2.5S2 12.672 2 13.5A1.5 1.5 0 0 0 3.5 15Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsCirclesLineLeftUpCircleRightDown: {
   data: string;
 } = {
   name: 'circles-line-left-up-circle-right-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM3 6a3 3 0 1 1 5.708 1.293l1.312 1.313c1.89-1.68 3.555-2.344 4.98-2.539V6a3 3 0 1 1 .768 2.005c-1.196.05-2.873.514-5.06 2.702-2.189 2.188-2.654 3.865-2.703 5.061a3 3 0 1 1-1.937-.767c.194-1.426.857-3.09 2.538-4.98L7.293 8.707A3 3 0 0 1 3 6Zm14 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-5 9.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm3.5-5.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM5 18a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM3 6a3 3 0 1 1 5.708 1.293l1.312 1.313c1.89-1.68 3.555-2.344 4.98-2.539V6a3 3 0 1 1 .768 2.005c-1.196.05-2.873.514-5.06 2.702-2.189 2.188-2.654 3.865-2.703 5.061a3 3 0 1 1-1.937-.767c.194-1.426.857-3.09 2.538-4.98L7.293 8.707A3 3 0 0 1 3 6Zm14 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-5 9.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm3.5-5.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM5 18a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`
 };

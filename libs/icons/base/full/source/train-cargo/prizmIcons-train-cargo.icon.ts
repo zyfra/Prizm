@@ -4,5 +4,5 @@ export const prizmIconsTrainCargo: {
   data: string;
 } = {
   name: 'train-cargo',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2a.5.5 0 0 1 .5-.5h6.5A1.5 1.5 0 0 1 10 3h.5a.5.5 0 0 1 0 1H10v4h3V7a.5.5 0 0 1 1 0v1.445l.988 4.447a.5.5 0 0 1-.488.608H13a.5.5 0 0 1-.395-.193L9.255 9H2a.5.5 0 0 1 0-1h3.5V5.5H2a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v3H9V3a.5.5 0 0 0-.5-.5H2a.5.5 0 0 1-.5-.5Zm11.745 10.5L10.521 9H13.1l.778 3.5h-.633ZM2.5 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm2.732-1A2 2 0 1 1 3.5 10h5a2 2 0 1 1-1.732 1H5.232ZM8.5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2a.5.5 0 0 1 .5-.5h6.5A1.5 1.5 0 0 1 10 3h.5a.5.5 0 0 1 0 1H10v4h3V7a.5.5 0 0 1 1 0v1.445l.988 4.447a.5.5 0 0 1-.488.608H13a.5.5 0 0 1-.395-.193L9.255 9H2a.5.5 0 0 1 0-1h3.5V5.5H2a.5.5 0 0 1 0-1h4a.5.5 0 0 1 .5.5v3H9V3a.5.5 0 0 0-.5-.5H2a.5.5 0 0 1-.5-.5Zm11.745 10.5L10.521 9H13.1l.778 3.5h-.633ZM2.5 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm2.732-1A2 2 0 1 1 3.5 10h5a2 2 0 1 1-1.732 1H5.232ZM8.5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsArrowsInside: {
   data: string;
 } = {
   name: 'arrows-inside',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.354 1.354a.5.5 0 0 0-.707-.708L10.5 4.793V1a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-3.793l4.147-4.146ZM.5 10a.5.5 0 0 0 .5.5h3.793L.646 14.646a.5.5 0 1 0 .708.707L5.5 11.207V15a.5.5 0 1 0 1 0v-5a.5.5 0 0 0-.5-.5H1a.5.5 0 0 0-.5.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.354 1.354a.5.5 0 0 0-.707-.708L10.5 4.793V1a.5.5 0 0 0-1 0v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 0-1h-3.793l4.147-4.146ZM.5 10a.5.5 0 0 0 .5.5h3.793L.646 14.646a.5.5 0 1 0 .708.707L5.5 11.207V15a.5.5 0 1 0 1 0v-5a.5.5 0 0 0-.5-.5H1a.5.5 0 0 0-.5.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

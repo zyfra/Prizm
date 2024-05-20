@@ -4,5 +4,5 @@ export const prizmIconsVectorSquare: {
   data: string;
 } = {
   name: 'vector-square',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v10a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2H7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2V3Zm4 4v10a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H7a2 2 0 0 1-2 2ZM4 5h1V3H3v2h1Zm0 14H3v2h2v-2H4Zm15 0h2v2h-2v-2Zm2-14h-2V3h2v2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v10a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2H7a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2V3Zm4 4v10a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2H7a2 2 0 0 1-2 2ZM4 5h1V3H3v2h1Zm0 14H3v2h2v-2H4Zm15 0h2v2h-2v-2Zm2-14h-2V3h2v2Z" fill="currentColor"/></svg>`
 };

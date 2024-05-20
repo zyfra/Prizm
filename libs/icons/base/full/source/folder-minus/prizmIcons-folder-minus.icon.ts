@@ -4,5 +4,5 @@ export const prizmIconsFolderMinus: {
   data: string;
 } = {
   name: 'folder-minus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 3a.5.5 0 0 1 .5-.5h3.586a.5.5 0 0 1 .353.146l1.415 1.415a1.5 1.5 0 0 0 1.06.439H14a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V3ZM2 1.5A1.5 1.5 0 0 0 .5 3v10A1.5 1.5 0 0 0 2 14.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 14 3.5H8.414a.5.5 0 0 1-.353-.146L6.646 1.939a1.5 1.5 0 0 0-1.06-.439H2Zm4 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 3a.5.5 0 0 1 .5-.5h3.586a.5.5 0 0 1 .353.146l1.415 1.415a1.5 1.5 0 0 0 1.06.439H14a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V3ZM2 1.5A1.5 1.5 0 0 0 .5 3v10A1.5 1.5 0 0 0 2 14.5h12a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 14 3.5H8.414a.5.5 0 0 1-.353-.146L6.646 1.939a1.5 1.5 0 0 0-1.06-.439H2Zm4 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z" fill="currentColor"/></svg>`
 };

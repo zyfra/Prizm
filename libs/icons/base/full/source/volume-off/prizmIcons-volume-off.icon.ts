@@ -4,5 +4,5 @@ export const prizmIconsVolumeOff: {
   data: string;
 } = {
   name: 'volume-off',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.246 2.565A.5.5 0 0 1 12.5 3v10a.5.5 0 0 1-.757.429L6.98 10.57a.5.5 0 0 0-.257-.071H5A1.5 1.5 0 0 1 3.5 9V7A1.5 1.5 0 0 1 5 5.5h1.723a.5.5 0 0 0 .257-.071l4.763-2.858a.5.5 0 0 1 .503-.006ZM11.5 3.883 7.495 6.286a1.5 1.5 0 0 1-.772.214H5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h1.723a1.5 1.5 0 0 1 .772.214l4.005 2.403V3.883Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.246 2.565A.5.5 0 0 1 12.5 3v10a.5.5 0 0 1-.757.429L6.98 10.57a.5.5 0 0 0-.257-.071H5A1.5 1.5 0 0 1 3.5 9V7A1.5 1.5 0 0 1 5 5.5h1.723a.5.5 0 0 0 .257-.071l4.763-2.858a.5.5 0 0 1 .503-.006ZM11.5 3.883 7.495 6.286a1.5 1.5 0 0 1-.772.214H5a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 .5.5h1.723a1.5 1.5 0 0 1 .772.214l4.005 2.403V3.883Z" fill="currentColor"/></svg>`
 };

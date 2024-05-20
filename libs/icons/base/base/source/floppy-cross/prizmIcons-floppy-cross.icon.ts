@@ -4,5 +4,5 @@ export const prizmIconsFloppyCross: {
   data: string;
 } = {
   name: 'floppy-cross',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.707 2.293a1 1 0 0 1 0 1.414L20.414 5l1.293 1.293a1 1 0 0 1-1.414 1.414L19 6.414l-1.293 1.293a1 1 0 1 1-1.414-1.414L17.586 5l-1.293-1.293a1 1 0 0 1 1.414-1.414L19 3.586l1.293-1.293a1 1 0 0 1 1.414 0ZM2 9a2 2 0 0 1 2-2h6.71a2 2 0 0 1 1.415.586l4.29 4.289A2 2 0 0 1 17 13.289V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9Zm6 11h3v-2H8v2Zm5 0v-2a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2H4V9h2v2a2 2 0 0 0 2 2h1a1 1 0 1 0 0-2H8V9h2.71L15 13.29V20h-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M21.707 2.293a1 1 0 0 1 0 1.414L20.414 5l1.293 1.293a1 1 0 0 1-1.414 1.414L19 6.414l-1.293 1.293a1 1 0 1 1-1.414-1.414L17.586 5l-1.293-1.293a1 1 0 0 1 1.414-1.414L19 3.586l1.293-1.293a1 1 0 0 1 1.414 0ZM2 9a2 2 0 0 1 2-2h6.71a2 2 0 0 1 1.415.586l4.29 4.289A2 2 0 0 1 17 13.289V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V9Zm6 11h3v-2H8v2Zm5 0v-2a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v2H4V9h2v2a2 2 0 0 0 2 2h1a1 1 0 1 0 0-2H8V9h2.71L15 13.29V20h-2Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsGasPump: {
   data: string;
 } = {
   name: 'gas-pump',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 .5A1.5 1.5 0 0 0 2.5 2v12.5H1a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1h-2.5V2A1.5 1.5 0 0 0 11 .5H4Zm7.5 3V2a.5.5 0 0 0-.5-.5H4a.5.5 0 0 0-.5.5v1.5h8Zm-8 1h8v4h-8v-4Zm0 10v-5h8v5h-8ZM14.5 4a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0V4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 .5A1.5 1.5 0 0 0 2.5 2v12.5H1a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1h-2.5V2A1.5 1.5 0 0 0 11 .5H4Zm7.5 3V2a.5.5 0 0 0-.5-.5H4a.5.5 0 0 0-.5.5v1.5h8Zm-8 1h8v4h-8v-4Zm0 10v-5h8v5h-8ZM14.5 4a.5.5 0 0 0-1 0v8a.5.5 0 0 0 1 0V4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

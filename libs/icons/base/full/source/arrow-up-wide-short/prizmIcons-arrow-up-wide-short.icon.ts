@@ -4,5 +4,5 @@ export const prizmIconsArrowUpWideShort: {
   data: string;
 } = {
   name: 'arrow-up-wide-short',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1a.5.5 0 0 0-1 0v12.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L4.5 13.793V1ZM8 .5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1H8Zm0 4a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1H8ZM7.5 9a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1a.5.5 0 0 0-1 0v12.793l-1.146-1.147a.5.5 0 0 0-.708.708l2 2a.5.5 0 0 0 .708 0l2-2a.5.5 0 0 0-.708-.708L4.5 13.793V1ZM8 .5a.5.5 0 0 0 0 1h7a.5.5 0 0 0 0-1H8Zm0 4a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1H8ZM7.5 9a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></svg>`
 };

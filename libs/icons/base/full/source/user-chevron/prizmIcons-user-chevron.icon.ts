@@ -4,5 +4,5 @@ export const prizmIconsUserChevron: {
   data: string;
 } = {
   name: 'user-chevron',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM4.5 4a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm5.5 9 2.5 3 2.5-3h-5Zm-7.5 2a5.5 5.5 0 0 1 8.541-4.584.5.5 0 1 0 .554-.832A6.5 6.5 0 0 0 1.5 15a.5.5 0 0 0 1 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM4.5 4a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm5.5 9 2.5 3 2.5-3h-5Zm-7.5 2a5.5 5.5 0 0 1 8.541-4.584.5.5 0 1 0 .554-.832A6.5 6.5 0 0 0 1.5 15a.5.5 0 0 0 1 0Z" fill="currentColor"/></svg>`
 };

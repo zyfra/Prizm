@@ -4,5 +4,5 @@ export const prizmIconsCloud: {
   data: string;
 } = {
   name: 'cloud',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 11a7 7 0 0 1 13.93-1H18a5 5 0 0 1 0 10H5a4 4 0 0 1-.913-7.895A7.045 7.045 0 0 1 4 11Zm7-5a5 5 0 0 0-4.8 6.407C6.444 13.24 5.787 14 5 14a2 2 0 1 0 0 4h13a3 3 0 1 0-.66-5.927A1.1 1.1 0 0 1 16 11a5 5 0 0 0-5-5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 11a7 7 0 0 1 13.93-1H18a5 5 0 0 1 0 10H5a4 4 0 0 1-.913-7.895A7.045 7.045 0 0 1 4 11Zm7-5a5 5 0 0 0-4.8 6.407C6.444 13.24 5.787 14 5 14a2 2 0 1 0 0 4h13a3 3 0 1 0-.66-5.927A1.1 1.1 0 0 1 16 11a5 5 0 0 0-5-5Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsUserCircle: {
   data: string;
 } = {
   name: 'user-circle',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A6.5 6.5 0 0 0 2.876 12a5.501 5.501 0 0 1 10.249-.001A6.5 6.5 0 0 0 8 1.5Zm5.27 11.836A7.5 7.5 0 1 0 2.73 2.664a7.5 7.5 0 0 0 10.54 10.672Zm-.923-.504a4.502 4.502 0 0 0-8.694 0A6.476 6.476 0 0 0 8 14.5c1.671 0 3.196-.63 4.347-1.668ZM8 3.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM5.5 5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A6.5 6.5 0 0 0 2.876 12a5.501 5.501 0 0 1 10.249-.001A6.5 6.5 0 0 0 8 1.5Zm5.27 11.836A7.5 7.5 0 1 0 2.73 2.664a7.5 7.5 0 0 0 10.54 10.672Zm-.923-.504a4.502 4.502 0 0 0-8.694 0A6.476 6.476 0 0 0 8 14.5c1.671 0 3.196-.63 4.347-1.668ZM8 3.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM5.5 5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

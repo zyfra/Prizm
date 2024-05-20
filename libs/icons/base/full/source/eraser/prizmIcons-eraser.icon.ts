@@ -4,5 +4,5 @@ export const prizmIconsEraser: {
   data: string;
 } = {
   name: 'eraser',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.91.646a.5.5 0 0 0-.708 0L.646 9.202a.5.5 0 0 0 0 .707l5.445 5.445a.5.5 0 0 0 .707 0l8.556-8.556a.5.5 0 0 0 0-.707L9.909.646ZM6.443 14.293 1.707 9.556l2.07-2.071 4.738 4.737-2.07 2.07Zm2.778-2.778 5.07-5.07-4.736-4.738-5.071 5.07 4.737 4.738Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M9.91.646a.5.5 0 0 0-.708 0L.646 9.202a.5.5 0 0 0 0 .707l5.445 5.445a.5.5 0 0 0 .707 0l8.556-8.556a.5.5 0 0 0 0-.707L9.909.646ZM6.443 14.293 1.707 9.556l2.07-2.071 4.738 4.737-2.07 2.07Zm2.778-2.778 5.07-5.07-4.736-4.738-5.071 5.07 4.737 4.738Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

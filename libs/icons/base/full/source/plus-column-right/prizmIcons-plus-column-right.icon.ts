@@ -4,5 +4,5 @@ export const prizmIconsPlusColumnRight: {
   data: string;
 } = {
   name: 'plus-column-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 1A.5.5 0 0 1 9 .5h6a.5.5 0 0 1 .5.5v14a.5.5 0 0 1-.5.5H9a.5.5 0 0 1-.5-.5v-3.5H7a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5h1.5V1ZM9 5.5H7.5v5h7v-5H9Zm.5 6v3h5v-3h-5Zm0-7v-3h5v3h-5ZM3 5.5a.5.5 0 0 1 .5.5v1.5H5a.5.5 0 0 1 0 1H3.5V10a.5.5 0 0 1-1 0V8.5H1a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 1A.5.5 0 0 1 9 .5h6a.5.5 0 0 1 .5.5v14a.5.5 0 0 1-.5.5H9a.5.5 0 0 1-.5-.5v-3.5H7a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5h1.5V1ZM9 5.5H7.5v5h7v-5H9Zm.5 6v3h5v-3h-5Zm0-7v-3h5v3h-5ZM3 5.5a.5.5 0 0 1 .5.5v1.5H5a.5.5 0 0 1 0 1H3.5V10a.5.5 0 0 1-1 0V8.5H1a.5.5 0 0 1 0-1h1.5V6a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

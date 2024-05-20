@@ -4,5 +4,5 @@ export const prizmIconsCheckDouble: {
   data: string;
 } = {
   name: 'check-double',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.41 3.287a.5.5 0 1 0-.82-.574l-6.604 9.435L1.4 8.7a.5.5 0 0 0-.8.6l3 4a.5.5 0 0 0 .81-.013l7-10Zm4 0a.5.5 0 1 0-.82-.574l-6.658 9.512-.578-.579a.5.5 0 0 0-.708.708l1 1a.5.5 0 0 0 .764-.067l7-10Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.41 3.287a.5.5 0 1 0-.82-.574l-6.604 9.435L1.4 8.7a.5.5 0 0 0-.8.6l3 4a.5.5 0 0 0 .81-.013l7-10Zm4 0a.5.5 0 1 0-.82-.574l-6.658 9.512-.578-.579a.5.5 0 0 0-.708.708l1 1a.5.5 0 0 0 .764-.067l7-10Z" fill="currentColor"/></svg>`
 };

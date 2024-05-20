@@ -4,5 +4,5 @@ export const prizmIconsFloppy: {
   data: string;
 } = {
   name: 'floppy',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h8.586A2 2 0 0 1 15 3.586L20.414 9A2 2 0 0 1 21 10.414V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm7 14h4v-2h-4v2Zm6 0v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H5V5h3v4a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2h-3V5h3.586L19 10.414V19h-3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h8.586A2 2 0 0 1 15 3.586L20.414 9A2 2 0 0 1 21 10.414V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm7 14h4v-2h-4v2Zm6 0v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H5V5h3v4a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2h-3V5h3.586L19 10.414V19h-3Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsCodeSimple: {
   data: string;
 } = {
   name: 'code-simple',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.768 6.64a1 1 0 0 0-1.536-1.28l-4.467 5.36a2 2 0 0 0 0 2.56l4.467 5.36a1 1 0 1 0 1.536-1.28L4.302 12l4.466-5.36Zm8-1.28a1 1 0 0 0-1.536 1.28L19.698 12l-4.466 5.36a1 1 0 0 0 1.536 1.28l4.467-5.36a2 2 0 0 0 0-2.56l-4.467-5.36Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.768 6.64a1 1 0 0 0-1.536-1.28l-4.467 5.36a2 2 0 0 0 0 2.56l4.467 5.36a1 1 0 1 0 1.536-1.28L4.302 12l4.466-5.36Zm8-1.28a1 1 0 0 0-1.536 1.28L19.698 12l-4.466 5.36a1 1 0 0 0 1.536 1.28l4.467-5.36a2 2 0 0 0 0-2.56l-4.467-5.36Z" fill="currentColor"/></svg>`
 };

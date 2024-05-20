@@ -4,5 +4,5 @@ export const prizmIconsAlignTop: {
   data: string;
 } = {
   name: 'align-top',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 15a.5.5 0 0 1-1 0V5.207L5.354 7.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.207V15ZM2 .5a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" transform="rotate(-180 8 8)" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 15a.5.5 0 0 1-1 0V5.207L5.354 7.354a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.207V15ZM2 .5a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" transform="rotate(-180 8 8)" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

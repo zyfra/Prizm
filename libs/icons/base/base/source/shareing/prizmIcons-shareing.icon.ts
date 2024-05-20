@@ -4,5 +4,5 @@ export const prizmIconsShareing: {
   data: string;
 } = {
   name: 'shareing',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-3 1a3 3 0 1 1 .897 2.14l-7.916 3.518a3.034 3.034 0 0 1 0 .684l7.916 3.518a3 3 0 1 1-.878 1.798L7.103 14.14a3 3 0 1 1 0-4.28l7.916-3.518A3.034 3.034 0 0 1 15 6ZM5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm12 7a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M18 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-3 1a3 3 0 1 1 .897 2.14l-7.916 3.518a3.034 3.034 0 0 1 0 .684l7.916 3.518a3 3 0 1 1-.878 1.798L7.103 14.14a3 3 0 1 1 0-4.28l7.916-3.518A3.034 3.034 0 0 1 15 6ZM5 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm12 7a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`
 };

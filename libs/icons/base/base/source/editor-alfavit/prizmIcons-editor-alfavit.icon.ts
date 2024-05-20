@@ -4,5 +4,5 @@ export const prizmIconsEditorAlfavit: {
   data: string;
 } = {
   name: 'editor-alfavit',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.894 3.553a1 1 0 0 0-1.789 0l-8 16a1 1 0 1 0 1.79.894L6.617 17h10.764l1.723 3.447a1 1 0 1 0 1.79-.894l-1.987-3.972a.975.975 0 0 0-.027-.054L12.894 3.553ZM16.382 15 12 6.236 7.618 15h8.764Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.894 3.553a1 1 0 0 0-1.789 0l-8 16a1 1 0 1 0 1.79.894L6.617 17h10.764l1.723 3.447a1 1 0 1 0 1.79-.894l-1.987-3.972a.975.975 0 0 0-.027-.054L12.894 3.553ZM16.382 15 12 6.236 7.618 15h8.764Z" fill="currentColor"/></svg>`
 };

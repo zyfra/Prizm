@@ -4,5 +4,5 @@ export const prizmIconsUserCard: {
   data: string;
 } = {
   name: 'user-card',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 4A1.5 1.5 0 0 1 2 2.5h12A1.5 1.5 0 0 1 15.5 4v8a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 12V4Zm7.83 8.5a3.002 3.002 0 0 0-5.66 0h5.66Zm1.044 0a4.001 4.001 0 0 0-7.712-.131A.499.499 0 0 1 1.5 12V4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H9.374ZM5.5 5.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm6-.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM11 8.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 4A1.5 1.5 0 0 1 2 2.5h12A1.5 1.5 0 0 1 15.5 4v8a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 12V4Zm7.83 8.5a3.002 3.002 0 0 0-5.66 0h5.66Zm1.044 0a4.001 4.001 0 0 0-7.712-.131A.499.499 0 0 1 1.5 12V4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-.5.5H9.374ZM5.5 5.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm6-.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5ZM11 8.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2Z" fill="currentColor"/></svg>`
 };

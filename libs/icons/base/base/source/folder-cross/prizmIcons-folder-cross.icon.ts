@@ -4,5 +4,5 @@ export const prizmIconsFolderCross: {
   data: string;
 } = {
   name: 'folder-cross',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5a2 2 0 0 1 2-2h4.586A2 2 0 0 1 10 3.586L12.414 6H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5Zm6.586 0H4v13h16V8h-7.586A2 2 0 0 1 11 7.414L8.586 5Zm6.121 5.293a1 1 0 0 1 0 1.414L13.414 13l1.293 1.293a1 1 0 0 1-1.414 1.414L12 14.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 13l-1.293-1.293a1 1 0 1 1 1.414-1.414L12 11.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5a2 2 0 0 1 2-2h4.586A2 2 0 0 1 10 3.586L12.414 6H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5Zm6.586 0H4v13h16V8h-7.586A2 2 0 0 1 11 7.414L8.586 5Zm6.121 5.293a1 1 0 0 1 0 1.414L13.414 13l1.293 1.293a1 1 0 0 1-1.414 1.414L12 14.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 13l-1.293-1.293a1 1 0 1 1 1.414-1.414L12 11.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsGauge: {
   data: string;
 } = {
   name: 'gauge',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.535 10.5H1.52A6.501 6.501 0 0 1 7.5 4.519v3.016A3.502 3.502 0 0 0 4.535 10.5ZM8.5 7.535a3.502 3.502 0 0 1 2.965 2.965h3.016A6.501 6.501 0 0 0 8.5 4.519v3.016ZM8 3.5A7.5 7.5 0 0 0 .5 11a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5 2.5 2.5 0 0 1 5 0 .5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5A7.5 7.5 0 0 0 8 3.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.535 10.5H1.52A6.501 6.501 0 0 1 7.5 4.519v3.016A3.502 3.502 0 0 0 4.535 10.5ZM8.5 7.535a3.502 3.502 0 0 1 2.965 2.965h3.016A6.501 6.501 0 0 0 8.5 4.519v3.016ZM8 3.5A7.5 7.5 0 0 0 .5 11a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5 2.5 2.5 0 0 1 5 0 .5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5A7.5 7.5 0 0 0 8 3.5Z" fill="currentColor"/></svg>`
 };

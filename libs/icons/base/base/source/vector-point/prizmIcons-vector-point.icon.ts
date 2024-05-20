@@ -4,5 +4,5 @@ export const prizmIconsVectorPoint: {
   data: string;
 } = {
   name: 'vector-point',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1a2 2 0 0 0-2 2v2H2a1 1 0 0 0 0 2h5v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7h5a1 1 0 1 0 0-2h-5V3a2 2 0 0 0-2-2H9Zm0 8V3h6v6H9Zm2.077 5.215-2.908 6.979c-.37.89.61 1.738 1.438 1.242l1.879-1.127a1 1 0 0 1 1.028 0l1.88 1.127c.827.496 1.808-.351 1.437-1.242l-2.908-6.979c-.342-.82-1.504-.82-1.846 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1a2 2 0 0 0-2 2v2H2a1 1 0 0 0 0 2h5v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V7h5a1 1 0 1 0 0-2h-5V3a2 2 0 0 0-2-2H9Zm0 8V3h6v6H9Zm2.077 5.215-2.908 6.979c-.37.89.61 1.738 1.438 1.242l1.879-1.127a1 1 0 0 1 1.028 0l1.88 1.127c.827.496 1.808-.351 1.437-1.242l-2.908-6.979c-.342-.82-1.504-.82-1.846 0Z" fill="currentColor"/></svg>`
 };

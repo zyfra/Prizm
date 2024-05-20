@@ -4,5 +4,5 @@ export const prizmIconsPaverSideView: {
   data: string;
 } = {
   name: 'paver-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 5a1 1 0 0 0-1 1v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h.05a2.5 2.5 0 1 0 2.45-2H4v-4h1a1 1 0 0 0 1-1V7h2.434L11 11.277V13h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h3.256A4.502 4.502 0 0 0 22 14.5a4.5 4.5 0 0 0-8.744-1.5H13v-2a1 1 0 0 0-.143-.514l-3-5A1 1 0 0 0 9 5H5Zm.5 11a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm12-4c-.818 0-1.544.393-2 1H18a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-2.5a2.5 2.5 0 1 0 2-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 5a1 1 0 0 0-1 1v2H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h.05a2.5 2.5 0 1 0 2.45-2H4v-4h1a1 1 0 0 0 1-1V7h2.434L11 11.277V13h-1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1h3.256A4.502 4.502 0 0 0 22 14.5a4.5 4.5 0 0 0-8.744-1.5H13v-2a1 1 0 0 0-.143-.514l-3-5A1 1 0 0 0 9 5H5Zm.5 11a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm12-4c-.818 0-1.544.393-2 1H18a1 1 0 0 1 1 1v1a1 1 0 0 1-1 1h-2.5a2.5 2.5 0 1 0 2-4Z" fill="currentColor"/></svg>`
 };

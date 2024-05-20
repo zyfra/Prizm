@@ -4,5 +4,5 @@ export const prizmIconsFolderOpen: {
   data: string;
 } = {
   name: 'folder-open',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 3a.5.5 0 0 1 .5-.5h3.586a.5.5 0 0 1 .353.146l1.415 1.415a1.5 1.5 0 0 0 1.06.439H12a.5.5 0 0 1 .5.5v1.5H3a.5.5 0 0 0-.48.363L1.5 10.43V3Zm-1 11.014a.5.5 0 0 0 .5.486h12a.5.5 0 0 0 .48-.363l2-7A.5.5 0 0 0 15 6.5h-1.5V5A1.5 1.5 0 0 0 12 3.5H8.414a.5.5 0 0 1-.353-.146L6.646 1.939a1.5 1.5 0 0 0-1.06-.439H2A1.5 1.5 0 0 0 .5 3v11.014ZM13 7.5H3.377l-1.714 6h10.96l1.714-6H13Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 3a.5.5 0 0 1 .5-.5h3.586a.5.5 0 0 1 .353.146l1.415 1.415a1.5 1.5 0 0 0 1.06.439H12a.5.5 0 0 1 .5.5v1.5H3a.5.5 0 0 0-.48.363L1.5 10.43V3Zm-1 11.014a.5.5 0 0 0 .5.486h12a.5.5 0 0 0 .48-.363l2-7A.5.5 0 0 0 15 6.5h-1.5V5A1.5 1.5 0 0 0 12 3.5H8.414a.5.5 0 0 1-.353-.146L6.646 1.939a1.5 1.5 0 0 0-1.06-.439H2A1.5 1.5 0 0 0 .5 3v11.014ZM13 7.5H3.377l-1.714 6h10.96l1.714-6H13Z" fill="currentColor"/></svg>`
 };

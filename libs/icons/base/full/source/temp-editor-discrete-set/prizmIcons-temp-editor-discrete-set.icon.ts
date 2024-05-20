@@ -4,5 +4,5 @@ export const prizmIconsTempEditorDiscreteSet: {
   data: string;
 } = {
   name: 'temp-editor-discrete-set',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1h14v3H1zM1 12h14v3H1zM13.333 6.667 14.667 8m-1.334-1.333L12 8m1.333-1.333v2.666M2.333 9.333 3.667 8M2.333 9.333 1 8m1.333 1.333V6.667"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M1 1h14v3H1zM1 12h14v3H1zM13.333 6.667 14.667 8m-1.334-1.333L12 8m1.333-1.333v2.666M2.333 9.333 3.667 8M2.333 9.333 1 8m1.333 1.333V6.667"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

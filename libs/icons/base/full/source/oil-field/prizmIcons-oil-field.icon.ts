@@ -4,5 +4,5 @@ export const prizmIconsOilField: {
   data: string;
 } = {
   name: 'oil-field',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.757 2.718a.245.245 0 0 1 .486 0L8.441 4.5H7.56l.198-1.782Zm1.48-.11.21 1.892H14a.5.5 0 0 1 0 1h-1v8h2a.5.5 0 0 1 0 1H1a.5.5 0 0 1 0-1h1.5v-6H2a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1.5h2.052l.21-1.893a1.245 1.245 0 0 1 2.475 0ZM12 13.5v-8H9.559l.889 8H12Zm-6.448 0H3.5v-6H4a.5.5 0 0 0 .5-.5V5.5h1.941l-.889 8ZM3.5 6.5h-1v-3h1v3Zm3.059 7 .166-1.5h2.55l.166 1.5H6.56Zm.5-4.5-.223 2h2.328L8.94 9H7.06Zm.11-1H8.83l-.278-2.5H7.448L7.17 8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.757 2.718a.245.245 0 0 1 .486 0L8.441 4.5H7.56l.198-1.782Zm1.48-.11.21 1.892H14a.5.5 0 0 1 0 1h-1v8h2a.5.5 0 0 1 0 1H1a.5.5 0 0 1 0-1h1.5v-6H2a.5.5 0 0 1-.5-.5V3a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1.5h2.052l.21-1.893a1.245 1.245 0 0 1 2.475 0ZM12 13.5v-8H9.559l.889 8H12Zm-6.448 0H3.5v-6H4a.5.5 0 0 0 .5-.5V5.5h1.941l-.889 8ZM3.5 6.5h-1v-3h1v3Zm3.059 7 .166-1.5h2.55l.166 1.5H6.56Zm.5-4.5-.223 2h2.328L8.94 9H7.06Zm.11-1H8.83l-.278-2.5H7.448L7.17 8Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsBluetooth: {
   data: string;
 } = {
   name: 'bluetooth',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.783.55a.5.5 0 0 1 .53.06l5 4a.5.5 0 0 1-.056.819L9.144 7.897l4.129 2.684a.5.5 0 0 1 .04.81l-5 4A.5.5 0 0 1 7.5 15V8.883L3.257 11.43a.5.5 0 1 1-.514-.858l4.514-2.708-4.53-2.944a.5.5 0 1 1 .546-.838L7.5 6.829V1a.5.5 0 0 1 .283-.45ZM8.5 8.67l3.647 2.371L8.5 13.96V8.67Zm0-1.554V2.04l3.626 2.901L8.5 7.117Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.783.55a.5.5 0 0 1 .53.06l5 4a.5.5 0 0 1-.056.819L9.144 7.897l4.129 2.684a.5.5 0 0 1 .04.81l-5 4A.5.5 0 0 1 7.5 15V8.883L3.257 11.43a.5.5 0 1 1-.514-.858l4.514-2.708-4.53-2.944a.5.5 0 1 1 .546-.838L7.5 6.829V1a.5.5 0 0 1 .283-.45ZM8.5 8.67l3.647 2.371L8.5 13.96V8.67Zm0-1.554V2.04l3.626 2.901L8.5 7.117Z" fill="currentColor"/></svg>`
 };

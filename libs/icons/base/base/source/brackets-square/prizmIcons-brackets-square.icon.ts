@@ -4,5 +4,5 @@ export const prizmIconsBracketsSquare: {
   data: string;
 } = {
   name: 'brackets-square',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2H4V5h3a1 1 0 0 0 0-2H4Zm13 0a1 1 0 1 0 0 2h3v14h-3a1 1 0 1 0 0 2h3a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2H4V5h3a1 1 0 0 0 0-2H4Zm13 0a1 1 0 1 0 0 2h3v14h-3a1 1 0 1 0 0 2h3a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-3Z" fill="currentColor"/></svg>`
 };

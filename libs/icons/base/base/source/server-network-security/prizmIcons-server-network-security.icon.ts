@@ -4,5 +4,5 @@ export const prizmIconsServerNetworkSecurity: {
   data: string;
 } = {
   name: 'server-network-security',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.029 2.451a2 2 0 0 0-2.058 0l-4 2.4a1.963 1.963 0 0 0-.959 1.756c.236 5.92 3.868 8.408 5.157 9.1.522.28 1.14.28 1.662 0 1.289-.692 4.921-3.18 5.157-9.1a1.963 1.963 0 0 0-.96-1.756l-3.999-2.4ZM12 13.881c-1.032-.586-3.787-2.574-3.988-7.322L12 4.166l3.988 2.393c-.2 4.748-2.956 6.736-3.988 7.323ZM13 18a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 21a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.029 2.451a2 2 0 0 0-2.058 0l-4 2.4a1.963 1.963 0 0 0-.959 1.756c.236 5.92 3.868 8.408 5.157 9.1.522.28 1.14.28 1.662 0 1.289-.692 4.921-3.18 5.157-9.1a1.963 1.963 0 0 0-.96-1.756l-3.999-2.4ZM12 13.881c-1.032-.586-3.787-2.574-3.988-7.322L12 4.166l3.988 2.393c-.2 4.748-2.956 6.736-3.988 7.323ZM13 18a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 21a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsSignal: {
   data: string;
 } = {
   name: 'signal',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 1a.5.5 0 0 0-1 0v14a.5.5 0 0 0 1 0V1Zm-4 3a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0V4ZM6 6.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5ZM2.5 10a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0v-5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.5 1a.5.5 0 0 0-1 0v14a.5.5 0 0 0 1 0V1Zm-4 3a.5.5 0 0 0-1 0v11a.5.5 0 0 0 1 0V4ZM6 6.5a.5.5 0 0 1 .5.5v8a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5ZM2.5 10a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0v-5Z" fill="currentColor"/></svg>`
 };

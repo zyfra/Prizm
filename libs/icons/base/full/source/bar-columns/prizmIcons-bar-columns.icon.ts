@@ -4,5 +4,5 @@ export const prizmIconsBarColumns: {
   data: string;
 } = {
   name: 'bar-columns',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v12A1.5 1.5 0 0 0 2 15.5h2A1.5 1.5 0 0 0 5.5 14V2A1.5 1.5 0 0 0 4 .5H2ZM1.5 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V2ZM12 3.5A1.5 1.5 0 0 0 10.5 5v9a1.5 1.5 0 0 0 1.5 1.5h2a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 14 3.5h-2ZM11.5 5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v12A1.5 1.5 0 0 0 2 15.5h2A1.5 1.5 0 0 0 5.5 14V2A1.5 1.5 0 0 0 4 .5H2ZM1.5 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V2ZM12 3.5A1.5 1.5 0 0 0 10.5 5v9a1.5 1.5 0 0 0 1.5 1.5h2a1.5 1.5 0 0 0 1.5-1.5V5A1.5 1.5 0 0 0 14 3.5h-2ZM11.5 5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5V5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

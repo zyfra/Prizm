@@ -4,5 +4,5 @@ export const prizmIconsMicrophone: {
   data: string;
 } = {
   name: 'microphone',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-2 4a2 2 0 1 1 4 0v5a2 2 0 1 1-4 0V6Zm2 10a5 5 0 0 0 5-5 1 1 0 1 1 2 0 7.001 7.001 0 0 1-6 6.93V20h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.07A7.001 7.001 0 0 1 5 11a1 1 0 1 1 2 0 5 5 0 0 0 5 5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2a4 4 0 0 0-4 4v5a4 4 0 0 0 8 0V6a4 4 0 0 0-4-4Zm-2 4a2 2 0 1 1 4 0v5a2 2 0 1 1-4 0V6Zm2 10a5 5 0 0 0 5-5 1 1 0 1 1 2 0 7.001 7.001 0 0 1-6 6.93V20h2a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h2v-2.07A7.001 7.001 0 0 1 5 11a1 1 0 1 1 2 0 5 5 0 0 0 5 5Z" fill="currentColor"/></svg>`
 };

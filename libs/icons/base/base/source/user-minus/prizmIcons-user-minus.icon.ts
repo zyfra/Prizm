@@ -4,5 +4,5 @@ export const prizmIconsUserMinus: {
   data: string;
 } = {
   name: 'user-minus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm4 8a5 5 0 0 0-5 5 1 1 0 1 1-2 0 7 7 0 1 1 14 0 1 1 0 1 1-2 0 5 5 0 0 0-5-5Zm7-9a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4ZM6 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm4 8a5 5 0 0 0-5 5 1 1 0 1 1-2 0 7 7 0 1 1 14 0 1 1 0 1 1-2 0 5 5 0 0 0-5-5Zm7-9a1 1 0 1 0 0 2h4a1 1 0 1 0 0-2h-4Z" fill="currentColor"/></svg>`
 };

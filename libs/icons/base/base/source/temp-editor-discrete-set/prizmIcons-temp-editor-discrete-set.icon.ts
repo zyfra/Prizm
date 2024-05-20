@@ -4,5 +4,5 @@ export const prizmIconsTempEditorDiscreteSet: {
   data: string;
 } = {
   name: 'temp-editor-discrete-set',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4Zm0 2h16v2H4V3Zm0 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H4Zm0 2h16v2H4v-2Zm14.293-9.707a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1-1.414 1.414L20 12.414V14a1 1 0 1 1-2 0v-1.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2ZM5.707 14.707a1 1 0 0 1-1.414 0l-2-2a1 1 0 1 1 1.414-1.414l.293.293V10a1 1 0 0 1 2 0v1.586l.293-.293a1 1 0 0 1 1.414 1.414l-2 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4Zm0 2h16v2H4V3Zm0 14a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2H4Zm0 2h16v2H4v-2Zm14.293-9.707a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1-1.414 1.414L20 12.414V14a1 1 0 1 1-2 0v-1.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2ZM5.707 14.707a1 1 0 0 1-1.414 0l-2-2a1 1 0 1 1 1.414-1.414l.293.293V10a1 1 0 0 1 2 0v1.586l.293-.293a1 1 0 0 1 1.414 1.414l-2 2Z" fill="currentColor"/></svg>`
 };

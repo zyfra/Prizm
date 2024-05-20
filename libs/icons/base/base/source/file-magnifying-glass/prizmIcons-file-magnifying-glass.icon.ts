@@ -4,5 +4,5 @@ export const prizmIconsFileMagnifyingGlass: {
   data: string;
 } = {
   name: 'file-magnifying-glass',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h7a1 1 0 1 0 0-2H4V4h6v4a2 2 0 0 0 2 2h4v1a1 1 0 1 0 2 0V9.414c0-.081-.005-.162-.015-.242a1.004 1.004 0 0 0-.41-.99 2.004 2.004 0 0 0-.16-.182L12 2.586a1.986 1.986 0 0 0-.182-.161.999.999 0 0 0-.99-.41A2 2 0 0 0 10.586 2H4Zm8 3.414V8h2.586L12 5.414ZM14 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm-2 0a4 4 0 1 1 7.446 2.032l1.261 1.26a1 1 0 0 1-1.414 1.415l-1.261-1.26A4 4 0 0 1 12 17Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h7a1 1 0 1 0 0-2H4V4h6v4a2 2 0 0 0 2 2h4v1a1 1 0 1 0 2 0V9.414c0-.081-.005-.162-.015-.242a1.004 1.004 0 0 0-.41-.99 2.004 2.004 0 0 0-.16-.182L12 2.586a1.986 1.986 0 0 0-.182-.161.999.999 0 0 0-.99-.41A2 2 0 0 0 10.586 2H4Zm8 3.414V8h2.586L12 5.414ZM14 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm-2 0a4 4 0 1 1 7.446 2.032l1.261 1.26a1 1 0 0 1-1.414 1.415l-1.261-1.26A4 4 0 0 1 12 17Z" fill="currentColor"/></svg>`
 };

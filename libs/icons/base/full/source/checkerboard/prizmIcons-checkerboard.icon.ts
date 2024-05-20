@@ -4,5 +4,5 @@ export const prizmIconsCheckerboard: {
   data: string;
 } = {
   name: 'checkerboard',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h12A1.5 1.5 0 0 1 15.5 2v12a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 14V2ZM14 14.5H8.415c.055-.156.085-.325.085-.5V9c0-.231-.052-.45-.146-.646.196.094.415.146.646.146h5c.175 0 .344-.03.5-.085V14a.5.5 0 0 1-.5.5ZM7.5 7c0 .231.052.45.146.646A1.494 1.494 0 0 0 7 7.5H2c-.175 0-.344.03-.5.085V2a.5.5 0 0 1 .5-.5h5.585A1.498 1.498 0 0 0 7.5 2v5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h12A1.5 1.5 0 0 1 15.5 2v12a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 14V2ZM14 14.5H8.415c.055-.156.085-.325.085-.5V9c0-.231-.052-.45-.146-.646.196.094.415.146.646.146h5c.175 0 .344-.03.5-.085V14a.5.5 0 0 1-.5.5ZM7.5 7c0 .231.052.45.146.646A1.494 1.494 0 0 0 7 7.5H2c-.175 0-.344.03-.5.085V2a.5.5 0 0 1 .5-.5h5.585A1.498 1.498 0 0 0 7.5 2v5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

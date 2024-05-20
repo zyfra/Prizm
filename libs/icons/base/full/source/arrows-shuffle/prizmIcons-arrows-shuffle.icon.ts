@@ -4,5 +4,5 @@ export const prizmIconsArrowsShuffle: {
   data: string;
 } = {
   name: 'arrows-shuffle',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.354 2.646a.5.5 0 0 0-.708.708l.147.146h-1.795A4.5 4.5 0 0 0 8 5.936 4.5 4.5 0 0 0 4 3.5H1a.5.5 0 0 0 0 1h3a3.5 3.5 0 1 1 0 7H1a.5.5 0 0 0 0 1h3a4.5 4.5 0 0 0 4-2.436 4.5 4.5 0 0 0 4 2.436h1.793l-.147.146a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708l-1-1a.5.5 0 0 0-.708.708l.147.146H12a3.5 3.5 0 1 1 0-7h1.793l-.147.146a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708l-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.354 2.646a.5.5 0 0 0-.708.708l.147.146h-1.795A4.5 4.5 0 0 0 8 5.936 4.5 4.5 0 0 0 4 3.5H1a.5.5 0 0 0 0 1h3a3.5 3.5 0 1 1 0 7H1a.5.5 0 0 0 0 1h3a4.5 4.5 0 0 0 4-2.436 4.5 4.5 0 0 0 4 2.436h1.793l-.147.146a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708l-1-1a.5.5 0 0 0-.708.708l.147.146H12a3.5 3.5 0 1 1 0-7h1.793l-.147.146a.5.5 0 0 0 .708.708l1-1a.5.5 0 0 0 0-.708l-1-1Z" fill="currentColor"/></svg>`
 };

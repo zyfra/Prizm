@@ -4,5 +4,5 @@ export const prizmIconsQuestion: {
   data: string;
 } = {
   name: 'question',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 5a3.5 3.5 0 1 1 4.367 3.392C8.185 8.566 7.5 9.15 7.5 10v1.5a.5.5 0 0 0 1 0V10c0-.255.225-.54.613-.639A4.502 4.502 0 0 0 8 .5 4.5 4.5 0 0 0 3.5 5a.5.5 0 0 0 1 0ZM8 15a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 5a3.5 3.5 0 1 1 4.367 3.392C8.185 8.566 7.5 9.15 7.5 10v1.5a.5.5 0 0 0 1 0V10c0-.255.225-.54.613-.639A4.502 4.502 0 0 0 8 .5 4.5 4.5 0 0 0 3.5 5a.5.5 0 0 0 1 0ZM8 15a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsListTree: {
   data: string;
 } = {
   name: 'list-tree',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5a.5.5 0 0 1 .5.5v2.5H6a.5.5 0 0 1 0 1H3.5v4H6a.5.5 0 0 1 0 1H3.5v3h8.293l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708l1.147-1.146H3a.5.5 0 0 1-.5-.5V1A.5.5 0 0 1 3 .5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5a.5.5 0 0 1 .5.5v2.5H6a.5.5 0 0 1 0 1H3.5v4H6a.5.5 0 0 1 0 1H3.5v3h8.293l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708l1.147-1.146H3a.5.5 0 0 1-.5-.5V1A.5.5 0 0 1 3 .5Z" fill="currentColor"/></svg>`
 };

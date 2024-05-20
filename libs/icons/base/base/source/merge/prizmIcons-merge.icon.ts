@@ -4,5 +4,5 @@ export const prizmIconsMerge: {
   data: string;
 } = {
   name: 'merge',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.342 20.753a1 1 0 0 0 1.41-.095l6.753-7.717A2 2 0 0 0 13 11.624v-5.21l1.293 1.293a1 1 0 1 0 1.414-1.414l-3-3a1 1 0 0 0-1.414 0l-3 3a1 1 0 1 0 1.414 1.414L11 6.414v5.21l-6.753 7.717a1 1 0 0 0 .095 1.412Zm13.89-.113a1 1 0 1 0 1.536-1.28l-5-6a1 1 0 1 0-1.536 1.28l5 6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.342 20.753a1 1 0 0 0 1.41-.095l6.753-7.717A2 2 0 0 0 13 11.624v-5.21l1.293 1.293a1 1 0 1 0 1.414-1.414l-3-3a1 1 0 0 0-1.414 0l-3 3a1 1 0 1 0 1.414 1.414L11 6.414v5.21l-6.753 7.717a1 1 0 0 0 .095 1.412Zm13.89-.113a1 1 0 1 0 1.536-1.28l-5-6a1 1 0 1 0-1.536 1.28l5 6Z" fill="currentColor"/></svg>`
 };

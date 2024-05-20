@@ -4,5 +4,5 @@ export const prizmIconsSquareHexagonCircleFill: {
   data: string;
 } = {
   name: 'square-hexagon-circle-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 .5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V1A.5.5 0 0 0 7 .5H1Zm9 4a.5.5 0 0 0-.474.342l-1 3a.5.5 0 0 0 0 .316l1 3A.5.5 0 0 0 10 11.5h4a.5.5 0 0 0 .474-.342l1-3a.499.499 0 0 0 0-.316l-1-3A.5.5 0 0 0 14 4.5h-4ZM.5 12a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 .5a.5.5 0 0 0-.5.5v6a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5V1A.5.5 0 0 0 7 .5H1Zm9 4a.5.5 0 0 0-.474.342l-1 3a.5.5 0 0 0 0 .316l1 3A.5.5 0 0 0 10 11.5h4a.5.5 0 0 0 .474-.342l1-3a.499.499 0 0 0 0-.316l-1-3A.5.5 0 0 0 14 4.5h-4ZM.5 12a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

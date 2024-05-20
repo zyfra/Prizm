@@ -4,5 +4,5 @@ export const prizmIconsScissors: {
   data: string;
 } = {
   name: 'scissors',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM4 6a3 3 0 1 1 5.708 1.293L13 10.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7-4 4a3 3 0 1 1-1.414-1.414L11.586 12 8.293 8.708A3 3 0 0 1 4 6Zm3 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm7.293-3.707a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 5a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM4 6a3 3 0 1 1 5.708 1.293L13 10.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7-4 4a3 3 0 1 1-1.414-1.414L11.586 12 8.293 8.708A3 3 0 0 1 4 6Zm3 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm7.293-3.707a1 1 0 0 1 1.414 0l5 5a1 1 0 0 1-1.414 1.414l-5-5a1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsArrowDownToBracket: {
   data: string;
 } = {
   name: 'arrow-down-to-bracket',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="m11.354 8.354-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 9.793V1a.5.5 0 0 1 1 0v8.793l2.146-2.147a.5.5 0 0 1 .708.708ZM1.5 13a.5.5 0 0 0-1 0v2a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-1 0v1.5h-13V13Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="m11.354 8.354-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 9.793V1a.5.5 0 0 1 1 0v8.793l2.146-2.147a.5.5 0 0 1 .708.708ZM1.5 13a.5.5 0 0 0-1 0v2a.5.5 0 0 0 .5.5h14a.5.5 0 0 0 .5-.5v-2a.5.5 0 0 0-1 0v1.5h-13V13Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

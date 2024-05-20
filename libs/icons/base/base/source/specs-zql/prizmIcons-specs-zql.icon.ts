@@ -4,5 +4,5 @@ export const prizmIconsSpecsZql: {
   data: string;
 } = {
   name: 'specs-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 1a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4Zm0 2h16v14H4V3Zm0 16v2h2v-2H4Zm16 0v2H8v-2h12Zm-7-9a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm-6 3a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H7Zm5.8-6.4a1 1 0 1 0-1.6-1.2L8.892 8.478 7.707 7.293a1 1 0 1 0-1.414 1.414l2 2A1 1 0 0 0 9.8 10.6l3-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 1a2 2 0 0 0-2 2v18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H4Zm0 2h16v14H4V3Zm0 16v2h2v-2H4Zm16 0v2H8v-2h12Zm-7-9a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1Zm-6 3a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H7Zm5.8-6.4a1 1 0 1 0-1.6-1.2L8.892 8.478 7.707 7.293a1 1 0 1 0-1.414 1.414l2 2A1 1 0 0 0 9.8 10.6l3-4Z" fill="currentColor"/></svg>`
 };

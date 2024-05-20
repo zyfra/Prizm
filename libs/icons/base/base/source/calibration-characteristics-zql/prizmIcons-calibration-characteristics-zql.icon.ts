@@ -4,5 +4,5 @@ export const prizmIconsCalibrationCharacteristicsZql: {
   data: string;
 } = {
   name: 'calibration-characteristics-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 0-2 0v19a2 2 0 0 0 2 2h19a1 1 0 1 0 0-2H3V2Zm4 15a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm5 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6-4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 8a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm4.496-4.132a1 1 0 1 0-.992-1.736l-14 8a1 1 0 1 0 .992 1.736l14-8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 0-2 0v19a2 2 0 0 0 2 2h19a1 1 0 1 0 0-2H3V2Zm4 15a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm5 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm6-4a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-2 8a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm4.496-4.132a1 1 0 1 0-.992-1.736l-14 8a1 1 0 1 0 .992 1.736l14-8Z" fill="currentColor"/></svg>`
 };

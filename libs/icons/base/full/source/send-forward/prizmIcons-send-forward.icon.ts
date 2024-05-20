@@ -4,5 +4,5 @@ export const prizmIconsSendForward: {
   data: string;
 } = {
   name: 'send-forward',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v9A1.5 1.5 0 0 0 2 12.5h9a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 11 .5H2ZM1.5 2a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V2Zm14 2a.5.5 0 0 0-1 0v9a1.5 1.5 0 0 1-1.5 1.5H4a.5.5 0 0 0 0 1h9a2.5 2.5 0 0 0 2.5-2.5V4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 .5A1.5 1.5 0 0 0 .5 2v9A1.5 1.5 0 0 0 2 12.5h9a1.5 1.5 0 0 0 1.5-1.5V2A1.5 1.5 0 0 0 11 .5H2ZM1.5 2a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V2Zm14 2a.5.5 0 0 0-1 0v9a1.5 1.5 0 0 1-1.5 1.5H4a.5.5 0 0 0 0 1h9a2.5 2.5 0 0 0 2.5-2.5V4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

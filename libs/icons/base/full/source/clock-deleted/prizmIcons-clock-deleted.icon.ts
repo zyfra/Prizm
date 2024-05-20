@@ -4,5 +4,5 @@ export const prizmIconsClockDeleted: {
   data: string;
 } = {
   name: 'clock-deleted',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8A6.5 6.5 0 0 1 8 1.5a.5.5 0 0 0 0-1A7.5 7.5 0 1 0 15.5 8a.5.5 0 0 0-1 0 6.5 6.5 0 1 1-13 0Zm10.354-3.146L13 3.707l1.146 1.147a.5.5 0 0 0 .708-.708L13.707 3l1.147-1.146a.5.5 0 0 0-.708-.708L13 2.293l-1.146-1.147a.5.5 0 0 0-.708.708L12.293 3l-1.147 1.146a.5.5 0 0 0 .708.708ZM8.5 5a.5.5 0 0 0-1 0v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1H8.5V5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8A6.5 6.5 0 0 1 8 1.5a.5.5 0 0 0 0-1A7.5 7.5 0 1 0 15.5 8a.5.5 0 0 0-1 0 6.5 6.5 0 1 1-13 0Zm10.354-3.146L13 3.707l1.146 1.147a.5.5 0 0 0 .708-.708L13.707 3l1.147-1.146a.5.5 0 0 0-.708-.708L13 2.293l-1.146-1.147a.5.5 0 0 0-.708.708L12.293 3l-1.147 1.146a.5.5 0 0 0 .708.708ZM8.5 5a.5.5 0 0 0-1 0v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1H8.5V5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

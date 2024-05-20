@@ -4,5 +4,5 @@ export const prizmIconsXmark: {
   data: string;
 } = {
   name: 'xmark',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.706 5.707a1 1 0 1 0-1.414-1.414L12 10.585 5.707 4.293a1 1 0 0 0-1.414 1.414L10.585 12l-6.292 6.292a1 1 0 0 0 1.414 1.414L12 13.414l6.292 6.292a1 1 0 0 0 1.414-1.414L13.414 12l6.292-6.293Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M19.706 5.707a1 1 0 1 0-1.414-1.414L12 10.585 5.707 4.293a1 1 0 0 0-1.414 1.414L10.585 12l-6.292 6.292a1 1 0 0 0 1.414 1.414L12 13.414l6.292 6.292a1 1 0 0 0 1.414-1.414L13.414 12l6.292-6.293Z" fill="currentColor"/></svg>`
 };

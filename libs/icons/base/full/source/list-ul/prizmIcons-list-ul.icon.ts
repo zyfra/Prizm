@@ -4,5 +4,5 @@ export const prizmIconsListUl: {
   data: string;
 } = {
   name: 'list-ul',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3-1.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H5Zm0 5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H5ZM4.5 13a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5ZM3 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm3-1.5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H5Zm0 5a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H5ZM4.5 13a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H5a.5.5 0 0 1-.5-.5ZM3 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

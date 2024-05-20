@@ -4,5 +4,5 @@ export const prizmIconsCopyRow: {
   data: string;
 } = {
   name: 'copy-row',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v5a.997.997 0 0 1-.088.411A2 2 0 0 1 22 10v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2V4Zm1 6h-1v4h8v-4h-7Zm7 6h-8v4h8v-4Zm-6-8V4h6v4h-6Zm-8.293 3.293a1 1 0 0 0-1.414 0l-2 2a1 1 0 1 0 1.414 1.414L4 14.414V18a1 1 0 1 0 2 0v-3.586l.293.293a1 1 0 0 0 1.414-1.414l-2-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v5a.997.997 0 0 1-.088.411A2 2 0 0 1 22 10v10a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2V10a2 2 0 0 1 2-2V4Zm1 6h-1v4h8v-4h-7Zm7 6h-8v4h8v-4Zm-6-8V4h6v4h-6Zm-8.293 3.293a1 1 0 0 0-1.414 0l-2 2a1 1 0 1 0 1.414 1.414L4 14.414V18a1 1 0 1 0 2 0v-3.586l.293.293a1 1 0 0 0 1.414-1.414l-2-2Z" fill="currentColor"/></svg>`
 };

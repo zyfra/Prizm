@@ -4,5 +4,5 @@ export const prizmIconsPaperclipVertical: {
   data: string;
 } = {
   name: 'paperclip-vertical',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5A2.5 2.5 0 0 0 4.5 4v7a3.5 3.5 0 1 0 7 0V3a.5.5 0 0 1 1 0v8a4.5 4.5 0 1 1-9 0V4a3.5 3.5 0 1 1 7 0v7a2.5 2.5 0 0 1-5 0V4a.5.5 0 0 1 1 0v7a1.5 1.5 0 0 0 3 0V4A2.5 2.5 0 0 0 7 1.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5A2.5 2.5 0 0 0 4.5 4v7a3.5 3.5 0 1 0 7 0V3a.5.5 0 0 1 1 0v8a4.5 4.5 0 1 1-9 0V4a3.5 3.5 0 1 1 7 0v7a2.5 2.5 0 0 1-5 0V4a.5.5 0 0 1 1 0v7a1.5 1.5 0 0 0 3 0V4A2.5 2.5 0 0 0 7 1.5Z" fill="currentColor"/></svg>`
 };

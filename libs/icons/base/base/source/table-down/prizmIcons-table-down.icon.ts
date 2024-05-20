@@ -4,5 +4,5 @@ export const prizmIconsTableDown: {
   data: string;
 } = {
   name: 'table-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m14.707 8.707-2 2a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414l.293.293V4a1 1 0 1 1 2 0v3.586l.293-.293a1 1 0 1 1 1.414 1.414ZM5 13a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5Zm0 6v-4h14v4H5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m14.707 8.707-2 2a1 1 0 0 1-1.414 0l-2-2a1 1 0 0 1 1.414-1.414l.293.293V4a1 1 0 1 1 2 0v3.586l.293-.293a1 1 0 1 1 1.414 1.414ZM5 13a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5Zm0 6v-4h14v4H5Z" fill="currentColor"/></svg>`
 };

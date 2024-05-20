@@ -4,5 +4,5 @@ export const prizmIconsInputDevice: {
   data: string;
 } = {
   name: 'input-device',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5A1.5 1.5 0 0 0 .5 4v5A1.5 1.5 0 0 0 2 10.5h12A1.5 1.5 0 0 0 15.5 9V4A1.5 1.5 0 0 0 14 2.5H2ZM1.5 4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V4ZM3 12.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H3Zm8.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5ZM9 12.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1H9Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5A1.5 1.5 0 0 0 .5 4v5A1.5 1.5 0 0 0 2 10.5h12A1.5 1.5 0 0 0 15.5 9V4A1.5 1.5 0 0 0 14 2.5H2ZM1.5 4a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V4ZM3 12.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H3Zm8.5.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 0 1h-1a.5.5 0 0 1-.5-.5ZM9 12.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1H9Z" fill="currentColor"/></svg>`
 };

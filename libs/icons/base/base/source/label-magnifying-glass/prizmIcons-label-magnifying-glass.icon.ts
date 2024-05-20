@@ -4,5 +4,5 @@ export const prizmIconsLabelMagnifyingGlass: {
   data: string;
 } = {
   name: 'label-magnifying-glass',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 3.006A1 1 0 0 0 3.006 4.11l.667 6a1 1 0 0 0 1.988-.22l-.53-4.758 7.41.824L18.586 12l-6.293 6.293a1 1 0 1 0 1.414 1.414l7-7a1 1 0 0 0 0-1.414l-7-7a1 1 0 0 0-.597-.286l-9-1ZM6 16a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 0 0-3.446 6.032l-1.261 1.26a1 1 0 1 0 1.414 1.415l1.261-1.26A4 4 0 1 0 8 12Zm.5-2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 3.006A1 1 0 0 0 3.006 4.11l.667 6a1 1 0 0 0 1.988-.22l-.53-4.758 7.41.824L18.586 12l-6.293 6.293a1 1 0 1 0 1.414 1.414l7-7a1 1 0 0 0 0-1.414l-7-7a1 1 0 0 0-.597-.286l-9-1ZM6 16a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 0 0-3.446 6.032l-1.261 1.26a1 1 0 1 0 1.414 1.415l1.261-1.26A4 4 0 1 0 8 12Zm.5-2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"/></svg>`
 };

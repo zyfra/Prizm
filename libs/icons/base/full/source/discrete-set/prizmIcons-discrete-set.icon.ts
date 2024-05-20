@@ -4,5 +4,5 @@ export const prizmIconsDiscreteSet: {
   data: string;
 } = {
   name: 'discrete-set',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="6" height="8" rx="1"/><rect x="1" y="1" width="6" height="4" rx="1"/><rect x="9" y="1" width="6" height="7" rx="1"/><rect x="9" y="10" width="6" height="5" rx="1"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="7" width="6" height="8" rx="1"/><rect x="1" y="1" width="6" height="4" rx="1"/><rect x="9" y="1" width="6" height="7" rx="1"/><rect x="9" y="10" width="6" height="5" rx="1"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

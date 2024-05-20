@@ -4,5 +4,5 @@ export const prizmIconsHeadphones: {
   data: string;
 } = {
   name: 'headphones',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8a6.5 6.5 0 0 1 13 0v2.264a3 3 0 1 0 .98 1.88.501.501 0 0 0 .02-.144V8a7.5 7.5 0 0 0-15 0v4a.5.5 0 0 0 .02.144 3 3 0 1 0 .98-1.88V8Zm2 2.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm9 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8a6.5 6.5 0 0 1 13 0v2.264a3 3 0 1 0 .98 1.88.501.501 0 0 0 .02-.144V8a7.5 7.5 0 0 0-15 0v4a.5.5 0 0 0 .02.144 3 3 0 1 0 .98-1.88V8Zm2 2.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm9 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

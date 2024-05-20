@@ -4,5 +4,5 @@ export const prizmIconsShoppingBox: {
   data: string;
 } = {
   name: 'shopping-box',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 3.586A2 2 0 0 1 8.414 3h7.172A2 2 0 0 1 17 3.586L20.414 7A2 2 0 0 1 21 8.414V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.414A2 2 0 0 1 3.586 7L7 3.586ZM15.586 5l2 2H6.414l2-2h7.172ZM19 9H5v10h14V9Zm-9 3a1 1 0 1 0-2 0 4 4 0 0 0 8 0 1 1 0 1 0-2 0 2 2 0 1 1-4 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 3.586A2 2 0 0 1 8.414 3h7.172A2 2 0 0 1 17 3.586L20.414 7A2 2 0 0 1 21 8.414V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8.414A2 2 0 0 1 3.586 7L7 3.586ZM15.586 5l2 2H6.414l2-2h7.172ZM19 9H5v10h14V9Zm-9 3a1 1 0 1 0-2 0 4 4 0 0 0 8 0 1 1 0 1 0-2 0 2 2 0 1 1-4 0Z" fill="currentColor"/></svg>`
 };

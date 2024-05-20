@@ -4,5 +4,5 @@ export const prizmIconsTrashDrop: {
   data: string;
 } = {
   name: 'trash-drop',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a2 2 0 0 0-2 2v2H3a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h7a1 1 0 1 0 0-2H6V8h12v7a1 1 0 1 0 2 0V8h1a1 1 0 1 0 0-2h-5V4a2 2 0 0 0-2-2h-4Zm4 4V4h-4v2h4Zm2 6a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0v-4Zm-7-1a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0v-4a1 1 0 0 1 1-1Zm7.3 8.625A1 1 0 0 1 17.08 18h3.84a1 1 0 0 1 .78 1.625l-1.92 2.399a1 1 0 0 1-1.56 0l-1.92-2.4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2a2 2 0 0 0-2 2v2H3a1 1 0 0 0 0 2h1v12a2 2 0 0 0 2 2h7a1 1 0 1 0 0-2H6V8h12v7a1 1 0 1 0 2 0V8h1a1 1 0 1 0 0-2h-5V4a2 2 0 0 0-2-2h-4Zm4 4V4h-4v2h4Zm2 6a1 1 0 1 0-2 0v4a1 1 0 1 0 2 0v-4Zm-7-1a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0v-4a1 1 0 0 1 1-1Zm7.3 8.625A1 1 0 0 1 17.08 18h3.84a1 1 0 0 1 .78 1.625l-1.92 2.399a1 1 0 0 1-1.56 0l-1.92-2.4Z" fill="currentColor"/></svg>`
 };

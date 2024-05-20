@@ -4,5 +4,5 @@ export const prizmIconsFactory: {
   data: string;
 } = {
   name: 'factory',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 2a2 2 0 0 0-2 2v3h-2V5a1 1 0 0 0-2 0v2H7a2 2 0 0 0-2 2v4a2 2 0 0 0-2 2v5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2h-.105L19.093 3.78A2 2 0 0 0 17.105 2H14Zm4.883 18-.779-7.005c-.034.003-.069.005-.104.005h-4v7h4.883ZM12 20v-5H5v5h2v-1a1 1 0 1 1 2 0v1h3Zm5.883-9H14V9h3.66l.223 2ZM12 9v4H7V9h5Zm5.438-2-.333-3H14v3h3.438Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 2a2 2 0 0 0-2 2v3h-2V5a1 1 0 0 0-2 0v2H7a2 2 0 0 0-2 2v4a2 2 0 0 0-2 2v5a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2h-.105L19.093 3.78A2 2 0 0 0 17.105 2H14Zm4.883 18-.779-7.005c-.034.003-.069.005-.104.005h-4v7h4.883ZM12 20v-5H5v5h2v-1a1 1 0 1 1 2 0v1h3Zm5.883-9H14V9h3.66l.223 2ZM12 9v4H7V9h5Zm5.438-2-.333-3H14v3h3.438Z" fill="currentColor"/></svg>`
 };

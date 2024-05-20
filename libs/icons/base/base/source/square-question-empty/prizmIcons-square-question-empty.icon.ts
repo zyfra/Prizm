@@ -4,5 +4,5 @@ export const prizmIconsSquareQuestionEmpty: {
   data: string;
 } = {
   name: 'square-question-empty',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm18 0H4v16h16V4Zm-7 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-3-8a2 2 0 1 1 2.655 1.89C11.924 12.145 11 12.848 11 14v1a1 1 0 1 0 2 0v-.997a.177.177 0 0 1 .037-.054.674.674 0 0 1 .272-.168A4.001 4.001 0 0 0 12 6a4 4 0 0 0-4 4 1 1 0 1 0 2 0Zm3 4.007v-.004.004Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4Zm18 0H4v16h16V4Zm-7 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-3-8a2 2 0 1 1 2.655 1.89C11.924 12.145 11 12.848 11 14v1a1 1 0 1 0 2 0v-.997a.177.177 0 0 1 .037-.054.674.674 0 0 1 .272-.168A4.001 4.001 0 0 0 12 6a4 4 0 0 0-4 4 1 1 0 1 0 2 0Zm3 4.007v-.004.004Z" fill="currentColor"/></svg>`
 };

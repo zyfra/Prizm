@@ -4,5 +4,5 @@ export const prizmIconsCameraFront: {
   data: string;
 } = {
   name: 'camera-front',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6Zm0 2h12v8H6V4Zm9 16h4a1 1 0 1 0 0-2h-4a1 1 0 1 0 0 2Zm-6.707-2.293a1 1 0 1 1 1.414-1.414l2 2a1 1 0 0 1 0 1.414l-2 2a1 1 0 0 1-1.414-1.414L8.586 20H5a1 1 0 1 1 0-2h3.586l-.293-.293ZM11 8a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H6Zm0 2h12v8H6V4Zm9 16h4a1 1 0 1 0 0-2h-4a1 1 0 1 0 0 2Zm-6.707-2.293a1 1 0 1 1 1.414-1.414l2 2a1 1 0 0 1 0 1.414l-2 2a1 1 0 0 1-1.414-1.414L8.586 20H5a1 1 0 1 1 0-2h3.586l-.293-.293ZM11 8a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></svg>`
 };

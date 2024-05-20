@@ -4,5 +4,5 @@ export const prizmIconsSquareCircleTriangleCrossFill: {
   data: string;
 } = {
   name: 'square-circle-triangle-cross-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Zm13.894 10.553a1 1 0 0 0-1.788 0l-3 6A1 1 0 0 0 14 21h6a1 1 0 0 0 .894-1.447l-3-6ZM13 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-2.293 7.707a1 1 0 0 0-1.414-1.414L7 15.586l-2.293-2.293a1 1 0 0 0-1.414 1.414L5.586 17l-2.293 2.293a1 1 0 1 0 1.414 1.414L7 18.414l2.293 2.293a1 1 0 0 0 1.414-1.414L8.414 17l2.293-2.293Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Zm13.894 10.553a1 1 0 0 0-1.788 0l-3 6A1 1 0 0 0 14 21h6a1 1 0 0 0 .894-1.447l-3-6ZM13 7a4 4 0 1 1 8 0 4 4 0 0 1-8 0Zm-2.293 7.707a1 1 0 0 0-1.414-1.414L7 15.586l-2.293-2.293a1 1 0 0 0-1.414 1.414L5.586 17l-2.293 2.293a1 1 0 1 0 1.414 1.414L7 18.414l2.293 2.293a1 1 0 0 0 1.414-1.414L8.414 17l2.293-2.293Z" fill="currentColor"/></svg>`
 };

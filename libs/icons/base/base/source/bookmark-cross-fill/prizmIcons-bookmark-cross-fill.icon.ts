@@ -4,5 +4,5 @@ export const prizmIconsBookmarkCrossFill: {
   data: string;
 } = {
   name: 'bookmark-cross-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15.674a2 2 0 0 0 2.55 1.923L12 20.04l5.45 1.557A2 2 0 0 0 20 19.674V4a2 2 0 0 0-2-2H6Zm8.707 7.707a1 1 0 0 0-1.414-1.414L12 9.586l-1.293-1.293a1 1 0 0 0-1.414 1.414L10.586 11l-1.293 1.293a1 1 0 1 0 1.414 1.414L12 12.414l1.293 1.293a1 1 0 0 0 1.414-1.414L13.414 11l1.293-1.293Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15.674a2 2 0 0 0 2.55 1.923L12 20.04l5.45 1.557A2 2 0 0 0 20 19.674V4a2 2 0 0 0-2-2H6Zm8.707 7.707a1 1 0 0 0-1.414-1.414L12 9.586l-1.293-1.293a1 1 0 0 0-1.414 1.414L10.586 11l-1.293 1.293a1 1 0 1 0 1.414 1.414L12 12.414l1.293 1.293a1 1 0 0 0 1.414-1.414L13.414 11l1.293-1.293Z" fill="currentColor"/></svg>`
 };

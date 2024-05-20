@@ -4,5 +4,5 @@ export const prizmIconsMagnifyingGlassExclamation: {
   data: string;
 } = {
   name: 'magnifying-glass-exclamation',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 11a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-8a8 8 0 1 0 4.906 14.32l3.387 3.387a1 1 0 0 0 1.414-1.414l-3.387-3.387A8 8 0 0 0 11 3Zm1 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0-6a1 1 0 1 0-2 0v3a1 1 0 1 0 2 0V8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 11a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-8a8 8 0 1 0 4.906 14.32l3.387 3.387a1 1 0 0 0 1.414-1.414l-3.387-3.387A8 8 0 0 0 11 3Zm1 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0-6a1 1 0 1 0-2 0v3a1 1 0 1 0 2 0V8Z" fill="currentColor"/></svg>`
 };

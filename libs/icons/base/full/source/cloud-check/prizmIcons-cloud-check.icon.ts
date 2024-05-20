@@ -4,5 +4,5 @@ export const prizmIconsCloudCheck: {
   data: string;
 } = {
   name: 'cloud-check',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7a3.5 3.5 0 1 1 6.997.15.5.5 0 0 0 .667.493A2.5 2.5 0 1 1 12 12.5H3a1.5 1.5 0 1 1 .44-2.934.5.5 0 0 0 .574-.74A3.481 3.481 0 0 1 3.5 7ZM7 2.5a4.5 4.5 0 0 0-4.24 6.011A2.5 2.5 0 0 0 3 13.5h9a3.5 3.5 0 1 0-.523-6.961A4.5 4.5 0 0 0 7 2.5Zm3.354 5.854a.5.5 0 0 0-.708-.708L7 10.293 5.854 9.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 7a3.5 3.5 0 1 1 6.997.15.5.5 0 0 0 .667.493A2.5 2.5 0 1 1 12 12.5H3a1.5 1.5 0 1 1 .44-2.934.5.5 0 0 0 .574-.74A3.481 3.481 0 0 1 3.5 7ZM7 2.5a4.5 4.5 0 0 0-4.24 6.011A2.5 2.5 0 0 0 3 13.5h9a3.5 3.5 0 1 0-.523-6.961A4.5 4.5 0 0 0 7 2.5Zm3.354 5.854a.5.5 0 0 0-.708-.708L7 10.293 5.854 9.146a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3Z" fill="currentColor"/></svg>`
 };

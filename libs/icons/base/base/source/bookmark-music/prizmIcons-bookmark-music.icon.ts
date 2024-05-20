@@ -4,5 +4,5 @@ export const prizmIconsBookmarkMusic: {
   data: string;
 } = {
   name: 'bookmark-music',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.674a2 2 0 0 1-2.55 1.923L12 20.04l-5.45 1.557A2 2 0 0 1 4 19.674V4Zm14 0H6v15.674l5.45-1.557a2 2 0 0 1 1.1 0L18 19.674V4Zm-7 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm1-1.83A3 3 0 1 0 14 13V8.72l2.316-.771a1 1 0 1 0-.632-1.898l-2.316.772A2 2 0 0 0 12 8.721v1.45Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v15.674a2 2 0 0 1-2.55 1.923L12 20.04l-5.45 1.557A2 2 0 0 1 4 19.674V4Zm14 0H6v15.674l5.45-1.557a2 2 0 0 1 1.1 0L18 19.674V4Zm-7 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm1-1.83A3 3 0 1 0 14 13V8.72l2.316-.771a1 1 0 1 0-.632-1.898l-2.316.772A2 2 0 0 0 12 8.721v1.45Z" fill="currentColor"/></svg>`
 };

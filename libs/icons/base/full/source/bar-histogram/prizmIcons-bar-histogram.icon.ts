@@ -4,5 +4,5 @@ export const prizmIconsBarHistogram: {
   data: string;
 } = {
   name: 'bar-histogram',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V1A.5.5 0 0 1 8 .5ZM1.5 4a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0V4ZM15 7.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5Zm-14 2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5ZM15.5 3a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0V3ZM8 12.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5ZM8.5 6a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0V6Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0V1A.5.5 0 0 1 8 .5ZM1.5 4a.5.5 0 0 0-1 0v2a.5.5 0 0 0 1 0V4ZM15 7.5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5Zm-14 2a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-1 0v-5a.5.5 0 0 1 .5-.5ZM15.5 3a.5.5 0 0 0-1 0v1a.5.5 0 0 0 1 0V3ZM8 12.5a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2a.5.5 0 0 1 .5-.5ZM8.5 6a.5.5 0 0 0-1 0v4a.5.5 0 0 0 1 0V6Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

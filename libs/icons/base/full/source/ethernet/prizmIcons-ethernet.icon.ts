@@ -4,5 +4,5 @@ export const prizmIconsEthernet: {
   data: string;
 } = {
   name: 'ethernet',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.125 1a1.5 1.5 0 0 0-1.5 1.5v2H2.5A1.5 1.5 0 0 0 1 6v8.5A1.5 1.5 0 0 0 2.5 16h12a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5h-1.125v-2a1.5 1.5 0 0 0-1.5-1.5h-6.75Zm-.5 1.5a.5.5 0 0 1 .5-.5h6.75a.5.5 0 0 1 .5.5V5a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-.5.5h-12a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h1.625a.5.5 0 0 0 .5-.5V2.5Zm7.875 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 17"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.125 1a1.5 1.5 0 0 0-1.5 1.5v2H2.5A1.5 1.5 0 0 0 1 6v8.5A1.5 1.5 0 0 0 2.5 16h12a1.5 1.5 0 0 0 1.5-1.5V6a1.5 1.5 0 0 0-1.5-1.5h-1.125v-2a1.5 1.5 0 0 0-1.5-1.5h-6.75Zm-.5 1.5a.5.5 0 0 1 .5-.5h6.75a.5.5 0 0 1 .5.5V5a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-.5.5h-12a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h1.625a.5.5 0 0 0 .5-.5V2.5Zm7.875 11a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-5 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

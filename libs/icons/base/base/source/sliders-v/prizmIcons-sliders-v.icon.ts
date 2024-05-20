@@ -4,5 +4,5 @@ export const prizmIconsSlidersV: {
   data: string;
 } = {
   name: 'sliders-v',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 3a1 1 0 0 0-2 0v11.17a3.001 3.001 0 0 0 0 5.66V21a1 1 0 1 0 2 0v-1.17a3.001 3.001 0 0 0 0-5.66V3ZM5 17a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm7-13a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM9 5a3 3 0 1 1 4 2.83V21a1 1 0 1 1-2 0V7.83A3.001 3.001 0 0 1 9 5Zm9-3a1 1 0 0 1 1 1v7.17a3.001 3.001 0 0 1 0 5.66V21a1 1 0 1 1-2 0v-5.17a3.001 3.001 0 0 1 0-5.66V3a1 1 0 0 1 1-1Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 3a1 1 0 0 0-2 0v11.17a3.001 3.001 0 0 0 0 5.66V21a1 1 0 1 0 2 0v-1.17a3.001 3.001 0 0 0 0-5.66V3ZM5 17a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm7-13a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM9 5a3 3 0 1 1 4 2.83V21a1 1 0 1 1-2 0V7.83A3.001 3.001 0 0 1 9 5Zm9-3a1 1 0 0 1 1 1v7.17a3.001 3.001 0 0 1 0 5.66V21a1 1 0 1 1-2 0v-5.17a3.001 3.001 0 0 1 0-5.66V3a1 1 0 0 1 1-1Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`
 };

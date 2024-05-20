@@ -1,2748 +1,2747 @@
-[class^='prizm-base-icons-']:before,
-[class*=' prizm-base-icons-']:before {
-  font-family: prizm-base-icons !important;
-  font-style: normal;
-  font-weight: normal !important;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+[class^="prizm-base-icons-"]:before, [class*=" prizm-base-icons-"]:before {
+    font-family: prizm-base-icons !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .prizm-base-icons-agenda-fill:before {
-  content: '\f101';
+    content: "\f101";
 }
 .prizm-base-icons-airplane-side-view:before {
-  content: '\f102';
+    content: "\f102";
 }
 .prizm-base-icons-airplane-top-view:before {
-  content: '\f103';
+    content: "\f103";
 }
 .prizm-base-icons-alarm-clock:before {
-  content: '\f104';
+    content: "\f104";
 }
 .prizm-base-icons-alarm-plus:before {
-  content: '\f105';
+    content: "\f105";
 }
 .prizm-base-icons-align-bottom:before {
-  content: '\f106';
+    content: "\f106";
 }
 .prizm-base-icons-align-center-h:before {
-  content: '\f107';
+    content: "\f107";
 }
 .prizm-base-icons-align-center-v:before {
-  content: '\f108';
+    content: "\f108";
 }
 .prizm-base-icons-align-center:before {
-  content: '\f109';
+    content: "\f109";
 }
 .prizm-base-icons-align-justify:before {
-  content: '\f10a';
+    content: "\f10a";
 }
 .prizm-base-icons-align-left:before {
-  content: '\f10b';
+    content: "\f10b";
 }
 .prizm-base-icons-align-right:before {
-  content: '\f10c';
+    content: "\f10c";
 }
 .prizm-base-icons-align-top:before {
-  content: '\f10d';
+    content: "\f10d";
 }
 .prizm-base-icons-ambulance-side-view:before {
-  content: '\f10e';
+    content: "\f10e";
 }
 .prizm-base-icons-android-pill:before {
-  content: '\f10f';
+    content: "\f10f";
 }
 .prizm-base-icons-android:before {
-  content: '\f110';
+    content: "\f110";
 }
 .prizm-base-icons-angle-left-right-arrows-down:before {
-  content: '\f111';
+    content: "\f111";
 }
 .prizm-base-icons-angle-left-right:before {
-  content: '\f112';
+    content: "\f112";
 }
 .prizm-base-icons-angle-left:before {
-  content: '\f113';
+    content: "\f113";
 }
 .prizm-base-icons-angle-right:before {
-  content: '\f114';
+    content: "\f114";
 }
 .prizm-base-icons-arrange-send-to-back:before {
-  content: '\f115';
+    content: "\f115";
 }
 .prizm-base-icons-array-fill:before {
-  content: '\f116';
+    content: "\f116";
 }
 .prizm-base-icons-arrow-bold-down:before {
-  content: '\f117';
+    content: "\f117";
 }
 .prizm-base-icons-arrow-bold-left:before {
-  content: '\f118';
+    content: "\f118";
 }
 .prizm-base-icons-arrow-bold-right:before {
-  content: '\f119';
+    content: "\f119";
 }
 .prizm-base-icons-arrow-bold-up:before {
-  content: '\f11a';
+    content: "\f11a";
 }
 .prizm-base-icons-arrow-daw:before {
-  content: '\f11b';
+    content: "\f11b";
 }
 .prizm-base-icons-arrow-down-between-lines:before {
-  content: '\f11c';
+    content: "\f11c";
 }
 .prizm-base-icons-arrow-down-from-double-line:before {
-  content: '\f11d';
+    content: "\f11d";
 }
 .prizm-base-icons-arrow-down-from-line:before {
-  content: '\f11e';
+    content: "\f11e";
 }
 .prizm-base-icons-arrow-down-in-circle-empty:before {
-  content: '\f11f';
+    content: "\f11f";
 }
 .prizm-base-icons-arrow-down-to-bracket:before {
-  content: '\f120';
+    content: "\f120";
 }
 .prizm-base-icons-arrow-down-to-double-line:before {
-  content: '\f121';
+    content: "\f121";
 }
 .prizm-base-icons-arrow-down-to-line:before {
-  content: '\f122';
+    content: "\f122";
 }
 .prizm-base-icons-arrow-down-wide-short:before {
-  content: '\f123';
+    content: "\f123";
 }
 .prizm-base-icons-arrow-down:before {
-  content: '\f124';
+    content: "\f124";
 }
 .prizm-base-icons-arrow-left-between-lines:before {
-  content: '\f125';
+    content: "\f125";
 }
 .prizm-base-icons-arrow-left-down:before {
-  content: '\f126';
+    content: "\f126";
 }
 .prizm-base-icons-arrow-left-from-bracket:before {
-  content: '\f127';
+    content: "\f127";
 }
 .prizm-base-icons-arrow-left-in-circle-empty:before {
-  content: '\f128';
+    content: "\f128";
 }
 .prizm-base-icons-arrow-left-up:before {
-  content: '\f129';
+    content: "\f129";
 }
 .prizm-base-icons-arrow-left:before {
-  content: '\f12a';
+    content: "\f12a";
 }
 .prizm-base-icons-arrow-right-between-lines:before {
-  content: '\f12b';
+    content: "\f12b";
 }
 .prizm-base-icons-arrow-right-down:before {
-  content: '\f12c';
+    content: "\f12c";
 }
 .prizm-base-icons-arrow-right-from-bracket:before {
-  content: '\f12d';
+    content: "\f12d";
 }
 .prizm-base-icons-arrow-right-in-circle-empty:before {
-  content: '\f12e';
+    content: "\f12e";
 }
 .prizm-base-icons-arrow-right-up:before {
-  content: '\f12f';
+    content: "\f12f";
 }
 .prizm-base-icons-arrow-right:before {
-  content: '\f130';
+    content: "\f130";
 }
 .prizm-base-icons-arrow-rotate-left:before {
-  content: '\f131';
+    content: "\f131";
 }
 .prizm-base-icons-arrow-rotate-right:before {
-  content: '\f132';
+    content: "\f132";
 }
 .prizm-base-icons-arrow-turn-down-left:before {
-  content: '\f133';
+    content: "\f133";
 }
 .prizm-base-icons-arrow-turn-down-right:before {
-  content: '\f134';
+    content: "\f134";
 }
 .prizm-base-icons-arrow-turn-left-down:before {
-  content: '\f135';
+    content: "\f135";
 }
 .prizm-base-icons-arrow-turn-left-up:before {
-  content: '\f136';
+    content: "\f136";
 }
 .prizm-base-icons-arrow-turn-right-down:before {
-  content: '\f137';
+    content: "\f137";
 }
 .prizm-base-icons-arrow-turn-right-up:before {
-  content: '\f138';
+    content: "\f138";
 }
 .prizm-base-icons-arrow-turn-up-left:before {
-  content: '\f139';
+    content: "\f139";
 }
 .prizm-base-icons-arrow-turn-up-right:before {
-  content: '\f13a';
+    content: "\f13a";
 }
 .prizm-base-icons-arrow-up-arrow-down-h:before {
-  content: '\f13b';
+    content: "\f13b";
 }
 .prizm-base-icons-arrow-up-arrow-down-v:before {
-  content: '\f13c';
+    content: "\f13c";
 }
 .prizm-base-icons-arrow-up-between-lines:before {
-  content: '\f13d';
+    content: "\f13d";
 }
 .prizm-base-icons-arrow-up-from-bracket:before {
-  content: '\f13e';
+    content: "\f13e";
 }
 .prizm-base-icons-arrow-up-from-double-line:before {
-  content: '\f13f';
+    content: "\f13f";
 }
 .prizm-base-icons-arrow-up-from-line:before {
-  content: '\f140';
+    content: "\f140";
 }
 .prizm-base-icons-arrow-up-in-circle-empty:before {
-  content: '\f141';
+    content: "\f141";
 }
 .prizm-base-icons-arrow-up-to-dotted-line:before {
-  content: '\f142';
+    content: "\f142";
 }
 .prizm-base-icons-arrow-up-to-double-line:before {
-  content: '\f143';
+    content: "\f143";
 }
 .prizm-base-icons-arrow-up-to-line:before {
-  content: '\f144';
+    content: "\f144";
 }
 .prizm-base-icons-arrow-up-wide-short:before {
-  content: '\f145';
+    content: "\f145";
 }
 .prizm-base-icons-arrow-up:before {
-  content: '\f146';
+    content: "\f146";
 }
 .prizm-base-icons-arrows-all-directions:before {
-  content: '\f147';
+    content: "\f147";
 }
 .prizm-base-icons-arrows-compare:before {
-  content: '\f148';
+    content: "\f148";
 }
 .prizm-base-icons-arrows-cross:before {
-  content: '\f149';
+    content: "\f149";
 }
 .prizm-base-icons-arrows-direction-to-the-lines:before {
-  content: '\f14a';
+    content: "\f14a";
 }
 .prizm-base-icons-arrows-inside:before {
-  content: '\f14b';
+    content: "\f14b";
 }
 .prizm-base-icons-arrows-left-right-brackets:before {
-  content: '\f14c';
+    content: "\f14c";
 }
 .prizm-base-icons-arrows-left-right-to-lines:before {
-  content: '\f14d';
+    content: "\f14d";
 }
 .prizm-base-icons-arrows-maximize:before {
-  content: '\f14e';
+    content: "\f14e";
 }
 .prizm-base-icons-arrows-minimize:before {
-  content: '\f14f';
+    content: "\f14f";
 }
 .prizm-base-icons-arrows-out:before {
-  content: '\f150';
+    content: "\f150";
 }
 .prizm-base-icons-arrows-repeat-h:before {
-  content: '\f151';
+    content: "\f151";
 }
 .prizm-base-icons-arrows-repeat-v:before {
-  content: '\f152';
+    content: "\f152";
 }
 .prizm-base-icons-arrows-rotate-h:before {
-  content: '\f153';
+    content: "\f153";
 }
 .prizm-base-icons-arrows-rotate-v:before {
-  content: '\f154';
+    content: "\f154";
 }
 .prizm-base-icons-arrows-shuffle:before {
-  content: '\f155';
+    content: "\f155";
 }
 .prizm-base-icons-arrows-swap-h:before {
-  content: '\f156';
+    content: "\f156";
 }
 .prizm-base-icons-arrows-swap-v:before {
-  content: '\f157';
+    content: "\f157";
 }
 .prizm-base-icons-arrows-up-down-to-lines:before {
-  content: '\f158';
+    content: "\f158";
 }
 .prizm-base-icons-at-sign:before {
-  content: '\f159';
+    content: "\f159";
 }
 .prizm-base-icons-audio-speakers:before {
-  content: '\f15a';
+    content: "\f15a";
 }
 .prizm-base-icons-award:before {
-  content: '\f15b';
+    content: "\f15b";
 }
 .prizm-base-icons-bag:before {
-  content: '\f15c';
+    content: "\f15c";
 }
 .prizm-base-icons-balloon:before {
-  content: '\f15d';
+    content: "\f15d";
 }
 .prizm-base-icons-ban:before {
-  content: '\f15e';
+    content: "\f15e";
 }
 .prizm-base-icons-bar-axis:before {
-  content: '\f15f';
+    content: "\f15f";
 }
 .prizm-base-icons-bar-basic:before {
-  content: '\f160';
+    content: "\f160";
 }
 .prizm-base-icons-bar-columns-axis-x:before {
-  content: '\f161';
+    content: "\f161";
 }
 .prizm-base-icons-bar-columns:before {
-  content: '\f162';
+    content: "\f162";
 }
 .prizm-base-icons-bar-histogram:before {
-  content: '\f163';
+    content: "\f163";
 }
 .prizm-base-icons-bar-square:before {
-  content: '\f164';
+    content: "\f164";
 }
 .prizm-base-icons-bar-stacked-axis:before {
-  content: '\f165';
+    content: "\f165";
 }
 .prizm-base-icons-bar-stacked:before {
-  content: '\f166';
+    content: "\f166";
 }
 .prizm-base-icons-barcode:before {
-  content: '\f167';
+    content: "\f167";
 }
 .prizm-base-icons-bars-sort:before {
-  content: '\f168';
+    content: "\f168";
 }
 .prizm-base-icons-bars:before {
-  content: '\f169';
+    content: "\f169";
 }
 .prizm-base-icons-battery-bolt:before {
-  content: '\f16a';
+    content: "\f16a";
 }
 .prizm-base-icons-battery-empty:before {
-  content: '\f16b';
+    content: "\f16b";
 }
 .prizm-base-icons-battery-exclametion-mark:before {
-  content: '\f16c';
+    content: "\f16c";
 }
 .prizm-base-icons-battery-full:before {
-  content: '\f16d';
+    content: "\f16d";
 }
 .prizm-base-icons-battery-half:before {
-  content: '\f16e';
+    content: "\f16e";
 }
 .prizm-base-icons-battery-minus:before {
-  content: '\f16f';
+    content: "\f16f";
 }
 .prizm-base-icons-battery-plus:before {
-  content: '\f170';
+    content: "\f170";
 }
 .prizm-base-icons-battery-quarter:before {
-  content: '\f171';
+    content: "\f171";
 }
 .prizm-base-icons-battery-three-quarters:before {
-  content: '\f172';
+    content: "\f172";
 }
 .prizm-base-icons-bdrv-administration:before {
-  content: '\f173';
+    content: "\f173";
 }
 .prizm-base-icons-bell-fill:before {
-  content: '\f174';
+    content: "\f174";
 }
 .prizm-base-icons-bell-plus:before {
-  content: '\f175';
+    content: "\f175";
 }
 .prizm-base-icons-bell-ring-fill:before {
-  content: '\f176';
+    content: "\f176";
 }
 .prizm-base-icons-bell-ring:before {
-  content: '\f177';
+    content: "\f177";
 }
 .prizm-base-icons-bell-slash:before {
-  content: '\f178';
+    content: "\f178";
 }
 .prizm-base-icons-bell:before {
-  content: '\f179';
+    content: "\f179";
 }
 .prizm-base-icons-bezier-curve:before {
-  content: '\f17a';
+    content: "\f17a";
 }
 .prizm-base-icons-bitcoin:before {
-  content: '\f17b';
+    content: "\f17b";
 }
 .prizm-base-icons-block-lines:before {
-  content: '\f17c';
+    content: "\f17c";
 }
 .prizm-base-icons-bluetooth:before {
-  content: '\f17d';
+    content: "\f17d";
 }
 .prizm-base-icons-boiler-hot-water-gas-and-oil:before {
-  content: '\f17e';
+    content: "\f17e";
 }
 .prizm-base-icons-boiler:before {
-  content: '\f17f';
+    content: "\f17f";
 }
 .prizm-base-icons-bold:before {
-  content: '\f180';
+    content: "\f180";
 }
 .prizm-base-icons-book-check:before {
-  content: '\f181';
+    content: "\f181";
 }
 .prizm-base-icons-book-closed:before {
-  content: '\f182';
+    content: "\f182";
 }
 .prizm-base-icons-book-open-plus:before {
-  content: '\f183';
+    content: "\f183";
 }
 .prizm-base-icons-book-open-re-arrow-left:before {
-  content: '\f184';
+    content: "\f184";
 }
 .prizm-base-icons-book-open-re-arrow-right:before {
-  content: '\f185';
+    content: "\f185";
 }
 .prizm-base-icons-book-open-text:before {
-  content: '\f186';
+    content: "\f186";
 }
 .prizm-base-icons-book-open-with-page:before {
-  content: '\f187';
+    content: "\f187";
 }
 .prizm-base-icons-book-open:before {
-  content: '\f188';
+    content: "\f188";
 }
 .prizm-base-icons-book-stack:before {
-  content: '\f189';
+    content: "\f189";
 }
 .prizm-base-icons-bookmark-check-fill:before {
-  content: '\f18a';
+    content: "\f18a";
 }
 .prizm-base-icons-bookmark-check:before {
-  content: '\f18b';
+    content: "\f18b";
 }
 .prizm-base-icons-bookmark-cross-fill:before {
-  content: '\f18c';
+    content: "\f18c";
 }
 .prizm-base-icons-bookmark-cross:before {
-  content: '\f18d';
+    content: "\f18d";
 }
 .prizm-base-icons-bookmark-fill:before {
-  content: '\f18e';
+    content: "\f18e";
 }
 .prizm-base-icons-bookmark-music-fill:before {
-  content: '\f18f';
+    content: "\f18f";
 }
 .prizm-base-icons-bookmark-music:before {
-  content: '\f190';
+    content: "\f190";
 }
 .prizm-base-icons-bookmark-plus-fill:before {
-  content: '\f191';
+    content: "\f191";
 }
 .prizm-base-icons-bookmark-plus:before {
-  content: '\f192';
+    content: "\f192";
 }
 .prizm-base-icons-bookmark:before {
-  content: '\f193';
+    content: "\f193";
 }
 .prizm-base-icons-border-all:before {
-  content: '\f194';
+    content: "\f194";
 }
 .prizm-base-icons-border-bottom:before {
-  content: '\f195';
+    content: "\f195";
 }
 .prizm-base-icons-border-center-h:before {
-  content: '\f196';
+    content: "\f196";
 }
 .prizm-base-icons-border-center-v:before {
-  content: '\f197';
+    content: "\f197";
 }
 .prizm-base-icons-border-inner:before {
-  content: '\f198';
+    content: "\f198";
 }
 .prizm-base-icons-border-left:before {
-  content: '\f199';
+    content: "\f199";
 }
 .prizm-base-icons-border-none:before {
-  content: '\f19a';
+    content: "\f19a";
 }
 .prizm-base-icons-border-outer:before {
-  content: '\f19b';
+    content: "\f19b";
 }
 .prizm-base-icons-border-right:before {
-  content: '\f19c';
+    content: "\f19c";
 }
 .prizm-base-icons-border-top-left:before {
-  content: '\f19d';
+    content: "\f19d";
 }
 .prizm-base-icons-border-top:before {
-  content: '\f19e';
+    content: "\f19e";
 }
 .prizm-base-icons-box-open-arrow-down:before {
-  content: '\f19f';
+    content: "\f19f";
 }
 .prizm-base-icons-box:before {
-  content: '\f1a0';
+    content: "\f1a0";
 }
 .prizm-base-icons-brackets-curly:before {
-  content: '\f1a1';
+    content: "\f1a1";
 }
 .prizm-base-icons-brackets-square:before {
-  content: '\f1a2';
+    content: "\f1a2";
 }
 .prizm-base-icons-broom:before {
-  content: '\f1a3';
+    content: "\f1a3";
 }
 .prizm-base-icons-browser:before {
-  content: '\f1a4';
+    content: "\f1a4";
 }
 .prizm-base-icons-brush:before {
-  content: '\f1a5';
+    content: "\f1a5";
 }
 .prizm-base-icons-bubble-message-add:before {
-  content: '\f1a6';
+    content: "\f1a6";
 }
 .prizm-base-icons-bubble-message-attention:before {
-  content: '\f1a7';
+    content: "\f1a7";
 }
 .prizm-base-icons-bubble-message-circle:before {
-  content: '\f1a8';
+    content: "\f1a8";
 }
 .prizm-base-icons-bubble-message-empty:before {
-  content: '\f1a9';
+    content: "\f1a9";
 }
 .prizm-base-icons-bubble-message-off:before {
-  content: '\f1aa';
+    content: "\f1aa";
 }
 .prizm-base-icons-bubble-message-question:before {
-  content: '\f1ab';
+    content: "\f1ab";
 }
 .prizm-base-icons-bubble-message-text:before {
-  content: '\f1ac';
+    content: "\f1ac";
 }
 .prizm-base-icons-bubble-message:before {
-  content: '\f1ad';
+    content: "\f1ad";
 }
 .prizm-base-icons-burn:before {
-  content: '\f1ae';
+    content: "\f1ae";
 }
 .prizm-base-icons-calculator-arrow-rotate-left:before {
-  content: '\f1af';
+    content: "\f1af";
 }
 .prizm-base-icons-calculator-function:before {
-  content: '\f1b0';
+    content: "\f1b0";
 }
 .prizm-base-icons-calculator:before {
-  content: '\f1b1';
+    content: "\f1b1";
 }
 .prizm-base-icons-calendar-blank:before {
-  content: '\f1b2';
+    content: "\f1b2";
 }
 .prizm-base-icons-calendar-check:before {
-  content: '\f1b3';
+    content: "\f1b3";
 }
 .prizm-base-icons-calendar-clock:before {
-  content: '\f1b4';
+    content: "\f1b4";
 }
 .prizm-base-icons-calendar-deleted:before {
-  content: '\f1b5';
+    content: "\f1b5";
 }
 .prizm-base-icons-calendar-event:before {
-  content: '\f1b6';
+    content: "\f1b6";
 }
 .prizm-base-icons-calendar-plus:before {
-  content: '\f1b7';
+    content: "\f1b7";
 }
 .prizm-base-icons-calendar-question:before {
-  content: '\f1b8';
+    content: "\f1b8";
 }
 .prizm-base-icons-calendar-range:before {
-  content: '\f1b9';
+    content: "\f1b9";
 }
 .prizm-base-icons-calendar-today:before {
-  content: '\f1ba';
+    content: "\f1ba";
 }
 .prizm-base-icons-calendar:before {
-  content: '\f1bb';
+    content: "\f1bb";
 }
 .prizm-base-icons-calibration-characteristics-zql:before {
-  content: '\f1bc';
+    content: "\f1bc";
 }
 .prizm-base-icons-camera-front:before {
-  content: '\f1bd';
+    content: "\f1bd";
 }
 .prizm-base-icons-camera-movie-cross:before {
-  content: '\f1be';
+    content: "\f1be";
 }
 .prizm-base-icons-camera-movie:before {
-  content: '\f1bf';
+    content: "\f1bf";
 }
 .prizm-base-icons-camera:before {
-  content: '\f1c0';
+    content: "\f1c0";
 }
 .prizm-base-icons-car-jeep-side-view:before {
-  content: '\f1c1';
+    content: "\f1c1";
 }
 .prizm-base-icons-car-light-side-view:before {
-  content: '\f1c2';
+    content: "\f1c2";
 }
 .prizm-base-icons-carbon:before {
-  content: '\f1c3';
+    content: "\f1c3";
 }
 .prizm-base-icons-carousel-fill:before {
-  content: '\f1c4';
+    content: "\f1c4";
 }
 .prizm-base-icons-cart-flatbed-container:before {
-  content: '\f1c5';
+    content: "\f1c5";
 }
 .prizm-base-icons-cart-plus:before {
-  content: '\f1c6';
+    content: "\f1c6";
 }
 .prizm-base-icons-cart:before {
-  content: '\f1c7';
+    content: "\f1c7";
 }
 .prizm-base-icons-cellphone-wireless:before {
-  content: '\f1c8';
+    content: "\f1c8";
 }
 .prizm-base-icons-cellphone:before {
-  content: '\f1c9';
+    content: "\f1c9";
 }
 .prizm-base-icons-charts-iqc-zql:before {
-  content: '\f1ca';
+    content: "\f1ca";
 }
 .prizm-base-icons-check-double:before {
-  content: '\f1cb';
+    content: "\f1cb";
 }
 .prizm-base-icons-check:before {
-  content: '\f1cc';
+    content: "\f1cc";
 }
 .prizm-base-icons-checkerboard:before {
-  content: '\f1cd';
+    content: "\f1cd";
 }
 .prizm-base-icons-chek:before {
-  content: '\f1ce';
+    content: "\f1ce";
 }
 .prizm-base-icons-chevron-down-to-double-line:before {
-  content: '\f1cf';
+    content: "\f1cf";
 }
 .prizm-base-icons-chevron-down:before {
-  content: '\f1d0';
+    content: "\f1d0";
 }
 .prizm-base-icons-chevron-left:before {
-  content: '\f1d1';
+    content: "\f1d1";
 }
 .prizm-base-icons-chevron-mini-left:before {
-  content: '\f1d2';
+    content: "\f1d2";
 }
 .prizm-base-icons-chevron-mini-right:before {
-  content: '\f1d3';
+    content: "\f1d3";
 }
 .prizm-base-icons-chevron-right-above-double-line:before {
-  content: '\f1d4';
+    content: "\f1d4";
 }
 .prizm-base-icons-chevron-right:before {
-  content: '\f1d5';
+    content: "\f1d5";
 }
 .prizm-base-icons-chevron-up:before {
-  content: '\f1d6';
+    content: "\f1d6";
 }
 .prizm-base-icons-chevrons-double-down:before {
-  content: '\f1d7';
+    content: "\f1d7";
 }
 .prizm-base-icons-chevrons-double-left:before {
-  content: '\f1d8';
+    content: "\f1d8";
 }
 .prizm-base-icons-chevrons-double-mini-left:before {
-  content: '\f1d9';
+    content: "\f1d9";
 }
 .prizm-base-icons-chevrons-double-mini-right:before {
-  content: '\f1da';
+    content: "\f1da";
 }
 .prizm-base-icons-chevrons-double-right:before {
-  content: '\f1db';
+    content: "\f1db";
 }
 .prizm-base-icons-chevrons-double-up:before {
-  content: '\f1dc';
+    content: "\f1dc";
 }
 .prizm-base-icons-chevrons-inside-horizontally:before {
-  content: '\f1dd';
+    content: "\f1dd";
 }
 .prizm-base-icons-chevrons-inside-vertically:before {
-  content: '\f1de';
+    content: "\f1de";
 }
 .prizm-base-icons-chevrons-outside-horizontally:before {
-  content: '\f1df';
+    content: "\f1df";
 }
 .prizm-base-icons-chevrons-outside-vertically:before {
-  content: '\f1e0';
+    content: "\f1e0";
 }
 .prizm-base-icons-circle-check-empty:before {
-  content: '\f1e1';
+    content: "\f1e1";
 }
 .prizm-base-icons-circle-check-fill:before {
-  content: '\f1e2';
+    content: "\f1e2";
 }
 .prizm-base-icons-circle-chek-empty:before {
-  content: '\f1e3';
+    content: "\f1e3";
 }
 .prizm-base-icons-circle-chek-fill:before {
-  content: '\f1e4';
+    content: "\f1e4";
 }
 .prizm-base-icons-circle-exclamation-empty:before {
-  content: '\f1e5';
+    content: "\f1e5";
 }
 .prizm-base-icons-circle-exclamation-fill:before {
-  content: '\f1e6';
+    content: "\f1e6";
 }
 .prizm-base-icons-circle-in-hexagon:before {
-  content: '\f1e7';
+    content: "\f1e7";
 }
 .prizm-base-icons-circle-info-empty:before {
-  content: '\f1e8';
+    content: "\f1e8";
 }
 .prizm-base-icons-circle-info-fill:before {
-  content: '\f1e9';
+    content: "\f1e9";
 }
 .prizm-base-icons-circle-music:before {
-  content: '\f1ea';
+    content: "\f1ea";
 }
 .prizm-base-icons-circle-plus-fill:before {
-  content: '\f1eb';
+    content: "\f1eb";
 }
 .prizm-base-icons-circle-plus:before {
-  content: '\f1ec';
+    content: "\f1ec";
 }
 .prizm-base-icons-circle-question-empty:before {
-  content: '\f1ed';
+    content: "\f1ed";
 }
 .prizm-base-icons-circle-question-fill:before {
-  content: '\f1ee';
+    content: "\f1ee";
 }
 .prizm-base-icons-circle-square-fill:before {
-  content: '\f1ef';
+    content: "\f1ef";
 }
 .prizm-base-icons-circle-square-in-square:before {
-  content: '\f1f0';
+    content: "\f1f0";
 }
 .prizm-base-icons-circle-square:before {
-  content: '\f1f1';
+    content: "\f1f1";
 }
 .prizm-base-icons-circle-xmark-fill:before {
-  content: '\f1f2';
+    content: "\f1f2";
 }
 .prizm-base-icons-circle-xmark:before {
-  content: '\f1f3';
+    content: "\f1f3";
 }
 .prizm-base-icons-circles-line-left-up-circle-right-down-fill:before {
-  content: '\f1f4';
+    content: "\f1f4";
 }
 .prizm-base-icons-circles-line-left-up-circle-right-down:before {
-  content: '\f1f5';
+    content: "\f1f5";
 }
 .prizm-base-icons-clapperboard-cross:before {
-  content: '\f1f6';
+    content: "\f1f6";
 }
 .prizm-base-icons-clapperboard-open:before {
-  content: '\f1f7';
+    content: "\f1f7";
 }
 .prizm-base-icons-clock-add:before {
-  content: '\f1f8';
+    content: "\f1f8";
 }
 .prizm-base-icons-clock-arrow-down:before {
-  content: '\f1f9';
+    content: "\f1f9";
 }
 .prizm-base-icons-clock-arrow-right:before {
-  content: '\f1fa';
+    content: "\f1fa";
 }
 .prizm-base-icons-clock-arrow-up:before {
-  content: '\f1fb';
+    content: "\f1fb";
 }
 .prizm-base-icons-clock-deleted:before {
-  content: '\f1fc';
+    content: "\f1fc";
 }
 .prizm-base-icons-clock-exclamation:before {
-  content: '\f1fd';
+    content: "\f1fd";
 }
 .prizm-base-icons-clock-line-end:before {
-  content: '\f1fe';
+    content: "\f1fe";
 }
 .prizm-base-icons-clock-rotate-left:before {
-  content: '\f1ff';
+    content: "\f1ff";
 }
 .prizm-base-icons-clock-rotate-right:before {
-  content: '\f200';
+    content: "\f200";
 }
 .prizm-base-icons-clock:before {
-  content: '\f201';
+    content: "\f201";
 }
 .prizm-base-icons-cloud-arrow-down:before {
-  content: '\f202';
+    content: "\f202";
 }
 .prizm-base-icons-cloud-arrow-up-inside:before {
-  content: '\f203';
+    content: "\f203";
 }
 .prizm-base-icons-cloud-arrow-up:before {
-  content: '\f204';
+    content: "\f204";
 }
 .prizm-base-icons-cloud-check:before {
-  content: '\f205';
+    content: "\f205";
 }
 .prizm-base-icons-cloud:before {
-  content: '\f206';
+    content: "\f206";
 }
 .prizm-base-icons-code-download:before {
-  content: '\f207';
+    content: "\f207";
 }
 .prizm-base-icons-code-simple:before {
-  content: '\f208';
+    content: "\f208";
 }
 .prizm-base-icons-code:before {
-  content: '\f209';
+    content: "\f209";
 }
 .prizm-base-icons-collage-fill:before {
-  content: '\f20a';
+    content: "\f20a";
 }
 .prizm-base-icons-collection:before {
-  content: '\f20b';
+    content: "\f20b";
 }
 .prizm-base-icons-collector:before {
-  content: '\f20c';
+    content: "\f20c";
 }
 .prizm-base-icons-column-fill:before {
-  content: '\f20d';
+    content: "\f20d";
 }
 .prizm-base-icons-column:before {
-  content: '\f20e';
+    content: "\f20e";
 }
 .prizm-base-icons-compass:before {
-  content: '\f20f';
+    content: "\f20f";
 }
 .prizm-base-icons-component:before {
-  content: '\f210';
+    content: "\f210";
 }
 .prizm-base-icons-concrete-mixer-side-view:before {
-  content: '\f211';
+    content: "\f211";
 }
 .prizm-base-icons-container-v1:before {
-  content: '\f212';
+    content: "\f212";
 }
 .prizm-base-icons-container-v2:before {
-  content: '\f213';
+    content: "\f213";
 }
 .prizm-base-icons-containers:before {
-  content: '\f214';
+    content: "\f214";
 }
 .prizm-base-icons-control-charts-zql:before {
-  content: '\f215';
+    content: "\f215";
 }
 .prizm-base-icons-copy-column:before {
-  content: '\f216';
+    content: "\f216";
 }
 .prizm-base-icons-copy-row:before {
-  content: '\f217';
+    content: "\f217";
 }
 .prizm-base-icons-copy:before {
-  content: '\f218';
+    content: "\f218";
 }
 .prizm-base-icons-crane:before {
-  content: '\f219';
+    content: "\f219";
 }
 .prizm-base-icons-credit-card-plus:before {
-  content: '\f21a';
+    content: "\f21a";
 }
 .prizm-base-icons-credit-card-slash:before {
-  content: '\f21b';
+    content: "\f21b";
 }
 .prizm-base-icons-credit-card:before {
-  content: '\f21c';
+    content: "\f21c";
 }
 .prizm-base-icons-crop:before {
-  content: '\f21d';
+    content: "\f21d";
 }
 .prizm-base-icons-crosshairs-dot:before {
-  content: '\f21e';
+    content: "\f21e";
 }
 .prizm-base-icons-crosshairs-simple:before {
-  content: '\f21f';
+    content: "\f21f";
 }
 .prizm-base-icons-cube-empty:before {
-  content: '\f220';
+    content: "\f220";
 }
 .prizm-base-icons-cube-fill:before {
-  content: '\f221';
+    content: "\f221";
 }
 .prizm-base-icons-cubes:before {
-  content: '\f222';
+    content: "\f222";
 }
 .prizm-base-icons-dashboard-fill:before {
-  content: '\f223';
+    content: "\f223";
 }
 .prizm-base-icons-dashboard-variant-fill:before {
-  content: '\f224';
+    content: "\f224";
 }
 .prizm-base-icons-database-check:before {
-  content: '\f225';
+    content: "\f225";
 }
 .prizm-base-icons-database-chek:before {
-  content: '\f226';
+    content: "\f226";
 }
 .prizm-base-icons-database-json:before {
-  content: '\f227';
+    content: "\f227";
 }
 .prizm-base-icons-database-magnifying-glass:before {
-  content: '\f228';
+    content: "\f228";
 }
 .prizm-base-icons-database-minus:before {
-  content: '\f229';
+    content: "\f229";
 }
 .prizm-base-icons-database-plus:before {
-  content: '\f22a';
+    content: "\f22a";
 }
 .prizm-base-icons-database-sql:before {
-  content: '\f22b';
+    content: "\f22b";
 }
 .prizm-base-icons-database-xmark:before {
-  content: '\f22c';
+    content: "\f22c";
 }
 .prizm-base-icons-database:before {
-  content: '\f22d';
+    content: "\f22d";
 }
 .prizm-base-icons-day-fill:before {
-  content: '\f22e';
+    content: "\f22e";
 }
 .prizm-base-icons-decagram-check-empty:before {
-  content: '\f22f';
+    content: "\f22f";
 }
 .prizm-base-icons-decagram-check-fill:before {
-  content: '\f230';
+    content: "\f230";
 }
 .prizm-base-icons-decagram-chek-empty:before {
-  content: '\f231';
+    content: "\f231";
 }
 .prizm-base-icons-decagram-chek-fill:before {
-  content: '\f232';
+    content: "\f232";
 }
 .prizm-base-icons-decagram-exclamation-empty:before {
-  content: '\f233';
+    content: "\f233";
 }
 .prizm-base-icons-decagram-exclamation-fill:before {
-  content: '\f234';
+    content: "\f234";
 }
 .prizm-base-icons-default-ico:before {
-  content: '\f235';
+    content: "\f235";
 }
 .prizm-base-icons-delete-content:before {
-  content: '\f236';
+    content: "\f236";
 }
 .prizm-base-icons-desktop-tower:before {
-  content: '\f237';
+    content: "\f237";
 }
 .prizm-base-icons-discrete-set:before {
-  content: '\f238';
+    content: "\f238";
 }
 .prizm-base-icons-dollar-slash:before {
-  content: '\f239';
+    content: "\f239";
 }
 .prizm-base-icons-dollar:before {
-  content: '\f23a';
+    content: "\f23a";
 }
 .prizm-base-icons-doughnut:before {
-  content: '\f23b';
+    content: "\f23b";
 }
 .prizm-base-icons-droplet-slash:before {
-  content: '\f23c';
+    content: "\f23c";
 }
 .prizm-base-icons-droplet:before {
-  content: '\f23d';
+    content: "\f23d";
 }
 .prizm-base-icons-early-version:before {
-  content: '\f23e';
+    content: "\f23e";
 }
 .prizm-base-icons-earth:before {
-  content: '\f23f';
+    content: "\f23f";
 }
 .prizm-base-icons-editor-alfavit:before {
-  content: '\f240';
+    content: "\f240";
 }
 .prizm-base-icons-editor-down:before {
-  content: '\f241';
+    content: "\f241";
 }
 .prizm-base-icons-editor-right:before {
-  content: '\f242';
+    content: "\f242";
 }
 .prizm-base-icons-electrics:before {
-  content: '\f243';
+    content: "\f243";
 }
 .prizm-base-icons-ellipsis-2:before {
-  content: '\f244';
+    content: "\f244";
 }
 .prizm-base-icons-ellipsis-4:before {
-  content: '\f245';
+    content: "\f245";
 }
 .prizm-base-icons-ellipsis-grid:before {
-  content: '\f246';
+    content: "\f246";
 }
 .prizm-base-icons-ellipsis-h:before {
-  content: '\f247';
+    content: "\f247";
 }
 .prizm-base-icons-ellipsis-v:before {
-  content: '\f248';
+    content: "\f248";
 }
 .prizm-base-icons-energy-check:before {
-  content: '\f249';
+    content: "\f249";
 }
 .prizm-base-icons-energy-slash:before {
-  content: '\f24a';
+    content: "\f24a";
 }
 .prizm-base-icons-energy:before {
-  content: '\f24b';
+    content: "\f24b";
 }
 .prizm-base-icons-equipment-zql:before {
-  content: '\f24c';
+    content: "\f24c";
 }
 .prizm-base-icons-eraser:before {
-  content: '\f24d';
+    content: "\f24d";
 }
 .prizm-base-icons-ethernet:before {
-  content: '\f24e';
+    content: "\f24e";
 }
 .prizm-base-icons-exchanger:before {
-  content: '\f24f';
+    content: "\f24f";
 }
 .prizm-base-icons-exclamation:before {
-  content: '\f250';
+    content: "\f250";
 }
 .prizm-base-icons-eye-closed:before {
-  content: '\f251';
+    content: "\f251";
 }
 .prizm-base-icons-eye-slash:before {
-  content: '\f252';
+    content: "\f252";
 }
 .prizm-base-icons-eye:before {
-  content: '\f253';
+    content: "\f253";
 }
 .prizm-base-icons-face-frown:before {
-  content: '\f254';
+    content: "\f254";
 }
 .prizm-base-icons-face-smile:before {
-  content: '\f255';
+    content: "\f255";
 }
 .prizm-base-icons-factory-pipe:before {
-  content: '\f256';
+    content: "\f256";
 }
 .prizm-base-icons-factory-pipes:before {
-  content: '\f257';
+    content: "\f257";
 }
 .prizm-base-icons-factory:before {
-  content: '\f258';
+    content: "\f258";
 }
 .prizm-base-icons-fan:before {
-  content: '\f259';
+    content: "\f259";
 }
 .prizm-base-icons-file-arrow-down-left:before {
-  content: '\f25a';
+    content: "\f25a";
 }
 .prizm-base-icons-file-arrow-down:before {
-  content: '\f25b';
+    content: "\f25b";
 }
 .prizm-base-icons-file-arrow-up:before {
-  content: '\f25c';
+    content: "\f25c";
 }
 .prizm-base-icons-file-arrow:before {
-  content: '\f25d';
+    content: "\f25d";
 }
 .prizm-base-icons-file-arrows-up-right:before {
-  content: '\f25e';
+    content: "\f25e";
 }
 .prizm-base-icons-file-camera:before {
-  content: '\f25f';
+    content: "\f25f";
 }
 .prizm-base-icons-file-cross-out:before {
-  content: '\f260';
+    content: "\f260";
 }
 .prizm-base-icons-file-cross:before {
-  content: '\f261';
+    content: "\f261";
 }
 .prizm-base-icons-file-doc:before {
-  content: '\f262';
+    content: "\f262";
 }
 .prizm-base-icons-file-docx:before {
-  content: '\f263';
+    content: "\f263";
 }
 .prizm-base-icons-file-dot:before {
-  content: '\f264';
+    content: "\f264";
 }
 .prizm-base-icons-file-empty:before {
-  content: '\f265';
+    content: "\f265";
 }
 .prizm-base-icons-file-exclamation:before {
-  content: '\f266';
+    content: "\f266";
 }
 .prizm-base-icons-file-exclamatiot:before {
-  content: '\f267';
+    content: "\f267";
 }
 .prizm-base-icons-file-eye:before {
-  content: '\f268';
+    content: "\f268";
 }
 .prizm-base-icons-file-filled:before {
-  content: '\f269';
+    content: "\f269";
 }
 .prizm-base-icons-file-image:before {
-  content: '\f26a';
+    content: "\f26a";
 }
 .prizm-base-icons-file-magnifying-glass:before {
-  content: '\f26b';
+    content: "\f26b";
 }
 .prizm-base-icons-file-minus:before {
-  content: '\f26c';
+    content: "\f26c";
 }
 .prizm-base-icons-file-music:before {
-  content: '\f26d';
+    content: "\f26d";
 }
 .prizm-base-icons-file-pdf:before {
-  content: '\f26e';
+    content: "\f26e";
 }
 .prizm-base-icons-file-pen:before {
-  content: '\f26f';
+    content: "\f26f";
 }
 .prizm-base-icons-file-play:before {
-  content: '\f270';
+    content: "\f270";
 }
 .prizm-base-icons-file-plus:before {
-  content: '\f271';
+    content: "\f271";
 }
 .prizm-base-icons-file-ppt:before {
-  content: '\f272';
+    content: "\f272";
 }
 .prizm-base-icons-file-pptx:before {
-  content: '\f273';
+    content: "\f273";
 }
 .prizm-base-icons-file-txt:before {
-  content: '\f274';
+    content: "\f274";
 }
 .prizm-base-icons-file-up-right:before {
-  content: '\f275';
+    content: "\f275";
 }
 .prizm-base-icons-file-xls:before {
-  content: '\f276';
+    content: "\f276";
 }
 .prizm-base-icons-file-xlsx:before {
-  content: '\f277';
+    content: "\f277";
 }
 .prizm-base-icons-files-mode:before {
-  content: '\f278';
+    content: "\f278";
 }
 .prizm-base-icons-fill:before {
-  content: '\f279';
+    content: "\f279";
 }
 .prizm-base-icons-film-cross:before {
-  content: '\f27a';
+    content: "\f27a";
 }
 .prizm-base-icons-film:before {
-  content: '\f27b';
+    content: "\f27b";
 }
 .prizm-base-icons-filter-gear:before {
-  content: '\f27c';
+    content: "\f27c";
 }
 .prizm-base-icons-filter-ontology:before {
-  content: '\f27d';
+    content: "\f27d";
 }
 .prizm-base-icons-filter:before {
-  content: '\f27e';
+    content: "\f27e";
 }
 .prizm-base-icons-finance-scanner:before {
-  content: '\f27f';
+    content: "\f27f";
 }
 .prizm-base-icons-fire:before {
-  content: '\f280';
+    content: "\f280";
 }
 .prizm-base-icons-flag-fill-red:before {
-  content: '\f281';
+    content: "\f281";
 }
 .prizm-base-icons-flag-fill:before {
-  content: '\f282';
+    content: "\f282";
 }
 .prizm-base-icons-flag:before {
-  content: '\f283';
+    content: "\f283";
 }
 .prizm-base-icons-flask-round-potion:before {
-  content: '\f284';
+    content: "\f284";
 }
 .prizm-base-icons-flask:before {
-  content: '\f285';
+    content: "\f285";
 }
 .prizm-base-icons-floppy-cross-out:before {
-  content: '\f286';
+    content: "\f286";
 }
 .prizm-base-icons-floppy-cross:before {
-  content: '\f287';
+    content: "\f287";
 }
 .prizm-base-icons-floppy-pen:before {
-  content: '\f288';
+    content: "\f288";
 }
 .prizm-base-icons-floppy-star:before {
-  content: '\f289';
+    content: "\f289";
 }
 .prizm-base-icons-floppy:before {
-  content: '\f28a';
+    content: "\f28a";
 }
 .prizm-base-icons-folder-arrow-down-left:before {
-  content: '\f28b';
+    content: "\f28b";
 }
 .prizm-base-icons-folder-arrow-down:before {
-  content: '\f28c';
+    content: "\f28c";
 }
 .prizm-base-icons-folder-arrow-up-right:before {
-  content: '\f28d';
+    content: "\f28d";
 }
 .prizm-base-icons-folder-cross:before {
-  content: '\f28e';
+    content: "\f28e";
 }
 .prizm-base-icons-folder-dot:before {
-  content: '\f28f';
+    content: "\f28f";
 }
 .prizm-base-icons-folder-minus:before {
-  content: '\f290';
+    content: "\f290";
 }
 .prizm-base-icons-folder-open:before {
-  content: '\f291';
+    content: "\f291";
 }
 .prizm-base-icons-folder-plus:before {
-  content: '\f292';
+    content: "\f292";
 }
 .prizm-base-icons-folder-underline-minus:before {
-  content: '\f293';
+    content: "\f293";
 }
 .prizm-base-icons-folder-underline-plus:before {
-  content: '\f294';
+    content: "\f294";
 }
 .prizm-base-icons-folder-underline:before {
-  content: '\f295';
+    content: "\f295";
 }
 .prizm-base-icons-folder:before {
-  content: '\f296';
+    content: "\f296";
 }
 .prizm-base-icons-forvard-step:before {
-  content: '\f297';
+    content: "\f297";
 }
 .prizm-base-icons-forward:before {
-  content: '\f298';
+    content: "\f298";
 }
 .prizm-base-icons-fuel-oil-tank:before {
-  content: '\f299';
+    content: "\f299";
 }
 .prizm-base-icons-function:before {
-  content: '\f29a';
+    content: "\f29a";
 }
 .prizm-base-icons-gantt:before {
-  content: '\f29b';
+    content: "\f29b";
 }
 .prizm-base-icons-gas-monitoring:before {
-  content: '\f29c';
+    content: "\f29c";
 }
 .prizm-base-icons-gas-pump:before {
-  content: '\f29d';
+    content: "\f29d";
 }
 .prizm-base-icons-gas:before {
-  content: '\f29e';
+    content: "\f29e";
 }
 .prizm-base-icons-gauge:before {
-  content: '\f29f';
+    content: "\f29f";
 }
 .prizm-base-icons-gear-5-edge:before {
-  content: '\f2a0';
+    content: "\f2a0";
 }
 .prizm-base-icons-gear-8-edge:before {
-  content: '\f2a1';
+    content: "\f2a1";
 }
 .prizm-base-icons-gear-cooling:before {
-  content: '\f2a2';
+    content: "\f2a2";
 }
 .prizm-base-icons-generator:before {
-  content: '\f2a3';
+    content: "\f2a3";
 }
 .prizm-base-icons-gift:before {
-  content: '\f2a4';
+    content: "\f2a4";
 }
 .prizm-base-icons-git-lab:before {
-  content: '\f2a5';
+    content: "\f2a5";
 }
 .prizm-base-icons-globe:before {
-  content: '\f2a6';
+    content: "\f2a6";
 }
 .prizm-base-icons-grid-fill:before {
-  content: '\f2a7';
+    content: "\f2a7";
 }
 .prizm-base-icons-grid:before {
-  content: '\f2a8';
+    content: "\f2a8";
 }
 .prizm-base-icons-grip-dots-vertical:before {
-  content: '\f2a9';
+    content: "\f2a9";
 }
 .prizm-base-icons-hard-drive-outline:before {
-  content: '\f2aa';
+    content: "\f2aa";
 }
 .prizm-base-icons-hash-dash:before {
-  content: '\f2ab';
+    content: "\f2ab";
 }
 .prizm-base-icons-hash:before {
-  content: '\f2ac';
+    content: "\f2ac";
 }
 .prizm-base-icons-hashtag:before {
-  content: '\f2ad';
+    content: "\f2ad";
 }
 .prizm-base-icons-headline-fill:before {
-  content: '\f2ae';
+    content: "\f2ae";
 }
 .prizm-base-icons-headphones:before {
-  content: '\f2af';
+    content: "\f2af";
 }
 .prizm-base-icons-heart-empty:before {
-  content: '\f2b0';
+    content: "\f2b0";
 }
 .prizm-base-icons-heart-fill:before {
-  content: '\f2b1';
+    content: "\f2b1";
 }
 .prizm-base-icons-helicopter-side-view:before {
-  content: '\f2b2';
+    content: "\f2b2";
 }
 .prizm-base-icons-hexagon-exclamation-empty:before {
-  content: '\f2b3';
+    content: "\f2b3";
 }
 .prizm-base-icons-hexagon-exclamation-fill:before {
-  content: '\f2b4';
+    content: "\f2b4";
 }
 .prizm-base-icons-hexagon-fill:before {
-  content: '\f2b5';
+    content: "\f2b5";
 }
 .prizm-base-icons-hexagon:before {
-  content: '\f2b6';
+    content: "\f2b6";
 }
 .prizm-base-icons-hexagons-axis:before {
-  content: '\f2b7';
+    content: "\f2b7";
 }
 .prizm-base-icons-hexagons:before {
-  content: '\f2b8';
+    content: "\f2b8";
 }
 .prizm-base-icons-histogram-axis:before {
-  content: '\f2b9';
+    content: "\f2b9";
 }
 .prizm-base-icons-house-mini:before {
-  content: '\f2ba';
+    content: "\f2ba";
 }
 .prizm-base-icons-house:before {
-  content: '\f2bb';
+    content: "\f2bb";
 }
 .prizm-base-icons-image:before {
-  content: '\f2bc';
+    content: "\f2bc";
 }
 .prizm-base-icons-importers-zql:before {
-  content: '\f2bd';
+    content: "\f2bd";
 }
 .prizm-base-icons-indent-arrow-left:before {
-  content: '\f2be';
+    content: "\f2be";
 }
 .prizm-base-icons-indent-arrow-right:before {
-  content: '\f2bf';
+    content: "\f2bf";
 }
 .prizm-base-icons-infinity:before {
-  content: '\f2c0';
+    content: "\f2c0";
 }
 .prizm-base-icons-info:before {
-  content: '\f2c1';
+    content: "\f2c1";
 }
 .prizm-base-icons-input-device:before {
-  content: '\f2c2';
+    content: "\f2c2";
 }
 .prizm-base-icons-instagram:before {
-  content: '\f2c3';
+    content: "\f2c3";
 }
 .prizm-base-icons-italic:before {
-  content: '\f2c4';
+    content: "\f2c4";
 }
 .prizm-base-icons-key:before {
-  content: '\f2c5';
+    content: "\f2c5";
 }
 .prizm-base-icons-keyboard-close:before {
-  content: '\f2c6';
+    content: "\f2c6";
 }
 .prizm-base-icons-keyboard:before {
-  content: '\f2c7';
+    content: "\f2c7";
 }
 .prizm-base-icons-label-cross:before {
-  content: '\f2c8';
+    content: "\f2c8";
 }
 .prizm-base-icons-label-exclamation-mark:before {
-  content: '\f2c9';
+    content: "\f2c9";
 }
 .prizm-base-icons-label-fill:before {
-  content: '\f2ca';
+    content: "\f2ca";
 }
 .prizm-base-icons-label-magnifying-glass:before {
-  content: '\f2cb';
+    content: "\f2cb";
 }
 .prizm-base-icons-label-plus:before {
-  content: '\f2cc';
+    content: "\f2cc";
 }
 .prizm-base-icons-label-question:before {
-  content: '\f2cd';
+    content: "\f2cd";
 }
 .prizm-base-icons-label-text:before {
-  content: '\f2ce';
+    content: "\f2ce";
 }
 .prizm-base-icons-label:before {
-  content: '\f2cf';
+    content: "\f2cf";
 }
 .prizm-base-icons-lan-connect:before {
-  content: '\f2d0';
+    content: "\f2d0";
 }
 .prizm-base-icons-lan-disconnect:before {
-  content: '\f2d1';
+    content: "\f2d1";
 }
 .prizm-base-icons-lan-pending:before {
-  content: '\f2d2';
+    content: "\f2d2";
 }
 .prizm-base-icons-laptop-phone-slash:before {
-  content: '\f2d3';
+    content: "\f2d3";
 }
 .prizm-base-icons-laptop-phone:before {
-  content: '\f2d4';
+    content: "\f2d4";
 }
 .prizm-base-icons-laptop-slash:before {
-  content: '\f2d5';
+    content: "\f2d5";
 }
 .prizm-base-icons-laptop:before {
-  content: '\f2d6';
+    content: "\f2d6";
 }
 .prizm-base-icons-layer-group-slash:before {
-  content: '\f2d7';
+    content: "\f2d7";
 }
 .prizm-base-icons-layer-group:before {
-  content: '\f2d8';
+    content: "\f2d8";
 }
 .prizm-base-icons-layer-network:before {
-  content: '\f2d9';
+    content: "\f2d9";
 }
 .prizm-base-icons-letter-day:before {
-  content: '\f2da';
+    content: "\f2da";
 }
 .prizm-base-icons-letter-hour:before {
-  content: '\f2db';
+    content: "\f2db";
 }
 .prizm-base-icons-letter-minute:before {
-  content: '\f2dc';
+    content: "\f2dc";
 }
 .prizm-base-icons-letter-month:before {
-  content: '\f2dd';
+    content: "\f2dd";
 }
 .prizm-base-icons-letter-second:before {
-  content: '\f2de';
+    content: "\f2de";
 }
 .prizm-base-icons-letter-time:before {
-  content: '\f2df';
+    content: "\f2df";
 }
 .prizm-base-icons-letter-year:before {
-  content: '\f2e0';
+    content: "\f2e0";
 }
 .prizm-base-icons-library-plus:before {
-  content: '\f2e1';
+    content: "\f2e1";
 }
 .prizm-base-icons-lightbulb:before {
-  content: '\f2e2';
+    content: "\f2e2";
 }
 .prizm-base-icons-line-axis-arrow-down:before {
-  content: '\f2e3';
+    content: "\f2e3";
 }
 .prizm-base-icons-line-axis-x:before {
-  content: '\f2e4';
+    content: "\f2e4";
 }
 .prizm-base-icons-line-axis:before {
-  content: '\f2e5';
+    content: "\f2e5";
 }
 .prizm-base-icons-line-down:before {
-  content: '\f2e6';
+    content: "\f2e6";
 }
 .prizm-base-icons-line-height:before {
-  content: '\f2e7';
+    content: "\f2e7";
 }
 .prizm-base-icons-line-multiple-y-axis-x:before {
-  content: '\f2e8';
+    content: "\f2e8";
 }
 .prizm-base-icons-line-multiple-y-axis:before {
-  content: '\f2e9';
+    content: "\f2e9";
 }
 .prizm-base-icons-line-up:before {
-  content: '\f2ea';
+    content: "\f2ea";
 }
 .prizm-base-icons-line:before {
-  content: '\f2eb';
+    content: "\f2eb";
 }
 .prizm-base-icons-link-break:before {
-  content: '\f2ec';
+    content: "\f2ec";
 }
 .prizm-base-icons-link-minus:before {
-  content: '\f2ed';
+    content: "\f2ed";
 }
 .prizm-base-icons-link-plus:before {
-  content: '\f2ee';
+    content: "\f2ee";
 }
 .prizm-base-icons-link-simple-h:before {
-  content: '\f2ef';
+    content: "\f2ef";
 }
 .prizm-base-icons-link-simple:before {
-  content: '\f2f0';
+    content: "\f2f0";
 }
 .prizm-base-icons-list-fill:before {
-  content: '\f2f1';
+    content: "\f2f1";
 }
 .prizm-base-icons-list-ol:before {
-  content: '\f2f2';
+    content: "\f2f2";
 }
 .prizm-base-icons-list-square:before {
-  content: '\f2f3';
+    content: "\f2f3";
 }
 .prizm-base-icons-list-tree-archive:before {
-  content: '\f2f4';
+    content: "\f2f4";
 }
 .prizm-base-icons-list-tree:before {
-  content: '\f2f5';
+    content: "\f2f5";
 }
 .prizm-base-icons-list-ul:before {
-  content: '\f2f6';
+    content: "\f2f6";
 }
 .prizm-base-icons-list:before {
-  content: '\f2f7';
+    content: "\f2f7";
 }
 .prizm-base-icons-lng-storage:before {
-  content: '\f2f8';
+    content: "\f2f8";
 }
 .prizm-base-icons-loader:before {
-  content: '\f2f9';
+    content: "\f2f9";
 }
 .prizm-base-icons-location-arrow:before {
-  content: '\f2fa';
+    content: "\f2fa";
 }
 .prizm-base-icons-location-directly:before {
-  content: '\f2fb';
+    content: "\f2fb";
 }
 .prizm-base-icons-location-dot:before {
-  content: '\f2fc';
+    content: "\f2fc";
 }
 .prizm-base-icons-location-minus:before {
-  content: '\f2fd';
+    content: "\f2fd";
 }
 .prizm-base-icons-location-plus:before {
-  content: '\f2fe';
+    content: "\f2fe";
 }
 .prizm-base-icons-location-slash:before {
-  content: '\f2ff';
+    content: "\f2ff";
 }
 .prizm-base-icons-location-user:before {
-  content: '\f300';
+    content: "\f300";
 }
 .prizm-base-icons-lock:before {
-  content: '\f301';
+    content: "\f301";
 }
 .prizm-base-icons-logo-grey-z:before {
-  content: '\f302';
+    content: "\f302";
 }
 .prizm-base-icons-logo-s-grey:before {
-  content: '\f303';
+    content: "\f303";
 }
 .prizm-base-icons-magic-wand:before {
-  content: '\f304';
+    content: "\f304";
 }
 .prizm-base-icons-magnifying-glass-exclamation:before {
-  content: '\f305';
+    content: "\f305";
 }
 .prizm-base-icons-magnifying-glass-minus:before {
-  content: '\f306';
+    content: "\f306";
 }
 .prizm-base-icons-magnifying-glass-ontology:before {
-  content: '\f307';
+    content: "\f307";
 }
 .prizm-base-icons-magnifying-glass-plus:before {
-  content: '\f308';
+    content: "\f308";
 }
 .prizm-base-icons-magnifying-glass-qr-code:before {
-  content: '\f309';
+    content: "\f309";
 }
 .prizm-base-icons-magnifying-glass-tags-words:before {
-  content: '\f30a';
+    content: "\f30a";
 }
 .prizm-base-icons-magnifying-glass-top-from-bracket:before {
-  content: '\f30b';
+    content: "\f30b";
 }
 .prizm-base-icons-magnifying-glass-triangle-down:before {
-  content: '\f30c';
+    content: "\f30c";
 }
 .prizm-base-icons-magnifying-glass-xmark:before {
-  content: '\f30d';
+    content: "\f30d";
 }
 .prizm-base-icons-magnifying-glass:before {
-  content: '\f30e';
+    content: "\f30e";
 }
 .prizm-base-icons-mail-open:before {
-  content: '\f30f';
+    content: "\f30f";
 }
 .prizm-base-icons-mail:before {
-  content: '\f310';
+    content: "\f310";
 }
 .prizm-base-icons-mailbox:before {
-  content: '\f311';
+    content: "\f311";
 }
 .prizm-base-icons-map-base:before {
-  content: '\f312';
+    content: "\f312";
 }
 .prizm-base-icons-map-marker-date-v1:before {
-  content: '\f313';
+    content: "\f313";
 }
 .prizm-base-icons-map-marker-date-v2:before {
-  content: '\f314';
+    content: "\f314";
 }
 .prizm-base-icons-map-pin:before {
-  content: '\f315';
+    content: "\f315";
 }
 .prizm-base-icons-map:before {
-  content: '\f316';
+    content: "\f316";
 }
 .prizm-base-icons-medical:before {
-  content: '\f317';
+    content: "\f317";
 }
 .prizm-base-icons-merge:before {
-  content: '\f318';
+    content: "\f318";
 }
 .prizm-base-icons-messaging-telegram-send:before {
-  content: '\f319';
+    content: "\f319";
 }
 .prizm-base-icons-messaging-telegram:before {
-  content: '\f31a';
+    content: "\f31a";
 }
 .prizm-base-icons-microphone-slash:before {
-  content: '\f31b';
+    content: "\f31b";
 }
 .prizm-base-icons-microphone:before {
-  content: '\f31c';
+    content: "\f31c";
 }
 .prizm-base-icons-minibus-side-view:before {
-  content: '\f31d';
+    content: "\f31d";
 }
 .prizm-base-icons-minus-circle-fill:before {
-  content: '\f31e';
+    content: "\f31e";
 }
 .prizm-base-icons-minus-circle:before {
-  content: '\f31f';
+    content: "\f31f";
 }
 .prizm-base-icons-minus:before {
-  content: '\f320';
+    content: "\f320";
 }
 .prizm-base-icons-module-fill:before {
-  content: '\f321';
+    content: "\f321";
 }
 .prizm-base-icons-monitor:before {
-  content: '\f322';
+    content: "\f322";
 }
 .prizm-base-icons-moon:before {
-  content: '\f323';
+    content: "\f323";
 }
 .prizm-base-icons-music-slash:before {
-  content: '\f324';
+    content: "\f324";
 }
 .prizm-base-icons-music:before {
-  content: '\f325';
+    content: "\f325";
 }
 .prizm-base-icons-network-external-link:before {
-  content: '\f326';
+    content: "\f326";
 }
 .prizm-base-icons-network-v1:before {
-  content: '\f327';
+    content: "\f327";
 }
 .prizm-base-icons-network-v2:before {
-  content: '\f328';
+    content: "\f328";
 }
 .prizm-base-icons-network-v3:before {
-  content: '\f329';
+    content: "\f329";
 }
 .prizm-base-icons-network-wired:before {
-  content: '\f32a';
+    content: "\f32a";
 }
 .prizm-base-icons-ni-fi-logo:before {
-  content: '\f32b';
+    content: "\f32b";
 }
 .prizm-base-icons-normdocs-zql:before {
-  content: '\f32c';
+    content: "\f32c";
 }
 .prizm-base-icons-npm:before {
-  content: '\f32d';
+    content: "\f32d";
 }
 .prizm-base-icons-object-down-subtract:before {
-  content: '\f32e';
+    content: "\f32e";
 }
 .prizm-base-icons-object-exclude:before {
-  content: '\f32f';
+    content: "\f32f";
 }
 .prizm-base-icons-object-intersect:before {
-  content: '\f330';
+    content: "\f330";
 }
 .prizm-base-icons-object-selection:before {
-  content: '\f331';
+    content: "\f331";
 }
 .prizm-base-icons-object-union:before {
-  content: '\f332';
+    content: "\f332";
 }
 .prizm-base-icons-object-up-subtract:before {
-  content: '\f333';
+    content: "\f333";
 }
 .prizm-base-icons-object:before {
-  content: '\f334';
+    content: "\f334";
 }
 .prizm-base-icons-oil-barrel:before {
-  content: '\f335';
+    content: "\f335";
 }
 .prizm-base-icons-oil-canister:before {
-  content: '\f336';
+    content: "\f336";
 }
 .prizm-base-icons-oil-droplet-arrows-all:before {
-  content: '\f337';
+    content: "\f337";
 }
 .prizm-base-icons-oil-droplet-arrows-repeat-h:before {
-  content: '\f338';
+    content: "\f338";
 }
 .prizm-base-icons-oil-droplet-check:before {
-  content: '\f339';
+    content: "\f339";
 }
 .prizm-base-icons-oil-droplet-chek:before {
-  content: '\f33a';
+    content: "\f33a";
 }
 .prizm-base-icons-oil-droplet:before {
-  content: '\f33b';
+    content: "\f33b";
 }
 .prizm-base-icons-oil-field:before {
-  content: '\f33c';
+    content: "\f33c";
 }
 .prizm-base-icons-oil-tank:before {
-  content: '\f33d';
+    content: "\f33d";
 }
 .prizm-base-icons-ontology:before {
-  content: '\f33e';
+    content: "\f33e";
 }
 .prizm-base-icons-owl:before {
-  content: '\f33f';
+    content: "\f33f";
 }
 .prizm-base-icons-palette:before {
-  content: '\f340';
+    content: "\f340";
 }
 .prizm-base-icons-panel-down:before {
-  content: '\f341';
+    content: "\f341";
 }
 .prizm-base-icons-panel-left:before {
-  content: '\f342';
+    content: "\f342";
 }
 .prizm-base-icons-panel-right:before {
-  content: '\f343';
+    content: "\f343";
 }
 .prizm-base-icons-panel-top:before {
-  content: '\f344';
+    content: "\f344";
 }
 .prizm-base-icons-pantone:before {
-  content: '\f345';
+    content: "\f345";
 }
 .prizm-base-icons-paperclip-vertical:before {
-  content: '\f346';
+    content: "\f346";
 }
 .prizm-base-icons-paperclip:before {
-  content: '\f347';
+    content: "\f347";
 }
 .prizm-base-icons-pause:before {
-  content: '\f348';
+    content: "\f348";
 }
 .prizm-base-icons-paver-side-view:before {
-  content: '\f349';
+    content: "\f349";
 }
 .prizm-base-icons-pen-hammer:before {
-  content: '\f34a';
+    content: "\f34a";
 }
 .prizm-base-icons-pencil-arrow-right:before {
-  content: '\f34b';
+    content: "\f34b";
 }
 .prizm-base-icons-pencil-line-bottom:before {
-  content: '\f34c';
+    content: "\f34c";
 }
 .prizm-base-icons-pencil-triangle-down:before {
-  content: '\f34d';
+    content: "\f34d";
 }
 .prizm-base-icons-pencil-triangle-left:before {
-  content: '\f34e';
+    content: "\f34e";
 }
 .prizm-base-icons-pencil:before {
-  content: '\f34f';
+    content: "\f34f";
 }
 .prizm-base-icons-pentagon-fill:before {
-  content: '\f350';
+    content: "\f350";
 }
 .prizm-base-icons-pentagon:before {
-  content: '\f351';
+    content: "\f351";
 }
 .prizm-base-icons-percent:before {
-  content: '\f352';
+    content: "\f352";
 }
 .prizm-base-icons-phone-active-call:before {
-  content: '\f353';
+    content: "\f353";
 }
 .prizm-base-icons-phone-cancelled:before {
-  content: '\f354';
+    content: "\f354";
 }
 .prizm-base-icons-phone-minus:before {
-  content: '\f355';
+    content: "\f355";
 }
 .prizm-base-icons-phone-off:before {
-  content: '\f356';
+    content: "\f356";
 }
 .prizm-base-icons-phone-paused:before {
-  content: '\f357';
+    content: "\f357";
 }
 .prizm-base-icons-phone-plus:before {
-  content: '\f358';
+    content: "\f358";
 }
 .prizm-base-icons-phone:before {
-  content: '\f359';
+    content: "\f359";
 }
 .prizm-base-icons-pi:before {
-  content: '\f35a';
+    content: "\f35a";
 }
 .prizm-base-icons-pie-line-nested:before {
-  content: '\f35b';
+    content: "\f35b";
 }
 .prizm-base-icons-pie-line:before {
-  content: '\f35c';
+    content: "\f35c";
 }
 .prizm-base-icons-pie-pentagon:before {
-  content: '\f35d';
+    content: "\f35d";
 }
 .prizm-base-icons-pie-several-parts:before {
-  content: '\f35e';
+    content: "\f35e";
 }
 .prizm-base-icons-pie-simple:before {
-  content: '\f35f';
+    content: "\f35f";
 }
 .prizm-base-icons-pie:before {
-  content: '\f360';
+    content: "\f360";
 }
 .prizm-base-icons-pipe-node-side-view:before {
-  content: '\f361';
+    content: "\f361";
 }
 .prizm-base-icons-pipe-sensor:before {
-  content: '\f362';
+    content: "\f362";
 }
 .prizm-base-icons-pipe-slash:before {
-  content: '\f363';
+    content: "\f363";
 }
 .prizm-base-icons-pipe-valve:before {
-  content: '\f364';
+    content: "\f364";
 }
 .prizm-base-icons-pipeline-v1:before {
-  content: '\f365';
+    content: "\f365";
 }
 .prizm-base-icons-pipeline-v2:before {
-  content: '\f366';
+    content: "\f366";
 }
 .prizm-base-icons-pipette:before {
-  content: '\f367';
+    content: "\f367";
 }
 .prizm-base-icons-plane:before {
-  content: '\f368';
+    content: "\f368";
 }
 .prizm-base-icons-play-back:before {
-  content: '\f369';
+    content: "\f369";
 }
 .prizm-base-icons-play:before {
-  content: '\f36a';
+    content: "\f36a";
 }
 .prizm-base-icons-plus-column-right:before {
-  content: '\f36b';
+    content: "\f36b";
 }
 .prizm-base-icons-plus-column-top:before {
-  content: '\f36c';
+    content: "\f36c";
 }
 .prizm-base-icons-plus-triangle-down:before {
-  content: '\f36d';
+    content: "\f36d";
 }
 .prizm-base-icons-plus:before {
-  content: '\f36e';
+    content: "\f36e";
 }
 .prizm-base-icons-polyline:before {
-  content: '\f36f';
+    content: "\f36f";
 }
 .prizm-base-icons-portfel:before {
-  content: '\f370';
+    content: "\f370";
 }
 .prizm-base-icons-power:before {
-  content: '\f371';
+    content: "\f371";
 }
 .prizm-base-icons-premises-zql:before {
-  content: '\f372';
+    content: "\f372";
 }
 .prizm-base-icons-press:before {
-  content: '\f373';
+    content: "\f373";
 }
 .prizm-base-icons-printer:before {
-  content: '\f374';
+    content: "\f374";
 }
 .prizm-base-icons-process:before {
-  content: '\f375';
+    content: "\f375";
 }
 .prizm-base-icons-pulse:before {
-  content: '\f376';
+    content: "\f376";
 }
 .prizm-base-icons-pump-triangle-down:before {
-  content: '\f377';
+    content: "\f377";
 }
 .prizm-base-icons-pump:before {
-  content: '\f378';
+    content: "\f378";
 }
 .prizm-base-icons-push-button-cellphone:before {
-  content: '\f379';
+    content: "\f379";
 }
 .prizm-base-icons-qr:before {
-  content: '\f37a';
+    content: "\f37a";
 }
 .prizm-base-icons-question:before {
-  content: '\f37b';
+    content: "\f37b";
 }
 .prizm-base-icons-quilt-fill:before {
-  content: '\f37c';
+    content: "\f37c";
 }
 .prizm-base-icons-radiation:before {
-  content: '\f37d';
+    content: "\f37d";
 }
 .prizm-base-icons-railcar-hopper-side-view:before {
-  content: '\f37e';
+    content: "\f37e";
 }
 .prizm-base-icons-railcar-side-view:before {
-  content: '\f37f';
+    content: "\f37f";
 }
 .prizm-base-icons-range:before {
-  content: '\f380';
+    content: "\f380";
 }
 .prizm-base-icons-replay:before {
-  content: '\f381';
+    content: "\f381";
 }
 .prizm-base-icons-respirator-v1:before {
-  content: '\f382';
+    content: "\f382";
 }
 .prizm-base-icons-respirator-v2:before {
-  content: '\f383';
+    content: "\f383";
 }
 .prizm-base-icons-respirator-v3:before {
-  content: '\f384';
+    content: "\f384";
 }
 .prizm-base-icons-respirator-v4:before {
-  content: '\f385';
+    content: "\f385";
 }
 .prizm-base-icons-respirator-v5:before {
-  content: '\f386';
+    content: "\f386";
 }
 .prizm-base-icons-respirator-v6:before {
-  content: '\f387';
+    content: "\f387";
 }
 .prizm-base-icons-return-step:before {
-  content: '\f388';
+    content: "\f388";
 }
 .prizm-base-icons-return:before {
-  content: '\f389';
+    content: "\f389";
 }
 .prizm-base-icons-rhombus-fill:before {
-  content: '\f38a';
+    content: "\f38a";
 }
 .prizm-base-icons-rhombus:before {
-  content: '\f38b';
+    content: "\f38b";
 }
 .prizm-base-icons-ring-in-square:before {
-  content: '\f38c';
+    content: "\f38c";
 }
 .prizm-base-icons-ruler-index-zql:before {
-  content: '\f38d';
+    content: "\f38d";
 }
 .prizm-base-icons-ruler:before {
-  content: '\f38e';
+    content: "\f38e";
 }
 .prizm-base-icons-sample-logs-zql:before {
-  content: '\f38f';
+    content: "\f38f";
 }
 .prizm-base-icons-sample-templates-zql:before {
-  content: '\f390';
+    content: "\f390";
 }
 .prizm-base-icons-sandglass:before {
-  content: '\f391';
+    content: "\f391";
 }
 .prizm-base-icons-scatter-axis:before {
-  content: '\f392';
+    content: "\f392";
 }
 .prizm-base-icons-scatter-basic:before {
-  content: '\f393';
+    content: "\f393";
 }
 .prizm-base-icons-scatter:before {
-  content: '\f394';
+    content: "\f394";
 }
 .prizm-base-icons-scissors:before {
-  content: '\f395';
+    content: "\f395";
 }
 .prizm-base-icons-seedling-circle:before {
-  content: '\f396';
+    content: "\f396";
 }
 .prizm-base-icons-seedling-rectangle:before {
-  content: '\f397';
+    content: "\f397";
 }
 .prizm-base-icons-seedling:before {
-  content: '\f398';
+    content: "\f398";
 }
 .prizm-base-icons-selection-checked-empty:before {
-  content: '\f399';
+    content: "\f399";
 }
 .prizm-base-icons-send-backward:before {
-  content: '\f39a';
+    content: "\f39a";
 }
 .prizm-base-icons-send-forward:before {
-  content: '\f39b';
+    content: "\f39b";
 }
 .prizm-base-icons-separator:before {
-  content: '\f39c';
+    content: "\f39c";
 }
 .prizm-base-icons-sequential-fill:before {
-  content: '\f39d';
+    content: "\f39d";
 }
 .prizm-base-icons-server-network-close:before {
-  content: '\f39e';
+    content: "\f39e";
 }
 .prizm-base-icons-server-network-download:before {
-  content: '\f39f';
+    content: "\f39f";
 }
 .prizm-base-icons-server-network-minus:before {
-  content: '\f3a0';
+    content: "\f3a0";
 }
 .prizm-base-icons-server-network-plus:before {
-  content: '\f3a1';
+    content: "\f3a1";
 }
 .prizm-base-icons-server-network-security:before {
-  content: '\f3a2';
+    content: "\f3a2";
 }
 .prizm-base-icons-server-network-upload:before {
-  content: '\f3a3';
+    content: "\f3a3";
 }
 .prizm-base-icons-server-network:before {
-  content: '\f3a4';
+    content: "\f3a4";
 }
 .prizm-base-icons-server-shield:before {
-  content: '\f3a5';
+    content: "\f3a5";
 }
 .prizm-base-icons-server-slash-up-line:before {
-  content: '\f3a6';
+    content: "\f3a6";
 }
 .prizm-base-icons-server-slash:before {
-  content: '\f3a7';
+    content: "\f3a7";
 }
 .prizm-base-icons-server-up-line:before {
-  content: '\f3a8';
+    content: "\f3a8";
 }
 .prizm-base-icons-server:before {
-  content: '\f3a9';
+    content: "\f3a9";
 }
 .prizm-base-icons-shape-link-fill:before {
-  content: '\f3aa';
+    content: "\f3aa";
 }
 .prizm-base-icons-shape-link:before {
-  content: '\f3ab';
+    content: "\f3ab";
 }
 .prizm-base-icons-shape-plus:before {
-  content: '\f3ac';
+    content: "\f3ac";
 }
 .prizm-base-icons-share-left:before {
-  content: '\f3ad';
+    content: "\f3ad";
 }
 .prizm-base-icons-share-right:before {
-  content: '\f3ae';
+    content: "\f3ae";
 }
 .prizm-base-icons-shareing:before {
-  content: '\f3af';
+    content: "\f3af";
 }
 .prizm-base-icons-shield-exclamation:before {
-  content: '\f3b0';
+    content: "\f3b0";
 }
 .prizm-base-icons-shield-slash:before {
-  content: '\f3b1';
+    content: "\f3b1";
 }
 .prizm-base-icons-shield:before {
-  content: '\f3b2';
+    content: "\f3b2";
 }
 .prizm-base-icons-ship-front-view:before {
-  content: '\f3b3';
+    content: "\f3b3";
 }
 .prizm-base-icons-ship-side-view:before {
-  content: '\f3b4';
+    content: "\f3b4";
 }
 .prizm-base-icons-shopping-box:before {
-  content: '\f3b5';
+    content: "\f3b5";
 }
 .prizm-base-icons-shovel:before {
-  content: '\f3b6';
+    content: "\f3b6";
 }
 .prizm-base-icons-sigma:before {
-  content: '\f3b7';
+    content: "\f3b7";
 }
 .prizm-base-icons-signal-access-point:before {
-  content: '\f3b8';
+    content: "\f3b8";
 }
 .prizm-base-icons-signal-off:before {
-  content: '\f3b9';
+    content: "\f3b9";
 }
 .prizm-base-icons-signal-radio-tower:before {
-  content: '\f3ba';
+    content: "\f3ba";
 }
 .prizm-base-icons-signal:before {
-  content: '\f3bb';
+    content: "\f3bb";
 }
 .prizm-base-icons-sliders-h:before {
-  content: '\f3bc';
+    content: "\f3bc";
 }
 .prizm-base-icons-sliders-v:before {
-  content: '\f3bd';
+    content: "\f3bd";
 }
 .prizm-base-icons-snake-cup:before {
-  content: '\f3be';
+    content: "\f3be";
 }
 .prizm-base-icons-snowflake-up-to-bracket:before {
-  content: '\f3bf';
+    content: "\f3bf";
 }
 .prizm-base-icons-snowflake:before {
-  content: '\f3c0';
+    content: "\f3c0";
 }
 .prizm-base-icons-sort-filter-remove:before {
-  content: '\f3c1';
+    content: "\f3c1";
 }
 .prizm-base-icons-sort-version:before {
-  content: '\f3c2';
+    content: "\f3c2";
 }
 .prizm-base-icons-specification:before {
-  content: '\f3c3';
+    content: "\f3c3";
 }
 .prizm-base-icons-specs-zql:before {
-  content: '\f3c4';
+    content: "\f3c4";
 }
 .prizm-base-icons-speed-reduction-cooling:before {
-  content: '\f3c5';
+    content: "\f3c5";
 }
 .prizm-base-icons-square-arrows-curve-right-down:before {
-  content: '\f3c6';
+    content: "\f3c6";
 }
 .prizm-base-icons-square-arrows-curve-up-right:before {
-  content: '\f3c7';
+    content: "\f3c7";
 }
 .prizm-base-icons-square-bracket-curly-left:before {
-  content: '\f3c8';
+    content: "\f3c8";
 }
 .prizm-base-icons-square-bracket-curly-right:before {
-  content: '\f3c9';
+    content: "\f3c9";
 }
 .prizm-base-icons-square-bracket-left:before {
-  content: '\f3ca';
+    content: "\f3ca";
 }
 .prizm-base-icons-square-bracket-right:before {
-  content: '\f3cb';
+    content: "\f3cb";
 }
 .prizm-base-icons-square-circle-plus-triangle-fill:before {
-  content: '\f3cc';
+    content: "\f3cc";
 }
 .prizm-base-icons-square-circle-triangle-cross-fill:before {
-  content: '\f3cd';
+    content: "\f3cd";
 }
 .prizm-base-icons-square-circle-triangle-cross:before {
-  content: '\f3ce';
+    content: "\f3ce";
 }
 .prizm-base-icons-square-divide:before {
-  content: '\f3cf';
+    content: "\f3cf";
 }
 .prizm-base-icons-square-excel:before {
-  content: '\f3d0';
+    content: "\f3d0";
 }
 .prizm-base-icons-square-exclamation-empty:before {
-  content: '\f3d1';
+    content: "\f3d1";
 }
 .prizm-base-icons-square-exclamation-fill:before {
-  content: '\f3d2';
+    content: "\f3d2";
 }
 .prizm-base-icons-square-fill:before {
-  content: '\f3d3';
+    content: "\f3d3";
 }
 .prizm-base-icons-square-hexagon-circle-fill:before {
-  content: '\f3d4';
+    content: "\f3d4";
 }
 .prizm-base-icons-square-hexagon-circle:before {
-  content: '\f3d5';
+    content: "\f3d5";
 }
 .prizm-base-icons-square-in-square:before {
-  content: '\f3d6';
+    content: "\f3d6";
 }
 .prizm-base-icons-square-info-empty:before {
-  content: '\f3d7';
+    content: "\f3d7";
 }
 .prizm-base-icons-square-info-fill:before {
-  content: '\f3d8';
+    content: "\f3d8";
 }
 .prizm-base-icons-square-minus:before {
-  content: '\f3d9';
+    content: "\f3d9";
 }
 .prizm-base-icons-square-multiply:before {
-  content: '\f3da';
+    content: "\f3da";
 }
 .prizm-base-icons-square-music-double:before {
-  content: '\f3db';
+    content: "\f3db";
 }
 .prizm-base-icons-square-music:before {
-  content: '\f3dc';
+    content: "\f3dc";
 }
 .prizm-base-icons-square-percent:before {
-  content: '\f3dd';
+    content: "\f3dd";
 }
 .prizm-base-icons-square-plus:before {
-  content: '\f3de';
+    content: "\f3de";
 }
 .prizm-base-icons-square-powerpoint:before {
-  content: '\f3df';
+    content: "\f3df";
 }
 .prizm-base-icons-square-question-empty:before {
-  content: '\f3e0';
+    content: "\f3e0";
 }
 .prizm-base-icons-square-question-fill:before {
-  content: '\f3e1';
+    content: "\f3e1";
 }
 .prizm-base-icons-square-triangle-circle-triangle-fill:before {
-  content: '\f3e2';
+    content: "\f3e2";
 }
 .prizm-base-icons-square-triangle-circle-triangle:before {
-  content: '\f3e3';
+    content: "\f3e3";
 }
 .prizm-base-icons-square-word:before {
-  content: '\f3e4';
+    content: "\f3e4";
 }
 .prizm-base-icons-star-empty:before {
-  content: '\f3e5';
+    content: "\f3e5";
 }
 .prizm-base-icons-star-fill:before {
-  content: '\f3e6';
+    content: "\f3e6";
 }
 .prizm-base-icons-star-half-fill:before {
-  content: '\f3e7';
+    content: "\f3e7";
 }
 .prizm-base-icons-star-line:before {
-  content: '\f3e8';
+    content: "\f3e8";
 }
 .prizm-base-icons-steam-boiler:before {
-  content: '\f3e9';
+    content: "\f3e9";
 }
 .prizm-base-icons-steam-turbine:before {
-  content: '\f3ea';
+    content: "\f3ea";
 }
 .prizm-base-icons-steam:before {
-  content: '\f3eb';
+    content: "\f3eb";
 }
 .prizm-base-icons-stop:before {
-  content: '\f3ec';
+    content: "\f3ec";
 }
 .prizm-base-icons-stopwatch:before {
-  content: '\f3ed';
+    content: "\f3ed";
 }
 .prizm-base-icons-storage:before {
-  content: '\f3ee';
+    content: "\f3ee";
 }
 .prizm-base-icons-strikethrough:before {
-  content: '\f3ef';
+    content: "\f3ef";
 }
 .prizm-base-icons-subskrit-down:before {
-  content: '\f3f0';
+    content: "\f3f0";
 }
 .prizm-base-icons-subskrit-up:before {
-  content: '\f3f1';
+    content: "\f3f1";
 }
 .prizm-base-icons-sumbol-asterisk:before {
-  content: '\f3f2';
+    content: "\f3f2";
 }
 .prizm-base-icons-sun:before {
-  content: '\f3f3';
+    content: "\f3f3";
 }
 .prizm-base-icons-support-man:before {
-  content: '\f3f4';
+    content: "\f3f4";
 }
 .prizm-base-icons-symbol-asterisk:before {
-  content: '\f3f5';
+    content: "\f3f5";
 }
 .prizm-base-icons-table-down:before {
-  content: '\f3f6';
+    content: "\f3f6";
 }
 .prizm-base-icons-table-gear:before {
-  content: '\f3f7';
+    content: "\f3f7";
 }
 .prizm-base-icons-table-magnifying-glass:before {
-  content: '\f3f8';
+    content: "\f3f8";
 }
 .prizm-base-icons-table-right:before {
-  content: '\f3f9';
+    content: "\f3f9";
 }
 .prizm-base-icons-table-transpose-right:before {
-  content: '\f3fa';
+    content: "\f3fa";
 }
 .prizm-base-icons-table-transpose-top:before {
-  content: '\f3fb';
+    content: "\f3fb";
 }
 .prizm-base-icons-table-transpose:before {
-  content: '\f3fc';
+    content: "\f3fc";
 }
 .prizm-base-icons-table:before {
-  content: '\f3fd';
+    content: "\f3fd";
 }
 .prizm-base-icons-tablet-iqc-zql:before {
-  content: '\f3fe';
+    content: "\f3fe";
 }
 .prizm-base-icons-tablet:before {
-  content: '\f3ff';
+    content: "\f3ff";
 }
 .prizm-base-icons-tank:before {
-  content: '\f400';
+    content: "\f400";
 }
 .prizm-base-icons-tankcar-oil-side-view:before {
-  content: '\f401';
+    content: "\f401";
 }
 .prizm-base-icons-tankcar-side-view:before {
-  content: '\f402';
+    content: "\f402";
 }
 .prizm-base-icons-techs-zql:before {
-  content: '\f403';
+    content: "\f403";
 }
 .prizm-base-icons-temp-add-shape-square-plus:before {
-  content: '\f404';
+    content: "\f404";
 }
 .prizm-base-icons-temp-alerts-alarm-light:before {
-  content: '\f405';
+    content: "\f405";
 }
 .prizm-base-icons-temp-alerts-circle-mini:before {
-  content: '\f406';
+    content: "\f406";
 }
 .prizm-base-icons-temp-arrows-corner-chek-in:before {
-  content: '\f407';
+    content: "\f407";
 }
 .prizm-base-icons-temp-arrows-down-double-top-2:before {
-  content: '\f408';
+    content: "\f408";
 }
 .prizm-base-icons-temp-arrows-up-double-top-2:before {
-  content: '\f409';
+    content: "\f409";
 }
 .prizm-base-icons-temp-audio-artist:before {
-  content: '\f40a';
+    content: "\f40a";
 }
 .prizm-base-icons-temp-badges-tag-multiple:before {
-  content: '\f40b';
+    content: "\f40b";
 }
 .prizm-base-icons-temp-chevrons-dropdown-small:before {
-  content: '\f40c';
+    content: "\f40c";
 }
 .prizm-base-icons-temp-chevrons-menu-left-small:before {
-  content: '\f40d';
+    content: "\f40d";
 }
 .prizm-base-icons-temp-date-inform-delete:before {
-  content: '\f40e';
+    content: "\f40e";
 }
 .prizm-base-icons-temp-editor-discrete-set:before {
-  content: '\f40f';
+    content: "\f40f";
 }
 .prizm-base-icons-temp-editor-wrap-text:before {
-  content: '\f410';
+    content: "\f410";
 }
 .prizm-base-icons-temp-files-import-1c:before {
-  content: '\f411';
+    content: "\f411";
 }
 .prizm-base-icons-temp-files-import-1s:before {
-  content: '\f412';
+    content: "\f412";
 }
 .prizm-base-icons-temp-location-localization-down-list:before {
-  content: '\f413';
+    content: "\f413";
 }
 .prizm-base-icons-temp-network-library:before {
-  content: '\f414';
+    content: "\f414";
 }
 .prizm-base-icons-temp-poi-difference:before {
-  content: '\f415';
+    content: "\f415";
 }
 .prizm-base-icons-temp-product-grade-according-to-specification:before {
-  content: '\f416';
+    content: "\f416";
 }
 .prizm-base-icons-temp-selection-checkbox-blank-circle:before {
-  content: '\f417';
+    content: "\f417";
 }
 .prizm-base-icons-temp-selection-checkbox-blank:before {
-  content: '\f418';
+    content: "\f418";
 }
 .prizm-base-icons-temp-selection-checkbox-marked-circle-chanel:before {
-  content: '\f419';
+    content: "\f419";
 }
 .prizm-base-icons-temp-selection-checked-1:before {
-  content: '\f41a';
+    content: "\f41a";
 }
 .prizm-base-icons-temp-selection-checked-2:before {
-  content: '\f41b';
+    content: "\f41b";
 }
 .prizm-base-icons-temp-selection-checked:before {
-  content: '\f41c';
+    content: "\f41c";
 }
 .prizm-base-icons-temp-selection-radio-off:before {
-  content: '\f41d';
+    content: "\f41d";
 }
 .prizm-base-icons-temp-selection-radio-on:before {
-  content: '\f41e';
+    content: "\f41e";
 }
 .prizm-base-icons-temp-selection-toggle-left:before {
-  content: '\f41f';
+    content: "\f41f";
 }
 .prizm-base-icons-temp-selection-toggle-right:before {
-  content: '\f420';
+    content: "\f420";
 }
 .prizm-base-icons-temp-selection-unchoice:before {
-  content: '\f421';
+    content: "\f421";
 }
 .prizm-base-icons-temp-shapes-checkbox-intermediate:before {
-  content: '\f422';
+    content: "\f422";
 }
 .prizm-base-icons-temp-signal-cast:before {
-  content: '\f423';
+    content: "\f423";
 }
 .prizm-base-icons-temp-signal-rss-box:before {
-  content: '\f424';
+    content: "\f424";
 }
 .prizm-base-icons-temp-social-tab:before {
-  content: '\f425';
+    content: "\f425";
 }
 .prizm-base-icons-temp-sort-version:before {
-  content: '\f426';
+    content: "\f426";
 }
 .prizm-base-icons-temp-tools-solver:before {
-  content: '\f427';
+    content: "\f427";
 }
 .prizm-base-icons-temperature-minus:before {
-  content: '\f428';
+    content: "\f428";
 }
 .prizm-base-icons-temperature-plus:before {
-  content: '\f429';
+    content: "\f429";
 }
 .prizm-base-icons-temperature:before {
-  content: '\f42a';
+    content: "\f42a";
 }
 .prizm-base-icons-template:before {
-  content: '\f42b';
+    content: "\f42b";
 }
 .prizm-base-icons-text-color:before {
-  content: '\f42c';
+    content: "\f42c";
 }
 .prizm-base-icons-text:before {
-  content: '\f42d';
+    content: "\f42d";
 }
 .prizm-base-icons-thumb-down:before {
-  content: '\f42e';
+    content: "\f42e";
 }
 .prizm-base-icons-thumb-up:before {
-  content: '\f42f';
+    content: "\f42f";
 }
 .prizm-base-icons-thumbtack-directly:before {
-  content: '\f430';
+    content: "\f430";
 }
 .prizm-base-icons-thumbtack:before {
-  content: '\f431';
+    content: "\f431";
 }
 .prizm-base-icons-tools-solver:before {
-  content: '\f432';
+    content: "\f432";
 }
 .prizm-base-icons-touchpad:before {
-  content: '\f433';
+    content: "\f433";
 }
 .prizm-base-icons-train-cargo:before {
-  content: '\f434';
+    content: "\f434";
 }
 .prizm-base-icons-train-passenger:before {
-  content: '\f435';
+    content: "\f435";
 }
 .prizm-base-icons-transmitter:before {
-  content: '\f436';
+    content: "\f436";
 }
 .prizm-base-icons-trash-drop:before {
-  content: '\f437';
+    content: "\f437";
 }
 .prizm-base-icons-trash-empty:before {
-  content: '\f438';
+    content: "\f438";
 }
 .prizm-base-icons-trash:before {
-  content: '\f439';
+    content: "\f439";
 }
 .prizm-base-icons-triangle-circle-square-fill:before {
-  content: '\f43a';
+    content: "\f43a";
 }
 .prizm-base-icons-triangle-circle-square:before {
-  content: '\f43b';
+    content: "\f43b";
 }
 .prizm-base-icons-triangle-cross-empty:before {
-  content: '\f43c';
+    content: "\f43c";
 }
 .prizm-base-icons-triangle-down:before {
-  content: '\f43d';
+    content: "\f43d";
 }
 .prizm-base-icons-triangle-exclamation-empty:before {
-  content: '\f43e';
+    content: "\f43e";
 }
 .prizm-base-icons-triangle-exclamation-fill:before {
-  content: '\f43f';
+    content: "\f43f";
 }
 .prizm-base-icons-triangle-fill:before {
-  content: '\f440';
+    content: "\f440";
 }
 .prizm-base-icons-triangle-info-empty:before {
-  content: '\f441';
+    content: "\f441";
 }
 .prizm-base-icons-triangle-info-fill:before {
-  content: '\f442';
+    content: "\f442";
 }
 .prizm-base-icons-triangle-left:before {
-  content: '\f443';
+    content: "\f443";
 }
 .prizm-base-icons-triangle-plus-empty:before {
-  content: '\f444';
+    content: "\f444";
 }
 .prizm-base-icons-triangle-right:before {
-  content: '\f445';
+    content: "\f445";
 }
 .prizm-base-icons-triangle-up-down:before {
-  content: '\f446';
+    content: "\f446";
 }
 .prizm-base-icons-triangle-up:before {
-  content: '\f447';
+    content: "\f447";
 }
 .prizm-base-icons-triangle:before {
-  content: '\f448';
+    content: "\f448";
 }
 .prizm-base-icons-truck-dump-side-view:before {
-  content: '\f449';
+    content: "\f449";
 }
 .prizm-base-icons-truck-empty-side-view:before {
-  content: '\f44a';
+    content: "\f44a";
 }
 .prizm-base-icons-truck-garbage-side-view:before {
-  content: '\f44b';
+    content: "\f44b";
 }
 .prizm-base-icons-truck-gasoline-side-view:before {
-  content: '\f44c';
+    content: "\f44c";
 }
 .prizm-base-icons-truck-side-view:before {
-  content: '\f44d';
+    content: "\f44d";
 }
 .prizm-base-icons-tv:before {
-  content: '\f44e';
+    content: "\f44e";
 }
 .prizm-base-icons-umbrella:before {
-  content: '\f44f';
+    content: "\f44f";
 }
 .prizm-base-icons-underlined:before {
-  content: '\f450';
+    content: "\f450";
 }
 .prizm-base-icons-unlock:before {
-  content: '\f451';
+    content: "\f451";
 }
 .prizm-base-icons-user-arrows-swap:before {
-  content: '\f452';
+    content: "\f452";
 }
 .prizm-base-icons-user-card:before {
-  content: '\f453';
+    content: "\f453";
 }
 .prizm-base-icons-user-check:before {
-  content: '\f454';
+    content: "\f454";
 }
 .prizm-base-icons-user-chevron:before {
-  content: '\f455';
+    content: "\f455";
 }
 .prizm-base-icons-user-circle:before {
-  content: '\f456';
+    content: "\f456";
 }
 .prizm-base-icons-user-cross:before {
-  content: '\f457';
+    content: "\f457";
 }
 .prizm-base-icons-user-gear:before {
-  content: '\f458';
+    content: "\f458";
 }
 .prizm-base-icons-user-group:before {
-  content: '\f459';
+    content: "\f459";
 }
 .prizm-base-icons-user-location:before {
-  content: '\f45a';
+    content: "\f45a";
 }
 .prizm-base-icons-user-minus:before {
-  content: '\f45b';
+    content: "\f45b";
 }
 .prizm-base-icons-user-pen:before {
-  content: '\f45c';
+    content: "\f45c";
 }
 .prizm-base-icons-user-plus:before {
-  content: '\f45d';
+    content: "\f45d";
 }
 .prizm-base-icons-user-shield:before {
-  content: '\f45e';
+    content: "\f45e";
 }
 .prizm-base-icons-user-worker:before {
-  content: '\f45f';
+    content: "\f45f";
 }
 .prizm-base-icons-user:before {
-  content: '\f460';
+    content: "\f460";
 }
 .prizm-base-icons-users-arrow-right:before {
-  content: '\f461';
+    content: "\f461";
 }
 .prizm-base-icons-users-arrow-up-zql:before {
-  content: '\f462';
+    content: "\f462";
 }
 .prizm-base-icons-users-gear:before {
-  content: '\f463';
+    content: "\f463";
 }
 .prizm-base-icons-users-key:before {
-  content: '\f464';
+    content: "\f464";
 }
 .prizm-base-icons-users-location:before {
-  content: '\f465';
+    content: "\f465";
 }
 .prizm-base-icons-users-minus:before {
-  content: '\f466';
+    content: "\f466";
 }
 .prizm-base-icons-users-plus:before {
-  content: '\f467';
+    content: "\f467";
 }
 .prizm-base-icons-users:before {
-  content: '\f468';
+    content: "\f468";
 }
 .prizm-base-icons-vector-circle-one-point:before {
-  content: '\f469';
+    content: "\f469";
 }
 .prizm-base-icons-vector-circle-two-point:before {
-  content: '\f46a';
+    content: "\f46a";
 }
 .prizm-base-icons-vector-circle:before {
-  content: '\f46b';
+    content: "\f46b";
 }
 .prizm-base-icons-vector-line:before {
-  content: '\f46c';
+    content: "\f46c";
 }
 .prizm-base-icons-vector-point:before {
-  content: '\f46d';
+    content: "\f46d";
 }
 .prizm-base-icons-vector-polygon:before {
-  content: '\f46e';
+    content: "\f46e";
 }
 .prizm-base-icons-vector-rectangle:before {
-  content: '\f46f';
+    content: "\f46f";
 }
 .prizm-base-icons-vector-square:before {
-  content: '\f470';
+    content: "\f470";
 }
 .prizm-base-icons-vector-triangle:before {
-  content: '\f471';
+    content: "\f471";
 }
 .prizm-base-icons-vectors-radius:before {
-  content: '\f472';
+    content: "\f472";
 }
 .prizm-base-icons-vial-arrow-rotate-left:before {
-  content: '\f473';
+    content: "\f473";
 }
 .prizm-base-icons-vial-flask:before {
-  content: '\f474';
+    content: "\f474";
 }
 .prizm-base-icons-vial-plus:before {
-  content: '\f475';
+    content: "\f475";
 }
 .prizm-base-icons-vial-rotate-left:before {
-  content: '\f476';
+    content: "\f476";
 }
 .prizm-base-icons-vial-xmark:before {
-  content: '\f477';
+    content: "\f477";
 }
 .prizm-base-icons-vial:before {
-  content: '\f478';
+    content: "\f478";
 }
 .prizm-base-icons-video-cross:before {
-  content: '\f479';
+    content: "\f479";
 }
 .prizm-base-icons-video-slash:before {
-  content: '\f47a';
+    content: "\f47a";
 }
 .prizm-base-icons-video:before {
-  content: '\f47b';
+    content: "\f47b";
 }
 .prizm-base-icons-voicemail:before {
-  content: '\f47c';
+    content: "\f47c";
 }
 .prizm-base-icons-volume-cross:before {
-  content: '\f47d';
+    content: "\f47d";
 }
 .prizm-base-icons-volume-low:before {
-  content: '\f47e';
+    content: "\f47e";
 }
 .prizm-base-icons-volume-minus:before {
-  content: '\f47f';
+    content: "\f47f";
 }
 .prizm-base-icons-volume-off:before {
-  content: '\f480';
+    content: "\f480";
 }
 .prizm-base-icons-volume-plus:before {
-  content: '\f481';
+    content: "\f481";
 }
 .prizm-base-icons-volume-slash:before {
-  content: '\f482';
+    content: "\f482";
 }
 .prizm-base-icons-volume:before {
-  content: '\f483';
+    content: "\f483";
 }
 .prizm-base-icons-wallet:before {
-  content: '\f484';
+    content: "\f484";
 }
 .prizm-base-icons-watch:before {
-  content: '\f485';
+    content: "\f485";
 }
 .prizm-base-icons-water-heater:before {
-  content: '\f486';
+    content: "\f486";
 }
 .prizm-base-icons-water-pump:before {
-  content: '\f487';
+    content: "\f487";
 }
 .prizm-base-icons-webcam:before {
-  content: '\f488';
+    content: "\f488";
 }
 .prizm-base-icons-wifi-off:before {
-  content: '\f489';
+    content: "\f489";
 }
 .prizm-base-icons-wifi:before {
-  content: '\f48a';
+    content: "\f48a";
 }
 .prizm-base-icons-window:before {
-  content: '\f48b';
+    content: "\f48b";
 }
 .prizm-base-icons-wrench:before {
-  content: '\f48c';
+    content: "\f48c";
 }
 .prizm-base-icons-xmark-column-right:before {
-  content: '\f48d';
+    content: "\f48d";
 }
 .prizm-base-icons-xmark-column-top:before {
-  content: '\f48e';
+    content: "\f48e";
 }
 .prizm-base-icons-xmark-mini:before {
-  content: '\f48f';
+    content: "\f48f";
 }
 .prizm-base-icons-xmark:before {
-  content: '\f490';
+    content: "\f490";
 }

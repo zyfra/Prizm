@@ -4,5 +4,5 @@ export const prizmIconsBookmarkPlusFill: {
   data: string;
 } = {
   name: 'bookmark-plus-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15.674a2 2 0 0 0 2.55 1.923L12 20.04l5.45 1.557A2 2 0 0 0 20 19.674V4a2 2 0 0 0-2-2H6Zm7 7a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1V9Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v15.674a2 2 0 0 0 2.55 1.923L12 20.04l5.45 1.557A2 2 0 0 0 20 19.674V4a2 2 0 0 0-2-2H6Zm7 7a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0v-1h1a1 1 0 1 0 0-2h-1V9Z" fill="currentColor"/></svg>`
 };

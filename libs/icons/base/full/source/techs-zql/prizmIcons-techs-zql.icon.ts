@@ -4,5 +4,5 @@ export const prizmIconsTechsZql: {
   data: string;
 } = {
   name: 'techs-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2A1.5 1.5 0 0 1 3 .5h10A1.5 1.5 0 0 1 14.5 2v12a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 14V2ZM3 1.5a.5.5 0 0 0-.5.5v10.5h11V2a.5.5 0 0 0-.5-.5H3ZM2.5 14v-.5h2v1H3a.5.5 0 0 1-.5-.5Zm10.5.5H5.5v-1h8v.5a.5.5 0 0 1-.5.5Zm-6-11a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H7ZM6.5 7a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H7a.5.5 0 0 1-.5-.5ZM7 9.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H7ZM5.5 4a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM5 10.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2A1.5 1.5 0 0 1 3 .5h10A1.5 1.5 0 0 1 14.5 2v12a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 14V2ZM3 1.5a.5.5 0 0 0-.5.5v10.5h11V2a.5.5 0 0 0-.5-.5H3ZM2.5 14v-.5h2v1H3a.5.5 0 0 1-.5-.5Zm10.5.5H5.5v-1h8v.5a.5.5 0 0 1-.5.5Zm-6-11a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H7ZM6.5 7a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H7a.5.5 0 0 1-.5-.5ZM7 9.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H7ZM5.5 4a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm0 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0ZM5 10.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsCrosshairsDot: {
   data: string;
 } = {
   name: 'crosshairs-dot',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 1 .5.5v1.522A5.502 5.502 0 0 1 13.478 7.5H15a.5.5 0 0 1 0 1h-1.522A5.502 5.502 0 0 1 8.5 13.478V15a.5.5 0 0 1-1 0v-1.522A5.502 5.502 0 0 1 2.522 8.5H1a.5.5 0 0 1 0-1h1.522A5.502 5.502 0 0 1 7.5 2.522V1A.5.5 0 0 1 8 .5ZM3.5 8a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0Zm4 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM8 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 1 .5.5v1.522A5.502 5.502 0 0 1 13.478 7.5H15a.5.5 0 0 1 0 1h-1.522A5.502 5.502 0 0 1 8.5 13.478V15a.5.5 0 0 1-1 0v-1.522A5.502 5.502 0 0 1 2.522 8.5H1a.5.5 0 0 1 0-1h1.522A5.502 5.502 0 0 1 7.5 2.522V1A.5.5 0 0 1 8 .5ZM3.5 8a4.5 4.5 0 1 0 9 0 4.5 4.5 0 0 0-9 0Zm4 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0ZM8 6.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

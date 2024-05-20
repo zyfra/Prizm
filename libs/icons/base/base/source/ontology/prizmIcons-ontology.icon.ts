@@ -4,5 +4,5 @@ export const prizmIconsOntology: {
   data: string;
 } = {
   name: 'ontology',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm3 1a3.001 3.001 0 0 1-2 2.83v2.34A3.008 3.008 0 0 1 14.83 11h2.34a3.001 3.001 0 1 1 0 2h-2.34A3.009 3.009 0 0 1 13 14.83v2.34a3.001 3.001 0 1 1-2 0v-2.34A3.008 3.008 0 0 1 9.17 13H6.83a3.001 3.001 0 1 1 0-2h2.34A3.008 3.008 0 0 1 11 9.17V6.83A3.001 3.001 0 1 1 15 4ZM5 12a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm6 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0Zm9 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-8 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm3 1a3.001 3.001 0 0 1-2 2.83v2.34A3.008 3.008 0 0 1 14.83 11h2.34a3.001 3.001 0 1 1 0 2h-2.34A3.009 3.009 0 0 1 13 14.83v2.34a3.001 3.001 0 1 1-2 0v-2.34A3.008 3.008 0 0 1 9.17 13H6.83a3.001 3.001 0 1 1 0-2h2.34A3.008 3.008 0 0 1 11 9.17V6.83A3.001 3.001 0 1 1 15 4ZM5 12a1 1 0 1 0-2 0 1 1 0 0 0 2 0Zm6 0a1 1 0 1 0 2 0 1 1 0 0 0-2 0Zm9 1a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm-8 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`
 };

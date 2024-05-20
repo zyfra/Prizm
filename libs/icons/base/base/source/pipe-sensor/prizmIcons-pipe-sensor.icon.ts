@@ -4,5 +4,5 @@ export const prizmIconsPipeSensor: {
   data: string;
 } = {
   name: 'pipe-sensor',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM9 8a3 3 0 1 1 6 0v1h1a1 1 0 1 1 0 2v2h4a1 1 0 1 1 2 0v1a.997.997 0 0 1-.088.411c.057.186.088.384.088.589v4c0 .205-.03.403-.088.589A.997.997 0 0 1 22 20v1a1 1 0 1 1-2 0H4a1 1 0 1 1-2 0v-1c0-.146.032-.286.088-.411A1.999 1.999 0 0 1 2 19v-4c0-.205.03-.403.088-.589A.997.997 0 0 1 2 14v-1a1 1 0 1 1 2 0h4v-2a1 1 0 1 1 0-2h1V8Zm4 0v1h-2V8a1 1 0 1 1 2 0Zm2 7h5v4H4v-4h11ZM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm2 7v-2h4v2h-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM9 8a3 3 0 1 1 6 0v1h1a1 1 0 1 1 0 2v2h4a1 1 0 1 1 2 0v1a.997.997 0 0 1-.088.411c.057.186.088.384.088.589v4c0 .205-.03.403-.088.589A.997.997 0 0 1 22 20v1a1 1 0 1 1-2 0H4a1 1 0 1 1-2 0v-1c0-.146.032-.286.088-.411A1.999 1.999 0 0 1 2 19v-4c0-.205.03-.403.088-.589A.997.997 0 0 1 2 14v-1a1 1 0 1 1 2 0h4v-2a1 1 0 1 1 0-2h1V8Zm4 0v1h-2V8a1 1 0 1 1 2 0Zm2 7h5v4H4v-4h11ZM8 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm2 7v-2h4v2h-4Z" fill="currentColor"/></svg>`
 };

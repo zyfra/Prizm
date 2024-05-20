@@ -4,5 +4,5 @@ export const prizmIconsTriangleCircleSquare: {
   data: string;
 } = {
   name: 'triangle-circle-square',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 1 .447.276l3 6A.5.5 0 0 1 11 7.5H5a.5.5 0 0 1-.447-.724l3-6A.5.5 0 0 1 8 .5Zm2.191 6L8 2.118 5.809 6.5h4.382ZM.5 9a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5V9Zm1 .5v5h5v-5h-5Zm8 2.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 1 .447.276l3 6A.5.5 0 0 1 11 7.5H5a.5.5 0 0 1-.447-.724l3-6A.5.5 0 0 1 8 .5Zm2.191 6L8 2.118 5.809 6.5h4.382ZM.5 9a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5V9Zm1 .5v5h5v-5h-5Zm8 2.5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0ZM12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

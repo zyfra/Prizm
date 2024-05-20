@@ -4,5 +4,5 @@ export const prizmIconsForvardStep: {
   data: string;
 } = {
   name: 'forvard-step',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.32 2.616A.5.5 0 0 0 4.5 3v10a.5.5 0 0 0 .82.384l5.18-4.316V13a.5.5 0 0 0 1 0V3a.5.5 0 0 0-1 0v3.932L5.32 2.616Zm.18 9.316V4.068L10.219 8 5.5 11.932Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.32 2.616A.5.5 0 0 0 4.5 3v10a.5.5 0 0 0 .82.384l5.18-4.316V13a.5.5 0 0 0 1 0V3a.5.5 0 0 0-1 0v3.932L5.32 2.616Zm.18 9.316V4.068L10.219 8 5.5 11.932Z" fill="currentColor"/></svg>`
 };

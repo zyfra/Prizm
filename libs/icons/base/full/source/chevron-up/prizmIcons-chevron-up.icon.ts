@@ -4,5 +4,5 @@ export const prizmIconsChevronUp: {
   data: string;
 } = {
   name: 'chevron-up',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.646 5.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1-.708.708L8 6.707l-3.646 3.647a.5.5 0 0 1-.708-.708l4-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.646 5.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1-.708.708L8 6.707l-3.646 3.647a.5.5 0 0 1-.708-.708l4-4Z" fill="currentColor"/></svg>`
 };

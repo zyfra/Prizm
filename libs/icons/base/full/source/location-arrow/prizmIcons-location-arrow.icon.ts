@@ -4,5 +4,5 @@ export const prizmIconsLocationArrow: {
   data: string;
 } = {
   name: 'location-arrow',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.365.658a.5.5 0 0 1 .106.51l-5 14.002a.5.5 0 0 1-.952-.031L7.585 8.368.803 5.46a.5.5 0 0 1 .06-.94l14-4a.5.5 0 0 1 .502.138ZM2.489 5.095l5.708 2.447a.5.5 0 0 1 .284.322l1.572 5.503 4.149-11.619L2.489 5.095Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.365.658a.5.5 0 0 1 .106.51l-5 14.002a.5.5 0 0 1-.952-.031L7.585 8.368.803 5.46a.5.5 0 0 1 .06-.94l14-4a.5.5 0 0 1 .502.138ZM2.489 5.095l5.708 2.447a.5.5 0 0 1 .284.322l1.572 5.503 4.149-11.619L2.489 5.095Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

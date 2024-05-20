@@ -4,5 +4,5 @@ export const prizmIconsTableRight: {
   data: string;
 } = {
   name: 'table-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 .5a.5.5 0 0 0-.5.5v14a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5V1a.5.5 0 0 0-.5-.5h-5Zm4.5 14h-4v-13h4v13ZM4.354 5.646a.5.5 0 1 0-.708.708L4.793 7.5H1a.5.5 0 0 0 0 1h3.793L3.646 9.646a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 .5a.5.5 0 0 0-.5.5v14a.5.5 0 0 0 .5.5h5a.5.5 0 0 0 .5-.5V1a.5.5 0 0 0-.5-.5h-5Zm4.5 14h-4v-13h4v13ZM4.354 5.646a.5.5 0 1 0-.708.708L4.793 7.5H1a.5.5 0 0 0 0 1h3.793L3.646 9.646a.5.5 0 0 0 .708.708l2-2a.5.5 0 0 0 0-.708l-2-2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

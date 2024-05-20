@@ -4,5 +4,5 @@ export const prizmIconsBookOpenReArrowLeft: {
   data: string;
 } = {
   name: 'book-open-re-arrow-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5.28a2 2 0 0 1 2.485-1.94l6.737 1.685a.993.993 0 0 1 .566.36.995.995 0 0 1 .212.636v12.698l6-1.5V12a1 1 0 1 1 2 0v5.22a2 2 0 0 1-1.515 1.94l-7 1.75a1.989 1.989 0 0 1-.142.03.998.998 0 0 1-.686 0 1.989 1.989 0 0 1-.142-.03l-7-1.75A2 2 0 0 1 3 17.22V5.28Zm8 13.44V6.78l-6-1.5v11.94l6 1.5Zm5.293-14.427a1 1 0 1 1 1.414 1.414L17.414 6H20a1 1 0 1 1 0 2h-2.586l.293.293a1 1 0 0 1-1.414 1.414l-2-2a1 1 0 0 1 0-1.414l2-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5.28a2 2 0 0 1 2.485-1.94l6.737 1.685a.993.993 0 0 1 .566.36.995.995 0 0 1 .212.636v12.698l6-1.5V12a1 1 0 1 1 2 0v5.22a2 2 0 0 1-1.515 1.94l-7 1.75a1.989 1.989 0 0 1-.142.03.998.998 0 0 1-.686 0 1.989 1.989 0 0 1-.142-.03l-7-1.75A2 2 0 0 1 3 17.22V5.28Zm8 13.44V6.78l-6-1.5v11.94l6 1.5Zm5.293-14.427a1 1 0 1 1 1.414 1.414L17.414 6H20a1 1 0 1 1 0 2h-2.586l.293.293a1 1 0 0 1-1.414 1.414l-2-2a1 1 0 0 1 0-1.414l2-2Z" fill="currentColor"/></svg>`
 };

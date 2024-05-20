@@ -4,5 +4,5 @@ export const prizmIconsCrop: {
   data: string;
 } = {
   name: 'crop',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1a.5.5 0 0 0-1 0v2.5H1a.5.5 0 0 0 0 1h2.5V11A1.5 1.5 0 0 0 5 12.5h6.5V15a.5.5 0 0 0 1 0v-2.5H15a.5.5 0 0 0 0-1h-2.5V4.786c0-.71-.576-1.286-1.286-1.286H4.5V1Zm0 3.5V11a.5.5 0 0 0 .5.5h6.5V4.786a.286.286 0 0 0-.286-.286H4.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1a.5.5 0 0 0-1 0v2.5H1a.5.5 0 0 0 0 1h2.5V11A1.5 1.5 0 0 0 5 12.5h6.5V15a.5.5 0 0 0 1 0v-2.5H15a.5.5 0 0 0 0-1h-2.5V4.786c0-.71-.576-1.286-1.286-1.286H4.5V1Zm0 3.5V11a.5.5 0 0 0 .5.5h6.5V4.786a.286.286 0 0 0-.286-.286H4.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsFilter: {
   data: string;
 } = {
   name: 'filter',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.575.737A.5.5 0 0 1 2 .5h12a.5.5 0 0 1 .447.724L10.5 9.118V15a.5.5 0 0 1-.724.447l-4-2A.5.5 0 0 1 5.5 13V9.118L1.553 1.224a.5.5 0 0 1 .022-.487Zm1.234.763 3.638 7.276A.5.5 0 0 1 6.5 9v3.691l3 1.5V9a.5.5 0 0 1 .053-.224L13.19 1.5H2.809Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.575.737A.5.5 0 0 1 2 .5h12a.5.5 0 0 1 .447.724L10.5 9.118V15a.5.5 0 0 1-.724.447l-4-2A.5.5 0 0 1 5.5 13V9.118L1.553 1.224a.5.5 0 0 1 .022-.487Zm1.234.763 3.638 7.276A.5.5 0 0 1 6.5 9v3.691l3 1.5V9a.5.5 0 0 1 .053-.224L13.19 1.5H2.809Z" fill="currentColor"/></svg>`
 };

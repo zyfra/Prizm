@@ -4,5 +4,5 @@ export const prizmIconsXmarkColumnRight: {
   data: string;
 } = {
   name: 'xmark-column-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 2a2 2 0 0 0-2 2v4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5a.997.997 0 0 0-.088-.411c.057-.186.088-.384.088-.589v-4a2 2 0 0 0-.088-.589A.997.997 0 0 0 22 9V4a2 2 0 0 0-2-2h-6Zm6 6V4h-6v4h6Zm0 8h-6v4h6v-4Zm-7-2h7v-4h-8v4h1ZM7.707 9.293a1 1 0 0 1 0 1.414L6.414 12l1.293 1.293a1 1 0 1 1-1.414 1.414L5 13.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L3.586 12l-1.293-1.293a1 1 0 0 1 1.414-1.414L5 10.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 2a2 2 0 0 0-2 2v4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-5a.997.997 0 0 0-.088-.411c.057-.186.088-.384.088-.589v-4a2 2 0 0 0-.088-.589A.997.997 0 0 0 22 9V4a2 2 0 0 0-2-2h-6Zm6 6V4h-6v4h6Zm0 8h-6v4h6v-4Zm-7-2h7v-4h-8v4h1ZM7.707 9.293a1 1 0 0 1 0 1.414L6.414 12l1.293 1.293a1 1 0 1 1-1.414 1.414L5 13.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L3.586 12l-1.293-1.293a1 1 0 0 1 1.414-1.414L5 10.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsPipeNodeSideView: {
   data: string;
 } = {
   name: 'pipe-node-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-3v1.291A3 3 0 0 1 10.437 6.5H14v-2a.5.5 0 0 1 1 0v8a.5.5 0 0 1-1 0v-2h-3.563A2.997 2.997 0 0 1 8 11.75a2.997 2.997 0 0 1-2.437-1.25H2v2a.5.5 0 0 1-1 0v-8a.5.5 0 0 1 1 0v2h3.563A3 3 0 0 1 7.5 5.291V4h-3a.5.5 0 0 1-.5-.5Zm10 6v-2h-3.835a.5.5 0 0 1-.432-.25 1.999 1.999 0 0 0-3.466 0 .5.5 0 0 1-.433.25H2v2h3.834a.5.5 0 0 1 .433.25 2 2 0 0 0 3.466 0 .5.5 0 0 1 .432-.25H14Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-3v1.291A3 3 0 0 1 10.437 6.5H14v-2a.5.5 0 0 1 1 0v8a.5.5 0 0 1-1 0v-2h-3.563A2.997 2.997 0 0 1 8 11.75a2.997 2.997 0 0 1-2.437-1.25H2v2a.5.5 0 0 1-1 0v-8a.5.5 0 0 1 1 0v2h3.563A3 3 0 0 1 7.5 5.291V4h-3a.5.5 0 0 1-.5-.5Zm10 6v-2h-3.835a.5.5 0 0 1-.432-.25 1.999 1.999 0 0 0-3.466 0 .5.5 0 0 1-.433.25H2v2h3.834a.5.5 0 0 1 .433.25 2 2 0 0 0 3.466 0 .5.5 0 0 1 .432-.25H14Z" fill="currentColor"/></svg>`
 };

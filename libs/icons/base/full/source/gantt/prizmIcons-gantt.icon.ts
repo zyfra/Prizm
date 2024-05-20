@@ -4,5 +4,5 @@ export const prizmIconsGantt: {
   data: string;
 } = {
   name: 'gantt',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 1A.5.5 0 0 1 3 .5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5Zm7 4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5ZM6 7.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6ZM2.5 12a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5ZM1 14.5a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1H1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 1A.5.5 0 0 1 3 .5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5Zm7 4a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5ZM6 7.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6ZM2.5 12a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5ZM1 14.5a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1H1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

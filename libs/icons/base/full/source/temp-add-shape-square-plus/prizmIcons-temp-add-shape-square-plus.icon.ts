@@ -4,5 +4,5 @@ export const prizmIconsTempAddShapeSquarePlus: {
   data: string;
 } = {
   name: 'temp-add-shape-square-plus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 0 0-1H2A1.5 1.5 0 0 0 .5 2v12A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5V8a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V2ZM13 .5a.5.5 0 0 1 .5.5v1.5H15a.5.5 0 0 1 0 1h-1.5V5a.5.5 0 0 1-1 0V3.5H11a.5.5 0 0 1 0-1h1.5V1a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2a.5.5 0 0 1 .5-.5h6a.5.5 0 0 0 0-1H2A1.5 1.5 0 0 0 .5 2v12A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5V8a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V2ZM13 .5a.5.5 0 0 1 .5.5v1.5H15a.5.5 0 0 1 0 1h-1.5V5a.5.5 0 0 1-1 0V3.5H11a.5.5 0 0 1 0-1h1.5V1a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

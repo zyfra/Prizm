@@ -4,5 +4,5 @@ export const prizmIconsSquareArrowsCurveUpRight: {
   data: string;
 } = {
   name: 'square-arrows-curve-up-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.707 3.293a1 1 0 1 0-1.414 1.414l1.416 1.416c-1.568.181-3.26.605-4.739 1.529C10.637 9.11 9 11.706 9 16a1 1 0 1 0 2 0c0-3.706 1.363-5.61 3.03-6.652 1.008-.63 2.185-.981 3.374-1.166l-1.111 1.11a1 1 0 0 0 1.414 1.415l3-3a1 1 0 0 0 0-1.414l-3-3ZM5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a1 1 0 1 0-2 0v6H5V5h7a1 1 0 1 0 0-2H5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17.707 3.293a1 1 0 1 0-1.414 1.414l1.416 1.416c-1.568.181-3.26.605-4.739 1.529C10.637 9.11 9 11.706 9 16a1 1 0 1 0 2 0c0-3.706 1.363-5.61 3.03-6.652 1.008-.63 2.185-.981 3.374-1.166l-1.111 1.11a1 1 0 0 0 1.414 1.415l3-3a1 1 0 0 0 0-1.414l-3-3ZM5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a1 1 0 1 0-2 0v6H5V5h7a1 1 0 1 0 0-2H5Z" fill="currentColor"/></svg>`
 };

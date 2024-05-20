@@ -4,5 +4,5 @@ export const prizmIconsLineHeight: {
   data: string;
 } = {
   name: 'line-height',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 .5a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1H1Zm4.825 9.968-.378.756a.5.5 0 1 1-.894-.448l3-6a.5.5 0 0 1 .894 0l3 6a.5.5 0 1 1-.894.448l-.378-.756A.499.499 0 0 1 10 10.5H6a.499.499 0 0 1-.175-.032Zm.484-.968h3.382L8 6.118 6.309 9.5ZM.5 15a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 .5a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1H1Zm4.825 9.968-.378.756a.5.5 0 1 1-.894-.448l3-6a.5.5 0 0 1 .894 0l3 6a.5.5 0 1 1-.894.448l-.378-.756A.499.499 0 0 1 10 10.5H6a.499.499 0 0 1-.175-.032Zm.484-.968h3.382L8 6.118 6.309 9.5ZM.5 15a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

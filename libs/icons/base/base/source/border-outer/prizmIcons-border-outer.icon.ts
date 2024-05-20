@@ -4,5 +4,5 @@ export const prizmIconsBorderOuter: {
   data: string;
 } = {
   name: 'border-outer',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3.25A1.75 1.75 0 0 0 3.25 5v14c0 .966.784 1.75 1.75 1.75h14A1.75 1.75 0 0 0 20.75 19V5A1.75 1.75 0 0 0 19 3.25H5ZM4.75 5A.25.25 0 0 1 5 4.75h14a.25.25 0 0 1 .25.25v14a.25.25 0 0 1-.25.25H5a.25.25 0 0 1-.25-.25V5ZM8 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm5-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3.25A1.75 1.75 0 0 0 3.25 5v14c0 .966.784 1.75 1.75 1.75h14A1.75 1.75 0 0 0 20.75 19V5A1.75 1.75 0 0 0 19 3.25H5ZM4.75 5A.25.25 0 0 1 5 4.75h14a.25.25 0 0 1 .25.25v14a.25.25 0 0 1-.25.25H5a.25.25 0 0 1-.25-.25V5ZM8 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm5-1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-3-5a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

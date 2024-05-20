@@ -4,5 +4,5 @@ export const prizmIconsMusic: {
   data: string;
 } = {
   name: 'music',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.879 1.796a.5.5 0 0 1 .621.485V9a2.5 2.5 0 1 0 1 2V2.28A1.5 1.5 0 0 0 12.636.827l-6 1.5A1.5 1.5 0 0 0 5.5 3.78V11a2.5 2.5 0 1 0 1 2V3.78a.5.5 0 0 1 .379-.484l6-1.5ZM5.5 13a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Zm8-2a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.879 1.796a.5.5 0 0 1 .621.485V9a2.5 2.5 0 1 0 1 2V2.28A1.5 1.5 0 0 0 12.636.827l-6 1.5A1.5 1.5 0 0 0 5.5 3.78V11a2.5 2.5 0 1 0 1 2V3.78a.5.5 0 0 1 .379-.484l6-1.5ZM5.5 13a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Zm8-2a1.5 1.5 0 1 0-3 0 1.5 1.5 0 0 0 3 0Z" fill="currentColor"/></svg>`
 };

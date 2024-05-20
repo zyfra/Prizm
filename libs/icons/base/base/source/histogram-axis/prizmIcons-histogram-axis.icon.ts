@@ -4,5 +4,5 @@ export const prizmIconsHistogramAxis: {
   data: string;
 } = {
   name: 'histogram-axis',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 4a1 1 0 0 0-2 0v15a2 2 0 0 0 2 2h15a1 1 0 1 0 0-2v-5a2 2 0 0 0-2-2h-2V7a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H5V4Zm0 7v8h13v-5h-2a2 2 0 0 1-2-2V7h-4v2a2 2 0 0 1-2 2H5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 4a1 1 0 0 0-2 0v15a2 2 0 0 0 2 2h15a1 1 0 1 0 0-2v-5a2 2 0 0 0-2-2h-2V7a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2H5V4Zm0 7v8h13v-5h-2a2 2 0 0 1-2-2V7h-4v2a2 2 0 0 1-2 2H5Z" fill="currentColor"/></svg>`
 };

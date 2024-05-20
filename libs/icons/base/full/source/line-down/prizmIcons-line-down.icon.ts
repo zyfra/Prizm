@@ -4,5 +4,5 @@ export const prizmIconsLineDown: {
   data: string;
 } = {
   name: 'line-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.646 3.646a.5.5 0 0 1 .708 0L6 8.293l2.646-2.647a.5.5 0 0 1 .708 0l5.146 5.147V8a.5.5 0 0 1 1 0v4a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1 0-1h2.793L9 6.707 6.354 9.354a.5.5 0 0 1-.708 0l-5-5a.5.5 0 0 1 0-.708Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.646 3.646a.5.5 0 0 1 .708 0L6 8.293l2.646-2.647a.5.5 0 0 1 .708 0l5.146 5.147V8a.5.5 0 0 1 1 0v4a.5.5 0 0 1-.5.5h-4a.5.5 0 0 1 0-1h2.793L9 6.707 6.354 9.354a.5.5 0 0 1-.708 0l-5-5a.5.5 0 0 1 0-.708Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsMagnifyingGlassTopFromBracket: {
   data: string;
 } = {
   name: 'magnifying-glass-top-from-bracket',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM2.5 5a4.5 4.5 0 1 1 8.016 2.809l2.838 2.837a.5.5 0 0 1-.708.708L9.81 8.516A4.5 4.5 0 0 1 2.5 5Zm-1 8a.5.5 0 0 0-1 0v1A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5v-1a.5.5 0 0 0-1 0v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7ZM2.5 5a4.5 4.5 0 1 1 8.016 2.809l2.838 2.837a.5.5 0 0 1-.708.708L9.81 8.516A4.5 4.5 0 0 1 2.5 5Zm-1 8a.5.5 0 0 0-1 0v1A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5v-1a.5.5 0 0 0-1 0v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5v-1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

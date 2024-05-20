@@ -4,5 +4,5 @@ export const prizmIconsCart: {
   data: string;
 } = {
   name: 'cart',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 0 1 1-1h1.236a2 2 0 0 1 1.93 1.474L6.582 6h12.975a2 2 0 0 1 1.873 2.702l-2.25 6A2 2 0 0 1 17.307 16H8.764a2 2 0 0 1-1.93-1.474L4.236 5H3a1 1 0 0 1-1-1Zm5.127 4 1.637 6h8.543l2.25-6H7.127ZM18 19.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM8.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a1 1 0 0 1 1-1h1.236a2 2 0 0 1 1.93 1.474L6.582 6h12.975a2 2 0 0 1 1.873 2.702l-2.25 6A2 2 0 0 1 17.307 16H8.764a2 2 0 0 1-1.93-1.474L4.236 5H3a1 1 0 0 1-1-1Zm5.127 4 1.637 6h8.543l2.25-6H7.127ZM18 19.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM8.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" fill="currentColor"/></svg>`
 };

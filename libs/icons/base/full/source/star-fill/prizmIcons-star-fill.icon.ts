@@ -4,5 +4,5 @@ export const prizmIconsStarFill: {
   data: string;
 } = {
   name: 'star-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.437.757a.5.5 0 0 0-.874 0L5.188 5.032l-4.243.471a.5.5 0 0 0-.299.85l3.311 3.311-.947 4.738a.5.5 0 0 0 .733.535L8 12.572l4.257 2.365a.5.5 0 0 0 .733-.535l-.947-4.738 3.31-3.31a.5.5 0 0 0-.298-.85l-4.243-.472L8.437.757Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.437.757a.5.5 0 0 0-.874 0L5.188 5.032l-4.243.471a.5.5 0 0 0-.299.85l3.311 3.311-.947 4.738a.5.5 0 0 0 .733.535L8 12.572l4.257 2.365a.5.5 0 0 0 .733-.535l-.947-4.738 3.31-3.31a.5.5 0 0 0-.298-.85l-4.243-.472L8.437.757Z" fill="currentColor"/></svg>`
 };

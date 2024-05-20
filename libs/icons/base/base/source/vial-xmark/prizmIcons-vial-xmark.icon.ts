@@ -4,5 +4,5 @@ export const prizmIconsVialXmark: {
   data: string;
 } = {
   name: 'vial-xmark',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 0 0 2h1v14a4 4 0 0 0 8 0V4h1a1 1 0 1 0 0-2H3Zm7 2H6v4h4V4ZM6 18v-8h4v8a2 2 0 1 1-4 0Zm15.707-9.707a1 1 0 0 1 0 1.414L19.414 12l2.293 2.293a1 1 0 0 1-1.414 1.414L18 13.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L16.586 12l-2.293-2.293a1 1 0 0 1 1.414-1.414L18 10.586l2.293-2.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 0 0 2h1v14a4 4 0 0 0 8 0V4h1a1 1 0 1 0 0-2H3Zm7 2H6v4h4V4ZM6 18v-8h4v8a2 2 0 1 1-4 0Zm15.707-9.707a1 1 0 0 1 0 1.414L19.414 12l2.293 2.293a1 1 0 0 1-1.414 1.414L18 13.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L16.586 12l-2.293-2.293a1 1 0 0 1 1.414-1.414L18 10.586l2.293-2.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

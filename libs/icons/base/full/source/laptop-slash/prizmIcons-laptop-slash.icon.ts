@@ -4,5 +4,5 @@ export const prizmIconsLaptopSlash: {
   data: string;
 } = {
   name: 'laptop-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354.646a.5.5 0 1 0-.708.708l14 14a.5.5 0 0 0 .708-.708l-14-14ZM3.5 1A.5.5 0 0 1 4 .5h9A1.5 1.5 0 0 1 14.5 2v9a.5.5 0 0 1-1 0V2a.5.5 0 0 0-.5-.5H4a.5.5 0 0 1-.5-.5ZM2 4.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 1 0 1H3A1.5 1.5 0 0 1 1.5 10V5a.5.5 0 0 1 .5-.5ZM.5 15a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354.646a.5.5 0 1 0-.708.708l14 14a.5.5 0 0 0 .708-.708l-14-14ZM3.5 1A.5.5 0 0 1 4 .5h9A1.5 1.5 0 0 1 14.5 2v9a.5.5 0 0 1-1 0V2a.5.5 0 0 0-.5-.5H4a.5.5 0 0 1-.5-.5ZM2 4.5a.5.5 0 0 1 .5.5v5a.5.5 0 0 0 .5.5h5a.5.5 0 0 1 0 1H3A1.5 1.5 0 0 1 1.5 10V5a.5.5 0 0 1 .5-.5ZM.5 15a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

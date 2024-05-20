@@ -4,5 +4,5 @@ export const prizmIconsArrowUpFromLine: {
   data: string;
 } = {
   name: 'arrow-up-from-line',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 14.5H3a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H8.5V2.207l4.146 4.147a.5.5 0 0 0 .708-.708l-5-5a.5.5 0 0 0-.708 0l-5 5a.5.5 0 1 0 .708.708L7.5 2.207V14.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 14.5H3a.5.5 0 0 0 0 1h10a.5.5 0 0 0 0-1H8.5V2.207l4.146 4.147a.5.5 0 0 0 .708-.708l-5-5a.5.5 0 0 0-.708 0l-5 5a.5.5 0 1 0 .708.708L7.5 2.207V14.5Z" fill="currentColor"/></svg>`
 };

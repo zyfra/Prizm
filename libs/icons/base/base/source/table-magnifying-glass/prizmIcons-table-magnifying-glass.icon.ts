@@ -4,5 +4,5 @@ export const prizmIconsTableMagnifyingGlass: {
   data: string;
 } = {
   name: 'table-magnifying-glass',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7a1 1 0 1 0 0-2h-2v-9h4v1a1 1 0 1 0 2 0v-1h3v1a1 1 0 1 0 2 0V5a2 2 0 0 0-2-2H5Zm4 5h10V5H5v3h4Zm-1 2v9H5v-9h3Zm10 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-4 2a4 4 0 1 1 7.446 2.032l1.261 1.26a1 1 0 0 1-1.414 1.415l-1.261-1.26A4 4 0 0 1 14 17Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h7a1 1 0 1 0 0-2h-2v-9h4v1a1 1 0 1 0 2 0v-1h3v1a1 1 0 1 0 2 0V5a2 2 0 0 0-2-2H5Zm4 5h10V5H5v3h4Zm-1 2v9H5v-9h3Zm10 5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-4 2a4 4 0 1 1 7.446 2.032l1.261 1.26a1 1 0 0 1-1.414 1.415l-1.261-1.26A4 4 0 0 1 14 17Z" fill="currentColor"/></svg>`
 };

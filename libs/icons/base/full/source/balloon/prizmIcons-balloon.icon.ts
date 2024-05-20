@@ -4,5 +4,5 @@ export const prizmIconsBalloon: {
   data: string;
 } = {
   name: 'balloon',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 .5a.5.5 0 0 1-.5.5h-2v1.535A3.5 3.5 0 0 1 11.5 6v6a3.5 3.5 0 1 1-7 0V6a3.5 3.5 0 0 1 3-3.465V1h-2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5Zm-3 3A2.5 2.5 0 0 0 5.5 6v.5H7a.5.5 0 0 1 0 1H5.5v3H7a.5.5 0 0 1 0 1H5.5v.5a2.5 2.5 0 0 0 5 0V6A2.5 2.5 0 0 0 8 3.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 .5a.5.5 0 0 1-.5.5h-2v1.535A3.5 3.5 0 0 1 11.5 6v6a3.5 3.5 0 1 1-7 0V6a3.5 3.5 0 0 1 3-3.465V1h-2a.5.5 0 0 1 0-1h5a.5.5 0 0 1 .5.5Zm-3 3A2.5 2.5 0 0 0 5.5 6v.5H7a.5.5 0 0 1 0 1H5.5v3H7a.5.5 0 0 1 0 1H5.5v.5a2.5 2.5 0 0 0 5 0V6A2.5 2.5 0 0 0 8 3.5Z" fill="currentColor"/></svg>`
 };

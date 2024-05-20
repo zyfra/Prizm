@@ -4,5 +4,5 @@ export const prizmIconsIndentArrowLeft: {
   data: string;
 } = {
   name: 'indent-arrow-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm3.707 3.293a1 1 0 0 1 0 1.414L6.414 11H10a1 1 0 1 1 0 2H6.414l.293.293a1 1 0 1 1-1.414 1.414l-2-2a1 1 0 0 1 0-1.414l2-2a1 1 0 0 1 1.414 0ZM20 19a1 1 0 1 0 0-2H4a1 1 0 1 0 0 2h16Zm-8-5a1 1 0 0 1 1-1h7a1 1 0 1 1 0 2h-7a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h7a1 1 0 1 0 0-2h-7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1Zm3.707 3.293a1 1 0 0 1 0 1.414L6.414 11H10a1 1 0 1 1 0 2H6.414l.293.293a1 1 0 1 1-1.414 1.414l-2-2a1 1 0 0 1 0-1.414l2-2a1 1 0 0 1 1.414 0ZM20 19a1 1 0 1 0 0-2H4a1 1 0 1 0 0 2h16Zm-8-5a1 1 0 0 1 1-1h7a1 1 0 1 1 0 2h-7a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h7a1 1 0 1 0 0-2h-7Z" fill="currentColor"/></svg>`
 };

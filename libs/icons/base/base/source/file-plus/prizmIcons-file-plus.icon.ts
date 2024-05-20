@@ -4,5 +4,5 @@ export const prizmIconsFilePlus: {
   data: string;
 } = {
   name: 'file-plus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.414A2 2 0 0 0 19.414 8L14 2.586A2 2 0 0 0 12.586 2H6Zm6 2H6v16h12V10h-4a2 2 0 0 1-2-2V4Zm4.586 4L14 5.414V8h2.586ZM12 11a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9.414A2 2 0 0 0 19.414 8L14 2.586A2 2 0 0 0 12.586 2H6Zm6 2H6v16h12V10h-4a2 2 0 0 1-2-2V4Zm4.586 4L14 5.414V8h2.586ZM12 11a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1v1a1 1 0 1 1-2 0v-1h-1a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`
 };

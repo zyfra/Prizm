@@ -4,5 +4,5 @@ export const prizmIconsBox: {
   data: string;
 } = {
   name: 'box',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 3A2.5 2.5 0 0 1 3 .5h10A2.5 2.5 0 0 1 14.5 5v9a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 14V5a2.496 2.496 0 0 1-1-2ZM13 5.5c.171 0 .338-.017.5-.05V14a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V5.45c.162.033.329.05.5.05h10ZM14.5 3A1.5 1.5 0 0 0 13 1.5H3a1.5 1.5 0 1 0 0 3h10A1.5 1.5 0 0 0 14.5 3ZM6 9.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 3A2.5 2.5 0 0 1 3 .5h10A2.5 2.5 0 0 1 14.5 5v9a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 14V5a2.496 2.496 0 0 1-1-2ZM13 5.5c.171 0 .338-.017.5-.05V14a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V5.45c.162.033.329.05.5.05h10ZM14.5 3A1.5 1.5 0 0 0 13 1.5H3a1.5 1.5 0 1 0 0 3h10A1.5 1.5 0 0 0 14.5 3ZM6 9.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H6Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

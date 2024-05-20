@@ -4,5 +4,5 @@ export const prizmIconsVial: {
   data: string;
 } = {
   name: 'vial',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2a1 1 0 0 0 0 2h1v14a4 4 0 0 0 8 0V4h1a1 1 0 1 0 0-2H7Zm3 2v14a2 2 0 1 0 4 0V4h-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2a1 1 0 0 0 0 2h1v14a4 4 0 0 0 8 0V4h1a1 1 0 1 0 0-2H7Zm3 2v14a2 2 0 1 0 4 0V4h-4Z" fill="currentColor"/></svg>`
 };

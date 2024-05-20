@@ -4,5 +4,5 @@ export const prizmIconsFolder: {
   data: string;
 } = {
   name: 'folder',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5a2 2 0 0 1 2-2h4.586A2 2 0 0 1 10 3.586L12.414 6H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5Zm6.586 0H4v13h16V8h-7.586A2 2 0 0 1 11 7.414L8.586 5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 5a2 2 0 0 1 2-2h4.586A2 2 0 0 1 10 3.586L12.414 6H20a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5Zm6.586 0H4v13h16V8h-7.586A2 2 0 0 1 11 7.414L8.586 5Z" fill="currentColor"/></svg>`
 };

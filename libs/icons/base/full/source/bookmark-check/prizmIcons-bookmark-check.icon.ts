@@ -4,5 +4,5 @@ export const prizmIconsBookmarkCheck: {
   data: string;
 } = {
   name: 'bookmark-check',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5A1.5 1.5 0 0 0 1.5 2v11.538a1.5 1.5 0 0 0 2.044 1.398l4.275-1.662a.5.5 0 0 1 .362 0l4.275 1.662a1.5 1.5 0 0 0 2.044-1.398V2A1.5 1.5 0 0 0 13 .5H3ZM2.5 2a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v11.538a.5.5 0 0 1-.681.466l-4.275-1.662a1.5 1.5 0 0 0-1.088 0l-4.275 1.662a.5.5 0 0 1-.681-.466V2Zm8.854 3.354a.5.5 0 0 0-.708-.708L7 8.293 5.354 6.646a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l4-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5A1.5 1.5 0 0 0 1.5 2v11.538a1.5 1.5 0 0 0 2.044 1.398l4.275-1.662a.5.5 0 0 1 .362 0l4.275 1.662a1.5 1.5 0 0 0 2.044-1.398V2A1.5 1.5 0 0 0 13 .5H3ZM2.5 2a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v11.538a.5.5 0 0 1-.681.466l-4.275-1.662a1.5 1.5 0 0 0-1.088 0l-4.275 1.662a.5.5 0 0 1-.681-.466V2Zm8.854 3.354a.5.5 0 0 0-.708-.708L7 8.293 5.354 6.646a.5.5 0 1 0-.708.708l2 2a.5.5 0 0 0 .708 0l4-4Z" fill="currentColor"/></svg>`
 };

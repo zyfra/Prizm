@@ -4,5 +4,5 @@ export const prizmIconsMagnifyingGlassXmark: {
   data: string;
 } = {
   name: 'magnifying-glass-xmark',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 11a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-8a8 8 0 1 0 4.906 14.32l3.387 3.387a1 1 0 0 0 1.414-1.414l-3.387-3.387A8 8 0 0 0 11 3Zm2.707 5.293a1 1 0 0 1 0 1.414L12.414 11l1.293 1.293a1 1 0 0 1-1.414 1.414L11 12.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L9.586 11 8.293 9.707a1 1 0 0 1 1.414-1.414L11 9.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 11a6 6 0 1 1 12 0 6 6 0 0 1-12 0Zm6-8a8 8 0 1 0 4.906 14.32l3.387 3.387a1 1 0 0 0 1.414-1.414l-3.387-3.387A8 8 0 0 0 11 3Zm2.707 5.293a1 1 0 0 1 0 1.414L12.414 11l1.293 1.293a1 1 0 0 1-1.414 1.414L11 12.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L9.586 11 8.293 9.707a1 1 0 0 1 1.414-1.414L11 9.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

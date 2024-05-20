@@ -4,5 +4,5 @@ export const prizmIconsSandglass: {
   data: string;
 } = {
   name: 'sandglass',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 2a1 1 0 0 0 0 2h1v3.48a2 2 0 0 0 .853 1.638l3.403 2.382-3.403 2.382A2 2 0 0 0 6 15.521V20H5a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2h-1v-4.48a2 2 0 0 0-.853-1.638L13.744 11.5l3.403-2.382A2 2 0 0 0 18 7.479V4h1a1 1 0 1 0 0-2H5Zm3 2v3.48l4 2.8 4-2.8V4H8Zm4 8.72-4 2.8V20h8v-4.48l-4-2.8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 2a1 1 0 0 0 0 2h1v3.48a2 2 0 0 0 .853 1.638l3.403 2.382-3.403 2.382A2 2 0 0 0 6 15.521V20H5a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2h-1v-4.48a2 2 0 0 0-.853-1.638L13.744 11.5l3.403-2.382A2 2 0 0 0 18 7.479V4h1a1 1 0 1 0 0-2H5Zm3 2v3.48l4 2.8 4-2.8V4H8Zm4 8.72-4 2.8V20h8v-4.48l-4-2.8Z" fill="currentColor"/></svg>`
 };

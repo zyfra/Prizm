@@ -4,5 +4,5 @@ export const prizmIconsFileArrowDownLeft: {
   data: string;
 } = {
   name: 'file-arrow-down-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2A1.5 1.5 0 0 1 4 .5h4.586a1.5 1.5 0 0 1 1.06.44l3.415 3.414a1.5 1.5 0 0 1 .439 1.06V14a1.5 1.5 0 0 1-1.5 1.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 0 .5-.5V5.5H10A1.5 1.5 0 0 1 8.5 4V1.5H4a.5.5 0 0 0-.5.5v6a.5.5 0 0 1-1 0V2Zm7 .207V4a.5.5 0 0 0 .5.5h1.793L9.5 2.207ZM7 14.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793l3.146-3.147a.5.5 0 0 1 .708.708L4.207 14.5H7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2A1.5 1.5 0 0 1 4 .5h4.586a1.5 1.5 0 0 1 1.06.44l3.415 3.414a1.5 1.5 0 0 1 .439 1.06V14a1.5 1.5 0 0 1-1.5 1.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 0 .5-.5V5.5H10A1.5 1.5 0 0 1 8.5 4V1.5H4a.5.5 0 0 0-.5.5v6a.5.5 0 0 1-1 0V2Zm7 .207V4a.5.5 0 0 0 .5.5h1.793L9.5 2.207ZM7 14.5a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5v-4a.5.5 0 0 1 1 0v2.793l3.146-3.147a.5.5 0 0 1 .708.708L4.207 14.5H7Z" fill="currentColor"/></svg>`
 };

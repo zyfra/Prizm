@@ -4,5 +4,5 @@ export const prizmIconsAlignJustify: {
   data: string;
 } = {
   name: 'align-justify',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1.5a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2Zm0 4a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2ZM1.5 10a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5Zm.5 3.5a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 1.5a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2Zm0 4a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2ZM1.5 10a.5.5 0 0 1 .5-.5h12a.5.5 0 0 1 0 1H2a.5.5 0 0 1-.5-.5Zm.5 3.5a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1H2Z" fill="currentColor"/></svg>`
 };

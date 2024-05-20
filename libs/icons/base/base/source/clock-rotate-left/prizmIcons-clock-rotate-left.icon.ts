@@ -4,5 +4,5 @@ export const prizmIconsClockRotateLeft: {
   data: string;
 } = {
   name: 'clock-rotate-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.708 6A8 8 0 1 1 4 12a1 1 0 1 0-2 0c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2a9.967 9.967 0 0 0-6.86 2.725l-.154-.894a1 1 0 0 0-1.972.338l.516 3A1 1 0 0 0 4.516 8H7a1 1 0 0 0 0-2h-.292ZM13 8a1 1 0 1 0-2 0v3a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2h-3V8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.708 6A8 8 0 1 1 4 12a1 1 0 1 0-2 0c0 5.523 4.477 10 10 10s10-4.477 10-10S17.523 2 12 2a9.967 9.967 0 0 0-6.86 2.725l-.154-.894a1 1 0 0 0-1.972.338l.516 3A1 1 0 0 0 4.516 8H7a1 1 0 0 0 0-2h-.292ZM13 8a1 1 0 1 0-2 0v3a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2h-3V8Z" fill="currentColor"/></svg>`
 };

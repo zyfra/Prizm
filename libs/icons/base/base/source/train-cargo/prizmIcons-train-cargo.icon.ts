@@ -4,5 +4,5 @@ export const prizmIconsTrainCargo: {
   data: string;
 } = {
   name: 'train-cargo',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 0 0 2h10.04l-.036 8H10V8a1 1 0 0 0-1-1H3a1 1 0 1 0 0 2h5v3H3a1 1 0 1 0 0 2h10.532l4.7 5.64A1 1 0 0 0 19 20h2.5a1 1 0 0 0 .97-1.242L21 12.877V10.39a1 1 0 1 0-2 0V12h-3.996l.026-6H16a1 1 0 1 0 0-2h-.96a2 2 0 0 0-2-2H3Zm16.468 16h.751l-1-4H16.135l3.333 4ZM12 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-4.17 0h1.34A3 3 0 1 0 12 15H5a3 3 0 1 0 2.83 2ZM4 18a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 0 0 2h10.04l-.036 8H10V8a1 1 0 0 0-1-1H3a1 1 0 1 0 0 2h5v3H3a1 1 0 1 0 0 2h10.532l4.7 5.64A1 1 0 0 0 19 20h2.5a1 1 0 0 0 .97-1.242L21 12.877V10.39a1 1 0 1 0-2 0V12h-3.996l.026-6H16a1 1 0 1 0 0-2h-.96a2 2 0 0 0-2-2H3Zm16.468 16h.751l-1-4H16.135l3.333 4ZM12 17a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm-4.17 0h1.34A3 3 0 1 0 12 15H5a3 3 0 1 0 2.83 2ZM4 18a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`
 };

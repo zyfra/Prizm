@@ -4,5 +4,5 @@ export const prizmIconsCollector: {
   data: string;
 } = {
   name: 'collector',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1a5 5 0 0 0-5 5v2a1 1 0 0 0 2 0V6a3 3 0 0 1 6 0v12a3 3 0 1 1-6 0v-2a1 1 0 1 0-2 0v2a5 5 0 0 0 10 0V6a5 5 0 0 0-5-5Zm9.445 7.168a1 1 0 0 1 1.387.277l2 3a1 1 0 0 1 0 1.11l-2 3a1 1 0 0 1-1.664-1.11L19.13 13H16a1 1 0 1 1 0-2h3.131l-.963-1.445a1 1 0 0 1 .277-1.387ZM2 12a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 1a5 5 0 0 0-5 5v2a1 1 0 0 0 2 0V6a3 3 0 0 1 6 0v12a3 3 0 1 1-6 0v-2a1 1 0 1 0-2 0v2a5 5 0 0 0 10 0V6a5 5 0 0 0-5-5Zm9.445 7.168a1 1 0 0 1 1.387.277l2 3a1 1 0 0 1 0 1.11l-2 3a1 1 0 0 1-1.664-1.11L19.13 13H16a1 1 0 1 1 0-2h3.131l-.963-1.445a1 1 0 0 1 .277-1.387ZM2 12a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

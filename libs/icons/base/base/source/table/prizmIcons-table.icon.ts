@@ -4,5 +4,5 @@ export const prizmIconsTable: {
   data: string;
 } = {
   name: 'table',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm5 16h4v-9h-4v9Zm-2-9v9H5v-9h3Zm1-2h10V5H5v3h4Zm10 11h-3v-9h3v9Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm5 16h4v-9h-4v9Zm-2-9v9H5v-9h3Zm1-2h10V5H5v3h4Zm10 11h-3v-9h3v9Z" fill="currentColor"/></svg>`
 };

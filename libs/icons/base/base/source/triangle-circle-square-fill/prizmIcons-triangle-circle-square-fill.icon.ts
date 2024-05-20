@@ -4,5 +4,5 @@ export const prizmIconsTriangleCircleSquareFill: {
   data: string;
 } = {
   name: 'triangle-circle-square-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 .894.553l3 6A1 1 0 0 1 15 11H9a1 1 0 0 1-.894-1.447l3-6A1 1 0 0 1 12 3ZM5 13a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5Zm8 4a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 .894.553l3 6A1 1 0 0 1 15 11H9a1 1 0 0 1-.894-1.447l3-6A1 1 0 0 1 12 3ZM5 13a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2H5Zm8 4a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" fill="currentColor"/></svg>`
 };

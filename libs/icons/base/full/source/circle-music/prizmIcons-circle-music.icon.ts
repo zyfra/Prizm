@@ -4,5 +4,5 @@ export const prizmIconsCircleMusic: {
   data: string;
 } = {
   name: 'circle-music',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM.5 8a7.5 7.5 0 1 1 15 0 7.5 7.5 0 0 1-15 0Zm6.5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM8.5 8a2.5 2.5 0 1 0 1 2V5.618a.5.5 0 0 1 .276-.447l1.448-.724a.5.5 0 1 0-.448-.894l-1.447.723A1.5 1.5 0 0 0 8.5 5.618V8Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM.5 8a7.5 7.5 0 1 1 15 0 7.5 7.5 0 0 1-15 0Zm6.5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM8.5 8a2.5 2.5 0 1 0 1 2V5.618a.5.5 0 0 1 .276-.447l1.448-.724a.5.5 0 1 0-.448-.894l-1.447.723A1.5 1.5 0 0 0 8.5 5.618V8Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

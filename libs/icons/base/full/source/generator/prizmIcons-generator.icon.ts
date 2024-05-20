@@ -4,5 +4,5 @@ export const prizmIconsGenerator: {
   data: string;
 } = {
   name: 'generator',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h9A1.5 1.5 0 0 1 12.5 2v1.5h2V3a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-.5h-2V10a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 10V2Zm9 8.5H11a.5.5 0 0 0 .5-.5V6.5h-2v4Zm-1-2v2H2a.5.5 0 0 1-.5-.5V8.5h7Zm0-1v-3h-7v3h7Zm0-4h-7V2a.5.5 0 0 1 .5-.5h6.5v2Zm1-2v4h2V2a.5.5 0 0 0-.5-.5H9.5Zm3 3h2v3h-2v-3ZM.5 15a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 2A1.5 1.5 0 0 1 2 .5h9A1.5 1.5 0 0 1 12.5 2v1.5h2V3a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-.5h-2V10a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 10V2Zm9 8.5H11a.5.5 0 0 0 .5-.5V6.5h-2v4Zm-1-2v2H2a.5.5 0 0 1-.5-.5V8.5h7Zm0-1v-3h-7v3h7Zm0-4h-7V2a.5.5 0 0 1 .5-.5h6.5v2Zm1-2v4h2V2a.5.5 0 0 0-.5-.5H9.5Zm3 3h2v3h-2v-3ZM.5 15a.5.5 0 0 1 .5-.5h14a.5.5 0 0 1 0 1H1a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsThumbDown: {
   data: string;
 } = {
   name: 'thumb-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.66 3A2 2 0 0 0 4.82 4.212l-2.66 6.205a2 2 0 0 0-.161.788V14a2 2 0 0 0 2 2h6v2.865c0 1.696 1.978 2.622 3.28 1.536l4-3.333a2 2 0 0 0 .72-1.536V5a2 2 0 0 0-2-2H6.66Zm0 2H16v10.532l-4 3.333V16a2 2 0 0 0-2-2H4v-2.795L6.66 5ZM22 4a1 1 0 1 0-2 0v12a1 1 0 1 0 2 0V4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.66 3A2 2 0 0 0 4.82 4.212l-2.66 6.205a2 2 0 0 0-.161.788V14a2 2 0 0 0 2 2h6v2.865c0 1.696 1.978 2.622 3.28 1.536l4-3.333a2 2 0 0 0 .72-1.536V5a2 2 0 0 0-2-2H6.66Zm0 2H16v10.532l-4 3.333V16a2 2 0 0 0-2-2H4v-2.795L6.66 5ZM22 4a1 1 0 1 0-2 0v12a1 1 0 1 0 2 0V4Z" fill="currentColor"/></svg>`
 };

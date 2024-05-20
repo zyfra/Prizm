@@ -4,5 +4,5 @@ export const prizmIconsClockExclamation: {
   data: string;
 } = {
   name: 'clock-exclamation',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8a6.5 6.5 0 0 1 10.214-5.335.5.5 0 1 0 .572-.82A7.5 7.5 0 1 0 15.5 8a.5.5 0 0 0-1 0 6.5 6.5 0 1 1-13 0Zm14-7a.5.5 0 0 0-1 0v2.5a.5.5 0 0 0 1 0V1ZM15 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM8 4.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8a6.5 6.5 0 0 1 10.214-5.335.5.5 0 1 0 .572-.82A7.5 7.5 0 1 0 15.5 8a.5.5 0 0 0-1 0 6.5 6.5 0 1 1-13 0Zm14-7a.5.5 0 0 0-1 0v2.5a.5.5 0 0 0 1 0V1ZM15 6a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1ZM8 4.5a.5.5 0 0 1 .5.5v2.5H11a.5.5 0 0 1 0 1H8a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

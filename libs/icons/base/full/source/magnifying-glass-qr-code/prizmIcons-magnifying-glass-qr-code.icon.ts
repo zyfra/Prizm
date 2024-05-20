@@ -4,5 +4,5 @@ export const prizmIconsMagnifyingGlassQrCode: {
   data: string;
 } = {
   name: 'magnifying-glass-qr-code',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM.5 7a6.5 6.5 0 1 1 11.436 4.23l3.418 3.416a.5.5 0 0 1-.708.708l-3.417-3.418A6.5 6.5 0 0 1 .5 7ZM7 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM.5 7a6.5 6.5 0 1 1 11.436 4.23l3.418 3.416a.5.5 0 0 1-.708.708l-3.417-3.418A6.5 6.5 0 0 1 .5 7ZM7 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 7a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm0 3a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2-2a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsHouse: {
   data: string;
 } = {
   name: 'house',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.646 2.06a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 .146.354V14a.5.5 0 0 1-.5.5h-2.5V10A1.5 1.5 0 0 0 9 8.5H7A1.5 1.5 0 0 0 5.5 10v4.5H3a.5.5 0 0 1-.5-.5V7.414a.5.5 0 0 1 .146-.353l5-5ZM6.5 14.5V10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v4.5h-3Zm3.5 1h3a1.5 1.5 0 0 0 1.5-1.5V7.414a1.5 1.5 0 0 0-.44-1.06l-5-5a1.5 1.5 0 0 0-2.12 0l-5 5a1.5 1.5 0 0 0-.44 1.06V14A1.5 1.5 0 0 0 3 15.5h7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.646 2.06a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 .146.354V14a.5.5 0 0 1-.5.5h-2.5V10A1.5 1.5 0 0 0 9 8.5H7A1.5 1.5 0 0 0 5.5 10v4.5H3a.5.5 0 0 1-.5-.5V7.414a.5.5 0 0 1 .146-.353l5-5ZM6.5 14.5V10a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v4.5h-3Zm3.5 1h3a1.5 1.5 0 0 0 1.5-1.5V7.414a1.5 1.5 0 0 0-.44-1.06l-5-5a1.5 1.5 0 0 0-2.12 0l-5 5a1.5 1.5 0 0 0-.44 1.06V14A1.5 1.5 0 0 0 3 15.5h7Z" fill="currentColor"/></svg>`
 };

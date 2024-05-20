@@ -4,5 +4,5 @@ export const prizmIconsVideoCross: {
   data: string;
 } = {
   name: 'video-cross',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2.15l.438.549c1.181 1.476 3.562.64 3.562-1.25V9.851c0-1.89-2.38-2.726-3.562-1.25L18 9.15V7a2 2 0 0 0-2-2H4Zm0 2h12v10H4V7Zm14.28 5L20 9.85v4.3L18.28 12Zm-5.573-2.707a1 1 0 0 1 0 1.414L11.414 12l1.293 1.293a1 1 0 0 1-1.414 1.414L10 13.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L8.586 12l-1.293-1.293a1 1 0 0 1 1.414-1.414L10 10.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2.15l.438.549c1.181 1.476 3.562.64 3.562-1.25V9.851c0-1.89-2.38-2.726-3.562-1.25L18 9.15V7a2 2 0 0 0-2-2H4Zm0 2h12v10H4V7Zm14.28 5L20 9.85v4.3L18.28 12Zm-5.573-2.707a1 1 0 0 1 0 1.414L11.414 12l1.293 1.293a1 1 0 0 1-1.414 1.414L10 13.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L8.586 12l-1.293-1.293a1 1 0 0 1 1.414-1.414L10 10.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

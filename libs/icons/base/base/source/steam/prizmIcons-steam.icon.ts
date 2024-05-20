@@ -4,5 +4,5 @@ export const prizmIconsSteam: {
   data: string;
 } = {
   name: 'steam',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 6a3 3 0 1 1 6 0 1 1 0 0 0 1.046.999L16.1 7H17a3 3 0 0 1 1.5 5.6 1 1 0 1 0 1 1.73A5 5 0 0 0 17 5h-.1a5.002 5.002 0 0 0-9.8 0H7a5 5 0 0 0-2.5 9.33 1 1 0 0 0 1-1.73A3 3 0 0 1 7 7H7.9l.05-.001L8 7a1 1 0 0 0 1-1Zm1 4a1 1 0 0 1 1 1v11a1 1 0 1 1-2 0V11a1 1 0 0 1 1-1Zm4 3a1 1 0 0 1 1 1v7a1 1 0 1 1-2 0v-7a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 6a3 3 0 1 1 6 0 1 1 0 0 0 1.046.999L16.1 7H17a3 3 0 0 1 1.5 5.6 1 1 0 1 0 1 1.73A5 5 0 0 0 17 5h-.1a5.002 5.002 0 0 0-9.8 0H7a5 5 0 0 0-2.5 9.33 1 1 0 0 0 1-1.73A3 3 0 0 1 7 7H7.9l.05-.001L8 7a1 1 0 0 0 1-1Zm1 4a1 1 0 0 1 1 1v11a1 1 0 1 1-2 0V11a1 1 0 0 1 1-1Zm4 3a1 1 0 0 1 1 1v7a1 1 0 1 1-2 0v-7a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`
 };

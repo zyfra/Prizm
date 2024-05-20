@@ -4,5 +4,5 @@ export const prizmIconsEnergyCheck: {
   data: string;
 } = {
   name: 'energy-check',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.49 1.098a.5.5 0 0 0-.906-.375l-6 9A.5.5 0 0 0 1 10.5h4.39l-.88 4.402a.5.5 0 0 0 .906.375l6-9A.5.5 0 0 0 11 5.5H6.61l.88-4.402ZM6 9.5H1.934l4.08-6.12-.504 2.522A.5.5 0 0 0 6 6.5h4.066l-4.08 6.12.504-2.522A.5.5 0 0 0 6 9.5Zm9.354-8.146a.5.5 0 0 0-.708-.708L12 3.293l-.646-.647a.5.5 0 0 0-.708.708l1 1a.5.5 0 0 0 .708 0l3-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.49 1.098a.5.5 0 0 0-.906-.375l-6 9A.5.5 0 0 0 1 10.5h4.39l-.88 4.402a.5.5 0 0 0 .906.375l6-9A.5.5 0 0 0 11 5.5H6.61l.88-4.402ZM6 9.5H1.934l4.08-6.12-.504 2.522A.5.5 0 0 0 6 6.5h4.066l-4.08 6.12.504-2.522A.5.5 0 0 0 6 9.5Zm9.354-8.146a.5.5 0 0 0-.708-.708L12 3.293l-.646-.647a.5.5 0 0 0-.708.708l1 1a.5.5 0 0 0 .708 0l3-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

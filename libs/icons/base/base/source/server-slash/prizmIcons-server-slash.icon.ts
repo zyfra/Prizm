@@ -4,5 +4,5 @@ export const prizmIconsServerSlash: {
   data: string;
 } = {
   name: 'server-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2a1 1 0 0 0 0 2h12v4h-6a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0V4a2 2 0 0 0-2-2H7ZM5 14V8a1 1 0 0 0-2 0v12a2 2 0 0 0 2 2h12a1 1 0 1 0 0-2H5v-4h6a1 1 0 1 0 0-2H5Zm3-1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4.707 3.293a1 1 0 0 0-1.414 1.414l16 16a1 1 0 0 0 1.414-1.414l-16-16Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 2a1 1 0 0 0 0 2h12v4h-6a1 1 0 1 0 0 2h6v6a1 1 0 1 0 2 0V4a2 2 0 0 0-2-2H7ZM5 14V8a1 1 0 0 0-2 0v12a2 2 0 0 0 2 2h12a1 1 0 1 0 0-2H5v-4h6a1 1 0 1 0 0-2H5Zm3-1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 5a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM4.707 3.293a1 1 0 0 0-1.414 1.414l16 16a1 1 0 0 0 1.414-1.414l-16-16Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsArrowDaw: {
   data: string;
 } = {
   name: 'arrow-daw',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.287 2.59a.5.5 0 0 1 .123.697l-7 10a.5.5 0 0 1-.82 0l-6.09-8.7V6a.5.5 0 0 1-1 0V3a.5.5 0 0 1 .658-.474l3 1a.5.5 0 1 1-.316.948l-1.565-.521L8 12.128l6.59-9.415a.5.5 0 0 1 .697-.123Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.287 2.59a.5.5 0 0 1 .123.697l-7 10a.5.5 0 0 1-.82 0l-6.09-8.7V6a.5.5 0 0 1-1 0V3a.5.5 0 0 1 .658-.474l3 1a.5.5 0 1 1-.316.948l-1.565-.521L8 12.128l6.59-9.415a.5.5 0 0 1 .697-.123Z" fill="currentColor"/></svg>`
 };

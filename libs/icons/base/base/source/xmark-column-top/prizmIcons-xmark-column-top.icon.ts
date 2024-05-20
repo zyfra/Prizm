@@ -4,5 +4,5 @@ export const prizmIconsXmarkColumnTop: {
   data: string;
 } = {
   name: 'xmark-column-top',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h5c.147 0 .286.032.411.088A2 2 0 0 1 10 2h4c.205 0 .403.03.589.088A.997.997 0 0 1 15 2h5a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2H4a2 2 0 0 1-2-2V4Zm8 7v1h4V4h-4v7Zm6-1h4V4h-4v6Zm-8 0H4V4h4v6Zm6.707 6.293a1 1 0 0 1 0 1.414L13.414 19l1.293 1.293a1 1 0 0 1-1.414 1.414L12 20.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 19l-1.293-1.293a1 1 0 1 1 1.414-1.414L12 17.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 4a2 2 0 0 1 2-2h5c.147 0 .286.032.411.088A2 2 0 0 1 10 2h4c.205 0 .403.03.589.088A.997.997 0 0 1 15 2h5a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2H4a2 2 0 0 1-2-2V4Zm8 7v1h4V4h-4v7Zm6-1h4V4h-4v6Zm-8 0H4V4h4v6Zm6.707 6.293a1 1 0 0 1 0 1.414L13.414 19l1.293 1.293a1 1 0 0 1-1.414 1.414L12 20.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L10.586 19l-1.293-1.293a1 1 0 1 1 1.414-1.414L12 17.586l1.293-1.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

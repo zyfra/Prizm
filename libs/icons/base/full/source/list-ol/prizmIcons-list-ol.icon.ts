@@ -4,5 +4,5 @@ export const prizmIconsListOl: {
   data: string;
 } = {
   name: 'list-ol',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 1.5a.5.5 0 0 0 0 1h.5V6a.5.5 0 0 0 1 0V2a.5.5 0 0 0-.5-.5H1Zm0 8a.5.5 0 0 0 0 1h1.454c-.124.693-.48 1.389-.87 1.973a9.069 9.069 0 0 1-.92 1.156l-.015.014-.002.003A.5.5 0 0 0 1 14.5h2a.5.5 0 0 0 0-1h-.92c.108-.143.222-.302.336-.473C2.933 12.252 3.5 11.15 3.5 10a.5.5 0 0 0-.5-.5H1ZM4.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 1 1 0 1H5a.5.5 0 0 1-.5-.5Zm.5 7.5a.5.5 0 0 0 0 1h10a.5.5 0 1 0 0-1H5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 1.5a.5.5 0 0 0 0 1h.5V6a.5.5 0 0 0 1 0V2a.5.5 0 0 0-.5-.5H1Zm0 8a.5.5 0 0 0 0 1h1.454c-.124.693-.48 1.389-.87 1.973a9.069 9.069 0 0 1-.92 1.156l-.015.014-.002.003A.5.5 0 0 0 1 14.5h2a.5.5 0 0 0 0-1h-.92c.108-.143.222-.302.336-.473C2.933 12.252 3.5 11.15 3.5 10a.5.5 0 0 0-.5-.5H1ZM4.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 1 1 0 1H5a.5.5 0 0 1-.5-.5Zm.5 7.5a.5.5 0 0 0 0 1h10a.5.5 0 1 0 0-1H5Z" fill="currentColor"/></svg>`
 };

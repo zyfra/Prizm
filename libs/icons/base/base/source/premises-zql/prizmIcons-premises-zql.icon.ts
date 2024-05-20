@@ -4,5 +4,5 @@ export const prizmIconsPremisesZql: {
   data: string;
 } = {
   name: 'premises-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.553 1.106a1 1 0 0 1 .894 0l8 4 2 1a1 1 0 1 1-.894 1.788L21 7.618V22a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7.618l-.553.276a1 1 0 0 1-.894-1.788l2-1 8-4ZM5 6.618V21h14V6.618l-7-3.5-7 3.5ZM12 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM9 9a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm0 9a3 3 0 1 1 6 0 1 1 0 1 0 2 0 5 5 0 0 0-10 0 1 1 0 1 0 2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11.553 1.106a1 1 0 0 1 .894 0l8 4 2 1a1 1 0 1 1-.894 1.788L21 7.618V22a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V7.618l-.553.276a1 1 0 0 1-.894-1.788l2-1 8-4ZM5 6.618V21h14V6.618l-7-3.5-7 3.5ZM12 8a1 1 0 1 0 0 2 1 1 0 0 0 0-2ZM9 9a3 3 0 1 1 6 0 3 3 0 0 1-6 0Zm0 9a3 3 0 1 1 6 0 1 1 0 1 0 2 0 5 5 0 0 0-10 0 1 1 0 1 0 2 0Z" fill="currentColor"/></svg>`
 };

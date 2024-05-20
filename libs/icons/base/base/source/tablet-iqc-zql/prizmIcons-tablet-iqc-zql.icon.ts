@@ -4,5 +4,5 @@ export const prizmIconsTabletIqcZql: {
   data: string;
 } = {
   name: 'tablet-iqc-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2h2a2 2 0 0 1 2 2v7a1 1 0 1 1-2 0V6h-2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2H5v14h6.5a1 1 0 1 1 0 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2Zm8 0H9v2h6V4ZM8 16a1 1 0 1 0 0 2h3a1 1 0 1 0 0-2H8Zm-1-3a1 1 0 0 1 1-1h7a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Zm10.707 8.707 4-4a1 1 0 0 0-1.414-1.414l-3.226 3.226-1.299-1.56a1 1 0 1 0-1.536 1.281l2 2.4a1 1 0 0 0 1.475.067Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2h2a2 2 0 0 1 2 2v7a1 1 0 1 1-2 0V6h-2a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2H5v14h6.5a1 1 0 1 1 0 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2Zm8 0H9v2h6V4ZM8 16a1 1 0 1 0 0 2h3a1 1 0 1 0 0-2H8Zm-1-3a1 1 0 0 1 1-1h7a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Zm10.707 8.707 4-4a1 1 0 0 0-1.414-1.414l-3.226 3.226-1.299-1.56a1 1 0 1 0-1.536 1.281l2 2.4a1 1 0 0 0 1.475.067Z" fill="currentColor"/></svg>`
 };

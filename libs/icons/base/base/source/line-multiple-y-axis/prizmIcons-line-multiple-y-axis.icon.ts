@@ -4,5 +4,5 @@ export const prizmIconsLineMultipleYAxis: {
   data: string;
 } = {
   name: 'line-multiple-y-axis',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 1 1 1v4.586l1.68-1.68a2 2 0 0 1 2.614-.186l2.612 1.96 4.387-4.387a1 1 0 1 1 1.414 1.414l-4.387 4.387a2 2 0 0 1-2.614.186L8.094 8.32 5 11.414v3.172l1.68-1.68a2 2 0 0 1 2.614-.186l2.612 1.96 3.68-3.68C16.846 9.74 19 10.632 19 12.414V19h1a1 1 0 1 1 0 2H5a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1Zm1 14.414V19h12v-6.586l-3.68 3.68a2 2 0 0 1-2.614.186l-2.612-1.96L5 17.414Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 1 1 1v4.586l1.68-1.68a2 2 0 0 1 2.614-.186l2.612 1.96 4.387-4.387a1 1 0 1 1 1.414 1.414l-4.387 4.387a2 2 0 0 1-2.614.186L8.094 8.32 5 11.414v3.172l1.68-1.68a2 2 0 0 1 2.614-.186l2.612 1.96 3.68-3.68C16.846 9.74 19 10.632 19 12.414V19h1a1 1 0 1 1 0 2H5a2 2 0 0 1-2-2V4a1 1 0 0 1 1-1Zm1 14.414V19h12v-6.586l-3.68 3.68a2 2 0 0 1-2.614.186l-2.612-1.96L5 17.414Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsSquareHexagonCircleFill: {
   data: string;
 } = {
   name: 'square-hexagon-circle-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Zm11 5a1 1 0 0 0-.949.684l-1 3a1 1 0 0 0 0 .632l1 3A1 1 0 0 0 15 16h4a1 1 0 0 0 .949-.684l1-3a1 1 0 0 0 0-.632l-1-3A1 1 0 0 0 19 8h-4ZM3 17a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4Zm11 5a1 1 0 0 0-.949.684l-1 3a1 1 0 0 0 0 .632l1 3A1 1 0 0 0 15 16h4a1 1 0 0 0 .949-.684l1-3a1 1 0 0 0 0-.632l-1-3A1 1 0 0 0 19 8h-4ZM3 17a4 4 0 1 1 8 0 4 4 0 0 1-8 0Z" fill="currentColor"/></svg>`
 };

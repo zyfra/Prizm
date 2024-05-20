@@ -4,5 +4,5 @@ export const prizmIconsSquareWord: {
   data: string;
 } = {
   name: 'square-word',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4Zm0 2h16v16H4V4Zm4.949 4.684a1 1 0 1 0-1.898.632l2 6a1 1 0 0 0 1.781.239L12 13.803l1.168 1.752a1 1 0 0 0 1.78-.239l2-6a1 1 0 0 0-1.897-.632l-1.353 4.06-.866-1.299a1 1 0 0 0-1.664 0l-.866 1.3L8.95 8.683Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H4Zm0 2h16v16H4V4Zm4.949 4.684a1 1 0 1 0-1.898.632l2 6a1 1 0 0 0 1.781.239L12 13.803l1.168 1.752a1 1 0 0 0 1.78-.239l2-6a1 1 0 0 0-1.897-.632l-1.353 4.06-.866-1.299a1 1 0 0 0-1.664 0l-.866 1.3L8.95 8.683Z" fill="currentColor"/></svg>`
 };

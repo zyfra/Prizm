@@ -4,5 +4,5 @@ export const prizmIconsCheck: {
   data: string;
 } = {
   name: 'check',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L5 12.293l9.646-9.647a.5.5 0 0 1 .708 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.354 2.646a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.708 0l-4-4a.5.5 0 1 1 .708-.708L5 12.293l9.646-9.647a.5.5 0 0 1 .708 0Z" fill="currentColor"/></svg>`
 };

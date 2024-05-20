@@ -4,5 +4,5 @@ export const prizmIconsUserCross: {
   data: string;
 } = {
   name: 'user-cross',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3.5 4a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm8.854-1.354a.5.5 0 0 0-.708.708l.647.646-.647.646a.5.5 0 0 0 .708.708L13 4.707l.646.647a.5.5 0 0 0 .708-.708L13.707 4l.647-.646a.5.5 0 0 0-.708-.708L13 3.293l-.646-.647ZM1.5 15a5.5 5.5 0 1 1 11 0 .5.5 0 0 0 1 0 6.5 6.5 0 1 0-13 0 .5.5 0 0 0 1 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5ZM3.5 4a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0Zm8.854-1.354a.5.5 0 0 0-.708.708l.647.646-.647.646a.5.5 0 0 0 .708.708L13 4.707l.646.647a.5.5 0 0 0 .708-.708L13.707 4l.647-.646a.5.5 0 0 0-.708-.708L13 3.293l-.646-.647ZM1.5 15a5.5 5.5 0 1 1 11 0 .5.5 0 0 0 1 0 6.5 6.5 0 1 0-13 0 .5.5 0 0 0 1 0Z" fill="currentColor"/></svg>`
 };

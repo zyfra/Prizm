@@ -4,5 +4,5 @@ export const prizmIconsTempDateInformDelete: {
   data: string;
 } = {
   name: 'temp-date-inform-delete',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m17.5 5.914-.793.793a1 1 0 1 1-1.414-1.414l.793-.793-.793-.793a1 1 0 0 1 1.414-1.414l.793.793.793-.793a1 1 0 1 1 1.414 1.414l-.793.793.793.793a1 1 0 0 1-1.414 1.414l-.793-.793ZM12 4a8 8 0 1 0 7.802 6.221 1 1 0 1 1 1.95-.442c.163.715.248 1.459.248 2.221 0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2a1 1 0 1 1 0 2Zm0 6a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0v-5a1 1 0 0 1 1-1Zm0-1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m17.5 5.914-.793.793a1 1 0 1 1-1.414-1.414l.793-.793-.793-.793a1 1 0 0 1 1.414-1.414l.793.793.793-.793a1 1 0 1 1 1.414 1.414l-.793.793.793.793a1 1 0 0 1-1.414 1.414l-.793-.793ZM12 4a8 8 0 1 0 7.802 6.221 1 1 0 1 1 1.95-.442c.163.715.248 1.459.248 2.221 0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2a1 1 0 1 1 0 2Zm0 6a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0v-5a1 1 0 0 1 1-1Zm0-1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

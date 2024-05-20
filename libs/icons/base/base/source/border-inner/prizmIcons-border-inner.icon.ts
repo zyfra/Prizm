@@ -4,5 +4,5 @@ export const prizmIconsBorderInner: {
   data: string;
 } = {
   name: 'border-inner',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm4 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 15a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm7-15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 15a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM13 4a1 1 0 1 0-2 0v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm15 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 16a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm15 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm4 0a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 15a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm7-15a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 15a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM13 4a1 1 0 1 0-2 0v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2h-7V4Zm8 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm15 9a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 16a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm15 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" fill="currentColor"/></svg>`
 };

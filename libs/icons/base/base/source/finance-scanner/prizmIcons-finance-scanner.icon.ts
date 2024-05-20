@@ -4,5 +4,5 @@ export const prizmIconsFinanceScanner: {
   data: string;
 } = {
   name: 'finance-scanner',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.758 2.03a1 1 0 0 1 1.212.727l2 8a1 1 0 1 1-1.94.486l-2-8a1 1 0 0 1 .728-1.213ZM11.72 10l-1.5-6H8.28l1.5 6h1.938Zm-.74-8H8.28a2 2 0 0 0-1.94 2.485l1.5 6A2 2 0 0 0 9.78 12h1l-1.522 7.608A2 2 0 0 0 11.22 22h2.96a2 2 0 0 0 1.962-1.608l1.692-8.461A5.001 5.001 0 0 0 17 2H10.98Zm1.301 2h4.72a3 3 0 1 1-.021 6H13.78l-1.5-6Zm.697 8h2.803l-.8 4H12.02l.8-4h.158Zm1.602 6h-2.96l-.4 2h2.96l.4-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.758 2.03a1 1 0 0 1 1.212.727l2 8a1 1 0 1 1-1.94.486l-2-8a1 1 0 0 1 .728-1.213ZM11.72 10l-1.5-6H8.28l1.5 6h1.938Zm-.74-8H8.28a2 2 0 0 0-1.94 2.485l1.5 6A2 2 0 0 0 9.78 12h1l-1.522 7.608A2 2 0 0 0 11.22 22h2.96a2 2 0 0 0 1.962-1.608l1.692-8.461A5.001 5.001 0 0 0 17 2H10.98Zm1.301 2h4.72a3 3 0 1 1-.021 6H13.78l-1.5-6Zm.697 8h2.803l-.8 4H12.02l.8-4h.158Zm1.602 6h-2.96l-.4 2h2.96l.4-2Z" fill="currentColor"/></svg>`
 };

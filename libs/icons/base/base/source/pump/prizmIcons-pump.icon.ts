@@ -4,5 +4,5 @@ export const prizmIconsPump: {
   data: string;
 } = {
   name: 'pump',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h3v-2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v2h3V4ZM7 18v2h1v-2H7Zm-1-2h6v-2H3v2h3Zm11 4h-7v-2h2a2 2 0 0 0 2-2v-2h3v6Zm-5-8H3v-2h9v2Zm2 0h3v-2h-3v2Zm5 1v7h2V4h-2v9Zm-7-7v2H3V6h9Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M17 4a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1H2a1 1 0 1 1 0-2h3v-2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v2h3V4ZM7 18v2h1v-2H7Zm-1-2h6v-2H3v2h3Zm11 4h-7v-2h2a2 2 0 0 0 2-2v-2h3v6Zm-5-8H3v-2h9v2Zm2 0h3v-2h-3v2Zm5 1v7h2V4h-2v9Zm-7-7v2H3V6h9Z" fill="currentColor"/></svg>`
 };

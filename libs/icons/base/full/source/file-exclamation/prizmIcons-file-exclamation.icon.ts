@@ -4,5 +4,5 @@ export const prizmIconsFileExclamation: {
   data: string;
 } = {
   name: 'file-exclamation',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 .5A1.5 1.5 0 0 0 2.5 2v12A1.5 1.5 0 0 0 4 15.5h8a1.5 1.5 0 0 0 1.5-1.5V5.414a1.5 1.5 0 0 0-.44-1.06L9.647.939A1.5 1.5 0 0 0 8.586.5H4ZM3.5 2a.5.5 0 0 1 .5-.5h4.5V4A1.5 1.5 0 0 0 10 5.5h2.5V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2Zm8.293 2.5L9.5 2.207V4a.5.5 0 0 0 .5.5h1.793ZM8 6.5a.5.5 0 0 1 .5.5v3.5a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5ZM8 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 .5A1.5 1.5 0 0 0 2.5 2v12A1.5 1.5 0 0 0 4 15.5h8a1.5 1.5 0 0 0 1.5-1.5V5.414a1.5 1.5 0 0 0-.44-1.06L9.647.939A1.5 1.5 0 0 0 8.586.5H4ZM3.5 2a.5.5 0 0 1 .5-.5h4.5V4A1.5 1.5 0 0 0 10 5.5h2.5V14a.5.5 0 0 1-.5.5H4a.5.5 0 0 1-.5-.5V2Zm8.293 2.5L9.5 2.207V4a.5.5 0 0 0 .5.5h1.793ZM8 6.5a.5.5 0 0 1 .5.5v3.5a.5.5 0 0 1-1 0V7a.5.5 0 0 1 .5-.5ZM8 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`
 };

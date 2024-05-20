@@ -4,5 +4,5 @@ export const prizmIconsPi: {
   data: string;
 } = {
   name: 'pi',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 7a2 2 0 0 1 2-2h11a1 1 0 1 0 0-2H8a4 4 0 1 0 0 8 1 1 0 1 0 0-2 2 2 0 0 1-2-2Zm6 1a1 1 0 1 0-2 0v12a1 1 0 1 0 2 0V8Zm5 0a1 1 0 1 0-2 0v12a1 1 0 1 0 2 0V8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 7a2 2 0 0 1 2-2h11a1 1 0 1 0 0-2H8a4 4 0 1 0 0 8 1 1 0 1 0 0-2 2 2 0 0 1-2-2Zm6 1a1 1 0 1 0-2 0v12a1 1 0 1 0 2 0V8Zm5 0a1 1 0 1 0-2 0v12a1 1 0 1 0 2 0V8Z" fill="currentColor"/></svg>`
 };

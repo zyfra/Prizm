@@ -4,5 +4,5 @@ export const prizmIconsPlusColumnRight: {
   data: string;
 } = {
   name: 'plus-column-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v5a.997.997 0 0 1-.088.411A2 2 0 0 1 22 10v4c0 .205-.03.403-.088.589A.997.997 0 0 1 22 15v5a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2V4Zm1 6h-1v4h8v-4h-7Zm1 6v4h6v-4h-6Zm0-8V4h6v4h-6ZM5 9a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2H6v1a1 1 0 1 1-2 0v-1H3a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v5a.997.997 0 0 1-.088.411A2 2 0 0 1 22 10v4c0 .205-.03.403-.088.589A.997.997 0 0 1 22 15v5a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-4a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2V4Zm1 6h-1v4h8v-4h-7Zm1 6v4h6v-4h-6Zm0-8V4h6v4h-6ZM5 9a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2H6v1a1 1 0 1 1-2 0v-1H3a1 1 0 1 1 0-2h1v-1a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`
 };

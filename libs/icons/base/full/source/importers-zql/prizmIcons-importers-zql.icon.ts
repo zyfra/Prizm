@@ -4,5 +4,5 @@ export const prizmIconsImportersZql: {
   data: string;
 } = {
   name: 'importers-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5A2.5 2.5 0 0 0 .5 3v10A2.5 2.5 0 0 0 3 15.5h6a.5.5 0 0 0 0-1H3A1.5 1.5 0 0 1 1.5 13V7.5h13V9a.5.5 0 0 0 1 0V3A2.5 2.5 0 0 0 13 .5H3Zm11.5 6V3A1.5 1.5 0 0 0 13 1.5H3A1.5 1.5 0 0 0 1.5 3v3.5h13ZM8 3.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H8Zm2.854 6.646a.5.5 0 0 0-.708.708l3.647 3.646H11a.5.5 0 0 0 0 1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v2.793l-3.646-3.647Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 .5A2.5 2.5 0 0 0 .5 3v10A2.5 2.5 0 0 0 3 15.5h6a.5.5 0 0 0 0-1H3A1.5 1.5 0 0 1 1.5 13V7.5h13V9a.5.5 0 0 0 1 0V3A2.5 2.5 0 0 0 13 .5H3Zm11.5 6V3A1.5 1.5 0 0 0 13 1.5H3A1.5 1.5 0 0 0 1.5 3v3.5h13ZM8 3.5a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1H8Zm2.854 6.646a.5.5 0 0 0-.708.708l3.647 3.646H11a.5.5 0 0 0 0 1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v2.793l-3.646-3.647Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

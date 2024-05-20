@@ -4,5 +4,5 @@ export const prizmIconsReplay: {
   data: string;
 } = {
   name: 'replay',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2 6.4C10.882 5.41 9 6.35 9 8v8c0 1.648 1.882 2.588 3.2 1.6l5.333-4a2 2 0 0 0 0-3.2l-5.333-4ZM11 8l5.333 4L11 16V8Zm-4-.996a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.2 6.4C10.882 5.41 9 6.35 9 8v8c0 1.648 1.882 2.588 3.2 1.6l5.333-4a2 2 0 0 0 0-3.2l-5.333-4ZM11 8l5.333 4L11 16V8Zm-4-.996a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0v-10Z" fill="currentColor"/></svg>`
 };

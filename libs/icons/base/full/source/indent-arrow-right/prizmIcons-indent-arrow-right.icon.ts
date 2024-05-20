@@ -4,5 +4,5 @@ export const prizmIconsIndentArrowRight: {
   data: string;
 } = {
   name: 'indent-arrow-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 8h5m0 0L4.333 6M6 8l-1.667 2M1 2h14M1 14h14M9 10h6M9 6h6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="M1 8h5m0 0L4.333 6M6 8l-1.667 2M1 2h14M1 14h14M9 10h6M9 6h6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsPause: {
   data: string;
 } = {
   name: 'pause',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 7a1 1 0 0 0-2 0v10a1 1 0 1 0 2 0V7Zm6 0a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0V7Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 7a1 1 0 0 0-2 0v10a1 1 0 1 0 2 0V7Zm6 0a1 1 0 1 0-2 0v10a1 1 0 1 0 2 0V7Z" fill="currentColor"/></svg>`
 };

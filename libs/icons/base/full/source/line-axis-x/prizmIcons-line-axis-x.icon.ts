@@ -4,5 +4,5 @@ export const prizmIconsLineAxisX: {
   data: string;
 } = {
   name: 'line-axis-x',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.354 3.354a.5.5 0 0 0-.708-.708L9 7.293 5.354 3.646a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L5 4.707l3.646 3.647a.5.5 0 0 0 .708 0l5-5ZM1 12.5a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1H1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M14.354 3.354a.5.5 0 0 0-.708-.708L9 7.293 5.354 3.646a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L5 4.707l3.646 3.647a.5.5 0 0 0 .708 0l5-5ZM1 12.5a.5.5 0 0 0 0 1h14a.5.5 0 0 0 0-1H1Z" fill="currentColor"/></svg>`
 };

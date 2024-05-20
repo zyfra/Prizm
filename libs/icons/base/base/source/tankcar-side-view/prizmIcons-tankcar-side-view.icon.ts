@@ -4,5 +4,5 @@ export const prizmIconsTankcarSideView: {
   data: string;
 } = {
   name: 'tankcar-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 5a4.5 4.5 0 0 0-3.725 7.025A1 1 0 0 0 3 14h18a1 1 0 0 0 .225-1.975A4.5 4.5 0 0 0 17.5 5h-11Zm11 7a2.5 2.5 0 0 0 0-5H17v2a1 1 0 1 1-2 0V7H9v2a1 1 0 0 1-2 0V7h-.5a2.5 2.5 0 0 0 0 5h11ZM3 17.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm.5-2.5a2.5 2.5 0 1 0 2 4 2.5 2.5 0 1 0 0-3 2.496 2.496 0 0 0-2-1Zm13 2a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm-2.5.5a2.5 2.5 0 0 1 4.5-1.5 2.5 2.5 0 1 1 0 3 2.5 2.5 0 0 1-4.5-1.5Zm-7 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm13.5-.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 5a4.5 4.5 0 0 0-3.725 7.025A1 1 0 0 0 3 14h18a1 1 0 0 0 .225-1.975A4.5 4.5 0 0 0 17.5 5h-11Zm11 7a2.5 2.5 0 0 0 0-5H17v2a1 1 0 1 1-2 0V7H9v2a1 1 0 0 1-2 0V7h-.5a2.5 2.5 0 0 0 0 5h11ZM3 17.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm.5-2.5a2.5 2.5 0 1 0 2 4 2.5 2.5 0 1 0 0-3 2.496 2.496 0 0 0-2-1Zm13 2a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm-2.5.5a2.5 2.5 0 0 1 4.5-1.5 2.5 2.5 0 1 1 0 3 2.5 2.5 0 0 1-4.5-1.5Zm-7 0a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm13.5-.5a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsVectorCircleOnePoint: {
   data: string;
 } = {
   name: 'vector-circle-one-point',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 12a7 7 0 0 1 13.373-2.9A2 2 0 0 0 17 11v2a2 2 0 0 0 1.373 1.9A7.002 7.002 0 0 1 5 12Zm14.77 1H19v-2h2v2h-1.23Zm.718 2A9.003 9.003 0 0 1 12 21a9 9 0 1 1 0-18 9.003 9.003 0 0 1 8.488 6H21a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.512Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 12a7 7 0 0 1 13.373-2.9A2 2 0 0 0 17 11v2a2 2 0 0 0 1.373 1.9A7.002 7.002 0 0 1 5 12Zm14.77 1H19v-2h2v2h-1.23Zm.718 2A9.003 9.003 0 0 1 12 21a9 9 0 1 1 0-18 9.003 9.003 0 0 1 8.488 6H21a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-.512Z" fill="currentColor"/></svg>`
 };

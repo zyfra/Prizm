@@ -4,5 +4,5 @@ export const prizmIconsTempAlertsCircleMini: {
   data: string;
 } = {
   name: 'temp-alerts-circle-mini',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 12a6 6 0 1 1 8.57 5.423 1 1 0 0 0 .86 1.807 8 8 0 1 0-6.858 0 1 1 0 1 0 .857-1.807A6 6 0 0 1 6 12Zm6-3a2 2 0 0 0-2 2 1 1 0 1 1-2 0 4 4 0 1 1 5 3.874V16a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1 2 2 0 1 0 0-4Zm1 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 12a6 6 0 1 1 8.57 5.423 1 1 0 0 0 .86 1.807 8 8 0 1 0-6.858 0 1 1 0 1 0 .857-1.807A6 6 0 0 1 6 12Zm6-3a2 2 0 0 0-2 2 1 1 0 1 1-2 0 4 4 0 1 1 5 3.874V16a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1 2 2 0 1 0 0-4Zm1 10a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z" fill="currentColor"/></svg>`
 };

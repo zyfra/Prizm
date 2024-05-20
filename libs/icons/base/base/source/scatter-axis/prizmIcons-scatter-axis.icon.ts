@@ -4,5 +4,5 @@ export const prizmIconsScatterAxis: {
   data: string;
 } = {
   name: 'scatter-axis',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM7 5.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0ZM4 5a1 1 0 0 0-2 0v15a2 2 0 0 0 2 2h15a1 1 0 1 0 0-2H4V5Zm12 6a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM8 15a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM7 5.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0ZM4 5a1 1 0 0 0-2 0v15a2 2 0 0 0 2 2h15a1 1 0 1 0 0-2H4V5Zm12 6a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8ZM8 15a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm1-3a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z" fill="currentColor"/></svg>`
 };

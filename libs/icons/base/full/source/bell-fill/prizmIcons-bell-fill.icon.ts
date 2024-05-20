@@ -4,5 +4,5 @@ export const prizmIconsBellFill: {
   data: string;
 } = {
   name: 'bell-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 6a5.5 5.5 0 1 1 11 0v4.764a.5.5 0 0 0 .053.224l.894 1.788A.5.5 0 0 1 14 13.5h-3.55a2.5 2.5 0 0 1-4.9 0H2a.5.5 0 0 1-.447-.724l.894-1.788a.5.5 0 0 0 .053-.224V6Zm4.085 7.5a1.5 1.5 0 0 0 2.83 0h-2.83Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 6a5.5 5.5 0 1 1 11 0v4.764a.5.5 0 0 0 .053.224l.894 1.788A.5.5 0 0 1 14 13.5h-3.55a2.5 2.5 0 0 1-4.9 0H2a.5.5 0 0 1-.447-.724l.894-1.788a.5.5 0 0 0 .053-.224V6Zm4.085 7.5a1.5 1.5 0 0 0 2.83 0h-2.83Z" fill="currentColor"/></svg>`
 };

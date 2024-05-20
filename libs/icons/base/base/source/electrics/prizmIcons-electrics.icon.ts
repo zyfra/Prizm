@@ -4,5 +4,5 @@ export const prizmIconsElectrics: {
   data: string;
 } = {
   name: 'electrics',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v3H9a5 5 0 0 0-5 5v5H3a1 1 0 1 0 0 2h2a.997.997 0 0 0 .411-.088A2 2 0 0 0 6 18h1v3a1 1 0 1 0 2 0v-3h6v3a1 1 0 1 0 2 0v-3h1c.205 0 .403-.03.589-.088A.997.997 0 0 0 19 18h2a1 1 0 1 0 0-2h-1v-5a5 5 0 0 0-5-5h-2V3Zm3 13h2v-5a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v5h10Zm-8-4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v3H9a5 5 0 0 0-5 5v5H3a1 1 0 1 0 0 2h2a.997.997 0 0 0 .411-.088A2 2 0 0 0 6 18h1v3a1 1 0 1 0 2 0v-3h6v3a1 1 0 1 0 2 0v-3h1c.205 0 .403-.03.589-.088A.997.997 0 0 0 19 18h2a1 1 0 1 0 0-2h-1v-5a5 5 0 0 0-5-5h-2V3Zm3 13h2v-5a3 3 0 0 0-3-3H9a3 3 0 0 0-3 3v5h10Zm-8-4a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

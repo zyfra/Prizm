@@ -4,5 +4,5 @@ export const prizmIconsMedical: {
   data: string;
 } = {
   name: 'medical',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v4h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4v4a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-4H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h4V4Zm2 1v4a1 1 0 0 1-1 1H5v4h4a1 1 0 0 1 1 1v4h4v-4a1 1 0 0 1 1-1h4v-4h-4a1 1 0 0 1-1-1V5h-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v4h4a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-4v4a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-4H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1h4V4Zm2 1v4a1 1 0 0 1-1 1H5v4h4a1 1 0 0 1 1 1v4h4v-4a1 1 0 0 1 1-1h4v-4h-4a1 1 0 0 1-1-1V5h-4Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsBellRingFill: {
   data: string;
 } = {
   name: 'bell-ring-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.447.776a.5.5 0 0 1-.223.671l-2 1a.5.5 0 1 1-.448-.894l2-1a.5.5 0 0 1 .671.223Zm5.106 0a.5.5 0 0 1 .67-.223l2 1a.5.5 0 1 1-.447.894l-2-1a.5.5 0 0 1-.223-.67ZM13 13.5h-2.55a2.5 2.5 0 0 1-4.9 0H3a.5.5 0 0 1-.447-.724l.894-1.788a.5.5 0 0 0 .053-.224V7a4.5 4.5 0 0 1 9 0v3.764a.5.5 0 0 0 .053.224l.894 1.788A.5.5 0 0 1 13 13.5Zm-5 1a1.5 1.5 0 0 0 1.415-1h-2.83A1.5 1.5 0 0 0 8 14.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.447.776a.5.5 0 0 1-.223.671l-2 1a.5.5 0 1 1-.448-.894l2-1a.5.5 0 0 1 .671.223Zm5.106 0a.5.5 0 0 1 .67-.223l2 1a.5.5 0 1 1-.447.894l-2-1a.5.5 0 0 1-.223-.67ZM13 13.5h-2.55a2.5 2.5 0 0 1-4.9 0H3a.5.5 0 0 1-.447-.724l.894-1.788a.5.5 0 0 0 .053-.224V7a4.5 4.5 0 0 1 9 0v3.764a.5.5 0 0 0 .053.224l.894 1.788A.5.5 0 0 1 13 13.5Zm-5 1a1.5 1.5 0 0 0 1.415-1h-2.83A1.5 1.5 0 0 0 8 14.5Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsLngStorage: {
   data: string;
 } = {
   name: 'lng-storage',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a1 1 0 0 0-1 1v1.435C4.514 7.049 3 9.852 3 13v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-2h1v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2h1v2a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7c0-3.148-1.514-5.95-4-7.565V4a1 1 0 0 0-1-1H8Zm10 14a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v2h-2v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2H5v-6c0-1.974.745-3.738 1.998-5H17.002C18.255 9.262 19 11.026 19 13v6h-1v-2ZM15 6V5H9v1h6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a1 1 0 0 0-1 1v1.435C4.514 7.049 3 9.852 3 13v7a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-2h1v2a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-2h1v2a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-7c0-3.148-1.514-5.95-4-7.565V4a1 1 0 0 0-1-1H8Zm10 14a1 1 0 0 0-1-1h-3a1 1 0 0 0-1 1v2h-2v-2a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1v2H5v-6c0-1.974.745-3.738 1.998-5H17.002C18.255 9.262 19 11.026 19 13v6h-1v-2ZM15 6V5H9v1h6Z" fill="currentColor"/></svg>`
 };

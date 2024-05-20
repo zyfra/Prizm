@@ -4,5 +4,5 @@ export const prizmIconsPipelineV2: {
   data: string;
 } = {
   name: 'pipeline-v2',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4h4a6 6 0 0 1 6 6v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H9a6 6 0 0 1-6-6V4Zm6 0H5v6a4 4 0 0 0 4 4h4a2 2 0 0 1 2 2v4h4v-6a4 4 0 0 0-4-4h-4a2 2 0 0 1-2-2V4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v4h4a6 6 0 0 1 6 6v6a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-4H9a6 6 0 0 1-6-6V4Zm6 0H5v6a4 4 0 0 0 4 4h4a2 2 0 0 1 2 2v4h4v-6a4 4 0 0 0-4-4h-4a2 2 0 0 1-2-2V4Z" fill="currentColor"/></svg>`
 };

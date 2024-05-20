@@ -4,5 +4,5 @@ export const prizmIconsWaterPump: {
   data: string;
 } = {
   name: 'water-pump',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 .5A3.5 3.5 0 0 0 5.5 4v1.5H1a.5.5 0 0 0 0 1h4.5v8H3a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1h-2.5v-5H14A1.5 1.5 0 0 0 15.5 8V6A1.5 1.5 0 0 0 14 4.5h-1.5V4A3.5 3.5 0 0 0 9 .5Zm5 8h-1.5v-3H14a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5ZM11.5 4v10.5h-5V4a2.5 2.5 0 0 1 5 0ZM2 10a1 1 0 0 0 1-1c0-1-1-2-1-2S1 8 1 9a1 1 0 0 0 1 1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 .5A3.5 3.5 0 0 0 5.5 4v1.5H1a.5.5 0 0 0 0 1h4.5v8H3a.5.5 0 0 0 0 1h12a.5.5 0 0 0 0-1h-2.5v-5H14A1.5 1.5 0 0 0 15.5 8V6A1.5 1.5 0 0 0 14 4.5h-1.5V4A3.5 3.5 0 0 0 9 .5Zm5 8h-1.5v-3H14a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-.5.5ZM11.5 4v10.5h-5V4a2.5 2.5 0 0 1 5 0ZM2 10a1 1 0 0 0 1-1c0-1-1-2-1-2S1 8 1 9a1 1 0 0 0 1 1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

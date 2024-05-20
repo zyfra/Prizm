@@ -4,5 +4,5 @@ export const prizmIconsSteamBoiler: {
   data: string;
 } = {
   name: 'steam-boiler',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 2a1 1 0 0 0 0 2h5v6H9V9a1 1 0 0 0-2 0v1a2 2 0 0 0-2 2H4a1 1 0 1 0 0 2h1v2H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2-2h-2V4a2 2 0 0 0-2-2H8ZM7 12h10v4H7v-4Zm14 4h-2v-2h2v2ZM7 18v2h10v-2H7Zm-2 2v-2H3v2h2ZM18 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 2a1 1 0 0 0 0 2h5v6H9V9a1 1 0 0 0-2 0v1a2 2 0 0 0-2 2H4a1 1 0 1 0 0 2h1v2H3a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2h2a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-2a2 2 0 0 0-2-2h-2V4a2 2 0 0 0-2-2H8ZM7 12h10v4H7v-4Zm14 4h-2v-2h2v2ZM7 18v2h10v-2H7Zm-2 2v-2H3v2h2ZM18 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

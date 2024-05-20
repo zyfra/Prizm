@@ -4,5 +4,5 @@ export const prizmIconsClockArrowRight: {
   data: string;
 } = {
   name: 'clock-arrow-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9Zm7-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1Zm4.707 10.293a1 1 0 0 0-1.414 1.414l.293.293H6a1 1 0 1 0 0 2h9.586l-.293.293a1 1 0 0 0 1.414 1.414l2-2a1 1 0 0 0 0-1.414l-2-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9Zm7-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1Zm4.707 10.293a1 1 0 0 0-1.414 1.414l.293.293H6a1 1 0 1 0 0 2h9.586l-.293.293a1 1 0 0 0 1.414 1.414l2-2a1 1 0 0 0 0-1.414l-2-2Z" fill="currentColor"/></svg>`
 };

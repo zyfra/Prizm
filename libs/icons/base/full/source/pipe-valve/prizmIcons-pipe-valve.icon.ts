@@ -4,5 +4,5 @@ export const prizmIconsPipeValve: {
   data: string;
 } = {
   name: 'pipe-valve',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 1.5H6a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1H8.5v4H11a.5.5 0 0 1 0 1h-.5v3h4V9a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-.5h-13v.5a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0v.5h4v-3H5a.5.5 0 0 1 0-1h2.5v-4Zm-1 8v-3h3v3h-3Zm-5 1h13v3h-13v-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.5 1.5H6a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1H8.5v4H11a.5.5 0 0 1 0 1h-.5v3h4V9a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-.5h-13v.5a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0v.5h4v-3H5a.5.5 0 0 1 0-1h2.5v-4Zm-1 8v-3h3v3h-3Zm-5 1h13v3h-13v-3Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

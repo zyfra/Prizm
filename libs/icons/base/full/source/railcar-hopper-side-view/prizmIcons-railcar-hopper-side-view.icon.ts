@@ -4,5 +4,5 @@ export const prizmIconsRailcarHopperSideView: {
   data: string;
 } = {
   name: 'railcar-hopper-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.326 1.5A1.5 1.5 0 0 0 .883 3.412l1.429 5c.16.561.628.97 1.188 1.066V10.5H1a.5.5 0 0 0 0 1h.768a2 2 0 1 0 3.465 0h5.535a2 2 0 1 0 3.465 0H15a.5.5 0 0 0 0-1h-2.5V9.478a1.5 1.5 0 0 0 1.188-1.066l1.429-5A1.5 1.5 0 0 0 13.674 1.5H2.326ZM12 8.5h.246a.5.5 0 0 0 .48-.363l1.429-5a.5.5 0 0 0-.48-.637H2.324a.5.5 0 0 0-.48.637l1.429 5a.5.5 0 0 0 .48.363H12Zm-7.5 1h7v1h-7v-1Zm7 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-9 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.326 1.5A1.5 1.5 0 0 0 .883 3.412l1.429 5c.16.561.628.97 1.188 1.066V10.5H1a.5.5 0 0 0 0 1h.768a2 2 0 1 0 3.465 0h5.535a2 2 0 1 0 3.465 0H15a.5.5 0 0 0 0-1h-2.5V9.478a1.5 1.5 0 0 0 1.188-1.066l1.429-5A1.5 1.5 0 0 0 13.674 1.5H2.326ZM12 8.5h.246a.5.5 0 0 0 .48-.363l1.429-5a.5.5 0 0 0-.48-.637H2.324a.5.5 0 0 0-.48.637l1.429 5a.5.5 0 0 0 .48.363H12Zm-7.5 1h7v1h-7v-1Zm7 3a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm-9 0a1 1 0 1 1 2 0 1 1 0 0 1-2 0Z" fill="currentColor"/></svg>`
 };

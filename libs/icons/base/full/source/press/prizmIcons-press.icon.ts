@@ -4,5 +4,5 @@ export const prizmIconsPress: {
   data: string;
 } = {
   name: 'press',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0Zm10 0a5.5 5.5 0 0 1-5 5.478V14.5H15a.5.5 0 0 1 0 1H1a.5.5 0 0 1 0-1h6.5v-3.022A5.5 5.5 0 1 1 13.5 6Zm-3.146-1.646a.5.5 0 0 0-.708-.708l-2 2a.5.5 0 1 0 .708.708l2-2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0Zm10 0a5.5 5.5 0 0 1-5 5.478V14.5H15a.5.5 0 0 1 0 1H1a.5.5 0 0 1 0-1h6.5v-3.022A5.5 5.5 0 1 1 13.5 6Zm-3.146-1.646a.5.5 0 0 0-.708-.708l-2 2a.5.5 0 1 0 .708.708l2-2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

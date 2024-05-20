@@ -4,5 +4,5 @@ export const prizmIconsCartFlatbedContainer: {
   data: string;
 } = {
   name: 'cart-flatbed-container',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 1A.5.5 0 0 1 2 .5h1A1.5 1.5 0 0 1 4.5 2v7.5a3 3 0 0 1 3 3H14a.5.5 0 0 1 0 1H7.33A3.001 3.001 0 1 1 3.5 9.67V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 1-.5-.5Zm6 1a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H8a.5.5 0 0 1-.5-.5V2Zm1 1.401V8.5h3.4l-1.816-2.723L8.5 3.401Zm.6-.901 1.816 2.723L12.5 7.599V2.5H9.1Zm-4.6 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 1A.5.5 0 0 1 2 .5h1A1.5 1.5 0 0 1 4.5 2v7.5a3 3 0 0 1 3 3H14a.5.5 0 0 1 0 1H7.33A3.001 3.001 0 1 1 3.5 9.67V2a.5.5 0 0 0-.5-.5H2a.5.5 0 0 1-.5-.5Zm6 1a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5H8a.5.5 0 0 1-.5-.5V2Zm1 1.401V8.5h3.4l-1.816-2.723L8.5 3.401Zm.6-.901 1.816 2.723L12.5 7.599V2.5H9.1Zm-4.6 8a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z" fill="currentColor"/></svg>`
 };

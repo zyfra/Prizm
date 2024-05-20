@@ -4,5 +4,5 @@ export const prizmIconsNetworkV3: {
   data: string;
 } = {
   name: 'network-v3',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V4Zm6 0h-4v3h4V4ZM2 17a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Zm6 0H4v3h4v-3Zm8-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4Zm0 2h4v3h-4v-3Zm-1.707-6.707a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1-1.414 1.414l-2-2a1 1 0 0 1 0-1.414Zm-6 0a1 1 0 1 1 1.414 1.414l-2 2a1 1 0 0 1-1.414-1.414l2-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V4Zm6 0h-4v3h4V4ZM2 17a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3Zm6 0H4v3h4v-3Zm8-2a2 2 0 0 0-2 2v3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2h-4Zm0 2h4v3h-4v-3Zm-1.707-6.707a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1-1.414 1.414l-2-2a1 1 0 0 1 0-1.414Zm-6 0a1 1 0 1 1 1.414 1.414l-2 2a1 1 0 0 1-1.414-1.414l2-2Z" fill="currentColor"/></svg>`
 };

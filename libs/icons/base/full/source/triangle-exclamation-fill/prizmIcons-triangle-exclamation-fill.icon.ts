@@ -4,5 +4,5 @@ export const prizmIconsTriangleExclamationFill: {
   data: string;
 } = {
   name: 'triangle-exclamation-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.447.776a.5.5 0 0 0-.894 0l-7 14A.5.5 0 0 0 1 15.5h14a.5.5 0 0 0 .447-.724l-7-14ZM8.5 5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0v-5ZM8 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.447.776a.5.5 0 0 0-.894 0l-7 14A.5.5 0 0 0 1 15.5h14a.5.5 0 0 0 .447-.724l-7-14ZM8.5 5.5a.5.5 0 0 0-1 0v5a.5.5 0 0 0 1 0v-5ZM8 13a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

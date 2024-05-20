@@ -4,5 +4,5 @@ export const prizmIconsTruckEmptySideView: {
   data: string;
 } = {
   name: 'truck-empty-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 7a1 1 0 0 1 1-1h3a1 1 0 0 1 .894.553l.851 1.702 1.702.85A1 1 0 0 1 22 10v3a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h11V7Zm6 5h-4V8h1.382l.724 1.447a1 1 0 0 0 .447.447l1.447.724V12ZM4 17.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm.5-2.5A2.5 2.5 0 1 0 7 17.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0A2.5 2.5 0 0 0 4.5 15Zm5 2a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm8.5.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm.5-2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 7a1 1 0 0 1 1-1h3a1 1 0 0 1 .894.553l.851 1.702 1.702.85A1 1 0 0 1 22 10v3a1 1 0 0 1-1 1H3a1 1 0 1 1 0-2h11V7Zm6 5h-4V8h1.382l.724 1.447a1 1 0 0 0 .447.447l1.447.724V12ZM4 17.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm.5-2.5A2.5 2.5 0 1 0 7 17.5a2.5 2.5 0 1 0 5 0 2.5 2.5 0 0 0-5 0A2.5 2.5 0 0 0 4.5 15Zm5 2a.5.5 0 1 0 0 1 .5.5 0 0 0 0-1Zm8.5.5a.5.5 0 1 1 1 0 .5.5 0 0 1-1 0Zm.5-2.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" fill="currentColor"/></svg>`
 };

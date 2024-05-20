@@ -4,5 +4,5 @@ export const prizmIconsPlane: {
   data: string;
 } = {
   name: 'plane',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 2a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V4a2 2 0 0 0-2-2H8Zm10 5h1v13H5V7h1v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7ZM8 6v2h8V4H8v2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 2a2 2 0 0 0-2 2v1H5a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-1V4a2 2 0 0 0-2-2H8Zm10 5h1v13H5V7h1v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7ZM8 6v2h8V4H8v2Z" fill="currentColor"/></svg>`
 };

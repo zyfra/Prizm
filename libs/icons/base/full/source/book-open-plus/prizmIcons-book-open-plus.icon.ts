@@ -4,5 +4,5 @@ export const prizmIconsBookOpenPlus: {
   data: string;
 } = {
   name: 'book-open-plus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.137.52A.5.5 0 0 0 .5 1v12a.5.5 0 0 0 .363.48l6.989 1.998a.5.5 0 0 0 .142.022h.012a.5.5 0 0 0 .142-.022l6.99-1.997A.5.5 0 0 0 15.5 13V7a.5.5 0 0 0-1 0v5.623l-6 1.714V3.011a.5.5 0 0 0-.373-.495L1.137.52ZM7.5 3.376l-6-1.714v10.96l6 1.714V3.377ZM13 .5a.5.5 0 0 1 .5.5v1.5H15a.5.5 0 0 1 0 1h-1.5V5a.5.5 0 0 1-1 0V3.5H11a.5.5 0 0 1 0-1h1.5V1a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.137.52A.5.5 0 0 0 .5 1v12a.5.5 0 0 0 .363.48l6.989 1.998a.5.5 0 0 0 .142.022h.012a.5.5 0 0 0 .142-.022l6.99-1.997A.5.5 0 0 0 15.5 13V7a.5.5 0 0 0-1 0v5.623l-6 1.714V3.011a.5.5 0 0 0-.373-.495L1.137.52ZM7.5 3.376l-6-1.714v10.96l6 1.714V3.377ZM13 .5a.5.5 0 0 1 .5.5v1.5H15a.5.5 0 0 1 0 1h-1.5V5a.5.5 0 0 1-1 0V3.5H11a.5.5 0 0 1 0-1h1.5V1a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

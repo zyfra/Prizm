@@ -4,5 +4,5 @@ export const prizmIconsOilDroplet: {
   data: string;
 } = {
   name: 'oil-droplet',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.643 2.234a1 1 0 0 0-1.286 0C6.85 6.02 5 10.917 5 14.7c0 3.985 3.089 7.3 7 7.3s7-3.315 7-7.3c0-3.783-1.851-8.68-6.357-12.466ZM7 14.7c0-3.003 1.41-7.049 5-10.368 3.59 3.32 5 7.365 5 10.368 0 2.974-2.284 5.3-5 5.3s-5-2.326-5-5.3Zm4 .3a1 1 0 1 0-2 0 3 3 0 0 0 3 3 1 1 0 1 0 0-2 1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.643 2.234a1 1 0 0 0-1.286 0C6.85 6.02 5 10.917 5 14.7c0 3.985 3.089 7.3 7 7.3s7-3.315 7-7.3c0-3.783-1.851-8.68-6.357-12.466ZM7 14.7c0-3.003 1.41-7.049 5-10.368 3.59 3.32 5 7.365 5 10.368 0 2.974-2.284 5.3-5 5.3s-5-2.326-5-5.3Zm4 .3a1 1 0 1 0-2 0 3 3 0 0 0 3 3 1 1 0 1 0 0-2 1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

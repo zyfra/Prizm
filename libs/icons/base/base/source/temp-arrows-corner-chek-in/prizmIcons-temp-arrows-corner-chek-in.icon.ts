@@ -4,5 +4,5 @@ export const prizmIconsTempArrowsCornerChekIn: {
   data: string;
 } = {
   name: 'temp-arrows-corner-chek-in',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.707 5.293a1 1 0 0 0-1.414 0L17 7.586l-1.293-1.293a1 1 0 1 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0 0-1.414Zm-12 3.414a1 1 0 0 0-1.414-1.414l-4 4a1 1 0 0 0 0 1.414l4 4a1 1 0 0 0 1.414-1.414L6.414 13H15v5a1 1 0 1 0 2 0v-5a2 2 0 0 0-2-2H6.414l2.293-2.293Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M20.707 5.293a1 1 0 0 0-1.414 0L17 7.586l-1.293-1.293a1 1 0 1 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l3-3a1 1 0 0 0 0-1.414Zm-12 3.414a1 1 0 0 0-1.414-1.414l-4 4a1 1 0 0 0 0 1.414l4 4a1 1 0 0 0 1.414-1.414L6.414 13H15v5a1 1 0 1 0 2 0v-5a2 2 0 0 0-2-2H6.414l2.293-2.293Z" fill="currentColor"/></svg>`
 };

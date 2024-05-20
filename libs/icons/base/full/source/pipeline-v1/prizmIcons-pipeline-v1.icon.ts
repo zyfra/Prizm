@@ -4,5 +4,5 @@ export const prizmIconsPipelineV1: {
   data: string;
 } = {
   name: 'pipeline-v1',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1A.5.5 0 0 1 1 .5h6a.5.5 0 0 1 0 1h-.5V5a.5.5 0 0 0 .5.5h3a4.5 4.5 0 0 1 4.5 4.5v4.5h.5a.5.5 0 0 1 0 1H9a.5.5 0 0 1 0-1h.5V11a.5.5 0 0 0-.5-.5H6A4.5 4.5 0 0 1 1.5 6V1.5H1A.5.5 0 0 1 .5 1Zm2 3.5V6A3.5 3.5 0 0 0 6 9.5h3a1.5 1.5 0 0 1 1.5 1.5v.5h3V10A3.5 3.5 0 0 0 10 6.5H7A1.5 1.5 0 0 1 5.5 5v-.5h-3Zm3-1h-3v-2h3v2Zm8 9h-3v2h3v-2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 1A.5.5 0 0 1 1 .5h6a.5.5 0 0 1 0 1h-.5V5a.5.5 0 0 0 .5.5h3a4.5 4.5 0 0 1 4.5 4.5v4.5h.5a.5.5 0 0 1 0 1H9a.5.5 0 0 1 0-1h.5V11a.5.5 0 0 0-.5-.5H6A4.5 4.5 0 0 1 1.5 6V1.5H1A.5.5 0 0 1 .5 1Zm2 3.5V6A3.5 3.5 0 0 0 6 9.5h3a1.5 1.5 0 0 1 1.5 1.5v.5h3V10A3.5 3.5 0 0 0 10 6.5H7A1.5 1.5 0 0 1 5.5 5v-.5h-3Zm3-1h-3v-2h3v2Zm8 9h-3v2h3v-2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

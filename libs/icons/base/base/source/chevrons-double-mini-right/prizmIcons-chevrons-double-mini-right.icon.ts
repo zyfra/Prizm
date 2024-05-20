@@ -4,5 +4,5 @@ export const prizmIconsChevronsDoubleMiniRight: {
   data: string;
 } = {
   name: 'chevrons-double-mini-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.707 8.293a1 1 0 0 0-1.414 1.414L9.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414l3-3a1 1 0 0 0 0-1.414l-3-3Zm6 0a1 1 0 1 0-1.414 1.414L15.586 12l-2.293 2.293a1 1 0 0 0 1.414 1.414l3-3a1 1 0 0 0 0-1.414l-3-3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.707 8.293a1 1 0 0 0-1.414 1.414L9.586 12l-2.293 2.293a1 1 0 1 0 1.414 1.414l3-3a1 1 0 0 0 0-1.414l-3-3Zm6 0a1 1 0 1 0-1.414 1.414L15.586 12l-2.293 2.293a1 1 0 0 0 1.414 1.414l3-3a1 1 0 0 0 0-1.414l-3-3Z" fill="currentColor"/></svg>`
 };

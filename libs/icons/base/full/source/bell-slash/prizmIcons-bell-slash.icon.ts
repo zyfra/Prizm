@@ -4,5 +4,5 @@ export const prizmIconsBellSlash: {
   data: string;
 } = {
   name: 'bell-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.7 1.6A5.5 5.5 0 0 1 13.5 6v4a.5.5 0 0 1-1 0V6a4.5 4.5 0 0 0-7.2-3.6.5.5 0 0 1-.6-.8ZM3 5.5a.5.5 0 0 1 .5.5v4.764a1.5 1.5 0 0 1-.158.67L2.809 12.5H10a.5.5 0 0 1 .5.5v.001a2.5 2.5 0 0 1-4.95.499H2a.5.5 0 0 1-.447-.724l.894-1.788a.5.5 0 0 0 .053-.224V6a.5.5 0 0 1 .5-.5Zm5 9a1.5 1.5 0 0 1-1.415-1h2.83A1.5 1.5 0 0 1 8 14.5ZM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.7 1.6A5.5 5.5 0 0 1 13.5 6v4a.5.5 0 0 1-1 0V6a4.5 4.5 0 0 0-7.2-3.6.5.5 0 0 1-.6-.8ZM3 5.5a.5.5 0 0 1 .5.5v4.764a1.5 1.5 0 0 1-.158.67L2.809 12.5H10a.5.5 0 0 1 .5.5v.001a2.5 2.5 0 0 1-4.95.499H2a.5.5 0 0 1-.447-.724l.894-1.788a.5.5 0 0 0 .053-.224V6a.5.5 0 0 1 .5-.5Zm5 9a1.5 1.5 0 0 1-1.415-1h2.83A1.5 1.5 0 0 1 8 14.5ZM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12Z" fill="currentColor"/></svg>`
 };

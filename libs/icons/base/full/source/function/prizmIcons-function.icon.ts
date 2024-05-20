@@ -4,5 +4,5 @@ export const prizmIconsFunction: {
   data: string;
 } = {
   name: 'function',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A1.5 1.5 0 0 0 6.5 3v4.5H8a.5.5 0 0 1 0 1H6.5V13a2.5 2.5 0 0 1-5 0 .5.5 0 0 1 1 0 1.5 1.5 0 0 0 3 0V8.5H4a.5.5 0 0 1 0-1h1.5V3a2.5 2.5 0 0 1 5 0 .5.5 0 0 1-1 0A1.5 1.5 0 0 0 8 1.5Zm6.354 9.854a.5.5 0 0 0-.708-.708L12 12.293l-1.646-1.647a.5.5 0 0 0-.708.708L11.293 13l-1.647 1.646a.5.5 0 0 0 .708.708L12 13.707l1.646 1.647a.5.5 0 0 0 .708-.708L12.707 13l1.647-1.646Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 1.5A1.5 1.5 0 0 0 6.5 3v4.5H8a.5.5 0 0 1 0 1H6.5V13a2.5 2.5 0 0 1-5 0 .5.5 0 0 1 1 0 1.5 1.5 0 0 0 3 0V8.5H4a.5.5 0 0 1 0-1h1.5V3a2.5 2.5 0 0 1 5 0 .5.5 0 0 1-1 0A1.5 1.5 0 0 0 8 1.5Zm6.354 9.854a.5.5 0 0 0-.708-.708L12 12.293l-1.646-1.647a.5.5 0 0 0-.708.708L11.293 13l-1.647 1.646a.5.5 0 0 0 .708.708L12 13.707l1.646 1.647a.5.5 0 0 0 .708-.708L12.707 13l1.647-1.646Z" fill="currentColor"/></svg>`
 };

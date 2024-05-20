@@ -4,5 +4,5 @@ export const prizmIconsAudioSpeakers: {
   data: string;
 } = {
   name: 'audio-speakers',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2A1.5 1.5 0 0 1 3 .5h10A1.5 1.5 0 0 1 14.5 2v12a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 14V2ZM3 1.5a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5H3Zm5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM5.5 5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Zm1 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM8 8.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 2A1.5 1.5 0 0 1 3 .5h10A1.5 1.5 0 0 1 14.5 2v12a1.5 1.5 0 0 1-1.5 1.5H3A1.5 1.5 0 0 1 1.5 14V2ZM3 1.5a.5.5 0 0 0-.5.5v12a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V2a.5.5 0 0 0-.5-.5H3Zm5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3ZM5.5 5a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0Zm1 6a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0ZM8 8.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5Z" fill="currentColor"/></svg>`
 };

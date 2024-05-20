@@ -4,5 +4,5 @@ export const prizmIconsPieSimple: {
   data: string;
 } = {
   name: 'pie-simple',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5A7.5 7.5 0 0 0 8 .5Zm.5 7V1.519A6.501 6.501 0 0 1 14.481 7.5H8.5ZM5.215 2.125a.5.5 0 0 0-.43-.903 7.5 7.5 0 1 0 9.993 9.992.5.5 0 1 0-.903-.428 6.5 6.5 0 1 1-8.66-8.66Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 .5a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5A7.5 7.5 0 0 0 8 .5Zm.5 7V1.519A6.501 6.501 0 0 1 14.481 7.5H8.5ZM5.215 2.125a.5.5 0 0 0-.43-.903 7.5 7.5 0 1 0 9.993 9.992.5.5 0 1 0-.903-.428 6.5 6.5 0 1 1-8.66-8.66Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

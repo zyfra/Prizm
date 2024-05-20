@@ -4,5 +4,5 @@ export const prizmIconsFolderArrowDown: {
   data: string;
 } = {
   name: 'folder-arrow-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 13V3A1.5 1.5 0 0 1 2 1.5h2.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414a.5.5 0 0 0 .353.146H12A1.5 1.5 0 0 1 13.5 5v7.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708l1.146 1.147V5a.5.5 0 0 0-.5-.5H7.414a1.5 1.5 0 0 1-1.06-.44L4.939 2.647a.5.5 0 0 0-.353-.146H2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 13V3A1.5 1.5 0 0 1 2 1.5h2.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414a.5.5 0 0 0 .353.146H12A1.5 1.5 0 0 1 13.5 5v7.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708l1.146 1.147V5a.5.5 0 0 0-.5-.5H7.414a1.5 1.5 0 0 1-1.06-.44L4.939 2.647a.5.5 0 0 0-.353-.146H2Z" fill="currentColor"/></svg>`
 };

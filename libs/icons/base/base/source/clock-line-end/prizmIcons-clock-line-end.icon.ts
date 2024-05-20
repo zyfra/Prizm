@@ -4,5 +4,5 @@ export const prizmIconsClockLineEnd: {
   data: string;
 } = {
   name: 'clock-line-end',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9Zm7-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1Zm7 11a1 1 0 1 0-2 0v1H6a1 1 0 1 0 0 2h11v1a1 1 0 1 0 2 0v-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10ZM5 9a7 7 0 1 1 14 0A7 7 0 0 1 5 9Zm7-3a1 1 0 0 1 1 1v1h1a1 1 0 1 1 0 2h-1a2 2 0 0 1-2-2V7a1 1 0 0 1 1-1Zm7 11a1 1 0 1 0-2 0v1H6a1 1 0 1 0 0 2h11v1a1 1 0 1 0 2 0v-4Z" fill="currentColor"/></svg>`
 };

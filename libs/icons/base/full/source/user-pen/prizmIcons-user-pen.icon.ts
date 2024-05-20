@@ -4,5 +4,5 @@ export const prizmIconsUserPen: {
   data: string;
 } = {
   name: 'user-pen',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 4a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0ZM7 .5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm7.354 1.854a.5.5 0 0 0-.708-.708l-1 1a.5.5 0 0 0 .708.708l1-1ZM7 9.5A5.5 5.5 0 0 0 1.5 15a.5.5 0 0 1-1 0 6.5 6.5 0 1 1 13 0 .5.5 0 0 1-1 0A5.5 5.5 0 0 0 7 9.5Zm8-8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 4a2.5 2.5 0 1 1 5 0 2.5 2.5 0 0 1-5 0ZM7 .5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Zm7.354 1.854a.5.5 0 0 0-.708-.708l-1 1a.5.5 0 0 0 .708.708l1-1ZM7 9.5A5.5 5.5 0 0 0 1.5 15a.5.5 0 0 1-1 0 6.5 6.5 0 1 1 13 0 .5.5 0 0 1-1 0A5.5 5.5 0 0 0 7 9.5Zm8-8a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

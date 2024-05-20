@@ -4,5 +4,5 @@ export const prizmIconsMailOpen: {
   data: string;
 } = {
   name: 'mail-open',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.752 1.718a.5.5 0 0 1 .496 0l5.93 3.388-5.941 3.198a.5.5 0 0 1-.474 0l-5.94-3.198 5.929-3.388ZM1.5 6.068V14a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V6.068L8.711 9.185a1.5 1.5 0 0 1-1.422 0L1.5 6.068ZM8.744.849a1.5 1.5 0 0 0-1.488 0l-6 3.429A1.5 1.5 0 0 0 .5 5.58V14A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5V5.58a1.5 1.5 0 0 0-.756-1.302l-6-3.429Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.752 1.718a.5.5 0 0 1 .496 0l5.93 3.388-5.941 3.198a.5.5 0 0 1-.474 0l-5.94-3.198 5.929-3.388ZM1.5 6.068V14a.5.5 0 0 0 .5.5h12a.5.5 0 0 0 .5-.5V6.068L8.711 9.185a1.5 1.5 0 0 1-1.422 0L1.5 6.068ZM8.744.849a1.5 1.5 0 0 0-1.488 0l-6 3.429A1.5 1.5 0 0 0 .5 5.58V14A1.5 1.5 0 0 0 2 15.5h12a1.5 1.5 0 0 0 1.5-1.5V5.58a1.5 1.5 0 0 0-.756-1.302l-6-3.429Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

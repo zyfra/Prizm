@@ -4,5 +4,5 @@ export const prizmIconsChevronsInsideVertically: {
   data: string;
 } = {
   name: 'chevrons-inside-vertically',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.707 5.707-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L12 7.586l3.293-3.293a1 1 0 1 1 1.414 1.414Zm0 12.586-4-4a1 1 0 0 0-1.414 0l-4 4a1 1 0 1 0 1.414 1.414L12 16.414l3.293 3.293a1 1 0 0 0 1.414-1.414Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m16.707 5.707-4 4a1 1 0 0 1-1.414 0l-4-4a1 1 0 0 1 1.414-1.414L12 7.586l3.293-3.293a1 1 0 1 1 1.414 1.414Zm0 12.586-4-4a1 1 0 0 0-1.414 0l-4 4a1 1 0 1 0 1.414 1.414L12 16.414l3.293 3.293a1 1 0 0 0 1.414-1.414Z" fill="currentColor"/></svg>`
 };

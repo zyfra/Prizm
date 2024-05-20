@@ -4,5 +4,5 @@ export const prizmIconsShipFrontView: {
   data: string;
 } = {
   name: 'ship-front-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2H6a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V7h10v2a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1h-5V3Zm-1.5 6.134a.995.995 0 0 1 1.001 0l8.985 4.992a1 1 0 0 1 .484 1.117l-1 4A1 1 0 0 1 20 20H4a1 1 0 0 1-.97-.758l-1-4a1 1 0 0 1 .484-1.116L11.5 9.134ZM11 11.7l-6.844 3.802L4.781 18H11v-6.3Zm2 6.3h6.22l.624-2.498L13 11.699V18Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2H6a1 1 0 0 0-1 1v3a1 1 0 1 0 2 0V7h10v2a1 1 0 1 0 2 0V6a1 1 0 0 0-1-1h-5V3Zm-1.5 6.134a.995.995 0 0 1 1.001 0l8.985 4.992a1 1 0 0 1 .484 1.117l-1 4A1 1 0 0 1 20 20H4a1 1 0 0 1-.97-.758l-1-4a1 1 0 0 1 .484-1.116L11.5 9.134ZM11 11.7l-6.844 3.802L4.781 18H11v-6.3Zm2 6.3h6.22l.624-2.498L13 11.699V18Z" fill="currentColor"/></svg>`
 };

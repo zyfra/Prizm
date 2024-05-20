@@ -4,5 +4,5 @@ export const prizmIconsCreditCardPlus: {
   data: string;
 } = {
   name: 'credit-card-plus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 3A1.5 1.5 0 0 1 2 1.5h10A1.5 1.5 0 0 1 13.5 3v5a.5.5 0 0 1-1 0V5.5h-11V11a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 11V3Zm1 1.5h11V3a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v1.5Zm12 5.5a.5.5 0 0 0-1 0v1.5H11a.5.5 0 0 0 0 1h1.5V14a.5.5 0 0 0 1 0v-1.5H15a.5.5 0 0 0 0-1h-1.5V10Zm-10-1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Zm6.5-.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M.5 3A1.5 1.5 0 0 1 2 1.5h10A1.5 1.5 0 0 1 13.5 3v5a.5.5 0 0 1-1 0V5.5h-11V11a.5.5 0 0 0 .5.5h7a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 11V3Zm1 1.5h11V3a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v1.5Zm12 5.5a.5.5 0 0 0-1 0v1.5H11a.5.5 0 0 0 0 1h1.5V14a.5.5 0 0 0 1 0v-1.5H15a.5.5 0 0 0 0-1h-1.5V10Zm-10-1a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Zm6.5-.5a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsPipeValve: {
   data: string;
 } = {
   name: 'pipe-valve',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4H9a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2h-2v5h3a1 1 0 1 1 0 2v2h4a1 1 0 1 1 2 0v1a.997.997 0 0 1-.088.411c.057.186.088.384.088.589v4c0 .205-.03.403-.088.589A.997.997 0 0 1 22 20v1a1 1 0 1 1-2 0H4a1 1 0 1 1-2 0v-1c0-.146.032-.286.088-.411A1.999 1.999 0 0 1 2 19v-4c0-.205.03-.403.088-.589A.997.997 0 0 1 2 14v-1a1 1 0 1 1 2 0h4v-2a1 1 0 1 1 0-2h3V4ZM4 15h16v4H4v-4Zm6-2v-2h4v2h-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4H9a1 1 0 0 1 0-2h6a1 1 0 1 1 0 2h-2v5h3a1 1 0 1 1 0 2v2h4a1 1 0 1 1 2 0v1a.997.997 0 0 1-.088.411c.057.186.088.384.088.589v4c0 .205-.03.403-.088.589A.997.997 0 0 1 22 20v1a1 1 0 1 1-2 0H4a1 1 0 1 1-2 0v-1c0-.146.032-.286.088-.411A1.999 1.999 0 0 1 2 19v-4c0-.205.03-.403.088-.589A.997.997 0 0 1 2 14v-1a1 1 0 1 1 2 0h4v-2a1 1 0 1 1 0-2h3V4ZM4 15h16v4H4v-4Zm6-2v-2h4v2h-4Z" fill="currentColor"/></svg>`
 };

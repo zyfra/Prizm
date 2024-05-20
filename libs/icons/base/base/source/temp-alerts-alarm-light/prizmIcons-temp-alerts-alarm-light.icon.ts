@@ -4,5 +4,5 @@ export const prizmIconsTempAlertsAlarmLight: {
   data: string;
 } = {
   name: 'temp-alerts-alarm-light',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3Zm-6 9a5 5 0 0 1 10 0v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4Zm5-3a3 3 0 0 0-3 3v4h6v-4a3 3 0 0 0-3-3ZM6 21a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Zm-4-9a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm17-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Zm.207-6.207a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 1 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0Zm-13 0a1 1 0 0 0-1.414 1.414l1.5 1.5a1 1 0 0 0 1.414-1.414l-1.5-1.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M13 3a1 1 0 1 0-2 0v2a1 1 0 1 0 2 0V3Zm-6 9a5 5 0 0 1 10 0v4a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-4Zm5-3a3 3 0 0 0-3 3v4h6v-4a3 3 0 0 0-3-3ZM6 21a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H7a1 1 0 0 1-1-1Zm-4-9a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Zm17-1a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Zm.207-6.207a1 1 0 0 1 0 1.414l-1.5 1.5a1 1 0 1 1-1.414-1.414l1.5-1.5a1 1 0 0 1 1.414 0Zm-13 0a1 1 0 0 0-1.414 1.414l1.5 1.5a1 1 0 0 0 1.414-1.414l-1.5-1.5Z" fill="currentColor"/></svg>`
 };

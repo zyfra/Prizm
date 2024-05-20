@@ -4,5 +4,5 @@ export const prizmIconsVialRotateLeft: {
   data: string;
 } = {
   name: 'vial-rotate-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 1A.5.5 0 0 1 2 .5h6a.5.5 0 0 1 0 1h-.5V13a2.5 2.5 0 0 1-5 0V1.5H2a.5.5 0 0 1-.5-.5Zm2 3.5v-3h3v3h-3Zm3 1h-3V13a1.5 1.5 0 0 0 3 0V5.5Zm4.33-.5a.5.5 0 1 0-1 0v1.074a.5.5 0 0 0 .287.453l.902.425a.5.5 0 1 0 .427-.904l-.03-.015a1.5 1.5 0 1 1-.983 2.216.5.5 0 0 0-.866.501 2.5 2.5 0 1 0 1.263-3.582V5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 1A.5.5 0 0 1 2 .5h6a.5.5 0 0 1 0 1h-.5V13a2.5 2.5 0 0 1-5 0V1.5H2a.5.5 0 0 1-.5-.5Zm2 3.5v-3h3v3h-3Zm3 1h-3V13a1.5 1.5 0 0 0 3 0V5.5Zm4.33-.5a.5.5 0 1 0-1 0v1.074a.5.5 0 0 0 .287.453l.902.425a.5.5 0 1 0 .427-.904l-.03-.015a1.5 1.5 0 1 1-.983 2.216.5.5 0 0 0-.866.501 2.5 2.5 0 1 0 1.263-3.582V5Z" fill="currentColor"/></svg>`
 };

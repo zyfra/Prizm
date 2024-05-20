@@ -4,5 +4,5 @@ export const prizmIconsTempToolsSolver: {
   data: string;
 } = {
   name: 'temp-tools-solver',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1a1 1 0 0 1 1 1v1.055A9.004 9.004 0 0 1 20.945 11H22a1 1 0 1 1 0 2h-1.055A9.004 9.004 0 0 1 13 20.945V22a1 1 0 1 1-2 0v-1.055A9.004 9.004 0 0 1 3.055 13H2a1 1 0 1 1 0-2h1.055A9.004 9.004 0 0 1 11 3.055V2a1 1 0 0 1 1-1ZM5 12a7 7 0 1 0 14 0 7 7 0 0 0-14 0Zm11.768-2.36a1 1 0 1 0-1.536-1.28l-4.3 5.159-2.225-2.226a1 1 0 0 0-1.414 1.414l2.226 2.226a2 2 0 0 0 2.95-.134l4.3-5.159Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 1a1 1 0 0 1 1 1v1.055A9.004 9.004 0 0 1 20.945 11H22a1 1 0 1 1 0 2h-1.055A9.004 9.004 0 0 1 13 20.945V22a1 1 0 1 1-2 0v-1.055A9.004 9.004 0 0 1 3.055 13H2a1 1 0 1 1 0-2h1.055A9.004 9.004 0 0 1 11 3.055V2a1 1 0 0 1 1-1ZM5 12a7 7 0 1 0 14 0 7 7 0 0 0-14 0Zm11.768-2.36a1 1 0 1 0-1.536-1.28l-4.3 5.159-2.225-2.226a1 1 0 0 0-1.414 1.414l2.226 2.226a2 2 0 0 0 2.95-.134l4.3-5.159Z" fill="currentColor"/></svg>`
 };

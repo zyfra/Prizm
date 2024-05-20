@@ -4,5 +4,5 @@ export const prizmIconsShipFrontView: {
   data: string;
 } = {
   name: 'ship-front-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2a.5.5 0 0 0-1 0v1.5H4a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0V4.5h7V6a.5.5 0 1 0 1 0V4a.5.5 0 0 0-.5-.5H8.5V2Zm-.75 4.567a.498.498 0 0 1 .5 0l6.993 3.885a.5.5 0 0 1 .242.558l-.778 3.111a.5.5 0 0 1-.485.379H1.777a.5.5 0 0 1-.484-.379l-.778-3.11a.5.5 0 0 1 .242-.56L7.75 6.568ZM7.5 7.85l-5.922 3.29.59 2.36H7.5V7.85Zm1 5.65h5.332l.59-2.36L8.5 7.85v5.65Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2a.5.5 0 0 0-1 0v1.5H4a.5.5 0 0 0-.5.5v2a.5.5 0 0 0 1 0V4.5h7V6a.5.5 0 1 0 1 0V4a.5.5 0 0 0-.5-.5H8.5V2Zm-.75 4.567a.498.498 0 0 1 .5 0l6.993 3.885a.5.5 0 0 1 .242.558l-.778 3.111a.5.5 0 0 1-.485.379H1.777a.5.5 0 0 1-.484-.379l-.778-3.11a.5.5 0 0 1 .242-.56L7.75 6.568ZM7.5 7.85l-5.922 3.29.59 2.36H7.5V7.85Zm1 5.65h5.332l.59-2.36L8.5 7.85v5.65Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsVectorsRadius: {
   data: string;
 } = {
   name: 'vectors-radius',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2h3a9 9 0 0 1 9 9v3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v1a1 1 0 1 1-2 0v-1a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2v-3a7 7 0 0 0-7-7H9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2a1 1 0 0 1 0-2h1Zm17 16h1v-2h-2v2h1ZM5 5V3h2v2H5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 3a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2h3a9 9 0 0 1 9 9v3a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2v1a1 1 0 1 1-2 0v-1a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2v-3a7 7 0 0 0-7-7H9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2H2a1 1 0 0 1 0-2h1Zm17 16h1v-2h-2v2h1ZM5 5V3h2v2H5Z" fill="currentColor"/></svg>`
 };

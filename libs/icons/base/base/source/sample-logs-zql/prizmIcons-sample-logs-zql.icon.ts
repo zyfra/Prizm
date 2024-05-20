@@ -4,5 +4,5 @@ export const prizmIconsSampleLogsZql: {
   data: string;
 } = {
   name: 'sample-logs-zql',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 1 1 1v3h2V5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-1H4v3a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm1 14h2v-3H4v3Zm2-8v3H4V8h2Zm2-3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V5Zm3 2a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Zm-1 5a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 2a1 1 0 0 1 1 1v3h2V5a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v14a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3v-1H4v3a1 1 0 1 1-2 0V3a1 1 0 0 1 1-1Zm1 14h2v-3H4v3Zm2-8v3H4V8h2Zm2-3a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V5Zm3 2a1 1 0 1 0 0 2h6a1 1 0 1 0 0-2h-6Zm-1 5a1 1 0 0 1 1-1h4a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1Zm1 3a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2h-2Z" fill="currentColor"/></svg>`
 };

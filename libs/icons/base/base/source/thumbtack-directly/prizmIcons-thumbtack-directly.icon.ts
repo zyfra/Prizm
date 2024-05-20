@@ -4,5 +4,5 @@ export const prizmIconsThumbtackDirectly: {
   data: string;
 } = {
   name: 'thumbtack-directly',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 5v5.586l2 2c1.26 1.26.367 3.414-1.415 3.414H13v5a1 1 0 1 1-2 0v-5H7.414C5.632 16 4.74 13.846 6 12.586l2-2V5H7a1 1 0 1 1 0-2h10a1 1 0 1 1 0 2h-1Zm-3.985 9H7.415l1.999-2A2 2 0 0 0 10 10.587V5h4v5.586A2 2 0 0 0 14.586 12l2 2h-4.571Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 5v5.586l2 2c1.26 1.26.367 3.414-1.415 3.414H13v5a1 1 0 1 1-2 0v-5H7.414C5.632 16 4.74 13.846 6 12.586l2-2V5H7a1 1 0 1 1 0-2h10a1 1 0 1 1 0 2h-1Zm-3.985 9H7.415l1.999-2A2 2 0 0 0 10 10.587V5h4v5.586A2 2 0 0 0 14.586 12l2 2h-4.571Z" fill="currentColor"/></svg>`
 };

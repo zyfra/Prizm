@@ -4,5 +4,5 @@ export const prizmIconsAlarmClock: {
   data: string;
 } = {
   name: 'alarm-clock',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.553.776a.5.5 0 0 1 .67-.223l2 1a.5.5 0 1 1-.447.894l-2-1a.5.5 0 0 1-.223-.67ZM2.5 9a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM8 2.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM8.5 6a.5.5 0 0 0-1 0v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1H8.5V6ZM5.224 1.447a.5.5 0 1 0-.448-.894l-2 1a.5.5 0 1 0 .448.894l2-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.553.776a.5.5 0 0 1 .67-.223l2 1a.5.5 0 1 1-.447.894l-2-1a.5.5 0 0 1-.223-.67ZM2.5 9a5.5 5.5 0 1 1 11 0 5.5 5.5 0 0 1-11 0ZM8 2.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM8.5 6a.5.5 0 0 0-1 0v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 0-1H8.5V6ZM5.224 1.447a.5.5 0 1 0-.448-.894l-2 1a.5.5 0 1 0 .448.894l2-1Z" fill="currentColor"/></svg>`
 };

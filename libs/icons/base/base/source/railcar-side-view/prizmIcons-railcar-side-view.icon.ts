@@ -4,5 +4,5 @@ export const prizmIconsRailcarSideView: {
   data: string;
 } = {
   name: 'railcar-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v7a2 2 0 0 0 1 1.732V15H3a1 1 0 1 0 0 2h.17a3 3 0 1 0 5.659 0h6.342a3 3 0 1 0 5.659 0H21a1 1 0 1 0 0-2h-1v-1.268A2 2 0 0 0 21 12V5a2 2 0 0 0-2-2H5Zm1 12h12v-1H6v1Zm-1-3h14V5H5v7Zm0 6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm13-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v7a2 2 0 0 0 1 1.732V15H3a1 1 0 1 0 0 2h.17a3 3 0 1 0 5.659 0h6.342a3 3 0 1 0 5.659 0H21a1 1 0 1 0 0-2h-1v-1.268A2 2 0 0 0 21 12V5a2 2 0 0 0-2-2H5Zm1 12h12v-1H6v1Zm-1-3h14V5H5v7Zm0 6a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm13-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`
 };

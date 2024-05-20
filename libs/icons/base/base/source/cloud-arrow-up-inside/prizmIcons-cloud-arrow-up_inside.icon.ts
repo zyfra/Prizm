@@ -4,5 +4,5 @@ export const prizmIconsCloudArrowUpInside: {
   data: string;
 } = {
   name: 'cloud-arrow-up-inside',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4a7 7 0 0 0-6.913 8.105A4.002 4.002 0 0 0 5 20h13a5 5 0 1 0-.07-10A7.002 7.002 0 0 0 11 4Zm-5 7a5 5 0 0 1 10 0 1.1 1.1 0 0 0 1.34 1.073A3 3 0 1 1 18 18H5a2 2 0 1 1 0-4c.787 0 1.444-.76 1.2-1.593C6.07 11.962 6 11.49 6 11Zm6 2.414V15a1 1 0 1 1-2 0v-1.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1-1.414 1.414L12 13.414Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4a7 7 0 0 0-6.913 8.105A4.002 4.002 0 0 0 5 20h13a5 5 0 1 0-.07-10A7.002 7.002 0 0 0 11 4Zm-5 7a5 5 0 0 1 10 0 1.1 1.1 0 0 0 1.34 1.073A3 3 0 1 1 18 18H5a2 2 0 1 1 0-4c.787 0 1.444-.76 1.2-1.593C6.07 11.962 6 11.49 6 11Zm6 2.414V15a1 1 0 1 1-2 0v-1.586l-.293.293a1 1 0 0 1-1.414-1.414l2-2a1 1 0 0 1 1.414 0l2 2a1 1 0 0 1-1.414 1.414L12 13.414Z" fill="currentColor"/></svg>`
 };

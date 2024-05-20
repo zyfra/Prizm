@@ -4,5 +4,5 @@ export const prizmIconsTempSelectionChecked1: {
   data: string;
 } = {
   name: 'temp-selection-checked-1',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h10a1 1 0 1 1 0 2H5v14h14v-9a1 1 0 1 1 2 0v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm12.707 3.293a1 1 0 0 1 0 1.414L13.414 12l2.293 2.293a1 1 0 0 1-1.414 1.414L12 13.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L10.586 12 8.293 9.707a1 1 0 0 1 1.414-1.414L12 10.586l2.293-2.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h10a1 1 0 1 1 0 2H5v14h14v-9a1 1 0 1 1 2 0v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5Zm12.707 3.293a1 1 0 0 1 0 1.414L13.414 12l2.293 2.293a1 1 0 0 1-1.414 1.414L12 13.414l-2.293 2.293a1 1 0 0 1-1.414-1.414L10.586 12 8.293 9.707a1 1 0 0 1 1.414-1.414L12 10.586l2.293-2.293a1 1 0 0 1 1.414 0Z" fill="currentColor"/></svg>`
 };

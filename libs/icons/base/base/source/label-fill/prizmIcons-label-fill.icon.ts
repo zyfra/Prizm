@@ -4,5 +4,5 @@ export const prizmIconsLabelFill: {
   data: string;
 } = {
   name: 'label-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 3.006A1 1 0 0 0 3.006 4.11l1 9.001a1 1 0 0 0 .287.597l7 7a1 1 0 0 0 1.414 0l8-8a1 1 0 0 0 0-1.415l-7-7a1 1 0 0 0-.597-.286l-9-1ZM10 8.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.11 3.006A1 1 0 0 0 3.006 4.11l1 9.001a1 1 0 0 0 .287.597l7 7a1 1 0 0 0 1.414 0l8-8a1 1 0 0 0 0-1.415l-7-7a1 1 0 0 0-.597-.286l-9-1ZM10 8.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z" fill="currentColor"/></svg>`
 };

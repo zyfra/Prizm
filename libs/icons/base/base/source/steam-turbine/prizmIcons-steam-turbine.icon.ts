@@ -4,5 +4,5 @@ export const prizmIconsSteamTurbine: {
   data: string;
 } = {
   name: 'steam-turbine',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 4h1a1 1 0 1 0 0-2h-4a1 1 0 1 0 0 2h1v2h-2V5a1 1 0 1 0-2 0v1h-2V5a1 1 0 1 0-2 0v1H9V4a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2V4ZM3 6h4V4H3v2Zm5 2H3v8h18V8H8ZM2 20a1 1 0 1 0 0 2h20a1 1 0 1 0 0-2H2Zm3-9a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M21 4h1a1 1 0 1 0 0-2h-4a1 1 0 1 0 0 2h1v2h-2V5a1 1 0 1 0-2 0v1h-2V5a1 1 0 1 0-2 0v1H9V4a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2V4ZM3 6h4V4H3v2Zm5 2H3v8h18V8H8ZM2 20a1 1 0 1 0 0 2h20a1 1 0 1 0 0-2H2Zm3-9a1 1 0 0 1 1-1h12a1 1 0 1 1 0 2H6a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

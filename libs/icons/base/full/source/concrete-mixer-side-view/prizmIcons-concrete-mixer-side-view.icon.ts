@@ -4,5 +4,5 @@ export const prizmIconsConcreteMixerSideView: {
   data: string;
 } = {
   name: 'concrete-mixer-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1.5a4 4 0 0 0-3 6.646V10.5H1a.5.5 0 0 0 0 1h.768a2 2 0 1 0 3.465 0h5.535a2 2 0 1 0 3.455-.016A1.5 1.5 0 0 0 15.5 10V8.5a1.5 1.5 0 0 0-.6-1.2l-3.482-2.612A4.001 4.001 0 0 0 7.5 1.5h-3Zm-2 9h8V8.146a3.99 3.99 0 0 1-3 1.354h-3a3.982 3.982 0 0 1-2-.535V10.5Zm9 0V6l2.8 2.1a.5.5 0 0 1 .2.4V10a.5.5 0 0 1-.5.5h-2.5Zm-4-8a3 3 0 0 1 0 6h-3a3 3 0 0 1 0-6h3Zm-5 10a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm10-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1.5a4 4 0 0 0-3 6.646V10.5H1a.5.5 0 0 0 0 1h.768a2 2 0 1 0 3.465 0h5.535a2 2 0 1 0 3.455-.016A1.5 1.5 0 0 0 15.5 10V8.5a1.5 1.5 0 0 0-.6-1.2l-3.482-2.612A4.001 4.001 0 0 0 7.5 1.5h-3Zm-2 9h8V8.146a3.99 3.99 0 0 1-3 1.354h-3a3.982 3.982 0 0 1-2-.535V10.5Zm9 0V6l2.8 2.1a.5.5 0 0 1 .2.4V10a.5.5 0 0 1-.5.5h-2.5Zm-4-8a3 3 0 0 1 0 6h-3a3 3 0 0 1 0-6h3Zm-5 10a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm10-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2Z" fill="currentColor"/></svg>`
 };

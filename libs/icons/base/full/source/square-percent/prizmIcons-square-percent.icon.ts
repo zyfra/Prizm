@@ -4,5 +4,5 @@ export const prizmIconsSquarePercent: {
   data: string;
 } = {
   name: 'square-percent',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><rect x="1" y="1" width="14" height="14" rx="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="m10 6-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="1" fill="currentColor"/><circle cx="6" cy="6" r="1" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><rect x="1" y="1" width="14" height="14" rx="1" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><path d="m10 6-4 4" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/><circle cx="10" cy="10" r="1" fill="currentColor"/><circle cx="6" cy="6" r="1" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

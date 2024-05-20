@@ -4,5 +4,5 @@ export const prizmIconsCreditCardSlash: {
   data: string;
 } = {
   name: 'credit-card-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.646.646a.5.5 0 0 1 .708 0l14 14a.5.5 0 0 1-.708.708l-14-14a.5.5 0 0 1 0-.708ZM5.5 3a.5.5 0 0 1 .5-.5h8A1.5 1.5 0 0 1 15.5 4v8a.5.5 0 0 1-1 0V6.5H9a.5.5 0 0 1 0-1h5.5V4a.5.5 0 0 0-.5-.5H6a.5.5 0 0 1-.5-.5Zm-4 1v1.5H3a.5.5 0 0 1 0 1H1.5V12a.5.5 0 0 0 .5.5h8a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 12V4a.5.5 0 0 1 1 0ZM4 9.5a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M.646.646a.5.5 0 0 1 .708 0l14 14a.5.5 0 0 1-.708.708l-14-14a.5.5 0 0 1 0-.708ZM5.5 3a.5.5 0 0 1 .5-.5h8A1.5 1.5 0 0 1 15.5 4v8a.5.5 0 0 1-1 0V6.5H9a.5.5 0 0 1 0-1h5.5V4a.5.5 0 0 0-.5-.5H6a.5.5 0 0 1-.5-.5Zm-4 1v1.5H3a.5.5 0 0 1 0 1H1.5V12a.5.5 0 0 0 .5.5h8a.5.5 0 0 1 0 1H2A1.5 1.5 0 0 1 .5 12V4a.5.5 0 0 1 1 0ZM4 9.5a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1H4Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

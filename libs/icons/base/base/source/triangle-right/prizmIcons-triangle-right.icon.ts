@@ -4,5 +4,5 @@ export const prizmIconsTriangleRight: {
   data: string;
 } = {
   name: 'triangle-right',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.581 8.13A1 1 0 0 0 9 8.942v6.114a1 1 0 0 0 1.581.813l4.28-3.056a1 1 0 0 0 0-1.628L10.58 8.13Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10.581 8.13A1 1 0 0 0 9 8.942v6.114a1 1 0 0 0 1.581.813l4.28-3.056a1 1 0 0 0 0-1.628L10.58 8.13Z" fill="currentColor"/></svg>`
 };

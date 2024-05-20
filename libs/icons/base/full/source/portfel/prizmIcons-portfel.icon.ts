@@ -4,5 +4,5 @@ export const prizmIconsPortfel: {
   data: string;
 } = {
   name: 'portfel',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1.5h-3V2Zm-1 1.5V2A1.5 1.5 0 0 1 7 .5h2A1.5 1.5 0 0 1 10.5 2v1.5H14A1.5 1.5 0 0 1 15.5 5v9a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 14V5A1.5 1.5 0 0 1 2 3.5h3.5Zm4.5 1H5.5v10h5v-10H10Zm-5.5 10v-10H2a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h2.5Zm7 0v-10H14a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-2.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M6.5 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5v1.5h-3V2Zm-1 1.5V2A1.5 1.5 0 0 1 7 .5h2A1.5 1.5 0 0 1 10.5 2v1.5H14A1.5 1.5 0 0 1 15.5 5v9a1.5 1.5 0 0 1-1.5 1.5H2A1.5 1.5 0 0 1 .5 14V5A1.5 1.5 0 0 1 2 3.5h3.5Zm4.5 1H5.5v10h5v-10H10Zm-5.5 10v-10H2a.5.5 0 0 0-.5.5v9a.5.5 0 0 0 .5.5h2.5Zm7 0v-10H14a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-2.5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

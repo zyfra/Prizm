@@ -4,5 +4,5 @@ export const prizmIconsMusicSlash: {
   data: string;
 } = {
   name: 'music-slash',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 2.28a.5.5 0 0 0-.621-.484L6.12 3.486a.5.5 0 1 1-.242-.971l6.757-1.69A1.5 1.5 0 0 1 14.5 2.282V11a.5.5 0 0 1-1 0A1.5 1.5 0 0 0 12 9.5a.5.5 0 0 1 0-1c.563 0 1.082.186 1.5.5V2.28ZM6 8.5a.5.5 0 0 1 .5.5v4a2.5 2.5 0 1 1-1-2V9a.5.5 0 0 1 .5-.5Zm-2 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M13.5 2.28a.5.5 0 0 0-.621-.484L6.12 3.486a.5.5 0 1 1-.242-.971l6.757-1.69A1.5 1.5 0 0 1 14.5 2.282V11a.5.5 0 0 1-1 0A1.5 1.5 0 0 0 12 9.5a.5.5 0 0 1 0-1c.563 0 1.082.186 1.5.5V2.28ZM6 8.5a.5.5 0 0 1 .5.5v4a2.5 2.5 0 1 1-1-2V9a.5.5 0 0 1 .5-.5Zm-2 3a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM2.354 1.646a.5.5 0 1 0-.708.708l12 12a.5.5 0 0 0 .708-.708l-12-12Z" fill="currentColor"/></svg>`
 };

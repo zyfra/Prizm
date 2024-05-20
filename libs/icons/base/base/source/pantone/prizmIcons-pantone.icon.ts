@@ -4,5 +4,5 @@ export const prizmIconsPantone: {
   data: string;
 } = {
   name: 'pantone',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2.586l2.293-2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414L16.414 13H20a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H7a4 4 0 0 1-4-4V5Zm7.465 14H19v-4h-4.586l-3.707 3.707a.996.996 0 0 1-.15.123c-.029.058-.06.114-.092.17Zm2.827-5.707h.001L16.586 10 14 7.414l-3 3v5.172l2.292-2.293ZM5 10h4v3H5v-3Zm0 5v2a2 2 0 1 0 4 0v-2H5ZM9 5v3H5V5h4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2.586l2.293-2.293a1 1 0 0 1 1.414 0l4 4a1 1 0 0 1 0 1.414L16.414 13H20a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H7a4 4 0 0 1-4-4V5Zm7.465 14H19v-4h-4.586l-3.707 3.707a.996.996 0 0 1-.15.123c-.029.058-.06.114-.092.17Zm2.827-5.707h.001L16.586 10 14 7.414l-3 3v5.172l2.292-2.293ZM5 10h4v3H5v-3Zm0 5v2a2 2 0 1 0 4 0v-2H5ZM9 5v3H5V5h4Z" fill="currentColor"/></svg>`
 };

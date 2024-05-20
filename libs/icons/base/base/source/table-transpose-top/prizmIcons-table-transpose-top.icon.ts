@@ -4,5 +4,5 @@ export const prizmIconsTableTransposeTop: {
   data: string;
 } = {
   name: 'table-transpose-top',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H3Zm0 2h18v2H3V3Zm0 6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2H3Zm0 2h2v10H3V11Zm6 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V11Zm4 0h-2v10h2V11Zm6-2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-2Zm0 2h2v10h-2V11Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 1a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2H3Zm0 2h18v2H3V3Zm0 6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2H3Zm0 2h2v10H3V11Zm6 0a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-2a2 2 0 0 1-2-2V11Zm4 0h-2v10h2V11Zm6-2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V11a2 2 0 0 0-2-2h-2Zm0 2h2v10h-2V11Z" fill="currentColor"/></svg>`
 };

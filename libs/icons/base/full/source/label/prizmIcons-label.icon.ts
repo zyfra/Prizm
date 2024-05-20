@@ -4,5 +4,5 @@ export const prizmIconsLabel: {
   data: string;
 } = {
   name: 'label',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.062.504a.5.5 0 0 0-.558.558l1 8a.5.5 0 0 0 .142.292l6 6a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.706l-6-6.002a.5.5 0 0 0-.292-.142l-8-1Zm1.413 8.264-.9-7.192 7.193.899L14.293 8 8 14.294 2.475 8.768ZM5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.062.504a.5.5 0 0 0-.558.558l1 8a.5.5 0 0 0 .142.292l6 6a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0 0-.706l-6-6.002a.5.5 0 0 0-.292-.142l-8-1Zm1.413 8.264-.9-7.192 7.193.899L14.293 8 8 14.294 2.475 8.768ZM5 6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

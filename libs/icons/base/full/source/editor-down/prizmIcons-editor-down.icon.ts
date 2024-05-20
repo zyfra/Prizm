@@ -4,5 +4,5 @@ export const prizmIconsEditorDown: {
   data: string;
 } = {
   name: 'editor-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2-5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM.5 11a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5v-4Zm1 .5v3h7v-3h-7Zm3.854-4.146a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L4.5 5.793V2a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 1 1 .708.708l-2 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2-5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm1 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-1 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM.5 11a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-.5.5H1a.5.5 0 0 1-.5-.5v-4Zm1 .5v3h7v-3h-7Zm3.854-4.146a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L4.5 5.793V2a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 1 1 .708.708l-2 2Z" fill="currentColor"/></svg>`
 };

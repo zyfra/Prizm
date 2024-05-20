@@ -4,5 +4,5 @@ export const prizmIconsMailbox: {
   data: string;
 } = {
   name: 'mailbox',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.618 3A2 2 0 0 0 6.83 4.106l-3.723 7.447a.998.998 0 0 0-.018.858A1.999 1.999 0 0 0 3 13v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-.088-.59.998.998 0 0 0-.017-.857L17.17 4.106A2 2 0 0 0 15.382 3H8.618Zm9.764 8-3-6H8.618l-3 6H7a2 2 0 0 1 2 2v2h6v-2a2 2 0 0 1 2-2h1.382ZM5 13h2v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2h2v6H5v-6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.618 3A2 2 0 0 0 6.83 4.106l-3.723 7.447a.998.998 0 0 0-.018.858A1.999 1.999 0 0 0 3 13v6a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-6a2 2 0 0 0-.088-.59.998.998 0 0 0-.017-.857L17.17 4.106A2 2 0 0 0 15.382 3H8.618Zm9.764 8-3-6H8.618l-3 6H7a2 2 0 0 1 2 2v2h6v-2a2 2 0 0 1 2-2h1.382ZM5 13h2v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-2h2v6H5v-6Z" fill="currentColor"/></svg>`
 };

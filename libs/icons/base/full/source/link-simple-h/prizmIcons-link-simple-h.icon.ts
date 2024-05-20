@@ -4,5 +4,5 @@ export const prizmIconsLinkSimpleH: {
   data: string;
 } = {
   name: 'link-simple-h',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8A3.5 3.5 0 0 1 5 4.5h1a.5.5 0 0 0 0-1H5a4.5 4.5 0 0 0 0 9h1a.5.5 0 0 0 0-1H5A3.5 3.5 0 0 1 1.5 8Zm8-4a.5.5 0 0 1 .5-.5h1a4.5 4.5 0 1 1 0 9h-1a.5.5 0 0 1 0-1h1a3.5 3.5 0 1 0 0-7h-1a.5.5 0 0 1-.5-.5Zm-4 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.5 8A3.5 3.5 0 0 1 5 4.5h1a.5.5 0 0 0 0-1H5a4.5 4.5 0 0 0 0 9h1a.5.5 0 0 0 0-1H5A3.5 3.5 0 0 1 1.5 8Zm8-4a.5.5 0 0 1 .5-.5h1a4.5 4.5 0 1 1 0 9h-1a.5.5 0 0 1 0-1h1a3.5 3.5 0 1 0 0-7h-1a.5.5 0 0 1-.5-.5Zm-4 4a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1H6a.5.5 0 0 1-.5-.5Z" fill="currentColor"/></svg>`
 };

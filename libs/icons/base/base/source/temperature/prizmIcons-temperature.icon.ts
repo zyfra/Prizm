@@ -4,5 +4,5 @@ export const prizmIconsTemperature: {
   data: string;
 } = {
   name: 'temperature',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 5a1 1 0 1 1 2 0v8.512a1 1 0 0 0 .5.889 3 3 0 1 1-2.999 0 1 1 0 0 0 .499-.889V5Zm-2 8V5a3 3 0 1 1 6 0v8a5 5 0 1 1-6 0Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 5a1 1 0 1 1 2 0v8.512a1 1 0 0 0 .5.889 3 3 0 1 1-2.999 0 1 1 0 0 0 .499-.889V5Zm-2 8V5a3 3 0 1 1 6 0v8a5 5 0 1 1-6 0Z" fill="currentColor"/></svg>`
 };

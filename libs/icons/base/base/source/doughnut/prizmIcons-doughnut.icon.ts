@@ -4,5 +4,5 @@ export const prizmIconsDoughnut: {
   data: string;
 } = {
   name: 'doughnut',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4.062a8.001 8.001 0 0 0-5.32 12.844l2.148-2.149A5.002 5.002 0 0 1 11 7.1V4.062Zm-1.757 12.11L7.094 18.32A8.001 8.001 0 0 0 19.938 13H16.9a5.002 5.002 0 0 1-7.657 3.172ZM16.9 11h3.038A8.004 8.004 0 0 0 13 4.062V7.1a5.006 5.006 0 0 1 3.9 3.9ZM12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm0-13a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 4.062a8.001 8.001 0 0 0-5.32 12.844l2.148-2.149A5.002 5.002 0 0 1 11 7.1V4.062Zm-1.757 12.11L7.094 18.32A8.001 8.001 0 0 0 19.938 13H16.9a5.002 5.002 0 0 1-7.657 3.172ZM16.9 11h3.038A8.004 8.004 0 0 0 13 4.062V7.1a5.006 5.006 0 0 1 3.9 3.9ZM12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Zm0-13a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="currentColor"/></svg>`
 };

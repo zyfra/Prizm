@@ -4,5 +4,5 @@ export const prizmIconsTempAudioArtist: {
   data: string;
 } = {
   name: 'temp-audio-artist',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 7a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm4 15a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm2-2.83A3 3 0 1 0 18 18v-4.28l2.316-.771a1 1 0 0 0-.632-1.898l-2.317.772A2 2 0 0 0 16 13.721v1.45ZM10 15a5 5 0 0 0-5 5 1 1 0 1 1-2 0 7 7 0 0 1 8.165-6.903 1 1 0 0 1-.33 1.972c-.271-.045-.55-.069-.835-.069Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 7a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm4 15a1 1 0 1 1 2 0 1 1 0 0 1-2 0Zm2-2.83A3 3 0 1 0 18 18v-4.28l2.316-.771a1 1 0 0 0-.632-1.898l-2.317.772A2 2 0 0 0 16 13.721v1.45ZM10 15a5 5 0 0 0-5 5 1 1 0 1 1-2 0 7 7 0 0 1 8.165-6.903 1 1 0 0 1-.33 1.972c-.271-.045-.55-.069-.835-.069Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsLanDisconnect: {
   data: string;
 } = {
   name: 'lan-disconnect',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h6v4H5V5Zm8 8a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-6Zm0 2h6v4h-6v-4Zm-9.707-1.707a1 1 0 0 1 1.414 0L6 14.586l1.293-1.293a1 1 0 0 1 1.414 1.414L7.414 16l1.293 1.293a1 1 0 1 1-1.414 1.414L6 17.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L4.586 16l-1.293-1.293a1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5 3a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5Zm0 2h6v4H5V5Zm8 8a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2h-6Zm0 2h6v4h-6v-4Zm-9.707-1.707a1 1 0 0 1 1.414 0L6 14.586l1.293-1.293a1 1 0 0 1 1.414 1.414L7.414 16l1.293 1.293a1 1 0 1 1-1.414 1.414L6 17.414l-1.293 1.293a1 1 0 0 1-1.414-1.414L4.586 16l-1.293-1.293a1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>`
 };

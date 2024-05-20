@@ -4,5 +4,5 @@ export const prizmIconsStarLine: {
   data: string;
 } = {
   name: 'star-line',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 1 1v7.557l6.649-2.493a1 1 0 1 1 .702 1.872l-6.662 2.498 5.07 5.915a1 1 0 1 1-1.518 1.302L12 14.537 6.759 20.65a1 1 0 0 1-1.518-1.302l5.07-5.915-6.662-2.498a1 1 0 1 1 .702-1.872L11 11.557V4a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 3a1 1 0 0 1 1 1v7.557l6.649-2.493a1 1 0 1 1 .702 1.872l-6.662 2.498 5.07 5.915a1 1 0 1 1-1.518 1.302L12 14.537 6.759 20.65a1 1 0 0 1-1.518-1.302l5.07-5.915-6.662-2.498a1 1 0 1 1 .702-1.872L11 11.557V4a1 1 0 0 1 1-1Z" fill="currentColor"/></svg>`
 };

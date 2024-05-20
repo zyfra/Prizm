@@ -4,5 +4,5 @@ export const prizmIconsAlarmPlus: {
   data: string;
 } = {
   name: 'alarm-plus',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.553.776a.5.5 0 0 1 .67-.223l2 1a.5.5 0 1 1-.447.894l-2-1a.5.5 0 0 1-.223-.67ZM8 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM1.5 9a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0ZM8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5ZM5.224 1.447a.5.5 0 1 0-.448-.894l-2 1a.5.5 0 1 0 .448.894l2-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.553.776a.5.5 0 0 1 .67-.223l2 1a.5.5 0 1 1-.447.894l-2-1a.5.5 0 0 1-.223-.67ZM8 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM1.5 9a6.5 6.5 0 1 1 13 0 6.5 6.5 0 0 1-13 0ZM8 6.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V11a.5.5 0 0 1-1 0V9.5H6a.5.5 0 0 1 0-1h1.5V7a.5.5 0 0 1 .5-.5ZM5.224 1.447a.5.5 0 1 0-.448-.894l-2 1a.5.5 0 1 0 .448.894l2-1Z" fill="currentColor"/></svg>`
 };

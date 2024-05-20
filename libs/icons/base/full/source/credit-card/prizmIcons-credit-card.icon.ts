@@ -4,5 +4,5 @@ export const prizmIconsCreditCard: {
   data: string;
 } = {
   name: 'credit-card',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5A1.5 1.5 0 0 0 .5 4v8A1.5 1.5 0 0 0 2 13.5h12a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H2Zm12.5 3V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v1.5h13Zm-13 1h13V12a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V6.5Zm2 3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Zm6.5-.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 2.5A1.5 1.5 0 0 0 .5 4v8A1.5 1.5 0 0 0 2 13.5h12a1.5 1.5 0 0 0 1.5-1.5V4A1.5 1.5 0 0 0 14 2.5H2Zm12.5 3V4a.5.5 0 0 0-.5-.5H2a.5.5 0 0 0-.5.5v1.5h13Zm-13 1h13V12a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V6.5Zm2 3.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.5-.5Zm6.5-.5a.5.5 0 0 0 0 1h2a.5.5 0 0 0 0-1h-2Z" fill="currentColor"/></svg>`
 };

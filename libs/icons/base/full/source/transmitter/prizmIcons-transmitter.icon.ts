@@ -4,5 +4,5 @@ export const prizmIconsTransmitter: {
   data: string;
 } = {
   name: 'transmitter',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 .5a.5.5 0 0 1 .5.5v2.5H11A1.5 1.5 0 0 1 12.5 5v9a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 14V5A1.5 1.5 0 0 1 5 3.5h.5V1A.5.5 0 0 1 6 .5Zm-1.5 10V14a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5v-3.5h-7Zm7-1h-7V5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v4.5Zm-1.5 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm-3.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 .5a.5.5 0 0 1 .5.5v2.5H11A1.5 1.5 0 0 1 12.5 5v9a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 14V5A1.5 1.5 0 0 1 5 3.5h.5V1A.5.5 0 0 1 6 .5Zm-1.5 10V14a.5.5 0 0 0 .5.5h6a.5.5 0 0 0 .5-.5v-3.5h-7Zm7-1h-7V5a.5.5 0 0 1 .5-.5h6a.5.5 0 0 1 .5.5v4.5Zm-1.5 3a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0Zm-3.5.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Z" fill="currentColor"/></svg>`
 };

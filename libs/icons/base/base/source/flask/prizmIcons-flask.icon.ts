@@ -4,5 +4,5 @@ export const prizmIconsFlask: {
   data: string;
 } = {
   name: 'flask',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2h5a1 1 0 1 1 0 2v4.73l5.986 10.262C21.764 20.326 20.803 22 19.26 22H4.741c-1.544 0-2.505-1.674-1.728-3.008L9 8.73V4a1 1 0 0 1 0-2h1Zm1 2v4.73a2 2 0 0 1-.272 1.007L4.74 20H19.26L13.273 9.737A2 2 0 0 1 13 8.73V4h-2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2h5a1 1 0 1 1 0 2v4.73l5.986 10.262C21.764 20.326 20.803 22 19.26 22H4.741c-1.544 0-2.505-1.674-1.728-3.008L9 8.73V4a1 1 0 0 1 0-2h1Zm1 2v4.73a2 2 0 0 1-.272 1.007L4.74 20H19.26L13.273 9.737A2 2 0 0 1 13 8.73V4h-2Z" fill="currentColor"/></svg>`
 };

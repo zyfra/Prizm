@@ -4,5 +4,5 @@ export const prizmIconsFolderArrowDown: {
   data: string;
 } = {
   name: 'folder-arrow-down',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 5a2 2 0 0 1 2-2h4.586A2 2 0 0 1 9 3.586L11.414 6H18a2 2 0 0 1 2 2v8.586l1.293-1.293a1 1 0 0 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L18 16.586V8h-6.586A2 2 0 0 1 10 7.414L7.586 5H3v13h8a1 1 0 1 1 0 2H3a2 2 0 0 1-2-2V5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M1 5a2 2 0 0 1 2-2h4.586A2 2 0 0 1 9 3.586L11.414 6H18a2 2 0 0 1 2 2v8.586l1.293-1.293a1 1 0 0 1 1.414 1.414l-3 3a1 1 0 0 1-1.414 0l-3-3a1 1 0 0 1 1.414-1.414L18 16.586V8h-6.586A2 2 0 0 1 10 7.414L7.586 5H3v13h8a1 1 0 1 1 0 2H3a2 2 0 0 1-2-2V5Z" fill="currentColor"/></svg>`
 };

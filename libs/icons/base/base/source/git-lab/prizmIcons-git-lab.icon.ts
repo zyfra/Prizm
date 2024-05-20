@@ -4,5 +4,5 @@ export const prizmIconsGitLab: {
   data: string;
 } = {
   name: 'git-lab',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.932 2.638a1 1 0 0 0-1.897.099l-3 11a1 1 0 0 0 .392 1.082l10 7a1 1 0 0 0 1.146 0l10-7a1 1 0 0 0 .392-1.082l-3-11a1 1 0 0 0-1.897-.1L15.594 9H8.406L5.932 2.638ZM6.26 9 5.167 6.188 4.4 9h1.86Zm-2.405 2-.705 2.584 6.724 4.707L7.038 11H3.855Zm5.33 0L12 18.241 14.816 11H9.184Zm7.777 0-2.835 7.29 6.723-4.706L20.145 11h-3.183ZM19.6 9l-.767-2.812L17.74 9h1.86Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.932 2.638a1 1 0 0 0-1.897.099l-3 11a1 1 0 0 0 .392 1.082l10 7a1 1 0 0 0 1.146 0l10-7a1 1 0 0 0 .392-1.082l-3-11a1 1 0 0 0-1.897-.1L15.594 9H8.406L5.932 2.638ZM6.26 9 5.167 6.188 4.4 9h1.86Zm-2.405 2-.705 2.584 6.724 4.707L7.038 11H3.855Zm5.33 0L12 18.241 14.816 11H9.184Zm7.777 0-2.835 7.29 6.723-4.706L20.145 11h-3.183ZM19.6 9l-.767-2.812L17.74 9h1.86Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsTank: {
   data: string;
 } = {
   name: 'tank',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2A7.5 7.5 0 0 0 5 16.135V20H2a1 1 0 1 0 0 2h20a1 1 0 1 0 0-2h-3v-3.865A7.5 7.5 0 0 0 15.5 2h-7ZM8 4.022a5.5 5.5 0 0 0 0 10.956V4.022ZM10 6V4h4v2h-4Zm0 2v3h4V8h-4Zm0 5v2h4v-2h-4Zm-1 4h-.5a7.533 7.533 0 0 1-1.5-.15V20h10v-3.15c-.485.098-.986.15-1.5.15H9Zm12-7.5a5.5 5.5 0 0 1-5 5.478V4.022A5.5 5.5 0 0 1 21 9.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 2A7.5 7.5 0 0 0 5 16.135V20H2a1 1 0 1 0 0 2h20a1 1 0 1 0 0-2h-3v-3.865A7.5 7.5 0 0 0 15.5 2h-7ZM8 4.022a5.5 5.5 0 0 0 0 10.956V4.022ZM10 6V4h4v2h-4Zm0 2v3h4V8h-4Zm0 5v2h4v-2h-4Zm-1 4h-.5a7.533 7.533 0 0 1-1.5-.15V20h10v-3.15c-.485.098-.986.15-1.5.15H9Zm12-7.5a5.5 5.5 0 0 1-5 5.478V4.022A5.5 5.5 0 0 1 21 9.5Z" fill="currentColor"/></svg>`
 };

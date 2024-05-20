@@ -4,5 +4,5 @@ export const prizmIconsArrowsCross: {
   data: string;
 } = {
   name: 'arrows-cross',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354.646a.5.5 0 1 0-.708.708L7.293 8 .646 14.646a.5.5 0 0 0 .708.708l7-7L14.5 2.207V5a.5.5 0 0 0 1 0V1a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 0 0 1h2.793L8 7.293 1.354.646Zm9 9a.5.5 0 0 0-.708.708l4.147 4.146H11a.5.5 0 0 0 0 1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v2.793l-4.146-4.147Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M1.354.646a.5.5 0 1 0-.708.708L7.293 8 .646 14.646a.5.5 0 0 0 .708.708l7-7L14.5 2.207V5a.5.5 0 0 0 1 0V1a.5.5 0 0 0-.5-.5h-4a.5.5 0 0 0 0 1h2.793L8 7.293 1.354.646Zm9 9a.5.5 0 0 0-.708.708l4.147 4.146H11a.5.5 0 0 0 0 1h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v2.793l-4.146-4.147Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

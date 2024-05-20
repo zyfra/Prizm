@@ -4,5 +4,5 @@ export const prizmIconsVectorCircleTwoPoint: {
   data: string;
 } = {
   name: 'vector-circle-two-point',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5a7 7 0 0 0-2.9 13.373A2 2 0 0 1 11 17h2c.886 0 1.637.576 1.9 1.373a7.03 7.03 0 0 0 3.473-3.473A2.001 2.001 0 0 1 17 13v-2a2 2 0 0 1 1.373-1.9A7.002 7.002 0 0 0 12 5Zm3 15.488A9.022 9.022 0 0 0 20.488 15H21a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-.512A9 9 0 1 0 9 20.488V21a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-.512Zm-2-.763V21h-2v-2h2v.725ZM19.77 11H19v2h2v-2h-1.23Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 5a7 7 0 0 0-2.9 13.373A2 2 0 0 1 11 17h2c.886 0 1.637.576 1.9 1.373a7.03 7.03 0 0 0 3.473-3.473A2.001 2.001 0 0 1 17 13v-2a2 2 0 0 1 1.373-1.9A7.002 7.002 0 0 0 12 5Zm3 15.488A9.022 9.022 0 0 0 20.488 15H21a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-.512A9 9 0 1 0 9 20.488V21a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2v-.512Zm-2-.763V21h-2v-2h2v.725ZM19.77 11H19v2h2v-2h-1.23Z" fill="currentColor"/></svg>`
 };

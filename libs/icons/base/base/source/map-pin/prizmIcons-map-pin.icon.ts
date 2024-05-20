@@ -4,5 +4,5 @@ export const prizmIconsMapPin: {
   data: string;
 } = {
   name: 'map-pin',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 0 0-3.446 6.032l-8.261 8.26a1 1 0 1 0 1.414 1.415l8.261-8.26A4 4 0 1 0 16 4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M14 8a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 0 0-3.446 6.032l-8.261 8.26a1 1 0 1 0 1.414 1.415l8.261-8.26A4 4 0 1 0 16 4Z" fill="currentColor"/></svg>`
 };

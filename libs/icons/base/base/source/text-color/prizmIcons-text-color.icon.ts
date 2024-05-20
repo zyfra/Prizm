@@ -4,5 +4,5 @@ export const prizmIconsTextColor: {
   data: string;
 } = {
   name: 'text-color',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.211 5.342c.737-1.474 2.84-1.474 3.578 0l5.105 10.21a1 1 0 1 1-1.788.895L15.882 14H8.118l-1.224 2.447a1 1 0 1 1-1.788-.894L10.21 5.342ZM9.118 12h5.764L12 6.236 9.118 12ZM4 20a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.211 5.342c.737-1.474 2.84-1.474 3.578 0l5.105 10.21a1 1 0 1 1-1.788.895L15.882 14H8.118l-1.224 2.447a1 1 0 1 1-1.788-.894L10.21 5.342ZM9.118 12h5.764L12 6.236 9.118 12ZM4 20a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H5a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

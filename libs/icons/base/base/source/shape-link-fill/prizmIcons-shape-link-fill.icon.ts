@@ -4,5 +4,5 @@ export const prizmIconsShapeLinkFill: {
   data: string;
 } = {
   name: 'shape-link-fill',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4ZM3 14a1 1 0 0 1 1-1h5.586L13 9.586V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5.586L11 14.414V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6Zm10 6v-6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4ZM3 14a1 1 0 0 1 1-1h5.586L13 9.586V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-5.586L11 14.414V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-6Zm10 6v-6a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsCrop: {
   data: string;
 } = {
   name: 'crop',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a1 1 0 0 0-2 0v3H3a1 1 0 0 0 0 2h3v8a2 2 0 0 0 2 2h8v3a1 1 0 1 0 2 0v-3h3a1 1 0 1 0 0-2h-3V8a2 2 0 0 0-2-2H8V3Zm0 5v8h8V8H8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 3a1 1 0 0 0-2 0v3H3a1 1 0 0 0 0 2h3v8a2 2 0 0 0 2 2h8v3a1 1 0 1 0 2 0v-3h3a1 1 0 1 0 0-2h-3V8a2 2 0 0 0-2-2H8V3Zm0 5v8h8V8H8Z" fill="currentColor"/></svg>`
 };

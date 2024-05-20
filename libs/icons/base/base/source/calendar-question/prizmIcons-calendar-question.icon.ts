@@ -4,5 +4,5 @@ export const prizmIconsCalendarQuestion: {
   data: string;
 } = {
   name: 'calendar-question',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V3a1 1 0 0 1 2 0v1h6V3a1 1 0 0 1 1-1ZM7 6v1a1 1 0 0 0 2 0V6h6v1a1 1 0 1 0 2 0V6h2v14H5V6h2Zm6 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-2-7a1 1 0 1 1 1.479.878c-.31.17-.659.413-.94.741-.286.334-.539.8-.539 1.381v1a1 1 0 1 0 2 0v-.994a.303.303 0 0 1 .057-.085c.077-.09.208-.193.382-.288A3 3 0 1 0 9 11a1 1 0 1 0 2 0Zm1.999 3.011v-.004.005Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 2a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V3a1 1 0 0 1 2 0v1h6V3a1 1 0 0 1 1-1ZM7 6v1a1 1 0 0 0 2 0V6h6v1a1 1 0 1 0 2 0V6h2v14H5V6h2Zm6 12a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm-2-7a1 1 0 1 1 1.479.878c-.31.17-.659.413-.94.741-.286.334-.539.8-.539 1.381v1a1 1 0 1 0 2 0v-.994a.303.303 0 0 1 .057-.085c.077-.09.208-.193.382-.288A3 3 0 1 0 9 11a1 1 0 1 0 2 0Zm1.999 3.011v-.004.005Z" fill="currentColor"/></svg>`
 };

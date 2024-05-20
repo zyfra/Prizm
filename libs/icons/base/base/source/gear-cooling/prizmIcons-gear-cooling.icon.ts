@@ -4,5 +4,5 @@ export const prizmIconsGearCooling: {
   data: string;
 } = {
   name: 'gear-cooling',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 3a1 1 0 1 0-2 0v1H8a4 4 0 0 0-4 4v4H3a1 1 0 1 0 0 2h1v3a1 1 0 1 0 2 0v-3h8v1a1 1 0 1 0 2 0v-1h2v3a1 1 0 1 0 2 0v-3h1a1 1 0 1 0 0-2h-1V8a4 4 0 0 0-4-4h-5V3Zm5 8v1h2V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4h8v-1a1 1 0 1 1 2 0ZM8 21a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H9Zm0-6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 3a1 1 0 1 0-2 0v1H8a4 4 0 0 0-4 4v4H3a1 1 0 1 0 0 2h1v3a1 1 0 1 0 2 0v-3h8v1a1 1 0 1 0 2 0v-1h2v3a1 1 0 1 0 2 0v-3h1a1 1 0 1 0 0-2h-1V8a4 4 0 0 0-4-4h-5V3Zm5 8v1h2V8a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v4h8v-1a1 1 0 1 1 2 0ZM8 21a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Zm1-5a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2H9Zm0-6a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

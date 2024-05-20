@@ -4,5 +4,5 @@ export const prizmIconsPulse: {
   data: string;
 } = {
   name: 'pulse',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.954 6.565c.878-1.537 3.173-1.26 3.66.443l2.695 9.435 2.535-4.435A2 2 0 0 1 18.58 11H21a1 1 0 1 1 0 2h-2.42l-2.534 4.435c-.878 1.537-3.173 1.26-3.66-.443L9.691 7.557l-2.535 4.435A2 2 0 0 1 5.42 13H3a1 1 0 1 1 0-2h2.42l2.534-4.435Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.954 6.565c.878-1.537 3.173-1.26 3.66.443l2.695 9.435 2.535-4.435A2 2 0 0 1 18.58 11H21a1 1 0 1 1 0 2h-2.42l-2.534 4.435c-.878 1.537-3.173 1.26-3.66-.443L9.691 7.557l-2.535 4.435A2 2 0 0 1 5.42 13H3a1 1 0 1 1 0-2h2.42l2.534-4.435Z" fill="currentColor"/></svg>`
 };

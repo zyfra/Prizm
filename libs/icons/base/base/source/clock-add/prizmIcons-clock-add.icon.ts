@@ -4,5 +4,5 @@ export const prizmIconsClockAdd: {
   data: string;
 } = {
   name: 'clock-add',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 12a8 8 0 0 1 8-8 1 1 0 1 0 0-2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10c0-.762-.085-1.506-.248-2.221a1 1 0 1 0-1.95.442A8 8 0 1 1 4 12Zm14-9a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0V6h1a1 1 0 1 0 0-2h-1V3Zm-5 5a1 1 0 1 0-2 0v3a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2h-3V8Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M4 12a8 8 0 0 1 8-8 1 1 0 1 0 0-2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10c0-.762-.085-1.506-.248-2.221a1 1 0 1 0-1.95.442A8 8 0 1 1 4 12Zm14-9a1 1 0 1 0-2 0v1h-1a1 1 0 1 0 0 2h1v1a1 1 0 1 0 2 0V6h1a1 1 0 1 0 0-2h-1V3Zm-5 5a1 1 0 1 0-2 0v3a2 2 0 0 0 2 2h3a1 1 0 1 0 0-2h-3V8Z" fill="currentColor"/></svg>`
 };

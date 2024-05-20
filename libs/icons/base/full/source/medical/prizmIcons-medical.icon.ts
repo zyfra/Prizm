@@ -4,5 +4,5 @@ export const prizmIconsMedical: {
   data: string;
 } = {
   name: 'medical',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1A.5.5 0 0 1 5 .5h6a.5.5 0 0 1 .5.5v3.5H15a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-3.5V15a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5v-3.5H1a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5h3.5V1Zm1 .5V5a.5.5 0 0 1-.5.5H1.5v5H5a.5.5 0 0 1 .5.5v3.5h5V11a.5.5 0 0 1 .5-.5h3.5v-5H11a.5.5 0 0 1-.5-.5V1.5h-5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M4.5 1A.5.5 0 0 1 5 .5h6a.5.5 0 0 1 .5.5v3.5H15a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-.5.5h-3.5V15a.5.5 0 0 1-.5.5H5a.5.5 0 0 1-.5-.5v-3.5H1a.5.5 0 0 1-.5-.5V5a.5.5 0 0 1 .5-.5h3.5V1Zm1 .5V5a.5.5 0 0 1-.5.5H1.5v5H5a.5.5 0 0 1 .5.5v3.5h5V11a.5.5 0 0 1 .5-.5h3.5v-5H11a.5.5 0 0 1-.5-.5V1.5h-5Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsCopyRow: {
   data: string;
 } = {
   name: 'copy-row',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 1A.5.5 0 0 1 9 .5h6a.5.5 0 0 1 .5.5v14a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h1.5V1ZM9 6.5H7.5v3h7v-3H9Zm5.5 4h-7v4h7v-4Zm-5-5v-4h5v4h-5ZM3.354 6.647a.5.5 0 0 0-.708 0l-1 1a.5.5 0 1 0 .708.707l.146-.146V13a.5.5 0 0 0 1 0V8.208l.146.146a.5.5 0 1 0 .708-.707l-1-1Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.5 1A.5.5 0 0 1 9 .5h6a.5.5 0 0 1 .5.5v14a.5.5 0 0 1-.5.5H7a.5.5 0 0 1-.5-.5V6a.5.5 0 0 1 .5-.5h1.5V1ZM9 6.5H7.5v3h7v-3H9Zm5.5 4h-7v4h7v-4Zm-5-5v-4h5v4h-5ZM3.354 6.647a.5.5 0 0 0-.708 0l-1 1a.5.5 0 1 0 .708.707l.146-.146V13a.5.5 0 0 0 1 0V8.208l.146.146a.5.5 0 1 0 .708-.707l-1-1Z" fill="currentColor"/></svg>`
 };

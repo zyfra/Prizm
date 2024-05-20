@@ -4,5 +4,5 @@ export const prizmIconsUnderlined: {
   data: string;
 } = {
   name: 'underlined',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a1 1 0 0 0-2 0v7a6 6 0 0 0 12 0V4a1 1 0 1 0-2 0v7a4 4 0 0 1-8 0V4ZM6 19a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2H6Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a1 1 0 0 0-2 0v7a6 6 0 0 0 12 0V4a1 1 0 1 0-2 0v7a4 4 0 0 1-8 0V4ZM6 19a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2H6Z" fill="currentColor"/></svg>`
 };

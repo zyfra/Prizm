@@ -4,5 +4,5 @@ export const prizmIconsCellphone: {
   data: string;
 } = {
   name: 'cellphone',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2A1.5 1.5 0 0 1 4 .5h8A1.5 1.5 0 0 1 13.5 2v12a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 14V2Zm10 0v6.5h-9V2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5Zm0 7.5h-9V14a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V9.5ZM8 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M2.5 2A1.5 1.5 0 0 1 4 .5h8A1.5 1.5 0 0 1 13.5 2v12a1.5 1.5 0 0 1-1.5 1.5H4A1.5 1.5 0 0 1 2.5 14V2Zm10 0v6.5h-9V2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5Zm0 7.5h-9V14a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5V9.5ZM8 13a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsPipeSensor: {
   data: string;
 } = {
   name: 'pipe-sensor',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 7a2.5 2.5 0 0 1 5 0v.5h.5a.5.5 0 0 1 0 1h-.5v1h4V9a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-.5h-13v.5a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0v.5h4v-1H5a.5.5 0 0 1 0-1h.5V7Zm4 0v.5h-3V7a1.5 1.5 0 1 1 3 0Zm.5 3.5h4.5v3h-13v-3H10ZM4 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm2.5 3.5v1h3v-1h-3Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 2a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm3 3a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM5.5 7a2.5 2.5 0 0 1 5 0v.5h.5a.5.5 0 0 1 0 1h-.5v1h4V9a.5.5 0 0 1 1 0v6a.5.5 0 0 1-1 0v-.5h-13v.5a.5.5 0 0 1-1 0V9a.5.5 0 0 1 1 0v.5h4v-1H5a.5.5 0 0 1 0-1h.5V7Zm4 0v.5h-3V7a1.5 1.5 0 1 1 3 0Zm.5 3.5h4.5v3h-13v-3H10ZM4 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm2.5 3.5v1h3v-1h-3Z" fill="currentColor"/></svg>`
 };

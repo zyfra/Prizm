@@ -4,5 +4,5 @@ export const prizmIconsNetworkV2: {
   data: string;
 } = {
   name: 'network-v2',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v2h4a2 2 0 0 1 2 2v2h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-2H7v2h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-2a2 2 0 0 1 2-2h4V9h-1a2 2 0 0 1-2-2V4Zm4 3h2V4h-4v3h2ZM4 20v-3h4v3H4Zm12 0v-3h4v3h-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M8 4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-1v2h4a2 2 0 0 1 2 2v2h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-2H7v2h1a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h1v-2a2 2 0 0 1 2-2h4V9h-1a2 2 0 0 1-2-2V4Zm4 3h2V4h-4v3h2ZM4 20v-3h4v3H4Zm12 0v-3h4v3h-4Z" fill="currentColor"/></svg>`
 };

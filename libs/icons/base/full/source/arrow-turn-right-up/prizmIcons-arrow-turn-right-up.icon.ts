@@ -4,5 +4,5 @@ export const prizmIconsArrowTurnRightUp: {
   data: string;
 } = {
   name: 'arrow-turn-right-up',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1-.708.708L9.5 2.207V14A1.5 1.5 0 0 1 8 15.5H3a.5.5 0 0 1 0-1h5a.5.5 0 0 0 .5-.5V2.207L5.354 5.354a.5.5 0 1 1-.708-.708l4-4Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.646.646a.5.5 0 0 1 .708 0l4 4a.5.5 0 0 1-.708.708L9.5 2.207V14A1.5 1.5 0 0 1 8 15.5H3a.5.5 0 0 1 0-1h5a.5.5 0 0 0 .5-.5V2.207L5.354 5.354a.5.5 0 1 1-.708-.708l4-4Z" fill="currentColor"/></svg>`
 };

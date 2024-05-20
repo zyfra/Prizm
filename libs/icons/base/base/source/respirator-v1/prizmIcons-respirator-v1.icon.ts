@@ -4,5 +4,5 @@ export const prizmIconsRespiratorV1: {
   data: string;
 } = {
   name: 'respirator-v1',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 7a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v5c0 5.523-4.477 10-10 10S2 17.523 2 12V7Zm3-2.236C4.386 5.314 4 6.112 4 7v5a8 8 0 1 0 16 0V7c0-.888-.386-1.687-1-2.236V7a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.764ZM7 4v2h10V4H7Zm3 10a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M2 7a5 5 0 0 1 5-5h10a5 5 0 0 1 5 5v5c0 5.523-4.477 10-10 10S2 17.523 2 12V7Zm3-2.236C4.386 5.314 4 6.112 4 7v5a8 8 0 1 0 16 0V7c0-.888-.386-1.687-1-2.236V7a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V4.764ZM7 4v2h10V4H7Zm3 10a2 2 0 1 1 4 0 2 2 0 0 1-4 0Zm2-4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm0 5a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z" fill="currentColor"/></svg>`
 };

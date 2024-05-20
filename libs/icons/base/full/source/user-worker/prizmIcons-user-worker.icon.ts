@@ -4,5 +4,5 @@ export const prizmIconsUserWorker: {
   data: string;
 } = {
   name: 'user-worker',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 2a.5.5 0 0 1 .5-.5h.5V2a.5.5 0 0 0 1 0v-.5h1V2a.5.5 0 0 0 1 0v-.5h.5a.5.5 0 0 1 .5.5v1.5h-5V2ZM9 .5h1A1.5 1.5 0 0 1 11.5 2v1.5h.5a.5.5 0 0 1 0 1h-.535a3.5 3.5 0 0 1-6.93 0H4a.5.5 0 0 1 0-1h.5V2A1.5 1.5 0 0 1 6 .5h3Zm-3.45 4a2.5 2.5 0 0 0 4.9 0h-4.9ZM8 9.5A5.5 5.5 0 0 0 2.5 15a.5.5 0 0 1-1 0 6.5 6.5 0 1 1 13 0 .5.5 0 0 1-1 0A5.5 5.5 0 0 0 8 9.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.5 2a.5.5 0 0 1 .5-.5h.5V2a.5.5 0 0 0 1 0v-.5h1V2a.5.5 0 0 0 1 0v-.5h.5a.5.5 0 0 1 .5.5v1.5h-5V2ZM9 .5h1A1.5 1.5 0 0 1 11.5 2v1.5h.5a.5.5 0 0 1 0 1h-.535a3.5 3.5 0 0 1-6.93 0H4a.5.5 0 0 1 0-1h.5V2A1.5 1.5 0 0 1 6 .5h3Zm-3.45 4a2.5 2.5 0 0 0 4.9 0h-4.9ZM8 9.5A5.5 5.5 0 0 0 2.5 15a.5.5 0 0 1-1 0 6.5 6.5 0 1 1 13 0 .5.5 0 0 1-1 0A5.5 5.5 0 0 0 8 9.5Z" fill="currentColor"/></svg>`
 };

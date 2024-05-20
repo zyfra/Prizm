@@ -4,5 +4,5 @@ export const prizmIconsTriangleCrossEmpty: {
   data: string;
 } = {
   name: 'triangle-cross-empty',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.447.776a.5.5 0 0 0-.894 0l-7 14A.5.5 0 0 0 1 15.5h14a.5.5 0 0 0 .447-.724l-7-14ZM8 2.118 14.191 14.5H1.809L8 2.118ZM6.146 9.146a.5.5 0 0 1 .708 0L8 10.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 11l1.147 1.146a.5.5 0 0 1-.708.708L8 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 11 6.146 9.854a.5.5 0 0 1 0-.708Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.447.776a.5.5 0 0 0-.894 0l-7 14A.5.5 0 0 0 1 15.5h14a.5.5 0 0 0 .447-.724l-7-14ZM8 2.118 14.191 14.5H1.809L8 2.118ZM6.146 9.146a.5.5 0 0 1 .708 0L8 10.293l1.146-1.147a.5.5 0 1 1 .708.708L8.707 11l1.147 1.146a.5.5 0 0 1-.708.708L8 11.707l-1.146 1.147a.5.5 0 0 1-.708-.708L7.293 11 6.146 9.854a.5.5 0 0 1 0-.708Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

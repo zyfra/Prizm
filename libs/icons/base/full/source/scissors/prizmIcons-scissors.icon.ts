@@ -4,5 +4,5 @@ export const prizmIconsScissors: {
   data: string;
 } = {
   name: 'scissors',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.354 1.354a.5.5 0 0 0-.708-.708L8 7.293 4.354 3.646a.499.499 0 0 0-.148-.102 2 2 0 1 0-.662.662.499.499 0 0 0 .102.148L7.293 8l-3.647 3.646a.5.5 0 0 0-.102.148 2 2 0 1 0 .662.662.498.498 0 0 0 .148-.102l4-4 7-7ZM2.5 1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm7.146-2.854a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M15.354 1.354a.5.5 0 0 0-.708-.708L8 7.293 4.354 3.646a.499.499 0 0 0-.148-.102 2 2 0 1 0-.662.662.499.499 0 0 0 .102.148L7.293 8l-3.647 3.646a.5.5 0 0 0-.102.148 2 2 0 1 0 .662.662.498.498 0 0 0 .148-.102l4-4 7-7ZM2.5 1.5a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm7.146-2.854a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsArrowTurnDownLeft: {
   data: string;
 } = {
   name: 'arrow-turn-down-left',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.5a.5.5 0 0 1 .5.5V8A1.5 1.5 0 0 1 14 9.5H2.207l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.207 8.5H14a.5.5 0 0 0 .5-.5V3a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M15 2.5a.5.5 0 0 1 .5.5V8A1.5 1.5 0 0 1 14 9.5H2.207l3.147 3.146a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.207 8.5H14a.5.5 0 0 0 .5-.5V3a.5.5 0 0 1 .5-.5Z" fill="currentColor"/></svg>`
 };

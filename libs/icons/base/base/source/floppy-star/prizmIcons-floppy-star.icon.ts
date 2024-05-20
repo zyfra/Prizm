@@ -4,5 +4,5 @@ export const prizmIconsFloppyStar: {
   data: string;
 } = {
   name: 'floppy-star',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m19 2-1 2h-2l1.5 2-.5 2 2-1 2 1-.5-2L22 4h-2l-1-2ZM4 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-6.71a2 2 0 0 0-.586-1.415l-4.289-4.29A2 2 0 0 0 10.711 7H4Zm7 13H8v-2h3v2Zm2-2v2h2v-6.71L10.71 9H8v2h1a1 1 0 1 1 0 2H8a2 2 0 0 1-2-2V9H4v11h2v-2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="m19 2-1 2h-2l1.5 2-.5 2 2-1 2 1-.5-2L22 4h-2l-1-2ZM4 7a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h11a2 2 0 0 0 2-2v-6.71a2 2 0 0 0-.586-1.415l-4.289-4.29A2 2 0 0 0 10.711 7H4Zm7 13H8v-2h3v2Zm2-2v2h2v-6.71L10.71 9H8v2h1a1 1 0 1 1 0 2H8a2 2 0 0 1-2-2V9H4v11h2v-2a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2Z" fill="currentColor"/></svg>`
 };

@@ -4,5 +4,5 @@ export const prizmIconsShipSideView: {
   data: string;
 } = {
   name: 'ship-side-view',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 4a.5.5 0 0 0-1 0v.5H1a.5.5 0 0 0-.5.5v5.667c0 1.012.82 1.833 1.833 1.833h12.278a.5.5 0 0 0 .455-.707l-.876-1.93 1.261-2.648A.5.5 0 0 0 15 6.5h-4.667a.5.5 0 0 0-.394.193L9.31 7.5H5.5V5a.5.5 0 0 0-.5-.5H3.5V4ZM3 5.5H1.5v2h3v-2H3Zm-1.5 3v2.167c0 .46.373.833.833.833h11.502l-.455-1.002a.49.49 0 0 1-.047.002H12a.5.5 0 0 1 0-1h1.255l.953-2h-3.63l-.628.807a.5.5 0 0 1-.394.193H1.5Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M3.5 4a.5.5 0 0 0-1 0v.5H1a.5.5 0 0 0-.5.5v5.667c0 1.012.82 1.833 1.833 1.833h12.278a.5.5 0 0 0 .455-.707l-.876-1.93 1.261-2.648A.5.5 0 0 0 15 6.5h-4.667a.5.5 0 0 0-.394.193L9.31 7.5H5.5V5a.5.5 0 0 0-.5-.5H3.5V4ZM3 5.5H1.5v2h3v-2H3Zm-1.5 3v2.167c0 .46.373.833.833.833h11.502l-.455-1.002a.49.49 0 0 1-.047.002H12a.5.5 0 0 1 0-1h1.255l.953-2h-3.63l-.628.807a.5.5 0 0 1-.394.193H1.5Z" fill="currentColor"/></svg>`
 };

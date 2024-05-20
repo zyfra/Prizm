@@ -4,5 +4,5 @@ export const prizmIconsBag: {
   data: string;
 } = {
   name: 'bag',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.55 3.5a2.5 2.5 0 0 1 4.9 0h-4.9Zm-1.014 0a3.5 3.5 0 0 1 6.929 0h.7a1.5 1.5 0 0 1 1.477 1.232l1.636 9a1.5 1.5 0 0 1-1.476 1.768H2.2a1.5 1.5 0 0 1-1.476-1.768l1.636-9A1.5 1.5 0 0 1 3.835 3.5h.7ZM11 4.5H3.835a.5.5 0 0 0-.492.41l-1.636 9a.5.5 0 0 0 .492.59h11.603a.5.5 0 0 0 .492-.59l-1.636-9a.5.5 0 0 0-.492-.41H11Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><g clip-path="url(#a)"><path fill-rule="evenodd" clip-rule="evenodd" d="M5.55 3.5a2.5 2.5 0 0 1 4.9 0h-4.9Zm-1.014 0a3.5 3.5 0 0 1 6.929 0h.7a1.5 1.5 0 0 1 1.477 1.232l1.636 9a1.5 1.5 0 0 1-1.476 1.768H2.2a1.5 1.5 0 0 1-1.476-1.768l1.636-9A1.5 1.5 0 0 1 3.835 3.5h.7ZM11 4.5H3.835a.5.5 0 0 0-.492.41l-1.636 9a.5.5 0 0 0 .492.59h11.603a.5.5 0 0 0 .492-.59l-1.636-9a.5.5 0 0 0-.492-.41H11Z" fill="currentColor"/></g><defs><clipPath id="a"><path fill="currentColor" d="M0 0h16v16H0z"/></clipPath></defs></svg>`
 };

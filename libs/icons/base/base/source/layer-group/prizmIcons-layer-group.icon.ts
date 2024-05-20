@@ -4,5 +4,5 @@ export const prizmIconsLayerGroup: {
   data: string;
 } = {
   name: 'layer-group',
-  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.586 2a2 2 0 0 1 2.828 0L19 7.586a2 2 0 0 1 0 2.828L13.414 16a2 2 0 0 1-2.828 0L5 10.414a2 2 0 0 1 0-2.828L10.586 2ZM3.293 12.293a1 1 0 0 1 1.414 0L12 19.586l7.293-7.293a1 1 0 1 1 1.414 1.414L13.414 21a2 2 0 0 1-2.828 0l-7.293-7.293a1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>`,
+  data: `<svg fill="none" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.586 2a2 2 0 0 1 2.828 0L19 7.586a2 2 0 0 1 0 2.828L13.414 16a2 2 0 0 1-2.828 0L5 10.414a2 2 0 0 1 0-2.828L10.586 2ZM3.293 12.293a1 1 0 0 1 1.414 0L12 19.586l7.293-7.293a1 1 0 1 1 1.414 1.414L13.414 21a2 2 0 0 1-2.828 0l-7.293-7.293a1 1 0 0 1 0-1.414Z" fill="currentColor"/></svg>`
 };
