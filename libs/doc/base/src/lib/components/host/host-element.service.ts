@@ -4,6 +4,7 @@ import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PrizmPageService } from '../page/page.service';
 import { PrizmDocHostElementListenerService } from './host-element-listener.service';
+import { prizmInvertObject } from '@prizm-ui/helpers';
 
 export type PrizmDocHosSet = {
   type: string;
@@ -49,40 +50,51 @@ export class PrizmDocHostElementService implements OnDestroy {
       .subscribe();
   }
 
+  /**
+   * Retrieves the input and output properties of an Angular component or directive.
+   *
+   * @template T - The type of the component class.
+   * @param {Type<T>} componentClass - The class of the Angular component or directive.
+   * @returns {object} An object containing input and output properties, their keys and values,
+   *                   the original metadata, and the component's selector.
+   * @throws {Error} If the provided class is not an Angular component or directive.
+   */
   private getListComponentInputsOutputs<T>(componentClass: Type<T>) {
-    const inputs = new Map<string, string>();
-    const outputs = new Map<string, string>();
+    const inputKeys = new Set<string>();
+    const inputValues = new Set<string>();
+    const outputKeys = new Set<string>();
+    const outputValues = new Set<string>();
     let selector: string | null = null;
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    const componentMetadata = componentClass['ɵcmp'] || componentClass['ɵdir'];
-    if (componentMetadata) {
-      selector = componentMetadata.selectors?.[0]?.[0] as string;
-      const inputProperties = componentMetadata.inputs;
-      const outputProperties = componentMetadata.outputs;
 
-      for (const inputName in inputProperties) {
-        const classPropertyName = inputProperties[inputName];
-        const inputFromSet = inputs.get(classPropertyName);
-        if (inputFromSet && inputFromSet !== classPropertyName) continue;
-        inputs.set(classPropertyName, inputName);
-      }
-
-      for (const outputKey in outputProperties) {
-        const classPropertyName = outputProperties[outputKey];
-        const nameFromSet = outputs.get(classPropertyName);
-        if (nameFromSet && nameFromSet !== classPropertyName) continue;
-        outputs.set(classPropertyName, outputKey);
-      }
-    } else {
-      console.error('The provided class is not an Angular component.');
+    // Retrieve component metadata
+    const componentMetadata = (componentClass as any)['ɵcmp'] || (componentClass as any)['ɵdir'];
+    if (!componentMetadata) {
+      throw new Error('The provided class is not an Angular component or directive.');
     }
 
+    // Extract the component's selector
+    selector = componentMetadata.selectors?.[0]?.[0] as string;
+
+    // Process collected properties and fill the sets
+    this.processProperties(inputKeys, inputValues, componentMetadata.inputs);
+    this.processProperties(outputKeys, outputValues, componentMetadata.outputs);
+    this.processProperties(
+      inputKeys,
+      inputValues,
+      this.collectProperties(componentMetadata.hostDirectives, 'inputs')
+    );
+    this.processProperties(
+      outputKeys,
+      outputValues,
+      this.collectProperties(componentMetadata.hostDirectives, 'outputs')
+    );
+
+    // Return the collected information
     return {
-      inputs: [...inputs.values()],
-      inputProperties: [...inputs.keys()],
-      outputs: [...outputs.values()],
-      outputProperties: [...outputs.keys()],
+      inputs: [...inputValues],
+      inputProperties: [...inputKeys],
+      outputs: [...outputValues],
+      outputProperties: [...outputKeys],
       origin: {
         inputs: componentMetadata.inputs,
         outputs: componentMetadata.outputs,
@@ -91,10 +103,54 @@ export class PrizmDocHostElementService implements OnDestroy {
     };
   }
 
+  /**
+   * Processes the properties and fills the provided sets with keys and values.
+   *
+   * @param {Set<string>} keysSet - The set to store the property keys.
+   * @param {Set<string>} valuesSet - The set to store the property values.
+   * @param {{ [key: string]: string }} properties - The properties to process.
+   */
+  private processProperties(
+    keysSet: Set<string>,
+    valuesSet: Set<string>,
+    properties: { [key: string]: string }
+  ) {
+    for (const key in properties) {
+      if (key in properties) {
+        keysSet.add(key);
+        valuesSet.add(properties[key]);
+      }
+    }
+  }
+
+  /**
+   * Collects properties of a specific type (inputs or outputs) from the given directives.
+   *
+   * @param {any[]} directives - The array of host directives.
+   * @param {'inputs' | 'outputs'} propertyType - The type of properties to collect ('inputs' or 'outputs').
+   * @returns {{ [key: string]: string }} An object containing the collected properties.
+   */
+  private collectProperties(
+    directives: any[],
+    propertyType: 'inputs' | 'outputs'
+  ): { [key: string]: string } {
+    const properties: { [key: string]: string } = {};
+
+    if (directives) {
+      for (const directive of directives) {
+        const directiveProperties = directive[propertyType];
+        if (directiveProperties) {
+          Object.assign(properties, directiveProperties);
+        }
+      }
+    }
+
+    return properties;
+  }
+
   private updateComponentInfo(listenerElementKey: string, el: ElementRef): void {
     const currentOutputMap = this.outputMap.get(listenerElementKey) || new Map();
     const metaComponentData = this.getListComponentInputsOutputs(el.nativeElement.constructor);
-
     this.outputs.set(
       listenerElementKey,
       metaComponentData.outputs.map(i => ({
