@@ -1,4 +1,4 @@
-import { Injectable, Injector, Type } from '@angular/core';
+import { inject, Injectable, Injector, Type } from '@angular/core';
 import { noop, Observable, Observer, Subject } from 'rxjs';
 import { PrizmBaseDialogContext, PrizmDialogBaseOptions } from '../components/dialogs/dialog/dialog.models';
 import { PolymorphContent, PrizmOverscrollService } from '../directives';
@@ -23,12 +23,13 @@ export abstract class AbstractPrizmDialogService<
 > {
   protected abstract readonly component: Type<unknown>;
   protected abstract readonly defaultOptions: T;
-  protected readonly overlayService: PrizmOverlayService;
-  protected readonly overscrollService: PrizmOverscrollService;
-  protected constructor(injector: Injector) {
-    this.overlayService = injector.get(PrizmOverlayService);
-    this.overscrollService = injector.get(PrizmOverscrollService);
-  }
+  protected readonly overlayService: PrizmOverlayService = inject(PrizmOverlayService);
+  protected readonly overscrollService: PrizmOverscrollService = inject(PrizmOverscrollService);
+
+  // protected constructor(injector: Injector) {
+  // this.overlayService = injector.get(PrizmOverlayService);
+  // this.overscrollService = injector.get(PrizmOverscrollService);
+  // }
 
   public open<O = unknown, DATA = unknown>(
     content: PolymorphContent<PrizmBaseDialogContext<O>> | unknown,
@@ -51,6 +52,11 @@ export abstract class AbstractPrizmDialogService<
       };
 
       options = options ?? {};
+
+      console.log('#mz options', {
+        options,
+        defaultOptions: this.defaultOptions,
+      });
 
       const dialog = {
         ...this.defaultOptions,

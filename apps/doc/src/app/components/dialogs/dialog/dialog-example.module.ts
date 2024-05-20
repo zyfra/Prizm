@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
@@ -18,6 +18,7 @@ import { PrizmDialogServiceWithButtonsExampleComponent } from './examples/with-b
 import { PrizmDialogServiceWithParentExampleComponent } from './examples/with-parent/dialog-with-parent-example.component';
 import { PrizmDialogServiceResultHandlingExampleComponent } from './examples/result/dialog-result-handling-example.component';
 import { PrizmDialogOuterHeaderExampleComponent } from './examples/outher-header/dialog-outher-header-example.component';
+import { PrizmDialogCustomServiceExampleComponent } from './examples/custom-service/dialog-custom-service-example.component';
 
 @NgModule({
   imports: [
@@ -33,6 +34,7 @@ import { PrizmDialogOuterHeaderExampleComponent } from './examples/outher-header
     RouterModule.forChild(prizmDocGenerateRoutes(DialogExampleComponent)),
     PrizmInputCommonModule,
     PrizmInputSelectModule,
+    PrizmDialogCustomServiceExampleComponent,
   ],
   declarations: [
     PrizmDialogOuterHeaderExampleComponent,

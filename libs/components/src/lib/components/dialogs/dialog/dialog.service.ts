@@ -4,7 +4,7 @@ import { PrizmDialogComponent } from './dialog.component';
 import { PrizmOverlayInsidePlacement } from '../../../modules/overlay';
 import { PrizmDialogOptions } from './dialog.models';
 
-const DEFAULT_OPTIONS: PrizmDialogOptions = {
+export const PRIZM_DIALOG_DEFAULT_OPTIONS: PrizmDialogOptions = {
   size: 'm',
   required: false,
   closeable: true,
@@ -21,5 +21,5 @@ const DEFAULT_OPTIONS: PrizmDialogOptions = {
 })
 export class PrizmDialogService extends AbstractPrizmDialogService<PrizmDialogOptions> {
   protected readonly component = PrizmDialogComponent;
-  protected readonly defaultOptions: PrizmDialogOptions = DEFAULT_OPTIONS;
+  protected readonly defaultOptions: PrizmDialogOptions = PRIZM_DIALOG_DEFAULT_OPTIONS;
 }
