@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.17.1, 2.14.1, 3.13.1](https://github.com/zyfra/Prizm) (20-05-2023)
+
+### Bug fixes
+
+- fix(components/table): add five lines support for table head
+- fix(component/table): sort icon replaced with button. #1486
+- fix(component/table): header width doesn't change when sorted #1561
+- fix(documentation/table): filter and edit action buttons in examples replaced with buttons. #1486
+- fix(documentation/table): table track by and sort-pagination examples improvement #1655
+- fix(components/toast): changed content width in toast #1433
+- fix(component/navigation-menu): added scroll to navigation menu #1585
+- fix(components/scrollbar): theme switching in scrollbar works incorrect #1657
+- fix(component/cron): cron selected working incorrect #1494
+- fix(components/cron): cron months blinks on hover #1642
+- fix(doc/dialog): add dismissable prop to live demo #1551
+
 ## [1.17.0, 2.14.0, 3.13.0](https://github.com/zyfra/Prizm) (22-04-2023)
 
 ### Features
