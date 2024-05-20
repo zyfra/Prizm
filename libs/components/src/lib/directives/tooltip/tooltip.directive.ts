@@ -1,12 +1,12 @@
 /* eslint-disable @angular-eslint/no-input-rename */
-import { Directive, EventEmitter, forwardRef, HostListener, Input, Output } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
+import { Directive, forwardRef, HostListener, inject, Input } from '@angular/core';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
 import { PRIZM_TOOLTIP_OPTIONS } from './tooltip-options';
-import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
-import { PRIZM_HINT_OPTIONS, PrizmHintOptions } from '../hint/hint-options';
+import { PRIZM_HINT_OPTIONS } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
+import { PrizmTheme } from '@prizm-ui/theme';
 
 @Directive({
   selector: '[prizmTooltip]:not(ng-container)',
@@ -17,69 +17,75 @@ import { PrizmHintDirective } from '../hint/hint.directive';
       useExisting: forwardRef(() => PRIZM_TOOLTIP_OPTIONS),
     },
   ],
+  hostDirectives: [
+    {
+      directive: PrizmHintDirective,
+      inputs: [
+        'prizmAutoReposition: prizmAutoReposition',
+        'prizmHintHideDelay: prizmTooltipHideDelay',
+        'prizmHintDirection: prizmTooltipDirection',
+        'prizmHintId: prizmTooltipId',
+        'prizmHint: prizmTooltip',
+        'prizmHintShowDelay: prizmTooltipShowDelay',
+        'prizmHintTheme: prizmTooltipTheme',
+        'prizmHintHost: prizmTooltipHost',
+        'prizmHintContext: prizmTooltipContext',
+        'prizmHintCanShow: prizmTooltipCanShow',
+      ],
+      outputs: ['prizmHintShowed: prizmTooltipShowed'],
+    },
+  ],
   exportAs: 'prizmTooltip',
 })
-export class PrizmTooltipDirective extends PrizmHintDirective {
-  @Input('prizmAutoReposition')
-  @prizmDefaultProp()
-  override prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
-
-  @Input('prizmTooltipDirection')
-  @prizmDefaultProp()
-  override prizmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
-
-  @Input('prizmTooltipId')
-  @prizmDefaultProp()
-  override prizmHintId: string = 'hintId_' + prizmGenerateId();
-
-  @Input('prizmTooltipShowDelay')
-  @prizmDefaultProp()
-  override prizmHintShowDelay: PrizmHintOptions['showDelay'] = this.options.showDelay;
-
-  @Input('prizmTooltipHideDelay')
-  @prizmDefaultProp()
-  override prizmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
-
-  @Input('prizmTooltipHost')
-  @prizmDefaultProp()
-  override prizmHintHost: HTMLElement | null = null;
-
-  @Input('prizmTooltipContext')
-  @prizmDefaultProp()
-  override prizmHintContext = {};
-
-  @Input('prizmTooltipCanShow')
-  @prizmDefaultProp()
-  override prizmHintCanShow = true;
-
-  @Input('prizmTooltip')
-  @prizmRequiredSetter()
-  override set prizmHint(value: PolymorphContent | null) {
+export class PrizmTooltipDirective {
+  @Input()
+  set prizmTooltip(value: PolymorphContent | null) {
     if (!value) {
-      this.content = '';
+      this.hostedHint.content = '';
       return;
     }
 
-    this.content = value;
+    this.hostedHint.content = value;
+    this.hostedHint.prizmHint = value;
+  }
+  get prizmTooltip() {
+    return this.hostedHint.content;
   }
 
-  // eslint-disable-next-line @angular-eslint/no-output-rename
-  @Output('prizmTooltipShowed')
-  override prizmHintShowed = new EventEmitter<boolean>();
+  /**
+   * @deprecate since v4
+   * now for tooltip use only prizmTooltipTheme
+   * */
+  @Input()
+  set prizmHintTheme(theme: PrizmTheme | null) {
+    this.hostedHint.prizmHintTheme = theme;
+  }
+  /**
+   * @deprecate since v4
+   * now for tooltip use only prizmTooltipTheme
+   * */
+  get prizmHintTheme(): PrizmTheme | null {
+    return this.hostedHint.prizmHintTheme;
+  }
 
-  protected override readonly containerComponent = PrizmTooltipContainerComponent;
-  protected override readonly onHoverActive = false;
+  public readonly hostedHint = inject(PrizmHintDirective);
+
+  constructor() {
+    this.hostedHint.containerComponent = PrizmTooltipContainerComponent;
+    this.hostedHint.onHoverActive = false;
+  }
+
   protected clickedInside = false;
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
-    if (this.overlay.viewEl?.contains(target)) return;
-    const clickedOnElement = this.elementRef.nativeElement.contains(target);
+    if (this.hostedHint.overlay?.viewEl?.contains(target)) return;
+    const clickedOnElement = this.hostedHint.elementRef.nativeElement.contains(target);
     if (clickedOnElement && !this.clickedInside) this.clickedInside = true;
     if (!this.clickedInside) return;
-    this.show$.next(clickedOnElement);
+    this.hostedHint.show$.next(clickedOnElement);
   }
 
   @HostListener('document:keydown.esc', ['$event'])
   public closeOnEsc(): void {
-    if (this.show) this.show = false;
+    if (this.hostedHint.show) this.hostedHint.show = false;
   }
 }
