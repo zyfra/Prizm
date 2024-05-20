@@ -71,10 +71,11 @@ export class PrizmTooltipDirective extends PrizmHintDirective {
   protected override readonly onHoverActive = false;
   protected clickedInside = false;
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
-    const clickOnTooltip = this.elementRef.nativeElement.contains(target);
-    if (clickOnTooltip && !this.clickedInside) this.clickedInside = true;
+    if (this.overlay.viewEl?.contains(target)) return;
+    const clickedOnElement = this.elementRef.nativeElement.contains(target);
+    if (clickedOnElement && !this.clickedInside) this.clickedInside = true;
     if (!this.clickedInside) return;
-    this.show$.next(clickOnTooltip);
+    this.show$.next(clickedOnElement);
   }
 
   @HostListener('document:keydown.esc', ['$event'])
