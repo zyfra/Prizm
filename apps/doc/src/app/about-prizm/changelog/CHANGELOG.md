@@ -2,6 +2,54 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.0](https://github.com/zyfra/Prizm) (20-05-2024)
+
+### Features
+
+- feat(chore/commitlint): support slash in checker commit messages scope
+- feat(doc/paginator): added example with i18n to change texts and tests #1605
+- feat(i18n): added access to public api internal dictionaries
+- feat(chore): improved checker for commit message with our scopes, types, and issues number #1622
+- feat(components/input-layput): add hint for input clear button #1515
+- feat(documentation/input-number): update input type for step, min, max values in input number live demo #1500
+- feat(documentation/slider): update input type for step, min, max values in slider live demo #1500
+- feat(component/navigation-menu): added scroll to navigation menu #1585
+- feat(components/table): add table size xl #1651
+- feat(components/table): add five lines support for table head
+- feat(components/chips): css variable for chips height added #1641
+- feat(component/cron): added english localization. #1480, attention, PrizmLanguageCron interface has been changed. Why we do this in ADR: #1617
+
+### Bug fixes
+
+- fix(components/cron): cron selected working with specified tabs #1494
+- fix(components/cron): cron months blinks on hover #1642
+- fix(components/input-select): incorrect focus work when opened by chevron click
+- fix(components/chips): default chips height changed to match the mockups #1641
+- fix(components/multiselect): correct paddings in outer multiselect #1640
+- fix(documentation/input-multi-select): page title correction for input multi-select
+- fix(component/table): sort icon replaced with button. #1486
+- fix(component/table): header width doesn't change when sorted #1561
+- fix(components/table): table head height should be 32px on each table size #1643
+- fix(component/table): table default cursour style changed
+- fix(documentation/table): filter and edit action buttons in examples replaced with buttons. #1486
+- fix(documentation/table): table track by and sort-pagination examples improvement #1655
+- fix(components/accordion): accordion hint not shown if title changed #1415
+- fix(component/dropdown-host): add initialization \_autoReposition and \_placement in input in dropdown #1596
+- fix(components/hint): switcher extra empty hint shown #1682 #1686
+- fix: add initialization \_autoReposition and \_placement in input in dropdown#1596 #1681
+- fix(components/input-number): right style on disabled mode #1644 #1645
+- fix(components/input-number): remove inner hint
+- fix(components/panel): panel instruments cut focus styles #1625
+- fix(components/input\*): ng100 error for input and hint #461 #1471 #1272
+- fix(components): tests with errors for resize observer #1631
+- fix(components/input-layout-date-range): fix error with ng100 #492
+- fix(components/hint): ng100 error on first time appear #1091
+- feat(helpers): new func prizmHasChanges to check changes in SimpleChanges
+- feat(ci): added skip library if they does not have any test
+- fix(components/hint): hint sometimes does not hide #1658
+- fix(components/scrollbar): theme switching in scrollbar works incorrect #1657
+- fix: changed content width in toast #1433
+
 ## [4.2.0](https://github.com/zyfra/Prizm) (17-04-2024)
 
 ### Features
