@@ -75,7 +75,6 @@ export class PrizmDocHostElementService implements OnDestroy {
     selector = componentMetadata.selectors?.[0]?.[0] as string;
 
     const hasHostDirectives = !!componentMetadata.hostDirectives?.length;
-
     // Process collected properties and fill the sets
     this.processProperties(inputKeys, inputValues, componentMetadata.inputs, !hasHostDirectives);
     this.processProperties(outputKeys, outputValues, componentMetadata.outputs, !hasHostDirectives);
@@ -91,9 +90,6 @@ export class PrizmDocHostElementService implements OnDestroy {
         outputValues,
         this.collectProperties(componentMetadata.hostDirectives, 'outputs')
       );
-    } else {
-      this.processProperties(inputKeys, inputValues, componentMetadata.inputs);
-      this.processProperties(outputKeys, outputValues, componentMetadata.outputs);
     }
 
     // Return the collected information
@@ -125,9 +121,15 @@ export class PrizmDocHostElementService implements OnDestroy {
   ) {
     for (const key in properties) {
       if (key in properties) {
-        if (skipByKey && keysSet.has(key)) continue;
-        keysSet.add(key);
-        valuesSet.add(properties[key]);
+        if (skipByKey) {
+          // if extended components > filter parent input and outputs
+          if (keysSet.has(properties[key])) continue;
+          valuesSet.add(key);
+          keysSet.add(properties[key]);
+        } else {
+          keysSet.add(key);
+          valuesSet.add(properties[key]);
+        }
       }
     }
   }
@@ -209,6 +211,7 @@ export class PrizmDocHostElementService implements OnDestroy {
     eventRealKey: string,
     hasNotListener = false
   ): void {
+    if (eventRealKey == null) return;
     if (!el.nativeElement?.[eventRealKey]) {
       console.error(`Prizm component output <${eventRealKey}> does not exists`, {
         name: eventRealKey,
