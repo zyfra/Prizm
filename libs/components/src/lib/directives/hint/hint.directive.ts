@@ -106,18 +106,18 @@ export class PrizmHintDirective<
   @Output()
   readonly prizmHintShowed = new EventEmitter<boolean>();
 
-  protected readonly onHoverActive: boolean = true;
+  public onHoverActive: boolean = true;
 
   content!: PolymorphContent;
   overlay!: PrizmOverlayControl;
-  protected readonly containerComponent: Type<unknown> = PrizmHintContainerComponent;
-  protected readonly show$ = new Subject<boolean>();
+  public containerComponent: Type<unknown> = PrizmHintContainerComponent;
+  public readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();
 
   private readonly prizmOverlayService: PrizmOverlayService = inject(PrizmOverlayService);
 
   private readonly renderer: Renderer2 = inject(Renderer2);
-  protected readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
+  public readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
   private readonly destroy$: PrizmDestroyService = inject(PrizmDestroyService);
   private readonly hoveredService: PrizmHoveredService = inject(PrizmHoveredService);
 
@@ -218,6 +218,7 @@ export class PrizmHintDirective<
       .create({
         parentInjector: this.injector,
       });
+
     if (this.onHoverActive) {
       combineLatest([
         this.hoveredService.createHovered$(this.host),

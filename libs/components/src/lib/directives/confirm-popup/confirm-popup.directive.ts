@@ -99,8 +99,8 @@ export class PrizmConfirmPopupDirective<
   @Output('prizmConfirmPopupShowed')
   override prizmHintShowed = new EventEmitter<boolean>();
 
-  protected override readonly containerComponent = PrizmConfirmPopupContainerComponent;
-  protected override readonly onHoverActive = false;
+  public override readonly containerComponent = PrizmConfirmPopupContainerComponent;
+  public override readonly onHoverActive = false;
 
   @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
     if (this.elementRef.nativeElement.contains(target)) {
