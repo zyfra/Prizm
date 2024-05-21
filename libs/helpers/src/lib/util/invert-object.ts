@@ -6,7 +6,7 @@ export function prizmInvertObject<K extends string | number | symbol, V extends 
   for (const key in obj) {
     if (obj[key]) {
       const value = obj[key];
-      if ((value && typeof value === 'object') || typeof value === 'function')
+      if ((value == null && value && typeof value === 'object') || typeof value === 'function')
         throw new Error('Passed to prizmInvertObject values that has not primitive value');
       invertedObj[value] = key as K;
     }

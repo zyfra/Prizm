@@ -4,7 +4,6 @@ import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PrizmPageService } from '../page/page.service';
 import { PrizmDocHostElementListenerService } from './host-element-listener.service';
-import { prizmInvertObject } from '@prizm-ui/helpers';
 
 export type PrizmDocHosSet = {
   type: string;
@@ -75,19 +74,27 @@ export class PrizmDocHostElementService implements OnDestroy {
     // Extract the component's selector
     selector = componentMetadata.selectors?.[0]?.[0] as string;
 
+    const hasHostDirectives = !!componentMetadata.hostDirectives?.length;
+
     // Process collected properties and fill the sets
-    this.processProperties(inputKeys, inputValues, componentMetadata.inputs);
-    this.processProperties(outputKeys, outputValues, componentMetadata.outputs);
-    this.processProperties(
-      inputKeys,
-      inputValues,
-      this.collectProperties(componentMetadata.hostDirectives, 'inputs')
-    );
-    this.processProperties(
-      outputKeys,
-      outputValues,
-      this.collectProperties(componentMetadata.hostDirectives, 'outputs')
-    );
+    this.processProperties(inputKeys, inputValues, componentMetadata.inputs, !hasHostDirectives);
+    this.processProperties(outputKeys, outputValues, componentMetadata.outputs, !hasHostDirectives);
+
+    if (hasHostDirectives) {
+      this.processProperties(
+        inputKeys,
+        inputValues,
+        this.collectProperties(componentMetadata.hostDirectives, 'inputs')
+      );
+      this.processProperties(
+        outputKeys,
+        outputValues,
+        this.collectProperties(componentMetadata.hostDirectives, 'outputs')
+      );
+    } else {
+      this.processProperties(inputKeys, inputValues, componentMetadata.inputs);
+      this.processProperties(outputKeys, outputValues, componentMetadata.outputs);
+    }
 
     // Return the collected information
     return {
@@ -113,10 +120,12 @@ export class PrizmDocHostElementService implements OnDestroy {
   private processProperties(
     keysSet: Set<string>,
     valuesSet: Set<string>,
-    properties: { [key: string]: string }
+    properties: { [key: string]: string },
+    skipByKey = false
   ) {
     for (const key in properties) {
       if (key in properties) {
+        if (skipByKey && keysSet.has(key)) continue;
         keysSet.add(key);
         valuesSet.add(properties[key]);
       }
@@ -203,6 +212,8 @@ export class PrizmDocHostElementService implements OnDestroy {
     if (!el.nativeElement?.[eventRealKey]) {
       console.error(`Prizm component output <${eventRealKey}> does not exists`, {
         name: eventRealKey,
+        type,
+        hasNotListener,
         el: el.nativeElement,
       });
       return;
