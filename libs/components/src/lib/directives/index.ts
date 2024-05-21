@@ -3,6 +3,7 @@ export * from './focused';
 export * from './focusable';
 export * from './stop-propagation';
 export * from './pressed';
+export * from './context-menu';
 export * from './droppable';
 export * from './event-zone';
 export * from './focus-visible';

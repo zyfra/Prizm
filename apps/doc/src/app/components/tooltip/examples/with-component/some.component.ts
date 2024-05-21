@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { PrizmOverlayControl } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-tooltip-some-component',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
     <div>Header</div>
     <div class="button-box">
       <button *ngFor="let item of items" prizmButton>{{ item }}</button>
+
+      <button (click)="overlayControl.close()" prizmButton appearance="danger">Закрыть</button>
     </div>
+
     <div>Footer</div>
   `,
   styles: [
@@ -25,5 +29,6 @@ import { Component } from '@angular/core';
   ],
 })
 export class PrizmTooltipSomeComponent {
+  readonly overlayControl = inject(PrizmOverlayControl);
   readonly items = ['Edit', 'Download', 'Rename', 'Edit', 'Download', 'Rename', 'Delete'];
 }

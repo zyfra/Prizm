@@ -1,4 +1,10 @@
-<button [prizmTooltipDirection]="direction" [prizmTooltip]="dropdown" type="button" prizmButton>
+<button
+  #tooltip="prizmTooltip"
+  [prizmTooltipDirection]="direction"
+  [prizmTooltip]="dropdown"
+  type="button"
+  prizmButton
+>
   Button
 </button>
 
@@ -14,8 +20,8 @@
       <a href="#">Ссылка</a>
     </div>
     <div class="footer">
-      <button prizmButton>Text Button</button>
-      <button prizmButton appearanceType="ghost">Text Button</button>
+      <button (click)="tooltip.close()" prizmButton>Text Button</button>
+      <button (click)="tooltip.close()" prizmButton appearanceType="ghost">Text Button</button>
     </div>
   </div>
 </ng-template>

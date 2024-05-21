@@ -1,16 +1,15 @@
 /* eslint-disable @angular-eslint/no-input-rename */
 import { Directive, forwardRef, HostListener, inject, Input } from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmTooltipContainerComponent } from './tooltip-container.component';
-import { PRIZM_TOOLTIP_OPTIONS } from './tooltip-options';
+import { PRIZM_TOOLTIP_OPTIONS } from './dropdown-context-options';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS } from '../hint/hint-options';
 import { PrizmHintDirective } from '../hint/hint.directive';
-import { PrizmTheme } from '@prizm-ui/theme';
 import { PrizmOverlayWindowControl } from '../../modules/overlay/models';
+import { PrizmContextMenuContainerComponent } from './dropdown-context-container.component';
 
 @Directive({
-  selector: '[prizmTooltip]:not(ng-container)',
+  selector: '[prizmContextMenu]:not(ng-container)',
   providers: [
     PrizmDestroyService,
     {
@@ -22,25 +21,26 @@ import { PrizmOverlayWindowControl } from '../../modules/overlay/models';
     {
       directive: PrizmHintDirective,
       inputs: [
-        'prizmAutoReposition: prizmAutoReposition',
-        'prizmHintHideDelay: prizmTooltipHideDelay',
-        'prizmHintDirection: prizmTooltipDirection',
-        'prizmHintId: prizmTooltipId',
-        'prizmHint: prizmTooltip',
-        'prizmHintShowDelay: prizmTooltipShowDelay',
-        'prizmHintTheme: prizmTooltipTheme',
-        'prizmHintHost: prizmTooltipHost',
-        'prizmHintContext: prizmTooltipContext',
-        'prizmHintCanShow: prizmTooltipCanShow',
+        'prizmAutoReposition: prizmContextMenuAutoReposition',
+        'prizmHintHideDelay: prizmContextMenuHideDelay',
+        'prizmHintDirection: prizmContextMenuDirection',
+        'prizmHintId: prizmContextMenuId',
+        'prizmHint: prizmContextMenu',
+        'prizmHintShowDelay: prizmContextMenuShowDelay',
+        'prizmHintTheme: prizmContextMenuTheme',
+        'prizmHintHost: prizmContextMenuHost',
+        'prizmHintContext: prizmContextMenuContext',
+        'prizmHintCanShow: prizmContextMenuCanShow',
       ],
-      outputs: ['prizmHintShowed: prizmTooltipShowed'],
+      outputs: ['prizmHintShowed: prizmContextMenuShowed'],
     },
   ],
-  exportAs: 'prizmTooltip',
+  exportAs: 'prizmContextMenu',
+  standalone: true,
 })
-export class PrizmTooltipDirective implements PrizmOverlayWindowControl {
+export class PrizmContextMenuDirective implements PrizmOverlayWindowControl {
   @Input()
-  set prizmTooltip(value: PolymorphContent | null) {
+  set prizmContextMenu(value: PolymorphContent | null) {
     if (!value) {
       this.hostedHint.content = '';
       return;
@@ -49,35 +49,19 @@ export class PrizmTooltipDirective implements PrizmOverlayWindowControl {
     this.hostedHint.content = value;
     this.hostedHint.prizmHint = value;
   }
-  get prizmTooltip() {
+  get prizmContextMenu() {
     return this.hostedHint.content;
-  }
-
-  /**
-   * @deprecate since v4
-   * now for tooltip use only prizmTooltipTheme
-   * */
-  @Input()
-  set prizmHintTheme(theme: PrizmTheme | null) {
-    this.hostedHint.prizmHintTheme = theme;
-  }
-  /**
-   * @deprecate since v4
-   * now for tooltip use only prizmTooltipTheme
-   * */
-  get prizmHintTheme(): PrizmTheme | null {
-    return this.hostedHint.prizmHintTheme;
   }
 
   public readonly hostedHint = inject(PrizmHintDirective);
 
   constructor() {
-    this.hostedHint.containerComponent = PrizmTooltipContainerComponent;
+    this.hostedHint.containerComponent = PrizmContextMenuContainerComponent;
     this.hostedHint.onHoverActive = false;
   }
 
   protected clickedInside = false;
-  @HostListener('document:click', ['$event.target']) public onClick(target: HTMLElement): void {
+  @HostListener('document:contextmenu', ['$event.target']) public onClick(target: HTMLElement): void {
     if (this.hostedHint.overlay?.viewEl?.contains(target)) return;
     const clickedOnElement = this.hostedHint.elementRef.nativeElement.contains(target);
     if (clickedOnElement && !this.clickedInside) this.clickedInside = true;
