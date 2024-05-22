@@ -81,7 +81,11 @@ export class AllIconComponent {
   );
 
   public copy(value: string): void {
-    copyToClipboard(value, this.clipboard, this.toastService);
+    copyToClipboard(
+      `enum: ${dashToCamelCase('prizm-icons-' + value)}, name: ${value}`,
+      this.clipboard,
+      this.toastService
+    );
   }
 
   public filterIcons(search: string | null) {
@@ -95,4 +99,10 @@ function createChunks<T>(arr: T[], chunkSize: number): T[][] {
     result.push(arr.slice(i, i + chunkSize));
   }
   return result;
+}
+
+function dashToCamelCase(myStr: string): string {
+  return myStr.replace(/-([a-z])/g, g => {
+    return g[1].toUpperCase();
+  });
 }

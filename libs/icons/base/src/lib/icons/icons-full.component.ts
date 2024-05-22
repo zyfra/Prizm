@@ -6,6 +6,7 @@ import {
   PrizmIconsFullRegistry,
   PrizmIconsRegistry,
 } from '@prizm-ui/icons/core';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 /**
  * Component to display full size SVG icons.
@@ -31,6 +32,7 @@ import {
       provide: PrizmIconsRegistry,
       useExisting: PrizmIconsFullRegistry,
     },
+    PrizmDestroyService,
   ],
 })
 export class PrizmIconsFullComponent extends PrizmIconsComponent {
