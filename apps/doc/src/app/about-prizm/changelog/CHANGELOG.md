@@ -23,6 +23,8 @@ All notable changes to this project will be documented in this file.
 - feat(component/cron): added english localization. #1480, attention, PrizmLanguageCron interface has been changed. Why we do this in ADR: #1617
 - feat(components/tooltip): tooltip close on click in showed dropdown #1704
 - feat(doc/dialog): add examples how to use custom dialog #1602
+- feat(helpers): new func prizmHasChanges to check changes in SimpleChanges
+- feat(ci): added skip library if they does not have any test
 
 ### Refactor
 
@@ -59,8 +61,6 @@ All notable changes to this project will be documented in this file.
 - fix(components): tests with errors for resize observer #1631
 - fix(components/input-layout-date-range): fix error with ng100 #492
 - fix(components/hint): ng100 error on first time appear #1091
-- feat(helpers): new func prizmHasChanges to check changes in SimpleChanges
-- feat(ci): added skip library if they does not have any test
 - fix(components/hint): hint sometimes does not hide #1658
 - fix(components/scrollbar): theme switching in scrollbar works incorrect #1657
 - fix: changed content width in toast #1433
