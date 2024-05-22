@@ -2,10 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.3.0](https://github.com/zyfra/Prizm) (20-05-2024)
+## [4.3.0](https://github.com/zyfra/Prizm) (22-05-2024)
 
 ### Features
 
+- feat(doc): add support for get inputs and outputs from hostDirectives #1710
+- feat(helpers): new method prizmInvertObject to invert keys and values for json object
+- feat(doc/icons): added info about enum name to copied values #1648
 - feat(chore/commitlint): support slash in checker commit messages scope
 - feat(doc/paginator): added example with i18n to change texts and tests #1605
 - feat(i18n): added access to public api internal dictionaries
@@ -18,9 +21,21 @@ All notable changes to this project will be documented in this file.
 - feat(components/table): add five lines support for table head
 - feat(components/chips): css variable for chips height added #1641
 - feat(component/cron): added english localization. #1480, attention, PrizmLanguageCron interface has been changed. Why we do this in ADR: #1617
+- feat(components/tooltip): tooltip close on click in showed dropdown #1704
+- feat(doc/dialog): add examples how to use custom dialog #1602
+
+### Refactor
+
+- refactor(components/tooltip): migrate to composition api instead of extend
+- refactor(components/dialog): removed injection from constructor and now defaultOptions is exported #1602
 
 ### Bug fixes
 
+- fix(components/hint): switcher extra empty hint shown #1682
+- fix(doc/dialog): add dismissable prop to live demo #1551
+- fix(icons/icons-full): added skipped provider for PrizmDestroyService #1652
+- fix(components/table): ghost button in table should have no hover state background color style #1486
+- fix(components/tooltip): tooltip close on click in showed dropdown #1704
 - fix(components/cron): cron selected working with specified tabs #1494
 - fix(components/cron): cron months blinks on hover #1642
 - fix(components/input-select): incorrect focus work when opened by chevron click
