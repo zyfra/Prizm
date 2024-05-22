@@ -36,7 +36,6 @@ All notable changes to this project will be documented in this file.
 - fix(components/hint): switcher extra empty hint shown #1682
 - fix(doc/dialog): add dismissable prop to live demo #1551
 - fix(icons/icons-full): added skipped provider for PrizmDestroyService #1652
-- fix(components/table): ghost button in table should have no hover state background color style #1486
 - fix(components/cron): cron selected working with specified tabs #1494
 - fix(components/cron): cron months blinks on hover #1642
 - fix(components/input-select): incorrect focus work when opened by chevron click
