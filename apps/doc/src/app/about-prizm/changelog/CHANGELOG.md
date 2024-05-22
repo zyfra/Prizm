@@ -54,7 +54,6 @@ All notable changes to this project will be documented in this file.
 - fix(components/hint): switcher extra empty hint shown #1682 #1686
 - fix: add initialization \_autoReposition and \_placement in input in dropdown#1596 #1681
 - fix(components/input-number): right style on disabled mode #1644 #1645
-- fix(components/input-number): remove inner hint
 - fix(components/panel): panel instruments cut focus styles #1625
 - fix(components/input\*): ng100 error for input and hint #461 #1471 #1272
 - fix(components): tests with errors for resize observer #1631
