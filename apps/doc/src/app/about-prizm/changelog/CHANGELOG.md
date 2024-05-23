@@ -42,7 +42,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/chips): default chips height changed to match the mockups #1641
 - fix(components/multiselect): correct paddings in outer multiselect #1640
 - fix(documentation/input-multi-select): page title correction for input multi-select
-- fix(component/table): sort icon replaced with button. #1486
+- fix(component/table): sort icon replaced with button. #1486 #1720
 - fix(component/table): header width doesn't change when sorted #1561
 - fix(components/table): table head height should be 32px on each table size #1643
 - fix(component/table): table default cursour style changed
