@@ -1,12 +1,13 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
+  inject,
   Inject,
   Input,
   OnInit,
   Output,
-  inject,
 } from '@angular/core';
 import { PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmSwitcherItem } from '../switcher';
@@ -41,7 +42,7 @@ import {
   Observable,
   timer,
 } from 'rxjs';
-import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron, PrizmLanguageKit } from '@prizm-ui/i18n';
+import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n';
 import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
 import { PRIZM_CALENDAR_MONTHS, PRIZM_CRON, PRIZM_MONTHS } from '../../tokens';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
@@ -181,6 +182,8 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
+  private readonly cdRef = inject(ChangeDetectorRef);
+
   constructor(
     @Inject(PRIZM_LANGUAGE)
     readonly language$: Observable<PrizmLanguage>,
@@ -210,42 +213,63 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     this.initEndDateStateChanger();
     this.saveInitialValue();
 
-    this.cronI18n$.pipe(takeUntil(this.destroy$), observeOn(asapScheduler)).subscribe(cronI18n => {
-      const switchers = Object.entries(cronI18n.switcherTitles).map(([key, value]) => ({
-        title: value,
-        id: key,
-      })) as PrizmSwitcherItem<PrizmCronTabItem>[];
+    this.cronI18n$
+      .pipe(
+        observeOn(asapScheduler),
+        tap(cronI18n => {
+          const switchers = Object.entries(cronI18n.switcherTitles).map(([key, value]) => ({
+            title: value,
+            id: key,
+          })) as PrizmSwitcherItem<PrizmCronTabItem>[];
 
-      const tabs = this.tabs$.getValue();
-      if (tabs.length) {
-        switchers.map(i => {
-          i.hide = !tabs.includes(i.id as any);
-          return i;
-        });
-      }
+          const tabs = this.tabs$.getValue();
+          if (tabs.length) {
+            switchers.map(i => {
+              i.hide = !tabs.includes(i.id as any);
+              return i;
+            });
+          }
 
-      this.switchers = switchers;
-    });
+          this.switchers = switchers;
+        }),
+        tap(() => this.cdRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
-    this.tabs$.pipe(takeUntil(this.destroy$), observeOn(asyncScheduler)).subscribe(tabs => {
-      if (tabs.length) {
-        this.switchers = this.switchers.map(i => {
-          i.hide = !tabs.includes(i.id as any);
-          return i;
-        });
-      }
-    });
+    this.tabs$
+      .pipe(
+        observeOn(asapScheduler),
+        tap(tabs => {
+          if (tabs.length) {
+            this.switchers = this.switchers.map(i => {
+              i.hide = !tabs.includes(i.id as any);
+              return i;
+            });
+          }
+        }),
+        tap(() => this.cdRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
-    this.selected$.pipe(takeUntil(this.destroy$), observeOn(asyncScheduler)).subscribe(selected => {
-      this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
+    this.selected$
+      .pipe(
+        observeOn(asapScheduler),
+        tap(selected => {
+          this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
 
-      const tabs = this.tabs$.getValue();
-      if (tabs.length && !tabs.includes(selected)) {
-        this.selectedChange.emit(tabs[0]);
-      } else {
-        this.selectedChange.emit(selected);
-      }
-    });
+          const tabs = this.tabs$.getValue();
+          if (tabs.length && !tabs.includes(selected)) {
+            this.selectedChange.emit(tabs[0]);
+          } else {
+            this.selectedChange.emit(selected);
+          }
+        }),
+        tap(() => this.cdRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private endDateStateCorrector(): void {
