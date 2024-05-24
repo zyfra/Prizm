@@ -239,7 +239,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
     this.tabs$
       .pipe(
-        observeOn(asyncScheduler),
+        observeOn(asapScheduler),
         tap(tabs => {
           if (tabs.length) {
             this.switchers = this.switchers.map(i => {
@@ -255,7 +255,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
     this.selected$
       .pipe(
-        observeOn(asyncScheduler),
+        observeOn(asapScheduler),
         tap(selected => {
           this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
 
