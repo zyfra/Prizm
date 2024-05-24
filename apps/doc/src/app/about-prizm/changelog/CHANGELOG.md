@@ -61,6 +61,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/hint): hint sometimes does not hide #1658
 - fix(components/scrollbar): theme switching in scrollbar works incorrect #1657
 - fix: changed content width in toast #1433
+- fix(icons-loader): fix loader for lazy load #1691
 
 ## [4.2.0](https://github.com/zyfra/Prizm) (17-04-2024)
 
