@@ -32,7 +32,7 @@ export const PRIZM_RUSSIAN_CRON: PrizmLanguageCron = {
     minuteSince: 'минута, начиная с',
     selectedMinute: 'Выбранная минута (выбор одной или нескольких)',
     everyMinute: 'Каждая минута',
-    everyMinuteFrom: 'Каждый минута с',
+    everyMinuteFrom: 'Каждая минута с',
 
     hour: 'час',
     hourSince: 'час, начиная с',
