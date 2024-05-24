@@ -1,7 +1,9 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   EventEmitter,
+  inject,
   Inject,
   Input,
   OnInit,
@@ -123,6 +125,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     };
   }
 
+  private readonly cdRef = inject(ChangeDetectorRef);
   readonly cronLanguage$ = this.language$.pipe(
     map(lang => {
       return lang.shortName;
@@ -153,7 +156,6 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   private tabs$: BehaviorSubject<PrizmCronTabItem[]> = new BehaviorSubject<PrizmCronTabItem[]>([]);
   private selected$: BehaviorSubject<PrizmCronTabItem> = new BehaviorSubject<PrizmCronTabItem>('second');
-
   public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [
     {
       title: 'Секунды',
@@ -218,25 +220,39 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     this.initEndDateStateChanger();
     this.saveInitialValue();
 
-    this.tabs$.pipe(takeUntil(this.destroy$), observeOn(asapScheduler)).subscribe(tabs => {
-      if (tabs.length) {
-        this.switchers = this.switchers.map(i => {
-          i.hide = !tabs.includes(i.id as any);
-          return i;
-        });
-      }
-    });
+    this.tabs$
+      .pipe(
+        observeOn(asapScheduler),
+        tap(tabs => {
+          if (tabs.length) {
+            this.switchers = this.switchers.map(i => {
+              i.hide = !tabs.includes(i.id as any);
+              return i;
+            });
+          }
+        }),
+        tap(() => this.cdRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
 
-    this.selected$.pipe(takeUntil(this.destroy$), observeOn(asapScheduler)).subscribe(selected => {
-      this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
+    this.selected$
+      .pipe(
+        observeOn(asapScheduler),
+        tap(selected => {
+          this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
 
-      const tabs = this.tabs$.getValue();
-      if (tabs.length && !tabs.includes(selected)) {
-        this.selectedChange.emit(tabs[0]);
-      } else {
-        this.selectedChange.emit(selected);
-      }
-    });
+          const tabs = this.tabs$.getValue();
+          if (tabs.length && !tabs.includes(selected)) {
+            this.selectedChange.emit(tabs[0]);
+          } else {
+            this.selectedChange.emit(selected);
+          }
+        }),
+        tap(() => this.cdRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   private endDateStateCorrector(): void {
