@@ -14,6 +14,7 @@ import { PrizmSwitcherItem } from '../switcher';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmCronService, prizmI18nInitWithKey } from '../../services';
 import {
+  debounceTime,
   distinctUntilChanged,
   filter,
   first,
@@ -33,15 +34,7 @@ import { prizmIsTextOverflow } from '../../util';
 import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import {
-  asapScheduler,
-  asyncScheduler,
-  BehaviorSubject,
-  combineLatest,
-  concat,
-  Observable,
-  timer,
-} from 'rxjs';
+import { asapScheduler, BehaviorSubject, combineLatest, concat, Observable, timer } from 'rxjs';
 import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n';
 import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
 import { PRIZM_CALENDAR_MONTHS, PRIZM_CRON, PRIZM_MONTHS } from '../../tokens';
@@ -53,6 +46,7 @@ import { PrizmCronInnerModule } from './cron-inner.module';
 import { PrizmCronHumanReadablePipe } from '../cron-human-readable';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCopy } from '@prizm-ui/icons/full/source';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'prizm-cron',
@@ -75,7 +69,13 @@ import { prizmIconsCopy } from '@prizm-ui/icons/full/source';
     ...prizmI18nInitWithKey(PRIZM_CALENDAR_MONTHS, 'shortCalendarMonths'),
   ],
   standalone: true,
-  imports: [PrizmCronHumanReadablePipe, PrizmCronInnerModule, PrizmCronMonthPipe, PrizmCronWeekPipe],
+  imports: [
+    AsyncPipe,
+    PrizmCronHumanReadablePipe,
+    PrizmCronInnerModule,
+    PrizmCronMonthPipe,
+    PrizmCronWeekPipe,
+  ],
 })
 export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public cronTitle: string | null = null;
@@ -162,13 +162,13 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
 
   @Input() specifiedList: PrizmCronTabSpecifiedList | null = null;
   @Input() set tabs(tabs: PrizmCronTabItem[]) {
-    this.tabs$.next(tabs);
+    this.tabs$.next([...tabs]);
   }
 
   private tabs$: BehaviorSubject<PrizmCronTabItem[]> = new BehaviorSubject<PrizmCronTabItem[]>([]);
   private selected$: BehaviorSubject<PrizmCronTabItem> = new BehaviorSubject<PrizmCronTabItem>('second');
 
-  public switchers: PrizmSwitcherItem<PrizmCronTabItem>[] = [];
+  public switchers$$ = new BehaviorSubject<PrizmSwitcherItem<PrizmCronTabItem>[]>([]);
 
   initialValue!: string;
   public readonly value$ = this.cron.value$;
@@ -213,16 +213,15 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     this.initEndDateStateChanger();
     this.saveInitialValue();
 
-    this.cronI18n$
+    combineLatest([this.cronI18n$, this.tabs$])
       .pipe(
         observeOn(asapScheduler),
-        tap(cronI18n => {
+        tap(([cronI18n, tabs]) => {
           const switchers = Object.entries(cronI18n.switcherTitles).map(([key, value]) => ({
             title: value,
             id: key,
           })) as PrizmSwitcherItem<PrizmCronTabItem>[];
 
-          const tabs = this.tabs$.getValue();
           if (tabs.length) {
             switchers.map(i => {
               i.hide = !tabs.includes(i.id as any);
@@ -230,7 +229,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
             });
           }
 
-          this.switchers = switchers;
+          this.switchers$$.next(switchers);
         }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
@@ -242,10 +241,11 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
         observeOn(asapScheduler),
         tap(tabs => {
           if (tabs.length) {
-            this.switchers = this.switchers.map(i => {
+            const switchers = this.switchers$$.value.map(i => {
               i.hide = !tabs.includes(i.id as any);
               return i;
             });
+            this.switchers$$.next(switchers);
           }
         }),
         tap(() => this.cdRef.markForCheck()),
@@ -253,13 +253,12 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
       )
       .subscribe();
 
-    this.selected$
+    combineLatest([this.selected$, this.tabs$, this.switchers$$])
       .pipe(
-        observeOn(asapScheduler),
-        tap(selected => {
-          this.selectedSwitcherIdx = this.switchers.findIndex(i => i.id === selected);
+        debounceTime(0),
+        tap(([selected, tabs, switchers]) => {
+          this.selectedSwitcherIdx = switchers.findIndex(i => i.id === selected);
 
-          const tabs = this.tabs$.getValue();
           if (tabs.length && !tabs.includes(selected)) {
             this.selectedChange.emit(tabs[0]);
           } else {
@@ -366,7 +365,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   }
 
   public indexChanged(index: number): void {
-    const selected = this.switchers.find((_, i) => i === index);
+    const selected = this.switchers$$.value.find((_, i) => i === index);
     this.selected = selected?.id as any;
   }
 }
