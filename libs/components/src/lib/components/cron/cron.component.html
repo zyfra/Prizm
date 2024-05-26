@@ -109,7 +109,6 @@
       </div>
     </div>
   </div>
-  <div>mz:{{ selectedSwitcherIdx }}</div>
   <div class="sub-pages" [ngSwitch]="selectedSwitcherIdx">
     <prizm-scrollbar>
       <prizm-cron-second *ngSwitchCase="0" [specifiedList]="specifiedList?.second ?? []"></prizm-cron-second>
