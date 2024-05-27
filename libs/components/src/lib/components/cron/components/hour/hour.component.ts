@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { PrizmCronUiHourState } from '../../cron-ui-hour.state';
 import { PrizmCronUiBaseType } from '../../model';
-import { PRIZM_CRON } from '@prizm-ui/components';
 import { Observable } from 'rxjs';
 import { PrizmLanguageCron } from '@prizm-ui/i18n';
+import { PRIZM_CRON } from '../../../../tokens/i18n';
 
 @Component({
   selector: 'prizm-cron-hour',
