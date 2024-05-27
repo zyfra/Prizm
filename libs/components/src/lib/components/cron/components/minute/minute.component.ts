@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { PrizmCronUiMinuteState } from '../../cron-ui-minute.state';
 import { PrizmCronUiBaseType } from '../../model';
-import { PRIZM_CRON } from '@prizm-ui/components';
+import { PRIZM_CRON } from '../../../../tokens/i18n';
 import { Observable } from 'rxjs';
 import { PrizmLanguageCron } from '@prizm-ui/i18n';
 

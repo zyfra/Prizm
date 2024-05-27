@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronUiSecondState } from '../../cron-ui-second.state';
 import { PrizmCronUiBaseType } from '../../model';
-import { PRIZM_CRON } from '@prizm-ui/components';
+import { PRIZM_CRON } from '../../../../tokens/i18n';
 import { Observable } from 'rxjs';
 import { PrizmLanguageCron } from '@prizm-ui/i18n';
 
