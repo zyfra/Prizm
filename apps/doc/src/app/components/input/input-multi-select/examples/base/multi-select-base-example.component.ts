@@ -17,6 +17,7 @@ export class PrizmInputMultiSelectBaseExampleComponent implements OnInit {
   value = true;
   readonly valueControl = new UntypedFormControl([]);
   readonly items = [
+    'Very long text with a lot of characters and spaces',
     'One',
     'Two',
     'Three',
