@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PrizmDayRange } from '../../@core/date-time/day-range';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../@core/date-time/days.const';
@@ -21,6 +21,7 @@ import { PrizmMapperPipeModule } from '../../pipes';
 import { PrizmPrimitiveYearMonthPaginationComponent } from '../internal/primitive-year-month-pagination/primitive-year-month-pagination.component';
 import { PrizmPrimitiveMonthPickerComponent } from '../internal/primitive-month-picker/primitive-month-picker.component';
 import { PrizmPrimitiveYearPickerComponent } from '../internal/primitive-year-picker/primitive-year-picker.component';
+import { prizmInRange } from '../../util/math/in-range';
 
 @Component({
   selector: `prizm-calendar`,
@@ -38,7 +39,10 @@ import { PrizmPrimitiveYearPickerComponent } from '../internal/primitive-year-pi
     PrizmMapperPipeModule,
   ],
 })
-export class PrizmCalendarComponent extends PrizmAbstractTestId implements PrizmWithOptionalMinMax<PrizmDay> {
+export class PrizmCalendarComponent
+  extends PrizmAbstractTestId
+  implements PrizmWithOptionalMinMax<PrizmDay>, OnInit
+{
   @Input()
   @prizmDefaultProp()
   month: PrizmMonth = PrizmMonth.currentLocal();
@@ -117,6 +121,10 @@ export class PrizmCalendarComponent extends PrizmAbstractTestId implements Prizm
     return this.maxViewedMonth.monthSameOrBefore(this.max) ? this.maxViewedMonth : this.max;
   }
 
+  ngOnInit(): void {
+    this.doMonthCorrection();
+  }
+
   public onPaginationYearClick(year: PrizmYear): void {
     this.year = year;
     this.clickedMonth = null;
@@ -165,5 +173,16 @@ export class PrizmCalendarComponent extends PrizmAbstractTestId implements Prizm
 
     this.hoveredItem = day;
     this.hoveredItemChange.emit(day);
+  }
+
+  private doMonthCorrection(): void {
+    if ((this.min || this.max) && !this.isMonthInRange(this.month, this.min, this.max)) {
+      const monthToDisplay = this.min ?? this.max;
+      this.month = new PrizmMonth(monthToDisplay.year, monthToDisplay.month);
+    }
+  }
+
+  private isMonthInRange(month: PrizmMonth, min: PrizmMonth | PrizmDay, max: PrizmMonth | PrizmDay): boolean {
+    return prizmInRange(month.year, min.year, max.year) && prizmInRange(month.month, min.month, max.month);
   }
 }
