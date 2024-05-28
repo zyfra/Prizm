@@ -46,17 +46,19 @@ export abstract class AbstractPrizmDialogService<
         observer.complete();
       };
 
-      options = options ?? {};
+      options = {
+        ...this.defaultOptions,
+        ...options ?? {}
+      };
 
       const dialog = {
-        ...this.defaultOptions,
         ...options,
         content,
         component: this.component,
         completeWith,
         $implicit: observer,
         createdAt: Date.now(),
-        id: options.id ?? this.defaultOptions.id ?? prizmGenerateId(),
+        id: options.id ?? prizmGenerateId(),
       };
 
       const control = this.overlayService
