@@ -28,17 +28,16 @@
         <prizm-icon *ngIf="!oneYear" iconClass="chevrons-dropdown-small"></prizm-icon>
       </button>
     </div>
-
-    <div>
-      <prizm-primitive-spin-button
-        [class.hidden]="hideButtons"
-        [focusable]="false"
-        [leftDisabled]="prevMonthDisabled"
-        [rightDisabled]="nextMonthDisabled"
-        (leftClick)="onPrevMonthClick()"
-        (rightClick)="onNextMonthClick()"
-      >
-      </prizm-primitive-spin-button>
-    </div>
+  </div>
+  <div>
+    <prizm-primitive-spin-button
+      [class.hidden]="hideButtons"
+      [focusable]="false"
+      [leftDisabled]="prevMonthDisabled"
+      [rightDisabled]="nextMonthDisabled"
+      (leftClick)="onPrevMonthClick()"
+      (rightClick)="onNextMonthClick()"
+    >
+    </prizm-primitive-spin-button>
   </div>
 </div>
