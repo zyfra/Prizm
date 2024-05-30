@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, Output } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  EventEmitter,
+  Input,
+  Output,
+  inject,
+} from '@angular/core';
 import { PrizmOverlayOutsidePlacement } from '../../../modules';
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -8,6 +16,9 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../../directives';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsXmarkMini } from '@prizm-ui/icons/base/source';
 
 @Component({
   selector: 'prizm-chips-item',
@@ -23,6 +34,7 @@ import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective
     PrizmElementReadyDirective,
     PrizmLetDirective,
     PrizmHintDirective,
+    PrizmIconsComponent,
   ],
 })
 export class PrizmChipsItemComponent extends PrizmAbstractTestId {
@@ -71,7 +83,12 @@ export class PrizmChipsItemComponent extends PrizmAbstractTestId {
       })
     );
   };
+
+  protected readonly iconsRegistry = inject(PrizmIconsRegistry);
+
   constructor(public readonly el: ElementRef) {
     super();
+
+    this.iconsRegistry.registerIcons(prizmIconsXmarkMini);
   }
 }

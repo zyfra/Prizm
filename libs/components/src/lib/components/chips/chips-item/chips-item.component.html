@@ -11,10 +11,7 @@
   >
     <ng-content></ng-content>
   </div>
-  <button
-    class="chips-cancel prizm-base-icons-xmark-mini"
-    *ngIf="deletable"
-    [disabled]="disabled"
-    (click)="deleted.emit($event)"
-  ></button>
+  <button class="chips-cancel" *ngIf="deletable" [disabled]="disabled" (click)="deleted.emit($event)">
+    <prizm-icons [size]="16" name="xmark-mini"></prizm-icons>
+  </button>
 </button>
