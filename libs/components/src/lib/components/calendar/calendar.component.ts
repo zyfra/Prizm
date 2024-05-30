@@ -183,6 +183,8 @@ export class PrizmCalendarComponent
   }
 
   private isMonthInRange(month: PrizmMonth, min: PrizmMonth | PrizmDay, max: PrizmMonth | PrizmDay): boolean {
-    return prizmInRange(month.year, min.year, max.year) && prizmInRange(month.month, min.month, max.month);
+    return prizmInRange(month.year, min.year, max.year) && min.year === max.year
+      ? prizmInRange(month.month, min.month, max.month)
+      : true;
   }
 }
