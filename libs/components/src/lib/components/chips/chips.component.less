@@ -35,5 +35,11 @@
       height: var(--prizm-chips-item-heigh, 24px);
       width: 100%;
     }
+
+    &:has(.more-item) {
+      prizm-chips-item.single-line {
+        max-width: calc(100% - 20px);
+      }
+    }
   }
 }
