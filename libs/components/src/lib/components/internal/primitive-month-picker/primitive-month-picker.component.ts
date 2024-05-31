@@ -114,10 +114,11 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
   }
 
   public getItemState(item: number): PrizmInteractiveState | null {
-    const { disabledItemHandler, max, pressedItem, hoveredItem } = this;
+    const { disabledItemHandler, max, min, pressedItem, hoveredItem } = this;
 
     if (
       (max.month < item && max.year <= this.currentYear) ||
+      (min.month > item && min.year >= this.currentYear) ||
       (disabledItemHandler !== PRIZM_ALWAYS_FALSE_HANDLER && disabledItemHandler(item))
     ) {
       return PrizmInteractiveState.Disabled;
