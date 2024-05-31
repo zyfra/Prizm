@@ -19,6 +19,7 @@ import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 const LIMIT = 100;
+const MIN_ROW_COUNT = 5;
 const ITEMS_IN_ROW = 3;
 
 @Component({
@@ -84,7 +85,8 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_primitive_year_picker';
 
   get rows(): number {
-    return Math.ceil((this.calculatedMax - this.calculatedMin) / ITEMS_IN_ROW);
+    const calculatedRows = Math.ceil((this.calculatedMax - this.calculatedMin) / ITEMS_IN_ROW);
+    return calculatedRows < MIN_ROW_COUNT ? MIN_ROW_COUNT : calculatedRows;
   }
 
   get calculatedMin(): number {

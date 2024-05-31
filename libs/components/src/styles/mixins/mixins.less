@@ -138,7 +138,7 @@
 
   color: var(--prizm-v3-text-icon-secondary);
 
-  &:hover:not(.active):not(:active) {
+  &:hover:not(.active):not(:active):not(:disabled) {
     background-color: var(--prizm-v3-button-ghost-hover);
     border-radius: 2px;
   }
@@ -146,5 +146,10 @@
   &:active,
   &.active {
     color: var(--prizm-v3-button-primary-solid-active);
+  }
+
+  &:disabled {
+    pointer-events: none;
+    cursor: default;
   }
 }

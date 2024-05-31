@@ -1,11 +1,34 @@
 <div class="box">
   <div class="year-month prizm-font-input-text-14px">
-    <div *ngIf="oneMonth; else buttonMonth">
-      {{ value | prizmMonth | async }}
+    <div class="month-box">
+      <button
+        class="pagination-btn"
+        [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
+        [class.active]="monthActive"
+        [prizmFocusable]="true"
+        [disabled]="oneMonth"
+        (click)="onMonthClick($event)"
+        type="button"
+      >
+        {{ value | prizmMonth | async }}
+
+        <prizm-icon *ngIf="!oneMonth" iconClass="chevrons-dropdown-small"></prizm-icon>
+      </button>
     </div>
 
-    <div *ngIf="oneYear; else button">
-      {{ value.formattedYear }}
+    <div class="year-box">
+      <button
+        class="pagination-btn"
+        [attr.data-testid]="'prizm-primitive-year-month-pagination__year-button'"
+        [prizmFocusable]="true"
+        [class.active]="yearActive"
+        [disabled]="oneYear"
+        (click)="onYearClick($event)"
+        type="button"
+      >
+        {{ value.formattedYear }}
+        <prizm-icon *ngIf="!oneYear" iconClass="chevrons-dropdown-small"></prizm-icon>
+      </button>
     </div>
   </div>
   <div>
@@ -20,37 +43,3 @@
     </prizm-primitive-spin-button>
   </div>
 </div>
-
-<ng-template #button>
-  <div class="year-box" (click)="onYearClick($event)">
-    <button
-      class="pagination-btn"
-      [attr.data-testid]="'prizm-primitive-year-month-pagination__year-button'"
-      [prizmFocusable]="true"
-      [class.active]="yearActive"
-      type="button"
-    >
-      {{ value.formattedYear }}
-      <span>
-        <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
-      </span>
-    </button>
-  </div>
-</ng-template>
-
-<ng-template #buttonMonth>
-  <div class="month-box" (click)="onMonthClick($event)">
-    <button
-      class="pagination-btn"
-      [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
-      [class.active]="monthActive"
-      [prizmFocusable]="true"
-      type="button"
-    >
-      {{ value | prizmMonth | async }}
-      <span>
-        <prizm-icon iconClass="chevrons-dropdown-small"></prizm-icon>
-      </span>
-    </button>
-  </div>
-</ng-template>
