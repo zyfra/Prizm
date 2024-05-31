@@ -16,8 +16,8 @@ interface PrizmSorter<T = unknown> {
  * Decoupled so that users can depend on their own implementation.
  */
 export interface PrizmTableDataSourcePageEvent {
-  page: number;
-  rows: number;
+  readonly page: number;
+  readonly rows: number;
 }
 
 /**
@@ -26,14 +26,14 @@ export interface PrizmTableDataSourcePageEvent {
  * Decoupled so that users can depend on their own implementation.
  */
 export interface PrizmTableDataSourcePaginator {
-  paginatorChange: Observable<PrizmTableDataSourcePageEvent>;
+  readonly paginatorChange: Observable<PrizmTableDataSourcePageEvent>;
   /**
    * 1-based index of the currently viewed page.
    */
   currentPage: number;
-  rows: number;
-  totalRecords: number;
-  initialized?: Observable<void>;
+  readonly rows: number;
+  totalRecords: number | null;
+  readonly initialized?: Observable<void>;
 }
 
 type FilterPredicate<T> = (o: T, index: number) => boolean;
