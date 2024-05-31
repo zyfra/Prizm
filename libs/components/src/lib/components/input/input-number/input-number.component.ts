@@ -32,7 +32,7 @@ import { PrizmHintDirective } from '../../../directives';
 export class PrizmInputNumberComponent extends PrizmInputControl<number> implements OnInit {
   private hasSymbol = false;
 
-  destroy$ = inject(PrizmDestroyService);
+  readonly destroy$ = inject(PrizmDestroyService);
   public get empty() {
     return this.el.nativeElement.value == '' && !this.hasSymbol;
   }
@@ -198,6 +198,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     // this.overrideSetValueMethod();
     this.prizmHint_.ngOnInit();
     this.inputHint?.updateHint();
+    this.initUpdateParentOnChangeStatus();
 
     this.input$$
       .pipe(
@@ -213,6 +214,17 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
   public ngOnDestroy(): void {
     this.stateChanges.complete();
     this.prizmHint_.ngOnDestroy();
+  }
+
+  private initUpdateParentOnChangeStatus() {
+    this.ngControl?.statusChanges
+      ?.pipe(
+        tap(() => {
+          this.stateChanges.next();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   // TODO change overriding later
