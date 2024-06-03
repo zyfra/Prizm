@@ -3,8 +3,8 @@
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/icons/loader/src",
   "prefix": "prizm-ui",
-  "tags": [],
   "projectType": "library",
+  "tags": [],
   "targets": {
     "build": {
       "executor": "@nx/angular:package",
@@ -30,8 +30,7 @@
       }
     },
     "lint": {
-      "executor": "@nx/eslint:lint",
-      "outputs": ["{options.outputFile}"]
+      "executor": "@nx/eslint:lint"
     }
   }
 }

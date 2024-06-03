@@ -26,6 +26,13 @@
       "all": true,
       "rootChange": true,
       "remove": ["angular.json"]
+    },
+    "v18": {
+      "extFolder": [".ng18", ".ng17", ".ng16", ".ng15"],
+      "extFile": [".ng18", ".ng17", ".ng16", ".ng15"],
+      "all": true,
+      "rootChange": true,
+      "remove": ["angular.json"]
     }
   }
 }

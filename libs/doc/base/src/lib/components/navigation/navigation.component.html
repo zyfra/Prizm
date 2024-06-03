@@ -31,7 +31,7 @@
     <tui-accordion [closeOthers]="false" [rounded]="false">
       <tui-accordion-item
         *ngFor="let label of labels$ | async; index as index"
-        [(open)]="!!openPagesArr[index]"
+        [open]="!!openPagesArr[index]"
         [borders]="null"
         size="s"
       >
