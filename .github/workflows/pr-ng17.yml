@@ -1,8 +1,10 @@
 name: PR NG 17
 on:
+  workflow_dispatch:
+  workflow_call:
   pull_request_target:
     branches:
-      - main
+      - v4
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
