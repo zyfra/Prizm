@@ -8,7 +8,12 @@ env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
+  release_v5:
+    if: ${{ always() }}
+    uses: zyfra/Prizm/.github/workflows/main-publish-ng18.yml@main
+    secrets: inherit
   release_v4:
+    needs: release_v5
     if: ${{ always() }}
     uses: zyfra/Prizm/.github/workflows/main-publish-ng17.yml@main
     secrets: inherit

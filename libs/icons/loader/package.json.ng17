@@ -1,7 +1,6 @@
 {
-  "name": "@prizm-ui/icons",
-  "version": "5.0.0",
-  "description": "Prizm UI base icon pack library http://prizm.zyfra.com",
+  "name": "@prizm-ui/icons-loader",
+  "version": "4.3.0",
   "private": false,
   "publishConfig": {
     "access": "public",
@@ -9,8 +8,8 @@
   },
   "peerDependencies": {
     "@angular/common": "^18.0.1",
-    "@angular/core": "^18.0.1",
-    "@prizm-ui/core": "^5.0.0"
+    "@angular/core": "^17.1.0",
+    "@prizm-ui/icons": "^4.3.0"
   },
   "dependencies": {
     "tslib": "^2.3.0"
