@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.1](https://github.com/zyfra/Prizm) (03-05-2024)
+
+### Bug fixes
+
+- fix(components/input-date-range): default time is set only after focus is removed #1565
+- fix(components/paginator): fixed PrizmPaginatorComponent instance was incompatible with PrizmTableDataSource.paginator property
+- fix(doc/icons): added info about lazy loader #1692
+- fix(components/chips): dots overflows chip list container #1713
+- fix(components/input-multiselect): chevron outline removed
+- fix(components/input-select): chevron outline removed
+- fix(components/dialog): some values from defaultOptions not applied to final config #1602
+- fix(components/calendar): change calendar resrtictions ux #1674
+- fix(components/input-layout): add margin bottom for label in outer inputs #1659
+- fix(components/chips): deletable chips xmark font icon replaced by base icon #1698
+
+### Refactor
+
+- refactor(components/chips): move multiply subscriptions to prizmLet
+
 ## [4.3.0](https://github.com/zyfra/Prizm) (22-05-2024)
 
 ### Features
