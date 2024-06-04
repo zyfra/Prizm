@@ -2,7 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.17.1, 2.14.1, 3.13.1](https://github.com/zyfra/Prizm) (20-05-2023)
+## [1.17.2, 2.14.2, 3.13.2](https://github.com/zyfra/Prizm) (03-06-2024)
+
+### Bug fixes
+
+- fix(components/paginator): fixed PrizmPaginatorComponent instance was incompatible with PrizmTableDataSource.paginator property #1746
+- fix(components/input-date-range): default time is set only after focus is removed - #1565
+- fix(components/input-number): fix sync state with input-layout #1645 #1644
+- fix(components/calendar): change calendar resrtictions ux #1674
+- fix(components/chips): dots overflows chip list container #1713
+- fix(components/input-layout): add margin bottom for label in outer inputs #1659
+
+### Refactor
+
+- refactor(components/chips): move multiply subscriptions to prizmLet
+
+## [1.17.1, 2.14.1, 3.13.1](https://github.com/zyfra/Prizm) (20-05-2024)
 
 ### Bug fixes
 
@@ -18,7 +33,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/cron): cron months blinks on hover #1642
 - fix(doc/dialog): add dismissable prop to live demo #1551
 
-## [1.17.0, 2.14.0, 3.13.0](https://github.com/zyfra/Prizm) (22-04-2023)
+## [1.17.0, 2.14.0, 3.13.0](https://github.com/zyfra/Prizm) (22-04-2024)
 
 ### Features
 
@@ -66,7 +81,7 @@ All notable changes to this project will be documented in this file.
 
 - refactor(charts): replace chart base options from theming to separate object
 
-## [1.16.0, 2.13.0, 3.12.0](https://github.com/zyfra/Prizm) (23-03-2023)
+## [1.16.0, 2.13.0, 3.12.0](https://github.com/zyfra/Prizm) (23-03-2024)
 
 ### Features
 
@@ -99,7 +114,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/navigation-menu): hint icon margins added for navigation menu #1329
 - fix(components/file-upload) fileupload buttons incorrect gap #1482
 
-## [1.15.1, 2.12.1, 3.11.1](https://github.com/zyfra/Prizm) (19-02-2023)
+## [1.15.1, 2.12.1, 3.11.1](https://github.com/zyfra/Prizm) (19-02-2024)
 
 ### Bug fixes
 
@@ -125,7 +140,7 @@ All notable changes to this project will be documented in this file.
   !!! if you use custom i18n dictionary you can get bc (our [ADR](https://jira.zyfra.com/wiki/x/crs6Dw))
 - fix(component/tabs): error with double emitted index on close tabs #1392 #1003 #1389
 
-## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2023)
+## [1.15.0, 2.12.0, 3.11.0](https://github.com/zyfra/Prizm) (30-01-2024)
 
 ### Features
 
@@ -141,7 +156,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/accordion): nested accordion button incorect behavior #1285
 - fix(components/accordion): custom title accordion example fix #1240
 
-## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2023)
+## [1.14.0, 2.11.0, 3.10.0](https://github.com/zyfra/Prizm) (19-01-2024)
 
 ### Features
 
