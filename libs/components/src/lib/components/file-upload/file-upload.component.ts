@@ -258,7 +258,9 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
 
     this.emitValidationErrors();
 
-    this.clearFiles({ emitEvent: false });
+    if (!this.multiple) {
+      this.clearFiles({ emitEvent: false });
+    }
 
     for (const file of filteredFiles) {
       this.filesMap.set(file.name, {
