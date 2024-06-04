@@ -18,7 +18,7 @@ import { PrizmTableSortKeyException } from '../../../exceptions';
 import { PrizmTableCellSorter, PrizmTableCellSorterHandler, PrizmTableSorterService } from '../service';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsArrowUpArrowDownV,
   prizmIconsArrowDownWideShort,
@@ -58,7 +58,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     return this.sortable || typeof this.sorter === 'function';
   }
 
-  private readonly iconsRegistry = inject(PrizmIconsRegistry);
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(
     @Optional()
@@ -70,7 +70,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
     @Inject(forwardRef(() => PrizmTableDirective))
     readonly table: PrizmTableDirective<T> | null
   ) {
-    this.iconsRegistry.registerIcons(
+    this.iconsFullRegistry.registerIcons(
       prizmIconsArrowUpArrowDownV,
       prizmIconsArrowDownWideShort,
       prizmIconsArrowUpWideShort
@@ -110,11 +110,6 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   get icon$(): Observable<string> {
     return this.sorterService.changes$.pipe(
       map(() =>
-        // !this.isCurrent
-        //   ? 'arrows-swap-vert-2'
-        //   : this.sorterService.cellOrder(this.key as string) === 'asc'
-        //   ? `sort-asc-arr`
-        //   : `sort-desc-arr`
         !this.isCurrent
           ? 'arrow-up-arrow-down-v'
           : this.sorterService.cellOrder(this.key as string) === 'asc'

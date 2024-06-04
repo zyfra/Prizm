@@ -15,12 +15,17 @@ export function getPrizmDeps(version: string) {
     case '3':
       prizmVersion = '3.x.x';
       break;
+
+    case '4':
+      prizmVersion = '4.x.x';
+      break;
   }
 
   return {
     '@prizm-ui/components': prizmVersion,
     '@prizm-ui/charts': prizmVersion,
     '@prizm-ui/core': prizmVersion,
+    ...(prizmVersion === '4.x.x' ? { '@prizm-ui/icons-loader': prizmVersion } : {}),
     '@prizm-ui/helpers': prizmVersion,
     '@prizm-ui/i18n': prizmVersion,
     '@prizm-ui/icons': prizmVersion,
@@ -91,7 +96,7 @@ export function getAllDeps(version: PrizmDocDemoMainVersion): Record<string, unk
 }
 
 export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
-  let ngVersion = '16.x.x';
+  let ngVersion = '17.x.x';
 
   switch (version) {
     case '1':
@@ -104,6 +109,10 @@ export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
 
     case '3':
       ngVersion = '16.x.x';
+      break;
+
+    case '4':
+      ngVersion = '17.x.x';
       break;
   }
 
@@ -121,4 +130,10 @@ export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
       '@angular/router': ngVersion,
     },
   };
+}
+
+export function isStandaloneComponent(code: string): boolean {
+  // Этот регулярный выражение ищет строку `standalone: true` с учетом различных вариантов кавычек и пробелов
+  const regex = /@Component\(\s*\{[^@]*['"]?standalone['"]?\s*:\s*true[^@]*\}/;
+  return regex.test(code);
 }

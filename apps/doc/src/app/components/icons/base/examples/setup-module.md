@@ -2,6 +2,8 @@
 // Использование svg
 import { NgModule } from '@angular/core';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { prizmIconsProvideLazyLoader } from '@prizm-ui/icons-loader';
+import { prizmIconsFullProvideLazyLoader } from '@prizm-ui/icons-loader/full';
 
 // ...
 
@@ -11,6 +13,18 @@ import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmIconsComponent,
     // for full variant
     PrizmIconsFullComponent,
+  ],
+  providers: [
+    /**
+     * For lazy load full icons
+     * use our loader for the get the full icons without having to register
+     * */
+    prizmIconsFullProvideLazyLoader(),
+    /**
+     * For lazy load base icons
+     * use our loader for the get the icons without having to register
+     * */
+    prizmIconsProvideLazyLoader(),
   ],
 })
 export class MyModule {}

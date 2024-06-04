@@ -3,7 +3,7 @@ import { PrizmCronUiYearState } from '../../cron-ui-year.state';
 import { PrizmCronUiBaseType } from '../../model';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmChipsComponent } from '../../../chips';
-import { PRIZM_CRON } from '@prizm-ui/components';
+import { PRIZM_CRON } from '../../../../tokens/i18n';
 import { Observable } from 'rxjs';
 import { PrizmLanguageCron } from '@prizm-ui/i18n';
 

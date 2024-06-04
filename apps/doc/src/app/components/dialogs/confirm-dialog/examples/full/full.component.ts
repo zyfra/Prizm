@@ -35,7 +35,7 @@ export class PrizmDialogFullExampleComponent {
           position: this.position,
           backdrop: this.backdrop,
           confirmButton: {
-            text: 'ПОДТВЕДИТЬ',
+            text: 'Подтвердить',
             appearance: 'success',
             action: context => {
               console.log('CLICK ON CONFIRM BUTTON');

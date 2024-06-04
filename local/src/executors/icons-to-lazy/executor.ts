@@ -131,7 +131,7 @@ export default async function runExecutor(options: IconsToLazyExecutorSchema): P
     fs.writeFileSync(path.join(iconFolderPath, indexTsName), `export * from './${fileWithoutExt}';`);
 
     // Подготовка данных для ленивой загрузки
-    const newPath = path.join(path.relative(destinationFolder, pathToFolder), iconName, fileWithoutExt);
+    const newPath = path.join(path.relative(destinationFolder, pathToFolder), iconName);
     result.push(`'${iconName}': () => import('./${newPath}').then((m) => m['${exportName}'])`);
 
     // создание папки

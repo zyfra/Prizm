@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmDay, PrizmDayRange } from '@prizm-ui/components';
 

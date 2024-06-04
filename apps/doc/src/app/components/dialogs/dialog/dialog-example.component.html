@@ -3,7 +3,7 @@
     Our dialog component is a modal window that can be used to display information or ask for user input.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleBasic" heading="Base">
+    <prizm-doc-example id="base" [stackblitzVersions]="null" [content]="exampleBasic" heading="Base">
       <prizm-dialog-service-example></prizm-dialog-service-example>
     </prizm-doc-example>
     <prizm-doc-example
@@ -13,14 +13,27 @@
     >
       <prizm-dialog-outer-header-example></prizm-dialog-outer-header-example>
     </prizm-doc-example>
-    <prizm-doc-example id="with-buttons" [content]="exampleWithButtons" heading="With Footer">
+    <prizm-doc-example
+      id="with-buttons"
+      [stackblitzVersions]="null"
+      [content]="exampleWithButtons"
+      heading="With Footer"
+    >
       <prizm-dialog-service-with-buttons-example></prizm-dialog-service-with-buttons-example>
     </prizm-doc-example>
-    <prizm-doc-example id="with-parent" [content]="exampleWithParent" heading="With Parent">
+    <prizm-doc-example
+      id="with-parent"
+      [stackblitzVersions]="null"
+      [content]="exampleWithParent"
+      heading="With Parent"
+    >
       <prizm-dialog-service-with-parent-example></prizm-dialog-service-with-parent-example>
     </prizm-doc-example>
     <prizm-doc-example id="result-handling" [content]="exampleResulthandling" heading="Result Handling">
       <prizm-dialog-service-result-handling-example></prizm-dialog-service-result-handling-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="custom-service" [content]="exampleCustomService" heading="Custom Service">
+      <prizm-dialog-custom-service-example></prizm-dialog-custom-service-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -89,6 +102,14 @@
         documentationPropertyType="boolean"
       >
         Backdrop
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="dismissible"
+        documentationPropertyName="dismissible"
+        documentationPropertyType="boolean"
+      >
+        Dismissible
       </ng-template>
 
       <ng-template

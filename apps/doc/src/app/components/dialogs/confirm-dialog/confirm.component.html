@@ -3,11 +3,16 @@
     Our confirm dialog is a simple dialog that is used to confirm an action.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
+    <prizm-doc-example id="base" [stackblitzVersions]="null" [content]="exampleBase" heading="Base">
       <prizm-dialog-service-example></prizm-dialog-service-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="horizontal" [content]="exampleHorizontal" heading="Horizontal">
+    <prizm-doc-example
+      id="horizontal"
+      [stackblitzVersions]="null"
+      [content]="exampleHorizontal"
+      heading="Horizontal"
+    >
       <prizm-dialog-horizontal-example></prizm-dialog-horizontal-example>
     </prizm-doc-example>
 

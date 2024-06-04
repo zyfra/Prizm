@@ -13,7 +13,7 @@ import {
   SimpleChanges,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId, prizmHasChanges } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
@@ -106,18 +106,18 @@ export class PrizmHintDirective<
   @Output()
   readonly prizmHintShowed = new EventEmitter<boolean>();
 
-  protected readonly onHoverActive: boolean = true;
+  public onHoverActive: boolean = true;
 
   content!: PolymorphContent;
   overlay!: PrizmOverlayControl;
-  protected readonly containerComponent: Type<unknown> = PrizmHintContainerComponent;
-  protected readonly show$ = new Subject<boolean>();
+  public containerComponent: Type<unknown> = PrizmHintContainerComponent;
+  public readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();
 
   private readonly prizmOverlayService: PrizmOverlayService = inject(PrizmOverlayService);
 
   private readonly renderer: Renderer2 = inject(Renderer2);
-  protected readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
+  public readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
   private readonly destroy$: PrizmDestroyService = inject(PrizmDestroyService);
   private readonly hoveredService: PrizmHoveredService = inject(PrizmHoveredService);
 
@@ -133,17 +133,12 @@ export class PrizmHintDirective<
 
   public ngOnChanges(changes?: SimpleChanges): void {
     this.show_ = false;
-
-    if (prizmHasChanges(changes, ['prizmHintHost', 'prizmHintContext'], true)) {
-      this.initOverlayController();
-    }
+    this.initOverlayController();
   }
 
   public ngOnInit(): void {
     this.initVisibleController();
     this.initShowedChangeListener();
-
-    this.initOverlayController();
   }
 
   protected initShowedChangeListener() {
@@ -223,6 +218,7 @@ export class PrizmHintDirective<
       .create({
         parentInjector: this.injector,
       });
+
     if (this.onHoverActive) {
       combineLatest([
         this.hoveredService.createHovered$(this.host),

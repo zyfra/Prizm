@@ -307,6 +307,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
+    if (!open) this.completeDateIfAreNotPending();
   }
 
   private completeDateIfAreNotPending() {

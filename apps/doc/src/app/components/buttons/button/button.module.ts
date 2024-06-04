@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { ButtonComponent } from './button.component';
 import { PrizmOutlineButtonsExampleComponent } from './examples/outline/outline-buttons-example.component';
@@ -17,15 +17,14 @@ import { PrizmButtonWithCounterExampleComponent } from './examples/counter/butto
     PrizmButtonModule,
     PrizmCounterModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ButtonComponent)),
-  ],
-  declarations: [
+
     PrizmFilledButtonsExampleComponent,
     PrizmOutlineButtonsExampleComponent,
     prizmIconsButtonsExampleComponent,
     PrizmGhostButtonsExampleComponent,
     PrizmButtonWithCounterExampleComponent,
-    ButtonComponent,
   ],
+  declarations: [ButtonComponent],
   exports: [ButtonComponent],
 })
 export class ButtonModule {}

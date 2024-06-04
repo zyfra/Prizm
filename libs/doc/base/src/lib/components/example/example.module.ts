@@ -13,6 +13,7 @@ import { TuiMapperPipeModule } from '@taiga-ui/cdk';
 import {
   PrizmButtonModule,
   PrizmDataListModule,
+  PrizmDropdownControllerDirective,
   PrizmDropdownHostModule,
   PrizmSwitcherModule,
 } from '@prizm-ui/components';
@@ -31,6 +32,7 @@ import {
     PrizmButtonModule,
     PrizmDropdownHostModule,
     PrizmDataListModule,
+    PrizmDropdownControllerDirective,
   ],
   declarations: [PrizmDocExampleComponent, PrizmDocExampleGetTabsPipe, PrizmDocExampleCapitalizePipe],
   exports: [PrizmDocExampleComponent, PrizmDocExampleGetTabsPipe, PrizmDocExampleCapitalizePipe],

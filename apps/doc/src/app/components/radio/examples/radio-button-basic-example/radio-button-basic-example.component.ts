@@ -8,7 +8,7 @@ import { UntypedFormControl } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class RadioButtonBasicExampleComponent {
-  @Input() public size: 'm' | 'l' | 's' = 'm';
+  public size: 'm' | 'l' | 's' = 's';
   public data: string[] = ['First property', 'Second property', 'Third property'];
   public form = new UntypedFormControl({ value: this.data[1], disabled: false });
 }

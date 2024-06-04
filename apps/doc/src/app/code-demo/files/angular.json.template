@@ -23,22 +23,20 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "@prizm-ui/icons/src/styles/icons",
-                "output": "assets/prizm-icons/fonts"
+                "input": "@prizm-ui/icons/src/styles/icons-base",
+                "output": "assets/prizm/icons/base"
+              },
+              {
+                "glob": "**/*",
+                "input": "@prizm-ui/icons/src/styles/icons-full",
+                "output": "assets/prizm/icons/full"
               }
+
             ],
             "styles": [
               "src/styles.less"
             ],
-            "scripts": [
-              "node_modules/marked/bin/marked.js",
-              "node_modules/prismjs/prism.js",
-              "node_modules/prismjs/components/prism-less.min.js",
-              "node_modules/prismjs/components/prism-markup.min.js",
-              "node_modules/prismjs/components/prism-typescript.min.js",
-              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
-              "node_modules/clipboard/dist/clipboard.min.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
