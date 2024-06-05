@@ -11,6 +11,8 @@ export class PrizmFileUploadI18nExampleComponent {
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
   files: Array<File> = [];
   disabled = false;
+  acceptedTypes = 'image/*';
+  maxFiles = 3;
 
   public onFilesChange(files: Array<File>): void {
     this.files = files;
