@@ -271,9 +271,11 @@ export class PrizmFileUploadComponent
     }
 
     this.beforeFilesChange.next();
-    if (filteredFiles.length > this.calculatedMaxFilesCount) {
-      this.filesCountError.next(filteredFiles.slice(this.calculatedMaxFilesCount).map(file => file.name));
-      filteredFiles.length = this.calculatedMaxFilesCount;
+
+    const filesCountDelta = this.calculatedMaxFilesCount - this.files.length;
+    if (filteredFiles.length + this.files.length > this.calculatedMaxFilesCount) {
+      this.filesCountError.next(filteredFiles.slice(filesCountDelta).map(file => file.name));
+      filteredFiles.length = filesCountDelta;
     }
 
     this.emitValidationErrors();
