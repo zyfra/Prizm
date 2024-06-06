@@ -17,10 +17,11 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
   maxFiles = 3;
 
   public onFilesChange(files: Array<File>): void {
-    this.files = files;
-    if (this.files.length > 0) {
-      this.send();
+    if (files.length > 0) {
+      this.send(files.slice(this.files.length));
     }
+
+    this.files = files;
   }
 
   public onfilesValidationErrors(errors: { [key: string]: PrizmFileValidationErrors }): void {
@@ -41,7 +42,7 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
     });
   }
 
-  public send(): void {
+  public send(files: File[]): void {
     this.disabled = true;
     const formData = new FormData();
     for (const file of this.files) {
@@ -62,14 +63,14 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
               this.disabled = false;
 
               if (event.status >= 200 && event.status < 300) {
-                for (const file of this.files) {
+                for (const file of files) {
                   this.progress$$.next({
                     ...this.progress$$.value,
                     [file.name]: { progress: 100, error: false },
                   });
                 }
               } else {
-                for (const file of this.files) {
+                for (const file of files) {
                   this.progress$$.next({
                     ...this.progress$$.value,
                     [file.name]: { error: true },
@@ -80,7 +81,7 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
               break;
             }
             case HttpEventType.UploadProgress: {
-              for (const file of this.files) {
+              for (const file of files) {
                 this.progress$$.next({
                   ...this.progress$$.value,
                   [file.name]: {
