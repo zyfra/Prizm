@@ -21,7 +21,7 @@
 
     <button
       class="dropzone__file-select"
-      [disabled]="disabled || files.length >= maxFilesCount"
+      [disabled]="disabled || files.length >= calculatedMaxFilesCount"
       (click)="inputFile.click()"
       type="button"
       prizmButton
