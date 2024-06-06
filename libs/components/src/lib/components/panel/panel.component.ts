@@ -8,11 +8,16 @@ import {
   ElementRef,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
+import { CommonModule } from '@angular/common';
+import { PrizmIconModule } from '../icon';
+import { PrizmButtonModule } from '../button';
 
 @Component({
   selector: 'prizm-panel',
   templateUrl: './panel.component.html',
   styleUrls: ['./panel.component.less'],
+  standalone: true,
+  imports: [CommonModule, PrizmIconModule, PrizmButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PanelComponent extends PrizmAbstractTestId {
@@ -29,3 +34,5 @@ export class PanelComponent extends PrizmAbstractTestId {
     this.backClick.emit();
   }
 }
+
+export const PrizmPanelComponent = PanelComponent;
