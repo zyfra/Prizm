@@ -22,6 +22,8 @@
     <button
       class="dropzone__file-select"
       [disabled]="disabled || files.length >= calculatedMaxFilesCount"
+      [prizmHint]="translations | prizmPluck : ['btn__select_hint_error']"
+      [prizmHintCanShow]="files.length >= calculatedMaxFilesCount"
       (click)="inputFile.click()"
       type="button"
       prizmButton

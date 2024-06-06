@@ -10,6 +10,7 @@ export interface PrizmLanguageFileUpload {
     dropzone__title: string;
     dropzone__description: string;
     btn__select: string;
+    btn__select_hint_error: string;
     idle?: string;
     progress?: string;
     warning?: string;
