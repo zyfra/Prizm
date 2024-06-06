@@ -5,6 +5,7 @@ export const PRIZM_RUSSIAN_FILE_UPLOAD: PrizmLanguageFileUpload = {
     dropzone__description: 'Выберите файл или перетащите его в эту область',
     dropzone__title: 'Загрузка файлов',
     btn__select: 'Выбрать',
+    btn__select_hint_error: 'Достигнут максимум количества загруженных файлов',
     idle: 'Ожидание загрузки',
     progress: 'Загрузка',
     warning: 'Ошибка',
