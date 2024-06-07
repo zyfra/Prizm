@@ -7,7 +7,6 @@ import {
   Inject,
   Injector,
   Input,
-  OnDestroy,
   OnInit,
   ViewChild,
 } from '@angular/core';
@@ -15,7 +14,7 @@ import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/fo
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmLanguageInputLayoutDateRelative } from '@prizm-ui/i18n';
-import { BehaviorSubject, Observable, Subscription } from 'rxjs';
+import { BehaviorSubject, Observable, takeUntil, tap } from 'rxjs';
 
 import {
   getDefaultRelativeDateMenuItems,
@@ -90,7 +89,7 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 })
 export class PrizmInputLayoutDateRelativeComponent
   extends PrizmInputNgControl<string | null>
-  implements OnInit, OnDestroy
+  implements OnInit
 {
   readonly nativeElementType = 'input-layout-date-relative';
   readonly hasClearButton = true;
@@ -130,8 +129,6 @@ export class PrizmInputLayoutDateRelativeComponent
   private activeNumber = '';
   private activeWrongFormat = false;
 
-  private readonly subscriptions = new Subscription();
-
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
@@ -160,6 +157,12 @@ export class PrizmInputLayoutDateRelativeComponent
   public override ngOnInit(): void {
     super.ngOnInit();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
+    this.ngControl.valueChanges
+      ?.pipe(
+        tap((value: string) => this.valueChange(value)),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public valueChange(value: string) {
@@ -173,10 +176,6 @@ export class PrizmInputLayoutDateRelativeComponent
       }
     }
     this.updateTouchedAndValue(value);
-  }
-
-  public ngOnDestroy(): void {
-    this.subscriptions.unsubscribe();
   }
 
   public onMenuItemClick(event: MouseEvent, item: RelativeDateMenuItem): void {

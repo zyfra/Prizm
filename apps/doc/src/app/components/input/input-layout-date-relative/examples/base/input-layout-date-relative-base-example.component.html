@@ -1,3 +1,11 @@
 <prizm-input-layout label="Относительное время">
   <prizm-input-layout-date-relative [formControl]="valueControl"></prizm-input-layout-date-relative>
 </prizm-input-layout>
+
+<br />
+<br />
+
+<button (click)="changeDate()" prizmButton appearance="primary" size="l">
+  <ng-container *prizmIfLang="'russian'; else eng"> Изменить дату</ng-container>
+  <ng-template #eng>Change Date</ng-template>
+</button>
