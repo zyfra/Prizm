@@ -25,7 +25,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     label: '3.13.2 (ng16)',
     version: '3.13.2',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
-    link: getDocSite.bind(null, 'http://3.12.0.doc.prizm.site', 'https://prizm-v3.web.app'),
+    link: getDocSite.bind(null, 'http://3.13.2.doc.prizm.site', 'https://prizm-v3.web.app'),
     otherLinks: [new URL('https://prizm-v3.web.app')],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v3--');
