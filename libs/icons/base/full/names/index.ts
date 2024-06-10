@@ -780,6 +780,7 @@ export const PRIZM_FULL_ICONS_NAMES = [
   'temp-selection-checkbox-blank-circle',
   'temp-selection-checkbox-blank',
   'temp-selection-checkbox-marked-circle-chanel',
+  'temp-selection-checkbox-marked-circle',
   'temp-selection-checked-1',
   'temp-selection-checked-2',
   'temp-selection-checked',

@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'prizm-base-icons';
-  src: url('/assets/prizm/icons/base/prizm-base-icons.eot?44c3553a2d1ad16ea1c02010e109b17a#iefix')
+  src: url('/assets/prizm/icons/base/prizm-base-icons.eot?72bcd659593a2bf8e8ae2e9a2b6e82b8#iefix')
       format('embedded-opentype'),
-    url('/assets/prizm/icons/base/prizm-base-icons.woff2?44c3553a2d1ad16ea1c02010e109b17a') format('woff2'),
-    url('/assets/prizm/icons/base/prizm-base-icons.woff?44c3553a2d1ad16ea1c02010e109b17a') format('woff'),
-    url('/assets/prizm/icons/base/prizm-base-icons.ttf?44c3553a2d1ad16ea1c02010e109b17a') format('truetype');
+    url('/assets/prizm/icons/base/prizm-base-icons.woff2?72bcd659593a2bf8e8ae2e9a2b6e82b8') format('woff2'),
+    url('/assets/prizm/icons/base/prizm-base-icons.woff?72bcd659593a2bf8e8ae2e9a2b6e82b8') format('woff'),
+    url('/assets/prizm/icons/base/prizm-base-icons.ttf?72bcd659593a2bf8e8ae2e9a2b6e82b8') format('truetype');
 }
