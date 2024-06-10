@@ -152,7 +152,7 @@ export class PrizmFileUploadComponent
       this.calculatedMaxFilesCount = this.multiple ? this._maxFilesCount : 1;
     }
 
-    if (this.files.length > this.calculatedMaxFilesCount) {
+    if (this.files.length > this.calculatedMaxFilesCount && this.multiple) {
       this.filesCountError.next(this.files.slice(this.calculatedMaxFilesCount).map(file => file.name));
     }
   }
@@ -273,7 +273,7 @@ export class PrizmFileUploadComponent
     this.beforeFilesChange.next();
 
     const filesCountDelta = this.calculatedMaxFilesCount - this.files.length;
-    if (filteredFiles.length + this.files.length > this.calculatedMaxFilesCount) {
+    if (filteredFiles.length + this.files.length > this.calculatedMaxFilesCount && this.multiple) {
       this.filesCountError.next(filteredFiles.slice(filesCountDelta).map(file => file.name));
       filteredFiles.length = filesCountDelta;
     }
