@@ -21,6 +21,7 @@ import {
   PrizmOverlayControl,
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
+  PrizmOverlayWindowControl,
 } from '../../modules/overlay';
 import { combineLatest, merge, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
@@ -40,7 +41,7 @@ export const HINT_HOVERED_CLASS = '_hint_hovered';
 export class PrizmHintDirective<
   OPTIONS extends PrizmHintOptions = PrizmHintOptions,
   CONTEXT extends PrizmHintContext = PrizmHintContext
-> implements OnChanges, OnInit, OnDestroy
+> implements OnChanges, OnInit, OnDestroy, PrizmOverlayWindowControl
 {
   protected readonly options = inject(PRIZM_HINT_OPTIONS) as OPTIONS;
   protected readonly injector = inject(Injector);
@@ -165,7 +166,7 @@ export class PrizmHintDirective<
     }
   }
 
-  protected open(): void {
+  public open(): void {
     if (this.show_) return;
     if (!this.prizmHintCanShow || this.content === '') return;
     this.show_ = true;
@@ -174,7 +175,7 @@ export class PrizmHintDirective<
     this.prizmHoveredChange$$.next(this.show_);
   }
 
-  protected close(): void {
+  public close(): void {
     if (!this.show_) return;
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
@@ -204,6 +205,7 @@ export class PrizmHintDirective<
       autoReposition: this.prizmAutoReposition,
       element: this.host,
     });
+
     this.overlay = this.prizmOverlayService
       .position(position)
       .config({
@@ -214,6 +216,8 @@ export class PrizmHintDirective<
         id: this.prizmHintId,
         hintTheme: this.prizmHintTheme,
         context: this.getContext(),
+        close: () => this.close(),
+        open: () => this.open(),
       })
       .create({
         parentInjector: this.injector,

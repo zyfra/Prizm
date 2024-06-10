@@ -132,3 +132,8 @@ export interface PrizmOverlayInputs {
   parentContainer: HTMLElement | undefined;
   zid: PrizmOverlayId | null;
 }
+
+export interface PrizmOverlayWindowControl {
+  close(): void;
+  open(): void;
+}

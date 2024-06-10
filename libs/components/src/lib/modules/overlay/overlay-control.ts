@@ -27,6 +27,7 @@ import {
   PrizmOverlayContentProps,
   PrizmOverlayEventName,
   PrizmOverlayId,
+  PrizmOverlayWindowControl,
 } from './models';
 import { PrizmOverlayAbstractPosition } from './position/position';
 import { PrizmOverlayComponent } from './overlay.component';
@@ -34,7 +35,7 @@ import { BODY_ELEMENT, EventBus, getContent } from './utils';
 import { WINDOW } from '@ng-web-apis/common';
 import { raceEmit } from '@prizm-ui/helpers';
 
-export class PrizmOverlayControl {
+export class PrizmOverlayControl implements PrizmOverlayWindowControl {
   position!: PrizmOverlayAbstractPosition;
   readonly config!: PrizmOverlayConfig;
   content!: PrizmOverlayContent;
