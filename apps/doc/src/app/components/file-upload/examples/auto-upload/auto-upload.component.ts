@@ -17,8 +17,10 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
   maxFiles = 3;
 
   public onFilesChange(files: Array<File>): void {
-    if (files.length > 0) {
-      this.send(files.slice(this.files.length));
+    const filesToUpload = files.filter(file => !this.files.some(el => el === file));
+
+    if (filesToUpload.length > 0) {
+      this.send(filesToUpload);
     }
 
     this.files = files;

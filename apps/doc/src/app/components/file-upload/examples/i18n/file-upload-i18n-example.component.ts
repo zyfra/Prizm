@@ -15,10 +15,13 @@ export class PrizmFileUploadI18nExampleComponent {
   maxFiles = 3;
 
   public onFilesChange(files: Array<File>): void {
-    this.files = files;
-    if (files.length > 0) {
-      this.send(files.slice(files.length));
+    const filesToUpload = files.filter(file => !this.files.some(el => el === file));
+
+    if (filesToUpload.length > 0) {
+      this.send(filesToUpload);
     }
+
+    this.files = files;
   }
 
   public onfilesValidationErrors(errors: { [key: string]: PrizmFileValidationErrors }): void {
