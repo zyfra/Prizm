@@ -14,13 +14,12 @@ import {
   Output,
   Self,
 } from '@angular/core';
-import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/forms';
+import { NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
 import { NgxMaskDirective } from 'ngx-mask';
-import { timer } from 'rxjs';
 
 @Component({
   selector:
@@ -274,7 +273,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private updateValue(value: VALUE): void {
-    if (value !== this.ngControl?.value) this.ngControl?.control?.setValue(value);
     if (value !== this.value) this._inputValue.value = value as string;
     this.inputHint?.updateHint();
   }
