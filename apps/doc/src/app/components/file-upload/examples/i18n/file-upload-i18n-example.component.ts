@@ -42,8 +42,8 @@ export class PrizmFileUploadI18nExampleComponent {
 
   public onFilesChange(files: Array<File>): void {
     this.files = files;
-    if (this.files.length > 0) {
-      this.send(files.slice(this.files.length));
+    if (files.length > 0) {
+      this.send(files.slice(files.length));
     }
   }
 
