@@ -152,7 +152,7 @@ export class PrizmFileUploadComponent
       this.calculatedMaxFilesCount = this.multiple ? this._maxFilesCount : 1;
     }
 
-    if (this.files.length > this.calculatedMaxFilesCount && this.multiple) {
+    if (this.files.length > this.calculatedMaxFilesCount) {
       this.filesCountError.next(this.files.slice(this.calculatedMaxFilesCount).map(file => file.name));
     }
   }
@@ -272,17 +272,25 @@ export class PrizmFileUploadComponent
 
     this.beforeFilesChange.next();
 
-    const filesCountDelta = this.calculatedMaxFilesCount - this.files.length;
-    if (filteredFiles.length + this.files.length > this.calculatedMaxFilesCount && this.multiple) {
-      this.filesCountError.next(filteredFiles.slice(filesCountDelta).map(file => file.name));
-      filteredFiles.length = filesCountDelta;
+    if (this.multiple) {
+      const filesCountDelta = this.calculatedMaxFilesCount - this.files.length;
+
+      if (filteredFiles.length + this.files.length > this.calculatedMaxFilesCount) {
+        this.filesCountError.next(filteredFiles.slice(filesCountDelta).map(file => file.name));
+        filteredFiles.length = filesCountDelta;
+      }
+    }
+
+    if (!this.multiple) {
+      if (filteredFiles.length > 1) {
+        this.filesCountError.next(filteredFiles.slice(1).map(file => file.name));
+        filteredFiles.length = 1;
+      }
+
+      this.clearFiles({ emitEvent: false });
     }
 
     this.emitValidationErrors();
-
-    if (!this.multiple) {
-      this.clearFiles({ emitEvent: false });
-    }
 
     for (const file of filteredFiles) {
       this.filesMap.set(file.name, {
