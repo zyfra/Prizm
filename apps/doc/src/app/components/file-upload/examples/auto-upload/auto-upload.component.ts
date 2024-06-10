@@ -45,7 +45,7 @@ export class PrizmFileAutoUploadExampleComponent implements OnDestroy {
   public send(files: File[]): void {
     this.disabled = true;
     const formData = new FormData();
-    for (const file of this.files) {
+    for (const file of files) {
       formData.append(file.name, file);
     }
 
