@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Inject, inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from './dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { prizmPure } from '@prizm-ui/core';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmToTypePipe } from '@prizm-ui/helpers';
 import {
   PrizmBaseDialogContext,
   PrizmDialogButton,
@@ -37,6 +37,7 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     PrizmThemeModule,
     PrizmOverlayModule,
     PrizmButtonModule,
+    PrizmToTypePipe,
     PrizmFocusTrapModule,
     PrizmInputIconButtonModule,
     PrizmScrollbarModule,
@@ -78,6 +79,8 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
   public get isFooterArray(): boolean {
     return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);
   }
+
+  readonly BUTTONS!: PrizmDialogButton<O, PrizmDialogOptions<O, DATA>>[];
 
   @prizmPure
   public get footer():
