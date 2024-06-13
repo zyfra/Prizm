@@ -75,7 +75,7 @@ export class AllIconComponent {
 
       if (search) {
         result = result.filter(i => i.toLowerCase().includes(search.toLowerCase()));
-        const maxPage = result.length / rowOnPage;
+        const maxPage = Math.ceil(result.length / rowOnPage) || 1;
         if (page > maxPage) this.page$$.next(maxPage);
       }
 
