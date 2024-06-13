@@ -429,6 +429,7 @@ export class PrizmInputLayoutDateTimeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
+    if (!open) this.completeDateIfAreNotPending();
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
