@@ -25,6 +25,8 @@ All notable changes to this project will be documented in this file.
 - fix(components/file-upload): multiply false paramenter works incorrect with uploading by drop #1770
 - fix(chore): remove cloud nx token
 - fix(doc): version detection on doc.zyfra or prizm.site #1133
+- fix(charts/line): add missing seriesField input to Line chart #1811
+- fix(doc/line): smoof line exaple source code link fix
 
 ### Breacking Changes
 
