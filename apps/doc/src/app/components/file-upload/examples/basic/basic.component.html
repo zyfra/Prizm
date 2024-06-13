@@ -1,8 +1,8 @@
 <prizm-file-upload
   [multiple]="true"
-  [accept]="'image/*'"
+  [accept]="acceptedTypes"
   [progress]="$any(progress$$ | async)"
-  [maxFilesCount]="3"
+  [maxFilesCount]="maxFiles"
   [maxFileSize]="1000000"
   [disabled]="disabled"
   (filesChange)="onFilesChange($event)"
@@ -11,9 +11,11 @@
   (retry)="retry($event)"
 >
   <ng-container *prizmIfLang="'russian'; else eng">
-    Максимум три изображения размером не более 1МБ
+    Загружено {{ files.length }}/{{ maxFiles }}. {{ acceptedTypes }} размером не более 1МБ.
   </ng-container>
-  <ng-template #eng> Maximum of three images up to 1MB in size </ng-template>
+  <ng-template #eng>
+    Uploaded {{ files.length }}/{{ maxFiles }}. {{ acceptedTypes }} up to 1MB in size
+  </ng-template>
 </prizm-file-upload>
 
 <button
@@ -24,5 +26,6 @@
   appearance="primary"
   size="m"
 >
-  Отправить
+  <ng-container *prizmIfLang="'russian'; else engBtn"> Отправить </ng-container>
+  <ng-template #engBtn> Upload </ng-template>
 </button>
