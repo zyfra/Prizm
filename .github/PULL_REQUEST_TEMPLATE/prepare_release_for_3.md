@@ -24,6 +24,8 @@
 
 ### Checklist:
 
+- [ ] Изменить версии в соответствующем массиве на ветке MAIN
+  - apps/doc/src/app/version-manager/versions.constants.ts
 - [ ] Замените NEW_VERSION на новую версию в этом PR
 - [ ] Замените CURRENT_DATE на текущую дату в этом PR
 - [ ] Добавить в каждый тип ваши изменения в этом PR
@@ -87,3 +89,6 @@
   - [ ] libs/theme/package.json.ng15
   - [ ] libs/theme/package.json.ng16
 - [ ] Составить readMe файл с описанием изменений на русском
+- [ ] Выпуск тега для v1
+- [ ] Выпуск тега для v2
+- [ ] Выпуск тега для v3
