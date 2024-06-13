@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { PanelComponent } from './panel.component';
-import { PrizmButtonComponent } from '../button';
+import { PrizmPanelComponent } from './panel.component';
 
+/**
+ * @deprecated
+ * use standalone
+ * */
 @NgModule({
-  declarations: [PanelComponent],
-  imports: [CommonModule, PrizmButtonComponent],
-  exports: [PanelComponent],
+  imports: [PrizmPanelComponent],
+  exports: [PrizmPanelComponent],
 })
 export class PrizmPanelModule {}
