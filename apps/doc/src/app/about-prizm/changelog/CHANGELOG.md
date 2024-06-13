@@ -26,7 +26,8 @@ All notable changes to this project will be documented in this file.
 - fix(chore): remove cloud nx token
 - fix(doc): version detection on doc.zyfra or prizm.site #1133
 - fix(charts/line): add missing seriesField input to Line chart #1811
-- fix(doc/line): smoof line exaple source code link fix
+- fix(doc/line): smooth line exaple source code link fix
+- fix(doc/tab): improve live demo example for counter options
 
 ### Breacking Changes
 
