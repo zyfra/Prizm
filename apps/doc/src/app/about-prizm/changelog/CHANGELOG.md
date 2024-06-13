@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/file-upload): newly uploaded files should not overwrte existing files array #1662
 - fix(components/file-upload): multiply false paramenter works incorrect with uploading by drop #1770
 - fix(components/file-upload): file size text small fixes
+- fix(doc/tab): improve live demo example for counter options
 
 ## [4.3.1](https://github.com/zyfra/Prizm) (03-05-2024)
 
