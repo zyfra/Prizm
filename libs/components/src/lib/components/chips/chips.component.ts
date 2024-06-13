@@ -170,7 +170,7 @@ export class PrizmChipsComponent
         if (result) this.overflowedChipsList$.value.add(idx);
         else this.overflowedChipsList$.value.delete(idx);
 
-        this.overflowedChipsList$.next(this.overflowedChipsList$.value);
+        this.overflowedChipsList$.next(new Set([...this.overflowedChipsList$.value]));
 
         return result;
       }),

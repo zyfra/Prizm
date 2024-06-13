@@ -6,3 +6,4 @@ export * from './decorators';
 export * from './uuid';
 export * from './style';
 export * from './number';
+export * from './directive';
