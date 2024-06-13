@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 
@@ -33,7 +33,7 @@ export class VersionManagerComponent {
     if (this.locationRef.hostname !== 'localhost') {
       this.initialVersion =
         this.versions.find(version =>
-          [version.link, ...version.otherLinks].find(
+          [version.link(), ...version.otherLinks].find(
             i => this.locationRef.hostname === i.hostname || version.cb?.(this.locationRef.hostname, version)
           )
         ) ?? null;
@@ -44,7 +44,7 @@ export class VersionManagerComponent {
     if (version.baseHref) {
       return `${this.locationRef.origin}/${version.baseHref}${this.router.url}${this.locationRef.search}`;
     } else {
-      return version.link?.href;
+      return version.link?.().href;
     }
   }
 }
