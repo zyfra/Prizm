@@ -222,29 +222,58 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   }
 
   public onValueFromChange(value: string, isFromValue: boolean): void {
-    // clear from mask
+    // Clear from mask
     value = value.replace(/[_]/g, '');
 
-    if (isFromValue && value === this.fromValue) return;
-    if (!isFromValue && value === this.toValue) return;
-    this.nativeValue$$.next(
-      isFromValue ? [value, this.nativeValue$$.value[1]] : [this.nativeValue$$.value[0], value]
-    );
+    const currentValue = isFromValue ? this.fromValue : this.toValue;
+    if (value === currentValue) return;
+
+    const otherValue = isFromValue ? this.nativeValue$$.value[1] : this.nativeValue$$.value[0];
+    this.nativeValue$$.next(isFromValue ? [value, otherValue] : [otherValue, value]);
+
     if (value == null) {
       this.onOpenChange(true);
     }
 
     if (!value || value.length !== this.computedSingleMask.length) {
-      if (!value && isFromValue && !this.value?.to && !isFromValue && !this.value?.from)
+      if (!value && isFromValue && !this.value?.to && !isFromValue && !this.value?.from) {
         this.updateValue(null);
+      }
       return;
     }
 
     const parsedValue = PrizmDay.normalizeParse(value, this.dateFormat);
-    this.updateWithCorrectDateAndTime(
-      isFromValue ? parsedValue : (this.value?.from as any),
-      isFromValue ? this.value?.to : (parsedValue as any)
+    const [parsedFromValue, parsedToValue] = this.ensureCorrectDateOrder(
+      isFromValue,
+      isFromValue ? parsedValue : this.value?.from,
+      isFromValue ? this.value?.to : parsedValue
     );
+
+    this.updateWithCorrectDateAndTime(parsedFromValue ?? null, parsedToValue ?? null);
+  }
+
+  /**
+   * Ensures that the date range is valid by adjusting the fromValue and toValue if necessary.
+   * If the fromValue is later than the toValue, it corrects the order based on the isFromValue flag.
+   *
+   * @param isFromValue - A boolean indicating if the change was made to the fromValue.
+   * @param fromValue - The starting date of the range.
+   * @param toValue - The ending date of the range.
+   * @returns A tuple containing the corrected fromValue and toValue.
+   */
+  private ensureCorrectDateOrder(
+    isFromValue: boolean,
+    fromValue?: PrizmDay,
+    toValue?: PrizmDay
+  ): [typeof fromValue, typeof toValue] {
+    if (fromValue && toValue && fromValue.getTime() > toValue.getTime()) {
+      if (isFromValue) {
+        fromValue = toValue.copy();
+      } else {
+        toValue = fromValue.copy();
+      }
+    }
+    return [fromValue, toValue];
   }
 
   public onRangeChange(range: PrizmDayRange | null): void {

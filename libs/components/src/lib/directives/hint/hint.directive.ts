@@ -13,7 +13,7 @@ import {
   SimpleChanges,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmGenerateId, prizmHasChanges } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
@@ -109,7 +109,7 @@ export class PrizmHintDirective<
   public onHoverActive: boolean = true;
 
   content!: PolymorphContent;
-  overlay!: PrizmOverlayControl;
+  overlay?: PrizmOverlayControl;
   public containerComponent: Type<unknown> = PrizmHintContainerComponent;
   public readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();
@@ -133,7 +133,11 @@ export class PrizmHintDirective<
 
   public ngOnChanges(changes?: SimpleChanges): void {
     this.show_ = false;
-    this.initOverlayController();
+    if (
+      prizmHasChanges(changes, ['prizmHintHost', 'prizmHint', 'prizmHintCanShow', 'prizmHintContext'], false)
+    ) {
+      this.initOverlayController();
+    }
   }
 
   public ngOnInit(): void {
@@ -154,7 +158,7 @@ export class PrizmHintDirective<
   }
 
   public ngOnDestroy(): void {
-    if (this.overlay) this.overlay.close();
+    this.overlay?.close();
   }
 
   public toggle(open: boolean): void {
@@ -170,7 +174,7 @@ export class PrizmHintDirective<
     if (!this.prizmHintCanShow || this.content === '') return;
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
-    this.overlay.open();
+    this.overlay?.open();
     this.prizmHoveredChange$$.next(this.show_);
   }
 

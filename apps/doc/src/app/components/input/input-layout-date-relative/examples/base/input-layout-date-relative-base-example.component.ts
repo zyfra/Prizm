@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
@@ -15,4 +15,8 @@ import { UntypedFormControl } from '@angular/forms';
 })
 export class PrizmInputLayoutDateRelativeBaseExampleComponent {
   public readonly valueControl = new UntypedFormControl();
+
+  public changeDate(): void {
+    this.valueControl.setValue('T-5M');
+  }
 }

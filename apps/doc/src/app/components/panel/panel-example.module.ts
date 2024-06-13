@@ -7,7 +7,7 @@ import { RouterModule } from '@angular/router';
 import {
   PrizmBreadcrumbsModule,
   PrizmButtonModule,
-  PrizmPanelModule,
+  PrizmPanelComponent,
   PrizmTabsModule,
   PrizmToggleComponent,
 } from '@prizm-ui/components';
@@ -34,7 +34,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(PanelExampleComponent)),
-    PrizmPanelModule,
+    PrizmPanelComponent,
     PrizmButtonModule,
     FormsModule,
     PrizmToggleComponent,
