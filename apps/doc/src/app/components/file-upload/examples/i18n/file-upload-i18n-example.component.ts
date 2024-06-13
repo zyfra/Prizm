@@ -9,6 +9,10 @@ export const PRIZM_ENGLISH_FILE_UPLOAD: PrizmLanguageFileUpload = {
     dropzone__description: 'Select a file or drag it to this area',
     dropzone__title: 'File upload',
     btn__select: 'Browse',
+    btn__select_hint_error: 'The maximum number of uploaded files has been reached',
+    file_size__byte: 'byte/bytes',
+    file_size__kb: 'KB',
+    file_size__mb: 'MB',
     idle: 'Waiting to upload',
     progress: 'Uploading',
     warning: 'Error',
@@ -33,12 +37,17 @@ export class PrizmFileUploadI18nExampleComponent {
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
   files: Array<File> = [];
   disabled = false;
+  acceptedTypes = 'image/*';
+  maxFiles = 3;
 
   public onFilesChange(files: Array<File>): void {
-    this.files = files;
-    if (this.files.length > 0) {
-      this.send();
+    const filesToUpload = files.filter(file => !this.files.some(el => el === file));
+
+    if (filesToUpload.length > 0) {
+      this.send(filesToUpload);
     }
+
+    this.files = files;
   }
 
   public onfilesValidationErrors(errors: { [key: string]: PrizmFileValidationErrors }): void {
@@ -59,10 +68,10 @@ export class PrizmFileUploadI18nExampleComponent {
     });
   }
 
-  public send(): void {
+  public send(files: File[]): void {
     this.disabled = true;
     const formData = new FormData();
-    for (const file of this.files) {
+    for (const file of files) {
       formData.append(file.name, file);
     }
 
@@ -80,14 +89,14 @@ export class PrizmFileUploadI18nExampleComponent {
               this.disabled = false;
 
               if (event.status >= 200 && event.status < 300) {
-                for (const file of this.files) {
+                for (const file of files) {
                   this.progress$$.next({
                     ...this.progress$$.value,
                     [file.name]: { progress: 100, error: false },
                   });
                 }
               } else {
-                for (const file of this.files) {
+                for (const file of files) {
                   this.progress$$.next({
                     ...this.progress$$.value,
                     [file.name]: { error: true },
@@ -98,7 +107,7 @@ export class PrizmFileUploadI18nExampleComponent {
               break;
             }
             case HttpEventType.UploadProgress: {
-              for (const file of this.files) {
+              for (const file of files) {
                 this.progress$$.next({
                   ...this.progress$$.value,
                   [file.name]: {
