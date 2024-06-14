@@ -136,7 +136,7 @@ export class PrizmHintDirective<
     if (
       prizmHasChanges(changes, ['prizmHintHost', 'prizmHint', 'prizmHintCanShow', 'prizmHintContext'], false)
     ) {
-      this.initOverlayController();
+      this.drawHint();
     }
   }
 
@@ -167,6 +167,12 @@ export class PrizmHintDirective<
     } else {
       this.close();
     }
+  }
+
+  // public api for support hint wrappers
+  public drawHint(): void {
+    this.show_ = false;
+    this.initOverlayController();
   }
 
   protected open(): void {
