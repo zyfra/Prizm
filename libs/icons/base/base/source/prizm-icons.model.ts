@@ -782,6 +782,7 @@ export type PrizmIconsType =
   | 'temp-selection-checkbox-blank-circle'
   | 'temp-selection-checkbox-blank'
   | 'temp-selection-checkbox-marked-circle-chanel'
+  | 'temp-selection-checkbox-marked-circle'
   | 'temp-selection-checked-1'
   | 'temp-selection-checked-2'
   | 'temp-selection-checked'
@@ -1684,6 +1685,7 @@ export const PrizmIconsType = {
   'temp-selection-checkbox-blank': 'temp-selection-checkbox-blank' as PrizmIconsType,
   'temp-selection-checkbox-marked-circle-chanel':
     'temp-selection-checkbox-marked-circle-chanel' as PrizmIconsType,
+  'temp-selection-checkbox-marked-circle': 'temp-selection-checkbox-marked-circle' as PrizmIconsType,
   'temp-selection-checked-1': 'temp-selection-checked-1' as PrizmIconsType,
   'temp-selection-checked-2': 'temp-selection-checked-2' as PrizmIconsType,
   'temp-selection-checked': 'temp-selection-checked' as PrizmIconsType,
@@ -2588,6 +2590,7 @@ export enum PrizmIconsEnum {
   TEMP_SELECTION_CHECKBOX_BLANK_CIRCLE = 'temp-selection-checkbox-blank-circle',
   TEMP_SELECTION_CHECKBOX_BLANK = 'temp-selection-checkbox-blank',
   TEMP_SELECTION_CHECKBOX_MARKED_CIRCLE_CHANEL = 'temp-selection-checkbox-marked-circle-chanel',
+  TEMP_SELECTION_CHECKBOX_MARKED_CIRCLE = 'temp-selection-checkbox-marked-circle',
   TEMP_SELECTION_CHECKED_1 = 'temp-selection-checked-1',
   TEMP_SELECTION_CHECKED_2 = 'temp-selection-checked-2',
   TEMP_SELECTION_CHECKED = 'temp-selection-checked',

@@ -779,6 +779,7 @@ export { prizmIconsTempProductGradeAccordingToSpecification } from './temp-produ
 export { prizmIconsTempSelectionCheckboxBlankCircle } from './temp-selection-checkbox-blank-circle/prizmIcons-temp-selection-checkbox-blank-circle.icon';
 export { prizmIconsTempSelectionCheckboxBlank } from './temp-selection-checkbox-blank/prizmIcons-temp-selection-checkbox-blank.icon';
 export { prizmIconsTempSelectionCheckboxMarkedCircleChanel } from './temp-selection-checkbox-marked-circle-chanel/prizmIcons-temp-selection-checkbox-marked-circle-chanel.icon';
+export { prizmIconsTempSelectionCheckboxMarkedCircle } from './temp-selection-checkbox-marked-circle/prizmIcons-temp-selection-checkbox-marked-circle.icon';
 export { prizmIconsTempSelectionChecked1 } from './temp-selection-checked-1/prizmIcons-temp-selection-checked-1.icon';
 export { prizmIconsTempSelectionChecked2 } from './temp-selection-checked-2/prizmIcons-temp-selection-checked-2.icon';
 export { prizmIconsTempSelectionChecked } from './temp-selection-checked/prizmIcons-temp-selection-checked.icon';

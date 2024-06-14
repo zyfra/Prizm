@@ -44,6 +44,14 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
   }
 
   @Input()
+  public set seriesField(value: string) {
+    this.updateOptions({ seriesField: value });
+  }
+  public get seriesField(): string {
+    return this.options.seriesField as string;
+  }
+
+  @Input()
   set data(value: PrizmChartsLineItem[]) {
     this.updateOptions({
       data: value,

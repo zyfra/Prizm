@@ -13,6 +13,8 @@ export class PrizmFileUploadBasicExampleComponent implements OnDestroy {
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
   files: Array<File> = [];
   disabled = false;
+  acceptedTypes = 'image/*';
+  maxFiles = 3;
 
   public onFilesChange(files: Array<File>): void {
     console.log('fileschange');

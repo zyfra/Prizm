@@ -339,6 +339,7 @@ export class PrizmInputLayoutDateTimeComponent
   private updateWithCorrectDateAndTime(value: [PrizmDay | null, PrizmTime | null]): void {
     if (!value) return;
     let [date, time] = value;
+    if (date && !time) time = new PrizmTime(0, 0, 0);
 
     const dateMin = this._min instanceof PrizmDay ? this._min : this._min && this._min[0];
     const dateMax = this._max instanceof PrizmDay ? this._max : this._max && this._max[0];
@@ -443,6 +444,7 @@ export class PrizmInputLayoutDateTimeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
+    if (!open) this.completeDateIfAreNotPending();
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
