@@ -1,5 +1,5 @@
 <prizm-input-layout label="Введите дату">
-  <prizm-input-layout-date-time [formControl]="value"></prizm-input-layout-date-time>
+  <prizm-input-layout-date-time [formControl]="value" [min]="min" [max]="max"></prizm-input-layout-date-time>
 </prizm-input-layout>
 <div>
   {{ value.value | date : 'short' }}
