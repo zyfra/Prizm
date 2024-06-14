@@ -55,7 +55,9 @@ export class PrizmChipsItemComponent extends PrizmAbstractTestId {
   readonly prizmIsTextOverflow$ = (
     elem: HTMLElement,
     hintCanShow: boolean,
-    forceShowHint: boolean
+    forceShowHint: boolean,
+    // for clear memory
+    ..._: unknown[]
   ): Observable<boolean> => {
     return of(forceShowHint).pipe(
       switchMap(val => {
