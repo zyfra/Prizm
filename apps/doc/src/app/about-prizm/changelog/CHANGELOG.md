@@ -28,6 +28,7 @@ All notable changes to this project will be documented in this file.
 - fix(charts/line): add missing seriesField input to Line chart #1811
 - fix(doc/line): smooth line exaple source code link fix
 - fix(doc/tab): improve live demo example for counter options
+- fix(components/chips): hint appears in multiselect after deletion #1815
 
 ### Breacking Changes
 
