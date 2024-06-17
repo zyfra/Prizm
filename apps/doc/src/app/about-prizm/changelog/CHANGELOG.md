@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.3.2](https://github.com/zyfra/Prizm) (13-05-2024)
+## [4.3.2](https://github.com/zyfra/Prizm) (17-06-2024)
 
 ### Bug fixes
 
@@ -24,8 +24,10 @@ All notable changes to this project will be documented in this file.
 - fix(doc/tab): improve live demo example for counter options
 - fix(components/chips): hint appears in multiselect after deletion #1815
 - fix(doc/icons): pagination on search icon #1701
+- fix(charts/line): add missing seriesField input to Line chart #1811
+- fix(doc/line): smooth line exaple source code link fix
 
-## [4.3.1](https://github.com/zyfra/Prizm) (03-05-2024)
+## [4.3.1](https://github.com/zyfra/Prizm) (04-06-2024)
 
 ### Bug fixes
 
