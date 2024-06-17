@@ -59,6 +59,7 @@ export class TabsExampleComponent {
     },
     {
       status: 'success',
+      disabled: false,
     },
     {
       status: 'warning',
