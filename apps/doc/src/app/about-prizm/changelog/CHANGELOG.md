@@ -2,7 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.3.1](https://github.com/zyfra/Prizm) (03-05-2024)
+## [4.3.2](https://github.com/zyfra/Prizm) (17-06-2024)
+
+### Bug fixes
+
+- fix(icons): restored icon selection-checkbox-marked-circle #1735
+- fix(components/chips): update chips on async changes #1754
+- fix(components/input-date-range): default time is set only after focus is removed #1762
+- fix(components/input-date-relative): active items not updated when value set by formControl #1685
+- fix(components/panel): set default border radius as 0px to panel #1767
+- fix(doc): version detection on doc.zyfra or prizm.site #1133
+- fix(components/input-date-time): display time 00:00 when a date is selected #1575
+- fix(components/hint): safe update overlay only when changes dependencies #1719 #716
+- fix(docs/tab): remove $any from basic example #841
+- fix(components/input-date-range): added corrector if from is more than to #1628
+- fix(components/panel): add prefix prizm to panel component #1665
+- fix(components/panel): converted panel component to standalone #1665
+- fix(components/file-upload): newly uploaded files should not overwrte existing files array #1662
+- fix(components/file-upload): multiply false paramenter works incorrect with uploading by drop #1770
+- fix(components/file-upload): file size text small fixes
+- fix(doc/tab): improve live demo example for counter options
+- fix(components/chips): hint appears in multiselect after deletion #1815
+- fix(doc/icons): pagination on search icon #1701
+- fix(charts/line): add missing seriesField input to Line chart #1811
+- fix(doc/line): smooth line exaple source code link fix
+
+## [4.3.1](https://github.com/zyfra/Prizm) (04-06-2024)
 
 ### Bug fixes
 
