@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.3](https://github.com/zyfra/Prizm) (18-06-2024)
+
+### Bug fixes
+
+- fix(icons): incorrect icons source path fixed.
+
 ## [4.3.2](https://github.com/zyfra/Prizm) (17-06-2024)
 
 ### Bug fixes
