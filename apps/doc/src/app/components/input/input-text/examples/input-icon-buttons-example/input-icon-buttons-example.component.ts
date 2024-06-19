@@ -6,4 +6,10 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./input-icon-buttons-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class InputIconButtonsExampleComponent {}
+export class InputIconButtonsExampleComponent {
+  public disabled = false;
+
+  public handleButtonClick() {
+    console.log('Button clicked!');
+  }
+}
