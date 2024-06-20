@@ -12,8 +12,8 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '4.3.2 (ng17)',
-    version: '4.3.2',
+    label: '4.3.4 (ng17)',
+    version: '4.3.4',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
     link: getDocSite.bind(null, 'https://doc.prizm.zyfra.com', 'http://prizm.site'),
 
@@ -23,10 +23,10 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '3.14.0 (ng16)',
-    version: '3.14.0',
+    label: '3.14.1 (ng16)',
+    version: '3.14.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
-    link: getDocSite.bind(null, 'http://3.14.0.doc.prizm.site', 'https://prizm-v3.web.app'),
+    link: getDocSite.bind(null, 'http://3.14.1.doc.prizm.site', 'https://prizm-v3.web.app'),
     otherLinks: [new URL('https://prizm-v3.web.app')],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v3--');
