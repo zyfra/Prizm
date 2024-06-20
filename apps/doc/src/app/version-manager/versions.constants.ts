@@ -33,8 +33,8 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '2.15.0 (ng15)',
-    version: '2.15.0',
+    label: '2.15.1 (ng15)',
+    version: '2.15.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v2-demo',
     link: getDocSite.bind(null, 'http://2.14.2.doc.prizm.site', 'https://prizm-v2.web.app'),
     otherLinks: [],
