@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/i18n",
-  "version": "1.18.0",
+  "version": "1.18.1",
   "peerDependencies": {
     "@angular/core": "^14.2.0"
   },

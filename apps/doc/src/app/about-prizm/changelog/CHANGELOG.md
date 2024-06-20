@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.18.1, 2.15.1, 3.14.1](https://github.com/zyfra/Prizm) (20-06-2024)
+
+### Bug Fixes
+
+- fix(doc/textarea): missing border property added for textarea livedemo #1803
+- fix(components/input-icon-button): disabled button should not fire events #1823
+
 ## [1.18.0, 2.15.0, 3.14.0](https://github.com/zyfra/Prizm) (13-06-2024)
 
 ### Features
