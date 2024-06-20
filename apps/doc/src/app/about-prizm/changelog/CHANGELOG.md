@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.4](https://github.com/zyfra/Prizm) (20-06-2024)
+
+### Bug fixes
+
+- fix(components/input-icon-button): disabled button should not fire events #1823
+- fix(components/inputs): fix markup for input icon button #1529, #1672
+- fix(doc/textarea): missing border property added for textarea livedemo #1803
+
 ## [4.3.3](https://github.com/zyfra/Prizm) (18-06-2024)
 
 ### Bug fixes
