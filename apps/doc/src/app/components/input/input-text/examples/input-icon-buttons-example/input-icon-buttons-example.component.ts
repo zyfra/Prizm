@@ -13,9 +13,14 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputIconButtonsExampleComponent {
+  public disabled = false;
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor() {
     this.iconsFullRegistry.registerIcons(prizmIconsCirclePlus, prizmIconsArrowRotateRight, prizmIconsLabel);
+  }
+
+  public handleButtonClick() {
+    console.log('Button clicked!');
   }
 }
