@@ -19,13 +19,18 @@ export class PrizmInputIconButtonComponent extends PrizmAbstractTestId {
   @Input() prizmInputIconButton!: string;
   @Input() interactive = false;
 
-  @HostBinding('class.disabled')
+  @HostBinding('attr.disabled')
   @Input()
   get disabled() {
-    return this._disabled;
+    return this._disabled || null;
   }
   set disabled(value: BooleanInput) {
     this._disabled = coerceBooleanProperty(value);
+  }
+
+  @HostBinding('class.disabled')
+  get classDisabled() {
+    return this._disabled;
   }
   private _disabled = false;
   @Input()
