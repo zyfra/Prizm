@@ -133,6 +133,11 @@ export class InputInputMultiSelectComponent {
     HTML: import('./examples/base/multi-select-base-example.component.html?raw'),
   };
 
+  readonly exampleAsync: TuiDocExample = {
+    TypeScript: import('./examples/async/multi-select-async-example.component.ts?raw'),
+    HTML: import('./examples/async/multi-select-async-example.component.html?raw'),
+  };
+
   readonly exampleWithTemplate: TuiDocExample = {
     TypeScript: import('./examples/with-template/multi-select-with-template-example.component.ts?raw'),
     HTML: import('./examples/with-template/multi-select-with-template-example.component.html?raw'),
