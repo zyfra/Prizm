@@ -21,7 +21,9 @@
 
     <button
       class="dropzone__file-select"
-      [disabled]="disabled || (multiple && files.length >= calculatedMaxFilesCount)"
+      [disabled]="disabled || files.length >= calculatedMaxFilesCount"
+      [prizmHint]="translations | prizmPluck : ['btn__select_hint_error']"
+      [prizmHintCanShow]="files.length >= calculatedMaxFilesCount"
       (click)="inputFile.click()"
       type="button"
       prizmButton
@@ -56,7 +58,9 @@
           <span class="file__name" #fileName>{{ item.key | prizmFileName }}</span>
           <span class="file__extension">{{ item.key | prizmFileExtension }}</span>
         </div>
-        <span class="file__size">{{ item.value.file.size | prizmFileSize }}</span>
+        <span class="file__size" *prizmLet="item.value.file.size | prizmFileSize as fileSize">
+          {{ fileSize.value + ' ' }} {{ translations | prizmPluck : [fileSize.key] }}
+        </span>
       </div>
 
       <div class="file__stage">
