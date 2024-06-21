@@ -18,6 +18,7 @@ export class AccordionExampleComponent {
   public iconVariants: ReadonlyArray<PolymorphContent> = ['', ...PRIZM_ICONS_NAMES];
   public icon: PolymorphContent = this.iconVariants[0];
   public isExpanded = false;
+  public prizmAccordionHeaderExpandedBorderColor = '';
 
   public readonly exampleBasicAccordion: TuiDocExample = {
     TypeScript: import('./examples/accordion-basic-example/accordion-basic-example.component?raw'),
