@@ -22,7 +22,7 @@ export const locations = [
       },
       {
         id: '5b89b3d3-6ec1-496b-86b0-b3bd558bc651',
-        name: 'Екатеринбург',
+        name: 'Верхненовокутлумбетьево',
       },
       {
         id: 'd21d6a35-0913-4cda-b6b7-ab2f90209578',
