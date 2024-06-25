@@ -40,7 +40,7 @@
       </prizm-slider>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation>
+    <prizm-doc-documentation [control]="fc">
       <ng-template
         [documentationPropertyValue]="fc | prizmCallFunc : isTouchedFromControl$ | async"
         (documentationPropertyValueChange)="setTouched(fc, $any($event))"
