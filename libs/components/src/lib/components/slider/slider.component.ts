@@ -235,6 +235,8 @@ export class PrizmSliderComponent
       const currentStep = Math.abs((this._value ?? 0) - this.min) / this.step;
       this.cnobPositions[1] = (currentStep / this.stepsCount) * 100;
     }
+
+    this.cdr.markForCheck();
   }
 
   private initCnobMoveHandler(): void {
