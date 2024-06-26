@@ -11,6 +11,7 @@ import { PrizmSliderVerticalExampleComponent } from './examples/slider-vertical-
 import { PrizmSliderStepExampleComponent } from './examples/slider-step-example/slider-step-example.component';
 import { PrizmSliderRangeExampleComponent } from './examples/slider-range-example/slider-range-example.component';
 import { PrizmSliderModule } from '@prizm-ui/components';
+import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -20,6 +21,7 @@ import { PrizmSliderModule } from '@prizm-ui/components';
     FormsModule,
     ReactiveFormsModule,
     PrizmSliderModule,
+    PrizmCallFuncPipe,
   ],
   declarations: [
     PrizmSliderExampleComponent,
