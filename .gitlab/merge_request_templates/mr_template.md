@@ -4,6 +4,7 @@
 - [ ] `@prizm-ui/install`
 - [ ] `@prizm-ui/icons`
 - [ ] `@prizm-ui/theme`
+- [ ] `documentation`
 
 ### Компонент
 
@@ -29,3 +30,7 @@ Checklist:
 ### Следует обратить внимание на ревью
 
 _На что нужно обратить внимание_
+
+### Release notes
+
+_Описание на русском для release notes_
