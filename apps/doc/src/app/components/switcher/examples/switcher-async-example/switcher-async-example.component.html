@@ -1,0 +1,13 @@
+<prizm-switcher [switchers]="switchers" [selectedSwitcherIdx]="1"></prizm-switcher>
+
+<br />
+<br />
+
+<prizm-switcher [switchers]="(switchers$ | async)!" [selectedSwitcherIdx]="1"></prizm-switcher>
+
+<br />
+<br />
+
+<!--  Note: properties order matters  -->
+
+<prizm-switcher [selectedSwitcherIdx]="1" [switchers]="switchers"></prizm-switcher>
