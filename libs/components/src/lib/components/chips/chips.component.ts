@@ -161,6 +161,13 @@ export class PrizmChipsComponent
         if (idx === 0) return 0;
         const maxPadding = 2;
         const needWidthPlaceForShowDots = 35;
+
+        let elementDisplayIsModified = false;
+
+        if (window.getComputedStyle(current.nativeElement).display === 'none') {
+          current.nativeElement.style.display = 'block';
+          elementDisplayIsModified = true;
+        }
         const offsetY = Math.abs(parent.offsetTop - current.nativeElement.offsetTop) > maxPadding;
 
         const parentX = parent.offsetLeft + parent.offsetWidth;
@@ -172,6 +179,7 @@ export class PrizmChipsComponent
 
         this.overflowedChipsList$.next(new Set([...this.overflowedChipsList$.value]));
 
+        if (elementDisplayIsModified) current.nativeElement.style.display = 'none';
         return result;
       }),
       map(i => (i ? 'hidden' : 'visible'))
