@@ -1,4 +1,13 @@
-import { Component, ElementRef, inject, Injector, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  Injector,
+  OnDestroy,
+  OnInit,
+  TemplateRef,
+  ViewChild,
+} from '@angular/core';
 import {
   PrizmOverlayControl,
   PrizmOverlayOutsidePlacement,
@@ -21,11 +30,11 @@ import {
     `,
   ],
 })
-export class PrizmOverlayCustomContextExampleComponent implements OnInit {
+export class PrizmOverlayCustomContextExampleComponent implements OnInit, OnDestroy {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef!: ElementRef;
   @ViewChild('someTemplate', { read: TemplateRef, static: true }) templateRef!: TemplateRef<unknown>;
 
-  private control!: PrizmOverlayControl;
+  private control?: PrizmOverlayControl;
   private injector = inject(Injector);
   constructor(private readonly overlay: PrizmOverlayService) {}
 
@@ -54,15 +63,19 @@ export class PrizmOverlayCustomContextExampleComponent implements OnInit {
       });
   }
 
+  ngOnDestroy(): void {
+    this.control?.destroy();
+  }
+
   public open(): void {
-    this.control.open();
+    this.control?.open();
   }
 
   public close(): void {
-    this.control.close();
+    this.control?.close();
   }
 
   public toggle(): void {
-    this.control.toggle();
+    this.control?.toggle();
   }
 }

@@ -1,4 +1,4 @@
-import { ApplicationRef, ComponentFactoryResolver, Injectable, Injector } from '@angular/core';
+import { ApplicationRef, ComponentFactoryResolver, inject, Injectable, Injector } from '@angular/core';
 import { PrizmOverlayDefaultConfig } from './config';
 import {
   PrizmOverlayConfig,
@@ -16,6 +16,7 @@ import { EventBus, getContent } from './utils';
 import { PrizmOverlayControl } from './overlay-control';
 import { PrizmOverlayContentToken } from './token';
 import { prizmGenerateId } from '@prizm-ui/helpers';
+import { finalize } from 'rxjs/operators';
 
 const DEFAULT_PRIZM_OVERLAY_INPUTS = {
   position: null,
@@ -32,8 +33,9 @@ export class PrizmOverlayService {
   static controls: { [key: string]: PrizmOverlayControl } = {};
   private zid!: PrizmOverlayId;
   private inputs: PrizmOverlayInputs = { ...DEFAULT_PRIZM_OVERLAY_INPUTS };
+  private readonly injector = inject(Injector);
 
-  constructor(private injector: Injector) {
+  constructor() {
     this.clearCache();
   }
 
@@ -72,7 +74,7 @@ export class PrizmOverlayService {
     key?: string;
     parentInjector?: Injector;
   } = {}): PrizmOverlayControl {
-    this.zid = this.inputs.zid = key ?? prizmGenerateId();
+    const zid = (this.zid = this.inputs.zid = key ?? prizmGenerateId());
     const inputsClone = { ...this.inputs };
 
     const injector = Injector.create({
@@ -90,11 +92,21 @@ export class PrizmOverlayService {
     });
 
     const tc = injector.get(PrizmOverlayControl);
-    if (PrizmOverlayService.controls[this.zid]) {
+
+    // destroy on clear
+    tc.onDestroy$
+      .pipe(
+        finalize(() => {
+          delete PrizmOverlayService.controls[zid];
+        })
+      )
+      .subscribe();
+
+    if (PrizmOverlayService.controls[zid]) {
       this.zid = prizmGenerateId();
     }
-    this.inputs.position?.init(this.zid);
-    PrizmOverlayService.controls[this.zid] = Object.assign(tc, { ...this.inputs });
+    this.inputs.position?.init(zid);
+    PrizmOverlayService.controls[zid] = Object.assign(tc, { ...this.inputs });
     this.clearCache();
     return tc;
   }

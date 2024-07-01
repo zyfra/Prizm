@@ -158,7 +158,7 @@ export class PrizmHintDirective<
   }
 
   public ngOnDestroy(): void {
-    this.overlay?.close();
+    this.overlay?.destroy();
   }
 
   public toggle(open: boolean): void {
@@ -240,7 +240,7 @@ export class PrizmHintDirective<
           }),
           tap(hovered => this.show$.next(hovered)),
           finalize(() => {
-            this.overlay?.close();
+            this.overlay?.destroy();
           }),
           takeUntil(merge(this.destroyListeners$, this.destroy$))
         )
