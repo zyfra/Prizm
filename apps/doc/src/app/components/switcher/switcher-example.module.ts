@@ -13,6 +13,7 @@ import { SwitcherOuterSExampleComponent } from './examples/switcher-outer-s-exam
 import { SwitcherWithIconExampleComponent } from './examples/switcher-with-icon-example/switcher-with-icon-example.component';
 import { SwitcherOnlyIconExampleComponent } from './examples/switcher-only-icon-example/switcher-only-icon-example.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SwitcherAsyncExampleComponent } from './examples/switcher-async-example/switcher-async-example.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     SwitcherOuterSExampleComponent,
     SwitcherWithIconExampleComponent,
     SwitcherOnlyIconExampleComponent,
+    SwitcherAsyncExampleComponent,
   ],
   imports: [
     CommonModule,
