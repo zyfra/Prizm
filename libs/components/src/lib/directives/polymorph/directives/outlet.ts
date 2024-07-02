@@ -1,6 +1,5 @@
 import {
   ChangeDetectorRef,
-  ComponentFactoryResolver,
   ComponentRef,
   Directive,
   DoCheck,
@@ -12,7 +11,6 @@ import {
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
-import { PolymorphComponent } from '../classes/component';
 import { PrimitiveContext } from '../classes/primitive-context';
 import { PolymorphContent } from '../types/content';
 import { PolymorphTemplate } from './template';
@@ -38,6 +36,8 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
   @Input('polymorphOutletInjector')
   injector: Injector = this.currentInjector;
 
+  #context?: C;
+
   constructor(
     private readonly viewContainerRef: ViewContainerRef,
     private readonly currentInjector: Injector,
@@ -55,7 +55,7 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
   // eslint-disable-next-line @angular-eslint/no-conflicting-lifecycle
   ngOnChanges({ content }: SimpleChanges): void {
     if (this.viewRef) {
-      this.viewRef.context = this.getContext();
+      this.#context = this.getContext() as C;
     }
 
     if (this.componentRef) {
@@ -77,9 +77,13 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
         injector: injector,
       });
     } else {
-      this.viewRef = this.viewContainerRef.createEmbeddedView(this.template, this.getContext(), {
-        injector: this.injector,
-      });
+      this.viewRef = this.viewContainerRef.createEmbeddedView(
+        this.template,
+        new Proxy((this.#context = this.getContext() as C), {}),
+        {
+          injector: this.injector,
+        }
+      );
     }
   }
 
