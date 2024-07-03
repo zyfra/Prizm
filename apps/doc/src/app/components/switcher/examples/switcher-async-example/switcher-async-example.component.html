@@ -1,13 +1,25 @@
-<prizm-switcher [switchers]="switchers" [selectedSwitcherIdx]="1"></prizm-switcher>
+<h2>Static</h2>
+
+<prizm-switcher [switchers]="switchers" [selectedSwitcherIdx]="selectedIndex"></prizm-switcher>
 
 <br />
 <br />
 
-<prizm-switcher [switchers]="(switchers$ | async)!" [selectedSwitcherIdx]="1"></prizm-switcher>
+<h2>Async</h2>
+<prizm-switcher [switchers]="(switchers$ | async)!" [selectedSwitcherIdx]="selectedIndex"></prizm-switcher>
 
 <br />
 <br />
 
-<!--  Note: properties order matters  -->
+<h2>Inverse attribute ordering</h2>
 
-<prizm-switcher [selectedSwitcherIdx]="1" [switchers]="switchers"></prizm-switcher>
+<prizm-switcher [selectedSwitcherIdx]="selectedIndex" [switchers]="switchers"></prizm-switcher>
+
+<br />
+<br />
+
+<button class="margin-right" (click)="toggleIndex()" prizmButton>
+  Update index. Current index is {{ selectedIndex }}
+</button>
+
+<button (click)="toggleSwitchers()" prizmButton>Update switchers</button>

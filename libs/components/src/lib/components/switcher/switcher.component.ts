@@ -5,9 +5,11 @@ import {
   EventEmitter,
   HostBinding,
   Input,
+  OnChanges,
   Optional,
   Output,
   Self,
+  SimpleChanges,
 } from '@angular/core';
 import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -17,6 +19,8 @@ import { noop } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-item.component';
 import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive';
+import { prizmHasChanges } from '@prizm-ui/helpers';
+import { INITIAL_SWITHCER_INDEX } from './swithcer.const';
 
 @Component({
   selector: 'prizm-switcher',
@@ -26,11 +30,7 @@ import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive
   standalone: true,
   imports: [CommonModule, PrizmSwitcherHintDirective, PrizmSwitcherItemComponent],
 })
-export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor {
-  onChange: (v: number) => void = noop;
-  onTouched: () => void = noop;
-  private selectedSwitcherIdx_ = 0;
-
+export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor, OnChanges {
   @Input()
   @prizmDefaultProp()
   public size: PrizmSwitcherSize = 'l';
@@ -45,13 +45,7 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
 
   @Input()
   @prizmDefaultProp()
-  public set selectedSwitcherIdx(idx: number) {
-    const item = this.switchers[idx];
-    if (item) this.selectSwitcher(item, idx);
-  }
-  get selectedSwitcherIdx() {
-    return this.selectedSwitcherIdx_;
-  }
+  public selectedSwitcherIdx: number = INITIAL_SWITHCER_INDEX;
 
   @Input()
   @HostBinding('class.full-width')
@@ -62,6 +56,9 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
 
   override readonly testId_ = 'ui_switcher';
 
+  onChange: (v: number) => void = noop;
+  onTouched: () => void = noop;
+
   constructor(
     public readonly cdRef: ChangeDetectorRef,
     @Optional() @Self() public readonly ngControl: NgControl
@@ -71,11 +68,19 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
       this.ngControl.valueAccessor = this;
     }
   }
+  ngOnChanges(changes: SimpleChanges): void {
+    if (prizmHasChanges(changes, 'selectedSwitcherIdx') && prizmHasChanges(changes, 'switchers')) {
+      const idx =
+        this.selectedSwitcherIdx <= this.switchers.length ? this.selectedSwitcherIdx : INITIAL_SWITHCER_INDEX;
+      const item = this.switchers[idx];
+      if (item) this.selectSwitcher(item, idx);
+    }
+  }
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
     if (this.ngControl?.disabled) return;
     if (item.disabled) return;
     if (this.selectedSwitcherIdx === idx) return;
-    this.selectedSwitcherIdxChange.emit((this.selectedSwitcherIdx_ = idx));
+    this.selectedSwitcherIdxChange.emit((this.selectedSwitcherIdx = idx));
     this.onChange(this.selectedSwitcherIdx);
   }
 
