@@ -70,7 +70,6 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
   public updateContextIfCan() {
     if (!this.embeddedRef) return;
     this.context = this.getContext();
-    // if (this.context !== this.embeddedRef.context) this.embeddedRef.context = this.context;
     this.embeddedRef.markForCheck();
   }
 
