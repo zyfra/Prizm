@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { InputLayoutDateTimeTimeComponent } from './input-layout-date-time.component';
-import { PolymorphModule, PrizmInputLayoutDateTimeModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonComponent, PrizmInputLayoutDateTimeModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutDateTimeBaseExampleComponent } from './examples/base/input-layout-date-time-base-example.component';
 import { PrizmInputLayoutDateTimeWithSecondsExampleComponent } from './examples/with-seconds/input-layout-date-time-with-seconds-example.component';
@@ -22,6 +22,7 @@ import { PrizmInputLayoutDateTimeBaseTransformerExampleComponent } from './examp
     PolymorphModule,
     PrizmInputLayoutDateTimeModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateTimeTimeComponent)),
+    PrizmButtonComponent,
   ],
   declarations: [
     PrizmInputLayoutDateTimeBaseTransformerExampleComponent,
