@@ -51,6 +51,8 @@
           [timeStrict]="timeStrict"
           [placeholder]="placeholder"
           [timeMode]="timeMode"
+          [min]="min"
+          [max]="max"
         ></prizm-input-layout-date-time>
       </prizm-input-layout>
     </prizm-doc-demo>
@@ -86,16 +88,18 @@
       </ng-template>
 
       <ng-template
+        [documentationPropertyValues]="minMaxVariants"
         documentationPropertyName="min"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime] | Date"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime] | Date | string"
         documentationPropertyMode="input"
       >
         Min Date
       </ng-template>
 
       <ng-template
+        [documentationPropertyValues]="minMaxVariants"
         documentationPropertyName="max"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime] | Date"
+        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime] | Date | string"
         documentationPropertyMode="input"
       >
         Max Date
