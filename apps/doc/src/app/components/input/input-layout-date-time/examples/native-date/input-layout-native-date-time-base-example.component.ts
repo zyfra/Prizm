@@ -8,9 +8,8 @@ import { prizmGetInputDateTimeNativeTransformer } from '@prizm-ui/components';
   providers: [prizmGetInputDateTimeNativeTransformer()],
   styles: [
     `
-      .box {
-        display: flex;
-        gap: 1rem;
+      [prizmButton] {
+        margin-right: 24px;
       }
     `,
   ],
