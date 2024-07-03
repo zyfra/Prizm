@@ -1,7 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { map, takeUntil, timer } from 'rxjs';
+import { BehaviorSubject, switchMap, takeUntil, tap, timer } from 'rxjs';
 
 @Component({
   selector: 'prizm-switcher-async-example',
@@ -11,7 +11,8 @@ import { map, takeUntil, timer } from 'rxjs';
   providers: [PrizmDestroyService],
 })
 export class SwitcherAsyncExampleComponent {
-  public readonly switchers: PrizmSwitcherItem[] = [
+  public selectedIndex = 1;
+  public readonly switchersSetA: PrizmSwitcherItem[] = [
     {
       title: 'Таблицы',
     },
@@ -20,15 +21,43 @@ export class SwitcherAsyncExampleComponent {
     },
     {
       title: 'Мнемосхемы',
+      disabled: true,
     },
     {
       title: 'Дашборды',
     },
   ];
 
+  public readonly switchersSetB: PrizmSwitcherItem[] = [
+    {
+      title: 'Москва',
+    },
+    {
+      title: 'Санкт-Петербург',
+    },
+  ];
+
+  public switchers: PrizmSwitcherItem[] = this.switchersSetA;
+
   public readonly switchers$ = timer(100).pipe(
-    map(() => this.switchers),
+    switchMap(() => this.switchers$$),
+    tap(value => (this.switchers = value)),
     takeUntil(this.destroy$)
   );
+
+  private readonly switchers$$: BehaviorSubject<PrizmSwitcherItem[]> = new BehaviorSubject<
+    PrizmSwitcherItem[]
+  >(this.switchersSetA);
+
   constructor(private readonly destroy$: PrizmDestroyService) {}
+
+  public toggleIndex(): void {
+    this.selectedIndex === 1 ? (this.selectedIndex = 2) : (this.selectedIndex = 1);
+  }
+
+  public toggleSwitchers(): void {
+    this.switchers === this.switchersSetA
+      ? this.switchers$$.next(this.switchersSetB)
+      : this.switchers$$.next(this.switchersSetA);
+  }
 }
