@@ -41,6 +41,16 @@ export class InputLayoutDateComponent {
   public size: PrizmInputSize = 'm';
   public outer = false;
 
+  public minMaxVariants = [
+    new PrizmDay(2015, 3, 15),
+    '2018-11-18T08:04:30+00:00',
+    '2022-09-06T13:56:13.757Z',
+    new Date(2027, 1, 1, 30, 0, 0),
+    'invalid date string',
+  ];
+  public min = this.minMaxVariants[0];
+  public max = this.minMaxVariants[3];
+
   forceClear: boolean | null = null;
   forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
 

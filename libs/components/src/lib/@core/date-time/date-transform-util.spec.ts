@@ -44,4 +44,12 @@ describe('transformDateIfNeeded', () => {
     const result = transformDateIfNeeded(dateString);
     expect(expectedResult).toEqual(result);
   });
+
+  it('should return a PrizmDay if flag dayOnly === true is passed in', () => {
+    const date = new Date();
+    const dateString = date.toUTCString();
+    const expectedResult = new PrizmDay(date.getFullYear(), date.getMonth(), date.getDate());
+    const result = transformDateIfNeeded(dateString, true);
+    expect(expectedResult).toEqual(result);
+  });
 });

@@ -2,7 +2,8 @@ import { PrizmDay } from './day';
 import { PrizmTime } from './time';
 
 export function transformDateIfNeeded(
-  value: PrizmDay | [PrizmDay, PrizmTime] | Date | string
+  value: PrizmDay | [PrizmDay, PrizmTime] | Date | string,
+  dayOnly?: boolean
 ): PrizmDay | [PrizmDay, PrizmTime] {
   if (typeof value === 'string') {
     const parsedString = new Date(value);
@@ -14,7 +15,9 @@ export function transformDateIfNeeded(
   }
 
   if (value instanceof Date) {
-    return [PrizmDay.fromLocalNativeDate(value), PrizmTime.fromLocalNativeDate(value)];
+    return dayOnly
+      ? PrizmDay.fromLocalNativeDate(value)
+      : [PrizmDay.fromLocalNativeDate(value), PrizmTime.fromLocalNativeDate(value)];
   } else {
     return value;
   }
