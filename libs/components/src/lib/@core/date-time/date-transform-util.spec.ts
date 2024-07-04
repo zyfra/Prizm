@@ -19,8 +19,29 @@ describe('transformDateIfNeeded', () => {
   it('should return an array [PrizmDay, PrizmTime] if Date is passed in', () => {
     const day = new PrizmDay(2019, 1, 1);
     const time = new PrizmTime(18, 30);
+    const date = new Date(2019, 1, 1, 18, 30);
     const expectedResult = [day, time];
-    const result = transformDateIfNeeded(day);
+    const result = transformDateIfNeeded(date);
+    expect(expectedResult).toEqual(result);
+  });
+
+  it('should return an array [PrizmDay, PrizmTime] if valid ISOString is passed in', () => {
+    const date = new Date();
+    const day = new PrizmDay(date.getFullYear(), date.getMonth(), date.getDate());
+    const time = new PrizmTime(date.getHours(), date.getMinutes(), date.getSeconds(), date.getMilliseconds());
+    const dateString = date.toISOString();
+    const expectedResult = [day, time];
+    const result = transformDateIfNeeded(dateString);
+    expect(expectedResult).toEqual(result);
+  });
+
+  it('should return an array [PrizmDay, PrizmTime] if valid UTCString is passed in', () => {
+    const date = new Date();
+    const day = new PrizmDay(date.getFullYear(), date.getMonth(), date.getDate());
+    const time = new PrizmTime(date.getHours(), date.getMinutes(), date.getSeconds());
+    const dateString = date.toUTCString();
+    const expectedResult = [day, time];
+    const result = transformDateIfNeeded(dateString);
     expect(expectedResult).toEqual(result);
   });
 });
