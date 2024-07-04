@@ -5,9 +5,12 @@ export function transformDateIfNeeded(
   value: PrizmDay | [PrizmDay, PrizmTime] | Date | string
 ): PrizmDay | [PrizmDay, PrizmTime] {
   if (typeof value === 'string') {
-    value = new Date(value);
+    const parsedString = new Date(value);
+    if (isNaN(parsedString.getTime())) {
+      throw new Error(`${value} is not valid ISO or UTC string`);
+    }
 
-    // TODO check id date is valid
+    value = parsedString;
   }
 
   if (value instanceof Date) {
