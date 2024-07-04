@@ -22,6 +22,7 @@ import {
   PRIZM_LAST_DAY,
   PrizmDay,
   PrizmMonth,
+  PrizmTime,
 } from '../../../@core/date-time';
 import {
   PrizmBooleanHandler,
@@ -59,6 +60,7 @@ import { PrizmLinkComponent } from '../../link';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
+import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 
 @Component({
   selector: `prizm-input-layout-date`,
@@ -102,17 +104,26 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
 
   public mask = prizmCreateDateNgxMask(this.dateFormat, this.dateSeparator);
 
-  @Input()
   @prizmDefaultProp()
-  min = PRIZM_FIRST_DAY;
+  _min: PrizmDay = PRIZM_FIRST_DAY;
+
+  @Input()
+  set min(value: PrizmDay | Date | string) {
+    this._min = transformDateIfNeeded(value, true) as PrizmDay;
+  }
 
   @Input()
   @prizmDefaultProp()
   placeholder = '';
 
+  @prizmDefaultProp()
+  _max: PrizmDay = PRIZM_LAST_DAY;
+
   @Input()
   @prizmDefaultProp()
-  max = PRIZM_LAST_DAY;
+  set max(value: PrizmDay | Date | string) {
+    this._max = transformDateIfNeeded(value, true) as PrizmDay;
+  }
 
   @Input()
   @prizmDefaultProp()
