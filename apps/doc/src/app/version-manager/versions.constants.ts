@@ -28,8 +28,8 @@ export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
 ];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '4.3.1 (ng17)',
-    version: '4.3.1',
+    label: '4.3.4 (ng17)',
+    version: '4.3.4',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
     link: getDocSite.bind(null, 'https://doc.prizm.zyfra.com', 'http://prizm.site'),
 
@@ -39,30 +39,30 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '3.12.0 (ng16)',
-    version: '3.12.0',
-    stackblitz: 'https://stackblitz.com/edit/prizm-v2-demo',
-    link: getDocSite.bind(null, 'http://3.12.0.doc.prizm.site', 'https://prizm-v3.web.app'),
+    label: '3.14.1 (ng16)',
+    version: '3.14.1',
+    stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
+    link: getDocSite.bind(null, 'http://3.14.0.doc.prizm.site', 'https://prizm-v3.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v3--');
     },
   },
   {
-    label: '2.13.0 (ng15)',
-    version: '2.13.0',
+    label: '2.15.1 (ng15)',
+    version: '2.15.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v2-demo',
-    link: getDocSite.bind(null, 'http://2.13.0.doc.prizm.site', 'https://prizm-v2.web.app'),
+    link: getDocSite.bind(null, 'http://2.15.0.doc.prizm.site', 'https://prizm-v2.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v2--');
     },
   },
   {
-    label: '1.16.0 (ng14)',
-    version: '1.16.0',
+    label: '1.18.1 (ng14)',
+    version: '1.18.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-demo',
-    link: getDocSite.bind(null, 'http://1.16.0.doc.prizm.site', 'https://prizm-v1.web.app'),
+    link: getDocSite.bind(null, 'http://1.18.0.doc.prizm.site', 'https://prizm-v1.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v1--');
