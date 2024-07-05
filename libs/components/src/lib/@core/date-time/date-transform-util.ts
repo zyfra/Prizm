@@ -17,12 +17,7 @@ export function transformDateIfNeeded(
   dayOnly?: boolean
 ): PrizmDateTimeMinMax | PrizmDay | [PrizmDay, PrizmTime] {
   if (typeof value === 'string') {
-    const parsedString = new Date(value);
-    if (isNaN(parsedString.getTime())) {
-      throw new Error(`${value} is not valid ISO or UTC string`);
-    }
-
-    value = parsedString;
+    value = parseDateString(value);
   }
 
   if (value instanceof Date) {
@@ -32,4 +27,13 @@ export function transformDateIfNeeded(
   } else {
     return value;
   }
+}
+
+export function parseDateString(dateStr: string) {
+  const parsedString = new Date(dateStr);
+  if (isNaN(parsedString.getTime())) {
+    throw new Error(`${dateStr} is not valid ISO or UTC string`);
+  }
+
+  return parsedString;
 }
