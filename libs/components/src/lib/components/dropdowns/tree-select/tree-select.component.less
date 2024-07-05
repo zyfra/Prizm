@@ -1,0 +1,15 @@
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+
+@Component({
+  selector: 'prizm-tree-select',
+  templateUrl: './input-select-item.component.html',
+  styleUrls: ['./input-select-item.component.less'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [],
+  providers: [PrizmDestroyService],
+  exportAs: 'prizmSelectInputItem',
+}) export class PrizmTreeSelectComponent {
+
+}
