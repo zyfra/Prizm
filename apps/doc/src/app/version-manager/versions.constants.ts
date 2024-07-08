@@ -12,8 +12,8 @@ export interface PrizmVersionMeta {
 
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '4.3.4 (ng17)',
-    version: '4.3.4',
+    label: '4.3.5 (ng17)',
+    version: '4.3.5',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
     link: getDocSite.bind(null, 'https://doc.prizm.zyfra.com', 'http://prizm.site'),
 
