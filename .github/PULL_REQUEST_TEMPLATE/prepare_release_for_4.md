@@ -61,6 +61,7 @@
   - [ ] libs/icons/flags/package.json
   - [ ] libs/icons/flags/package.json.ng17
   - [ ] libs/icons/loader/package.json
+  - [ ] libs/icons/loader/package.json.ng17
   - [ ] libs/nxmv/package.json
   - [ ] libs/nxmv/package.json.ng17
   - [ ] libs/plugin/package.json
