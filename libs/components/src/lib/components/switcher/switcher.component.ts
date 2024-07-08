@@ -70,10 +70,7 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (prizmHasChanges(changes, 'selectedSwitcherIdx') && prizmHasChanges(changes, 'switchers')) {
-      const idx =
-        this.selectedSwitcherIdx <= this.switchers.length ? this.selectedSwitcherIdx : INITIAL_SWITHCER_INDEX;
-      const item = this.switchers[idx];
-      if (item) this.selectSwitcher(item, idx);
+      this.setActiveSwitcherOnChange();
     }
   }
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
@@ -96,5 +93,12 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
 
   public setDisabledState(isDisabled: boolean): void {
     this.cdRef.markForCheck();
+  }
+
+  private setActiveSwitcherOnChange(): void {
+    const idx =
+      this.selectedSwitcherIdx <= this.switchers.length ? this.selectedSwitcherIdx : INITIAL_SWITHCER_INDEX;
+    const item = this.switchers[idx];
+    if (item) this.selectSwitcher(item, idx);
   }
 }
