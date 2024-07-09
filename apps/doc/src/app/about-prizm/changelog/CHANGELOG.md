@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.5](https://github.com/zyfra/Prizm) (08-07-2024)
+
+### Bug fixes
+
+- fix(component/overlay): fix bug with memory leak #1637 #1403
+- fix(component/dropdown-host): fix bug with destroy overlay #1637 #1403
+- fix(component/hint): fix bug with destroy overlay #1637 #1403
+
 ## [4.3.4](https://github.com/zyfra/Prizm) (20-06-2024)
 
 ### Bug fixes
