@@ -1,23 +1,18 @@
-import { Injector, Type } from '@angular/core';
+import type { Type } from '@angular/core';
+// eslint-disable-next-line no-duplicate-imports
+import { Injector } from '@angular/core';
 import { POLYMORPH_CONTEXT } from '../tokens/context';
 
-/**
- * Wrapper class for a component that will be used as content for {@link PolymorphOutletDirective}
- *
- * @param component — an Angular component to be dynamically created
- * @param injector — optional {@link Injector} for lazy loaded module case
- */
-// eslint-disable-next-line @typescript-eslint/ban-types
-export class PolymorphComponent<T extends object, C = any> {
-  constructor(readonly component: Type<T>, private readonly injector: Injector | null = null) {}
+export class PolymorphComponent<T> {
+  constructor(public readonly component: Type<T>, private readonly i?: Injector) {}
 
-  public createInjector(injector: Injector, context: C): Injector {
+  public createInjector<C>(injector: Injector, useValue?: C): Injector {
     return Injector.create({
-      parent: this.injector || injector,
+      parent: this.i || injector,
       providers: [
         {
           provide: POLYMORPH_CONTEXT,
-          useValue: context,
+          useValue,
         },
       ],
     });

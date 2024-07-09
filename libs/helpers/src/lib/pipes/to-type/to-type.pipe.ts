@@ -8,8 +8,11 @@ import { Pipe, PipeTransform } from '@angular/core';
  */
 @Pipe({ name: 'prizmToType', standalone: true })
 export class PrizmToTypePipe implements PipeTransform {
-  public transform<T>(value: unknown, _typeSource: T): T {
-    return value as T;
+  public transform<T>(value: unknown, _typeSource: 'string'): string;
+  public transform<T>(value: unknown, _typeSource: 'number'): number;
+  public transform<T>(value: unknown, _typeSource: T): T;
+  public transform(value: unknown, _typeSource: any): typeof _typeSource {
+    return value;
   }
 }
 /**
