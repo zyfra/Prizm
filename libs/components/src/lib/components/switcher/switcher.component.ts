@@ -5,22 +5,21 @@ import {
   EventEmitter,
   HostBinding,
   Input,
-  OnChanges,
+  OnInit,
   Optional,
   Output,
   Self,
-  SimpleChanges,
 } from '@angular/core';
 import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { noop } from 'rxjs';
+import { BehaviorSubject, combineLatestWith, noop, takeUntil, tap } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-item.component';
 import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive';
-import { prizmHasChanges } from '@prizm-ui/helpers';
 import { INITIAL_SWITHCER_INDEX } from './swithcer.const';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-switcher',
@@ -29,8 +28,9 @@ import { INITIAL_SWITHCER_INDEX } from './swithcer.const';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule, PrizmSwitcherHintDirective, PrizmSwitcherItemComponent],
+  providers: [PrizmDestroyService],
 })
-export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor, OnChanges {
+export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor, OnInit {
   @Input()
   @prizmDefaultProp()
   public size: PrizmSwitcherSize = 'l';
@@ -39,13 +39,28 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
   @prizmDefaultProp()
   public type: PrizmSwitcherType = 'inner';
 
-  @Input()
-  @prizmDefaultProp()
-  public switchers: PrizmSwitcherItem[] = [];
+  private swithcers$: BehaviorSubject<PrizmSwitcherItem[]> = new BehaviorSubject<PrizmSwitcherItem[]>([]);
 
   @Input()
   @prizmDefaultProp()
-  public selectedSwitcherIdx: number = INITIAL_SWITHCER_INDEX;
+  public set switchers(value: PrizmSwitcherItem[]) {
+    if (value) this.swithcers$.next(value);
+  }
+  get switchers(): PrizmSwitcherItem[] {
+    return this.swithcers$.value;
+  }
+
+  private selectedSwitcherIdx$: BehaviorSubject<number> = new BehaviorSubject(INITIAL_SWITHCER_INDEX);
+  public selectedSwitcherIdx_ = INITIAL_SWITHCER_INDEX;
+
+  @Input()
+  @prizmDefaultProp()
+  public set selectedSwitcherIdx(value: number) {
+    this.selectedSwitcherIdx$.next(value);
+  }
+  get selectedSwitcherIdx(): number {
+    return this.selectedSwitcherIdx_;
+  }
 
   @Input()
   @HostBinding('class.full-width')
@@ -61,18 +76,19 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
 
   constructor(
     public readonly cdRef: ChangeDetectorRef,
-    @Optional() @Self() public readonly ngControl: NgControl
+    @Optional() @Self() public readonly ngControl: NgControl,
+    private readonly destroy$: PrizmDestroyService
   ) {
     super();
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
     }
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    if (prizmHasChanges(changes, 'selectedSwitcherIdx') && prizmHasChanges(changes, 'switchers')) {
-      this.setActiveSwitcherOnChange();
-    }
+
+  ngOnInit(): void {
+    this.handleSwitchersUpdate();
   }
+
   public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
     if (this.ngControl?.disabled) return;
     if (item.disabled) return;
@@ -95,10 +111,33 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
     this.cdRef.markForCheck();
   }
 
-  private setActiveSwitcherOnChange(): void {
-    const idx =
-      this.selectedSwitcherIdx <= this.switchers.length ? this.selectedSwitcherIdx : INITIAL_SWITHCER_INDEX;
-    const item = this.switchers[idx];
-    if (item) this.selectSwitcher(item, idx);
+  private handleSwitchersUpdate() {
+    this.swithcers$
+      .pipe(
+        tap(switchers => {
+          if (!this.isIndexValid(this.selectedSwitcherIdx_, switchers)) {
+            this.selectedSwitcherIdx_ = INITIAL_SWITHCER_INDEX;
+          }
+        }),
+        combineLatestWith(this.selectedSwitcherIdx$),
+        tap(([switchers, selectedSwitcherIdx]) => {
+          if (!switchers.length) return;
+
+          if (!this.isIndexValid(selectedSwitcherIdx, switchers)) {
+            console.warn('selectedSwitcherIdx out of bound');
+            return;
+          }
+
+          this.selectedSwitcherIdx_ = selectedSwitcherIdx;
+
+          this.selectSwitcher(switchers[selectedSwitcherIdx], selectedSwitcherIdx);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  private isIndexValid(idx: number, switchers: PrizmSwitcherItem[]): boolean {
+    return !!switchers[idx];
   }
 }
