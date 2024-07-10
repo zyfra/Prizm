@@ -12,6 +12,7 @@ import { BehaviorSubject, switchMap, takeUntil, tap, timer } from 'rxjs';
 })
 export class SwitcherAsyncExampleComponent {
   public selectedIndex = 1;
+  public testIndex = this.selectedIndex;
   public readonly switchersSetA: PrizmSwitcherItem[] = [
     {
       title: 'Таблицы',
@@ -59,5 +60,9 @@ export class SwitcherAsyncExampleComponent {
     this.switchers === this.switchersSetA
       ? this.switchers$$.next(this.switchersSetB)
       : this.switchers$$.next(this.switchersSetA);
+  }
+
+  public updateIdx(idx: number) {
+    this.selectedIndex = idx;
   }
 }

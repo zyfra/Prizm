@@ -1,19 +1,31 @@
 <h2>Static</h2>
 
-<prizm-switcher [switchers]="switchers" [selectedSwitcherIdx]="selectedIndex"></prizm-switcher>
+<prizm-switcher
+  [switchers]="switchers"
+  [selectedSwitcherIdx]="selectedIndex"
+  (selectedSwitcherIdxChange)="updateIdx($event)"
+></prizm-switcher>
 
 <br />
 <br />
 
 <h2>Async</h2>
-<prizm-switcher [switchers]="(switchers$ | async)!" [selectedSwitcherIdx]="selectedIndex"></prizm-switcher>
+<prizm-switcher
+  [switchers]="(switchers$ | async)!"
+  [selectedSwitcherIdx]="selectedIndex"
+  (selectedSwitcherIdxChange)="updateIdx($event)"
+></prizm-switcher>
 
 <br />
 <br />
 
 <h2>Inverse attribute ordering</h2>
 
-<prizm-switcher [selectedSwitcherIdx]="selectedIndex" [switchers]="switchers"></prizm-switcher>
+<prizm-switcher
+  [selectedSwitcherIdx]="selectedIndex"
+  [switchers]="switchers"
+  (selectedSwitcherIdxChange)="updateIdx($event)"
+></prizm-switcher>
 
 <br />
 <br />
