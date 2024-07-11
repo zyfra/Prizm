@@ -23,6 +23,14 @@ export class PrizmChartsTreemapComponent<
   private origin_!: PrizmChartsTreemapOrigin;
 
   @Input()
+  public set color(value: PrizmChartsTreemapOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsTreemapOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set colorField(value: string) {
     this.updateOptions({ colorField: value });
   }
