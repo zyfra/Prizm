@@ -21,6 +21,7 @@
         [theme]="$any(prizmTheme.changesTheme$ | async)"
         [height]="height"
         [width]="width"
+        [color]="color"
       ></prizm-charts-area>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -90,6 +91,14 @@
         documentationPropertyMode="input"
       >
         Height
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color. Sets color to line. Note, for chart with seriesField use colors array.
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
