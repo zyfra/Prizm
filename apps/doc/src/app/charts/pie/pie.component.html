@@ -24,6 +24,7 @@
         [interactions]="interactions"
         [label]="label"
         [theme]="$any(prizmTheme.changesTheme$ | async)"
+        [color]="color"
       >
       </prizm-charts-pie>
     </prizm-doc-demo>
@@ -102,6 +103,14 @@
         documentationPropertyMode="input"
       >
         Label
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color. Sets charts color. Note, for chart with seriesField use colors array.
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
