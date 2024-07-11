@@ -20,6 +20,12 @@ export class WaterfallComponent {
   ];
   public xField = 'type';
   public yField = 'money';
+  public colorVariants = [
+    '',
+    ['red', 'blue', 'green', 'yellow'],
+    ['#b07e9f', '#7dbbb0', '#a37c18', '#e7bee6', '#396878', '#6699cc', '#fc9e7b'],
+  ];
+  public color = this.colorVariants[0];
   public options = {
     appendPadding: [15, 0, 0, 0],
     meta: {
