@@ -26,6 +26,14 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends
     return this.origin?.options?.data;
   }
 
+  @Input()
+  public set color(value: PrizmChartsAriaOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsAriaOptions['color'] {
+    return this.options.color;
+  }
+
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });
   }
