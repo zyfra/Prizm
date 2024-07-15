@@ -232,7 +232,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   private onBlur(): void {
     this.focused = false;
     this._touched = true;
-    console.log('#mz blur');
     this.stateChanges.next();
   }
 
@@ -318,10 +317,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
         this.ngControl?.control?.markAsUntouched();
       }
     }
-
-    console.log('#mz markControl', {
-      options,
-    });
 
     if (typeof dirty === 'boolean') {
       if (dirty) {

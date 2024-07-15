@@ -376,9 +376,6 @@ export class PrizmSelectInputComponent<T>
 
   public override updateValue(value: T) {
     super.updateValue(value);
-    console.log('#mz updateValue', {
-      value,
-    });
     // set touched on change value
     this.ngControl.control?.markAsTouched();
   }
