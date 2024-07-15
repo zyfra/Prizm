@@ -277,7 +277,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private updateValue(value: VALUE): void {
-    // if (value !== this.ngControl?.value) this.ngControl?.control?.setValue(value);
     if (value !== this.value) this.renderer2_.setProperty(this._inputValue, 'value', value);
     this.inputHint?.updateHint();
   }
