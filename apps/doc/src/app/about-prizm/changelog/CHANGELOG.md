@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.6](https://github.com/zyfra/Prizm) (15-07-2024)
+
+### Bug fixes
+
+- fix(components/tab): add correct icon name to registry for right arrow #1860
+- fix(components/switcher): add async example for issue #1476
+- fix(doc/chips): error with toched and dirty stated
+- fix(components/input-text): error with PrizmInputComponent with NgxMaskDirective behaves incorrectly when changed from empty value
+
+### Refactor
+
+- refactor(components/input-text): refactored
+
 ## [4.3.5](https://github.com/zyfra/Prizm) (08-07-2024)
 
 ### Bug fixes
