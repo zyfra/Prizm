@@ -69,6 +69,11 @@ export class InputLayoutDateComponent {
     HTML: import('./examples/native-date/input-native-date-base-example.component.html?raw'),
   };
 
+  readonly exampleDateProvider: TuiDocExample = {
+    TypeScript: import('./examples/date-provider/input-date-provider-example.component.ts?raw'),
+    HTML: import('./examples/date-provider/input-date-provider-example.component.html?raw'),
+  };
+
   readonly exampleDouble: TuiDocExample = {
     TypeScript: import('./examples/range-separate/input-layout-date-range-separate-example.component.ts?raw'),
     HTML: import('./examples/range-separate/input-layout-date-range-separate-example.component.html?raw'),
