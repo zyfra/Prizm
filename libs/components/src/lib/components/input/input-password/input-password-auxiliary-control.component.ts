@@ -14,7 +14,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     [interactive]="true"
     [disabled]="
       (inputPassword?.prizmInputText?.ngControl?.statusChanges &&
-        inputPassword.prizmInputText.ngControl.statusChanges | async) &&
+        inputPassword.prizmInputText.ngControl!.statusChanges | async) &&
       inputPassword?.prizmInputText?.ngControl?.disabled
     "
     (click)="toggle()"
