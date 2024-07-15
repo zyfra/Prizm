@@ -46,6 +46,7 @@
             [prizmHintCanShow]="prizmHintCanShow"
             [ngModelOptions]="{ standalone: true }"
             [ngModel]="text ?? ''"
+            (blur)="onTouch()"
             (focus)="focused$$.next(true)"
             (blur)="focused$$.next(false)"
             prizmInput
@@ -96,12 +97,12 @@
     </ng-template>
 
     <ng-template #dropdown>
-      <ng-container> </ng-container>
       <prizm-data-list
         class="block"
         *prizmLet="(filteredItems$ | async) ?? [] as items"
         [scroll]="customItemDataList ? 'none' : dropdownScroll"
         [style.--prizm-data-list-border]="0"
+        (prizmOnDestroy)="onTouch()"
       >
         <div class="list-search-item" *ngIf="searchable">
           <!-- TODO remove default text value in 4.0, bc #dr -->

@@ -20,7 +20,7 @@ import {
   PrizmLetDirective,
   PrizmToObservablePipe,
 } from '@prizm-ui/helpers';
-import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import {
   isPolymorphPrimitive,
   PolymorphContent,
@@ -134,7 +134,10 @@ import { prizmI18nInitWithKey } from '../../../services';
   ],
   exportAs: 'prizmSelectInput',
 })
-export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> implements OnInit {
+export class PrizmSelectInputComponent<T>
+  extends PrizmInputNgControl<T>
+  implements OnInit, ControlValueAccessor
+{
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
@@ -349,7 +352,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public select(item: T): void {
-    this.markAsTouched();
     const selectedValue = item && this.transformer(item);
     if (!this.identityMatcher(selectedValue, this.value)) {
       this.updateValue(selectedValue);
@@ -367,7 +369,9 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public override updateValue(value: T) {
     super.updateValue(value);
-
+    console.log('#mz updateValue', {
+      value,
+    });
     // set touched on change value
     this.ngControl.control?.markAsTouched();
   }

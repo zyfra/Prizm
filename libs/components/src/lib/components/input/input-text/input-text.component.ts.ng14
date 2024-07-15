@@ -23,7 +23,7 @@ import { MaskDirective } from 'ngx-mask';
 
 @Component({
   selector:
-    // eslint-disable-next-line @angular-eslint/component-selector
+  // eslint-disable-next-line @angular-eslint/component-selector
     'input[prizmInput]:not([type=number]), textarea[prizmInput], input[prizmInputPassword]',
   template: '',
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
