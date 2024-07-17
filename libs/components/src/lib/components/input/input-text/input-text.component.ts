@@ -17,7 +17,7 @@ import {
   Renderer2,
   Self,
 } from '@angular/core';
-import { NgControl, Validators } from '@angular/forms';
+import { FormControl, NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
@@ -215,13 +215,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this.stateChanges.complete();
   }
 
-  @HostListener('input', ['$event'])
-  private onInput(): void {
-    this.stateChanges.next();
-    this.updateValue(this.value);
-    this.valueChanged.next(this.value);
-  }
-
   @HostListener('focus', ['$event'])
   private onFocus(): void {
     this.focused = true;
@@ -285,7 +278,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     if (this.disabled) return;
 
     this.updateValue(null as VALUE);
-
+    this.ngControl?.control?.setValue('');
     this.updateEmptyState();
     this.updateErrorState();
 
