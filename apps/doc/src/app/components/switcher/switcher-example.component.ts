@@ -71,6 +71,11 @@ export class SwitcherExampleComponent {
     HTML: import('./examples/switcher-async-example/switcher-async-example.component.html?raw'),
   };
 
+  public readonly exampleAsyncSwitcher: TuiDocExample = {
+    TypeScript: import('./examples/switcher-async-example/switcher-async-example.component?raw'),
+    HTML: import('./examples/switcher-async-example/switcher-async-example.component.html?raw'),
+  };
+
   public readonly exampleInnerLSwitcher: TuiDocExample = {
     TypeScript: import('./examples/switcher-inner-l-example/switcher-inner-l-example.component?raw'),
     HTML: import('./examples/switcher-inner-l-example/switcher-inner-l-example.component.html?raw'),
