@@ -14,7 +14,7 @@ import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/fo
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmLanguageInputLayoutDateRelative } from '@prizm-ui/i18n';
-import { BehaviorSubject, Observable, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, takeUntil, tap } from 'rxjs';
 
 import {
   getDefaultRelativeDateMenuItems,
@@ -53,6 +53,7 @@ import {
   prizmIconsSymbolAsterisk,
 } from '@prizm-ui/icons/base/source';
 import { prizmIconsClockRotateRight } from '@prizm-ui/icons/full/source';
+import { distinctUntilChanged } from 'rxjs/operators';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -128,7 +129,7 @@ export class PrizmInputLayoutDateRelativeComponent
   private activePeriodId!: RelativeDatePeriodId;
   private activeNumber = '';
   private activeWrongFormat = false;
-
+  private valueChanged$$ = new Subject<string>();
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   constructor(
@@ -163,19 +164,32 @@ export class PrizmInputLayoutDateRelativeComponent
         takeUntil(this.destroy$)
       )
       .subscribe();
+    this.initValueListener();
+  }
+
+  private initValueListener() {
+    this.valueChanged$$
+      .pipe(
+        distinctUntilChanged(),
+        tap(value => {
+          this.parseInputValue(value);
+          this.actualizeMenu();
+          if (!this.activeWrongFormat) {
+            if (this.activePeriodId && !this.activeNumber) {
+              this.activeNumber = '1';
+              this.actualizeInput();
+              return;
+            }
+          }
+          this.updateTouchedAndValue(value);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public valueChange(value: string) {
-    this.parseInputValue(value);
-    this.actualizeMenu();
-    if (!this.activeWrongFormat) {
-      if (this.activePeriodId && !this.activeNumber) {
-        this.activeNumber = '1';
-        this.actualizeInput();
-        return;
-      }
-    }
-    this.updateTouchedAndValue(value);
+    this.valueChanged$$.next(value);
   }
 
   public onMenuItemClick(event: MouseEvent, item: RelativeDateMenuItem): void {
