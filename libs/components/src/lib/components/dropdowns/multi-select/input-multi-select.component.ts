@@ -149,6 +149,10 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   @Input()
   @prizmDefaultProp()
+  dropdownAutoReposition = this.options.autoReposition;
+
+  @Input()
+  @prizmDefaultProp()
   placeholder = this.options.placeholder;
 
   @Input()
