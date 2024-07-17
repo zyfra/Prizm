@@ -20,13 +20,13 @@ import { default as d } from './examples/input-phone-example/input-phone-example
 export class InputComponent {
   public disabled = false;
   public testIdPostfix!: string;
-  public control = new UntypedFormControl();
   public required = false;
   public hidden = false;
   public label = 'Заголовок';
 
   value = 'some text';
   placeholder = '';
+  public control = new UntypedFormControl(this.value);
 
   public border = false;
   public inputPosition: PrizmInputPosition = 'left';

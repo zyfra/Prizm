@@ -22,6 +22,7 @@
     [placeholder]="placeholder"
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
+    (blur)="onTouch()"
     prizmInput
   />
 
@@ -31,6 +32,7 @@
       *prizmLet="{ filteredItems: filteredItems$ | async } as $"
       [scroll]="dropdownScroll"
       [style.--prizm-data-list-border]="0"
+      (prizmOnDestroy)="onTouch()"
     >
       <div class="list-search-item" *ngIf="searchable">
         <prizm-input-layout [label]="searchLabelTranslation$ | async" size="m">

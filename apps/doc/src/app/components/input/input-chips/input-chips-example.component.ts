@@ -30,7 +30,7 @@ export class InputChipsExampleComponent {
   public inputPositions: PrizmInputPosition[] = ['left', 'center'];
   public outer!: false;
   public readonly control = new UntypedFormControl([]);
-  public readonly control2 = new UntypedFormControl([]);
+  public readonly controlText = new UntypedFormControl('');
   public size: PrizmInputSize = 'l';
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
