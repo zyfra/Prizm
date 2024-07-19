@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
+  HostBinding,
   inject,
   Inject,
   Input,
@@ -34,6 +35,7 @@ import {
   prizmIconsChevronsDoubleLeft,
   prizmIconsChevronsDoubleRight,
 } from '@prizm-ui/icons/full/source';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-paginator',
@@ -111,6 +113,12 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
   @Input() moreButtonLabel = 'Показать еще';
 
   @Input() public rowsCountOptions: number[] = [];
+
+  @Input()
+  @HostBinding('class.direction-left')
+  @prizmDefaultProp()
+  public directionLeft = false;
+
   @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
     new EventEmitter<PrizmPaginatorOutput>();
   @Output() public pageChange: EventEmitter<number> = new EventEmitter<number>();

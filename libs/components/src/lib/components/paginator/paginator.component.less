@@ -92,4 +92,18 @@
       }
     }
   }
+
+  &.direction-left {
+    .container {
+      flex-direction: row-reverse;
+
+      .content:has(.rows__show) {
+        flex-direction: row-reverse;
+      }
+
+      .rows-selector {
+        margin-right: 0;
+      }
+    }
+  }
 }
