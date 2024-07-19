@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   forwardRef,
+  inject,
   Inject,
   Injector,
   Input,
@@ -31,13 +32,27 @@ import { PrizmDateButton } from '../../../types';
 import { prizmI18nInitWithKey } from '../../../services';
 import { prizmIsNativeFocusedIn } from '../../../util';
 import { CommonModule } from '@angular/common';
-import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
+import { PolymorphOutletDirective, PrizmLifecycleDirective } from '../../../directives';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmIconComponent } from '../../icon';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmInputLayoutDateRelativeDirective } from './input-layout-date-relative.directive';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmListingItemComponent } from '../../listing-item';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import {
+  prizmIconsLetterTime,
+  prizmIconsCirclePlus,
+  prizmIconsMinusCircle,
+  prizmIconsLetterYear,
+  prizmIconsLetterMonth,
+  prizmIconsLetterDay,
+  prizmIconsLetterHour,
+  prizmIconsLetterMinute,
+  prizmIconsLetterSecond,
+  prizmIconsSymbolAsterisk,
+} from '@prizm-ui/icons/base/source';
+import { prizmIconsClockRotateRight } from '@prizm-ui/icons/full/source';
 
 const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
 
@@ -60,16 +75,16 @@ const MenuItems: RelativeDateMenuItems = getDefaultRelativeDateMenuItems();
   imports: [
     CommonModule,
     PolymorphOutletDirective,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     FormsModule,
     PrizmInputTextModule,
     PrizmPluckPipe,
-    PrizmIconComponent,
     ReactiveFormsModule,
     PrizmInputLayoutDateRelativeDirective,
     PrizmDropdownHostComponent,
     PrizmDataListComponent,
     PrizmListingItemComponent,
+    PrizmIconsComponent,
   ],
 })
 export class PrizmInputLayoutDateRelativeComponent
@@ -78,6 +93,8 @@ export class PrizmInputLayoutDateRelativeComponent
 {
   readonly nativeElementType = 'input-layout-date-relative';
   readonly hasClearButton = true;
+  readonly iconsRegistry = inject(PrizmIconsRegistry);
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   @ViewChild(PrizmInputStatusTextDirective, { static: true })
   override statusText!: PrizmInputStatusTextDirective;
@@ -120,11 +137,23 @@ export class PrizmInputLayoutDateRelativeComponent
     public readonly dictionary$: Observable<PrizmLanguageInputLayoutDateRelative['inputLayoutDateRelative']>
   ) {
     super(injector);
+
+    this.iconsRegistry.registerIcons(
+      prizmIconsSymbolAsterisk,
+      prizmIconsLetterTime,
+      prizmIconsCirclePlus,
+      prizmIconsMinusCircle,
+      prizmIconsLetterYear,
+      prizmIconsLetterMonth,
+      prizmIconsLetterDay,
+      prizmIconsLetterHour,
+      prizmIconsLetterMinute,
+      prizmIconsLetterSecond
+    );
+
+    this.iconsFullRegistry.registerIcons(prizmIconsClockRotateRight);
   }
 
-  // public override isEmpty(value: any): boolean {
-  //   return !value && !this.nativeFocusableElement?.value;
-  // }
   public override ngOnInit(): void {
     super.ngOnInit();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
