@@ -87,6 +87,7 @@ export abstract class AbstractPrizmDialogService<
 
       return (): void => {
         control.close();
+        control.destroy();
         destroy$.next();
         destroy$.complete();
       };

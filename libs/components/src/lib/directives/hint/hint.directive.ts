@@ -22,7 +22,7 @@ import {
   PrizmOverlayRelativePosition,
   PrizmOverlayService,
 } from '../../modules/overlay';
-import { combineLatest, merge, of, Subject } from 'rxjs';
+import { BehaviorSubject, combineLatest, of, Subject } from 'rxjs';
 import { PrizmHoveredService } from '../../services';
 import { delay, distinctUntilChanged, finalize, map, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintContainerComponent } from './hint-container.component';
@@ -70,8 +70,12 @@ export class PrizmHintDirective<
   prizmHintHideDelay: PrizmHintOptions['hideDelay'] = this.options.hideDelay;
 
   @Input()
-  @prizmDefaultProp()
-  prizmHintHost: HTMLElement | null = null;
+  set prizmHintHost(host: HTMLElement | null) {
+    this.hintHost$$.next(host);
+  }
+  get prizmHintHost() {
+    return this.hintHost$$.value;
+  }
 
   @Input()
   @prizmDefaultProp()
@@ -120,7 +124,7 @@ export class PrizmHintDirective<
   public readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
   private readonly destroy$: PrizmDestroyService = inject(PrizmDestroyService);
   private readonly hoveredService: PrizmHoveredService = inject(PrizmHoveredService);
-
+  readonly hintHost$$ = new BehaviorSubject<HTMLElement | null>(this.elementRef.nativeElement);
   private readonly hintService: PrizmHintService = inject(PrizmHintService);
 
   get id(): string | null {
@@ -143,6 +147,27 @@ export class PrizmHintDirective<
   public ngOnInit(): void {
     this.initVisibleController();
     this.initShowedChangeListener();
+
+    if (this.onHoverActive)
+      this.hintHost$$
+        .pipe(
+          distinctUntilChanged(),
+          switchMap(() => {
+            return combineLatest([
+              this.hoveredService.createHovered$(this.host),
+              this.hintService.childHovered(this.id as string),
+            ]);
+          }),
+          map(([thisHovered, containerHovered]) => {
+            return thisHovered || containerHovered;
+          }),
+          tap(hovered => this.show$.next(hovered)),
+          finalize(() => {
+            this.overlay?.destroy();
+          }),
+          takeUntil(this.destroy$)
+        )
+        .subscribe();
   }
 
   protected initShowedChangeListener() {
@@ -158,7 +183,7 @@ export class PrizmHintDirective<
   }
 
   public ngOnDestroy(): void {
-    this.overlay?.close();
+    this.overlay?.destroy();
   }
 
   public toggle(open: boolean): void {
@@ -228,24 +253,6 @@ export class PrizmHintDirective<
       .create({
         parentInjector: this.injector,
       });
-
-    if (this.onHoverActive) {
-      combineLatest([
-        this.hoveredService.createHovered$(this.host),
-        this.hintService.childHovered(this.id as string),
-      ])
-        .pipe(
-          map(([thisHovered, containerHovered]) => {
-            return thisHovered || containerHovered;
-          }),
-          tap(hovered => this.show$.next(hovered)),
-          finalize(() => {
-            this.overlay?.close();
-          }),
-          takeUntil(merge(this.destroyListeners$, this.destroy$))
-        )
-        .subscribe();
-    }
   }
 
   protected getContext(): CONTEXT {

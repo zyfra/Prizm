@@ -47,7 +47,7 @@
           [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
           [prizmHintDirection]="'b'"
           [prizmHintCanShow]="!hideClearButtonHint"
-          (click)="onClearClick($event)"
+          (mousedown)="onClearClick($event)"
         ></button>
 
         <div class="prizm-input-label-clear-btn clear-icon" *ngSwitchDefault>
@@ -114,7 +114,7 @@
             [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
             [prizmHintDirection]="'b'"
             [prizmHintCanShow]="!hideClearButtonHint"
-            (click)="onClearClick($event)"
+            (mousedown)="onClearClick($event)"
           ></button>
 
           <div class="prizm-input-button-default clear-icon" *ngSwitchDefault>
