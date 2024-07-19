@@ -15,13 +15,12 @@ import {
   Renderer2,
   Self,
 } from '@angular/core';
-import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/forms';
+import { NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
 import { NgxMaskDirective } from 'ngx-mask';
-import { timer } from 'rxjs';
 
 @Component({
   selector:
