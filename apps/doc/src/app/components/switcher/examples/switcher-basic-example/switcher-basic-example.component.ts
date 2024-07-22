@@ -27,4 +27,8 @@ export class SwitcherBasicExampleComponent {
     },
   ];
   public readonly control = new FormControl(1);
+
+  public updateValue() {
+    this.control.setValue(3);
+  }
 }
