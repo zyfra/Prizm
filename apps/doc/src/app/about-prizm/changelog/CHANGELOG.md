@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
-- fix(components/switcher): add async example for issue #1476
+- fix(components/switcher): fix async support for selected switcher #1476
 - fix(doc/chips): error with toched and dirty stated
 - fix(components/input-text): error with PrizmInputComponent with NgxMaskDirective behaves incorrectly when changed from empty value
 - fix(components/input-select): sync touched state https://github.com/zyfra/Prizm/issues/1694
