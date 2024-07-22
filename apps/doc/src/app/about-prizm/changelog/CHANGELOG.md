@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.19.0, 2.15.0, 3.15.0](https://github.com/zyfra/Prizm) (18-07-2024)
+## [1.19.0, 2.15.0, 3.15.0](https://github.com/zyfra/Prizm) (22-07-2024)
 
 ### Features
 
@@ -10,8 +10,10 @@ All notable changes to this project will be documented in this file.
 
 ### Bug Fixes
 
-- fix(components/switcher): add async example for issue #1476
+- fix(components/switcher): fix async support for selected switcher #1476
 - fix(components/tree): incorrect markup fix #1742 Note: markup is update can affect tree component in project
+- fix(components/input-text): incorrect behavior occurring in PrizmInputComponent when NgxMaskDirective is applied and the value changes from an empty state. #1190
+- fix(components/multiselect): checkboxes are blinking on elements click #1718
 
 ## [1.18.1, 2.15.1, 3.14.1](https://github.com/zyfra/Prizm) (20-06-2024)
 
