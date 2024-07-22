@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/tree): incorrect markup fix #1742 Note: markup is update can affect tree component in project
 - fix(components/input-text): incorrect behavior occurring in PrizmInputComponent when NgxMaskDirective is applied and the value changes from an empty state. #1190
 - fix(components/multiselect): checkboxes are blinking on elements click #1718
+- fix(components/switcher): write value error fixed #1890
 
 ## [1.18.1, 2.15.1, 3.14.1](https://github.com/zyfra/Prizm) (20-06-2024)
 
