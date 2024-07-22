@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ElementRef, Optional, Self } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, Optional, Renderer2, Self } from '@angular/core';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
@@ -43,9 +43,10 @@ export class PrizmInputBlockComponent extends PrizmInputTextComponent implements
     @Optional() @Self() public readonly ngControl_: NgControl,
     public readonly elementRef_: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
     private readonly destroy_: PrizmDestroyService,
-    private readonly cdr_: ChangeDetectorRef
+    private readonly cdr_: ChangeDetectorRef,
+    private readonly renderer_: Renderer2
   ) {
-    super(ngControl_, elementRef_, destroy_, cdr_);
+    super(ngControl_, elementRef_, destroy_, cdr_, renderer_);
 
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
