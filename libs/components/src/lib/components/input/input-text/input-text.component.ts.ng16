@@ -12,6 +12,7 @@ import {
   OnInit,
   Optional,
   Output,
+  Renderer2,
   Self,
 } from '@angular/core';
 import { NgControl, NgModel, UntypedFormControl, Validators } from '@angular/forms';
@@ -113,7 +114,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
         this.ngControl.control?.patchValue(value);
       });
     } else {
-      this._inputValue.value = value as string;
+      this.updateValue(value);
       this.updateEmptyState();
       this.stateChanges.next();
     }
@@ -171,7 +172,8 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     @Optional() @Self() public readonly ngControl: NgControl,
     public readonly elementRef: ElementRef<HTMLInputElement | HTMLTextAreaElement>,
     private readonly destroy: PrizmDestroyService,
-    private readonly cdr: ChangeDetectorRef
+    private readonly cdr: ChangeDetectorRef,
+    private readonly renderer2_: Renderer2,
   ) {
     super();
     this.nativeElementType = elementRef.nativeElement.type;
@@ -203,14 +205,6 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   ngOnDestroy(): void {
     this.stateChanges.complete();
-  }
-
-  @HostListener('input', ['$event'])
-  private onInput(): void {
-    this.updateEmptyState();
-    this.stateChanges.next();
-    this.updateValue(this.value);
-    this.valueChanged.next(this.value);
   }
 
   @HostListener('focus', ['$event'])
@@ -262,11 +256,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private updateEmptyState(): void {
-    this.empty = !(
-      (this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length) ||
-      (this.ngControl && this.ngControl.value) ||
-      (this.ngControl instanceof NgModel && this.ngControl.model)
-    );
+    this.empty = !(this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length);
   }
 
   private updateErrorState(): void {
@@ -274,8 +264,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private updateValue(value: VALUE): void {
-    if (value !== this.ngControl?.value) this.ngControl?.control?.setValue(value);
-    if (value !== this.value) this._inputValue.value = value as string;
+    if (value !== this.value) this.renderer2_.setProperty(this._inputValue, 'value', value);
     this.inputHint?.updateHint();
   }
 
@@ -283,7 +272,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     if (this.disabled) return;
 
     this.updateValue(null as VALUE);
-
+    this.ngControl?.control?.setValue('');
     this.updateEmptyState();
     this.updateErrorState();
 
@@ -306,13 +295,21 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public markControl(options: { touched?: boolean; dirty?: boolean }): void {
     const { touched, dirty } = options;
 
-    if (touched) {
+    if (typeof touched === 'boolean') {
       this._touched = true;
-      this.ngControl?.control?.markAsTouched();
+      if (touched) {
+        this.ngControl?.control?.markAsTouched();
+      } else {
+        this.ngControl?.control?.markAsUntouched();
+      }
     }
 
-    if (dirty) {
-      this.ngControl?.control?.markAsDirty();
+    if (typeof dirty === 'boolean') {
+      if (dirty) {
+        this.ngControl?.control?.markAsDirty();
+      } else {
+        this.ngControl?.control?.markAsPristine();
+      }
     }
 
     this.stateChanges.next();
