@@ -98,7 +98,14 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements Contr
   }
 
   public writeValue(idx: string): void {
-    this.selectedSwitcherIdx = parseInt(idx);
+    const selectedSwitcherIdx = parseInt(idx);
+    if (!this.isIndexValid(selectedSwitcherIdx, this.switchers)) {
+      this.logIndexValidationError("value is out of bound and can't be set");
+      return;
+    }
+
+    this.selectedSwitcherIdx_ = selectedSwitcherIdx;
+    this.cdRef.markForCheck();
   }
   public registerOnChange(fn: (value: number) => void): void {
     this.onChange = fn;
