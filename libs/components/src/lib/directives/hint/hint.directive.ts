@@ -11,7 +11,7 @@ import {
   Renderer2,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
+import { Compare, PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
 import { prizmDefaultProp, prizmObservable, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
@@ -55,8 +55,9 @@ export class PrizmHintDirective<
   @prizmDefaultProp()
   prizmHintId: string = 'hintId_' + prizmGenerateId();
 
+  private readonly prizmHintTheme$$ = new BehaviorSubject<PrizmTheme | null>(null);
   @Input()
-  @prizmDefaultProp()
+  @prizmObservable()
   prizmHintTheme: PrizmTheme | null = null;
 
   @Input()
@@ -149,7 +150,10 @@ export class PrizmHintDirective<
   }
 
   private initDrawer() {
-    this.prizmHintContext$$
+    combineLatest([
+      this.prizmHintContext$$.pipe(distinctUntilChanged()),
+      this.prizmHintTheme$$.pipe(distinctUntilChanged()),
+    ])
       .pipe(
         distinctUntilChanged(),
         tap(() => this.drawHint()),
@@ -178,12 +182,11 @@ export class PrizmHintDirective<
         .subscribe();
   }
   private initPropsSyncer() {
-    combineLatest([this.content$$, this.prizmHintContext$$])
+    combineLatest([this.content$$])
       .pipe(
-        tap(([content, context]) => {
+        tap(([content]) => {
           this.overlay?.updateProps<PrizmHintContainerComponent>({
             content: () => content,
-            context: this.getContext() as any,
           });
         }),
         finalize(() => {
@@ -225,7 +228,7 @@ export class PrizmHintDirective<
   }
 
   protected open(): void {
-    if (!this.prizmHintCanShow || this.content === '') return;
+    if (!this.prizmHintCanShow || this.content === '' || Compare.isNullish(this.content)) return;
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.open();
