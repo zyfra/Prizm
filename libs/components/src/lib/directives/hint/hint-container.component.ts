@@ -14,11 +14,12 @@ import { PrizmHoveredService } from '../../services';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmHintService } from './hint.service';
 import { PrizmOverlayControl } from '../../modules/overlay';
-import { animationFrameScheduler, timer } from 'rxjs';
+import { animationFrameScheduler, interval, timer } from 'rxjs';
 import { PolymorphContent } from '../polymorph/types/content';
 import { PrizmTheme, PrizmThemeInvertedDirective, PrizmThemeInvertedValuesService } from '@prizm-ui/theme';
 import { PolymorphModule } from '../polymorph';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
+import { JsonPipe } from '@angular/common';
 
 @Component({
   selector: 'prizm-hint-container',
@@ -34,7 +35,7 @@ import { PrizmScrollbarModule } from '../../components/scrollbar';
   styleUrls: ['./hint-container.component.less'],
   providers: [PrizmDestroyService],
   standalone: true,
-  imports: [PolymorphModule, PrizmScrollbarModule],
+  imports: [PolymorphModule, PrizmScrollbarModule, JsonPipe],
 })
 export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown> = Record<string, unknown>>
   implements OnInit, AfterViewInit

@@ -200,6 +200,17 @@ export class PrizmOverlayControl {
     (parentContainer ?? (BODY_ELEMENT as HTMLElement)).appendChild(this.viewEl as any);
   }
 
+  public updateProps<T>(props: Partial<T>) {
+    if (!this.compRef) return;
+    this.compRef.setInput('content', {
+      ...this.content,
+      props: {
+        ...this.content.props,
+        ...props,
+      },
+    });
+  }
+
   private detach(): void {
     if (!this.hostView) return;
 
