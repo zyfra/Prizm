@@ -1,12 +1,12 @@
-export enum PrizmCronDefaultObjectValue {
-  second = '0',
-  minute = '0',
-  hour = '*',
-  month = '*',
-  dayOfMonth = '*',
-  dayOfWeek = '?',
-  year = '*',
-}
+export const PrizmCronDefaultObjectValue = {
+  second: '0',
+  minute: '0',
+  hour: '*',
+  month: '*',
+  dayOfMonth: '*',
+  dayOfWeek: '?',
+  year: '*',
+};
 
 export interface PrizmCronValueObject {
   second: string;
