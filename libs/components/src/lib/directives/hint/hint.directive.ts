@@ -155,7 +155,6 @@ export class PrizmHintDirective<
       this.prizmHintTheme$$.pipe(distinctUntilChanged()),
     ])
       .pipe(
-        distinctUntilChanged(),
         tap(() => this.drawHint()),
         takeUntil(this.destroy$)
       )
