@@ -177,6 +177,10 @@ export class PrizmOverlayControl {
     EventBus.send(this.zid, 'z_dynpos');
   }
 
+  /**
+   * @preview
+   * method for update props for passed component
+   * */
   public updateProps<T>(props: Partial<T>) {
     if (!this.compRef) return;
     this.compRef.setInput('content', {

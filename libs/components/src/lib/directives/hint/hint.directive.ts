@@ -183,7 +183,7 @@ export class PrizmHintDirective<
   private initPropsSyncer() {
     this.content$$
       .pipe(
-        tap(([content]) => {
+        tap(content => {
           this.overlay?.updateProps<PrizmHintContainerComponent>({
             content: () => content,
           });
