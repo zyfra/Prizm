@@ -4,6 +4,17 @@
     process.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-indicator (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="indicatorBasicExample" heading="Base">
       <prizm-indicators-base></prizm-indicators-base>
     </prizm-doc-example>

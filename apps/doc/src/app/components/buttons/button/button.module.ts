@@ -9,6 +9,7 @@ import { PrizmButtonModule, PrizmCounterModule } from '@prizm-ui/components';
 import { PrizmGhostButtonsExampleComponent } from './examples/ghost/ghost-buttons-example.component';
 import { prizmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 import { PrizmButtonWithCounterExampleComponent } from './examples/counter/button-with-counter-example.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -23,6 +24,7 @@ import { PrizmButtonWithCounterExampleComponent } from './examples/counter/butto
     prizmIconsButtonsExampleComponent,
     PrizmGhostButtonsExampleComponent,
     PrizmButtonWithCounterExampleComponent,
+    PrizmIfLanguageDirective,
   ],
   declarations: [ButtonComponent],
   exports: [ButtonComponent],
