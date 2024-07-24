@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { PrizmOverlayService, PrizmTableCellStatus } from '@prizm-ui/components';
+import { PrizmTableCellStatus } from '@prizm-ui/components';
 
 interface ITableProduct {
   id: number;
@@ -18,7 +18,7 @@ interface ITableProduct {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TableTrackByExampleComponent {
-  constructor(private overlay: PrizmOverlayService) {}
+  constructor() {}
   public columns: string[] = ['code', 'name', 'category', 'count'];
 
   public products: ITableProduct[] = [

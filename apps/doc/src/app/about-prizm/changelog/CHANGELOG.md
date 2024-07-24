@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.6](https://github.com/zyfra/Prizm) (18-07-2024)
+
+### Bug fixes
+
+- fix(components/switcher): add async example for issue #1476
+- fix(doc/chips): error with toched and dirty stated
+- fix(components/input-text): error with PrizmInputComponent with NgxMaskDirective behaves incorrectly when changed from empty value
+- fix(components/input-select): sync touched state https://github.com/zyfra/Prizm/issues/1694
+- fix(components/input-multi-select): sync touched state
+- fix(components/hint): a bug where the tooltip would not disappear in some cases
+- fix(components/input-number): bug where empty state was not toggled when clearing https://github.com/zyfra/Prizm/issues/1684
+- fix(components/input-text): incorrect behavior occurring in PrizmInputComponent when NgxMaskDirective is applied and the value changes from an empty state. https://github.com/zyfra/Prizm/issues/1190
+- fix(components/tab): add correct icon name to registry for right arrow #1860
+
+### Refactor
+
+- refactor(components/input-text): refactored
+
+## [4.3.5](https://github.com/zyfra/Prizm) (08-07-2024)
+
+### Bug fixes
+
+- fix(component/overlay): fix bug with memory leak #1637 #1403
+- fix(component/dropdown-host): fix bug with destroy overlay #1637 #1403
+- fix(component/hint): fix bug with destroy overlay #1637 #1403
+
 ## [4.3.4](https://github.com/zyfra/Prizm) (20-06-2024)
 
 ### Bug fixes

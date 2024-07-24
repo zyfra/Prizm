@@ -16,6 +16,7 @@ import {
   SimpleChanges,
   ViewChild,
   inject,
+  HostListener,
 } from '@angular/core';
 import { BehaviorSubject, EMPTY, merge, Observable, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
@@ -103,7 +104,6 @@ export class PrizmInputLayoutComponent
   @HostBinding('class.has-textarea') get hasTextarea() {
     return this.control.nativeElementType === 'textarea';
   }
-
   override testId_ = 'ui_input_layout';
   protected readonly isPolymorphPrimitive = isPolymorphPrimitive;
 

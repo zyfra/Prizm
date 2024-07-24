@@ -3,14 +3,14 @@ import {
   ComponentFactory,
   ComponentFactoryResolver,
   ComponentRef,
-  Inject,
+  inject,
+  Injectable,
   Injector,
   ViewRef,
 } from '@angular/core';
 import { animationFrameScheduler, fromEvent, merge as mergeObs, Observable, Subject } from 'rxjs';
 import {
   debounceTime,
-  delay,
   distinctUntilChanged,
   filter,
   map,
@@ -34,6 +34,7 @@ import { BODY_ELEMENT, EventBus, getContent } from './utils';
 import { WINDOW } from '@ng-web-apis/common';
 import { raceEmit } from '@prizm-ui/helpers';
 
+@Injectable()
 export class PrizmOverlayControl {
   position!: PrizmOverlayAbstractPosition;
   readonly config!: PrizmOverlayConfig;
@@ -49,27 +50,27 @@ export class PrizmOverlayControl {
   public viewEl!: HTMLElement | null;
   isOpen = false;
   private compFac!: ComponentFactory<PrizmOverlayComponent>;
-  private destroy$ = new Subject<void>();
+  private readonly destroy$$ = new Subject<void>();
+  public readonly onDestroy$ = this.destroy$$.asObservable();
+  private readonly appRef: ApplicationRef = inject(ApplicationRef);
+  private readonly compResolver = inject(ComponentFactoryResolver);
+  private readonly injector = inject(Injector);
+  private readonly window = inject(WINDOW);
 
-  constructor(
-    private appRef: ApplicationRef,
-    private compResolver: ComponentFactoryResolver,
-    private injector: Injector,
-    @Inject(WINDOW) private readonly window: Window
-  ) {
-    this.updateTextContent.pipe(takeUntil(this.destroy$)).subscribe(content => {
+  constructor() {
+    this.updateTextContent.pipe(takeUntil(this.destroy$$)).subscribe(content => {
       if (this.isOpen) this.comp?.updateTextContent(content);
     });
   }
 
   public open(): void {
     if (this.isOpen) return;
-    this.destroy$.next();
+    this.destroy$$.next();
 
     this.attach();
     if (this.viewEl) {
       mergeObs(this.onDocumentClick(), this.onWindowResize(), this.onEscClick())
-        .pipe(takeUntil(this.destroy$))
+        .pipe(takeUntil(this.destroy$$))
         .subscribe();
       setTimeout(() => EventBus.send(this.zid, 'z_dynpos'), 1);
     }
@@ -82,9 +83,14 @@ export class PrizmOverlayControl {
     if (!this.isOpen) return;
 
     this.detach();
-    this.destroy$.next();
+    this.destroy$$.next();
     EventBus.send(this.zid, 'z_close');
     this.isOpen = false;
+  }
+
+  public destroy() {
+    this.close();
+    this.destroy$$.complete();
   }
 
   public toggle(): void {
@@ -93,7 +99,6 @@ export class PrizmOverlayControl {
 
   public onEscClick(): Observable<any> {
     return fromEvent<KeyboardEvent>(BODY_ELEMENT as any, 'keydown').pipe(
-      takeUntil(this.destroy$),
       skipWhile(() => !this.config.closeOnEsc),
       filter(
         (e: KeyboardEvent) =>
@@ -136,7 +141,7 @@ export class PrizmOverlayControl {
     const onScroll = fromEvent(window, 'scroll', { passive: true });
     return mergeObs(onResize, onScroll).pipe(
       skipWhile(() => !this.config.listenWindowEvents),
-      takeUntil(this.destroy$),
+      takeUntil(this.destroy$$),
       debounceTime(5),
       observeOn(animationFrameScheduler),
       distinctUntilChanged(),
