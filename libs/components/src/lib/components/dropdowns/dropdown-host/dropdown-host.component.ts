@@ -198,7 +198,7 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   }
 
   public ngOnDestroy() {
-    this.overlay.destroy();
+    this.overlay?.destroy();
   }
 
   public updateWidth(): void {

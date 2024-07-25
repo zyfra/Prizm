@@ -5,16 +5,14 @@ import {
   inject,
   Injector,
   Input,
-  OnChanges,
   OnDestroy,
   OnInit,
   Output,
   Renderer2,
-  SimpleChanges,
   Type,
 } from '@angular/core';
-import { PrizmDestroyService, prizmGenerateId, prizmHasChanges } from '@prizm-ui/helpers';
-import { prizmDefaultProp, prizmRequiredSetter } from '@prizm-ui/core';
+import { Compare, PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
+import { prizmDefaultProp, prizmObservable, prizmRequiredSetter } from '@prizm-ui/core';
 import { PolymorphContent } from '../polymorph';
 import { PRIZM_HINT_OPTIONS, PrizmHintContext, PrizmHintOptions } from './hint-options';
 import {
@@ -40,7 +38,7 @@ export const HINT_HOVERED_CLASS = '_hint_hovered';
 export class PrizmHintDirective<
   OPTIONS extends PrizmHintOptions = PrizmHintOptions,
   CONTEXT extends PrizmHintContext = PrizmHintContext
-> implements OnChanges, OnInit, OnDestroy
+> implements OnInit, OnDestroy
 {
   protected readonly options = inject(PRIZM_HINT_OPTIONS) as OPTIONS;
   protected readonly injector = inject(Injector);
@@ -57,8 +55,9 @@ export class PrizmHintDirective<
   @prizmDefaultProp()
   prizmHintId: string = 'hintId_' + prizmGenerateId();
 
+  private readonly prizmHintTheme$$ = new BehaviorSubject<PrizmTheme | null>(null);
   @Input()
-  @prizmDefaultProp()
+  @prizmObservable()
   prizmHintTheme: PrizmTheme | null = null;
 
   @Input()
@@ -77,12 +76,13 @@ export class PrizmHintDirective<
     return this.hintHost$$.value;
   }
 
-  @Input()
-  @prizmDefaultProp()
-  prizmHintContext: Record<string, unknown> = {};
+  private readonly prizmHintContext$$ = new BehaviorSubject<Record<string, unknown>>({});
 
   @Input()
-  @prizmDefaultProp()
+  @prizmObservable()
+  prizmHintContext!: Record<string, unknown>;
+
+  @Input()
   prizmHintCanShow = true;
 
   set show(show: boolean) {
@@ -112,7 +112,13 @@ export class PrizmHintDirective<
 
   public onHoverActive: boolean = true;
 
-  content!: PolymorphContent;
+  private readonly content$$ = new BehaviorSubject<PolymorphContent>(null);
+  set content(data: PolymorphContent) {
+    this.content$$.next(data);
+  }
+  get content() {
+    return this.content$$.value;
+  }
   overlay?: PrizmOverlayControl;
   public containerComponent: Type<unknown> = PrizmHintContainerComponent;
   public readonly show$ = new Subject<boolean>();
@@ -135,19 +141,27 @@ export class PrizmHintDirective<
     return this.prizmHintHost ?? this.elementRef.nativeElement;
   }
 
-  public ngOnChanges(changes?: SimpleChanges): void {
-    this.show_ = false;
-    if (
-      prizmHasChanges(changes, ['prizmHintHost', 'prizmHint', 'prizmHintCanShow', 'prizmHintContext'], false)
-    ) {
-      this.drawHint();
-    }
-  }
-
   public ngOnInit(): void {
     this.initVisibleController();
     this.initShowedChangeListener();
+    this.initPropsSyncer();
+    this.initHoverListenerIfActive();
+    this.initDrawer();
+  }
 
+  private initDrawer() {
+    combineLatest([
+      this.prizmHintContext$$.pipe(distinctUntilChanged()),
+      this.prizmHintTheme$$.pipe(distinctUntilChanged()),
+    ])
+      .pipe(
+        tap(() => this.drawHint()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  private initHoverListenerIfActive() {
     if (this.onHoverActive)
       this.hintHost$$
         .pipe(
@@ -162,12 +176,24 @@ export class PrizmHintDirective<
             return thisHovered || containerHovered;
           }),
           tap(hovered => this.show$.next(hovered)),
-          finalize(() => {
-            this.overlay?.destroy();
-          }),
           takeUntil(this.destroy$)
         )
         .subscribe();
+  }
+  private initPropsSyncer() {
+    this.content$$
+      .pipe(
+        tap(content => {
+          this.overlay?.updateProps<PrizmHintContainerComponent>({
+            content: () => content,
+          });
+        }),
+        finalize(() => {
+          this.overlay?.destroy();
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   protected initShowedChangeListener() {
@@ -201,8 +227,7 @@ export class PrizmHintDirective<
   }
 
   protected open(): void {
-    if (this.show_) return;
-    if (!this.prizmHintCanShow || this.content === '') return;
+    if (!this.prizmHintCanShow || this.content === '' || Compare.isNullish(this.content)) return;
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.open();
@@ -210,7 +235,6 @@ export class PrizmHintDirective<
   }
 
   protected close(): void {
-    if (!this.show_) return;
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.close();
@@ -239,6 +263,7 @@ export class PrizmHintDirective<
       autoReposition: this.prizmAutoReposition,
       element: this.host,
     });
+    if (this.overlay) this.overlay.destroy();
     this.overlay = this.prizmOverlayService
       .position(position)
       .config({
