@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(chore): fixed pipelines for run from release after v4, v3 and fix linters and tests #1900 #1899 #1898
 - fix(components/dropdown-host): overlay undefined error occures on destroy #1889
 - fix(components/switcher): write value error fixed #1890
 - fix(components/hint): fixed a bug with hiding the hint after changing the context or content #1895
