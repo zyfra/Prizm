@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/dropdown-host): overlay undefined error occures on destroy #1889
 - fix(components/switcher): write value error fixed #1890
-- fix(components/hint): fixed a bug with hiding the hint after changing the context or content
+- fix(components/hint): fixed a bug with hiding the hint after changing the context or content #1895
 
 ## [4.3.6](https://github.com/zyfra/Prizm) (18-07-2024)
 
