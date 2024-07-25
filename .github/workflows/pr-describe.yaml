@@ -18,6 +18,6 @@ jobs:
       - name: PR Auto Describe
         uses: salehhashemi1992/pr-auto-describe@main
         with:
-          github-token: ${{ secrets.TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           openai-api-key: ${{ secrets.OA_KEY }}
           openai-model: 'gpt-4o-mini' # Optional, you can use 'gpt-3.5-turbo' or 'gpt-4-32k' as well.
