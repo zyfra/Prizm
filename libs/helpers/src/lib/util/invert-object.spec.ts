@@ -7,6 +7,7 @@ describe('prizmInvertObject', () => {
       b: '2',
       c: '3',
     };
+
     const expectedInvertedObject = {
       '1': 'a',
       '2': 'b',
