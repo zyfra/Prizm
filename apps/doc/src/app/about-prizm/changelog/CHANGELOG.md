@@ -2,12 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
-## [4.3.7](https://github.com/zyfra/Prizm) (23-07-2024)
+## [4.3.7](https://github.com/zyfra/Prizm) (25-07-2024)
 
 ### Bug fixes
 
 - fix(components/dropdown-host): overlay undefined error occures on destroy #1889
 - fix(components/switcher): write value error fixed #1890
+- fix(components/hint): fixed a bug with hiding the hint after changing the context or content
 
 ## [4.3.6](https://github.com/zyfra/Prizm) (18-07-2024)
 
