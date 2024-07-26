@@ -1,4 +1,5 @@
 import { PrizmDateTimeMinMax } from '../../components';
+import { PrizmDateStringType } from '../../types';
 import { PrizmDay } from './day';
 import { PrizmTime } from './time';
 
@@ -36,4 +37,21 @@ export function parseDateString(dateStr: string) {
   }
 
   return parsedString;
+}
+
+export function getDateStringFormNativeDate(date: Date, strType: PrizmDateStringType): string {
+  // TODO: tests
+  switch (strType) {
+    case 'ISO':
+      return date.toISOString();
+    case 'UTC':
+      return date.toUTCString();
+    default:
+      return '';
+  }
+}
+
+export function calcDateStrType(dateStr: string): PrizmDateStringType {
+  // TODO: implement and tests
+  return 'UTC';
 }
