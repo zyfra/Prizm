@@ -49,6 +49,7 @@ Build js image:
     name: '$KANIKO_IMAGE'
     entrypoint: ['']
   rules:
+    - when: manual
     - if: '$SKIP_KANIKO_BUILD =~ /^(true|yes|on|1)$/i'
       when: never
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH || $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
@@ -124,6 +125,7 @@ Deploy:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: ['']
   rules:
+    - when: manual
     - if: >-
         $CI_COMMIT_BRANCH != null &&
         $CI_PIPELINE_SOURCE == 'push' &&
