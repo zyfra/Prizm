@@ -177,6 +177,21 @@ export class PrizmOverlayControl {
     EventBus.send(this.zid, 'z_dynpos');
   }
 
+  /**
+   * @preview
+   * method for update props for passed component
+   * */
+  public updateProps<T>(props: Partial<T>) {
+    if (!this.compRef) return;
+    this.compRef.setInput('content', {
+      ...this.content,
+      props: {
+        ...this.content.props,
+        ...props,
+      },
+    });
+  }
+
   private isNotHostElement(el: HTMLElement): boolean {
     const wrapperEl = this.viewEl?.querySelector('.z-overlay-wrapper');
     return el !== wrapperEl && !wrapperEl?.contains(el);
