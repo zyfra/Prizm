@@ -52,7 +52,7 @@
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
         [moreButtonLabel]="moreButtonLabel"
-        [directionLeft]="direction"
+        [direction]="direction"
         (paginatorChange)="content = $event"
       ></prizm-paginator>
     </prizm-doc-demo>
@@ -183,8 +183,9 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="direction"
-        documentationPropertyName="directionLeft"
-        documentationPropertyType="boolean"
+        [documentationPropertyValues]="paginatorDirectionVariants"
+        documentationPropertyName="direction"
+        documentationPropertyType="PrizmPaginatorDirection"
         documentationPropertyMode="input"
       >
         Set Direction left to paginator

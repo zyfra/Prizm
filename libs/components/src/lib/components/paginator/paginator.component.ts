@@ -14,6 +14,7 @@ import {
 import { AsyncSubject, Observable } from 'rxjs';
 import {
   PrizmPaginatorData,
+  PrizmPaginatorDirection,
   PrizmPaginatorOptions,
   PrizmPaginatorOutput,
   PrizmPaginatorType,
@@ -115,12 +116,16 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
   @Input() public rowsCountOptions: number[] = [];
 
   @Input()
-  @HostBinding('class.direction-left')
   @prizmDefaultProp()
-  public directionLeft = false;
+  public direction: PrizmPaginatorDirection = 'right';
 
-  @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
-    new EventEmitter<PrizmPaginatorOutput>();
+  @HostBinding('class.direction-left')
+  public get directionLeft(): boolean {
+    return this.direction === 'left';
+  }
+
+  @Output()
+  public paginatorChange: EventEmitter<PrizmPaginatorOutput> = new EventEmitter<PrizmPaginatorOutput>();
   @Output() public pageChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() public rowsChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 

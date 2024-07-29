@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PrizmPaginatorOptions, PrizmPaginatorOutput, PrizmPaginatorType } from '@prizm-ui/components';
+import {
+  PrizmPaginatorDirection,
+  PrizmPaginatorOptions,
+  PrizmPaginatorOutput,
+  PrizmPaginatorType,
+} from '@prizm-ui/components';
 import { PAGINATOR_OPTIONS_VARIANTS } from './paginator-example.constants';
 
 @Component({
@@ -27,7 +32,8 @@ export class PaginatorExampleComponent {
   public paginatorOptions: PrizmPaginatorOptions = this.paginatorOptionsVariants[0];
   public rowsCountOptionsBase: number[] = [10, 15, 20, 25, 30, 35, 40];
   public rowsCountOptions = [...this.rowsCountOptionsBase];
-  public direction = false;
+  public paginatorDirectionVariants: PrizmPaginatorDirection[] = ['right', 'left'];
+  public direction = this.paginatorDirectionVariants[0];
 
   public readonly exampleBasicPaginator: TuiDocExample = {
     TypeScript: import('./examples/paginator-basic-example/paginator-basic-example.component?raw'),
