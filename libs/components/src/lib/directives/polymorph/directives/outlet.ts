@@ -33,7 +33,13 @@ export class PolymorphOutletDirective<C extends object> implements OnChanges, Do
   content: PolymorphContent<C> = '';
 
   @Input('polymorphOutletContext')
-  context!: C;
+  get context() {
+    return this.context_;
+  }
+  set context(ctx) {
+    this.context_ = ctx;
+  }
+  private context_!: C;
 
   @Input('polymorphOutletInjector')
   injector: Injector = this.currentInjector;
