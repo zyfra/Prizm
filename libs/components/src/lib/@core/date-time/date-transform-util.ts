@@ -52,6 +52,23 @@ export function getDateStringFormNativeDate(date: Date, strType: PrizmDateString
 }
 
 export function calcDateStrType(dateStr: string): PrizmDateStringType {
-  // TODO: implement and tests
-  return 'UTC';
+  // TODO: tests
+  const utcRegex = /^[A-Za-z]{3}, \d{2} [A-Za-z]{3} \d{4} \d{2}:\d{2}:\d{2} GMT$/;
+  const isoRegex = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})(\.\d+)?(Z|([+-]\d{2}:\d{2}))?$/;
+  if (isValidDateStringByType(dateStr, utcRegex)) return 'UTC';
+  if (isValidDateStringByType(dateStr, isoRegex)) return 'ISO';
+  throw new Error('Invalid date string');
+}
+
+export function isValidDateStringByType(dateString: string, reg: RegExp): boolean {
+  if (!reg.test(dateString)) {
+    return false;
+  }
+
+  const date = new Date(dateString);
+
+  if (isNaN(date.getTime())) {
+    return false;
+  }
+  return true;
 }

@@ -9,19 +9,33 @@ type From = PrizmDay | null;
 type To = Date | string | null;
 
 export class PrizmInputDateTransformer implements PrizmControlValueTransformer<From, To> {
-  private dateStrType?: PrizmDateStringType;
+  private dateStrType: PrizmDateStringType | null = null;
 
   public fromControlValue(controlValue: To): From {
     if (typeof controlValue === 'string') {
       this.dateStrType = calcDateStrType(controlValue);
       controlValue = parseDateString(controlValue);
+    } else {
+      this.dateStrType = null;
     }
     return controlValue && PrizmDay.fromLocalNativeDate(controlValue);
   }
 
   public toControlValue(componentValue: From): To {
-    // TODO: implement wuth correct type return, needs generic?
-    return componentValue?.toLocalNativeDate() || null;
+    const nativeValue = componentValue?.toLocalNativeDate() || null;
+
+    if (nativeValue && this.dateStrType) {
+      switch (this.dateStrType) {
+        case 'ISO':
+          return nativeValue.toISOString();
+        case 'UTC':
+          return nativeValue.toUTCString();
+        default:
+          throw new Error(`Invalid date string type is set`);
+      }
+    }
+
+    return nativeValue;
   }
 }
 
