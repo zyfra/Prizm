@@ -9,7 +9,7 @@ import {
   PrizmCardModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
-  PrizmSkeletonModule,
+  PrizmSkeletonDirective,
   PrizmToggleModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +27,7 @@ import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base
     PrizmToggleModule,
     PrizmInputSelectModule,
     PrizmInputTextModule,
-    PrizmSkeletonModule,
+    PrizmSkeletonDirective,
     RouterModule.forChild(prizmDocGenerateRoutes(SkeletonComponent)),
   ],
   declarations: [PrizmSkeletonBaseExampleComponent, SkeletonComponent],

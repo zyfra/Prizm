@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import {
-  PrizmFocusableModule,
-  PrizmFocusedModule,
-  PrizmFocusVisibleModule,
+  PrizmFocusableDirective,
+  PrizmFocusedDirective,
+  PrizmFocusVisibleDirective,
   PrizmPreventDefaultDirective,
   PrizmHintDirective,
 } from '../../../directives';
@@ -14,9 +14,9 @@ import { PrizmButtonComponent } from '../../button';
 @NgModule({
   imports: [
     CommonModule,
-    PrizmFocusVisibleModule,
-    PrizmFocusedModule,
-    PrizmFocusableModule,
+    PrizmFocusVisibleDirective,
+    PrizmFocusedDirective,
+    PrizmFocusableDirective,
     PrizmPreventDefaultDirective,
     PrizmButtonComponent,
     PrizmHintDirective,

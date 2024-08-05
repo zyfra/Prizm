@@ -8,7 +8,7 @@ import { PrizmWithOptionalMinMax } from '../../../types/with-optional-min-max';
 import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PRIZM_MONTHS } from '../../../tokens/i18n';
 import { CommonModule } from '@angular/common';
-import { PrizmFocusableModule } from '../../../directives';
+import { PrizmFocusableDirective } from '../../../directives';
 import { PrizmPrimitiveSpinButtonModule } from '../primitive-spin-button';
 import { PrizmLinkComponent } from '../../link';
 import { PrizmMonthPipeModule } from '../../../pipes';
@@ -24,7 +24,7 @@ import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
     PrizmPrimitiveSpinButtonModule,
     PrizmLinkComponent,
     PrizmMonthPipeModule,

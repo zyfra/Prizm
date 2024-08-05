@@ -33,8 +33,8 @@ import { PrizmCalendarMonthComponent } from '../../calendar-month';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import {
   PolymorphOutletDirective,
-  PrizmLifecycleModule,
-  PrizmPreventDefaultModule,
+  PrizmLifecycleDirective,
+  PrizmPreventDefaultDirective,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputTextModule } from '../input-text';
@@ -64,9 +64,9 @@ import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
     CommonModule,
     PrizmCalendarMonthComponent,
     PrizmDropdownHostComponent,
-    PrizmPreventDefaultModule,
+    PrizmPreventDefaultDirective,
     FormsModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PolymorphOutletDirective,
     PrizmMaskModule,
     PrizmInputTextModule,

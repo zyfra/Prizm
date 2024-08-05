@@ -10,7 +10,7 @@ import { PrizmSidebarOptions, PrizmSidebarResultDefaultType } from './sidebar.mo
 import { invokeIfCanCloseSidebar } from './util';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PolymorphOutletDirective, PrizmFocusTrapModule } from '../../../directives';
+import { PolymorphOutletDirective, PrizmFocusTrapDirective } from '../../../directives';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmInputIconButtonModule } from '../../input';
 import { PrizmButtonComponent } from '../../button';
@@ -35,7 +35,7 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     PrizmOverlayComponent,
     PrizmInputIconButtonModule,
     PrizmButtonComponent,
-    PrizmFocusTrapModule,
+    PrizmFocusTrapDirective,
     PrizmScrollbarComponent,
   ],
 })

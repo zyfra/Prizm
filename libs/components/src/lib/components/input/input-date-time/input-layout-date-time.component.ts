@@ -41,10 +41,10 @@ import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/hel
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective } from '../common';
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
-import { PrizmLifecycleModule } from '../../../directives/lifecycle';
+import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
 import { PolymorphOutletDirective } from '../../../directives/polymorph';
 import {
-  PrizmInputNativeValueModule,
+  PrizmInputNativeValueDirective,
   PrizmInputNativeValueNeedChange,
 } from '../../../directives/native-value';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
@@ -98,13 +98,13 @@ import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/s
     PolymorphOutletDirective,
     PrizmInputZoneModule,
     FormsModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmPreventDefaultDirective,
     PrizmCalendarComponent,
     PrizmLinkComponent,
     PrizmDropdownHostComponent,
     PrizmValueAccessorModule,
-    PrizmInputNativeValueModule,
+    PrizmInputNativeValueDirective,
     PrizmListingItemComponent,
     PrizmPluckPipe,
   ],

@@ -5,7 +5,7 @@ import { PrizmCallFuncPipe, PrizmLetModule } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
 import { PrizmElementReadyModule } from '../../../directives/element-ready';
 import { PrizmHintModule } from '../../../directives/hint/hint.module';
-import { PrizmLifecycleModule } from '../../../directives/lifecycle/lifecycle.module';
+import { PrizmLifecycleDirective } from '../../../directives/lifecycle/lifecycle.module';
 import { ChangeDetectionStrategy } from '@angular/core';
 
 describe('PrizmChipsItemComponent', () => {
@@ -18,7 +18,7 @@ describe('PrizmChipsItemComponent', () => {
         PrizmChipsItemComponent,
         CommonModule,
         PrizmCallFuncPipe,
-        PrizmLifecycleModule,
+        PrizmLifecycleDirective,
         PrizmElementReadyModule,
         PrizmLetModule,
         PrizmHintModule,

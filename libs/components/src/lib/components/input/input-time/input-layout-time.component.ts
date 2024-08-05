@@ -33,7 +33,7 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { CommonModule } from '@angular/common';
 import {
   PrizmDropdownControllerModule,
-  PrizmLifecycleModule,
+  PrizmLifecycleDirective,
   PrizmValueAccessorModule,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
@@ -64,7 +64,7 @@ import { prizmIconsClock } from '@prizm-ui/icons/full/source';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmMaskModule,
     PrizmDataListComponent,
     PrizmDropdownControllerModule,
