@@ -11,23 +11,23 @@ import { PrizmInputLayoutInBodyDirective } from './input-layout/input-layout-in-
 import { PrizmInputLayoutSubtextDirective } from './input-layout/input-layout-subtext.directive';
 import { PolymorphModule, PrizmZoneEventDirective } from '../../../directives';
 import { PrizmLetDirective, PrizmPluckPipe, PrizmToObservablePipe } from '@prizm-ui/helpers';
-import { PrizmInputHintModule } from './input-hint/input-hint.module';
-import { PrizmInputAllowedSymbolsModule } from './input-allowed-symbols';
-import { PrizmInputCorrectorModule } from './input-corrector';
+import { PrizmInputHintDirective } from './input-hint/input-hint.directive';
+import { PrizmInputAllowedSymbolsDirective } from './input-allowed-symbols';
+import { PrizmInputCorrectorDirective } from './input-corrector';
 import { PrizmInputIconButtonComponent } from './input-icon-button';
 
 @NgModule({
   imports: [
     CommonModule,
-    PrizmInputHintModule,
+    PrizmInputHintDirective,
     PrizmToObservablePipe,
     PrizmLetDirective,
     PolymorphModule,
     PrizmZoneEventDirective,
     PrizmHintDirective,
     PrizmInputIconButtonComponent,
-    PrizmInputAllowedSymbolsModule,
-    PrizmInputCorrectorModule,
+    PrizmInputAllowedSymbolsDirective,
+    PrizmInputCorrectorDirective,
     PrizmPluckPipe,
   ],
   declarations: [
@@ -42,7 +42,7 @@ import { PrizmInputIconButtonComponent } from './input-icon-button';
   ],
   exports: [
     CommonModule,
-    PrizmInputHintModule,
+    PrizmInputHintDirective,
     PrizmInputLayoutComponent,
     PrizmInputStatusSubtextComponent,
     PrizmInputIconButtonComponent,
@@ -52,8 +52,8 @@ import { PrizmInputIconButtonComponent } from './input-icon-button';
     PrizmInputLayoutRightDirective,
     PrizmInputLayoutInBodyDirective,
     PrizmInputLayoutSubtextDirective,
-    PrizmInputAllowedSymbolsModule,
-    PrizmInputCorrectorModule,
+    PrizmInputAllowedSymbolsDirective,
+    PrizmInputCorrectorDirective,
   ],
 })
 export class PrizmInputCommonModule {}

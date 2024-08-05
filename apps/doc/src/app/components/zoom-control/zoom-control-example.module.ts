@@ -12,7 +12,7 @@ import {
   PrizmInputSelectModule,
   PrizmInputTextModule,
   PrizmListingItemComponent,
-  PrizmPanelModule,
+  PrizmPanelComponent,
 } from '@prizm-ui/components';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
@@ -22,7 +22,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     CommonModule,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ZoomControlExampleComponent)),
-    PrizmPanelModule,
+    PrizmPanelComponent,
     PrizmInputTextModule,
     PrizmInputSelectModule,
     PrizmDropdownHostModule,

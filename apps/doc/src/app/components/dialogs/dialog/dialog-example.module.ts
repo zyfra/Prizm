@@ -9,7 +9,7 @@ import {
   PrizmInputCommonModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
-  PrizmRadioButtonModule,
+  PrizmRadioButtonComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DialogExampleComponent } from './dialog-example.component';
@@ -30,7 +30,7 @@ import { PrizmDialogCustomServiceExampleComponent } from './examples/custom-serv
     PolymorphModule,
     PrizmButtonModule,
     PrizmDialogModule,
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(DialogExampleComponent)),
     PrizmInputCommonModule,
     PrizmInputSelectModule,

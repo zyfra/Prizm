@@ -8,7 +8,7 @@ import {
   PrizmInputCommonModule,
   PrizmInputIconButtonModule,
   PrizmInputSelectModule,
-  PrizmRadioButtonModule,
+  PrizmRadioButtonComponent,
   PrizmScrollbarModule,
   PrizmSidebarModule,
 } from '@prizm-ui/components';
@@ -35,7 +35,7 @@ import { PrizmSidebarOnlyConfirmButtonExampleComponent } from './examples/only-c
     PrizmSidebarModule,
     PrizmInputIconButtonModule,
     PrizmScrollbarModule,
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
     PrizmInputCommonModule,
     PrizmInputSelectModule,

@@ -36,7 +36,7 @@ import { PrizmButtonComponent } from '../button';
 import { PrizmPreventDefaultDirective } from '../../directives';
 import { PrizmCalendarComponent } from '../calendar';
 import { PrizmDataListComponent } from '../data-list';
-import { PrizmPrimitiveCalendarRangeModule } from '../internal';
+import { PrizmPrimitiveCalendarRangeComponent } from '../internal';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
@@ -53,7 +53,7 @@ import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
     PrizmButtonComponent,
     PrizmPreventDefaultDirective,
     PrizmDataListComponent,
-    PrizmPrimitiveCalendarRangeModule,
+    PrizmPrimitiveCalendarRangeComponent,
     PrizmCalendarComponent,
     PrizmIconsComponent,
     PrizmIconsFullComponent,

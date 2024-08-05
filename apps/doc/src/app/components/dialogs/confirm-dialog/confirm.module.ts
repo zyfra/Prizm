@@ -8,7 +8,7 @@ import {
   PrizmConfirmDialogModule,
   PrizmInputCommonModule,
   PrizmInputSelectModule,
-  PrizmRadioButtonModule,
+  PrizmRadioButtonComponent,
   PrizmSelectInputComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,7 +32,7 @@ import { PrizmDialogFooterTemplateExampleComponent } from './examples/footer-tem
     PrizmCallFuncPipe,
     PrizmButtonModule,
     PrizmConfirmDialogModule,
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(ConfirmComponent)),
     PrizmInputCommonModule,
     PrizmSelectInputComponent,
