@@ -10,7 +10,7 @@ import {
   PrizmInputSelectModule,
   PrizmRadioButtonComponent,
   PrizmScrollbarModule,
-  PrizmSidebarModule,
+  PrizmSidebarComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
@@ -32,7 +32,7 @@ import { PrizmSidebarOnlyConfirmButtonExampleComponent } from './examples/only-c
     ReactiveFormsModule,
     PolymorphModule,
     PrizmButtonModule,
-    PrizmSidebarModule,
+    PrizmSidebarComponent,
     PrizmInputIconButtonComponent,
     PrizmScrollbarModule,
     PrizmRadioButtonComponent,

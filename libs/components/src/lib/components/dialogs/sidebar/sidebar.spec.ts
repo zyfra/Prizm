@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { PrizmOverlayControl } from '../../../modules/overlay';
-import { PrizmSidebarModule, PrizmSidebarResultDefaultType, PrizmSidebarService } from './index';
+import { PrizmSidebarComponent, PrizmSidebarResultDefaultType, PrizmSidebarService } from './index';
 import { first, take } from 'rxjs/operators';
 
 xdescribe('PrizmSidebar', () => {
   let service: PrizmSidebarService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PrizmSidebarModule],
+      imports: [PrizmSidebarComponent],
     });
     service = TestBed.inject(PrizmSidebarService);
   });

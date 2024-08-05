@@ -31,7 +31,7 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { PRIZM_MONTHS } from '../../../tokens';
 import { CommonModule } from '@angular/common';
 import { PrizmLifecycleDirective, PrizmPreventDefaultDirective } from '../../../directives';
-import { PrizmCalendarMonthModule } from '../../calendar-month';
+import { PrizmCalendarMonthComponent } from '../../calendar-month';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
 import { PrizmMapperPipe } from '../../table/pipes/mapper/mapper.pipe';
 import { PrizmInputTextModule } from '../input-text';
@@ -59,7 +59,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
   imports: [
     CommonModule,
     PrizmLifecycleDirective,
-    PrizmCalendarMonthModule,
+    PrizmCalendarMonthComponent,
     PrizmDropdownHostModule,
     PrizmPreventDefaultDirective,
     PrizmMapperPipe,
