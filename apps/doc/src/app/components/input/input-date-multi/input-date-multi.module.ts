@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputDateMultiRelativeComponent } from './input-date-multi.component';
 import {
   PolymorphModule,
-  PrizmInputDateMultiModule,
+  PrizmInputDateMultiComponent,
   PrizmInputLayoutDateModule,
   PrizmInputLayoutDateRelativeModule,
   PrizmInputLayoutDateTimeModule,
@@ -23,7 +23,7 @@ import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmInputDateMultiModule,
+    PrizmInputDateMultiComponent,
     PrizmInputLayoutDateTimeModule,
     PrizmCallFuncPipe,
     PrizmInputLayoutDateModule,

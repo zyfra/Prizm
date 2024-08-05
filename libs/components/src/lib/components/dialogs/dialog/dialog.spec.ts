@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 import { PrizmOverlayControl } from '../../../modules/overlay';
-import { PrizmDialogModule, PrizmDialogService } from './index';
+import { PrizmDialogComponent, PrizmDialogService } from './index';
 import { first, take } from 'rxjs/operators';
 
 xdescribe('PrizmDialog', () => {
   let service: PrizmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PrizmDialogModule],
+      imports: [PrizmDialogComponent],
     });
     service = TestBed.inject(PrizmDialogService);
   });

@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
   PrizmButtonModule,
-  PrizmConfirmDialogModule,
+  PrizmDialogConfirmComponent,
   PrizmInputCommonModule,
   PrizmInputSelectModule,
   PrizmRadioButtonComponent,
@@ -31,7 +31,7 @@ import { PrizmDialogFooterTemplateExampleComponent } from './examples/footer-tem
     FullExampleModule,
     PrizmCallFuncPipe,
     PrizmButtonModule,
-    PrizmConfirmDialogModule,
+    PrizmDialogConfirmComponent,
     PrizmRadioButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(ConfirmComponent)),
     PrizmInputCommonModule,

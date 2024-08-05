@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { PrizmListingItemBaseExampleComponent } from './examples/base/listing-item-base-example.component';
 import {
   PrizmButtonModule,
-  PrizmCheckboxModule,
+  PrizmCheckboxComponent,
   PrizmCounterModule,
   PrizmListingItemComponent,
   PrizmDropdownHostComponent,
@@ -23,7 +23,7 @@ import { FormsModule } from '@angular/forms';
     PrizmCounterModule,
     PrizmButtonModule,
     PrizmListingItemComponent,
-    PrizmCheckboxModule,
+    PrizmCheckboxComponent,
     PrizmCounterModule,
     PrizmDropdownHostComponent,
     PrizmChipsModule,

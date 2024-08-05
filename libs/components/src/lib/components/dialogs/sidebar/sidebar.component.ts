@@ -12,7 +12,7 @@ import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PolymorphOutletDirective, PrizmFocusTrapDirective } from '../../../directives';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmInputIconButtonModule } from '../../input';
+import { PrizmInputIconButtonComponent } from '../../input';
 import { PrizmButtonComponent } from '../../button';
 import { PrizmScrollbarComponent } from '../../scrollbar';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
@@ -33,7 +33,7 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     PrizmThemeModule,
     PrizmToObservablePipe,
     PrizmOverlayComponent,
-    PrizmInputIconButtonModule,
+    PrizmInputIconButtonComponent,
     PrizmButtonComponent,
     PrizmFocusTrapDirective,
     PrizmScrollbarComponent,

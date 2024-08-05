@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmOverlayComponent } from '../../../modules';
 import { PrizmButtonModule } from '../../button';
-import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
+import { PrizmInputIconButtonComponent } from '../../input/common/input-icon-button/input-icon-button.component';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
@@ -38,7 +38,7 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     PrizmOverlayComponent,
     PrizmButtonModule,
     PrizmFocusTrapDirective,
-    PrizmInputIconButtonModule,
+    PrizmInputIconButtonComponent,
     PrizmScrollbarModule,
   ],
 })

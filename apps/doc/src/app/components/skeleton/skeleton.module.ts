@@ -6,7 +6,7 @@ import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
   PrizmButtonModule,
-  PrizmCardModule,
+  PrizmCardComponent,
   PrizmInputSelectModule,
   PrizmInputTextModule,
   PrizmSkeletonDirective,
@@ -23,7 +23,7 @@ import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base
     ReactiveFormsModule,
     PolymorphModule,
     PrizmButtonModule,
-    PrizmCardModule,
+    PrizmCardComponent,
     PrizmToggleComponent,
     PrizmInputSelectModule,
     PrizmInputTextModule,

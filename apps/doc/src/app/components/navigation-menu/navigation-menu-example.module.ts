@@ -2,7 +2,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import {
   PrizmBreadcrumbsModule,
   PrizmButtonModule,
-  PrizmHintModule,
+  PrizmHintDirective,
   PrizmNavigationMenuModule,
   PrizmScrollbarModule,
   PrizmSplitterModule,
@@ -36,7 +36,7 @@ import { NavigationMenuOneModeExampleComponent } from './examples/navigation-men
     PrizmNavigationMenuModule,
     PrizmIconsSvgComponent,
     PrizmButtonModule,
-    PrizmHintModule,
+    PrizmHintDirective,
     PrizmBreadcrumbsModule,
     PrizmWidgetComponent,
     PrizmSplitterModule,

@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { PrizmOverlayControl } from '../../../modules/overlay';
 import {
-  PrizmConfirmDialogModule,
+  PrizmDialogConfirmComponent,
   PrizmConfirmDialogResultDefaultType,
   PrizmConfirmDialogService,
 } from './index';
@@ -11,7 +11,7 @@ xdescribe('PrizmConfirmDialog', () => {
   let service: PrizmConfirmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PrizmConfirmDialogModule],
+      imports: [PrizmDialogConfirmComponent],
     });
     service = TestBed.inject(PrizmConfirmDialogService);
   });

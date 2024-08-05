@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmStepperBasicExampleComponent } from './examples/stepper-basic-example/stepper-basic-example.component';
 import {
   PrizmButtonModule,
-  PrizmCheckboxModule,
+  PrizmCheckboxComponent,
   PrizmInputSelectModule,
   PrizmStepperModule,
 } from '@prizm-ui/components';
@@ -24,7 +24,7 @@ import { PrizmStepperAsyncExampleComponent } from './examples/stepper-async-exam
     ReactiveFormsModule,
     PrizmButtonModule,
     PrizmInputSelectModule,
-    PrizmCheckboxModule,
+    PrizmCheckboxComponent,
   ],
   declarations: [
     PrizmStepperExampleComponent,
