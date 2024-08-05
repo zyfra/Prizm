@@ -1,5 +1,5 @@
-import { PrizmDateTimeMinMax } from '../../components';
 import { PrizmDateStringType } from '../../types';
+import { PrizmDateTime } from './date-time';
 import { PrizmDay } from './day';
 import { PrizmTime } from './time';
 
@@ -9,14 +9,14 @@ export function transformDateIfNeeded(
 ): PrizmDay | [PrizmDay, PrizmTime];
 
 export function transformDateIfNeeded(
-  value: PrizmDateTimeMinMax | Date | string,
+  value: PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime | Date | string,
   dayOnly?: boolean
-): PrizmDateTimeMinMax;
+): PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime;
 
 export function transformDateIfNeeded(
-  value: PrizmDateTimeMinMax | Date | string,
+  value: PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime | Date | string,
   dayOnly?: boolean
-): PrizmDateTimeMinMax | PrizmDay | [PrizmDay, PrizmTime] {
+): PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime | PrizmDay | [PrizmDay, PrizmTime] {
   if (typeof value === 'string') {
     value = parseDateString(value);
   }
