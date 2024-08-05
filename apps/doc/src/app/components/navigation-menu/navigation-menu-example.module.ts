@@ -6,7 +6,7 @@ import {
   PrizmNavigationMenuModule,
   PrizmScrollbarModule,
   PrizmSplitterModule,
-  PrizmWidgetModule,
+  PrizmWidgetComponent,
 } from '@prizm-ui/components';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -38,7 +38,7 @@ import { NavigationMenuOneModeExampleComponent } from './examples/navigation-men
     PrizmButtonModule,
     PrizmHintModule,
     PrizmBreadcrumbsModule,
-    PrizmWidgetModule,
+    PrizmWidgetComponent,
     PrizmSplitterModule,
     PrizmScrollbarModule,
     RouterModule.forChild(prizmDocGenerateRoutes(NavigationMenuExampleComponent)),

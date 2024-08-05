@@ -19,7 +19,7 @@ import {
   PrizmStickyModule,
   PrizmTableModule,
   PrizmToggleComponent,
-  PrizmWidgetModule,
+  PrizmWidgetComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TableSelectableExampleComponent } from './examples/table-selectable-example/table-selectable-example.component';
@@ -97,7 +97,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmDropdownHostComponent,
     PrizmCheckboxComponent,
     PrizmButtonComponent,
-    PrizmWidgetModule,
+    PrizmWidgetComponent,
     PrizmColumnSettingsComponent,
     PrizmIconsFullComponent,
   ],

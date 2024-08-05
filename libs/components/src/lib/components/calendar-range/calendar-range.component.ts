@@ -31,7 +31,7 @@ import { PRIZM_OTHER_DATE_TEXT } from '../../tokens/i18n';
 import { prizmI18nInitWithKey } from '../../services';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PrizmMapperPipeModule } from '../../pipes';
+import { PrizmMapperPipe } from '../../pipes';
 import { PrizmButtonComponent } from '../button';
 import { PrizmPreventDefaultDirective } from '../../directives';
 import { PrizmCalendarComponent } from '../calendar';
@@ -49,7 +49,7 @@ import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmMapperPipeModule,
+    PrizmMapperPipe,
     PrizmButtonComponent,
     PrizmPreventDefaultDirective,
     PrizmDataListComponent,

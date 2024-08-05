@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PrizmMapperPipeModule } from '../../../pipes/mapper/mapper.module';
+import { PrizmMapperPipe } from '../../../pipes/mapper/mapper.pipe';
 // import { PrizmCalendarModule } from '../../calendar/calendar.module';
 import { PrizmScrollbarModule } from '../../scrollbar/scrollbar.module';
 import { PrizmPrimitiveCalendarRangeComponent } from './primitive-calendar-range.component';
@@ -10,7 +10,7 @@ import { PrizmCalendarComponent } from '../../calendar/calendar.component';
  * @internal
  */
 @NgModule({
-  imports: [PrizmMapperPipeModule, CommonModule, PrizmScrollbarModule, PrizmCalendarComponent],
+  imports: [PrizmMapperPipe, CommonModule, PrizmScrollbarModule, PrizmCalendarComponent],
   declarations: [PrizmPrimitiveCalendarRangeComponent],
   exports: [PrizmPrimitiveCalendarRangeComponent],
 })

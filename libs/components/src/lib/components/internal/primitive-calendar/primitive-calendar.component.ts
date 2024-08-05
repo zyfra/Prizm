@@ -32,7 +32,7 @@ import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmCalendarSheetPipe, PrizmMapperPipeModule } from '../../../pipes';
+import { PrizmCalendarSheetPipe, PrizmMapperPipe } from '../../../pipes';
 import { PrizmHoveredDirective } from '../../../directives/hovered';
 import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../directives';
 
@@ -45,7 +45,7 @@ import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../direc
   imports: [
     CommonModule,
     PrizmLetDirective,
-    PrizmMapperPipeModule,
+    PrizmMapperPipe,
     PrizmRepeatTimesDirective,
     PrizmCallFuncPipe,
     PrizmHoveredDirective,

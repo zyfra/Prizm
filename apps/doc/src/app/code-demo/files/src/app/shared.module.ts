@@ -63,7 +63,7 @@ import {
   PrizmToggleComponent,
   PrizmTooltipModule,
   PrizmTreeModule,
-  PrizmWidgetModule,
+  PrizmWidgetComponent,
 } from '@prizm-ui/components';
 import {
   PrizmChartsAreaModule,
@@ -151,7 +151,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmToggleComponent,
     PrizmTooltipModule,
     PrizmTreeModule,
-    PrizmWidgetModule,
+    PrizmWidgetComponent,
     PrizmCounterComponent,
 
     // CHARTS
@@ -238,7 +238,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmToggleComponent,
     PrizmTooltipModule,
     PrizmTreeModule,
-    PrizmWidgetModule,
+    PrizmWidgetComponent,
 
     // CHARTS
     PrizmChartsAreaModule,
