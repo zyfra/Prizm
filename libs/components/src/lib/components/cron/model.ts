@@ -19,8 +19,8 @@ export type PrizmCronTabSpecifiedList = {
 };
 
 export type PrizmCronPeriod = {
-  start: [PrizmDay | null, PrizmTime | null] | null;
-  end: [PrizmDay | null, PrizmTime | null] | null;
+  start: [PrizmDay | null, PrizmTime | null] | null | Date;
+  end: [PrizmDay | null, PrizmTime | null] | null | Date;
   indefinitely: boolean;
 };
 

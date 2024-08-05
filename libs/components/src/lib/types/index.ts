@@ -24,3 +24,4 @@ export * from './time-mode';
 export * from './direction';
 export * from './brightness';
 export * from './time-format-parts';
+export * from './date-string';

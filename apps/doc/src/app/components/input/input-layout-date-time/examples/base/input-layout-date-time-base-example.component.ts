@@ -7,9 +7,8 @@ import { PrizmDay, PrizmTime } from '@prizm-ui/components';
   templateUrl: './input-layout-date-time-base-example.component.html',
   styles: [
     `
-      .box {
-        display: flex;
-        gap: 1rem;
+      [prizmButton] {
+        margin-right: 24px;
       }
     `,
   ],

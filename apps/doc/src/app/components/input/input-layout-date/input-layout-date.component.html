@@ -12,6 +12,14 @@
     <prizm-doc-example id="native-date" [content]="exampleNative" heading="Native Date">
       <prizm-input-native-date-base-example></prizm-input-native-date-base-example>
     </prizm-doc-example>
+
+    <prizm-doc-example
+      id="date-provider"
+      [content]="exampleDateProvider"
+      heading="Provider for Native Date and ISO or UTC date strings"
+    >
+      <prizm-input-date-provider-example></prizm-input-date-provider-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -35,6 +43,8 @@
           [prizmDocHostElementKey]="dateKey"
           [formControl]="control"
           [placeholder]="placeholder"
+          [min]="min"
+          [max]="max"
         >
         </prizm-input-layout-date>
       </prizm-input-layout>
@@ -64,16 +74,20 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minMaxVariants"
         documentationPropertyName="min"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmDay | Date | string"
         documentationPropertyMode="input"
       >
         Min Date
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="minMaxVariants"
         documentationPropertyName="max"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmDay | Date | string"
         documentationPropertyMode="input"
       >
         Max Date

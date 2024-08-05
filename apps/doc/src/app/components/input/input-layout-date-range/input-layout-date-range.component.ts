@@ -1,6 +1,12 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PrizmDayRange, PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import {
+  PrizmDay,
+  PrizmDayRange,
+  PrizmInputPosition,
+  PrizmInputSize,
+  PrizmInputStatus,
+} from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
@@ -44,6 +50,16 @@ export class InputLayoutDateRangeComponent {
 
   public hideClearButtonHint: boolean | null = null;
   public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
+
+  public minMaxVariants = [
+    new PrizmDay(2015, 3, 15),
+    '2018-11-18T08:04:30+00:00',
+    '2022-09-06T13:56:13.757Z',
+    new Date(2027, 1, 1, 30, 0, 0),
+    'invalid date string',
+  ];
+  public min = this.minMaxVariants[0];
+  public max = this.minMaxVariants[3];
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

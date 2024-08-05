@@ -1,10 +1,13 @@
 <prizm-input-layout label="Введите дату">
-  <prizm-input-layout-date-time [formControl]="value"></prizm-input-layout-date-time>
+  <prizm-input-layout-date-time [formControl]="value" [min]="min" [max]="max"></prizm-input-layout-date-time>
 </prizm-input-layout>
-<div>
+
+<pre>
   {{ value.value | date : 'short' }}
-</div>
+  min: {{ min | date : 'short' }}
+  max: {{ max | date : 'short' }}
+</pre>
 
 <br />
-<button (click)="setDefaultValue()">Set default value</button>
-<button (click)="clear()">Clear</button>
+<button (click)="setDefaultValue()" prizmButton>Set default value</button>
+<button (click)="clear()" prizmButton>Clear</button>
