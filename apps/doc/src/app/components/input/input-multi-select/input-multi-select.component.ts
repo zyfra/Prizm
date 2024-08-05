@@ -48,6 +48,7 @@ export class InputInputMultiSelectComponent {
   public readOnly = false;
   val1!: any[];
   public pseudoInvalid = false;
+  public autoReposition = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;

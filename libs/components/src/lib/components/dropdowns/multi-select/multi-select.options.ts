@@ -45,6 +45,7 @@ export interface PrizmMultiSelectOptions<T> {
    * TODO ng16! remove
    * */
   readonly outer: boolean;
+  readonly autoReposition: boolean;
   readonly maxDropdownHeight: number;
   readonly dropdownWidth: string;
   readonly valueContent: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>>;
@@ -56,6 +57,7 @@ export const PRIZM_MULTI_SELECT_DEFAULT_OPTIONS: PrizmMultiSelectOptions<unknown
   chooseAllItem: null,
   icon: null,
   searchable: false,
+  autoReposition: false,
   forceClear: null,
   isChipsDeletable: true,
   outer: false,
