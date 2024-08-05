@@ -7,7 +7,7 @@ import { ZoomControlExampleBasicComponent } from './examples/zoom-control-exampl
 import {
   PrizmButtonComponent,
   PrizmDataListComponent,
-  PrizmDropdownControllerModule,
+  PrizmDropdownControllerDirective,
   PrizmDropdownHostModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
@@ -28,7 +28,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmDropdownHostModule,
     PrizmDataListComponent,
     PrizmButtonComponent,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmListingItemComponent,
     PrizmIconsFullComponent,
   ],

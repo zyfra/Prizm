@@ -55,7 +55,7 @@ import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PrizmDataListComponent } from '../../data-list/data-list.component';
 import { PrizmCalendarComponent } from '../../calendar';
 import { PrizmLinkComponent } from '../../link';
-import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PrizmValueAccessorDirective } from '../../../directives/value-accessor/value-accessor.directive';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
 import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
@@ -103,7 +103,7 @@ import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/s
     PrizmCalendarComponent,
     PrizmLinkComponent,
     PrizmDropdownHostComponent,
-    PrizmValueAccessorModule,
+    PrizmValueAccessorDirective,
     PrizmInputNativeValueDirective,
     PrizmListingItemComponent,
     PrizmPluckPipe,

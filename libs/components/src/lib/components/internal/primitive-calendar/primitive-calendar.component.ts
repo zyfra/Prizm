@@ -32,7 +32,7 @@ import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmCalendarSheetPipeModule, PrizmMapperPipeModule } from '../../../pipes';
+import { PrizmCalendarSheetPipe, PrizmMapperPipeModule } from '../../../pipes';
 import { PrizmHoveredDirective } from '../../../directives/hovered';
 import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../directives';
 
@@ -50,7 +50,7 @@ import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../direc
     PrizmCallFuncPipe,
     PrizmHoveredDirective,
     PrizmPressedDirective,
-    PrizmCalendarSheetPipeModule,
+    PrizmCalendarSheetPipe,
   ],
   providers: [
     ...prizmI18nInitWithKey(PRIZM_SHORT_WEEK_DAYS, 'shortWeekDays'),

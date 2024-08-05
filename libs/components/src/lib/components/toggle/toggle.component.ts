@@ -21,7 +21,7 @@ import { PrizmAppearance } from '../../types/appearance.types';
 import { CommonModule } from '@angular/common';
 import {
   PolymorphModule,
-  PrizmCheckedModule,
+  PrizmCheckedDirective,
   PrizmFocusableDirective,
   PrizmFocusedDirective,
   PrizmFocusVisibleDirective,
@@ -45,7 +45,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmFocusVisibleDirective,
     PrizmHoveredDirective,
     PrizmPressedDirective,
-    PrizmCheckedModule,
+    PrizmCheckedDirective,
     PrizmWrapperComponent,
     PrizmLoaderComponent,
     PolymorphModule,

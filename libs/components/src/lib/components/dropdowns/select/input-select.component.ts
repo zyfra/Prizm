@@ -76,8 +76,8 @@ import { PrizmInputSelectOptionService } from './input-select-option.service';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
+  PrizmAutoFocusDirective,
+  PrizmDropdownControllerDirective,
   PrizmFocusableDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
@@ -111,11 +111,11 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     ReactiveFormsModule,
     CommonModule,
     PrizmLetDirective,
-    PrizmAutoFocusModule,
+    PrizmAutoFocusDirective,
     PrizmHintDirective,
     PrizmCallFuncPipe,
     PrizmScrollbarDirective,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmLifecycleDirective,
     PrizmDataListComponent,
     PrizmSelectInputItemComponent,

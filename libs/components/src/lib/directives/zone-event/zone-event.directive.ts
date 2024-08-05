@@ -24,6 +24,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 @Directive({
   selector: '[prizmZoneEvent]',
   exportAs: 'prizmZoneEvent',
+  standalone: true,
   providers: [PrizmZoneEventService, PrizmDestroyService],
 })
 export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {

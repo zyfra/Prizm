@@ -7,7 +7,7 @@ import {
   PrizmButtonModule,
   PrizmToggleModule,
   PrizmWidgetModule,
-  PrizmZoneEventModule,
+  PrizmZoneEventDirective,
 } from '@prizm-ui/components';
 import { PrizmZoneEventBaseExampleComponent } from './examples/base/base.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +16,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmZoneEventModule,
+    PrizmZoneEventDirective,
     PrizmToggleModule,
     ReactiveFormsModule,
     PrizmButtonModule,

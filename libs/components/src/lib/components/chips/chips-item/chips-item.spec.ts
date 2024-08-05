@@ -3,7 +3,7 @@ import { PrizmChipsItemComponent } from './chips-item.component';
 import { By } from '@angular/platform-browser';
 import { PrizmCallFuncPipe, PrizmLetModule } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
-import { PrizmElementReadyModule } from '../../../directives/element-ready';
+import { PrizmElementReadyDirective } from '../../../directives/element-ready';
 import { PrizmHintModule } from '../../../directives/hint/hint.module';
 import { PrizmLifecycleDirective } from '../../../directives/lifecycle/lifecycle.module';
 import { ChangeDetectionStrategy } from '@angular/core';
@@ -19,7 +19,7 @@ describe('PrizmChipsItemComponent', () => {
         CommonModule,
         PrizmCallFuncPipe,
         PrizmLifecycleDirective,
-        PrizmElementReadyModule,
+        PrizmElementReadyDirective,
         PrizmLetModule,
         PrizmHintModule,
       ],

@@ -27,7 +27,7 @@ import {
   PrizmDropdownZoneDirective,
   PrizmLifecycleDirective,
   PrizmMutationObserveDirective,
-  PrizmZoneEventModule,
+  PrizmZoneEventDirective,
 } from '../../../directives';
 import { debounceTime, delay, distinctUntilChanged, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
@@ -64,7 +64,7 @@ import { PrizmDropdownHostDirective } from './dropdown-host.directive';
     PrizmOverlayComponent,
     PrizmThemeModule,
     PrizmLifecycleDirective,
-    PrizmZoneEventModule,
+    PrizmZoneEventDirective,
     PolymorphModule,
     PrizmDropdownZoneDirective,
     PrizmMutationObserveDirective,

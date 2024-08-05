@@ -9,7 +9,7 @@ import { PrizmInputLayoutRightDirective } from './input-layout/input-layout-righ
 import { PrizmInputLayoutLeftDirective } from './input-layout/input-layout-left.directive';
 import { PrizmInputLayoutInBodyDirective } from './input-layout/input-layout-in-body.directive';
 import { PrizmInputLayoutSubtextDirective } from './input-layout/input-layout-subtext.directive';
-import { PolymorphModule, PrizmZoneEventModule } from '../../../directives';
+import { PolymorphModule, PrizmZoneEventDirective } from '../../../directives';
 import { PrizmLetDirective, PrizmPluckPipe, PrizmToObservablePipe } from '@prizm-ui/helpers';
 import { PrizmInputHintModule } from './input-hint/input-hint.module';
 import { PrizmInputAllowedSymbolsModule } from './input-allowed-symbols';
@@ -23,7 +23,7 @@ import { PrizmInputIconButtonComponent } from './input-icon-button';
     PrizmToObservablePipe,
     PrizmLetDirective,
     PolymorphModule,
-    PrizmZoneEventModule,
+    PrizmZoneEventDirective,
     PrizmHintDirective,
     PrizmInputIconButtonComponent,
     PrizmInputAllowedSymbolsModule,

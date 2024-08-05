@@ -29,7 +29,7 @@ import {
   PrizmFocusableDirective,
   PrizmHoveredDirective,
   PrizmPressedDirective,
-  PrizmStopPropagationModule,
+  PrizmStopPropagationDirective,
 } from '../../directives';
 import { PrizmPrimitiveSpinButtonModule, PrizmPrimitiveYearPickerComponent } from '../internal';
 import { PrizmScrollbarComponent } from '../scrollbar';
@@ -44,7 +44,7 @@ const TODAY = PrizmDay.currentLocal();
   standalone: true,
   imports: [
     CommonModule,
-    PrizmStopPropagationModule,
+    PrizmStopPropagationDirective,
     PrizmPrimitiveYearPickerComponent,
     PrizmPrimitiveSpinButtonModule,
     PrizmScrollbarComponent,
