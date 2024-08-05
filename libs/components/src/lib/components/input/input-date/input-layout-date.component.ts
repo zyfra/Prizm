@@ -22,7 +22,6 @@ import {
   PRIZM_LAST_DAY,
   PrizmDay,
   PrizmMonth,
-  PrizmTime,
 } from '../../../@core/date-time';
 import {
   PrizmBooleanHandler,
