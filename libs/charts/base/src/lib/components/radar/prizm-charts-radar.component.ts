@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Radar } from '@antv/g2plot';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsRadarItem, PrizmChartsRadarOptions, PrizmChartsRadarOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-radar',
   templateUrl: './prizm-charts-radar.component.html',
   styleUrls: ['./prizm-charts-radar.component.less'],
   exportAs: 'prizmChartsRadar',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsRadarComponent<
   T extends Record<string, unknown>

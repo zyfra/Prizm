@@ -4,13 +4,13 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { RadialBarComponent } from './radial-bar.component';
 import { PrizmChartsRadialBarExampleComponent } from './examples/base/prizm-charts-radial-bar-example.component';
-import { PrizmChartsRadialBarModule } from '@prizm-ui/charts';
+import { PrizmChartsRadialBarComponent } from '@prizm-ui/charts';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmChartsRadialBarModule,
+    PrizmChartsRadialBarComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(RadialBarComponent)),
   ],
   declarations: [PrizmChartsRadialBarExampleComponent, RadialBarComponent],

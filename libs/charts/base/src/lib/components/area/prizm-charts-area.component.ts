@@ -3,10 +3,14 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 import { Area } from '@antv/g2plot';
 import { PrizmChartsAreaItem, PrizmChartsAreaOrigin, PrizmChartsAriaOptions } from './model';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
+import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'prizm-charts-area',
   templateUrl: './prizm-charts-area.component.html',
   styleUrls: ['./prizm-charts-area.component.less'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
   PrizmChartsAreaOrigin,

@@ -15,14 +15,14 @@ import {
   PrizmDataListModule,
   PrizmDropdownControllerDirective,
   PrizmDropdownHostModule,
-  PrizmSwitcherModule,
+  PrizmSwitcherComponent,
 } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
     CommonModule,
     ClipboardModule,
-    PrizmSwitcherModule,
+    PrizmSwitcherComponent,
     TuiTabsModule,
     TuiButtonModule,
     TuiMapperPipeModule,
