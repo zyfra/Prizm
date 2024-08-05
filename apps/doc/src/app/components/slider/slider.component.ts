@@ -1,8 +1,10 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmSliderCnobValuePosition, PrizmSliderOrientation } from '@prizm-ui/components';
+import { PrizmSliderCnobValuePosition, PrizmSliderOrientation, PrizmSliderValue } from '@prizm-ui/components';
 
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { PrizmFormControlHelpers } from '@prizm-ui/helpers';
+import { Observable, map, merge, timer } from 'rxjs';
 
 @Component({
   templateUrl: './slider.component.html',
@@ -70,6 +72,12 @@ export class PrizmSliderExampleComponent {
 
   cnobValuePosition: PrizmSliderCnobValuePosition = 'top';
   cnobValuePositionValues: Array<PrizmSliderCnobValuePosition> = ['top', 'right', 'bottom', 'left'];
+  readonly valueSingleVariants: Array<PrizmSliderValue> = [10, 25, 37, 73];
+  readonly valueRangeVariants: Array<PrizmSliderValue> = [
+    [10, 20],
+    [0, 50],
+    [4, 87],
+  ];
 
   _orientation: PrizmSliderOrientation = 'horizontal';
   get orientation(): PrizmSliderOrientation {
@@ -124,4 +132,43 @@ export class PrizmSliderExampleComponent {
   };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
+
+  public updateValueOfControl(value: PrizmSliderValue): void {
+    this.fc.setValue(value);
+  }
+
+  public getDisabledFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getDisabled$(control)).pipe(
+      map(() => PrizmFormControlHelpers.getDisabled(control))
+    );
+  }
+
+  public isTouchedFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(map(c => control.touched));
+  }
+
+  public isDirtyFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(map(c => control.dirty));
+  }
+
+  public isPristineFromControl$(control: UntypedFormControl): Observable<boolean> {
+    return merge(timer(0, 100), PrizmFormControlHelpers.getValue$(control)).pipe(map(c => control.pristine));
+  }
+
+  public updateStateOfControl(control: UntypedFormControl, newState: boolean): void {
+    PrizmFormControlHelpers.setDisabled(control, newState);
+  }
+
+  public setTouched(control: UntypedFormControl, newState: boolean): void {
+    if (newState) control.markAsTouched({});
+    else control.markAsUntouched();
+  }
+  public setDirty(control: UntypedFormControl, newState: boolean): void {
+    if (newState) control.markAsDirty();
+    else control.markAsPristine();
+  }
+  public setPristine(control: UntypedFormControl, newState: boolean): void {
+    if (newState) control.markAsPristine();
+    else control.markAsDirty();
+  }
 }
