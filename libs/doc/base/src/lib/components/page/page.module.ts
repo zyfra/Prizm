@@ -3,8 +3,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { TuiTabsModule, TuiTagModule } from '@taiga-ui/kit';
 
-import { PrizmDocSeeAlsoModule } from '../../internal/see-also/see-also.module';
-import { TuiDocSourceCodeModule } from '../../internal/source-code/source-code.module';
+import { PrizmDocSeeAlsoComponent } from '../../internal/see-also/see-also.component';
+import { PrizmDocSourceCodeComponent } from '../../internal/source-code/source-code.component';
 import { PrizmDocPageComponent } from './page.component';
 import { PrizmDocPageTabConnectorDirective } from './page-tab.directive';
 
@@ -12,10 +12,10 @@ import { PrizmDocPageTabConnectorDirective } from './page-tab.directive';
   imports: [
     CommonModule,
     RouterModule,
-    PrizmDocSeeAlsoModule,
+    PrizmDocSeeAlsoComponent,
     TuiTabsModule,
     TuiTagModule,
-    TuiDocSourceCodeModule,
+    PrizmDocSourceCodeComponent,
   ],
   declarations: [PrizmDocPageComponent, PrizmDocPageTabConnectorDirective],
   exports: [PrizmDocPageComponent, PrizmDocPageTabConnectorDirective],
