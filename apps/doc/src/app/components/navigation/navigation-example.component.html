@@ -1,5 +1,17 @@
 <prizm-doc-page header="Navigation" package="Equinox">
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-header-dropdown (PrizmIconsFullRegistry)</li>
+        <li>prizm-navigation-item-expandable (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="exampleNavigationBasic" heading="Basic">
       <prizm-navigation-basic-example></prizm-navigation-basic-example>
     </prizm-doc-example>

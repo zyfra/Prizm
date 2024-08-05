@@ -12,6 +12,7 @@ import { PrizmInputMultiSelectWithObjectExampleComponent } from './examples/with
 import { PrizmInputMultiSelectValidatorsExampleComponent } from './examples/validators/multi-select-validators-example.component';
 import { PrizmInputMultiSelectWithTransformerExampleComponent } from './examples/with-transformer/multi-select-with-transformer-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmInputMultiSelectModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputInputMultiSelectComponent)),
     PrizmIconsFullComponent,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     PrizmInputMultiSelectWithTransformerExampleComponent,

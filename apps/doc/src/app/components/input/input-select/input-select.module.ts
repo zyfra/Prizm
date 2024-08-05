@@ -26,6 +26,7 @@ import { PrizmSelectAsyncExampleComponent } from './examples/async/select-async-
 import { PrizmSelectVirtualScrollExampleComponent } from './examples/virtual-scroll/select-virtual-scroll-example.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmInputSelectModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputSelectComponent)),
     PrizmIconsFullComponent,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     PrizmSelectAsyncExampleComponent,

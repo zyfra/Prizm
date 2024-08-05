@@ -3,6 +3,16 @@
     Our select component is a wrapper around the input select element.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>input-select (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-select-base-example></prizm-select-base-example>
     </prizm-doc-example>

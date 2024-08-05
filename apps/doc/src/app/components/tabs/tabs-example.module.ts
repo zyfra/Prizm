@@ -13,6 +13,7 @@ import { TabsExampleClosableComponent } from './examples/tabs-example-closable/t
 import { TabsExampleComponentContentComponent } from './examples/tabs-example-component/tabs-example-content-component.component';
 import { TabsExampleComponentComponent } from './examples/tabs-example-component/tabs-example-component.component';
 import { TabsExampleInPanelComponent } from './examples/tabs-example-in-panel/tabs-example-in-panel.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 @NgModule({
   declarations: [
     TabsExampleComponent,
@@ -32,6 +33,7 @@ import { TabsExampleInPanelComponent } from './examples/tabs-example-in-panel/ta
     RouterModule.forChild(prizmDocGenerateRoutes(TabsExampleComponent)),
     PrizmTabsModule,
     PrizmPanelModule,
+    PrizmIfLanguageDirective,
   ],
 })
 export class TabsExampleModule {}

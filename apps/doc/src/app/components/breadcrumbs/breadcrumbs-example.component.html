@@ -3,6 +3,16 @@
     Our breadcrumb component is a simple way to show the user their current location in the site hierarchy.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-breadcrumbs (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
     <prizm-doc-example id="basic" [content]="breadcrumbsBasicExample" heading="Base">
       <prizm-breadcrumbs-basic></prizm-breadcrumbs-basic>
     </prizm-doc-example>

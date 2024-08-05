@@ -23,6 +23,7 @@ import { InputSearchExampleComponent } from './examples/input-search-example/inp
 import { InputEmptyLabelExampleComponent } from './examples/input-empty-label-example/input-empty-label-example.component';
 import { InputCustomClearButtonExampleComponent } from './examples/input-custom-clear-button-example/input-custom-clear-button-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     FormsModule,
     PrizmIconsFullComponent,
     PrizmToggleComponent,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     InputComponent,

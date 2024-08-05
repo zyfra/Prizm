@@ -1,5 +1,16 @@
 <prizm-doc-page header="InputLayoutDateRelative">
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-input-layout-date-relative (PrizmIconsRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-input-layout-date-relative-base-example></prizm-input-layout-date-relative-base-example>
     </prizm-doc-example>

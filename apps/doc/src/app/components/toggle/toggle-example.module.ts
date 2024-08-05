@@ -6,6 +6,7 @@ import { ToggleExampleComponent } from './toggle-example.component';
 import { PolymorphOutletDirective, PrizmToggleComponent } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmToggleBaseExampleComponent } from './examples/base/toggle-base-example.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -16,6 +17,7 @@ import { PrizmToggleBaseExampleComponent } from './examples/base/toggle-base-exa
     PolymorphOutletDirective,
     PrizmToggleComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(ToggleExampleComponent)),
+    PrizmIfLanguageDirective,
   ],
   declarations: [PrizmToggleBaseExampleComponent, ToggleExampleComponent],
   exports: [ToggleExampleComponent],
