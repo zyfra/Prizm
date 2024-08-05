@@ -26,7 +26,7 @@ import { PrizmInputOpacityModule } from '../../internal/input-opacity/input-opac
 import { PrizmDocDocumentationComponent } from './documentation.component';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
 import { PrizmHintModule, PrizmIndicatorModule, PrizmMapperPipeModule } from '@prizm-ui/components';
-import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -49,10 +49,10 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     PrizmMapperPipeModule,
     TuiDropdownModule,
     TuiDataListModule,
-    PrizmLetModule,
+    PrizmLetDirective,
     TuiDataListWrapperModule,
     TuiNotificationModule,
-    PrizmCallFuncModule,
+    PrizmCallFuncPipe,
     TuiInputNumberModule,
   ],
   declarations: [PrizmDocDocumentationComponent, PrizmDocDocumentationPropertyConnectorDirective],

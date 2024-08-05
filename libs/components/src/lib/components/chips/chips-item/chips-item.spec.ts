@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PrizmChipsItemComponent } from './chips-item.component';
 import { By } from '@angular/platform-browser';
-import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmLetModule } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
 import { PrizmElementReadyModule } from '../../../directives/element-ready';
 import { PrizmHintModule } from '../../../directives/hint/hint.module';
@@ -17,7 +17,7 @@ describe('PrizmChipsItemComponent', () => {
       imports: [
         PrizmChipsItemComponent,
         CommonModule,
-        PrizmCallFuncModule,
+        PrizmCallFuncPipe,
         PrizmLifecycleModule,
         PrizmElementReadyModule,
         PrizmLetModule,

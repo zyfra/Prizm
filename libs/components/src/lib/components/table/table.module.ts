@@ -18,7 +18,7 @@ import { PrizmMapperPipeModule } from '../../pipes';
 import { PolymorphModule } from '../../directives';
 import { SearchableContentComponent } from './components/searchable-content/searchable-content.component';
 import { SpaceNumberPipe } from './pipes/space-number.pipe';
-import { PrizmCallFuncModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
 import { PrizmTreeButtonModule } from '../tree-button/tree-button.module';
 import { PrizmTableTreeLoadingDirective } from './directives/tree-loading.directive';
 import { PrizmTableLoadingDirective } from './directives/loading.directive';
@@ -32,7 +32,7 @@ import { PrizmButtonComponent } from '../button';
   imports: [
     CommonModule,
     PrizmTreeButtonModule,
-    PrizmCallFuncModule,
+    PrizmCallFuncPipe,
     PrizmMapperPipeModule,
     PolymorphModule,
     PrizmIconsComponent,

@@ -4,7 +4,7 @@ import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService, PrizmToObservableModule } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmToObservablePipe } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
@@ -27,7 +27,7 @@ import { PrizmScrollbarModule } from '../../scrollbar';
     PolymorphModule,
     PrizmOverlayModule,
     PrizmThemeModule,
-    PrizmToObservableModule,
+    PrizmToObservablePipe,
     PrizmButtonModule,
     PrizmFocusTrapModule,
     PrizmScrollbarModule,

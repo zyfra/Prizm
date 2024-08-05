@@ -6,12 +6,12 @@ import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule 
 
 import { VersionManagerComponent } from './version-manager.component';
 import { PrizmButtonModule } from '@prizm-ui/components';
-import { PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmLetDirective } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
     CommonModule,
-    PrizmLetModule,
+    PrizmLetDirective,
     PrizmButtonModule,
     FormsModule,
     TuiSelectModule,
