@@ -20,6 +20,7 @@ export class PieComponent {
   ];
   colorField = 'type';
   angleField = 'value';
+  color = '';
   interactions: PrizmChartsPieOptions['interactions'] = [{ type: 'element-active' }];
   label: PrizmChartsPieOptions['label'] = {
     type: 'inner',

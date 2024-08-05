@@ -28,6 +28,14 @@ export class PrizmChartsRadialBarComponent<
   }
 
   @Input()
+  public set color(value: PrizmChartsRadialBarOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsRadialBarOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set label(value: PrizmChartsRadialBarOptions['label']) {
     this.updateOptions({ label: value });
   }

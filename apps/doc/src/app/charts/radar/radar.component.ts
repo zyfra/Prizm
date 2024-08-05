@@ -24,6 +24,7 @@ export class RadarComponent {
   public width = 400;
   public height = 300;
   public yField = 'star';
+  public color = '';
   public options: Partial<PrizmChartsRadarOptions> = {
     appendPadding: [0, 10, 0, 10],
     meta: {

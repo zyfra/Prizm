@@ -24,6 +24,14 @@ export class PrizmChartsWaterfallComponent<
   }
 
   @Input()
+  public set color(value: PrizmChartsWaterfallOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsWaterfallOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set xField(value: string) {
     this.updateOptions({ xField: value });
   }

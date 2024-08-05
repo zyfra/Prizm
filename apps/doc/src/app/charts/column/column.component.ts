@@ -12,6 +12,7 @@ import { PrizmChartsColumnItem } from '@prizm-ui/charts';
 export class ColumnComponent {
   public sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   public size: PrizmSize = this.sizeVariants[0];
+  color = '';
   public data: PrizmChartsColumnItem[] = [
     {
       product_type: 'Офисные принадлежности',

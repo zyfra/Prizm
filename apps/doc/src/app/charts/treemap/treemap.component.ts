@@ -35,6 +35,12 @@ export class TreemapComponent {
     ],
   };
   public colorField = 'name';
+  public colorVariants = [
+    '',
+    ['red', 'blue', 'green', 'yellow'],
+    ['#b07e9f', '#7dbbb0', '#a37c18', '#e7bee6', '#396878', '#6699cc', '#fc9e7b'],
+  ];
+  public color = this.colorVariants[0];
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
   public width: number | null = null;
   public height = 300;

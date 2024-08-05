@@ -260,6 +260,8 @@ export class ScatterComponent {
   public yField = 'Shot conceded';
   public xField = 'xG conceded';
   public colorField = 'Result';
+  public colorVariants = ['', '#664d4d', ['red', 'blue', 'green'], ['#650000', '#7dbbb0', '#a37c18']];
+  public color = this.colorVariants[0];
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   readonly exampleOutline: TuiDocExample = {

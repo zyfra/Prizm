@@ -29,6 +29,7 @@
         [seriesField]="$any(seriesField)"
         [theme]="$any(prizmTheme.changesTheme$ | async)"
         [height]="height"
+        [color]="color"
       ></prizm-charts-line>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -66,15 +67,6 @@
         documentationPropertyMode="input"
       >
         Series Field Name (use 'key' for example data)
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="width"
-        documentationPropertyName="width"
-        documentationPropertyType="number"
-        documentationPropertyMode="input"
-      >
-        Width
       </ng-template>
 
       <ng-template
@@ -116,6 +108,15 @@
         documentationPropertyMode="input"
       >
         Height
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color. Sets color to line. Note, for chart with seriesField use colors array.
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
