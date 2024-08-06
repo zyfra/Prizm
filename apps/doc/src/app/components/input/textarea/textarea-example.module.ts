@@ -6,11 +6,7 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 
 import { TextareaBasicExampleComponent } from './examples/textarea-basic-example/textarea-basic-example.component';
 import { TextareaExampleComponent } from './textarea-example.component';
-import {
-  PrizmAutoResizeDirective,
-  PrizmInputTextModule,
-  PrizmSelectInputComponent,
-} from '@prizm-ui/components';
+import { PrizmAutoResizeDirective, PrizmInputTextModule } from '@prizm-ui/components';
 import { TextareaAutosizeExampleModule } from './examples/textarea-autosize-example/textarea-autosize-example.module';
 import { TextareaResizableExampleComponent } from './examples/textarea-resizable-example/textarea-resizable-example.component';
 
@@ -24,7 +20,6 @@ import { TextareaResizableExampleComponent } from './examples/textarea-resizable
     FormsModule,
     PrizmInputTextModule,
     TextareaAutosizeExampleModule,
-    PrizmSelectInputComponent,
   ],
   declarations: [TextareaExampleComponent, TextareaResizableExampleComponent, TextareaBasicExampleComponent],
   exports: [TextareaExampleComponent],

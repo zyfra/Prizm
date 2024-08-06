@@ -65,7 +65,7 @@ import {
   PrizmWidgetModule,
 } from '@prizm-ui/components';
 import {
-  PrizmChartsAreaModule,
+  PrizmChartsAreaComponent,
   PrizmChartsBarModule,
   PrizmChartsGaugeModule,
   PrizmChartsLineModule,
@@ -154,7 +154,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmWidgetModule,
 
     // CHARTS
-    PrizmChartsAreaModule,
+    PrizmChartsAreaComponent,
     PrizmChartsBarModule,
     PrizmChartsLineModule,
     PrizmChartsGaugeModule,
@@ -241,7 +241,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmWidgetModule,
 
     // CHARTS
-    PrizmChartsAreaModule,
+    PrizmChartsAreaComponent,
     PrizmChartsBarModule,
     PrizmChartsLineModule,
     PrizmChartsGaugeModule,
