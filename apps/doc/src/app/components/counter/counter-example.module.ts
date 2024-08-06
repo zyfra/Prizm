@@ -4,7 +4,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { CounterExampleComponent } from './counter-example.component';
 import { PrizmCounterBaseExampleComponent } from './examples/base/counter-base-example.component';
-import { PrizmButtonModule, PrizmCounterModule } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmCounterModule } from '@prizm-ui/components';
 import { PrizmCounterDirectiveExampleComponent } from './examples/directive/counter-directive-example.component';
 
 @NgModule({
@@ -12,7 +12,7 @@ import { PrizmCounterDirectiveExampleComponent } from './examples/directive/coun
     CommonModule,
     PrizmAddonDocModule,
     PrizmCounterModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(CounterExampleComponent)),
   ],
   declarations: [

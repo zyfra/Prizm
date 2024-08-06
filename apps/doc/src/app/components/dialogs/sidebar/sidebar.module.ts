@@ -4,7 +4,7 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmInputCommonModule,
   PrizmInputIconButtonComponent,
   PrizmInputSelectModule,
@@ -31,7 +31,7 @@ import { PrizmSidebarOnlyConfirmButtonExampleComponent } from './examples/only-c
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmSidebarComponent,
     PrizmInputIconButtonComponent,
     PrizmScrollbarModule,

@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmCardComponent,
   PrizmInputSelectModule,
   PrizmInputTextModule,
@@ -22,7 +22,7 @@ import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmCardComponent,
     PrizmToggleComponent,
     PrizmInputSelectModule,

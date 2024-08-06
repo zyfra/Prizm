@@ -9,11 +9,11 @@ import { PrizmTreeItemControllerDirective } from './directives/tree-item-control
 import { PrizmTreeNodeDirective } from './directives/tree-node.directive';
 import { PrizmExpandModule } from '../expand';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmButtonModule } from '../button';
+import { PrizmButtonComponent } from '../button';
 import { PolymorphModule } from '../../directives';
 
 @NgModule({
-  imports: [CommonModule, PolymorphModule, PrizmExpandModule, PrizmLetDirective, PrizmButtonModule],
+  imports: [CommonModule, PolymorphModule, PrizmExpandModule, PrizmLetDirective, PrizmButtonComponent],
   declarations: [
     PrizmTreeComponent,
     PrizmTreeItemComponent,

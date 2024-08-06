@@ -7,7 +7,7 @@ import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
 import { PolymorphModule } from '../../directives';
 import { PrizmToastControl } from './toast-control';
 import { PrizmFocusTrapDirective } from '../../directives/focus-trap';
-import { PrizmButtonModule } from '../button';
+import { PrizmButtonComponent } from '../button';
 import { PrizmIndicatorComponent } from '../indicator';
 import { PrizmInputCommonModule } from '../input';
 import { PrizmThemeModule } from '@prizm-ui/theme';
@@ -21,7 +21,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
     PrizmInputCommonModule,
     PrizmIndicatorComponent,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmThemeModule,
     PrizmFocusTrapDirective,
     PrizmScrollbarModule,

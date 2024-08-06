@@ -9,4 +9,4 @@ import { PrizmSplitButtonComponent } from './split-button/split-button.component
   imports: [PrizmButtonComponent, PrizmSplitButtonComponent],
   exports: [PrizmButtonComponent, PrizmSplitButtonComponent],
 })
-export class PrizmButtonModule {}
+export class PrizmButtonComponent {}

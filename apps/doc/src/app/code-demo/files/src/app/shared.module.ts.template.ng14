@@ -3,7 +3,7 @@ import { PrizmIconsComponent, PrizmIconsFullComponent, PrizmIconsSvgComponent } 
 import {
   PrizmAccordionModule,
   PrizmBreadcrumbsModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmCalendarModule,
   PrizmCalendarMonthComponent,
   PrizmCalendarRangeComponent,
@@ -92,7 +92,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
     PrizmRadioButtonComponent,
 
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmAccordionModule,
     PrizmBreadcrumbsModule,
     PrizmCalendarModule,
@@ -181,7 +181,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmRadioButtonComponent,
 
 
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmAccordionModule,
     PrizmBreadcrumbsModule,
     PrizmCalendarModule,

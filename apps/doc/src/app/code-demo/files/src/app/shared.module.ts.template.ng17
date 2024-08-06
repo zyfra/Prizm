@@ -3,7 +3,7 @@ import { PrizmIconsComponent, PrizmIconsFullComponent, PrizmIconsSvgComponent } 
 import {
   PrizmAccordionModule,
   PrizmBreadcrumbsModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmCalendarModule,
   PrizmCalendarMonthComponent,
   PrizmCalendarRangeComponent,
@@ -92,7 +92,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     // for full variant
     PrizmIconsFullComponent,
 
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmAccordionModule,
     PrizmBreadcrumbsModule,
     PrizmCalendarModule,
@@ -180,7 +180,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     // for full variant
     PrizmIconsFullComponent,
 
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmAccordionModule,
     PrizmBreadcrumbsModule,
     PrizmCalendarModule,

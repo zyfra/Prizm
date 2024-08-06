@@ -5,14 +5,14 @@ import { TuiDataListModule, TuiTextfieldControllerModule } from '@taiga-ui/core'
 import { TuiSelectModule, TuiStringifyContentPipeModule, TuiStringifyPipeModule } from '@taiga-ui/kit';
 
 import { VersionManagerComponent } from './version-manager.component';
-import { PrizmButtonModule } from '@prizm-ui/components';
+import { PrizmButtonComponent } from '@prizm-ui/components';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmLetDirective,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     FormsModule,
     TuiSelectModule,
     TuiDataListModule,

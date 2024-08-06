@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import { PolymorphModule, PrizmFocusTrapDirective } from '../../../directives';
 import { PrizmOverlayComponent } from '../../../modules';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmButtonModule } from '../../button';
+import { PrizmButtonComponent } from '../../button';
 import { PrizmScrollbarModule } from '../../scrollbar';
 
 @Component({
@@ -28,7 +28,7 @@ import { PrizmScrollbarModule } from '../../scrollbar';
     PrizmOverlayComponent,
     PrizmThemeModule,
     PrizmToObservablePipe,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmFocusTrapDirective,
     PrizmScrollbarModule,
   ],

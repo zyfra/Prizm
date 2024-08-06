@@ -11,7 +11,7 @@ import { PrizmDocExampleCapitalizePipe } from './example-capitalize.pipe';
 import { PrizmDocExampleGetTabsPipe } from './example-get-tabs.pipe';
 import { TuiMapperPipeModule } from '@taiga-ui/cdk';
 import {
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmDataListModule,
   PrizmDropdownControllerDirective,
   PrizmDropdownHostModule,
@@ -29,7 +29,7 @@ import {
     TuiDocCopyModule,
     PrizmDocCodeModule,
     PolymorpheusModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmDropdownHostModule,
     PrizmDataListModule,
     PrizmDropdownControllerDirective,

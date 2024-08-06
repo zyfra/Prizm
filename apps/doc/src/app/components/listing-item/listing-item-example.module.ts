@@ -4,7 +4,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { PrizmListingItemBaseExampleComponent } from './examples/base/listing-item-base-example.component';
 import {
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmCheckboxComponent,
   PrizmCounterModule,
   PrizmListingItemComponent,
@@ -21,7 +21,7 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     PrizmAddonDocModule,
     PrizmCounterModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmListingItemComponent,
     PrizmCheckboxComponent,
     PrizmCounterModule,

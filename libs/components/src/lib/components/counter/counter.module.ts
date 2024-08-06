@@ -3,7 +3,6 @@ import { PrizmCounterDirective } from './counter.directive';
 import { PrizmCounterComponent } from './counter.component';
 
 /**
- * @deprecated
  * use standalone
  * */
 @NgModule({

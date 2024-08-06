@@ -4,7 +4,7 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmDialogComponent,
   PrizmInputCommonModule,
   PrizmInputSelectModule,
@@ -28,7 +28,7 @@ import { PrizmDialogCustomServiceExampleComponent } from './examples/custom-serv
     ReactiveFormsModule,
     PrizmInputTextModule,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmDialogComponent,
     PrizmRadioButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(DialogExampleComponent)),
