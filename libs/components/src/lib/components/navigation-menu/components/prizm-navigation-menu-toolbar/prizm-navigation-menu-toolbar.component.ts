@@ -4,7 +4,7 @@ import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigati
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { PrizmNavigationMenuSearchComponent } from '../prizm-navigation-menu-search/prizm-navigation-menu-search.component';
-import { PrizmButtonComponent } from '../../../button/button.module';
+import { PrizmButtonComponent } from '../../../button/button.component';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
