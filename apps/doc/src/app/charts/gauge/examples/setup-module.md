@@ -1,11 +1,11 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmChartsGaugeModule } from '@prizm-ui/charts';
+import { PrizmChartsGaugeComponent } from '@prizm-ui/charts';
 
 @NgModule({
   imports: [
     // ...
-    PrizmChartsGaugeModule,
+    PrizmChartsGaugeComponent,
   ],
 })
 export class MyModule {}
