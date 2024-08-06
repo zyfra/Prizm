@@ -4,14 +4,15 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { CounterExampleComponent } from './counter-example.component';
 import { PrizmCounterBaseExampleComponent } from './examples/base/counter-base-example.component';
-import { PrizmButtonComponent, PrizmCounterModule } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmCounterDirective, PrizmCounterComponent } from '@prizm-ui/components';
 import { PrizmCounterDirectiveExampleComponent } from './examples/directive/counter-directive-example.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmCounterModule,
+    PrizmCounterDirective,
+    PrizmCounterComponent,
     PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(CounterExampleComponent)),
   ],
