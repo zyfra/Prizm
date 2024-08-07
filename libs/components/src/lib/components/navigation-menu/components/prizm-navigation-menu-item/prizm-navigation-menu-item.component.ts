@@ -13,7 +13,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
-import { PrizmHoveredModule } from '../../../../directives/hovered';
+import { PrizmHoveredDirective } from '../../../../directives/hovered';
 import { PrizmHintDirective } from '../../../../directives';
 import { PrizmButtonComponent } from '../../../button';
 import { prizmIsTextOverflow } from '../../../../util';
@@ -33,7 +33,7 @@ import {
   standalone: true,
   imports: [
     PrizmIconsSvgComponent,
-    PrizmHoveredModule,
+    PrizmHoveredDirective,
     NgIf,
     NgTemplateOutlet,
     PrizmInputCommonModule,

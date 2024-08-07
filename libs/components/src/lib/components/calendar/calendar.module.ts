@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PrizmCalendarComponent } from './calendar.component';
 import { PrizmPrimitiveYearMonthPaginationComponent } from '../internal/primitive-year-month-pagination';
 import { PrizmPrimitiveYearPickerComponent } from '../internal/primitive-year-picker';
-import { PrizmMapperPipeModule } from '../../pipes/mapper/mapper.module';
+import { PrizmMapperPipe } from '../../pipes/mapper';
 import { PrizmPrimitiveMonthPickerComponent } from '../internal/primitive-month-picker';
 import { PrizmPrimitiveCalendarComponent } from '../internal';
 import { PrizmScrollbarModule } from '../scrollbar';
@@ -15,7 +15,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
     PrizmPrimitiveYearPickerComponent,
     PrizmPrimitiveMonthPickerComponent,
     PrizmScrollbarModule,
-    PrizmMapperPipeModule,
+    PrizmMapperPipe,
   ],
   exports: [
     PrizmCalendarComponent,
@@ -23,7 +23,7 @@ import { PrizmScrollbarModule } from '../scrollbar';
     PrizmPrimitiveCalendarComponent,
     PrizmPrimitiveYearPickerComponent,
     PrizmPrimitiveMonthPickerComponent,
-    PrizmMapperPipeModule,
+    PrizmMapperPipe,
   ],
 })
 export class PrizmCalendarModule {}

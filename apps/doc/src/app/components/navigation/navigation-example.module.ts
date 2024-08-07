@@ -4,7 +4,7 @@ import { NavigationExampleComponent } from './navigation-example.component';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmHeaderModule,
   PrizmNavigationModule,
   PrizmScrollbarModule,
@@ -19,7 +19,7 @@ import { NavigationBasicExampleModule } from './examples/navigation-basic-exampl
     PrizmNavigationModule,
     PrizmScrollbarModule,
     PrizmHeaderModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmThemeModule,
     PrizmAddonDocModule,
     NavigationBasicExampleModule,

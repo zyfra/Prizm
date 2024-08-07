@@ -5,7 +5,7 @@ import { LogoComponent } from './logo.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
-import { PrizmButtonComponent, PrizmDialogModule, PrizmToggleComponent } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmDialogComponent, PrizmToggleComponent } from '@prizm-ui/components';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-changer.component';
 
@@ -16,7 +16,7 @@ import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-c
     PrizmButtonComponent,
     CommonModule,
     RouterModule,
-    PrizmDialogModule,
+    PrizmDialogComponent,
     ThemeTokenChangerComponent,
     FormsModule,
     PrizmIconsSvgComponent,

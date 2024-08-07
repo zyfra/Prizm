@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PrizmAccordionModule, PrizmTableModule } from '@prizm-ui/components';
+import { PrizmTableModule } from '@prizm-ui/components';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { ContactsComponent } from './contacts.component';
 

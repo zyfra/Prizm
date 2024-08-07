@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsGaugeOptions, PrizmChartsGaugeOrigin } from './model';
 import { Gauge } from '@antv/g2plot';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-gauge',
   templateUrl: './prizm-charts-gauge.component.html',
   styleUrls: ['./prizm-charts-gauge.component.less'],
   exportAs: 'prizmChartsGauge',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsGaugeComponent<
   T extends Record<string, unknown>

@@ -11,6 +11,7 @@ import {
 
 @Directive({
   selector: 'input[prizmChecked], input[prizmCheckedChange]',
+  standalone: true,
 })
 export class PrizmCheckedDirective {
   @Input()

@@ -1,12 +1,12 @@
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import {
   PrizmBreadcrumbsModule,
-  PrizmButtonModule,
-  PrizmHintModule,
+  PrizmButtonComponent,
+  PrizmHintDirective,
   PrizmNavigationMenuModule,
   PrizmScrollbarModule,
   PrizmSplitterModule,
-  PrizmWidgetModule,
+  PrizmWidgetComponent,
 } from '@prizm-ui/components';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -35,10 +35,10 @@ import { NavigationMenuOneModeExampleComponent } from './examples/navigation-men
     PrizmAddonDocModule,
     PrizmNavigationMenuModule,
     PrizmIconsSvgComponent,
-    PrizmButtonModule,
-    PrizmHintModule,
+    PrizmButtonComponent,
+    PrizmHintDirective,
     PrizmBreadcrumbsModule,
-    PrizmWidgetModule,
+    PrizmWidgetComponent,
     PrizmSplitterModule,
     PrizmScrollbarModule,
     RouterModule.forChild(prizmDocGenerateRoutes(NavigationMenuExampleComponent)),

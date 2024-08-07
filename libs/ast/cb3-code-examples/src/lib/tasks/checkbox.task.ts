@@ -8,13 +8,13 @@ import {
 export const ZyfraCheckboxCodeTasks: IPrizmAstCodeTask[] = [
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsIfNeededCodeTask, {
     importToAdd: '@prizm-ui/components',
-    namedImports: ['PrizmCheckboxModule'],
+    namedImports: ['PrizmCheckboxComponent'],
     targetImport: '@digital-plant/zyfra-components',
     targetNamedImports: ['ZyfraCheckBoxModule'],
     commentBeforeImport: 'PRIZM:MIGRATOR added new module for migrate from ZyfraCheckBoxModule',
   }),
   prizmAstCreateCodeTaskBy(PrizmAstAddImportsToNgModuleCodeTask, {
-    newModule: 'PrizmCheckboxModule',
+    newModule: 'PrizmCheckboxComponent',
     moduleToFind: 'ZyfraCheckBoxModule',
     comment: 'PRIZM:MIGRATOR: Our added module for migrate from ZyfraCheckBoxModule',
   }),

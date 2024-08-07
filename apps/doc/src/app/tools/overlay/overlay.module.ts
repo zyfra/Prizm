@@ -4,7 +4,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { OverlayComponent } from './overlay.component';
 import { PrizmOverlayExampleWithViewComponent } from './examples/with-component/template';
-import { PrizmButtonModule, PrizmOverlayModule } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmOverlayComponent } from '@prizm-ui/components';
 import { PrizmOverlayExampleSlideComponent } from './examples/slide/template';
 import { PrizmOverlayExampleRelativeComponent } from './examples/relative/template';
 import { PrizmOverlayExampleGlobalComponent } from './examples/global/template';
@@ -16,8 +16,8 @@ import { PrizmOverlayCustomContextExampleComponent } from './examples/custom-con
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmButtonModule,
-    PrizmOverlayModule,
+    PrizmButtonComponent,
+    PrizmOverlayComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(OverlayComponent)),
   ],
   declarations: [

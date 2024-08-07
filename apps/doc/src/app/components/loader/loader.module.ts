@@ -4,13 +4,13 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { LoaderComponent } from './loader.component';
 import { PrizmLoaderBaseExampleComponent } from './examples/base/loader-base-example.component';
-import { PrizmLoaderModule } from '@prizm-ui/components';
+import { PrizmLoaderComponent } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmLoaderModule,
+    PrizmLoaderComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(LoaderComponent)),
   ],
   declarations: [PrizmLoaderBaseExampleComponent, LoaderComponent],
