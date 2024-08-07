@@ -32,7 +32,11 @@
       "extFile": [".ng18", ".ng17", ".ng16", ".ng15"],
       "all": true,
       "rootChange": true,
-      "remove": ["angular.json"]
+      "remove": ["angular.json"],
+      "vars": {
+        "ngVersion": "18.1.3",
+        "version": "5.0.1"
+      }
     }
   }
 }

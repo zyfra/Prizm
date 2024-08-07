@@ -2,7 +2,12 @@ import { formatFiles, Tree } from '@nrwl/devkit';
 import { PrizmNxMvConfig, PrizmNxMvSchema } from './schema';
 import * as fs from 'fs';
 import { copyFolder, difference, getProjectConfigurations, visitAllFiles } from './util';
+import * as ejs from 'ejs';
 
+function renderEjs(content: string, params: Record<string, unknown>): string {
+  const html = ejs.render(content, params);
+  return html;
+}
 /**
  * Заменяем файлы проектов в рабочем пространстве на основе схемы PluginUpdateVersionSchema и конфига.
  *
@@ -72,9 +77,15 @@ export default async function (tree: Tree, schema: PrizmNxMvSchema): Promise<voi
             if (fileName.endsWith(extFile)) {
               // if we found file that to change file
               const newFileName = filePath.replace(new RegExp(extFile + '$', 'g'), '');
+              let fileContent = tree.read(filePath)?.toString();
+
+              if (fileContent && version.vars && Object.keys(version).length) {
+                fileContent = renderEjs(fileContent, version.vars);
+              }
+
               // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               // @ts-ignore
-              tree.write(newFileName, tree.read(filePath));
+              tree.write(newFileName, fileContent);
               break;
             }
           }

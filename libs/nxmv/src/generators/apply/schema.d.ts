@@ -11,6 +11,7 @@ export type PrizmNxMvConfigVersion = {
   projects: string[];
   remove?: string[];
   project: string;
+  vars?: Record<string, string | number>;
 };
 export interface PrizmNxMvConfig {
   versions: {
