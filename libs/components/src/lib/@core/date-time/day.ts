@@ -388,6 +388,14 @@ export class PrizmDay extends PrizmMonth {
     return new Date(this.year, this.month, this.day);
   }
 
+  public getTime(): number {
+    return this.toLocalNativeDate().getTime();
+  }
+
+  public copy(): PrizmDay {
+    return PrizmDay.fromLocalNativeDate(this.toLocalNativeDate());
+  }
+
   /**
    * Returns native {@link Date} based on UTC
    */

@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, inject, Input, Optional } from '@angular/core';
+import { Directive, ElementRef, HostBinding, inject, Input } from '@angular/core';
 import { PrizmHintDirective } from '../../../../directives/hint';
 import { PrizmOverlayOutsidePlacement } from '../../../../modules/overlay/models';
 import { prizmIsTextOverflow } from '../../../../util/dom/is-textoverflow';
@@ -45,11 +45,11 @@ export class PrizmInputHintDirective {
   }
 
   public ngOnChanges(): void {
-    this.prizmHint_.ngOnChanges();
+    this.hintSyncChanges();
   }
 
   private hintSyncChanges(): void {
-    this.prizmHint_.ngOnChanges();
+    this.prizmHint_.drawHint();
   }
 
   public updateHint(): void {

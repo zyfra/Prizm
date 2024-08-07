@@ -1,7 +1,6 @@
-import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import {
   PrizmOverlayControl,
-  PrizmOverlayFullscreenPosition,
   PrizmOverlayGlobalPosition,
   PrizmOverlayInsidePlacement,
   PrizmOverlayService,
@@ -24,10 +23,10 @@ import { PrizmOverlaySomeComponent } from './some-component';
     `,
   ],
 })
-export class PrizmOverlayExampleWithViewComponent implements OnInit {
+export class PrizmOverlayExampleWithViewComponent implements OnInit, OnDestroy {
   @ViewChild('elementRef', { read: ElementRef, static: true }) elementRef!: ElementRef;
 
-  private control!: PrizmOverlayControl;
+  private control?: PrizmOverlayControl;
   constructor(private readonly overlay: PrizmOverlayService) {}
 
   public ngOnInit(): void {
@@ -50,15 +49,19 @@ export class PrizmOverlayExampleWithViewComponent implements OnInit {
       .create();
   }
 
+  ngOnDestroy(): void {
+    this.control?.destroy();
+  }
+
   public open(): void {
-    this.control.open();
+    this.control?.open();
   }
 
   public close(): void {
-    this.control.close();
+    this.control?.close();
   }
 
   public toggle(): void {
-    this.control.toggle();
+    this.control?.toggle();
   }
 }

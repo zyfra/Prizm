@@ -1,4 +1,4 @@
-import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
+import { Component, OnDestroy, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import {
   PrizmOverlayControl,
   PrizmOverlayService,
@@ -33,11 +33,11 @@ export interface TreeNode {
     `,
   ],
 })
-export class TreeInModalExampleComponent implements OnInit {
+export class TreeInModalExampleComponent implements OnInit, OnDestroy {
   @ViewChild('someTemplate', { read: TemplateRef, static: true })
   templateRef!: TemplateRef<unknown>;
 
-  private control!: PrizmOverlayControl;
+  private control?: PrizmOverlayControl;
   constructor(private readonly overlay: PrizmOverlayService) {}
 
   ngOnInit() {
@@ -55,15 +55,19 @@ export class TreeInModalExampleComponent implements OnInit {
       .create();
   }
 
+  ngOnDestroy(): void {
+    this.control?.destroy();
+  }
+
   public open(): void {
-    this.control.open();
+    this.control?.open();
   }
 
   public close(): void {
-    this.control.close();
+    this.control?.close();
   }
 
   public toggle(): void {
-    this.control.toggle();
+    this.control?.toggle();
   }
 }

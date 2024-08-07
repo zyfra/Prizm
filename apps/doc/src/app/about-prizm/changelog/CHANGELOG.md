@@ -2,6 +2,99 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.3.7](https://github.com/zyfra/Prizm) (25-07-2024)
+
+### Bug fixes
+
+- fix(chore): fixed pipelines for run from release after v4, v3 and fix linters and tests #1900 #1899 #1898
+- fix(components/dropdown-host): overlay undefined error occures on destroy #1889
+- fix(components/switcher): write value error fixed #1890
+- fix(components/hint): fixed a bug with hiding the hint after changing the context or content #1895
+
+## [4.3.6](https://github.com/zyfra/Prizm) (18-07-2024)
+
+### Bug fixes
+
+- fix(components/switcher): fix async support for selected switcher #1476
+- fix(doc/chips): error with toched and dirty stated
+- fix(components/input-text): error with PrizmInputComponent with NgxMaskDirective behaves incorrectly when changed from empty value
+- fix(components/input-select): sync touched state https://github.com/zyfra/Prizm/issues/1694
+- fix(components/input-multi-select): sync touched state
+- fix(components/hint): a bug where the tooltip would not disappear in some cases
+- fix(components/input-number): bug where empty state was not toggled when clearing https://github.com/zyfra/Prizm/issues/1684
+- fix(components/input-text): incorrect behavior occurring in PrizmInputComponent when NgxMaskDirective is applied and the value changes from an empty state. https://github.com/zyfra/Prizm/issues/1190
+- fix(components/tab): add correct icon name to registry for right arrow #1860
+
+### Refactor
+
+- refactor(components/input-text): refactored
+
+## [4.3.5](https://github.com/zyfra/Prizm) (08-07-2024)
+
+### Bug fixes
+
+- fix(component/overlay): fix bug with memory leak #1637 #1403
+- fix(component/dropdown-host): fix bug with destroy overlay #1637 #1403
+- fix(component/hint): fix bug with destroy overlay #1637 #1403
+
+## [4.3.4](https://github.com/zyfra/Prizm) (20-06-2024)
+
+### Bug fixes
+
+- fix(components/input-icon-button): disabled button should not fire events #1823
+- fix(components/inputs): fix markup for input icon button #1529, #1672
+- fix(doc/textarea): missing border property added for textarea livedemo #1803
+
+## [4.3.3](https://github.com/zyfra/Prizm) (18-06-2024)
+
+### Bug fixes
+
+- fix(icons): incorrect icons source path fixed.
+
+## [4.3.2](https://github.com/zyfra/Prizm) (17-06-2024)
+
+### Bug fixes
+
+- fix(icons): restored icon selection-checkbox-marked-circle #1735
+- fix(components/chips): update chips on async changes #1754
+- fix(components/input-date-range): default time is set only after focus is removed #1762
+- fix(components/input-date-relative): active items not updated when value set by formControl #1685
+- fix(components/panel): set default border radius as 0px to panel #1767
+- fix(doc): version detection on doc.zyfra or prizm.site #1133
+- fix(components/input-date-time): display time 00:00 when a date is selected #1575
+- fix(components/hint): safe update overlay only when changes dependencies #1719 #716
+- fix(docs/tab): remove $any from basic example #841
+- fix(components/input-date-range): added corrector if from is more than to #1628
+- fix(components/panel): add prefix prizm to panel component #1665
+- fix(components/panel): converted panel component to standalone #1665
+- fix(components/file-upload): newly uploaded files should not overwrte existing files array #1662
+- fix(components/file-upload): multiply false paramenter works incorrect with uploading by drop #1770
+- fix(components/file-upload): file size text small fixes
+- fix(doc/tab): improve live demo example for counter options
+- fix(components/chips): hint appears in multiselect after deletion #1815
+- fix(doc/icons): pagination on search icon #1701
+- fix(charts/line): add missing seriesField input to Line chart #1811
+- fix(doc/line): smooth line exaple source code link fix
+
+## [4.3.1](https://github.com/zyfra/Prizm) (04-06-2024)
+
+### Bug fixes
+
+- fix(components/input-date-range): default time is set only after focus is removed #1565
+- fix(components/paginator): fixed PrizmPaginatorComponent instance was incompatible with PrizmTableDataSource.paginator property
+- fix(doc/icons): added info about lazy loader #1692
+- fix(components/chips): dots overflows chip list container #1713
+- fix(components/input-multiselect): chevron outline removed
+- fix(components/input-select): chevron outline removed
+- fix(components/dialog): some values from defaultOptions not applied to final config #1602
+- fix(components/calendar): change calendar resrtictions ux #1674
+- fix(components/input-layout): add margin bottom for label in outer inputs #1659
+- fix(components/chips): deletable chips xmark font icon replaced by base icon #1698
+
+### Refactor
+
+- refactor(components/chips): move multiply subscriptions to prizmLet
+
 ## [4.3.0](https://github.com/zyfra/Prizm) (22-05-2024)
 
 ### Features

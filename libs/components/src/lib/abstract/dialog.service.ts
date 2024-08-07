@@ -48,7 +48,7 @@ export abstract class AbstractPrizmDialogService<
 
       options = {
         ...this.defaultOptions,
-        ...options ?? {}
+        ...(options ?? {}),
       };
 
       const dialog = {
@@ -87,6 +87,7 @@ export abstract class AbstractPrizmDialogService<
 
       return (): void => {
         control.close();
+        control.destroy();
         destroy$.next();
         destroy$.complete();
       };

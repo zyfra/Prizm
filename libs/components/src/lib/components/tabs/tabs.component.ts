@@ -46,7 +46,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsAngleLeft,
-  prizmIconsAngleLeftRight,
+  prizmIconsAngleRight,
   prizmIconsEllipsisV,
   prizmIconsXmark,
 } from '@prizm-ui/icons/full/source';
@@ -132,7 +132,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
       prizmIconsXmark,
       prizmIconsEllipsisV,
       prizmIconsAngleLeft,
-      prizmIconsAngleLeftRight
+      prizmIconsAngleRight
     );
   }
 

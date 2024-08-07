@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PrizmPanelComponent } from './panel.component';
+import { PanelComponent } from './panel.component';
 
 describe('PanelComponent', () => {
-  let component: PrizmPanelComponent;
-  let fixture: ComponentFixture<PrizmPanelComponent>;
+  let component: PanelComponent;
+  let fixture: ComponentFixture<PanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [PrizmPanelComponent],
+      imports: [PanelComponent],
     }).compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PrizmPanelComponent);
+    fixture = TestBed.createComponent(PanelComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

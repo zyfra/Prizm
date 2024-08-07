@@ -1,0 +1,1 @@
+export const INITIAL_SWITHCER_INDEX = 0;

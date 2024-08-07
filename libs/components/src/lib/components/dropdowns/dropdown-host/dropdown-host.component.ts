@@ -11,6 +11,7 @@ import {
   inject,
   Injector,
   Input,
+  OnDestroy,
   Optional,
   Output,
   TemplateRef,
@@ -70,7 +71,7 @@ import { PrizmDropdownHostDirective } from './dropdown-host.directive';
     PrizmMutationObserveDirective,
   ],
 })
-export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit {
+export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit, OnDestroy {
   @Input() content!: PolymorphContent<PrizmDropdownHostContext>;
 
   @Input()
@@ -194,6 +195,10 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   public ngAfterViewInit(): void {
     this.initOverlay();
     this.initClickListener();
+  }
+
+  public ngOnDestroy() {
+    this.overlay?.destroy();
   }
 
   public updateWidth(): void {

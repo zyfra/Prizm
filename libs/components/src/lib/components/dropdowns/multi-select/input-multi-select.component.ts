@@ -377,7 +377,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   public select(item: PrizmMultiSelectItemWithChecked<T>): void {
     const newItemState = !item.checked;
     let values: T[];
-    this.markAsTouched();
     if (this.isSelectAllItem(item)) {
       values = newItemState ? [...this.items] : [];
     } else {

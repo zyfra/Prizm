@@ -779,6 +779,7 @@ import { prizmIconsTempProductGradeAccordingToSpecification } from './temp-produ
 import { prizmIconsTempSelectionCheckboxBlankCircle } from './temp-selection-checkbox-blank-circle/prizmIcons-temp-selection-checkbox-blank-circle.icon';
 import { prizmIconsTempSelectionCheckboxBlank } from './temp-selection-checkbox-blank/prizmIcons-temp-selection-checkbox-blank.icon';
 import { prizmIconsTempSelectionCheckboxMarkedCircleChanel } from './temp-selection-checkbox-marked-circle-chanel/prizmIcons-temp-selection-checkbox-marked-circle-chanel.icon';
+import { prizmIconsTempSelectionCheckboxMarkedCircle } from './temp-selection-checkbox-marked-circle/prizmIcons-temp-selection-checkbox-marked-circle.icon';
 import { prizmIconsTempSelectionChecked1 } from './temp-selection-checked-1/prizmIcons-temp-selection-checked-1.icon';
 import { prizmIconsTempSelectionChecked2 } from './temp-selection-checked-2/prizmIcons-temp-selection-checked-2.icon';
 import { prizmIconsTempSelectionChecked } from './temp-selection-checked/prizmIcons-temp-selection-checked.icon';
@@ -1679,6 +1680,7 @@ export const PRIZM_ICONS_FULL_SET = [
   prizmIconsTempSelectionCheckboxBlankCircle,
   prizmIconsTempSelectionCheckboxBlank,
   prizmIconsTempSelectionCheckboxMarkedCircleChanel,
+  prizmIconsTempSelectionCheckboxMarkedCircle,
   prizmIconsTempSelectionChecked1,
   prizmIconsTempSelectionChecked2,
   prizmIconsTempSelectionChecked,

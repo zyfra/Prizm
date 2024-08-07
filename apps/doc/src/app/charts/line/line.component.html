@@ -4,12 +4,16 @@
     short-term. We can also use line graphs to compare changes over the same period for more than one group.
   </div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleOutline" heading="Base">
+    <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-charts-line-example></prizm-charts-line-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="base" [content]="exampleOutline" heading="Smooth Line">
+    <prizm-doc-example id="smooth" [content]="exampleSmooth" heading="Smooth Line">
       <prizm-charts-line-smooth-example></prizm-charts-line-smooth-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="series" [content]="exampleSeries" heading="Line Series">
+      <prizm-charts-line-series-example></prizm-charts-line-series-example>
     </prizm-doc-example>
   </ng-template>
 
@@ -22,6 +26,7 @@
         [data]="data"
         [xField]="xField"
         [yField]="yField"
+        [seriesField]="$any(seriesField)"
         [theme]="$any(prizmTheme.changesTheme$ | async)"
         [height]="height"
       ></prizm-charts-line>
@@ -52,6 +57,15 @@
         documentationPropertyMode="input"
       >
         Y Field Name
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="seriesField"
+        documentationPropertyName="seriesField"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Series Field Name (use 'key' for example data)
       </ng-template>
 
       <ng-template
