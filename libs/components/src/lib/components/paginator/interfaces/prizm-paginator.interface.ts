@@ -21,3 +21,5 @@ export interface PrizmPaginatorOptions {
 }
 
 export type PrizmPaginatorType = 'finite' | 'infinite';
+
+export type PrizmPaginatorDirection = 'right' | 'left';
