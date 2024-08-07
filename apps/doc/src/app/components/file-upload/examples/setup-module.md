@@ -1,13 +1,13 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmFileUploadModule } from '@prizm-ui/components';
+import { PrizmFileUploadComponent } from '@prizm-ui/components';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmFileUploadModule,
+    PrizmFileUploadComponent,
   ],
 })
 export class MyModule {}

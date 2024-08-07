@@ -26,12 +26,12 @@ import { prizmNullableSame } from '../../util/common/nullable-same';
 import { prizmI18nInitWithKey } from '../../services';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmFocusableModule,
+  PrizmFocusableDirective,
   PrizmHoveredDirective,
-  PrizmPressedModule,
-  PrizmStopPropagationModule,
+  PrizmPressedDirective,
+  PrizmStopPropagationDirective,
 } from '../../directives';
-import { PrizmPrimitiveSpinButtonModule, PrizmPrimitiveYearPickerComponent } from '../internal';
+import { PrizmPrimitiveSpinButtonComponent, PrizmPrimitiveYearPickerComponent } from '../internal';
 import { PrizmScrollbarComponent } from '../scrollbar';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 
@@ -44,14 +44,14 @@ const TODAY = PrizmDay.currentLocal();
   standalone: true,
   imports: [
     CommonModule,
-    PrizmStopPropagationModule,
+    PrizmStopPropagationDirective,
     PrizmPrimitiveYearPickerComponent,
-    PrizmPrimitiveSpinButtonModule,
+    PrizmPrimitiveSpinButtonComponent,
     PrizmScrollbarComponent,
     PrizmLetDirective,
     PrizmHoveredDirective,
-    PrizmPressedModule,
-    PrizmFocusableModule,
+    PrizmPressedDirective,
+    PrizmFocusableDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [...prizmI18nInitWithKey(PRIZM_CALENDAR_MONTHS, 'shortCalendarMonths')],

@@ -1,9 +1,9 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmHintModule } from '@prizm-ui/components';
+import { PrizmHintDirective } from '@prizm-ui/components';
 
 @NgModule({
-  imports: [PrizmHintModule],
+  imports: [PrizmHintDirective],
 })
 export class MyModule {}
 ```

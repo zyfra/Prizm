@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { prizmGetShadow, PrizmShadowModule, PrizmShadowType } from '../../directives/shadow';
+import { prizmGetShadow, PrizmShadowDirective, PrizmShadowType } from '../../directives/shadow';
 import { PrizmShadowValue } from '../../directives/shadow/models';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [],
   standalone: true,
-  imports: [CommonModule, PrizmShadowModule],
+  imports: [CommonModule, PrizmShadowDirective],
 })
 export class PrizmCardComponent extends PrizmAbstractTestId {
   @Input() shadow: PrizmShadowType = 'mini-bottom';

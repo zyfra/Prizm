@@ -13,7 +13,7 @@ import { PrizmAbstractTestId, prizmPx } from '@prizm-ui/core';
 
 /**
  * @deprecated
- * use PrizmIconsComponent OR PrizmIcons16Component
+ * use PrizmIconsComponent OR PrizmIconsFullComponent
  *
  * Component to display SVG icons by using the `PrizmIconsSvgRegistry`.
  */

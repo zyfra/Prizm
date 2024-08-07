@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Bar } from '@antv/g2plot';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsBarItem, PrizmChartsBarOptions, PrizmChartsBarOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-bar',
   templateUrl: './prizm-charts-bar.component.html',
   styleUrls: ['./prizm-charts-bar.component.less'],
   exportAs: 'prizmChartsBar',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
   PrizmChartsBarOrigin,

@@ -4,13 +4,13 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { RadarComponent } from './radar.component';
 import { PrizmChartsRadarExampleComponent } from './examples/base/prizm-charts-radar-example.component';
-import { PrizmChartsRadarModule } from '@prizm-ui/charts';
+import { PrizmChartsRadarComponent } from '@prizm-ui/charts';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmChartsRadarModule,
+    PrizmChartsRadarComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(RadarComponent)),
   ],
   declarations: [PrizmChartsRadarExampleComponent, RadarComponent],

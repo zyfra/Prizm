@@ -6,6 +6,7 @@ import { PrizmAutoResizeMode, PrizmAutoResizeOn } from './model';
 
 @Directive({
   selector: `[prizmAutoResize]`,
+  standalone: true,
 })
 export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   @Input() prizmAutoResize = true;
