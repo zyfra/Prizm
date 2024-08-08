@@ -43,5 +43,3 @@ export class PrizmPanelComponent extends PrizmAbstractTestId {
     this.backClick.emit();
   }
 }
-
-export const PrizmPanelComponent = PanelComponent;
