@@ -179,7 +179,7 @@ export class PrizmConfirmPopupDirective<
       options,
       options.confirmButton as string,
       'Подтвердить',
-      PrizmConfirmDialogResultDefaultType.confirmed,
+      PrizmConfirmDialogResultDefaultType.confirm,
       'primary'
     );
 

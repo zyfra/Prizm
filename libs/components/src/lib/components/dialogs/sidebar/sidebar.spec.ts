@@ -60,12 +60,12 @@ xdescribe('PrizmSidebar', () => {
     expect(c.isOpen).toBeFalsy();
   });
 
-  it('pass confirmed and close', async () => {
+  it('pass confirm and close', async () => {
     let c: PrizmOverlayControl;
-    const content = PrizmSidebarResultDefaultType.confirmed;
+    const content = PrizmSidebarResultDefaultType.confirm;
     const result = service.open(content, {}, ({ control, dialog }) => {
       c = control;
-      dialog.completeWith(PrizmSidebarResultDefaultType.confirmed);
+      dialog.completeWith(PrizmSidebarResultDefaultType.confirm);
     });
 
     const r = await result.pipe(take(1)).toPromise();

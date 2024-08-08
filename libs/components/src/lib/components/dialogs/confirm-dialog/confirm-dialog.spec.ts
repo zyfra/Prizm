@@ -64,12 +64,12 @@ xdescribe('PrizmConfirmDialog', () => {
     expect(c.isOpen).toBeFalsy();
   });
 
-  it('pass confirmed and close', async () => {
+  it('pass confirm and close', async () => {
     let c: PrizmOverlayControl;
-    const content = PrizmConfirmDialogResultDefaultType.confirmed;
+    const content = PrizmConfirmDialogResultDefaultType.confirm;
     const result = service.open(content, {}, ({ control, dialog }) => {
       c = control;
-      dialog.completeWith(PrizmConfirmDialogResultDefaultType.confirmed);
+      dialog.completeWith(PrizmConfirmDialogResultDefaultType.confirm);
     });
 
     const r = await result.pipe(take(1)).toPromise();
