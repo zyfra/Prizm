@@ -1,11 +1,9 @@
 import { Component } from '@angular/core';
+import { PrizmIconsEnum } from '@prizm-ui/icons/base';
+import { prizmIconsGear8Edge } from '@prizm-ui/icons/base/source/gear-8-edge';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
-import {
-  prizmIconsCalendarPlus,
-  PrizmIconsEnum,
-  prizmIconsGear8Edge,
-  prizmIconsSnakeCup,
-} from '@prizm-ui/icons/base';
+import { prizmIconsSnakeCup } from '@prizm-ui/icons/base/source/snake-cup';
+import { prizmIconsCalendarPlus } from '@prizm-ui/icons/base/source/calendar-plus';
 
 @Component({
   selector: 'prizm-widget-with-templates-example',
