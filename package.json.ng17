@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "4.3.8",
+  "version": "<%= version %>",
   "license": "MIT",
   "husky": {
     "hooks": {
