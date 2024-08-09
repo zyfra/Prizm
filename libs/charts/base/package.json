@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/charts",
-  "version": "4.3.7",
+  "version": "4.3.8",
   "license": "MIT",
   "private": false,
   "publishConfig": {
@@ -10,11 +10,11 @@
   "peerDependencies": {
     "@angular/common": "^17.1.0",
     "@angular/core": "^17.1.0",
-    "@prizm-ui/theme": "^4.3.7",
-    "@prizm-ui/helpers": "^4.3.7"
+    "@prizm-ui/theme": "^4.3.8",
+    "@prizm-ui/helpers": "^4.3.8"
   },
   "dependencies": {
-    "@antv/g2plot": "^2.4.31",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "@antv/g2plot": "^2.4.31"
   }
 }
