@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "5.0.0",
+  "version": "5.0.0-rc.1",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -73,7 +73,6 @@
     "clipboard": "^2.0.11",
     "date-fns": "^2.26.0",
     "dompurify": "^2.3.8",
-    "ejs": "^3.1.10",
     "highlight.js": "^11.5.1",
     "highlightjs-line-numbers.js": "^2.8.0",
     "marked": "^9.0.0",

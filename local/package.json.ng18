@@ -2,7 +2,7 @@
   "name": "@prizm-ui/local",
   "version": "<%= version %>",
   "dependencies": {
-    "@nx/devkit": "17.2.8",
+    "@nx/devkit": "<%= nxVersion %>",
     "tslib": "^2.3.0"
   },
   "type": "commonjs",
