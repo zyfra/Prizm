@@ -8,5 +8,11 @@
     "registry": "https://registry.npmjs.org/"
   },
   "generators": "./generators.json",
-  "executors": "./executors.json"
+  "executors": "./executors.json",
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "ejs": "^3.1.10"
+  }
 }

@@ -625,6 +625,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.tools,
+    title: 'Nxmv',
+    keywords: 'nxmv, move, version, версии, изменить',
+    route: '/tools/nxmv',
+  },
+  {
+    section: SectionNameEnum.tools,
     title: 'Ast Html',
     keywords: 'html, parser, парсер',
     route: '/tools/ast-html',
@@ -1371,6 +1377,13 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'AST HTML',
     keywords: 'html, parser',
     route: '/tools/ast-html',
+  },
+
+  {
+    section: SectionNameEnum.tools,
+    title: 'Nxmv',
+    keywords: 'nxmv, move, version, версии, изменить',
+    route: '/tools/nxmv',
   },
   {
     section: SectionNameEnglishEnum.tools,
