@@ -6,7 +6,7 @@ import { PrizmHintDirective } from '../hint';
 import { PrizmConfirmPopupContainerComponent } from './confirm-popup-container.component';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
 import { PrizmButtonComponent } from '../../components/button';
-import { PrizmFocusTrapModule } from '../focus-trap';
+import { PrizmFocusTrapDirective } from '../focus-trap';
 import { PrizmToObservablePipe } from '@prizm-ui/helpers';
 
 @NgModule({
@@ -14,7 +14,7 @@ import { PrizmToObservablePipe } from '@prizm-ui/helpers';
     CommonModule,
     PolymorphOutletDirective,
     PrizmToObservablePipe,
-    PrizmFocusTrapModule,
+    PrizmFocusTrapDirective,
     PrizmHintDirective,
     PrizmScrollbarModule,
     PrizmButtonComponent,

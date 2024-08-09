@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 
-import { PrizmErrorPageModule } from '@prizm-ui/components';
+import { PrizmErrorPageComponent } from '@prizm-ui/components';
 import { PrizmErrorPageExampleComponent } from './error-page.component';
 import { PrizmErrorPageBaseComponent } from './examples/base/base.component';
 
@@ -11,7 +11,7 @@ import { PrizmErrorPageBaseComponent } from './examples/base/base.component';
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmErrorPageModule,
+    PrizmErrorPageComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmErrorPageExampleComponent)),
   ],
   declarations: [PrizmErrorPageExampleComponent, PrizmErrorPageBaseComponent],

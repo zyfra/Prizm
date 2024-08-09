@@ -4,13 +4,13 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmInputCommonModule,
-  PrizmInputIconButtonModule,
+  PrizmInputIconButtonComponent,
   PrizmInputSelectModule,
-  PrizmRadioButtonModule,
+  PrizmRadioButtonComponent,
   PrizmScrollbarModule,
-  PrizmSidebarModule,
+  PrizmSidebarComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SidebarComponent } from './sidebar.component';
@@ -31,11 +31,11 @@ import { PrizmSidebarOnlyConfirmButtonExampleComponent } from './examples/only-c
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmButtonModule,
-    PrizmSidebarModule,
-    PrizmInputIconButtonModule,
+    PrizmButtonComponent,
+    PrizmSidebarComponent,
+    PrizmInputIconButtonComponent,
     PrizmScrollbarModule,
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(SidebarComponent)),
     PrizmInputCommonModule,
     PrizmInputSelectModule,

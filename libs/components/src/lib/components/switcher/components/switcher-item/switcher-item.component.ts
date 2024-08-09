@@ -64,9 +64,3 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements O
     this.prizmHint_.ngOnInit();
   }
 }
-
-/**
- * TODO v5: remove
- * @deprecated
- * */
-export const SwitcherItemComponent = PrizmSwitcherItemComponent;

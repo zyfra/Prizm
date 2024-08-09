@@ -70,6 +70,10 @@
     opacity: 0.5;
   }
 
+  &.removed {
+    opacity: 0.25;
+  }
+
   &.new {
     color: yellow;
   }
@@ -106,7 +110,8 @@
   }
 }
 
-.deprecated {
+.deprecated,
+.removed {
   --prizm-chips-item-background: var(--prizm-status-alarm-primary-default);
   --prizm-chips-item-color: var(--prizm-text-icon-exception);
 }

@@ -4,7 +4,7 @@ import { PrizmNavigationMenuToolbarService } from '../../services/prizm-navigati
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { CommonModule } from '@angular/common';
 import { PrizmNavigationMenuSearchComponent } from '../prizm-navigation-menu-search/prizm-navigation-menu-search.component';
-import { PrizmButtonModule } from '../../../button/button.module';
+import { PrizmButtonComponent } from '../../../button/button.component';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
@@ -21,7 +21,7 @@ import {
   styleUrls: ['./prizm-navigation-menu-toolbar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, PrizmButtonModule, PrizmNavigationMenuSearchComponent, PrizmLetDirective],
+  imports: [CommonModule, PrizmButtonComponent, PrizmNavigationMenuSearchComponent, PrizmLetDirective],
 })
 export class PrizmNavigationMenuToolbarComponent extends PrizmAbstractTestId {
   @Input() toolbarExtraTemplate!: TemplateRef<unknown>;

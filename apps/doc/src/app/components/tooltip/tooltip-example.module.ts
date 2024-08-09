@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, PrizmButtonModule, PrizmTooltipModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonComponent, PrizmTooltipModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TooltipExampleComponent } from './tooltip-example.component';
 import { PrizmTooltipWithTemplateExampleComponent } from './examples/with-template/tooltip-with-template-example.component';
@@ -19,7 +19,7 @@ import { PrizmTooltipWithCustomContextExampleComponent } from './examples/with-c
     ReactiveFormsModule,
     PolymorphModule,
     PrizmTooltipModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(TooltipExampleComponent)),
   ],
   declarations: [

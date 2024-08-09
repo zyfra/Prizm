@@ -50,7 +50,7 @@ import {
   PolymorphOutletDirective,
   PrizmLifecycleDirective,
   PrizmPreventDefaultDirective,
-  PrizmValueAccessorModule,
+  PrizmValueAccessorDirective,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmCalendarModule } from '../../calendar';
@@ -88,7 +88,7 @@ import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
     PrizmLinkComponent,
     FormsModule,
     PrizmDropdownHostComponent,
-    PrizmValueAccessorModule,
+    PrizmValueAccessorDirective,
     PrizmLetDirective,
   ],
 })

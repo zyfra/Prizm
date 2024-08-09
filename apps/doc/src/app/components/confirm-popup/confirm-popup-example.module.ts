@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, PrizmButtonModule, PrizmConfirmPopupModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonComponent, PrizmConfirmPopupModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ConfirmPopupExampleComponent } from './confirm-popup-example.component';
 import { PrizmConfirmPopupBaseExampleComponent } from './examples/base/confirm-popup-base-example.component';
@@ -18,7 +18,7 @@ import { PrizmConfirmPopupWithComponentExampleComponent } from './examples/with-
     ReactiveFormsModule,
     PolymorphModule,
     PrizmConfirmPopupModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(ConfirmPopupExampleComponent)),
   ],
   declarations: [

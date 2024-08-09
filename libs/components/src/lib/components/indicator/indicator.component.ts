@@ -42,8 +42,3 @@ export class PrizmIndicatorComponent extends PrizmAbstractTestId {
     this.iconsRegistry.registerIcons(prizmIconsInfo, prizmIconsCheck, prizmIconsExclamation);
   }
 }
-/**
- * TODO v5: remove
- * @deprecated
- * */
-export const IndicatorComponent = PrizmIndicatorComponent;

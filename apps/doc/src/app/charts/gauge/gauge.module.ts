@@ -4,13 +4,13 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { GaugeComponent } from './gauge.component';
 import { PrizmChartsGaugeExampleComponent } from './examples/base/prizm-charts-gauge-example.component';
-import { PrizmChartsGaugeModule } from '@prizm-ui/charts';
+import { PrizmChartsGaugeComponent } from '@prizm-ui/charts';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmChartsGaugeModule,
+    PrizmChartsGaugeComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(GaugeComponent)),
   ],
   declarations: [PrizmChartsGaugeExampleComponent, GaugeComponent],

@@ -46,7 +46,7 @@ import { PrizmMaskModule } from '../../../modules';
 import {
   PolymorphOutletDirective,
   PrizmLifecycleDirective,
-  PrizmValueAccessorModule,
+  PrizmValueAccessorDirective,
 } from '../../../directives';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
@@ -83,7 +83,7 @@ import { prizmIconsCalendarRange } from '@prizm-ui/icons/full/source';
     PrizmInputTextModule,
     PrizmDropdownHostComponent,
     PrizmCalendarRangeComponent,
-    PrizmValueAccessorModule,
+    PrizmValueAccessorDirective,
     FormsModule,
   ],
 })

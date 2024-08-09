@@ -12,6 +12,7 @@ import { prizmIsNativeFocused } from '../../util';
  */
 @Directive({
   selector: '[prizmFocusedChange]',
+  standalone: true,
 })
 export class PrizmFocusedDirective {
   @Output()

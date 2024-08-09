@@ -22,11 +22,11 @@ import {
   TuiToggleModule,
 } from '@taiga-ui/kit';
 
-import { PrizmInputOpacityModule } from '../../internal/input-opacity/input-opacity.module';
+import { PrizmInputOpacityDirective } from '../../internal/input-opacity/input-opacity.directive';
 import { PrizmDocDocumentationComponent } from './documentation.component';
 import { PrizmDocDocumentationPropertyConnectorDirective } from './documentation-property-connector.directive';
-import { PrizmHintModule, PrizmIndicatorModule, PrizmMapperPipeModule } from '@prizm-ui/components';
-import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmHintDirective, PrizmIndicatorComponent, PrizmMapperPipe } from '@prizm-ui/components';
+import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -41,18 +41,18 @@ import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
     TuiInputCountModule,
     TuiModeModule,
     TuiGroupModule,
-    PrizmInputOpacityModule,
+    PrizmInputOpacityDirective,
     TuiPrimitiveTextfieldModule,
     TuiTextfieldControllerModule,
-    PrizmIndicatorModule,
-    PrizmHintModule,
-    PrizmMapperPipeModule,
+    PrizmIndicatorComponent,
+    PrizmHintDirective,
+    PrizmMapperPipe,
     TuiDropdownModule,
     TuiDataListModule,
-    PrizmLetModule,
+    PrizmLetDirective,
     TuiDataListWrapperModule,
     TuiNotificationModule,
-    PrizmCallFuncModule,
+    PrizmCallFuncPipe,
     TuiInputNumberModule,
   ],
   declarations: [PrizmDocDocumentationComponent, PrizmDocDocumentationPropertyConnectorDirective],

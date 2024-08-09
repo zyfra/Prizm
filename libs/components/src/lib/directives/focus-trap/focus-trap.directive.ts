@@ -15,6 +15,7 @@ import { prizmGetClosestFocusable } from '../../util/get-closest-keyboard-focusa
 
 @Directive({
   selector: '[prizmFocusTrap]',
+  standalone: true,
 })
 export class PrizmFocusTrapDirective implements OnDestroy {
   private readonly activeElement = prizmGetNativeFocused(this.documentRef);

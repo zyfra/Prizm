@@ -3,12 +3,15 @@ import { Column } from '@antv/g2plot';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsColumnOptions, PrizmChartsColumnOrigin } from './model';
 import { PrizmChartsAreaItem } from '../area';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-column',
   templateUrl: './prizm-charts-column.component.html',
   styleUrls: ['./prizm-charts-column.component.less'],
   exportAs: 'prizmChartsColumn',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsColumnComponent<
   T extends Record<string, unknown>

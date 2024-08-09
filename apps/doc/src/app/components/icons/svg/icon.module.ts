@@ -1,11 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { IconComponent } from './icon.component';
 import { PrizmIconSvgBaseExampleComponent } from './examples/base/icon-base-example.component';
-import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icon-svg-example.component';
+import { PrizmIconsSvgComponent } from '../../../icons-svg';
+import { PrizmHintDirective } from '@prizm-ui/components';
+import { PrizmIconMigrateExampleComponent } from './examples/migrate/icon-migrate-example.component';
 
 @NgModule({
   imports: [
@@ -13,6 +16,10 @@ import { PrizmIconSvgSvgExampleComponent } from './examples/svg/icon-svg-example
     PrizmAddonDocModule,
     PrizmIconsSvgComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(IconComponent)),
+    PrizmIconsFullComponent,
+    PrizmIconsComponent,
+    PrizmHintDirective,
+    PrizmIconMigrateExampleComponent,
   ],
   declarations: [PrizmIconSvgBaseExampleComponent, PrizmIconSvgSvgExampleComponent, IconComponent],
   exports: [IconComponent],

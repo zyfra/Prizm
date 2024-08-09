@@ -10,10 +10,10 @@ import {
 } from '@angular/core';
 import { InternalPrizmNavigationMenuItem, ViewMode } from '../../interfaces';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmInputCommonModule } from '../../../input/common/input-common.module';
-import { PrizmHoveredModule } from '../../../../directives/hovered';
+import { PrizmHoveredDirective } from '../../../../directives/hovered';
 import { PrizmHintDirective } from '../../../../directives';
 import { PrizmButtonComponent } from '../../../button';
 import { prizmIsTextOverflow } from '../../../../util';
@@ -32,13 +32,13 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmIconsSvgComponent,
-    PrizmHoveredModule,
+    PrizmHoveredDirective,
     NgIf,
     NgTemplateOutlet,
     PrizmInputCommonModule,
     PrizmButtonComponent,
     PrizmHintDirective,
+    PrizmIconsFullComponent,
   ],
 })
 export class PrizmNavigationMenuItemComponent<T> extends PrizmAbstractTestId {

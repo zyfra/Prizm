@@ -12,13 +12,13 @@ import {
   PrizmDialogOptions,
   PrizmDialogSize,
 } from './dialog.models';
-import { PolymorphContent, PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import { PolymorphContent, PolymorphModule, PrizmFocusTrapDirective } from '../../../directives';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmOverlayModule } from '../../../modules';
-import { PrizmButtonModule } from '../../button';
-import { PrizmInputIconButtonModule } from '../../input/common/input-icon-button/input-icon-button.module';
+import { PrizmOverlayComponent } from '../../../modules';
+import { PrizmButtonComponent } from '../../button';
+import { PrizmInputIconButtonComponent } from '../../input/common/input-icon-button/input-icon-button.component';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
@@ -35,10 +35,10 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     CommonModule,
     PolymorphModule,
     PrizmThemeModule,
-    PrizmOverlayModule,
-    PrizmButtonModule,
-    PrizmFocusTrapModule,
-    PrizmInputIconButtonModule,
+    PrizmOverlayComponent,
+    PrizmButtonComponent,
+    PrizmFocusTrapDirective,
+    PrizmInputIconButtonComponent,
     PrizmScrollbarModule,
   ],
 })

@@ -4,9 +4,10 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { PrizmListingItemBaseExampleComponent } from './examples/base/listing-item-base-example.component';
 import {
-  PrizmButtonModule,
-  PrizmCheckboxModule,
-  PrizmCounterModule,
+  PrizmButtonComponent,
+  PrizmCheckboxComponent,
+  PrizmCounterDirective,
+  PrizmCounterComponent,
   PrizmListingItemComponent,
   PrizmDropdownHostComponent,
   PrizmChipsModule,
@@ -20,11 +21,13 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmCounterModule,
-    PrizmButtonModule,
+    PrizmCounterDirective,
+    PrizmCounterComponent,
+    PrizmButtonComponent,
     PrizmListingItemComponent,
-    PrizmCheckboxModule,
-    PrizmCounterModule,
+    PrizmCheckboxComponent,
+    PrizmCounterDirective,
+    PrizmCounterComponent,
     PrizmDropdownHostComponent,
     PrizmChipsModule,
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmListingItemExampleComponent)),

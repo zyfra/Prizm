@@ -1,6 +1,14 @@
 import { Clipboard } from '@angular/cdk/clipboard';
 import { Location as NgLocation } from '@angular/common';
-import { Attribute, ChangeDetectionStrategy, Component, Inject, Input, Optional } from '@angular/core';
+import {
+  Attribute,
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  Inject,
+  Input,
+  Optional,
+} from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LOCATION } from '@ng-web-apis/common';
 import { TUI_IS_CYPRESS, TuiContextWithImplicit, TuiHandler } from '@taiga-ui/cdk';
@@ -32,7 +40,6 @@ export class PrizmDocExampleComponent {
   isOpen = false;
   @Input()
   heading: PolymorpheusContent = ``;
-
   @Input()
   stackblitzVersions: PrizmDocDemoMainVersion[] | null = [
     // TODO later think about active for example without new icons in doc
@@ -83,6 +90,10 @@ export class PrizmDocExampleComponent {
     );
 
     return !keys.length;
+  }
+
+  @HostBinding('class.empty-heading') get emptyHeading() {
+    return !this.heading;
   }
 
   constructor(

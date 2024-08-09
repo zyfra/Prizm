@@ -25,6 +25,10 @@ import { PrizmMapper } from '../../../types/mapper';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmRangeState } from '../../../@core/enums';
+import { PrizmMapperPipe } from '../../../pipes';
+import { CommonModule } from '@angular/common';
+import { PrizmScrollbarModule } from '../../scrollbar';
+import { PrizmCalendarComponent } from '../../calendar';
 
 /**
  * @internal
@@ -35,6 +39,8 @@ import { PrizmRangeState } from '../../../@core/enums';
   styleUrls: [`./primitive-calendar-range.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PrizmDestroyService],
+  standalone: true,
+  imports: [PrizmMapperPipe, CommonModule, PrizmScrollbarModule, PrizmCalendarComponent],
 })
 export class PrizmPrimitiveCalendarRangeComponent extends PrizmAbstractTestId implements OnInit {
   @Input()

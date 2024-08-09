@@ -6,6 +6,7 @@ import { unsupportedKeyCharacters } from './const';
 @Directive({
   selector: '[prizmInputAllowedSymbols]',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmInputAllowedSymbolsDirective extends DefaultInputInvalidTextClass {
   @Input() prizmInputAllowedSymbols: RegExp | string | string[] | `` = ``;

@@ -1,17 +1,18 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
+  findItem,
   IBreadcrumb,
   PrizmNavigationMenuToolbarConfig,
-  findItem,
   traverseAllDeep,
 } from '@prizm-ui/components';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmIconsSvgRegistry, PRIZM_ICONS_SVG_SET } from '@prizm-ui/icons';
 import { BehaviorSubject, combineLatest, merge, Observable } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
 import { ExpandedItemsService } from './example-data/expanded-items.service';
 import { CustomGroupConfig, CustomItem, PersistentExpandedValue } from './example-data/interfaces';
 import { ItemGroupsService } from './example-data/item-groups.service';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_FULL_SET } from '@prizm-ui/icons/full/source/icon-set';
 
 @Component({
   selector: 'prizm-navigation-menu-groups-example',
@@ -60,12 +61,12 @@ export class NavigationMenuGroupsExampleComponent {
   breadcrumbs: IBreadcrumb[] = [this.homeBreadcrumb];
 
   constructor(
-    private iconRegistry: PrizmIconsSvgRegistry,
+    private iconRegistry: PrizmIconsFullRegistry,
     private expandedItemsService: ExpandedItemsService,
     private itemGroupsService: ItemGroupsService,
     private destroy$: PrizmDestroyService
   ) {
-    this.iconRegistry.registerIcons(PRIZM_ICONS_SVG_SET);
+    this.iconRegistry.registerIcons(PRIZM_ICONS_FULL_SET);
     this.configureExpandedItemsMap();
     this.configureExpandedGroupsMap();
   }

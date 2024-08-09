@@ -1,15 +1,19 @@
 import { ChangeDetectionStrategy, Component, Inject, Input } from '@angular/core';
 import { tuiPure } from '@taiga-ui/cdk';
-import { PolymorpheusContent } from '@tinkoff/ng-polymorpheus';
+import { PolymorpheusContent, PolymorpheusModule } from '@tinkoff/ng-polymorpheus';
 
 import { PrizmDocSourceCodePathOptions } from '../../interfaces/source-code-path-options';
 import { PRIZM_DOC_SOURCE_CODE_TEXT } from '../../tokens/i18n';
 import { PRIZM_DOC_SOURCE_CODE } from '../../tokens/source-code';
+import { CommonModule } from '@angular/common';
+import { TuiButtonModule } from '@taiga-ui/core';
 
 @Component({
   selector: `prizm-doc-source-code`,
   templateUrl: `./source-code.template.html`,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, PolymorpheusModule, TuiButtonModule],
 })
 export class PrizmDocSourceCodeComponent {
   @Input()

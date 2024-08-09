@@ -1,6 +1,17 @@
 {
   "hosting": [
     {
+      "target": "v5",
+      "public": "dist/apps/doc",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
       "target": "v4",
       "public": "dist/apps/doc",
       "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],

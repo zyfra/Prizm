@@ -3,7 +3,6 @@ import { PrizmDataListComponent } from './data-list.component';
 import { PrizmDataListDirective } from './data-list.directive';
 
 /**
- * @deprecated
  * use standalone components
  * - PrizmDataListComponent
  * - PrizmDataListDirective

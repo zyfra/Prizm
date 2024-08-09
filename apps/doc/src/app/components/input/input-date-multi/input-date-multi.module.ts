@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputDateMultiRelativeComponent } from './input-date-multi.component';
 import {
   PolymorphModule,
-  PrizmInputDateMultiModule,
+  PrizmInputDateMultiComponent,
   PrizmInputLayoutDateModule,
   PrizmInputLayoutDateRelativeModule,
   PrizmInputLayoutDateTimeModule,
@@ -14,7 +14,7 @@ import {
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputDateMultiBaseExampleComponent } from './examples/base/input-date-multi-base-example.component';
 import { PrizmInputDateMultiFourExampleComponent } from './examples/four/input-date-multi-four-example.component';
-import { PrizmCallFuncModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
 
 @NgModule({
   imports: [
@@ -23,9 +23,9 @@ import { PrizmCallFuncModule } from '@prizm-ui/helpers';
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmInputDateMultiModule,
+    PrizmInputDateMultiComponent,
     PrizmInputLayoutDateTimeModule,
-    PrizmCallFuncModule,
+    PrizmCallFuncPipe,
     PrizmInputLayoutDateModule,
     PrizmInputLayoutTimeModule,
     PrizmInputLayoutDateRelativeModule,

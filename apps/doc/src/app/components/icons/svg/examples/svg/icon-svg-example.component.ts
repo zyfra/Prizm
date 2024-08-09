@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import {
-  PRIZM_ICONS_SVG_SET,
+  PrizmIconsSvgRegistry,
   prizmIconSvgDateTimeCalendarPlus,
   PrizmIconSvgEnum,
   prizmIconSvgProductionIndustrySnakeCup,
   prizmIconSvgSettingsToolsBan,
-  PrizmIconsSvgRegistry,
-} from '@prizm-ui/icons';
+} from '../../../../../icons-svg';
 
 @Component({
   selector: 'prizm-icon-svg-example',

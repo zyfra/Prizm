@@ -30,10 +30,10 @@ import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PRIZM_MONTHS } from '../../../tokens';
 import { CommonModule } from '@angular/common';
-import { PrizmLifecycleModule, PrizmPreventDefaultModule } from '../../../directives';
-import { PrizmCalendarMonthModule } from '../../calendar-month';
+import { PrizmLifecycleDirective, PrizmPreventDefaultDirective } from '../../../directives';
+import { PrizmCalendarMonthComponent } from '../../calendar-month';
 import { PrizmDropdownHostModule } from '../../dropdowns/dropdown-host';
-import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
+import { PrizmMapperPipe } from '../../table/pipes/mapper/mapper.pipe';
 import { PrizmInputTextModule } from '../input-text';
 import { prizmIconsCalendarRange } from '@prizm-ui/icons/full/source';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
@@ -58,11 +58,11 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmLifecycleModule,
-    PrizmCalendarMonthModule,
+    PrizmLifecycleDirective,
+    PrizmCalendarMonthComponent,
     PrizmDropdownHostModule,
-    PrizmPreventDefaultModule,
-    PrizmMapperPipeModule,
+    PrizmPreventDefaultDirective,
+    PrizmMapperPipe,
     PrizmInputTextModule,
     FormsModule,
   ],

@@ -1,7 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsUserCard } from '@prizm-ui/icons/full/source';
-import { PrizmButtonModule, PrizmCounterDirective } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmCounterDirective } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-icons-buttons-example',
@@ -22,7 +22,7 @@ import { PrizmButtonModule, PrizmCounterDirective } from '@prizm-ui/components';
     `,
   ],
   standalone: true,
-  imports: [PrizmButtonModule, PrizmCounterDirective],
+  imports: [PrizmButtonComponent, PrizmCounterDirective],
   templateUrl: './icons-buttons-example.component.html',
 })
 export class prizmIconsButtonsExampleComponent {

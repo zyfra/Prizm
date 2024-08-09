@@ -32,7 +32,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import {
   PolymorphOutletDirective,
-  PrizmDropdownControllerModule,
+  PrizmDropdownControllerDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../directives';
@@ -66,7 +66,7 @@ import {
     PrizmCallFuncPipe,
     PrizmLetDirective,
     PrizmButtonComponent,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmDataListComponent,
     PrizmTabComponent,
     PrizmListingItemComponent,

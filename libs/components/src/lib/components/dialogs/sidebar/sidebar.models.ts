@@ -51,7 +51,7 @@ export interface PrizmSidebarOptions<DATA = unknown> extends PrizmDialogBaseOpti
 }
 
 export enum PrizmSidebarResultDefaultType {
-  confirmed = 'confirmed',
+  confirm = 'confirm',
   support = 'support',
   cancel = 'cancel',
 }

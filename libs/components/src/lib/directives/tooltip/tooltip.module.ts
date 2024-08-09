@@ -5,14 +5,14 @@ import { PrizmTooltipDirective } from './tooltip.directive';
 import { PrizmHintDirective } from '../hint';
 import { PrizmTooltipContainerComponent } from './tooltip-container.component';
 import { PrizmScrollbarModule } from '../../components/scrollbar';
-import { PrizmFocusTrapModule } from '../focus-trap';
+import { PrizmFocusTrapDirective } from '../focus-trap';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
     CommonModule,
     PolymorphModule,
-    PrizmFocusTrapModule,
+    PrizmFocusTrapDirective,
     PrizmHintDirective,
     PrizmScrollbarModule,
     PrizmIconsFullComponent,
