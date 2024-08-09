@@ -1,6 +1,11 @@
+export type PrizmNxMvVarName = string;
+
+export type PrizmNxMvVarNameWithPrefix = `var${PrizmNxMvVarName}`;
+
 export interface PrizmNxMvSchema {
   config: string;
   name: string;
+  [varName: PrizmNxMvVarNameWithPrefix]: string;
 }
 
 export type PrizmNxMvConfigVersion = {
@@ -11,7 +16,7 @@ export type PrizmNxMvConfigVersion = {
   projects: string[];
   remove?: string[];
   project: string;
-  vars?: Record<string, string | number>;
+  consts?: Record<string, string | number>;
 };
 export interface PrizmNxMvConfig {
   versions: {

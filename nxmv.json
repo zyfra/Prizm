@@ -33,9 +33,9 @@
       "all": true,
       "rootChange": true,
       "remove": ["angular.json"],
-      "vars": {
+      "consts": {
         "ngVersion": "18.1.3",
-        "version": "5.0.1"
+        "nxVersion": "19.5.6"
       }
     }
   }
