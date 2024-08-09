@@ -31,7 +31,6 @@ import { DEFAULT_HEADER_CONFIG } from '../../defaults';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmTreeModule } from '../../../tree';
-import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 import { PrizmButtonComponent } from '../../../button';
 import { PolymorphOutletDirective, PrizmHintDirective, PrizmHoveredDirective } from '../../../../directives';
 import { PrizmAccordionComponent } from '../../../accordion';
@@ -51,7 +50,6 @@ import { PrizmScrollbarComponent } from '../../../scrollbar';
     CommonModule,
     ReactiveFormsModule,
     PrizmTreeModule,
-    PrizmIconsSvgComponent,
     PrizmButtonComponent,
     PrizmHoveredDirective,
     PrizmAccordionComponent,

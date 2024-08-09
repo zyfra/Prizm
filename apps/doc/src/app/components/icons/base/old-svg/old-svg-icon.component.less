@@ -10,11 +10,19 @@ h4 {
 .icons {
   display: flex;
   flex-wrap: wrap;
-  color: var(--prizm-status-info-primary-default);
+
+  &.show-only-hide {
+    .icon-def {
+      &:not(:has(> prizm-icons:empty)) {
+        display: none;
+      }
+    }
+  }
 }
 
 .icon-def {
   display: flex;
+  cursor: pointer;
   width: 100px;
   height: 100px;
   max-width: 100px;
@@ -23,7 +31,11 @@ h4 {
   margin: 4px;
   padding: 8px 8px 0 8px;
   border-radius: 4px;
-  cursor: pointer;
+  border: 1px solid transparent;
+
+  &:has(> prizm-icons:empty) {
+    border: 1px solid var(--prizm-index-fact);
+  }
 
   &:hover {
     background-color: var(--prizm-background-fill-secondary);
@@ -40,10 +52,6 @@ h4 {
   font-size: 12px;
   text-align: center;
   margin-top: 12px;
-  word-wrap: break-word;
-  overflow: hidden;
-  width: 100%;
-  text-overflow: ellipsis;
 }
 
 .title,
@@ -51,7 +59,13 @@ h4 {
   color: var(--prizm-text-icon-secondary);
 }
 
-.icons-block {
+.title-block {
   display: flex;
-  gap: 0.5rem;
+  justify-content: space-between;
+  align-items: center;
+
+  .show-none {
+    display: flex;
+    gap: 8px;
+  }
 }

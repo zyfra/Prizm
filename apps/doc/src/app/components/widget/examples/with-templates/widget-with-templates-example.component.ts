@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import {
-  PRIZM_ICONS_SVG_SET,
-  prizmIconSvgDateTimeCalendarPlus,
-  PrizmIconSvgEnum,
-  prizmIconSvgProductionIndustrySnakeCup,
-  prizmIconSvgSettingsToolsBan,
-  PrizmIconsSvgRegistry,
-} from '@prizm-ui/icons';
+  prizmIconsCalendarPlus,
+  PrizmIconsEnum,
+  prizmIconsGear8Edge,
+  prizmIconsSnakeCup,
+} from '@prizm-ui/icons/base';
 
 @Component({
   selector: 'prizm-widget-with-templates-example',
@@ -23,20 +22,9 @@ import {
   ],
 })
 export class PrizmWidgetWithTemplatesExampleComponent {
-  readonly PrizmIconSvgEnum = PrizmIconSvgEnum;
-  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {
+  readonly PrizmIconSvgEnum = PrizmIconsEnum;
+  constructor(private readonly iconRegistry: PrizmIconsRegistry) {
     /** Также можете добавить свою иконку */
-    this.iconRegistry.registerIcons([
-      prizmIconSvgSettingsToolsBan,
-      prizmIconSvgProductionIndustrySnakeCup,
-      prizmIconSvgDateTimeCalendarPlus,
-    ]);
-
-    /** для добавление всего сета наших иконок
-     * используйте PRIZM_ICONS_SVG_SET
-     * */
-    // this.iconRegistry.registerIcons([
-    //   ...PRIZM_ICONS_SVG_SET
-    // ]);
+    this.iconRegistry.registerIcons([prizmIconsGear8Edge, prizmIconsSnakeCup, prizmIconsCalendarPlus]);
   }
 }

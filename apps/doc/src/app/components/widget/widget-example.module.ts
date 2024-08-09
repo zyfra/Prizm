@@ -7,16 +7,16 @@ import { PrizmWidgetBaseExampleComponent } from './examples/base/widget-base-exa
 import { PrizmButtonComponent, PrizmWidgetComponent } from '@prizm-ui/components';
 import { PrizmWidgetWithButtonsExampleComponent } from './examples/with-buttons/widget-with-buttons-example.component';
 import { PrizmWidgetWithTemplatesExampleComponent } from './examples/with-templates/widget-with-templates-example.component';
-import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
+import { PrizmIconsComponent } from '@prizm-ui/icons';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
     PrizmWidgetComponent,
-    PrizmIconsSvgComponent,
     PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(WidgetExampleComponent)),
+    PrizmIconsComponent,
   ],
   declarations: [
     PrizmWidgetWithTemplatesExampleComponent,

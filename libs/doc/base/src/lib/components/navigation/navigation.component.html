@@ -62,6 +62,7 @@
         <a
           class="t-sublink"
           *ngSwitchCase="true"
+          [class.removed]="item.status === 'removed'"
           [class.deprecated]="item.status === 'deprecated'"
           [class.new]="item.status === 'new'"
           [target]="item.target"

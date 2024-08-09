@@ -1,7 +1,15 @@
 import { InjectionToken } from '@angular/core';
-import { prizmIconsGetNameByOld } from '../replace';
+import { prizmIconsGetNameByOld, prizmIconsSvgGetNameByOld } from '../replace';
 
 type PrizmIconsNameTransformer = (name: string) => string | null;
+
+/**
+ * @developer-preview
+ * */
+export function prizmIconsProvideOldSvgNameTransformer() {
+  return prizmIconsProvideTransformer(name => prizmIconsSvgGetNameByOld(name) ?? name);
+}
+
 /**
  * @developer-preview
  * */
