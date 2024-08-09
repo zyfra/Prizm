@@ -17,9 +17,10 @@ All notable changes to this project will be documented in this file.
 
 ### Special Thanks:
 
-- @zerod
+- @zerodi
 - @ickisIckis
 - @ZurabDev
+- @alexhawkins94
 
 ## [4.3.7](https://github.com/zyfra/Prizm) (25-07-2024)
 
