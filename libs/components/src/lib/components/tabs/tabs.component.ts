@@ -82,6 +82,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.activeTabIndexLastChanged = idx;
     if (idx === this.tabsService.activeTabIdx) return;
     this.tabsService.updateActiveTab(idx);
+    this.focusTabByIdx(idx);
   }
   get activeTabIndex(): number {
     return this.tabsService.activeTabIdx;

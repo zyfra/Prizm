@@ -76,6 +76,17 @@
             content="Big Tab 2"
           >
           </prizm-tab>
+          <prizm-tab
+            *ngFor="let item of simpleTabs"
+            [icon]="icon"
+            [closable]="closable"
+            [type]="type"
+            [closeIcon]="$any(closeIcon)"
+            [disabled]="disabled"
+            [style.--prizm-tab-button-max-width]="prizmTabButtonMaxWidth"
+            [content]="item.title ?? ''"
+          >
+          </prizm-tab>
         </prizm-tabs>
       </div>
     </prizm-doc-demo>
