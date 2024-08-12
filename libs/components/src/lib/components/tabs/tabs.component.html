@@ -80,16 +80,17 @@
                   <div class="icon-placeholder"></div>
                 </ng-template>
               </ng-container>
-
-              <ng-container>
-                <div
-                  class="tab-content"
-                  #elem
-                  [prizmHint]="tab.content"
-                  [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
-                >
-                  {{ tab.content }}
-                </div>
+              <ng-container *ngIf="tab.content as content">
+                <ng-container *polymorphOutlet="content; context: $any({ idx: i, tab: this })">
+                  <div
+                    class="tab-content"
+                    #elem
+                    [prizmHint]="content"
+                    [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
+                  >
+                    {{ content }}
+                  </div>
+                </ng-container>
               </ng-container>
 
               <ng-container rightBox>
