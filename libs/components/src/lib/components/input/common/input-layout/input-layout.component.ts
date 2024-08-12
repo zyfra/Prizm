@@ -16,7 +16,6 @@ import {
   SimpleChanges,
   ViewChild,
   inject,
-  HostListener,
 } from '@angular/core';
 import { BehaviorSubject, EMPTY, merge, Observable, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
