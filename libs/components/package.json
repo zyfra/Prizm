@@ -18,7 +18,7 @@
     "@prizm-ui/theme": "^4.3.8"
   },
   "dependencies": {
-    "tslib": "^2.3.0",
+    "tslib": "^2.4.0",
     "ngx-mask": "17.0.4",
     "@ng-web-apis/common": "^3.0.0",
     "@ng-web-apis/resize-observer": "^3.0.0",
