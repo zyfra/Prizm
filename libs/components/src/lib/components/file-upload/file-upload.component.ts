@@ -209,7 +209,7 @@ export class PrizmFileUploadComponent
     }
 
     for (const file of this.filesMap.keys()) {
-      this.removeFile(file);
+      this.removeFile(file, { emitEvent: options.emitEvent });
     }
 
     if (options.emitEvent) {
