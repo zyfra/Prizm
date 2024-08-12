@@ -24,5 +24,35 @@ export class TabsExampleComponentComponent {
     {
       title: 'Вкладка 4',
     },
+    {
+      title: 'Вкладка 5',
+    },
+    {
+      title: 'Вкладка 6',
+    },
+    {
+      title: 'Вкладка 7',
+    },
+    {
+      title: 'Вкладка 8',
+    },
+    {
+      title: 'Вкладка 9',
+    },
+    {
+      title: 'Вкладка 10',
+    },
+    {
+      title: 'Вкладка 11',
+    },
+    {
+      title: 'Вкладка 12',
+    },
+    {
+      title: 'Вкладка 13',
+    },
+    {
+      title: 'Вкладка 14',
+    },
   ];
 }
