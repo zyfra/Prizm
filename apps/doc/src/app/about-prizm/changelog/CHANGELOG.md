@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/input-month): icon button should be hidden in disabled forms #1728
 - fix(components/input-password): icon button should be hidden in disabled forms #1727
 - fix(chore): moved required deps to dependencies group #1861
-- fix(components/sidebar): complete on close #1933
+- docs(sidebar): added logger for easy check #1933
 - fix(components/style): devided styles to location and declare #1412
 
 ### Special Thanks:
