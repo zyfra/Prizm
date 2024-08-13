@@ -2,6 +2,14 @@
   display: inline-flex;
   width: 100%;
 
+  :host-context(.disabled) {
+    pointer-events: none;
+  }
+
+  &.single-line:not(:empty) {
+    margin-bottom: 8px;
+  }
+
   .chips-list {
     width: 100%;
     padding: 0 12px 12px 0px;
