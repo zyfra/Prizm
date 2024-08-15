@@ -31,7 +31,7 @@ export class PrizmInputMultiSelectWithTransformerExampleComponent {
     { id: 3, name: 'ОАЭ' },
   ];
 
-  readonly selectAll: PrizmItem = { id: 0, name: 'Select all' };
+  readonly selectAll: PrizmItem = { id: 0, name: 'Выбрать все' };
 
   readonly valueControl = new UntypedFormControl([3]);
 
