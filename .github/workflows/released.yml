@@ -1,8 +1,8 @@
 name: Released
 on:
-  release:
-    types:
-      - released
+  #  release:
+  #    types:
+  #      - created
   workflow_dispatch:
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
