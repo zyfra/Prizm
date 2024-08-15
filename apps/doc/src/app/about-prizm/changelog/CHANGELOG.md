@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/input-number): bug where empty state was not toggled when clearing https://github.com/zyfra/Prizm/issues/1684
 - fix(components/input-text): incorrect behavior occurring in PrizmInputComponent when NgxMaskDirective is applied and the value changes from an empty state. https://github.com/zyfra/Prizm/issues/1190
 - fix(components/tab): add correct icon name to registry for right arrow #1860
+- fix(components/tree): incorrect markup fix #1742 Note: markup is update can affect tree component in project
 
 ### Refactor
 
