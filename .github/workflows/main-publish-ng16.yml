@@ -1,6 +1,9 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
 name: Publish main packages 16
 on:
+  push:
+    tags:
+      - '3.*'
   workflow_dispatch:
   workflow_call:
 env:
@@ -57,7 +60,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '3.15.1'
+            echo '3.10.0'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
@@ -93,6 +96,10 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc

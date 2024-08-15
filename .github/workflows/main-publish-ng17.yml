@@ -1,6 +1,9 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
 name: Publish main packages 17
 on:
+  push:
+    tags:
+      - '4.*'
   workflow_dispatch:
   workflow_call:
 env:
@@ -29,14 +32,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
-      - name: 'Initial changes 17'
-        run: |
-          cp -f package.json.ng17 package.json
-          cp -f package-lock.json.ng17 package-lock.json
+      #      - name: 'Initial changes 17'
+      #        run: |
+      #          cp -f package.json package.json
+      #          cp -f package-lock.json package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -57,12 +60,12 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '4.1.0'
+            echo '4.3.7'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 17'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
+      #      - name: 'Set version 17'
+      #        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
 
       - name: 'Build main versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -85,7 +88,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -93,6 +96,10 @@ jobs:
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
@@ -117,7 +124,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -145,7 +152,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -173,7 +180,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -201,7 +208,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -229,7 +236,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -257,7 +264,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -285,7 +292,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -313,7 +320,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -341,7 +348,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -369,7 +376,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -397,7 +404,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
@@ -425,7 +432,7 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_17-
 
