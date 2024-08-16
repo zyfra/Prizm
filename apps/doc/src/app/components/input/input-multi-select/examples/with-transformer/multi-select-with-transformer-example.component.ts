@@ -33,6 +33,8 @@ export class PrizmInputMultiSelectWithTransformerExampleComponent {
     { id: 3, name: 'ОАЭ' },
   ];
 
+  readonly selectAll: PrizmItem = { id: 0, name: 'Выбрать все' };
+
   readonly valueControl = new UntypedFormControl([3]);
 
   readonly searchMatcher: PrizmMultiSelectSearchMatcher<PrizmItem> = (search: string, item: PrizmItem) => {
