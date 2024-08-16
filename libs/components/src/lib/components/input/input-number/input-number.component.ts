@@ -139,6 +139,8 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.ngControl.control?.setValue(null);
     this.markAsTouched();
     this.onClear.emit(ev);
+    this.detectSymbols(false);
+    this.stateChanges.next();
   }
 
   private markAsTouched(): void {

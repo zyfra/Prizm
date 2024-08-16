@@ -71,12 +71,17 @@ export class AllIconComponent {
     debounceTime(250),
     map(([search, page, rowOnPage]) => {
       let result = this.iconsSet;
+      const countOnPage = rowOnPage * page;
 
-      if (search) result = result.filter(i => i.toLowerCase().includes(search.toLowerCase()));
+      if (search) {
+        result = result.filter(i => i.toLowerCase().includes(search.toLowerCase()));
+        const maxPage = Math.ceil(result.length / rowOnPage) || 1;
+        if (page > maxPage) this.page$$.next(maxPage);
+      }
 
       this.size$$.next(result.length);
 
-      return result.slice((page - 1) * rowOnPage, rowOnPage * page);
+      return result.slice((page - 1) * rowOnPage, countOnPage);
     })
   );
 

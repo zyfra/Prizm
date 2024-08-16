@@ -7,6 +7,7 @@ import {
   ElementRef,
   HostBinding,
   Injector,
+  Input,
   OnDestroy,
   OnInit,
   ViewChild,
@@ -32,6 +33,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PrizmOverlayComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('compOutlet', { read: ViewContainerRef }) compOutlet!: ViewContainerRef;
+  @Input()
   content: PrizmOverlayContent = {
     type: PrizmOverlayContentType.STRING,
     data: '',

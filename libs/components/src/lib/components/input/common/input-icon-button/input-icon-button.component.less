@@ -3,6 +3,7 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-shrink: 0;
   border: 0;
   padding: 0;
@@ -36,4 +37,8 @@
   }
 
   color: var(--prizm-button-secondary-solid-default);
+}
+
+:host-context(.prizm-input-form-disabled) {
+  display: none;
 }

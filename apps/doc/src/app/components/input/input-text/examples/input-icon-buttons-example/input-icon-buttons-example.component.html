@@ -4,7 +4,7 @@
   <input prizmInput />
 
   <ng-container prizm-input-right>
-    <button prizmInputIconButton="circle-plus"></button>
+    <button [disabled]="disabled" (click)="handleButtonClick()" prizmInputIconButton="circle-plus"></button>
   </ng-container>
 </prizm-input-layout>
 
@@ -12,7 +12,11 @@
 
 <prizm-input-layout label="Заголовок">
   <ng-container prizm-input-left>
-    <button prizmInputIconButton="arrow-rotate-right"></button>
+    <button
+      [disabled]="disabled"
+      (click)="handleButtonClick()"
+      prizmInputIconButton="arrow-rotate-right"
+    ></button>
   </ng-container>
 
   <input prizmInput />
@@ -22,14 +26,18 @@
 
 <prizm-input-layout label="Заголовок">
   <ng-container prizm-input-left>
-    <button prizmInputIconButton="arrow-rotate-right"></button>
-    <button prizmInputIconButton="label"></button>
+    <button
+      [disabled]="disabled"
+      (click)="handleButtonClick()"
+      prizmInputIconButton="arrow-rotate-right"
+    ></button>
+    <button [disabled]="disabled" (click)="handleButtonClick()" prizmInputIconButton="label"></button>
   </ng-container>
 
   <input prizmInput />
 
   <ng-container prizm-input-right>
-    <button prizmInputIconButton="circle-plus"></button>
+    <button [disabled]="disabled" (click)="handleButtonClick()" prizmInputIconButton="circle-plus"></button>
   </ng-container>
 </prizm-input-layout>
 
@@ -37,7 +45,11 @@
 
 <prizm-input-layout label="Заголовок" status="warning">
   <ng-container prizm-input-left>
-    <button prizmInputIconButton="arrow-rotate-right"></button>
+    <button
+      [disabled]="disabled"
+      (click)="handleButtonClick()"
+      prizmInputIconButton="arrow-rotate-right"
+    ></button>
   </ng-container>
 
   <input prizmInput />
@@ -45,7 +57,7 @@
   <ng-template prizmInputStatusText>Warning text</ng-template>
 
   <ng-container prizm-input-right>
-    <button prizmInputIconButton="circle-plus"></button>
+    <button [disabled]="disabled" (click)="handleButtonClick()" prizmInputIconButton="circle-plus"></button>
   </ng-container>
 </prizm-input-layout>
 
@@ -58,3 +70,16 @@
 
   <input prizmInput />
 </prizm-input-layout>
+
+<br />
+<br />
+
+<div>
+  Disable
+  <prizm-toggle
+    [ngModel]="disabled"
+    [ngModelOptions]="{ standalone: true }"
+    (ngModelChange)="disabled = $event"
+    size="m"
+  ></prizm-toggle>
+</div>
