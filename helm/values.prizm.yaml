@@ -89,11 +89,11 @@ tls:
 # -- Additional ConfigMap to mount as volumes
 # Format: *name: { mountPath: /data, subPath: "", readOnly: false, configMap: map-name, defaultMode: 256 }* or
 # *name: { configMap: map-name }*
-extraConfigmapMounts: #{}
-  nginx-default-conf:
-    mountPath: /etc/nginx/conf.d
-    readOnly: true
-    configMap: nginx-default-conf
+# extraConfigmapMounts: #{}
+#   nginx-default-conf:
+#     mountPath: /etc/nginx/conf.d
+#     readOnly: true
+#     configMap: nginx-default-conf
 #  guardian-volume:
 #    configMap: zif-startup-guardian-config
 #    defaultMode: 420
