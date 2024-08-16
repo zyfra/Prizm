@@ -92,6 +92,7 @@ export class PrizmToastControl {
 
   private destroy(control: PrizmOverlayControl | null): void {
     this.close(control);
+    control?.destroy();
     control = null;
   }
 

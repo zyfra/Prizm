@@ -29,7 +29,7 @@ export class PrizmSwitcherHintDirective implements OnInit, OnChanges, OnDestroy 
   }
 
   public ngOnChanges(): void {
-    this.prizmHint_.ngOnChanges();
+    this.hintSyncChanges();
   }
 
   public ngOnDestroy(): void {
@@ -47,6 +47,6 @@ export class PrizmSwitcherHintDirective implements OnInit, OnChanges, OnDestroy 
   }
 
   private hintSyncChanges(): void {
-    this.prizmHint_.ngOnChanges();
+    this.prizmHint_.drawHint();
   }
 }

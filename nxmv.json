@@ -1,31 +1,15 @@
 {
   "versions": {
-    "v14": {
-      "extFolder": ".ng14",
-      "extFile": ".ng14",
-      "all": true,
-      "rootChange": true
-    },
-    "v15": {
-      "extFolder": ".ng15",
-      "extFile": ".ng15",
-      "all": true,
-      "rootChange": true,
-      "remove": ["angular.json"]
-    },
-    "v16": {
-      "extFolder": [".ng16", ".ng15"],
-      "extFile": [".ng16", ".ng15"],
-      "all": true,
-      "rootChange": true,
-      "remove": ["angular.json"]
-    },
     "v17": {
-      "extFolder": [".ng17", ".ng16", ".ng15"],
-      "extFile": [".ng17", ".ng16", ".ng15"],
+      "extFolder": [".ng17"],
+      "extFile": [".ng17"],
       "all": true,
       "rootChange": true,
-      "remove": ["angular.json"]
+      "remove": [],
+      "consts": {
+        "ngVersion": "17.1.0",
+        "nxVersion": "17.2.8"
+      }
     }
   }
 }
