@@ -1,9 +1,6 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Publish main packages 16
+name: Publish beta packages 17
 on:
-  push:
-    tags:
-      - '3.*'
   workflow_dispatch:
   workflow_call:
 env:
@@ -32,14 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
-      - name: 'Initial changes 16'
-        run: |
-          cp -f package.json.ng16 package.json
-          cp -f package-lock.json.ng16 package-lock.json
+      #      - name: 'Initial changes 17'
+      #        run: |
+      #          cp -f package.json package.json
+      #          cp -f package-lock.json package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -59,15 +56,18 @@ jobs:
 
       - name: Set up environment variables
         run: |
-          last_v3_version=$(
-            echo '3.10.0'
+          last_draft_version=$(
+            (npm view @prizm-ui/components versions --tag beta --json 2>/dev/null || echo '<%= version %>-beta.0') | jq '([.[] | select(startswith("<%= version %>-beta"))] | last // "<%= version %>-beta.0")' 2>/dev/null || echo '<%= version %>-beta.0'
           )
-          echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
+          echo "LAST_DRAFT_VERSION=${last_draft_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+      #      - name: 'Set version 17'
+      #        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
 
-      - name: 'Build main versions'
+      - name: 'Update beta versions'
+        run: npx nx generate @prizm-ui/nx-plugin:update-version --updateInDependencies true --newVersion="4.*.*-beta.up" --all --currentVersion="${{ env.LAST_DRAFT_VERSION }}"
+
+      - name: 'Build beta versions.'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
 
       - name: Upload dist as artifacts...
@@ -82,24 +82,25 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
 
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
           registry-url: 'https://registry.npmjs.org'
-
-      - name: 'Increase max memory limit'
-        run: |
-          export NODE_OPTIONS="--max_old_space_size=8192"
 
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
@@ -111,27 +112,21 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: v3
+          target: v4-beta
 
   publish-components:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -139,27 +134,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/components && npm publish --tag ng16 --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/components && npm publish --tag beta --access public --verbose
 
   publish-i18n:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -167,27 +161,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/i18n && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/i18n && npm publish --tag beta --access public --verbose
 
   publish-helpers:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -195,27 +188,25 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/helpers && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/helpers && npm publish --tag beta --access public --verbose
 
   publish-core:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -223,27 +214,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/core && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/core && npm publish --tag beta --access public --verbose
 
   publish-theme:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -251,27 +241,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/theme && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/theme && npm publish --tag beta --access public --verbose
 
   publish-icons:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -279,27 +268,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/icons/base && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/icons/base && npm publish --tag beta --access public --verbose
 
   publish-flags:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -307,27 +295,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/icons/flags && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/icons/flags && npm publish --tag beta --access public --verbose
 
   publish-plugin:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -335,27 +322,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/plugin && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/plugin && npm publish --tag beta --access public --verbose
 
   publish-ast:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -363,27 +349,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/ast && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/ast && npm publish --tag beta --access public --verbose
 
   publish-charts:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -391,27 +376,26 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/charts && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/charts && npm publish --tag beta --access public --verbose
 
   publish-nxmv:
     needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
+
       - name: Restore node_modules in cache
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
-
-      - uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          registry-url: 'https://registry.npmjs.org'
+            ${{ runner.os }}-node_modules_ng_17-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v3
@@ -419,4 +403,9 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/nxmv && npm publish --tag ng16  --access public --verbose
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - run: cd dist/libs/nxmv && npm publish --tag beta --access public --verbose

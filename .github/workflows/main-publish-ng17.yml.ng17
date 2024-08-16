@@ -1,9 +1,6 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Publish main packages 16
+name: Publish main packages 17
 on:
-  push:
-    tags:
-      - '3.*'
   workflow_dispatch:
   workflow_call:
 env:
@@ -32,14 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
-      - name: 'Initial changes 16'
-        run: |
-          cp -f package.json.ng16 package.json
-          cp -f package-lock.json.ng16 package-lock.json
+      #      - name: 'Initial changes 17'
+      #        run: |
+      #          cp -f package.json package.json
+      #          cp -f package-lock.json package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -60,12 +57,12 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '3.10.0'
+            echo '<%= version %>'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 
-      - name: 'Set version 16'
-        run: npx nx generate @prizm-ui/nx-mv:apply -n v16
+      #      - name: 'Set version 17'
+      #        run: npx nx generate @prizm-ui/nx-mv:apply -n v17
 
       - name: 'Build main versions'
         run: npx nx run-many --target=build --all --parallel --max-parallel=3
@@ -88,9 +85,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -111,7 +108,7 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
           projectId: prizmui
           channelId: live
-          target: v3
+          target: main
 
   publish-components:
     needs: build
@@ -124,9 +121,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -139,7 +136,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/components && npm publish --tag ng16 --access public --verbose
+      - run: cd dist/libs/components && npm publish --access public --verbose
 
   publish-i18n:
     needs: build
@@ -152,9 +149,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -167,7 +164,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/i18n && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/i18n && npm publish --access public --verbose
 
   publish-helpers:
     needs: build
@@ -180,9 +177,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -195,7 +192,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/helpers && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/helpers && npm publish --access public --verbose
 
   publish-core:
     needs: build
@@ -208,9 +205,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -223,7 +220,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/core && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/core && npm publish --access public --verbose
 
   publish-theme:
     needs: build
@@ -236,9 +233,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -251,7 +248,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/theme && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/theme && npm publish --access public --verbose
 
   publish-icons:
     needs: build
@@ -264,9 +261,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -279,7 +276,35 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/icons/base && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/icons/base && npm publish --access public --verbose
+
+  publish-icons-loader:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_17-
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Download dist from artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: ./dist
+
+      - run: cd dist/libs/icons/loader && npm publish --access public --verbose
 
   publish-flags:
     needs: build
@@ -292,9 +317,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -307,7 +332,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/icons/flags && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/icons/flags && npm publish --access public --verbose
 
   publish-plugin:
     needs: build
@@ -320,9 +345,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -335,7 +360,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/plugin && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/plugin && npm publish --access public --verbose
 
   publish-ast:
     needs: build
@@ -348,9 +373,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -363,7 +388,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/ast && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/ast && npm publish --access public --verbose
 
   publish-charts:
     needs: build
@@ -376,9 +401,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -391,7 +416,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/charts && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/charts && npm publish --access public --verbose
 
   publish-nxmv:
     needs: build
@@ -404,9 +429,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_16-${{ hashFiles('package-lock.json.ng16') }}
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_16-
+            ${{ runner.os }}-node_modules_ng_17-
 
       - uses: actions/setup-node@v3
         with:
@@ -419,4 +444,4 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/nxmv && npm publish --tag ng16  --access public --verbose
+      - run: cd dist/libs/nxmv && npm publish --access public --verbose

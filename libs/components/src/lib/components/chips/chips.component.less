@@ -2,6 +2,10 @@
   display: inline-flex;
   width: 100%;
 
+  :host-context(.disabled) {
+    pointer-events: none;
+  }
+
   &.single-line:not(:empty) {
     margin-bottom: 8px;
   }
