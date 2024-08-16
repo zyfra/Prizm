@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "4.3.1",
+  "version": "4.3.8",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -81,7 +81,7 @@
     "rxjs": "7.8.1",
     "tar-stream": "~2.2.0",
     "ts-morph": "^18.0.0",
-    "tslib": "^2.3.0",
+    "tslib": "^2.4.0",
     "uninstall": "0.0.0",
     "uuid": "^8.3.2",
     "zone.js": "0.14.3"
@@ -110,7 +110,7 @@
     "@nx/node": "17.2.8",
     "@nx/plugin": "17.2.8",
     "@nx/workspace": "17.2.8",
-    "@prizm-ui/nx-mv": "^4.0.1-next.1",
+    "@prizm-ui/nx-mv": "^5.0.0-rc.1",
     "@schematics/angular": "17.0.10",
     "@swc-node/register": "1.6.8",
     "@swc/cli": "~0.1.62",
@@ -166,7 +166,7 @@
     "tar-stream": "~2.2.0",
     "ts-jest": "29.1.1",
     "ts-node": "10.9.1",
-    "tslib": "^2.3.0",
+    "tslib": "^2.4.0",
     "typescript": "5.2.2",
     "webpack-bundle-analyzer": "^4.10.1"
   },

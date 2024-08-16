@@ -1,0 +1,9 @@
+<prizm-charts-line
+  [autoFit]="true"
+  [data]="data"
+  [theme]="$any(prizmTheme.changesTheme$ | async)"
+  [xField]="'time'"
+  [yField]="'value'"
+  [options]="{ smooth: true }"
+  [seriesField]="'city'"
+></prizm-charts-line>

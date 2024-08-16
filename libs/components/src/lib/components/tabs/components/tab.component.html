@@ -6,7 +6,6 @@
 >
   <div class="page__icon" *ngIf="icon">
     <ng-container *polymorphOutlet="icon; context: $any({ idx: idx$ | async, tab: this })">
-      <!--      <prizm-icon class="icon icon__mark" [size]="16" [iconClass]="$any(icon)"> </prizm-icon>-->
       <prizm-icons-full class="icon icon__mark" [size]="16" [name]="$any(icon)"> </prizm-icons-full>
     </ng-container>
   </div>
