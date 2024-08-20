@@ -198,7 +198,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
       return;
     }
 
-    this.updateValue(
+    this.updateWithCorrectDate(
       value.length !== PRIZM_DATE_FILLER_LENGTH ? null : PrizmDay.normalizeParse(value, this.dateFormat)
     );
   }
@@ -237,5 +237,16 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
     this.updateValue(null);
     this.markAsTouched();
     this.changeDetectorRef.markForCheck();
+  }
+
+  private updateWithCorrectDate(date: PrizmDay | null): void {
+    if (!date) return;
+    // correct min max date
+    if (date) date = date.dayLimit(this.min, this.max);
+    if (this.focusableElement) {
+      this.focusableElement.nativeElement.value = date?.toString();
+    }
+
+    this.updateValue(date);
   }
 }
