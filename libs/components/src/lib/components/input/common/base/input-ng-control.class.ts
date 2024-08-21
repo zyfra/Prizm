@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Directive, ElementRef, inject, Injector, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, inject, Injector, OnInit, Renderer2 } from '@angular/core';
 import { AbstractControl, ControlValueAccessor, NgControl, NgModel, Validators } from '@angular/forms';
 import { PrizmInputControl } from './input-control.class';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -74,6 +74,7 @@ export abstract class PrizmInputNgControl<T>
     return !!this.ngControl?.touched;
   }
 
+  public readonly renderer2 = inject(Renderer2);
   protected constructor(
     protected readonly injector: Injector,
     readonly valueTransformer?: PrizmControlValueTransformer<T> | null
@@ -118,9 +119,9 @@ export abstract class PrizmInputNgControl<T>
   }
 
   protected updateValue(value: T): void {
-    // if (this.disabled || this.valueIdenticalComparator(this.value, value)) {
-    //   return;
-    // }
+    if (this.disabled /*|| this.valueIdenticalComparator(this.value, value)*/) {
+      return;
+    }
     this.onChange(value);
     this.previousInternalValue$$.next(value);
     this.controlSetValue(value);
@@ -131,6 +132,10 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public setDisabledState(isDisabled: boolean) {
+    if (this.focusableElement?.nativeElement) {
+      this.renderer2.setProperty(this.focusableElement.nativeElement, 'disabled', isDisabled);
+    }
+
     this.checkControlUpdate();
     this.stateChanges.next();
   }

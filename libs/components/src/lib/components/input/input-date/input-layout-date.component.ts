@@ -172,15 +172,15 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
 
     this.iconsFullRegistry.registerIcons(prizmIconsCalendarBlank);
 
+    // TODO after v5 released devide and move to abstract layer for all component
     afterRender(() => {
       if (this.focusableElement?.nativeElement && !this.focused) {
-        console.log(this.previousInternalValue$$.value, 1111111111);
         this.render2.setProperty(
           this.focusableElement.nativeElement,
           'value',
           this.previousInternalValue$$.value ?? ''
         );
-        this.textMask?.writeValue(this.previousInternalValue$$.value ?? '');
+        this.textMask?.writeValue(this.previousInternalValue$$.value?.toString() ?? '');
       }
     });
   }
