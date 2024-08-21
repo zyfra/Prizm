@@ -18,7 +18,7 @@ export abstract class PrizmInputNgControl<T>
   ngControl!: NgControl;
   readonly changeDetectorRef!: ChangeDetectorRef;
   readonly layoutComponent?: PrizmInputLayoutComponent | null;
-  private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
+  protected previousInternalValue$$ = new BehaviorSubject<T | null>(null);
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
   onTouch: () => void = PRIZM_EMPTY_FUNCTION;
   protected readonly focusableElement?: ElementRef<HTMLInputElement> | any;
@@ -118,9 +118,9 @@ export abstract class PrizmInputNgControl<T>
   }
 
   protected updateValue(value: T): void {
-    if (this.disabled || this.valueIdenticalComparator(this.value, value)) {
-      return;
-    }
+    // if (this.disabled || this.valueIdenticalComparator(this.value, value)) {
+    //   return;
+    // }
     this.onChange(value);
     this.previousInternalValue$$.next(value);
     this.controlSetValue(value);

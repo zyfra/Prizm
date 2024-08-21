@@ -1,4 +1,5 @@
 import {
+  afterRender,
   ChangeDetectionStrategy,
   Component,
   ElementRef,
@@ -9,6 +10,7 @@ import {
   Injector,
   Input,
   Optional,
+  Renderer2,
   ViewChild,
 } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -59,6 +61,7 @@ import { PrizmLinkComponent } from '../../link';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
+import { NgxMaskDirective } from 'ngx-mask';
 
 @Component({
   selector: `prizm-input-layout-date`,
@@ -97,6 +100,9 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
   readonly hasClearButton = true;
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
+
+  @ViewChild('mask', { read: NgxMaskDirective })
+  public textMask?: NgxMaskDirective;
 
   private month: PrizmMonth | null = null;
 
@@ -146,6 +152,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private readonly render2 = inject(Renderer2);
 
   constructor(
     @Inject(Injector) injector: Injector,
@@ -164,6 +171,18 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
     this.extraButtonInjector = injector;
 
     this.iconsFullRegistry.registerIcons(prizmIconsCalendarBlank);
+
+    afterRender(() => {
+      if (this.focusableElement?.nativeElement && !this.focused) {
+        console.log(this.previousInternalValue$$.value, 1111111111);
+        this.render2.setProperty(
+          this.focusableElement.nativeElement,
+          'value',
+          this.previousInternalValue$$.value ?? ''
+        );
+        this.textMask?.writeValue(this.previousInternalValue$$.value ?? '');
+      }
+    });
   }
 
   public override ngOnInit(): void {
@@ -220,6 +239,9 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
 
   public override writeValue(value: PrizmDay | null): void {
     super.writeValue(value);
+    if (this.focusableElement) {
+      this.render2.setProperty(this.focusableElement.nativeElement, 'value', value ?? '');
+    }
   }
 
   public get nativeFocusableElement(): HTMLInputElement | null {
@@ -244,7 +266,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
     // correct min max date
     if (date) date = date.dayLimit(this.min, this.max);
     if (this.focusableElement) {
-      this.focusableElement.nativeElement.value = date?.toString();
+      // this.focusableElement.nativeElement.value = date?.toString();
     }
 
     this.updateValue(date);
