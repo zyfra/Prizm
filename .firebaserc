@@ -49,6 +49,15 @@
         ],
         "v4-beta": [
           "prizm-v4-beta"
+        ],
+        "v5": [
+          "prizm-v5"
+        ],
+        "v5-next": [
+          "prizm-v5-next"
+        ],
+        "v5-beta": [
+          "prizm-v5-beta"
         ]
       }
     }

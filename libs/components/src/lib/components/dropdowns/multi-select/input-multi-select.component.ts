@@ -16,9 +16,9 @@ import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, UntypedFormControl
 import {
   PolymorphContent,
   PolymorphOutletDirective,
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
-  PrizmFocusableModule,
+  PrizmAutoFocusDirective,
+  PrizmDropdownControllerDirective,
+  PrizmFocusableDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
@@ -72,15 +72,15 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     PrizmLetDirective,
     PrizmHintDirective,
     PrizmCallFuncPipe,
-    PrizmAutoFocusModule,
+    PrizmAutoFocusDirective,
     PrizmScrollbarComponent,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmDataListComponent,
     PrizmCheckboxComponent,
     PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
     PrizmIconsFullComponent,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
   ],
   providers: [
     {

@@ -4,13 +4,13 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { TreemapComponent } from './treemap.component';
 import { PrizmChartsTreemapExampleComponent } from './examples/base/prizm-charts-treemap-example.component';
-import { PrizmChartsTreemapModule } from '@prizm-ui/charts';
+import { PrizmChartsTreemapComponent } from '@prizm-ui/charts';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmChartsTreemapModule,
+    PrizmChartsTreemapComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(TreemapComponent)),
   ],
   declarations: [PrizmChartsTreemapExampleComponent, TreemapComponent],

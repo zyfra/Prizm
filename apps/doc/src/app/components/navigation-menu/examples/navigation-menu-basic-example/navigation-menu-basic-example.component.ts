@@ -1,7 +1,8 @@
-import { Component, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component } from '@angular/core';
 import { PrizmNavigationMenuItem, PrizmNavigationMenuToolbarConfig } from '@prizm-ui/components';
-import { PrizmIconsSvgRegistry, PRIZM_ICONS_SVG_SET } from '@prizm-ui/icons';
 import { MOKED_ITEMS } from './navigation-menu.constants';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_FULL_SET } from '@prizm-ui/icons/full/source/icon-set';
 
 @Component({
   selector: 'prizm-navigation-menu-basic-example',
@@ -20,8 +21,8 @@ export class NavigationMenuBasicExampleComponent {
   items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
   activeItem: PrizmNavigationMenuItem;
 
-  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry, private cdr: ChangeDetectorRef) {
-    this.iconRegistry.registerIcons(PRIZM_ICONS_SVG_SET);
+  constructor(private readonly iconRegistry: PrizmIconsFullRegistry, private cdr: ChangeDetectorRef) {
+    this.iconRegistry.registerIcons(PRIZM_ICONS_FULL_SET);
 
     const childItemsArray = this.items[0].children as PrizmNavigationMenuItem[];
     this.activeItem = childItemsArray[0];

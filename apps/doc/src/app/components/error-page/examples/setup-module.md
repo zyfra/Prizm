@@ -1,13 +1,13 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmErrorPageModule } from '@prizm-ui/components';
+import { PrizmErrorPageComponent } from '@prizm-ui/components';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmErrorPageModule,
+    PrizmErrorPageComponent,
   ],
 })
 export class MyModule {}

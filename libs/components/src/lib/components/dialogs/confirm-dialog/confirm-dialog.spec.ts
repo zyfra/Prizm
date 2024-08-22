@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { PrizmOverlayControl } from '../../../modules/overlay';
 import {
-  PrizmConfirmDialogModule,
+  PrizmDialogConfirmComponent,
   PrizmConfirmDialogResultDefaultType,
   PrizmConfirmDialogService,
 } from './index';
@@ -11,7 +11,7 @@ xdescribe('PrizmConfirmDialog', () => {
   let service: PrizmConfirmDialogService;
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [PrizmConfirmDialogModule],
+      imports: [PrizmDialogConfirmComponent],
     });
     service = TestBed.inject(PrizmConfirmDialogService);
   });
@@ -64,12 +64,12 @@ xdescribe('PrizmConfirmDialog', () => {
     expect(c.isOpen).toBeFalsy();
   });
 
-  it('pass confirmed and close', async () => {
+  it('pass confirm and close', async () => {
     let c: PrizmOverlayControl;
-    const content = PrizmConfirmDialogResultDefaultType.confirmed;
+    const content = PrizmConfirmDialogResultDefaultType.confirm;
     const result = service.open(content, {}, ({ control, dialog }) => {
       c = control;
-      dialog.completeWith(PrizmConfirmDialogResultDefaultType.confirmed);
+      dialog.completeWith(PrizmConfirmDialogResultDefaultType.confirm);
     });
 
     const r = await result.pipe(take(1)).toPromise();

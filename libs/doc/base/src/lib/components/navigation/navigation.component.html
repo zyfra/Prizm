@@ -31,7 +31,7 @@
     <tui-accordion [closeOthers]="false" [rounded]="false">
       <tui-accordion-item
         *ngFor="let label of labels$ | async; index as index"
-        [(open)]="!!openPagesArr[index]"
+        [open]="!!openPagesArr[index]"
         [borders]="null"
         size="s"
       >
@@ -62,6 +62,7 @@
         <a
           class="t-sublink"
           *ngSwitchCase="true"
+          [class.removed]="item.status === 'removed'"
           [class.deprecated]="item.status === 'deprecated'"
           [class.new]="item.status === 'new'"
           [target]="item.target"

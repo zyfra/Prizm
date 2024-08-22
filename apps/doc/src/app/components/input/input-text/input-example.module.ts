@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import {
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmHintDirective,
   PrizmInputTextModule,
   PrizmToggleComponent,
@@ -30,7 +30,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
     PrizmInputTextModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     ReactiveFormsModule,
     FormsModule,
     PrizmIconsFullComponent,

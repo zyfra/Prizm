@@ -22,7 +22,7 @@ import { PrizmDateButton, PrizmDateButtonContext } from '../../../types/date-but
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmInputTextModule } from '../input-text';
-import { PolymorphOutletDirective, PrizmLifecycleModule } from '../../../directives';
+import { PolymorphOutletDirective, PrizmLifecycleDirective } from '../../../directives';
 import { ReactiveFormsModule } from '@angular/forms';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
@@ -42,7 +42,7 @@ export type PrizmDateItemTemplate = {
   imports: [
     CommonModule,
     PrizmInputTextModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     ReactiveFormsModule,
     PrizmDataListComponent,
     PolymorphOutletDirective,

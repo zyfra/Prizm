@@ -1,12 +1,12 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmRadioButtonModule } from '@prizm-ui/components';
+import { PrizmRadioButtonComponent } from '@prizm-ui/components';
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmRadioButtonModule,
+    PrizmRadioButtonComponent,
   ],
 })
 export class MyModule {}
