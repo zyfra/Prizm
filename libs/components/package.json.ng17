@@ -15,7 +15,8 @@
     "@prizm-ui/helpers": "^<%= version %>",
     "@prizm-ui/core": "^<%= version %>",
     "@prizm-ui/i18n": "^<%= version %>",
-    "@prizm-ui/theme": "^<%= version %>"
+    "@prizm-ui/theme": "^<%= version %>",
+    "@prizm-ui/icons": "^<%= version %>"
   },
   "dependencies": {
     "tslib": "^2.4.0",
