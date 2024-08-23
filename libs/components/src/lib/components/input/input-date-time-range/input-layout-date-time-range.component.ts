@@ -145,7 +145,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
   @Input()
   set min(value: PrizmDateTimeMinMax | Date | string) {
-    this._min = transformDateIfNeeded(value);
+    this._min = transformDateIfNeeded(value) || PRIZM_FIRST_DAY;
   }
 
   @prizmDefaultProp()
@@ -153,7 +153,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
   @Input()
   set max(value: PrizmDateTimeMinMax | Date | string) {
-    this._max = transformDateIfNeeded(value);
+    this._max = transformDateIfNeeded(value) || PRIZM_LAST_DAY;
   }
 
   @Input()
