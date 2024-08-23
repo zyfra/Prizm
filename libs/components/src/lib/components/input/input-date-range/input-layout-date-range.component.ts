@@ -126,7 +126,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
   @Input()
   set min(value: PrizmDay | Date | string) {
-    this._min = transformDateIfNeeded(value, true) as PrizmDay;
+    this._min = (transformDateIfNeeded(value, true) as PrizmDay) || PRIZM_FIRST_DAY;
   }
 
   @prizmDefaultProp()
@@ -134,7 +134,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
   @Input()
   set max(value: PrizmDay | Date | string) {
-    this._max = transformDateIfNeeded(value, true) as PrizmDay;
+    this._max = (transformDateIfNeeded(value, true) as PrizmDay) || PRIZM_LAST_DAY;
   }
 
   @Input()

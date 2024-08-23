@@ -16,9 +16,13 @@ export function transformDateIfNeeded(
 export function transformDateIfNeeded(
   value: PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime | Date | string,
   dayOnly?: boolean
-): PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime | PrizmDay | [PrizmDay, PrizmTime] {
+): PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTime | PrizmDay | [PrizmDay, PrizmTime] | null {
   if (typeof value === 'string') {
-    value = parseDateString(value);
+    try {
+      value = parseDateString(value);
+    } catch {
+      return null;
+    }
   }
 
   if (value instanceof Date) {
