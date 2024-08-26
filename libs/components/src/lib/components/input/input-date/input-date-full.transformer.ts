@@ -13,8 +13,13 @@ export class PrizmInputDateTransformer implements PrizmControlValueTransformer<F
 
   public fromControlValue(controlValue: To): From {
     if (typeof controlValue === 'string') {
-      this.dateStrType = calcDateStrType(controlValue);
-      controlValue = parseDateString(controlValue);
+      try {
+        this.dateStrType = calcDateStrType(controlValue);
+        controlValue = parseDateString(controlValue);
+      } catch {
+        console.error('ERROR', `${controlValue} is not valid ISO or UTC string`);
+        return null;
+      }
     } else {
       this.dateStrType = null;
     }

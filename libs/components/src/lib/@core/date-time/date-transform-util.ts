@@ -21,6 +21,7 @@ export function transformDateIfNeeded(
     try {
       value = parseDateString(value);
     } catch {
+      console.error('ERROR', `${value} is not valid ISO or UTC string`);
       return null;
     }
   }
