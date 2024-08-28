@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-item.component';
 import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive';
 import { INITIAL_SWITHCER_INDEX } from './swithcer.const';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmSetDefaultSize } from '@prizm-ui/helpers';
 
 @Component({
   selector: 'prizm-switcher',
@@ -28,7 +28,8 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [CommonModule, PrizmSwitcherHintDirective, PrizmSwitcherItemComponent],
-  providers: [PrizmDestroyService],
+  providers: [prizmSetDefaultSize('l'), PrizmDestroyService],
+  hostDirectives: [],
 })
 export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor, OnInit {
   @Input()

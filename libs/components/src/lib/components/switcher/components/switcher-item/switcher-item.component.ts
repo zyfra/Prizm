@@ -1,15 +1,12 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, OnInit } from '@angular/core';
-import {
-  prizmSwitcherHint,
-  PrizmSwitcherItem,
-  PrizmSwitcherSize,
-  PrizmSwitcherType,
-} from './../../switcher.interface';
+import { ChangeDetectionStrategy, Component, HostBinding, inject, Input, OnInit } from '@angular/core';
+import { prizmSwitcherHint, PrizmSwitcherItem, PrizmSwitcherType } from './../../switcher.interface';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmHintDirective } from '../../../../directives';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../../../button';
+import { PrizmCurrentIndexDirective, PrizmDisabledDirective } from '@prizm-ui/helpers';
+import { PrizmSwitcherComponent } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-switcher-item',
@@ -17,15 +14,11 @@ import { PrizmButtonComponent } from '../../../button';
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
+  hostDirectives: [PrizmCurrentIndexDirective, PrizmDisabledDirective],
   imports: [CommonModule, PrizmButtonComponent],
 })
 export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements OnInit {
   @Input() hint?: prizmSwitcherHint;
-
-  @Input()
-  @prizmDefaultProp()
-  @HostBinding('attr.data-size')
-  public size: PrizmSwitcherSize = 'l';
 
   @Input()
   @prizmDefaultProp()
@@ -40,28 +33,35 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements O
   public isActive = false;
 
   @Input()
-  @prizmDefaultProp()
-  public disabled = false;
-
-  @Input()
   @HostBinding('class.full-width')
   @prizmDefaultProp()
   public fullWidth = false;
 
+  @HostBinding('attr.first-child') get isFirstChild() {
+    return this.currentIndexDirective.isFirst;
+  }
+  @HostBinding('attr.last-child') get isLastChild() {
+    return this.currentIndexDirective.isLast;
+  }
   override readonly testId_ = 'ui_switcher_item';
 
+  private readonly disabledDirective_ = inject(PrizmDisabledDirective);
   get isDisabled(): boolean {
-    return Boolean(this.disabled || this.data?.disabled);
+    return Boolean(this.disabledDirective_.disabled || this.data?.disabled);
   }
 
   readonly prizmHint_ = new PrizmHintDirective();
-
+  readonly currentIndexDirective = inject(PrizmCurrentIndexDirective);
   @HostBinding('attr.prizmHint') get prizmHint(): any {
     return this.hint?.value || '';
   }
 
+  private parent = inject(PrizmSwitcherComponent);
+  private disabledDirective = inject(PrizmDisabledDirective);
+
   ngOnInit(): void {
     this.prizmHint_.ngOnInit();
+    console.log('#mz currentIndexDirective', this.currentIndexDirective.index);
   }
 }
 
