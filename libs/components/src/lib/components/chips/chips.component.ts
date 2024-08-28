@@ -16,7 +16,13 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, Subscription, timer } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import {
+  PrizmCallFuncPipe,
+  PrizmDestroyService,
+  PrizmLetDirective,
+  PrizmOverflowHostDirective,
+  PrizmOverflowItemDirective,
+} from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../directives';
@@ -47,6 +53,8 @@ import { PrizmChipsItemComponent } from './chips-item';
     PrizmElementReadyDirective,
     PrizmLetDirective,
     PrizmHintDirective,
+    PrizmOverflowItemDirective,
+    PrizmOverflowHostDirective,
   ],
 })
 export class PrizmChipsComponent
@@ -162,12 +170,12 @@ export class PrizmChipsComponent
         const maxPadding = 2;
         const needWidthPlaceForShowDots = 35;
 
-        let elementDisplayIsModified = false;
-
-        if (window.getComputedStyle(current.nativeElement).display === 'none') {
-          current.nativeElement.style.display = 'block';
-          elementDisplayIsModified = true;
-        }
+        // let elementDisplayIsModified = false;
+        //
+        // if (window.getComputedStyle(current.nativeElement).display === 'none') {
+        //   current.nativeElement.style.display = 'block';
+        //   elementDisplayIsModified = true;
+        // }
         const offsetY = Math.abs(parent.offsetTop - current.nativeElement.offsetTop) > maxPadding;
 
         const parentX = parent.offsetLeft + parent.offsetWidth;
@@ -179,7 +187,7 @@ export class PrizmChipsComponent
 
         this.overflowedChipsList$.next(new Set([...this.overflowedChipsList$.value]));
 
-        if (elementDisplayIsModified) current.nativeElement.style.display = 'none';
+        // if (elementDisplayIsModified) current.nativeElement.style.display = 'none';
         return result;
       }),
       map(i => (i ? 'hidden' : 'visible'))
