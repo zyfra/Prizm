@@ -14,19 +14,6 @@
     >
       {{ item }}
     </prizm-chips-item>
-    <!--    <ng-container *ngIf="prizmElementReady.ready$ | async">-->
-    <!--      <ng-container-->
-    <!--        *ngFor="let item of chipsList; let i = index; trackBy: trackByIdx"-->
-    <!--        [ngTemplateOutlet]="buttonTemplate"-->
-    <!--        [ngTemplateOutletContext]="{-->
-    <!--          item: item,-->
-    <!--          idx: i,-->
-    <!--          allChipsCount: chipsList?.length ?? 0,-->
-    <!--          parent: parent,-->
-    <!--          singleLine: singleLine-->
-    <!--        }"-->
-    <!--      >-->
-    <!--      </ng-container>-->
 
     <ng-container *ngIf="overflowedChipsList$ | async as chipsOverflowedList">
       <div

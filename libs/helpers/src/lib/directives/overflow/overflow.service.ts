@@ -1,7 +1,7 @@
 import { inject, Injectable, NgZone, OnDestroy, Renderer2 } from '@angular/core';
 import { hideOverflowElements } from '@prizm-ui/helpers';
 import { BehaviorSubject, concat, fromEvent, merge, of, Subject, takeUntil } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
+import { filter, switchMap, tap } from 'rxjs/operators';
 
 @Injectable()
 export class OverflowService implements OnDestroy {
@@ -14,17 +14,29 @@ export class OverflowService implements OnDestroy {
   private destroyPrevious$$ = new Subject<void>();
   private changes$$ = new BehaviorSubject<void>(void null);
   private mutation$$ = new Subject<void>();
+  private active = true;
 
-  public init(host: HTMLElement) {
+  public disable() {
+    this.active = false;
     this.destroyPrevious$$.next();
-    this.host = host;
     this.observer?.disconnect();
+    this.set.forEach(childItem => {
+      this.renderer.setStyle(childItem, 'display', '');
+      this.renderer.setStyle(childItem, 'visibility', '');
+    });
+  }
+  public init(host?: HTMLElement) {
+    this.destroyPrevious$$.next();
+    this.observer?.disconnect();
+    if (!host) return;
+    this.host = host;
     this.observer = new MutationObserver(() => this.mutation$$.next());
-    this.observer.observe(this.host, { childList: true, subtree: true });
+    this.observer.observe(host, { childList: true, subtree: true });
     if (this.host)
       this.zone.runOutsideAngular(() => {
         merge(this.mutation$$, this.resize$, this.changes$$)
           .pipe(
+            filter(() => this.active),
             switchMap(() =>
               concat(...[...this.set].map(childItem => of(childItem))).pipe(
                 tap(childItem => {
