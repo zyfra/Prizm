@@ -9,15 +9,17 @@ import { OverflowService } from '../overflow.service';
 })
 export class PrizmOverflowHostDirective implements OnChanges, OnInit {
   @Input() host?: HTMLElement;
+  @Input() active = true;
   readonly overflowService = inject(OverflowService);
   readonly element = inject(ElementRef);
   get calculatedHost() {
     return this.host ?? this.element.nativeElement;
   }
   ngOnInit(): void {
-    if (this.calculatedHost) this.overflowService.init(this.calculatedHost);
+    this.overflowService.init(this.calculatedHost);
   }
   ngOnChanges(): void {
-    if (this.calculatedHost) this.overflowService.init(this.calculatedHost);
+    this.overflowService.init(this.calculatedHost);
+    if (!this.active) this.overflowService.disable();
   }
 }

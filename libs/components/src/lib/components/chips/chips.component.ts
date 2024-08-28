@@ -153,47 +153,6 @@ export class PrizmChipsComponent
     this.onTouched = fn;
   }
 
-  public isChipsContent$(
-    observable: Observable<ElementRef>,
-    parent: HTMLElement,
-    singleLine: boolean,
-    chips: string,
-    idx: number,
-    allChipsCount: number
-  ): Observable<string> {
-    return this.chipsList$.pipe(
-      switchMap(() => observable),
-      map((current: ElementRef) => {
-        if (idx === 0) this.overflowedChipsList$.value.clear();
-        if (!singleLine || this.chipsList.length === 1) return false;
-        if (idx === 0) return 0;
-        const maxPadding = 2;
-        const needWidthPlaceForShowDots = 35;
-
-        // let elementDisplayIsModified = false;
-        //
-        // if (window.getComputedStyle(current.nativeElement).display === 'none') {
-        //   current.nativeElement.style.display = 'block';
-        //   elementDisplayIsModified = true;
-        // }
-        const offsetY = Math.abs(parent.offsetTop - current.nativeElement.offsetTop) > maxPadding;
-
-        const parentX = parent.offsetLeft + parent.offsetWidth;
-        const currentX = current.nativeElement.offsetLeft + current.nativeElement.offsetWidth;
-        const result = offsetY || parentX - currentX < needWidthPlaceForShowDots;
-
-        if (result) this.overflowedChipsList$.value.add(idx);
-        else this.overflowedChipsList$.value.delete(idx);
-
-        this.overflowedChipsList$.next(new Set([...this.overflowedChipsList$.value]));
-
-        // if (elementDisplayIsModified) current.nativeElement.style.display = 'none';
-        return result;
-      }),
-      map(i => (i ? 'hidden' : 'visible'))
-    );
-  }
-
   public getOverflowedChipsListHint(): string {
     const list = [...this.overflowedChipsList$.value.values()];
     return [...list]
