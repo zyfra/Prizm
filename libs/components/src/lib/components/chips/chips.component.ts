@@ -15,12 +15,15 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, Subscription, timer } from 'rxjs';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
+import { map, takeUntil } from 'rxjs/operators';
 import {
   PrizmCallFuncPipe,
+  PrizmContextDirective,
+  PrizmContextGetByKysPipe,
   PrizmDestroyService,
   PrizmLetDirective,
   PrizmOverflowHostDirective,
+  PrizmOverflowItem,
   PrizmOverflowItemDirective,
 } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
@@ -55,6 +58,8 @@ import { PrizmChipsItemComponent } from './chips-item';
     PrizmHintDirective,
     PrizmOverflowItemDirective,
     PrizmOverflowHostDirective,
+    PrizmContextDirective,
+    PrizmContextGetByKysPipe,
   ],
 })
 export class PrizmChipsComponent
@@ -77,7 +82,7 @@ export class PrizmChipsComponent
   override readonly testId_ = 'ui_chips';
 
   public accessorIsDisabled = false;
-  public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
+  // public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
 
   public chipsList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   private subscription: Subscription = new Subscription();
@@ -112,9 +117,9 @@ export class PrizmChipsComponent
 
   public removeChips(event: MouseEvent, idx: number): void {
     if (this.accessorIsDisabled) return;
-    this.overflowedChipsList$.value.delete(idx);
-    this.overflowedChipsList$.next(this.overflowedChipsList$.value);
-
+    // this.overflowedChipsList$.value.delete(idx);
+    // this.overflowedChipsList$.next(this.overflowedChipsList$.value);
+    //
     event.stopPropagation();
     this.removeChipEvent.emit(this.chipsList[idx]);
     this.chipsList = this.chipsList.filter((item, i) => i !== idx);
@@ -153,13 +158,8 @@ export class PrizmChipsComponent
     this.onTouched = fn;
   }
 
-  public getOverflowedChipsListHint(): string {
-    const list = [...this.overflowedChipsList$.value.values()];
-    return [...list]
-      .map(i => {
-        return this.chipsList[i];
-      })
-      .join(', ');
+  public joinHints(hints: null | string[]) {
+    return hints?.join(', ') ?? '';
   }
 
   ngAfterViewInit(): void {

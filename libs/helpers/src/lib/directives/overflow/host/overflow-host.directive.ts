@@ -1,4 +1,4 @@
-import { Directive, ElementRef, inject, Input, OnChanges, OnInit } from '@angular/core';
+import { Directive, ElementRef, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { OverflowService } from '../overflow.service';
 
 @Directive({
@@ -11,6 +11,7 @@ export class PrizmOverflowHostDirective implements OnChanges, OnInit {
   @Input() host?: HTMLElement;
   @Input() active = true;
   readonly overflowService = inject(OverflowService);
+  readonly hiddenElements$ = this.overflowService.hiddenItems$;
   readonly element = inject(ElementRef);
   get calculatedHost() {
     return this.host ?? this.element.nativeElement;
@@ -18,8 +19,10 @@ export class PrizmOverflowHostDirective implements OnChanges, OnInit {
   ngOnInit(): void {
     this.overflowService.init(this.calculatedHost);
   }
-  ngOnChanges(): void {
-    this.overflowService.init(this.calculatedHost);
-    if (!this.active) this.overflowService.disable();
+  ngOnChanges(changes: SimpleChanges): void {
+    if (this.active) {
+      if (changes['host']) this.overflowService.init(this.calculatedHost);
+      if (changes['active']) this.overflowService.enable();
+    } else this.overflowService.disable();
   }
 }
