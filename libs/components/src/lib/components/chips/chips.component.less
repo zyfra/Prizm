@@ -15,11 +15,10 @@
     gap: 8px;
 
     prizm-chips-item {
-      visibility: hidden;
       max-width: 100%;
 
       &.single-line {
-        max-width: 100%;
+        max-width: calc(100% - 16px);
       }
 
       &.hidden {
@@ -34,12 +33,8 @@
     &.hidden {
       height: var(--prizm-chips-item-heigh, 24px);
       width: 100%;
-    }
-
-    &:has(.more-item) {
-      prizm-chips-item.single-line {
-        max-width: calc(100% - 20px);
-      }
+      max-width: calc(100% - 16px);
+      flex-wrap: nowrap;
     }
   }
 }
