@@ -102,9 +102,8 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_switcher';
 
   constructor(
-    public readonly cdRef: ChangeDetectorRef
-  ) // @Optional() @Self() public readonly ngControl: NgControl,
-  {
+    public readonly cdRef: ChangeDetectorRef // @Optional() @Self() public readonly ngControl: NgControl,
+  ) {
     super();
     // if (this.ngControl != null) {
     //   this.ngControl.valueAccessor = this;
