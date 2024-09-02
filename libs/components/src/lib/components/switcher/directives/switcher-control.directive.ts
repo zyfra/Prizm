@@ -48,6 +48,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   }
 
   ngAfterViewInit(): void {
+    // write only after get children array for right count
     this.switcherContainer
       .pipe(
         filterTruthy(),
@@ -56,14 +57,6 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
         takeUntil(this.destroy$)
       )
       .subscribe();
-  }
-
-  public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
-    if (this.ngControl?.disabled) return;
-    if (item.disabled) return;
-    if (this.selectedIndexDirective.selectedIndex === idx) return;
-    this.selectedIndexDirective.selectedIndexChange.emit((this.selectedIndexDirective.selectedIndex = idx));
-    this.onChange(this.selectedIndexDirective.selectedIndex);
   }
 
   public writeValue(idx: string): void {

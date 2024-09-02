@@ -42,7 +42,14 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
               if (item.icon) cmp.setInput('icon', item.icon);
               if (item.disabled) cmp.setInput('disabled', item.disabled);
               if (item.hint?.value) cmp.setInput('hint', item.hint.value);
-
+              if (item.hint?.options) {
+                if (item.hint.options.autoReposition)
+                  cmp.setInput('hintAutoReposition', item.hint.options.autoReposition);
+                if (item.hint.options.direction) cmp.setInput('hintDirection', item.hint.options.direction);
+                if (item.hint.options.hideDelay) cmp.setInput('hintHideDelay', item.hint.options.hideDelay);
+                if (item.hint.options.showDelay) cmp.setInput('hintShowDelay', item.hint.options.showDelay);
+                if (item.hint.options.theme) cmp.setInput('hintTheme', item.hint.options.theme);
+              }
               if (projectableNodes?.length) cmp.changeDetectorRef.detectChanges();
             });
         }),
