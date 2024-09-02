@@ -16,21 +16,27 @@ export class PrizmCurrentIndexDirective implements OnInit, OnDestroy {
   public readonly index$: Observable<number> = this.indexSubject.asObservable();
   public readonly lastIndex$: Observable<number> = this.lastIndexSubject.asObservable();
   public readonly length$: Observable<number> = this.lengthSubject.asObservable();
+
   get index() {
     return this.indexSubject.value;
   }
+
   get lastIndex() {
     return this.lastIndexSubject.value;
   }
+
   get length() {
     return this.lastIndexSubject.value;
   }
+
   get isFirst() {
     return this.index === 0;
   }
+
   get isLast() {
     return this.index === this.lastIndex;
   }
+
   constructor(
     private el: ElementRef,
     private mutationObserverService: PrizmMutationObserverService // Используем сервис
@@ -38,11 +44,8 @@ export class PrizmCurrentIndexDirective implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.updateIndexes();
-
     // Подписываемся на изменения в DOM через PrizmMutationObserverService
     this.mutationObserverService.observe(this.el.nativeElement.parentNode, () => this.updateIndexes());
-
-    this.mutationObserverService.get$(this.el.nativeElement.parentNode).subscribe(() => this.updateIndexes());
   }
 
   ngOnDestroy(): void {

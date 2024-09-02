@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, HostBinding, HostListener, inject, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  forwardRef,
+  HostBinding,
+  HostListener,
+  inject,
+  Input,
+} from '@angular/core';
 import { PrizmSwitcherType } from './../../switcher.interface';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PolymorphContent, PrizmHintDirective } from '../../../../directives';
@@ -7,6 +15,8 @@ import { PrizmButtonComponent } from '../../../button';
 import {
   PRIZM_APPEARANCE_DEFAULT_VALUE,
   PRIZM_APPEARANCE_TYPE_DEFAULT_VALUE,
+  PRIZM_STORE_ITEM,
+  PrizmAddToStoreDirective,
   PrizmAppearanceDirective,
   PrizmAppearanceTypeDirective,
   PrizmCurrentIndexDirective,
@@ -29,6 +39,13 @@ import { ObserversModule } from '@angular/cdk/observers';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [
+    // for store PrizmSwitcherItemComponent by index to control from parent switcher component
+    {
+      provide: PRIZM_STORE_ITEM,
+      useExisting: forwardRef(() => PrizmSwitcherItemComponent),
+    },
+    PrizmAddToStoreDirective,
+
     PrizmMutationObserverService,
     {
       provide: PRIZM_APPEARANCE_TYPE_DEFAULT_VALUE,
@@ -56,7 +73,15 @@ import { ObserversModule } from '@angular/cdk/observers';
     },
     {
       directive: PrizmHintDirective,
-      inputs: ['prizmHint: hint', 'prizmHintCanShow: hintCanShow'],
+      inputs: [
+        'prizmHint: hint',
+        'prizmHintCanShow: hintCanShow',
+        'prizmHintDirection: hintDirection',
+        'prizmAutoReposition: hintAutoReposition',
+        'prizmHintHideDelay: hintHideDelay',
+        'prizmHintShowDelay: hintShowDelay',
+        'prizmHintTheme: hintTheme',
+      ],
     },
   ],
   imports: [CommonModule, PrizmButtonComponent, ObserversModule, PrizmHasValueDirective],
@@ -86,9 +111,11 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
     return this.currentIndexDirective.isLast;
   }
 
-  @HostListener('click') public onClick() {
+  @HostListener('click') public select() {
+    if (this.isDisabled) return false;
     this.selectedIndexDirective.selectedIndex = this.currentIndexDirective.index;
     this.syncerWithParent.sync();
+    return true;
   }
   override readonly testId_ = 'ui_switcher_item';
 

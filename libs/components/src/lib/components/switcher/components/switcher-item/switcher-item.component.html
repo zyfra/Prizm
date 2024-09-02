@@ -1,7 +1,6 @@
 <button
   class="switcher switcher-text"
   [class.has-value]="prizmHasValue.hasVal$ | async"
-  [class.empty]="prizmHasValue.empty$ | async"
   [disabled]="isDisabled"
   [icon]="icon"
   [size]="size"

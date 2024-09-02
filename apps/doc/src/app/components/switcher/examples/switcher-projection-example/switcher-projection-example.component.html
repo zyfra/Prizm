@@ -2,6 +2,7 @@
   <prizm-switcher-item
     *ngFor="let item of switchers"
     [disabled]="!!item.disabled"
+    [appearance]="item.appearance ?? 'secondary'"
     [appearanceType]="item.appearanceType ?? 'ghost'"
   >
     {{ item.title }}

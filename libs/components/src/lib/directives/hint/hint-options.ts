@@ -12,7 +12,6 @@ export interface PrizmHintOptions {
 }
 
 export interface PrizmHintContext {
-  // mode: PrizmHintOptions['mode'];
   reposition: boolean;
   direction: PrizmHintOptions['direction'];
   id: string;
