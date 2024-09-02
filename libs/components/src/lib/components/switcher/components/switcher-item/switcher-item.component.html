@@ -3,7 +3,6 @@
   *ngIf="data?.title; else iconBtn"
   [disabled]="isDisabled"
   [icon]="$any(data?.icon)"
-  [size]="size"
   [appearanceType]="data?.appearanceType ?? 'ghost'"
   [appearance]="data?.appearance ?? 'secondary'"
   [class.switcher_active_disabled]="isActive && isDisabled"
