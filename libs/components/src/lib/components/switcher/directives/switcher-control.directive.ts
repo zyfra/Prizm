@@ -1,7 +1,7 @@
 import { AfterViewInit, ChangeDetectorRef, Directive, inject, OnInit, Optional, Self } from '@angular/core';
-import { PrizmSwitcherItem } from '../switcher.interface';
 import {
   filterTruthy,
+  PRIZM_INDEX_SELECT_FN,
   PrizmDestroyService,
   PrizmDisabledDirective,
   PrizmSelectedIndexDirective,
@@ -22,6 +22,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   private destroy$ = inject(PrizmDestroyService, {
     self: true,
   });
+  private selector = inject(PRIZM_INDEX_SELECT_FN);
   protected writeValue$ = new ReplaySubject<number>(1);
   private disabledDirective = inject(PrizmDisabledDirective);
   protected selectedIndexDirective = inject(PrizmSelectedIndexDirective);
@@ -65,18 +66,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   }
 
   private writeValue_(selectedSwitcherIdx: number): void {
-    if (
-      !this.isIndexValid(
-        selectedSwitcherIdx,
-        Array.from(this.switcherContainer?.value?.nativeElement?.childNodes ?? [])
-      )
-    ) {
-      this.logIndexValidationError("value is out of bound and can't be set");
-      return;
-    }
-
-    this.selectedIndexDirective.selectedIndex = selectedSwitcherIdx;
-
+    this.selector(selectedSwitcherIdx);
     this.cdRef.markForCheck();
   }
   public registerOnChange(fn: (value: number) => void): void {

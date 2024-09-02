@@ -44,8 +44,6 @@ import { ObserversModule } from '@angular/cdk/observers';
       provide: PRIZM_STORE_ITEM,
       useExisting: forwardRef(() => PrizmSwitcherItemComponent),
     },
-    PrizmAddToStoreDirective,
-
     PrizmMutationObserverService,
     {
       provide: PRIZM_APPEARANCE_TYPE_DEFAULT_VALUE,
@@ -59,6 +57,7 @@ import { ObserversModule } from '@angular/cdk/observers';
   hostDirectives: [
     PrizmSyncChildDirective,
     PrizmCurrentIndexDirective,
+    PrizmAddToStoreDirective,
     {
       directive: PrizmAppearanceDirective,
       inputs: ['appearance'],
@@ -113,10 +112,10 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
 
   @HostListener('click') public select() {
     if (this.isDisabled) return false;
-    this.selectedIndexDirective.selectedIndex = this.currentIndexDirective.index;
-    this.syncerWithParent.sync();
+    this.selectedIndexDirective.setIndex(this.currentIndexDirective.index);
     return true;
   }
+
   override readonly testId_ = 'ui_switcher_item';
 
   private readonly parentDisableDirective = inject(PrizmDisabledDirective, {
@@ -135,7 +134,6 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
 
   private readonly currentIndexDirective = inject(PrizmCurrentIndexDirective);
   private readonly selectedIndexDirective = inject(PrizmSelectedIndexDirective);
-  private readonly syncerWithParent = inject(PrizmSyncParentDirective);
   private readonly sizeDirective = inject(PrizmSizeDirective);
 
   get size() {
