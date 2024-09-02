@@ -6,21 +6,25 @@ import { Directive, OnDestroy } from '@angular/core';
   providers: [], // Регистрируем сервис на уровне директивы
 })
 export class PrizmStoreByIndexDirective<T> implements OnDestroy {
-  protected readonly store = new Map<number, T>();
+  private readonly map = new Map<number, T>();
 
   public delete(idx: number) {
-    this.store.delete(idx);
+    this.map.delete(idx);
+  }
+
+  public entries() {
+    return this.map.entries();
   }
 
   public get(idx: number) {
-    return this.store.get(idx);
+    return this.map.get(idx);
   }
 
   public set(idx: number, item: T) {
-    this.store.set(idx, item);
+    this.map.set(idx, item);
   }
 
   public ngOnDestroy(): void {
-    this.store.clear();
+    this.map.clear();
   }
 }

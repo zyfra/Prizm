@@ -4,7 +4,9 @@ import {
   Component,
   ElementRef,
   inject,
+  Injector,
   Input,
+  Self,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
@@ -14,6 +16,9 @@ import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
 import { SWITCHER_CONTAINER, SWITCHER_VIEW_CONTAINER } from './swithcer.const';
 import {
+  filterNotNullish,
+  PRIZM_ALL_INDEXES_READY,
+  PRIZM_INDEX_SELECT_FN,
   PrizmDestroyService,
   PrizmDisabledDirective,
   PrizmSelectedIndexDirective,
@@ -27,6 +32,7 @@ import { PrizmSwitcherTypeDirective } from './directives/switcher-type.directive
 import { PrizmSwitcherFullWidthDirective } from './directives/switcher-full-width.directive';
 import { PrizmSwitcherControlDirective } from './directives/switcher-control.directive';
 import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-item.component';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-switcher',
@@ -50,6 +56,41 @@ import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-
       useFactory() {
         return new BehaviorSubject(null);
       },
+    },
+    {
+      provide: PRIZM_ALL_INDEXES_READY,
+      useFactory(switcher: BehaviorSubject<null | HTMLElement>) {
+        return switcher.pipe(
+          filterNotNullish(),
+          // start time for load all nested items
+          debounceTime(100)
+        );
+      },
+      deps: [[SWITCHER_CONTAINER]],
+    },
+    {
+      provide: PRIZM_INDEX_SELECT_FN,
+      useFactory(store: PrizmStoreByIndexDirective<PrizmSwitcherItemComponent>, injector: Injector) {
+        return (idx: number) => {
+          const selected = store.get(idx);
+          if (selected) return selected.select();
+
+          const items = [...store.entries()];
+          const defaultValue = items.find(([, i]) => !i.isDisabled);
+          if (defaultValue) {
+            console.warn(`Can select by idx ${idx}, selected default ${defaultValue[0]}`);
+            return defaultValue[1].select();
+          }
+
+          console.error(`Can select by idx ${idx} and default value`);
+          injector.get(PrizmSelectedIndexDirective)?.setIndex(-1);
+          return false;
+        };
+      },
+      deps: [
+        [new Self(), PrizmStoreByIndexDirective<PrizmSwitcherItemComponent>],
+        [new Self(), Injector],
+      ],
     },
   ],
   hostDirectives: [
@@ -92,11 +133,10 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements After
   // for set type PrizmSwitcherSize for directive PrizmSizeDirective
   @Input()
   public size: PrizmSwitcherSize = 'l';
-
+  private readonly allIndexesReady$ = inject(PRIZM_ALL_INDEXES_READY, { self: true });
   // view container for dynamic add for items
   private readonly switcherViewContainer = inject(SWITCHER_VIEW_CONTAINER);
-  private readonly storeByIndexDirective: PrizmStoreByIndexDirective<PrizmSwitcherItemComponent> =
-    inject(PrizmStoreByIndexDirective);
+  private readonly selectFn = inject(PRIZM_INDEX_SELECT_FN);
   // container html for count children length
   private readonly switcherContainer = inject(SWITCHER_CONTAINER);
 
@@ -112,6 +152,6 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements After
    * safe select switcher by index
    */
   public selectSwitcher(idx: number): boolean {
-    return !!this.storeByIndexDirective.get(idx)?.select();
+    return this.selectFn(idx);
   }
 }

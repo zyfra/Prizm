@@ -1,6 +1,6 @@
 import { of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { raceEmit } from '@prizm-ui/helpers';
+import { raceEmit } from './rxjs';
 
 describe('rxjs:raceEmit', () => {
   // Тест для raceEmit: проверяем, что первый источник, который эмитирует значение в заданном временном интервале, проходит
