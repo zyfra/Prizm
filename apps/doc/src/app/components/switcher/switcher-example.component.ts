@@ -38,6 +38,12 @@ export class SwitcherExampleComponent {
     TypeScript: import('./examples/switcher-basic-example/switcher-basic-example.component?raw'),
     HTML: import('./examples/switcher-basic-example/switcher-basic-example.component.html?raw'),
   };
+  alse;
+
+  public readonly exampleProjectionSwitcher: TuiDocExample = {
+    TypeScript: import('./examples/switcher-projection-example/switcher-projection-example.component?raw'),
+    HTML: import('./examples/switcher-projection-example/switcher-projection-example.component.html?raw'),
+  };
 
   public readonly exampleAsyncSwitcher: TuiDocExample = {
     TypeScript: import('./examples/switcher-async-example/switcher-async-example.component?raw'),

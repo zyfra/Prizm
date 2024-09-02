@@ -20,16 +20,31 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
       .pipe(
         tap(([items, viewRef]) => {
           viewRef.clear();
-          items.forEach((item, idx) => {
-            const cmp = viewRef.createComponent(PrizmSwitcherItemComponent, {
-              injector: this.injector,
-              index: idx,
+
+          items
+            .filter(i => !i.hide)
+            .forEach((item, idx) => {
+              const projectableNodes: Node[][] = [];
+
+              if (item.title) {
+                projectableNodes.push([document.createTextNode(item.title.toString())]);
+              }
+
+              const cmp = viewRef.createComponent(PrizmSwitcherItemComponent, {
+                injector: this.injector,
+                index: idx,
+                projectableNodes,
+              });
+              if (item.appearanceType) cmp.setInput('appearanceType', item.appearanceType);
+              if (item.appearance) {
+                cmp.setInput('appearance', item.appearance);
+              }
+              if (item.icon) cmp.setInput('icon', item.icon);
+              if (item.disabled) cmp.setInput('disabled', item.disabled);
+              if (item.hint?.value) cmp.setInput('hint', item.hint.value);
+
+              if (projectableNodes?.length) cmp.changeDetectorRef.detectChanges();
             });
-            cmp.setInput('type', 'inner');
-            cmp.setInput('data', item);
-            cmp.setInput('isActive', true);
-            cmp.setInput('fullWidth', false);
-          });
         }),
         takeUntil(this.destroy$)
       )
