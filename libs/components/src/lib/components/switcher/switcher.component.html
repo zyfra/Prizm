@@ -1,15 +1,4 @@
-<div class="container">
+<div class="container" #container [title]="selectedIndexDirective.selectedIndex">
   <ng-container #viewRef></ng-container>
-  <!--  <ng-container *ngFor="let switcher of switchers; let i = index">-->
-  <!--    <prizm-switcher-item-->
-  <!--      class="switcher-item"-->
-  <!--      *ngIf="!switcher.hide"-->
-  <!--      [data]="$any(switcher)"-->
-  <!--      [isActive]="selectedSwitcherIdx === i"-->
-  <!--      [type]="type"-->
-  <!--      [fullWidth]="fullWidth"-->
-  <!--      [prizmSwitcherHint]="switcher.hint"-->
-  <!--      (click)="selectSwitcher(switcher, i)"-->
-  <!--    ></prizm-switcher-item>-->
-  <!--  </ng-container>-->
+  <ng-content></ng-content>
 </div>

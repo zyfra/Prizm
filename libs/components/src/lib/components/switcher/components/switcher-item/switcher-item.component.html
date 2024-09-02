@@ -1,26 +1,30 @@
 <button
-  class="switcher"
-  *ngIf="data?.title; else iconBtn"
+  class="switcher switcher-text"
+  [class.has-value]="prizmHasValue.hasVal$ | async"
+  [class.empty]="prizmHasValue.empty$ | async"
   [disabled]="isDisabled"
-  [icon]="$any(data?.icon)"
-  [appearanceType]="data?.appearanceType ?? 'ghost'"
-  [appearance]="data?.appearance ?? 'secondary'"
+  [icon]="icon"
+  [size]="size"
+  [appearanceType]="appearanceTypeDirective.appearanceType"
+  [appearance]="appearanceDirective.appearance"
   [class.switcher_active_disabled]="isActive && isDisabled"
   [pseudoPressed]="isActive"
   prizmButton
 >
-  {{ data?.title }}
+  <div #prizmHasValue="prizmHasValue" prizmHasValue>
+    <ng-content></ng-content>
+  </div>
 </button>
 
-<ng-template #iconBtn>
+<ng-container *ngIf="prizmHasValue.empty$ | async">
   <button
     class="switcher switcher_icon"
     [pseudoPressed]="isActive"
     [disabled]="isDisabled"
-    [icon]="$any(data?.icon)"
+    [icon]="icon"
     [size]="size"
-    [appearanceType]="data?.appearanceType ?? 'ghost'"
-    [appearance]="data?.appearance ?? 'secondary'"
+    [appearanceType]="appearanceTypeDirective.appearanceType"
+    [appearance]="appearanceDirective.appearance"
     prizmIconButton
   ></button>
-</ng-template>
+</ng-container>
