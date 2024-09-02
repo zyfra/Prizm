@@ -1,6 +1,11 @@
 import { Directive, HostBinding, inject, Input } from '@angular/core';
 import { PRIZM_DEFAULT_SIZE } from './const';
 
+/**
+ * наш ли это
+ * выкидавать error
+ * передавать размер потомку
+ * */
 @Directive({
   selector: '[prizmSize]',
   standalone: true,
@@ -12,5 +17,5 @@ export class PrizmSizeDirective<PrizmSize = any> {
   });
   @Input()
   @HostBinding('attr.data-size')
-  public size?: PrizmSize = this.defaultSize;
+  public size?: any = this.defaultSize;
 }

@@ -29,7 +29,6 @@ export class PrizmCurrentIndexDirective implements OnInit, OnDestroy {
     return this.index === 0;
   }
   get isLast() {
-    console.log('#mz isLast', this.index, this.lastIndex);
     return this.index === this.lastIndex;
   }
   constructor(

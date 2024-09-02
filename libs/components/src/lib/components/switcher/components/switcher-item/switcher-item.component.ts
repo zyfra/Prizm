@@ -5,7 +5,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { PrizmHintDirective } from '../../../../directives';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../../../button';
-import { PrizmCurrentIndexDirective, PrizmDisabledDirective } from '@prizm-ui/helpers';
+import { PrizmCurrentIndexDirective, PrizmDisabledDirective, PrizmSizeDirective } from '@prizm-ui/helpers';
 import { PrizmSwitcherComponent } from '@prizm-ui/components';
 
 @Component({
@@ -14,7 +14,7 @@ import { PrizmSwitcherComponent } from '@prizm-ui/components';
   styleUrls: ['./switcher-item.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  hostDirectives: [PrizmCurrentIndexDirective, PrizmDisabledDirective],
+  hostDirectives: [PrizmCurrentIndexDirective],
   imports: [CommonModule, PrizmButtonComponent],
 })
 export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements OnInit {
@@ -47,13 +47,19 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements O
 
   private readonly disabledDirective_ = inject(PrizmDisabledDirective);
   get isDisabled(): boolean {
+    return false;
     return Boolean(this.disabledDirective_.disabled || this.data?.disabled);
   }
 
   readonly prizmHint_ = new PrizmHintDirective();
   readonly currentIndexDirective = inject(PrizmCurrentIndexDirective);
+  readonly sizeDirective = inject(PrizmSizeDirective);
   @HostBinding('attr.prizmHint') get prizmHint(): any {
     return this.hint?.value || '';
+  }
+
+  get size() {
+    return 'l' as any;
   }
 
   private parent = inject(PrizmSwitcherComponent);
@@ -61,7 +67,6 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId implements O
 
   ngOnInit(): void {
     this.prizmHint_.ngOnInit();
-    console.log('#mz currentIndexDirective', this.currentIndexDirective.index);
   }
 }
 
