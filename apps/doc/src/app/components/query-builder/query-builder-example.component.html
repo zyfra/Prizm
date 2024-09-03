@@ -1,0 +1,34 @@
+<prizm-doc-page header="Query builder">
+  <div class="page-description" description>Редактор логических выражений</div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicQueryBuilder" heading="Base">
+      <prizm-query-builder-basic-example />
+    </prizm-doc-example>
+
+    <!-- <prizm-doc-example id="i18n" [content]="exampleI18nPaginator" heading="I18n">
+      <prizm-paginator-i18n-example></prizm-paginator-i18n-example>
+    </prizm-doc-example> -->
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-query-builder></prizm-query-builder>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation> </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmQueryBuilder</code>
+          в модуль в котором хотите использовать компонент
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="my.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

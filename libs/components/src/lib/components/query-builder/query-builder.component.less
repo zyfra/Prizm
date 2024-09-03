@@ -1,0 +1,119 @@
+prizm-data-list {
+  padding: 8px 0;
+}
+
+// Padding required for drag preview
+@node_padding: 4px;
+
+.cdk-tree {
+  padding: 16px - @node_padding;
+}
+
+.cdk-tree,
+.cdk-drop-list {
+  display: grid;
+  gap: 16px - @node_padding * 2;
+}
+
+.cdk-tree-node {
+  // Padding and border radius is for drag-drop preview
+  padding: @node_padding;
+  border-radius: 2px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.query-builder {
+  &__node-container {
+    display: grid;
+    gap: 16px - @node_padding;
+
+    // Starting with level 2 indicate groups with border
+    [aria-level='2'] & {
+      border-left: 2px solid var(--_nesting-level-marker-color);
+      padding-left: 8px;
+    }
+
+    width: var(--prizm-query-builder-node-width, 100%);
+  }
+
+  &__node-content {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  &__condition {
+    flex-grow: 1;
+  }
+
+  &__expression {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  &__exclude {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 8px;
+  }
+
+  &__remove {
+    visibility: hidden;
+
+    *:is(:hover, :focus-within) > & {
+      visibility: visible;
+    }
+
+    .cdk-drag-preview & {
+      display: none;
+    }
+  }
+}
+
+.cdk-drag-handle {
+  // TODO <prizm-wrapper> overrides element's cursor style
+  ::ng-deep > prizm-wrapper {
+    cursor: inherit;
+  }
+
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  box-shadow: var(--prizm-shadow-big-bottom);
+  background-color: var(--prizm-background-fill-primary);
+}
+
+.cdk-drop-list {
+  min-height: 1rem;
+
+  &:not(.cdk-drop-list-receiving):empty {
+    display: none;
+  }
+}
+
+.cdk-drag-placeholder {
+  border-top: 2px solid var(--prizm-status-info-primary-default);
+}
+
+// Animate an item drop
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// Animate items sorting
+.cdk-drop-list-dragging .cdk-tree-node:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
