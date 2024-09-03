@@ -4,27 +4,33 @@ export type LOGICAL_OPERATOR = 'AND' | 'OR';
 
 export interface ExpressionModel {
   /** Оператор объединения для вложенных запросов и выражений. */
-  operator: LOGICAL_OPERATOR;
+  readonly operator: LOGICAL_OPERATOR;
 
-  /** Если True, результаты данного выражения исключаются из родительского. */
-  exclude: boolean;
+  /** Если `true`, результаты удовлетворяющие выражению должны быть исключены (aka `NOT`). */
+  readonly exclude?: boolean;
 
-  conditions: ConditionModel[]; // TODO merge conditions & children into single prop (expressions?) for mixed use
+  readonly conditions: ConditionModel[];
 
-  children: ExpressionModel[];
+  readonly children?: ExpressionModel[];
 }
 
 export interface ConditionModel {
-  field: string | null;
-  operator: string | null;
-  value: string | null;
+  readonly field: string | null;
+  readonly operator: string | null;
+  readonly value: string | null;
 }
 
+/**
+ * @internal
+ */
 export interface ExpressionNodeForm {
   operator: FormControl<LOGICAL_OPERATOR>;
   exclude: FormControl<boolean>;
 }
 
+/**
+ * @internal
+ */
 export interface ConditionNodeForm {
   field: FormControl<string | null>;
   operator: FormControl<string | null>;

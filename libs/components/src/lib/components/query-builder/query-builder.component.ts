@@ -28,20 +28,17 @@ import {
   Validator,
   Validators,
 } from '@angular/forms';
-import {
-  PrizmButtonComponent,
-  PrizmDataListComponent,
-  PrizmDropdownHostComponent,
-  PrizmListingItemComponent,
-  PrizmScrollbarComponent,
-  PrizmSwitcherComponent,
-  PrizmSwitcherItem,
-  PrizmToggleComponent,
-  prizmI18nInitWithKey,
-} from '@prizm-ui/components';
 import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { Observable, map } from 'rxjs';
+import { prizmI18nInitWithKey } from '../../services';
+import { PrizmButtonComponent } from '../button';
+import { PrizmDataListComponent } from '../data-list';
+import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
+import { PrizmListingItemComponent } from '../listing-item';
+import { PrizmScrollbarComponent } from '../scrollbar';
+import { PrizmSwitcherComponent, PrizmSwitcherItem } from '../switcher';
+import { PrizmToggleComponent } from '../toggle';
 import { PrizmConditionTemplate } from './condition-template.directive';
 import { PRIZM_QUERY_BUILDER } from './i18n/tokens';
 import {
@@ -81,12 +78,12 @@ type Node = ExpressionNode | ConditionNode;
   providers: [
     {
       provide: NG_VALIDATORS,
-      useExisting: PrizmQueryBuilder,
+      useExisting: PrizmQueryBuilderComponent,
       multi: true,
     },
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: PrizmQueryBuilder,
+      useExisting: PrizmQueryBuilderComponent,
       multi: true,
     },
     ...prizmI18nInitWithKey(PRIZM_QUERY_BUILDER, 'queryBuilder'),
@@ -106,22 +103,21 @@ type Node = ExpressionNode | ConditionNode;
     PrizmScrollbarComponent,
   ],
 })
-export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validator {
+export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor, Validator {
   /** Устанавливает выражение */
   @Input() set expression(value: ExpressionModel) {
-    this._model = value;
+    this._expression = value;
     this.buildNodes();
+  }
+
+  get expression(): ExpressionModel {
+    return this._expression;
   }
 
   @Input() disabled = false;
 
-  get model(): ExpressionModel {
-    return this._model;
-  }
-  private _model!: ExpressionModel;
-
   protected readonly i18n$ = inject(PRIZM_QUERY_BUILDER);
-  protected _conditionNodeTemplate = contentChild.required(PrizmConditionTemplate);
+  protected readonly conditionNodeTemplate = contentChild.required(PrizmConditionTemplate);
 
   /**
    * Natural order does not fit our need since it always match parent node
@@ -133,6 +129,7 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
   private _dropListQuery = viewChildren<CdkDropList<Node>>(CdkDropList);
   private _dragQuery = viewChildren<CdkDrag<Node>>(CdkDrag);
 
+  protected readonly operators = OPERATORS;
   protected readonly operatorsItems$: Observable<PrizmSwitcherItem[]> = this.i18n$.pipe(
     map(i18n =>
       OPERATORS.map(op => ({
@@ -142,20 +139,22 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
     )
   );
 
-  protected readonly treeControl = new NestedTreeControl<Node>(node => node.children);
-
+  /** Represents hierarchical structure of the tree. */
   protected data: Node[] = [];
+
+  /** Defines how to traverse tree nodes. */
+  protected readonly treeControl = new NestedTreeControl<Node>(node => node.children);
 
   protected onChange: (value: ExpressionModel) => void = PRIZM_EMPTY_FUNCTION;
   protected onTouched: () => void = PRIZM_EMPTY_FUNCTION;
 
-  protected _operators = OPERATORS;
-
-  private get root(): ExpressionNode {
+  private _expression!: ExpressionModel;
+  private get _root(): ExpressionNode {
     return this.data[0] as ExpressionNode;
   }
 
-  private formArray = new FormArray<AbstractControl<unknown>>([]);
+  /** Track changes in controls */
+  private _formArray = new FormArray<AbstractControl<unknown>>([]);
   private _nodesParentMap = new Map<Node, Node>();
 
   private destroyRef = inject(DestroyRef);
@@ -168,14 +167,14 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
   }
 
   ngOnInit(): void {
-    this.formArray.valueChanges
+    this._formArray.valueChanges
       .pipe(
-        map(() => nodeToModel(this.root)),
+        map(() => nodeToModel(this._root)),
         takeUntilDestroyed(this.destroyRef)
       )
-      .subscribe(model => {
-        this._model = model;
-        this.onChange(this._model);
+      .subscribe(value => {
+        this._expression = value;
+        this.onChange(this._expression);
       });
   }
 
@@ -196,7 +195,7 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
   setDisabledState(isDisabled: boolean): void {
     this.disabled = isDisabled;
 
-    this.disabled ? this.formArray.disable() : this.formArray.enable();
+    this.disabled ? this._formArray.disable() : this._formArray.enable();
   }
 
   removeNode(node: Node): void {
@@ -210,7 +209,7 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
   }
 
   validate(): ValidationErrors | null {
-    return this.formArray.invalid ? { invalid: true } : null;
+    return this._formArray.invalid ? { invalid: true } : null;
   }
 
   protected createConditionNode(parent: Node): void {
@@ -241,11 +240,11 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
   }
 
   private updateModel(emitEvent = true): void {
-    this.formArray.clear({ emitEvent: false });
-    collectFormControlsRecursively(this.data, this.formArray);
+    this._formArray.clear({ emitEvent: false });
+    collectFormControlsRecursively(this.data, this._formArray);
 
     if (emitEvent) {
-      this.formArray.updateValueAndValidity({ emitEvent });
+      this._formArray.updateValueAndValidity({ emitEvent });
     }
   }
 
@@ -276,7 +275,7 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
   }
 
   private buildNodes(): void {
-    this.data = [this.generateExpressionNode(this._model)];
+    this.data = [this.generateExpressionNode(this._expression)];
     this.updateViewData();
     this.updateModel(false);
   }
@@ -305,7 +304,7 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
         Validators.required
       ),
     });
-    this._conditionNodeTemplate().prepare(formGroup);
+    this.conditionNodeTemplate().prepare(formGroup);
 
     return {
       type: 'condition',
@@ -318,12 +317,15 @@ export class PrizmQueryBuilder implements OnInit, ControlValueAccessor, Validato
     return {
       type: 'exp',
       form: new FormGroup<ExpressionNodeForm>({
-        exclude: new FormControl({ value: exp.exclude, disabled: this.disabled }, { nonNullable: true }),
+        exclude: new FormControl(
+          { value: Boolean(exp.exclude), disabled: this.disabled },
+          { nonNullable: true }
+        ),
         operator: new FormControl({ value: exp.operator, disabled: this.disabled }, { nonNullable: true }),
       }),
       children: [
         ...exp.conditions.map(this.generateConditionNode),
-        ...exp.children.map(this.generateExpressionNode),
+        ...(exp.children ?? []).map(this.generateExpressionNode),
       ],
     };
   };
