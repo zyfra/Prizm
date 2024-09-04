@@ -14,10 +14,10 @@ export interface ExpressionModel {
   readonly children?: ExpressionModel[];
 }
 
-export interface ConditionModel {
+export interface ConditionModel<T = unknown> {
   readonly field: string | null;
   readonly operator: string | null;
-  readonly value: string | null;
+  readonly value: T | null;
 }
 
 /**
@@ -34,7 +34,7 @@ export interface ExpressionNodeForm {
 export interface ConditionNodeForm {
   field: FormControl<string | null>;
   operator: FormControl<string | null>;
-  value: FormControl<string | null>;
+  value: FormControl<any>;
 }
 
 export interface ConditionNodeContext {
