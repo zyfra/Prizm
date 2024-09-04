@@ -32,6 +32,7 @@ import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { Observable, map } from 'rxjs';
 import { prizmI18nInitWithKey } from '../../services';
+import { PRIZM_QUERY_BUILDER } from '../../tokens';
 import { PrizmButtonComponent } from '../button';
 import { PrizmDataListComponent } from '../data-list';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
@@ -40,7 +41,6 @@ import { PrizmScrollbarComponent } from '../scrollbar';
 import { PrizmSwitcherComponent, PrizmSwitcherItem } from '../switcher';
 import { PrizmToggleComponent } from '../toggle';
 import { PrizmConditionTemplate } from './condition-template.directive';
-import { PRIZM_QUERY_BUILDER } from './i18n/tokens';
 import {
   ConditionModel,
   ConditionNodeForm,

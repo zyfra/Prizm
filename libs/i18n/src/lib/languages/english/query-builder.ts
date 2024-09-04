@@ -1,6 +1,6 @@
-import { PrizmLanguageQueryBuilder } from '../interfaces';
+import { PrizmLanguageQueryBuilder } from '../../interfaces';
 
-export const PRIZM_ENGLISH_CRON: PrizmLanguageQueryBuilder = {
+export const PRIZM_ENGLISH_QUERY_BUILDER: PrizmLanguageQueryBuilder = {
   queryBuilder: {
     and: 'And',
     or: 'Or',
