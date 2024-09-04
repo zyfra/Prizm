@@ -82,7 +82,10 @@ import { debounceTime } from 'rxjs/operators';
             return defaultValue[1].select();
           }
 
-          console.error(`Can not select by idx ${idx} and default value`);
+          console.error(`Can not select by idx ${idx} and can not get default value`, {
+            items,
+            defaultValue,
+          });
           injector.get(PrizmSelectedIndexDirective)?.setIndex(-1);
           return false;
         };
