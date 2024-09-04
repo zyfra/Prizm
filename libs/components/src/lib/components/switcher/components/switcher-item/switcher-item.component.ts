@@ -26,7 +26,6 @@ import {
   PrizmSelectedIndexDirective,
   PrizmSizeDirective,
   PrizmSyncChildDirective,
-  PrizmSyncParentDirective,
 } from '@prizm-ui/helpers';
 import { PrizmSwitcherTypeDirective } from '../../directives/switcher-type.directive';
 import { PrizmSwitcherFullWidthDirective } from '../../directives/switcher-full-width.directive';

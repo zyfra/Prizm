@@ -1,4 +1,5 @@
-import { Directive, OnDestroy } from '@angular/core';
+import { Directive, inject, OnDestroy } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Directive({
   selector: '[prizmStoreByIndex]',
@@ -7,9 +8,12 @@ import { Directive, OnDestroy } from '@angular/core';
 })
 export class PrizmStoreByIndexDirective<T> implements OnDestroy {
   private readonly map = new Map<number, T>();
+  private readonly changes$$ = new Subject<void>();
+  public readonly changes$ = this.changes$$.asObservable();
 
   public delete(idx: number) {
     this.map.delete(idx);
+    this.changes$$.next();
   }
 
   public entries() {
@@ -22,6 +26,7 @@ export class PrizmStoreByIndexDirective<T> implements OnDestroy {
 
   public set(idx: number, item: T) {
     this.map.set(idx, item);
+    this.changes$$.next();
   }
 
   public ngOnDestroy(): void {

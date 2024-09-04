@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Directive, ElementRef, OnDestroy, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Directive, ElementRef, inject, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { PrizmMutationObserverService } from '../../services/mutation-observer';
 
@@ -8,6 +8,8 @@ import { PrizmMutationObserverService } from '../../services/mutation-observer';
   providers: [PrizmMutationObserverService], // Регистрируем сервис на уровне директивы
 })
 export class PrizmCurrentIndexDirective implements OnInit, OnDestroy {
+  private readonly el = inject(ElementRef);
+  private readonly mutationObserverService = inject(PrizmMutationObserverService);
   private indexSubject = new BehaviorSubject<number>(-1);
   private lengthSubject = new BehaviorSubject<number>(0);
   private lastIndexSubject = new BehaviorSubject<number>(-1);
@@ -36,12 +38,6 @@ export class PrizmCurrentIndexDirective implements OnInit, OnDestroy {
   get isLast() {
     return this.index === this.lastIndex;
   }
-
-  constructor(
-    private el: ElementRef,
-    private mutationObserverService: PrizmMutationObserverService // Используем сервис
-  ) {}
-
   ngOnInit(): void {
     this.updateIndexes();
     // Подписываемся на изменения в DOM через PrizmMutationObserverService

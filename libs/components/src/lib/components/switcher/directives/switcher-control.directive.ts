@@ -43,6 +43,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
         tap(idx => {
           this.onChange(idx);
         }),
+        tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
       )
       .subscribe();
