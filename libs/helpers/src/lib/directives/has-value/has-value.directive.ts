@@ -1,4 +1,4 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, inject, Output } from '@angular/core';
+import { AfterViewInit, Directive, ElementRef, EventEmitter, inject, OnInit, Output } from '@angular/core';
 import { PrizmMutationObserverService } from '../../services/mutation-observer';
 import { concat, defer, of } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -9,7 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   providers: [PrizmMutationObserverService],
   exportAs: 'prizmHasValue',
 })
-export class PrizmHasValueDirective implements AfterViewInit {
+export class PrizmHasValueDirective implements OnInit {
   @Output() hasValue = new EventEmitter<boolean>();
   public readonly hasVal$ = concat(
     defer(() => of(this.hasVal)),
@@ -28,7 +28,7 @@ export class PrizmHasValueDirective implements AfterViewInit {
     return !this.hasVal;
   }
 
-  ngAfterViewInit(): void {
+  ngOnInit(): void {
     this.emit();
     this.mutationObserverService.observe(this.elRef.nativeElement, () => {
       this.emit();

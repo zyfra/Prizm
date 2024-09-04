@@ -4,7 +4,12 @@ import { PrizmSwitcherItem } from '../../switcher.interface';
 import { SWITCHER_VIEW_CONTAINER } from '../../swithcer.const';
 import { PrizmSwitcherItemComponent } from '../../components/switcher-item/switcher-item.component';
 import { takeUntil, tap } from 'rxjs/operators';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
+import {
+  filterTruthy,
+  PrizmDestroyService,
+  PrizmHasValueDirective,
+  PrizmSyncParentDirective,
+} from '@prizm-ui/helpers';
 
 @Directive({
   selector: '[prizmSwitcherItems]',
@@ -14,6 +19,7 @@ import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
 export class PrizmSwitcherItemsDirective implements AfterViewInit {
   private readonly destroy$ = inject(PrizmDestroyService);
   private readonly injector = inject(Injector);
+  private readonly prizmSyncParentDirective = inject(PrizmSyncParentDirective);
   private readonly viewRef$$ = inject(SWITCHER_VIEW_CONTAINER);
   ngAfterViewInit(): void {
     combineLatest([this.switchers$$, this.viewRef$$.pipe(filterTruthy())])
@@ -33,7 +39,7 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
               const cmp = viewRef.createComponent(PrizmSwitcherItemComponent, {
                 injector: this.injector,
                 index: idx,
-                projectableNodes,
+                projectableNodes: projectableNodes?.length ? projectableNodes : undefined,
               });
               if (item.appearanceType) cmp.setInput('appearanceType', item.appearanceType);
               if (item.appearance) {
@@ -52,6 +58,8 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
               }
               if (projectableNodes?.length) cmp.changeDetectorRef.detectChanges();
             });
+
+          this.prizmSyncParentDirective.sync();
         }),
         takeUntil(this.destroy$)
       )
