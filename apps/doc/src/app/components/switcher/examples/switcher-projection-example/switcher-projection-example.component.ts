@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'prizm-switcher-projection-example',
@@ -26,9 +27,22 @@ export class SwitcherProjectionExampleComponent {
       appearance: 'primary',
     },
   ];
+  public readonly switchers2: PrizmSwitcherItem[] = [
+    {
+      title: 'Таблицы',
+      disabled: true,
+    },
+    {
+      title: 'Графики',
+    },
+  ];
+  public readonly switchers$ = new BehaviorSubject<PrizmSwitcherItem[]>(this.switchers);
   public readonly control = new FormControl(1);
 
   public updateValue() {
     this.control.setValue(3);
+  }
+  public changeItems() {
+    this.switchers$.next(this.switchers$.value === this.switchers ? this.switchers2 : this.switchers);
   }
 }

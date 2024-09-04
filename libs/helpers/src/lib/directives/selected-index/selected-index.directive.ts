@@ -2,8 +2,9 @@ import { AfterViewInit, Directive, EventEmitter, inject, Input, Output } from '@
 import { PRIZM_ALL_INDEXES_READY, PRIZM_INDEX_SELECT_FN, PRIZM_SELECTED_INDEX_INITIAL } from './options';
 import { PrizmDestroyService } from '../../services/destroy';
 import { PrizmSyncParentDirective } from '../parent-sync';
-import { of, ReplaySubject, Subject, takeUntil, timer } from 'rxjs';
+import { ReplaySubject, Subject, takeUntil, timer } from 'rxjs';
 import { debounceTime, switchMap, tap } from 'rxjs/operators';
+import { PrizmStoreByIndexDirective } from './store';
 
 @Directive({
   selector: '[prizmSelectedIndex]',
@@ -31,6 +32,10 @@ export class PrizmSelectedIndexDirective implements AfterViewInit {
     this.selectAfterViewInit(idx);
   }
 
+  private readonly store = inject(PrizmStoreByIndexDirective, {
+    host: true,
+    optional: true,
+  });
   private selectedIndex_: number = this.initial_index;
   @Output() selectedIndexChange = new EventEmitter<number>();
 
@@ -41,6 +46,24 @@ export class PrizmSelectedIndexDirective implements AfterViewInit {
   });
 
   public ngAfterViewInit() {
+    this.initSelectInvoker();
+    this.initIfWeHasStoreUpdaterOnChangesItems();
+  }
+
+  public selectAfterViewInit(idx: number) {
+    this.selectAfterViewInit$.next(idx);
+  }
+
+  public select(idx: number) {
+    return this.selector(idx);
+  }
+
+  public setIndex(idx: number) {
+    if (this.selectedIndex_ !== idx) this.selectedIndexChange.emit((this.selectedIndex_ = idx));
+    this.syncParentDirective?.sync();
+  }
+
+  private initSelectInvoker() {
     // after load all indexes or after timer for safe update index
     const root$ = (this.allIndexesReady$ ?? timer(50)) as Subject<void>;
     root$
@@ -53,21 +76,15 @@ export class PrizmSelectedIndexDirective implements AfterViewInit {
       .subscribe();
   }
 
-  public selectAfterViewInit(idx: number) {
-    this.selectAfterViewInit$.next(idx);
-  }
-
-  public select(idx: number) {
-    if (!this.selector(idx)) {
-      console.error('Can not select idx', idx);
-      return false;
-    }
-    this.setIndex(idx);
-    return true;
-  }
-
-  public setIndex(idx: number) {
-    this.selectedIndexChange.emit((this.selectedIndex_ = idx));
-    this.syncParentDirective?.sync();
+  private initIfWeHasStoreUpdaterOnChangesItems() {
+    this.store?.changes$
+      .pipe(
+        debounceTime(0),
+        tap(() => {
+          this.select(this.selectedIndex_);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 }

@@ -78,11 +78,11 @@ import { debounceTime } from 'rxjs/operators';
           const items = [...store.entries()];
           const defaultValue = items.find(([, i]) => !i.isDisabled);
           if (defaultValue) {
-            console.warn(`Can select by idx ${idx}, selected default ${defaultValue[0]}`);
+            console.warn(`Can not select by idx ${idx}, selected default ${defaultValue[0]}`);
             return defaultValue[1].select();
           }
 
-          console.error(`Can select by idx ${idx} and default value`);
+          console.error(`Can not select by idx ${idx} and default value`);
           injector.get(PrizmSelectedIndexDirective)?.setIndex(-1);
           return false;
         };
