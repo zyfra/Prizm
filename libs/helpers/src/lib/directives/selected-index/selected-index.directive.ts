@@ -59,7 +59,7 @@ export class PrizmSelectedIndexDirective implements AfterViewInit {
   }
 
   public setIndex(idx: number) {
-    if (this.selectedIndex_ !== idx) this.selectedIndexChange.emit((this.selectedIndex_ = idx));
+    this.selectedIndexChange.emit((this.selectedIndex_ = idx));
     this.syncParentDirective?.sync();
   }
 
