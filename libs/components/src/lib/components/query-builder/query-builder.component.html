@@ -3,7 +3,7 @@
     #nodeRef="cdkNestedTreeNode"
     *cdkTreeNodeDef="let node"
     [cdkDragData]="node"
-    [cdkDragDisabled]="nodeRef.level === 0"
+    [cdkDragDisabled]="nodeRef.level === 0 || disabled"
     [ngStyle]="{
       '--_nesting-level-marker-color':
         nodeRef.level % 2 === 0
@@ -23,12 +23,13 @@
       cdkDragHandle
       tabindex="-1"
     ></button>
-    } @let isCondition = _isCondition(node);
+    }
+
     <div
       class="query-builder__node-container"
-      [ngStyle]="{ '--_nesting-level-marker-color': isCondition ? 'transparent' : null }"
+      [ngStyle]="{ '--_nesting-level-marker-color': isCondition(node) ? 'transparent' : null }"
     >
-      @switch (isCondition) { @case (true) {
+      @switch (isCondition(node)) { @case (true) {
       <div class="query-builder__node-content">
         <div class="query-builder__condition">
           <ng-container
@@ -56,8 +57,10 @@
             [switchers]="(operatorsItems$ | async) ?? []"
             [size]="'m'"
             [selectedSwitcherIdx]="_getOperatorIndex(node.form.controls.operator.value)"
+            [attr.inert]="disabled ? true : null"
             (selectedSwitcherIdxChange)="node.form.controls.operator.setValue(operators[$event])"
           >
+            <!-- no [value] support, no [disabled] input -->
             <!-- [formControl]="node.form.controls.operator" -->
           </prizm-switcher>
 
