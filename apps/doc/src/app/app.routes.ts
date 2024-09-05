@@ -247,6 +247,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/query-builder',
+    loadChildren: () =>
+      import('./components/query-builder/query-builder-example.module').then(
+        i => i.QueryBuilderExampleModule
+      ),
+    data: { title: 'Query Builder' },
+  },
+  {
     path: 'components/progress-line-bar',
     loadChildren: () =>
       import('./components/progress/line-bar/progress-line-bar.module').then(i => i.ProgressLineBarModule),

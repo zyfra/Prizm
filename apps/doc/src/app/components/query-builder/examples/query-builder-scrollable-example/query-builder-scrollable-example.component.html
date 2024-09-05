@@ -1,0 +1,24 @@
+<prizm-splitter>
+  <prizm-splitter-area [size]="50">
+    <prizm-scrollbar>
+      <prizm-query-builder [expression]="expression">
+        <ng-container *prizmCondition="let form">
+          <div class="condition-wrapper">
+            <prizm-input-layout [size]="'m'"
+              ><input [formControl]="form.field" prizmInput
+            /></prizm-input-layout>
+
+            <prizm-input-layout [size]="'m'"
+              ><input [formControl]="form.operator" prizmInput
+            /></prizm-input-layout>
+
+            <prizm-input-layout [size]="'m'"
+              ><input [formControl]="form.value" prizmInput
+            /></prizm-input-layout>
+          </div>
+        </ng-container>
+      </prizm-query-builder>
+    </prizm-scrollbar>
+  </prizm-splitter-area>
+  <prizm-splitter-area [size]="50"></prizm-splitter-area>
+</prizm-splitter>

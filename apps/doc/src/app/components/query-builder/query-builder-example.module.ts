@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PrizmQueryBuilder } from '@prizm-ui/components';
+import { PrizmQueryBuilderComponent } from '@prizm-ui/components';
 import {
   PrizmAddonDocModule,
   PrizmDocCodeModule,
@@ -11,8 +11,9 @@ import {
   prizmDocGenerateRoutes,
   PrizmDocPageModule,
 } from '@prizm-ui/doc';
-import { QueryBuilderBasicExampleComponent } from './examples/query-builder-basic-example/query-builder-basic-example.component';
+import { QueryBuilderBasicExample } from './examples/query-builder-basic-example/query-builder-basic-example.component';
 import { QueryBuilderExampleComponent } from './query-builder-example.component';
+import { QueryBuilderScrollableExample } from './examples/query-builder-scrollable-example/query-builder-scrollable-example.component';
 
 @NgModule({
   declarations: [QueryBuilderExampleComponent],
@@ -26,10 +27,11 @@ import { QueryBuilderExampleComponent } from './query-builder-example.component'
     PrizmDocCodeModule,
     RouterModule.forChild(prizmDocGenerateRoutes(QueryBuilderExampleComponent)),
 
-    PrizmQueryBuilder,
+    PrizmQueryBuilderComponent,
 
     // Examples
-    QueryBuilderBasicExampleComponent,
+    QueryBuilderBasicExample,
+    QueryBuilderScrollableExample,
   ],
 })
 export class QueryBuilderExampleModule {}

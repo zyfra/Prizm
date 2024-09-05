@@ -1,19 +1,17 @@
-import { PrizmPaginatorOptions } from '@prizm-ui/components';
+import { ExpressionModel } from '@prizm-ui/components';
 
-export const PAGINATOR_OPTIONS_VARIANTS: PrizmPaginatorOptions[] = [
-  {},
-  {
-    noRowsSelectorLabel: true,
-  },
-  {
-    noRowsSelector: true,
-    noRowsSelectorLabel: true,
-    noInfo: true,
-  },
-  {
-    noRowsSelector: true,
-    noRowsSelectorLabel: true,
-    noInfo: true,
-    noPages: true,
-  },
-];
+export const SIMPLE_EXPRESSION: ExpressionModel = {
+  operator: 'AND',
+  conditions: [
+    {
+      field: 'firstName',
+      operator: 'contains',
+      value: 'John',
+    },
+    {
+      field: 'lastName',
+      operator: 'contains',
+      value: 'Doe',
+    },
+  ],
+};

@@ -616,6 +616,12 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'file upload',
     route: '/components/file-upload',
   },
+  {
+    section: SectionNameEnum.components,
+    title: 'Query Builder',
+    keywords: 'query, expression',
+    route: '/components/query-builder',
+  },
   // Tools
   {
     section: SectionNameEnum.tools,

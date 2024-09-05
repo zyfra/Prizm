@@ -2,13 +2,13 @@
   <div class="page-description" description>Редактор логических выражений</div>
 
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [content]="exampleBasicQueryBuilder" heading="Base">
+    <prizm-doc-example id="base" [content]="basicExample" heading="Base">
       <prizm-query-builder-basic-example />
     </prizm-doc-example>
 
-    <!-- <prizm-doc-example id="i18n" [content]="exampleI18nPaginator" heading="I18n">
-      <prizm-paginator-i18n-example></prizm-paginator-i18n-example>
-    </prizm-doc-example> -->
+    <prizm-doc-example id="3-level" [content]="scrollableExample" heading="Scrollable">
+      <prizm-query-builder-scrollable-example />
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>

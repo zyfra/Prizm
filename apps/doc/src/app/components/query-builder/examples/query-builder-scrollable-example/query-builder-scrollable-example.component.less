@@ -1,0 +1,18 @@
+:host {
+  --prizm-input-layout-width: initial;
+}
+
+prizm-splitter-area {
+  // Create container
+  container-type: inline-size;
+
+  // Display up to 3 levels without horizontal scrollbar
+  // 1 level consists of: gap + icon + gap + group border
+  --prizm-query-builder-node-width: calc(100cqw - (8px + 32px + 8px + 2px) * 3 - 32px);
+}
+
+.condition-wrapper {
+  display: grid;
+  grid-template-columns: 8rem 4rem minmax(100px, 1fr);
+  gap: 0.5rem;
+}
