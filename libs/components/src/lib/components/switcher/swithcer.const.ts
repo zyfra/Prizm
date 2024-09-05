@@ -1,5 +1,6 @@
 import { ElementRef, InjectionToken, ViewContainerRef } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { PrizmSwitcherItemsTrackBy } from '@prizm-ui/components';
 
 export const INITIAL_SWITHCER_INDEX = 0;
 export const SWITCHER_VIEW_CONTAINER = new InjectionToken<BehaviorSubject<ViewContainerRef>>(
@@ -8,3 +9,7 @@ export const SWITCHER_VIEW_CONTAINER = new InjectionToken<BehaviorSubject<ViewCo
 export const SWITCHER_CONTAINER = new InjectionToken<BehaviorSubject<ElementRef<HTMLElement>>>(
   'element container for switcher'
 );
+
+export const SWITCHER_DEFAULT_ITEMS_TRACK_BY: PrizmSwitcherItemsTrackBy = (idx, item) => {
+  return !!item;
+};

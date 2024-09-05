@@ -1,4 +1,4 @@
-import { afterRender, Directive, inject, Injector, OnDestroy } from '@angular/core';
+import { afterRender, AfterViewInit, Directive, inject, Injector, OnDestroy } from '@angular/core';
 import { PrizmStoreByIndexDirective } from './store-by-index.directive';
 import { PrizmCurrentIndexDirective } from '../current-index.directive';
 import { PRIZM_STORE_ITEM } from './options';
@@ -8,16 +8,21 @@ import { Compare } from '../../../util';
   selector: '[prizmIndexStorage]',
   standalone: true,
 })
-export class PrizmAddToStoreDirective implements OnDestroy {
+export class PrizmAddToStoreDirective implements OnDestroy, AfterViewInit {
   protected readonly store = inject(PrizmStoreByIndexDirective);
   protected readonly currentIndexDirective = inject(PrizmCurrentIndexDirective);
   protected readonly injector = inject(Injector);
   private previousIndex?: number;
 
-  constructor() {
-    afterRender(() => {
-      this.updateIndexIfChange();
-    });
+  ngAfterViewInit(): void {
+    afterRender(
+      () => {
+        this.updateIndexIfChange();
+      },
+      {
+        injector: this.injector,
+      }
+    );
   }
 
   public ngOnDestroy(): void {

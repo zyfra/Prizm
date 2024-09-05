@@ -4,12 +4,7 @@ import { PrizmSwitcherItem } from '../../switcher.interface';
 import { SWITCHER_VIEW_CONTAINER } from '../../swithcer.const';
 import { PrizmSwitcherItemComponent } from '../../components/switcher-item/switcher-item.component';
 import { takeUntil, tap } from 'rxjs/operators';
-import {
-  filterTruthy,
-  PrizmDestroyService,
-  PrizmHasValueDirective,
-  PrizmSyncParentDirective,
-} from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmSyncParentDirective } from '@prizm-ui/helpers';
 
 @Directive({
   selector: '[prizmSwitcherItems]',
@@ -28,6 +23,7 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
         tap(([items, viewRef]) => {
           viewRef.clear();
 
+          // TODO add identity matcher for update only changed items
           items.forEach((item, idx) => {
             const projectableNodes: Node[][] = [];
 
@@ -46,7 +42,7 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
               cmp.setInput('appearance', item.appearance);
             }
             if (item.icon) cmp.setInput('icon', item.icon);
-            if (item.disabled && item.hide) cmp.setInput('disabled', true);
+            if (item.disabled || item.hide) cmp.setInput('disabled', true);
             if (item.hint?.value) cmp.setInput('hint', item.hint.value);
             if (item.hint?.options) {
               if (item.hint.options.autoReposition)
@@ -78,7 +74,7 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
   get switchers(): PrizmSwitcherItem[] {
     return this.switchers$$.value;
   }
-  public set switchers(value: PrizmSwitcherItem[]) {
+  set switchers(value: PrizmSwitcherItem[]) {
     if (value) this.switchers$$.next(value);
   }
 }
