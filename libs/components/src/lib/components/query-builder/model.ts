@@ -1,4 +1,4 @@
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 export type LOGICAL_OPERATOR = 'AND' | 'OR';
 
@@ -40,3 +40,5 @@ export interface ConditionNodeForm {
 export interface ConditionNodeContext {
   $implicit: ConditionNodeForm;
 }
+
+export type ConditionPrepareFn = (context: FormGroup<ConditionNodeForm>) => void;

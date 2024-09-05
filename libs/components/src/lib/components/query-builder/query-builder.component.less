@@ -1,9 +1,9 @@
+// Padding required for drag preview
+@node_padding: 4px;
+
 prizm-data-list {
   padding: 8px 0;
 }
-
-// Padding required for drag preview
-@node_padding: 4px;
 
 .cdk-tree {
   padding: 16px - @node_padding;
@@ -20,10 +20,8 @@ prizm-data-list {
   padding: @node_padding;
   border-radius: 2px;
 
-  display: flex;
-  flex-wrap: nowrap;
+  .hstack();
   align-items: flex-start;
-  gap: 8px;
 }
 
 .query-builder {
@@ -40,29 +38,14 @@ prizm-data-list {
     width: var(--prizm-query-builder-node-width, 100%);
   }
 
-  &__node-content {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex-wrap: nowrap;
+  &__node-content,
+  &__expression,
+  &__exclude {
+    .hstack();
   }
 
   &__condition {
     flex-grow: 1;
-  }
-
-  &__expression {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 8px;
-  }
-
-  &__exclude {
-    display: flex;
-    align-items: center;
-    flex-wrap: nowrap;
-    gap: 8px;
   }
 
   &__remove {
@@ -78,7 +61,7 @@ prizm-data-list {
   }
 }
 
-.cdk-drag-handle {
+.cdk-drag-handle:not(.cdk-drag-disabled) {
   cursor: grab;
   &:active {
     cursor: grabbing;
@@ -111,4 +94,11 @@ prizm-data-list {
 // Animate items sorting
 .cdk-drop-list-dragging .cdk-tree-node:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.hstack() {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
 }

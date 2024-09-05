@@ -1,6 +1,5 @@
 import { Directive, Input, TemplateRef, inject } from '@angular/core';
-import { ConditionNodeContext, ConditionNodeForm } from './model';
-import { FormGroup } from '@angular/forms';
+import { ConditionNodeContext, ConditionPrepareFn } from './model';
 
 /**
  * Captures the condition node's template.
@@ -16,8 +15,7 @@ export class PrizmConditionDefDirective {
   /**
    * Can be used to setup form controls, e.g. set the default value.
    */
-  @Input({ alias: 'prizmConditionPrepare' }) prepare: (context: FormGroup<ConditionNodeForm>) => void =
-    () => {};
+  @Input({ alias: 'prizmConditionPrepare' }) prepare: ConditionPrepareFn = () => {};
 
   public static ngTemplateContextGuard(
     dir: PrizmConditionDefDirective,

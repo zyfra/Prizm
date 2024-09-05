@@ -106,16 +106,19 @@ type Node = ExpressionNode | ConditionNode;
   ],
 })
 export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor, Validator {
-  @Input() get expression(): ExpressionModel {
-    return this._expression;
-  }
-  set expression(value: ExpressionModel) {
+  @Input() set expression(value: ExpressionModel) {
     this._expression = value;
     this.buildNodes();
+  }
+  get expression(): ExpressionModel {
+    return this._expression;
   }
 
   @Input({ transform: booleanAttribute }) set disabled(isDisabled: boolean) {
     this.setDisabledState(isDisabled);
+  }
+  get disabled() {
+    return this._disabled;
   }
 
   protected readonly i18n$ = inject(PRIZM_QUERY_BUILDER);
@@ -198,6 +201,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   public setDisabledState(isDisabled: boolean): void {
     this._disabled = isDisabled;
     this._disabled ? this._formArray.disable() : this._formArray.enable();
+    this.cdr.markForCheck();
   }
 
   public removeNode(node: Node): void {
