@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { CdkDrag, CdkDragDrop, CdkDropList, DragDropModule, transferArrayItem } from '@angular/cdk/drag-drop';
 import { CdkTreeModule, NestedTreeControl } from '@angular/cdk/tree';
 import { CommonModule } from '@angular/common';
@@ -8,6 +9,7 @@ import {
   DestroyRef,
   Input,
   OnInit,
+  booleanAttribute,
   computed,
   contentChild,
   effect,
@@ -40,7 +42,7 @@ import { PrizmListingItemComponent } from '../listing-item';
 import { PrizmScrollbarComponent } from '../scrollbar';
 import { PrizmSwitcherComponent, PrizmSwitcherItem } from '../switcher';
 import { PrizmToggleComponent } from '../toggle';
-import { PrizmConditionTemplate } from './condition-template.directive';
+import { PrizmConditionDefDirective } from './condition-def.directive';
 import {
   ConditionModel,
   ConditionNodeForm,
@@ -104,20 +106,20 @@ type Node = ExpressionNode | ConditionNode;
   ],
 })
 export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor, Validator {
-  /** Устанавливает выражение */
-  @Input() set expression(value: ExpressionModel) {
+  @Input() get expression(): ExpressionModel {
+    return this._expression;
+  }
+  set expression(value: ExpressionModel) {
     this._expression = value;
     this.buildNodes();
   }
 
-  get expression(): ExpressionModel {
-    return this._expression;
+  @Input({ transform: booleanAttribute }) set disabled(isDisabled: boolean) {
+    this.setDisabledState(isDisabled);
   }
 
-  @Input() disabled = false;
-
   protected readonly i18n$ = inject(PRIZM_QUERY_BUILDER);
-  protected readonly conditionNodeTemplate = contentChild.required(PrizmConditionTemplate);
+  protected readonly conditionNodeTemplate = contentChild.required(PrizmConditionDefDirective);
 
   /**
    * Natural order does not fit our need since it always match parent node
@@ -125,7 +127,6 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
    * While with reversed order we first match deeper nodes.
    */
   protected _orderedDropLists = computed(() => Array.from(this._dropListQuery()).reverse());
-
   private _dropListQuery = viewChildren<CdkDropList<Node>>(CdkDropList);
   private _dragQuery = viewChildren<CdkDrag<Node>>(CdkDrag);
 
@@ -147,8 +148,10 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
 
   protected onChange: (value: ExpressionModel) => void = PRIZM_EMPTY_FUNCTION;
   protected onTouched: () => void = PRIZM_EMPTY_FUNCTION;
+  protected isCondition = isConditionNode;
 
   private _expression!: ExpressionModel;
+  private _disabled = false;
   private get _root(): ExpressionNode {
     return this.data[0] as ExpressionNode;
   }
@@ -178,27 +181,26 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
       });
   }
 
-  writeValue(obj: ExpressionModel | null): void {
+  public writeValue(obj: ExpressionModel | null): void {
     if (!obj) return;
 
     this.expression = obj;
   }
 
-  registerOnChange(fn: (value: ExpressionModel) => void): void {
+  public registerOnChange(fn: (value: ExpressionModel) => void): void {
     this.onChange = fn;
   }
 
-  registerOnTouched(fn: () => void): void {
+  public registerOnTouched(fn: () => void): void {
     this.onTouched = fn;
   }
 
-  setDisabledState(isDisabled: boolean): void {
-    this.disabled = isDisabled;
-
-    this.disabled ? this._formArray.disable() : this._formArray.enable();
+  public setDisabledState(isDisabled: boolean): void {
+    this._disabled = isDisabled;
+    this._disabled ? this._formArray.disable() : this._formArray.enable();
   }
 
-  removeNode(node: Node): void {
+  public removeNode(node: Node): void {
     const parent = this._nodesParentMap.get(node);
     if (!parent) return;
 
@@ -208,7 +210,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
     this.updateModel();
   }
 
-  validate(): ValidationErrors | null {
+  public validate(): ValidationErrors | null {
     return this._formArray.invalid ? { invalid: true } : null;
   }
 
@@ -233,7 +235,15 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
     this.updateModel();
   }
 
-  protected _isCondition = isConditionNode;
+  protected _onDropped(event: CdkDragDrop<Node>): void {
+    const previous = event.previousContainer.data;
+    const current = event.container.data;
+
+    transferArrayItem(previous.children, current.children, event.previousIndex, event.currentIndex);
+
+    this.updateViewData();
+    this.updateModel();
+  }
 
   protected _getOperatorIndex(value: LOGICAL_OPERATOR): number {
     return OPERATORS.indexOf(value);
@@ -333,16 +343,6 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private syncNodesParentMap(): void {
     this._nodesParentMap.clear();
     this.data.forEach(root => fillParentMapRecursively(root.children, root, this._nodesParentMap));
-  }
-
-  protected _onDropped(event: CdkDragDrop<Node>): void {
-    const previous = event.previousContainer.data;
-    const current = event.container.data;
-
-    transferArrayItem(previous.children, current.children, event.previousIndex, event.currentIndex);
-
-    this.updateViewData();
-    this.updateModel();
   }
 
   private _assignDragToList = (): void => {

@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
   exportAs: 'prizmCondition',
   standalone: true,
 })
-export class PrizmConditionTemplate {
+export class PrizmConditionDefDirective {
   readonly template: TemplateRef<ConditionNodeContext> = inject(TemplateRef);
 
   /**
@@ -19,7 +19,10 @@ export class PrizmConditionTemplate {
   @Input({ alias: 'prizmConditionPrepare' }) prepare: (context: FormGroup<ConditionNodeForm>) => void =
     () => {};
 
-  static ngTemplateContextGuard(dir: PrizmConditionTemplate, ctx: unknown): ctx is ConditionNodeContext {
+  public static ngTemplateContextGuard(
+    dir: PrizmConditionDefDirective,
+    ctx: unknown
+  ): ctx is ConditionNodeContext {
     return true;
   }
 }

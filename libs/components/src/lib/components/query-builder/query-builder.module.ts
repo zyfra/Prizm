@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import { PrizmConditionTemplate } from './condition-template.directive';
+import { PrizmConditionDefDirective } from './condition-def.directive';
 import { PrizmQueryBuilderComponent } from './query-builder.component';
 
 @NgModule({
-  imports: [PrizmQueryBuilderComponent, PrizmConditionTemplate],
-  exports: [PrizmQueryBuilderComponent, PrizmConditionTemplate],
+  imports: [PrizmQueryBuilderComponent, PrizmConditionDefDirective],
+  exports: [PrizmQueryBuilderComponent, PrizmConditionDefDirective],
 })
 export class PrizmQueryBuilder {}
