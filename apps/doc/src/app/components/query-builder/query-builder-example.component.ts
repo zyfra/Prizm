@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { DEEP_EXPRESSION, SIMPLE_EXPRESSION } from './query-builder-example.constants';
+import { FormControl } from '@angular/forms';
+import { ConditionPrepareFn } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-query-builder-example',
@@ -26,4 +29,28 @@ export class QueryBuilderExampleComponent {
   };
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
+
+  control = new FormControl(SIMPLE_EXPRESSION);
+
+  disabled = false;
+
+  expressions = [SIMPLE_EXPRESSION, DEEP_EXPRESSION];
+
+  prepare = noop;
+
+  preparePresets: ConditionPrepareFn[] = [noop, prepareSetDefaults];
+
+  prizmInputLayoutWidth = 'initial';
+
+  prizmQueryBuilderNodeWidth = 'initial';
 }
+
+const prepareSetDefaults: ConditionPrepareFn = form => {
+  form.patchValue({
+    field: 'default',
+    operator: 'default',
+    value: 'default',
+  });
+};
+
+const noop = () => {};

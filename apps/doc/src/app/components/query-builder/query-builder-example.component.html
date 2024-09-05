@@ -6,17 +6,117 @@
       <prizm-query-builder-basic-example />
     </prizm-doc-example>
 
-    <prizm-doc-example id="3-level" [content]="scrollableExample" heading="Scrollable">
+    <prizm-doc-example
+      id="scrollable"
+      [content]="scrollableExample"
+      heading="Scrollable"
+      description="Responsive layout with 3 levels of nested expressions without horizontal scrollbar"
+    >
       <prizm-query-builder-scrollable-example />
     </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-query-builder></prizm-query-builder>
+      <prizm-query-builder
+        [formControl]="control"
+        [disabled]="disabled"
+        [style.--prizm-input-layout-width]="prizmInputLayoutWidth"
+        [style.--prizm-query-builder-node-width]="prizmQueryBuilderNodeWidth"
+        prizmDocHostElementKey="PrizmQueryBuilderComponent"
+      >
+        <ng-template [prizmCondition] [prizmConditionPrepare]="prepare" let-condition>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem">
+            <prizm-input-layout [size]="'m'">
+              <input [formControl]="condition.field" prizmInput />
+            </prizm-input-layout>
+
+            <prizm-input-layout [size]="'m'">
+              <input [formControl]="condition.operator" prizmInput />
+            </prizm-input-layout>
+
+            <prizm-input-layout [size]="'m'">
+              <input [formControl]="condition.value" prizmInput />
+            </prizm-input-layout>
+          </div>
+        </ng-template>
+      </prizm-query-builder>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation> </prizm-doc-documentation>
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      [control]="control"
+      heading="PrizmQueryBuilderComponent"
+      hostComponentKey="PrizmQueryBuilderComponent"
+    >
+      <ng-template
+        [documentationPropertyValues]="expressions"
+        (documentationPropertyValueChange)="control.setValue($event)"
+        documentationPropertyName="expression"
+        documentationPropertyType="'ExpressionModel'"
+        documentationPropertyMode="input"
+      >
+        Change associated expression value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Change disabled state of control
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      heading="PrizmConditionDefDirective"
+      hostComponentKey="PrizmConditionDefDirective"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="prepare"
+        [documentationPropertyValues]="preparePresets"
+        documentationPropertyName="prepare"
+        documentationPropertyType="'ConditionPrepareFn'"
+        documentationPropertyMode="input"
+      >
+        Condition node associated data `init` hook
+      </ng-template>
+
+      <ng-template
+        [documentationPropertyValues]="[]"
+        (documentationPropertyValueChange)="control.setValue($event)"
+        documentationPropertyName="template"
+        documentationPropertyType="'TemplateRef'"
+      >
+        Condition node template
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      heading="CSS custom properties"
+      hostComponentKey="PrizmQueryBuilderComponent"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="prizmInputLayoutWidth"
+        documentationPropertyName="--prizm-input-layout-width"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Input layout width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmQueryBuilderNodeWidth"
+        documentationPropertyName="--prizm-query-builder-node-width"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Query builder node container width
+      </ng-template>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>

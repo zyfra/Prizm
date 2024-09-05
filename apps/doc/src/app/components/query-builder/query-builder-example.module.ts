@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { PrizmQueryBuilderComponent } from '@prizm-ui/components';
+import { PrizmInputSelectModule, PrizmInputTextModule, PrizmQueryBuilder } from '@prizm-ui/components';
 import {
   PrizmAddonDocModule,
   PrizmDocCodeModule,
@@ -14,6 +14,7 @@ import {
 import { QueryBuilderBasicExample } from './examples/query-builder-basic-example/query-builder-basic-example.component';
 import { QueryBuilderExampleComponent } from './query-builder-example.component';
 import { QueryBuilderScrollableExample } from './examples/query-builder-scrollable-example/query-builder-scrollable-example.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [QueryBuilderExampleComponent],
@@ -27,7 +28,10 @@ import { QueryBuilderScrollableExample } from './examples/query-builder-scrollab
     PrizmDocCodeModule,
     RouterModule.forChild(prizmDocGenerateRoutes(QueryBuilderExampleComponent)),
 
-    PrizmQueryBuilderComponent,
+    PrizmQueryBuilder,
+    ReactiveFormsModule,
+    PrizmInputTextModule,
+    PrizmInputSelectModule,
 
     // Examples
     QueryBuilderBasicExample,

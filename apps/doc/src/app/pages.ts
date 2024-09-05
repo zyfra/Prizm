@@ -259,7 +259,6 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Listing Item',
-    status: 'preview',
     keywords: 'list item, cell, dropdown cell, listing item, список, элемент списка',
     route: '/components/listing-item',
   },
@@ -619,6 +618,7 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Query Builder',
+    status: 'preview',
     keywords: 'query, expression',
     route: '/components/query-builder',
   },
