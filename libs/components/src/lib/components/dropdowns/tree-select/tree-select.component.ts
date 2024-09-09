@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, input, ViewChild } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ElementRef,
+  forwardRef,
+  Input,
+  input,
+  ViewChild,
+} from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import {
   PrizmCallFuncPipe,
@@ -61,16 +69,17 @@ import { AsyncPipe } from '@angular/common';
   ],
 })
 export class PrizmInputTreeSelectComponent<T> extends PrizmInputNgControl<T> implements ControlValueAccessor {
-  searchable = input(false);
+  searchable = false;
   placeholder = input<string | null>(null);
   transformer = input((v: T): any => v);
   searchMatcher = input<PrizmInputTreeSearchMatcher<T>>(() => true);
-  emptyContent = input<PolymorphContent | null>(null);
   nullContent = input<PolymorphContent | null>(null);
   children = input<(item: T) => T[]>();
   valueTemplate = input<(item: T) => T[]>();
-  identityMatcher = input<(item: T) => T[]>();
-  stringify = input<(item: T) => T[]>();
+  @Input()
+  identityMatcher = (a: T, b: T) => a == b;
+  @Input()
+  stringify = (item: T) => item;
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
