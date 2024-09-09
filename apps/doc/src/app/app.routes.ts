@@ -694,6 +694,13 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'tools/nxmv',
+    loadChildren: () => import('./tools/nxmv/nxmv.module').then(i => i.NxmvModule),
+    data: {
+      title: 'NXMV',
+    },
+  },
+  {
     path: 'tools/zone-events',
     loadChildren: () => import('./tools/zone-event/zone-event.module').then(i => i.ZoneEventModule),
     data: {

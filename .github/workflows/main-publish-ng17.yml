@@ -1,6 +1,9 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
 name: Publish main packages 17
 on:
+  push:
+    tags:
+      - '4.*'
   workflow_dispatch:
   workflow_call:
 env:
@@ -57,7 +60,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_v3_version=$(
-            echo '4.3.6'
+            echo '4.3.7'
           )
           echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
 

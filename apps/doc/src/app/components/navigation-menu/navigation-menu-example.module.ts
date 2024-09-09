@@ -1,19 +1,18 @@
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import {
   PrizmBreadcrumbsModule,
-  PrizmButtonModule,
-  PrizmHintModule,
+  PrizmButtonComponent,
+  PrizmHintDirective,
   PrizmNavigationMenuModule,
   PrizmScrollbarModule,
   PrizmSplitterModule,
-  PrizmWidgetModule,
+  PrizmWidgetComponent,
 } from '@prizm-ui/components';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NavigationMenuBasicExampleComponent } from './examples/navigation-menu-basic-example/navigation-menu-basic-example.component';
 import { NavigationMenuExampleComponent } from './navigation-menu-example.component';
-import { PrizmIconsSvgComponent } from '@prizm-ui/icons';
 import { NavigationMenuGroupsExampleComponent } from './examples/navigation-menu-groups-example/navigation-menu-groups-example.component';
 import { HintButtonComponent } from './examples/hint-button/hint-button.component';
 import { MenuHintComponent } from './examples/menu-hint/menu-hint.component';
@@ -34,11 +33,10 @@ import { NavigationMenuOneModeExampleComponent } from './examples/navigation-men
     CommonModule,
     PrizmAddonDocModule,
     PrizmNavigationMenuModule,
-    PrizmIconsSvgComponent,
-    PrizmButtonModule,
-    PrizmHintModule,
+    PrizmButtonComponent,
+    PrizmHintDirective,
     PrizmBreadcrumbsModule,
-    PrizmWidgetModule,
+    PrizmWidgetComponent,
     PrizmSplitterModule,
     PrizmScrollbarModule,
     RouterModule.forChild(prizmDocGenerateRoutes(NavigationMenuExampleComponent)),

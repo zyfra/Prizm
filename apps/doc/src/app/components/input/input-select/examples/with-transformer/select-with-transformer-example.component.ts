@@ -4,7 +4,7 @@ import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
   PrizmSelectStringify,
-  PrizmSelectValueTransformver,
+  PrizmSelectValueTransformer,
 } from '@prizm-ui/components';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsUserCheck } from '@prizm-ui/icons/full/source';
@@ -37,7 +37,7 @@ export class PrizmSelectWithTransformerExampleComponent {
     return item?.name.toLowerCase().includes(search.toLowerCase());
   };
 
-  readonly transformer: PrizmSelectValueTransformver<PrizmItem> = a => a?.id;
+  readonly transformer: PrizmSelectValueTransformer<PrizmItem> = a => a?.id;
   readonly identityMatcher: PrizmSelectIdentityMatcher<PrizmItem> = (a: PrizmItem, b: PrizmItem) => {
     return a === b;
   };

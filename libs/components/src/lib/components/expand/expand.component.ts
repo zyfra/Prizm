@@ -18,7 +18,7 @@ import { prizmIsCurrentTarget } from '../../util/dom';
 import { PrizmExpandContentDirective } from './expand-content.directive';
 import { PRIZM_EXPAND_LOADED } from './expand.const';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { PrizmLoaderModule } from '../loader';
+import { PrizmLoaderComponent } from '../loader';
 
 enum State {
   Idle,
@@ -35,7 +35,7 @@ const LOADER_HEIGHT = 48;
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./expand.component.less'],
   standalone: true,
-  imports: [CommonModule, PrizmLoaderModule],
+  imports: [CommonModule, PrizmLoaderComponent],
 })
 export class PrizmExpandComponent extends PrizmAbstractTestId {
   @ViewChild('wrapper')

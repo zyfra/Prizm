@@ -17,7 +17,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmPrimitiveCalendarComponent } from '../internal/primitive-calendar';
 import { PrizmScrollbarModule } from '../scrollbar';
-import { PrizmMapperPipeModule } from '../../pipes';
+import { PrizmMapperPipe } from '../../pipes';
 import { PrizmPrimitiveYearMonthPaginationComponent } from '../internal/primitive-year-month-pagination/primitive-year-month-pagination.component';
 import { PrizmPrimitiveMonthPickerComponent } from '../internal/primitive-month-picker/primitive-month-picker.component';
 import { PrizmPrimitiveYearPickerComponent } from '../internal/primitive-year-picker/primitive-year-picker.component';
@@ -36,7 +36,7 @@ import { prizmInRange } from '../../util/math/in-range';
     PrizmPrimitiveYearPickerComponent,
     PrizmPrimitiveMonthPickerComponent,
     PrizmScrollbarModule,
-    PrizmMapperPipeModule,
+    PrizmMapperPipe,
   ],
 })
 export class PrizmCalendarComponent

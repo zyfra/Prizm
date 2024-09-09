@@ -4,12 +4,12 @@ export const GROUP_1_ITEMS: CustomItem[] = [
   {
     id: '917a7cc0492c834fa8ff217218a9155c',
     text: '1 Anemone',
-    icon: 'editor_decor_collage_fill',
+    icon: 'collage-fill',
     children: [
       {
         id: 'e1fdf7db27471499f4201be33eaf995f',
         text: '1-1 Ant',
-        icon: 'editor_decor_subskrit_up',
+        icon: 'subskrit-up',
         children: [
           {
             id: 'fe24adfd35cdf650b072c69a23989284',
@@ -28,12 +28,12 @@ export const GROUP_1_ITEMS: CustomItem[] = [
       {
         id: '79457a69a1f3fe4f0bea68d77d2ac8c3',
         text: '1-2 Caterpillar',
-        icon: 'logistics_transportation_airplane_side_view',
+        icon: 'airplane-side-view',
         children: [
           {
             id: '270b6053ff49a13cac2fd366a42e895d',
             text: '1-2-1 Centipede',
-            icon: 'documents_folders_folder',
+            icon: 'folder',
             children: [
               {
                 id: '16a404d4f31be4b749da8bee8a1baa61',
@@ -56,7 +56,7 @@ export const GROUP_1_ITEMS: CustomItem[] = [
           {
             id: 'b20af4d91cc7913524d0926de574bb1a',
             text: '1-2-3 Crab',
-            icon: 'documents_folders_folder',
+            icon: 'folder',
             children: [
               {
                 id: '7f8e62acd4f0c02b860e62007c8ede1e',
@@ -77,7 +77,7 @@ export const GROUP_1_ITEMS: CustomItem[] = [
       {
         id: 'f525eb5eb522a16d4f79a196c98b6d74',
         text: '1-3 Fly',
-        icon: 'editor_decor_polyline',
+        icon: 'polyline',
         children: [
           {
             id: '6ad7c923a2cc8b88586eadd802704b3a',
@@ -98,17 +98,17 @@ export const GROUP_1_ITEMS: CustomItem[] = [
   {
     id: 'b364cf7ea6784a2327ca5eea70533cc7',
     text: '2 Ladybug',
-    icon: 'documents_folders_folder',
+    icon: 'folder',
     children: [
       {
         id: 'd343799a439ab2ea1add6f3a3ac51134',
         text: '2-1 Lobster',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
       },
       {
         id: 'b99624c9a0f5a525050661fc873faee1f25ccf67',
         text: '2-2 Louse',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
         children: [
           {
             id: '5c7cf8e705a1800796a738fd8d7e3c7c',
@@ -129,7 +129,7 @@ export const GROUP_1_ITEMS: CustomItem[] = [
   {
     id: 'cb2b0ea2f43025ebdc49e9a8696cae8adb0c285f',
     text: '3 Octopus',
-    icon: 'documents_folders_folder',
+    icon: 'folder',
     children: [
       {
         id: '9c0485df5870ff0b0873f6ce6fb7a5fd3931fbdd',
@@ -143,27 +143,27 @@ export const GROUP_2_ITEMS: CustomItem[] = [
   {
     id: '5c66dafe76c204f8365992e138d022c9',
     text: '(1) banana',
-    icon: 'documents_folders_folder_underline_plus',
+    icon: 'folder-underline-plus',
   },
   {
     id: '7dc7840f976c47982ce0711ca7788048',
     text: '(2) apple',
-    icon: 'documents_folders_folder',
+    icon: 'folder',
     children: [
       {
         id: '9deb0dbc4718a5c98275157ae8b8c02dec971d9a',
         text: '2-1 orange',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
       },
       {
         id: '052057fe4f7f44c087f834ea2e8b312024c214c2',
         text: '2-2 pineapple',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
         children: [
           {
             id: '206d1e0c06789ae9d80b863548d51465',
             text: '2-2-1 strawberry',
-            icon: 'documents_folders_folder_underline_plus',
+            icon: 'folder-underline-plus',
           },
           {
             id: 'c14e75b1f42b43b7443d1319e01d660a',
@@ -180,7 +180,7 @@ export const GROUP_2_ITEMS: CustomItem[] = [
   {
     id: 'dc15e173eea1f5601a98d325a804760a',
     text: '3 cherry',
-    icon: 'documents_folders_folder',
+    icon: 'folder',
     children: [
       {
         id: '0fc59162f06a03413a6e715a4bc79b7d',
@@ -198,7 +198,7 @@ export const GROUP_3_ITEMS: CustomItem[] = [
       {
         id: '58241595e5cb3278e20c0e55',
         text: '1-1 Flute',
-        icon: 'editor_decor_subskrit_up',
+        icon: 'subskrit-up',
         children: [
           {
             id: '9e35c258ed8efbad928192a62a8519dd',
@@ -217,12 +217,12 @@ export const GROUP_3_ITEMS: CustomItem[] = [
       {
         id: '41aa56ce9e7b0f5c7def00e0',
         text: '1-2 Guitar',
-        icon: 'logistics_transportation_airplane_side_view',
+        icon: 'airplane-side-view',
         children: [
           {
             id: 'ebf34ac5eb2a408e862dbeab',
             text: '1-2-1 Electric',
-            icon: 'documents_folders_folder',
+            icon: 'folder',
             children: [
               {
                 id: '5c4654eb9bc0020de03b7745aedfc706',
@@ -245,7 +245,7 @@ export const GROUP_3_ITEMS: CustomItem[] = [
           {
             id: 'c6567e45cb3c9d86ac2a4518be2d03be',
             text: '1-2-3 Xylophone',
-            icon: 'documents_folders_folder',
+            icon: 'folder',
             children: [
               {
                 id: '0134dee0193ec07e35ac135f',
@@ -272,7 +272,7 @@ export const GROUP_3_ITEMS: CustomItem[] = [
       {
         id: '9fe6e1a91e5b8e0ec46e94abcf5afe2e',
         text: '2-2 Cymbal',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
         children: [
           {
             id: 'd892c7a103748f8e7a8c02b19679fd55',
@@ -285,7 +285,7 @@ export const GROUP_3_ITEMS: CustomItem[] = [
               {
                 id: '452679f20b1bc220d44f7e7550f476e0',
                 text: '2-2-2-1 Tambourine',
-                icon: 'documents_folders_folder',
+                icon: 'folder',
                 children: [
                   {
                     id: '2282b799fdb8499194dcad8cdd9b80d6',
@@ -321,12 +321,12 @@ export const GROUP_4_ITEMS: CustomItem[] = [
       {
         id: '1083a3821f1847bb1f1486876493dd0e',
         text: '1-1 Bass drum	Snare drum	Euphonium	Piccolo Lute	Marimba	Bassoon	Cornet',
-        icon: 'editor_decor_collage_fill',
+        icon: 'collage-fill',
       },
       {
         id: '7f1cef0992f4383e7638e499be3db0e7',
         text: '1-2 Drum pad	Clarinet	Harmonica	Tuba',
-        icon: 'editor_decor_collage_fill',
+        icon: 'collage-fill',
       },
     ],
   },

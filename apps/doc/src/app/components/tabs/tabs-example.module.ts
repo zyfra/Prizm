@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { TabsExampleComponent } from './tabs-example.component';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { PrizmPanelModule, PrizmTabsModule } from '@prizm-ui/components';
+import { PrizmPanelComponent, PrizmTabsModule } from '@prizm-ui/components';
 import { TabsExampleBasicComponent } from './examples/tabs-example-basic/tabs-example-basic.component';
 import { TabsExampleLinedComponent } from './examples/tabs-example-lined/tabs-example-lined.component';
 import { TabsExampleContainedComponent } from './examples/tabs-example-contained/tabs-example-contained.component';
@@ -31,7 +31,7 @@ import { TabsExampleInPanelComponent } from './examples/tabs-example-in-panel/ta
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(TabsExampleComponent)),
     PrizmTabsModule,
-    PrizmPanelModule,
+    PrizmPanelComponent,
   ],
 })
 export class TabsExampleModule {}

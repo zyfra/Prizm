@@ -4,5 +4,6 @@ import { PRIZM_VALUE_ACCESSOR_PROVIDER } from '../../providers/value-accessor.pr
 @Directive({
   selector: `[prizmValueAccessor]`,
   providers: [PRIZM_VALUE_ACCESSOR_PROVIDER],
+  standalone: true,
 })
 export class PrizmValueAccessorDirective {}

@@ -1,0 +1,28 @@
+{
+  "name": "@prizm-ui/components",
+  "version": "<%= version %>",
+  "description": "Prizm UI system design components library http://prizm.zyfra.com",
+  "license": "MIT",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^<%= ngVersion %>",
+    "@angular/core": "^<%= ngVersion %>",
+    "@angular/cdk": "^<%= ngVersion %>",
+    "@prizm-ui/helpers": "^<%= version %>",
+    "@prizm-ui/core": "^<%= version %>",
+    "@prizm-ui/i18n": "^<%= version %>",
+    "@prizm-ui/theme": "^<%= version %>"
+  },
+  "dependencies": {
+    "tslib": "^2.4.0",
+    "ngx-mask": "17.0.4",
+    "@ng-web-apis/common": "^3.0.0",
+    "@ng-web-apis/resize-observer": "^3.0.0",
+    "@ng-web-apis/intersection-observer": "^3.0.0",
+    "@ng-web-apis/mutation-observer": "^3.0.0"
+  }
+}

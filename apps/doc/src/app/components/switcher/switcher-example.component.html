@@ -3,6 +3,10 @@
     Our switcher component is a simple toggle that can be used to turn something on or off.
   </div>
   <ng-template prizmDocPageTab>
+    <prizm-doc-example id="projection" [content]="exampleProjectionSwitcher" heading="Projection">
+      <prizm-switcher-projection-example></prizm-switcher-projection-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="base" [content]="exampleBasicSwitcher" heading="Basic">
       <prizm-switcher-basic-example></prizm-switcher-basic-example>
     </prizm-doc-example>
@@ -110,13 +114,6 @@
       >
         Selected Switcher Idx Change
       </ng-template>
-      <!-- <ng-template
-        documentationPropertyName="switcherSelection"
-        documentationPropertyType="number"
-        documentationPropertyMode="output"
-      >
-        Selected switcher event emitter
-      </ng-template> -->
     </prizm-doc-documentation>
   </ng-template>
 
@@ -124,7 +121,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>PrizmSwitcherModule</code>
+          Импортируйте <code>PrizmSwitcherComponent</code>
           в модуль в котором хотите использовать компоненту
         </p>
 
