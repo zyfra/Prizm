@@ -1,0 +1,97 @@
+.switcherSizing(@switcherSize, @titleFontSize, @padding) {
+  .switcher {
+    height: @switcherSize;
+    prizm-wrapper {
+      padding: 0 @padding;
+    }
+    &__title {
+      font-size: @titleFontSize;
+    }
+  }
+}
+
+:host {
+  button {
+    border-radius: 0;
+    &._focused {
+      border-radius: 2px !important;
+      z-index: 1;
+    }
+  }
+
+  &.full-width,
+  &.full-width button {
+    width: 100%;
+  }
+
+  &[last-child='true'] {
+    .switcher {
+      border-right: 1px solid var(--prizm-background-stroke);
+    }
+  }
+
+  &[last-child='true'] {
+    .switcher {
+      border-radius: 0 2px 2px 0;
+    }
+  }
+
+  &[first-child='true'] {
+    .switcher {
+      border-radius: 2px 0 0 2px;
+    }
+  }
+
+  .switcher {
+    border: 1px solid var(--prizm-background-stroke);
+    border-right: none;
+
+    transition: 400ms;
+    overflow: hidden;
+
+    &.switcher-text {
+      display: none;
+
+      &.has-value {
+        display: block;
+      }
+    }
+
+    &_active_disabled {
+      ::ng-deep prizm-wrapper {
+        &[data-state='disabled'][data-state='disabled'] {
+          background: var(--prizm-button-disable);
+        }
+      }
+    }
+
+    &_icon {
+      min-width: 50px;
+    }
+  }
+
+  &[switcher-type='outer'] {
+    &[data-size='l'] {
+      .switcherSizing(40px, 14px, 16px);
+    }
+
+    &[data-size='m'] {
+      .switcherSizing(32px, 14px, 16px);
+    }
+
+    &[data-size='s'] {
+      .switcherSizing(24px, 12px, 8px);
+    }
+  }
+
+  &[switcher-type='inner'] {
+    &[data-size='l'] {
+      .switcherSizing(44px, 14px, 16px);
+    }
+
+    &[data-size='m'],
+    &[data-size='s'] {
+      .switcherSizing(36px, 14px, 16px);
+    }
+  }
+}

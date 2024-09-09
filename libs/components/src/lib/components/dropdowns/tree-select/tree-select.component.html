@@ -10,4 +10,19 @@
   [dropdownClasses]="dropdownClasses"
   (isOpenChange)="opened$$.next($event)"
 >
+  <input
+    class="input-search"
+    #focusableElementRef
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [tabIndex]="!disabled ? 0 : -1"
+    [readonly]="true"
+    prizmInput
+  />
 </prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <prizm-data-list class="block" [style.--prizm-data-list-border]="0" (prizmOnDestroy)="onTouch()">
+    <ng-content></ng-content>
+  </prizm-data-list>
+</ng-template>

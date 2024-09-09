@@ -1,9 +1,27 @@
 import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, input, ViewChild } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmInputControl, PrizmInputNgControl } from '../../input';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import {
+  PrizmCallFuncPipe,
+  PrizmDestroyService,
+  PrizmLetDirective,
+  PrizmSyncParentDirective,
+} from '@prizm-ui/helpers';
+import {
+  PrizmInputControl,
+  PrizmInputHintDirective,
+  PrizmInputNgControl,
+  PrizmInputTextComponent,
+} from '../../input';
 import { PrizmInputTreeSearchMatcher } from './model';
-import { PolymorphContent, PrizmDropdownHostComponent } from '@prizm-ui/components';
+import {
+  PolymorphContent,
+  PrizmDataListComponent,
+  PrizmDropdownControllerDirective,
+  PrizmDropdownHostComponent,
+  prizmIsNativeFocused,
+  PrizmLifecycleDirective,
+  PrizmNativeFocusableElement,
+} from '@prizm-ui/components';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 
@@ -13,7 +31,17 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./tree-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [AsyncPipe, PrizmCallFuncPipe, PrizmDropdownHostComponent, PrizmLetDirective],
+  imports: [
+    AsyncPipe,
+    PrizmCallFuncPipe,
+    PrizmDropdownHostComponent,
+    PrizmLetDirective,
+    PrizmInputHintDirective,
+    PrizmInputTextComponent,
+    ReactiveFormsModule,
+    PrizmDataListComponent,
+    PrizmLifecycleDirective,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
@@ -23,9 +51,16 @@ import { AsyncPipe } from '@angular/common';
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputTreeSelectComponent },
   ],
+  hostDirectives: [
+    // for sync state with all children
+    PrizmSyncParentDirective,
+    {
+      directive: PrizmDropdownControllerDirective,
+      inputs: ['prizmDropdownMinHeight', 'prizmDropdownMaxHeight'],
+    },
+  ],
 })
 export class PrizmInputTreeSelectComponent<T> extends PrizmInputNgControl<T> implements ControlValueAccessor {
-  items = input<T[]>([]);
   searchable = input(false);
   placeholder = input<string | null>(null);
   transformer = input((v: T): any => v);
@@ -36,25 +71,29 @@ export class PrizmInputTreeSelectComponent<T> extends PrizmInputNgControl<T> imp
   valueTemplate = input<(item: T) => T[]>();
   identityMatcher = input<(item: T) => T[]>();
   stringify = input<(item: T) => T[]>();
-  itemTemplate = input<(item: T) => T[]>();
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
-  override focused: boolean | Observable<boolean>;
   override readonly nativeElementType = 'tree-select';
   override readonly hasClearButton = true;
+  get nativeFocusableElement(): PrizmNativeFocusableElement | null {
+    return this.focusableElement ? this.focusableElement.nativeElement : null;
+  }
 
+  get focused(): boolean {
+    return prizmIsNativeFocused(this.nativeFocusableElement);
+  }
   public override writeValue(obj: T): void {
     throw new Error('Method not implemented.');
   }
-  public registerOnChange(fn: any): void {
+  public override registerOnChange(fn: any): void {
     throw new Error('Method not implemented.');
   }
-  public registerOnTouched(fn: any): void {
-    throw new Error('Method not implemented.');
+  public override registerOnTouched(fn: any): void {
+    this.onChange = fn;
   }
-  public setDisabledState?(isDisabled: boolean): void {
+  public override setDisabledState(isDisabled: boolean): void {
     throw new Error('Method not implemented.');
   }
 }
