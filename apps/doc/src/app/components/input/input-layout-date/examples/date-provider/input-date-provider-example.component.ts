@@ -32,8 +32,4 @@ export class PrizmInputDateProviderExampleComponent {
       this.control.setValue(new Date(2024, 2, 2, 30, 0, 0).toISOString());
     }
   }
-
-  public setInvalidDate(): void {
-    this.control.setValue('invalid string');
-  }
 }
