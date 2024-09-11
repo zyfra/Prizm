@@ -11,25 +11,25 @@ import { PrizmDocExampleCapitalizePipe } from './example-capitalize.pipe';
 import { PrizmDocExampleGetTabsPipe } from './example-get-tabs.pipe';
 import { TuiMapperPipeModule } from '@taiga-ui/cdk';
 import {
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmDataListModule,
   PrizmDropdownControllerDirective,
   PrizmDropdownHostModule,
-  PrizmSwitcherModule,
+  PrizmSwitcherComponent,
 } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
     CommonModule,
     ClipboardModule,
-    PrizmSwitcherModule,
+    PrizmSwitcherComponent,
     TuiTabsModule,
     TuiButtonModule,
     TuiMapperPipeModule,
     TuiDocCopyModule,
     PrizmDocCodeModule,
     PolymorpheusModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmDropdownHostModule,
     PrizmDataListModule,
     PrizmDropdownControllerDirective,

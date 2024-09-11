@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { PolymorphModule, PrizmButtonModule, PrizmHintDirective } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonComponent, PrizmHintDirective } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HintExampleComponent } from './hint-example.component';
 import { PrizmHintWithTemplateExampleComponent } from './examples/with-template/hint-with-template-example.component';
@@ -20,7 +20,7 @@ import { PrizmHintWithCustomContextExampleComponent } from './examples/with-cust
     ReactiveFormsModule,
     PolymorphModule,
     PrizmHintDirective,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmHintWithCustomContextExampleComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(HintExampleComponent)),
   ],

@@ -1,14 +1,18 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Inject, OnInit } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PRIZM_ICONS_SVG_SET, PrizmIconsSvgRegistry, PrizmIconSvgEnum } from '@prizm-ui/icons';
 import { Clipboard } from '@angular/cdk/clipboard';
 import { PrizmToastService } from '@prizm-ui/components';
 import { copyToClipboard } from '../../../util';
+import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_SET } from '@prizm-ui/icons/base/source/icon-set';
+import { PRIZM_ICONS_SVG_SET, PrizmIconsSvgRegistry, PrizmIconSvgEnum } from '../../../icons-svg';
+import { prizmIconsProvideOldSvgNameTransformer, prizmIconsSvgGetNameByOld } from '@prizm-ui/icons';
 
 @Component({
   selector: 'prizm-icon-example',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.less'],
+  providers: [prizmIconsProvideOldSvgNameTransformer()],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IconComponent implements OnInit {
@@ -19,7 +23,7 @@ export class IconComponent implements OnInit {
   readonly sizeVariants = ['32px', 24, 16];
   public size = this.sizeVariants[0];
 
-  // private readonly iconsSetObject = Object.values(PrizmIconType)
+  private readonly iconsRegistry = inject(PrizmIconsRegistry);
   private readonly iconsSetObject = Object.values(PrizmIconSvgEnum);
   private readonly iconsSet = Object.values(this.iconsSetObject);
   public editorDecoratorIcons = this.iconsSet.filter(i => i.startsWith('editor_decor'));
@@ -37,7 +41,7 @@ export class IconComponent implements OnInit {
   public settingsToolsIcons = this.iconsSet.filter(i => i.startsWith('settings_tools'));
   public shapeGeometryIcons = this.iconsSet.filter(i => i.startsWith('shape_geometry'));
   public userAccountIcons = this.iconsSet.filter(i => i.startsWith('user_account'));
-
+  readonly prizmIconsSvgGetNameByOld = prizmIconsSvgGetNameByOld;
   public defs = [
     {
       dir: 'Editor Decorator',
@@ -62,10 +66,6 @@ export class IconComponent implements OnInit {
     {
       dir: 'Logistics Transportation',
       data: [...this.logisticsTransportationIcons],
-    },
-    {
-      dir: 'Map Location',
-      data: [...this.MapLocationIcons],
     },
     {
       dir: 'Map Location',
@@ -115,18 +115,25 @@ export class IconComponent implements OnInit {
     TypeScript: import('./examples/svg/icon-svg-example.component.ts?raw'),
     HTML: import('./examples/svg/icon-svg-example.component.html?raw'),
   };
+  readonly exampleMigration: TuiDocExample = {
+    TypeScript: import('./examples/migrate/icon-migrate-example.component.ts?raw'),
+    HTML: import('./examples/migrate/icon-migrate-example.component.html?raw'),
+  };
 
   constructor(
     @Inject(Clipboard) public readonly clipboard: Clipboard,
     private readonly toastService: PrizmToastService,
     private readonly iconRegistry: PrizmIconsSvgRegistry
-  ) {}
+  ) {
+    this.iconsRegistry.registerIcons(PRIZM_ICONS_SET);
+  }
 
   ngOnInit(): void {
     this.iconRegistry.registerIcons([...PRIZM_ICONS_SVG_SET]);
   }
 
-  public copy(value: string): void {
+  public copy(value: string | null): void {
+    if (!value) return;
     copyToClipboard(value, this.clipboard, this.toastService);
   }
 }

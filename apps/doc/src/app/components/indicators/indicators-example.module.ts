@@ -5,7 +5,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { IndicatorsBasicExampleComponent } from './examples/indicators-basic-example/indicators-basic-example.component';
 import { IndicatorsWithIconExampleComponent } from './examples/indicators-with-icon-example/indicators-with-icon-example.component';
-import { PrizmIndicatorModule } from '@prizm-ui/components';
+import { PrizmIndicatorComponent } from '@prizm-ui/components';
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import { PrizmIndicatorModule } from '@prizm-ui/components';
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmIndicatorModule,
+    PrizmIndicatorComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(IndicatorsExampleComponent)),
   ],
 })

@@ -3,12 +3,15 @@ import { Scatter } from '@antv/g2plot';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsScatterItem, PrizmChartsScatterOptions, PrizmChartsScatterOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-scatter',
   templateUrl: './prizm-charts-scatter.component.html',
   styleUrls: ['./prizm-charts-scatter.component.less'],
   exportAs: 'prizmChartsScatter',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsScatterComponent<
   T extends Record<string, unknown>

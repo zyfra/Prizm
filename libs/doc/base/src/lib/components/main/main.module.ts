@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TuiAlertModule, TuiDialogModule, TuiRootModule, TuiThemeNightModule } from '@taiga-ui/core';
 import { TuiToggleModule } from '@taiga-ui/kit';
-import { PrizmDocHeaderModule } from '../../internal/header/header.module';
+import { PrizmDocHeaderComponent } from '../../internal/header/header.component';
 import { PrizmDocNavigationModule } from '../navigation/navigation.module';
 import { PrizmDocMainComponent } from './main.component';
 import { PrizmLifecycleDirective } from '@prizm-ui/components';
@@ -19,7 +19,7 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
     PrizmThemeModule,
     TuiToggleModule,
     TuiThemeNightModule,
-    PrizmDocHeaderModule,
+    PrizmDocHeaderComponent,
     TuiRootModule,
     TuiDialogModule,
     TuiAlertModule,

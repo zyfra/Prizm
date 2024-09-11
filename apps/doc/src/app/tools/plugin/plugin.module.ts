@@ -3,14 +3,14 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { PluginComponent } from './plugin.component';
-import { PrizmButtonModule } from '@prizm-ui/components';
+import { PrizmButtonComponent } from '@prizm-ui/components';
 import { PrizmAstAccordionExampleComponent } from './examples/accordion/accordion.component';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(PluginComponent)),
   ],
   declarations: [PrizmAstAccordionExampleComponent, PluginComponent],

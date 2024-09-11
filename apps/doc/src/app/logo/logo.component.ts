@@ -2,15 +2,15 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { debounceTime, filter, map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
+import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
+import { PolymorphComponent, PrizmDialogService } from '@prizm-ui/components';
+import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-changer.component';
 import {
   PrizmIconsSvgRegistry,
   PrizmIconSvgEnum,
   prizmIconSvgOtherGitHub,
   prizmIconSvgShapeGeometrySquareCirclePlusTriangleFill,
-} from '@prizm-ui/icons';
-import { PrizmLanguageSwitcher } from '@prizm-ui/i18n';
-import { PolymorphComponent, PrizmDialogService } from '@prizm-ui/components';
-import { ThemeTokenChangerComponent } from '../theme-token-changer/theme-token-changer.component';
+} from '../icons-svg';
 
 @Component({
   selector: 'prizm-doc-logo',

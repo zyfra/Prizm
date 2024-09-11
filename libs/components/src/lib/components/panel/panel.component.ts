@@ -22,7 +22,7 @@ import { PrizmButtonComponent } from '../button';
   standalone: true,
   imports: [CommonModule, PrizmButtonComponent],
 })
-export class PanelComponent extends PrizmAbstractTestId {
+export class PrizmPanelComponent extends PrizmAbstractTestId {
   @Input() withBackButton = false;
   @Input() header: string | null = null;
   @Input() subheader: string | null = null;
@@ -43,5 +43,3 @@ export class PanelComponent extends PrizmAbstractTestId {
     this.backClick.emit();
   }
 }
-
-export const PrizmPanelComponent = PanelComponent;

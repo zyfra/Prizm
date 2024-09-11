@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { RadialBar } from '@antv/g2plot';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsRadialBarItem, PrizmChartsRadialBarOptions, PrizmChartsRadialBarOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-radial-bar',
   templateUrl: './prizm-charts-radial-bar.component.html',
   styleUrls: ['./prizm-charts-radial-bar.component.less'],
   exportAs: 'prizmChartsRadialBar',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsRadialBarComponent<
   T extends Record<string, unknown>

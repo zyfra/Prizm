@@ -52,8 +52,3 @@ export class PrizmGridComponent extends PrizmAbstractTestId implements AfterCont
     });
   }
 }
-/**
- * TODO v5: remove
- * @deprecated
- * */
-export const GridComponent = PrizmGridComponent;

@@ -9,6 +9,7 @@ import {
 @Directive({
   selector: `[prizmAutoFocus]`,
   providers: PRIZM_AUTOFOCUS_PROVIDERS,
+  standalone: true,
 })
 export class PrizmAutoFocusDirective implements AfterViewInit {
   @Input()

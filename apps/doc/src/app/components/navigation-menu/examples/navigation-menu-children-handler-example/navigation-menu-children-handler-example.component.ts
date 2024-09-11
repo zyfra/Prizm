@@ -4,8 +4,9 @@ import {
   PrizmNavigationMenuItem,
   PrizmNavigationMenuToolbarConfig,
 } from '@prizm-ui/components';
-import { PrizmIconsSvgRegistry, PRIZM_ICONS_SVG_SET } from '@prizm-ui/icons';
 import { GROUP_ITEMS, ParentItem } from './navigation-menu-children-handler-example.constants';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_SET } from '@prizm-ui/icons/base/source/icon-set';
 
 @Component({
   selector: 'prizm-navigation-menu-children-handler-example',
@@ -24,8 +25,8 @@ export class NavigationMenuChildrenHandlerExampleComponent {
 
   group2: PrizmNavigationMenuItem[] = GROUP_ITEMS;
 
-  constructor(private readonly iconRegistry: PrizmIconsSvgRegistry) {
-    this.iconRegistry.registerIcons(PRIZM_ICONS_SVG_SET);
+  constructor(private readonly iconRegistry: PrizmIconsFullRegistry) {
+    this.iconRegistry.registerIcons(PRIZM_ICONS_SET);
   }
 
   /** Hides 3rd level children */

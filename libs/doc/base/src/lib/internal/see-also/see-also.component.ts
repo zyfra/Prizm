@@ -5,12 +5,17 @@ import { PRIZM_DOC_SEE_ALSO_TEXT } from '../../tokens/i18n';
 import { PRIZM_DOC_PAGES } from '../../tokens/pages';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { TuiLinkModule } from '@taiga-ui/core';
 
 @Component({
   selector: `prizm-doc-see-also`,
   templateUrl: `./see-also.template.html`,
   styleUrls: [`./see-also.style.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
+  imports: [CommonModule, RouterModule, TuiLinkModule],
 })
 export class PrizmDocSeeAlsoComponent {
   @Input()

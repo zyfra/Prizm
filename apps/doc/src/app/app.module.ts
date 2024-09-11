@@ -24,7 +24,7 @@ import { VersionManagerModule } from './version-manager/version-manager.module';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { registerLocaleData } from '@angular/common';
 import localeRu from '@angular/common/locales/ru';
-import { PrizmAccordionModule, PrizmToastModule, PrizmToggleModule } from '@prizm-ui/components';
+import { PrizmAccordionModule, PrizmToastModule, PrizmToggleComponent } from '@prizm-ui/components';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { ContactsModule } from './about-prizm/contacts/contacts.module';
 import { DesignSystemModule } from './about-prizm/design-system/design-system.module';
@@ -57,7 +57,7 @@ registerLocaleData(localeRu);
     TuiStringifyContentPipeModule,
     TuiStringifyPipeModule,
     TuiToggleModule,
-    PrizmToggleModule,
+    PrizmToggleComponent,
     TuiModeModule,
     TuiLinkModule,
     VersionManagerModule,

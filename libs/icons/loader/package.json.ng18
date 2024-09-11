@@ -1,0 +1,17 @@
+{
+  "name": "@prizm-ui/icons-loader",
+  "version": "<%= version %>",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "peerDependencies": {
+    "@angular/common": "^<%= ngVersion %>",
+    "@angular/core": "^<%= ngVersion %>",
+    "@prizm-ui/icons": "^<%= version %>"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  }
+}

@@ -5,15 +5,6 @@ import {
   PrizmThemeModule,
   PrizmThemeService,
 } from '@prizm-ui/theme';
-import {
-  PrizmIconsSvgComponent,
-  PrizmIconsSvgRegistry,
-  prizmIconSvgEditorDecorCodeDownload,
-  PrizmIconSvgEnum,
-  prizmIconSvgOtherGitHub,
-  prizmIconSvgSettingsToolsBan,
-  prizmIconSvgShapeGeometrySquareCirclePlusTriangleFill,
-} from '@prizm-ui/icons';
 import { PrizmAddonDocModule } from '@prizm-ui/doc';
 import { AsyncPipe, NgFor, NgIf } from '@angular/common';
 import { of, switchMap } from 'rxjs';
@@ -23,6 +14,15 @@ import { PrizmScrollbarComponent, PrizmToggleComponent } from '@prizm-ui/compone
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { ThemeTokenChangerService } from './theme-token-changer.service';
+import {
+  PrizmIconsSvgComponent,
+  PrizmIconsSvgRegistry,
+  prizmIconSvgEditorDecorCodeDownload,
+  PrizmIconSvgEnum,
+  prizmIconSvgOtherGitHub,
+  prizmIconSvgSettingsToolsBan,
+  prizmIconSvgShapeGeometrySquareCirclePlusTriangleFill,
+} from '../icons-svg';
 
 @Component({
   selector: 'prizm-doc-theme-token-changer',

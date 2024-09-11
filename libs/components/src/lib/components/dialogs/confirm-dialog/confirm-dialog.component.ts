@@ -4,15 +4,15 @@ import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService, PrizmToObservableModule } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmToObservablePipe } from '@prizm-ui/helpers';
 import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
-import { PrizmOverlayModule } from '../../../modules';
+import { PolymorphModule, PrizmFocusTrapDirective } from '../../../directives';
+import { PrizmOverlayComponent } from '../../../modules';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmButtonModule } from '../../button';
+import { PrizmButtonComponent } from '../../button';
 import { PrizmScrollbarModule } from '../../scrollbar';
 
 @Component({
@@ -25,11 +25,11 @@ import { PrizmScrollbarModule } from '../../scrollbar';
   imports: [
     CommonModule,
     PolymorphModule,
-    PrizmOverlayModule,
+    PrizmOverlayComponent,
     PrizmThemeModule,
-    PrizmToObservableModule,
-    PrizmButtonModule,
-    PrizmFocusTrapModule,
+    PrizmToObservablePipe,
+    PrizmButtonComponent,
+    PrizmFocusTrapDirective,
     PrizmScrollbarModule,
   ],
   animations: [prizmSlideInTop, prizmFadeIn],

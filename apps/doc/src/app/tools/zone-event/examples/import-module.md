@@ -1,12 +1,12 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmZoneEventModule } from '@prizm-ui/components';
+import { PrizmZoneEventDirective } from '@prizm-ui/components';
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmZoneEventModule,
+    PrizmZoneEventDirective,
   ],
 })
 export class MyModule {}

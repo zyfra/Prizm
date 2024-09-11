@@ -5,7 +5,7 @@ import { PrizmContextWithImplicit } from '../../../types';
 import {
   PrizmSelectIdentityMatcher,
   PrizmSelectSearchMatcher,
-  PrizmSelectValueTransformver,
+  PrizmSelectValueTransformer,
 } from './select.model';
 import { Observable } from 'rxjs';
 
@@ -36,7 +36,7 @@ export interface PrizmSelectOptions<T> {
   readonly nullContent: PolymorphContent;
   readonly searchMatcher: PrizmSelectSearchMatcher<T>;
   readonly identityMatcher: PrizmSelectIdentityMatcher<T>;
-  readonly transformer: PrizmSelectValueTransformver<T, unknown>;
+  readonly transformer: PrizmSelectValueTransformer<T, unknown>;
   readonly minDropdownHeight: number;
   /**
    * @deprecated

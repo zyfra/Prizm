@@ -1,0 +1,15 @@
+{
+  "name": "@prizm-ui/install",
+  "version": "<%= version %>",
+  "description": "Package installer @prizm-ui/* , Angular schematic ng-add",
+  "schematics": "./src/collection.json",
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "dependencies": {
+    "@angular-devkit/schematics": "^7.1.0",
+    "ng-morph": "^2.0.0"
+  }
+}

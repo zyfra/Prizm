@@ -13,6 +13,7 @@ import { PrizmFocusVisibleService } from './focus-visible.service';
   // eslint-disable-next-line @angular-eslint/no-outputs-metadata-property
   outputs: ['prizmFocusVisibleChange'],
   providers: [PrizmDestroyService, PrizmFocusVisibleService],
+  standalone: true,
 })
 export class PrizmFocusVisibleDirective {
   constructor(

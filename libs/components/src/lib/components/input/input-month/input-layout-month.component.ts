@@ -33,12 +33,12 @@ import { PrizmCalendarMonthComponent } from '../../calendar-month';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import {
   PolymorphOutletDirective,
-  PrizmLifecycleModule,
-  PrizmPreventDefaultModule,
+  PrizmLifecycleDirective,
+  PrizmPreventDefaultDirective,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmMapperPipeModule } from '../../table/pipes/mapper/mapper.module';
+import { PrizmMapperPipe } from '../../table/pipes/mapper/mapper.pipe';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
 
@@ -64,13 +64,13 @@ import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
     CommonModule,
     PrizmCalendarMonthComponent,
     PrizmDropdownHostComponent,
-    PrizmPreventDefaultModule,
+    PrizmPreventDefaultDirective,
     FormsModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PolymorphOutletDirective,
     PrizmMaskModule,
     PrizmInputTextModule,
-    PrizmMapperPipeModule,
+    PrizmMapperPipe,
   ],
 })
 export class PrizmInputLayoutMonthComponent extends PrizmInputNgControl<PrizmMonth | null> {

@@ -18,7 +18,7 @@ import { PRIZM_MONTHS } from '../../../tokens/i18n';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
-import { PrizmMonthPipeModule } from '../../../pipes';
+import { PrizmMonthPipe } from '../../../pipes';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 const ITEMS_IN_ROW = 3;
@@ -36,7 +36,7 @@ const ROWS = 4;
     PrizmLetDirective,
     CommonModule,
     PrizmScrollIntoViewDirective,
-    PrizmMonthPipeModule,
+    PrizmMonthPipe,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [prizmI18nInitWithKey(PRIZM_MONTHS, 'months')],

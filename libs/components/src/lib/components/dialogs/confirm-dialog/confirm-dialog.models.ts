@@ -32,7 +32,7 @@ export interface PrizmConfirmDialogOptions<DATA = unknown> extends PrizmDialogBa
 }
 
 export enum PrizmConfirmDialogResultDefaultType {
-  confirmed = 'confirmed',
+  confirm = 'confirm',
   support = 'support',
   cancel = 'cancel',
 }

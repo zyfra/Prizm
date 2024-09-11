@@ -8,6 +8,7 @@ import { PrizmInputLayoutComponent } from '../input-layout';
 @Directive({
   selector: 'input[prizmHintDirection], input[prizmHintCanShow]',
   exportAs: 'prizmInputHint',
+  standalone: true,
 })
 export class PrizmInputHintDirective {
   readonly prizmHint_ = new PrizmHintDirective();

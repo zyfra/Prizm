@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { PolymorphComponent } from './polymorph.component';
-import { PolymorphModule, PrizmButtonModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonComponent } from '@prizm-ui/components';
 import { PrizmPolymorphNumberModule } from './examples/number/number.module';
 import { PrizmPolymorphFunctionModule } from './examples/function/function.module';
 import { PrizmPolymorphBaseModule } from './examples/base/base.module';
@@ -15,7 +15,7 @@ import { PrizmPolymorphInjectorComponentModule } from './examples/injector/injec
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PolymorphModule,
     PrizmPolymorphNumberModule,
     PrizmPolymorphFunctionModule,

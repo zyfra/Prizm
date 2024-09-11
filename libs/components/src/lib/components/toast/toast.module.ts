@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { PrizmToastContainerComponent } from './toast-container/toast-container.component';
 import { CommonModule } from '@angular/common';
-import { PrizmOverlayModule } from '../../modules/overlay';
+import { PrizmOverlayComponent } from '../../modules/overlay';
 import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
 import { PolymorphModule } from '../../directives';
 import { PrizmToastControl } from './toast-control';
-import { PrizmFocusTrapModule } from '../../directives/focus-trap';
-import { PrizmButtonModule } from '../button';
-import { PrizmIndicatorModule } from '../indicator';
+import { PrizmFocusTrapDirective } from '../../directives/focus-trap';
+import { PrizmButtonComponent } from '../button';
+import { PrizmIndicatorComponent } from '../indicator';
 import { PrizmInputCommonModule } from '../input';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmScrollbarModule } from '../scrollbar';
@@ -17,13 +17,13 @@ import { PrizmScrollbarModule } from '../scrollbar';
   exports: [PrizmToastContainerComponent],
   imports: [
     CommonModule,
-    PrizmOverlayModule,
+    PrizmOverlayComponent,
     PrizmInputCommonModule,
-    PrizmIndicatorModule,
+    PrizmIndicatorComponent,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmThemeModule,
-    PrizmFocusTrapModule,
+    PrizmFocusTrapDirective,
     PrizmScrollbarModule,
   ],
   declarations: [PrizmToastContainerComponent, ToastWrapperComponent, ToastComponent],

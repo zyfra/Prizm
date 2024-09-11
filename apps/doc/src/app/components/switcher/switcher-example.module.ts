@@ -4,7 +4,7 @@ import { SwitcherExampleComponent } from './switcher-example.component';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SwitcherBasicExampleComponent } from './examples/switcher-basic-example/switcher-basic-example.component';
-import { PrizmButtonComponent, PrizmSwitcherModule } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmSwitcherComponent } from '@prizm-ui/components';
 import { SwitcherInnerLExampleComponent } from './examples/switcher-inner-l-example/switcher-inner-l-example.component';
 import { SwitcherInnerMExampleComponent } from './examples/switcher-inner-m-example/switcher-inner-m-example.component';
 import { SwitcherOuterMExampleComponent } from './examples/switcher-outer-m-example/switcher-outer-m-example.component';
@@ -32,7 +32,7 @@ import { SwitcherAsyncExampleComponent } from './examples/switcher-async-example
     CommonModule,
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(SwitcherExampleComponent)),
-    PrizmSwitcherModule,
+    PrizmSwitcherComponent,
     ReactiveFormsModule,
     PrizmButtonComponent,
   ],

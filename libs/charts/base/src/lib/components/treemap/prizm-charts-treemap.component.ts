@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Treemap } from '@antv/g2plot';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsTreemapData, PrizmChartsTreemapOptions, PrizmChartsTreemapOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-treemap',
   templateUrl: './prizm-charts-treemap.component.html',
   styleUrls: ['./prizm-charts-treemap.component.less'],
   exportAs: 'prizmChartsTreemap',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsTreemapComponent<
   T extends Record<string, unknown>

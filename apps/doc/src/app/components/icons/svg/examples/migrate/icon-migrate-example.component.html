@@ -1,0 +1,21 @@
+<div>
+  <h4>Migration Guide</h4>
+
+  <ol>
+    <li>
+      Для миграции с использованием прежних названий, вы можете использовать наш провайдер
+      <code>prizmIconsProvideOldSvgNameTransformer()</code>
+    </li>
+
+    <li>Зарезирвируйте новый сет используемы иконок. Пример в текущем компоненте</li>
+
+    <li>Вместо prizm-icons-svg добавьте и используйте prizm-icons или prizm-icons-full</li>
+  </ol>
+
+  <h4>Пример с передачей старых названий</h4>
+  <div style="display: flex; gap: 8px">
+    <prizm-icons [size]="30" name="settings_tools_ban"></prizm-icons>
+    <prizm-icons [size]="30" name="production_industry_snake_cup"></prizm-icons>
+    <prizm-icons [size]="30" name="date_time_calendar_plus"></prizm-icons>
+  </div>
+</div>
