@@ -1,19 +1,28 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
-import { PrizmDay, PrizmTime } from '../../@core';
+import { PrizmDateTime, PrizmDay, PrizmTime } from '../../@core';
+import { PrizmDateTimeMinMax } from '../../components';
 
 @Pipe({ name: 'prizmTimeConstraints', standalone: true })
 export class PrizmTimeConstraintsPipe implements PipeTransform {
   public transform(
     timeItems: readonly PrizmTime[],
-    currentDate: PrizmDay | null,
-    min: PrizmDay | [PrizmDay, PrizmTime],
-    max: PrizmDay | [PrizmDay, PrizmTime]
+    currentDate: PrizmDay | null | undefined,
+    min: PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTimeMinMax,
+    max: PrizmDay | [PrizmDay, PrizmTime] | PrizmDateTimeMinMax
   ): PrizmTime[] {
     let items = [...timeItems];
 
     if (!currentDate || (min instanceof PrizmDay && max instanceof PrizmDay)) {
       return items;
+    }
+
+    if (min instanceof PrizmDateTime) {
+      min = min.time ? [min.day, min.time] : min.day;
+    }
+
+    if (max instanceof PrizmDateTime) {
+      max = max.time ? [max.day, max.time] : max.day;
     }
 
     const minDate = min instanceof PrizmDay ? null : min[0];
