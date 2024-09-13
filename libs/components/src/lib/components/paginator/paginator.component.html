@@ -11,6 +11,7 @@
     <div class="rows-selector" *ngIf="!paginatorOptions?.noRowsSelector">
       <prizm-input-layout [forceClear]="false" [outer]="true" label="" size="s">
         <prizm-input-select
+          data-testid="paginator-lines-on-page"
           [items]="$any(this.rowsCountOptions?.length) > 0 ? this.rowsCountOptions : [rows]"
           [disabled]="disabled"
           [ngModel]="rows"
@@ -34,7 +35,7 @@
       <span data-testid="paginator-i18n-from-text">
         {{ paginator$ | async | prizmPluck : ['fromText'] }}
       </span>
-      <span data-testid="paginator-real-total-record">
+      <span data-testid="paginator-real-total-records">
         {{ realTotalRecord }}
       </span>
     </span>
@@ -43,6 +44,7 @@
       *ngIf="paginatorType === 'finite' && paginationGenerator() as pagingData"
     >
       <button
+        data-testid="paginator-first-page"
         class="control control_left"
         *ngIf="paginatorOptions.noToFirstPageBtn ?? true"
         [icon]="'chevrons-double-left'"
@@ -54,6 +56,7 @@
         size="m"
       ></button>
       <button
+        data-testid="paginator-prev-page"
         class="control control_left"
         *ngIf="!leftButtonLabel; else leftLabelBtn"
         [icon]="'angle-left'"
@@ -66,6 +69,7 @@
       ></button>
       <ng-template #leftLabelBtn>
         <button
+          data-testid="paginator-prev-page"
           class="control control_left"
           *ngIf="leftButtonLabel"
           [icon]="'angle-left'"
@@ -139,6 +143,7 @@
       </ng-container>
 
       <button
+        data-testid="paginator-next-page"
         class="control control_right"
         *ngIf="!rightButtonLabel; else rightLabelBtn"
         [icon]="'angle-right'"
@@ -151,6 +156,7 @@
       ></button>
       <ng-template #rightLabelBtn>
         <button
+          data-testid="paginator-next-page"
           class="control_right"
           [iconRight]="'angle-right'"
           [disabled]="disabled || (currentPage === pagesCount ?? currentPage === 0)"
@@ -165,6 +171,7 @@
       </ng-template>
 
       <button
+        data-testid="paginator-last-page"
         class="control control_right"
         *ngIf="paginatorOptions.noToLastPageBtn ?? true"
         [icon]="'chevrons-double-right'"
@@ -179,6 +186,7 @@
 
     <div class="paginator paginator__infinite" *ngIf="paginatorType === 'infinite'">
       <button
+        data-testid="paginator-show-more"
         [disabled]="disabled || showMoreDisabled"
         (click)="increase()"
         prizmButton
