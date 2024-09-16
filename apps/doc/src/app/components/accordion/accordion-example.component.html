@@ -47,6 +47,9 @@
           [title]="title"
           [icon]="icon"
           [isExpanded]="isExpanded"
+          [style.--prizm-accordion-item-header-border-color-expanded]="
+            prizmAccordionHeaderExpandedBorderColor
+          "
           prizmDocHostElementKey="PrizmAccordionItemComponent"
         >
           <ng-template prizmAccordionTools>
@@ -65,7 +68,13 @@
             </span>
           </ng-template>
         </prizm-accordion-item>
-        <prizm-accordion-item [disabled]="disabled" [title]="'Title number 3'">
+        <prizm-accordion-item
+          [disabled]="disabled"
+          [title]="'Title number 3'"
+          [style.--prizm-accordion-item-header-border-color-expanded]="
+            prizmAccordionHeaderExpandedBorderColor
+          "
+        >
           <ng-template prizmAccordionTools>
             <prizm-checkbox [disabled]="disabled" label="Checkbox label is here but..."></prizm-checkbox>
           </ng-template>
@@ -106,6 +115,14 @@
       hostComponentKey="PrizmAccordionItemComponent"
       heading="PrizmAccordionItemComponent"
     >
+      <ng-template
+        [(documentationPropertyValue)]="prizmAccordionHeaderExpandedBorderColor"
+        documentationPropertyName="prizm-accordion-item-header-border-color-expanded"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Accordion Header Border Bottom Color for expanded items (default - transparent)
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="isExpanded"
         documentationPropertyName="isExpanded"
