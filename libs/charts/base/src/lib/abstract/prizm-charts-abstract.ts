@@ -10,6 +10,24 @@ export abstract class PrizmChartsAbstractComponent<
   extends PrizmAbstractTestId
   implements OnDestroy
 {
+  // TODO: refactor update options issue #1867
+  // use directive composition, call updateOptions once, remove getters and setters for options from chart classes
+  // const options = Object.entries(changes).reduce(
+  //   (base, [inputName, inputValue]) => {
+  //     if (
+  //       [
+  //         'width',
+  //         'height',
+  //         'color',
+  //       ].includes(inputName)
+  //     ) base[inputName] = inputValue
+  //     return base;
+  //   },
+  //   {}
+  // );
+
+  // this.updateOptions(options);
+
   @HostBinding('style.width.px')
   @Input()
   set width(value: number | null) {
