@@ -140,6 +140,8 @@ export interface PrizmLanguagePaginator {
   paginator: {
     linesShown: string;
     fromText: string;
+    linesOnPage: string;
+    moreButtonLabel: string;
   };
 }
 
