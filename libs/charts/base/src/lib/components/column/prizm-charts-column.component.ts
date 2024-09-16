@@ -30,6 +30,14 @@ export class PrizmChartsColumnComponent<
   }
 
   @Input()
+  public set color(value: PrizmChartsColumnOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsColumnOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set seriesField(value: string) {
     this.updateOptions({ seriesField: value });
   }
