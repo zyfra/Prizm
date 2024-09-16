@@ -31,7 +31,6 @@ import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PrizmDateMode } from '../../../types/date-mode';
 import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
-import { PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
@@ -65,6 +64,8 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS } from './input-date-range-time.providers';
+import { PRIZM_INPUT_DATE_RANGE_PROVIDERS } from '../input-date-range';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -78,6 +79,7 @@ import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/s
       time: PRIZM_TIME_TEXTS,
       dateTexts: PRIZM_DATE_TEXTS,
     }),
+    PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutDateTimeRangeComponent),
@@ -249,11 +251,10 @@ export class PrizmInputLayoutDateTimeRangeComponent
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     @Optional()
-    @Inject(PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER)
+    @Inject(PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS)
     override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
   ) {
-    super(injector);
-
+    super(injector, valueTransformer);
     this.iconsFullRegistry.registerIcons(prizmIconsCalendarRange, prizmIconsClock);
   }
 
