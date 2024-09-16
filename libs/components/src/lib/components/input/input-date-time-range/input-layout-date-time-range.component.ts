@@ -65,6 +65,7 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -101,6 +102,7 @@ import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/s
     PrizmCalendarRangeComponent,
     PrizmValueAccessorModule,
     FormsModule,
+    PrizmTimeConstraintsPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeRangeComponent
