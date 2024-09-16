@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginatorExampleComponent } from './paginator-example.component';
 import { PaginatorBasicExampleComponent } from './examples/paginator-basic-example/paginator-basic-example.component';
+import { PaginatorBasicLeftExampleComponent } from './examples/paginator-basic-left-example/paginator-basic-left-example.component';
 import {
   PrizmAddonDocModule,
   PrizmDocCodeModule,
@@ -26,6 +27,7 @@ import { PrizmLanguagePipe } from '@prizm-ui/i18n';
     PaginatorBasicExampleComponent,
     PaginatorWithLabelsExampleComponent,
     PaginatorInfiniteExampleComponent,
+    PaginatorBasicLeftExampleComponent,
   ],
   imports: [
     CommonModule,
