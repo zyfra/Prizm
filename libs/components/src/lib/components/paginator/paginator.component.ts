@@ -59,7 +59,10 @@ import { prizmDefaultProp } from '@prizm-ui/core';
 })
 export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
-  @Input() textOnPage: PolymorphContent = 'Строк на странице';
+  @Input() textOnPage: PolymorphContent;
+  @Input() public leftButtonLabel = '';
+  @Input() public rightButtonLabel = '';
+  @Input() public moreButtonLabel = '';
   /** The length of the total number of items that are being paginated. Defaulted to 0. */
   @Input()
   get totalRecords(): number | null {
@@ -108,10 +111,6 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
     noInfo: false,
     noPages: false,
   };
-
-  @Input() public leftButtonLabel = '';
-  @Input() public rightButtonLabel = '';
-  @Input() moreButtonLabel = 'Показать еще';
 
   @Input() public rowsCountOptions: number[] = [];
 

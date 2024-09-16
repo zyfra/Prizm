@@ -18,6 +18,7 @@ import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-l
 import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite-example/paginator-infinite-example.component';
 import { PaginatorOptionsExampleComponent } from './examples/paginator-options-example/paginator-options-example.component';
 import { PaginatorI18nExampleComponent } from './examples/i18n/paginator-i18n-example.component';
+import { PrizmLanguagePipe } from '@prizm-ui/i18n';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { PaginatorI18nExampleComponent } from './examples/i18n/paginator-i18n-ex
     RouterModule.forChild(prizmDocGenerateRoutes(PaginatorExampleComponent)),
     PrizmPaginatorComponent,
     PaginatorI18nExampleComponent,
+    PrizmLanguagePipe,
   ],
 })
 export class PaginatorExampleModule {}
