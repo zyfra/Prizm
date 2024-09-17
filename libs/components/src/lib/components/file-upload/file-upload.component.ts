@@ -23,6 +23,8 @@ import {
   PrizmSanitizerPipe,
 } from '@prizm-ui/helpers';
 import {
+  PrizmActionEvent,
+  PrizmFileItemAction,
   PrizmFilesMap,
   PrizmFilesProgress,
   PrizmFileUploadOptions,
@@ -43,14 +45,11 @@ import { PrizmFileNamePipe } from './pipes/file-name.pipe';
 import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import {
-  prizmIconsFileEmpty,
-  prizmIconsArrowRotateRight,
-  prizmIconsTrashEmpty,
-} from '@prizm-ui/icons/full/source';
+import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
 import { PrizmHintDirective } from '../../directives';
 import { prizmIsTextOverflow } from '../../util';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_ICONS_FULL_SET } from '@prizm-ui/icons/full/source/icon-set';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -102,11 +101,7 @@ export class PrizmFileUploadComponent
     super();
     this.options = { ...this.options, ...customOptions };
 
-    this.iconsFullRegistry.registerIcons(
-      prizmIconsArrowRotateRight,
-      prizmIconsTrashEmpty,
-      prizmIconsFileEmpty
-    );
+    this.iconsFullRegistry.registerIcons(...PRIZM_ICONS_FULL_SET);
   }
 
   @Input() accept = '';
@@ -141,18 +136,22 @@ export class PrizmFileUploadComponent
         file,
         progress: 100,
         error: false,
+        actions: [],
         url: this.isImage(file) ? URL.createObjectURL(file) : '',
       });
     }
+    this.afterFilesChange.next();
   }
 
   @Output() beforeFilesChange = new EventEmitter<void>();
+  @Output() afterFilesChange = new EventEmitter<void>();
   @Output() filesChange = new EventEmitter<Array<File>>();
   @Output() fileRemoved = new EventEmitter<string>();
   @Output() fileAdded = new EventEmitter<string>();
   @Output() filesValidationErrors = new EventEmitter<{ [filename: string]: PrizmFileValidationErrors }>();
   @Output() filesCountError = new EventEmitter<Array<string>>();
   @Output() retry = new EventEmitter<File>();
+  @Output() actionEvent = new EventEmitter<PrizmActionEvent>();
 
   get files(): Array<File> {
     return [...this.filesMap.entries()].map(([_, { file }]) => file);
@@ -166,6 +165,10 @@ export class PrizmFileUploadComponent
     if (this.files.length > this.calculatedMaxFilesCount) {
       this.filesCountError.next(this.files.slice(this.calculatedMaxFilesCount).map(file => file.name));
     }
+  }
+
+  public actions(filename: string): PrizmFileItemAction[] {
+    return this.filesMap.get(filename)?.actions || [];
   }
 
   public ngAfterViewInit(): void {
@@ -210,6 +213,10 @@ export class PrizmFileUploadComponent
       this.selectFiles(Array.from(inputFile.files));
       inputFile.value = '';
     }
+  }
+
+  public actionHandler(event: string, data: string): void {
+    this.actionEvent.emit({ event, data });
   }
 
   public getFileExtension(file: File): string {
@@ -309,12 +316,14 @@ export class PrizmFileUploadComponent
         file,
         progress: 0,
         error: false,
+        actions: [],
         url: this.isImage(file) ? URL.createObjectURL(file) : (null as any),
       });
       this.fileAdded.emit(file.name);
     }
 
     this.filesChange.next(this.files);
+    this.afterFilesChange.next();
   }
 
   private validate(file: File): boolean {

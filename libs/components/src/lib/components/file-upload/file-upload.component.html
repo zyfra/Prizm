@@ -63,28 +63,41 @@
         {{ translations | prizmPluck : [item.value.progress | prizmUploadStatus : item.value.error] }}
       </div>
 
-      <button
-        class="file__retry-btn"
-        *ngIf="item.value.error && options.showRetryButtons"
-        [disabled]="disabled"
-        [icon]="'arrow-rotate-right'"
-        (click)="retryUpload(item.key)"
-        prizmIconButton
-        appearanceType="ghost"
-        appearance="secondary"
-        size="s"
-      ></button>
+      <div class="file__actions">
+        @for (action of actions(item.key); track action.event) {
+        <button
+          [disabled]="!!action.disabled || disabled"
+          [icon]="action.icon"
+          (click)="actionHandler(action.event, item.key)"
+          prizmIconButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="s"
+        ></button>
+        }
+        <button
+          class="file__retry-btn"
+          *ngIf="item.value.error && options.showRetryButtons"
+          [disabled]="disabled"
+          [icon]="'arrow-rotate-right'"
+          (click)="retryUpload(item.key)"
+          prizmIconButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="s"
+        ></button>
 
-      <button
-        class="file__delete-btn"
-        [disabled]="disabled"
-        [icon]="'trash-empty'"
-        (click)="removeFile(item.key)"
-        prizmIconButton
-        appearanceType="ghost"
-        appearance="secondary"
-        size="s"
-      ></button>
+        <button
+          class="file__delete-btn"
+          [disabled]="disabled"
+          [icon]="'trash-empty'"
+          (click)="removeFile(item.key)"
+          prizmIconButton
+          appearanceType="ghost"
+          appearance="secondary"
+          size="s"
+        ></button>
+      </div>
 
       <div class="file__progress progress">
         <progress

@@ -13,6 +13,7 @@ import { PrizmFileUploadInFormExampleComponent } from './examples/file-upload-in
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 import { PrizmFileUploadWithInitFilesComponent } from './examples/file-upload-with-init-files/file-upload-with-init-files.component';
+import { PrizmFileUploadCustomActionsComponent } from './examples/file-upload-custom-actions/file-upload-custom-actions.component';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { PrizmFileUploadWithInitFilesComponent } from './examples/file-upload-wi
     PrizmFileUploadI18nExampleComponent,
     PrizmFileUploadInFormExampleComponent,
     PrizmFileUploadWithInitFilesComponent,
+    PrizmFileUploadCustomActionsComponent,
   ],
   providers: [fakeFileUploadProvider],
 })

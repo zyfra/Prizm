@@ -1,6 +1,11 @@
 import { HttpEvent, HttpEventType, HttpClient } from '@angular/common/http';
 import { Component, ChangeDetectionStrategy, OnDestroy, signal } from '@angular/core';
-import { PrizmFilesProgress, PrizmFileValidationErrors, PrizmToastService } from '@prizm-ui/components';
+import {
+  PrizmActionEvent,
+  PrizmFilesProgress,
+  PrizmFileValidationErrors,
+  PrizmToastService,
+} from '@prizm-ui/components';
 
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { BehaviorSubject } from 'rxjs';
@@ -35,6 +40,11 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
   readonly exampleWithInitFiles: TuiDocExample = {
     TypeScript: import('./examples/file-upload-with-init-files/file-upload-with-init-files.component.ts?raw'),
     HTML: import('./examples/file-upload-with-init-files/file-upload-with-init-files.component.html?raw'),
+  };
+
+  readonly exampleCustomActions: TuiDocExample = {
+    TypeScript: import('./examples/file-upload-custom-actions/file-upload-custom-actions.component.ts?raw'),
+    HTML: import('./examples/file-upload-custom-actions/file-upload-custom-actions.component.html?raw'),
   };
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
@@ -207,5 +217,9 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
 
   public onFileRemoved(file: string): void {
     console.log('Файл удален', file);
+  }
+
+  public onActionEvent(event: PrizmActionEvent): void {
+    console.log('Action event', event);
   }
 }
