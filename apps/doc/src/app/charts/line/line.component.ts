@@ -11,6 +11,7 @@ export class LineComponent {
   height = 300;
   xField = 'x';
   yField = 'y';
+  color = '';
   width: number | null = null;
   seriesField: string | null = null;
   data: any = [
