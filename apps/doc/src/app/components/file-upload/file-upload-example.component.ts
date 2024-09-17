@@ -1,9 +1,10 @@
 import { HttpEvent, HttpEventType, HttpClient } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy, signal } from '@angular/core';
 import { PrizmFilesProgress, PrizmFileValidationErrors, PrizmToastService } from '@prizm-ui/components';
 
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { BehaviorSubject } from 'rxjs';
+import { getMultiMockFiles } from './files.utils';
 
 @Component({
   templateUrl: './file-upload-example.component.html',
@@ -31,6 +32,11 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
     HTML: import('./examples/file-upload-in-form/file-upload-in-form-example.component.html?raw'),
   };
 
+  readonly exampleWithInitFiles: TuiDocExample = {
+    TypeScript: import('./examples/file-upload-with-init-files/file-upload-with-init-files.component.ts?raw'),
+    HTML: import('./examples/file-upload-with-init-files/file-upload-with-init-files.component.html?raw'),
+  };
+
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   userContentRu = 'текст пользователя';
@@ -44,16 +50,25 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
   public multiple = true;
 
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
+  initFiles = signal<File[]>([]);
+  initFilesVariants = signal<Array<File[]>>([[]]);
   files: Array<File> = [];
   disabled = false;
 
-  constructor(private readonly toastService: PrizmToastService, private http: HttpClient) {}
+  constructor(private readonly toastService: PrizmToastService, private http: HttpClient) {
+    getMultiMockFiles().then(files => {
+      this.initFilesVariants.update(fs => {
+        fs.push(files);
+        return fs;
+      });
+    });
+  }
 
   public onFilesChange(files: Array<File>): void {
     this.files = files;
   }
 
-  public onfilesValidationErrors(errors: { [key: string]: PrizmFileValidationErrors }): void {
+  public onFilesValidationErrors(errors: { [key: string]: PrizmFileValidationErrors }): void {
     for (const filename of Object.keys(errors)) {
       this.toastService.create(JSON.stringify(errors[filename]), {
         title: `Файл ${filename} не прошел валидацию`,
@@ -184,5 +199,13 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
 
   public ngOnDestroy(): void {
     this.progress$$.complete();
+  }
+
+  public onFileAdded(file: string): void {
+    console.log('Файл добавлен', file);
+  }
+
+  public onFileRemoved(file: string): void {
+    console.log('Файл удален', file);
   }
 }

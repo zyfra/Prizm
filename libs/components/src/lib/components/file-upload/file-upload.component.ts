@@ -84,10 +84,15 @@ export class PrizmFileUploadComponent
   readonly icon = prizmIconsFileEmpty;
   readonly prizmIsTextOverflow = prizmIsTextOverflow;
   public calculatedMaxFilesCount = Number.MAX_SAFE_INTEGER;
+  public filesMap: PrizmFilesMap = new Map();
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private listeners: Array<() => void> = [];
+  private validationErrors: { [filename: string]: PrizmFileValidationErrors } = {};
+  private _maxFilesCount = Number.MAX_SAFE_INTEGER;
+  private _disabled = false;
 
   constructor(
     private renderer: Renderer2,
@@ -104,12 +109,6 @@ export class PrizmFileUploadComponent
     );
   }
 
-  private listeners: Array<() => void> = [];
-
-  private validationErrors: { [filename: string]: PrizmFileValidationErrors } = {};
-
-  private _maxFilesCount = Number.MAX_SAFE_INTEGER;
-
   @Input() accept = '';
   @Input() multiple = false;
   @Input() maxFileSize = Number.MAX_SAFE_INTEGER;
@@ -125,7 +124,6 @@ export class PrizmFileUploadComponent
   set disabled(value: BooleanInput) {
     this._disabled = coerceBooleanProperty(value);
   }
-  private _disabled = false;
 
   @Input() set progress(progress: PrizmFilesProgress) {
     for (const key of Object.keys(progress)) {
@@ -135,13 +133,26 @@ export class PrizmFileUploadComponent
     }
   }
 
+  @Input() set files(files: File[] | undefined) {
+    if (!files || (Array.isArray(files) && files.length === 0)) return;
+    this.clearFiles({ emitEvent: false });
+    for (const file of files) {
+      this.filesMap.set(file.name, {
+        file,
+        progress: 100,
+        error: false,
+        url: this.isImage(file) ? URL.createObjectURL(file) : '',
+      });
+    }
+  }
+
   @Output() beforeFilesChange = new EventEmitter<void>();
   @Output() filesChange = new EventEmitter<Array<File>>();
+  @Output() fileRemoved = new EventEmitter<string>();
+  @Output() fileAdded = new EventEmitter<string>();
   @Output() filesValidationErrors = new EventEmitter<{ [filename: string]: PrizmFileValidationErrors }>();
   @Output() filesCountError = new EventEmitter<Array<string>>();
   @Output() retry = new EventEmitter<File>();
-
-  public filesMap: PrizmFilesMap = new Map();
 
   get files(): Array<File> {
     return [...this.filesMap.entries()].map(([_, { file }]) => file);
@@ -214,6 +225,7 @@ export class PrizmFileUploadComponent
       URL.revokeObjectURL(fileData.url);
     }
     this.filesMap.delete(filename);
+    this.fileRemoved.emit(filename);
 
     if (options.emitEvent) {
       this.filesChange.next(this.files);
@@ -299,6 +311,7 @@ export class PrizmFileUploadComponent
         error: false,
         url: this.isImage(file) ? URL.createObjectURL(file) : (null as any),
       });
+      this.fileAdded.emit(file.name);
     }
 
     this.filesChange.next(this.files);

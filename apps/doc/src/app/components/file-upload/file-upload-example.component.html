@@ -15,6 +15,10 @@
     <prizm-doc-example id="example-in-form" [content]="exampleInForm" heading="Usage in Forms">
       <prizm-file-upload-in-form-example></prizm-file-upload-in-form-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="with-init-files" [content]="exampleWithInitFiles" heading="Usage with init files">
+      <prizm-file-upload-with-init-files></prizm-file-upload-with-init-files>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -28,9 +32,12 @@
         [maxFilesCount]="maxFilesCount"
         [maxFileSize]="maxFileSize"
         [disabled]="disabled"
+        [files]="initFiles()"
         (filesChange)="onFilesChange($event)"
-        (filesValidationErrors)="onfilesValidationErrors($event)"
+        (filesValidationErrors)="onFilesValidationErrors($event)"
         (filesCountError)="onFilesCountError($event)"
+        (fileAdded)="onFileAdded($event)"
+        (fileRemoved)="onFileRemoved($event)"
         (retry)="retry($event)"
       >
         <ng-container *prizmIfLang="'russian'; else eng">
@@ -79,6 +86,17 @@
         documentationPropertyMode="input"
       >
         Max files count
+      </ng-template>
+
+      <ng-template
+        [documentationPropertyValue]="initFiles()"
+        [documentationPropertyValues]="initFilesVariants()"
+        (documentationPropertyValueChange)="initFiles.set($event)"
+        documentationPropertyName="files"
+        documentationPropertyType="File[]"
+        documentationPropertyMode="input"
+      >
+        Files
       </ng-template>
 
       <!-- <ng-template
@@ -157,6 +175,24 @@
         documentationPropertyType="Event"
         documentationPropertyMode="output"
         documentationPropertyType="Array<filenames>"
+      >
+        Files count error
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="fileAdded"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="string"
+      >
+        Files count error
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="fileRemoved"
+        documentationPropertyType="Event"
+        documentationPropertyMode="output"
+        documentationPropertyType="string"
       >
         Files count error
       </ng-template>
