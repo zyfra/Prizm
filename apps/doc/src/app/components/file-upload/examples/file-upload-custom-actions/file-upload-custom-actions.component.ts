@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { PrizmFilesProgress } from '@prizm-ui/components';
 import { PrizmIconsEnum } from '@prizm-ui/icons/full';
 import { getMultiMockFiles } from '../../files.utils';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsPlay, prizmIconsReplay, prizmIconsPause } from '@prizm-ui/icons/full/source';
 
 @Component({
   selector: 'prizm-file-upload-custom-actions',
@@ -13,7 +15,8 @@ export class PrizmFileUploadCustomActionsComponent {
   actions = signal<PrizmFilesProgress>({});
   files = signal<File[]>([]);
 
-  constructor() {
+  constructor(private iconsFullRegistry: PrizmIconsFullRegistry) {
+    this.iconsFullRegistry.registerIcons(prizmIconsPlay, prizmIconsReplay, prizmIconsPause);
     getMultiMockFiles().then(files => {
       this.files.set(files);
     });

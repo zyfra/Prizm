@@ -45,11 +45,14 @@ import { PrizmFileNamePipe } from './pipes/file-name.pipe';
 import { PrizmFileExtensionPipe } from './pipes/file-extension.pipe';
 import { PrizmFileSizePipe } from './pipes/file-size.pipe';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsFileEmpty } from '@prizm-ui/icons/full/source';
+import {
+  prizmIconsFileEmpty,
+  prizmIconsArrowRotateRight,
+  prizmIconsTrashEmpty,
+} from '@prizm-ui/icons/full/source';
 import { PrizmHintDirective } from '../../directives';
 import { prizmIsTextOverflow } from '../../util';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { PRIZM_ICONS_FULL_SET } from '@prizm-ui/icons/full/source/icon-set';
 
 @Component({
   selector: 'prizm-file-upload',
@@ -101,7 +104,11 @@ export class PrizmFileUploadComponent
     super();
     this.options = { ...this.options, ...customOptions };
 
-    this.iconsFullRegistry.registerIcons(...PRIZM_ICONS_FULL_SET);
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsFileEmpty,
+      prizmIconsArrowRotateRight,
+      prizmIconsTrashEmpty
+    );
   }
 
   @Input() accept = '';
