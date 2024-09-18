@@ -8,7 +8,7 @@ import {
 } from '@prizm-ui/helpers';
 import { noop, ReplaySubject } from 'rxjs';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { SWITCHER_CONTAINER } from '../swithcer.const';
 
 @Directive({
@@ -54,6 +54,8 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
     this.switcherContainer
       .pipe(
         filterTruthy(),
+        // wait for update all childrens
+        debounceTime(0),
         switchMap(() => this.writeValue$),
         tap(idx => this.writeValue_(idx)),
         takeUntil(this.destroy$)

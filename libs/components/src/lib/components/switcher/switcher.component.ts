@@ -72,11 +72,12 @@ import { debounceTime } from 'rxjs/operators';
       provide: PRIZM_INDEX_SELECT_FN,
       useFactory(store: PrizmStoreByIndexDirective<PrizmSwitcherItemComponent>, injector: Injector) {
         return (idx: number) => {
-          const selected = store.get(idx);
-          if (selected) return selected.select();
+          const selected = store.get(idx)?.select();
+          if (selected) return true;
 
           const items = [...store.entries()];
           const defaultValue = items.find(([, i]) => !i.isDisabled);
+
           if (defaultValue) {
             console.warn(`Can not select by idx ${idx}, selected default ${defaultValue[0]}`);
             return defaultValue[1].select();
