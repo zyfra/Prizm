@@ -22,3 +22,5 @@ export type prizmSwitcherHint = {
   value: PolymorphContent | null;
   options?: Partial<PrizmHintOptions>;
 };
+
+export type PrizmSwitcherItemsTrackBy = (i: number, item: PrizmSwitcherItem) => boolean;

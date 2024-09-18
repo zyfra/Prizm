@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { moveInEventLoopIteration } from '@prizm-ui/helpers';
+import { moveInEventLoopIteration } from './rxjs';
 
 describe('rxjs:moveInEventLoopIteration', () => {
   // Тест для moveInEventLoopIteration: проверяем, что значение эмитируется без задержки, если count равен 0

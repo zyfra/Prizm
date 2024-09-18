@@ -19,6 +19,7 @@ export class SwitcherAsyncExampleComponent {
     },
     {
       title: 'Графики',
+      appearance: 'danger',
     },
     {
       title: 'Мнемосхемы',
@@ -26,15 +27,18 @@ export class SwitcherAsyncExampleComponent {
     },
     {
       title: 'Дашборды',
+      appearance: 'success',
     },
   ];
 
   public readonly switchersSetB: PrizmSwitcherItem[] = [
     {
       title: 'Москва',
+      disabled: true,
     },
     {
       title: 'Санкт-Петербург',
+      appearanceType: 'fill',
     },
   ];
 
