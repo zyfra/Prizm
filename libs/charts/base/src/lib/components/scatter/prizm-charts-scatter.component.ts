@@ -29,6 +29,14 @@ export class PrizmChartsScatterComponent<
   }
 
   @Input()
+  public set color(value: PrizmChartsScatterOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsScatterOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set yField(value: string) {
     this.updateOptions({ yField: value });
   }

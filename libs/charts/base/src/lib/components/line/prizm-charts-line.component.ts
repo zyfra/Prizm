@@ -21,6 +21,14 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
 
   private origin_!: PrizmChartsLineOrigin;
 
+  @Input()
+  public set color(value: PrizmChartsLineOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsLineOptions['color'] {
+    return this.options.color;
+  }
+
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });
   }

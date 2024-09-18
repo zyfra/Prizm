@@ -27,6 +27,19 @@
   />
 
   <ng-template #dropdown>
+    <div class="list-search-item" *ngIf="searchable">
+      <prizm-input-layout [label]="searchLabelTranslation$ | async" size="m">
+        <input
+          class="input-search"
+          #input
+          [formControl]="searchInputControl"
+          (input)="dropdownHostRef.reCalculatePositions(1000 / 16)"
+          prizmInput
+          prizmAutoFocus
+        />
+        <button [interactive]="true" prizmInputIconButton="magnifying-glass" prizm-input-right></button>
+      </prizm-input-layout>
+    </div>
     <prizm-data-list
       class="block"
       *prizmLet="{ filteredItems: filteredItems$ | async } as $"
@@ -34,19 +47,6 @@
       [style.--prizm-data-list-border]="0"
       (prizmOnDestroy)="onTouch()"
     >
-      <div class="list-search-item" *ngIf="searchable">
-        <prizm-input-layout [label]="searchLabelTranslation$ | async" size="m">
-          <input
-            class="input-search"
-            #input
-            [formControl]="searchInputControl"
-            (input)="dropdownHostRef.reCalculatePositions(1000 / 16)"
-            prizmInput
-            prizmAutoFocus
-          />
-          <button [interactive]="true" prizmInputIconButton="magnifying-glass" prizm-input-right></button>
-        </prizm-input-layout>
-      </div>
       <ng-container *ngIf="$.filteredItems?.length; else emptyTemplate">
         <div
           class="item"
