@@ -2,9 +2,7 @@
   <ng-container [ngTemplateOutlet]="content"></ng-container>
   {{ table.change$ | async }}
   <span class="sort__block" [class.sort__block_active]="isCurrent">
-    <span class="sorter__number" [style.visibility]="count > 1 && num ? 'visible' : 'hidden'">{{
-      num ?? '0'
-    }}</span>
+    <span class="sorter__number" [class.hidden]="!(count > 1 && num)">{{ num }}</span>
     <button
       class="sorter__icon"
       [icon]="$any(icon$ | async)"

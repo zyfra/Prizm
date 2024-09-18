@@ -21,6 +21,7 @@ export class TreeComponent {
   ];
 
   public treeController = true;
+  public treeItemHeight = '32px';
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

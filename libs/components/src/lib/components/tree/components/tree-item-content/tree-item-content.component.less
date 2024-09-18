@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   &:not(:empty) {
-    height: 32px;
+    height: var(--prizm-tree-item-height, 32px);
   }
 
   :host-context(prizm-tree-item._expandable):not(._expandable) {

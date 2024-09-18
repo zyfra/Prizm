@@ -62,6 +62,7 @@ import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
 import { prizmTimeLimitWithinRange } from '../../../@core/date-time/time-limit';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -107,6 +108,7 @@ import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/s
     PrizmInputNativeValueModule,
     PrizmListingItemComponent,
     PrizmPluckPipe,
+    PrizmTimeConstraintsPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
