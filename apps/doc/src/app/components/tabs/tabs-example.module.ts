@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TabsExampleComponent } from './tabs-example.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
-import { PrizmPanelModule, PrizmTabsModule } from '@prizm-ui/components';
+import { PrizmPanelComponent, PrizmTabsModule } from '@prizm-ui/components';
 import { TabsExampleBasicComponent } from './examples/tabs-example-basic/tabs-example-basic.component';
 import { TabsExampleLinedComponent } from './examples/tabs-example-lined/tabs-example-lined.component';
 import { TabsExampleContainedComponent } from './examples/tabs-example-contained/tabs-example-contained.component';
@@ -14,6 +14,7 @@ import { TabsExampleComponentContentComponent } from './examples/tabs-example-co
 import { TabsExampleComponentComponent } from './examples/tabs-example-component/tabs-example-component.component';
 import { TabsExampleInPanelComponent } from './examples/tabs-example-in-panel/tabs-example-in-panel.component';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+
 @NgModule({
   declarations: [
     TabsExampleComponent,
@@ -32,7 +33,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(TabsExampleComponent)),
     PrizmTabsModule,
-    PrizmPanelModule,
+    PrizmPanelComponent,
     PrizmIfLanguageDirective,
   ],
 })

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { InputInputMultiSelectComponent } from './input-multi-select.component';
-import { PolymorphModule, PrizmButtonModule, PrizmInputMultiSelectModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmButtonComponent, PrizmInputMultiSelectModule } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputMultiSelectWithTemplateExampleComponent } from './examples/with-template/multi-select-with-template-example.component';
 import { PrizmInputMultiSelectBaseExampleComponent } from './examples/base/multi-select-base-example.component';
@@ -21,7 +21,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmInputMultiSelectModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputInputMultiSelectComponent)),
     PrizmIconsFullComponent,

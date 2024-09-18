@@ -16,9 +16,9 @@ import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, UntypedFormControl
 import {
   PolymorphContent,
   PolymorphOutletDirective,
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
-  PrizmFocusableModule,
+  PrizmAutoFocusDirective,
+  PrizmDropdownControllerDirective,
+  PrizmFocusableDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
@@ -72,15 +72,15 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     PrizmLetDirective,
     PrizmHintDirective,
     PrizmCallFuncPipe,
-    PrizmAutoFocusModule,
+    PrizmAutoFocusDirective,
     PrizmScrollbarComponent,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmDataListComponent,
     PrizmCheckboxComponent,
     PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
     PrizmIconsFullComponent,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
   ],
   providers: [
     {
@@ -378,7 +378,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     const newItemState = !item.checked;
     let values: T[];
     if (this.isSelectAllItem(item)) {
-      values = newItemState ? [...this.items] : [];
+      values = newItemState ? this.items.map(item => this.transformer(item)) : [];
     } else {
       const selectedValue = this.transformer(item.obj);
       values = newItemState

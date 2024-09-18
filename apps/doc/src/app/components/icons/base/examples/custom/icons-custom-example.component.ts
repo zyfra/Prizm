@@ -2,7 +2,6 @@ import { Component, inject, OnInit } from '@angular/core';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIcon, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 
-//  You can import from common set
 // Also you can import only specific icon
 // it is useful when you use dynamic importing and you want to reduce bundle size
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';

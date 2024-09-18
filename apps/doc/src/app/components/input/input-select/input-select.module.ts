@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputSelectComponent } from './input-select.component';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmInputSelectModule,
   PrizmScrollbarModule,
 } from '@prizm-ui/components';
@@ -38,7 +38,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PolymorphModule,
     PrizmLetDirective,
     PrizmScrollbarModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmInputSelectModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputSelectComponent)),
     PrizmIconsFullComponent,

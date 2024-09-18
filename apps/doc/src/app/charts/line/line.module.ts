@@ -4,7 +4,7 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { LineComponent } from './line.component';
 import { PrizmChartsLinesExampleComponent } from './examples/base/prizm-charts-line-example.component';
-import { PrizmChartsLineModule } from '@prizm-ui/charts';
+import { PrizmChartsLineComponent } from '@prizm-ui/charts';
 import { PrizmChartsLinesSmoothExampleComponent } from './examples/smooth/prizm-charts-line-smooth-example.component';
 import { PrizmChartsLinesSeriesExampleComponent } from './examples/series/prizm-charts-line-series-example.component';
 
@@ -12,7 +12,7 @@ import { PrizmChartsLinesSeriesExampleComponent } from './examples/series/prizm-
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmChartsLineModule,
+    PrizmChartsLineComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(LineComponent)),
   ],
   declarations: [

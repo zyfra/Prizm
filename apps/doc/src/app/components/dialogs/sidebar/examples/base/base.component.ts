@@ -1,5 +1,6 @@
 import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-sidebar-service-example',
@@ -38,6 +39,16 @@ export class PrizmSidebarServiceExampleComponent {
         dismissible: this.dismissible,
         size: 'm',
       })
+      .pipe(
+        tap({
+          complete: () => {
+            console.log('COMPLETE');
+          },
+          next: () => {
+            console.log('NEXT');
+          },
+        })
+      )
       .subscribe();
   }
 }

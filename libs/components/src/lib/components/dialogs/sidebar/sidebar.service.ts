@@ -75,7 +75,7 @@ export class PrizmSidebarService<
         options,
         options.supportButton as any,
         'Продолжить',
-        PrizmSidebarResultDefaultType.confirmed,
+        PrizmSidebarResultDefaultType.confirm,
         'danger',
         'ghost'
       );
@@ -84,7 +84,7 @@ export class PrizmSidebarService<
       options,
       options.confirmButton as any,
       'Подтвердить',
-      PrizmSidebarResultDefaultType.confirmed,
+      PrizmSidebarResultDefaultType.confirm,
       'primary'
     );
 

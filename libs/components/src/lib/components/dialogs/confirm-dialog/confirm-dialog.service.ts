@@ -57,7 +57,7 @@ export class PrizmConfirmDialogService<
         options,
         options.supportButton,
         'Продолжить',
-        PrizmConfirmDialogResultDefaultType.confirmed,
+        PrizmConfirmDialogResultDefaultType.confirm,
         'danger',
         'ghost'
       );
@@ -66,7 +66,7 @@ export class PrizmConfirmDialogService<
       options,
       options.confirmButton as any,
       'Подтвердить',
-      PrizmConfirmDialogResultDefaultType.confirmed,
+      PrizmConfirmDialogResultDefaultType.confirm,
       'primary'
     );
 

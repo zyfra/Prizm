@@ -3,5 +3,6 @@
   "dest": "../../../dist/libs/charts",
   "lib": {
     "entryFile": "src/index.ts"
-  }
+  },
+  "allowedNonPeerDependencies": ["."]
 }

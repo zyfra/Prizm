@@ -3,6 +3,7 @@ import { TUI_FOCUSABLE_ITEM_ACCESSOR, TuiFocusableElementAccessor } from '@taiga
 
 @Directive({
   selector: `[prizmInputOpacity]`,
+  standalone: true,
 })
 export class PrizmInputOpacityDirective {
   @Input()

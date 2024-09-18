@@ -4,10 +4,10 @@ import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { ZoneEventComponent } from './zone-event.component';
 import {
-  PrizmButtonModule,
-  PrizmToggleModule,
-  PrizmWidgetModule,
-  PrizmZoneEventModule,
+  PrizmButtonComponent,
+  PrizmToggleComponent,
+  PrizmWidgetComponent,
+  PrizmZoneEventDirective,
 } from '@prizm-ui/components';
 import { PrizmZoneEventBaseExampleComponent } from './examples/base/base.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -16,11 +16,11 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmZoneEventModule,
-    PrizmToggleModule,
+    PrizmZoneEventDirective,
+    PrizmToggleComponent,
     ReactiveFormsModule,
-    PrizmButtonModule,
-    PrizmWidgetModule,
+    PrizmButtonComponent,
+    PrizmWidgetComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(ZoneEventComponent)),
   ],
   declarations: [PrizmZoneEventBaseExampleComponent, ZoneEventComponent],

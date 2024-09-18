@@ -5,12 +5,12 @@ import { RouterModule } from '@angular/router';
 import { SkeletonComponent } from './skeleton.component';
 import {
   PolymorphModule,
-  PrizmButtonModule,
-  PrizmCardModule,
+  PrizmButtonComponent,
+  PrizmCardComponent,
   PrizmInputSelectModule,
   PrizmInputTextModule,
-  PrizmSkeletonModule,
-  PrizmToggleModule,
+  PrizmSkeletonDirective,
+  PrizmToggleComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base-example.component';
@@ -22,12 +22,12 @@ import { PrizmSkeletonBaseExampleComponent } from './examples/base/skeleton-base
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmButtonModule,
-    PrizmCardModule,
-    PrizmToggleModule,
+    PrizmButtonComponent,
+    PrizmCardComponent,
+    PrizmToggleComponent,
     PrizmInputSelectModule,
     PrizmInputTextModule,
-    PrizmSkeletonModule,
+    PrizmSkeletonDirective,
     RouterModule.forChild(prizmDocGenerateRoutes(SkeletonComponent)),
   ],
   declarations: [PrizmSkeletonBaseExampleComponent, SkeletonComponent],

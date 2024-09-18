@@ -429,7 +429,7 @@ export const pages: PrizmOrderedDocPage = [
         title: 'Svg Icons',
         keywords: 'иконка, icon, svg',
         route: '/components/icon',
-        status: 'deprecated',
+        status: 'removed',
       },
       {
         title: 'Icons',
@@ -622,6 +622,12 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Overlay',
     keywords: 'overlay, оверлей, modal, модальное',
     route: '/tools/overlay',
+  },
+  {
+    section: SectionNameEnum.tools,
+    title: 'Nxmv',
+    keywords: 'nxmv, move, version, версии, изменить',
+    route: '/tools/nxmv',
   },
   {
     section: SectionNameEnum.tools,
@@ -1371,6 +1377,13 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'AST HTML',
     keywords: 'html, parser',
     route: '/tools/ast-html',
+  },
+
+  {
+    section: SectionNameEnum.tools,
+    title: 'Nxmv',
+    keywords: 'nxmv, move, version, версии, изменить',
+    route: '/tools/nxmv',
   },
   {
     section: SectionNameEnglishEnum.tools,

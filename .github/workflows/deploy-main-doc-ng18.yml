@@ -1,0 +1,110 @@
+# TODO: later change tag by input variable ${{ inputs.tag }}
+name: Deploy doc main 18 (v5 and main)
+on:
+  workflow_dispatch:
+  workflow_call:
+env:
+  npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
+permissions:
+  contents: read
+  packages: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Derive appropriate SHAs for base and head for `nx affected` commands
+        uses: nrwl/nx-set-shas@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Restore cache
+        id: cache-restore
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_17-
+
+      - name: 'Initial changes 18'
+        run: |
+          cp -f package.json.ng17 package.json
+          cp -f package-lock.json.ng17 package-lock.json
+
+      - name: Install dependencies
+        if: steps.cache-restore.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
+
+      - name: Save cache...
+        id: cache-save
+        uses: actions/cache/save@v3
+        if: ${{ steps.cache-restore.outputs.cache-hit != 'true' && always() }}
+        with:
+          path: ./node_modules
+          key: ${{ steps.cache-restore.outputs.cache-primary-key }}
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
+
+      - name: Set up environment variables
+        run: |
+          last_v3_version=$(
+            echo '3.10.0'
+          )
+          echo "LAST_V3_VERSION=${last_v3_version}" >> $GITHUB_ENV
+
+  deploy_to_doc:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Restore node_modules in cache
+        uses: actions/cache/restore@v3
+        with:
+          path: ./node_modules
+          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          restore-keys: |
+            ${{ runner.os }}-node_modules_ng_17-
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: 'Increase max memory limit'
+        run: |
+          export NODE_OPTIONS="--max_old_space_size=8192"
+
+      - name: 'Set version 18'
+        run: npx nx generate @prizm-ui/nx-mv:apply -n v18
+
+      - name: 'Build doc app for firebase hosting'
+        run: npm run build:doc
+
+      - name: Deploy doc to firebase (v4)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
+          target: v4
+
+      - name: Deploy doc to firebase (main)
+        uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
+          projectId: prizmui
+          channelId: live
+          target: main

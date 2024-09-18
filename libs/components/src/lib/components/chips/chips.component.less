@@ -2,6 +2,10 @@
   display: inline-flex;
   width: 100%;
 
+  :host-context(.disabled) {
+    pointer-events: none;
+  }
+
   &.single-line:not(:empty) {
     margin-bottom: 8px;
   }
@@ -32,7 +36,7 @@
     }
 
     &.hidden {
-      height: var(--prizm-chips-item-heigh, 24px);
+      height: var(--prizm-chips-item-height, 24px);
       width: 100%;
     }
 

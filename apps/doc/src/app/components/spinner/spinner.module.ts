@@ -4,13 +4,13 @@ import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SpinnerComponent } from './spinner.component';
 import { PrizmSpinnerBaseExampleComponent } from './examples/base/spinner-base-example.component';
-import { PrizmSpinnerModule } from '@prizm-ui/components';
+import { PrizmSpinnerComponent } from '@prizm-ui/components';
 
 @NgModule({
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmSpinnerModule,
+    PrizmSpinnerComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(SpinnerComponent)),
   ],
   declarations: [PrizmSpinnerBaseExampleComponent, SpinnerComponent],

@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { PrizmSplitterExampleComponent } from './splitter-example.component';
 import { PrizmSplitterBasicExampleComponent } from './examples/basic/basic.component';
 import { PrizmSplitterVerticalExampleComponent } from './examples/vertical/vertical.component';
-import { PrizmButtonModule, PrizmSplitterModule, PrizmWidgetModule } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmSplitterModule, PrizmWidgetComponent } from '@prizm-ui/components';
 import { PrizmSplitterNestedExampleComponent } from './examples/nested/nested.component';
 import { PrizmSplitterLimitSizeExampleComponent } from './examples/limit-size/limit-size.component';
 import { PrizmSplitterAreasControlSizeExampleComponent } from './examples/areas-control-size/areas-control-size.component';
@@ -20,8 +20,8 @@ import { PrizmSplitterCustomGutterExampleComponent } from './examples/custom-gut
     PrizmAddonDocModule,
     PrizmSplitterModule,
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmSplitterExampleComponent)),
-    PrizmButtonModule,
-    PrizmWidgetModule,
+    PrizmButtonComponent,
+    PrizmWidgetComponent,
   ],
   declarations: [
     PrizmSplitterExampleComponent,

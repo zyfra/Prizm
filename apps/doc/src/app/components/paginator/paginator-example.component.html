@@ -7,6 +7,9 @@
     <prizm-doc-example id="base" [content]="exampleBasicPaginator" heading="Base">
       <prizm-paginator-basic-example></prizm-paginator-basic-example>
     </prizm-doc-example>
+    <prizm-doc-example id="base-left" [content]="exampleBasicLeftPaginator" heading="Base left direction">
+      <prizm-paginator-basic-left-example></prizm-paginator-basic-left-example>
+    </prizm-doc-example>
     <prizm-doc-example id="options" [content]="exampleBasicPaginator" heading="Hidden last/first page">
       <prizm-paginator-options-example></prizm-paginator-options-example>
     </prizm-doc-example>
@@ -49,6 +52,7 @@
         [paginatorOptions]="paginatorOptions"
         [rowsCountOptions]="rowsCountOptions"
         [moreButtonLabel]="moreButtonLabel"
+        [direction]="direction"
         (paginatorChange)="content = $event"
       ></prizm-paginator>
     </prizm-doc-demo>
@@ -177,6 +181,15 @@
       >
         More button label
       </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="direction"
+        [documentationPropertyValues]="paginatorDirectionVariants"
+        documentationPropertyName="direction"
+        documentationPropertyType="PrizmPaginatorDirection"
+        documentationPropertyMode="input"
+      >
+        Set Direction left to paginator
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -184,7 +197,7 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>PrizmPaginatorModule</code>
+          Импортируйте <code>PrizmPaginatorComponent</code>
           в модуль в котором хотите использовать компоненту
         </p>
 

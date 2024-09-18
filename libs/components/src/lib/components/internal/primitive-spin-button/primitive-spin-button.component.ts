@@ -19,6 +19,15 @@ import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsAngleLeft, prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
+import { CommonModule } from '@angular/common';
+import {
+  PrizmFocusableDirective,
+  PrizmFocusedDirective,
+  PrizmFocusVisibleDirective,
+  PrizmHintDirective,
+  PrizmPreventDefaultDirective,
+} from '../../../directives';
+import { PrizmButtonComponent } from '../../button';
 
 // @dynamic
 @Component({
@@ -27,6 +36,16 @@ import { prizmIconsAngleLeft, prizmIconsAngleRight } from '@prizm-ui/icons/base/
   templateUrl: `./primitive-spin-button.template.html`,
   styleUrls: [`./primitive-spin-button.component.less`],
   providers: [...prizmI18nInitWithKey(PRIZM_SPIN_TEXTS, 'spinTexts')],
+  standalone: true,
+  imports: [
+    CommonModule,
+    PrizmFocusVisibleDirective,
+    PrizmFocusedDirective,
+    PrizmFocusableDirective,
+    PrizmPreventDefaultDirective,
+    PrizmButtonComponent,
+    PrizmHintDirective,
+  ],
 })
 export class PrizmPrimitiveSpinButtonComponent extends AbstractPrizmInteractive {
   @ViewChild(`wrapper`)

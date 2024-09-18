@@ -9,6 +9,7 @@ import { PrizmChartsLineItem, PrizmChartsLineOptions, PrizmChartsLineOrigin } fr
   templateUrl: './prizm-charts-line.component.html',
   styleUrls: ['./prizm-charts-line.component.less'],
   exportAs: 'prizmChartsLine',
+  standalone: true,
 })
 export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractComponent<
   PrizmChartsLineOrigin,
@@ -19,6 +20,14 @@ export class PrizmChartsLineComponent<T = unknown> extends PrizmChartsAbstractCo
   }
 
   private origin_!: PrizmChartsLineOrigin;
+
+  @Input()
+  public set color(value: PrizmChartsLineOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsLineOptions['color'] {
+    return this.options.color;
+  }
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });

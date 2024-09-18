@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsWaterfallItem, PrizmChartsWaterfallOptions, PrizmChartsWaterfallOrigin } from './model';
 import { Waterfall } from '@antv/g2plot';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-waterfall',
   templateUrl: './prizm-charts-waterfall.component.html',
   styleUrls: ['./prizm-charts-waterfall.component.less'],
   exportAs: 'prizmChartsWaterfall',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsWaterfallComponent<
   T extends Record<string, unknown>
@@ -21,6 +24,14 @@ export class PrizmChartsWaterfallComponent<
   }
   get data(): PrizmChartsWaterfallItem[] {
     return this.options?.data ?? [];
+  }
+
+  @Input()
+  public set color(value: PrizmChartsWaterfallOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsWaterfallOptions['color'] {
+    return this.options.color;
   }
 
   @Input()

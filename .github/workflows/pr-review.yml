@@ -1,0 +1,20 @@
+name: AI Code Review
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  review:
+    permissions: write-all # Check permission when leave comment action failed
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: OpenAI PR Review
+        uses: cawcaw253/ai-review-action@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OPENAI_API_KEY: ${{ secrets.OA_KEY }}
+          LANGUAGE: 'russian'
+          MODEL: 'gpt-4o-mini'

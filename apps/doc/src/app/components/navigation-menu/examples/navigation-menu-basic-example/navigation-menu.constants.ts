@@ -14,12 +14,12 @@ export const MOKED_ITEMS: CustomItem[] = [
       {
         id: v4(),
         text: '1 (text)',
-        icon: 'editor_decor_collage_fill',
+        icon: 'collage-fill',
         children: [
           {
             id: v4(),
             text: '1-1 (text)',
-            icon: 'editor_decor_subskrit_up',
+            icon: 'subskrit-up',
             children: [
               {
                 id: v4(),
@@ -38,12 +38,12 @@ export const MOKED_ITEMS: CustomItem[] = [
           {
             id: v4(),
             text: '1-2 (text)',
-            icon: 'logistics_transportation_airplane_side_view',
+            icon: 'airplane-side-view',
             children: [
               {
                 id: v4(),
                 text: '1-2-1 (text)',
-                icon: 'documents_folders_folder',
+                icon: 'folder',
                 children: [
                   {
                     id: v4(),
@@ -66,7 +66,7 @@ export const MOKED_ITEMS: CustomItem[] = [
               {
                 id: v4(),
                 text: '1-2-3 (text)',
-                icon: 'documents_folders_folder',
+                icon: 'folder',
                 children: [
                   {
                     id: v4(),
@@ -87,7 +87,7 @@ export const MOKED_ITEMS: CustomItem[] = [
           {
             id: v4(),
             text: '1-3 (text)',
-            icon: 'editor_decor_polyline',
+            icon: 'polyline',
             children: [
               {
                 id: v4(),
@@ -108,18 +108,18 @@ export const MOKED_ITEMS: CustomItem[] = [
       {
         id: v4(),
         text: '2 (text) [a group with nested group items]',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
         isGroup: true,
         children: [
           {
             id: v4(),
             text: '2-1 (text) [not a group]',
-            icon: 'documents_folders_folder',
+            icon: 'folder',
           },
           {
             id: v4(),
             text: '2-2 (text) [a group]',
-            icon: 'documents_folders_folder',
+            icon: 'folder',
             isGroup: true,
             children: [
               {
@@ -141,7 +141,7 @@ export const MOKED_ITEMS: CustomItem[] = [
       {
         id: v4(),
         text: '3 (text)',
-        icon: 'documents_folders_folder',
+        icon: 'folder',
         children: [
           {
             id: v4(),

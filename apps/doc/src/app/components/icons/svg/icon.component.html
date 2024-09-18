@@ -1,11 +1,13 @@
-<prizm-doc-page header="Icon" package="NEXT">
+<prizm-doc-page header="Icon" package="REMOVED">
   <div class="page-description" description>
-    Icons can be used as fonts and as svg (examples of usage below). Also with the help of our registry you
-    can add your svg icons (example in the file with svg). Also each icon can be connected separately or the
-    whole set of SVG icons.
+    Instead of this use our current icons component PrizmIconsComponent or PrizmIconsFullComponent
   </div>
 
   <ng-template prizmDocPageTab>
+    <prizm-doc-example id="migrate" [content]="exampleMigration" heading="Migration guide">
+      <prizm-icon-migrate-example></prizm-icon-migrate-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="base" [content]="exampleFont" heading="Font">
       <prizm-icon-base-example></prizm-icon-base-example>
     </prizm-doc-example>
@@ -14,14 +16,30 @@
       <prizm-icon-svg-example></prizm-icon-svg-example>
     </prizm-doc-example>
 
-    <h1>Icon set.</h1>
+    <h3>Сет иконок с старым и новыми названиями</h3>
+
+    <div>Слева иконка этого компонента, с справа из нового сета.</div>
+    <div>Для копирование названия название нажмите на соотвествующую иконку</div>
 
     <div *ngFor="let def of defs">
-      <h4 class="title">{{ def.dir }}</h4>
+      <h5 class="title">{{ def.dir }}</h5>
 
       <div class="icons">
-        <div class="icon-def" *ngFor="let name of def.data" (click)="copy(name)">
-          <prizm-icons-svg [size]="24" [name]="name"></prizm-icons-svg>
+        <div class="icon-def" *ngFor="let name of def.data">
+          <div class="icons-block">
+            <prizm-icons-svg
+              [prizmHint]="'С копировать старое название иконки <' + name + '>'"
+              [size]="24"
+              [name]="name"
+              (click)="copy(name)"
+            ></prizm-icons-svg>
+            <prizm-icons
+              [prizmHint]="'С копировать новое название иконки <' + prizmIconsSvgGetNameByOld(name) + '>'"
+              [size]="24"
+              [name]="name"
+              (click)="copy(prizmIconsSvgGetNameByOld(name))"
+            ></prizm-icons>
+          </div>
           <div class="name" [title]="name">{{ name }}</div>
         </div>
       </div>

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { InvertedThemeComponent } from './inverted-theme.component';
-import { PrizmButtonModule, PrizmWidgetModule } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmWidgetComponent } from '@prizm-ui/components';
 import { PrizmThemeInvertedExampleComponent } from './examples/inverted/inverted.component';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmThemeBaseExampleComponent } from './examples/base/base.component';
@@ -13,8 +13,8 @@ import { PrizmThemeBaseExampleComponent } from './examples/base/base.component';
     CommonModule,
     PrizmAddonDocModule,
     PrizmThemeModule,
-    PrizmButtonModule,
-    PrizmWidgetModule,
+    PrizmButtonComponent,
+    PrizmWidgetComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(InvertedThemeComponent)),
   ],
   declarations: [PrizmThemeBaseExampleComponent, PrizmThemeInvertedExampleComponent, InvertedThemeComponent],

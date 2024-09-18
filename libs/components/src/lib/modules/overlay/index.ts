@@ -1,3 +1,4 @@
+export { PrizmOverlayComponent } from './overlay.component';
 export { PrizmOverlayContentToken } from './token';
 export {
   PrizmOverlayInsidePlacement,
@@ -12,5 +13,4 @@ export {
 } from './position';
 export { PrizmOverlayService } from './overlay.service';
 export { PrizmOverlayControl } from './overlay-control';
-export { PrizmOverlayModule } from './overlay.module';
 export * from './const';
