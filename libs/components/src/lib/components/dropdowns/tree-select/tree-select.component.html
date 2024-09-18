@@ -3,11 +3,6 @@
   [content]="dropdown"
   [isOpen]="$any(opened$ | async)"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
-  [prizmDropdownHostWidth]="dropdownWidth"
-  [prizmDropdownMinHeight]="minDropdownHeight"
-  [prizmDropdownMaxHeight]="maxDropdownHeight"
-  [dropdownStyles]="dropdownStyles"
-  [dropdownClasses]="dropdownClasses"
   (isOpenChange)="opened$$.next($event)"
 >
   <input

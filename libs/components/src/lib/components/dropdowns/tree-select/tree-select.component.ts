@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  ElementRef,
-  forwardRef,
-  Input,
-  input,
-  ViewChild,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ElementRef, forwardRef, Input, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import {
   PrizmCallFuncPipe,
@@ -20,9 +12,7 @@ import {
   PrizmInputNgControl,
   PrizmInputTextComponent,
 } from '../../input';
-import { PrizmInputTreeSearchMatcher } from './model';
 import {
-  PolymorphContent,
   PrizmDataListComponent,
   PrizmDropdownControllerDirective,
   PrizmDropdownHostComponent,
@@ -30,8 +20,8 @@ import {
   PrizmLifecycleDirective,
   PrizmNativeFocusableElement,
 } from '@prizm-ui/components';
-import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { BehaviorSubject } from 'rxjs';
+import { AsyncPipe, NgTemplateOutlet } from '@angular/common';
 
 @Component({
   selector: 'prizm-input-tree-select',
@@ -49,6 +39,7 @@ import { AsyncPipe } from '@angular/common';
     ReactiveFormsModule,
     PrizmDataListComponent,
     PrizmLifecycleDirective,
+    NgTemplateOutlet,
   ],
   providers: [
     {
@@ -70,12 +61,15 @@ import { AsyncPipe } from '@angular/common';
 })
 export class PrizmInputTreeSelectComponent<T> extends PrizmInputNgControl<T> implements ControlValueAccessor {
   searchable = false;
-  placeholder = input<string | null>(null);
-  transformer = input((v: T): any => v);
-  searchMatcher = input<PrizmInputTreeSearchMatcher<T>>(() => true);
-  nullContent = input<PolymorphContent | null>(null);
-  children = input<(item: T) => T[]>();
-  valueTemplate = input<(item: T) => T[]>();
+  @Input()
+  placeholder = '';
+  // transformer = input((v: T): any => v);
+  // searchMatcher = input<PrizmInputTreeSearchMatcher<T>>(() => true);
+  // nullContent = input<PolymorphContent | null>(null);
+  // children = input<(item: T) => T[]>();
+  // valueTemplate = input<(item: T) => T[]>();
+  public readonly opened$$ = new BehaviorSubject<boolean>(false);
+  public readonly opened$ = this.opened$$.asObservable();
   @Input()
   identityMatcher = (a: T, b: T) => a == b;
   @Input()
