@@ -45,7 +45,7 @@ export interface PrizmMultiSelectOptions<T> {
    * TODO ng16! remove
    * */
   readonly outer: boolean;
-  readonly autoReposition: boolean;
+  readonly autoReposition?: boolean;
   readonly maxDropdownHeight: number;
   readonly dropdownWidth: string;
   readonly valueContent: PolymorphContent<PrizmContextWithImplicit<PrizmMultiSelectItemWithChecked<T>>>;
