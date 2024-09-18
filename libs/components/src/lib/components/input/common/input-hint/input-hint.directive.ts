@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostBinding, inject, Input, Optional } from '@angular/core';
+import { Directive, ElementRef, HostBinding, inject, Input } from '@angular/core';
 import { PrizmHintDirective } from '../../../../directives/hint';
 import { PrizmOverlayOutsidePlacement } from '../../../../modules/overlay/models';
 import { prizmIsTextOverflow } from '../../../../util/dom/is-textoverflow';
@@ -8,6 +8,7 @@ import { PrizmInputLayoutComponent } from '../input-layout';
 @Directive({
   selector: 'input[prizmHintDirection], input[prizmHintCanShow]',
   exportAs: 'prizmInputHint',
+  standalone: true,
 })
 export class PrizmInputHintDirective {
   readonly prizmHint_ = new PrizmHintDirective();
@@ -44,11 +45,11 @@ export class PrizmInputHintDirective {
   }
 
   public ngOnChanges(): void {
-    this.prizmHint_.ngOnChanges();
+    this.hintSyncChanges();
   }
 
   private hintSyncChanges(): void {
-    this.prizmHint_.ngOnChanges();
+    this.prizmHint_.drawHint();
   }
 
   public updateHint(): void {

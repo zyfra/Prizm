@@ -3,12 +3,15 @@ import { Scatter } from '@antv/g2plot';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsScatterItem, PrizmChartsScatterOptions, PrizmChartsScatterOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-scatter',
   templateUrl: './prizm-charts-scatter.component.html',
   styleUrls: ['./prizm-charts-scatter.component.less'],
   exportAs: 'prizmChartsScatter',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsScatterComponent<
   T extends Record<string, unknown>
@@ -23,6 +26,14 @@ export class PrizmChartsScatterComponent<
 
   @Input() set autoFit(value: boolean) {
     this.updateOptions({ autoFit: value });
+  }
+
+  @Input()
+  public set color(value: PrizmChartsScatterOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsScatterOptions['color'] {
+    return this.options.color;
   }
 
   @Input()

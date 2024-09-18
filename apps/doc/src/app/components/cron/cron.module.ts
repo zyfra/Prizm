@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { CronComponent } from './cron.component';
-import { PolymorphModule, PrizmCronModule, PrizmMutationObserveModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmCronModule, PrizmMutationObserveDirective } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCronBaseExampleComponent } from './examples/base/cron-base-example.component';
 import { PrizmCronSpecifiedTabsExampleComponent } from './examples/specified-tabs/cron-specified-tabs-example.component';
@@ -16,7 +16,7 @@ import { PrizmCronI18nExampleComponent } from './examples/i18n/cron-i18n-example
   imports: [
     CommonModule,
     PrizmAddonDocModule,
-    PrizmMutationObserveModule,
+    PrizmMutationObserveDirective,
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,

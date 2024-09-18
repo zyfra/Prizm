@@ -32,10 +32,9 @@ import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmCalendarSheetPipeModule, PrizmMapperPipeModule } from '../../../pipes';
-import { PrizmRepeatTimesModule } from '../../../directives/repeat-times/repeat-times.module';
-import { PrizmHoveredModule } from '../../../directives/hovered/hovered.module';
-import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
+import { PrizmCalendarSheetPipe, PrizmMapperPipe } from '../../../pipes';
+import { PrizmHoveredDirective } from '../../../directives/hovered';
+import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../directives';
 
 @Component({
   selector: `prizm-primitive-calendar`,
@@ -46,12 +45,12 @@ import { PrizmPressedModule } from '../../../directives/pressed/pressed.module';
   imports: [
     CommonModule,
     PrizmLetDirective,
-    PrizmMapperPipeModule,
-    PrizmRepeatTimesModule,
+    PrizmMapperPipe,
+    PrizmRepeatTimesDirective,
     PrizmCallFuncPipe,
-    PrizmHoveredModule,
-    PrizmPressedModule,
-    PrizmCalendarSheetPipeModule,
+    PrizmHoveredDirective,
+    PrizmPressedDirective,
+    PrizmCalendarSheetPipe,
   ],
   providers: [
     ...prizmI18nInitWithKey(PRIZM_SHORT_WEEK_DAYS, 'shortWeekDays'),

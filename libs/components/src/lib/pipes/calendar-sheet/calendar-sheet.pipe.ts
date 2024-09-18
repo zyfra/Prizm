@@ -11,6 +11,7 @@ const CALENDAR_ROWS_COUNT = 6;
 
 @Pipe({
   name: `prizmCalendarSheet`,
+  standalone: true,
 })
 export class PrizmCalendarSheetPipe implements PipeTransform {
   private currentMonth: PrizmMonth | null = null;

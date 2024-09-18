@@ -12,6 +12,7 @@ import { prizmZoneFree } from '../../observables/zone-free';
 @Directive({
   selector: `[prizmStopPropagation]`,
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmStopPropagationDirective {
   constructor(

@@ -2,12 +2,15 @@ import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { Pie } from '@antv/g2plot';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { PrizmChartsPieItem, PrizmChartsPieOptions, PrizmChartsPieOrigin } from './model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'prizm-charts-pie',
   templateUrl: './prizm-charts-pie.component.html',
   styleUrls: ['./prizm-charts-pie.component.less'],
   exportAs: 'prizmChartsPie',
+  standalone: true,
+  imports: [CommonModule],
 })
 export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
   PrizmChartsPieOrigin,
@@ -34,6 +37,14 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
   }
   public get groupField(): string {
     return this.options?.angleField as string;
+  }
+
+  @Input()
+  public set color(value: PrizmChartsPieOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsPieOptions['color'] {
+    return this.options.color;
   }
 
   @Input()

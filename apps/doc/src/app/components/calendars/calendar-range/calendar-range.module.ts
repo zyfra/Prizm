@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { CalendarRangeComponent } from './calendar-range.component';
-import { PolymorphModule, PrizmCalendarRangeModule } from '@prizm-ui/components';
+import { PolymorphModule, PrizmCalendarRangeComponent } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCalendarRangeBaseExampleComponent } from './examples/base/calendar-range-base-example.component';
 import { PrizmCalendarRangeListExampleComponent } from './examples/list/calendar-range-list-example.component';
@@ -15,7 +15,7 @@ import { PrizmCalendarRangeListExampleComponent } from './examples/list/calendar
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmCalendarRangeModule,
+    PrizmCalendarRangeComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(CalendarRangeComponent)),
   ],
   declarations: [

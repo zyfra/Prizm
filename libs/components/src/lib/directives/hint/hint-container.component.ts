@@ -47,8 +47,13 @@ export class PrizmHintContainerComponent<CONTEXT extends Record<string, unknown>
   content!: () => PolymorphContent;
 
   @Input()
-  @prizmDefaultProp()
-  context: CONTEXT = {} as CONTEXT;
+  set context(context) {
+    this.context_ = context;
+  }
+  get context() {
+    return this.context_;
+  }
+  context_: CONTEXT = {} as CONTEXT;
 
   @Input()
   set hintTheme(theme: PrizmTheme) {

@@ -14,12 +14,12 @@ import { PrizmTdComponent } from './td/td.component';
 import { PrizmThComponent } from './th/th.component';
 import { PrizmThGroupComponent } from './th-group/th-group.component';
 import { PrizmTrComponent } from './tr/tr.component';
-import { PrizmMapperPipeModule } from '../../pipes';
+import { PrizmMapperPipe } from '../../pipes';
 import { PolymorphModule } from '../../directives';
 import { SearchableContentComponent } from './components/searchable-content/searchable-content.component';
 import { SpaceNumberPipe } from './pipes/space-number.pipe';
-import { PrizmCallFuncModule } from '@prizm-ui/helpers';
-import { PrizmTreeButtonModule } from '../tree-button/tree-button.module';
+import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
+import { PrizmTreeButtonComponent } from '../tree-button/tree-button.component';
 import { PrizmTableTreeLoadingDirective } from './directives/tree-loading.directive';
 import { PrizmTableLoadingDirective } from './directives/loading.directive';
 import { PrizmTableEmptyDirective } from './directives/empty.directive';
@@ -31,9 +31,9 @@ import { PrizmButtonComponent } from '../button';
 @NgModule({
   imports: [
     CommonModule,
-    PrizmTreeButtonModule,
-    PrizmCallFuncModule,
-    PrizmMapperPipeModule,
+    PrizmTreeButtonComponent,
+    PrizmCallFuncPipe,
+    PrizmMapperPipe,
     PolymorphModule,
     PrizmIconsComponent,
     PrizmButtonComponent,
@@ -65,7 +65,7 @@ import { PrizmButtonComponent } from '../button';
     PrizmTableLoadingDirective,
     PrizmTableEmptyDirective,
     PrizmTrDirective,
-    PrizmTreeButtonModule,
+    PrizmTreeButtonComponent,
     PrizmTableTreeLoadingDirective,
     PrizmTableDirective,
     PrizmTbodyComponent,

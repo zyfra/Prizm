@@ -3,9 +3,9 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  inject,
   Input,
   Output,
-  inject,
 } from '@angular/core';
 import { PrizmOverlayOutsidePlacement } from '../../../modules';
 import { Observable, of } from 'rxjs';
@@ -67,7 +67,9 @@ export class PrizmChipsItemComponent extends PrizmAbstractTestId {
   readonly prizmIsTextOverflow$ = (
     elem: HTMLElement,
     hintCanShow: boolean,
-    forceShowHint: boolean
+    forceShowHint: boolean,
+    // for clear memory
+    ..._: unknown[]
   ): Observable<boolean> => {
     return of(forceShowHint).pipe(
       switchMap(val => {

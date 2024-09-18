@@ -6,10 +6,12 @@ import {
   EventEmitter,
   Inject,
   Input,
+  OnChanges,
   OnDestroy,
   Optional,
   Output,
   Renderer2,
+  SimpleChanges,
   ViewChild,
   inject,
 } from '@angular/core';
@@ -72,12 +74,16 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
   standalone: true,
   providers: [PrizmDestroyService, ...prizmI18nInitWithKey(PRIZM_FILE_UPLOAD, 'fileUpload')],
 })
-export class PrizmFileUploadComponent extends PrizmAbstractTestId implements AfterViewInit, OnDestroy {
+export class PrizmFileUploadComponent
+  extends PrizmAbstractTestId
+  implements OnChanges, AfterViewInit, OnDestroy
+{
   @ViewChild('dropzone') dropzoneElementRef!: ElementRef<HTMLDivElement>;
 
   override readonly testId_ = 'ui_file_upload';
   readonly icon = prizmIconsFileEmpty;
   readonly prizmIsTextOverflow = prizmIsTextOverflow;
+  public calculatedMaxFilesCount = Number.MAX_SAFE_INTEGER;
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
 
@@ -102,10 +108,15 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
 
   private validationErrors: { [filename: string]: PrizmFileValidationErrors } = {};
 
+  private _maxFilesCount = Number.MAX_SAFE_INTEGER;
+
   @Input() accept = '';
   @Input() multiple = false;
   @Input() maxFileSize = Number.MAX_SAFE_INTEGER;
-  @Input() maxFilesCount = Number.MAX_SAFE_INTEGER;
+  @Input() set maxFilesCount(value: number) {
+    this._maxFilesCount = value ?? Number.MAX_SAFE_INTEGER;
+    this.calculatedMaxFilesCount = this.multiple ? this._maxFilesCount : 1;
+  }
 
   @Input()
   get disabled() {
@@ -134,6 +145,16 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
 
   get files(): Array<File> {
     return [...this.filesMap.entries()].map(([_, { file }]) => file);
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.multiple || changes.maxFilesCount) {
+      this.calculatedMaxFilesCount = this.multiple ? this._maxFilesCount : 1;
+    }
+
+    if (this.files.length > this.calculatedMaxFilesCount) {
+      this.filesCountError.next(this.files.slice(this.calculatedMaxFilesCount).map(file => file.name));
+    }
   }
 
   public ngAfterViewInit(): void {
@@ -205,7 +226,7 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
     }
 
     for (const file of this.filesMap.keys()) {
-      this.removeFile(file);
+      this.removeFile(file, { emitEvent: options.emitEvent });
     }
 
     if (options.emitEvent) {
@@ -251,14 +272,25 @@ export class PrizmFileUploadComponent extends PrizmAbstractTestId implements Aft
 
     this.beforeFilesChange.next();
 
-    if (filteredFiles.length > this.maxFilesCount) {
-      this.filesCountError.next(filteredFiles.slice(this.maxFilesCount).map(file => file.name));
-      filteredFiles.length = this.maxFilesCount;
+    if (this.multiple) {
+      const filesCountDelta = this.calculatedMaxFilesCount - this.files.length;
+
+      if (filteredFiles.length + this.files.length > this.calculatedMaxFilesCount) {
+        this.filesCountError.next(filteredFiles.slice(filesCountDelta).map(file => file.name));
+        filteredFiles.length = filesCountDelta;
+      }
+    }
+
+    if (!this.multiple) {
+      if (filteredFiles.length > 1) {
+        this.filesCountError.next(filteredFiles.slice(1).map(file => file.name));
+        filteredFiles.length = 1;
+      }
+
+      this.clearFiles({ emitEvent: false });
     }
 
     this.emitValidationErrors();
-
-    this.clearFiles({ emitEvent: false });
 
     for (const file of filteredFiles) {
       this.filesMap.set(file.name, {

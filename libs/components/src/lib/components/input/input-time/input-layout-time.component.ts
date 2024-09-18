@@ -32,9 +32,9 @@ import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { prizmI18nInitWithKey } from '../../../services';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmDropdownControllerModule,
-  PrizmLifecycleModule,
-  PrizmValueAccessorModule,
+  PrizmDropdownControllerDirective,
+  PrizmLifecycleDirective,
+  PrizmValueAccessorDirective,
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmDataListComponent } from '../../data-list';
@@ -64,15 +64,15 @@ import { prizmIconsClock } from '@prizm-ui/icons/full/source';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmMaskModule,
     PrizmDataListComponent,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmDropdownHostComponent,
     PrizmInputTextModule,
     PrizmButtonComponent,
     FormsModule,
-    PrizmValueAccessorModule,
+    PrizmValueAccessorDirective,
     PrizmListingItemComponent,
   ],
 })

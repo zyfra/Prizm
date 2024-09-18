@@ -41,10 +41,10 @@ import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/hel
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective } from '../common';
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
-import { PrizmLifecycleModule } from '../../../directives/lifecycle';
+import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
 import { PolymorphOutletDirective } from '../../../directives/polymorph';
 import {
-  PrizmInputNativeValueModule,
+  PrizmInputNativeValueDirective,
   PrizmInputNativeValueNeedChange,
 } from '../../../directives/native-value';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
@@ -55,13 +55,14 @@ import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PrizmDataListComponent } from '../../data-list/data-list.component';
 import { PrizmCalendarComponent } from '../../calendar';
 import { PrizmLinkComponent } from '../../link';
-import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
+import { PrizmValueAccessorDirective } from '../../../directives/value-accessor/value-accessor.directive';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
 import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
 import { prizmTimeLimitWithinRange } from '../../../@core/date-time/time-limit';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -98,15 +99,16 @@ import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/s
     PolymorphOutletDirective,
     PrizmInputZoneModule,
     FormsModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmPreventDefaultDirective,
     PrizmCalendarComponent,
     PrizmLinkComponent,
     PrizmDropdownHostComponent,
-    PrizmValueAccessorModule,
-    PrizmInputNativeValueModule,
+    PrizmValueAccessorDirective,
+    PrizmInputNativeValueDirective,
     PrizmListingItemComponent,
     PrizmPluckPipe,
+    PrizmTimeConstraintsPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
@@ -330,6 +332,7 @@ export class PrizmInputLayoutDateTimeComponent
   private updateWithCorrectDateAndTime(value: [PrizmDay | null, PrizmTime | null]): void {
     if (!value) return;
     let [date, time] = value;
+    if (date && !time) time = new PrizmTime(0, 0, 0);
 
     const dateMin = this.min instanceof PrizmDay ? this.min : this.min && this.min[0];
     const dateMax = this.max instanceof PrizmDay ? this.max : this.max && this.max[0];
@@ -434,6 +437,7 @@ export class PrizmInputLayoutDateTimeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
+    if (!open) this.completeDateIfAreNotPending();
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {

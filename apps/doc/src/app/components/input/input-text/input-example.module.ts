@@ -1,12 +1,16 @@
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { PrizmButtonModule, PrizmHintDirective, PrizmInputTextModule } from '@prizm-ui/components';
+import {
+  PrizmButtonComponent,
+  PrizmHintDirective,
+  PrizmInputTextModule,
+  PrizmToggleComponent,
+} from '@prizm-ui/components';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { InputIconButtonsExampleComponent } from './examples/input-icon-buttons-example/input-icon-buttons-example.component';
 import { InputComponent } from './input.component';
 import { InputLabelPositionExampleComponent } from './examples/input-label-position-example/input-label-position-example.component';
-
 import { InputSizesExampleComponent } from './examples/input-sizes-example/input-sizes-example.component';
 import { InputStatusesExampleComponent } from './examples/input-statuses-example/input-statuses-example.component';
 import { InputSubtextExampleComponent } from './examples/input-subtext-example/input-subtext-example.component';
@@ -26,10 +30,11 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmAddonDocModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputComponent)),
     PrizmInputTextModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     ReactiveFormsModule,
     FormsModule,
     PrizmIconsFullComponent,
+    PrizmToggleComponent,
   ],
   declarations: [
     InputComponent,

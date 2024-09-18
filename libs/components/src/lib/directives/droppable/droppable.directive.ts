@@ -8,6 +8,7 @@ import { prizmPreventDefault } from '../../observables/prevent-default';
 @Directive({
   selector: '[prizmDroppableDropped], [prizmDroppableDragOverChange]',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmDroppableDirective {
   @Output()

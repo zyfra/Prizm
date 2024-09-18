@@ -26,7 +26,7 @@
             [hintCanShow]="hintCanShow"
             [prizmDocHostElement]="chipsItem"
             [selected]="selected"
-            [style.--prizm-chips-item-heigh]="prizmChipsItemHeight"
+            [style.--prizm-chips-item-height]="prizmChipsItemHeight"
             [style.--prizm-chips-item-background]="prizmChipsItemBackground"
             [style.--prizm-chips-item-color]="prizmChipsItemColor"
             style="width: 100px"
@@ -41,7 +41,7 @@
         <div>
           <prizm-input-layout label="Заголовок" size="l" status="default">
             <input
-              [disabled]="control.disabled"
+              [formControl]="controlText"
               (enter)="onEnter($event)"
               prizmInput
               placeholder="Введите название"
@@ -65,7 +65,7 @@
     <prizm-doc-documentation heading="PrizmChipsItemComponent" hostComponentKey="PrizmChipsItemComponent">
       <ng-template
         [(documentationPropertyValue)]="prizmChipsItemHeight"
-        documentationPropertyName="prizm-chips-item-heigh"
+        documentationPropertyName="prizm-chips-item-height"
         documentationPropertyType="string"
         documentationPropertyMode="css-var"
       >
@@ -150,7 +150,7 @@
     </prizm-doc-documentation>
 
     <prizm-doc-documentation
-      [control]="control"
+      [control]="controlText"
       [hasTestId]="true"
       heading="PrizmChipsComponent"
       hostComponentKey="PrizmChipsComponent"

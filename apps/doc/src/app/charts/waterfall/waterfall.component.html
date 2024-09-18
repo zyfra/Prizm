@@ -19,6 +19,7 @@
         [xField]="xField"
         [yField]="yField"
         [theme]="$any(prizmTheme.changesTheme$ | async)"
+        [color]="color"
       ></prizm-charts-waterfall>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -81,6 +82,15 @@
       >
         Height
       </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        [documentationPropertyValues]="$any(colorVariants)"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color. Sets charts color. Note, for chart with seriesField use colors array.
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -89,7 +99,7 @@
       <li>
         <p>
           Import
-          <code>PrizmChartsWaterfallModule</code>
+          <code>PrizmChartsWaterfallComponent</code>
           into a module where you want to use our component
         </p>
 

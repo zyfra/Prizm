@@ -47,6 +47,8 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
   files: Array<File> = [];
   disabled = false;
 
+  constructor(private readonly toastService: PrizmToastService, private http: HttpClient) {}
+
   public onFilesChange(files: Array<File>): void {
     this.files = files;
   }
@@ -179,8 +181,6 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
         }
       );
   }
-
-  constructor(private readonly toastService: PrizmToastService, private http: HttpClient) {}
 
   public ngOnDestroy(): void {
     this.progress$$.complete();

@@ -20,7 +20,7 @@ import {
   PrizmLetDirective,
   PrizmToObservablePipe,
 } from '@prizm-ui/helpers';
-import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import {
   isPolymorphPrimitive,
   PolymorphContent,
@@ -76,9 +76,9 @@ import { PrizmInputSelectOptionService } from './input-select-option.service';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
-  PrizmFocusableModule,
+  PrizmAutoFocusDirective,
+  PrizmDropdownControllerDirective,
+  PrizmFocusableDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
@@ -111,11 +111,11 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     ReactiveFormsModule,
     CommonModule,
     PrizmLetDirective,
-    PrizmAutoFocusModule,
+    PrizmAutoFocusDirective,
     PrizmHintDirective,
     PrizmCallFuncPipe,
     PrizmScrollbarDirective,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmLifecycleDirective,
     PrizmDataListComponent,
     PrizmSelectInputItemComponent,
@@ -123,7 +123,7 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     PrizmToObservablePipe,
     PrizmInputSelectOptionDirective,
     PrizmIconsFullComponent,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
   ],
   providers: [
     {
@@ -138,7 +138,10 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
   ],
   exportAs: 'prizmSelectInput',
 })
-export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> implements OnInit {
+export class PrizmSelectInputComponent<T>
+  extends PrizmInputNgControl<T>
+  implements OnInit, ControlValueAccessor
+{
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
@@ -356,7 +359,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public select(item: T): void {
-    this.markAsTouched();
     const selectedValue = item && this.transformer(item);
     if (!this.identityMatcher(selectedValue, this.value)) {
       this.updateValue(selectedValue);
@@ -374,7 +376,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
 
   public override updateValue(value: T) {
     super.updateValue(value);
-
     // set touched on change value
     this.ngControl.control?.markAsTouched();
   }

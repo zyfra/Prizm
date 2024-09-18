@@ -22,6 +22,7 @@
         [theme]="$any(prizmTheme.changesTheme$ | async)"
         [yField]="yField"
         [options]="options"
+        [color]="color"
       ></prizm-charts-radar>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -92,6 +93,14 @@
       >
         Data
       </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color. Sets charts color. Note, for chart with seriesField use colors array.
+      </ng-template>
     </prizm-doc-documentation>
   </ng-template>
 
@@ -100,7 +109,7 @@
       <li>
         <p>
           Import
-          <code>PrizmChartsRadarModule</code>
+          <code>PrizmChartsRadarComponent</code>
           into a module where you want to use our component
         </p>
 

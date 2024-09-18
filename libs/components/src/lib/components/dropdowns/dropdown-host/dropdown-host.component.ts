@@ -11,6 +11,7 @@ import {
   inject,
   Injector,
   Input,
+  OnDestroy,
   Optional,
   Output,
   TemplateRef,
@@ -27,7 +28,7 @@ import {
   PrizmDropdownZoneDirective,
   PrizmLifecycleDirective,
   PrizmMutationObserveDirective,
-  PrizmZoneEventModule,
+  PrizmZoneEventDirective,
 } from '../../../directives';
 import { debounceTime, delay, distinctUntilChanged, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmDestroyService, prizmGenerateId } from '@prizm-ui/helpers';
@@ -64,13 +65,13 @@ import { PrizmDropdownHostDirective } from './dropdown-host.directive';
     PrizmOverlayComponent,
     PrizmThemeModule,
     PrizmLifecycleDirective,
-    PrizmZoneEventModule,
+    PrizmZoneEventDirective,
     PolymorphModule,
     PrizmDropdownZoneDirective,
     PrizmMutationObserveDirective,
   ],
 })
-export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit {
+export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements AfterViewInit, OnDestroy {
   @Input() content!: PolymorphContent<PrizmDropdownHostContext>;
 
   @Input()
@@ -194,6 +195,10 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
   public ngAfterViewInit(): void {
     this.initOverlay();
     this.initClickListener();
+  }
+
+  public ngOnDestroy() {
+    this.overlay?.destroy();
   }
 
   public updateWidth(): void {

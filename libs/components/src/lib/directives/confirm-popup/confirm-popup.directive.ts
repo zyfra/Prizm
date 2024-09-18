@@ -61,8 +61,14 @@ export class PrizmConfirmPopupDirective<
   public size = this.options.size;
 
   @Input('prizmConfirmPopupHost')
-  @prizmDefaultProp()
-  override prizmHintHost: HTMLElement | null = null;
+  override set prizmHintHost(host: HTMLElement | null) {
+    this.prizmHintHost_ = host;
+  }
+  override get prizmHintHost(): HTMLElement | null {
+    return this.prizmHintHost_;
+  }
+
+  private prizmHintHost_: HTMLElement | null = null;
 
   @Output()
   @prizmDefaultProp()
@@ -173,7 +179,7 @@ export class PrizmConfirmPopupDirective<
       options,
       options.confirmButton as string,
       'Подтвердить',
-      PrizmConfirmDialogResultDefaultType.confirmed,
+      PrizmConfirmDialogResultDefaultType.confirm,
       'primary'
     );
 

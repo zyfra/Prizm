@@ -1431,6 +1431,10 @@ export const PRIZM_ICONS_FULL_LAZY_SET = {
     import('@prizm-ui/icons/full/source/temp-selection-checkbox-marked-circle-chanel').then(
       m => m['prizmIconsTempSelectionCheckboxMarkedCircleChanel']
     ),
+  'temp-selection-checkbox-marked-circle': () =>
+    import('@prizm-ui/icons/full/source/temp-selection-checkbox-marked-circle').then(
+      m => m['prizmIconsTempSelectionCheckboxMarkedCircle']
+    ),
   'temp-selection-checked-1': () =>
     import('@prizm-ui/icons/full/source/temp-selection-checked-1').then(
       m => m['prizmIconsTempSelectionChecked1']

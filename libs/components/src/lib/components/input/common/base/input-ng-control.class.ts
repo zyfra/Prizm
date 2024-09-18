@@ -20,8 +20,7 @@ export abstract class PrizmInputNgControl<T>
   readonly layoutComponent?: PrizmInputLayoutComponent | null;
   private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
-  onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
-  onTouched = PRIZM_EMPTY_FUNCTION;
+  onTouch: () => void = PRIZM_EMPTY_FUNCTION;
   protected readonly focusableElement?: ElementRef<HTMLInputElement> | any;
 
   get value(): T {
@@ -122,14 +121,13 @@ export abstract class PrizmInputNgControl<T>
     if (this.disabled || this.valueIdenticalComparator(this.value, value)) {
       return;
     }
-
+    this.onChange(value);
     this.previousInternalValue$$.next(value);
     this.controlSetValue(value);
   }
 
   public clear(ev: MouseEvent) {
     this.updateValue(null as any);
-    this.markAsDirty();
   }
 
   public setDisabledState(isDisabled: boolean) {
@@ -137,16 +135,14 @@ export abstract class PrizmInputNgControl<T>
     this.stateChanges.next();
   }
 
-  public registerOnChange(onChange: any): void {
+  public registerOnChange(onChange: (v: T) => void): void {
     this.onChange = (componentValue: T): void => {
-      onChange(this.toControlValue(componentValue));
+      onChange(this.toControlValue(componentValue) as T);
     };
   }
 
-  public registerOnTouched(fn: any) {
-    this.onTouch = () => {
-      fn();
-    };
+  public registerOnTouched(fn: () => void) {
+    this.onTouch = fn;
   }
 
   public writeValue(value: T): void {
@@ -172,7 +168,7 @@ export abstract class PrizmInputNgControl<T>
   }
 
   protected controlMarkAsTouched(): void {
-    this.onTouched();
+    this.onTouch();
     this.checkControlUpdate();
   }
 
@@ -211,10 +207,6 @@ export abstract class PrizmInputNgControl<T>
   }
 
   public markAsTouched(): void {
-    this.ngControl.control?.markAsTouched();
-  }
-
-  public markAsDirty(): void {
-    this.ngControl.control?.markAsDirty();
+    this.onTouch();
   }
 }

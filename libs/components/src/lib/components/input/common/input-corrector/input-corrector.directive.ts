@@ -16,6 +16,7 @@ import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 @Directive({
   selector: '[prizmInputCorrector]',
   providers: [PrizmDestroyService],
+  standalone: true,
 })
 export class PrizmInputCorrectorDirective implements OnInit {
   private readonly inputs$ = new Subject<any>();

@@ -9,22 +9,21 @@ env:
   NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_PUBLISH_TOKEN }}
 jobs:
   pre_release_v4:
-    if: ${{ always() }}
+    if: ${{ startsWith(github.event.release.tag_name, '4') }}
     uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng17.yml@main
     secrets: inherit
-#  pre_release_v3:
-#    if: ${{ always() }}
-#    uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng16.yml@main
-#    secrets: inherit
-#
-#  pre_release_v2:
-#    needs: pre_release_v3
-#    if: ${{ always() }}
-#    uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng15.yml@main
-#    secrets: inherit
-#
-#  pre_release_v1:
-#    needs: pre_release_v1
-#    if: ${{ always() }}
-#    uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng14.yml@main
-#    secrets: inherit
+
+  pre_release_v3:
+    if: ${{ startsWith(github.event.release.tag_name, '3') }}
+    uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng16.yml@main
+    secrets: inherit
+
+  pre_release_v2:
+    if: ${{ startsWith(github.event.release.tag_name, '2') }}
+    uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng15.yml@main
+    secrets: inherit
+
+  pre_release_v1:
+    if: ${{ startsWith(github.event.release.tag_name, '1') }}
+    uses: zyfra/Prizm/.github/workflows/pre-release-publish-ng14.yml@main
+    secrets: inherit

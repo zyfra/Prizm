@@ -5,8 +5,8 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmStepperBasicExampleComponent } from './examples/stepper-basic-example/stepper-basic-example.component';
 import {
-  PrizmButtonModule,
-  PrizmCheckboxModule,
+  PrizmButtonComponent,
+  PrizmCheckboxComponent,
   PrizmInputSelectModule,
   PrizmStepperModule,
 } from '@prizm-ui/components';
@@ -22,9 +22,9 @@ import { PrizmStepperAsyncExampleComponent } from './examples/stepper-async-exam
     RouterModule.forChild(prizmDocGenerateRoutes(PrizmStepperExampleComponent)),
     FormsModule,
     ReactiveFormsModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmInputSelectModule,
-    PrizmCheckboxModule,
+    PrizmCheckboxComponent,
   ],
   declarations: [
     PrizmStepperExampleComponent,

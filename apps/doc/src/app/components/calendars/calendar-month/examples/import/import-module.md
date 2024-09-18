@@ -1,12 +1,12 @@
 ```ts
-import { PrizmCalendarMonthModule } from '@prizm-ui/components';
+import { PrizmCalendarMonthComponent } from '@prizm-ui/components';
 
 // ...
 
 @NgModule({
   imports: [
     // ...
-    PrizmCalendarMonthModule,
+    PrizmCalendarMonthComponent,
   ],
   // ...
 })

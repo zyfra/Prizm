@@ -2,4 +2,6 @@
 
 import { PrizmIcons } from './source/prizm-icons.model';
 
+export { PrizmIcons, PrizmIconsEnum } from './source/prizm-icons.model';
+
 export type PrizmIconsNameSubset<T extends Readonly<PrizmIcons[]>> = T[number]['name'];

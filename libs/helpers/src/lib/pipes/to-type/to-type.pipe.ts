@@ -15,8 +15,3 @@ export class PrizmToTypePipe implements PipeTransform {
     return value;
   }
 }
-/**
- * TODO v5: remove
- * @deprecated
- * */
-export const ToTypePipe = PrizmToTypePipe;
