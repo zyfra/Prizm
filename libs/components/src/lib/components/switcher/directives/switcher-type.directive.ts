@@ -1,13 +1,13 @@
 import { Directive, Input } from '@angular/core';
 import { PrizmSwitcherType } from '../switcher.interface';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmSyncOnChange } from '@prizm-ui/helpers';
 
 @Directive({
   selector: '[prizmSwitcherType]',
   standalone: true,
   providers: [PrizmDestroyService],
 })
-export class PrizmSwitcherTypeDirective {
+export class PrizmSwitcherTypeDirective extends PrizmSyncOnChange {
   @Input()
   public type: PrizmSwitcherType = 'inner';
 }
