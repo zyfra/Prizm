@@ -10,7 +10,7 @@ import {
 } from '@prizm-ui/helpers';
 import { noop, ReplaySubject } from 'rxjs';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, skip, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter, skip, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { SWITCHER_CONTAINER } from '../swithcer.const';
 import { PrizmSwitcherItemComponent } from '@prizm-ui/components';
 
@@ -25,6 +25,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
   private destroy$ = inject(PrizmDestroyService, {
     self: true,
   });
+  private selected?: any;
   private selector = inject(PRIZM_INDEX_SELECT_FN);
   protected writeValue$ = new ReplaySubject<any>(1);
   private disabledDirective = inject(PrizmDisabledDirective);
@@ -45,9 +46,9 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
   ngAfterViewInit(): void {
     this.selectedIndexDirective.selectedIndexChange
       .pipe(
-        distinctUntilChanged(),
-        skip(1),
+        filter(selected => this.selected !== selected),
         tap(idx => {
+          this.selected = idx;
           const findByValue = this.storeByIndexDirective.get(idx);
           this.onTouched();
           this.onChange(findByValue?.value ?? idx);
@@ -82,22 +83,24 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
   }
 
   private writeValue_(indexOrValue: unknown): void {
+    this.selected = indexOrValue;
     // first search by value
     const findByValue = [...this.storeByIndexDirective.entries()].find(
       ([, item]: [number, PrizmSwitcherItemComponent<unknown>]) => {
         return item.value === indexOrValue;
       }
     );
+
     if (findByValue) {
-      this.selector(findByValue[0]);
+      this.select(findByValue[0]);
     } else {
       const idx = parseInt(indexOrValue as string, 10);
       if (isNaN(idx)) {
         console.warn('Cannot find by index or by value', { idx, indexOrValue });
-        this.selector(-1);
+        this.select(-1);
         return;
       }
-      this.selector(idx);
+      this.select(idx);
     }
     this.cdRef.markForCheck();
   }
@@ -113,6 +116,10 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
     this.disabledDirective.disabled = isDisabled;
     this.syncParentDirective.sync();
     this.cdRef.markForCheck();
+  }
+
+  private select(index: number): boolean {
+    return this.selector((this.selected = index));
   }
 
   private isIndexValid(idx: number, switchers: any[]): boolean {
