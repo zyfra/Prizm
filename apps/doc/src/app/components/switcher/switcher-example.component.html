@@ -83,9 +83,9 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="selectedSwitcherIdx"
+        [documentationPropertyMode]="control.disabled ? null : 'input'"
         documentationPropertyName="selectedSwitcherIdx"
         documentationPropertyType="number"
-        documentationPropertyMode="input"
       >
         Selected switcher index
       </ng-template>
