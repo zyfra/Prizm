@@ -10,7 +10,7 @@ import {
 } from '@prizm-ui/helpers';
 import { noop, ReplaySubject } from 'rxjs';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { debounceTime, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, skip, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { SWITCHER_CONTAINER } from '../swithcer.const';
 import { PrizmSwitcherItemComponent } from '@prizm-ui/components';
 
@@ -19,7 +19,7 @@ import { PrizmSwitcherItemComponent } from '@prizm-ui/components';
   standalone: true,
   providers: [PrizmDestroyService],
 })
-export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnInit, AfterViewInit {
+export class PrizmSwitcherControlDirective implements ControlValueAccessor, AfterViewInit {
   onChange: (v: any) => void = noop;
   onTouched: () => void = noop;
   private destroy$ = inject(PrizmDestroyService, {
@@ -42,20 +42,21 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
     }
   }
 
-  ngOnInit() {
+  ngAfterViewInit(): void {
     this.selectedIndexDirective.selectedIndexChange
       .pipe(
+        distinctUntilChanged(),
+        skip(1),
         tap(idx => {
           const findByValue = this.storeByIndexDirective.get(idx);
+          this.onTouched();
           this.onChange(findByValue.value ?? idx);
         }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
       )
       .subscribe();
-  }
 
-  ngAfterViewInit(): void {
     this.ngControl?.statusChanges
       ?.pipe(
         tap(() => this.syncParentDirective.sync()),
@@ -77,10 +78,14 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   }
 
   public writeValue(idx: any): void {
+    console.log('#mz writeValue::', idx);
+
     this.writeValue$.next(idx);
   }
 
   private writeValue_(indexOrValue: unknown): void {
+    console.log('#mz writeValue_::', indexOrValue);
+
     // first search by value
     const findByValue = [...this.storeByIndexDirective.entries()].find(
       ([, item]: [number, PrizmSwitcherItemComponent<unknown>]) => {
