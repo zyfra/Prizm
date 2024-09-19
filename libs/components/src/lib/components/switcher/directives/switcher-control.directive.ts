@@ -78,14 +78,10 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
   }
 
   public writeValue(idx: any): void {
-    console.log('#mz writeValue::', idx);
-
     this.writeValue$.next(idx);
   }
 
   private writeValue_(indexOrValue: unknown): void {
-    console.log('#mz writeValue_::', indexOrValue);
-
     // first search by value
     const findByValue = [...this.storeByIndexDirective.entries()].find(
       ([, item]: [number, PrizmSwitcherItemComponent<unknown>]) => {
