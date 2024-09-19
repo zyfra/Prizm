@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwitcherExampleComponent } from './switcher-example.component';
-import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
+import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { SwitcherBasicExampleComponent } from './examples/switcher-basic-example/switcher-basic-example.component';
 import {
@@ -19,10 +19,12 @@ import { SwitcherOnlyIconExampleComponent } from './examples/switcher-only-icon-
 import { ReactiveFormsModule } from '@angular/forms';
 import { SwitcherAsyncExampleComponent } from './examples/switcher-async-example/switcher-async-example.component';
 import { SwitcherProjectionExampleComponent } from './examples/switcher-projection-example/switcher-projection-example.component';
+import { SwitcherProjectionValueExampleComponent } from './examples/switcher-projection-value-example/switcher-projection-value-example.component';
 
 @NgModule({
   declarations: [
     SwitcherExampleComponent,
+    SwitcherProjectionValueExampleComponent,
     SwitcherBasicExampleComponent,
     SwitcherInnerLExampleComponent,
     SwitcherInnerMExampleComponent,
