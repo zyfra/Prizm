@@ -4,12 +4,15 @@ import {
   PRIZM_INDEX_SELECT_FN,
   PrizmDestroyService,
   PrizmDisabledDirective,
-  PrizmSelectedIndexDirective, PrizmSyncParentDirective,
+  PrizmSelectedIndexDirective,
+  PrizmStoreByIndexDirective,
+  PrizmSyncParentDirective,
 } from '@prizm-ui/helpers';
 import { noop, ReplaySubject } from 'rxjs';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
 import { debounceTime, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { SWITCHER_CONTAINER } from '../swithcer.const';
+import { PrizmSwitcherItemComponent } from '@prizm-ui/components';
 
 @Directive({
   selector: '[prizmSwitcherControl]',
@@ -17,14 +20,15 @@ import { SWITCHER_CONTAINER } from '../swithcer.const';
   providers: [PrizmDestroyService],
 })
 export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnInit, AfterViewInit {
-  onChange: (v: number) => void = noop;
+  onChange: (v: any) => void = noop;
   onTouched: () => void = noop;
   private destroy$ = inject(PrizmDestroyService, {
     self: true,
   });
   private selector = inject(PRIZM_INDEX_SELECT_FN);
-  protected writeValue$ = new ReplaySubject<number>(1);
+  protected writeValue$ = new ReplaySubject<any>(1);
   private disabledDirective = inject(PrizmDisabledDirective);
+  private storeByIndexDirective = inject(PrizmStoreByIndexDirective);
   protected selectedIndexDirective = inject(PrizmSelectedIndexDirective);
   private switcherContainer = inject(SWITCHER_CONTAINER);
   private readonly syncParentDirective = inject(PrizmSyncParentDirective);
@@ -42,7 +46,8 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
     this.selectedIndexDirective.selectedIndexChange
       .pipe(
         tap(idx => {
-          this.onChange(idx);
+          const findByValue = this.storeByIndexDirective.get(idx);
+          this.onChange(findByValue.value ?? idx);
         }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
@@ -51,12 +56,13 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   }
 
   ngAfterViewInit(): void {
-    this.ngControl?.statusChanges?.pipe(
-      tap(
-        () => this.syncParentDirective.sync()
-      ),
-      takeUntil(this.destroy$)
-    ).subscribe
+    this.ngControl?.statusChanges
+      ?.pipe(
+        tap(() => this.syncParentDirective.sync()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+
     // write only after get children array for right count
     this.switcherContainer
       .pipe(
@@ -70,15 +76,31 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
       .subscribe();
   }
 
-  public writeValue(idx: string): void {
-    const selectedSwitcherIdx = parseInt(idx);
-    this.writeValue$.next(selectedSwitcherIdx);
+  public writeValue(idx: any): void {
+    this.writeValue$.next(idx);
   }
 
-  private writeValue_(selectedSwitcherIdx: number): void {
-    this.selector(selectedSwitcherIdx);
+  private writeValue_(indexOrValue: unknown): void {
+    // first search by value
+    const findByValue = [...this.storeByIndexDirective.entries()].find(
+      ([, item]: [number, PrizmSwitcherItemComponent<unknown>]) => {
+        return item.value === indexOrValue;
+      }
+    );
+    if (findByValue) {
+      this.selector(findByValue[0]);
+    } else {
+      const idx = parseInt(indexOrValue as string, 10);
+      if (isNaN(idx)) {
+        console.warn('Cannot find by index of by value', { idx, indexOrValue });
+        this.selector(-1);
+        return;
+      }
+      this.selector(idx);
+    }
     this.cdRef.markForCheck();
   }
+
   public registerOnChange(fn: (value: number) => void): void {
     this.onChange = fn;
   }

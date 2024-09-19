@@ -87,7 +87,7 @@ import { ObserversModule } from '@angular/cdk/observers';
   ],
   imports: [CommonModule, PrizmButtonComponent, ObserversModule, PrizmHasValueDirective],
 })
-export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
+export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId {
   @HostBinding('attr.switcher-type')
   get type(): PrizmSwitcherType {
     return this.switcherTypeDirective.type ?? 'inner';
@@ -95,6 +95,9 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
 
   @Input()
   public icon: PolymorphContent | null = null;
+
+  @Input()
+  public value?: T;
 
   get isActive() {
     return this.selectedIndexDirective.selectedIndex === this.currentIndexDirective.index;
