@@ -43,6 +43,10 @@
   }
 
   &[switcher-type='outer'] {
+    &[data-appearance-type='outline'] .switcher {
+      min-height: unset;
+    }
+
     &[data-size='l'] {
       .switcherSizing(40px, 14px, 16px);
     }
