@@ -38,6 +38,10 @@ export class SwitcherExampleComponent {
     TypeScript: import('./examples/switcher-basic-example/switcher-basic-example.component?raw'),
     HTML: import('./examples/switcher-basic-example/switcher-basic-example.component.html?raw'),
   };
+  public readonly exampleBasicWithIdSwitcher: TuiDocExample = {
+    TypeScript: import('./examples/switcher-basic-value-example/switcher-basic-value-example.component?raw'),
+    HTML: import('./examples/switcher-basic-value-example/switcher-basic-value-example.component.html?raw'),
+  };
 
   public readonly exampleProjectionSwitcher: TuiDocExample = {
     TypeScript: import('./examples/switcher-projection-example/switcher-projection-example.component?raw'),
