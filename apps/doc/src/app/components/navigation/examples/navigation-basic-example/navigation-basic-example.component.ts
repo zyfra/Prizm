@@ -6,6 +6,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsBars,
   prizmIconsBatteryThreeQuarters,
+  prizmIconsDatabase,
   prizmIconsList,
   prizmIconsMusic,
 } from '@prizm-ui/icons/full/source';
@@ -34,7 +35,8 @@ export class NavigationBasicExampleComponent {
       prizmIconsBars,
       prizmIconsMusic,
       prizmIconsList,
-      prizmIconsBatteryThreeQuarters
+      prizmIconsBatteryThreeQuarters,
+      prizmIconsDatabase
     );
   }
 
