@@ -93,6 +93,11 @@ export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId
     return this.switcherTypeDirective.type ?? 'inner';
   }
 
+  @HostBinding('attr.data-size')
+  get size() {
+    return this.sizeDirective.size;
+  }
+
   @Input()
   public icon: PolymorphContent | null = null;
 
@@ -146,10 +151,6 @@ export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId
   private readonly currentIndexDirective = inject(PrizmCurrentIndexDirective);
   private readonly selectedIndexDirective = inject(PrizmSelectedIndexDirective);
   private readonly sizeDirective = inject(PrizmSizeDirective);
-
-  get size() {
-    return this.sizeDirective.size;
-  }
 
   constructor() {
     super();
