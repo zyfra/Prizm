@@ -4,7 +4,7 @@ import { PrizmSwitcherItem } from '../../switcher.interface';
 import { SWITCHER_VIEW_CONTAINER } from '../../swithcer.const';
 import { PrizmSwitcherItemComponent } from '../../components/switcher-item/switcher-item.component';
 import { takeUntil, tap } from 'rxjs/operators';
-import { filterTruthy, PrizmDestroyService, PrizmSyncParentDirective } from '@prizm-ui/helpers';
+import { Compare, filterTruthy, PrizmDestroyService, PrizmSyncParentDirective } from '@prizm-ui/helpers';
 
 @Directive({
   selector: '[prizmSwitcherItems]',
@@ -38,6 +38,7 @@ export class PrizmSwitcherItemsDirective implements AfterViewInit {
             });
 
             if (item.appearanceType) cmp.setInput('appearanceType', item.appearanceType);
+            if (Compare.isNotNullish(item.id)) cmp.setInput('value', item.id);
             if (item.appearance) {
               cmp.setInput('appearance', item.appearance);
             }

@@ -20,10 +20,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SwitcherAsyncExampleComponent } from './examples/switcher-async-example/switcher-async-example.component';
 import { SwitcherProjectionExampleComponent } from './examples/switcher-projection-example/switcher-projection-example.component';
 import { SwitcherProjectionValueExampleComponent } from './examples/switcher-projection-value-example/switcher-projection-value-example.component';
+import { SwitcherBasicValueExampleComponent } from './examples/switcher-basic-value-example/switcher-basic-value-example.component';
 
 @NgModule({
   declarations: [
     SwitcherExampleComponent,
+    SwitcherBasicValueExampleComponent,
     SwitcherProjectionValueExampleComponent,
     SwitcherBasicExampleComponent,
     SwitcherInnerLExampleComponent,

@@ -92,7 +92,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
     } else {
       const idx = parseInt(indexOrValue as string, 10);
       if (isNaN(idx)) {
-        console.warn('Cannot find by index of by value', { idx, indexOrValue });
+        console.warn('Cannot find by index or by value', { idx, indexOrValue });
         this.selector(-1);
         return;
       }
