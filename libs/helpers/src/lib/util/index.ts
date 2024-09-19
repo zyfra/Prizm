@@ -12,3 +12,4 @@ export * from './order-by';
 export * from './difference';
 export * from './directive';
 export * from './invert-object';
+export * from './browser-api';

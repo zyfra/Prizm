@@ -15,8 +15,17 @@ import {
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmOverlayOutsidePlacement } from '../../modules';
 import { BehaviorSubject, Observable, Subscription, timer } from 'rxjs';
-import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { map, takeUntil } from 'rxjs/operators';
+import {
+  PrizmCallFuncPipe,
+  PrizmContextDirective,
+  PrizmContextGetByKysPipe,
+  PrizmDestroyService,
+  PrizmLetDirective,
+  PrizmOverflowHostDirective,
+  PrizmOverflowItem,
+  PrizmOverflowItemDirective,
+} from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../directives';
@@ -47,6 +56,10 @@ import { PrizmChipsItemComponent } from './chips-item';
     PrizmElementReadyDirective,
     PrizmLetDirective,
     PrizmHintDirective,
+    PrizmOverflowItemDirective,
+    PrizmOverflowHostDirective,
+    PrizmContextDirective,
+    PrizmContextGetByKysPipe,
   ],
 })
 export class PrizmChipsComponent
@@ -69,7 +82,7 @@ export class PrizmChipsComponent
   override readonly testId_ = 'ui_chips';
 
   public accessorIsDisabled = false;
-  public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
+  // public readonly overflowedChipsList$ = new BehaviorSubject<Set<number>>(new Set());
 
   public chipsList$: BehaviorSubject<string[]> = new BehaviorSubject<string[]>([]);
   private subscription: Subscription = new Subscription();
@@ -104,9 +117,9 @@ export class PrizmChipsComponent
 
   public removeChips(event: MouseEvent, idx: number): void {
     if (this.accessorIsDisabled) return;
-    this.overflowedChipsList$.value.delete(idx);
-    this.overflowedChipsList$.next(this.overflowedChipsList$.value);
-
+    // this.overflowedChipsList$.value.delete(idx);
+    // this.overflowedChipsList$.next(this.overflowedChipsList$.value);
+    //
     event.stopPropagation();
     this.removeChipEvent.emit(this.chipsList[idx]);
     this.chipsList = this.chipsList.filter((item, i) => i !== idx);
@@ -145,46 +158,8 @@ export class PrizmChipsComponent
     this.onTouched = fn;
   }
 
-  public isChipsContent$(
-    observable: Observable<ElementRef>,
-    parent: HTMLElement,
-    singleLine: boolean,
-    chips: string,
-    idx: number,
-    allChipsCount: number
-  ): Observable<string> {
-    return this.chipsList$.pipe(
-      switchMap(() => observable),
-      map((current: ElementRef) => {
-        if (idx === 0) this.overflowedChipsList$.value.clear();
-        if (!singleLine || this.chipsList.length === 1) return false;
-        if (idx === 0) return 0;
-        const maxPadding = 2;
-        const needWidthPlaceForShowDots = 35;
-        const offsetY = Math.abs(parent.offsetTop - current.nativeElement.offsetTop) > maxPadding;
-
-        const parentX = parent.offsetLeft + parent.offsetWidth;
-        const currentX = current.nativeElement.offsetLeft + current.nativeElement.offsetWidth;
-        const result = offsetY || parentX - currentX < needWidthPlaceForShowDots;
-
-        if (result) this.overflowedChipsList$.value.add(idx);
-        else this.overflowedChipsList$.value.delete(idx);
-
-        this.overflowedChipsList$.next(new Set([...this.overflowedChipsList$.value]));
-
-        return result;
-      }),
-      map(i => (i ? 'hidden' : 'visible'))
-    );
-  }
-
-  public getOverflowedChipsListHint(): string {
-    const list = [...this.overflowedChipsList$.value.values()];
-    return [...list]
-      .map(i => {
-        return this.chipsList[i];
-      })
-      .join(', ');
+  public joinHints(hints: null | string[]) {
+    return hints?.join(', ') ?? '';
   }
 
   ngAfterViewInit(): void {
