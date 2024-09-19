@@ -4,7 +4,7 @@ import {
   PRIZM_INDEX_SELECT_FN,
   PrizmDestroyService,
   PrizmDisabledDirective,
-  PrizmSelectedIndexDirective,
+  PrizmSelectedIndexDirective, PrizmSyncParentDirective,
 } from '@prizm-ui/helpers';
 import { noop, ReplaySubject } from 'rxjs';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
@@ -27,10 +27,11 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   private disabledDirective = inject(PrizmDisabledDirective);
   protected selectedIndexDirective = inject(PrizmSelectedIndexDirective);
   private switcherContainer = inject(SWITCHER_CONTAINER);
+  private readonly syncParentDirective = inject(PrizmSyncParentDirective);
 
   constructor(
     public readonly cdRef: ChangeDetectorRef,
-    @Optional() @Self() public readonly ngControl: NgControl
+    @Optional() @Self() public readonly ngControl: NgControl | null
   ) {
     if (this.ngControl != null) {
       this.ngControl.valueAccessor = this;
@@ -50,6 +51,12 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
   }
 
   ngAfterViewInit(): void {
+    this.ngControl?.statusChanges?.pipe(
+      tap(
+        () => this.syncParentDirective.sync()
+      ),
+      takeUntil(this.destroy$)
+    ).subscribe
     // write only after get children array for right count
     this.switcherContainer
       .pipe(
@@ -81,6 +88,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, OnIn
 
   public setDisabledState(isDisabled: boolean): void {
     this.disabledDirective.disabled = isDisabled;
+    this.syncParentDirective.sync();
     this.cdRef.markForCheck();
   }
 
