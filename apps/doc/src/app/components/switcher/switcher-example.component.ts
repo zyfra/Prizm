@@ -26,7 +26,7 @@ export class SwitcherExampleComponent {
       icon: 'dashboard-fill',
     },
   ];
-  public control = new FormControl();
+  public control = new FormControl(0);
   public size: PrizmSwitcherSize = 'l';
   public sizeVariants: PrizmSwitcherSize[] = ['l', 'm', 's'];
   public type: PrizmSwitcherType = 'inner';
