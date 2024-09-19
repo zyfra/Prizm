@@ -50,7 +50,7 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
         tap(idx => {
           const findByValue = this.storeByIndexDirective.get(idx);
           this.onTouched();
-          this.onChange(findByValue.value ?? idx);
+          this.onChange(findByValue?.value ?? idx);
         }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)

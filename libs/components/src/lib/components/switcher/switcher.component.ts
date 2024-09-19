@@ -77,7 +77,7 @@ import { debounceTime } from 'rxjs/operators';
           if (selected) return true;
 
           const items = [...store.entries()];
-          const defaultValue = items.find(([, i]) => !i.isDisabled);
+          const defaultValue = items.shift();
 
           if (defaultValue) {
             console.warn(`Can not select by idx ${idx}, selected default ${defaultValue[0]}`);
