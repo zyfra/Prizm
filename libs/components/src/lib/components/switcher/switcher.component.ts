@@ -77,16 +77,27 @@ import { debounceTime } from 'rxjs/operators';
           if (selected) return true;
 
           const items = [...store.entries()];
-          const defaultValue = items.shift();
 
-          if (defaultValue) {
-            console.warn(`Can not select by idx ${idx}, selected default ${defaultValue[0]}`);
-            return defaultValue[1].select();
+          // TODO think about this behaviour
+          // const notDisabledFirstValue = items.find(([, i]) => !i.isDisabled);
+          //
+          // if (notDisabledFirstValue) {
+          //   console.warn(
+          //     `Can not select by idx ${idx}, selected first not disabled value ${notDisabledFirstValue[0]}`
+          //   );
+          //   return notDisabledFirstValue[1].select();
+          // }
+
+          const firstValue = items.shift();
+
+          if (firstValue) {
+            console.warn(`Can not select by idx ${idx}, selected first value ${firstValue[0]}`);
+            return firstValue[1].select();
           }
 
           console.error(`Can not select by idx ${idx} and can not get default value`, {
             items,
-            defaultValue,
+            defaultValue: firstValue,
           });
           injector.get(PrizmSelectedIndexDirective)?.setIndex(-1);
           return false;
