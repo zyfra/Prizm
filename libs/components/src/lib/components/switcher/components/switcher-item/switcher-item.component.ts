@@ -120,8 +120,12 @@ export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId
     return this.currentIndexDirective.isLast;
   }
 
-  @HostListener('click') public select() {
+  @HostListener('click') public selectHandler() {
     if (this.isDisabled) return false;
+    return this.select();
+  }
+
+  public select() {
     this.selectedIndexDirective.setIndex(this.currentIndexDirective.index);
     return true;
   }
