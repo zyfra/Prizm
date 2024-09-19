@@ -6,6 +6,7 @@ import {
   inject,
   Injector,
   Input,
+  OnChanges,
   Self,
   ViewChild,
   ViewContainerRef,
@@ -130,7 +131,7 @@ import { debounceTime } from 'rxjs/operators';
     },
   ],
 })
-export class PrizmSwitcherComponent extends PrizmAbstractTestId implements AfterViewInit {
+export class PrizmSwitcherComponent extends PrizmAbstractTestId implements AfterViewInit, OnChanges {
   @ViewChild('container', { read: ElementRef }) container?: ElementRef<HTMLDivElement>;
   @ViewChild('viewRef', { read: ViewContainerRef }) viewRef?: ViewContainerRef;
 
@@ -145,6 +146,7 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements After
   private readonly switcherContainer = inject(SWITCHER_CONTAINER);
 
   override readonly testId_ = 'ui_switcher';
+  private readonly syncParentDirective = inject(PrizmSyncParentDirective);
 
   public ngAfterViewInit(): void {
     this.switcherViewContainer.next(this.viewRef!);
@@ -157,5 +159,9 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements After
    */
   public selectSwitcher(idx: number): boolean {
     return this.selectFn(idx);
+  }
+
+  ngOnChanges(): void {
+    this.syncParentDirective.sync();
   }
 }

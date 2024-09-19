@@ -1,5 +1,6 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
   forwardRef,
   HostBinding,
@@ -20,6 +21,7 @@ import {
   PrizmAppearanceDirective,
   PrizmAppearanceTypeDirective,
   PrizmCurrentIndexDirective,
+  PrizmDestroyService,
   PrizmDisabledDirective,
   PrizmHasValueDirective,
   PrizmMutationObserverService,
@@ -38,6 +40,7 @@ import { ObserversModule } from '@angular/cdk/observers';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [
+    PrizmDestroyService,
     // for store PrizmSwitcherItemComponent by index to control from parent switcher component
     {
       provide: PRIZM_STORE_ITEM,
@@ -123,6 +126,12 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
   private readonly currentDisableDirective = inject(PrizmDisabledDirective, {
     self: true,
   });
+  private readonly syncChildDirective = inject(PrizmSyncChildDirective, {
+    self: true,
+  });
+  private readonly destroy$ = inject(PrizmDestroyService);
+  private readonly cdRef = inject(ChangeDetectorRef);
+
   public readonly appearanceTypeDirective = inject(PrizmAppearanceTypeDirective);
   public readonly parentFullWidthDirective = inject(PrizmSwitcherFullWidthDirective);
   public readonly appearanceDirective = inject(PrizmAppearanceDirective);
@@ -137,6 +146,11 @@ export class PrizmSwitcherItemComponent extends PrizmAbstractTestId {
 
   get size() {
     return this.sizeDirective.size;
+  }
+
+  constructor() {
+    super();
+    this.syncChildDirective.addCdRef(this.cdRef);
   }
 }
 
