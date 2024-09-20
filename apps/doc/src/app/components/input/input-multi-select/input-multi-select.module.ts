@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputInputMultiSelectComponent } from './input-multi-select.component';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmInputMultiSelectModule,
   PrizmLoaderComponent,
   PrizmPaginatorComponent,
@@ -27,7 +27,7 @@ import { PrizmInputMultiSelectAsyncExampleComponent } from './examples/async/mul
     FormsModule,
     ReactiveFormsModule,
     PolymorphModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmInputMultiSelectModule,
     RouterModule.forChild(prizmDocGenerateRoutes(InputInputMultiSelectComponent)),
     PrizmIconsFullComponent,
