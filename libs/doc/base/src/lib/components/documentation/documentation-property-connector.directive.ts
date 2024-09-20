@@ -157,7 +157,6 @@ export class PrizmDocDocumentationPropertyConnectorDirective<T> implements OnIni
       !!propertyValueWithSuffix && this.documentationPropertyValues
         ? this.documentationPropertyValues[propertyValueWithSuffix as number]
         : prizmCoerceValue(propertyValue);
-
     this.onValueChange(value as T);
   }
 
