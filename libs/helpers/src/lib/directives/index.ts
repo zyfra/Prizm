@@ -1,4 +1,5 @@
 export * from './let';
+export * from './overflow';
 export * from './stringify';
 export * from './identity-matcher';
 export * from './disabled';
@@ -8,3 +9,4 @@ export * from './appearance';
 export * from './appearance-type';
 export * from './parent-sync';
 export * from './has-value';
+export * from './context';
