@@ -53,6 +53,7 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange } from '@prizm-ui/icons/full/source';
+import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 
 @Component({
   selector: `prizm-input-layout-date-range`,
@@ -120,13 +121,21 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   @prizmDefaultProp()
   placeholder = '';
 
-  @Input()
   @prizmDefaultProp()
-  min = PRIZM_FIRST_DAY;
+  _min = PRIZM_FIRST_DAY;
 
   @Input()
+  set min(value: PrizmDay | Date | string) {
+    this._min = (transformDateIfNeeded(value, true) as PrizmDay) || PRIZM_FIRST_DAY;
+  }
+
   @prizmDefaultProp()
-  max = PRIZM_LAST_DAY;
+  _max = PRIZM_LAST_DAY;
+
+  @Input()
+  set max(value: PrizmDay | Date | string) {
+    this._max = (transformDateIfNeeded(value, true) as PrizmDay) || PRIZM_LAST_DAY;
+  }
 
   @Input()
   @prizmDefaultProp()
@@ -209,8 +218,8 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
           this.value,
           item.range,
           (a, b) =>
-            a.from.daySame(b.from.dayLimit(this.min, this.max)) &&
-            a.to.daySame(b.to.dayLimit(this.min, this.max))
+            a.from.daySame(b.from.dayLimit(this._min, this._max)) &&
+            a.to.daySame(b.to.dayLimit(this._min, this._max))
         )
       ) || null
     );
@@ -296,7 +305,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
     this.focusInput();
 
     if (typeof item !== `string`) {
-      this.updateValue(item.range.dayLimit(this.min, this.max));
+      this.updateValue(item.range.dayLimit(this._min, this._max));
 
       return;
     }
@@ -326,7 +335,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
   }
 
   private dayLimit(value: PrizmDay): PrizmDay {
-    return value.dayLimit(this.min, this.max);
+    return value.dayLimit(this._min, this._max);
   }
 
   public override writeValue(value: PrizmDayRange | null): void {
@@ -350,7 +359,7 @@ export class PrizmInputLayoutDateRangeComponent extends PrizmInputNgControl<Priz
 
     const availableMax = this.maxLength
       ? clampedBottom.from.append(this.maxLength).append({ day: -1 })
-      : this.max;
+      : this._max;
 
     return clampedBottom.to.dayAfter(availableMax)
       ? new PrizmDayRange(clampedBottom.from, availableMax)
