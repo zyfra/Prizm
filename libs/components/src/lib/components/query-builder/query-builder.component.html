@@ -53,15 +53,12 @@
       } @default {
       <div class="query-builder__node-content">
         <div class="query-builder__expression">
-          <prizm-switcher
-            [switchers]="(operatorsItems$ | async) ?? []"
-            [size]="'m'"
-            [selectedSwitcherIdx]="_getOperatorIndex(node.form.controls.operator.value)"
-            [attr.inert]="disabled ? true : null"
-            (selectedSwitcherIdxChange)="node.form.controls.operator.setValue(operators[$event])"
-          >
-            <!-- no [value] support, no [disabled] input -->
-            <!-- [formControl]="node.form.controls.operator" -->
+          <prizm-switcher [size]="'m'" [formControl]="node.form.controls.operator">
+            @for (item of operatorsItems$ | async; track item.id) {
+            <prizm-switcher-item [value]="item.id">
+              {{ item.title }}
+            </prizm-switcher-item>
+            }
           </prizm-switcher>
 
           @if (!disabled) {

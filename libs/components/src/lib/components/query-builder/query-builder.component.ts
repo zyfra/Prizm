@@ -40,7 +40,7 @@ import { PrizmDataListComponent } from '../data-list';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
 import { PrizmListingItemComponent } from '../listing-item';
 import { PrizmScrollbarComponent } from '../scrollbar';
-import { PrizmSwitcherComponent, PrizmSwitcherItem } from '../switcher';
+import { PrizmSwitcherComponent, PrizmSwitcherItem, PrizmSwitcherItemComponent } from '../switcher';
 import { PrizmToggleComponent } from '../toggle';
 import { PrizmConditionDefDirective } from './condition-def.directive';
 import {
@@ -100,9 +100,11 @@ type Node = ExpressionNode | ConditionNode;
     PrizmButtonComponent,
     PrizmToggleComponent,
     PrizmSwitcherComponent,
+    PrizmSwitcherItemComponent,
     PrizmDataListComponent,
     PrizmListingItemComponent,
     PrizmScrollbarComponent,
+    // NOOP_TREE_KEY_MANAGER_FACTORY_PROVIDER // TODO NG 19 adds new TREE_KEY_MANAGER which prevents `*` input (registered as hotkey for a tree)
   ],
 })
 export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor, Validator {
@@ -247,10 +249,6 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
 
     this.updateViewData();
     this.updateModel();
-  }
-
-  protected _getOperatorIndex(value: LOGICAL_OPERATOR): number {
-    return OPERATORS.indexOf(value);
   }
 
   private updateModel(emitEvent = true): void {

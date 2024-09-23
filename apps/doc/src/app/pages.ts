@@ -619,7 +619,7 @@ export const pages: PrizmOrderedDocPage = [
     section: SectionNameEnum.components,
     title: 'Query Builder',
     status: 'preview',
-    keywords: 'query, expression',
+    keywords: 'query, expression, QueryBuilder, запрос, выражение',
     route: '/components/query-builder',
   },
   // Tools
