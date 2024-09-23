@@ -57,6 +57,7 @@
           [searchable]="searchable"
           [dropdownScroll]="dropdownScroll"
           [placeholder]="placeholder"
+          [dropdownAutoReposition]="autoReposition"
           [emptyContent]="emptyContent"
           [isChipsDeletable]="isChipsDeletable"
           [dropdownStyles]="dropdownStyles"
@@ -78,6 +79,15 @@
       [hostComponentKey]="selectKey"
       [control]="valueControl"
     >
+      <ng-template
+        [(documentationPropertyValue)]="autoReposition"
+        documentationPropertyName="dropdownAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Dropdown Auto Reposition
+      </ng-template>
+
       <ng-template
         documentationPropertyName="transformer"
         documentationPropertyType="PrizmMultiSelectValueTransformer"
