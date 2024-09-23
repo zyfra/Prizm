@@ -18,6 +18,7 @@ import { OldIconComponent } from './old/old-icon.component';
 import { PrizmIconsOldTransformerExampleComponent } from './examples/old-transformer/icons-old-transformer-example.component';
 import { AllIconComponent } from './all/all-icon.component';
 import { PrizmIconsAllExampleComponent } from './examples/all/icons-all-example.component';
+import { PrizmIconsCustomExampleComponent } from './examples/custom/icons-custom-example.component';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { PrizmIconsAllExampleComponent } from './examples/all/icons-all-example.
     PrizmIconsLazyExampleComponent,
     PrizmIconsBaseExampleComponent,
     PrizmIconsAllExampleComponent,
+    PrizmIconsCustomExampleComponent,
     PrizmIconsComponent,
     PrizmIconsFullComponent,
     PrizmIconsOldTransformerExampleComponent,

@@ -3,6 +3,16 @@
     Our accordion component for displaying content in a collapsible and expandable format.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-accordion-item (PrizmIconsRegistry)</li>
+      </ol>
+    </div>
     <prizm-doc-example id="base" [content]="exampleBasicAccordion" heading="Base">
       <prizm-accordion-basic-example></prizm-accordion-basic-example>
     </prizm-doc-example>
@@ -47,6 +57,9 @@
           [title]="title"
           [icon]="icon"
           [isExpanded]="isExpanded"
+          [style.--prizm-accordion-item-header-border-color-expanded]="
+            prizmAccordionHeaderExpandedBorderColor
+          "
           prizmDocHostElementKey="PrizmAccordionItemComponent"
         >
           <ng-template prizmAccordionTools>
@@ -65,7 +78,13 @@
             </span>
           </ng-template>
         </prizm-accordion-item>
-        <prizm-accordion-item [disabled]="disabled" [title]="'Title number 3'">
+        <prizm-accordion-item
+          [disabled]="disabled"
+          [title]="'Title number 3'"
+          [style.--prizm-accordion-item-header-border-color-expanded]="
+            prizmAccordionHeaderExpandedBorderColor
+          "
+        >
           <ng-template prizmAccordionTools>
             <prizm-checkbox [disabled]="disabled" label="Checkbox label is here but..."></prizm-checkbox>
           </ng-template>
@@ -106,6 +125,14 @@
       hostComponentKey="PrizmAccordionItemComponent"
       heading="PrizmAccordionItemComponent"
     >
+      <ng-template
+        [(documentationPropertyValue)]="prizmAccordionHeaderExpandedBorderColor"
+        documentationPropertyName="prizm-accordion-item-header-border-color-expanded"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Accordion Header Border Bottom Color for expanded items (default - transparent)
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="isExpanded"
         documentationPropertyName="isExpanded"
