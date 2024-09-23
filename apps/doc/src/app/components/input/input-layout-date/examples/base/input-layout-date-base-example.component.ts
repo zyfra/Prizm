@@ -16,4 +16,7 @@ import { PrizmDay } from '@prizm-ui/components';
 })
 export class PrizmInputLayoutDateBaseExampleComponent {
   public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
+  readonly min = new PrizmDay(2000, 2, 20);
+
+  readonly max = new PrizmDay(2040, 2, 20);
 }

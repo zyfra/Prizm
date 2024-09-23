@@ -11,11 +11,11 @@
   <input
     class="input-search"
     #focusableElementRef
+    #mask="mask"
     [mask]="computedMask"
     [showMaskTyped]="focusableElementRef.focused"
     [dropSpecialCharacters]="false"
     [placeholder]="placeholder"
-    [disabled]="!!disabled"
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="stringValue"
     (ngModelChange)="onValueChange($event || '')"
