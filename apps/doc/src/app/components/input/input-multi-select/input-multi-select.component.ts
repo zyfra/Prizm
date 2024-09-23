@@ -48,6 +48,7 @@ export class InputInputMultiSelectComponent {
   public readOnly = false;
   val1!: any[];
   public pseudoInvalid = false;
+  public autoReposition = false;
   public pseudoHovered = false;
   public pseudoPressed = false;
   public pseudoFocused = false;
@@ -131,6 +132,11 @@ export class InputInputMultiSelectComponent {
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('./examples/base/multi-select-base-example.component.ts?raw'),
     HTML: import('./examples/base/multi-select-base-example.component.html?raw'),
+  };
+
+  readonly exampleAsync: TuiDocExample = {
+    TypeScript: import('./examples/async/multi-select-async-example.component.ts?raw'),
+    HTML: import('./examples/async/multi-select-async-example.component.html?raw'),
   };
 
   readonly exampleWithTemplate: TuiDocExample = {

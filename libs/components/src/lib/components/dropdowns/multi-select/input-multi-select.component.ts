@@ -149,6 +149,10 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   @Input()
   @prizmDefaultProp()
+  dropdownAutoReposition = this.options.autoReposition;
+
+  @Input()
+  @prizmDefaultProp()
   placeholder = this.options.placeholder;
 
   @Input()
@@ -277,13 +281,9 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
         const selectedItems = this.value;
         return this.items$.pipe(
           map(items => {
-            return (
-              items?.filter(item =>
-                (selectedItems ?? []).find(selectedItem => {
-                  return this.identityMatcher(selectedItem, this.transformer(item));
-                })
-              ) ?? []
-            );
+            return selectedItems.filter(selectedItem => {
+              return items.find(item => this.identityMatcher(selectedItem, this.transformer(item)));
+            });
           })
         );
       }),

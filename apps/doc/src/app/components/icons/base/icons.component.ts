@@ -43,6 +43,11 @@ export class IconsComponent {
     HTML: import('./examples/lazy/icons-lazy-example.component.html?raw'),
   };
 
+  readonly exampleCustom: TuiDocExample = {
+    TypeScript: import('./examples/custom/icons-custom-example.component.ts?raw'),
+    HTML: import('./examples/custom/icons-custom-example.component.html?raw'),
+  };
+
   constructor(
     @Inject(Clipboard) public readonly clipboard: Clipboard,
     private readonly toastService: PrizmToastService
