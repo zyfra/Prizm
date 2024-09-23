@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/ast",
-  "version": "4.3.8",
+  "version": "4.4.0",
   "private": false,
   "publishConfig": {
     "access": "public",
@@ -10,6 +10,6 @@
     "lodash": "^4.17.15"
   },
   "dependencies": {
-    "tslib": "^2.4.0"
+    "tslib": "^2.3.0"
   }
 }
