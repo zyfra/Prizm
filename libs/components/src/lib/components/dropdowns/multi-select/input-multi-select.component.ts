@@ -290,8 +290,13 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
       shareReplay(1)
     );
 
-    this.selectedItemsChips$ = this.selectedItems$.pipe(
-      map((selectedItems: T[]) => {
+    this.selectedItemsChips$ = combineLatest([this.items$, this.selectedItems$]).pipe(
+      map(([items, selectedItems]) => {
+        return selectedItems.map(
+          selected => items.find(i => this.identityMatcher(selected, this.transformer(i)))!
+        );
+      }),
+      map(selectedItems => {
         this.chipsSet.clear();
         const result =
           selectedItems?.map(i => {
@@ -300,7 +305,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
               obj: i,
             });
 
-            this.chipsSet.set(str, i);
+            this.chipsSet.set(str, i as T);
             return str;
           }) ?? [];
 
