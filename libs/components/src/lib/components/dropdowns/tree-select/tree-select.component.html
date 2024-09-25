@@ -1,0 +1,27 @@
+<prizm-dropdown-host
+  #dropdownHostRef
+  [content]="dropdown"
+  [isOpen]="$any(opened$ | async)"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
+  (isOpenChange)="opened$$.next($event)"
+>
+  <input
+    class="input-search"
+    #focusableElementRef
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [tabIndex]="!disabled ? 0 : -1"
+    [readonly]="true"
+    (click)="opened$$.next(true)"
+    prizmInput
+  />
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <prizm-input-tree-select-data-list-wrapper
+    [items]="items"
+    [dataListDirective]="dataListDirective"
+    (prizmOnDestroy)="onTouch()"
+  >
+  </prizm-input-tree-select-data-list-wrapper>
+</ng-template>

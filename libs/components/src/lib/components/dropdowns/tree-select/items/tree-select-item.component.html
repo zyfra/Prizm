@@ -1,0 +1,27 @@
+<div class="item">
+  <button
+    *ngIf="children.length"
+    [icon]="iconTemplate"
+    [class.opened]="opened"
+    [class.selected]="
+      item | prizmCallFunc : treeSelectSelectedDirective.isSelected.bind(treeSelectSelectedDirective) | async
+    "
+    (click)="onToggle($event)"
+    prizmIconButton
+    appearanceType="ghost"
+    appearance="primary"
+    size="l"
+  ></button>
+
+  <ng-template #iconTemplate>
+    <prizm-icons-full [name]="'chevron-mini-right'" [size]="24"></prizm-icons-full>
+  </ng-template>
+
+  <span class="value">
+    <ng-content></ng-content>
+  </span>
+</div>
+
+<div class="children">
+  <ng-container #viewContainerRef></ng-container>
+</div>

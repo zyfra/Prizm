@@ -411,6 +411,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-tree-select',
+    loadChildren: () =>
+      import('./components/input/input-tree-select/input-tree-select.module').then(
+        i => i.InputTreeSelectModule
+      ),
+    data: {
+      title: 'Input Tree Select',
+    },
+  },
+  {
     path: 'components/input-chips',
     loadChildren: () =>
       import('./components/input/input-chips/input-chips-example.module').then(

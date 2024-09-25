@@ -1,0 +1,27 @@
+<prizm-input-layout label="Validators">
+  <prizm-input-tree-select #input [formControl]="control">
+    <prizm-data-list-wrapper *prizmDataList>
+      <ng-container *ngFor="let arrItem of items">
+        <prizm-input-tree-select-item
+          *prizmInputTreeSelectItem="arrItem; let item = item"
+          [item]="item"
+          [value]="item.value"
+        >
+          {{ item.value }}
+        </prizm-input-tree-select-item>
+      </ng-container>
+    </prizm-data-list-wrapper>
+  </prizm-input-tree-select>
+</prizm-input-layout>
+
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()" prizmButton>
+    Set default value: <b>{{ items[0]?.value }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ control.value?.value }}</div>
