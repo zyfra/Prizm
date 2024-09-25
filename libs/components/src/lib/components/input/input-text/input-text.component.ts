@@ -252,18 +252,19 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     if (this.disabled) return;
 
     if (this.ngControl?.control) {
-      this.ngControl.control.setValue('');
       // let `ControlValueAccessor` (e.g. it can be ngx-mask) to update <input> value
-      this.ngControl.valueAccessor?.writeValue('');
-    } else {
-      this.updateValue(null as VALUE);
-      this.updateEmptyState();
+      this.ngControl.control.setValue('');
     }
+
+    this.updateValue(null as VALUE);
+    this.updateEmptyState();
 
     // Mark control as touched while we do not focus it (usually touched applied on blur)
     this.markControl({ touched: true, dirty: true });
     this.onClear.emit(event);
 
+    // NOTE: ngx-mask has listener to keydown event, so we must ensure HTMLInputElement is cleared before dispatch
+    // otherwise the NgxMaskDirective's interval value is recovered from it
     this.elementRef.nativeElement.dispatchEvent(
       new KeyboardEvent('keydown', {
         key: 'Backspace',
