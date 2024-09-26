@@ -142,8 +142,6 @@ export class PrizmHintDirective<
   }
 
   public ngOnInit(): void {
-    console.log('#mz hint');
-
     this.initVisibleController();
     this.initShowedChangeListener();
     this.initPropsSyncer();

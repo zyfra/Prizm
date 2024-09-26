@@ -1,8 +1,8 @@
 import { Directive, ElementRef, inject, Input, OnChanges, OnInit } from '@angular/core';
-import { PrizmDestroyService, PrizmMutationObserverService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmElementResized$, PrizmMutationObserverService } from '@prizm-ui/helpers';
 import { PrizmHintDirective } from './hint.directive';
 import { prizmIsTextOverflow } from '../../util/dom/is-textoverflow';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, mergeMap } from 'rxjs';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 
 /**
@@ -46,11 +46,15 @@ export class PrizmHintOnOverflowDirective implements OnInit, OnChanges {
   private readonly elRef = inject(ElementRef);
   private readonly destroy = inject(PrizmDestroyService);
 
+  get element() {
+    return this.prizmHintOnOverflowEl ?? this.elRef.nativeElement;
+  }
   private readonly saveInit$$ = new BehaviorSubject<void>(void 0);
 
   ngOnInit(): void {
     this.saveInit$$
       .pipe(
+        mergeMap(() => prizmElementResized$(this.element)),
         debounceTime(0),
         tap(() => {
           this.safeInit();
@@ -69,7 +73,7 @@ export class PrizmHintOnOverflowDirective implements OnInit, OnChanges {
   }
 
   private safeInit() {
-    const element = this.prizmHintOnOverflowEl ?? this.elRef.nativeElement;
+    const element = this.element;
     this.mutationObserve.disconnectAll();
     this.updateHintDirective(element);
     this.mutationObserve.observe(element, () => this.updateHintDirective(element));
