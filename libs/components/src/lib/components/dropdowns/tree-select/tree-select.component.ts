@@ -10,7 +10,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputTextComponent } from '../../input';
 import { BehaviorSubject } from 'rxjs';
@@ -24,7 +24,11 @@ import { PrizmTreeSelectDataListWrapperComponent } from './tree-select-data-list
 import { PrizmTreeSelectSelectedDirective } from './tree-select-selected.directive';
 import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from './token';
 import { PrizmTreeSelectIdentityMatcherDirective } from './tree-select-identity-matcher.directive';
-import { skip, takeUntil, tap } from 'rxjs/operators';
+import { filter, skip, takeUntil, tap } from 'rxjs/operators';
+import { PrizmTreeSelectGetChildrenDirective } from './tree-select-get-children.directive';
+import { PrizmTreeSelectIsOpenedDirective } from './tree-select-is-opened.directive';
+import { PrizmTreeSelectStringifyDirective } from './tree-select-stringify.directive';
+import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
 
 @Component({
   selector: 'prizm-input-tree-select',
@@ -42,6 +46,7 @@ import { skip, takeUntil, tap } from 'rxjs/operators';
     PrizmDataListComponent,
     PrizmLifecycleDirective,
     NgTemplateOutlet,
+    FormsModule,
     NgIf,
     PrizmTreeSelectDataListWrapperComponent,
   ],
@@ -68,10 +73,27 @@ import { skip, takeUntil, tap } from 'rxjs/operators';
       directive: PrizmTreeSelectIdentityMatcherDirective,
       inputs: ['identityMatcher'],
     },
+    {
+      directive: PrizmTreeSelectSearchDirective,
+      inputs: ['searchable', 'searchFilter', 'searchMapper', 'searchMatcher', 'searchDebounce'],
+      outputs: ['searched'],
+    },
+    {
+      directive: PrizmTreeSelectGetChildrenDirective,
+      inputs: ['getChildren'],
+    },
+    {
+      directive: PrizmTreeSelectIsOpenedDirective,
+      inputs: ['isOpened'],
+    },
+    {
+      directive: PrizmTreeSelectStringifyDirective,
+      inputs: ['stringify'],
+    },
   ],
 })
 export class PrizmInputTreeSelectComponent<T = any>
-  extends PrizmInputNgControl<T>
+  extends PrizmInputNgControl<T | null>
   implements ControlValueAccessor, OnInit
 {
   searchable = false;
@@ -80,28 +102,18 @@ export class PrizmInputTreeSelectComponent<T = any>
   @Input()
   placeholder = '';
 
-  @Input()
-  selected: any;
-
-  @Input() items?: T[];
-  // transformer = input((v: T): any => v);
-  // searchMatcher = input<PrizmInputTreeSearchMatcher<T>>(() => true);
-  // nullContent = input<PolymorphContent | null>(null);
-  // children = input<(item: T) => T[]>();
-  // valueTemplate = input<(item: T) => T[]>();
-  private readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
+  private readonly destroy = inject(PrizmDestroyService);
+  public readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   public readonly opened$$ = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
+  public readonly treeSelectStringifyDirective = inject(PrizmTreeSelectStringifyDirective);
   public readonly opened$ = this.opened$$.asObservable();
-  @Input()
-  identityMatcher = (a: T, b: T) => a == b;
-  @Input()
-  stringify = (item: T) => item;
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   override readonly nativeElementType = 'tree-select';
   override readonly hasClearButton = true;
+  public currentValue: T | null = null;
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
@@ -116,22 +128,24 @@ export class PrizmInputTreeSelectComponent<T = any>
 
   override ngOnInit() {
     super.ngOnInit();
+  }
 
-    // this.treeSelectSelectedDirective.value
-
+  public ngAfterViewInit() {
     this.treeSelectSelectedDirective.selected$
       .pipe(
         skip(1),
-        tap(value => this.onChange(value))
-        // takeUntil(this.destroy),
+        filter(i => i !== this.currentValue),
+        tap(value => (this.currentValue = value)),
+        tap(value => this.onChange(value)),
+        takeUntil(this.destroy)
       )
       .subscribe();
   }
 
-  public override writeValue(obj: T): void {
-    // throw new Error('Method not implemented.');
+  public override writeValue(obj: T | null): void {
+    super.writeValue(obj);
+    this.currentValue = obj;
     this.treeSelectSelectedDirective.value = obj;
-    console.log('#mz selected', obj);
   }
 
   public override registerOnChange(fn: any): void {
@@ -140,7 +154,10 @@ export class PrizmInputTreeSelectComponent<T = any>
   public override registerOnTouched(fn: any): void {
     this.onTouch = fn;
   }
-  // public override setDisabledState(isDisabled: boolean): void {
-  //   // throw new Error('Method not implemented.');
-  // }
+
+  public override clear() {
+    this.writeValue(null);
+    this.onChange(null);
+    this.onTouch();
+  }
 }

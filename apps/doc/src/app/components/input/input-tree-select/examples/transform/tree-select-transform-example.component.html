@@ -1,11 +1,9 @@
 <prizm-input-layout label="Validators">
   <prizm-input-tree-select #input [stringify]="stringify" [getChildren]="getChildren" [formControl]="control">
     <prizm-data-list-wrapper *prizmDataList>
-      <ng-container *ngFor="let arrItem of items">
+      <ng-container *ngFor="let arrItem of items$ | async">
         <prizm-input-tree-select-item *prizmInputTreeSelectItem="arrItem; let item = item">
-          <div class="value">
-            {{ item.value }}
-          </div>
+          {{ item.value }}
         </prizm-input-tree-select-item>
       </ng-container>
     </prizm-data-list-wrapper>
@@ -14,14 +12,13 @@
 
 <br />
 <br />
-<div>
+<div style="display: flex; gap: 8px">
   <button (click)="setDefaultValue()" prizmButton>
     Set default value: <b>{{ items[0]?.value }}</b>
   </button>
+  <button (click)="change()" prizmButton>Update Items</button>
 </div>
 
 <br />
 <br />
 <div>Current value: {{ control.value?.value }}</div>
-<div>Touched: {{ control.touched }}</div>
-<div>Dirty: {{ control.dirty }}</div>

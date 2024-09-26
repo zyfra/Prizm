@@ -1,5 +1,12 @@
 <prizm-input-layout label="Validators">
-  <prizm-input-tree-select #input [stringify]="stringify" [getChildren]="getChildren" [formControl]="control">
+  <prizm-input-tree-select
+    #input
+    [stringify]="stringify"
+    [searchable]="true"
+    [searchMatcher]="searchMatcher"
+    [getChildren]="getChildren"
+    [formControl]="control"
+  >
     <prizm-data-list-wrapper *prizmDataList>
       <ng-container *ngFor="let arrItem of items">
         <prizm-input-tree-select-item *prizmInputTreeSelectItem="arrItem; let item = item">

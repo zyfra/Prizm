@@ -120,6 +120,14 @@ export class InputTreeSelectComponent {
     TypeScript: import('./examples/projection/tree-select-projection-example.component.ts?raw'),
     HTML: import('./examples/projection/tree-select-projection-example.component.html?raw'),
   };
+  readonly exampleTransform: TuiDocExample = {
+    TypeScript: import('./examples/transform/tree-select-transform-example.component.ts?raw'),
+    HTML: import('./examples/transform/tree-select-transform-example.component.html?raw'),
+  };
+  readonly exampleSearch: TuiDocExample = {
+    TypeScript: import('./examples/search/tree-select-search-example.component.ts?raw'),
+    HTML: import('./examples/search/tree-select-search-example.component.html?raw'),
+  };
 
   public valueTemplate: PolymorphContent<any> = '';
   public listItemTemplate: PolymorphContent<any> = null;

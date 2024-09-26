@@ -7,18 +7,25 @@ type TreeSelectItem = {
 };
 
 @Component({
-  selector: 'prizm-tree-select-projection-example',
-  templateUrl: './tree-select-projection-example.component.html',
+  selector: 'prizm-tree-select-search-example',
+  templateUrl: './tree-select-search-example.component.html',
   styles: [
     `
       .box {
         display: flex;
         gap: 1rem;
       }
+
+      .value {
+        overflow: hidden;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     `,
   ],
 })
-export class PrizmTreeSelectProjectionExampleComponent {
+export class PrizmTreeSelectSearchExampleComponent {
   readonly items: TreeSelectItem[] = [
     {
       value: 'One',
@@ -62,6 +69,9 @@ export class PrizmTreeSelectProjectionExampleComponent {
   }
   public getChildren(item: TreeSelectItem): TreeSelectItem[] {
     return item.children ?? [];
+  }
+  public searchMatcher(search: string, item: TreeSelectItem): boolean {
+    return item.value.toLowerCase().includes(search.toLowerCase());
   }
   public setDefaultValue(): void {
     this.control.setValue(this.items[0], { emitEvent: false });

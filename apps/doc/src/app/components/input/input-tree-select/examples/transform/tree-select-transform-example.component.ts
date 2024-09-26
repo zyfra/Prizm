@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
+import { BehaviorSubject, delay } from 'rxjs';
 
 type TreeSelectItem = {
   value: string;
@@ -7,8 +8,8 @@ type TreeSelectItem = {
 };
 
 @Component({
-  selector: 'prizm-tree-select-projection-example',
-  templateUrl: './tree-select-projection-example.component.html',
+  selector: 'prizm-tree-select-transform-example',
+  templateUrl: './tree-select-transform-example.component.html',
   styles: [
     `
       .box {
@@ -18,8 +19,8 @@ type TreeSelectItem = {
     `,
   ],
 })
-export class PrizmTreeSelectProjectionExampleComponent {
-  readonly items: TreeSelectItem[] = [
+export class PrizmTreeSelectTransformExampleComponent {
+  protected items: TreeSelectItem[] = [
     {
       value: 'One',
     },
@@ -39,6 +40,8 @@ export class PrizmTreeSelectProjectionExampleComponent {
         },
       ],
     },
+  ];
+  protected items2: TreeSelectItem[] = [
     {
       value: 'Three',
       children: [
@@ -54,16 +57,22 @@ export class PrizmTreeSelectProjectionExampleComponent {
       value: 'Very long text with a lot of characters and spaces and other stuff and things',
     },
   ];
+  private selectedItems$$ = new BehaviorSubject<TreeSelectItem[]>(this.items);
+  protected items$ = this.selectedItems$$.pipe(delay(100));
   public value = this.items[0];
   readonly control = new UntypedFormControl(this.items[1], [Validators.required]);
 
-  public stringify(item: TreeSelectItem | null): string {
-    return item?.value ?? '';
+  public stringify(item: TreeSelectItem | null): string | null {
+    return item?.value ?? null;
   }
   public getChildren(item: TreeSelectItem): TreeSelectItem[] {
     return item.children ?? [];
   }
   public setDefaultValue(): void {
     this.control.setValue(this.items[0], { emitEvent: false });
+  }
+  public change(): void {
+    this.control.setValue(null);
+    this.selectedItems$$.next(this.selectedItems$$.value === this.items ? this.items2 : this.items);
   }
 }

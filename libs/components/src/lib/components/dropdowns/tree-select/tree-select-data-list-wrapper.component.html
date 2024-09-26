@@ -1,3 +1,18 @@
+<div class="list-search-item" *ngIf="treeSelectSearchDirective.searchable">
+  <prizm-input-layout
+    [label]="treeSelectSearchDirective.searchLabelTranslation$ | async"
+    (clear)="treeSelectSearchDirective.clear()"
+  >
+    <input
+      class="input-search"
+      [ngModelOptions]="{ standalone: true }"
+      [ngModel]="treeSelectSearchDirective.query"
+      (ngModelChange)="treeSelectSearchDirective.search($event)"
+      prizmInput
+    />
+  </prizm-input-layout>
+</div>
+
 <ng-container
   *ngIf="dataListDirective?.template"
   [ngTemplateOutlet]="dataListDirective!.template!"
