@@ -1,8 +1,22 @@
 import { Directive, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { debounceTime, filter, map, shareReplay, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { Observable, of, ReplaySubject } from 'rxjs';
-import { filterTruthy, PrizmDestroyService } from '@prizm-ui/helpers';
-import { PRIZM_SEARCH_TEXT, prizmI18nInitWithKey, PrizmTreeSelectItemComponent } from '@prizm-ui/components';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  map,
+  shareReplay,
+  switchMap,
+  takeUntil,
+  tap,
+} from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, Observable, of, ReplaySubject } from 'rxjs';
+import { PrizmDestroyService } from '@prizm-ui/helpers';
+import {
+  PRIZM_EMPTY_LIST_TEXT,
+  PRIZM_SEARCH_TEXT,
+  prizmI18nInitWithKeys,
+  PrizmTreeSelectItemComponent,
+} from '@prizm-ui/components';
 import { PrizmTreeSelectSelectedDirective } from '../tree-select-selected.directive';
 import { PrizmTreeSelectGetChildrenDirective } from '../tree-select-get-children.directive';
 
@@ -10,7 +24,12 @@ import { PrizmTreeSelectGetChildrenDirective } from '../tree-select-get-children
   selector: '[prizmInputTreeSelectSearch]',
   standalone: true,
   exportAs: 'prizmInputTreeSelectSearch',
-  providers: [...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search')],
+  providers: [
+    ...prizmI18nInitWithKeys({
+      search: PRIZM_SEARCH_TEXT,
+      emptyListText: PRIZM_EMPTY_LIST_TEXT,
+    }),
+  ],
 })
 export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
   @Input() searchable = false;
@@ -22,8 +41,11 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
   private readonly onSearch$$ = new ReplaySubject<string>(1);
   private readonly destroy = inject(PrizmDestroyService);
   public readonly searchLabelTranslation$ = inject(PRIZM_SEARCH_TEXT);
+  public readonly emptyListText$ = inject(PRIZM_EMPTY_LIST_TEXT);
   private readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   private readonly treeSelectGetChildrenDirective = inject(PrizmTreeSelectGetChildrenDirective);
+  public readonly showedCount$ = new BehaviorSubject(0);
+  public readonly empty$ = this.showedCount$.pipe(map(i => i === 0));
 
   @Output() searched = new EventEmitter<string>();
 
@@ -31,6 +53,14 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
   get query() {
     return this._query;
   }
+
+  public readonly validQuery$ = this.onSearch$$.pipe(switchMap(search => this.searchFilter(search)));
+
+  public hasEmptyList$ = combineLatest([this.validQuery$, this.empty$]).pipe(
+    map(result => result.every(Boolean)),
+    distinctUntilChanged()
+  );
+
   private readonly _onSearch$ = this.onSearch$$.pipe(
     switchMap(search =>
       this.searchFilter(search).pipe(
@@ -79,24 +109,40 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
   public initItemUpdaterOnSearch<T>(el: PrizmTreeSelectItemComponent<T>) {
     return this.searched.pipe(
       debounceTime(this.searchDebounce),
+      tap(() => {
+        this.clearCounter();
+      }),
       filter(search => {
         if (search) return true;
         el.show();
         el.openIfHasSelectedChildren();
+        this.increment();
         return false;
       }),
       tap(search => {
         if (this.isSearchedItem(search, el.treeSelectItemDirective.prizmInputTreeSelectItem)) {
           el.show();
           el.close();
+          this.increment();
         } else if (this.hasSearchedChildren(search, el.treeSelectItemDirective.prizmInputTreeSelectItem)) {
           el.show();
           el.open();
+          this.increment();
         } else {
           el.hide();
           el.close();
         }
       })
     );
+  }
+
+  private increment() {
+    const subject = this.showedCount$;
+
+    subject.next(subject.value + 1);
+  }
+
+  private clearCounter() {
+    this.showedCount$.next(0);
   }
 }

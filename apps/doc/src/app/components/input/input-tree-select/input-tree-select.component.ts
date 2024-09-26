@@ -112,9 +112,9 @@ export class InputTreeSelectComponent {
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
-  readonly exampleBase: TuiDocExample = {
-    TypeScript: import('./examples/base/tree-select-base-example.component.ts?raw'),
-    HTML: import('./examples/base/tree-select-base-example.component.html?raw'),
+  readonly exampleI18N: TuiDocExample = {
+    TypeScript: import('./examples/i18n/tree-select-i18n-example.component.ts?raw'),
+    HTML: import('./examples/i18n/tree-select-i18n-example.component.html?raw'),
   };
   readonly exampleProjection: TuiDocExample = {
     TypeScript: import('./examples/projection/tree-select-projection-example.component.ts?raw'),

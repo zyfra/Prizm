@@ -29,6 +29,8 @@ import { PrizmTreeSelectGetChildrenDirective } from './tree-select-get-children.
 import { PrizmTreeSelectIsOpenedDirective } from './tree-select-is-opened.directive';
 import { PrizmTreeSelectStringifyDirective } from './tree-select-stringify.directive';
 import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
+import { PrizmTreeSelectEmptyTextDirective } from './tree-select-empty-text.directive';
+import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.directive';
 
 @Component({
   selector: 'prizm-input-tree-select',
@@ -68,6 +70,14 @@ import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.dire
       directive: PrizmTreeSelectSelectedDirective,
       inputs: ['value'],
       outputs: ['valueChange'],
+    },
+    {
+      directive: PrizmTreeSelectEmptyTextDirective,
+      inputs: ['emptyListTemplate'],
+    },
+    {
+      directive: PrizmTreeSelectSearchLabelDirective,
+      inputs: ['searchLabel'],
     },
     {
       directive: PrizmTreeSelectIdentityMatcherDirective,

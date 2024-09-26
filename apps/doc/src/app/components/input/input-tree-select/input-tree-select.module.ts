@@ -15,13 +15,13 @@ import {
   PrizmTreeSelectItemDirective,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { PrizmTreeSelectBaseExampleComponent } from './examples/base/tree-select-base-example.component';
 import { PrizmLetDirective } from '@prizm-ui/helpers';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmTreeSelectProjectionExampleComponent } from './examples/projection/tree-select-projection-example.component';
 import { PrizmTreeSelectTransformExampleComponent } from './examples/transform/tree-select-transform-example.component';
 import { PrizmTreeSelectSearchExampleComponent } from './examples/search/tree-select-search-example.component';
+import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select-i18n-example.component';
 
 @NgModule({
   imports: [
@@ -44,9 +44,9 @@ import { PrizmTreeSelectSearchExampleComponent } from './examples/search/tree-se
     PrizmDataListWrapperComponent,
   ],
   declarations: [
+    PrizmTreeSelectI18nExampleComponent,
     PrizmTreeSelectTransformExampleComponent,
     PrizmTreeSelectSearchExampleComponent,
-    PrizmTreeSelectBaseExampleComponent,
     PrizmTreeSelectProjectionExampleComponent,
     InputTreeSelectComponent,
   ],
