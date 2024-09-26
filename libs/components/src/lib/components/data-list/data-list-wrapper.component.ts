@@ -1,7 +1,19 @@
-import { ChangeDetectionStrategy, Component, ViewChild, ViewContainerRef } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  inject,
+  Inject,
+  Input,
+  ViewChild,
+  ViewContainerRef,
+} from '@angular/core';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmDataListComponent } from './data-list.component';
+import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmScrollbarVisibility } from '../scrollbar';
+import { PolymorphContent } from '../../directives';
+import { PRIZM_DATALIST_OPTIONS, PrizmDataListOptions } from './data-list-options';
 
 @Component({
   selector: 'prizm-data-list-wrapper',
@@ -12,7 +24,25 @@ import { PrizmDataListComponent } from './data-list.component';
   imports: [PrizmDataListComponent],
 })
 export class PrizmDataListWrapperComponent extends PrizmAbstractTestId {
+  public readonly options = inject(PRIZM_DATALIST_OPTIONS) as PrizmDataListOptions;
+
   override testId_ = 'ui_data_list_wrapper';
+
+  @Input() defaultStyle = true;
+
+  @Input()
+  @prizmDefaultProp()
+  iconOff = this.options.empty;
+
+  @Input()
+  minHeight?: number;
+
+  @Input()
+  maxHeight?: number;
+
+  @Input()
+  scroll: PrizmScrollbarVisibility | 'none' = 'auto';
+
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   public readonly viewContainerRef?: ViewContainerRef;
 }

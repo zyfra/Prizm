@@ -31,6 +31,7 @@ import { PrizmTreeSelectStringifyDirective } from './tree-select-stringify.direc
 import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
 import { PrizmTreeSelectEmptyTextDirective } from './tree-select-empty-text.directive';
 import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.directive';
+import { PrizmDropdownControllerDirective } from '../../../directives';
 
 @Component({
   selector: 'prizm-input-tree-select',
@@ -51,6 +52,7 @@ import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.
     FormsModule,
     NgIf,
     PrizmTreeSelectDataListWrapperComponent,
+    PrizmDropdownControllerDirective,
   ],
   providers: [
     {
@@ -70,6 +72,15 @@ import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.
       directive: PrizmTreeSelectSelectedDirective,
       inputs: ['value'],
       outputs: ['valueChange'],
+    },
+    {
+      directive: PrizmDropdownControllerDirective,
+      inputs: [
+        'prizmDropdownAlign',
+        'prizmDropdownLimitWidth',
+        'prizmDropdownMinHeight',
+        'prizmDropdownMaxHeight',
+      ],
     },
     {
       directive: PrizmTreeSelectEmptyTextDirective,
@@ -116,6 +127,7 @@ export class PrizmInputTreeSelectComponent<T = any>
   public readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   public readonly opened$$ = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
   public readonly treeSelectStringifyDirective = inject(PrizmTreeSelectStringifyDirective);
+  public readonly dropdownControllerDirective = inject(PrizmDropdownControllerDirective);
   public readonly opened$ = this.opened$$.asObservable();
 
   @ViewChild('focusableElementRef', { read: ElementRef })
@@ -134,6 +146,8 @@ export class PrizmInputTreeSelectComponent<T = any>
 
   constructor(private readonly injector_: Injector) {
     super(injector_, null);
+
+    this.dropdownControllerDirective.minHeight = 40;
   }
 
   override ngOnInit() {

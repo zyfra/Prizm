@@ -1,24 +1,21 @@
-import { Directive, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
+import { Directive, EventEmitter, inject, Input, OnDestroy, OnInit, Output } from '@angular/core';
 import {
   debounceTime,
   distinctUntilChanged,
   filter,
+  first,
   map,
   shareReplay,
   switchMap,
   takeUntil,
   tap,
 } from 'rxjs/operators';
-import { BehaviorSubject, combineLatest, Observable, of, ReplaySubject } from 'rxjs';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
-import {
-  PRIZM_EMPTY_LIST_TEXT,
-  PRIZM_SEARCH_TEXT,
-  prizmI18nInitWithKeys,
-  PrizmTreeSelectItemComponent,
-} from '@prizm-ui/components';
-import { PrizmTreeSelectSelectedDirective } from '../tree-select-selected.directive';
+import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
+import { PrizmDestroyService, PrizmMapSubject } from '@prizm-ui/helpers';
 import { PrizmTreeSelectGetChildrenDirective } from '../tree-select-get-children.directive';
+import { prizmI18nInitWithKeys } from '../../../../services/i18n.service';
+import { PRIZM_EMPTY_LIST_TEXT, PRIZM_SEARCH_TEXT } from '../../../../tokens/i18n';
+import { PrizmTreeSelectItemComponent } from '../items/tree-select-item.component';
 
 @Directive({
   selector: '[prizmInputTreeSelectSearch]',
@@ -31,21 +28,21 @@ import { PrizmTreeSelectGetChildrenDirective } from '../tree-select-get-children
     }),
   ],
 })
-export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
+export class PrizmTreeSelectSearchDirective<T = any> implements OnInit, OnDestroy {
   @Input() searchable = false;
   @Input() searchMatcher = (search: string, item: T): boolean => search === item;
   @Input() searchMapper = (search: string): Observable<string> => of(search);
-  @Input() searchFilter = (search: string) => of(search.replace(/[ \n\r\t]+/g, ''));
+  @Input() searchFilter = (search: string) => of(!!search.replace(/[ \n\r\t]+/g, '').length);
   @Input() searchDebounce = 50;
 
   private readonly onSearch$$ = new ReplaySubject<string>(1);
   private readonly destroy = inject(PrizmDestroyService);
-  public readonly searchLabelTranslation$ = inject(PRIZM_SEARCH_TEXT);
-  public readonly emptyListText$ = inject(PRIZM_EMPTY_LIST_TEXT);
-  private readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   private readonly treeSelectGetChildrenDirective = inject(PrizmTreeSelectGetChildrenDirective);
-  public readonly showedCount$ = new BehaviorSubject(0);
-  public readonly empty$ = this.showedCount$.pipe(map(i => i === 0));
+
+  protected readonly mapWithItemsVisibleState = new PrizmMapSubject<
+    PrizmTreeSelectItemComponent<T>,
+    boolean
+  >();
 
   @Output() searched = new EventEmitter<string>();
 
@@ -55,11 +52,6 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
   }
 
   public readonly validQuery$ = this.onSearch$$.pipe(switchMap(search => this.searchFilter(search)));
-
-  public hasEmptyList$ = combineLatest([this.validQuery$, this.empty$]).pipe(
-    map(result => result.every(Boolean)),
-    distinctUntilChanged()
-  );
 
   private readonly _onSearch$ = this.onSearch$$.pipe(
     switchMap(search =>
@@ -77,16 +69,35 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
     }),
     shareReplay(1)
   );
+  public readonly showedCount$ = this.mapWithItemsVisibleState.value.pipe(
+    debounceTime(0),
+    map(() =>
+      [...this.mapWithItemsVisibleState.values()].reduce((counter, state) => {
+        if (state) counter++;
+        return counter;
+      }, 0)
+    )
+  );
+  public readonly empty$ = this.showedCount$.pipe(map(i => i === 0));
+  public hasEmptyList$ = combineLatest([this.validQuery$, this.empty$]).pipe(
+    map(result => result.every(Boolean)),
+    distinctUntilChanged()
+  );
 
   ngOnInit(): void {
     this._onSearch$.pipe(takeUntil(this.destroy)).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.clear();
   }
 
   /**
    * @public api
    * */
   public clear() {
-    this.onSearch$$.next((this._query = ''));
+    this.clearCounter();
+    this.search('');
   }
 
   /**
@@ -102,47 +113,48 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit {
 
   public hasSearchedChildren(search: string, item: T): boolean {
     return Boolean(
-      this.treeSelectGetChildrenDirective.getChildren(item).find(child => this.isSearchedItem(search, child))
+      this.treeSelectGetChildrenDirective
+        .getChildren(item)
+        .find(child => this.isSearchedItem(search, child) || this.hasSearchedChildren(search, child))
     );
   }
 
   public initItemUpdaterOnSearch<T>(el: PrizmTreeSelectItemComponent<T>) {
+    el.destroy
+      .pipe(
+        first(),
+        tap(() => this.mapWithItemsVisibleState.delete(el))
+      )
+      .subscribe();
+
     return this.searched.pipe(
       debounceTime(this.searchDebounce),
-      tap(() => {
-        this.clearCounter();
-      }),
       filter(search => {
         if (search) return true;
         el.show();
         el.openIfHasSelectedChildren();
-        this.increment();
+        this.mapWithItemsVisibleState.set(el, true);
         return false;
       }),
       tap(search => {
         if (this.isSearchedItem(search, el.treeSelectItemDirective.prizmInputTreeSelectItem)) {
           el.show();
           el.close();
-          this.increment();
+          this.mapWithItemsVisibleState.set(el, true);
         } else if (this.hasSearchedChildren(search, el.treeSelectItemDirective.prizmInputTreeSelectItem)) {
           el.show();
           el.open();
-          this.increment();
+          this.mapWithItemsVisibleState.set(el, true);
         } else {
           el.hide();
           el.close();
+          this.mapWithItemsVisibleState.set(el, false);
         }
       })
     );
   }
 
-  private increment() {
-    const subject = this.showedCount$;
-
-    subject.next(subject.value + 1);
-  }
-
   private clearCounter() {
-    this.showedCount$.next(0);
+    this.mapWithItemsVisibleState.clear();
   }
 }

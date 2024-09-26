@@ -1,7 +1,8 @@
 import { Directive, inject, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { PRIZM_SEARCH_TEXT, prizmI18nInitWithKey } from '@prizm-ui/components';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { PRIZM_SEARCH_TEXT } from '../../../tokens/i18n';
 
 @Directive({
   selector: 'prizmInputTreeSelectSearchLabel',

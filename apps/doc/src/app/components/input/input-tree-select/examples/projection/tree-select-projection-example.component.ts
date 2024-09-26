@@ -15,6 +15,13 @@ type TreeSelectItem = {
         display: flex;
         gap: 1rem;
       }
+
+      .value {
+        overflow: hidden;
+        max-width: 100%;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
     `,
   ],
 })

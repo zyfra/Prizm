@@ -1,7 +1,9 @@
 import { Directive, inject, Input } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
-import { PolymorphContent, PRIZM_EMPTY_LIST_TEXT, prizmI18nInitWithKey } from '@prizm-ui/components';
+import { prizmI18nInitWithKey } from '../../../services/i18n.service';
+import { PRIZM_EMPTY_LIST_TEXT } from '../../../tokens/i18n';
+import { PolymorphContent } from '../../../directives/polymorph/types/content';
 
 @Directive({
   selector: 'prizmInputTreeSelectEmptyText',

@@ -4,6 +4,7 @@
   [isOpen]="$any(opened$ | async)"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   [prizmDropdownHostWidth]="'100%'"
+  [prizmDropdownMinHeight]="20"
   [autoReposition]="false"
   (isOpenChange)="opened$$.next($event)"
 >

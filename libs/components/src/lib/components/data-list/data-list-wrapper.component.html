@@ -1,4 +1,12 @@
-<prizm-data-list class="block" [style.--prizm-data-list-border]="0" prizmDropdown>
+<prizm-data-list
+  class="block"
+  [minHeight]="minHeight"
+  [maxHeight]="maxHeight"
+  [defaultStyle]="defaultStyle"
+  [iconOff]="iconOff"
+  [scroll]="scroll"
+  [style.--prizm-data-list-border]="0"
+>
   <ng-container #viewContainerRef></ng-container>
   <ng-content></ng-content>
 </prizm-data-list>

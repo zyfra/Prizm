@@ -79,7 +79,7 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   private readonly dropdownController = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
   protected readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
-  private readonly destroy = inject(PrizmDestroyService);
+  public readonly destroy = inject(PrizmDestroyService);
   private readonly injector = inject(Injector);
   public readonly elementRef = inject(ElementRef);
   private readonly renderer2 = inject(Renderer2);
@@ -199,13 +199,5 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   protected onToggle(event: MouseEvent): void {
     event.stopPropagation();
     this.toggle();
-  }
-
-  public hasChildrenInGroup() {
-    this.renderer2.addClass(this.elementRef.nativeElement, 'has-children-in-group');
-  }
-
-  protected parentGroupHasChildren() {
-    this.parent?.hasChildrenInGroup();
   }
 }

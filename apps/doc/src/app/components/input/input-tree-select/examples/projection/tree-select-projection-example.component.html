@@ -2,8 +2,13 @@
   <prizm-input-tree-select #input [stringify]="stringify" [getChildren]="getChildren" [formControl]="control">
     <prizm-data-list-wrapper *prizmDataList>
       <ng-container *ngFor="let arrItem of items">
-        <prizm-input-tree-select-item *prizmInputTreeSelectItem="arrItem; let item = item">
-          <div class="value">
+        <prizm-input-tree-select-item
+          *prizmInputTreeSelectItem="arrItem; let item = item"
+          [prizmHint]="item.value"
+          [prizmHintOnOverflowEl]="element"
+          prizmHintOnOverflow
+        >
+          <div class="value" #element>
             {{ item.value }}
           </div>
         </prizm-input-tree-select-item>
