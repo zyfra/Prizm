@@ -1,18 +1,24 @@
 import {
   Component,
+  ElementRef,
   EmbeddedViewRef,
   EventEmitter,
   HostBinding,
   HostListener,
   inject,
-  Input,
+  Injector,
   OnInit,
   Output,
+  Renderer2,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
-import { PRIZM_TREE_SELECT_ITEM_CHILDREN, PRIZM_TREE_SELECT_ITEM_LEVEL } from './token';
+import {
+  PRIZM_TREE_SELECT_ITEM_CHILDREN,
+  PRIZM_TREE_SELECT_ITEM_LEVEL,
+  PRIZM_TREE_SELECT_ITEM_PARENTS,
+} from './token';
 import { PrizmButtonComponent } from '../../../button';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full';
@@ -24,6 +30,8 @@ import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmCallFuncPipe, PrizmDestroyService, PrizmDisabledDirective } from '@prizm-ui/helpers';
 import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../token';
 import { PrizmTreeSelectSelectedDirective } from '../tree-select-selected.directive';
+import { PrizmTreeSelectIsOpenedDirective } from '../tree-select-is-opened.directive';
+import { PrizmTreeSelectSearchDirective } from '../search';
 
 @Component({
   selector: 'prizm-input-tree-select-item',
@@ -35,37 +43,49 @@ import { PrizmTreeSelectSelectedDirective } from '../tree-select-selected.direct
     {
       directive: PrizmDisabledDirective,
       inputs: ['disabled'],
+      outputs: ['disabledChange'],
     },
   ],
   imports: [PrizmButtonComponent, NgIf, PrizmIconsFullComponent, PrizmCallFuncPipe, AsyncPipe],
 })
 export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId implements OnInit {
-  @Input() item!: T;
-  @Input() value: any;
-  @Input() get opened() {
+  get opened() {
     return this.childrenOpened$$.value;
   }
   set opened(value: boolean) {
     this.childrenOpened$$.next(value);
   }
+  get value() {
+    return this.treeSelectItemDirective.prizmInputTreeSelectItem;
+  }
   @Output() openedChange = new EventEmitter<boolean>();
   override readonly testId_ = 'ui_tree_select_item';
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
+  public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS);
+  private treeSelectSearchDirective = inject(PrizmTreeSelectSearchDirective);
   public treeSelectItemDirective = inject(PrizmTreeSelectItemDirective);
-  private readonly childrenOpened$$ = new BehaviorSubject(false);
+  readonly treeSelectIsOpenedDirective = inject(PrizmTreeSelectIsOpenedDirective);
+  private readonly childrenOpened$$ = new BehaviorSubject(
+    this.treeSelectIsOpenedDirective.isOpened(this.treeSelectItemDirective.prizmInputTreeSelectItem)
+  );
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   private readonly dropdownController = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
   protected readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   private readonly destroy = inject(PrizmDestroyService);
+  private readonly injector = inject(Injector);
+  private readonly elementRef = inject(ElementRef);
+  private readonly renderer2 = inject(Renderer2);
   private readonly disabledDirective = inject(PrizmDisabledDirective, {
     self: true,
   });
   @HostBinding('style.--prizm-tree-select-item-level') level = inject(PRIZM_TREE_SELECT_ITEM_LEVEL);
+  @HostBinding('class.has-children') hasChildren = !!this.children.length;
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   public readonly viewContainerRef!: ViewContainerRef;
   private renderedChildren: EmbeddedViewRef<any>[] = [];
 
-  @HostListener('click', ['$event']) public _select() {
+  @HostListener('click', ['$event']) public _select(mouseEvent: MouseEvent) {
+    mouseEvent.stopPropagation();
     if (this.disabledDirective.disabled) return;
     this.select();
   }
@@ -76,17 +96,27 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   }
 
   ngOnInit() {
+    this.initChildrenOpener();
+    this.initControllerOnSearch();
+    setTimeout(() => this.openIfHasSelectedChildren(), 0);
+  }
+
+  private initChildrenOpener() {
     this.childrenOpened$$
       .pipe(
         tap(opened => {
           if (opened) {
-            this.renderedChildren = this.treeSelectItemDirective.renderChildren(
-              this.viewContainerRef!,
-              this.children,
-              this.level
-            );
+            if (!this.renderedChildren.length)
+              this.renderedChildren = this.treeSelectItemDirective.renderChildren(
+                this.injector,
+                this.viewContainerRef!,
+                this.children,
+                this.level,
+                [this.treeSelectItemDirective, ...this.parents]
+              );
           } else {
             this.renderedChildren.forEach(item => item.destroy());
+            this.renderedChildren = [];
           }
         }),
         takeUntil(this.destroy)
@@ -94,9 +124,25 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
       .subscribe();
   }
 
+  public openIfHasSelectedChildren() {
+    const hasSelectedChildren = this.treeSelectSelectedDirective.hasSelectedChildren(
+      this.treeSelectItemDirective.prizmInputTreeSelectItem
+    );
+    if (hasSelectedChildren) {
+      this.open();
+      this.show();
+    }
+  }
+  public initControllerOnSearch() {
+    this.treeSelectSearchDirective.initItemUpdaterOnSearch(this).pipe(takeUntil(this.destroy)).subscribe();
+  }
+
+  /**
+   * @public api
+   * */
   public select() {
+    this.treeSelectSelectedDirective.value = this.value;
     this.dropdownController.next(false);
-    this.treeSelectSelectedDirective.value = this.item;
   }
 
   /**
@@ -122,6 +168,20 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
    * */
   public close(): void {
     this.opened = false;
+  }
+
+  /**
+   * @public api
+   * */
+  public hide() {
+    this.renderer2.setStyle(this.elementRef.nativeElement, 'display', 'none');
+  }
+
+  /**
+   * @public api
+   * */
+  public show() {
+    this.renderer2.removeStyle(this.elementRef.nativeElement, 'display');
   }
 
   protected onToggle(event: MouseEvent): void {

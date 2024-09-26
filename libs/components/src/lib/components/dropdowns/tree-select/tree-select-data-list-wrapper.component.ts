@@ -13,13 +13,24 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmTreeSelectItemsDirective } from './tree-select-items.directive';
 import { PRIZM_TREE_SELECT_ITEMS_VIEW_CONTAINER_REF } from './token';
 import { BehaviorSubject } from 'rxjs';
+import { PrizmCronInnerModule } from '../../cron/cron-inner.module';
+import { PrizmInputHintModule, PrizmInputTextComponent } from '../../input';
+import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
 
 @Component({
   selector: 'prizm-input-tree-select-data-list-wrapper',
   templateUrl: './tree-select-data-list-wrapper.component.html',
+  styleUrl: './tree-select-data-list-wrapper.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [NgIf, NgTemplateOutlet, PrizmDataListWrapperComponent],
+  imports: [
+    NgIf,
+    NgTemplateOutlet,
+    PrizmDataListWrapperComponent,
+    PrizmCronInnerModule,
+    PrizmInputHintModule,
+    PrizmInputTextComponent,
+  ],
   providers: [
     {
       provide: PRIZM_TREE_SELECT_ITEMS_VIEW_CONTAINER_REF,
@@ -38,7 +49,7 @@ export class PrizmTreeSelectDataListWrapperComponent extends PrizmAbstractTestId
   override testId_ = 'ui_tree_select_data_list_wrapper';
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   public readonly viewContainerRef?: ViewContainerRef;
-  readonly treeSelectItemsDirective = inject(PrizmTreeSelectItemsDirective);
+  readonly treeSelectSearchDirective = inject(PrizmTreeSelectSearchDirective);
   readonly treeSelectItemsViewContainerRef = inject(PRIZM_TREE_SELECT_ITEMS_VIEW_CONTAINER_REF);
 
   ngOnInit() {

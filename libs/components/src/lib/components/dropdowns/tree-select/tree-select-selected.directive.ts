@@ -1,8 +1,9 @@
 import { Directive, EventEmitter, inject, Input, Output } from '@angular/core';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { Compare, PrizmDestroyService } from '@prizm-ui/helpers';
 import { BehaviorSubject } from 'rxjs';
 import { map, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTreeSelectIdentityMatcherDirective } from './tree-select-identity-matcher.directive';
+import { PrizmTreeSelectGetChildrenDirective } from './tree-select-get-children.directive';
 
 @Directive({
   selector: '[prizmInputTreeSelectSelected]',
@@ -11,6 +12,7 @@ import { PrizmTreeSelectIdentityMatcherDirective } from './tree-select-identity-
 })
 export class PrizmTreeSelectSelectedDirective<T = any> {
   private readonly destroy = inject(PrizmDestroyService);
+  private readonly treeSelectGetChildrenDirective = inject(PrizmTreeSelectGetChildrenDirective);
   private readonly treeSelectIdentityMatcherDirective = inject(PrizmTreeSelectIdentityMatcherDirective);
   private readonly selected$$ = new BehaviorSubject<T | any>(null);
   public readonly selected$ = this.selected$$;
@@ -35,15 +37,19 @@ export class PrizmTreeSelectSelectedDirective<T = any> {
   }
 
   public isSelected(item: T) {
-    console.log('#mz isSelected:1', item);
-    return this.selected$$.pipe(
-      tap(selected => {
-        console.log('#mz isSelected:2', { item, selected });
-      }),
-      map(selected => this.treeSelectIdentityMatcherDirective.identityMatcher(selected, item)),
-      tap(result => {
-        console.log('#mz isSelected:3"result', result);
-      })
+    return this.selected$$.pipe(map(() => this._isSelected(item)));
+  }
+
+  private _isSelected(selected: T) {
+    return this.treeSelectIdentityMatcherDirective.identityMatcher(this.selected$$.getValue(), selected);
+  }
+
+  public hasSelectedChildren(item: T): boolean {
+    return Boolean(
+      Compare.isNotNullish(this.selected$$.getValue()) &&
+        this.treeSelectGetChildrenDirective
+          .getChildren(item)
+          .find(item => this._isSelected(item) || this.hasSelectedChildren(item))
     );
   }
 }
