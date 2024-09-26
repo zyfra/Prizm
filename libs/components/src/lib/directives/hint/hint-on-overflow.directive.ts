@@ -19,7 +19,7 @@ import { debounceTime, takeUntil, tap } from 'rxjs/operators';
       directive: PrizmHintDirective,
       inputs: [
         'prizmAutoReposition',
-        'prizmHint',
+        'prizmHint: prizmHintOnOverflow',
         'prizmHintHideDelay',
         'prizmHintContext',
         'prizmHintDirection',

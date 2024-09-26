@@ -4,9 +4,8 @@
       <ng-container *ngFor="let arrItem of items">
         <prizm-input-tree-select-item
           *prizmInputTreeSelectItem="arrItem; let item = item"
-          [prizmHint]="item.value"
+          [prizmHintOnOverflow]="item.value"
           [prizmHintOnOverflowEl]="element"
-          prizmHintOnOverflow
         >
           <div class="value" #element>
             {{ item.value }}
