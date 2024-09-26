@@ -1,9 +1,9 @@
 ```ts
 import { NgModule } from '@angular/core';
-import { PrizmInputSelectModule } from '@prizm-ui/components';
+import { PrizmInputTreeSelectComponent } from '@prizm-ui/components';
 
 @NgModule({
-  imports: [PrizmInputSelectModule],
+  imports: [PrizmInputTreeSelectComponent],
 })
 export class MyModule {}
 ```

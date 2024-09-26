@@ -9,10 +9,11 @@
     [icon]="iconTemplate"
     [class.opened]="opened"
     (click)="onToggle($event)"
+    (prizmOnInit)="parentGroupHasChildren()"
     prizmIconButton
     appearanceType="ghost"
     appearance="primary"
-    size="l"
+    size="s"
   ></button>
 
   <ng-template #iconTemplate>

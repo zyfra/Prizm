@@ -32,6 +32,7 @@ import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../token';
 import { PrizmTreeSelectSelectedDirective } from '../tree-select-selected.directive';
 import { PrizmTreeSelectIsOpenedDirective } from '../tree-select-is-opened.directive';
 import { PrizmTreeSelectSearchDirective } from '../search';
+import { PrizmLifecycleDirective } from '../../../../directives';
 
 @Component({
   selector: 'prizm-input-tree-select-item',
@@ -46,7 +47,14 @@ import { PrizmTreeSelectSearchDirective } from '../search';
       outputs: ['disabledChange'],
     },
   ],
-  imports: [PrizmButtonComponent, NgIf, PrizmIconsFullComponent, PrizmCallFuncPipe, AsyncPipe],
+  imports: [
+    PrizmButtonComponent,
+    NgIf,
+    PrizmIconsFullComponent,
+    PrizmCallFuncPipe,
+    AsyncPipe,
+    PrizmLifecycleDirective,
+  ],
 })
 export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId implements OnInit {
   get opened() {
@@ -73,8 +81,12 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   protected readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   private readonly destroy = inject(PrizmDestroyService);
   private readonly injector = inject(Injector);
-  private readonly elementRef = inject(ElementRef);
+  public readonly elementRef = inject(ElementRef);
   private readonly renderer2 = inject(Renderer2);
+  private readonly parent = inject(PrizmTreeSelectItemComponent, {
+    skipSelf: true,
+    optional: true,
+  });
   private readonly disabledDirective = inject(PrizmDisabledDirective, {
     self: true,
   });
@@ -187,5 +199,13 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   protected onToggle(event: MouseEvent): void {
     event.stopPropagation();
     this.toggle();
+  }
+
+  public hasChildrenInGroup() {
+    this.renderer2.addClass(this.elementRef.nativeElement, 'has-children-in-group');
+  }
+
+  protected parentGroupHasChildren() {
+    this.parent?.hasChildrenInGroup();
   }
 }
