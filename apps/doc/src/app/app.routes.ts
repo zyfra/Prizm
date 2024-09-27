@@ -421,6 +421,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-tree-multi-select',
+    loadChildren: () =>
+      import('./components/input/input-tree-multi-select/input-tree-multi-select.module').then(
+        i => i.InputTreeMultiSelectModule
+      ),
+    data: {
+      title: 'Input Tree Multi Select',
+    },
+  },
+  {
     path: 'components/input-chips',
     loadChildren: () =>
       import('./components/input/input-chips/input-chips-example.module').then(

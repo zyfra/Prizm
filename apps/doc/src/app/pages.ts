@@ -288,6 +288,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/input-tree-select',
       },
       {
+        title: 'InputTreeMultiSelect',
+        keywords: 'input-tree-multi-select, tree-multi-select, form',
+        route: '/components/input-tree-multi-select',
+      },
+      {
         title: 'InputLayoutDateTimeRange',
         keywords: 'input-layout-date-time-range, date-time-range, form',
         route: '/components/input-layout-date-time-range',
@@ -1035,6 +1040,11 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         title: 'InputTreeSelect',
         keywords: 'input-tree-select, tree-select, form',
         route: '/components/input-tree-select',
+      },
+      {
+        title: 'InputTreeMultiSelect',
+        keywords: 'input-tree-multi-select, tree-multi-select, form',
+        route: '/components/input-tree-multi-select',
       },
       {
         title: 'InputLayoutDateTimeRange',

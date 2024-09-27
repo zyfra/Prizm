@@ -1,4 +1,5 @@
 import {
+  ChangeDetectorRef,
   Component,
   ElementRef,
   EmbeddedViewRef,
@@ -7,37 +8,37 @@ import {
   HostListener,
   inject,
   Injector,
-  OnInit,
   Output,
   Renderer2,
   ViewChild,
   ViewContainerRef,
 } from '@angular/core';
-import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { PrizmButtonComponent } from '../../../button';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmCallFuncPipe, PrizmDestroyService, PrizmDisabledDirective } from '@prizm-ui/helpers';
+import { PrizmLifecycleDirective } from '../../../../directives';
 import {
   PRIZM_TREE_SELECT_ITEM_CHILDREN,
   PRIZM_TREE_SELECT_ITEM_LEVEL,
   PRIZM_TREE_SELECT_ITEM_PARENTS,
-} from './token';
-import { PrizmButtonComponent } from '../../../button';
+} from '../../tree-select/items/token';
+import { PrizmTreeSelectIsOpenedDirective } from '../../tree-select/tree-select-is-opened.directive';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../../tree-select/token';
 import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full';
-import { AsyncPipe, NgIf } from '@angular/common';
-import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { PrizmTreeSelectItemDirective } from './tree-select-item.directive';
-import { BehaviorSubject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmDisabledDirective } from '@prizm-ui/helpers';
-import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../token';
-import { PrizmTreeSelectSelectedDirective } from '../tree-select-selected.directive';
-import { PrizmTreeSelectIsOpenedDirective } from '../tree-select-is-opened.directive';
-import { PrizmTreeSelectSearchDirective } from '../search';
-import { PrizmLifecycleDirective } from '../../../../directives';
+import { PrizmAbstractTestId } from '@prizm-ui/core';
+import { PrizmTreeMultiSelectItemDirective } from './tree-multi-select-item.directive';
+import { PrizmTreeMultiSelectSearchDirective } from '../search';
+import { PrizmCheckboxComponent } from '../../../checkbox';
+import { PrizmTreeMultiSelectSelectedDirective } from '../tree-select-multi-selected.directive';
 
 @Component({
-  selector: 'prizm-input-tree-select-item',
-  templateUrl: './tree-select-item.component.html',
-  styleUrl: './tree-select-item.component.less',
+  selector: 'prizm-input-tree-multi-select-item',
+  templateUrl: './tree-multi-select-item.component.html',
+  styleUrl: './tree-multi-select-item.component.less',
   standalone: true,
   providers: [PrizmDestroyService],
   hostDirectives: [
@@ -54,9 +55,10 @@ import { PrizmLifecycleDirective } from '../../../../directives';
     PrizmCallFuncPipe,
     AsyncPipe,
     PrizmLifecycleDirective,
+    PrizmCheckboxComponent,
   ],
 })
-export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId implements OnInit {
+export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends PrizmAbstractTestId {
   get opened() {
     return this.childrenOpened$$.value;
   }
@@ -67,39 +69,42 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
     return this.treeSelectItemDirective.prizmInputTreeSelectItem;
   }
   @Output() openedChange = new EventEmitter<boolean>();
-  override readonly testId_ = 'ui_tree_select_item';
+  override readonly testId_ = 'ui_tree_multi_select_item';
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
-  public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS);
-  protected treeSelectSearchDirective = inject(PrizmTreeSelectSearchDirective);
-  public treeSelectItemDirective = inject(PrizmTreeSelectItemDirective);
+  public cdRef = inject(ChangeDetectorRef);
+  public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS) as PrizmTreeMultiSelectItemDirective[];
+  protected treeSelectSearchDirective = inject(PrizmTreeMultiSelectSearchDirective);
+  public treeSelectItemDirective = inject(PrizmTreeMultiSelectItemDirective);
   readonly treeSelectIsOpenedDirective = inject(PrizmTreeSelectIsOpenedDirective);
   protected readonly childrenOpened$$ = new BehaviorSubject(
     this.treeSelectIsOpenedDirective.isOpened(this.treeSelectItemDirective.prizmInputTreeSelectItem)
   );
+
   protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   protected readonly dropdownController = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
-  protected readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
+  protected readonly treeSelectSelectedDirective = inject(PrizmTreeMultiSelectSelectedDirective);
   public readonly destroy = inject(PrizmDestroyService);
   protected readonly injector = inject(Injector);
   public readonly elementRef = inject(ElementRef);
   protected readonly renderer2 = inject(Renderer2);
-  protected readonly parent = inject(PrizmTreeSelectItemComponent, {
+  protected readonly parent = inject(PrizmTreeMultiSelectItemComponent, {
     skipSelf: true,
     optional: true,
   });
   protected readonly disabledDirective = inject(PrizmDisabledDirective, {
     self: true,
   });
-  @HostBinding('style.--prizm-tree-select-item-level') level = inject(PRIZM_TREE_SELECT_ITEM_LEVEL);
+  @HostBinding('style.--prizm-tree-multi-select-item-level') level = inject(PRIZM_TREE_SELECT_ITEM_LEVEL);
   @HostBinding('class.has-children') hasChildren = !!this.children.length;
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   public readonly viewContainerRef!: ViewContainerRef;
   protected renderedChildren: EmbeddedViewRef<any>[] = [];
 
-  @HostListener('click', ['$event']) public _select(mouseEvent: MouseEvent) {
+  @HostListener('click', ['$event']) protected toggleSelectedStateAfterClick(mouseEvent: MouseEvent) {
     mouseEvent.stopPropagation();
+    console.log('#mz toggleSelectedStateAfterClick', this.disabledDirective.disabled);
     if (this.disabledDirective.disabled) return;
-    this.select();
+    this.toggleSelected();
   }
 
   constructor() {
@@ -136,11 +141,14 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
       .subscribe();
   }
 
-  public openIfHasSelectedChildren() {
-    const hasSelectedChildren = this.treeSelectSelectedDirective.hasSelectedChildren(
+  public hasSelectedChildren() {
+    return this.treeSelectSelectedDirective.hasSelectedChildren(
       this.treeSelectItemDirective.prizmInputTreeSelectItem
     );
-    if (hasSelectedChildren) {
+  }
+
+  public openIfHasSelectedChildren() {
+    if (this.hasSelectedChildren()) {
       this.open();
       this.show();
     }
@@ -153,8 +161,37 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
    * @public api
    * */
   public select() {
-    this.treeSelectSelectedDirective.value = this.value;
-    this.dropdownController.next(false);
+    if (this.isSelected()) {
+      return;
+    }
+    this._select();
+  }
+
+  private _select() {
+    this.treeSelectSelectedDirective.add(this.treeSelectItemDirective.prizmInputTreeSelectItem);
+  }
+
+  public unselect() {
+    const parents = this.parents.map(i => i.prizmInputTreeSelectItem);
+    [this.treeSelectItemDirective.prizmInputTreeSelectItem, ...parents].forEach(parent =>
+      this.treeSelectSelectedDirective.unselect(parent)
+    );
+  }
+
+  /**
+   * @public api
+   * */
+  public toggleSelected() {
+    if (this.isSelected()) {
+      console.log('#mz toggleSelected:1');
+      this.unselect();
+    } else if (this.hasSelectedChildren()) {
+      console.log('#mz toggleSelected:2');
+      this._select();
+    } else {
+      console.log('#mz toggleSelected:2');
+      this._select();
+    }
   }
 
   /**
@@ -199,5 +236,18 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   protected onToggle(event: MouseEvent): void {
     event.stopPropagation();
     this.toggle();
+  }
+
+  protected isSelected() {
+    return this.treeSelectSelectedDirective.isSelfSelected(this.value) || this.isParentSelected();
+  }
+
+  protected isParentSelected() {
+    if (!this.parents?.length) return false;
+    return (
+      this.parents.findIndex(parent =>
+        this.treeSelectSelectedDirective.isSelfSelected(parent.prizmInputTreeSelectItem)
+      ) !== -1
+    );
   }
 }

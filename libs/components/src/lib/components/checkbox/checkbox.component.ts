@@ -46,6 +46,7 @@ export class PrizmCheckboxComponent
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 's';
 
   @Input() indeterminate = false;
+  @Input() readonly = false;
   @Input() host: HTMLElement | null = null;
 
   @Input()
@@ -65,6 +66,7 @@ export class PrizmCheckboxComponent
   }
   @Input() set checked(val: boolean) {
     if (this.ngControl) return;
+    if (this.readonly) return;
     this.setValue(val);
   }
 

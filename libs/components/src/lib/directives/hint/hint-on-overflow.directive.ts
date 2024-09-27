@@ -31,51 +31,51 @@ import { debounceTime, takeUntil, tap } from 'rxjs/operators';
     },
   ],
 })
-export class PrizmHintOnOverflowDirective implements OnInit, OnChanges {
+export class PrizmHintOnOverflowDirective {
   @Input()
   prizmHintOnOverflowEl?: HTMLElement;
-
-  private readonly hintDirective = inject(PrizmHintDirective, {
-    self: true,
-  });
-
-  private readonly mutationObserve = inject(PrizmMutationObserverService, {
-    self: true,
-  });
-
-  private readonly elRef = inject(ElementRef);
-  private readonly destroy = inject(PrizmDestroyService);
-
-  get element() {
-    return this.prizmHintOnOverflowEl ?? this.elRef.nativeElement;
-  }
-  private readonly saveInit$$ = new BehaviorSubject<void>(void 0);
-
-  ngOnInit(): void {
-    this.saveInit$$
-      .pipe(
-        mergeMap(() => prizmElementResized$(this.element)),
-        debounceTime(0),
-        tap(() => {
-          this.safeInit();
-        }),
-        takeUntil(this.destroy)
-      )
-      .subscribe();
-  }
-
-  ngOnChanges(): void {
-    this.saveInit$$.next();
-  }
-
-  private updateHintDirective(element: HTMLElement) {
-    this.hintDirective.prizmHintCanShow = prizmIsTextOverflow(element);
-  }
-
-  private safeInit() {
-    const element = this.element;
-    this.mutationObserve.disconnectAll();
-    this.updateHintDirective(element);
-    this.mutationObserve.observe(element, () => this.updateHintDirective(element));
-  }
+  //
+  // private readonly hintDirective = inject(PrizmHintDirective, {
+  //   self: true,
+  // });
+  //
+  // private readonly mutationObserve = inject(PrizmMutationObserverService, {
+  //   self: true,
+  // });
+  //
+  // private readonly elRef = inject(ElementRef);
+  // private readonly destroy = inject(PrizmDestroyService);
+  //
+  // get element() {
+  //   return this.prizmHintOnOverflowEl ?? this.elRef.nativeElement;
+  // }
+  // private readonly saveInit$$ = new BehaviorSubject<void>(void 0);
+  //
+  // ngOnInit(): void {
+  //   this.saveInit$$
+  //     .pipe(
+  //       mergeMap(() => prizmElementResized$(this.element)),
+  //       debounceTime(0),
+  //       tap(() => {
+  //         // this.safeInit();
+  //       }),
+  //       takeUntil(this.destroy)
+  //     )
+  //     .subscribe();
+  // }
+  //
+  // ngOnChanges(): void {
+  //   this.saveInit$$.next();
+  // }
+  //
+  // private updateHintDirective(element: HTMLElement) {
+  //   this.hintDirective.prizmHintCanShow = prizmIsTextOverflow(element);
+  // }
+  //
+  // private safeInit() {
+  //   const element = this.element;
+  //   this.mutationObserve.disconnectAll();
+  //   this.updateHintDirective(element);
+  //   this.mutationObserve.observe(element, () => this.updateHintDirective(element));
+  // }
 }
