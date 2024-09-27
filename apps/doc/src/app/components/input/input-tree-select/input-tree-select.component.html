@@ -20,6 +20,49 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
+        [size]="size"
+        [label]="label"
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+        [hideClearButtonHint]="hideClearButtonHint"
+        label="Tree List"
+      >
+        <prizm-input-tree-select
+          #element
+          #input
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="selectKey"
+          [prizmDropdownMinHeight]="prizmDropdownMinHeight"
+          [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"
+          [placeholder]="placeholder"
+          [searchLabel]="searchLabel"
+          [emptyListTemplate]="emptyListTemplate"
+          [stringify]="stringify"
+          [getChildren]="getChildren"
+          [formControl]="control"
+        >
+          <prizm-data-list-wrapper *prizmDataList>
+            <ng-container *ngFor="let arrItem of items">
+              <prizm-input-tree-select-item
+                #parent="prizmHtmlRef"
+                *prizmInputTreeSelectItem="arrItem; let item = item"
+                prizmHtmlRef
+              >
+                <div class="value" [prizmHintOnOverflow]="item.value" [prizmHintHost]="parent.ref">
+                  {{ item.value }}
+                </div>
+              </prizm-input-tree-select-item>
+            </ng-container>
+          </prizm-data-list-wrapper>
+        </prizm-input-tree-select>
+      </prizm-input-layout>
       <!--      <prizm-input-layout-->
       <!--        #inputElement-->
       <!--        [prizmDocHostElement]="inputElement"-->
@@ -49,11 +92,11 @@
       <!--          [prizmHintCanShow]="prizmHintCanShow"-->
       <!--          [prizmHintDirection]="prizmHintDirection"-->
       <!--          [dropdownScroll]="dropdownScroll"-->
-      <!--          [emptyContent]="emptyContent"-->
-      <!--          [minDropdownHeight]="minDropdownHeight"-->
-      <!--          [maxDropdownHeight]="maxDropdownHeight"-->
+      <!--          [emptyListTemplate]="emptyListTemplate"-->
+      <!--          [prizmDropdownMinHeight]="prizmDropdownMinHeight"-->
+      <!--          [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"-->
       <!--          [icon]="$any(icon)"-->
-      <!--          [nullContent]="nullContent"-->
+      <!--          [searchLabel]="searchLabel"-->
       <!--          [items]="$any(items)"-->
       <!--        ></prizm-input-select>-->
       <!--      </prizm-input-layout>-->
@@ -66,141 +109,77 @@
       [control]="control"
     >
       <ng-template
-        [(documentationPropertyValue)]="dropdownStyles"
-        [documentationPropertyValues]="dropdownStylesVariants"
-        documentationPropertyName="dropdownStyles"
-        documentationPropertyType="PrizmDropdownHostStyles"
-        documentationPropertyMode="input"
-      >
-        Styles for dropdown modal window
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="dropdownClasses"
-        [documentationPropertyValues]="dropdownClassesVariants"
-        documentationPropertyName="dropdownClasses"
-        documentationPropertyType="PrizmDropdownHostClasses"
-        documentationPropertyMode="input"
-      >
-        Classes for dropdown modal window
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="dropdownScroll"
-        [documentationPropertyValues]="dropdownScrollVariants"
-        documentationPropertyName="dropdownScroll"
-        documentationPropertyType="PrizmScrollbarVisibility"
-        documentationPropertyMode="input"
-      >
-        Scrollbar in dropdown
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="icon"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="icon"
-        documentationPropertyType="PolymorphContent<PrizmSelectIconContext>"
-        documentationPropertyMode="input"
-      >
-        Icon
-      </ng-template>
-
-      <ng-template
-        documentationPropertyName="search"
-        documentationPropertyType="string | null"
-        documentationPropertyMode="input-output"
-      >
-        Search Value
-      </ng-template>
-
-      <ng-template
         documentationPropertyName="identityMatcher"
-        documentationPropertyType="PrizmSelectIdentityMatcher"
+        documentationPropertyType="PrizmTreeSelectIdentityMatcher"
         documentationPropertyMode="input"
       >
         Identity Matcher
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="prizmHintDirection"
-        [documentationPropertyValues]="prizmHintDirectionVariants"
-        documentationPropertyName="prizmHintDirection"
-        documentationPropertyType="PrizmOverlayOutsidePlacement"
+        documentationPropertyName="searchFilter"
+        documentationPropertyType="PrizmTreeSelectSearchFilter"
         documentationPropertyMode="input"
       >
-        Hint Direction
+        Search Filter
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="prizmHintCanShow"
-        documentationPropertyName="prizmHintCanShow"
-        documentationPropertyType="boolean"
+        documentationPropertyName="searchMapper"
+        documentationPropertyType="PrizmTreeSelectSearchMapper"
         documentationPropertyMode="input"
       >
-        Can Show
+        Search Mapper
       </ng-template>
 
       <ng-template
-        documentationPropertyName="transformer"
-        documentationPropertyType="PrizmSelectValueTransformer"
+        documentationPropertyName="searchDebounce"
+        documentationPropertyType="number"
         documentationPropertyMode="input"
       >
-        Value Transformer (get value from object)
+        Search Debounce
       </ng-template>
 
       <ng-template
         documentationPropertyName="stringify"
-        documentationPropertyType="PrizmSelectStringify"
+        documentationPropertyType="PrizmTreeSelectStringify"
         documentationPropertyMode="input"
       >
         Stringify
       </ng-template>
 
       <ng-template
+        documentationPropertyName="getChildren"
+        documentationPropertyType="PrizmTreeSelectGetChildren"
+        documentationPropertyMode="input"
+      >
+        Function to get children
+      </ng-template>
+      <ng-template
+        documentationPropertyName="isOpened"
+        documentationPropertyType="PrizmTreeSelectIsOpened"
+        documentationPropertyMode="input"
+      >
+        Function to open tree by passed items value
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="searchMatcher"
-        documentationPropertyType="PrizmSelectSearchMatcher"
+        documentationPropertyType="PrizmTreeSelectSearchMatcher"
         documentationPropertyMode="input"
       >
         Search matcher (use for custom search)
       </ng-template>
 
-      <ng-template
-        [(documentationPropertyValue)]="items"
-        [documentationPropertyValues]="itemsVariants"
-        documentationPropertyName="items"
-        documentationPropertyType="T[]"
-        documentationPropertyMode="input"
-      >
-        Items
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="valueTemplate"
-        [documentationPropertyValues]="getValueTemplate(valueTemp)"
-        documentationPropertyName="valueTemplate"
-        documentationPropertyType="PolymorphContent<PrizmSelectValueContext<T>>"
-        documentationPropertyMode="input"
-      >
-        Template for current selected item (not for element in dropdown)
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="listItemTemplate"
-        documentationPropertyName="listItemTemplate"
-        documentationPropertyType="PolymorphContent<PrizmSelectValueContext<T>>"
-        documentationPropertyMode="input"
-      >
-        Template for item from list (in dropdown) (if null use valueTemplate)
-      </ng-template>
-
-      <ng-template #valueTemp let-value let-nullContent="nullContent">
-        <div class="item" *ngIf="value; else empty">
-          <span class="text-short">{{ value }}</span>
-        </div>
-        <ng-template #empty>
-          {{ nullContent }}
-        </ng-template>
-      </ng-template>
+      <!--      TODO later add support as in switcher -->
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="items"-->
+      <!--        documentationPropertyName="items"-->
+      <!--        documentationPropertyType="T[]"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Items-->
+      <!--      </ng-template>-->
 
       <ng-template
         [(documentationPropertyValue)]="searchable"
@@ -212,17 +191,31 @@
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="minDropdownHeight"
-        documentationPropertyName="minDropdownHeight"
+        [(documentationPropertyValue)]="prizmDropdownMinHeight"
+        documentationPropertyName="prizmDropdownMinHeight"
         documentationPropertyType="number"
         documentationPropertyMode="input"
       >
         Min Dropdown Height
       </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownAlign"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Dropdown Align
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownLimitWidth"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Dropdown Limit Width
+      </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="maxDropdownHeight"
-        documentationPropertyName="maxDropdownHeight"
+        [(documentationPropertyValue)]="prizmDropdownMaxHeight"
+        documentationPropertyName="prizmDropdownMaxHeight"
         documentationPropertyType="number"
         documentationPropertyMode="input"
       >
@@ -239,39 +232,38 @@
       </ng-template>
 
       <ng-template
-        [(documentationPropertyValue)]="nullContent"
-        documentationPropertyName="nullContent"
+        [(documentationPropertyValue)]="searchLabel"
+        documentationPropertyName="searchLabel"
         documentationPropertyType="string"
         documentationPropertyMode="input"
       >
-        Null Content
+        Search Label
       </ng-template>
 
+      <!-- TODO later check in demo and uncomment    -->
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="value"-->
+      <!--        documentationPropertyName="value"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        documentationPropertyMode="input-output"-->
+      <!--      >-->
+      <!--        Value-->
+      <!--      </ng-template>-->
+
       <ng-template
-        [(documentationPropertyValue)]="emptyContent"
-        documentationPropertyName="emptyContent"
+        [documentationPropertyValue]="emptyListTemplate"
+        documentationPropertyName="emptyListTemplate"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+      >
+        Empty List Template
+      </ng-template>
+      <ng-template
+        documentationPropertyName="searched"
         documentationPropertyType="string"
-        documentationPropertyMode="input"
+        documentationPropertyMode="output"
       >
-        Empty Content
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="autoReposition"
-        documentationPropertyName="dropdownAutoReposition"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Dropdown Auto Reposition
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="dropdownWidth"
-        documentationPropertyName="dropdownWidth"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        dropdown Width
+        Searched
       </ng-template>
     </prizm-doc-documentation>
 

@@ -141,6 +141,9 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit, OnDestro
           el.show();
           el.close();
           this.mapWithItemsVisibleState.set(el, true);
+          if (this.hasSearchedChildren(search, el.treeSelectItemDirective.prizmInputTreeSelectItem)) {
+            el.open();
+          }
         } else if (this.hasSearchedChildren(search, el.treeSelectItemDirective.prizmInputTreeSelectItem)) {
           el.show();
           el.open();

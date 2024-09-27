@@ -1,13 +1,13 @@
-<prizm-input-layout label="Validators">
+<prizm-input-layout label="Projection">
   <prizm-input-tree-select #input [stringify]="stringify" [getChildren]="getChildren" [formControl]="control">
     <prizm-data-list-wrapper *prizmDataList>
       <ng-container *ngFor="let arrItem of items">
         <prizm-input-tree-select-item
+          #parent="prizmHtmlRef"
           *prizmInputTreeSelectItem="arrItem; let item = item"
-          [prizmHintOnOverflow]="item.value"
-          [prizmHintOnOverflowEl]="element"
+          prizmHtmlRef
         >
-          <div class="value" #element>
+          <div class="value" [prizmHintOnOverflow]="item.value" [prizmHintHost]="parent.ref">
             {{ item.value }}
           </div>
         </prizm-input-tree-select-item>

@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
-  PolymorphContent,
   PrizmDropdownHostClasses,
   PrizmDropdownHostStyles,
   PrizmHintOptions,
@@ -10,10 +9,10 @@ import {
   PrizmInputStatus,
   PrizmOverlayOutsidePlacement,
   PrizmScrollbarVisibility,
-  PrizmSelectIconContext,
 } from '@prizm-ui/components';
-import { UntypedFormControl } from '@angular/forms';
-import { prizmPure } from '@prizm-ui/core';
+import { UntypedFormControl, Validators } from '@angular/forms';
+
+type TreeSelectItem = string;
 
 @Component({
   selector: 'prizm-select-example',
@@ -45,7 +44,7 @@ export class InputTreeSelectComponent {
   public dropdownClasses: PrizmDropdownHostClasses;
 
   readonly layoutKey = 'PrizmInputLayoutComponent';
-  readonly selectKey = 'PrizmSelectInputComponent';
+  readonly selectKey = 'PrizmInputTreeSelectComponent';
   public readOnly = false;
   public border = true;
   public inputPosition: PrizmInputPosition = 'left';
@@ -56,10 +55,9 @@ export class InputTreeSelectComponent {
 
   public dropdownWidth = '100%';
 
-  readonly control = new UntypedFormControl();
   searchable = false;
   outer = false;
-  label = 'Выберите участника';
+  label = 'Выберите дерево';
   get sizeVariants(): ReadonlyArray<PrizmInputSize> {
     return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
   }
@@ -70,33 +68,13 @@ export class InputTreeSelectComponent {
   public hideClearButtonHint: boolean | null = null;
   public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
-  emptyContent = 'Ничего не найдено';
-  nullContent = 'Не выбрано';
-  minDropdownHeight = 0;
-  maxDropdownHeight = 342;
+  emptyListTemplate = 'Ничего не найдено';
+  searchLabel = 'Не выбрано';
+  prizmDropdownMinHeight = 0;
+  prizmDropdownMaxHeight = 342;
   placeholder = '';
   autoReposition = false;
   visibility: PrizmScrollbarVisibility = 'auto';
-  readonly itemsVariants: ReadonlyArray<string[] | null> = [
-    [
-      'Андрей Сафанов Андрей Сафанов Андрей Сафанов Андрей Сафанов',
-      'Сергей Марков',
-      'Аня Петрова',
-      'Катя Петрова',
-      'Саша Дуров',
-      'Влад Константинов',
-      'Костя Щербаков',
-      'Рустам Гусев',
-      'Филип Уваров',
-      'Влад Константинов 2',
-      'Костя Щербаков 2',
-      'Рустам Гусев 2',
-      'Филип Уваров 2',
-    ],
-    null,
-  ];
-  readonly valVariants: ReadonlyArray<string | null> = [...(this.itemsVariants[0] ?? []), null];
-  public items: string[] | null = this.itemsVariants[0];
 
   public set disabled(state: boolean) {
     if (state) this.control.disable();
@@ -128,34 +106,23 @@ export class InputTreeSelectComponent {
     TypeScript: import('./examples/search/tree-select-search-example.component.ts?raw'),
     HTML: import('./examples/search/tree-select-search-example.component.html?raw'),
   };
-
-  public valueTemplate: PolymorphContent<any> = '';
-  public listItemTemplate: PolymorphContent<any> = null;
-  readonly dropdownScrollVariants: PrizmScrollbarVisibility[] = [`auto`, `hidden`, `visible`];
-  dropdownScroll: PrizmScrollbarVisibility = 'auto';
-
-  public icon: PolymorphContent<PrizmSelectIconContext> | null = null;
-  public testIdPostfix!: string;
-
-  readonly iconVariants: ReadonlyArray<PolymorphContent<PrizmSelectIconContext>> = [
-    null as any,
-    'magnifying-glass',
+  readonly items: TreeSelectItem[] = [
+    'One',
+    'Twp',
+    'Three',
+    'Very long text with a lot of characters and spaces and other stuff and things',
   ];
 
-  @prizmPure
-  public getValueTemplate(...temps: PolymorphContent[]): PolymorphContent<any>[] {
-    return [null, ...temps];
+  public value = this.items[0];
+  readonly control = new UntypedFormControl(this.items[1], [Validators.required]);
+
+  public stringify(item: TreeSelectItem | null): string {
+    return item ?? '';
   }
-
-  public searchMatcher = (searchValue: string, item: unknown): boolean => {
-    return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
-  };
-
-  public identityMatcher = (a: unknown, b: unknown): boolean => {
-    return a === b;
-  };
-
-  public setValue(val: string): void {
-    this.control.setValue(val);
+  public getChildren(item: TreeSelectItem): TreeSelectItem[] {
+    return [];
+  }
+  public setDefaultValue(): void {
+    this.control.setValue(this.items[0], { emitEvent: false });
   }
 }

@@ -10,3 +10,4 @@ export * from './appearance';
 export * from './appearance-type';
 export * from './parent-sync';
 export * from './has-value';
+export * from './ref';

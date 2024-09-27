@@ -70,8 +70,9 @@ import { PrizmDropdownControllerDirective } from '../../../directives';
   hostDirectives: [
     {
       directive: PrizmTreeSelectSelectedDirective,
-      inputs: ['value'],
-      outputs: ['valueChange'],
+      // TODO Check In Demo and uncomment
+      // inputs: ['value'],
+      // outputs: ['valueChange'],
     },
     {
       directive: PrizmDropdownControllerDirective,
