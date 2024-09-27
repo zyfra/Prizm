@@ -10,7 +10,7 @@ import {
   takeUntil,
   tap,
 } from 'rxjs/operators';
-import { combineLatest, Observable, of, ReplaySubject } from 'rxjs';
+import { combineLatest, concat, Observable, of, ReplaySubject } from 'rxjs';
 import { PrizmDestroyService, PrizmMapSubject } from '@prizm-ui/helpers';
 import { PrizmTreeSelectGetChildrenDirective } from '../tree-select-get-children.directive';
 import { prizmI18nInitWithKeys } from '../../../../services/i18n.service';
@@ -33,7 +33,7 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit, OnDestro
   @Input() searchMatcher = (search: string, item: T): boolean => search === item;
   @Input() searchMapper = (search: string): Observable<string> => of(search);
   @Input() searchFilter = (search: string) => of(!!search.replace(/[ \n\r\t]+/g, '').length);
-  @Input() searchDebounce = 50;
+  @Input() searchDebounce = 0;
 
   private readonly onSearch$$ = new ReplaySubject<string>(1);
   private readonly destroy = inject(PrizmDestroyService);
@@ -127,7 +127,12 @@ export class PrizmTreeSelectSearchDirective<T = any> implements OnInit, OnDestro
       )
       .subscribe();
 
-    return this.searched.pipe(
+    const searchedWithCurrentQuery = [
+      ...(this.searchFilter(this.query) ? [this.searchMapper(this.query)] : []),
+      this.searched,
+    ];
+
+    return concat(...searchedWithCurrentQuery).pipe(
       debounceTime(this.searchDebounce),
       filter(search => {
         if (search) return true;
