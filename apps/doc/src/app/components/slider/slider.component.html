@@ -40,107 +40,107 @@
       </prizm-slider>
     </prizm-doc-demo>
 
-    <prizm-doc-documentation>
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isTouchedFromControl$ | async"
-        (documentationPropertyValueChange)="setTouched(fc, $any($event))"
-        documentationPropertyName="touched"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Touched
-      </ng-template>
+    <prizm-doc-documentation [control]="fc">
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : isTouchedFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="setTouched(fc, $any($event))"-->
+      <!--        documentationPropertyName="touched"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Touched-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isDirtyFromControl$ | async"
-        (documentationPropertyValueChange)="setDirty(fc, $any($event))"
-        documentationPropertyName="dirty"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Dirty
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : isDirtyFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="setDirty(fc, $any($event))"-->
+      <!--        documentationPropertyName="dirty"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Dirty-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isPristineFromControl$ | async"
-        (documentationPropertyValueChange)="setPristine(fc, $any($event))"
-        documentationPropertyName="pristine"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Pristine
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : isPristineFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="setPristine(fc, $any($event))"-->
+      <!--        documentationPropertyName="pristine"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Pristine-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : getDisabledFromControl$ | async"
-        (documentationPropertyValueChange)="updateStateOfControl(fc, $any($event))"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Change disabled state of control
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : getDisabledFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="updateStateOfControl(fc, $any($event))"-->
+      <!--        documentationPropertyName="disabled"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Change disabled state of control-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc.value"
-        [documentationPropertyValues]="range ? valueRangeVariants : valueSingleVariants"
-        (documentationPropertyValueChange)="updateValueOfControl($event)"
-        documentationPropertyName="value"
-        documentationPropertyType="string"
-        documentationPropertyMode="form-control"
-      >
-        Value
-      </ng-template>
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isTouchedFromControl$ | async"
-        (documentationPropertyValueChange)="setTouched(fc, $any($event))"
-        documentationPropertyName="touched"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Touched
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc.value"-->
+      <!--        [documentationPropertyValues]="range ? valueRangeVariants : valueSingleVariants"-->
+      <!--        (documentationPropertyValueChange)="updateValueOfControl($event)"-->
+      <!--        documentationPropertyName="value"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Value-->
+      <!--      </ng-template>-->
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : isTouchedFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="setTouched(fc, $any($event))"-->
+      <!--        documentationPropertyName="touched"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Touched-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isDirtyFromControl$ | async"
-        (documentationPropertyValueChange)="setDirty(fc, $any($event))"
-        documentationPropertyName="dirty"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Dirty
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : isDirtyFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="setDirty(fc, $any($event))"-->
+      <!--        documentationPropertyName="dirty"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Dirty-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isPristineFromControl$ | async"
-        (documentationPropertyValueChange)="setPristine(fc, $any($event))"
-        documentationPropertyName="pristine"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Pristine
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : isPristineFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="setPristine(fc, $any($event))"-->
+      <!--        documentationPropertyName="pristine"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Pristine-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : getDisabledFromControl$ | async"
-        (documentationPropertyValueChange)="updateStateOfControl(fc, $any($event))"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="form-control"
-      >
-        Change disabled state of control
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc | prizmCallFunc : getDisabledFromControl$ | async"-->
+      <!--        (documentationPropertyValueChange)="updateStateOfControl(fc, $any($event))"-->
+      <!--        documentationPropertyName="disabled"-->
+      <!--        documentationPropertyType="boolean"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Change disabled state of control-->
+      <!--      </ng-template>-->
 
-      <ng-template
-        [documentationPropertyValue]="fc.value"
-        [documentationPropertyValues]="range ? valueRangeVariants : valueSingleVariants"
-        (documentationPropertyValueChange)="updateValueOfControl($event)"
-        documentationPropertyName="value"
-        documentationPropertyType="string"
-        documentationPropertyMode="form-control"
-      >
-        Value
-      </ng-template>
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="fc.value"-->
+      <!--        [documentationPropertyValues]="range ? valueRangeVariants : valueSingleVariants"-->
+      <!--        (documentationPropertyValueChange)="updateValueOfControl($event)"-->
+      <!--        documentationPropertyName="value"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        documentationPropertyMode="form-control"-->
+      <!--      >-->
+      <!--        Value-->
+      <!--      </ng-template>-->
       <ng-template
         [(documentationPropertyValue)]="min"
         documentationPropertyName="min"
