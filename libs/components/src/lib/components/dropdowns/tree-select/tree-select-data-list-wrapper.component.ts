@@ -14,8 +14,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmTreeSelectItemsDirective } from './tree-select-items.directive';
 import { PRIZM_TREE_SELECT_ITEMS_VIEW_CONTAINER_REF } from './token';
 import { BehaviorSubject } from 'rxjs';
-import { PrizmCronInnerModule } from '../../cron/cron-inner.module';
-import { PrizmInputHintModule, PrizmInputTextComponent } from '../../input';
+import { PrizmInputTextComponent } from '../../input';
 import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -34,9 +33,6 @@ import { PolymorphOutletDirective } from '../../../directives';
     NgIf,
     NgTemplateOutlet,
     PrizmDataListWrapperComponent,
-    PrizmCronInnerModule,
-    PrizmInputHintModule,
-    PrizmInputHintModule,
     PrizmInputTextComponent,
     PolymorphOutletDirective,
   ],
