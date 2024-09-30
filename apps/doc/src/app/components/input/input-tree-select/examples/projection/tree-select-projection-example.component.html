@@ -3,11 +3,11 @@
     <prizm-data-list-wrapper *prizmDataList>
       <ng-container *ngFor="let arrItem of items">
         <prizm-input-tree-select-item
-          #parent="prizmHtmlRef"
           *prizmInputTreeSelectItem="arrItem; let item = item"
-          prizmHtmlRef
+          [prizmHintOnOverflow]="item.value"
+          [prizmHintOnOverflowEl]="host"
         >
-          <div class="value" [prizmHintOnOverflow]="item.value" [prizmHintHost]="parent.ref">
+          <div class="value" #host>
             {{ item.value }}
           </div>
         </prizm-input-tree-select-item>

@@ -139,7 +139,7 @@ jobs:
           name: dist
           path: ./dist
 
-      - run: cd dist/libs/components && npm publish --access public --verbose
+      - run: cd dist/libs/components && npm publish --tag ng17  --access public --verbose
 
   publish-i18n:
     needs: build

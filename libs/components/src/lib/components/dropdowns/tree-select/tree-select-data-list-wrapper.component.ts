@@ -14,8 +14,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmTreeSelectItemsDirective } from './tree-select-items.directive';
 import { PRIZM_TREE_SELECT_ITEMS_VIEW_CONTAINER_REF } from './token';
 import { BehaviorSubject } from 'rxjs';
-import { PrizmCronInnerModule } from '../../cron/cron-inner.module';
-import { PrizmInputHintModule, PrizmInputTextComponent } from '../../input';
+import { PrizmInputCommonModule, PrizmInputTextComponent } from '../../input';
 import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
@@ -23,6 +22,7 @@ import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTreeSelectEmptyTextDirective } from './tree-select-empty-text.directive';
 import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.directive';
 import { PolymorphOutletDirective } from '../../../directives';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-tree-select-data-list-wrapper',
@@ -34,11 +34,10 @@ import { PolymorphOutletDirective } from '../../../directives';
     NgIf,
     NgTemplateOutlet,
     PrizmDataListWrapperComponent,
-    PrizmCronInnerModule,
-    PrizmInputHintModule,
-    PrizmInputHintModule,
     PrizmInputTextComponent,
     PolymorphOutletDirective,
+    FormsModule,
+    PrizmInputCommonModule,
   ],
   providers: [
     PrizmDestroyService,
