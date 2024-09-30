@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Directive, inject, OnInit, Optional, Self } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Directive, inject, Optional, Self } from '@angular/core';
 import {
   filterTruthy,
   PRIZM_INDEX_SELECT_FN,
@@ -10,9 +10,9 @@ import {
 } from '@prizm-ui/helpers';
 import { noop, ReplaySubject } from 'rxjs';
 import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, filter, skip, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { debounceTime, filter, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { SWITCHER_CONTAINER } from '../swithcer.const';
-import { PrizmSwitcherItemComponent } from '@prizm-ui/components';
+import { PrizmSwitcherItemComponent } from '../components/switcher-item/switcher-item.component';
 
 @Directive({
   selector: '[prizmSwitcherControl]',

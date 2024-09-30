@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/components",
-  "version": "4.3.8",
+  "version": "4.4.0",
   "description": "Prizm UI system design components library http://prizm.zyfra.com",
   "license": "MIT",
   "private": false,
@@ -12,11 +12,11 @@
     "@angular/common": "^17.1.0",
     "@angular/core": "^17.1.0",
     "@angular/cdk": "^17.1.0",
-    "@prizm-ui/helpers": "^4.3.8",
-    "@prizm-ui/core": "^4.3.8",
-    "@prizm-ui/i18n": "^4.3.8",
-    "@prizm-ui/theme": "^4.3.8",
-    "@prizm-ui/icons": "^4.3.8"
+    "@prizm-ui/helpers": "^4.4.0",
+    "@prizm-ui/core": "^4.4.0",
+    "@prizm-ui/i18n": "^4.4.0",
+    "@prizm-ui/theme": "^4.4.0",
+    "@prizm-ui/icons": "^4.4.0"
   },
   "dependencies": {
     "tslib": "^2.4.0",

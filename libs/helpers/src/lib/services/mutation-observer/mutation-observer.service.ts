@@ -17,7 +17,7 @@ export class PrizmMutationObserverService implements OnDestroy {
 
   public observe(
     element: Element,
-    callback: MutationCallback,
+    callback: MutationCallback = () => null,
     config: MutationObserverInit = { childList: true, subtree: true }
   ): this {
     if (this.observers.has(element)) {

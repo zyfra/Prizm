@@ -18,5 +18,5 @@
     }
   },
   "required": ["config", "name"],
-  "additionalProperties": false
+  "additionalProperties": true
 }

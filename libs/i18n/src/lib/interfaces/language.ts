@@ -165,6 +165,7 @@ export interface PrizmLanguageCore {
 export interface PrizmLanguageKit {
   cancel: string;
   done: string;
+  emptyListText: string;
   more: string;
   showAll: string;
   hide: string;
