@@ -24,7 +24,7 @@ import {
   PRIZM_TREE_SELECT_ITEM_PARENTS,
 } from '../../tree-select/items/token';
 import { PrizmTreeSelectIsOpenedDirective } from '../../tree-select/tree-select-is-opened.directive';
-import { BehaviorSubject, Observable, Subject } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../../tree-select/token';
 import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full';
@@ -58,7 +58,7 @@ import { PrizmTreeMultiSelectSelectedDirective } from '../tree-select-multi-sele
     PrizmCheckboxComponent,
   ],
 })
-export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends PrizmAbstractTestId {
+export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   get opened() {
     return this.childrenOpened$$.value;
   }
@@ -71,6 +71,7 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
   @Output() openedChange = new EventEmitter<boolean>();
   override readonly testId_ = 'ui_tree_multi_select_item';
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
+  public childrenElements: PrizmTreeMultiSelectItemComponent<K>[] = [];
   public cdRef = inject(ChangeDetectorRef);
   public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS) as PrizmTreeMultiSelectItemDirective[];
   protected treeSelectSearchDirective = inject(PrizmTreeMultiSelectSearchDirective);
@@ -99,10 +100,8 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   public readonly viewContainerRef!: ViewContainerRef;
   protected renderedChildren: EmbeddedViewRef<any>[] = [];
-
   @HostListener('click', ['$event']) protected toggleSelectedStateAfterClick(mouseEvent: MouseEvent) {
     mouseEvent.stopPropagation();
-    console.log('#mz toggleSelectedStateAfterClick', this.disabledDirective.disabled);
     if (this.disabledDirective.disabled) return;
     this.toggleSelected();
   }
@@ -110,11 +109,13 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
   constructor() {
     super();
     this.iconsFullRegistry.registerIcons(prizmIconsChevronMiniRight);
+    this.parent?.childrenElements.push(this);
   }
 
   ngOnInit() {
     this.initChildrenOpener();
     this.initControllerOnSearch();
+
     setTimeout(() => this.openIfHasSelectedChildren(), 0);
   }
 
@@ -146,6 +147,11 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
       this.treeSelectItemDirective.prizmInputTreeSelectItem
     );
   }
+  public hasAllSelectedChildren() {
+    return this.treeSelectSelectedDirective.hasAllSelectedChildren(
+      this.treeSelectItemDirective.prizmInputTreeSelectItem
+    );
+  }
 
   public openIfHasSelectedChildren() {
     if (this.hasSelectedChildren()) {
@@ -153,6 +159,7 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
       this.show();
     }
   }
+
   public initControllerOnSearch() {
     this.treeSelectSearchDirective.initItemUpdaterOnSearch(this).pipe(takeUntil(this.destroy)).subscribe();
   }
@@ -169,6 +176,17 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
 
   private _select() {
     this.treeSelectSelectedDirective.add(this.treeSelectItemDirective.prizmInputTreeSelectItem);
+    this.safeUpdateParentState();
+  }
+
+  public safeUpdateParentState() {
+    if (!this.parent) return;
+    if (!this.parent.hasAllSelectedChildren()) return;
+    this.parent.select();
+  }
+
+  public safeUnselectChildren() {
+    if (!this.children) return;
   }
 
   public unselect() {
@@ -176,6 +194,7 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
     [this.treeSelectItemDirective.prizmInputTreeSelectItem, ...parents].forEach(parent =>
       this.treeSelectSelectedDirective.unselect(parent)
     );
+    this.childrenElements.forEach(child => child.unselect());
   }
 
   /**
@@ -183,13 +202,10 @@ export class PrizmTreeMultiSelectItemComponent<K, T extends K[] = K[]> extends P
    * */
   public toggleSelected() {
     if (this.isSelected()) {
-      console.log('#mz toggleSelected:1');
       this.unselect();
     } else if (this.hasSelectedChildren()) {
-      console.log('#mz toggleSelected:2');
       this._select();
     } else {
-      console.log('#mz toggleSelected:2');
       this._select();
     }
   }

@@ -18,11 +18,11 @@
       [disabled]="accessorIsDisabled"
       [prizmContext]="item"
       [prizmContextKey]="overflowItem"
-      (deleted)="removeChips($event, i)"
+      (deleted)="removeChips($event, i, item)"
       (click)="chipClick(item)"
       prizmOverflowItem
     >
-      {{ item }}
+      {{ item | prizmCallFunc : stringifyDirective.stringify }}
     </prizm-chips-item>
 
     <ng-container *ngIf="overflowHost.active">

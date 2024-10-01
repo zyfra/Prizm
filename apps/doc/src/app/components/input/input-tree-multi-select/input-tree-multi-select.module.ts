@@ -14,6 +14,7 @@ import {
   PrizmScrollbarModule,
   PrizmTreeMultiSelectItemComponent,
   PrizmTreeMultiSelectItemDirective,
+  PrizmTreeSelectItemComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmHtmlRefDirective, PrizmLetDirective } from '@prizm-ui/helpers';
@@ -46,6 +47,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PrizmDataListWrapperComponent,
     PrizmHintOnOverflowDirective,
     PrizmHtmlRefDirective,
+    PrizmTreeSelectItemComponent,
   ],
   declarations: [
     PrizmTreeSelectI18nExampleComponent,

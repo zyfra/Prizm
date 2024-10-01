@@ -66,7 +66,6 @@ export class PrizmCheckboxComponent
   }
   @Input() set checked(val: boolean) {
     if (this.ngControl) return;
-    if (this.readonly) return;
     this.setValue(val);
   }
 
@@ -106,7 +105,7 @@ export class PrizmCheckboxComponent
 
   private onClick(event: Event): void {
     event.preventDefault();
-    if (this.disabled) {
+    if (this.readonly || this.disabled) {
       return;
     }
 

@@ -4,18 +4,16 @@
       *ngIf="isSelected(); else intermediateOtUnselectedTemplate"
       [readonly]="true"
       [checked]="true"
-      >1</prizm-checkbox
-    >
+    ></prizm-checkbox>
     <ng-template #intermediateOtUnselectedTemplate>
       <prizm-checkbox
         *ngIf="hasSelectedChildren(); else unselectedTemplate"
         [checked]="false"
         [indeterminate]="true"
-        >2</prizm-checkbox
-      >
+      ></prizm-checkbox>
     </ng-template>
     <ng-template #unselectedTemplate>
-      <prizm-checkbox [checked]="false">3</prizm-checkbox>
+      <prizm-checkbox [checked]="false"></prizm-checkbox>
     </ng-template>
 
     <button
@@ -34,7 +32,7 @@
     <prizm-icons-full [name]="'chevron-mini-right'" [size]="24"></prizm-icons-full>
   </ng-template>
 
-  <div class="value">
+  <div class="value" [class.has-children]="children.length > 0">
     <ng-content></ng-content>
   </div>
 </div>

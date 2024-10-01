@@ -12,7 +12,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import {
+  PrizmCallFuncPipe,
+  PrizmDestroyService,
+  PrizmLetDirective,
+  PrizmStringifyFunc,
+} from '@prizm-ui/helpers';
 import {
   PrizmInputCommonModule,
   PrizmInputControl,
@@ -46,6 +51,8 @@ import { PrizmTreeSelectSearchDirective } from '../tree-select/search';
 import { PrizmChipsComponent } from '../../chips';
 import { PrizmTreeSelectSelectedDirective } from '../tree-select/tree-select-selected.directive';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
   selector: 'prizm-input-tree-multi-select',
@@ -146,9 +153,20 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
   implements ControlValueAccessor, OnInit
 {
   searchable = false;
+  override hidden = true;
   readonly button_layout_width = 64;
 
   @ContentChild(PrizmDataListDirective) dataListDirective?: PrizmDataListDirective;
+
+  @HostBinding('style.display')
+  get display(): string {
+    return this.value?.length ? 'none' : '';
+  }
+
+  @HostBinding('class.empty')
+  get emptyChips(): boolean {
+    return this.empty;
+  }
 
   @Input()
   icon: string | null = null;
@@ -169,9 +187,9 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
   public readonly defaultIcon = 'triangle-down';
 
   private readonly destroy = inject(PrizmDestroyService);
-  public readonly treeSelectSelectedDirective = inject(PrizmTreeMultiSelectSelectedDirective);
+  public readonly treeSelectSelectedDirective = inject(PrizmTreeMultiSelectSelectedDirective<T>);
   public readonly opened$$ = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
-  public readonly treeSelectStringifyDirective = inject(PrizmTreeSelectStringifyDirective);
+  public readonly treeSelectStringifyDirective = inject(PrizmTreeSelectStringifyDirective<T>);
   public readonly dropdownControllerDirective = inject(PrizmDropdownControllerDirective);
   public readonly opened$ = this.opened$$.asObservable();
 
@@ -188,7 +206,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
   override readonly hasClearButton = true;
   public currentValue: any = null;
   protected readonly selectedItemsChips$ = this.treeSelectSelectedDirective.selected$.pipe(
-    map(items => (items ?? []).map(item => new String(this.treeSelectStringifyDirective.stringify(item))))
+    map(items => (items ?? []).map(item => item))
   );
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
     return this.focusableElement ? this.focusableElement.nativeElement : null;
@@ -198,14 +216,18 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
     return prizmIsNativeFocused(this.nativeFocusableElement);
   }
 
+  readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   constructor(private readonly injector_: Injector) {
     super(injector_, null);
 
     this.dropdownControllerDirective.minHeight = 40;
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown, prizmIconsMagnifyingGlass);
   }
 
   override ngOnInit() {
     super.ngOnInit();
+
+    this.initParentClickListener();
   }
 
   public ngAfterViewInit() {
@@ -216,6 +238,15 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
         tap(value => (this.currentValue = value)),
         tap(value => this.onChange(value as any)),
         takeUntil(this.destroy)
+      )
+      .subscribe();
+  }
+  protected initParentClickListener(): void {
+    this.layoutComponent?.innerClick$
+      .pipe(
+        tap(() => this.opened$$.next(this.disabled ? false : !this.opened$$.value)),
+        tap(() => this.changeDetectorRef.markForCheck()),
+        takeUntil(this.destroy$)
       )
       .subscribe();
   }
@@ -239,13 +270,13 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
     this.onTouch();
   }
 
-  public removeChip(str: string): void {
-    // const item = this.chipsSet.get(str);
-    // this.select({
-    //   checked: true,
-    //   obj: item,
-    // } as PrizmMultiSelectItemWithChecked<T>);
+  public removeChip(item: T): void {
+    this.treeSelectSelectedDirective.unselect(item);
   }
+
+  public readonly chipsStringify: PrizmStringifyFunc<T> = item => {
+    return (item && this.treeSelectStringifyDirective.stringify(item)) ?? '';
+  };
 
   public safeOpenModal(): void {
     const inputElement = this.focusableElement?.nativeElement;

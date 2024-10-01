@@ -10,7 +10,7 @@ import { PrizmTreeSelectIdentityMatcherDirective } from '../tree-select/tree-sel
   standalone: true,
   providers: [PrizmDestroyService],
 })
-export class PrizmTreeMultiSelectSelectedDirective<K, T extends K[] = K[]> {
+export class PrizmTreeMultiSelectSelectedDirective<T> {
   private readonly destroy = inject(PrizmDestroyService);
   private readonly treeSelectGetChildrenDirective = inject(PrizmTreeSelectGetChildrenDirective);
   private readonly treeSelectIdentityMatcherDirective = inject(PrizmTreeSelectIdentityMatcherDirective);
@@ -52,6 +52,7 @@ export class PrizmTreeMultiSelectSelectedDirective<K, T extends K[] = K[]> {
 
     return this.hasSelectedChildren(isSelected);
   }
+
   public isSelfSelected(isSelected: T): boolean {
     const selectedItems = this.selected$$.getValue();
     if (!selectedItems || !Array.isArray(selectedItems)) return false;

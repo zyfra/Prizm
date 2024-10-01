@@ -6,6 +6,8 @@
   [prizmDropdownHostWidth]="'100%'"
   [prizmDropdownMinHeight]="20"
   [autoReposition]="false"
+  [ngSwitch]="layoutComponent?.outer"
+  [prizmFocusable]="true"
   (isOpenChange)="opened$$.next($event)"
   (click)="safeOpenModal()"
 >
@@ -67,6 +69,7 @@
           ? layoutComponent!.el!.nativeElement.clientWidth - button_layout_width
           : 0
       "
+      [stringify]="chipsStringify"
       [class.empty]="!chips.length"
       [size]="$any(size)"
       [class.inner]="inner"
