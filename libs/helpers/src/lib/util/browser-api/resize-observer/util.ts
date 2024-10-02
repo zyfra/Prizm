@@ -4,8 +4,10 @@ export function prizmCreateResizeObservable(element: HTMLElement): Observable<Re
   return new Observable<ResizeObserverEntry[]>(observer => {
     // Создаем новый ResizeObserver
     const resizeObserver = new ResizeObserver(entries => {
-      // Передаем изменения в observable
-      observer.next(entries);
+      requestAnimationFrame(() => {
+        // Передаем изменения в observable
+        observer.next(entries);
+      });
     });
 
     // Начинаем наблюдение за изменениями размеров указанного элемента

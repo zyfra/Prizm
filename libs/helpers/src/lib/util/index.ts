@@ -16,4 +16,5 @@ export * from './invert-object';
 export * from './browser-api';
 export * from './watch-object';
 export * from './map-subject';
+export * from './set-subject';
 export * from './map-children-subject';

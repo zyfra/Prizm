@@ -193,11 +193,22 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   }
 
   public unselect() {
+    const parentSelected = this.parent?.isSelected();
+    this.unselectSelf();
+
+    // unselect parent
     const parents = this.parents.map(i => i.prizmInputTreeSelectItem);
-    [this.treeSelectItemDirective.prizmInputTreeSelectItem, ...parents].forEach(parent =>
-      this.treeSelectSelectedDirective.unselect(parent)
-    );
+    parents.forEach(parent => this.treeSelectSelectedDirective.unselect(parent));
+
+    // unselectChildrent
     this.childrenElements.forEach(child => child.unselect());
+
+    // select children if parent was selected
+    if (parentSelected) {
+      this.parent!.childrenElements.forEach(child => {
+        if (child !== this) child.select();
+      });
+    }
   }
 
   public unselectSelf() {

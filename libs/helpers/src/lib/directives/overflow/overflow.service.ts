@@ -2,12 +2,12 @@ import { inject, Injectable, NgZone, OnDestroy, Renderer2 } from '@angular/core'
 import { BehaviorSubject, concat, merge, of, startWith, Subject, takeUntil } from 'rxjs';
 import { delay, filter, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { PrizmOverflowItem } from './model';
-import { prizmCreateResizeObservable } from '../../util';
+import { prizmCreateResizeObservable, PrizmSetSubject } from '../../util';
 import { hideOverflowElements } from './util';
 
 @Injectable()
 export class OverflowService implements OnDestroy {
-  private readonly set = new Set<PrizmOverflowItem>();
+  private readonly set = new PrizmSetSubject<PrizmOverflowItem>();
   private host?: HTMLElement;
   private observer!: MutationObserver;
   private zone = inject(NgZone);
@@ -27,6 +27,7 @@ export class OverflowService implements OnDestroy {
   public readonly hiddenItems$ = this.items$.pipe(
     map(arr => arr.filter(i => i.html.style.display === 'none'))
   );
+
   public disable() {
     this.active = false;
     this.destroyPrevious();
