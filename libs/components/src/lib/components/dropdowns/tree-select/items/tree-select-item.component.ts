@@ -70,31 +70,31 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
   override readonly testId_ = 'ui_tree_select_item';
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
   public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS);
-  private treeSelectSearchDirective = inject(PrizmTreeSelectSearchDirective);
+  protected treeSelectSearchDirective = inject(PrizmTreeSelectSearchDirective);
   public treeSelectItemDirective = inject(PrizmTreeSelectItemDirective);
   readonly treeSelectIsOpenedDirective = inject(PrizmTreeSelectIsOpenedDirective);
-  private readonly childrenOpened$$ = new BehaviorSubject(
+  protected readonly childrenOpened$$ = new BehaviorSubject(
     this.treeSelectIsOpenedDirective.isOpened(this.treeSelectItemDirective.prizmInputTreeSelectItem)
   );
-  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
-  private readonly dropdownController = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
+  protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  protected readonly dropdownController = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
   protected readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   public readonly destroy = inject(PrizmDestroyService);
-  private readonly injector = inject(Injector);
+  protected readonly injector = inject(Injector);
   public readonly elementRef = inject(ElementRef);
-  private readonly renderer2 = inject(Renderer2);
-  private readonly parent = inject(PrizmTreeSelectItemComponent, {
+  protected readonly renderer2 = inject(Renderer2);
+  protected readonly parent = inject(PrizmTreeSelectItemComponent, {
     skipSelf: true,
     optional: true,
   });
-  private readonly disabledDirective = inject(PrizmDisabledDirective, {
+  protected readonly disabledDirective = inject(PrizmDisabledDirective, {
     self: true,
   });
   @HostBinding('style.--prizm-tree-select-item-level') level = inject(PRIZM_TREE_SELECT_ITEM_LEVEL);
   @HostBinding('class.has-children') hasChildren = !!this.children.length;
   @ViewChild('viewContainerRef', { read: ViewContainerRef })
   public readonly viewContainerRef!: ViewContainerRef;
-  private renderedChildren: EmbeddedViewRef<any>[] = [];
+  protected renderedChildren: EmbeddedViewRef<any>[] = [];
 
   @HostListener('click', ['$event']) public _select(mouseEvent: MouseEvent) {
     mouseEvent.stopPropagation();
@@ -113,7 +113,7 @@ export class PrizmTreeSelectItemComponent<T> extends PrizmAbstractTestId impleme
     setTimeout(() => this.openIfHasSelectedChildren(), 0);
   }
 
-  private initChildrenOpener() {
+  protected initChildrenOpener() {
     this.childrenOpened$$
       .pipe(
         tap(opened => {

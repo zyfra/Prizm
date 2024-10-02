@@ -15,7 +15,11 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../../directives';
+import {
+  PrizmElementReadyDirective,
+  PrizmHintOnOverflowDirective,
+  PrizmLifecycleDirective,
+} from '../../../directives';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsXmarkMini } from '@prizm-ui/icons/base/source';
@@ -33,8 +37,8 @@ import { prizmIconsXmarkMini } from '@prizm-ui/icons/base/source';
     PrizmLifecycleDirective,
     PrizmElementReadyDirective,
     PrizmLetDirective,
-    PrizmHintDirective,
     PrizmIconsComponent,
+    PrizmHintOnOverflowDirective,
   ],
 })
 export class PrizmChipsItemComponent extends PrizmAbstractTestId {
@@ -88,7 +92,7 @@ export class PrizmChipsItemComponent extends PrizmAbstractTestId {
 
   protected readonly iconsRegistry = inject(PrizmIconsRegistry);
 
-  constructor(public readonly el: ElementRef) {
+  constructor(public readonly el: ElementRef<HTMLElement>) {
     super();
 
     this.iconsRegistry.registerIcons(prizmIconsXmarkMini);

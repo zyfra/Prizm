@@ -1,1 +1,1 @@
-export type PrizmStringifyFunc<T> = (a: T) => string;
+export type PrizmStringifyFunc<T> = (a: T | null) => string;

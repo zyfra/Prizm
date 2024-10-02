@@ -15,7 +15,7 @@ export class PrizmTreeSelectSelectedDirective<T = any> {
   private readonly treeSelectGetChildrenDirective = inject(PrizmTreeSelectGetChildrenDirective);
   private readonly treeSelectIdentityMatcherDirective = inject(PrizmTreeSelectIdentityMatcherDirective);
   private readonly selected$$ = new BehaviorSubject<T | any>(null);
-  public readonly selected$ = this.selected$$;
+  public readonly selected$ = this.selected$$.asObservable();
 
   @Input() get value() {
     return this.selected$$.value;

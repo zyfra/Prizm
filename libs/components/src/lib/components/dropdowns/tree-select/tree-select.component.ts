@@ -36,7 +36,6 @@ import { PrizmDropdownControllerDirective } from '../../../directives';
 @Component({
   selector: 'prizm-input-tree-select',
   templateUrl: './tree-select.component.html',
-  styleUrls: ['./tree-select.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [

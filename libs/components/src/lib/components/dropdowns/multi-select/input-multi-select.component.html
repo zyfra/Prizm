@@ -1,7 +1,7 @@
 <prizm-dropdown-host
   #dropdownHostRef
   [content]="dropdown"
-  [isOpen]="$any(opened$ | async)"
+  [isOpen]="(opened$ | async)!"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"

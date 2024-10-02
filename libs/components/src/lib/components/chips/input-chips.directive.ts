@@ -27,7 +27,7 @@ interface IPrizmChipsComponent {
   providers: [{ provide: PrizmInputControl, useExisting: PrizmInputChipsComponent }, PrizmDestroyService],
 })
 export class PrizmInputChipsComponent extends PrizmInputTextComponent {
-  @Input() chipsComponent: IPrizmChipsComponent;
+  @Input() chipsComponent!: IPrizmChipsComponent;
 
   @HostListener('keydown.enter', ['$event'])
   public addChipsHandler(): void {

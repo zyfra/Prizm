@@ -47,59 +47,23 @@
           [stringify]="stringify"
           [getChildren]="getChildren"
           [formControl]="control"
+          [searchable]="searchable"
         >
           <prizm-data-list-wrapper *prizmDataList>
             <ng-container *ngFor="let arrItem of items">
               <prizm-input-tree-select-item
-                #parent="prizmHtmlRef"
                 *prizmInputTreeSelectItem="arrItem; let item = item"
-                prizmHtmlRef
+                [prizmHintOnOverflow]="item"
+                [prizmHintOnOverflowEl]="host"
               >
-                <div class="value" [prizmHintOnOverflow]="item.value" [prizmHintHost]="parent.ref">
-                  {{ item.value }}
+                <div class="value" #host>
+                  {{ item }}
                 </div>
               </prizm-input-tree-select-item>
             </ng-container>
           </prizm-data-list-wrapper>
         </prizm-input-tree-select>
       </prizm-input-layout>
-      <!--      <prizm-input-layout-->
-      <!--        #inputElement-->
-      <!--        [prizmDocHostElement]="inputElement"-->
-      <!--        [prizmDocHostElementKey]="layoutKey"-->
-      <!--        [size]="size"-->
-      <!--        [label]="label"-->
-      <!--        [outer]="outer"-->
-      <!--        [border]="border"-->
-      <!--        [position]="inputPosition"-->
-      <!--        [status]="status"-->
-      <!--        [forceClear]="forceClear"-->
-      <!--        [hideClearButtonHint]="hideClearButtonHint"-->
-      <!--      >-->
-      <!--        <prizm-input-select-->
-      <!--          #element-->
-      <!--          [prizmDocHostElement]="element"-->
-      <!--          [prizmDocHostElementKey]="selectKey"-->
-      <!--          [placeholder]="placeholder"-->
-      <!--          [valueTemplate]="valueTemplate"-->
-      <!--          [listItemTemplate]="listItemTemplate"-->
-      <!--          [searchMatcher]="searchMatcher"-->
-      <!--          [formControl]="control"-->
-      <!--          [dropdownAutoReposition]="autoReposition"-->
-      <!--          [searchable]="searchable"-->
-      <!--          [dropdownStyles]="dropdownStyles"-->
-      <!--          [dropdownClasses]="dropdownClasses"-->
-      <!--          [prizmHintCanShow]="prizmHintCanShow"-->
-      <!--          [prizmHintDirection]="prizmHintDirection"-->
-      <!--          [dropdownScroll]="dropdownScroll"-->
-      <!--          [emptyListTemplate]="emptyListTemplate"-->
-      <!--          [prizmDropdownMinHeight]="prizmDropdownMinHeight"-->
-      <!--          [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"-->
-      <!--          [icon]="$any(icon)"-->
-      <!--          [searchLabel]="searchLabel"-->
-      <!--          [items]="$any(items)"-->
-      <!--        ></prizm-input-select>-->
-      <!--      </prizm-input-layout>-->
     </prizm-doc-demo>
 
     <prizm-doc-documentation
