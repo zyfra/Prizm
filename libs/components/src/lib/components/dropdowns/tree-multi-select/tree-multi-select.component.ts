@@ -166,7 +166,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
 
   @HostBinding('style.display')
   get display(): string {
-    return this.value?.length ? 'none' : '';
+    return this.treeSelectSelectedDirective?.value?.length ? 'none' : '';
   }
 
   @HostBinding('class.empty')
@@ -208,7 +208,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
   readonly focused$ = this.focused$$.asObservable();
 
   override get empty(): boolean {
-    return !this.value?.length;
+    return !this.treeSelectSelectedDirective?.value?.length;
   }
   override readonly nativeElementType = 'tree-select';
   override readonly hasClearButton = true;
@@ -239,7 +239,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
 
     this.layoutComponent?.changes$
       .pipe(
-        tap(() => this.changeDetectorRef.markForCheck()),
+        tap(() => this.changeDetectorRef.detectChanges()),
         takeUntil(this.destroy$)
       )
       .subscribe();
