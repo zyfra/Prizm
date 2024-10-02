@@ -1,5 +1,5 @@
 import { inject, Injectable, NgZone, OnDestroy, Renderer2 } from '@angular/core';
-import { BehaviorSubject, concat, merge, of, startWith, Subject, takeUntil } from 'rxjs';
+import { BehaviorSubject, concat, merge, of, startWith, Subject, takeUntil, timer } from 'rxjs';
 import { delay, filter, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { PrizmOverflowItem } from './model';
 import { prizmCreateResizeObservable, PrizmSetSubject } from '../../util';
@@ -57,6 +57,11 @@ export class OverflowService implements OnDestroy {
     if (this.host)
       this.zone.runOutsideAngular(() => {
         merge(
+          this.set.changes$.pipe(
+            switchMap(() =>
+              [...this.set.values()].map(childItem => prizmCreateResizeObservable(childItem.html))
+            )
+          ),
           this.mutation$$.pipe(
             filter(() => !block),
             // block all other mutations invokes while we finish
@@ -69,8 +74,9 @@ export class OverflowService implements OnDestroy {
             filter(() => this.active),
             switchMap(() =>
               concat(...[...this.set].map(childItem => of(childItem))).pipe(
-                tap(childItem => {
+                switchMap(childItem => {
                   if (this.host && this.active) this.updateHost(this.host, childItem.html);
+                  return timer(0);
                 })
               )
             ),
@@ -101,7 +107,14 @@ export class OverflowService implements OnDestroy {
     this.renderer.setStyle(childItem, 'visibility', 'hidden');
   }
 
+  private show(childItem: HTMLElement) {
+    childItem.style.removeProperty('display');
+  }
+
   private updateHost(host: HTMLElement, childItem: HTMLElement) {
+    this.unVisible(childItem);
+    this.show(childItem);
+
     hideOverflowElements(host, childItem);
     this.renderer.setStyle(childItem, 'visibility', 'visible');
     this.updatedItems$$.next();

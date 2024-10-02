@@ -70,7 +70,7 @@ export class PrizmTreeSelectI18nExampleComponent {
     },
   ];
   public value = this.items[0];
-  readonly control = new UntypedFormControl(this.items[1], [Validators.required]);
+  readonly control = new UntypedFormControl([this.items[1]], [Validators.required]);
 
   public stringify(item: TreeSelectItem | null): string {
     return item?.value ?? '';
@@ -82,6 +82,6 @@ export class PrizmTreeSelectI18nExampleComponent {
     return item.value.toLowerCase().includes(search.toLowerCase());
   }
   public setDefaultValue(): void {
-    this.control.setValue(this.items[0], { emitEvent: false });
+    this.control.setValue([this.items[0]], { emitEvent: false });
   }
 }

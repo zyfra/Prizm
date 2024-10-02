@@ -236,6 +236,13 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
     super.ngOnInit();
 
     this.initParentClickListener();
+
+    this.layoutComponent?.changes$
+      .pipe(
+        tap(() => this.changeDetectorRef.markForCheck()),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public ngAfterViewInit() {
