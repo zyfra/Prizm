@@ -108,7 +108,7 @@ export class InputTreeSelectComponent {
   };
   readonly items: TreeSelectItem[] = [
     'One',
-    'Twp',
+    'Two',
     'Three',
     'Very long text with a lot of characters and spaces and other stuff and things',
   ];

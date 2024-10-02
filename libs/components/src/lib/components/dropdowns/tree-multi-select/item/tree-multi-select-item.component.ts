@@ -147,6 +147,7 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
       this.treeSelectItemDirective.prizmInputTreeSelectItem
     );
   }
+
   public hasAllSelectedChildren() {
     return this.treeSelectSelectedDirective.hasAllSelectedChildren(
       this.treeSelectItemDirective.prizmInputTreeSelectItem
@@ -177,6 +178,7 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   private _select() {
     this.treeSelectSelectedDirective.add(this.treeSelectItemDirective.prizmInputTreeSelectItem);
     this.safeUpdateParentState();
+    this.safeUnselectChildren();
   }
 
   public safeUpdateParentState() {
@@ -186,7 +188,8 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   }
 
   public safeUnselectChildren() {
-    if (!this.children) return;
+    if (!this.children?.length) return;
+    this.unselectChildren();
   }
 
   public unselect() {
@@ -195,6 +198,17 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
       this.treeSelectSelectedDirective.unselect(parent)
     );
     this.childrenElements.forEach(child => child.unselect());
+  }
+
+  public unselectSelf() {
+    this.treeSelectSelectedDirective.unselect(this.treeSelectItemDirective.prizmInputTreeSelectItem);
+  }
+
+  public unselectChildren() {
+    this.childrenElements.forEach(child => {
+      child.unselectSelf();
+      child.unselectChildren();
+    });
   }
 
   /**

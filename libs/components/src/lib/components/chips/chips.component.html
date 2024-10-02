@@ -13,7 +13,7 @@
       [hintCanShow]="hintCanShow"
       [hintDirection]="hintDirection"
       [class.single-line]="singleLine"
-      [hintText]="item"
+      [hintText]="item | prizmCallFunc : stringify"
       [deletable]="deletable"
       [disabled]="accessorIsDisabled"
       [prizmContext]="item"
@@ -22,7 +22,7 @@
       (click)="chipClick(item)"
       prizmOverflowItem
     >
-      {{ item | prizmCallFunc : stringifyDirective.stringify }}
+      {{ item | prizmCallFunc : stringify }}
     </prizm-chips-item>
 
     <ng-container *ngIf="overflowHost.active">

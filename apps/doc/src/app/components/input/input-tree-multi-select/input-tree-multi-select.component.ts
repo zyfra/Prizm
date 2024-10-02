@@ -43,6 +43,7 @@ export class InputTreeMultiSelectComponent {
   ];
   public dropdownClasses: PrizmDropdownHostClasses;
 
+  isChipsDeletable = false;
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly selectKey = 'PrizmInputTreeMultiSelectComponent';
   public readOnly = false;
@@ -108,7 +109,7 @@ export class InputTreeMultiSelectComponent {
   };
   readonly items: TreeSelectItem[] = [
     'One',
-    'Twp',
+    'Two',
     'Three',
     'Very long text with a lot of characters and spaces and other stuff and things',
   ];

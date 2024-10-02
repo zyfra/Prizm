@@ -11,6 +11,7 @@ import {
   PrizmHintOnOverflowDirective,
   PrizmInputCommonModule,
   PrizmInputTreeMultiSelectComponent,
+  PrizmInputTreeSelectComponent,
   PrizmScrollbarModule,
   PrizmTreeMultiSelectItemComponent,
   PrizmTreeMultiSelectItemDirective,
@@ -48,6 +49,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PrizmHintOnOverflowDirective,
     PrizmHtmlRefDirective,
     PrizmTreeSelectItemComponent,
+    PrizmInputTreeSelectComponent,
   ],
   declarations: [
     PrizmTreeSelectI18nExampleComponent,

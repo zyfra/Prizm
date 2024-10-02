@@ -3,7 +3,6 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  ElementRef,
   EventEmitter,
   forwardRef,
   HostBinding,
@@ -46,16 +45,7 @@ import { PrizmChipsItemComponent } from './chips-item';
     },
     PrizmDestroyService,
   ],
-  hostDirectives: [
-    {
-      directive: PrizmStringifyDirective,
-      inputs: ['stringify'],
-    },
-    {
-      directive: PrizmIdentityMatcherDirective,
-      inputs: ['identityMatcher'],
-    },
-  ],
+  hostDirectives: [],
   standalone: true,
   imports: [
     NgIf,
@@ -94,15 +84,17 @@ export class PrizmChipsComponent<T = any>
   override readonly testId_ = 'ui_chips';
 
   public accessorIsDisabled = false;
-  public readonly stringifyDirective = inject(PrizmStringifyDirective);
-  public readonly identityMatcherDirective = inject(PrizmIdentityMatcherDirective);
+  public readonly stringifyDirective = inject(PrizmStringifyDirective, {
+    host: true,
+    optional: true,
+  });
+  public readonly identityMatcherDirective = inject(PrizmIdentityMatcherDirective, {
+    optional: true,
+    host: true,
+  });
 
   public chipsList$: BehaviorSubject<T[]> = new BehaviorSubject<T[]>([]);
   private subscription: Subscription = new Subscription();
-  readonly ready: (el: ElementRef) => boolean = (el: ElementRef) => {
-    const { x, y } = el.nativeElement.getBoundingClientRect();
-    return Math.max(x, y) > 0;
-  };
 
   constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {
     super();
@@ -132,10 +124,16 @@ export class PrizmChipsComponent<T = any>
     if (this.accessorIsDisabled) return;
     event.stopPropagation();
     this.removeChipEvent.emit(this.chipsList[idx]);
-    this.chipsList = this.chipsList.filter(
-      currentItem => !this.identityMatcherDirective.identityMatcher(currentItem, item)
-    );
+    this.chipsList = this.chipsList.filter(currentItem => !this.identityMatcher(currentItem, item));
     this.cdRef.markForCheck();
+  }
+
+  public identityMatcher(a: T, b: T) {
+    return this.identityMatcherDirective ? this.identityMatcherDirective.identityMatcher(a, b) : a === b;
+  }
+
+  public stringify(a: T) {
+    return this.stringifyDirective ? this.stringifyDirective.stringify(a) : a?.toString();
   }
 
   public chipClick(chipName: T): void {
@@ -170,8 +168,8 @@ export class PrizmChipsComponent<T = any>
     this.onTouched = fn;
   }
 
-  public joinHints(hints: null | string[]) {
-    return hints?.join(', ') ?? '';
+  public joinHints(hints: null | T[]) {
+    return hints?.map(i => this.stringify(i)).join(', ') ?? '';
   }
 
   ngAfterViewInit(): void {

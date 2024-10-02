@@ -39,7 +39,6 @@ import {
 } from '../../../directives';
 import { PrizmTreeSelectDataListWrapperComponent } from '../tree-select/tree-select-data-list-wrapper.component';
 import { PrizmTreeMultiSelectSelectedDirective } from './tree-select-multi-selected.directive';
-import { PrizmTreeSelectStringifyDirective } from '../tree-select/tree-select-stringify.directive';
 import { PrizmTreeSelectIsOpenedDirective } from '../tree-select/tree-select-is-opened.directive';
 import { PrizmTreeSelectGetChildrenDirective } from '../tree-select/tree-select-get-children.directive';
 import { PrizmTreeMultiSelectSearchDirective } from './search';
@@ -48,11 +47,16 @@ import { PrizmTreeSelectSearchLabelDirective } from '../tree-select/tree-select-
 import { PrizmTreeSelectEmptyTextDirective } from '../tree-select/tree-select-empty-text.directive';
 import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../tree-select/token';
 import { PrizmTreeSelectSearchDirective } from '../tree-select/search';
-import { PrizmChipsComponent } from '../../chips';
+import {
+  PrizmChipsComponent,
+  PrizmChipsIdentityMatcherDirective,
+  PrizmChipsStringifyDirective,
+} from '../../chips';
 import { PrizmTreeSelectSelectedDirective } from '../tree-select/tree-select-selected.directive';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { PrizmTreeSelectStringifyDirective } from '../tree-select';
 
 @Component({
   selector: 'prizm-input-tree-multi-select',
@@ -63,6 +67,8 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
   imports: [
     AsyncPipe,
     PrizmCallFuncPipe,
+    PrizmChipsStringifyDirective,
+    PrizmChipsIdentityMatcherDirective,
     PrizmDropdownHostComponent,
     PrizmLetDirective,
     PrizmInputTextComponent,
@@ -130,6 +136,10 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
       inputs: ['identityMatcher'],
     },
     {
+      directive: PrizmTreeSelectStringifyDirective,
+      inputs: ['stringify'],
+    },
+    {
       directive: PrizmTreeMultiSelectSearchDirective,
       inputs: ['searchable', 'searchFilter', 'searchMapper', 'searchMatcher', 'searchDebounce'],
       outputs: ['searched'],
@@ -141,10 +151,6 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     {
       directive: PrizmTreeSelectIsOpenedDirective,
       inputs: ['isOpened'],
-    },
-    {
-      directive: PrizmTreeSelectStringifyDirective,
-      inputs: ['stringify'],
     },
   ],
 })
@@ -189,7 +195,9 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
   private readonly destroy = inject(PrizmDestroyService);
   public readonly treeSelectSelectedDirective = inject(PrizmTreeMultiSelectSelectedDirective<T>);
   public readonly opened$$ = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
-  public readonly treeSelectStringifyDirective = inject(PrizmTreeSelectStringifyDirective<T>);
+  public readonly treeSelectStringifyDirective = inject(PrizmTreeSelectStringifyDirective<T>, {
+    host: true,
+  });
   public readonly dropdownControllerDirective = inject(PrizmDropdownControllerDirective);
   public readonly opened$ = this.opened$$.asObservable();
 

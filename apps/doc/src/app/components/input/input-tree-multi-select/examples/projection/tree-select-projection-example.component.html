@@ -10,9 +10,9 @@
         <prizm-input-tree-multi-select-item
           *prizmInputTreeMultiSelectItem="arrItem; let item = item"
           [prizmHintOnOverflow]="item.value"
-          [prizmHintOnOverflowEl]="overflowedHost"
+          [prizmHintOnOverflowEl]="host"
         >
-          <div class="value" #overflowedHost>
+          <div class="value" #host>
             {{ item.value }}
           </div>
         </prizm-input-tree-multi-select-item>
