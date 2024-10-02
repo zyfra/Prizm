@@ -1,4 +1,4 @@
-<div class="item" [class.selected]="value | prizmCallFunc : isSelected">
+<div class="item" [class.selected]="value | prizmCallFunc : isSelected$ | async">
   <div class="icon-with-checkbox">
     <prizm-checkbox
       *ngIf="isSelected(); else intermediateOtUnselectedTemplate"

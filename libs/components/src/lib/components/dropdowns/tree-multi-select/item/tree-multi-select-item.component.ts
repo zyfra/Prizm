@@ -28,7 +28,7 @@ import { BehaviorSubject } from 'rxjs';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../../tree-select/token';
 import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full';
-import { takeUntil, tap } from 'rxjs/operators';
+import { map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmTreeMultiSelectItemDirective } from './tree-multi-select-item.directive';
 import { PrizmTreeMultiSelectSearchDirective } from '../search';
@@ -270,6 +270,10 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
 
   protected isSelected() {
     return this.treeSelectSelectedDirective.isSelfSelected(this.value) || this.isParentSelected();
+  }
+
+  protected isSelected$() {
+    return this.treeSelectSelectedDirective.selected$.pipe(map(() => this.isSelected()));
   }
 
   protected isParentSelected() {
