@@ -1,0 +1,24 @@
+.list-search-item,
+.empty-list {
+  padding: var(--prizm-select-item-padding, 16px 16px 8px);
+
+  &.list-search-item prizm-input-layout {
+    width: 100%;
+  }
+}
+
+.empty-list {
+  padding: var(--prizm-select-item-padding, 8px 16px);
+  background: var(--prizm-select-item-background, var(--prizm-background-fill-overlay));
+  font-weight: var(--prizm-select-item-font-weight, 400);
+  font-size: var(--prizm-select-item-font-size, 14px);
+  color: var(--prizm-select-empty-text, var(--prizm-text-icon-secondary));
+}
+
+:host ng-deep prizm-dropdown-host {
+  display: flex;
+}
+
+.block-with-data-list {
+  position: relative;
+}

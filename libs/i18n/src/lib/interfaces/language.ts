@@ -163,6 +163,7 @@ export interface PrizmLanguageCore {
 }
 
 export interface PrizmLanguageKit {
+  emptyListText: string;
   cancel: string;
   done: string;
   more: string;
