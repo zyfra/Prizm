@@ -19,8 +19,8 @@ import {
   tuiRgbToHex,
   tuiWatch,
 } from '@taiga-ui/cdk';
-import { BehaviorSubject, combineLatest, concat, merge, Observable, of, timer } from 'rxjs';
-import { debounceTime, filter, map, startWith, switchMap } from 'rxjs/operators';
+import { BehaviorSubject, combineLatest, concat, defer, merge, Observable, of, timer } from 'rxjs';
+import { debounceTime, filter, map, startWith, switchMap, tap } from 'rxjs/operators';
 
 import { PRIZM_DOC_DOCUMENTATION_TEXTS } from '../../tokens/i18n';
 import { prizmInspectAny } from '../../utils/inspect';
@@ -309,7 +309,10 @@ export class PrizmDocDocumentationComponent implements AfterContentInit {
   }
 
   public getValueFromControl$(control: UntypedFormControl): Observable<boolean> {
-    return concat(of(PrizmFormControlHelpers.getValue(control)), PrizmFormControlHelpers.getValue$(control));
+    return concat(
+      defer(() => of(PrizmFormControlHelpers.getValue(control))),
+      PrizmFormControlHelpers.getValue$(control)
+    );
   }
 
   public getRequiredFromControl$(control: UntypedFormControl): Observable<boolean> {

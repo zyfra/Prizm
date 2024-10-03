@@ -3,8 +3,24 @@
     Our switcher component is a simple toggle that can be used to turn something on or off.
   </div>
   <ng-template prizmDocPageTab>
+    <prizm-doc-example id="projection" [content]="exampleProjectionSwitcher" heading="Projection">
+      <prizm-switcher-projection-example></prizm-switcher-projection-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="projection-value"
+      [content]="exampleProjectionValueSwitcher"
+      heading="Projection With Custom Value"
+    >
+      <prizm-switcher-projection-value-example></prizm-switcher-projection-value-example>
+    </prizm-doc-example>
+
     <prizm-doc-example id="base" [content]="exampleBasicSwitcher" heading="Basic">
       <prizm-switcher-basic-example></prizm-switcher-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="base-with-id" [content]="exampleBasicWithIdSwitcher" heading="Basic With Id ">
+      <prizm-switcher-basic-value-example></prizm-switcher-basic-value-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="async" [content]="exampleAsyncSwitcher" heading="Async">
@@ -67,9 +83,9 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="selectedSwitcherIdx"
+        [documentationPropertyMode]="'input'"
         documentationPropertyName="selectedSwitcherIdx"
         documentationPropertyType="number"
-        documentationPropertyMode="input"
       >
         Selected switcher index
       </ng-template>

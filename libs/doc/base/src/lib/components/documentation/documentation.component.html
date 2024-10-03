@@ -99,7 +99,7 @@
               [nativeId]="propertyConnector.attrName"
               [tuiTextfieldLabelOutside]="true"
               [tuiTextfieldCleaner]="true"
-              [value]="propertyConnector.documentationPropertyValue || ''"
+              [value]="propertyConnector.documentationPropertyValue ?? ''"
               (valueChange)="propertyConnector.onValueChange($event)"
               tuiTextfieldSize="m"
             ></tui-primitive-textfield>
@@ -111,7 +111,7 @@
               [nativeId]="propertyConnector.attrName"
               [tuiTextfieldLabelOutside]="true"
               [tuiTextfieldCleaner]="true"
-              [value]="propertyConnector.documentationPropertyValue || ''"
+              [value]="propertyConnector.documentationPropertyValue ?? ''"
               (valueChange)="propertyConnector.onValueChange($event)"
               tuiTextfieldSize="m"
             ></tui-primitive-textfield>
@@ -152,7 +152,7 @@
                 [nativeId]="propertyConnector.attrName"
                 [tuiTextfieldLabelOutside]="true"
                 [tuiTextfieldCleaner]="true"
-                [value]="propertyConnector.documentationPropertyValue || ''"
+                [value]="propertyConnector.documentationPropertyValue ?? ''"
                 (valueChange)="propertyConnector.onValueChange($event)"
                 tuiTextfieldSize="m"
               ></tui-primitive-textfield>

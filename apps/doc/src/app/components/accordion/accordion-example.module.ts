@@ -10,6 +10,7 @@ import { AccordionMultipleExpandExampleComponent } from './examples/accordion-mu
 import { AccordionWithInstrumentsExampleComponent } from './examples/accordion-with-instruments-example/accordion-with-instruments-example.component';
 import { AccordionNestedComponent } from './examples/nested/nested.component';
 import { PrizmAccordionCustomTitleExampleModule } from './examples/custom-title/custom-title.module';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 @NgModule({
   declarations: [
     AccordionExampleComponent,
@@ -26,6 +27,7 @@ import { PrizmAccordionCustomTitleExampleModule } from './examples/custom-title/
     PrizmCheckboxComponent,
     PrizmAccordionCustomTitleExampleModule,
     RouterModule.forChild(prizmDocGenerateRoutes(AccordionExampleComponent)),
+    PrizmIfLanguageDirective,
   ],
 })
 export class AccordionExampleModule {}

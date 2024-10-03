@@ -1,0 +1,20 @@
+<ng-container *prizmIfLang="'russian'; else eng">
+  <div class="description">
+    Для использования иконок вы должны предварительно зарегистрировать их с помощью нашего сервиса.
+  </div>
+</ng-container>
+
+<ng-template #eng>
+  <div class="description">To use the your custom icons, you must first register them using our service.</div>
+</ng-template>
+
+<div>
+  <h4>SVG: Custom</h4>
+
+  <div style="display: flex; gap: 8px">
+    <prizm-icons [size]="30" [color]="'green'" name="custom-twitter"></prizm-icons>
+    <prizm-icons [color]="'var(--prizm-index-plan)'" [size]="30" name="custom-twitter"></prizm-icons>
+    <prizm-icons class="color_by_class" [size]="30" name="custom-twitter"></prizm-icons>
+    <prizm-icons [size]="30" name="custom-twitter"></prizm-icons>
+  </div>
+</div>

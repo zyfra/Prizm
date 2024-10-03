@@ -63,6 +63,7 @@ import { prizmTimeLimitWithinRange } from '../../../@core/date-time/time-limit';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/source';
 import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
+import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -108,6 +109,7 @@ import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-u
     PrizmInputNativeValueDirective,
     PrizmListingItemComponent,
     PrizmPluckPipe,
+    PrizmTimeConstraintsPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent

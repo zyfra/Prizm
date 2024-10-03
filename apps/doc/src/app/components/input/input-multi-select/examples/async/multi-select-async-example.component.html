@@ -1,0 +1,32 @@
+<div class="content">
+  <prizm-loader [showLoader]="isLoading" [overlay]="true" [size]="'xl'">
+    <div class="form__main-bottom">
+      <div class="control-outer">
+        <prizm-input-layout [outer]="true" label="Города" size="m">
+          <prizm-input-multi-select
+            [formControl]="control"
+            [searchable]="true"
+            [identityMatcher]="identityMatcher"
+            [items]="(controlList$ | async)!"
+            [stringify]="stringify"
+            placeholder="Выберите город"
+          ></prizm-input-multi-select>
+        </prizm-input-layout>
+      </div>
+    </div>
+
+    <prizm-paginator
+      [totalRecords]="totalElements"
+      [page]="pageNumber"
+      [rows]="pageSize"
+      [rowsCountOptions]="[]"
+      [pageLinkSize]="7"
+      [paginatorOptions]="{
+        noRowsSelectorLabel: true,
+        noToFirstPageBtn: true,
+        noToLastPageBtn: true
+      }"
+      (paginatorChange)="changePage($event)"
+    ></prizm-paginator>
+  </prizm-loader>
+</div>

@@ -1,3 +1,4 @@
+export * from './host-directive';
 export * from './common';
 export * from './compare';
 export * from './rxjs';
@@ -12,3 +13,5 @@ export * from './order-by';
 export * from './difference';
 export * from './directive';
 export * from './invert-object';
+export * from './browser-api';
+export * from './watch-object';
