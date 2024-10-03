@@ -2,14 +2,9 @@
   <div
     class="chips-name"
     #div
-    [prizmHint]="hintText"
     [prizmHintHost]="el.nativeElement"
     [prizmHintDirection]="hintDirection"
-    [prizmHintCanShow]="
-      $any(
-        !!hintText && (div | prizmCallFunc : prizmIsTextOverflow$ : hintCanShow : false : hintText | async)
-      )
-    "
+    [prizmHintOnOverflow]="hintText"
   >
     <ng-content></ng-content>
   </div>

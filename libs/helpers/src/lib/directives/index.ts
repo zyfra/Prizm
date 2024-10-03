@@ -5,6 +5,7 @@ export * from './stringify';
 export * from './identity-matcher';
 export * from './disabled';
 export * from './size';
+export * from './ref';
 export * from './selected-index';
 export * from './appearance';
 export * from './appearance-type';

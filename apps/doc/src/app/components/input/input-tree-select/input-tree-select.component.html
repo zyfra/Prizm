@@ -1,0 +1,340 @@
+<prizm-doc-page header="InputTreeSelect">
+  <div class="page-description" description>
+    Our tree-select component is a wrapper around the input tree select element.
+  </div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="projection" [content]="exampleProjection" heading="Projection">
+      <prizm-tree-select-projection-example></prizm-tree-select-projection-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="search" [content]="exampleSearch" heading="Search">
+      <prizm-tree-select-search-example></prizm-tree-select-search-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="i18n" [content]="exampleI18N" heading="I18N">
+      <prizm-tree-select-i18n-example></prizm-tree-select-i18n-example>
+    </prizm-doc-example>
+    <prizm-doc-example id="async" [content]="exampleTransform" heading="Async">
+      <prizm-tree-select-transform-example></prizm-tree-select-transform-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-input-layout
+        #inputElement
+        [prizmDocHostElement]="inputElement"
+        [prizmDocHostElementKey]="layoutKey"
+        [size]="size"
+        [label]="label"
+        [outer]="outer"
+        [border]="border"
+        [position]="inputPosition"
+        [status]="status"
+        [forceClear]="forceClear"
+        [hideClearButtonHint]="hideClearButtonHint"
+        label="Tree List"
+      >
+        <prizm-input-tree-select
+          #element
+          #input
+          [prizmDocHostElement]="element"
+          [prizmDocHostElementKey]="selectKey"
+          [prizmDropdownMinHeight]="prizmDropdownMinHeight"
+          [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"
+          [placeholder]="placeholder"
+          [searchLabel]="searchLabel"
+          [emptyListTemplate]="emptyListTemplate"
+          [stringify]="stringify"
+          [getChildren]="getChildren"
+          [formControl]="control"
+          [searchable]="searchable"
+        >
+          <prizm-data-list-wrapper *prizmDataList>
+            <ng-container *ngFor="let arrItem of items">
+              <prizm-input-tree-select-item
+                *prizmInputTreeSelectItem="arrItem; let item = item"
+                [prizmHintOnOverflow]="item"
+                [prizmHintOnOverflowEl]="host"
+              >
+                <div class="value" #host>
+                  {{ item }}
+                </div>
+              </prizm-input-tree-select-item>
+            </ng-container>
+          </prizm-data-list-wrapper>
+        </prizm-input-tree-select>
+      </prizm-input-layout>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation
+      [hasTestId]="true"
+      [heading]="selectKey"
+      [hostComponentKey]="selectKey"
+      [control]="control"
+    >
+      <ng-template
+        documentationPropertyName="identityMatcher"
+        documentationPropertyType="PrizmTreeSelectIdentityMatcher"
+        documentationPropertyMode="input"
+      >
+        Identity Matcher
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchFilter"
+        documentationPropertyType="PrizmTreeSelectSearchFilter"
+        documentationPropertyMode="input"
+      >
+        Search Filter
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchMapper"
+        documentationPropertyType="PrizmTreeSelectSearchMapper"
+        documentationPropertyMode="input"
+      >
+        Search Mapper
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchDebounce"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Search Debounce
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="stringify"
+        documentationPropertyType="PrizmTreeSelectStringify"
+        documentationPropertyMode="input"
+      >
+        Stringify
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="getChildren"
+        documentationPropertyType="PrizmTreeSelectGetChildren"
+        documentationPropertyMode="input"
+      >
+        Function to get children
+      </ng-template>
+      <ng-template
+        documentationPropertyName="isOpened"
+        documentationPropertyType="PrizmTreeSelectIsOpened"
+        documentationPropertyMode="input"
+      >
+        Function to open tree by passed items value
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="searchMatcher"
+        documentationPropertyType="PrizmTreeSelectSearchMatcher"
+        documentationPropertyMode="input"
+      >
+        Search matcher (use for custom search)
+      </ng-template>
+
+      <!--      TODO later add support as in switcher -->
+      <!--      <ng-template-->
+      <!--        [documentationPropertyValue]="items"-->
+      <!--        documentationPropertyName="items"-->
+      <!--        documentationPropertyType="T[]"-->
+      <!--        documentationPropertyMode="input"-->
+      <!--      >-->
+      <!--        Items-->
+      <!--      </ng-template>-->
+
+      <ng-template
+        [(documentationPropertyValue)]="searchable"
+        documentationPropertyName="searchable"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Searchable
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmDropdownMinHeight"
+        documentationPropertyName="prizmDropdownMinHeight"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Min Dropdown Height
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownAlign"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Dropdown Align
+      </ng-template>
+      <ng-template
+        documentationPropertyName="prizmDropdownLimitWidth"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Dropdown Limit Width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmDropdownMaxHeight"
+        documentationPropertyName="prizmDropdownMaxHeight"
+        documentationPropertyType="number"
+        documentationPropertyMode="input"
+      >
+        Max Dropdown Height
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="placeholder"
+        documentationPropertyName="placeholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Placeholder
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="searchLabel"
+        documentationPropertyName="searchLabel"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Search Label
+      </ng-template>
+
+      <!-- TODO later check in demo and uncomment    -->
+      <!--      <ng-template-->
+      <!--        [(documentationPropertyValue)]="value"-->
+      <!--        documentationPropertyName="value"-->
+      <!--        documentationPropertyType="string"-->
+      <!--        documentationPropertyMode="input-output"-->
+      <!--      >-->
+      <!--        Value-->
+      <!--      </ng-template>-->
+
+      <ng-template
+        [documentationPropertyValue]="emptyListTemplate"
+        documentationPropertyName="emptyListTemplate"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+      >
+        Empty List Template
+      </ng-template>
+      <ng-template
+        documentationPropertyName="searched"
+        documentationPropertyType="string"
+        documentationPropertyMode="output"
+      >
+        Searched
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation [heading]="layoutKey" [hostComponentKey]="layoutKey">
+      <ng-template
+        [(documentationPropertyValue)]="forceClear"
+        [documentationPropertyValues]="forceClearVariants"
+        documentationPropertyName="forceClear"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Show clear button
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="hideClearButtonHint"
+        [documentationPropertyValues]="hideHintVariants"
+        documentationPropertyName="hideClearButtonHint"
+        documentationPropertyType="boolean | null"
+        documentationPropertyMode="input"
+      >
+        Hide clear button hint
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="clearButton"
+        documentationPropertyType="PolymorphContent<PrizmInputLayoutClearButtonContext>"
+        documentationPropertyMode="input"
+      >
+        Clear Button (icon or template)
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="outer"
+        documentationPropertyName="outer"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Outer
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="size"
+        [documentationPropertyValues]="sizeVariants"
+        documentationPropertyName="size"
+        documentationPropertyType="PrizmInputSize"
+        documentationPropertyMode="input"
+      >
+        Size
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="label"
+        documentationPropertyName="label"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Label
+      </ng-template>
+      <ng-template
+        documentationPropertyName="clear"
+        documentationPropertyType="MouseEvent"
+        documentationPropertyMode="output"
+      >
+        Clear
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="border"
+        documentationPropertyName="border"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Border
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="status"
+        [documentationPropertyValues]="statuses"
+        documentationPropertyName="status"
+        documentationPropertyType="PrizmInputStatus"
+        documentationPropertyMode="input"
+      >
+        Status
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="inputPosition"
+        [documentationPropertyValues]="inputPositionVariants"
+        documentationPropertyName="position"
+        documentationPropertyType="PrizmInputPosition"
+        documentationPropertyMode="input"
+      >
+        Position
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import
+          <code>PrizmInputTreeSelectComponent</code>
+          into a module where you want to use our component
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
