@@ -1394,6 +1394,14 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     route: '/components/file-upload',
   },
   {
+    section: SectionNameEnum.components,
+    title: 'Query Builder',
+    status: 'preview',
+    keywords: 'query, expression, QueryBuilder, запрос, выражение',
+    route: '/components/query-builder',
+  },
+
+  {
     section: SectionNameEnglishEnum.tools,
     title: 'Overlay',
     keywords: 'overlay, modal',
