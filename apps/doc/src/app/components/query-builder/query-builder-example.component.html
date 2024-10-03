@@ -1,5 +1,5 @@
 <prizm-doc-page header="Query builder">
-  <div class="page-description" description>Редактор логических выражений</div>
+  <div class="page-description" description>Our component for building logical expressions</div>
 
   <ng-template prizmDocPageTab>
     <prizm-doc-example id="base" [content]="basicExample" heading="Base">
@@ -26,7 +26,10 @@
         prizmDocHostElementKey="PrizmQueryBuilderComponent"
       >
         <ng-template [prizmCondition] [prizmConditionPrepare]="prepare" let-condition>
-          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem">
+          <div
+            [style.--prizm-input-layout-width]="prizmInputLayoutWidth"
+            style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem"
+          >
             <prizm-input-layout [size]="'m'">
               <input [formControl]="condition.field" prizmInput />
             </prizm-input-layout>
@@ -123,8 +126,8 @@
     <ol class="b-demo-steps">
       <li>
         <p>
-          Импортируйте <code>PrizmQueryBuilder</code>
-          в модуль в котором хотите использовать компонент
+          Import <code>PrizmQueryBuilder</code>
+          where you want to use our component:
         </p>
 
         <prizm-doc-code [code]="setupModule" filename="my.module.ts"></prizm-doc-code>
