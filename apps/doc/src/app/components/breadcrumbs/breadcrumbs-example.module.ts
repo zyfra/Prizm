@@ -7,6 +7,7 @@ import { PrizmBreadcrumbsModule, PrizmDropdownHostModule } from '@prizm-ui/compo
 import { BreadcrumbsExampleBasicComponent } from './examples/breadcrumbs-example-basic/breadcrumbs-example-basic.component';
 import { BreadcrumbsExampleWithIconComponent } from './examples/breadcrumbs-example-with-icon/breadcrumbs-example-with-icon.component';
 import { BreadcrumbsExampleProjectionComponent } from './examples/breadcrumbs-projection-basic/breadcrumbs-example-projection.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { BreadcrumbsExampleProjectionComponent } from './examples/breadcrumbs-pr
     PrizmDropdownHostModule,
     RouterModule.forChild(prizmDocGenerateRoutes(BreadcrumbsExampleComponent)),
     PrizmBreadcrumbsModule,
+    PrizmIfLanguageDirective,
   ],
 })
 export class BreadcrumbsExampleModule {}

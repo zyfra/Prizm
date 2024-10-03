@@ -43,6 +43,7 @@ export interface PrizmSelectOptions<T> {
    * before ng16!
    * */
   readonly outer: boolean;
+  readonly autoReposition?: boolean;
   readonly maxDropdownHeight: number;
   readonly dropdownWidth: string;
   readonly valueContent: PolymorphContent<PrizmSelectValueContext<T>>;
@@ -57,6 +58,7 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   items: [],
   searchable: false,
   outer: false,
+  autoReposition: false,
   search: null,
   icon: 'triangle-down',
 

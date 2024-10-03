@@ -11,6 +11,7 @@ export class AreaComponent {
   width: number | null = null;
   xField = 'x';
   yField = 'y';
+  color = '';
   data = [
     {
       x: '2006 Q3',

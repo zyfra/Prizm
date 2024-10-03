@@ -1,7 +1,7 @@
 import { Component, ElementRef, Injector, Input } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { Area } from '@antv/g2plot';
-import { PrizmChartsAreaItem, PrizmChartsAreaOrigin, PrizmChartsAriaOptions } from './model';
+import { PrizmChartsAreaItem, PrizmChartsAreaOrigin, PrizmChartsAreaOptions } from './model';
 import { PrizmChartsAbstractComponent } from '../../abstract/prizm-charts-abstract';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends PrizmChartsAbstractComponent<
   PrizmChartsAreaOrigin,
-  PrizmChartsAriaOptions
+  PrizmChartsAreaOptions
 > {
   @Input()
   set data(value: PrizmChartsAreaItem[]) {
@@ -24,6 +24,14 @@ export class PrizmChartsAreaComponent<T extends Record<string, unknown>> extends
   }
   get data(): PrizmChartsAreaItem[] {
     return this.origin?.options?.data;
+  }
+
+  @Input()
+  public set color(value: PrizmChartsAreaOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsAreaOptions['color'] {
+    return this.options.color;
   }
 
   @Input() set autoFit(value: boolean) {

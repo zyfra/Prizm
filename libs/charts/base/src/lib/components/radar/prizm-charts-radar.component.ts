@@ -32,6 +32,14 @@ export class PrizmChartsRadarComponent<
   }
 
   @Input()
+  public set color(value: PrizmChartsRadarOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsRadarOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set label(value: PrizmChartsRadarOptions['label']) {
     this.updateOptions({ label: value });
   }

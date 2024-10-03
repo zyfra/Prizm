@@ -3,6 +3,16 @@
     Our toggle component is a simple on/off switch that can be used to turn a feature on or off.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-toggle (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-toggle-base-example></prizm-toggle-base-example>
     </prizm-doc-example>

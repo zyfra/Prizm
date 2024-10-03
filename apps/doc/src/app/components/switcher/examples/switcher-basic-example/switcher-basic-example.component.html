@@ -6,4 +6,7 @@
 
 <br />
 
-<button (click)="updateValue()" prizmButton>Update value</button>
+<div style="display: flex; gap: 1rem">
+  <button (click)="updateValue()" prizmButton>Update value</button>
+  <button (click)="control.setValue(99)" prizmButton>Update extra index</button>
+</div>

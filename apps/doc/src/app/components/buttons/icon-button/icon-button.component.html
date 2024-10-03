@@ -4,6 +4,16 @@
     such as submitting a form, opening a dialog, canceling an action, or performing a delete operation.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>[prizmIconButton]button (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
     <prizm-doc-example id="base" [content]="exampleIcons" heading="Icons">
       <prizm-icons-buttons-example></prizm-icons-buttons-example>
     </prizm-doc-example>

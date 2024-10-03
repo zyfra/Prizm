@@ -190,6 +190,10 @@ export class PrizmSelectInputComponent<T>
 
   @Input()
   @prizmDefaultProp()
+  dropdownAutoReposition = this.options.autoReposition;
+
+  @Input()
+  @prizmDefaultProp()
   dropdownWidth = this.options.dropdownWidth;
 
   @Input()

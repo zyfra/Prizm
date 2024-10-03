@@ -116,8 +116,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
-  private mutationObserver!: MutationObserver;
-  private resizeObserver!: ResizeObserver;
+  private mutationObserver?: MutationObserver;
+  private resizeObserver?: ResizeObserver;
   private mutationDetector$: Subject<void> = new Subject<void>();
   private subscription: Subscription = new Subscription();
 
@@ -157,8 +157,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   }
 
   public ngOnDestroy(): void {
-    this.mutationObserver.disconnect();
-    this.resizeObserver.disconnect();
+    this.mutationObserver?.disconnect();
+    this.resizeObserver?.disconnect();
     this.mutationDetector$.complete();
     this.subscription.unsubscribe();
   }
