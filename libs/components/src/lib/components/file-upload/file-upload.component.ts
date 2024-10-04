@@ -23,6 +23,8 @@ import {
   PrizmSanitizerPipe,
 } from '@prizm-ui/helpers';
 import {
+  PrizmActionEvent,
+  PrizmFileItemAction,
   PrizmFilesMap,
   PrizmFilesProgress,
   PrizmFileUploadOptions,
@@ -84,10 +86,15 @@ export class PrizmFileUploadComponent
   readonly icon = prizmIconsFileEmpty;
   readonly prizmIsTextOverflow = prizmIsTextOverflow;
   public calculatedMaxFilesCount = Number.MAX_SAFE_INTEGER;
+  public filesMap: PrizmFilesMap = new Map();
 
   options: PrizmFileUploadOptions = { ...prizmFileUploadDefaultOptions };
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private listeners: Array<() => void> = [];
+  private validationErrors: { [filename: string]: PrizmFileValidationErrors } = {};
+  private _maxFilesCount = Number.MAX_SAFE_INTEGER;
+  private _disabled = false;
 
   constructor(
     private renderer: Renderer2,
@@ -98,17 +105,11 @@ export class PrizmFileUploadComponent
     this.options = { ...this.options, ...customOptions };
 
     this.iconsFullRegistry.registerIcons(
+      prizmIconsFileEmpty,
       prizmIconsArrowRotateRight,
-      prizmIconsTrashEmpty,
-      prizmIconsFileEmpty
+      prizmIconsTrashEmpty
     );
   }
-
-  private listeners: Array<() => void> = [];
-
-  private validationErrors: { [filename: string]: PrizmFileValidationErrors } = {};
-
-  private _maxFilesCount = Number.MAX_SAFE_INTEGER;
 
   @Input() accept = '';
   @Input() multiple = false;
@@ -125,7 +126,6 @@ export class PrizmFileUploadComponent
   set disabled(value: BooleanInput) {
     this._disabled = coerceBooleanProperty(value);
   }
-  private _disabled = false;
 
   @Input() set progress(progress: PrizmFilesProgress) {
     for (const key of Object.keys(progress)) {
@@ -135,13 +135,30 @@ export class PrizmFileUploadComponent
     }
   }
 
+  @Input() set files(files: File[] | undefined) {
+    if (!files || (Array.isArray(files) && files.length === 0)) return;
+    this.clearFiles({ emitEvent: false });
+    for (const file of files) {
+      this.filesMap.set(file.name, {
+        file,
+        progress: 100,
+        error: false,
+        actions: [],
+        url: this.isImage(file) ? URL.createObjectURL(file) : '',
+      });
+    }
+    this.afterFilesChange.next();
+  }
+
   @Output() beforeFilesChange = new EventEmitter<void>();
+  @Output() afterFilesChange = new EventEmitter<void>();
   @Output() filesChange = new EventEmitter<Array<File>>();
+  @Output() fileRemoved = new EventEmitter<string>();
+  @Output() fileAdded = new EventEmitter<string>();
   @Output() filesValidationErrors = new EventEmitter<{ [filename: string]: PrizmFileValidationErrors }>();
   @Output() filesCountError = new EventEmitter<Array<string>>();
   @Output() retry = new EventEmitter<File>();
-
-  public filesMap: PrizmFilesMap = new Map();
+  @Output() actionEvent = new EventEmitter<PrizmActionEvent>();
 
   get files(): Array<File> {
     return [...this.filesMap.entries()].map(([_, { file }]) => file);
@@ -155,6 +172,10 @@ export class PrizmFileUploadComponent
     if (this.files.length > this.calculatedMaxFilesCount) {
       this.filesCountError.next(this.files.slice(this.calculatedMaxFilesCount).map(file => file.name));
     }
+  }
+
+  public actions(filename: string): PrizmFileItemAction[] {
+    return this.filesMap.get(filename)?.actions || [];
   }
 
   public ngAfterViewInit(): void {
@@ -201,6 +222,10 @@ export class PrizmFileUploadComponent
     }
   }
 
+  public actionHandler(event: string, data: string): void {
+    this.actionEvent.emit({ event, data });
+  }
+
   public getFileExtension(file: File): string {
     return '.' + file.name.split('.').pop();
   }
@@ -214,6 +239,7 @@ export class PrizmFileUploadComponent
       URL.revokeObjectURL(fileData.url);
     }
     this.filesMap.delete(filename);
+    this.fileRemoved.emit(filename);
 
     if (options.emitEvent) {
       this.filesChange.next(this.files);
@@ -297,11 +323,14 @@ export class PrizmFileUploadComponent
         file,
         progress: 0,
         error: false,
+        actions: [],
         url: this.isImage(file) ? URL.createObjectURL(file) : (null as any),
       });
+      this.fileAdded.emit(file.name);
     }
 
     this.filesChange.next(this.files);
+    this.afterFilesChange.next();
   }
 
   private validate(file: File): boolean {

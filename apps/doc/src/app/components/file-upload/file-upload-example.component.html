@@ -26,6 +26,14 @@
     <prizm-doc-example id="example-in-form" [content]="exampleInForm" heading="Usage in Forms">
       <prizm-file-upload-in-form-example></prizm-file-upload-in-form-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="with-init-files" [content]="exampleWithInitFiles" heading="Usage with init files">
+      <prizm-file-upload-with-init-files></prizm-file-upload-with-init-files>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="custom-actions" [content]="exampleCustomActions" heading="Custom actions">
+      <prizm-file-upload-custom-actions></prizm-file-upload-custom-actions>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -39,9 +47,13 @@
         [maxFilesCount]="maxFilesCount"
         [maxFileSize]="maxFileSize"
         [disabled]="disabled"
+        [files]="initFiles()"
+        (actionEvent)="onActionEvent($event)"
         (filesChange)="onFilesChange($event)"
-        (filesValidationErrors)="onfilesValidationErrors($event)"
+        (filesValidationErrors)="onFilesValidationErrors($event)"
         (filesCountError)="onFilesCountError($event)"
+        (fileAdded)="onFileAdded($event)"
+        (fileRemoved)="onFileRemoved($event)"
         (retry)="retry($event)"
       >
         <ng-container *prizmIfLang="'russian'; else eng">
@@ -92,6 +104,17 @@
         Max files count
       </ng-template>
 
+      <ng-template
+        [documentationPropertyValue]="initFiles()"
+        [documentationPropertyValues]="initFilesVariants()"
+        (documentationPropertyValueChange)="initFiles.set($event)"
+        documentationPropertyName="files"
+        documentationPropertyType="File[]"
+        documentationPropertyMode="input"
+      >
+        Files
+      </ng-template>
+
       <!-- <ng-template
         documentationPropertyName="ng-content"
         documentationPropertyType="string"
@@ -131,14 +154,28 @@
         documentationPropertyName="retry"
         documentationPropertyType="File"
         documentationPropertyMode="output"
-        documentationPropertyType="retry"
       >
         Retry
       </ng-template>
 
       <ng-template
+        documentationPropertyName="actionEvent"
+        documentationPropertyType="PrizmActionEvent"
+        documentationPropertyMode="output"
+      >
+        ActionEvent
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="afterFilesChange"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        AfterFilesChange
+      </ng-template>
+
+      <ng-template
         documentationPropertyName="beforeFilesChange"
-        documentationPropertyType="Event"
         documentationPropertyMode="output"
         documentationPropertyType="void"
       >
@@ -147,7 +184,6 @@
 
       <ng-template
         documentationPropertyName="filesChange"
-        documentationPropertyType="Event"
         documentationPropertyMode="output"
         documentationPropertyType="File[]"
       >
@@ -156,7 +192,6 @@
 
       <ng-template
         documentationPropertyName="filesValidationErrors"
-        documentationPropertyType="Event"
         documentationPropertyMode="output"
         documentationPropertyType="Map<filename, PrizmFileValidationErrors>"
       >
@@ -165,9 +200,24 @@
 
       <ng-template
         documentationPropertyName="filesCountError"
-        documentationPropertyType="Event"
         documentationPropertyMode="output"
         documentationPropertyType="Array<filenames>"
+      >
+        Files count error
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="fileAdded"
+        documentationPropertyMode="output"
+        documentationPropertyType="string"
+      >
+        Files count error
+      </ng-template>
+
+      <ng-template
+        documentationPropertyName="fileRemoved"
+        documentationPropertyMode="output"
+        documentationPropertyType="string"
       >
         Files count error
       </ng-template>
