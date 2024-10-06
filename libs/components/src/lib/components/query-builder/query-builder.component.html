@@ -1,0 +1,128 @@
+<cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
+  <cdk-nested-tree-node
+    #nodeRef="cdkNestedTreeNode"
+    *cdkTreeNodeDef="let node"
+    [cdkDragData]="node"
+    [cdkDragDisabled]="nodeRef.level === 0 || disabled"
+    [ngStyle]="{
+      '--_nesting-level-marker-color':
+        nodeRef.level % 2 === 0
+          ? 'var(--prizm-status-success-primary-default)'
+          : 'var(--prizm-status-info-primary-default)',
+    }"
+    (cdkDragDropped)="_onDropped($event)"
+    cdkDrag
+  >
+    @if (nodeRef.level !== 0) {
+    <button
+      [icon]="'grip-dots-vertical'"
+      [size]="'m'"
+      [appearanceType]="'ghost'"
+      [appearance]="'secondary'"
+      [disabled]="disabled"
+      prizmIconButton
+      cdkDragHandle
+      tabindex="-1"
+    ></button>
+    }
+
+    <div
+      class="query-builder__node-container"
+      [ngStyle]="{ '--_nesting-level-marker-color': isCondition(node) ? 'transparent' : null }"
+    >
+      @switch (isCondition(node)) { @case (true) {
+      <div class="query-builder__node-content">
+        <div class="query-builder__condition">
+          <ng-container
+            [ngTemplateOutlet]="conditionNodeTemplate().template"
+            [ngTemplateOutletContext]="{ $implicit: node.form.controls }"
+          />
+        </div>
+
+        @if (!disabled) {
+        <button
+          class="query-builder__remove"
+          [size]="'s'"
+          [icon]="'trash'"
+          [appearanceType]="'ghost'"
+          [appearance]="'secondary'"
+          (click)="removeNode(node)"
+          prizmIconButton
+        ></button>
+        }
+      </div>
+      } @default {
+      <div class="query-builder__node-content">
+        <div class="query-builder__expression">
+          <prizm-switcher [size]="'m'" [formControl]="node.form.controls.operator">
+            @for (item of operatorsItems$ | async; track item.id) {
+            <prizm-switcher-item [value]="item.id">
+              {{ item.title }}
+            </prizm-switcher-item>
+            }
+          </prizm-switcher>
+
+          @if (!disabled) {
+          <prizm-dropdown-host
+            #ddh
+            [content]="listbox"
+            [placement]="'bl'"
+            [autoReposition]="false"
+            [prizmDropdownHostWidth]="'auto'"
+            style="--prizm-dropdown-host-width: auto"
+          >
+            <button
+              [icon]="'plus-triangle-down'"
+              [size]="'m'"
+              [appearanceType]="'ghost'"
+              [appearance]="'secondary'"
+              (click)="ddh.isOpen = !ddh.isOpen"
+              prizmIconButton
+            ></button>
+
+            <ng-template #listbox>
+              <prizm-data-list>
+                <prizm-listing-item (click)="createConditionNode(node); ddh.close()">
+                  {{ (i18n$ | async)?.addCondition }}
+                </prizm-listing-item>
+
+                <prizm-listing-item (click)="createExpressionNode(node); ddh.close()">
+                  {{ (i18n$ | async)?.addNestedExpression }}
+                </prizm-listing-item>
+              </prizm-data-list>
+            </ng-template>
+          </prizm-dropdown-host>
+          }
+
+          <ng-container>
+            @if (nodeRef.level !== 0) {
+            <label class="query-builder__exclude">
+              <prizm-toggle [formControl]="node.form.controls.exclude" [size]="'m'"></prizm-toggle>
+              <span>{{ (i18n$ | async)?.exclude }}</span>
+            </label>
+            }
+          </ng-container>
+        </div>
+
+        @if (nodeRef.level !== 0 && !disabled) {
+        <button
+          class="query-builder__remove"
+          [size]="'s'"
+          [icon]="'trash'"
+          [appearanceType]="'ghost'"
+          [appearance]="'secondary'"
+          (click)="removeNode(node)"
+          prizmIconButton
+        ></button>
+        }
+      </div>
+
+      <div [cdkDropListData]="node" [cdkDropListConnectedTo]="_orderedDropLists()" cdkDropList>
+        <ng-container cdkTreeNodeOutlet></ng-container>
+      </div>
+      } }
+    </div>
+
+    <div class="query-builder__placeholder" *cdkDragPlaceholder></div>
+  </cdk-nested-tree-node>
+</cdk-tree>

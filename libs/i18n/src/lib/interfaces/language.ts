@@ -295,6 +295,16 @@ export type PrizmLanguagePreview = {
   };
 };
 
+export interface PrizmLanguageQueryBuilder {
+  queryBuilder: {
+    and: string;
+    or: string;
+    addNestedExpression: string;
+    addCondition: string;
+    exclude: string;
+  };
+}
+
 export interface PrizmLanguageMeta {
   name: PrizmLanguageName;
   shortName: PrizmLanguageShortName;
@@ -312,4 +322,5 @@ export interface PrizmLanguage
     PrizmLanguageInputLayoutDateTime,
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
-    PrizmLanguagePaginator {}
+    PrizmLanguagePaginator,
+    PrizmLanguageQueryBuilder {}
