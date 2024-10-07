@@ -23,8 +23,8 @@
   />
   <ng-template #dropdown>
     <prizm-calendar
-      [min]="min"
-      [max]="max"
+      [min]="_min"
+      [max]="_max"
       [markerHandler]="markerHandler"
       [disabledItemHandler]="disabledItemHandler"
       [month]="computedActiveYearMonth"
