@@ -46,6 +46,7 @@ export class PrizmCheckboxComponent
   @Input() @HostBinding('attr.data-size') public size: 's' | 'l' = 's';
 
   @Input() indeterminate = false;
+  @Input() readonly = false;
   @Input() host: HTMLElement | null = null;
 
   @Input()
@@ -104,7 +105,7 @@ export class PrizmCheckboxComponent
 
   private onClick(event: Event): void {
     event.preventDefault();
-    if (this.disabled) {
+    if (this.readonly || this.disabled) {
       return;
     }
 

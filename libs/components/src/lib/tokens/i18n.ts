@@ -70,3 +70,7 @@ export const PRIZM_PAGINATOR = new InjectionToken<Observable<PrizmLanguagePagina
 export const PRIZM_SEARCH_TEXT = new InjectionToken<Observable<PrizmLanguageKit['search']>>(
   `search i18n text`
 );
+
+export const PRIZM_EMPTY_LIST_TEXT = new InjectionToken<Observable<PrizmLanguageKit['emptyListText']>>(
+  `empty list i18n text`
+);

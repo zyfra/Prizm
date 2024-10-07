@@ -59,7 +59,7 @@
 
 .file {
   display: grid;
-  grid-template-columns: 44px 8px fit-content(60%) auto 24px 8px 24px;
+  grid-template-columns: 44px 8px fit-content(60%) min-content auto;
   grid-template-rows: 24px 20px;
   align-items: end;
   &:not(:last-child) {
@@ -126,17 +126,18 @@
     font-size: 10px;
     line-height: 12px;
     color: var(--prizm-text-icon-tertiary);
-    grid-column-start: 4;
-    grid-column-end: 5;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0 8px;
   }
 
   &__retry-btn {
-    justify-self: start;
-    grid-column-start: 5;
   }
 
   &__delete-btn {
-    grid-column-start: 7;
   }
 
   &__progress {
