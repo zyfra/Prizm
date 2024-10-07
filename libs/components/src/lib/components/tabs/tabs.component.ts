@@ -151,7 +151,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
     this.subscription.add(
       this.mutationDetector$
-        .pipe(debounceTime(200), observeOn(animationFrameScheduler))
+        .pipe(debounceTime(300), observeOn(animationFrameScheduler))
         .subscribe(() => this.overflowChecker())
     );
   }
