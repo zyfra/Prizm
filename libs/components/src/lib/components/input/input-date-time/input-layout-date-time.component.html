@@ -108,7 +108,7 @@
   >
     <ng-container>
       <prizm-listing-item
-        *ngFor="let item of timeItems | prizmTimeConstraints : calendarValue : min : max; let idx = index"
+        *ngFor="let item of timeItems | prizmTimeConstraints : calendarValue : _min : _max; let idx = index"
         [selected]="value?.[1] && item.isSameTime($any(value?.[1]))"
         (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
       >
