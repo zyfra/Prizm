@@ -1,0 +1,8 @@
+<prizm-file-upload
+  [accept]="'image/*,.xlsx,.xls,.doc,.docx,.pdf'"
+  [multiple]="true"
+  [files]="files()"
+  (filesChange)="onFilesChange($event)"
+  (fileAdded)="onFileAdded($event)"
+  (fileRemoved)="onFileRemoved($event)"
+></prizm-file-upload>

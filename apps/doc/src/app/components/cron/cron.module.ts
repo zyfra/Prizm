@@ -11,6 +11,7 @@ import { PrizmCronFullwidthExampleComponent } from './examples/fullwidth/cron-fu
 import { PrizmCronFilteredListExampleComponent } from './examples/filtered-list/cron-filtered-list-example.component';
 import { PrizmCronResetExampleComponent } from './examples/reset/cron-reset-example.component';
 import { PrizmCronI18nExampleComponent } from './examples/i18n/cron-i18n-example.component';
+import { PrizmCronNativeDateExampleComponent } from './examples/native-date/cron-native-date-example.component';
 
 @NgModule({
   imports: [
@@ -30,6 +31,7 @@ import { PrizmCronI18nExampleComponent } from './examples/i18n/cron-i18n-example
     PrizmCronFilteredListExampleComponent,
     PrizmCronSpecifiedTabsExampleComponent,
     PrizmCronFullwidthExampleComponent,
+    PrizmCronNativeDateExampleComponent,
     CronComponent,
   ],
   exports: [CronComponent],

@@ -15,7 +15,8 @@
     "@prizm-ui/helpers": "^5.1.0",
     "@prizm-ui/core": "^5.1.0",
     "@prizm-ui/i18n": "^5.1.0",
-    "@prizm-ui/theme": "^5.1.0"
+    "@prizm-ui/theme": "^5.1.0",
+    "@prizm-ui/icons": "^5.1.0"
   },
   "dependencies": {
     "tslib": "^2.3.0",
