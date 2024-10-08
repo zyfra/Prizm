@@ -2,6 +2,64 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.1.0](https://github.com/zyfra/Prizm) (09-10-2024)
+
+### Features
+
+- feat(components/file-upload): added input: files && added outputs: fileAdded, fileRemoved #1832
+- feat(components/file-upload): added custom actions && outputs: actionEvent, afterFilesChange #1832
+- feat(components/tree-select): added new component #2069
+- feat(components/tree-multi-select): added new component #2069
+- feat(components/switcher): extended switcher for pass as projection children #2069
+- feat(doc): add link to github issue page
+- feat(components/input-select): fixed position of search input for dropdown #1981 Note, there are layout changes: if you overridden the --prizm-select-item-padding variable in the project, there may be a regression.
+- feat(components/input-multiselect): fixed position of search input for dropdown #1981 Note, there are layout changes: if you overridden the --prizm-select-item-padding variable in the project, there may be a regression.
+- feat(components/checkbox): add box shadow for disabled radio and checkbox #2024
+- feat(doc/multiselect): add example for async items in multiselect #1754
+- feat(helpers/overflow): new directives host, item to hide overflowed items
+- feat(helpers/context): new directives and pipes to pass context and get context
+- feat(helpers/resize-observer): new util function to get observable of resize observer
+- feat(helpers/map): map with ability to get changes stream
+- feat(components/input-date-time): add time restrictions for min max values #1570
+- feat(components/input-date-time-range): add time restrictions for min max values #1570
+- feat(components/tree): added css variable for tree item height
+- feat(components/paginator): add left direction support #1154
+- feat(components/input-select): added input to control auto reposition dropdown window #1688
+- feat(components/input-multi-select): added input to control auto reposition dropdown window
+- feat(charts/area): replace PrizmChartsAriaOptions(deprecated now) by PrizmChartsAreaOptions
+- feat(charts): add color input for area, line, column, pie, radar, radial bar, scatter, treemap, waterfall #1816
+- feat(doc/charts): for line and column charts added ecamples with user's colors #1817
+- feat(doc/icons): example how to use custom icon #1841
+- feat(components/paginator): update paginator dictionary #1840 BREAKING CHANGE in dictionary - BREAKING CHANGE in dictionaries, why we do this read here
+- feat(doc/slider): add form control for slider #531
+- feat(components/file-upload): add hint for browse button when its disable due max files count reached #1769 - BREAKING CHANGE in dictionaries, why we do this read [here](https://github.com/zyfra/Prizm/discussions/1617)
+- feat(components/file-upload): add translations for file size unit #1789 - BREAKING CHANGE in dictionaries, why we do this read [here](https://github.com/zyfra/Prizm/discussions/1617)
+- feat(chore): update mr checklist template
+- feat(components/accordion): border-bottom can be dded to accordion item header #1322
+- feat(components/input-dates): added native date transformation for min max properties #1315
+- feat(components/input-dates): added date string transformation for min max properties #1573
+- feat(components/cron): added native date transformation for min max properties in date inputs #1315
+- feat(components/input-layout-date): added new provider for ISO and UTC strings transformer for input layout date #1574
+- feat(doc): remove examples for deleted prizm-input-date component
+- feat(nx-mv): support up version with templates
+
+### Bug fixes
+
+- fix(doc/version): add v5 version link to v4 version manager #2035
+- fix(component/chips): chips overflows the border #1975
+- fix(components/table): table sort cursor correction #1986
+- fix(components/table): sorter count div should not reserve space when empty #2021
+- fix(components/tabs): fix Cannot read properties of undefined (reading 'disconnect') #2013
+- fix(components): added icons to peerDependencies #1989
+- fix(components/button): correct outline buttons height #1399
+- fix(components/navigation-menu): fix navigation item height #1964
+- fix(doc): missing fix #1742 info added to 4.3.6 version in changelog
+- fix(components/slider): add markForCheck for setinng position from value for form control correct work #531
+- fix(components/accordion): accordion item header height should be 48px
+- fix(components/tabs): view not updated for activeTabindexChage when tabs overflows #1863
+- fix(components/tabs): tabindex should recalculate on close from dropdown #1948
+- fix(components/listing-item): disabled items should not fire mouse events #1947
+
 ## [5.0.0](https://github.com/zyfra/Prizm) (22-08-2024)
 
 ### Features
