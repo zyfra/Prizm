@@ -2,6 +2,199 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.0.0](https://github.com/zyfra/Prizm) (22-08-2024)
+
+### Features
+
+feat(components): remove deprecated function prizmCreateDateMask BREACKING CHANGE
+feat(components): remove deprecated exports #1849
+feat(components): remove deprecated exports with spelling mistakes: PrizmSelectValueTransformver, GridItemComponent, GridComponent, IndicatorComponent, SwitcherItemComponent, CallFuncPipe, ToTypePipe #1849 BREACKING CHANGE
+
+### Bug fixes
+
+fix(components/chips): fix spelling error in css variable name for --prizm-chips-item-height BREACKING CHANGE
+
+### [Demo Stand](https://prizm-v5.web.app/)
+
+### Release Notes - Major Update for Prizm Libraries to 5.0.0
+
+To allow for early use and feedback, we have released **5.0.0-rc.1** as a release candidate.
+
+_We are excited to announce a major update for Prizm libraries! This release includes a significant number of changes, including the removal of deprecated modules and functions, as well as the introduction of standalone components and directives._
+
+---
+
+### Angular Support Update
+
+With this major release, we are officially supporting Angular from 18.1.3. This version is the latest stable release at the time of our update and includes valuable new features such as the @let syntax and many more improvements. Please note that we will not be able to use new Angular updates for the next two years, so we encourage you to align your projects with this version to take advantage of its enhancements.
+
+Certainly! Here’s a draft for your release notes in English:
+
+---
+
+### Need migrate from removed component PrizmIconsSvgComponent
+
+**Component Library Update: Removal of PrizmIconsSvgComponent**
+
+We have officially removed the deprecated `PrizmIconsSvgComponent` from our PRIZM component library.
+
+To replace it, please use the current components:
+
+- `PrizmIconsComponent`
+- `PrizmIconsFullComponent`
+
+As the icon names have changed, we have created a convenient migration guide, which you can find on our [migration page](https://prizm-v5.web.app/components/icon#migrate).
+
+For an easy transition, utilize our name conversion function: `prizmIconsProvideOldSvgNameTransformer`.
+
+Feel free to adjust any parts as needed!
+
+---
+
+### New Feature: Enhanced File Update Tool @prizm-ui/nx-mv:apply
+
+We are excited to announce the release of an enhanced version of our file update tool, `@prizm-ui/nx-mv:apply`, starting from version 5.0.0.
+
+**Key Updates:**
+
+- **File and Folder Extension Handling:** The tool now supports updating files and folders based on specific extensions defined in the configuration file (`extFile` for files and `extFolder` for folders).
+- **Dynamic Content Rendering:** Enhanced support for EJS templating in files, allowing for dynamic content generation based on provided variables and constants.
+- **Selective Project Updates:** New configuration options for selectively updating projects or applying changes across all projects in the workspace.
+- **Root Directory Changes:** Ability to apply changes to files in the root directory of the project.
+- **File Removal:** Support for removing specified files before applying updates.
+- **Ignore File Handling:** Improved handling of files and directories to be ignored during the update process via the `nxmv.ignore` file.
+- **Command Line Variables:** The tool now accepts variables from the terminal command with the `--var-` prefix, allowing for dynamic usage in templates.
+
+**Example Command:**
+
+```
+npx nx generate @prizm-ui/nx-mv:apply -n v18 --var-version 5.0.0
+```
+
+For more detailed information and examples, please visit our documentation page at https://prizm-v5.web.app/tools/nxmv.
+
+Upgrade to version 5.0.0 to take advantage of these new features and streamline your project update processes.
+
+---
+
+This summary includes the new feature that accepts variables from the terminal command with the `--var-` prefix for use in templates, along with an example command to demonstrate this capability.
+
+#### Breaking Changes
+
+1. **Module Removals and Standalone Replacements:**
+
+   - **PrizmCounterModule**: Removed. Use standalone.
+   - **PrizmButtonModule**: Removed. Use standalone.
+   - **PrizmCheckedModule**: Removed. Use standalone `PrizmCheckedDirective`.
+   - **PrizmAutoResizeModule**: Removed. Use standalone `PrizmAutoResizeDirective`.
+   - **PrizmAutoFocusModule**: Removed. Use standalone `PrizmAutoFocusDirective`.
+   - **PrizmStopPropagationModule**: Removed. Use standalone `PrizmStopPropagationDirective`.
+   - **PrizmZoneEventModule**: Removed. Use standalone `PrizmZoneEventDirective`.
+   - **PrizmCalendarSheetModule**: Removed. Use standalone `PrizmCalendarSheetPipe`.
+   - **PrizmMapperModule**: Removed. Use standalone `PrizmMapperPipe`.
+   - **PrizmMonthModule**: Removed. Use standalone `PrizmMonthPipe`.
+   - **PrizmChartsAreaModule**: Removed. Use standalone `PrizmChartsAreaComponent`.
+   - **PrizmChartsBarModule**: Removed. Use standalone `PrizmChartsBarComponent`.
+   - **PrizmChartsColumnModule**: Removed. Use standalone `PrizmChartsColumnComponent`.
+   - **PrizmChartsGaugeModule**: Removed. Use standalone `PrizmChartsGaugeComponent`.
+   - **PrizmChartsLineModule**: Removed. Use standalone `PrizmChartsLineComponent`.
+   - **PrizmChartsPieModule**: Removed. Use standalone `PrizmChartsPieComponent`.
+   - **PrizmChartsRadarModule**: Removed. Use standalone `PrizmChartsRadarComponent`.
+   - **PrizmChartsRadialBarModule**: Removed. Use standalone `PrizmChartsRadialBarComponent`.
+   - **PrizmChartsScatterModule**: Removed. Use standalone `PrizmChartsScatterComponent`.
+   - **PrizmChartsTreemapModule**: Removed. Use standalone `PrizmChartsTreemapComponent`.
+   - **PrizmChartsWaterfallModule**: Removed. Use standalone `PrizmChartsWaterfallComponent`.
+   - **PrizmPanelModule**: Removed. Use standalone `PrizmPanelComponent`.
+   - **PrizmPrimitiveCalendarRangeModule**: Removed. Use standalone `PrizmPrimitiveCalendarRangeComponent`.
+   - **PrizmPrimitiveSpinButtonModule**: Removed. Use standalone `PrizmPrimitiveSpinButtonComponent`.
+   - **PrizmInputCorrectorModule**: Removed. Use standalone `PrizmInputCorrectorDirective`.
+   - **PrizmInputHintModule**: Removed. Use standalone `PrizmInputHintDirective`.
+   - **PrizmInputAllowedSymbolsModule**: Removed. Use standalone `PrizmInputAllowedSymbolsDirective`.
+   - **PrizmErrorPageModule**: Removed. Use standalone `PrizmErrorPageComponent`.
+
+2. **Deprecated Modules and Functions Removed:**
+
+   - **Removed deprecated interface `PrizmTabItem`**
+   - **Removed deprecated function `prizmCreateDateMask`**
+   - **PrizmFlagIconsModule**
+   - **PrizmCallFuncModule**
+   - **PrizmPluckModule**
+   - **PrizmToObservableModule**
+   - **PrizmToTypeModule**
+   - **PrizmOverlayModule**
+   - **PrizmLetModule**
+   - **prizmCreateTimeMask**
+   - **prizmCreateTimePartMask**
+   - **prizmExtractI18n**
+   - **PRIZM_DATE_RANGE_FILLER**, **PRIZM_DATE_FILLER** (tokens)
+   - **PrizmBaseColor**, **PrizmSupportColor** (enums)
+   - **PrizmSkeletonModule**
+   - **PrizmWrapperModule**
+   - **PrizmScrollIntoViewModule**
+   - **PrizmRepeatTimesModule**
+   - **PrizmPreventDefaultModule**
+   - **PrizmPressedModule**
+   - **PrizmOverscrollModule**
+   - **PrizmInputNativeValueModule**
+   - **PrizmMutationObserveModule**
+   - **PrizmLifecycleModule**
+   - **PrizmHoveredModule**
+   - **PrizmFocusedModule**
+   - **PrizmFocusableModule**
+   - **PrizmFocusTrapModule**
+   - **PrizmDropdownZoneModule**
+   - **PrizmDroppableModule**
+   - **PrizmElementReadyModule**
+   - **PrizmDropdownControllerModule**
+   - **PrizmIconsSvgModule**
+   - **PrizmShadowModule**
+   - **PrizmWidgetModule**
+   - **PrizmTreeButtonModule**
+   - **PrizmToggleModule**
+   - **PrizmSwitcherModule**
+   - **PrizmSpinnerModule**
+   - **PrizmRadioButtonModule**
+   - **PrizmPaginatorModule**
+   - **PrizmLoaderModule**
+   - **PrizmLinkModule**
+   - **PrizmPrimitiveCalendarModule**
+   - **PrizmPrimitiveMonthPickerModule**
+   - **PrizmPrimitiveYearMonthPaginationModule**
+   - **PrizmPrimitiveYearPickerModule**
+   - **PrizmCardModule**
+   - **PrizmHintModule**
+   - **PrizmIconsSvgComponent**
+   - **PrizmScrollControlsModule**
+   - **PrizmInputIconButtonModule**
+   - **PrizmInputDateMultiModule**
+   - **PrizmIndicatorModule**
+   - **PrizmDialogModule**
+   - **PrizmDialogConfirmModule**
+   - **PrizmCronHumanReadableModule**
+   - **PrizmFileUploadModule**
+   - **PrizmCalendarMonthModule**
+   - **PrizmCalendarRangeModule**
+   - **PrizmSidebarModule**
+   - **PrizmColumnSettingsModule**
+   - **prizmCreateDateMask**
+
+3. **Renamed Components:**
+
+   - **PanelComponent** renamed to `PrizmPanelComponent`.
+
+4. **Spelling Corrections in Exports:**
+   - **ToTypePipe** (use `PrizmToTypePipe`)
+   - **CallFuncPipe** (use `PrizmCallFuncPipe`)
+   - **PrizmSelectValueTransformver** corrected to `PrizmSelectValueTransformer`.
+   - **GridItemComponent** corrected to `PrizmGridItemComponent`.
+   - **GridComponent** corrected to `PrizmGridComponent`.
+   - **IndicatorComponent** corrected to `PrizmIndicatorComponent`.
+   - **SwitcherItemComponent** corrected to `PrizmSwitcherItemComponent`.
+   - **fix(components/chips)**: Corrected spelling error in CSS variable name for `--prizm-chips-item-height`.
+   - **feat(components)**: update spelling in sidebar and confirm result enums [#1548](https://github.com/zyfra/Prizm/issues/1548) `PrizmConfirmDialogResultDefaultType.confirmed` to `PrizmConfirmDialogResultDefaultType.confirm` and `PrizmSidebarResultDefaultType.confirmed` to `PrizmSidebarResultDefaultType.confirm`
+5. **Replace inner prizm-svg-icon to prizm-icons in PrizmNavigationMenuComponent**
+   - **Update icon names to prizm-icons or inject our [converter](https://prizm-v5.web.app/components/icon#migrate)**
+
 ## [4.3.8](https://github.com/zyfra/Prizm) (12-08-2024)
 
 ### Bug fixes
