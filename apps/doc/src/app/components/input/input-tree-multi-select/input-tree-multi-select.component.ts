@@ -9,11 +9,14 @@ import {
   PrizmInputStatus,
   PrizmOverlayOutsidePlacement,
   PrizmScrollbarVisibility,
+  PrizmInputTreeMultiSelectCheckboxPosition,
 } from '@prizm-ui/components';
 import { UntypedFormControl, Validators } from '@angular/forms';
 
-type TreeSelectItem = string;
-
+type TreeSelectItem = {
+  value: string;
+  children?: TreeSelectItem[];
+};
 @Component({
   selector: 'prizm-multi-select-example',
   templateUrl: './input-tree-multi-select.component.html',
@@ -44,7 +47,11 @@ export class InputTreeMultiSelectComponent {
   public dropdownClasses: PrizmDropdownHostClasses;
 
   isChipsDeletable = false;
+  checkboxPositionVariants: PrizmInputTreeMultiSelectCheckboxPosition[] = ['after', 'before'];
+  checkboxPosition = this.checkboxPositionVariants[0];
+
   readonly layoutKey = 'PrizmInputLayoutComponent';
+  readonly checkboxDirective = 'PrizmInputTreeMultiSelectCheckboxDirective';
   readonly selectKey = 'PrizmInputTreeMultiSelectComponent';
   public readOnly = false;
   public border = true;
@@ -71,6 +78,7 @@ export class InputTreeMultiSelectComponent {
 
   emptyListTemplate = 'Ничего не найдено';
   searchLabel = 'Не выбрано';
+  searchPlaceholder = '';
   prizmDropdownMinHeight = 0;
   prizmDropdownMaxHeight = 342;
   placeholder = '';
@@ -110,20 +118,49 @@ export class InputTreeMultiSelectComponent {
     HTML: import('./examples/search/tree-select-search-example.component.html?raw'),
   };
   readonly items: TreeSelectItem[] = [
-    'One',
-    'Two',
-    'Three',
-    'Very long text with a lot of characters and spaces and other stuff and things',
+    {
+      value: 'One',
+    },
+    {
+      value: 'Two',
+      children: [
+        {
+          value: 'first in two',
+          children: [
+            {
+              value: 'first in first in two',
+            },
+          ],
+        },
+        {
+          value: 'second in two',
+        },
+      ],
+    },
+    {
+      value: 'Three',
+      children: [
+        {
+          value: 'first in first in Three',
+        },
+        {
+          value: 'second in first in Three',
+        },
+      ],
+    },
+    {
+      value: 'Very long text with a lot of characters and spaces and other stuff and things',
+    },
   ];
 
   public value = this.items[0];
   readonly control = new UntypedFormControl([this.items[1]], [Validators.required]);
 
   public stringify(item: TreeSelectItem | null): string {
-    return item ?? '';
+    return item?.value ?? '';
   }
   public getChildren(item: TreeSelectItem): TreeSelectItem[] {
-    return [];
+    return item.children ?? [];
   }
   public setDefaultValue(): void {
     this.control.setValue([this.items[0]], { emitEvent: false });

@@ -5,6 +5,7 @@ import { Directive, HostBinding, Input } from '@angular/core';
  */
 @Directive({
   selector: '[prizmFocusable]',
+  standalone: true,
 })
 export class PrizmFocusableDirective {
   /**

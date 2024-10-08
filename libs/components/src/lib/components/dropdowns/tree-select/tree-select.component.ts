@@ -96,7 +96,14 @@ import { PrizmDropdownControllerDirective } from '../../../directives';
     },
     {
       directive: PrizmTreeSelectSearchDirective,
-      inputs: ['searchable', 'searchFilter', 'searchMapper', 'searchMatcher', 'searchDebounce'],
+      inputs: [
+        'searchable',
+        'searchFilter',
+        'searchMapper',
+        'searchMatcher',
+        'searchDebounce',
+        'searchPlaceholder',
+      ],
       outputs: ['searched'],
     },
     {
