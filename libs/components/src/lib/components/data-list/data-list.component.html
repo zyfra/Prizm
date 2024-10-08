@@ -1,6 +1,7 @@
 <div class="header">
   <ng-content select="[header]"></ng-content>
 </div>
+
 <ng-container *polymorphOutlet="content as data">
   <div class="body">
     <prizm-scrollbar

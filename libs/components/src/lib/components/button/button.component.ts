@@ -14,7 +14,7 @@ import { PRIZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button
 import { AbstractPrizmInteractive } from '../../abstract/interactive';
 import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmSize } from '../../util/size-bigger';
-import { PrizmCallFuncPipe, PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmDestroyService, PrizmToTypePipe } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
@@ -46,6 +46,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PolymorphOutletDirective,
     PrizmLoaderComponent,
     PrizmCallFuncPipe,
+    PrizmToTypePipe,
     PrizmIconsFullComponent,
   ],
   providers: [
@@ -74,15 +75,14 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
   @Input()
   @HostBinding('attr.data-appearance')
   @prizmDefaultProp()
-  appearance: PrizmAppearance = this.options.appearance;
+  appearance?: PrizmAppearance = this.options.appearance;
 
   @Input()
   @HostBinding('attr.data-appearance-type')
   @prizmDefaultProp()
-  appearanceType: PrizmAppearanceType = this.options.appearanceType;
+  appearanceType?: PrizmAppearanceType = this.options.appearanceType;
 
   @Input()
-  @prizmDefaultProp()
   get disabled() {
     return this._disabled;
   }
@@ -94,7 +94,7 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
   @Input()
   @HostBinding('class._loading')
   @prizmDefaultProp()
-  showLoader = false;
+  showLoader?: boolean = false;
 
   @HostBinding('attr.disabled')
   get nativeDisabled(): '' | null {

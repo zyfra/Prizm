@@ -1,11 +1,11 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Inject, inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from './dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { prizmPure } from '@prizm-ui/core';
 import { takeUntil } from 'rxjs/operators';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmToTypePipe } from '@prizm-ui/helpers';
 import {
   PrizmBaseDialogContext,
   PrizmDialogButton,
@@ -18,10 +18,10 @@ import { CommonModule } from '@angular/common';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmOverlayComponent } from '../../../modules';
 import { PrizmButtonComponent } from '../../button';
-import { PrizmInputIconButtonComponent } from '../../input/common/input-icon-button/input-icon-button.component';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
+import { PrizmInputIconButtonComponent } from '../../input';
 
 @Component({
   selector: 'prizm-dialog',
@@ -39,6 +39,7 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     PrizmButtonComponent,
     PrizmFocusTrapDirective,
     PrizmInputIconButtonComponent,
+    PrizmToTypePipe,
     PrizmScrollbarModule,
   ],
 })
@@ -78,6 +79,8 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
   public get isFooterArray(): boolean {
     return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);
   }
+
+  readonly BUTTONS!: PrizmDialogButton<O, PrizmDialogOptions<O, DATA>>[];
 
   @prizmPure
   public get footer():
