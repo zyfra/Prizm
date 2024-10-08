@@ -4,6 +4,7 @@ import {
   PrizmTabCanOpen,
   PrizmTabComponent,
   PrizmTabCounterOptions,
+  PrizmTabItem,
   PrizmTabSize,
   PrizmTabType,
 } from '@prizm-ui/components';
@@ -64,6 +65,33 @@ export class TabsExampleComponent {
     {
       status: 'warning',
       disabled: true,
+    },
+  ];
+
+  public simpleTabs: PrizmTabItem[] = [
+    {
+      title: 'Вкладка 3',
+    },
+    {
+      title: 'Вкладка 4',
+    },
+    {
+      title: 'Вкладка 5',
+    },
+    {
+      title: 'Вкладка 6',
+    },
+    {
+      title: 'Вкладка 7',
+    },
+    {
+      title: 'Вкладка 8',
+    },
+    {
+      title: 'Вкладка 9',
+    },
+    {
+      title: 'Вкладка 10',
     },
   ];
 
