@@ -29,6 +29,7 @@ import { PrizmI18nService, prizmI18nInitWithKey } from '../../../../services';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckFill,
+  prizmIconsCircleExclamationFill,
   prizmIconsCircleInfoFill,
   prizmIconsDeleteContent,
   prizmIconsTempChevronsDropdownSmall,
@@ -175,7 +176,7 @@ export class PrizmInputLayoutComponent
       prizmIconsDeleteContent,
       prizmIconsTriangleExclamationFill,
       prizmIconsCircleCheckFill,
-      prizmIconsCircleInfoFill,
+      prizmIconsCircleExclamationFill,
       prizmIconsTempChevronsDropdownSmall
     );
   }
@@ -244,7 +245,7 @@ export class PrizmInputLayoutComponent
         break;
 
       case 'danger':
-        statusIcon = 'circle-info-fill';
+        statusIcon = 'circle-exclamation-fill';
         break;
 
       case 'default':
