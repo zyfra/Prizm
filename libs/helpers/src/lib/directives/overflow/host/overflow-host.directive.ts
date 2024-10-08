@@ -1,5 +1,6 @@
 import { Directive, ElementRef, inject, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { OverflowService } from '../overflow.service';
+import { PrizmOverflowReserveSpace } from '../model';
 
 @Directive({
   selector: '[prizmOverflowHost]',
@@ -10,6 +11,7 @@ import { OverflowService } from '../overflow.service';
 export class PrizmOverflowHostDirective implements OnChanges, OnInit {
   @Input() host?: HTMLElement;
   @Input() active = true;
+  @Input() reserveSpace?: PrizmOverflowReserveSpace;
   readonly overflowService = inject(OverflowService);
   readonly hiddenElements$ = this.overflowService.hiddenItems$;
   readonly element = inject(ElementRef);
@@ -17,12 +19,18 @@ export class PrizmOverflowHostDirective implements OnChanges, OnInit {
     return this.host ?? this.element.nativeElement;
   }
   ngOnInit(): void {
-    this.overflowService.init(this.calculatedHost);
+    this.init();
   }
   ngOnChanges(changes: SimpleChanges): void {
     if (this.active) {
-      if (changes['host']) this.overflowService.init(this.calculatedHost);
+      if (changes['host'] || changes['reserveSpace']) this.init();
       if (changes['active']) this.overflowService.enable();
     } else this.overflowService.disable();
+  }
+
+  private init() {
+    this.overflowService.init(this.calculatedHost, {
+      reserveSpace: this.reserveSpace,
+    });
   }
 }
