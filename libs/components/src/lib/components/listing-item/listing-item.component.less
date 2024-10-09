@@ -1,5 +1,10 @@
 :host {
   background-color: var(--prizm-background-fill-overlay);
+
+  &.disabled {
+    pointer-events: none;
+  }
+
   .item-container {
     display: flex;
     align-items: center;
