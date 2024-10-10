@@ -97,7 +97,7 @@ export class InputTreeMultiSelectComponent {
     return this.control.value;
   }
   public searchMatcher(search: string, item: string): boolean {
-    return item.toLowerCase().includes(search.toLowerCase());
+    return item?.toLowerCase().includes(search.toLowerCase());
   }
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
