@@ -19,6 +19,7 @@ import { PrizmInputMultiSelectValidatorsExampleComponent } from './examples/vali
 import { PrizmInputMultiSelectWithTransformerExampleComponent } from './examples/with-transformer/multi-select-with-transformer-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmInputMultiSelectAsyncExampleComponent } from './examples/async/multi-select-async-example.component';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -34,6 +35,7 @@ import { PrizmInputMultiSelectAsyncExampleComponent } from './examples/async/mul
     PrizmLoaderComponent,
     PrizmPaginatorComponent,
     PrizmInputMultiSelectModule,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     PrizmInputMultiSelectWithTransformerExampleComponent,

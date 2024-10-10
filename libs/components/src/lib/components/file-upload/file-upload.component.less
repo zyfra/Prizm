@@ -59,7 +59,7 @@
 
 .file {
   display: grid;
-  grid-template-columns: 44px 8px fit-content(60%) min-content auto;
+  grid-template-columns: 44px 8px fit-content(60%) max-content auto;
   grid-template-rows: 24px 20px;
   align-items: end;
   &:not(:last-child) {
@@ -132,12 +132,6 @@
     display: flex;
     justify-content: flex-end;
     gap: 0 8px;
-  }
-
-  &__retry-btn {
-  }
-
-  &__delete-btn {
   }
 
   &__progress {

@@ -61,6 +61,7 @@ import { PrizmTreeSelectStringifyDirective } from '../tree-select';
 
 @Component({
   selector: 'prizm-input-tree-multi-select',
+  exportAs: 'prizmInputTreeMultiSelect',
   templateUrl: './tree-multi-select.component.html',
   styleUrl: './tree-multi-select.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -142,7 +143,14 @@ import { PrizmTreeSelectStringifyDirective } from '../tree-select';
     },
     {
       directive: PrizmTreeMultiSelectSearchDirective,
-      inputs: ['searchable', 'searchFilter', 'searchMapper', 'searchMatcher', 'searchDebounce'],
+      inputs: [
+        'searchable',
+        'searchFilter',
+        'searchMapper',
+        'searchMatcher',
+        'searchDebounce',
+        'searchPlaceholder',
+      ],
       outputs: ['searched'],
     },
     {

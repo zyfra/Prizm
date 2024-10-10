@@ -49,4 +49,14 @@
   flex-wrap: nowrap;
   gap: 4px;
   align-items: center;
+
+  &[data--checkbox-position='after'] {
+    icon-toggle {
+      order: 1;
+    }
+
+    prizm-checkbox {
+      order: 2;
+    }
+  }
 }

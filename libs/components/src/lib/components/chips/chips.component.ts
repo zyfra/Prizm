@@ -31,6 +31,7 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../directives';
 import { PrizmChipsItemComponent } from './chips-item';
+import { PrizmInputLayoutComponent } from '../input';
 
 @Component({
   selector: 'prizm-chips',
@@ -83,6 +84,9 @@ export class PrizmChipsComponent<T = any>
 
   override readonly testId_ = 'ui_chips';
 
+  public readonly layoutComponent = inject(PrizmInputLayoutComponent, {
+    optional: true,
+  });
   public accessorIsDisabled = false;
   public readonly stringifyDirective = inject(PrizmStringifyDirective, {
     host: true,

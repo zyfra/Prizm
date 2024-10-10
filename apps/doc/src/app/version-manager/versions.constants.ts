@@ -39,12 +39,11 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     },
   },
   {
-    label: '4.3.8 (ng17)',
-    version: '4.3.8',
+    label: '4.5.0 (ng17)',
+    version: '4.5.0',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
-    link: getDocSite.bind(null, 'https://doc.prizm.zyfra.com', 'http://prizm.site'),
-
-    otherLinks: [new URL('https://prizm-v4.web.app')],
+    link: getDocSite.bind(null, 'http://4.5.0.doc.prizm.site', 'https://prizm-v4.web.app'),
+    otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v4--');
     },
@@ -53,7 +52,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     label: '3.15.1 (ng16)',
     version: '3.15.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v3-demo',
-    link: getDocSite.bind(null, 'http://3.14.0.doc.prizm.site', 'https://prizm-v3.web.app'),
+    link: getDocSite.bind(null, 'http://3.15.1.doc.prizm.site', 'https://prizm-v3.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v3--');
@@ -63,7 +62,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     label: '2.16.1 (ng15)',
     version: '2.16.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v2-demo',
-    link: getDocSite.bind(null, 'http://2.15.0.doc.prizm.site', 'https://prizm-v2.web.app'),
+    link: getDocSite.bind(null, 'http://2.16.1.doc.prizm.site', 'https://prizm-v2.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v2--');
@@ -73,7 +72,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     label: '1.19.1 (ng14)',
     version: '1.19.1',
     stackblitz: 'https://stackblitz.com/edit/prizm-v1-demo',
-    link: getDocSite.bind(null, 'http://1.18.0.doc.prizm.site', 'https://prizm-v1.web.app'),
+    link: getDocSite.bind(null, 'http://1.19.1.doc.prizm.site', 'https://prizm-v1.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v1--');
