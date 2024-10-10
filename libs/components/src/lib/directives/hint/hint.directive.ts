@@ -47,8 +47,12 @@ export class PrizmHintDirective<
   @prizmDefaultProp()
   prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
 
+  private readonly prizmHintDirection$$ = new BehaviorSubject<PrizmHintOptions['direction']>(
+    this.options.direction
+  );
+
   @Input()
-  @prizmDefaultProp()
+  @prizmObservable()
   prizmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
 
   @Input()
@@ -153,6 +157,7 @@ export class PrizmHintDirective<
     combineLatest([
       this.prizmHintContext$$.pipe(distinctUntilChanged()),
       this.prizmHintTheme$$.pipe(distinctUntilChanged()),
+      this.prizmHintDirection$$.pipe(distinctUntilChanged()),
     ])
       .pipe(
         tap(() => this.drawHint()),
