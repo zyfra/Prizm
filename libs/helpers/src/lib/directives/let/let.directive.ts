@@ -14,6 +14,11 @@ interface LetContext<T> {
  * @button <ng-container *prizmLet="{items: items$ | async, center: center} as $"> {{$.items?.count}} {{$.center}}</ng-container>
  * @button <ng-container *prizmLet="queryParams.isMap$ | async as isMap">{{isMap}}</ng-container>
  */
+
+/**
+ * @deprecated
+ * use angular @let instead
+ */
 @Directive({
   selector: '[prizmLet]',
   exportAs: 'prizmLet',
