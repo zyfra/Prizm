@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
-  PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmDropdownHostClasses,
   PrizmDropdownHostStyles,
   PrizmHintOptions,
@@ -76,6 +75,7 @@ export class InputSelectComponent {
   minDropdownHeight = 0;
   maxDropdownHeight = 342;
   placeholder = '';
+  autoReposition = false;
   visibility: PrizmScrollbarVisibility = 'auto';
   readonly itemsVariants: ReadonlyArray<string[] | null> = [
     [

@@ -1,0 +1,33 @@
+<ng-container *ngIf="treeSelectSearchDirective.searchable">
+  <div class="list-search-item">
+    <prizm-input-layout
+      [label]="treeSelectSearchLabelDirective.value$ | async"
+      (clear)="treeSelectSearchDirective.clear()"
+    >
+      <input
+        class="input-search"
+        [ngModelOptions]="{ standalone: true }"
+        [ngModel]="treeSelectSearchDirective.query"
+        [placeholder]="treeSelectSearchDirective.searchPlaceholder"
+        (ngModelChange)="treeSelectSearchDirective.search($event)"
+        prizmAutoFocus
+        prizmInput
+      />
+    </prizm-input-layout>
+  </div>
+
+  <div class="empty-list" *ngIf="emptyLeast$ | async">
+    <ng-container *polymorphOutlet="treeSelectEmptyTextDirective.value$ | async as content">
+      {{ content }}
+    </ng-container>
+  </div>
+</ng-container>
+
+<div class="block-with-data-list" [hidden]="emptyLeast$ | async">
+  <ng-container
+    *ngIf="projectedDataListDirective?.template"
+    [ngTemplateOutlet]="projectedDataListDirective!.template!"
+  ></ng-container>
+
+  <ng-container #viewContainerRef></ng-container>
+</div>

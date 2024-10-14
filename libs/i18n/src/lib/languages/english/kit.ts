@@ -1,6 +1,7 @@
 import { PrizmLanguageKit } from '../../interfaces';
 
 export const PRIZM_ENGLISH_LANGUAGE_KIT: PrizmLanguageKit = {
+  emptyListText: `Nothing found`,
   cancel: 'Cancel',
   done: 'Done',
   more: 'More',

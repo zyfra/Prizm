@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PaginatorExampleComponent } from './paginator-example.component';
 import { PaginatorBasicExampleComponent } from './examples/paginator-basic-example/paginator-basic-example.component';
+import { PaginatorBasicLeftExampleComponent } from './examples/paginator-basic-left-example/paginator-basic-left-example.component';
 import {
   PrizmAddonDocModule,
   PrizmDocCodeModule,
@@ -17,6 +18,7 @@ import { PaginatorWithLabelsExampleComponent } from './examples/paginator-with-l
 import { PaginatorInfiniteExampleComponent } from './examples/paginator-infinite-example/paginator-infinite-example.component';
 import { PaginatorOptionsExampleComponent } from './examples/paginator-options-example/paginator-options-example.component';
 import { PaginatorI18nExampleComponent } from './examples/i18n/paginator-i18n-example.component';
+import { PrizmLanguagePipe } from '@prizm-ui/i18n';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { PaginatorI18nExampleComponent } from './examples/i18n/paginator-i18n-ex
     PaginatorBasicExampleComponent,
     PaginatorWithLabelsExampleComponent,
     PaginatorInfiniteExampleComponent,
+    PaginatorBasicLeftExampleComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +40,7 @@ import { PaginatorI18nExampleComponent } from './examples/i18n/paginator-i18n-ex
     RouterModule.forChild(prizmDocGenerateRoutes(PaginatorExampleComponent)),
     PrizmPaginatorComponent,
     PaginatorI18nExampleComponent,
+    PrizmLanguagePipe,
   ],
 })
 export class PaginatorExampleModule {}

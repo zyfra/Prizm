@@ -1,0 +1,12 @@
+<prizm-switcher [formControl]="control" [switchers]="switchers"></prizm-switcher>
+
+<div>
+  Value: <b>{{ control.value }}</b>
+</div>
+
+<br />
+
+<div style="display: flex; gap: 1rem">
+  <button (click)="updateValue()" prizmButton>Update value</button>
+  <button (click)="control.setValue('-')" prizmButton>Update extra value</button>
+</div>

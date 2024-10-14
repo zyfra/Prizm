@@ -30,6 +30,7 @@ export class RadialBarComponent {
   ];
   public xField = 'name';
   public yField = 'star';
+  color = '';
 
   public options: Partial<PrizmChartsRadialBarOptions> = {
     radius: 0.8,
