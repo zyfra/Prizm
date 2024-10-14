@@ -254,7 +254,7 @@ export class PrizmInputLayoutComponent
     }
 
     if (this.control.invalid) {
-      statusIcon = 'circle-info-fill';
+      statusIcon = 'circle-exclamation-fill';
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
