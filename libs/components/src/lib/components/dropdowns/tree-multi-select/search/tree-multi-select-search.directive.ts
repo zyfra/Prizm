@@ -34,6 +34,7 @@ export class PrizmTreeMultiSelectSearchDirective<T = any> implements OnInit, OnD
   @Input() searchMapper = (search: string): Observable<string> => of(search);
   @Input() searchFilter = (search: string) => of(!!search.replace(/[ \n\r\t]+/g, '').length);
   @Input() searchDebounce = 0;
+  @Input() searchPlaceholder = '';
 
   private readonly onSearch$$ = new ReplaySubject<string>(1);
   private readonly destroy = inject(PrizmDestroyService);

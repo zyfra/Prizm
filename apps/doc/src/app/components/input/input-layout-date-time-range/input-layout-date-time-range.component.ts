@@ -40,7 +40,7 @@ export class InputLayoutDateTimeRangeComponent {
     new PrizmDateTime(new PrizmDay(2015, 3, 15), new PrizmTime(18, 20)),
     '2018-11-18T08:04:30+00:00',
     '2022-09-06T13:56:13.757Z',
-    new Date(2027, 1, 1, 30, 0, 0),
+    new Date(2027, 1, 1, 20, 0, 0),
     'invalid date string',
   ];
   public min = this.minMaxVariants[0];

@@ -26,6 +26,7 @@ import { delay, distinctUntilChanged, finalize, map, switchMap, takeUntil, tap }
 import { PrizmHintContainerComponent } from './hint-container.component';
 import { PrizmHintService } from './hint.service';
 import { PrizmTheme } from '@prizm-ui/theme';
+import { PRIZM_HINT_CONTAINER_COMPONENT, PRIZM_HINT_GET_CONTEXT, PRIZM_HINT_ON_HOVER_ACTIVE } from './token';
 
 export const HINT_HOVERED_CLASS = '_hint_hovered';
 
@@ -47,8 +48,12 @@ export class PrizmHintDirective<
   @prizmDefaultProp()
   prizmAutoReposition: PrizmHintOptions['autoReposition'] = this.options.autoReposition;
 
+  private readonly prizmHintDirection$$ = new BehaviorSubject<PrizmHintOptions['direction']>(
+    this.options.direction
+  );
+
   @Input()
-  @prizmDefaultProp()
+  @prizmObservable()
   prizmHintDirection: PrizmHintOptions['direction'] = this.options.direction;
 
   @Input()
@@ -110,7 +115,11 @@ export class PrizmHintDirective<
   @Output()
   readonly prizmHintShowed = new EventEmitter<boolean>();
 
-  public onHoverActive: boolean = true;
+  public onHoverActive =
+    inject(PRIZM_HINT_ON_HOVER_ACTIVE, {
+      host: true,
+      optional: true,
+    }) ?? true;
 
   private readonly content$$ = new BehaviorSubject<PolymorphContent>(null);
   set content(data: PolymorphContent) {
@@ -120,13 +129,21 @@ export class PrizmHintDirective<
     return this.content$$.value;
   }
   overlay?: PrizmOverlayControl;
-  public containerComponent: Type<unknown> = PrizmHintContainerComponent;
+  public containerComponent: Type<unknown> =
+    inject(PRIZM_HINT_CONTAINER_COMPONENT, {
+      optional: true,
+      host: true,
+    }) ?? PrizmHintContainerComponent;
   public readonly show$ = new Subject<boolean>();
   protected readonly destroyListeners$ = new Subject<void>();
 
   private readonly prizmOverlayService: PrizmOverlayService = inject(PrizmOverlayService);
 
   private readonly renderer: Renderer2 = inject(Renderer2);
+  private readonly injectedContext = inject(PRIZM_HINT_GET_CONTEXT, {
+    host: true,
+    optional: true,
+  });
   public readonly elementRef: ElementRef<HTMLElement> = inject(ElementRef);
   private readonly destroy$: PrizmDestroyService = inject(PrizmDestroyService);
   private readonly hoveredService: PrizmHoveredService = inject(PrizmHoveredService);
@@ -153,6 +170,7 @@ export class PrizmHintDirective<
     combineLatest([
       this.prizmHintContext$$.pipe(distinctUntilChanged()),
       this.prizmHintTheme$$.pipe(distinctUntilChanged()),
+      this.prizmHintDirection$$.pipe(distinctUntilChanged()),
     ])
       .pipe(
         tap(() => this.drawHint()),
@@ -220,13 +238,15 @@ export class PrizmHintDirective<
     }
   }
 
-  // public api for support hint wrappers
+  /**
+   * @public api for support hint wrappers
+   * */
   public drawHint(): void {
     this.show_ = false;
     this.initOverlayController();
   }
 
-  protected open(): void {
+  public open(): void {
     if (!this.prizmHintCanShow || this.content === '' || Compare.isNullish(this.content)) return;
     this.show_ = true;
     this.renderer.addClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
@@ -234,7 +254,7 @@ export class PrizmHintDirective<
     this.prizmHoveredChange$$.next(this.show_);
   }
 
-  protected close(): void {
+  public close(): void {
     this.show_ = false;
     this.renderer.removeClass(this.elementRef.nativeElement, HINT_HOVERED_CLASS);
     this.overlay?.close();
@@ -281,6 +301,7 @@ export class PrizmHintDirective<
   }
 
   protected getContext(): CONTEXT {
+    if (this.injectedContext) return this.injectedContext(this.injector) as CONTEXT;
     return {
       reposition: this.prizmAutoReposition,
       direction: this.prizmHintDirection,

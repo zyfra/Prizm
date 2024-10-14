@@ -13,6 +13,7 @@ import {
   PrizmInputTreeMultiSelectComponent,
   PrizmInputTreeSelectComponent,
   PrizmScrollbarModule,
+  PrizmInputTreeMultiSelectCheckboxDirective,
   PrizmTreeMultiSelectItemComponent,
   PrizmTreeMultiSelectItemDirective,
   PrizmTreeSelectItemComponent,
@@ -50,6 +51,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PrizmHtmlRefDirective,
     PrizmTreeSelectItemComponent,
     PrizmInputTreeSelectComponent,
+    PrizmInputTreeMultiSelectCheckboxDirective,
   ],
   declarations: [
     PrizmTreeSelectI18nExampleComponent,
