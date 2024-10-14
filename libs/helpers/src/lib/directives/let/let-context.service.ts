@@ -1,6 +1,10 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+/**
+ * @deprecated
+ * use angular @let instead
+ */
 @Injectable()
 export class PrizmLetContextService<T> implements OnDestroy {
   private readonly context$$ = new BehaviorSubject<T | null>(null);
