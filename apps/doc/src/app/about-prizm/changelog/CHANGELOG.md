@@ -61,7 +61,8 @@ All notable changes to this project will be documented in this file.
 - fix(components/listing-item): disabled items should not fire mouse events #1947
 
 ### Refactor
-- fix(components/confirm-popup): refactored directive, replaced old code to host directive
+
+- refactor(components/confirm-popup): refactored directive, replaced old code to host directive
 
 ## [5.0.0](https://github.com/zyfra/Prizm) (22-08-2024)
 
