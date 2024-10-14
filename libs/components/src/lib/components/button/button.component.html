@@ -26,7 +26,6 @@
 
 <ng-template #showIconTemp let-icon="icon">
   <ng-container *polymorphOutlet="icon as content; context: { size: size }">
-    <!--    <prizm-icon [iconClass]="content" [size]="16"></prizm-icon>-->
     <prizm-icons-full [name]="content" [size]="16"></prizm-icons-full>
   </ng-container>
 </ng-template>
