@@ -1,5 +1,5 @@
-import { PrizmCarouselArrayContent } from '../input';
 import { PrizmDay, PrizmTime } from '../../@core';
+import { PrizmCarouselArrayContent } from '../input/carousel/carousel-content/carousel-array.class';
 
 export enum PrizmCronUiBaseType {
   every,
