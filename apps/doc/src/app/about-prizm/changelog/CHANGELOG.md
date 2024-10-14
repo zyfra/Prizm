@@ -17,6 +17,9 @@ All notable changes to this project will be documented in this file.
 
 - fix(helpers/hint-overflow): re calculate position after change window size #2093
 - fix(components/chipd): re calculate position after change window size #2093
+- fix(components/tabs): view not updated for activeTabindexChage when tabs overflows #1863
+- fix(components/tabs): tabindex should recalculate on close from dropdown #1948
+- fix(components/listing-item): disabled items should not fire mouse events #1947
 
 ## [4.5.0](https://github.com/zyfra/Prizm)
 
