@@ -3,6 +3,18 @@
     Our tabs component is a simple way to organize content on a page.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-tabs (PrizmIconsFullRegistry)</li>
+        <li>prizm-tab (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="tabsExampleBasic" heading="Base">
       <prizm-tabs-example-basic></prizm-tabs-example-basic>
     </prizm-doc-example>
@@ -74,6 +86,17 @@
             [counterOptions]="counterOptions"
             [style.--prizm-tab-button-max-width]="prizmTabButtonMaxWidth"
             content="Big Tab 2"
+          >
+          </prizm-tab>
+          <prizm-tab
+            *ngFor="let item of simpleTabs"
+            [icon]="icon"
+            [closable]="closable"
+            [type]="type"
+            [closeIcon]="$any(closeIcon)"
+            [disabled]="disabled"
+            [style.--prizm-tab-button-max-width]="prizmTabButtonMaxWidth"
+            [content]="item.title ?? ''"
           >
           </prizm-tab>
         </prizm-tabs>

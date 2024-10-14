@@ -1,25 +1,39 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
-  ChangeDetectorRef,
   Component,
-  EventEmitter,
-  HostBinding,
+  ElementRef,
+  inject,
+  Injector,
   Input,
-  OnInit,
-  Optional,
-  Output,
+  OnChanges,
   Self,
+  ViewChild,
+  ViewContainerRef,
 } from '@angular/core';
-import { PrizmSwitcherItem, PrizmSwitcherSize, PrizmSwitcherType } from './switcher.interface';
-import { prizmDefaultProp } from '@prizm-ui/core';
+import { PrizmSwitcherSize } from './switcher.interface';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { ControlValueAccessor, NgControl } from '@angular/forms';
-import { BehaviorSubject, combineLatestWith, filter, noop, takeUntil, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { SWITCHER_CONTAINER, SWITCHER_VIEW_CONTAINER } from './swithcer.const';
+import {
+  filterNotNullish,
+  PRIZM_ALL_INDEXES_READY,
+  PRIZM_INDEX_SELECT_FN,
+  PrizmDestroyService,
+  PrizmDisabledDirective,
+  PrizmSelectedIndexDirective,
+  prizmSetDefaultSize,
+  PrizmSizeDirective,
+  PrizmStoreByIndexDirective,
+  PrizmSyncParentDirective,
+} from '@prizm-ui/helpers';
+import { PrizmSwitcherItemsDirective } from './directives/items';
+import { PrizmSwitcherTypeDirective } from './directives/switcher-type.directive';
+import { PrizmSwitcherFullWidthDirective } from './directives/switcher-full-width.directive';
+import { PrizmSwitcherControlDirective } from './directives/switcher-control.directive';
 import { PrizmSwitcherItemComponent } from './components/switcher-item/switcher-item.component';
-import { PrizmSwitcherHintDirective } from './directives/switcher-hint.directive';
-import { INITIAL_SWITHCER_INDEX } from './swithcer.const';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { debounceTime } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-switcher',
@@ -27,130 +41,138 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   styleUrls: ['./switcher.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [CommonModule, PrizmSwitcherHintDirective, PrizmSwitcherItemComponent],
-  providers: [PrizmDestroyService],
+  imports: [CommonModule, PrizmDisabledDirective],
+  providers: [
+    prizmSetDefaultSize('l'),
+    PrizmDestroyService,
+    PrizmStoreByIndexDirective,
+    {
+      provide: SWITCHER_VIEW_CONTAINER,
+      useFactory() {
+        return new BehaviorSubject(null);
+      },
+    },
+    {
+      provide: SWITCHER_CONTAINER,
+      useFactory() {
+        return new BehaviorSubject(null);
+      },
+    },
+    {
+      provide: PRIZM_ALL_INDEXES_READY,
+      useFactory(switcher: BehaviorSubject<null | HTMLElement>) {
+        return switcher.pipe(
+          filterNotNullish(),
+          // start time for load all nested items
+          debounceTime(100)
+        );
+      },
+      deps: [[SWITCHER_CONTAINER]],
+    },
+    {
+      provide: PRIZM_INDEX_SELECT_FN,
+      useFactory(store: PrizmStoreByIndexDirective<PrizmSwitcherItemComponent>, injector: Injector) {
+        return (idx: number) => {
+          const selected = store.get(idx)?.select();
+          if (selected) return true;
+
+          const items = [...store.entries()];
+
+          // TODO think about this behaviour
+          // const notDisabledFirstValue = items.find(([, i]) => !i.isDisabled);
+          //
+          // if (notDisabledFirstValue) {
+          //   console.warn(
+          //     `Can not select by idx ${idx}, selected first not disabled value ${notDisabledFirstValue[0]}`
+          //   );
+          //   return notDisabledFirstValue[1].select();
+          // }
+
+          const firstValue = items.shift();
+
+          if (firstValue) {
+            console.warn(`Can not select by idx ${idx}, selected first value ${firstValue[0]}`);
+            return firstValue[1].select();
+          }
+
+          console.error(`Can not select by idx ${idx} and can not get default value`, {
+            items,
+            defaultValue: firstValue,
+          });
+          injector.get(PrizmSelectedIndexDirective)?.setIndex(-1);
+          return false;
+        };
+      },
+      deps: [
+        [new Self(), PrizmStoreByIndexDirective<PrizmSwitcherItemComponent>],
+        [new Self(), Injector],
+      ],
+    },
+  ],
+  hostDirectives: [
+    // for sync state with all children
+    PrizmSyncParentDirective,
+    // for work with form controls
+    PrizmSwitcherControlDirective,
+    {
+      directive: PrizmSizeDirective,
+      inputs: ['size'],
+    },
+    {
+      directive: PrizmSwitcherTypeDirective,
+      inputs: ['type'],
+    },
+    // for easy add from switchers array to control
+    {
+      directive: PrizmSwitcherItemsDirective,
+      inputs: ['switchers'],
+    },
+    {
+      directive: PrizmSwitcherFullWidthDirective,
+      inputs: ['fullWidth'],
+    },
+    // for control index from children and parent
+    {
+      directive: PrizmSelectedIndexDirective,
+      inputs: ['selectedIndex: selectedSwitcherIdx'],
+      outputs: ['selectedIndexChange: selectedSwitcherIdxChange'],
+    },
+    {
+      directive: PrizmDisabledDirective,
+    },
+  ],
 })
-export class PrizmSwitcherComponent extends PrizmAbstractTestId implements ControlValueAccessor, OnInit {
+export class PrizmSwitcherComponent extends PrizmAbstractTestId implements AfterViewInit, OnChanges {
+  @ViewChild('container', { read: ElementRef }) container?: ElementRef<HTMLDivElement>;
+  @ViewChild('viewRef', { read: ViewContainerRef }) viewRef?: ViewContainerRef;
+
+  // for set type PrizmSwitcherSize for directive PrizmSizeDirective
   @Input()
-  @prizmDefaultProp()
   public size: PrizmSwitcherSize = 'l';
-
-  @Input()
-  @prizmDefaultProp()
-  public type: PrizmSwitcherType = 'inner';
-
-  private switchers$: BehaviorSubject<PrizmSwitcherItem[]> = new BehaviorSubject<PrizmSwitcherItem[]>([]);
-
-  @Input()
-  @prizmDefaultProp()
-  public set switchers(value: PrizmSwitcherItem[]) {
-    if (value) this.switchers$.next(value);
-  }
-  get switchers(): PrizmSwitcherItem[] {
-    return this.switchers$.value;
-  }
-
-  private selectedSwitcherIdx$: BehaviorSubject<number> = new BehaviorSubject(INITIAL_SWITHCER_INDEX);
-  public selectedSwitcherIdx_ = INITIAL_SWITHCER_INDEX;
-
-  @Input()
-  @prizmDefaultProp()
-  public set selectedSwitcherIdx(value: number) {
-    this.selectedSwitcherIdx$.next(value);
-  }
-  get selectedSwitcherIdx(): number {
-    return this.selectedSwitcherIdx_;
-  }
-
-  @Input()
-  @HostBinding('class.full-width')
-  @prizmDefaultProp()
-  public fullWidth = false;
-
-  @Output() public selectedSwitcherIdxChange: EventEmitter<number> = new EventEmitter();
+  private readonly allIndexesReady$ = inject(PRIZM_ALL_INDEXES_READY, { self: true });
+  // view container for dynamic add for items
+  private readonly switcherViewContainer = inject(SWITCHER_VIEW_CONTAINER);
+  private readonly selectFn = inject(PRIZM_INDEX_SELECT_FN);
+  // container html for count children length
+  private readonly switcherContainer = inject(SWITCHER_CONTAINER);
 
   override readonly testId_ = 'ui_switcher';
+  private readonly syncParentDirective = inject(PrizmSyncParentDirective);
 
-  onChange: (v: number) => void = noop;
-  onTouched: () => void = noop;
-
-  constructor(
-    public readonly cdRef: ChangeDetectorRef,
-    @Optional() @Self() public readonly ngControl: NgControl,
-    private readonly destroy$: PrizmDestroyService
-  ) {
-    super();
-    if (this.ngControl != null) {
-      this.ngControl.valueAccessor = this;
-    }
+  public ngAfterViewInit(): void {
+    this.switcherViewContainer.next(this.viewRef!);
+    this.switcherContainer.next(this.container!);
   }
 
-  ngOnInit(): void {
-    this.handleSwitchersUpdate();
+  /**
+   * @public api
+   * safe select switcher by index
+   */
+  public selectSwitcher(idx: number): boolean {
+    return this.selectFn(idx);
   }
 
-  public selectSwitcher(item: PrizmSwitcherItem, idx: number): void {
-    if (this.ngControl?.disabled) return;
-    if (item.disabled) return;
-    if (this.selectedSwitcherIdx === idx) return;
-    this.selectedSwitcherIdxChange.emit((this.selectedSwitcherIdx = idx));
-    this.onChange(this.selectedSwitcherIdx);
-  }
-
-  public writeValue(idx: string): void {
-    const selectedSwitcherIdx = parseInt(idx);
-    if (!this.isIndexValid(selectedSwitcherIdx, this.switchers)) {
-      this.logIndexValidationError("value is out of bound and can't be set");
-      return;
-    }
-
-    this.selectedSwitcherIdx_ = selectedSwitcherIdx;
-    this.cdRef.markForCheck();
-  }
-  public registerOnChange(fn: (value: number) => void): void {
-    this.onChange = fn;
-  }
-  public registerOnTouched(fn: () => void): void {
-    this.onTouched = fn;
-  }
-
-  public setDisabledState(isDisabled: boolean): void {
-    this.cdRef.markForCheck();
-  }
-
-  private handleSwitchersUpdate() {
-    this.switchers$
-      .pipe(
-        filter((switchers: PrizmSwitcherItem[]) => !!switchers.length),
-        tap(switchers => {
-          if (!this.isIndexValid(this.selectedSwitcherIdx_, switchers)) {
-            this.selectSwitcher(switchers[INITIAL_SWITHCER_INDEX], INITIAL_SWITHCER_INDEX);
-            this.logIndexValidationError(
-              `selectedSwitcherIdx out of bound. Index has been reset to ${INITIAL_SWITHCER_INDEX}`
-            );
-          }
-        }),
-        combineLatestWith(this.selectedSwitcherIdx$),
-        tap(([switchers, selectedSwitcherIdx]) => {
-          if (!this.isIndexValid(selectedSwitcherIdx, switchers)) {
-            this.logIndexValidationError('selectedSwitcherIdx out of bound');
-            return;
-          }
-
-          this.selectedSwitcherIdx_ = selectedSwitcherIdx;
-
-          this.selectSwitcher(switchers[selectedSwitcherIdx], selectedSwitcherIdx);
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-  }
-
-  private isIndexValid(idx: number, switchers: PrizmSwitcherItem[]): boolean {
-    return !!switchers[idx];
-  }
-
-  private logIndexValidationError(errorMsg: string) {
-    console.warn(errorMsg);
+  ngOnChanges(): void {
+    this.syncParentDirective.sync();
   }
 }

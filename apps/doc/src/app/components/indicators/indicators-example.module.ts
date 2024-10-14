@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 import { IndicatorsBasicExampleComponent } from './examples/indicators-basic-example/indicators-basic-example.component';
 import { IndicatorsWithIconExampleComponent } from './examples/indicators-with-icon-example/indicators-with-icon-example.component';
 import { PrizmIndicatorComponent } from '@prizm-ui/components';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PrizmIndicatorComponent } from '@prizm-ui/components';
     PrizmAddonDocModule,
     PrizmIndicatorComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(IndicatorsExampleComponent)),
+    PrizmIfLanguageDirective,
   ],
 })
 export class IndicatorsExampleModule {}

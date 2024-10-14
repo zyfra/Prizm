@@ -40,6 +40,14 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
   }
 
   @Input()
+  public set color(value: PrizmChartsPieOptions['color']) {
+    this.updateOptions({ color: value });
+  }
+  public get color(): PrizmChartsPieOptions['color'] {
+    return this.options.color;
+  }
+
+  @Input()
   public set colorField(value: string) {
     this.updateOptions({ colorField: value });
   }

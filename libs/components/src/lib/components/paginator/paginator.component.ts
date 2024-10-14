@@ -4,6 +4,7 @@ import {
   ChangeDetectorRef,
   Component,
   EventEmitter,
+  HostBinding,
   inject,
   Inject,
   Input,
@@ -13,6 +14,7 @@ import {
 import { AsyncSubject, Observable } from 'rxjs';
 import {
   PrizmPaginatorData,
+  PrizmPaginatorDirection,
   PrizmPaginatorOptions,
   PrizmPaginatorOutput,
   PrizmPaginatorType,
@@ -34,6 +36,7 @@ import {
   prizmIconsChevronsDoubleLeft,
   prizmIconsChevronsDoubleRight,
 } from '@prizm-ui/icons/full/source';
+import { prizmDefaultProp } from '@prizm-ui/core';
 
 @Component({
   selector: 'prizm-paginator',
@@ -56,7 +59,10 @@ import {
 })
 export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnInit {
   @Input() public paginatorType: PrizmPaginatorType = 'finite';
-  @Input() textOnPage: PolymorphContent = 'Строк на странице';
+  @Input() textOnPage: PolymorphContent;
+  @Input() public leftButtonLabel = '';
+  @Input() public rightButtonLabel = '';
+  @Input() public moreButtonLabel = '';
   /** The length of the total number of items that are being paginated. Defaulted to 0. */
   @Input()
   get totalRecords(): number | null {
@@ -106,13 +112,19 @@ export class PrizmPaginatorComponent extends PrizmAbstractTestId implements OnIn
     noPages: false,
   };
 
-  @Input() public leftButtonLabel = '';
-  @Input() public rightButtonLabel = '';
-  @Input() moreButtonLabel = 'Показать еще';
-
   @Input() public rowsCountOptions: number[] = [];
-  @Output() public paginatorChange: EventEmitter<PrizmPaginatorOutput> =
-    new EventEmitter<PrizmPaginatorOutput>();
+
+  @Input()
+  @prizmDefaultProp()
+  public direction: PrizmPaginatorDirection = 'right';
+
+  @HostBinding('class.direction-left')
+  public get directionLeft(): boolean {
+    return this.direction === 'left';
+  }
+
+  @Output()
+  public paginatorChange: EventEmitter<PrizmPaginatorOutput> = new EventEmitter<PrizmPaginatorOutput>();
   @Output() public pageChange: EventEmitter<number> = new EventEmitter<number>();
   @Output() public rowsChange: EventEmitter<number | null> = new EventEmitter<number | null>();
 

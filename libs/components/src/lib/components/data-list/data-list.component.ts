@@ -44,6 +44,11 @@ export class PrizmDataListComponent extends PrizmAbstractTestId implements OnIni
   @prizmDefaultProp()
   iconOff = this.options.empty;
 
+  @Input()
+  minHeight?: number;
+
+  @Input()
+  maxHeight?: number;
   /**
    * for example
    * change scroll bar
@@ -70,11 +75,11 @@ export class PrizmDataListComponent extends PrizmAbstractTestId implements OnIni
   }
 
   get minDropdownHeight(): string {
-    return (this.controller?.minHeight ?? PRIZM_DROPDOWN_DEFAULT_MIN_HEIGHT) + 'px';
+    return (this.minHeight ?? this.controller?.minHeight ?? PRIZM_DROPDOWN_DEFAULT_MIN_HEIGHT) + 'px';
   }
 
   get maxDropdownHeight(): string {
-    return (this.controller?.maxHeight ?? PRIZM_DROPDOWN_DEFAULT_MAX_HEIGHT) + 'px';
+    return (this.maxHeight ?? this.controller?.maxHeight ?? PRIZM_DROPDOWN_DEFAULT_MAX_HEIGHT) + 'px';
   }
 
   ngOnInit(): void {
