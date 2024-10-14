@@ -279,10 +279,13 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.selectedItems$ = this.value$.pipe(debounceTime(0), startWith(this.value)).pipe(
       switchMap(() => {
         const selectedItems = this.value;
+
         return this.items$.pipe(
           map(items => {
-            return selectedItems.filter(selectedItem => {
-              return items.find(item => this.identityMatcher(selectedItem, this.transformer(item)));
+            return items.filter(selectedItem => {
+              return selectedItems.find(item => {
+                return this.identityMatcher(item, this.transformer(selectedItem));
+              });
             });
           })
         );
@@ -293,6 +296,7 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.selectedItemsChips$ = this.selectedItems$.pipe(
       map((selectedItems: T[]) => {
         this.chipsSet.clear();
+
         const result =
           selectedItems?.map(i => {
             const str = this.stringify({

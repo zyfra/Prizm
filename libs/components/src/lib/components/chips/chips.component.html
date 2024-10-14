@@ -5,6 +5,8 @@
     *ngIf="!!chipsList?.length"
     [active]="singleLine"
     [class.hidden]="singleLine"
+    [reserveSpace]="{ x: 48 }"
+    [host]="layoutComponent?.el?.nativeElement"
     prizmOverflowHost
   >
     <prizm-chips-item

@@ -36,7 +36,9 @@
       >
         <prizm-input-tree-multi-select
           #element
-          #input
+          #input="prizmInputTreeMultiSelect"
+          #checkboxElement="prizmTreeMultiSelectCheckbox"
+          [checkboxPosition]="checkboxPosition"
           [searchMatcher]="searchMatcher"
           [prizmDocHostElement]="element"
           [isChipsDeletable]="isChipsDeletable"
@@ -45,6 +47,7 @@
           [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"
           [placeholder]="placeholder"
           [searchLabel]="searchLabel"
+          [searchPlaceholder]="searchPlaceholder"
           [emptyListTemplate]="emptyListTemplate"
           [stringify]="stringify"
           [getChildren]="getChildren"
@@ -59,7 +62,7 @@
                 [prizmHintOnOverflowEl]="host"
               >
                 <div class="value" #host>
-                  {{ item }}
+                  {{ item.value }}
                 </div>
               </prizm-input-tree-multi-select-item>
             </ng-container>
@@ -67,6 +70,22 @@
         </prizm-input-tree-multi-select>
       </prizm-input-layout>
     </prizm-doc-demo>
+
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      [heading]="checkboxDirective"
+      [hostComponentKey]="checkboxDirective"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="checkboxPosition"
+        [documentationPropertyValues]="checkboxPositionVariants"
+        documentationPropertyName="checkboxPosition"
+        documentationPropertyType="PrizmInputTreeMultiSelectCheckboxPosition"
+        documentationPropertyMode="input"
+      >
+        Checkbox Position
+      </ng-template>
+    </prizm-doc-documentation>
 
     <prizm-doc-documentation
       [hasTestId]="true"
@@ -96,6 +115,15 @@
         documentationPropertyMode="input"
       >
         Search Mapper
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="searchPlaceholder"
+        documentationPropertyName="searchPlaceholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Search Placeholder
       </ng-template>
 
       <ng-template

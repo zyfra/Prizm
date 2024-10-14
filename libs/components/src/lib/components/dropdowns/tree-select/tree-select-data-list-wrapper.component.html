@@ -8,7 +8,9 @@
         class="input-search"
         [ngModelOptions]="{ standalone: true }"
         [ngModel]="treeSelectSearchDirective.query"
+        [placeholder]="treeSelectSearchDirective.searchPlaceholder"
         (ngModelChange)="treeSelectSearchDirective.search($event)"
+        prizmAutoFocus
         prizmInput
       />
     </prizm-input-layout>
