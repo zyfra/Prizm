@@ -13,8 +13,11 @@
 :host {
   button {
     border-radius: 0;
+
+    ::ng-deep prizm-wrapper {
+      border-radius: 0;
+    }
     &._focused {
-      border-radius: 2px !important;
       z-index: 1;
     }
   }
