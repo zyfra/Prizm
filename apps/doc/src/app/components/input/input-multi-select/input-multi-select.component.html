@@ -6,8 +6,23 @@
     the options. The selected items are visually highlighted, providing clear feedback to the user.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>input-multi-select (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-multi-select-base-example></prizm-multi-select-base-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="async" [content]="exampleAsync" heading="Async">
+      <prizm-multi-select-async-example></prizm-multi-select-async-example>
     </prizm-doc-example>
 
     <prizm-doc-example id="with-search" [content]="exampleWithSearch" heading="With Search">
@@ -53,6 +68,7 @@
           [searchable]="searchable"
           [dropdownScroll]="dropdownScroll"
           [placeholder]="placeholder"
+          [dropdownAutoReposition]="autoReposition"
           [emptyContent]="emptyContent"
           [isChipsDeletable]="isChipsDeletable"
           [dropdownStyles]="dropdownStyles"
@@ -74,6 +90,15 @@
       [hostComponentKey]="selectKey"
       [control]="valueControl"
     >
+      <ng-template
+        [(documentationPropertyValue)]="autoReposition"
+        documentationPropertyName="dropdownAutoReposition"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Dropdown Auto Reposition
+      </ng-template>
+
       <ng-template
         documentationPropertyName="transformer"
         documentationPropertyType="PrizmMultiSelectValueTransformer"

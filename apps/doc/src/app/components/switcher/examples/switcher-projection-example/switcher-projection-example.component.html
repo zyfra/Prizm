@@ -1,0 +1,21 @@
+<prizm-switcher [formControl]="control" fullWidth type="outer">
+  <prizm-switcher-item
+    *ngFor="let item of switchers$ | async"
+    [disabled]="!!item.disabled"
+    [appearance]="item.appearance ?? 'secondary'"
+    [appearanceType]="item.appearanceType ?? 'ghost'"
+  >
+    {{ item.title }}
+  </prizm-switcher-item>
+</prizm-switcher>
+
+<div>
+  Value: <b>{{ control.value }}</b>
+</div>
+<br />
+
+<div style="display: flex; gap: 1rem">
+  <button (click)="changeItems()" prizmButton>Switch</button>
+  <button (click)="updateValue()" prizmButton>Update value</button>
+  <button (click)="control.setValue(99)" prizmButton>Update extra index</button>
+</div>

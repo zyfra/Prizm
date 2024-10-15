@@ -62,6 +62,8 @@ import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
 import { prizmTimeLimitWithinRange } from '../../../@core/date-time/time-limit';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
+import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 
 @Component({
   selector: `prizm-input-layout-date-time`,
@@ -107,6 +109,7 @@ import { prizmIconsCalendarBlank, prizmIconsClock } from '@prizm-ui/icons/full/s
     PrizmInputNativeValueDirective,
     PrizmListingItemComponent,
     PrizmPluckPipe,
+    PrizmTimeConstraintsPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
@@ -137,13 +140,21 @@ export class PrizmInputLayoutDateTimeComponent
   @prizmDefaultProp()
   extraButtonInjector: Injector;
 
-  @Input()
   @prizmDefaultProp()
-  min: PrizmDay | [PrizmDay, PrizmTime] = PRIZM_FIRST_DAY;
+  _min: PrizmDay | [PrizmDay, PrizmTime] = PRIZM_FIRST_DAY;
 
   @Input()
+  set min(value: PrizmDay | [PrizmDay, PrizmTime] | Date | string) {
+    this._min = transformDateIfNeeded(value) || PRIZM_FIRST_DAY;
+  }
+
   @prizmDefaultProp()
-  max: PrizmDay | [PrizmDay, PrizmTime] = PRIZM_LAST_DAY;
+  _max: PrizmDay | [PrizmDay, PrizmTime] = PRIZM_LAST_DAY;
+
+  @Input()
+  set max(value: PrizmDay | [PrizmDay, PrizmTime] | Date | string) {
+    this._max = transformDateIfNeeded(value) || PRIZM_LAST_DAY;
+  }
 
   @Input()
   @prizmDefaultProp()
@@ -302,11 +313,11 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   get calendarMinDay(): PrizmDay {
-    return Array.isArray(this.min) ? this.min[0] : this.min;
+    return Array.isArray(this._min) ? this._min[0] : this._min;
   }
 
   get calendarMaxDay(): PrizmDay {
-    return Array.isArray(this.max) ? this.max[0] : this.max;
+    return Array.isArray(this._max) ? this._max[0] : this._max;
   }
 
   get computedActiveYearMonth(): PrizmMonth {
@@ -332,8 +343,8 @@ export class PrizmInputLayoutDateTimeComponent
     let [date, time] = value;
     if (date && !time) time = new PrizmTime(0, 0, 0);
 
-    const dateMin = this.min instanceof PrizmDay ? this.min : this.min && this.min[0];
-    const dateMax = this.max instanceof PrizmDay ? this.max : this.max && this.max[0];
+    const dateMin = this._min instanceof PrizmDay ? this._min : this._min && this._min[0];
+    const dateMax = this._max instanceof PrizmDay ? this._max : this._max && this._max[0];
 
     // correct min max time
     if (date) date = date.dayLimit(dateMin, dateMax);
@@ -361,8 +372,8 @@ export class PrizmInputLayoutDateTimeComponent
   }
 
   private limitTime(date: PrizmDay, time: PrizmTime | null, dateMin: PrizmDay, dateMax: PrizmDay) {
-    const timeMin = Array.isArray(this.min) && this.min[1] ? this.min[1] : null;
-    const timeMax = Array.isArray(this.max) && this.max[1] ? this.max[1] : null;
+    const timeMin = Array.isArray(this._min) && this._min[1] ? this._min[1] : null;
+    const timeMax = Array.isArray(this._max) && this._max[1] ? this._max[1] : null;
 
     return prizmTimeLimitWithinRange(date, time, dateMin, dateMax, timeMin, timeMax);
   }
@@ -402,11 +413,11 @@ export class PrizmInputLayoutDateTimeComponent
     let [, parsedTime] = value;
     if (parsedTime)
       parsedTime = parsedTime.timeLimit(
-        Array.isArray(this.min) && this.min[1] instanceof PrizmTime && value?.[0]?.daySame(this.min[0])
-          ? this.min[1]
+        Array.isArray(this._min) && this._min[1] instanceof PrizmTime && value?.[0]?.daySame(this._min[0])
+          ? this._min[1]
           : null,
-        Array.isArray(this.max) && this.max[1] instanceof PrizmTime && value?.[0]?.daySame(this.max[0])
-          ? this.max[1]
+        Array.isArray(this._max) && this._max[1] instanceof PrizmTime && value?.[0]?.daySame(this._max[0])
+          ? this._max[1]
           : null
       );
 
@@ -506,12 +517,12 @@ export class PrizmInputLayoutDateTimeComponent
   private prizmClampTime(time: PrizmTime, day: PrizmDay): PrizmTime {
     const ms = time.toAbsoluteMilliseconds();
     const min =
-      Array.isArray(this.min) && day.daySame(this.calendarMinDay)
-        ? this.min[1].toAbsoluteMilliseconds()
+      Array.isArray(this._min) && day.daySame(this.calendarMinDay)
+        ? this._min[1].toAbsoluteMilliseconds()
         : -Infinity;
     const max =
-      Array.isArray(this.max) && day.daySame(this.calendarMaxDay)
-        ? this.max[1].toAbsoluteMilliseconds()
+      Array.isArray(this._max) && day.daySame(this.calendarMaxDay)
+        ? this._max[1].toAbsoluteMilliseconds()
         : Infinity;
 
     return PrizmTime.fromAbsoluteMilliseconds(prizmClamp(ms, min, max));
