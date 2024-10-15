@@ -33,6 +33,7 @@ import {
   PrizmDropdownHostClasses,
   PrizmDropdownHostComponent,
   PrizmDropdownHostStyles,
+  PrizmDropdownTriggerClickDirective,
 } from '../dropdown-host';
 import {
   PrizmMultiSelectIdentityMatcher,
@@ -81,6 +82,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     PrizmDropdownHostComponent,
     PrizmIconsFullComponent,
     PrizmFocusableDirective,
+    PrizmDropdownTriggerClickDirective,
   ],
   providers: [
     {
@@ -251,7 +253,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   override ngOnInit(): void {
     super.ngOnInit();
-    this.initParentClickListener();
     this.initFilteredItemsObservables();
     this.initSelectedItemsObservables();
     this.selectedItems$
@@ -259,16 +260,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
         tap(items => {
           this.chipsControl.setValue(items as any, { emitEvent: true });
         }),
-        tap(() => this.changeDetectorRef.markForCheck()),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-  }
-
-  protected initParentClickListener(): void {
-    this.layoutComponent?.innerClick$
-      .pipe(
-        tap(() => this.opened$$.next(this.disabled ? false : !this.opened$$.value)),
         tap(() => this.changeDetectorRef.markForCheck()),
         takeUntil(this.destroy$)
       )

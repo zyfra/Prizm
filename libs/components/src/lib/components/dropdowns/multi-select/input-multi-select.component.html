@@ -10,8 +10,10 @@
   [dropdownStyles]="dropdownStyles"
   [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent?.outer"
+  [dropdownTriggerElement]="layoutComponent?.el?.nativeElement"
   [prizmFocusable]="true"
-  (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
+  (isOpenChange)="$event && searchInputControl.setValue('')"
+  dropdownTrigger="click"
 >
   <input
     #focusableElementRef
@@ -113,7 +115,6 @@
       [name]="$any(iconName)"
       [class.disabled]="disabled"
       [prizmFocusable]="true"
-      (click)="safeOpenModal()"
     >
     </prizm-icons-full>
   </ng-container>
