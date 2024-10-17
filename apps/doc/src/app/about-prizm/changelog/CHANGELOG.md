@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/input-tree-select): added autofocus for search input #2090
 - feat(components/input-tree-multi-select): added autofocus for search input #2090
 - feat(helpers/hint-overflow): added input to reserve extra space #2093
+- feat(components/input-layout-date-time-range): add localization for time label #2128 BREAKING CHANGE in dictionaries, why we do this read [here](https://github.com/zyfra/Prizm/discussions/1617)
 
 ### Bugfixes
 
