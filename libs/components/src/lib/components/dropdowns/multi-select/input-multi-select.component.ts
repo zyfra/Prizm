@@ -385,12 +385,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.dropdownHostElement?.reCalculatePositions();
   }
 
-  public safeOpenModal(): void {
-    const inputElement = this.focusableElement?.nativeElement;
-    const open = !this.opened$$.value && !this.disabled && !!inputElement;
-    this.opened$$.next(open);
-  }
-
   public removeChip(str: string): void {
     const item = this.chipsSet.get(str);
     this.select({
@@ -401,5 +395,9 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   public trackBy(index: number): number {
     return index;
+  }
+
+  public changeParentFocusedClass(add: boolean) {
+    this.layoutComponent?.setFocusedClass(add);
   }
 }

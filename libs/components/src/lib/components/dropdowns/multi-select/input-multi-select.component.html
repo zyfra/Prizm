@@ -12,7 +12,7 @@
   [ngSwitch]="layoutComponent?.outer"
   [dropdownTriggerElement]="layoutComponent?.el?.nativeElement"
   [prizmFocusable]="true"
-  (isOpenChange)="$event && searchInputControl.setValue('')"
+  (isOpenChange)="changeParentFocusedClass($event); $event && searchInputControl.setValue('')"
   dropdownTrigger="click"
 >
   <input

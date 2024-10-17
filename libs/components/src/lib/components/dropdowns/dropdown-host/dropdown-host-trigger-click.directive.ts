@@ -16,7 +16,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 @Directive({
   selector: 'prizm-dropdown-host[dropdownTrigger="click"]',
   standalone: true,
-  exportAs: 'dropdownTriggerClick',
+  exportAs: 'prizmDropdownTriggerClick',
 })
 export class PrizmDropdownTriggerClickDirective implements OnChanges, OnInit {
   @Input() dropdownTriggerElement?: HTMLElement;
