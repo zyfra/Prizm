@@ -35,7 +35,7 @@ import { filter, map, skip, takeUntil, tap } from 'rxjs/operators';
 import {
   PolymorphOutletDirective,
   PrizmDropdownControllerDirective,
-  PrizmFocusableModule,
+  PrizmFocusableDirective,
 } from '../../../directives';
 import { PrizmTreeSelectDataListWrapperComponent } from '../tree-select/tree-select-data-list-wrapper.component';
 import { PrizmTreeMultiSelectSelectedDirective } from './tree-select-multi-selected.directive';
@@ -54,12 +54,14 @@ import {
 } from '../../chips';
 import { PrizmTreeSelectSelectedDirective } from '../tree-select/tree-select-selected.directive';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full';
+import { prizmIconsMagnifyingGlass } from '@prizm-ui/icons/full/source/magnifying-glass';
+import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source/triangle-down';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { PrizmTreeSelectStringifyDirective } from '../tree-select';
 
 @Component({
   selector: 'prizm-input-tree-multi-select',
+  exportAs: 'prizmInputTreeMultiSelect',
   templateUrl: './tree-multi-select.component.html',
   styleUrl: './tree-multi-select.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -84,7 +86,7 @@ import { PrizmTreeSelectStringifyDirective } from '../tree-select';
     PrizmInputCommonModule,
     PolymorphOutletDirective,
     PrizmIconsFullComponent,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
   ],
   providers: [
     {
@@ -141,7 +143,14 @@ import { PrizmTreeSelectStringifyDirective } from '../tree-select';
     },
     {
       directive: PrizmTreeMultiSelectSearchDirective,
-      inputs: ['searchable', 'searchFilter', 'searchMapper', 'searchMatcher', 'searchDebounce'],
+      inputs: [
+        'searchable',
+        'searchFilter',
+        'searchMapper',
+        'searchMatcher',
+        'searchDebounce',
+        'searchPlaceholder',
+      ],
       outputs: ['searched'],
     },
     {

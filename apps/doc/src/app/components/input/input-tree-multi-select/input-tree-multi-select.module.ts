@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { InputTreeMultiSelectComponent } from './input-tree-multi-select.component';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmDataListDirective,
   PrizmDataListWrapperComponent,
   PrizmHintOnOverflowDirective,
@@ -13,6 +13,7 @@ import {
   PrizmInputTreeMultiSelectComponent,
   PrizmInputTreeSelectComponent,
   PrizmScrollbarModule,
+  PrizmInputTreeMultiSelectCheckboxDirective,
   PrizmTreeMultiSelectItemComponent,
   PrizmTreeMultiSelectItemDirective,
   PrizmTreeSelectItemComponent,
@@ -36,7 +37,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PolymorphModule,
     PrizmLetDirective,
     PrizmScrollbarModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmDataListDirective,
     RouterModule.forChild(prizmDocGenerateRoutes(InputTreeMultiSelectComponent)),
     PrizmIconsFullComponent,
@@ -50,6 +51,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PrizmHtmlRefDirective,
     PrizmTreeSelectItemComponent,
     PrizmInputTreeSelectComponent,
+    PrizmInputTreeMultiSelectCheckboxDirective,
   ],
   declarations: [
     PrizmTreeSelectI18nExampleComponent,

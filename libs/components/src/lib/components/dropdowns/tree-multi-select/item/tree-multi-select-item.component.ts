@@ -27,13 +27,14 @@ import { PrizmTreeSelectIsOpenedDirective } from '../../tree-select/tree-select-
 import { BehaviorSubject } from 'rxjs';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER } from '../../tree-select/token';
-import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full';
+import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full/source/chevron-mini-right';
 import { map, takeUntil, tap } from 'rxjs/operators';
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmTreeMultiSelectItemDirective } from './tree-multi-select-item.directive';
 import { PrizmTreeMultiSelectSearchDirective } from '../search';
 import { PrizmCheckboxComponent } from '../../../checkbox';
 import { PrizmTreeMultiSelectSelectedDirective } from '../tree-select-multi-selected.directive';
+import { getPrizmLabelPosition } from '../tree-multi-select-checkbox.directive';
 
 @Component({
   selector: 'prizm-input-tree-multi-select-item',
@@ -71,6 +72,7 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   @Output() openedChange = new EventEmitter<boolean>();
   override readonly testId_ = 'ui_tree_multi_select_item';
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
+  readonly checkboxPosition = getPrizmLabelPosition();
   public childrenElements: PrizmTreeMultiSelectItemComponent<K>[] = [];
   public cdRef = inject(ChangeDetectorRef);
   public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS) as PrizmTreeMultiSelectItemDirective[];

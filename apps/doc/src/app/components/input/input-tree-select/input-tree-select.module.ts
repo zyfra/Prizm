@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 import { InputTreeSelectComponent } from './input-tree-select.component';
 import {
   PolymorphModule,
-  PrizmButtonModule,
+  PrizmButtonComponent,
   PrizmDataListDirective,
   PrizmDataListWrapperComponent,
   PrizmHintOnOverflowDirective,
   PrizmInputCommonModule,
+  PrizmInputTreeMultiSelectComponent,
   PrizmInputTreeSelectComponent,
   PrizmScrollbarModule,
   PrizmTreeSelectItemComponent,
@@ -34,7 +35,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PolymorphModule,
     PrizmLetDirective,
     PrizmScrollbarModule,
-    PrizmButtonModule,
+    PrizmButtonComponent,
     PrizmInputTreeSelectComponent,
     PrizmDataListDirective,
     RouterModule.forChild(prizmDocGenerateRoutes(InputTreeSelectComponent)),
@@ -45,6 +46,7 @@ import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select
     PrizmDataListWrapperComponent,
     PrizmHintOnOverflowDirective,
     PrizmHtmlRefDirective,
+    PrizmInputTreeMultiSelectComponent,
   ],
   declarations: [
     PrizmTreeSelectI18nExampleComponent,

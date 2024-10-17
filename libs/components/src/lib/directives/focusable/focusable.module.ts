@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PrizmFocusableDirective } from './focusable.directive';
 
 @NgModule({
-  declarations: [PrizmFocusableDirective],
+  imports: [PrizmFocusableDirective],
   exports: [PrizmFocusableDirective],
 })
 export class PrizmFocusableModule {}
