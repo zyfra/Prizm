@@ -118,6 +118,7 @@
   <!--  -->
   <ng-template #dropdown>
     <prizm-calendar-range
+      *prizmLet="dictionary$ | async | prizmPluck : ['time'] as timeStr"
       [style.--prizm-input-layout-width]="'100%'"
       [style.--prizm-dropdown-host-width]="'100%'"
       [defaultViewedMonth]="defaultViewedMonth"
@@ -133,7 +134,7 @@
       (valueChange)="onRangeChange($event)"
     >
       <ng-container footerFrom>
-        <prizm-input-layout label="Время">
+        <prizm-input-layout [label]="timeStr">
           <prizm-input-layout-time
             [style.--prizm-dropdown-host-width]="'100%'"
             [ngModelOptions]="{ standalone: true }"
@@ -147,7 +148,7 @@
         </prizm-input-layout>
       </ng-container>
       <ng-container footerTo>
-        <prizm-input-layout label="Время">
+        <prizm-input-layout [label]="timeStr">
           <prizm-input-layout-time
             [style.--prizm-dropdown-host-width]="'100%'"
             [ngModelOptions]="{ standalone: true }"
