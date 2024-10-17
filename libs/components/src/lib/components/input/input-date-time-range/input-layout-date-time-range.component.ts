@@ -47,7 +47,7 @@ import {
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { PrizmDateButton, PrizmTimeMode } from '../../../types';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
-import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
+import { PRIZM_DATE_RIGHT_BUTTONS, PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens';
 import { PrizmDateTimeMinMax } from './model';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { CommonModule } from '@angular/common';
@@ -261,9 +261,12 @@ export class PrizmInputLayoutDateTimeRangeComponent
     @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
+    // @Optional()
+    // @Inject(PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS)
+    // override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
     @Optional()
-    @Inject(PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS)
-    override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
+    @Inject(PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER)
+    valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
   ) {
     super(injector, valueTransformer);
     this.iconsFullRegistry.registerIcons(prizmIconsCalendarRange, prizmIconsClock);
