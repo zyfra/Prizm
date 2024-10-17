@@ -32,10 +32,13 @@
     <ng-content></ng-content>
   </div>
 
-  <div class="control" *ngIf="canShowMenu" [class.control_active]="isRightBtnActive">
+  @if (isRightBtnActive) {
+
+  <div class="control" [class.control_active]="isRightBtnActive">
     <prizm-dropdown-host
       class="dropdown-host"
       #tabsDropdown
+      *ngIf="canShowMenu"
       [(isOpen)]="openRight"
       [content]="dropdown"
       (prizmAfterViewInit)="tabsMoreDropdown = tabsDropdown"
@@ -50,6 +53,7 @@
         size="m"
       ></button>
     </prizm-dropdown-host>
+
     <button
       [icon]="'angle-right'"
       (click)="increase()"
@@ -59,6 +63,7 @@
       size="m"
     ></button>
   </div>
+  }
 
   <ng-template #dropdown>
     <prizm-data-list>
