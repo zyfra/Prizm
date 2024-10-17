@@ -63,7 +63,7 @@ export class PrizmThemeDirective implements OnInit {
             theme as PrizmTheme
           );
         }),
-        tap(theme => this.prizmThemeChange.next((this.prizmTheme = theme as PrizmTheme))),
+        tap(theme => this.prizmThemeChange.next(theme as PrizmTheme)),
         takeUntil(this.destroy$)
       )
       .subscribe();
