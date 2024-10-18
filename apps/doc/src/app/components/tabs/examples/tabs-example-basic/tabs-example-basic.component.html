@@ -1,5 +1,5 @@
 <div class="container">
-  <prizm-tabs [(activeTabIndex)]="activeTabIndex" [canShowMenu]="false">
+  <prizm-tabs [(activeTabIndex)]="activeTabIndex">
     <prizm-tab *ngFor="let item of tabs" [content]="item.title ?? ''" [type]="'line'"> </prizm-tab>
   </prizm-tabs>
 </div>
