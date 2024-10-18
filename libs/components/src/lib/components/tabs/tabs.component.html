@@ -32,8 +32,6 @@
     <ng-content></ng-content>
   </div>
 
-  @if (isRightBtnActive) {
-
   <div class="control" [class.control_active]="isRightBtnActive">
     <prizm-dropdown-host
       class="dropdown-host"
@@ -63,7 +61,6 @@
       size="m"
     ></button>
   </div>
-  }
 
   <ng-template #dropdown>
     <prizm-data-list>
