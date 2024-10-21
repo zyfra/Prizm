@@ -19,13 +19,13 @@ import {
   PrizmAutoFocusDirective,
   PrizmDropdownControllerDirective,
   PrizmFocusableDirective,
-  PrizmHintDirective,
+  PrizmHintOnOverflowDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputTextModule } from '../../input';
-import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
+import { prizmIsNativeFocused } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -70,7 +70,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     ReactiveFormsModule,
     CommonModule,
     PrizmLetDirective,
-    PrizmHintDirective,
+    PrizmHintOnOverflowDirective,
     PrizmCallFuncPipe,
     PrizmAutoFocusDirective,
     PrizmScrollbarComponent,
@@ -203,7 +203,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   public readonly defaultIcon = 'triangle-down';
-  readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 
   public readonly items$ = new BehaviorSubject([]);
