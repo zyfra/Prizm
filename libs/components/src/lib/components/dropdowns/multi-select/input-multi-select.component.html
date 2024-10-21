@@ -6,6 +6,7 @@
   [prizmDropdownHostWidth]="dropdownWidth"
   [prizmDropdownMinHeight]="minDropdownHeight"
   [prizmDropdownMaxHeight]="maxDropdownHeight"
+  [autoReposition]="!!dropdownAutoReposition"
   [dropdownStyles]="dropdownStyles"
   [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent?.outer"
@@ -67,9 +68,8 @@
               class="text"
               #elem
               *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
-              [prizmHint]="text"
+              [prizmHintOnOverflow]="text"
               [prizmHintDirection]="direction"
-              [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
             >
               <ng-container
                 *polymorphOutlet="

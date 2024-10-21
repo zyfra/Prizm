@@ -35,8 +35,16 @@ export class InputLayoutDateTimeRangeComponent {
   readonly value = new UntypedFormControl(
     new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
   );
-  readonly min = new PrizmDateTime(new PrizmDay(2000, 2, 20), new PrizmTime(0, 0));
-  readonly max = new PrizmDateTime(new PrizmDay(2040, 2, 20), new PrizmTime(23, 59));
+
+  public minMaxVariants = [
+    new PrizmDateTime(new PrizmDay(2015, 3, 15), new PrizmTime(18, 20)),
+    '2018-11-18T08:04:30+00:00',
+    '2022-09-06T13:56:13.757Z',
+    new Date(2027, 1, 1, 20, 0, 0),
+    'invalid date string',
+  ];
+  public min = this.minMaxVariants[0];
+  public max = this.minMaxVariants[3];
   public placeholder = 'Выберите период';
   public testIdPostfix!: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];

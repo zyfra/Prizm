@@ -7,6 +7,7 @@ import { PrizmButtonComponent } from '@prizm-ui/components';
 import { PrizmIconsYourIconSetExampleComponent } from './examples/your-icon-set/icons-your-icon-set-example.component';
 import { PrizmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -15,6 +16,7 @@ import { PrizmIconsComponent } from '@prizm-ui/icons';
     PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(IconButtonComponent)),
     PrizmIconsComponent,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     PrizmIconsYourIconSetExampleComponent,

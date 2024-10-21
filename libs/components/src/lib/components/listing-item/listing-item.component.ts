@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PolymorphOutletDirective } from '../../directives';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule, PolymorphOutletDirective],
 })
 export class PrizmListingItemComponent extends PrizmAbstractTestId {
+  @HostBinding('class.disabled')
   @Input()
   get disabled() {
     return this._disabled;
@@ -29,6 +30,7 @@ export class PrizmListingItemComponent extends PrizmAbstractTestId {
   set selected(value: BooleanInput) {
     this._selected = coerceBooleanProperty(value);
   }
+
   private _selected = false;
 
   override readonly testId_ = 'ui_listing_item';

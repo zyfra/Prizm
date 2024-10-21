@@ -1,0 +1,35 @@
+<prizm-input-layout [style.--prizm-input-layout-width]="'90%'" label="Projection">
+  <prizm-input-tree-multi-select
+    #input
+    [stringify]="stringify"
+    [getChildren]="getChildren"
+    [formControl]="control"
+  >
+    <prizm-data-list-wrapper *prizmDataList>
+      <ng-container *ngFor="let arrItem of items">
+        <prizm-input-tree-multi-select-item
+          *prizmInputTreeMultiSelectItem="arrItem; let item = item"
+          [prizmHintOnOverflow]="item.value"
+          [prizmHintOnOverflowEl]="host"
+        >
+          <div class="value" #host>
+            {{ item.value }}
+          </div>
+        </prizm-input-tree-multi-select-item>
+      </ng-container>
+    </prizm-data-list-wrapper>
+  </prizm-input-tree-multi-select>
+</prizm-input-layout>
+
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()" prizmButton>
+    Set default value: <b>{{ items[0]?.value }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Touched: {{ control.touched }}</div>
+<div>Dirty: {{ control.dirty }}</div>

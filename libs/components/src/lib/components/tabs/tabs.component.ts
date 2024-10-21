@@ -82,6 +82,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.activeTabIndexLastChanged = idx;
     if (idx === this.tabsService.activeTabIdx) return;
     this.tabsService.updateActiveTab(idx);
+    this.focusTabByIdx(idx);
   }
   get activeTabIndex(): number {
     return this.tabsService.activeTabIdx;
@@ -115,8 +116,8 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
-  private mutationObserver!: MutationObserver;
-  private resizeObserver!: ResizeObserver;
+  private mutationObserver?: MutationObserver;
+  private resizeObserver?: ResizeObserver;
   private mutationDetector$: Subject<void> = new Subject<void>();
   private subscription: Subscription = new Subscription();
 
@@ -150,27 +151,14 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
 
     this.subscription.add(
       this.mutationDetector$
-        .pipe(debounceTime(200), observeOn(animationFrameScheduler))
+        .pipe(debounceTime(300), observeOn(animationFrameScheduler))
         .subscribe(() => this.overflowChecker())
     );
   }
 
-  private initTabClickListener(): void {
-    this.tabsService.activeTabIdx$
-      .pipe(
-        skip(1),
-        debounceTime(0),
-        tap(idx => {
-          this.tabClickHandler(idx);
-        }),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-  }
-
   public ngOnDestroy(): void {
-    this.mutationObserver.disconnect();
-    this.resizeObserver.disconnect();
+    this.mutationObserver?.disconnect();
+    this.resizeObserver?.disconnect();
     this.mutationDetector$.complete();
     this.subscription.unsubscribe();
   }
@@ -198,12 +186,45 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     tabsContainerElement.scrollLeft = scrollLeft;
   }
 
-  private calculateControlsState(scrollLeft: number): void {
-    const tabsContainerElement: HTMLElement = this.tabsContainer.nativeElement;
-    const scrollWidth = tabsContainerElement.scrollWidth;
-    const offsetWidth = tabsContainerElement.offsetWidth;
-    this.isLeftBtnActive = scrollLeft > 20;
-    this.isRightBtnActive = scrollWidth - offsetWidth - scrollLeft > 20;
+  public reCalculatePositions(): void {
+    (this.tabsDropdown ?? this.tabsMoreDropdown)?.reCalculatePositions();
+  }
+
+  public closeTab(idx: number): void {
+    const tab = this.tabsService.getTabByIdx(idx);
+
+    this.tabsService.getTabByIdx(idx)?.closeTab.emit();
+    this.tabsService.removeTab(tab);
+    this.reCalculatePositions();
+  }
+
+  public clickTab(index: number): void {
+    this.openLeft = this.openRight = false;
+    this.tabClickHandler(index);
+  }
+
+  private initTabClickListener(): void {
+    this.tabsService.activeTabIdx$
+      .pipe(
+        skip(1),
+        debounceTime(0),
+        tap(idx => {
+          this.tabClickHandler(idx);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
+  }
+
+  private focusTabByIdx(idx: number): void {
+    if (!this.tabElements?.length) return;
+    const selectedTabElement = this.tabElements.find((item, index) => index === idx)?.el.nativeElement;
+    if (!selectedTabElement) return;
+    this.tabsContainer.nativeElement.scrollLeft =
+      selectedTabElement.offsetLeft -
+      this.tabsContainer.nativeElement.offsetWidth / 2 +
+      selectedTabElement.offsetWidth / 2;
+    this.mutationDetector$.next();
   }
 
   private overflowChecker(): void {
@@ -231,28 +252,11 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.cdRef.markForCheck();
   }
 
-  private focusTabByIdx(idx: number): void {
-    if (!this.tabElements?.length) return;
-    const selectedTabElement = this.tabElements.find((item, index) => index === idx)?.el.nativeElement;
-    if (!selectedTabElement) return;
-    this.tabsContainer.nativeElement.scrollLeft =
-      selectedTabElement.offsetLeft -
-      this.tabsContainer.nativeElement.offsetWidth / 2 +
-      selectedTabElement.offsetWidth / 2;
-    this.mutationDetector$.next();
-  }
-
-  public reCalculatePositions(): void {
-    (this.tabsDropdown ?? this.tabsMoreDropdown)?.reCalculatePositions();
-  }
-
-  public closeTab(idx: number): void {
-    this.tabsService.getTabByIdx(idx)?.closeTab.emit();
-    this.reCalculatePositions();
-  }
-
-  public clickTab(index: number): void {
-    this.openLeft = this.openRight = false;
-    this.tabClickHandler(index);
+  private calculateControlsState(scrollLeft: number): void {
+    const tabsContainerElement: HTMLElement = this.tabsContainer.nativeElement;
+    const scrollWidth = tabsContainerElement.scrollWidth;
+    const offsetWidth = tabsContainerElement.offsetWidth;
+    this.isLeftBtnActive = scrollLeft > 20;
+    this.isRightBtnActive = scrollWidth - offsetWidth - scrollLeft > 20;
   }
 }

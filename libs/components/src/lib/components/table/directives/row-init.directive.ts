@@ -13,7 +13,6 @@ import { PrizmTableRowService } from '../service/row.service';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowContext } from '../table.types';
 import { Compare } from '@prizm-ui/helpers';
-import { PolymorphContext } from '../../../directives/polymorph/classes/context';
 
 @Directive({
   selector: `ng-template[prizmTableRowInit]`,
@@ -41,8 +40,8 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
     const proxy =
       context &&
       (new Proxy(context as object, {
-        get: (_, key) => this.getContext()?.[key as keyof (C | PolymorphContext<any>)],
-      }) as unknown as C);
+        get: (_, key) => this.getContext()?.[key as keyof PrizmTableRowContext],
+      }) as unknown);
 
     this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, proxy);
     this.initChildrenVisibleStateOnce();

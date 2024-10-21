@@ -15,6 +15,7 @@ import { TreePaddingInputExampleComponent } from './examples/padding-indent/tree
 import { TreeInModalExampleComponent } from './examples/in-modal/tree-in-modal-example.component';
 import { TreeActiveColorExampleComponent } from './examples/active-color/tree-active-color-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     FoldersComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(TreeComponent)),
     PrizmIconsFullComponent,
+    PrizmIfLanguageDirective,
   ],
   declarations: [
     TreeActiveColorExampleComponent,

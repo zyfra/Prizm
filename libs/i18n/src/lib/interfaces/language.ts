@@ -41,6 +41,12 @@ export interface PrizmLanguageInputLayoutDateTime {
   };
 }
 
+export interface PrizmLanguageInputLayoutDateTimeRange {
+  inputLayoutDateTimeRange: {
+    time: string;
+  };
+}
+
 export interface PrizmLanguageCronSwitcherTitles {
   second: string;
   minute: string;
@@ -163,6 +169,7 @@ export interface PrizmLanguageCore {
 }
 
 export interface PrizmLanguageKit {
+  emptyListText: string;
   cancel: string;
   done: string;
   more: string;
@@ -309,6 +316,7 @@ export interface PrizmLanguage
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
     PrizmLanguageInputLayoutDateTime,
+    PrizmLanguageInputLayoutDateTimeRange,
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
     PrizmLanguagePaginator {}

@@ -1,7 +1,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 import { PrizmDateTime, PrizmDay, PrizmTime } from '../../@core';
-import { PrizmDateTimeMinMax } from '../../components';
+import { PrizmDateTimeMinMax } from '../../components/input/input-date-time-range/model';
 
 @Pipe({ name: 'prizmTimeConstraints', standalone: true })
 export class PrizmTimeConstraintsPipe implements PipeTransform {

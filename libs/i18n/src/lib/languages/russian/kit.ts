@@ -1,6 +1,7 @@
 import { PrizmLanguageKit } from '../../interfaces';
 
 export const PRIZM_RUSSIAN_LANGUAGE_KIT: PrizmLanguageKit = {
+  emptyListText: `Ничего не найдено`,
   cancel: `Отменить`,
   done: `Готово`,
   more: `Еще`,
