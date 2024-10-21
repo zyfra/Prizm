@@ -30,6 +30,7 @@ import { prizmI18nInitWithKey, PrizmI18nService } from '../../../../services';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckFill,
+  prizmIconsCircleExclamationFill,
   prizmIconsCircleInfoFill,
   prizmIconsDeleteContent,
   prizmIconsTempChevronsDropdownSmall,
@@ -178,7 +179,7 @@ export class PrizmInputLayoutComponent
       prizmIconsDeleteContent,
       prizmIconsTriangleExclamationFill,
       prizmIconsCircleCheckFill,
-      prizmIconsCircleInfoFill,
+      prizmIconsCircleExclamationFill,
       prizmIconsTempChevronsDropdownSmall
     );
   }
@@ -247,7 +248,7 @@ export class PrizmInputLayoutComponent
         break;
 
       case 'danger':
-        statusIcon = 'circle-info-fill';
+        statusIcon = 'circle-exclamation-fill';
         break;
 
       case 'default':
@@ -256,7 +257,7 @@ export class PrizmInputLayoutComponent
     }
 
     if (this.control.invalid) {
-      statusIcon = 'circle-info-fill';
+      statusIcon = 'circle-exclamation-fill';
     }
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
