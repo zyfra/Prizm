@@ -139,6 +139,7 @@ export class PrizmInputTreeSelectComponent<T = any>
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
+  override readonly clickable = true;
 
   override readonly nativeElementType = 'tree-select';
   override readonly hasClearButton = true;

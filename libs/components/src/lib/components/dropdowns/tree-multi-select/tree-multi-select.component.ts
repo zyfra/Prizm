@@ -215,7 +215,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();
-
+  override readonly clickable = true;
   override get empty(): boolean {
     return !this.treeSelectSelectedDirective?.value?.length;
   }
