@@ -216,6 +216,7 @@ export class PrizmSelectInputComponent<T>
   @prizmDefaultProp()
   nullContent: PolymorphContent = this.options.nullContent;
 
+  override readonly clickable = true;
   readonly isPolymorphPrimitive = isPolymorphPrimitive;
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly printing$ = new BehaviorSubject<string>('');

@@ -116,6 +116,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     return this.items$.value;
   }
 
+  override readonly clickable = true;
+
   @Input()
   @prizmDefaultProp()
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
@@ -354,8 +356,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
 
-  get focused(): boolean {
-    return prizmIsNativeFocused(this.nativeFocusableElement);
+  get focused() {
+    return this.focused$;
   }
 
   public override clear(ev: MouseEvent): void {
@@ -397,6 +399,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   public changeParentFocusedClass(add: boolean) {
-    this.layoutComponent?.setFocusedClass(add);
+    this.focused$$.next(add);
   }
 }

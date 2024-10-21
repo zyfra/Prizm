@@ -103,6 +103,10 @@ export class PrizmInputLayoutComponent
     return this.control.hidden;
   }
 
+  @HostBinding('class.is-clickable') get isClickable() {
+    return this.control.clickable;
+  }
+
   @HostBinding('class.has-textarea') get hasTextarea() {
     return this.control.nativeElementType === 'textarea';
   }
@@ -267,10 +271,5 @@ export class PrizmInputLayoutComponent
 
   protected innerClick(event: MouseEvent) {
     this.innerClick$$.next(event);
-  }
-
-  public setFocusedClass(set: boolean) {
-    if (set) this.renderer2.addClass(this.el.nativeElement, this.focusedClass);
-    else this.renderer2.removeClass(this.el.nativeElement, this.focusedClass);
   }
 }

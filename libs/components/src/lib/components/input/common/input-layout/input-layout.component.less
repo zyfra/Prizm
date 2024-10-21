@@ -3,6 +3,10 @@
   position: relative;
   width: var(--prizm-input-layout-width, 100%);
 
+  &.is-clickable {
+    cursor: pointer;
+  }
+
   .prizm-input-form-status-button,
   .prizm-input-button-default {
     flex-shrink: 0;
@@ -17,8 +21,7 @@
   }
 
   &:hover,
-  &:focus-within,
-  &.focused {
+  &:focus-within {
     .prizm-input-button-default {
       display: flex;
     }
