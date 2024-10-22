@@ -21,7 +21,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTreeSelectEmptyTextDirective } from './tree-select-empty-text.directive';
 import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.directive';
-import { PolymorphOutletDirective } from '../../../directives';
+import { PolymorphOutletDirective, PrizmAutoFocusDirective } from '../../../directives';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -38,6 +38,7 @@ import { FormsModule } from '@angular/forms';
     PolymorphOutletDirective,
     FormsModule,
     PrizmInputCommonModule,
+    PrizmAutoFocusDirective,
   ],
   providers: [
     PrizmDestroyService,

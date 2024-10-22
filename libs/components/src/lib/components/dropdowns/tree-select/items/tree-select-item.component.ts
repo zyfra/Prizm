@@ -21,7 +21,7 @@ import {
 } from './token';
 import { PrizmButtonComponent } from '../../../button';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full';
+import { prizmIconsChevronMiniRight } from '@prizm-ui/icons/full/source/chevron-mini-right';
 import { AsyncPipe, NgIf } from '@angular/common';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmTreeSelectItemDirective } from './tree-select-item.directive';

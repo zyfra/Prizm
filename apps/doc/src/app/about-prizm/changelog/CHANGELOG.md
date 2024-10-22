@@ -2,6 +2,37 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.0](https://github.com/zyfra/Prizm)
+
+### Features
+
+- feat(components/input-tree-multi-select): added ability to control checkbox position #2094
+- feat(components/input-tree-select): added ability to control placeholder in search #2092
+- feat(components/input-tree-multi-select): added ability to control placeholder in search #2092
+- feat(components/input-tree-select): added autofocus for search input #2090
+- feat(components/input-tree-multi-select): added autofocus for search input #2090
+- feat(helpers/hint-overflow): added input to reserve extra space #2093
+
+### Bugfixes
+
+- fix(helpers/hint-overflow): re calculate position after change window size #2093
+- fix(components/chipd): re calculate position after change window size #2093
+- fix(components/tabs): view not updated for activeTabindexChage when tabs overflows #1863
+- fix(components/tabs): tabindex should recalculate on close from dropdown #1948
+- fix(components/listing-item): disabled items should not fire mouse events #1947
+
+## [4.5.0](https://github.com/zyfra/Prizm)
+
+### Bug fixes
+
+- fix(components/hint-overflow): hint did not appear
+- fix(doc/tree-select): example with hint did not work right
+
+### Features
+
+- feat(components/tree-multi-select): added new component
+- feat(components/chips): added supports stringify, identity-matcher
+
 ## [4.4.0](https://github.com/zyfra/Prizm) (25-09-2024)
 
 ### Bug fixes
