@@ -25,10 +25,10 @@
   </div>
 
   <div class="footer prizm-font-btn-links-14" *ngIf="footer" [style]="context.footerStyle">
-    <ng-container *polymorphOutlet="$any(footer) as data; context: context">
+    <ng-container *polymorphOutlet="footer as data; context: context">
       <div class="buttons" *ngIf="isFooterArray; else temp">
         <button
-          *ngFor="let footerButton of data"
+          *ngFor="let footerButton of data | prizmToType : BUTTONS"
           [style]="footerButton.style"
           [appearance]="footerButton.appearance"
           [appearanceType]="footerButton.appearanceType"

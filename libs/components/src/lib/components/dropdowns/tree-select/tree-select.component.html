@@ -18,6 +18,7 @@
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="treeSelectStringifyDirective.stringifiedSelected$ | async"
     (click)="opened$$.next(true)"
+    style="cursor: inherit"
     prizmInput
   />
 </prizm-dropdown-host>
