@@ -25,6 +25,6 @@ export const isPolymorphDirective = <C = any>(
 
 export const isPolymorphComponent = <C = any>(
   content: PolymorphContent<C> | null
-): content is PolymorphComponent<Record<string, unknown>, C> => {
+): content is PolymorphComponent<C> => {
   return content instanceof PolymorphComponent;
 };

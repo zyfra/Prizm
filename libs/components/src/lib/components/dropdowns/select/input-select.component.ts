@@ -417,7 +417,7 @@ export class PrizmSelectInputComponent<T>
   ): Observable<string> {
     if (!this.layoutComponent) {
       return defer(() => {
-        const result = this.stringify(i, nullContent);
+        const result = this.stringify(i, nullContent as any);
         return isObservable(result) ? result : of(result);
       });
     }
@@ -427,7 +427,7 @@ export class PrizmSelectInputComponent<T>
       startWith(),
       switchMap(() => {
         hideNullContent = (outer && placeholder) || !outer;
-        const flow$ = this.stringify(i, hideNullContent ? null : nullContent);
+        const flow$ = this.stringify(i, (hideNullContent ? null : nullContent) as any);
         return isObservable(flow$) ? flow$ : of(flow$);
       })
     );
