@@ -1,7 +1,9 @@
 import {
+  ChangeDetectorRef,
   Directive,
   ElementRef,
   EventEmitter,
+  inject,
   Inject,
   Input,
   OnInit,
@@ -34,6 +36,7 @@ export class PrizmThemeDirective implements OnInit {
   public prizmTheme!: PrizmTheme;
 
   private readonly theme$$: ReplaySubject<PrizmTheme> = new ReplaySubject(1);
+  private readonly cdRef = inject(ChangeDetectorRef);
 
   constructor(
     @Inject(ElementRef)
@@ -63,7 +66,8 @@ export class PrizmThemeDirective implements OnInit {
             theme as PrizmTheme
           );
         }),
-        tap(theme => this.prizmThemeChange.next((this.prizmTheme = theme as PrizmTheme))),
+        tap(theme => this.prizmThemeChange.next(theme as PrizmTheme)),
+        tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)
       )
       .subscribe();
