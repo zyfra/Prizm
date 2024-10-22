@@ -10,8 +10,10 @@
   [dropdownStyles]="dropdownStyles"
   [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent?.outer"
+  [dropdownTriggerElement]="layoutComponent?.el?.nativeElement"
   [prizmFocusable]="true"
-  (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
+  (isOpenChange)="changeParentFocusedClass($event); $event && searchInputControl.setValue('')"
+  dropdownTrigger="click"
 >
   <input
     #focusableElementRef
@@ -80,7 +82,7 @@
                       checked: item.checked,
                       stringify: item | prizmCallFunc : stringify
                     }
-                  } as context
+                  }
                 "
               >
                 {{ text }}
@@ -112,7 +114,6 @@
       [name]="$any(iconName)"
       [class.disabled]="disabled"
       [prizmFocusable]="true"
-      (click)="safeOpenModal()"
     >
     </prizm-icons-full>
   </ng-container>

@@ -6,13 +6,13 @@ import {
   PolymorphModule,
   PrizmButtonComponent,
   PrizmCheckboxComponent,
+  PrizmChipsModule,
   PrizmDataListComponent,
   PrizmDropdownHostModule,
+  PrizmDropdownTriggerClickDirective,
   PrizmInputLayoutDateTimeComponent,
   PrizmInputTextModule,
   PrizmRadioButtonComponent,
-  PrizmChipsComponent,
-  PrizmChipsModule,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DropdownHostComponent } from './dropdown-host.component';
@@ -46,6 +46,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     FormsModule,
     PrizmIconsFullComponent,
     PrizmChipsModule,
+    PrizmDropdownTriggerClickDirective,
   ],
   declarations: [
     PrizmDropdownHostExampleByMethodComponent,

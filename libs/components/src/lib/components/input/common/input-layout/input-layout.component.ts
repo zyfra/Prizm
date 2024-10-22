@@ -8,14 +8,15 @@ import {
   EventEmitter,
   HostBinding,
   Inject,
+  inject,
   Injector,
   Input,
   OnChanges,
   OnInit,
   Output,
+  Renderer2,
   SimpleChanges,
   ViewChild,
-  inject,
 } from '@angular/core';
 import { BehaviorSubject, EMPTY, merge, Observable, Subject, timer } from 'rxjs';
 import { PrizmInputControl } from '../base/input-control.class';
@@ -25,7 +26,7 @@ import { debounceTime, map, startWith, takeUntil, tap } from 'rxjs/operators';
 import { isPolymorphPrimitive, PolymorphContent } from '../../../../directives/polymorph';
 import { Compare, filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../../../abstract/interactive';
-import { PrizmI18nService, prizmI18nInitWithKey } from '../../../../services';
+import { prizmI18nInitWithKey, PrizmI18nService } from '../../../../services';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckFill,
@@ -67,6 +68,7 @@ export class PrizmInputLayoutComponent
   extends PrizmAbstractTestId
   implements OnInit, OnChanges, AfterViewInit
 {
+  private readonly focusedClass = 'focused';
   @Input() set label(val: string | null) {
     this.label$.next(val);
   }
@@ -99,6 +101,10 @@ export class PrizmInputLayoutComponent
 
   @HostBinding('class.has-hidden-control') get hasHiddenControl() {
     return this.control.hidden;
+  }
+
+  @HostBinding('class.is-clickable') get isClickable() {
+    return this.control.clickable;
   }
 
   @HostBinding('class.has-textarea') get hasTextarea() {
@@ -163,6 +169,7 @@ export class PrizmInputLayoutComponent
   };
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private readonly renderer2 = inject(Renderer2);
 
   constructor(
     private readonly injector: Injector,
