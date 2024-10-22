@@ -67,7 +67,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
 import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
-import { PrizmLanguageInputLayoutDateTimeRange } from 'libs/i18n/src/lib/interfaces';
+import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
