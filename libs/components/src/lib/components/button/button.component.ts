@@ -107,7 +107,7 @@ export class PrizmButtonComponent extends AbstractPrizmInteractive implements Pr
   }
 
   override get generateMainTestId() {
-    return this.hasIcon ? 'ui_button' : 'ui_icon_button';
+    return this.hasIcon ? 'ui_icon_button' : 'ui_button';
   }
 
   @HostListener('focusin', ['true'])
