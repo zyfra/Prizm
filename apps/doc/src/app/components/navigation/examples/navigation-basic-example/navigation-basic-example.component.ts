@@ -6,6 +6,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsBars,
   prizmIconsBatteryThreeQuarters,
+  prizmIconsCameraMovie,
   prizmIconsDatabase,
   prizmIconsList,
   prizmIconsMusic,
@@ -36,7 +37,8 @@ export class NavigationBasicExampleComponent {
       prizmIconsMusic,
       prizmIconsList,
       prizmIconsBatteryThreeQuarters,
-      prizmIconsDatabase
+      prizmIconsDatabase,
+      prizmIconsCameraMovie
     );
 
     this.activeElement = (this.data[1].children as INavigationTree[])[2];
