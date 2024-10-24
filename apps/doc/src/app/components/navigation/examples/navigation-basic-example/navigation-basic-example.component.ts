@@ -38,6 +38,8 @@ export class NavigationBasicExampleComponent {
       prizmIconsBatteryThreeQuarters,
       prizmIconsDatabase
     );
+
+    this.activeElement = (this.data[1].children as INavigationTree[])[2];
   }
 
   public toggleNavigation(): void {

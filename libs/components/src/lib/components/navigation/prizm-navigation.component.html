@@ -9,5 +9,6 @@
     *ngIf="$any(item?.children?.length) > 0"
     [data]="$any(item)"
     [deep]="1"
+    [isExpanded]="item.isExpanded"
   ></prizm-navigation-item-expandable>
 </ng-container>
