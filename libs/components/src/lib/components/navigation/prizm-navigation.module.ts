@@ -7,6 +7,7 @@ import { PrizmNavigationItemExpandableComponent } from './components/prizm-navig
 import { ActiveNavigationItemService } from './services/active-navigation-item.service';
 import { PrizmHintDirective } from '../../directives';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmToTypePipe } from '@prizm-ui/helpers';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmNavigationItemSimpleComponent,
     PrizmNavigationItemExpandableComponent,
   ],
-  imports: [CommonModule, PrizmHintDirective, PrizmIconsFullComponent],
+  imports: [CommonModule, PrizmHintDirective, PrizmIconsFullComponent, PrizmToTypePipe],
   exports: [PrizmNavigationComponent],
   providers: [ActiveNavigationItemService],
 })

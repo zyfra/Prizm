@@ -18,6 +18,7 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
             title: 'Страница 1.1.3',
             indicatorStatus: 'success',
             indicatorValue: 2,
+            icon: 'camera-movie',
           },
         ],
       },
@@ -88,14 +89,12 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
   {
     title: 'Очень очень длинный раздел 4',
     icon: 'battery-three-quarters',
-    isExpanded: true,
     children: [
       {
         title: 'Очень очень длинный подраздел 4.1',
       },
       {
         title: 'Очень очень длинный подраздел 4.2',
-        isExpanded: true,
         children: [
           {
             title: 'Очень очень длинный подраздел 4.2.1',
