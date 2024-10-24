@@ -18,6 +18,7 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
             title: 'Страница 1.1.3',
             indicatorStatus: 'success',
             indicatorValue: 2,
+            icon: 'camera-movie',
           },
         ],
       },
