@@ -18,6 +18,7 @@ import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsAngleRight, prizmIconsFolder } from '@prizm-ui/icons/full/source';
 import { prizmIsTextOverflow } from '../../../../util';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-navigation-item-expandable',
@@ -28,12 +29,15 @@ import { prizmIsTextOverflow } from '../../../../util';
 })
 export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
   @ViewChild('container', { static: true }) container!: ElementRef;
+
+  @Input() public deep!: number;
+
+  @Input({ transform: coerceBooleanProperty }) public isExpanded = false;
+
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
-  @Input() public deep!: number;
 
-  public isExpanded = false;
   override readonly testId_ = 'ui_navigation--item-expandable';
 
   readonly prizmIsTextOverflow = prizmIsTextOverflow;
