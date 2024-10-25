@@ -1,0 +1,18 @@
+.icon-dropdown {
+  color: var(--prizm-button-secondary-solid-default);
+  cursor: pointer;
+  transition-property: transform;
+  transition-property: all;
+  transition-property: color, transform;
+  transition-duration: var(--prizm-duration, 0.3s);
+  transition-timing-function: ease-in-out;
+  outline: none;
+
+  &.active {
+    color: var(--prizm-button-primary-solid-active);
+  }
+
+  &.opened {
+    transform: rotate(180deg);
+  }
+}
