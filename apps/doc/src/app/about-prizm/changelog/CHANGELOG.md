@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bugfixes
 
+- fix(components/table): use proxy to update context #1506 #1845
 - fix(components/navigation-menu): padding changed from 4px to 8px between text and other el #1633
 - fix(components/input-control): on each update value emits two times #2087
 - fix(chore): fix version in schematics #1987

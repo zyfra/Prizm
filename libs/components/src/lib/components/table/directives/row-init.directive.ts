@@ -35,7 +35,14 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
 
   public ngOnInit(): void {
     this.generateIdx();
-    this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, this.getContext());
+    const context = this.getContext();
+    const proxy =
+      context &&
+      (new Proxy(context as object, {
+        get: (_, key) => this.getContext()?.[key as keyof PrizmTableRowContext],
+      }) as unknown);
+
+    this.embeddedRef = this.viewContainer.createEmbeddedView(this.template, proxy);
     this.initChildrenVisibleStateOnce();
     this.updateContextIfCan();
   }
@@ -69,8 +76,6 @@ export class PrizmTableRowInitDirective implements OnInit, OnDestroy, OnChanges 
 
   public updateContextIfCan() {
     if (!this.embeddedRef) return;
-    this.context = this.getContext();
-    if (this.context !== this.embeddedRef.context) this.embeddedRef.context = this.context;
     this.embeddedRef.markForCheck();
   }
 
