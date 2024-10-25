@@ -11,6 +11,7 @@
   [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent?.outer"
   [dropdownTriggerElement]="layoutComponent?.el?.nativeElement"
+  [dropdownDisabled]="disabled"
   [prizmFocusable]="true"
   (isOpenChange)="changeParentFocusedClass($event); $event && searchInputControl.setValue('')"
   dropdownTrigger="click"
@@ -113,7 +114,7 @@
       [class.icon-dropdown]="iconName === defaultIcon"
       [name]="$any(iconName)"
       [class.disabled]="disabled"
-      [prizmFocusable]="true"
+      [prizmFocusable]="!disabled"
     >
     </prizm-icons-full>
   </ng-container>

@@ -11,7 +11,8 @@ import {
 import { PrizmDropdownHostComponent } from './dropdown-host.component';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { takeUntil, tap } from 'rxjs/operators';
+import { filter, takeUntil, tap } from 'rxjs/operators';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Directive({
   selector: 'prizm-dropdown-host[dropdownTrigger="click"]',
@@ -20,6 +21,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 })
 export class PrizmDropdownTriggerClickDirective implements OnChanges, OnInit {
   @Input() dropdownTriggerElement?: HTMLElement;
+  @Input() dropdownDisabled: BooleanInput = false;
 
   readonly #dropdownHost = inject(PrizmDropdownHostComponent, {
     host: true,
@@ -45,6 +47,7 @@ export class PrizmDropdownTriggerClickDirective implements OnChanges, OnInit {
     this.#destroy.next();
     fromEvent(this.#triggerElement, 'click')
       .pipe(
+        filter(() => !coerceBooleanProperty(this.dropdownDisabled)),
         tap(() => {
           this.#dropdownHost.toggle();
           this.#cdRef.markForCheck();

@@ -38,6 +38,7 @@ export class DropdownHostComponent {
   public canOpen = true;
   public closeByEsc = true;
   public prizmDropdownHostCloseOnBackdropClick = true;
+  public disabled = false;
   public isOpenChange = false;
   isOpen = false;
   prizmDropdownHostWidth = 'auto';
