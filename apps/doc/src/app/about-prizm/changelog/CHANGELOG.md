@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bugfixes
 
+- fix(components/input-control): on each update value emits two times #2087
 - fix(chore): fix version in schematics #1987
 - fix(components/multi-select): hint did not show after search #1980
 - fix(components/input-select): hide chevron when disabled #1917
