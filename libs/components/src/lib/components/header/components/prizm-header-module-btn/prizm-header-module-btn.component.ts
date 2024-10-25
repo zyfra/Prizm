@@ -1,8 +1,10 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject, Input } from '@angular/core';
 import { IndicatorStatus } from '../../../indicator/indicator.models';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../../../button';
 import { PrizmHintDirective } from '../../../../directives';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
+import { prizmIconsBell } from '@prizm-ui/icons/full';
 
 @Component({
   selector: 'prizm-header-module-btn',
@@ -17,4 +19,10 @@ export class PrizmHeaderModuleBtnComponent {
   @Input() public alertsCount = 0;
   @Input() public title = '';
   @Input() public status: IndicatorStatus = 'info';
+
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(prizmIconsBell);
+  }
 }
