@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bugfixes
 
+- fix(components/multi-select): hint did not show after search #1980
 - fix(components/input-select): hide chevron when disabled #1917
 - fix(components/input-multiselect): hide chevron when disabled #1917
 - fix(components/input-tree-multiselect): hide chevron when disabled #1917
