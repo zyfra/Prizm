@@ -8,6 +8,7 @@ import { ActiveNavigationItemService } from './services/active-navigation-item.s
 import { PrizmHintDirective } from '../../directives';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmToTypePipe } from '@prizm-ui/helpers';
+import { PrizmCalculateNavMarginPipe } from './pipes/calculate-margin.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,13 @@ import { PrizmToTypePipe } from '@prizm-ui/helpers';
     PrizmNavigationItemSimpleComponent,
     PrizmNavigationItemExpandableComponent,
   ],
-  imports: [CommonModule, PrizmHintDirective, PrizmIconsFullComponent, PrizmToTypePipe],
+  imports: [
+    CommonModule,
+    PrizmHintDirective,
+    PrizmIconsFullComponent,
+    PrizmToTypePipe,
+    PrizmCalculateNavMarginPipe,
+  ],
   exports: [PrizmNavigationComponent],
   providers: [ActiveNavigationItemService],
 })
