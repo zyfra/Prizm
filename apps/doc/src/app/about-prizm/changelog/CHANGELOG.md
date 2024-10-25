@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 
 ## [4.6.1](https://github.com/zyfra/Prizm)
 
+### Features
+
+- feat(components/theme): prefer global theme if did not passed any value #1426
+
 ### Bugfixes
 
 - fix(components/navigation-menu): padding changed from 4px to 8px between text and other el #1633
