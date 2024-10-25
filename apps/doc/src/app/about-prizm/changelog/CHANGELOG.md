@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.6.1](https://github.com/zyfra/Prizm)
+
+### Bugfixes
+
+- fix(components/input-select): hide chevron when disabled #1917
+- fix(components/input-multiselect): hide chevron when disabled #1917
+- fix(components/input-tree-multiselect): hide chevron when disabled #1917
+- fix(components/input-multiselect): chips and chevron should be inactive when disabled #1914
+- fix(components/tabs): correct focus styles for contained tabs #1729
+- fix(components/input): padding changed for inner inputs #1763
+- fix(components/input-layout): correct icon for danger status #1916
+- fix(components/navigation): register icons for navigation header and example #1836
+- fix(components/switcher): switcher button markup correction #2032
+- fix(components/button): fixed problem with confused test id for buttons with and without icons #2150
+
 ## [4.6.0](https://github.com/zyfra/Prizm)
 
 ### Features
