@@ -21,7 +21,10 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 })
 export class PrizmDropdownTriggerClickDirective implements OnChanges, OnInit {
   @Input() dropdownTriggerElement?: HTMLElement;
-  @Input() dropdownDisabled: BooleanInput = false;
+  @Input({
+    transform: coerceBooleanProperty,
+  })
+  dropdownDisabled = false;
 
   readonly #dropdownHost = inject(PrizmDropdownHostComponent, {
     host: true,
@@ -47,7 +50,7 @@ export class PrizmDropdownTriggerClickDirective implements OnChanges, OnInit {
     this.#destroy.next();
     fromEvent(this.#triggerElement, 'click')
       .pipe(
-        filter(() => !coerceBooleanProperty(this.dropdownDisabled)),
+        filter(() => !this.dropdownDisabled),
         tap(() => {
           this.#dropdownHost.toggle();
           this.#cdRef.markForCheck();
