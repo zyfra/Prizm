@@ -24,7 +24,7 @@
 
 ### Checklist:
 
-- [ ] Изменить version на текущий в файле nxmv.json и запустив команду `npx nx generate nx-mv:apply -n v17 --var-version 4.6.1 --var-v5version 5.2.0` важно передавать --var-version нужную версию
+- [ ] Изменить version на текущий в файле nxmv.json и запустив команду `npx nx generate nx-mv:apply -n v17 --var-version 4.7.0 --var-v5version 5.2.0` важно передавать --var-version нужную версию
 - [ ] Добавить в каждый тип ваши изменения в этом PR
 - [ ] Удалите не нужные группы изменений для этого PR (Features, Bug Fixes, Breacking Changes, Refactor)
 - [ ] Добавить изменения в changelog о новой версии
