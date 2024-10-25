@@ -6,10 +6,10 @@
   [prizmHintCanShow]="prizmIsTextOverflow(title)"
   (click)="navClick()"
 >
-  <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? (deep - 1) * 12 : 0">
+  <div class="nav__icon" [style.marginLeft.px]="deep | prizmCalculateNavMargin">
     <prizm-icons-full
       *ngIf="menuItem?.icon"
-      [name]="menuItem?.icon | prizmToType : 'string'"
+      [name]="menuItem!.icon | prizmToType : 'string'"
     ></prizm-icons-full>
   </div>
   <span class="nav__title" #title>
