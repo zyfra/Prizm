@@ -17,7 +17,7 @@ import {
 import { NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs';
-import { PrizmInputHintDirective } from '../common';
+import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
 import { PrizmInputControl } from '../common/base/input-control.class';
 
 @Component({
@@ -105,7 +105,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   set value(value: VALUE) {
     if (this.ngControl) {
       if (this.ngControl.value !== value) {
-        this.ngControl?.control?.setValue(value);
+        this.ngControl?.control?.patchValue(value);
       }
     } else {
       this.updateValue(value);
@@ -129,6 +129,10 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
    */
   @HostBinding('class.empty')
   public empty!: boolean;
+
+  readonly parentLayout = inject(PrizmInputLayoutComponent, {
+    optional: true,
+  });
 
   /**
    * Focus state
@@ -177,6 +181,18 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   public ngOnInit(): void {
     this.initControlListener();
     this.inputHint?.updateHint();
+    this.safeClearListener();
+  }
+
+  private safeClearListener() {
+    // Some components (e.g. `InputLayoutDateRange`) has several child inputs
+    // which cleared via following subscription
+    this.parentLayout?.clear
+      .pipe(
+        tap($event => this.clear($event)),
+        takeUntil(this.destroy)
+      )
+      .subscribe();
   }
 
   ngOnDestroy(): void {
@@ -249,7 +265,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   public clear(event: MouseEvent): void {
-    if (this.disabled) return;
+    if (this.disabled || this.empty) return;
 
     if (this.ngControl?.control) {
       // let `ControlValueAccessor` (e.g. it can be ngx-mask) to update <input> value

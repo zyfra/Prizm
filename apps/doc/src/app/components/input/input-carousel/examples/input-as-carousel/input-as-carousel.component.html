@@ -1,6 +1,12 @@
 <prizm-input-layout [label]="'Инпут как карусель'" [size]="'l'" [outer]="true" [position]="'center'">
   <button [interactive]="true" (click)="prev()" prizmInputIconButton="chevron-left" prizm-input-left></button>
-  <input #input [value]="carouselData[currentIndex]" (input)="setValue(input.value)" prizmInput />
+  <input
+    #input
+    [value]="carouselData[currentIndex]"
+    (input)="setValue(input.value)"
+    (onClear)="setValue('')"
+    prizmInput
+  />
   <button
     [interactive]="true"
     (click)="next()"

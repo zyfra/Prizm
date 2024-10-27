@@ -121,7 +121,7 @@ export abstract class PrizmInputNgControl<T>
     if (this.disabled || this.valueIdenticalComparator(this.value, value)) {
       return;
     }
-    this.onChange(value);
+
     this.previousInternalValue$$.next(value);
     this.controlSetValue(value);
   }
