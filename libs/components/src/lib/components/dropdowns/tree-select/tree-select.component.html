@@ -37,7 +37,7 @@
       [name]="$any(iconName)"
       [class.disabled]="disabled"
       [prizmFocusable]="true"
-      (click)="opened$$.next(!opened$$.value)"
+      (click)="!disabled && opened$$.next(!opened$$.value)"
     >
     </prizm-icons-full>
   </ng-container>
