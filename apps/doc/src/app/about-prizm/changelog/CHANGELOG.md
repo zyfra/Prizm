@@ -6,6 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(components/input-select): hide chevron when disabled #1917
 - feat(doc): update information about us #2143
 - feat(doc/dropdown-host): updated example select panel added custom vars for overlay #1027 #2135
 - feat(components/theme): prefer global theme if did not passed any value #1426
