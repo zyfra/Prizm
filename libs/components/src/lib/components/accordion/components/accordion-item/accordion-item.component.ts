@@ -21,7 +21,6 @@ import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../../../button';
 import { PrizmHintOnOverflowDirective } from '../../../../directives';
-import { prizmIsTextOverflow } from '../../../../util';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsChevronsDoubleDown } from '@prizm-ui/icons/full/source';
@@ -60,7 +59,6 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
     this._disabled = coerceBooleanProperty(value);
   }
 
-  public readonly prizmIsTextOverflow = prizmIsTextOverflow;
   private _disabled = false;
 
   @Output() isExpandedChange = new EventEmitter<boolean>();

@@ -2,8 +2,8 @@
   class="nav"
   #container
   [class.nav_active]="isActive$ | async"
-  [prizmHint]="menuItem?.title"
-  [prizmHintCanShow]="prizmIsTextOverflow(title)"
+  [prizmHintOnOverflow]="menuItem?.title"
+  [prizmHintOnOverflowEl]="title"
   (click)="navClick()"
 >
   <span class="nav__title" #title [style.marginLeft.px]="deep > 0 ? (deep - 1) * 24 : 0">

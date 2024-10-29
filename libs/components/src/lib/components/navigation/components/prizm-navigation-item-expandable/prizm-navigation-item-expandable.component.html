@@ -2,8 +2,8 @@
   <div
     class="nav"
     [class.nav_active]="isActive$ | async"
-    [prizmHint]="menuItem?.title"
-    [prizmHintCanShow]="prizmIsTextOverflow(title)"
+    [prizmHintOnOverflow]="menuItem?.title"
+    [prizmHintOnOverflowEl]="title"
     (click)="navClick()"
   >
     <div class="nav__icon" [style.marginLeft.px]="deep > 0 ? 8 + 16 * deep : 0">
@@ -22,7 +22,6 @@
     </div>
 
     <button class="nav__chevron" [class.nav__chevron_expanded]="isExpanded" (click)="toggle($event)">
-      <!--      <prizm-icon class="icon" iconClass="arrows-chevron-right"></prizm-icon>-->
       <prizm-icons-full class="icon" name="angle-right"></prizm-icons-full>
     </button>
   </div>
