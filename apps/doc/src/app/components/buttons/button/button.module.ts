@@ -10,6 +10,7 @@ import { PrizmGhostButtonsExampleComponent } from './examples/ghost/ghost-button
 import { prizmIconsButtonsExampleComponent } from './examples/icons/icons-buttons-example.component';
 import { PrizmButtonWithCounterExampleComponent } from './examples/counter/button-with-counter-example.component';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+import { PrizmButtonTextOverflowExampleComponent } from './examples/overflow/button-text-overflow-example.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     prizmIconsButtonsExampleComponent,
     PrizmGhostButtonsExampleComponent,
     PrizmButtonWithCounterExampleComponent,
+    PrizmButtonTextOverflowExampleComponent,
     PrizmIfLanguageDirective,
   ],
   declarations: [ButtonComponent],
