@@ -134,14 +134,14 @@ export class PrizmInputCarouselComponent
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('focus', ['$event'])
-  onFocus(): void {
+  public onFocus(): void {
     this.focused = true;
     this.stateChanges.next();
   }
 
   // eslint-disable-next-line @typescript-eslint/explicit-member-accessibility
   @HostListener('blur', ['$event'])
-  onBlur(): void {
+  public onBlur(): void {
     this.focused = false;
     this.stateChanges.next();
     this.onTouch();
