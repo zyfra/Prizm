@@ -2,6 +2,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 import {
   PRIZM_HINT_DEFAULT_OPTIONS,
   PrizmHintOptions,
+  PrizmInputPosition,
   PrizmInputSize,
   PrizmInputStatus,
   PrizmOverlayOutsidePlacement,
@@ -24,11 +25,22 @@ export class InputMaskExampleComponent {
 
   public outer!: false;
 
-  public size: PrizmInputSize = 'l';
-  public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
-  public sizesInner: PrizmInputSize[] = ['l', 'm'];
+  get sizeVariants(): ReadonlyArray<PrizmInputSize> {
+    return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
+  }
+  public size = this.sizeVariants[0];
+
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+  public border = true;
 
   public disabled = false;
+
+  public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+  public forceClear = this.forceClearVariants[0];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public prizmHintCanShow = true;
   public prizmHintDirection: PrizmHintOptions['direction'] = PRIZM_HINT_DEFAULT_OPTIONS.direction;
