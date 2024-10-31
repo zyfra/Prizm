@@ -1,6 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import { PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 
 @Component({
@@ -18,14 +18,28 @@ export class InputPasswordExampleComponent {
 
   public outer!: false;
 
-  public size: PrizmInputSize = 'l';
+  get sizeVariants(): ReadonlyArray<PrizmInputSize> {
+    return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
+  }
+  public size = this.sizeVariants[0];
+
   public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
   public sizesInner: PrizmInputSize[] = ['l', 'm'];
+
+  public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
+  public forceClear = this.forceClearVariants[0];
+
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public disabled = false;
 
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
+
+  public inputPosition: PrizmInputPosition = 'left';
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+  public border = true;
 
   public required = false;
 
