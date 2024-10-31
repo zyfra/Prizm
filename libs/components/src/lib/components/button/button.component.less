@@ -27,13 +27,11 @@
 
   .z-wrapper {
     min-height: inherit;
-    max-height: inherit;
   }
 
   .addSize(@size, @height, @width, @padding, @outline-padding) {
     &[data-size='@{size}'] {
       min-height: @height;
-      max-height: @height;
 
       &[prizmIconButton] {
         width: @width;
