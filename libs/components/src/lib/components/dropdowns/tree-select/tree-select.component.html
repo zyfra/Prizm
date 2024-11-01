@@ -23,6 +23,26 @@
   />
 </prizm-dropdown-host>
 
+<ng-container *prizmInputLayoutRight>
+  <ng-container
+    *polymorphOutlet="
+      icon || defaultIcon as iconName;
+      context: $any({ opened: opened$ | async, disabled: disabled })
+    "
+  >
+    <prizm-icons-full
+      [class.opened]="opened$ | async"
+      [class.active]="opened$ | async"
+      [class.icon-dropdown]="iconName === defaultIcon"
+      [name]="$any(iconName)"
+      [class.disabled]="disabled"
+      [prizmFocusable]="true"
+      (click)="!disabled && opened$$.next(!opened$$.value)"
+    >
+    </prizm-icons-full>
+  </ng-container>
+</ng-container>
+
 <ng-template #dropdown>
   <prizm-input-tree-select-data-list-wrapper
     [projectedDataListDirective]="dataListDirective"

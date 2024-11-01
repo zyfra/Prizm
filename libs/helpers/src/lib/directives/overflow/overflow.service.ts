@@ -1,5 +1,5 @@
 import { inject, Injectable, NgZone, OnDestroy, Renderer2 } from '@angular/core';
-import { BehaviorSubject, concat, merge, of, startWith, Subject, takeUntil, timer } from 'rxjs';
+import { BehaviorSubject, concat, merge, of, startWith, Subject, takeUntil } from 'rxjs';
 import { delay, filter, map, shareReplay, switchMap, tap } from 'rxjs/operators';
 import { PrizmOverflowItem, PrizmOverflowReserveSpace } from './model';
 import { prizmCreateResizeObservable, PrizmSetSubject } from '../../util';
@@ -58,6 +58,7 @@ export class OverflowService implements OnDestroy {
     this.destroyPrevious();
     if (!host) return;
     this.host = host;
+
     this.observer = new MutationObserver(() => this.mutation$$.next());
     this.observer.observe(host, { childList: true, subtree: true });
     let block = false;
@@ -80,10 +81,9 @@ export class OverflowService implements OnDestroy {
           .pipe(
             filter(() => this.active),
             switchMap(() =>
-              concat(...[...this.set].map(childItem => of(childItem))).pipe(
-                switchMap(childItem => {
-                  if (this.host && this.active) this.updateHost(this.host, childItem.html);
-                  return timer(0);
+              concat(...[...this.set].map((childItem, idx) => of({ childItem, idx }))).pipe(
+                tap(({ childItem, idx }) => {
+                  if (this.host && this.active) this.updateHost(this.host, childItem.html, idx);
                 })
               )
             ),
@@ -113,18 +113,22 @@ export class OverflowService implements OnDestroy {
   private unVisible(childItem: HTMLElement) {
     this.renderer.setStyle(childItem, 'visibility', 'hidden');
   }
+  private visible(childItem: HTMLElement) {
+    this.renderer.setStyle(childItem, 'visibility', 'visible');
+  }
 
   private show(childItem: HTMLElement) {
     childItem.style.removeProperty('display');
   }
 
-  private updateHost(host: HTMLElement, childItem: HTMLElement) {
+  private updateHost(host: HTMLElement, childItem: HTMLElement, idx: number) {
     this.unVisible(childItem);
+    childItem.style.order = idx.toString();
     this.show(childItem);
     hideOverflowElements(host, childItem, {
       reserveSpace: this.reserveSpace,
     });
-    this.renderer.setStyle(childItem, 'visibility', 'visible');
+    this.visible(childItem);
     this.updatedItems$$.next();
   }
 }

@@ -20,10 +20,12 @@
     display: none;
   }
 
-  &:hover,
-  &:focus-within {
-    .prizm-input-button-default {
-      display: flex;
+  &:not(.disabled) {
+    &:hover,
+    &:focus-within {
+      .prizm-input-button-default {
+        display: flex;
+      }
     }
   }
 }
@@ -184,8 +186,8 @@
   }
 
   // rewrite all if focused
-  &-focused,
-  &:focus-within {
+  &-focused:not(.prizm-input-form-disabled),
+  &:focus-within:not(.prizm-input-form-disabled) {
     border-color: var(--prizm-form-active);
     box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
     position: relative;
