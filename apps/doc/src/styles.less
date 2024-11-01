@@ -185,3 +185,15 @@ prizm-doc-page.info-page {
 prizm-doc-navigation tui-accordion-item {
   --tui-base-02: var(--prizm-button-ghost-hover);
 }
+
+.template-link {
+  color: var(--prizm-text-icon-link);
+
+  &:hover {
+    color: var(--prizm-text-icon-link-hover);
+  }
+
+  &:visited:not(:hover) {
+    color: var(--prizm-text-icon-link-visited);
+  }
+}

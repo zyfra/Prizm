@@ -57,11 +57,11 @@
       </button>
     </prizm-doc-demo>
 
-    <ng-template #headerTemp> Header из <a href="#">шаблона</a> </ng-template>
+    <ng-template #headerTemp> Header из <a class="template-link" href="#">шаблона</a> </ng-template>
 
     <ng-template #contentTemp>
-      Content из <a href="#">шаблона</a>
-      <button style="margin-top: 10px" prizmButton>Кнопка</button>
+      Content из <a class="template-link" href="#">шаблона</a>
+      <button style="margin-top: 60px" prizmButton>Кнопка</button>
     </ng-template>
 
     <ng-template #footerTemp let-observer> Footer из <i (click)="observer.next(1)">шаблона</i> </ng-template>

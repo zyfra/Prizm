@@ -12,7 +12,12 @@ import {
   PrizmDialogOptions,
   PrizmDialogSize,
 } from './dialog.models';
-import { PolymorphContent, PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import {
+  PolymorphContent,
+  PolymorphModule,
+  PrizmFocusTrapModule,
+  PrizmHintOnOverflowDirective,
+} from '../../../directives';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
@@ -40,6 +45,7 @@ import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
     PrizmFocusTrapModule,
     PrizmInputIconButtonModule,
     PrizmScrollbarModule,
+    PrizmHintOnOverflowDirective,
   ],
 })
 export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbstractTestId {

@@ -34,8 +34,6 @@
       <button [size]="size" [icon]="icon" (click)="show()" type="button" prizmButton>Show Dialog</button>
     </prizm-doc-demo>
 
-    <ng-template #headerTemp> Header из <a href="#">шаблона</a> </ng-template>
-
     <prizm-doc-documentation [hasTestId]="false">
       <ng-template
         [(documentationPropertyValue)]="title"
@@ -189,8 +187,7 @@
 </prizm-doc-page>
 
 <ng-template #contentTemp>
-  Content из <a href="#">шаблона</a>
-  [formControl]="control" [items]="items"
+  Контент из <a class="template-link" href="#">шаблона</a>
 
   <prizm-input-layout label="Validators">
     <prizm-input-select [items]="items"></prizm-input-select>
