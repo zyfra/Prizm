@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-duplicate-imports
 import {
   ChangeDetectorRef,
   ComponentRef,
