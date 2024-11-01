@@ -35,8 +35,10 @@
   .title {
     .ellipsis();
     max-width: 90%;
-    display: flex;
     align-items: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
   }
 }
 
