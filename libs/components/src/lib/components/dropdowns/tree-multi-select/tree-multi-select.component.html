@@ -8,7 +8,7 @@
   [autoReposition]="false"
   [ngSwitch]="layoutComponent?.outer"
   [prizmFocusable]="true"
-  (isOpenChange)="opened$$.next($event)"
+  (isOpenChange)="changeParentFocusedClass($event); opened$$.next($event)"
   (click)="safeOpenModal()"
 >
   <input

@@ -30,7 +30,6 @@ import { PrizmDropdownHostComponent } from '../dropdown-host';
 import { PrizmDataListComponent, PrizmDataListDirective } from '../../data-list';
 import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
 import { PrizmNativeFocusableElement } from '../../../types/focusable-element-accessor';
-import { prizmIsNativeFocused } from '../../../util';
 import { filter, map, skip, takeUntil, tap } from 'rxjs/operators';
 import {
   PolymorphOutletDirective,
@@ -215,7 +214,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();
-
+  override readonly clickable = true;
   override get empty(): boolean {
     return !this.treeSelectSelectedDirective?.value?.length;
   }
@@ -229,8 +228,8 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
 
-  get focused(): boolean {
-    return prizmIsNativeFocused(this.nativeFocusableElement);
+  get focused() {
+    return this.focused$;
   }
 
   readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
@@ -306,5 +305,11 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
     const inputElement = this.focusableElement?.nativeElement;
     const open = !this.opened$$.value && !this.disabled && !!inputElement;
     this.opened$$.next(open);
+  }
+
+  public changeParentFocusedClass(add: boolean) {
+    if (this.disabled) return;
+    this.opened$$.next(add);
+    this.focused$$.next(add);
   }
 }

@@ -3,6 +3,7 @@ import {
   Component,
   ElementRef,
   EventEmitter,
+  HostBinding,
   inject,
   Input,
   Output,
@@ -60,7 +61,9 @@ export class PrizmChipsItemComponent extends PrizmAbstractTestId {
   }
   private _selected = false;
 
-  @Input() deletable = true;
+  @HostBinding('class.deletable')
+  @Input()
+  deletable = true;
   @Output() deleted = new EventEmitter<MouseEvent>();
   @Input() hintCanShow = true;
   @Input() hintText!: string;

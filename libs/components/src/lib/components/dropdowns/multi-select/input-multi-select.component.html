@@ -10,8 +10,11 @@
   [dropdownStyles]="dropdownStyles"
   [dropdownClasses]="dropdownClasses"
   [ngSwitch]="layoutComponent?.outer"
+  [dropdownTriggerElement]="layoutComponent?.el?.nativeElement"
+  [dropdownDisabled]="disabled"
   [prizmFocusable]="true"
-  (isOpenChange)="$event && searchInputControl.setValue(''); opened$$.next($event)"
+  (isOpenChange)="changeParentFocusedClass($event); $event && searchInputControl.setValue('')"
+  dropdownTrigger="click"
 >
   <input
     #focusableElementRef
@@ -68,9 +71,8 @@
               class="text"
               #elem
               *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
-              [prizmHint]="text"
+              [prizmHintOnOverflow]="text"
               [prizmHintDirection]="direction"
-              [prizmHintCanShow]="$any(elem | prizmCallFunc : prizmIsTextOverflow$ | async)"
             >
               <ng-container
                 *polymorphOutlet="
@@ -81,7 +83,7 @@
                       checked: item.checked,
                       stringify: item | prizmCallFunc : stringify
                     }
-                  } as context
+                  }
                 "
               >
                 {{ text }}
@@ -112,8 +114,7 @@
       [class.icon-dropdown]="iconName === defaultIcon"
       [name]="$any(iconName)"
       [class.disabled]="disabled"
-      [prizmFocusable]="true"
-      (click)="safeOpenModal()"
+      [prizmFocusable]="!disabled"
     >
     </prizm-icons-full>
   </ng-container>

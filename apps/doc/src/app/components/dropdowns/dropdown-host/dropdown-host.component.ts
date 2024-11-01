@@ -3,6 +3,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
   PrizmDropdownHostClasses,
+  PrizmDropdownHostComponent,
   PrizmDropdownHostStyles,
   PrizmOverlayOutsidePlacement,
 } from '@prizm-ui/components';
@@ -15,6 +16,8 @@ import { prizmGenerateId } from '@prizm-ui/helpers';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DropdownHostComponent {
+  readonly keyForTrigger = 'PrizmDropdownTriggerClickDirective';
+  readonly key = 'PrizmDropdownHostComponent';
   public dropdownStylesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
     {
@@ -35,6 +38,7 @@ export class DropdownHostComponent {
   public canOpen = true;
   public closeByEsc = true;
   public prizmDropdownHostCloseOnBackdropClick = true;
+  public disabled = false;
   public isOpenChange = false;
   isOpen = false;
   prizmDropdownHostWidth = 'auto';
