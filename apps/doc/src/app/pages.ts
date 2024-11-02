@@ -1401,7 +1401,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
   },
 
   {
-    section: SectionNameEnum.tools,
+    section: SectionNameEnglishEnum.tools,
     title: 'Nxmv',
     keywords: 'nxmv, move, version, версии, изменить',
     route: '/tools/nxmv',
