@@ -98,7 +98,7 @@ export class SwitcherExampleComponent {
 
   public readonly exampleOverflow: TuiDocExample = {
     TypeScript: import('./examples/switcher-overflow-example/switcher-overflow-example.component?raw'),
-    HTML: import('./examples/switcher-overflow/switcher-overflow-example.component.html?raw'),
+    HTML: import('./examples/switcher-overflow-example/switcher-overflow-example.component.html?raw'),
   };
 
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');

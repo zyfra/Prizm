@@ -5,6 +5,7 @@ import { PrizmOverflowItem, PrizmOverflowReserveSpace } from './model';
 import { prizmCreateResizeObservable, PrizmSetSubject } from '../../util';
 import { hideOverflowElements } from './util';
 
+// TODO: rename to PrizmOverflowService
 @Injectable()
 export class OverflowService implements OnDestroy {
   private readonly set = new PrizmSetSubject<PrizmOverflowItem>();
