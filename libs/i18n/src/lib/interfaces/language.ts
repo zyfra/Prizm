@@ -10,6 +10,10 @@ export interface PrizmLanguageFileUpload {
     dropzone__title: string;
     dropzone__description: string;
     btn__select: string;
+    btn__select_hint_error: string;
+    file_size__byte: string;
+    file_size__kb: string;
+    file_size__mb: string;
     idle: string;
     progress: string;
     warning: string;
@@ -34,6 +38,12 @@ export interface PrizmLanguageInputLayout {
 export interface PrizmLanguageInputLayoutDateTime {
   inputLayoutDateTime: {
     wrongFormat: string;
+  };
+}
+
+export interface PrizmLanguageInputLayoutDateTimeRange {
+  inputLayoutDateTimeRange: {
+    time: string;
   };
 }
 
@@ -136,6 +146,8 @@ export interface PrizmLanguagePaginator {
   paginator: {
     linesShown: string;
     fromText: string;
+    linesOnPage: string;
+    moreButtonLabel: string;
   };
 }
 
@@ -157,6 +169,7 @@ export interface PrizmLanguageCore {
 }
 
 export interface PrizmLanguageKit {
+  emptyListText: string;
   cancel: string;
   done: string;
   more: string;
@@ -303,6 +316,7 @@ export interface PrizmLanguage
     PrizmLanguageCron,
     PrizmLanguageInputLayoutDateRelative,
     PrizmLanguageInputLayoutDateTime,
+    PrizmLanguageInputLayoutDateTimeRange,
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
     PrizmLanguagePaginator {}

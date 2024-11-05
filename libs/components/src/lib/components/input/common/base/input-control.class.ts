@@ -64,6 +64,7 @@ export abstract class PrizmInputControl<T> extends PrizmAbstractTestId implement
 
   abstract nativeElementType: string | undefined;
 
+  public clickable = false;
   abstract hasClearButton: boolean;
   hidden = false;
   public abstract clear(ev: MouseEvent): void;

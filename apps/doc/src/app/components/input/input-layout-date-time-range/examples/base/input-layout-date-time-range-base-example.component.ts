@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, UntypedFormControl } from '@angular/forms';
+import { Component, DestroyRef, inject, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { PrizmDateTime, PrizmDateTimeRange, PrizmDay, PrizmDayRange, PrizmTime } from '@prizm-ui/components';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'prizm-input-layout-date-time-range-base-example',
@@ -18,8 +20,23 @@ import { PrizmDateTime, PrizmDateTimeRange, PrizmDay, PrizmDayRange, PrizmTime }
     `,
   ],
 })
-export class PrizmInputLayoutDateTimeRangeBaseExampleComponent {
+export class PrizmInputLayoutDateTimeRangeBaseExampleComponent implements OnInit {
   readonly value = new FormControl(
     new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
   );
+
+  public min: PrizmDateTime = new PrizmDateTime(new PrizmDay(2018, 1, 1), new PrizmTime(10, 0));
+  public max: PrizmDateTime = new PrizmDateTime(new PrizmDay(2025, 10, 10), new PrizmTime(18, 30));
+
+  private readonly destroy = inject(DestroyRef);
+  ngOnInit() {
+    this.value.valueChanges
+      .pipe(
+        tap(result => {
+          console.log('valueChanges', result);
+        }),
+        takeUntilDestroyed(this.destroy)
+      )
+      .subscribe();
+  }
 }

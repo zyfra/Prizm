@@ -23,6 +23,7 @@
         [colorField]="colorField"
         [theme]="$any($any(prizmTheme.changesTheme$ | async))"
         [options]="{ size: 5, shape: 'circle', appendPadding: 30 }"
+        [color]="color"
       ></prizm-charts-scatter>
     </prizm-doc-demo>
 
@@ -102,6 +103,15 @@
         documentationPropertyMode="input"
       >
         Height
+      </ng-template>
+      <ng-template
+        [(documentationPropertyValue)]="color"
+        [documentationPropertyValues]="$any(colorVariants)"
+        documentationPropertyName="color"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Color. Sets charts color. Note, for chart with seriesField use colors array.
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

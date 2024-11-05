@@ -1,5 +1,8 @@
 <prizm-accordion>
-  <prizm-accordion-item [title]="'Static_title_h3 - 16 Medium'">
+  <prizm-accordion-item
+    [title]="'Static_title_h3 - 16 Medium'"
+    [style.--prizm-accordion-item-header-border-color-expanded]="'var(--prizm-background-stroke)'"
+  >
     <ng-template prizmAccordionContent>
       Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
       стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник
@@ -10,7 +13,10 @@
       используется.
     </ng-template>
   </prizm-accordion-item>
-  <prizm-accordion-item [title]="'Title number 2'">
+  <prizm-accordion-item
+    [title]="'Title number 2'"
+    [style.--prizm-accordion-item-header-border-color-expanded]="'var(--prizm-background-stroke)'"
+  >
     <ng-template prizmAccordionContent>
       Lorem Ipsum - это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является
       стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник

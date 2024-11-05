@@ -61,7 +61,7 @@
   background: var(--prizm-select-item-background, var(--prizm-bg-body));
   font-weight: var(--prizm-select-item-font-weight, 400);
   font-size: var(--prizm-select-item-font-size, 14px);
-  color: var(--prizm-select-empty-text, var(--prizm-text-subscript, #20222b));
+  color: var(--prizm-select-empty-text, var(--prizm-text-icon-secondary));
 }
 
 .icon-dropdown {
@@ -80,6 +80,10 @@
   &.active {
     color: var(--prizm-button-primary-solid-active);
   }
+
+  &.disabled {
+    visibility: hidden;
+  }
 }
 
 prizm-icon {
@@ -92,7 +96,7 @@ prizm-icon {
 }
 
 .list-search-item {
-  padding: var(--prizm-select-item-padding, 8px 16px);
+  padding: var(--prizm-select-item-padding, 16px 16px 8px);
 
   prizm-input-layout {
     width: 100%;
@@ -101,4 +105,8 @@ prizm-icon {
 
 prizm-dropdown-host {
   display: flex;
+}
+
+:host .input-search {
+  cursor: inherit;
 }

@@ -11,6 +11,7 @@ import {
 } from '@prizm-ui/components';
 import { PrizmThemeModule } from '@prizm-ui/theme';
 import { NavigationBasicExampleModule } from './examples/navigation-basic-example/navigation-basic-example.module';
+import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
 
 @NgModule({
   declarations: [NavigationExampleComponent],
@@ -24,6 +25,7 @@ import { NavigationBasicExampleModule } from './examples/navigation-basic-exampl
     PrizmAddonDocModule,
     NavigationBasicExampleModule,
     RouterModule.forChild(prizmDocGenerateRoutes(NavigationExampleComponent)),
+    PrizmIfLanguageDirective,
   ],
 })
 export class NavigationExampleModule {}

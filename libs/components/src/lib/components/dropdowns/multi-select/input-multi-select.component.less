@@ -76,10 +76,14 @@
   &.opened {
     transform: rotate(180deg);
   }
+
+  &.disabled {
+    visibility: hidden;
+  }
 }
 
 .list-search-item {
-  padding: var(--prizm-select-item-padding, 8px 16px);
+  padding: var(--prizm-select-item-padding, 16px 16px 8px);
 
   prizm-input-layout {
     width: 100%;

@@ -32,9 +32,9 @@
           [prizmDocHostElement]="element"
           [prizmDocHostElementKey]="controlKey"
           [formControl]="value"
-          [min]="min"
           [timeMode]="timeMode"
           [placeholder]="placeholder"
+          [min]="min"
           [max]="max"
         ></prizm-input-layout-date-time-range>
       </prizm-input-layout>
@@ -64,8 +64,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minMaxVariants"
         documentationPropertyName="min"
-        documentationPropertyType="PrizmDateTimeMinMax"
+        documentationPropertyType="PrizmDateTimeMinMax | Date | string"
         documentationPropertyMode="input"
       >
         Min Date
@@ -79,8 +81,10 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="minMaxVariants"
         documentationPropertyName="max"
-        documentationPropertyType="PrizmDateTimeMinMax"
+        documentationPropertyType="PrizmDateTimeMinMax | Date | string"
         documentationPropertyMode="input"
       >
         Max Date

@@ -3,6 +3,17 @@
     Our tree component is a simple, flexible, and accessible tree view.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>prizm-tree-button (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="exampleBase" heading="Base">
       <prizm-tree-base-example></prizm-tree-base-example>
     </prizm-doc-example>
@@ -65,19 +76,23 @@
           #treeControllerElement="prizmTreeController"
           [prizmTreeController]="prizmTreeController"
         >
-          <prizm-tree-item #element="prizmTreeItem">
+          <prizm-tree-item #element="prizmTreeItem" [style.--prizm-tree-item-height]="treeItemHeight">
             Fruits
-            <prizm-tree-item>
+            <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight">
               Apples
-              <prizm-tree-item>Granny Smith</prizm-tree-item>
-              <prizm-tree-item>Red Delicious</prizm-tree-item>
+              <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight"
+                >Granny Smith</prizm-tree-item
+              >
+              <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight"
+                >Red Delicious</prizm-tree-item
+              >
             </prizm-tree-item>
-            <prizm-tree-item>Oranges</prizm-tree-item>
+            <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight">Oranges</prizm-tree-item>
           </prizm-tree-item>
-          <prizm-tree-item>
+          <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight">
             Animals
-            <prizm-tree-item>Cats</prizm-tree-item>
-            <prizm-tree-item>Dogs</prizm-tree-item>
+            <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight">Cats</prizm-tree-item>
+            <prizm-tree-item [style.--prizm-tree-item-height]="treeItemHeight">Dogs</prizm-tree-item>
           </prizm-tree-item>
         </ng-container>
       </div>
@@ -88,6 +103,14 @@
       heading="PrizmTreeItemControllerDirective"
       hostComponentKey="PrizmTreeItemControllerDirective"
     >
+      <ng-template
+        [(documentationPropertyValue)]="treeItemHeight"
+        documentationPropertyName="prizm-tree-item-height"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Tree Item Height (default 32px)
+      </ng-template>
       <ng-template
         [(documentationPropertyValue)]="prizmTreeController"
         documentationPropertyName="prizmTreeController"

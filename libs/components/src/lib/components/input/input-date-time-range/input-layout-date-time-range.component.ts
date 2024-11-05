@@ -30,11 +30,11 @@ import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
 import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PrizmDateMode } from '../../../types/date-mode';
-import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
+import { PRIZM_DATE_TEXTS, PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE, PRIZM_TIME_TEXTS } from '../../../tokens/';
 import { PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
@@ -65,6 +65,9 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
+import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
+import { PrizmLanguageInputLayoutDateTimeRange } from 'libs/i18n/src/lib/interfaces';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -77,6 +80,7 @@ import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/s
     ...prizmI18nInitWithKeys({
       time: PRIZM_TIME_TEXTS,
       dateTexts: PRIZM_DATE_TEXTS,
+      inputLayoutDateTimeRange: PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE,
     }),
     {
       provide: NG_VALUE_ACCESSOR,
@@ -101,6 +105,8 @@ import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/s
     PrizmCalendarRangeComponent,
     PrizmValueAccessorDirective,
     FormsModule,
+    PrizmTimeConstraintsPipe,
+    PrizmPluckPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeRangeComponent
@@ -139,13 +145,21 @@ export class PrizmInputLayoutDateTimeRangeComponent
   @prizmDefaultProp()
   placeholder = '';
 
-  @Input()
   @prizmDefaultProp()
-  min: PrizmDateTimeMinMax = PRIZM_FIRST_DAY;
+  _min: PrizmDateTimeMinMax = PRIZM_FIRST_DAY;
 
   @Input()
+  set min(value: PrizmDateTimeMinMax | Date | string) {
+    this._min = transformDateIfNeeded(value) || PRIZM_FIRST_DAY;
+  }
+
   @prizmDefaultProp()
-  max: PrizmDateTimeMinMax = PRIZM_LAST_DAY;
+  _max: PrizmDateTimeMinMax = PRIZM_LAST_DAY;
+
+  @Input()
+  set max(value: PrizmDateTimeMinMax | Date | string) {
+    this._max = transformDateIfNeeded(value) || PRIZM_LAST_DAY;
+  }
 
   @Input()
   @prizmDefaultProp()
@@ -186,11 +200,11 @@ export class PrizmInputLayoutDateTimeRangeComponent
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
 
   get calendarMinDay(): PrizmDay {
-    return this.getDayFromMinMax(this.min);
+    return this.getDayFromMinMax(this._min);
   }
 
   get calendarMaxDay(): PrizmDay {
-    return this.getDayFromMinMax(this.max);
+    return this.getDayFromMinMax(this._max);
   }
 
   readonly nativeValueTimeFrom$$ = new BehaviorSubject<string>('');
@@ -246,6 +260,10 @@ export class PrizmInputLayoutDateTimeRangeComponent
     @Inject(PRIZM_DATE_FORMAT)
     readonly dateFormat: PrizmDateMode,
     @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
+    @Inject(PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE)
+    public readonly dictionary$: Observable<
+      PrizmLanguageInputLayoutDateTimeRange['inputLayoutDateTimeRange']
+    >,
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     @Optional()
@@ -478,7 +496,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
     if (!value) return null;
     let [, parsedTime] = value;
     if (parsedTime)
-      parsedTime = parsedTime.timeLimit(this.getTimeFromMinMax(this.min), this.getTimeFromMinMax(this.max));
+      parsedTime = parsedTime.timeLimit(this.getTimeFromMinMax(this._min), this.getTimeFromMinMax(this._max));
 
     return parsedTime;
   }
@@ -492,7 +510,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
   }
 
   private dayLimit(value: PrizmDay): PrizmDay {
-    return value.dayLimit(this.getDayFromMinMax(this.min), this.getDayFromMinMax(this.max));
+    return value.dayLimit(this.getDayFromMinMax(this._min), this.getDayFromMinMax(this._max));
   }
 
   public override writeValue(value: PrizmDateTimeRange | null): void {
