@@ -105,11 +105,10 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   set value(value: VALUE) {
     if (this.ngControl) {
       if (this.ngControl.value !== value) {
-        this.ngControl?.control?.patchValue(value);
+        this.ngControl.control?.patchValue(value);
       }
     } else {
       this.updateValue(value);
-      this.updateEmptyState();
       this.stateChanges.next();
     }
   }
@@ -238,9 +237,9 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
     this.ngControl.control.valueChanges
       .pipe(
-        tap(() => {
-          this.inputHint?.updateHint();
-          this.stateChanges.next();
+        tap(value => {
+          // Update hint and empty state
+          this.updateValue(value);
         }),
         takeUntil(this.destroy)
       )
@@ -262,25 +261,24 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   private updateValue(value: VALUE): void {
     if (value !== this.value) this.renderer2_.setProperty(this._inputValue, 'value', value);
     this.inputHint?.updateHint();
+    this.updateEmptyState();
   }
 
   public clear(event: MouseEvent): void {
     if (this.disabled || this.empty) return;
 
+    this.updateValue(null as VALUE);
     if (this.ngControl?.control) {
       // let `ControlValueAccessor` (e.g. it can be ngx-mask) to update <input> value
       this.ngControl.control.setValue('');
     }
-
-    this.updateValue(null as VALUE);
-    this.updateEmptyState();
 
     // Mark control as touched while we do not focus it (usually touched applied on blur)
     this.markControl({ touched: true, dirty: true });
     this.onClear.emit(event);
 
     // NOTE: ngx-mask has listener to keydown event, so we must ensure HTMLInputElement is cleared before dispatch
-    // otherwise the NgxMaskDirective's interval value is recovered from it
+    // otherwise the NgxMaskDirective's internal value is recovered from it
     this.elementRef.nativeElement.dispatchEvent(
       new KeyboardEvent('keydown', {
         key: 'Backspace',
