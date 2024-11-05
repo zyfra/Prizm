@@ -42,6 +42,7 @@
           [prizmDropdownMinHeight]="prizmDropdownMinHeight"
           [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"
           [placeholder]="placeholder"
+          [searchPlaceholder]="searchPlaceholder"
           [searchLabel]="searchLabel"
           [emptyListTemplate]="emptyListTemplate"
           [stringify]="stringify"
@@ -155,6 +156,14 @@
       </ng-template>
 
       <ng-template
+        documentationPropertyName="icon"
+        documentationPropertyType="PolymorphContent"
+        documentationPropertyMode="input"
+      >
+        Dropdown Icon
+      </ng-template>
+
+      <ng-template
         [(documentationPropertyValue)]="prizmDropdownMinHeight"
         documentationPropertyName="prizmDropdownMinHeight"
         documentationPropertyType="number"
@@ -202,6 +211,15 @@
         documentationPropertyMode="input"
       >
         Search Label
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="searchPlaceholder"
+        documentationPropertyName="searchPlaceholder"
+        documentationPropertyType="string"
+        documentationPropertyMode="input"
+      >
+        Search Placeholder
       </ng-template>
 
       <!-- TODO later check in demo and uncomment    -->

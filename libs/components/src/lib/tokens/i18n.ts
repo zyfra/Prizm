@@ -8,6 +8,7 @@ import {
   PrizmLanguageInputLayout,
   PrizmLanguageInputLayoutDateRelative,
   PrizmLanguageInputLayoutDateTime,
+  PrizmLanguageInputLayoutDateTimeRange,
   PrizmLanguageKit,
   PrizmLanguagePaginator,
   PrizmLanguageQueryBuilder,
@@ -28,6 +29,10 @@ export const PRIZM_INPUT_LAYOUT_DATE_RELATIVE = new InjectionToken<
 export const PRIZM_INPUT_LAYOUT_DATE_TIME = new InjectionToken<
   Observable<PrizmLanguageInputLayoutDateTime['inputLayoutDateTime']>
 >(`Localized for input layout date time component`);
+
+export const PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE = new InjectionToken<
+  Observable<PrizmLanguageInputLayoutDateTimeRange['inputLayoutDateTimeRange']>
+>(`Localized for input layout date time range component`);
 
 export const PRIZM_CRON = new InjectionToken<Observable<PrizmLanguageCron['cron']>>(
   `Localized for cron component`

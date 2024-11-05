@@ -14,7 +14,8 @@ export class ButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
 
-  public pseudoHovered = false;
+  public pseudoHovered = null;
+  public pseudoHoveredVariants = [true, false, null];
   public pseudoPressed = false;
   public pseudoFocused = false;
   public pseudoState = '';

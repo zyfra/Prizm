@@ -18,5 +18,6 @@ export class PrizmInputMultiSelectWithSearchExampleComponent {
     'Костя Щербаков',
     'Рустам Гусев',
     'Филип Уваров',
+    'Филип Уваров с очень длинным текстом с очень длинным текстом ',
   ];
 }

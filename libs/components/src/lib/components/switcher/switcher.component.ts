@@ -165,7 +165,7 @@ export class PrizmSwitcherComponent extends PrizmAbstractTestId implements After
   }
 
   /**
-   * @public
+   * @public api
    * safe select switcher by index
    */
   public selectSwitcher(idx: number): boolean {

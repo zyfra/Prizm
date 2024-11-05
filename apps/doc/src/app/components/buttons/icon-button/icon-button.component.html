@@ -114,6 +114,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoHovered"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoHovered"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -122,6 +123,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoPressed"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoPressed"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -130,6 +132,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoFocused"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoFocused"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"

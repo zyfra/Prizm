@@ -76,6 +76,10 @@
   &.opened {
     transform: rotate(180deg);
   }
+
+  &.disabled {
+    visibility: hidden;
+  }
 }
 
 .list-search-item {
@@ -104,7 +108,7 @@ prizm-checkbox {
 prizm-chips {
   &.inner,
   &[data-size='s'] {
-    --prizm-chips-item-heigh: 16px;
+    --prizm-chips-item-height: 16px;
   }
 }
 
@@ -140,4 +144,8 @@ prizm-dropdown-host {
 prizm-icon.disabled {
   cursor: not-allowed;
   pointer-events: none;
+}
+
+:host .input-search {
+  cursor: inherit;
 }

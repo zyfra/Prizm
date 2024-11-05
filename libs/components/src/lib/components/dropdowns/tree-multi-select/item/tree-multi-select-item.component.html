@@ -1,8 +1,8 @@
 <div class="item" [class.selected]="value | prizmCallFunc : isSelected$ | async">
-  <div class="icon-with-checkbox">
+  <div class="icon-with-checkbox" [attr.data--checkbox-position]="checkboxPosition">
     <prizm-checkbox
       *ngIf="isSelected(); else intermediateOtUnselectedTemplate"
-      [readonly]="true"
+      [class.readonly]="true"
       [checked]="true"
     ></prizm-checkbox>
     <ng-template #intermediateOtUnselectedTemplate>
@@ -17,6 +17,7 @@
     </ng-template>
 
     <button
+      class="icon-toggle"
       *ngIf="children.length"
       [icon]="iconTemplate"
       [class.opened]="opened"

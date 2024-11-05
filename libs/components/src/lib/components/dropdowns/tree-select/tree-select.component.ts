@@ -12,7 +12,12 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { PrizmCallFuncPipe, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmInputControl, PrizmInputNgControl, PrizmInputTextComponent } from '../../input';
+import {
+  PrizmInputCommonModule,
+  PrizmInputControl,
+  PrizmInputNgControl,
+  PrizmInputTextComponent,
+} from '../../input';
 import { BehaviorSubject } from 'rxjs';
 import { AsyncPipe, NgIf, NgTemplateOutlet } from '@angular/common';
 import { PrizmDropdownHostComponent } from '../dropdown-host';
@@ -31,11 +36,19 @@ import { PrizmTreeSelectStringifyDirective } from './tree-select-stringify.direc
 import { PrizmTreeSelectSearchDirective } from './search/tree-select-search.directive';
 import { PrizmTreeSelectEmptyTextDirective } from './tree-select-empty-text.directive';
 import { PrizmTreeSelectSearchLabelDirective } from './tree-select-search-label.directive';
-import { PrizmDropdownControllerDirective } from '../../../directives';
+import {
+  PolymorphOutletDirective,
+  PrizmDropdownControllerDirective,
+  PrizmFocusableDirective,
+} from '../../../directives';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
+import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 
 @Component({
   selector: 'prizm-input-tree-select',
   templateUrl: './tree-select.component.html',
+  styleUrl: './tree-select.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
@@ -52,6 +65,10 @@ import { PrizmDropdownControllerDirective } from '../../../directives';
     NgIf,
     PrizmTreeSelectDataListWrapperComponent,
     PrizmDropdownControllerDirective,
+    PolymorphOutletDirective,
+    PrizmIconsFullComponent,
+    PrizmInputCommonModule,
+    PrizmFocusableDirective,
   ],
   providers: [
     {
@@ -96,7 +113,14 @@ import { PrizmDropdownControllerDirective } from '../../../directives';
     },
     {
       directive: PrizmTreeSelectSearchDirective,
-      inputs: ['searchable', 'searchFilter', 'searchMapper', 'searchMatcher', 'searchDebounce'],
+      inputs: [
+        'searchable',
+        'searchFilter',
+        'searchMapper',
+        'searchMatcher',
+        'searchDebounce',
+        'searchPlaceholder',
+      ],
       outputs: ['searched'],
     },
     {
@@ -123,6 +147,9 @@ export class PrizmInputTreeSelectComponent<T = any>
   @Input()
   placeholder = '';
 
+  @Input()
+  icon: string | null = null;
+  public readonly defaultIcon = 'triangle-down';
   private readonly destroy = inject(PrizmDestroyService);
   public readonly treeSelectSelectedDirective = inject(PrizmTreeSelectSelectedDirective);
   public readonly opened$$ = inject(PRIZM_TREE_SELECT_DROPDOWN_CONTROLLER);
@@ -132,6 +159,7 @@ export class PrizmInputTreeSelectComponent<T = any>
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
+  override readonly clickable = true;
 
   override readonly nativeElementType = 'tree-select';
   override readonly hasClearButton = true;
@@ -143,10 +171,12 @@ export class PrizmInputTreeSelectComponent<T = any>
   get focused(): boolean {
     return prizmIsNativeFocused(this.nativeFocusableElement);
   }
+  readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(private readonly injector_: Injector) {
     super(injector_, null);
 
+    this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown, prizmIconsMagnifyingGlass);
     this.dropdownControllerDirective.minHeight = 40;
   }
 

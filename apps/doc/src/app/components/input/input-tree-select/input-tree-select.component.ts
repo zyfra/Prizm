@@ -70,6 +70,7 @@ export class InputTreeSelectComponent {
 
   emptyListTemplate = 'Ничего не найдено';
   searchLabel = 'Не выбрано';
+  searchPlaceholder = '';
   prizmDropdownMinHeight = 0;
   prizmDropdownMaxHeight = 342;
   placeholder = '';
