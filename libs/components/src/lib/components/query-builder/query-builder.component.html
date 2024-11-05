@@ -1,28 +1,38 @@
-<cdk-tree [dataSource]="dataSource" [treeControl]="treeControl">
-  <cdk-nested-tree-node
-    #nodeRef="cdkNestedTreeNode"
-    *cdkTreeNodeDef="let node"
-    [cdkDragData]="node"
-    [cdkDragDisabled]="nodeRef.level === 0 || disabled"
+@let i18n = i18n$ | async;
+
+<div class="query-builder__tree" aria-role="tree">
+  @for(node of dataSource.data; track node) {
+  <ng-container *ngTemplateOutlet="nodeTemplate; context: { $implicit: node, level: 0 }"></ng-container>
+  }
+</div>
+
+<ng-template #nodeTemplate let-node let-level="level">
+  <div
+    class="query-builder__tree-node"
     [ngStyle]="{
       '--_nesting-level-marker-color':
-        nodeRef.level % 2 === 0
+        level % 2 === 0
           ? 'var(--prizm-status-success-primary-default)'
           : 'var(--prizm-status-info-primary-default)',
     }"
+    [attr.aria-expanded]="true"
+    [attr.aria-level]="level + 1"
+    [cdkDragData]="node"
+    [cdkDragDisabled]="level === 0 || disabled"
     (cdkDragDropped)="_onDropped($event)"
+    aria-role="treeitem"
     cdkDrag
   >
-    @if (nodeRef.level !== 0) {
+    @if (level !== 0) {
     <button
       [icon]="'grip-dots-vertical'"
       [size]="'m'"
       [appearanceType]="'ghost'"
       [appearance]="'secondary'"
       [disabled]="disabled"
+      [focusable]="false"
       prizmIconButton
       cdkDragHandle
-      tabindex="-1"
     ></button>
     }
 
@@ -55,11 +65,8 @@
       <div class="query-builder__node-content">
         <div class="query-builder__expression">
           <prizm-switcher [size]="'m'" [formControl]="node.form.controls.operator">
-            @for (item of operatorsItems$ | async; track item.id) {
-            <prizm-switcher-item [value]="item.id">
-              {{ item.title }}
-            </prizm-switcher-item>
-            }
+            <prizm-switcher-item [value]="'AND'">{{ i18n?.and }}</prizm-switcher-item>
+            <prizm-switcher-item [value]="'OR'">{{ i18n?.or }}</prizm-switcher-item>
           </prizm-switcher>
 
           @if (!disabled) {
@@ -83,11 +90,11 @@
             <ng-template #listbox>
               <prizm-data-list>
                 <prizm-listing-item (click)="createConditionNode(node); ddh.close()">
-                  {{ (i18n$ | async)?.addCondition }}
+                  {{ i18n?.addCondition }}
                 </prizm-listing-item>
 
                 <prizm-listing-item (click)="createExpressionNode(node); ddh.close()">
-                  {{ (i18n$ | async)?.addNestedExpression }}
+                  {{ i18n?.addNestedExpression }}
                 </prizm-listing-item>
               </prizm-data-list>
             </ng-template>
@@ -95,16 +102,16 @@
           }
 
           <ng-container>
-            @if (nodeRef.level !== 0) {
+            @if (level !== 0) {
             <label class="query-builder__exclude">
               <prizm-toggle [formControl]="node.form.controls.exclude" [size]="'m'"></prizm-toggle>
-              <span>{{ (i18n$ | async)?.exclude }}</span>
+              <span>{{ i18n?.exclude }}</span>
             </label>
             }
           </ng-container>
         </div>
 
-        @if (nodeRef.level !== 0 && !disabled) {
+        @if (level !== 0 && !disabled) {
         <button
           class="query-builder__remove"
           [size]="'s'"
@@ -118,11 +125,15 @@
       </div>
 
       <div [cdkDropListData]="node" [cdkDropListConnectedTo]="_orderedDropLists()" cdkDropList>
-        <ng-container cdkTreeNodeOutlet></ng-container>
+        @for(childNode of node.children; track childNode) {
+        <ng-container
+          *ngTemplateOutlet="nodeTemplate; context: { $implicit: childNode, level: level + 1 }"
+        ></ng-container>
+        }
       </div>
       } }
     </div>
 
     <div class="query-builder__placeholder" *cdkDragPlaceholder></div>
-  </cdk-nested-tree-node>
-</cdk-tree>
+  </div>
+</ng-template>

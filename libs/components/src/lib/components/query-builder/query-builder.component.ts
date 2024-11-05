@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { CdkDrag, CdkDragDrop, CdkDropList, DragDropModule, transferArrayItem } from '@angular/cdk/drag-drop';
-import { CdkTreeModule, NestedTreeControl } from '@angular/cdk/tree';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -32,7 +31,7 @@ import {
 } from '@angular/forms';
 import { PRIZM_EMPTY_FUNCTION } from '@prizm-ui/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
-import { Observable, map, shareReplay } from 'rxjs';
+import { map } from 'rxjs';
 import { prizmI18nInitWithKey } from '../../services';
 import { PRIZM_QUERY_BUILDER } from '../../tokens';
 import { PrizmButtonComponent } from '../button';
@@ -40,24 +39,15 @@ import { PrizmDataListComponent } from '../data-list';
 import { PrizmDropdownHostComponent } from '../dropdowns/dropdown-host';
 import { PrizmListingItemComponent } from '../listing-item';
 import { PrizmScrollbarComponent } from '../scrollbar';
-import { PrizmSwitcherComponent, PrizmSwitcherItem, PrizmSwitcherItemComponent } from '../switcher';
+import { PrizmSwitcherComponent, PrizmSwitcherItemComponent } from '../switcher';
 import { PrizmToggleComponent } from '../toggle';
 import { PrizmConditionDefDirective } from './condition-def.directive';
+import { ConditionModel, ConditionNodeForm, ExpressionModel, ExpressionNodeForm } from './model';
 import { NestedDataSource } from './nested-data-source';
-import {
-  ConditionModel,
-  ConditionNodeForm,
-  ExpressionModel,
-  ExpressionNodeForm,
-  LOGICAL_OPERATOR,
-} from './model';
 
 import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/full/source/grip-dots-vertical';
 import { prizmIconsPlusTriangleDown } from '@prizm-ui/icons/full/source/plus-triangle-down';
 import { prizmIconsTrash } from '@prizm-ui/icons/full/source/trash';
-
-/** Множество операторов выражения поискового запроса */
-const OPERATORS: LOGICAL_OPERATOR[] = ['AND', 'OR'];
 
 interface ExpressionNode {
   type: 'exp';
@@ -95,7 +85,6 @@ type Node = ExpressionNode | ConditionNode;
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CdkTreeModule,
     DragDropModule,
     PrizmDropdownHostComponent,
     PrizmButtonComponent,
@@ -105,7 +94,6 @@ type Node = ExpressionNode | ConditionNode;
     PrizmDataListComponent,
     PrizmListingItemComponent,
     PrizmScrollbarComponent,
-    // NOOP_TREE_KEY_MANAGER_FACTORY_PROVIDER // TODO NG 19 adds new TREE_KEY_MANAGER which prevents `*` input (registered as hotkey for a tree)
   ],
 })
 export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor, Validator {
@@ -136,25 +124,8 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private _dropListQuery = viewChildren<CdkDropList<Node>>(CdkDropList);
   private _dragQuery = viewChildren<CdkDrag<Node>>(CdkDrag);
 
-  protected readonly operators = OPERATORS;
-  protected readonly operatorsItems$: Observable<PrizmSwitcherItem[]> = this.i18n$.pipe(
-    map(i18n =>
-      OPERATORS.map(op => ({
-        id: op,
-        title: op === 'AND' ? i18n.and : i18n.or,
-      }))
-    ),
-    shareReplay({
-      refCount: true,
-      bufferSize: 1,
-    })
-  );
-
   /** Represents hierarchical structure of the tree. */
   protected dataSource = new NestedDataSource<Node>();
-
-  /** Defines how to traverse tree nodes. */
-  protected readonly treeControl = new NestedTreeControl<Node>(node => node.children);
 
   protected onChange: (value: ExpressionModel) => void = PRIZM_EMPTY_FUNCTION;
   protected onTouched: () => void = PRIZM_EMPTY_FUNCTION;
@@ -266,12 +237,6 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   }
 
   private updateViewData(): void {
-    // Trigger data to update tree-view
-    const t = this.dataSource.data;
-    this.dataSource.data = [];
-    this.dataSource.data = t;
-    this.treeControl.dataNodes = this.dataSource.data;
-    this.treeControl.expandAll();
     this.syncNodesParentMap();
     this.cdr.markForCheck();
   }
@@ -358,17 +323,17 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
     const drags = this._dragQuery();
     const dropLists = this._dropListQuery();
 
-    const nodesToDropContainerMap = new Map<Node, CdkDropList>(dropLists.map(list => [list.data, list]));
+    const nodeToDropListMap = new Map<Node, CdkDropList>(dropLists.map(list => [list.data, list]));
 
     for (const drag of drags) {
       const parent = this._nodesParentMap.get(drag.data);
       if (!parent) continue;
 
-      const dropContainer = nodesToDropContainerMap.get(parent);
-      if (dropContainer) {
-        drag.dropContainer = dropContainer;
-        drag._dragRef._withDropContainer(dropContainer._dropListRef);
-        dropContainer.addItem(drag);
+      const dropList = nodeToDropListMap.get(parent);
+      if (dropList) {
+        drag.dropContainer = dropList;
+        drag._dragRef._withDropContainer(dropList._dropListRef);
+        dropList.addItem(drag);
       }
     }
   };

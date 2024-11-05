@@ -5,17 +5,17 @@ prizm-data-list {
   padding: 8px 0;
 }
 
-.cdk-tree {
+.query-builder__tree {
   padding: 16px - @node_padding;
 }
 
-.cdk-tree,
+.query-builder__tree,
 .cdk-drop-list {
   display: grid;
   gap: 16px - @node_padding * 2;
 }
 
-.cdk-tree-node {
+.query-builder__tree-node {
   // Padding and border radius is for drag-drop preview
   padding: @node_padding;
   border-radius: 2px;
@@ -92,7 +92,7 @@ prizm-data-list {
 }
 
 // Animate items sorting
-.cdk-drop-list-dragging .cdk-tree-node:not(.cdk-drag-placeholder) {
+.cdk-drop-list-dragging .query-builder__tree-node:not(.cdk-drag-placeholder) {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
