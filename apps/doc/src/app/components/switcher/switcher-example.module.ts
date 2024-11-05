@@ -6,6 +6,9 @@ import { RouterModule } from '@angular/router';
 import { SwitcherBasicExampleComponent } from './examples/switcher-basic-example/switcher-basic-example.component';
 import {
   PrizmButtonComponent,
+  PrizmDataListComponent,
+  PrizmDropdownHostComponent,
+  PrizmListingItemComponent,
   PrizmSwitcherComponent,
   PrizmSwitcherItemComponent,
 } from '@prizm-ui/components';
@@ -22,6 +25,12 @@ import { SwitcherProjectionExampleComponent } from './examples/switcher-projecti
 import { SwitcherProjectionValueExampleComponent } from './examples/switcher-projection-value-example/switcher-projection-value-example.component';
 import { SwitcherBasicValueExampleComponent } from './examples/switcher-basic-value-example/switcher-basic-value-example.component';
 import { SwitcherOverflowExampleComponent } from './examples/switcher-overflow-example/switcher-overflow-example.component';
+import {
+  PrizmCallFuncPipe,
+  PrizmContextGetByKysPipe,
+  PrizmOverflowHostDirective,
+  PrizmOverflowItemDirective,
+} from '@prizm-ui/helpers';
 
 @NgModule({
   declarations: [
@@ -48,6 +57,11 @@ import { SwitcherOverflowExampleComponent } from './examples/switcher-overflow-e
     ReactiveFormsModule,
     PrizmButtonComponent,
     PrizmSwitcherItemComponent,
+    PrizmOverflowHostDirective,
+    PrizmOverflowItemDirective,
+    PrizmDropdownHostComponent,
+    PrizmDataListComponent,
+    PrizmListingItemComponent,
   ],
 })
 export class SwitcherExampleModule {}

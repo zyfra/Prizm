@@ -14,6 +14,11 @@ import { PrizmButtonComponent, PrizmHintOnOverflowDirective } from '@prizm-ui/co
         [prizmButton] {
           max-width: 120px;
         }
+
+        .ellipsis {
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
       }
     `,
   ],

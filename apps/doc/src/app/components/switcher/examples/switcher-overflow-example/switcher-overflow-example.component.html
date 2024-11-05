@@ -1,12 +1,30 @@
-<prizm-switcher [formControl]="control" fullWidth type="outer">
+<prizm-switcher
+  class="switcher-max-width"
+  #overflowHost="prizmOverflowHost"
+  [formControl]="control"
+  fullWidth
+  type="outer"
+  prizmOverflowHost
+>
   <prizm-switcher-item
+    #overflowItem="prizmOverflowItem"
     *ngFor="let item of switchers$ | async"
     [disabled]="!!item.disabled"
     [appearance]="item.appearance ?? 'secondary'"
     [appearanceType]="item.appearanceType ?? 'ghost'"
+    prizmOverflowItem
   >
     {{ item.title }}
   </prizm-switcher-item>
+  <prizm-dropdown-host [(isOpen)]="openList" [content]="dropdown">
+    <button
+      [icon]="'ellipsis-v'"
+      (click)="toggle()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+    ></button>
+  </prizm-dropdown-host>
 </prizm-switcher>
 
 <!-- <div>
@@ -19,3 +37,11 @@
   <button (click)="updateValue()" prizmButton>Update value</button>
   <button (click)="control.setValue(99)" prizmButton>Update extra index</button>
 </div> -->
+
+<ng-template #dropdown>
+  <prizm-data-list>
+    <ng-container *ngFor="let switcher of overflowHost.hiddenElements$ | async; let i = index">
+      {{ switcher }}
+    </ng-container>
+  </prizm-data-list>
+</ng-template>
