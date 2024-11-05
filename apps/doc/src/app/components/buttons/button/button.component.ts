@@ -70,4 +70,9 @@ export class ButtonComponent {
     TypeScript: import('./examples/counter/button-with-counter-example.component.ts?raw'),
     HTML: import('./examples/counter/button-with-counter-example.component.html?raw'),
   };
+
+  readonly exampleOverflow: TuiDocExample = {
+    TypeScript: import('./examples/overflow/button-text-overflow-example.component.ts?raw'),
+    HTML: import('./examples/overflow/button-text-overflow-example.component.html?raw'),
+  };
 }

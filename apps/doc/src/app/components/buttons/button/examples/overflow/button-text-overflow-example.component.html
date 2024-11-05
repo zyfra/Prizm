@@ -1,10 +1,5 @@
 <div class="container">
-  <button
-    #elem
-    [prizmHintOnOverflow]="'Button With Long long text'"
-    [prizmHintOnOverflowEl]="$any(elem)"
-    prizmButton
-  >
-    Button With Long long text
+  <button [prizmHintOnOverflow]="'Button With Long long text'" [prizmHintOnOverflowEl]="elem" prizmButton>
+    <div class="ellipsis" #elem>Button With Long long text</div>
   </button>
 </div>
