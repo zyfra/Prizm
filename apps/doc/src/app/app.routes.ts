@@ -707,6 +707,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/time-picker',
+    loadChildren: () =>
+      import('./components/time-picker/time-picker-example.module').then(i => i.TimePickerExampleModule),
+    data: {
+      title: 'Time Picker',
+    },
+  },
+  {
     path: 'tools/overlay',
     loadChildren: () => import('./tools/overlay/overlay.module').then(i => i.OverlayModule),
     data: {
