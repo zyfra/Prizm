@@ -1,7 +1,6 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { PrizmSwitcherItem } from '@prizm-ui/components';
 import { FormControl } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsEllipsisV } from '@prizm-ui/icons/full/source';
 
@@ -26,27 +25,15 @@ export class SwitcherOverflowExampleComponent {
     {
       title: 'Дашборды',
     },
-  ];
-  public readonly switchers2: PrizmSwitcherItem[] = [
     {
-      title: 'Таблицы',
-    },
-    {
-      title: 'Графики',
+      title: 'Карты месторождений',
     },
   ];
-  public readonly switchers$ = new BehaviorSubject<PrizmSwitcherItem[]>(this.switchers);
-  public readonly control = new FormControl(1);
+
+  public readonly control = new FormControl(4);
 
   constructor(private readonly iconsFullRegistry: PrizmIconsFullRegistry) {
     this.iconsFullRegistry.registerIcons(prizmIconsEllipsisV);
-  }
-
-  public updateValue() {
-    this.control.setValue(3);
-  }
-  public changeItems() {
-    this.switchers$.next(this.switchers$.value === this.switchers ? this.switchers2 : this.switchers);
   }
 
   public toggle() {
