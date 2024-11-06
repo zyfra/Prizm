@@ -13,8 +13,10 @@ import {
   ChangeDetectorRef,
   Component,
   DestroyRef,
+  Injector,
   Input,
   OnInit,
+  afterNextRender,
   booleanAttribute,
   computed,
   contentChild,
@@ -147,6 +149,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private _formArray = new FormArray<AbstractControl<unknown>>([]);
   private _nodesParentMap = new Map<Node, Node>();
 
+  private injector = inject(Injector);
   private destroyRef = inject(DestroyRef);
   private cdr = inject(ChangeDetectorRef);
   private registry = inject(PrizmIconsFullRegistry);
@@ -224,6 +227,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   }
 
   protected _onDragStarted(event: CdkDragStart) {
+    // Prevent scrollbar appearance for drag previews
     const dragRef = event.source._dragRef;
     const preview = (dragRef as any)._preview;
     if (preview) {
@@ -231,6 +235,18 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
       preview.element.style.height = `${preview.element.scrollHeight}px`;
       preview.element.style.overflow = 'hidden';
     }
+
+    // Update cached drop list rect AFTER drag being started
+    // This is needed since empty drop lists are hidden
+    afterNextRender(
+      {
+        read: () =>
+          this._dropListQuery().forEach(list => {
+            list._dropListRef['_cacheParentPositions']();
+          }),
+      },
+      { injector: this.injector }
+    );
   }
 
   protected _onDropped(event: CdkDragDrop<Node>): void {
