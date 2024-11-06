@@ -43,7 +43,6 @@ import { PrizmSwitcherComponent, PrizmSwitcherItemComponent } from '../switcher'
 import { PrizmToggleComponent } from '../toggle';
 import { PrizmConditionDefDirective } from './condition-def.directive';
 import { ConditionModel, ConditionNodeForm, ExpressionModel, ExpressionNodeForm } from './model';
-import { NestedDataSource } from './nested-data-source';
 
 import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/full/source/grip-dots-vertical';
 import { prizmIconsPlusTriangleDown } from '@prizm-ui/icons/full/source/plus-triangle-down';
@@ -125,7 +124,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private _dragQuery = viewChildren<CdkDrag<Node>>(CdkDrag);
 
   /** Represents hierarchical structure of the tree. */
-  protected dataSource = new NestedDataSource<Node>();
+  protected data: Node[] = [];
 
   protected onChange: (value: ExpressionModel) => void = PRIZM_EMPTY_FUNCTION;
   protected onTouched: () => void = PRIZM_EMPTY_FUNCTION;
@@ -134,7 +133,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private _expression!: ExpressionModel;
   private _disabled = false;
   private get _root(): ExpressionNode {
-    return this.dataSource.data[0] as ExpressionNode;
+    return this.data[0] as ExpressionNode;
   }
 
   /** Track changes in controls */
@@ -229,7 +228,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
 
   private updateModel(emitEvent = true): void {
     this._formArray.clear({ emitEvent: false });
-    collectFormControlsRecursively(this.dataSource.data, this._formArray);
+    collectFormControlsRecursively(this.data, this._formArray);
 
     if (emitEvent) {
       this._formArray.updateValueAndValidity({ emitEvent });
@@ -259,7 +258,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   }
 
   private buildNodes(): void {
-    this.dataSource.data = [this.generateExpressionNode(this._expression)];
+    this.data = [this.generateExpressionNode(this._expression)];
     this.updateViewData();
     this.updateModel(false);
   }
@@ -316,7 +315,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
 
   private syncNodesParentMap(): void {
     this._nodesParentMap.clear();
-    this.dataSource.data.forEach(root => fillParentMapRecursively(root.children, root, this._nodesParentMap));
+    this.data.forEach(root => fillParentMapRecursively(root.children, root, this._nodesParentMap));
   }
 
   private _assignDragToList = (): void => {
