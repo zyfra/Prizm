@@ -18,6 +18,7 @@
     [attr.aria-level]="level + 1"
     [cdkDragData]="node"
     [cdkDragDisabled]="level === 0 || disabled"
+    (cdkDragStarted)="_onDragStarted($event)"
     (cdkDragDropped)="_onDropped($event)"
     cdkDrag
     aria-role="treeitem"

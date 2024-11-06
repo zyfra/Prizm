@@ -1,5 +1,12 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { CdkDrag, CdkDragDrop, CdkDropList, DragDropModule, transferArrayItem } from '@angular/cdk/drag-drop';
+import {
+  CdkDrag,
+  CdkDragDrop,
+  CdkDragStart,
+  CdkDropList,
+  DragDropModule,
+  transferArrayItem,
+} from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import {
   ChangeDetectionStrategy,
@@ -214,6 +221,16 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
 
     this.updateViewData();
     this.updateModel();
+  }
+
+  protected _onDragStarted(event: CdkDragStart) {
+    const dragRef = event.source._dragRef;
+    const preview = (dragRef as any)._preview;
+    if (preview) {
+      preview.element.style.width = `${preview.element.scrollWidth}px`;
+      preview.element.style.height = `${preview.element.scrollHeight}px`;
+      preview.element.style.overflow = 'hidden';
+    }
   }
 
   protected _onDropped(event: CdkDragDrop<Node>): void {
