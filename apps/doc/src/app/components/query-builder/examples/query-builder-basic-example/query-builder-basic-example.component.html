@@ -1,11 +1,11 @@
 <prizm-query-builder [expression]="expression">
   <ng-container *prizmCondition="let form">
     <div class="condition-wrapper">
-      <prizm-input-layout [size]="'m'"><input [value]="form.field.value" prizmInput /></prizm-input-layout>
+      <prizm-input-layout [size]="'m'"><input [formControl]="form.field" prizmInput /></prizm-input-layout>
 
-      <prizm-input-layout [size]="'m'"><input [value]="form.operator.value" prizmInput /></prizm-input-layout>
+      <prizm-input-layout [size]="'m'"><input [formControl]="form.operator" prizmInput /></prizm-input-layout>
 
-      <prizm-input-layout [size]="'m'"><input [value]="form.value.value" prizmInput /></prizm-input-layout>
+      <prizm-input-layout [size]="'m'"><input [formControl]="form.value" prizmInput /></prizm-input-layout>
     </div>
   </ng-container>
 </prizm-query-builder>

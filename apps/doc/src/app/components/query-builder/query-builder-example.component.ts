@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { DEEP_EXPRESSION, SIMPLE_EXPRESSION } from './query-builder-example.constants';
+import { ChangeDetectionStrategy, Component, TemplateRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { ConditionPrepareFn } from '@prizm-ui/components';
+import { prizmPure } from '@prizm-ui/core';
+import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
+import { DEEP_EXPRESSION, SIMPLE_EXPRESSION } from './query-builder-example.constants';
 
 @Component({
   selector: 'prizm-query-builder-example',
@@ -32,6 +33,8 @@ export class QueryBuilderExampleComponent {
 
   control = new FormControl(SIMPLE_EXPRESSION);
 
+  template?: TemplateRef<never>;
+
   disabled = false;
 
   expressions = [SIMPLE_EXPRESSION, DEEP_EXPRESSION];
@@ -43,6 +46,14 @@ export class QueryBuilderExampleComponent {
   prizmInputLayoutWidth = 'initial';
 
   prizmQueryBuilderNodeWidth = 'initial';
+
+  operatorOptions = ['equal', 'startWith', 'endWith', 'contains'];
+  fieldOptions = ['firstName', 'lastName', 'age', 'gender', 'email', 'phone', 'address'];
+
+  @prizmPure
+  public stringify(value: unknown) {
+    return JSON.stringify(value, null, 2);
+  }
 }
 
 const prepareSetDefaults: ConditionPrepareFn = form => {
