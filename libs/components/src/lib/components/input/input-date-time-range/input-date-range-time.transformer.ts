@@ -15,8 +15,7 @@ export class PrizmInputDateTimeRangeNativeTransformer implements PrizmControlVal
   }
 
   public toControlValue(componentValue: From): To | null {
-    // return componentValue?.toLocalNativeDate() || null
-    return null;
+    return componentValue?.toLocalNativeDate() || null;
   }
 }
 
