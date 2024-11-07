@@ -4,7 +4,11 @@ import {
   CdkDragDrop,
   CdkDragStart,
   CdkDropList,
+  DragDrop,
   DragDropModule,
+  DragRef,
+  DropListRef,
+  moveItemInArray,
   transferArrayItem,
 } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
@@ -52,6 +56,7 @@ import { PrizmSwitcherComponent, PrizmSwitcherItemComponent } from '../switcher'
 import { PrizmToggleComponent } from '../toggle';
 import { PrizmConditionDefDirective } from './condition-def.directive';
 import { ConditionModel, ConditionNodeForm, ExpressionModel, ExpressionNodeForm } from './model';
+import { PrizmQueryBuilderDragDrop } from './services/PrizmQueryBuilderDragDrop';
 
 import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/full/source/grip-dots-vertical';
 import { prizmIconsPlusTriangleDown } from '@prizm-ui/icons/full/source/plus-triangle-down';
@@ -87,6 +92,7 @@ type Node = ExpressionNode | ConditionNode;
       useExisting: PrizmQueryBuilderComponent,
       multi: true,
     },
+    { provide: DragDrop, useExisting: PrizmQueryBuilderDragDrop },
     ...prizmI18nInitWithKey(PRIZM_QUERY_BUILDER, 'queryBuilder'),
   ],
   standalone: true,
@@ -123,12 +129,8 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   protected readonly i18n$ = inject(PRIZM_QUERY_BUILDER);
   protected readonly conditionNodeTemplate = contentChild.required(PrizmConditionDefDirective);
 
-  /**
-   * Natural order does not fit our need since it always match parent node
-   * (i.e. mouse hovering over any children also is a hover over its parent because blocks are nested in each other).
-   * While with reversed order we first match deeper nodes.
-   */
-  protected _orderedDropLists = computed(() => Array.from(this._dropListQuery()).reverse());
+  protected readonly dropLists = computed(() => Array.from(this._dropListQuery()));
+
   private _dropListQuery = viewChildren<CdkDropList<Node>>(CdkDropList);
   private _dragQuery = viewChildren<CdkDrag<Node>>(CdkDrag);
 
@@ -252,8 +254,11 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   protected _onDropped(event: CdkDragDrop<Node>): void {
     const previous = event.previousContainer.data;
     const current = event.container.data;
-
-    transferArrayItem(previous.children, current.children, event.previousIndex, event.currentIndex);
+    if (event.previousContainer === event.container) {
+      moveItemInArray(current.children, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(previous.children, current.children, event.previousIndex, event.currentIndex);
+    }
 
     this.updateViewData();
     this.updateModel();
@@ -354,7 +359,6 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private _assignDragToList = (): void => {
     const drags = this._dragQuery();
     const dropLists = this._dropListQuery();
-
     const nodeToDropListMap = new Map<Node, CdkDropList>(dropLists.map(list => [list.data, list]));
 
     for (const drag of drags) {

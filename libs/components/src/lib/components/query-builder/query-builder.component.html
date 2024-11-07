@@ -125,7 +125,7 @@
         }
       </div>
 
-      <div [cdkDropListData]="node" [cdkDropListConnectedTo]="_orderedDropLists()" cdkDropList>
+      <div [cdkDropListData]="node" [cdkDropListConnectedTo]="dropLists()" cdkDropList>
         @for(childNode of node.children; track childNode) {
         <ng-container
           *ngTemplateOutlet="nodeTemplate; context: { $implicit: childNode, level: level + 1 }"
