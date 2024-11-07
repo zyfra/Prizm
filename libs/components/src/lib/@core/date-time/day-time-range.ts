@@ -34,6 +34,15 @@ export class PrizmDateTimeRange {
     return origin;
   }
 
+  public static fromLocalNativeDate(from: Date, to: Date): PrizmDateTimeRange {
+    const dayRange = PrizmDayRange.fromLocalNativeDate(from, to);
+    const timeRange = new PrizmTimeRange(
+      PrizmTime.fromLocalNativeDate(from),
+      PrizmTime.fromLocalNativeDate(to)
+    );
+    return new PrizmDateTimeRange(dayRange, timeRange);
+  }
+
   public copy(): PrizmDateTimeRange {
     return new PrizmDateTimeRange(this.dayRange, this.timeRange);
   }
