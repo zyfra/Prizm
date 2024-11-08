@@ -1,0 +1,38 @@
+<div class="header">
+  <ng-content select="[header]"></ng-content>
+</div>
+<div *prizmLet="month | prizmCalendarSheet : true as sheet">
+  <div
+    class="z-row"
+    *prizmRepeatTimes="let rowIndex of sheet.length"
+    automation-id="prizm-primitive-calendar__row"
+  >
+    <ng-container *prizmRepeatTimes="let colIndex of sheet[rowIndex].length">
+      <ng-container *prizmLet="sheet[rowIndex][colIndex] as item">
+        <div
+          class="z-cell"
+          *ngIf="!itemIsUnavailable(item) || showAdjacent"
+          [class.z-cell_interval]="itemIsInterval(item)"
+          [attr.data-range]="getItemRange(item)"
+          [attr.data-state]="getItemState(item)"
+          (prizmHoveredChange)="onItemHovered($event && item)"
+          (prizmPressedChange)="onItemPressed($event && item)"
+          (click)="onItemClick(item)"
+          automation-id="prizm-primitive-calendar__cell"
+        >
+          <div
+            class="z-item prizm-font-btn-links-14"
+            [class.z-item_unavailable]="itemIsUnavailable(item)"
+            [class.z-item_weekend]="item.isWeekend"
+            automation-id="prizm-primitive-calendar__item"
+          >
+            {{ item.day }}
+          </div>
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
+</div>
+<div class="footer">
+  <ng-content select="[footer]"></ng-content>
+</div>

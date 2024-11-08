@@ -1,0 +1,18 @@
+@paddings: 16px;
+@paginationHeight: 40px;
+@calendarWidth: 280px;
+@calendarHeight: 308px;
+
+:host {
+  display: block;
+  height: @calendarHeight;
+  width: @calendarWidth;
+  padding: @paddings;
+  box-sizing: content-box;
+  background-color: var(--prizm-background-fill-primary);
+}
+
+.z-scrollbar {
+  height: @calendarHeight - @paginationHeight - (@paddings * 2);
+  width: @calendarWidth + @paddings;
+}

@@ -3,16 +3,11 @@ import { PrizmCronUiBaseType, PrizmCronUiDayType, PrizmCronUiListItem } from './
 import { PrizmCronUiBaseState } from './cron-ui-base.state';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmCronService, PrizmCronValueObject } from '../../services/cron';
-import {
-  getArrWithStringNumbers,
-  getArrWithWeekNumber,
-  getCarousel,
-  getCarouselWeek,
-  prizmConvertDayToType,
-} from './util';
-import { combineLatest, merge } from 'rxjs';
-import { distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
+import { getArrWithWeekNumber, getCarousel, getCarouselWeek, prizmConvertDayToType } from './util';
+import { combineLatest } from 'rxjs';
+import { filter, map, takeUntil, tap } from 'rxjs/operators';
 import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
+import { getArrWithStringNumbers } from '../../util/common/get-arr-string-numbers';
 
 @Injectable()
 export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUiDayType, PrizmCronUiDayType> {
