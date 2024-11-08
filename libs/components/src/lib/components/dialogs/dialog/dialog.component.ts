@@ -21,12 +21,10 @@ import {
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmOverlayComponent } from '../../../modules';
 import { PrizmButtonComponent } from '../../button';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
-import { PrizmInputIconButtonComponent } from '../../input';
 
 @Component({
   selector: 'prizm-dialog',
@@ -40,10 +38,8 @@ import { PrizmInputIconButtonComponent } from '../../input';
     CommonModule,
     PolymorphModule,
     PrizmThemeModule,
-    PrizmOverlayComponent,
     PrizmButtonComponent,
     PrizmFocusTrapDirective,
-    PrizmInputIconButtonComponent,
     PrizmToTypePipe,
     PrizmScrollbarModule,
     PrizmHintOnOverflowDirective,
