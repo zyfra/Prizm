@@ -9,7 +9,7 @@ import { PrizmBaseDialogContext, PrizmDialogSize } from '../dialog';
 import { PrizmConfirmDialogOptions, PrizmConfirmDialogResultDefaultType } from './confirm-dialog.models';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PolymorphModule, PrizmFocusTrapModule } from '../../../directives';
+import { PolymorphModule, PrizmFocusTrapModule, PrizmHintOnOverflowDirective } from '../../../directives';
 import { PrizmOverlayModule } from '../../../modules';
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmButtonModule } from '../../button';
@@ -31,6 +31,7 @@ import { PrizmScrollbarModule } from '../../scrollbar';
     PrizmButtonModule,
     PrizmFocusTrapModule,
     PrizmScrollbarModule,
+    PrizmHintOnOverflowDirective,
   ],
   animations: [prizmSlideInTop, prizmFadeIn],
 })
