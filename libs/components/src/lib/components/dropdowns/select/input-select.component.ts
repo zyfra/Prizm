@@ -76,9 +76,9 @@ import { PrizmInputSelectOptionService } from './input-select-option.service';
 import { PrizmChipsModule } from '../../chips';
 import { CommonModule } from '@angular/common';
 import {
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
-  PrizmFocusableModule,
+  PrizmAutoFocusDirective,
+  PrizmDropdownControllerDirective,
+  PrizmFocusableDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
@@ -111,11 +111,11 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     ReactiveFormsModule,
     CommonModule,
     PrizmLetDirective,
-    PrizmAutoFocusModule,
+    PrizmAutoFocusDirective,
     PrizmHintDirective,
     PrizmCallFuncPipe,
     PrizmScrollbarDirective,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmLifecycleDirective,
     PrizmDataListComponent,
     PrizmSelectInputItemComponent,
@@ -123,7 +123,7 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     PrizmToObservablePipe,
     PrizmInputSelectOptionDirective,
     PrizmIconsFullComponent,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
   ],
   providers: [
     {
@@ -216,6 +216,7 @@ export class PrizmSelectInputComponent<T>
   @prizmDefaultProp()
   nullContent: PolymorphContent = this.options.nullContent;
 
+  override readonly clickable = true;
   readonly isPolymorphPrimitive = isPolymorphPrimitive;
   readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly printing$ = new BehaviorSubject<string>('');
@@ -416,7 +417,7 @@ export class PrizmSelectInputComponent<T>
   ): Observable<string> {
     if (!this.layoutComponent) {
       return defer(() => {
-        const result = this.stringify(i, nullContent);
+        const result = this.stringify(i, nullContent as any);
         return isObservable(result) ? result : of(result);
       });
     }
@@ -426,7 +427,7 @@ export class PrizmSelectInputComponent<T>
       startWith(),
       switchMap(() => {
         hideNullContent = (outer && placeholder) || !outer;
-        const flow$ = this.stringify(i, hideNullContent ? null : nullContent);
+        const flow$ = this.stringify(i, (hideNullContent ? null : nullContent) as any);
         return isObservable(flow$) ? flow$ : of(flow$);
       })
     );
