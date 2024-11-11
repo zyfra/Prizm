@@ -3,6 +3,6 @@ import { PrizmZoneEventDirective } from './zone-event.directive';
 
 @NgModule({
   exports: [PrizmZoneEventDirective],
-  declarations: [PrizmZoneEventDirective],
+  imports: [PrizmZoneEventDirective],
 })
 export class PrizmZoneEventModule {}

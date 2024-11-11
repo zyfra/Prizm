@@ -3,6 +3,17 @@
     Our button component is a simple button that can be used to trigger an action.
   </div>
   <ng-template prizmDocPageTab>
+    <h2>
+      <ng-container *prizmIfLang="'russian'; else eng"> Используемый пакет иконок </ng-container>
+      <ng-template #eng> Icon pack used </ng-template>
+    </h2>
+
+    <div>
+      <ol>
+        <li>[prizmButton]button (PrizmIconsFullRegistry)</li>
+      </ol>
+    </div>
+
     <prizm-doc-example id="base" [content]="exampleIcons" heading="With Icons">
       <prizm-icons-buttons-example></prizm-icons-buttons-example>
     </prizm-doc-example>
@@ -133,6 +144,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoHovered"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoHovered"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -141,6 +153,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoPressed"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoPressed"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -149,6 +162,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoFocused"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoFocused"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -211,7 +225,7 @@
       <li>
         <p>
           Import
-          <code>PrizmButtonModule</code>
+          <code>PrizmButtonComponent</code>
           into a module where you want to use our component
         </p>
 

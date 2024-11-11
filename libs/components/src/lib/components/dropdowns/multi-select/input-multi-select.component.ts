@@ -16,16 +16,16 @@ import { FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule, UntypedFormControl
 import {
   PolymorphContent,
   PolymorphOutletDirective,
-  PrizmAutoFocusModule,
-  PrizmDropdownControllerModule,
-  PrizmFocusableModule,
-  PrizmHintDirective,
+  PrizmAutoFocusDirective,
+  PrizmDropdownControllerDirective,
+  PrizmFocusableDirective,
+  PrizmHintOnOverflowDirective,
   PrizmLifecycleDirective,
 } from '../../../directives';
 import { PRIZM_MULTI_SELECT_OPTIONS, PrizmMultiSelectOptions } from './multi-select.options';
 import { PrizmContextWithImplicit, PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputTextModule } from '../../input';
-import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
+import { prizmIsNativeFocused } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { BehaviorSubject, combineLatest, Observable, Subject, timer } from 'rxjs';
 import { prizmDefaultProp } from '@prizm-ui/core';
@@ -33,6 +33,7 @@ import {
   PrizmDropdownHostClasses,
   PrizmDropdownHostComponent,
   PrizmDropdownHostStyles,
+  PrizmDropdownTriggerClickDirective,
 } from '../dropdown-host';
 import {
   PrizmMultiSelectIdentityMatcher,
@@ -70,17 +71,18 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
     ReactiveFormsModule,
     CommonModule,
     PrizmLetDirective,
-    PrizmHintDirective,
+    PrizmHintOnOverflowDirective,
     PrizmCallFuncPipe,
-    PrizmAutoFocusModule,
+    PrizmAutoFocusDirective,
     PrizmScrollbarComponent,
-    PrizmDropdownControllerModule,
+    PrizmDropdownControllerDirective,
     PrizmDataListComponent,
     PrizmCheckboxComponent,
     PrizmLifecycleDirective,
     PrizmDropdownHostComponent,
     PrizmIconsFullComponent,
-    PrizmFocusableModule,
+    PrizmFocusableDirective,
+    PrizmDropdownTriggerClickDirective,
   ],
   providers: [
     {
@@ -113,6 +115,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   get items(): T[] {
     return this.items$.value;
   }
+
+  override readonly clickable = true;
 
   @Input()
   @prizmDefaultProp()
@@ -203,7 +207,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   public readonly defaultIcon = 'triangle-down';
-  readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
 
   public readonly items$ = new BehaviorSubject([]);
@@ -251,7 +254,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   override ngOnInit(): void {
     super.ngOnInit();
-    this.initParentClickListener();
     this.initFilteredItemsObservables();
     this.initSelectedItemsObservables();
     this.selectedItems$
@@ -259,16 +261,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
         tap(items => {
           this.chipsControl.setValue(items as any, { emitEvent: true });
         }),
-        tap(() => this.changeDetectorRef.markForCheck()),
-        takeUntil(this.destroy$)
-      )
-      .subscribe();
-  }
-
-  protected initParentClickListener(): void {
-    this.layoutComponent?.innerClick$
-      .pipe(
-        tap(() => this.opened$$.next(this.disabled ? false : !this.opened$$.value)),
         tap(() => this.changeDetectorRef.markForCheck()),
         takeUntil(this.destroy$)
       )
@@ -364,8 +356,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     return this.focusableElement ? this.focusableElement.nativeElement : null;
   }
 
-  get focused(): boolean {
-    return prizmIsNativeFocused(this.nativeFocusableElement);
+  get focused() {
+    return this.focused$;
   }
 
   public override clear(ev: MouseEvent): void {
@@ -394,12 +386,6 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
     this.dropdownHostElement?.reCalculatePositions();
   }
 
-  public safeOpenModal(): void {
-    const inputElement = this.focusableElement?.nativeElement;
-    const open = !this.opened$$.value && !this.disabled && !!inputElement;
-    this.opened$$.next(open);
-  }
-
   public removeChip(str: string): void {
     const item = this.chipsSet.get(str);
     this.select({
@@ -410,5 +396,11 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
 
   public trackBy(index: number): number {
     return index;
+  }
+
+  public changeParentFocusedClass(add: boolean) {
+    if (this.disabled) return;
+    this.opened$$.next(add);
+    this.focused$$.next(add);
   }
 }
