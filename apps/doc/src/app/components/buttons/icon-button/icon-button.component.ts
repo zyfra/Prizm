@@ -30,9 +30,10 @@ export class IconButtonComponent {
   sizeVariants: ReadonlyArray<PrizmSize> = ['s', 'm', 'xm', 'l', 'xl'];
   size: PrizmSize = this.sizeVariants[0];
   public testIdPostfix!: string;
-  public pseudoHovered = false;
-  public pseudoPressed = false;
-  public pseudoFocused = false;
+  public pseudoHovered: null | boolean = null;
+  public pseudoHoveredVariants = [true, false, null];
+  public pseudoPressed: null | boolean = false;
+  public pseudoFocused: null | boolean = false;
   public pseudoState = '';
   public focusable = false;
 

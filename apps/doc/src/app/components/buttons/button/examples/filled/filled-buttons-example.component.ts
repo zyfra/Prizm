@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PrizmButtonModule, PrizmCounterDirective } from '@prizm-ui/components';
+import { PrizmButtonComponent, PrizmCounterDirective } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-filled-buttons-example',
@@ -22,6 +22,6 @@ import { PrizmButtonModule, PrizmCounterDirective } from '@prizm-ui/components';
     `,
   ],
   standalone: true,
-  imports: [PrizmButtonModule, PrizmCounterDirective],
+  imports: [PrizmButtonComponent, PrizmCounterDirective],
 })
 export class PrizmFilledButtonsExampleComponent {}

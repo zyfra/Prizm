@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { PrizmIconSvgEnum } from '@prizm-ui/icons';
 import { PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsAgendaFill } from '@prizm-ui/icons/base/source';
+import { PrizmIconsEnum } from '@prizm-ui/icons/base';
 
 @Component({
   selector: 'prizm-icons-your-icon-set-example',
@@ -24,7 +24,7 @@ import { prizmIconsAgendaFill } from '@prizm-ui/icons/base/source';
   templateUrl: './icons-your-icon-set-example.component.html',
 })
 export class PrizmIconsYourIconSetExampleComponent {
-  readonly PrizmIconSvgEnum = PrizmIconSvgEnum;
+  readonly PrizmIconSvgEnum = PrizmIconsEnum;
   constructor(private readonly iconRegistry: PrizmIconsRegistry) {
     /** Также можете добавить свою иконку */
     this.iconRegistry.registerIcons([prizmIconsAgendaFill]);
