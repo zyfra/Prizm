@@ -9,9 +9,7 @@
     <div class="nav__icon" [style.marginLeft.px]="deep | prizmCalculateNavMargin : true">
       <prizm-icons-full [name]="menuItem?.icon || 'folder'"></prizm-icons-full>
     </div>
-    <span class="nav__title" #title>
-      {{ menuItem?.title }}
-    </span>
+    <span class="nav__title" #title> {{ menuItem?.title }}</span>
 
     <div class="nav__status">
       <div
@@ -38,6 +36,7 @@
         *ngIf="$any(item?.children?.length) > 0"
         [data]="item"
         [deep]="deep + 1"
+        [isExpanded]="item.isExpanded"
       ></prizm-navigation-item-expandable>
     </ng-container>
   </div>
