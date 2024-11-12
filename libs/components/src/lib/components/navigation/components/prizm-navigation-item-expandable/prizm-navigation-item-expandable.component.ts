@@ -19,6 +19,7 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsAngleRight, prizmIconsFolder } from '@prizm-ui/icons/full/source';
 import { prizmIsTextOverflow } from '../../../../util';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { ExpandedNavigationItemService } from '../../services/expanded-navigation.service';
 
 @Component({
   selector: 'prizm-navigation-item-expandable',
@@ -58,6 +59,7 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
 
   constructor(
     public activeItemService: ActiveNavigationItemService,
+    public expandedService: ExpandedNavigationItemService,
     private readonly cdRef: ChangeDetectorRef
   ) {
     super();
@@ -79,6 +81,7 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
   public toggle($event: Event): void {
     $event.stopPropagation();
     this.isExpanded = !this.isExpanded;
+    this.expandedService.updateExpanded(this.menuItem!, this.isExpanded);
   }
 
   public navClick(): void {
