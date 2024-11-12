@@ -30,10 +30,10 @@ import { PRIZM_DATE_SEPARATOR } from '../../../@core/date-time/date-separator';
 import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PrizmDateMode } from '../../../types/date-mode';
-import { PRIZM_DATE_TEXTS, PRIZM_TIME_TEXTS } from '../../../tokens/i18n';
+import { PRIZM_DATE_TEXTS, PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE, PRIZM_TIME_TEXTS } from '../../../tokens/';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { filterTruthy, PrizmDestroyService, PrizmLetDirective } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
@@ -65,9 +65,9 @@ import { PrizmCalendarRangeComponent } from '../../calendar-range';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
 import { PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS } from './input-date-range-time.providers';
-import { PRIZM_INPUT_DATE_RANGE_PROVIDERS } from '../input-date-range';
 import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
+import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -80,6 +80,7 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     ...prizmI18nInitWithKeys({
       time: PRIZM_TIME_TEXTS,
       dateTexts: PRIZM_DATE_TEXTS,
+      inputLayoutDateTimeRange: PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE,
     }),
     PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
     {
@@ -106,6 +107,7 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     PrizmValueAccessorDirective,
     FormsModule,
     PrizmTimeConstraintsPipe,
+    PrizmPluckPipe,
   ],
 })
 export class PrizmInputLayoutDateTimeRangeComponent
@@ -259,6 +261,10 @@ export class PrizmInputLayoutDateTimeRangeComponent
     @Inject(PRIZM_DATE_FORMAT)
     readonly dateFormat: PrizmDateMode,
     @Inject(PRIZM_DATE_SEPARATOR) readonly dateSeparator: string,
+    @Inject(PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE)
+    public readonly dictionary$: Observable<
+      PrizmLanguageInputLayoutDateTimeRange['inputLayoutDateTimeRange']
+    >,
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     // @Optional()

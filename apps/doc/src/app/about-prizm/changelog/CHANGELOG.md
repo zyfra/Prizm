@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.2.0](https://github.com/zyfra/Prizm) (23-10-2024)
+
+### Features
+
+- feat(components/input-select): hide chevron when disabled #1917
+- feat(doc): update information about us #2143
+- feat(doc/dropdown-host): updated example select panel added custom vars for overlay #1027 #2135
+- feat(components/theme): prefer global theme if did not passed any value #1426
+- feat(components/navigation-menu): padding changed from 4px to 8px between text and other el #1633 #2133
+- feat(components/tabs): show right button separately #1846 #2132
+- feat(components/input-layout-date-time-range): add localization for time label #2128 #2129
+- feat(components/droprodown-trigger-click): new directive to trigger dropdown host and fix bug #1850 #2124
+- feat(components/prizm-let): prizmLet directive declared deprecated #1880 #2119
+
+### Bug fixes
+
+- fix(components/multi-select): hint did not show after search #1980
+- fix(chore): fix version in schematics #1987 #2122
+- fix(components/switcher): switcher button markup correction #2032 #2126
+- fix(components/input-control): on each update value emits two times #2087 #2089
+- fix(components/input-layout): correct icon for danger status #1916 #2054
+- fix(components/navigation): register icons for navigation header and example #1836
+- fix(components/tabs): correct focus styles for contained tabs #1729
+- fix(components/input): padding changed for inner inputs #1763
+- fix(components/polymorph): remove type any for polymorph #1530
+- fix(components/table): use proxy to update context #1506 #1845
+
 ## [5.1.0](https://github.com/zyfra/Prizm) (09-10-2024)
 
 ### Features
