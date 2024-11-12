@@ -82,7 +82,7 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
       dateTexts: PRIZM_DATE_TEXTS,
       inputLayoutDateTimeRange: PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE,
     }),
-    PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
+    ...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutDateTimeRangeComponent),
