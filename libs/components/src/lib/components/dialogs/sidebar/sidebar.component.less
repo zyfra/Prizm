@@ -15,6 +15,7 @@
   padding: var(--prizm-sidebar-header-padding, var(--prizm-sidebar-padding, 8px 16px));
   display: flex;
   justify-content: space-between;
+  align-items: center;
   max-width: 100%;
   overflow: hidden;
   font-style: var(--prizm-sidebar-header-font-style, normal);
@@ -31,10 +32,12 @@
 
   .title {
     .ellipsis();
-    height: 100%;
     max-width: 90%;
-    display: flex;
-    align-items: center;
+    align-self: center;
+    display: -webkit-box;
+    line-clamp: 1;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
   }
 }
 
