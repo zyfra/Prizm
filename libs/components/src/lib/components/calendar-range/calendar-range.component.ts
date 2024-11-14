@@ -129,12 +129,13 @@ export class PrizmCalendarRangeComponent
 
     valueChanges
       .pipe(
+        tap(value => {
+          this.value = value instanceof PrizmDateTimeRange ? value.dayRange : value;
+        }),
         tap(() => changeDetectorRef.markForCheck()),
         takeUntil(destroy$)
       )
-      .subscribe(value => {
-        value instanceof PrizmDateTimeRange ? (this.value = value.dayRange) : value;
-      });
+      .subscribe();
   }
 
   readonly getEndRangeMonthOrShift: PrizmMapper<PrizmMonth, PrizmMonth> = item => {

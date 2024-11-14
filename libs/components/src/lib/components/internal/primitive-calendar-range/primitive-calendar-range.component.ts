@@ -95,13 +95,14 @@ export class PrizmPrimitiveCalendarRangeComponent extends PrizmAbstractTestId im
     if (valueChanges) {
       valueChanges
         .pipe(
+          tap(value => {
+            this.value = value instanceof PrizmDateTimeRange ? value.dayRange : value;
+            this.updateViewedMonths();
+          }),
           tap(() => changeDetectorRef.markForCheck()),
           takeUntil(destroy$)
         )
-        .subscribe(value => {
-          value instanceof PrizmDateTimeRange ? (this.value = value.dayRange) : value;
-          this.updateViewedMonths();
-        });
+        .subscribe();
     }
   }
 

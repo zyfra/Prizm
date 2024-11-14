@@ -267,9 +267,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
     >,
     @Inject(PRIZM_DATE_TEXTS)
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
-    // @Optional()
-    // @Inject(PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS)
-    // override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
     @Optional()
     @Inject(PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER)
     valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
