@@ -1,5 +1,6 @@
 import { PrizmCountryIsoCode } from '../enums/country-iso-code';
 import { PrizmLanguageName, PrizmLanguageShortName } from './language-names';
+import { Observable } from 'rxjs';
 
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
@@ -301,16 +302,6 @@ export type PrizmLanguagePreview = {
   };
 };
 
-export interface PrizmLanguageQueryBuilder {
-  queryBuilder: {
-    and: string;
-    or: string;
-    addNestedExpression: string;
-    addCondition: string;
-    exclude: string;
-  };
-}
-
 export interface PrizmLanguageMeta {
   name: PrizmLanguageName;
   shortName: PrizmLanguageShortName;
@@ -329,5 +320,6 @@ export interface PrizmLanguage
     PrizmLanguageInputLayoutDateTimeRange,
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
-    PrizmLanguagePaginator,
-    PrizmLanguageQueryBuilder {}
+    PrizmLanguagePaginator {}
+
+export type PrizmI18nFn<K> = (lan: PrizmLanguageName) => K | Observable<K>;

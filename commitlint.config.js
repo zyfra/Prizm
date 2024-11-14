@@ -28,6 +28,7 @@ module.exports = {
             'helpers',
             'core',
             'icons',
+            'addons',
             'icons-loader',
             'flag-icons',
             'doc',

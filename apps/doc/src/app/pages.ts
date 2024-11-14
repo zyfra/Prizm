@@ -1,5 +1,6 @@
 import { PrizmDocPage, PrizmDocPageGroup } from '@prizm-ui/doc';
 import { SectionNameEnglishEnum, SectionNameEnum } from './model';
+import { addonsEnglishPages, addonsRussianPages } from './addons/pages';
 
 type OrderedPage = { order?: number };
 
@@ -626,13 +627,6 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'file upload',
     route: '/components/file-upload',
   },
-  {
-    section: SectionNameEnum.components,
-    title: 'Query Builder',
-    status: 'preview',
-    keywords: 'query, expression, QueryBuilder, запрос, выражение',
-    route: '/components/query-builder',
-  },
   // Tools
   {
     section: SectionNameEnum.tools,
@@ -774,6 +768,8 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'charts, column-group, графики',
     route: '/charts/column-group',
   },
+  // Addons
+  ...addonsRussianPages,
 ];
 
 export const pagesEnglish: PrizmOrderedDocPage = [
@@ -1393,14 +1389,6 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     route: '/components/file-upload',
   },
   {
-    section: SectionNameEnglishEnum.components,
-    title: 'Query Builder',
-    status: 'preview',
-    keywords: 'query, expression, QueryBuilder',
-    route: '/components/query-builder',
-  },
-
-  {
     section: SectionNameEnglishEnum.tools,
     title: 'Overlay',
     keywords: 'overlay, modal',
@@ -1539,4 +1527,6 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     keywords: 'charts, column group',
     route: '/charts/column-group',
   },
+  // Addons
+  ...addonsEnglishPages,
 ];

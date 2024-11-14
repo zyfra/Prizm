@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ADDONS_ROUTES } from './addons/routes';
 
 export const ROUTES: Routes = [
   {
@@ -245,14 +246,6 @@ export const ROUTES: Routes = [
     data: {
       title: 'Card',
     },
-  },
-  {
-    path: 'components/query-builder',
-    loadChildren: () =>
-      import('./components/query-builder/query-builder-example.module').then(
-        i => i.QueryBuilderExampleModule
-      ),
-    data: { title: 'Query Builder' },
   },
   {
     path: 'components/progress-line-bar',
@@ -1007,6 +1000,7 @@ export const ROUTES: Routes = [
       title: 'File upload',
     },
   },
+  ...ADDONS_ROUTES,
   { path: '**', redirectTo: 'how-to-work/' },
 ];
 
