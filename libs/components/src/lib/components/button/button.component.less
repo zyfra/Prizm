@@ -13,6 +13,7 @@
   cursor: pointer;
   // TODO 5.0.0: set default min-width 120px/64px according to prizm button component description, research needed
   min-width: var(--prizm-button-min-width, unset);
+  white-space: nowrap;
 
   &._focus-visible {
     box-shadow: 0 0 0 2px var(--prizm-background-stroke-focus);
@@ -77,6 +78,8 @@
 .text {
   text-align: inherit;
   width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
   &:empty {
     display: none;

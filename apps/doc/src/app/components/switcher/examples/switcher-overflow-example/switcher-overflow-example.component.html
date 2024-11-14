@@ -1,0 +1,38 @@
+<prizm-switcher
+  class="switcher-max-width"
+  #overflowHost="prizmOverflowHost"
+  [formControl]="control"
+  fullWidth
+  prizmOverflowHost
+>
+  <prizm-switcher-item
+    #overflowItem="prizmOverflowItem"
+    *ngFor="let item of switchers"
+    [disabled]="!!item.disabled"
+    [appearance]="item.appearance ?? 'secondary'"
+    [appearanceType]="item.appearanceType ?? 'ghost'"
+    prizmOverflowItem
+  >
+    {{ item.title }}
+  </prizm-switcher-item>
+  <prizm-dropdown-host [(isOpen)]="openList" [content]="dropdown">
+    <button
+      class="show-more-btn"
+      *ngIf="(overflowHost.hiddenElements$ | async)?.length"
+      [icon]="'ellipsis-v'"
+      (click)="toggle()"
+      prizmIconButton
+      appearanceType="ghost"
+      appearance="secondary"
+      size="xl"
+    ></button>
+  </prizm-dropdown-host>
+</prizm-switcher>
+
+<ng-template #dropdown>
+  <prizm-data-list>
+    <ng-container *ngFor="let switcher of overflowHost.hiddenElements$ | async; let i = index">
+      {{ switcher }}
+    </ng-container>
+  </prizm-data-list>
+</ng-template>
