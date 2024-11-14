@@ -61,7 +61,7 @@
   background: var(--prizm-select-item-background, var(--prizm-bg-body));
   font-weight: var(--prizm-select-item-font-weight, 400);
   font-size: var(--prizm-select-item-font-size, 14px);
-  color: var(--prizm-select-empty-text, var(--prizm-text-subscript, #20222b));
+  color: var(--prizm-select-empty-text, var(--prizm-text-icon-secondary));
 }
 
 .icon-dropdown {
@@ -79,6 +79,10 @@
 
   &.active {
     color: var(--prizm-button-primary-solid-active);
+  }
+
+  &.disabled {
+    visibility: hidden;
   }
 }
 

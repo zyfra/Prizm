@@ -82,6 +82,59 @@ export class PrizmFileUploadComponent
 {
   @ViewChild('dropzone') dropzoneElementRef!: ElementRef<HTMLDivElement>;
 
+  @Input() accept = '';
+  @Input() multiple = false;
+  @Input() maxFileSize = Number.MAX_SAFE_INTEGER;
+  @Input() set maxFilesCount(value: number) {
+    this._maxFilesCount = value ?? Number.MAX_SAFE_INTEGER;
+    this.calculatedMaxFilesCount = this.multiple ? this._maxFilesCount : 1;
+  }
+
+  @Input()
+  get disabled() {
+    return this._disabled;
+  }
+  set disabled(value: BooleanInput) {
+    this._disabled = coerceBooleanProperty(value);
+  }
+
+  @Input() set progress(progress: PrizmFilesProgress) {
+    for (const key of Object.keys(progress)) {
+      if (this.filesMap.has(key)) {
+        this.filesMap.set(key, { ...this.filesMap.get(key), ...progress[key] } as any);
+      }
+    }
+  }
+
+  @Input() set files(files: File[] | undefined) {
+    if (!files || !Array.isArray(files)) return;
+    this.clearFiles({ emitEvent: false });
+    for (const file of files) {
+      this.filesMap.set(file.name, {
+        file,
+        progress: 100,
+        error: false,
+        actions: [],
+        url: this.isImage(file) ? URL.createObjectURL(file) : '',
+      });
+    }
+    this.afterFilesChange.next();
+  }
+
+  get files(): Array<File> {
+    return [...this.filesMap.entries()].map(([_, { file }]) => file);
+  }
+
+  @Output() beforeFilesChange = new EventEmitter<void>();
+  @Output() afterFilesChange = new EventEmitter<void>();
+  @Output() filesChange = new EventEmitter<Array<File>>();
+  @Output() fileRemoved = new EventEmitter<string>();
+  @Output() fileAdded = new EventEmitter<string>();
+  @Output() filesValidationErrors = new EventEmitter<{ [filename: string]: PrizmFileValidationErrors }>();
+  @Output() filesCountError = new EventEmitter<Array<string>>();
+  @Output() retry = new EventEmitter<File>();
+  @Output() actionEvent = new EventEmitter<PrizmActionEvent>();
+
   override readonly testId_ = 'ui_file_upload';
   readonly icon = prizmIconsFileEmpty;
   readonly prizmIsTextOverflow = prizmIsTextOverflow;
@@ -109,59 +162,6 @@ export class PrizmFileUploadComponent
       prizmIconsArrowRotateRight,
       prizmIconsTrashEmpty
     );
-  }
-
-  @Input() accept = '';
-  @Input() multiple = false;
-  @Input() maxFileSize = Number.MAX_SAFE_INTEGER;
-  @Input() set maxFilesCount(value: number) {
-    this._maxFilesCount = value ?? Number.MAX_SAFE_INTEGER;
-    this.calculatedMaxFilesCount = this.multiple ? this._maxFilesCount : 1;
-  }
-
-  @Input()
-  get disabled() {
-    return this._disabled;
-  }
-  set disabled(value: BooleanInput) {
-    this._disabled = coerceBooleanProperty(value);
-  }
-
-  @Input() set progress(progress: PrizmFilesProgress) {
-    for (const key of Object.keys(progress)) {
-      if (this.filesMap.has(key)) {
-        this.filesMap.set(key, { ...this.filesMap.get(key), ...progress[key] } as any);
-      }
-    }
-  }
-
-  @Input() set files(files: File[] | undefined) {
-    if (!files || (Array.isArray(files) && files.length === 0)) return;
-    this.clearFiles({ emitEvent: false });
-    for (const file of files) {
-      this.filesMap.set(file.name, {
-        file,
-        progress: 100,
-        error: false,
-        actions: [],
-        url: this.isImage(file) ? URL.createObjectURL(file) : '',
-      });
-    }
-    this.afterFilesChange.next();
-  }
-
-  @Output() beforeFilesChange = new EventEmitter<void>();
-  @Output() afterFilesChange = new EventEmitter<void>();
-  @Output() filesChange = new EventEmitter<Array<File>>();
-  @Output() fileRemoved = new EventEmitter<string>();
-  @Output() fileAdded = new EventEmitter<string>();
-  @Output() filesValidationErrors = new EventEmitter<{ [filename: string]: PrizmFileValidationErrors }>();
-  @Output() filesCountError = new EventEmitter<Array<string>>();
-  @Output() retry = new EventEmitter<File>();
-  @Output() actionEvent = new EventEmitter<PrizmActionEvent>();
-
-  get files(): Array<File> {
-    return [...this.filesMap.entries()].map(([_, { file }]) => file);
   }
 
   ngOnChanges(changes: SimpleChanges): void {

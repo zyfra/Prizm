@@ -399,6 +399,8 @@ export class PrizmInputMultiSelectComponent<T> extends PrizmInputNgControl<T[]> 
   }
 
   public changeParentFocusedClass(add: boolean) {
+    if (this.disabled) return;
+    this.opened$$.next(add);
     this.focused$$.next(add);
   }
 }

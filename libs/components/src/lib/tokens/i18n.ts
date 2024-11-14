@@ -1,6 +1,5 @@
 import { InjectionToken } from '@angular/core';
 import { Observable } from 'rxjs';
-
 import {
   PrizmLanguageColumnSettings,
   PrizmLanguageCore,
@@ -12,6 +11,7 @@ import {
   PrizmLanguageInputLayoutDateTimeRange,
   PrizmLanguageKit,
   PrizmLanguagePaginator,
+  PrizmLanguageQueryBuilder,
 } from '@prizm-ui/i18n';
 
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
@@ -72,6 +72,9 @@ export const PRIZM_PAGINATOR = new InjectionToken<Observable<PrizmLanguagePagina
   `paginator texts`
 );
 
+export const PRIZM_QUERY_BUILDER = new InjectionToken<Observable<PrizmLanguageQueryBuilder['queryBuilder']>>(
+  `query builder texts`
+);
 export const PRIZM_SEARCH_TEXT = new InjectionToken<Observable<PrizmLanguageKit['search']>>(
   `search i18n text`
 );

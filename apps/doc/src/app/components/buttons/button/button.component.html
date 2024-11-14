@@ -33,6 +33,10 @@
     <prizm-doc-example id="counter" [content]="exampleCounter" heading="Button with counter">
       <prizm-button-with-counter-example></prizm-button-with-counter-example>
     </prizm-doc-example>
+
+    <prizm-doc-example id="overflow" [content]="exampleOverflow" heading="Button with overflowed text">
+      <prizm-button-text-overflow-example></prizm-button-text-overflow-example>
+    </prizm-doc-example>
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -144,6 +148,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoHovered"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoHovered"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -152,6 +157,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoPressed"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoPressed"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"
@@ -160,6 +166,7 @@
       </ng-template>
       <ng-template
         [(documentationPropertyValue)]="pseudoFocused"
+        [documentationPropertyValues]="pseudoHoveredVariants"
         documentationPropertyName="pseudoFocused"
         documentationPropertyType="boolean"
         documentationPropertyMode="input"

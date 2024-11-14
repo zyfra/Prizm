@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'prizm-input-form-control-example',
@@ -7,13 +7,14 @@ import { UntypedFormControl } from '@angular/forms';
   styleUrls: ['./input-form-control-example.component.less'],
 })
 export class InputFormControlExampleComponent {
-  public readonly control: UntypedFormControl = new UntypedFormControl();
+  public readonly control = new FormControl('');
 
   public valueText = '';
   public ngModelText = '';
 
   public changeControl(): void {
-    this.control.setValue('New text control from method!');
+    // Skip event emission to verify that label changes position even in this case
+    this.control.setValue('New text control from method!', { emitEvent: false });
   }
 
   public changeText(): void {

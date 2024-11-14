@@ -259,7 +259,6 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Listing Item',
-    status: 'preview',
     keywords: 'list item, cell, dropdown cell, listing item, список, элемент списка',
     route: '/components/listing-item',
   },
@@ -626,6 +625,13 @@ export const pages: PrizmOrderedDocPage = [
     title: 'File Upload',
     keywords: 'file upload',
     route: '/components/file-upload',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Query Builder',
+    status: 'preview',
+    keywords: 'query, expression, QueryBuilder, запрос, выражение',
+    route: '/components/query-builder',
   },
   // Tools
   {
@@ -1020,7 +1026,6 @@ export const pagesEnglish: PrizmOrderedDocPage = [
   {
     section: SectionNameEnglishEnum.components,
     title: 'Listing Item',
-    status: 'preview',
     keywords: 'list item, cell, dropdown cell, listing item',
     route: '/components/listing-item',
   },
@@ -1388,6 +1393,14 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     route: '/components/file-upload',
   },
   {
+    section: SectionNameEnglishEnum.components,
+    title: 'Query Builder',
+    status: 'preview',
+    keywords: 'query, expression, QueryBuilder',
+    route: '/components/query-builder',
+  },
+
+  {
     section: SectionNameEnglishEnum.tools,
     title: 'Overlay',
     keywords: 'overlay, modal',
@@ -1401,7 +1414,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
   },
 
   {
-    section: SectionNameEnum.tools,
+    section: SectionNameEnglishEnum.tools,
     title: 'Nxmv',
     keywords: 'nxmv, move, version, версии, изменить',
     route: '/tools/nxmv',

@@ -1,12 +1,14 @@
-import type { ComponentRef, DoCheck, OnChanges, SimpleChanges } from '@angular/core';
-// eslint-disable-next-line no-duplicate-imports
 import {
   ChangeDetectorRef,
+  ComponentRef,
   Directive,
+  DoCheck,
   Inject,
   inject,
-  INJECTOR,
+  Injector,
   Input,
+  OnChanges,
+  SimpleChanges,
   TemplateRef,
   ViewContainerRef,
 } from '@angular/core';
@@ -26,7 +28,6 @@ import { isPolymorphComponent, isPolymorphDirective } from '../util';
 // eslint-disable-next-line @angular-eslint/directive-class-suffix
 export class PolymorphOutletDirective<C> implements OnChanges, DoCheck {
   private readonly vcr = inject(ViewContainerRef);
-  private readonly i = inject(INJECTOR);
 
   constructor(@Inject(TemplateRef) private readonly t: TemplateRef<PolymorphContext<PolymorphPrimitive>>) {}
 
@@ -34,6 +35,10 @@ export class PolymorphOutletDirective<C> implements OnChanges, DoCheck {
 
   @Input('polymorphOutlet')
   public content: PolymorphContent<C> = '';
+
+  // eslint-disable-next-line @angular-eslint/no-input-rename
+  @Input('polymorphOutletInjector')
+  injector: Injector = inject(Injector);
 
   // eslint-disable-next-line @angular-eslint/no-input-rename
   @Input('polymorphOutletContext')
@@ -66,7 +71,7 @@ export class PolymorphOutletDirective<C> implements OnChanges, DoCheck {
     if (isPolymorphComponent(this.content)) {
       this.process(this.content, proxy);
     } else {
-      this.vcr.createEmbeddedView(this.template, proxy, { injector: this.i });
+      this.vcr.createEmbeddedView(this.template, proxy, { injector: this.injector });
     }
   }
 
@@ -90,12 +95,12 @@ export class PolymorphOutletDirective<C> implements OnChanges, DoCheck {
     }
 
     return new PolymorphContext(
-      this.context && typeof this.content === 'function' ? this.content(this.context) : this.content
+      typeof this.content === 'function' ? this.content(this.context) : this.content
     );
   }
 
   private process(content: PolymorphComponent<unknown>, proxy?: C): void {
-    const injector = content.createInjector(this.i, proxy);
+    const injector = content.createInjector(this.injector, proxy);
 
     this.c = this.vcr.createComponent(content.component, { injector });
   }

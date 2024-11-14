@@ -1,7 +1,6 @@
 import { OnDestroy, Pipe, PipeTransform } from '@angular/core';
-import { BehaviorSubject, defer, isObservable, Observable, of } from 'rxjs';
+import { BehaviorSubject, defer, isObservable, Observable, shareReplay } from 'rxjs';
 import * as operators from 'rxjs/operators';
-import { shareReplay } from 'rxjs/operators';
 import { PrizmToObservableOperator } from './model';
 
 @Pipe({ name: 'prizmToObservable', standalone: true })
@@ -16,7 +15,7 @@ export class PrizmToObservablePipe<T> implements PipeTransform, OnDestroy {
     if (typeof (value as Promise<T>)?.then === 'function') {
       value = defer(() => value as Promise<T>);
     }
-    let $: Observable<T> = of(value as T);
+
     if (!isObservable(value)) {
       if (!this.subject$$ || this.lastOperators !== operators) {
         this.subject$$ = new BehaviorSubject<unknown>(value);
@@ -24,16 +23,14 @@ export class PrizmToObservablePipe<T> implements PipeTransform, OnDestroy {
           this.subject$$ as Observable<unknown> as Observable<T>,
           (this.lastOperators = operators)
         ).pipe(shareReplay(1));
-        $ = this.lastObservable$$ as Observable<T>;
       } else {
         this.subject$$.next(value);
-        return this.lastObservable$$ as Observable<T>;
       }
-    } else {
-      $ = value as Observable<T>;
+
+      return this.lastObservable$$ as Observable<T>;
     }
 
-    return this.addOperatorsToObservable($, operators) as Observable<T>;
+    return this.addOperatorsToObservable(value, operators) as Observable<T>;
   }
 
   private addOperatorsToObservable(

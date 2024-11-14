@@ -41,14 +41,8 @@
     <prizm-doc-demo>
       <button
         [size]="size"
-        [icon]="icon"
-        [iconRight]="iconRight"
-        [appearanceType]="appearanceType"
-        [appearance]="appearance"
-        [disabled]="disabled"
-        [showLoader]="showLoader"
-        [focusable]="focusable"
-        [pseudoState]="pseudoState"
+        [appearanceType]="'fill'"
+        [appearance]="'primary'"
         (click)="show()"
         type="button"
         prizmButton
@@ -57,11 +51,11 @@
       </button>
     </prizm-doc-demo>
 
-    <ng-template #headerTemp> Header из <a href="#">шаблона</a> </ng-template>
+    <ng-template #headerTemp> Header из <a class="template-link" href="#">шаблона</a> </ng-template>
 
     <ng-template #contentTemp>
-      Content из <a href="#">шаблона</a>
-      <button style="margin-top: 10px" prizmButton>Кнопка</button>
+      Content из <a class="template-link" href="#">шаблона</a>
+      <button style="margin-top: 60px" prizmButton>Кнопка</button>
     </ng-template>
 
     <ng-template #footerTemp let-observer> Footer из <i (click)="observer.next(1)">шаблона</i> </ng-template>
@@ -74,16 +68,6 @@
         documentationPropertyType="PrizmOverlayInsidePlacement"
       >
         Position
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="size"
-        [documentationPropertyValues]="sizeVariants"
-        documentationPropertyName="size"
-        documentationPropertyType="PrizmDialogSize"
-        documentationPropertyMode="input"
-      >
-        Size
       </ng-template>
 
       <ng-template
@@ -170,137 +154,6 @@
         documentationPropertyType="PolymorphContent<PrizmBaseDialogContext> |  | PrizmDialogButton[]"
       >
         Footer template or button array (PrizmDialogButton) If pass empty string '', footer will not be showed
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="appearance"
-        [documentationPropertyValues]="appearanceVariants"
-        documentationPropertyName="appearance"
-        documentationPropertyType="PrizmAppearance"
-        documentationPropertyMode="input"
-      >
-        Appearance
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="appearanceType"
-        [documentationPropertyValues]="appearanceTypeVariants"
-        documentationPropertyName="appearanceType"
-        documentationPropertyType="PrizmAppearanceType"
-        documentationPropertyMode="input"
-      >
-        AppearanceType
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="icon"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="icon"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-      >
-        Icon
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="iconRight"
-        [documentationPropertyValues]="iconVariants"
-        documentationPropertyName="iconRight"
-        documentationPropertyType="PrizmContent"
-        documentationPropertyMode="input"
-      >
-        Right Icon
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="disabled"
-        documentationPropertyName="disabled"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Disabled
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="showLoader"
-        documentationPropertyName="showLoader"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Show Loader
-      </ng-template>
-
-      <ng-template
-        [(documentationPropertyValue)]="pseudoHovered"
-        documentationPropertyName="pseudoHovered"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Hovered
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoPressed"
-        documentationPropertyName="pseudoPressed"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Pressed
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoFocused"
-        documentationPropertyName="pseudoFocused"
-        documentationPropertyType="boolean | null"
-        documentationPropertyMode="input"
-      >
-        Pseudo Focused
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusable"
-        documentationPropertyName="focusable"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="input"
-      >
-        Focusable
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pseudoState"
-        documentationPropertyName="pseudoState"
-        documentationPropertyType="string"
-        documentationPropertyMode="input"
-      >
-        Pseudo State
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusedChange"
-        documentationPropertyName="focusedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Focused Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="pressedChange"
-        documentationPropertyName="pressedChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Pressed Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="hoveredChange"
-        documentationPropertyName="hoveredChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Hovered Change
-      </ng-template>
-      <ng-template
-        [(documentationPropertyValue)]="focusVisibleChange"
-        documentationPropertyName="focusVisibleChange"
-        documentationPropertyType="boolean"
-        documentationPropertyMode="output"
-      >
-        Focus Visible Change
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
