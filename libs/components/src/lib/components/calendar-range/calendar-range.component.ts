@@ -40,6 +40,7 @@ import { PrizmPrimitiveCalendarRangeComponent } from '../internal';
 import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
+import { PrizmDateTimeRange } from '../../@core';
 
 @Component({
   selector: `prizm-calendar-range`,
@@ -132,7 +133,7 @@ export class PrizmCalendarRangeComponent
         takeUntil(destroy$)
       )
       .subscribe(value => {
-        this.value = value;
+        value instanceof PrizmDateTimeRange ? (this.value = value.dayRange) : value;
       });
   }
 

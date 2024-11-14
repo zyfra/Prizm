@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { prizmGetInputDateTimeRangeNativeTransformer } from '@prizm-ui/components';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'prizm-input-layout-date-time-range-native-example',
@@ -16,9 +15,6 @@ import { tap } from 'rxjs';
     `,
   ],
 })
-export class PrizmInputNativeDateRangeBaseExampleComponent implements OnInit {
+export class PrizmInputNativeDateRangeBaseExampleComponent {
   readonly value = new UntypedFormControl([new Date(2018, 2, 10), new Date(2018, 3, 20)]);
-  ngOnInit(): void {
-    this.value.valueChanges.pipe(tap(v => console.log(v))).subscribe();
-  }
 }
