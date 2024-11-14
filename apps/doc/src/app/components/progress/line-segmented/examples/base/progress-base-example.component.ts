@@ -29,5 +29,4 @@ export class PrizmProgressBaseExampleComponent {
     takeWhile(i => i != this.max + 1),
     startWith(2)
   );
-  readonly colors = [`var(---prizm-status-warning-primary-default)`, `lightskyblue`, `#3682db`, `red`];
 }
