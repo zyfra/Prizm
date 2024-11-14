@@ -10,14 +10,11 @@
       </ng-container>
     </ng-container>
     <ng-container *ngSwitchDefault>
-      <prizm-scrollbar
-        *polymorphOutlet="context.header as data; context: context"
-        [visibility]="context.scrollbarVisibility ?? 'hidden'"
-      >
-        <div class="title">
+      <ng-container *polymorphOutlet="context.header as data; context: context">
+        <div class="title" #host [prizmHintOnOverflow]="context.header" [prizmHintOnOverflowEl]="host">
           {{ data }}
         </div>
-      </prizm-scrollbar>
+      </ng-container>
       <button
         *ngIf="context.closeable"
         [size]="'m'"
