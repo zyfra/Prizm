@@ -70,6 +70,7 @@
             <prizm-listing-item
               [disabled]="$any(tab.disabled)"
               [selected]="activeTabIndex === i"
+              [prizmScrollIntoView]="scrollItemIntoView(i)"
               (click)="clickTab(i)"
             >
               <ng-container *ngIf="tab.icon || hasIcons" leftBox>

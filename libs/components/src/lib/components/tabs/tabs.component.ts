@@ -35,6 +35,7 @@ import {
   PrizmDropdownControllerDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
+  PrizmScrollIntoViewDirective,
 } from '../../directives';
 import { PrizmButtonComponent } from '../button';
 import { PrizmDataListComponent } from '../data-list';
@@ -74,6 +75,7 @@ import {
     PrizmIconTabsPipe,
     PrizmHintDirective,
     PrizmIconsFullComponent,
+    PrizmScrollIntoViewDirective,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
@@ -201,6 +203,10 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   public clickTab(index: number): void {
     this.openLeft = this.openRight = false;
     this.tabClickHandler(index);
+  }
+
+  public scrollItemIntoView(tabIndex: number): boolean {
+    return tabIndex === this.activeTabIndex;
   }
 
   private initTabClickListener(): void {
