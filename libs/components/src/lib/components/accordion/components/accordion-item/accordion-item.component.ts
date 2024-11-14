@@ -3,14 +3,11 @@ import {
   ChangeDetectorRef,
   Component,
   ContentChild,
-  ElementRef,
   EventEmitter,
   Input,
   OnDestroy,
-  OnInit,
   Output,
   TemplateRef,
-  ViewChild,
   inject,
 } from '@angular/core';
 import { PrizmAccordionContentDirective } from '../../directives/accordion-content.directive';
@@ -23,8 +20,7 @@ import { PrizmAbstractTestId } from '../../../../abstract/interactive';
 import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 import { CommonModule } from '@angular/common';
 import { PrizmButtonComponent } from '../../../button';
-import { PrizmHintDirective } from '../../../../directives';
-import { prizmIsTextOverflow } from '../../../../util';
+import { PrizmHintOnOverflowDirective } from '../../../../directives';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsChevronsDoubleDown } from '@prizm-ui/icons/full/source';
@@ -40,11 +36,11 @@ import { prizmIconsChevronsDoubleDown } from '@prizm-ui/icons/full/source';
     PolymorphOutletDirective,
     PrizmButtonComponent,
     PrizmIconsComponent,
-    PrizmHintDirective,
+    PrizmHintOnOverflowDirective,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
+export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements OnDestroy {
   @Input() icon!: PolymorphContent<PrizmAccordionItemData>;
   @Input()
   set title(value: PolymorphContent<PrizmAccordionItemData>) {
@@ -63,9 +59,6 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
     this._disabled = coerceBooleanProperty(value);
   }
 
-  @ViewChild('container', { static: true }) container!: ElementRef;
-
-  public readonly prizmIsTextOverflow = prizmIsTextOverflow;
   private _disabled = false;
 
   @Output() isExpandedChange = new EventEmitter<boolean>();
@@ -87,19 +80,12 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
   @ContentChild(AccordionToolsDirective, { read: TemplateRef })
   public readonly accordionTools!: TemplateRef<AccordionToolsDirective>;
 
-  private resizeObserver!: ResizeObserver;
-
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(private readonly cdRef: ChangeDetectorRef) {
     super();
 
     this.iconsFullRegistry.registerIcons(prizmIconsChevronsDoubleDown);
-  }
-
-  public ngOnInit(): void {
-    this.resizeObserver = new ResizeObserver(() => this.cdRef.markForCheck());
-    this.resizeObserver.observe(this.container.nativeElement);
   }
 
   public toggle$: Subject<void> = new Subject<void>();
@@ -125,6 +111,5 @@ export class PrizmAccordionItemComponent extends PrizmAbstractTestId implements 
 
   public ngOnDestroy(): void {
     this.toggle$.complete();
-    this.resizeObserver.disconnect();
   }
 }

@@ -2,8 +2,8 @@
   <div
     class="nav"
     [class.nav_active]="isActive$ | async"
-    [prizmHint]="menuItem?.title"
-    [prizmHintCanShow]="prizmIsTextOverflow(title)"
+    [prizmHintOnOverflow]="menuItem?.title"
+    [prizmHintOnOverflowEl]="title"
     (click)="navClick()"
   >
     <div class="nav__icon" [style.marginLeft.px]="deep | prizmCalculateNavMargin : true">
