@@ -31,7 +31,6 @@ import { PrizmDialogService } from '../../dialogs/dialog/dialog.service';
 import { PRIZM_DATE_FORMAT } from '../../../@core/date-time/date-format';
 import { PrizmDateMode } from '../../../types/date-mode';
 import { PRIZM_DATE_TEXTS, PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE, PRIZM_TIME_TEXTS } from '../../../tokens/';
-import { PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { filterTruthy, PrizmDestroyService, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
@@ -48,7 +47,7 @@ import {
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { PrizmDateButton, PrizmTimeMode } from '../../../types';
 import { prizmCreateTimeNgxMask } from '../../../@core/mask/create-time-mask';
-import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens';
+import { PRIZM_DATE_RIGHT_BUTTONS, PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens';
 import { PrizmDateTimeMinMax } from './model';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { CommonModule } from '@angular/common';
@@ -65,6 +64,7 @@ import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import { PrizmCalendarRangeComponent } from '../../calendar-range';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/source';
+import { PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS } from './input-date-range-time.providers';
 import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
@@ -82,6 +82,7 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
       dateTexts: PRIZM_DATE_TEXTS,
       inputLayoutDateTimeRange: PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE,
     }),
+    ...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutDateTimeRangeComponent),
@@ -268,10 +269,9 @@ export class PrizmInputLayoutDateTimeRangeComponent
     readonly dateTexts$: Observable<Record<PrizmDateMode, string>>,
     @Optional()
     @Inject(PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER)
-    override readonly valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
+    valueTransformer: PrizmControlValueTransformer<PrizmDateTimeRange | null> | null
   ) {
-    super(injector);
-
+    super(injector, valueTransformer);
     this.iconsFullRegistry.registerIcons(prizmIconsCalendarRange, prizmIconsClock);
   }
 
