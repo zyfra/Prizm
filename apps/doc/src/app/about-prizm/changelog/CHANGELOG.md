@@ -6,12 +6,12 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
-- feat(components/query-builder): query builder component #402
+- feat(addon/query-builder): query builder component #402
 - feat(chore): added support addons scope in commit lint
 - feat(doc/addon): added support addons
 - feat(addons/query-builder): moved query builder from components to addons library #402
 - feat(addons/query-builder): moved i18n logic from component to custom service #402
-- feat(i18n): added service for custom service #402
+- feat(i18n): added service for custom dictionary #402
 - feat(i18n): moved function for inject with keys and service from components to i18n library
 - feat(helpers/is-text-overflow): added ability to check vertical text overflow
 - feat(doc/dialog): beautify live demo 'with template' examples
@@ -33,11 +33,11 @@ All notable changes to this project will be documented in this file.
 - fix(components/button): text in buttons should be in a single line #1365
 - fix(doc/navigation): extra code files removed from example #1365
 - fix(components/panel): fix incorrect css variable name for subheader color #2186
-- fix(doc): wrong name for tools in english language
 - fix(components/file-upload): empty array input should be supported for input files #2174
 - fix(doc/menu): update nxvm menu item title source from english version menu #2053
 - fix(components/dialog): limit dialog header with 1 line of text only #755
 - fix(components/confirm-dialog): limit dialog header with 3 lines of text only #755
+- fix(components/sidebar): limit dialog header with 1 line of text only #755
 - fix(components/navigation): active item should be highlighted after reload #1511
 - fix(components/button): fixed problem with confused test id for buttons with and without icons #2150
 - fix(components/input): added CD on empty prop change #2078
