@@ -37,6 +37,7 @@ All notable changes to this project will be documented in this file.
 - fix(doc/menu): update nxvm menu item title source from english version menu #2053
 - fix(components/dialog): limit dialog header with 1 line of text only #755
 - fix(components/confirm-dialog): limit dialog header with 3 lines of text only #755
+- fix(components/confirm-dialog): add gap only for dialog with description
 - fix(components/sidebar): limit dialog header with 1 line of text only #755
 - fix(components/navigation): active item should be highlighted after reload #1511
 - fix(components/button): fixed problem with confused test id for buttons with and without icons #2150
