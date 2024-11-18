@@ -12,6 +12,7 @@ import {
   PrizmLanguageInputLayoutDateTimeRange,
   PrizmLanguageKit,
   PrizmLanguagePaginator,
+  PrizmLanguageTimePagination,
 } from '@prizm-ui/i18n';
 
 export const PRIZM_FILE_UPLOAD = new InjectionToken<Observable<PrizmLanguageFileUpload['fileUpload']>>(
@@ -79,3 +80,7 @@ export const PRIZM_SEARCH_TEXT = new InjectionToken<Observable<PrizmLanguageKit[
 export const PRIZM_EMPTY_LIST_TEXT = new InjectionToken<Observable<PrizmLanguageKit['emptyListText']>>(
   `empty list i18n text`
 );
+
+export const PRIZM_TIME_PAGINATION = new InjectionToken<
+  Observable<PrizmLanguageTimePagination['timePagination']>
+>(`primitive time pagination i18n text`);

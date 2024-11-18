@@ -151,6 +151,14 @@ export interface PrizmLanguagePaginator {
   };
 }
 
+export interface PrizmLanguageTimePagination {
+  timePagination: {
+    hours: string;
+    minutes: string;
+    seconds: string;
+  };
+}
+
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -319,4 +327,5 @@ export interface PrizmLanguage
     PrizmLanguageInputLayoutDateTimeRange,
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
-    PrizmLanguagePaginator {}
+    PrizmLanguagePaginator,
+    PrizmLanguageTimePagination {}

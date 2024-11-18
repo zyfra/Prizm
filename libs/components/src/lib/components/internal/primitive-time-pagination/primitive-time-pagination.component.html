@@ -1,4 +1,5 @@
 <div class="box">
+  @if (dictionary$ | async; as dictionary) {
   <button
     class="pagination-btn"
     [attr.testId]="'prizm-primitive-year-month-pagination__year-button'"
@@ -6,7 +7,7 @@
     [prizmFocusable]="true"
     type="button"
   >
-    hh
+    {{ dictionary.hours }}
   </button>
   :
   <button
@@ -16,7 +17,7 @@
     [prizmFocusable]="true"
     type="button"
   >
-    mm
+    {{ dictionary.minutes }}
   </button>
   :
   <button
@@ -26,6 +27,7 @@
     [prizmFocusable]="true"
     type="button"
   >
-    ss
+    {{ dictionary.seconds }}
   </button>
+  }
 </div>

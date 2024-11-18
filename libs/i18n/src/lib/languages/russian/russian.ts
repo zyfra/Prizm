@@ -9,6 +9,7 @@ import { PRIZM_RUSSIAN_PAGINATOR } from './paginator';
 import { PRIZM_RUSSIAN_INPUT } from './input';
 import { PRIZM_RUSSIAN_INPUT_LAYOUT_DATE_TIME } from './input-layout-date-time';
 import { PRIZM_RUSSIAN_INPUT_LAYOUT_DATE_TIME_RANGE } from './input-layout-date-time-range';
+import { PRIZM_RUSSIAN_TIME_PAGINATION } from './time-pagination';
 
 export const PRIZM_RUSSIAN_LANGUAGE = {
   name: `russian`,
@@ -23,4 +24,5 @@ export const PRIZM_RUSSIAN_LANGUAGE = {
   ...PRIZM_RUSSIAN_CRON,
   ...PRIZM_RUSSIAN_COLUMN_SETTINGS,
   ...PRIZM_RUSSIAN_PAGINATOR,
+  ...PRIZM_RUSSIAN_TIME_PAGINATION,
 } as PrizmLanguage;
