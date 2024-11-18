@@ -26,13 +26,13 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
         title: 'Подраздел 1.2',
         children: [
           {
-            title: 'Страница 1',
+            title: 'Страница 1.2.1',
           },
           {
-            title: 'Страница 2',
+            title: 'Страница 1.2.2',
           },
           {
-            title: 'Страница 3',
+            title: 'Страница 1.2.3',
           },
         ],
       },
@@ -71,16 +71,16 @@ export const NAVIGATION_EXAMPLE: INavigationTree[] = [
     icon: 'battery-three-quarters',
     children: [
       {
-        title: 'Страница 1',
+        title: 'Страница 3.1',
       },
       {
-        title: 'Страница 2',
+        title: 'Страница 3.2',
       },
       {
-        title: 'Страница 1',
+        title: 'Страница 3.3',
       },
       {
-        title: 'Страница 2',
+        title: 'Страница 3.4',
         indicatorStatus: 'warning',
         indicatorValue: 2,
       },
