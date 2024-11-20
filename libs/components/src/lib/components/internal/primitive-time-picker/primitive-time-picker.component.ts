@@ -1,38 +1,13 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  HostBinding,
-  Inject,
-  Input,
-  Output,
-} from '@angular/core';
-import { Observable } from 'rxjs';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { PrizmDay } from '../../../@core/date-time/day';
-import { PrizmDayRange } from '../../../@core/date-time/day-range';
-import { PrizmDayWithStatus } from '../../../@core/date-time/day-with-status';
-import { PrizmMonth } from '../../../@core/date-time/month';
-import { PrizmRangeState } from '../../../@core/enums';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { PRIZM_DEFAULT_MARKER_HANDLER } from '../../../constants/default-marker-handler';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmInteractiveState } from '../../../directives/wrapper';
-import {
-  getShortWeekDays,
-  PRIZM_ORDERED_SHORT_WEEK_DAYS,
-  PRIZM_WEEK_DAYS_NAMES,
-} from '../../../tokens/ordered-short-week-days';
-import { PrizmColor } from '../../../types/color';
 import { PrizmBooleanHandler } from '../../../types/handler';
-import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { PrizmLanguageCore } from '@prizm-ui/i18n';
-import { PRIZM_SHORT_WEEK_DAYS } from '../../../tokens/i18n';
-import { prizmI18nInitWithKey } from '../../../services/i18n.service';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
-import { PrizmCalendarSheetPipe, PrizmMapperPipe } from '../../../pipes';
+import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
 import { PrizmHoveredDirective } from '../../../directives/hovered';
 import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../directives';
 
@@ -44,47 +19,21 @@ import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../direc
   standalone: true,
   imports: [
     CommonModule,
-    PrizmLetDirective,
-    PrizmMapperPipe,
     PrizmRepeatTimesDirective,
     PrizmCallFuncPipe,
     PrizmHoveredDirective,
     PrizmPressedDirective,
-    PrizmCalendarSheetPipe,
-  ],
-  providers: [
-    ...prizmI18nInitWithKey(PRIZM_SHORT_WEEK_DAYS, 'shortWeekDays'),
-    {
-      provide: PRIZM_ORDERED_SHORT_WEEK_DAYS,
-      useFactory: (days: Observable<PrizmLanguageCore['shortWeekDays']>) => {
-        return getShortWeekDays(days);
-      },
-      deps: [PRIZM_SHORT_WEEK_DAYS],
-    },
   ],
 })
 export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
   pressedItem: PrizmDay | null = null;
 
   @Input()
-  @prizmDefaultProp()
-  month: PrizmMonth = PrizmMonth.currentLocal();
+  timeSheet: any;
 
   @Input()
   @prizmDefaultProp()
   disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
-
-  @Input()
-  @prizmDefaultProp()
-  markerHandler: PrizmMarkerHandler = PRIZM_DEFAULT_MARKER_HANDLER;
-
-  @Input()
-  @prizmDefaultProp()
-  value: PrizmDayRange | PrizmDay | null = null;
-
-  @Input()
-  @prizmDefaultProp()
-  daysWithStatus: PrizmDayWithStatus[] = [];
 
   @Input()
   @prizmDefaultProp()
@@ -98,106 +47,19 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
   readonly hoveredItemChange = new EventEmitter<PrizmDay | null>();
 
   @Output()
-  readonly dayClick = new EventEmitter<PrizmDay>();
+  readonly timeClick = new EventEmitter<{ key: string; value: string }>();
 
-  override readonly testId_ = 'ui_primitive_calendar';
-
-  constructor(
-    @Inject(PRIZM_ORDERED_SHORT_WEEK_DAYS)
-    readonly weekDays$: Observable<PRIZM_WEEK_DAYS_NAMES>
-  ) {
-    super();
-  }
-
-  @HostBinding(`class._single`)
-  get isSingle(): boolean {
-    return this.value !== null && (this.value instanceof PrizmDay || this.value.isSingleDay);
-  }
-
-  readonly toMarkers = (
-    day: PrizmDay,
-    today: boolean,
-    inRange: boolean
-  ): null | [PrizmColor | string] | [PrizmColor | string, PrizmColor | string] => {
-    if (today || inRange) {
-      return null;
-    }
-
-    const markers = this.markerHandler(day);
-
-    return markers.length === 0 ? null : markers;
-  };
+  override readonly testId_ = 'ui_primitive_time_picker';
 
   public getItemState(item: PrizmDay): PrizmInteractiveState | null {
-    const { disabledItemHandler, pressedItem, hoveredItem } = this;
-
-    if (disabledItemHandler(item)) {
-      return PrizmInteractiveState.Disabled;
-    }
-
-    if (pressedItem?.daySame(item)) {
-      return PrizmInteractiveState.Pressed;
-    }
-
-    if (hoveredItem?.daySame(item)) {
-      return PrizmInteractiveState.Hovered;
-    }
+    // TODO: implement
 
     return null;
   }
 
-  public getItemRange(item: PrizmDay): PrizmRangeState | null {
-    const { value, hoveredItem } = this;
-
-    if (!value) {
-      return null;
-    }
-
-    if (value instanceof PrizmDay) {
-      return value.daySame(item) ? PrizmRangeState.Single : null;
-    }
-
-    if (
-      (value.from.daySame(item) && !value.isSingleDay) ||
-      (hoveredItem?.dayAfter(value.from) && value.from.daySame(item) && value.isSingleDay) ||
-      (hoveredItem?.daySame(item) && hoveredItem.dayBefore(value.from) && value.isSingleDay)
-    ) {
-      return PrizmRangeState.Start;
-    }
-
-    if (
-      (value.to.daySame(item) && !value.isSingleDay) ||
-      (hoveredItem?.dayBefore(value.from) && value.from.daySame(item) && value.isSingleDay) ||
-      (hoveredItem?.daySame(item) && hoveredItem.dayAfter(value.from) && value.isSingleDay)
-    ) {
-      return PrizmRangeState.End;
-    }
-
-    return value.isSingleDay && value.from.daySame(item) ? PrizmRangeState.Single : null;
-  }
-
   public itemIsUnavailable(item: PrizmDay): boolean {
-    return !this.month.monthSame(item);
-  }
-
-  public itemIsInterval(day: PrizmDay): boolean {
-    const { value, hoveredItem } = this;
-
-    if (value === null || value instanceof PrizmDay) {
-      return false;
-    }
-
-    if (!value.isSingleDay) {
-      return value.from.daySameOrBefore(day) && value.to.dayAfter(day);
-    }
-
-    if (hoveredItem === null) {
-      return false;
-    }
-
-    const range = PrizmDayRange.sort(value.from, hoveredItem);
-
-    return range.from.daySameOrBefore(day) && range.to.dayAfter(day);
+    // TODO: implement
+    return false;
   }
 
   public onItemHovered(item: PrizmDay | false): void {
@@ -208,8 +70,8 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
     this.pressedItem = item || null;
   }
 
-  public onItemClick(item: PrizmDay): void {
-    this.dayClick.emit(item);
+  public onItemClick(item: { key: string; value: string }): void {
+    this.timeClick.emit(item);
   }
 
   private updateHoveredItem(day: PrizmDay | null): void {
@@ -219,13 +81,5 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
 
     this.hoveredItem = day;
     this.hoveredItemChange.emit(day);
-  }
-
-  public capitalizeFirstLetter(string: string): string {
-    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-  }
-
-  public getDayStatus(day: PrizmDay, daysWithStatus: PrizmDayWithStatus[]): string | null {
-    return daysWithStatus.find(dayWithStatus => dayWithStatus.daySame(day))?.status ?? null;
   }
 }

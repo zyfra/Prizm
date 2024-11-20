@@ -1,4 +1,29 @@
 <div class="" picker-host>
-  <prizm-primitive-time-pagination></prizm-primitive-time-pagination>
-  <prizm-primitive-time-picker></prizm-primitive-time-picker>
+  <prizm-primitive-time-pagination
+    [value]="currentTimeValue()"
+    (actvieModeChange)="timeSheetCount.set($event)"
+  ></prizm-primitive-time-pagination>
+
+  <prizm-scrollbar class="z-scrollbar">
+    <prizm-primitive-time-picker
+      [timeSheet]="timeSheetCount() | prizmTimeSheet"
+    ></prizm-primitive-time-picker>
+  </prizm-scrollbar>
+</div>
+
+<div class="footer">
+  @let dictionary = dictionary$ | async;
+  <button (click)="cancel()" appearance="secondary" appearanceType="ghost" size="xm" prizmButton>
+    {{ dictionary?.cancelButton }}
+  </button>
+  <button
+    [disabled]="!(clickedHour || clickedMinute || clickedSecond)"
+    (click)="setValue()"
+    appearance="primary"
+    appearanceType="fill"
+    size="xm"
+    prizmButton
+  >
+    {{ dictionary?.applyButton }}
+  </button>
 </div>

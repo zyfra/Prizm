@@ -159,6 +159,13 @@ export interface PrizmLanguageTimePagination {
   };
 }
 
+export interface PrizmLanguageTimePicker {
+  timePicker: {
+    applyButton: string;
+    cancelButton: string;
+  };
+}
+
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -328,4 +335,5 @@ export interface PrizmLanguage
     PrizmLanguageFileUpload,
     PrizmLanguageColumnSettings,
     PrizmLanguagePaginator,
-    PrizmLanguageTimePagination {}
+    PrizmLanguageTimePagination,
+    PrizmLanguageTimePicker {}

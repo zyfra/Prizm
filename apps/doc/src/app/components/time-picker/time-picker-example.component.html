@@ -6,7 +6,27 @@
     </prizm-doc-example>
   </ng-template>
 
-  <ng-template prizmDocPageTab prizmDocHost> here will be doc </ng-template>
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-time-picker #element [prizmDocHostElement]="element"></prizm-time-picker>
+    </prizm-doc-demo>
+    <prizm-doc-documentation [hasTestId]="true">
+      <ng-template
+        documentationPropertyName="timeChanged"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="output"
+      >
+        Time Changed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="canceled"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Canceled
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
 
   <ng-template prizmDocPageTab>
     <ol class="b-demo-steps">

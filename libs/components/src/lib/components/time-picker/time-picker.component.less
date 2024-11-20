@@ -1,6 +1,6 @@
 @paddings: 16px;
 @paginationHeight: 40px;
-@calendarWidth: 280px;
+@calendarWidth: 272px;
 @calendarHeight: 308px;
 
 :host {
@@ -10,6 +10,20 @@
   padding: @paddings;
   box-sizing: content-box;
   background-color: var(--prizm-background-fill-primary);
+
+  .footer {
+    border-top: 1px solid var(--prizm-background-stroke);
+    padding: var(--prizm-time-picker-footer-padding, 16px);
+    max-width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+    [prizmButton] {
+      flex: 1;
+    }
+  }
 }
 
 .z-scrollbar {
