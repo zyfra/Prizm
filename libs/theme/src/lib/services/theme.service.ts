@@ -1,6 +1,6 @@
 import { Inject, Injectable, OnDestroy } from '@angular/core';
 import { BehaviorSubject, Observable, Subscription } from 'rxjs';
-import { distinctUntilChanged, filter, map, tap } from 'rxjs/operators';
+import { distinctUntilChanged, map, tap } from 'rxjs/operators';
 import { PrizmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
@@ -21,7 +21,7 @@ export class PrizmThemeService implements OnDestroy {
     theme: PrizmTheme;
     el?: HTMLElement;
   }>({
-    theme: 'light',
+    theme: this.getInitialTheme(),
   });
   readonly change$ = this.changeSource$.pipe(
     tap(data => data.el && this.themeStorage.set(data.el, data.theme))
@@ -93,5 +93,10 @@ export class PrizmThemeService implements OnDestroy {
     const style = el.style;
     style.setProperty(`--${token}`, value);
     return true;
+  }
+
+  // Need for microfront
+  private getInitialTheme(): PrizmTheme {
+    return this.rootElement.getAttribute(this.attThemeKey) ?? 'light';
   }
 }
