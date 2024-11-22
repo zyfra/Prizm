@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { PrizmDay } from '../../../@core/date-time/day';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmInteractiveState } from '../../../directives/wrapper';
@@ -7,9 +6,10 @@ import { PrizmBooleanHandler } from '../../../types/handler';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
-import { PrizmCallFuncPipe } from '@prizm-ui/helpers';
 import { PrizmHoveredDirective } from '../../../directives/hovered';
-import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../directives';
+import { PrizmPressedDirective, PrizmScrollIntoViewDirective } from '../../../directives';
+import { PrizmPrimitiveTimePickerItem } from './types/types';
+import { PrizmRangeState } from '../../../@core';
 
 @Component({
   selector: `prizm-primitive-time-picker`,
@@ -17,69 +17,86 @@ import { PrizmPressedDirective, PrizmRepeatTimesDirective } from '../../../direc
   styleUrls: [`./primitive-time-picker.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [
-    CommonModule,
-    PrizmRepeatTimesDirective,
-    PrizmCallFuncPipe,
-    PrizmHoveredDirective,
-    PrizmPressedDirective,
-  ],
+  imports: [CommonModule, PrizmHoveredDirective, PrizmPressedDirective, PrizmScrollIntoViewDirective],
 })
 export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
-  pressedItem: PrizmDay | null = null;
+  @Input()
+  timeSheet!: PrizmPrimitiveTimePickerItem[];
 
   @Input()
-  timeSheet: any;
-
-  @Input()
-  @prizmDefaultProp()
-  disabledItemHandler: PrizmBooleanHandler<PrizmDay> = PRIZM_ALWAYS_FALSE_HANDLER;
+  selectedItem: number | undefined;
 
   @Input()
   @prizmDefaultProp()
-  hoveredItem: PrizmDay | null = null;
+  disabledItemHandler: PrizmBooleanHandler<PrizmPrimitiveTimePickerItem> = PRIZM_ALWAYS_FALSE_HANDLER;
+
+  @Input()
+  @prizmDefaultProp()
+  hoveredItem: PrizmPrimitiveTimePickerItem | null = null;
 
   @Input()
   @prizmDefaultProp()
   showAdjacent = true;
 
   @Output()
-  readonly hoveredItemChange = new EventEmitter<PrizmDay | null>();
+  readonly hoveredItemChange = new EventEmitter<PrizmPrimitiveTimePickerItem | null>();
 
   @Output()
-  readonly timeClick = new EventEmitter<{ key: string; value: string }>();
+  readonly timeClick = new EventEmitter<number>();
+
+  public pressedItem: PrizmPrimitiveTimePickerItem | null = null;
 
   override readonly testId_ = 'ui_primitive_time_picker';
 
-  public getItemState(item: PrizmDay): PrizmInteractiveState | null {
-    // TODO: implement
+  public itemIsChosen(item: PrizmPrimitiveTimePickerItem): PrizmRangeState | null {
+    if (this.selectedItem === undefined) return null;
+    return item.value === this.selectedItem ? PrizmRangeState.Single : null;
+  }
+
+  public getItemState(item: PrizmPrimitiveTimePickerItem): PrizmInteractiveState | null {
+    const { disabledItemHandler, pressedItem, hoveredItem } = this;
+    if (disabledItemHandler(item)) {
+      return PrizmInteractiveState.Disabled;
+    }
+
+    if (pressedItem?.value === item.value) {
+      return PrizmInteractiveState.Pressed;
+    }
+
+    if (hoveredItem?.value === item.value) {
+      return PrizmInteractiveState.Hovered;
+    }
 
     return null;
   }
 
-  public itemIsUnavailable(item: PrizmDay): boolean {
+  public itemIsUnavailable(item: PrizmPrimitiveTimePickerItem): boolean {
     // TODO: implement
     return false;
   }
 
-  public onItemHovered(item: PrizmDay | false): void {
+  public onItemHovered(item: PrizmPrimitiveTimePickerItem | false): void {
     this.updateHoveredItem(item || null);
   }
 
-  public onItemPressed(item: PrizmDay | false): void {
+  public onItemPressed(item: PrizmPrimitiveTimePickerItem | false): void {
     this.pressedItem = item || null;
   }
 
-  public onItemClick(item: { key: string; value: string }): void {
+  public onItemClick(item: number): void {
     this.timeClick.emit(item);
   }
 
-  private updateHoveredItem(day: PrizmDay | null): void {
-    if (prizmNullableSame(this.hoveredItem, day, (a, b) => a.daySame(b))) {
+  public scrollItemIntoView(item: number): boolean {
+    return this.selectedItem === item;
+  }
+
+  private updateHoveredItem(time: PrizmPrimitiveTimePickerItem | null): void {
+    if (prizmNullableSame(this.hoveredItem, time, (a, b) => a.value === b.value)) {
       return;
     }
 
-    this.hoveredItem = day;
-    this.hoveredItemChange.emit(day);
+    this.hoveredItem = time;
+    this.hoveredItemChange.emit(time);
   }
 }

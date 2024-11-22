@@ -7,49 +7,14 @@
     class="z-cell"
     *ngFor="let item of timeSheet"
     [attr.data-state]="getItemState(item)"
+    [attr.data-range]="itemIsChosen(item)"
+    [prizmScrollIntoView]="scrollItemIntoView(item.value)"
     (prizmHoveredChange)="onItemHovered($event && item)"
     (prizmPressedChange)="onItemPressed($event && item)"
-    (click)="onItemClick(item)"
+    (click)="onItemClick(item.value)"
   >
-    <div
-      class="z-item prizm-font-btn-links-14"
-      [class.z-item_unavailable]="itemIsUnavailable(item)"
-      [class.z-item_weekend]="item.isWeekend"
-    >
+    <div class="z-item prizm-font-btn-links-14" [class.z-item_unavailable]="itemIsUnavailable(item)">
       {{ item.key }}
     </div>
   </div>
 </div>
-
-<!-- <div *prizmLet="month | prizmCalendarSheet : true as sheet">
-  <div
-    class="z-row"
-    *prizmRepeatTimes="let rowIndex of sheet.length"
-    automation-id="prizm-primitive-calendar__row"
-  >
-    <ng-container *prizmRepeatTimes="let colIndex of sheet[rowIndex].length">
-      <ng-container *prizmLet="sheet[rowIndex][colIndex] as item">
-        <div
-          class="z-cell"
-          *ngIf="!itemIsUnavailable(item) || showAdjacent"
-          [class.z-cell_interval]="itemIsInterval(item)"
-          [attr.data-range]="getItemRange(item)"
-          [attr.data-state]="getItemState(item)"
-          (prizmHoveredChange)="onItemHovered($event && item)"
-          (prizmPressedChange)="onItemPressed($event && item)"
-          (click)="onItemClick(item)"
-          automation-id="prizm-primitive-calendar__cell"
-        >
-          <div
-            class="z-item prizm-font-btn-links-14"
-            [class.z-item_unavailable]="itemIsUnavailable(item)"
-            [class.z-item_weekend]="item.isWeekend"
-            automation-id="prizm-primitive-calendar__item"
-          >
-            {{ item.day }}
-          </div>
-        </div>
-      </ng-container>
-    </ng-container>
-  </div>
-</div> -->

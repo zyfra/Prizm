@@ -632,6 +632,7 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Time Picker',
     keywords: 'time picker, время',
     route: '/components/time-picker',
+    status: 'preview',
   },
   // Tools
   {
@@ -1398,6 +1399,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'Time Picker',
     keywords: 'time picker, время',
     route: '/components/time-picker',
+    status: 'preview',
   },
   {
     section: SectionNameEnglishEnum.tools,

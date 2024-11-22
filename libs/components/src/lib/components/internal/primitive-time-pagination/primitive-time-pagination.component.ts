@@ -1,12 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Inject,
-  Input,
-  OnInit,
-  Output,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Input, Output } from '@angular/core';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmFocusableDirective } from '../../../directives';
@@ -15,8 +7,9 @@ import { PRIZM_TIME_PAGINATION } from '../../../tokens';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmLanguageTimePagination } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
-import { PrizmTime } from '../../../@core';
-import { PrizmTimeWithZeroPipe } from './pipes/time-with-zero.pipe';
+import { PrizmTimePaginationMode } from './types/types';
+import { PrizmTimePickerTime } from '../../time-picker/types/types';
+import { PrizmNumberWithZeroPipe } from '../../../pipes/number-with-zero';
 
 @Component({
   selector: `prizm-primitive-time-pagination`,
@@ -25,30 +18,19 @@ import { PrizmTimeWithZeroPipe } from './pipes/time-with-zero.pipe';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   providers: [...prizmI18nInitWithKey(PRIZM_TIME_PAGINATION, 'timePagination')],
-  imports: [CommonModule, PrizmFocusableDirective, PrizmTimeWithZeroPipe],
+  imports: [CommonModule, PrizmFocusableDirective, PrizmNumberWithZeroPipe],
 })
-export class PrizmPrimitiveTimePaginationComponent extends PrizmAbstractTestId implements OnInit {
+export class PrizmPrimitiveTimePaginationComponent extends PrizmAbstractTestId {
   @Input()
-  value: PrizmTime | undefined;
+  value: PrizmTimePickerTime | undefined;
 
   @Input()
   @prizmDefaultProp()
-  hoursActive = false;
+  activeMode: PrizmTimePaginationMode = 'hour';
 
-  @Input()
-  @prizmDefaultProp()
-  minutesActive = false;
-
-  @Input()
-  @prizmDefaultProp()
-  secondsActive = false;
-
-  @Output() actvieModeChange = new EventEmitter<any>();
+  @Output() actvieModeChange = new EventEmitter<PrizmTimePaginationMode>();
 
   override readonly testId_ = 'ui_primitive_time_pagination';
-
-  public readonly hoursCount = 24;
-  public readonly minutesAndSecondsCount = 60;
 
   constructor(
     @Inject(PRIZM_TIME_PAGINATION)
@@ -57,11 +39,7 @@ export class PrizmPrimitiveTimePaginationComponent extends PrizmAbstractTestId i
     super();
   }
 
-  ngOnInit(): void {
-    this.updateActiveMode();
-  }
-
-  public updateActiveMode(sheetMode: 24 | 60 = 24): void {
-    this.actvieModeChange.emit(sheetMode);
+  public updateActiveMode(mode: PrizmTimePaginationMode = 'hour'): void {
+    this.actvieModeChange.emit(mode);
   }
 }

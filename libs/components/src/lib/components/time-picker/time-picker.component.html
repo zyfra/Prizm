@@ -1,12 +1,16 @@
 <div class="" picker-host>
+  @let time = internalTime(); @let mode = timeSheetMode();
   <prizm-primitive-time-pagination
-    [value]="currentTimeValue()"
-    (actvieModeChange)="timeSheetCount.set($event)"
+    [value]="time"
+    [activeMode]="mode"
+    (actvieModeChange)="timeSheetMode.set($event)"
   ></prizm-primitive-time-pagination>
 
   <prizm-scrollbar class="z-scrollbar">
     <prizm-primitive-time-picker
-      [timeSheet]="timeSheetCount() | prizmTimeSheet"
+      [timeSheet]="mode | prizmTimeSheet"
+      [selectedItem]="time[mode]"
+      (timeClick)="timeClicked($event)"
     ></prizm-primitive-time-picker>
   </prizm-scrollbar>
 </div>
@@ -17,7 +21,7 @@
     {{ dictionary?.cancelButton }}
   </button>
   <button
-    [disabled]="!(clickedHour || clickedMinute || clickedSecond)"
+    [disabled]="time | prizmPikcerDisable"
     (click)="setValue()"
     appearance="primary"
     appearanceType="fill"
