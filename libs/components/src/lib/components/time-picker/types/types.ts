@@ -1,5 +1,5 @@
-export type PrizmTimePickerTime = {
-  hour?: number;
-  minute?: number;
-  second?: number;
+export type PrizmTimePickerInternalTime = {
+  hours?: number;
+  minutes?: number;
+  seconds?: number;
 };

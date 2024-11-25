@@ -1,15 +1,13 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
 import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmInteractiveState } from '../../../directives/wrapper';
-import { PrizmBooleanHandler } from '../../../types/handler';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmHoveredDirective } from '../../../directives/hovered';
 import { PrizmPressedDirective, PrizmScrollIntoViewDirective } from '../../../directives';
-import { PrizmPrimitiveTimePickerItem } from './types/types';
 import { PrizmRangeState } from '../../../@core';
+import { PrizmPrimitiveTimePickerItem } from './types/types';
 
 @Component({
   selector: `prizm-primitive-time-picker`,
@@ -28,18 +26,11 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
 
   @Input()
   @prizmDefaultProp()
-  disabledItemHandler: PrizmBooleanHandler<PrizmPrimitiveTimePickerItem> = PRIZM_ALWAYS_FALSE_HANDLER;
+  disabledItems: PrizmPrimitiveTimePickerItem[] = [];
 
   @Input()
   @prizmDefaultProp()
   hoveredItem: PrizmPrimitiveTimePickerItem | null = null;
-
-  @Input()
-  @prizmDefaultProp()
-  showAdjacent = true;
-
-  @Output()
-  readonly hoveredItemChange = new EventEmitter<PrizmPrimitiveTimePickerItem | null>();
 
   @Output()
   readonly timeClick = new EventEmitter<number>();
@@ -54,8 +45,8 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
   }
 
   public getItemState(item: PrizmPrimitiveTimePickerItem): PrizmInteractiveState | null {
-    const { disabledItemHandler, pressedItem, hoveredItem } = this;
-    if (disabledItemHandler(item)) {
+    const { disabledItems, pressedItem, hoveredItem } = this;
+    if (disabledItems.find(el => item.value === el.value)) {
       return PrizmInteractiveState.Disabled;
     }
 
@@ -68,11 +59,6 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
     }
 
     return null;
-  }
-
-  public itemIsUnavailable(item: PrizmPrimitiveTimePickerItem): boolean {
-    // TODO: implement
-    return false;
   }
 
   public onItemHovered(item: PrizmPrimitiveTimePickerItem | false): void {
@@ -97,6 +83,5 @@ export class PrizmPrimitiveTimePickerComponent extends PrizmAbstractTestId {
     }
 
     this.hoveredItem = time;
-    this.hoveredItemChange.emit(time);
   }
 }

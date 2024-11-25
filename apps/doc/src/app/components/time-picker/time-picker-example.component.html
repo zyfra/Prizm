@@ -8,9 +8,55 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-time-picker #element [prizmDocHostElement]="element"></prizm-time-picker>
+      <prizm-time-picker
+        #element
+        [prizmDocHostElement]="element"
+        [timeMode]="timeMode"
+        [minTime]="minTime"
+        [maxTime]="maxTime"
+        [time]="time"
+      ></prizm-time-picker>
     </prizm-doc-demo>
     <prizm-doc-documentation [hasTestId]="true">
+      <ng-template
+        [(documentationPropertyValue)]="timeMode"
+        [documentationPropertyValues]="timeModeVariants"
+        documentationPropertyName="timeMode"
+        documentationPropertyType="'hour' | 'minute' | 'second'"
+        documentationPropertyMode="input"
+      >
+        timeMode
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="time"
+        [documentationPropertyValues]="timeVariants"
+        documentationPropertyName="time"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="input"
+      >
+        time
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="minTime"
+        [documentationPropertyValues]="minMaxVariants"
+        documentationPropertyName="minTime"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="input"
+      >
+        minTime
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="maxTime"
+        [documentationPropertyValues]="minMaxVariants"
+        documentationPropertyName="maxTime"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="input"
+      >
+        maxTime
+      </ng-template>
       <ng-template
         documentationPropertyName="timeChanged"
         documentationPropertyType="PrizmTime"

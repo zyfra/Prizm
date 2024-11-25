@@ -1,19 +1,20 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { PrizmTimePickerTime } from '../types/types';
+import { PrizmTimePickerInternalTime } from '../types/types';
 
 @Pipe({
-  name: `prizmPikcerDisable`,
+  name: `prizmPickerDisable`,
   standalone: true,
 })
-export class PrizmPikcerDisablePipe implements PipeTransform {
-  public transform(time: PrizmTimePickerTime): boolean {
+export class PrizmPickerDisablePipe implements PipeTransform {
+  public transform(time: PrizmTimePickerInternalTime): boolean {
+    // TODO: add check for min max validity if partially set
     return !(
-      time.hour ||
-      time.hour === 0 ||
-      time.minute ||
-      time.minute === 0 ||
-      time.second ||
-      time.second === 0
+      time.hours ||
+      time.hours === 0 ||
+      time.minutes ||
+      time.minutes === 0 ||
+      time.seconds ||
+      time.seconds === 0
     );
   }
 }

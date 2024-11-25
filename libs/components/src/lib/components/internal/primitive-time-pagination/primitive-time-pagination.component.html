@@ -3,34 +3,35 @@
   <button
     class="pagination-btn"
     [attr.testId]="'prizm-primitive-time-pagination__hours-button'"
-    [class.active]="activeMode === 'hour'"
+    [class.active]="activeMode === 'hours'"
     [prizmFocusable]="true"
-    (click)="updateActiveMode('hour')"
+    (click)="updateActiveMode('hours')"
     type="button"
   >
-    {{ (value?.hour | prizmNumberWithZero) ?? dictionary.hours }}
+    {{ (value?.hours | prizmNumberWithZero) ?? dictionary.hours }}
   </button>
   <div class="time-separator">:</div>
   <button
     class="pagination-btn"
     [attr.testId]="'prizm-primitive-time-pagination__minutes-button'"
-    [class.active]="activeMode === 'minute'"
+    [class.active]="activeMode === 'minutes'"
     [prizmFocusable]="true"
-    (click)="updateActiveMode('minute')"
+    (click)="updateActiveMode('minutes')"
     type="button"
   >
-    {{ (value?.minute | prizmNumberWithZero) ?? dictionary.minutes }}
+    {{ (value?.minutes | prizmNumberWithZero) ?? dictionary.minutes }}
   </button>
+  @if (timeMode === 'HH:MM:SS') {
   <div class="time-separator">:</div>
   <button
     class="pagination-btn"
     [attr.testId]="'prizm-primitive-time-pagination__seconds-button'"
-    [class.active]="activeMode === 'second'"
+    [class.active]="activeMode === 'seconds'"
     [prizmFocusable]="true"
-    (click)="updateActiveMode('second')"
+    (click)="updateActiveMode('seconds')"
     type="button"
   >
-    {{ (value?.second | prizmNumberWithZero) ?? dictionary.seconds }}
+    {{ (value?.seconds | prizmNumberWithZero) ?? dictionary.seconds }}
   </button>
-  }
+  }}
 </div>

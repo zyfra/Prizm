@@ -7,8 +7,8 @@ import { PRIZM_TIME_PAGINATION } from '../../../tokens';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmLanguageTimePagination } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
-import { PrizmTimePaginationMode } from './types/types';
-import { PrizmTimePickerTime } from '../../time-picker/types/types';
+import { PrizmTimePaginationState } from './types/types';
+import { PrizmTimePickerInternalTime } from '../../time-picker/types/types';
 import { PrizmNumberWithZeroPipe } from '../../../pipes/number-with-zero';
 
 @Component({
@@ -22,13 +22,17 @@ import { PrizmNumberWithZeroPipe } from '../../../pipes/number-with-zero';
 })
 export class PrizmPrimitiveTimePaginationComponent extends PrizmAbstractTestId {
   @Input()
-  value: PrizmTimePickerTime | undefined;
+  value: PrizmTimePickerInternalTime | undefined;
 
   @Input()
   @prizmDefaultProp()
-  activeMode: PrizmTimePaginationMode = 'hour';
+  timeMode: 'HH:MM' | 'HH:MM:SS' = 'HH:MM:SS';
 
-  @Output() actvieModeChange = new EventEmitter<PrizmTimePaginationMode>();
+  @Input()
+  @prizmDefaultProp()
+  activeMode: PrizmTimePaginationState = 'hours';
+
+  @Output() actvieModeChange = new EventEmitter<PrizmTimePaginationState>();
 
   override readonly testId_ = 'ui_primitive_time_pagination';
 
@@ -39,7 +43,7 @@ export class PrizmPrimitiveTimePaginationComponent extends PrizmAbstractTestId {
     super();
   }
 
-  public updateActiveMode(mode: PrizmTimePaginationMode = 'hour'): void {
+  public updateActiveMode(mode: PrizmTimePaginationState = 'hours'): void {
     this.actvieModeChange.emit(mode);
   }
 }

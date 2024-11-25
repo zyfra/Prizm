@@ -13,4 +13,8 @@ export class PrizmTimePickerBasicExampleComponent {
   public timeChanged(value: PrizmTime) {
     this.time = value;
   }
+
+  public canceled() {
+    this.time = null;
+  }
 }

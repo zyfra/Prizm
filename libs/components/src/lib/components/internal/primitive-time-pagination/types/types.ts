@@ -1,1 +1,1 @@
-export type PrizmTimePaginationMode = 'hour' | 'minute' | 'second';
+export type PrizmTimePaginationState = 'hours' | 'minutes' | 'seconds';

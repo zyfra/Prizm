@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Inject, Output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Inject,
+  input,
+  Output,
+  signal,
+} from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmPrimitiveTimePickerComponent } from '../internal/primitive-time-picker';
@@ -10,10 +18,13 @@ import { PRIZM_TIME_PICKER } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
 import { Observable } from 'rxjs';
 import { PrizmLanguageTimePicker } from '@prizm-ui/i18n';
-import { PrizmTimePaginationMode } from '../internal/primitive-time-pagination/types/types';
-import { PrizmTimePickerTime } from './types/types';
-import { PrizmPikcerDisablePipe } from './pipes/picker-disable.pipe';
+import { PrizmTimePaginationState } from '../internal/primitive-time-pagination/types/types';
+import { PrizmTimePickerInternalTime } from './types/types';
+import { PrizmTimePickerDisabledItemsPipe } from './pipes/picker-disable-items.pipe';
 import { PrizmTimeSheetPipe } from './pipes/time-sheet.pipe';
+import { PrizmBooleanHandler, PrizmMapper } from '../../types';
+import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../constants';
+import { PrizmPickerDisablePipe } from './pipes/picker-disable.pipe';
 
 @Component({
   selector: `prizm-time-picker`,
@@ -27,7 +38,8 @@ import { PrizmTimeSheetPipe } from './pipes/time-sheet.pipe';
     PrizmPrimitiveTimePickerComponent,
     PrizmScrollbarComponent,
     PrizmTimeSheetPipe,
-    PrizmPikcerDisablePipe,
+    PrizmTimePickerDisabledItemsPipe,
+    PrizmPickerDisablePipe,
     PrizmButtonComponent,
   ],
   providers: [...prizmI18nInitWithKey(PRIZM_TIME_PICKER, 'timePicker')],
@@ -39,10 +51,20 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   @Output()
   readonly canceled = new EventEmitter<void>();
 
-  // TODO: add input
-  public timeSheetMode = signal<PrizmTimePaginationMode>('hour');
+  public timeMode = input<'HH:MM' | 'HH:MM:SS'>('HH:MM:SS');
+  public timeSheetState = signal<PrizmTimePaginationState>('hours');
+
+  // TODO: add custum disabled handler support
+  // public disabledItemHandler = input<PrizmBooleanHandler<PrizmTime>>(PRIZM_ALWAYS_FALSE_HANDLER);
+
+  public time = input<PrizmTime>();
   public currentTime = signal<PrizmTime | undefined>(undefined);
-  public internalTime = signal<PrizmTimePickerTime>({});
+
+  public minTime = input<PrizmTime>();
+  public maxTime = input<PrizmTime>();
+
+  public internalTime = signal<PrizmTimePickerInternalTime>({});
+
   override readonly testId_ = 'ui_time_picker';
 
   constructor(
@@ -52,16 +74,24 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
     super();
   }
 
+  //   readonly disabledItemHandlerMapper: PrizmMapper<
+  //   PrizmBooleanHandler<PrizmTime>,
+  //   PrizmBooleanHandler<PrizmTime>
+  // > =
+  //   (disabledItemHandler, min: PrizmTime, max: PrizmTime) =>
+  //   (item: PrizmTime): boolean =>
+  //     item.timeBefore(min) || item.timeAfter(max) || disabledItemHandler(item);
+
   public timeClicked(time: number) {
     const internalTime = { ...this.internalTime() };
-    internalTime[this.timeSheetMode()] = time;
+    internalTime[this.timeSheetState()] = time;
     this.internalTime.set(internalTime);
   }
 
   public setValue() {
     const time = { ...this.internalTime() };
 
-    this.currentTime.set(new PrizmTime(time.hour ?? 0, time.minute ?? 0, time.second ?? 0));
+    this.currentTime.set(new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0));
 
     this.updateinternalTime(this.currentTime());
 
@@ -69,15 +99,16 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   }
 
   public cancel() {
+    this.internalTime.set({});
     this.canceled.emit();
   }
 
   private updateinternalTime(time: PrizmTime | undefined) {
     if (!time) return;
     this.internalTime.set({
-      hour: time.hours,
-      minute: time.minutes,
-      second: time.seconds,
+      hours: time.hours,
+      minutes: time.minutes,
+      seconds: time.seconds,
     });
   }
 }
