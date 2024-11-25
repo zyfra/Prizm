@@ -2,7 +2,7 @@ name: PR NG 17
 on:
   pull_request_target:
     branches:
-      - main
+      - v4
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest

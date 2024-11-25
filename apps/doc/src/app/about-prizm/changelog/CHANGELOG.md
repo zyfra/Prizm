@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bugfixes
 
+- fix(chore): pipeline run on push to main (need v4) #0
 - fix(components/panel): fix incorrect css variable name for subheader color #2186
 - fix(components/dialog): limit dialog header with 1 line of text only #755
 - fix(components/confirm-dialog): limit dialog header with 3 lines of text only #755
