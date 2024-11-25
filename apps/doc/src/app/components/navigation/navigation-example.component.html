@@ -4,13 +4,13 @@
       <prizm-navigation-basic-example></prizm-navigation-basic-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
+    <!-- <prizm-doc-example
       id="underContent"
       [content]="exampleNavigationBasic"
       heading="Navigation under content"
     >
       <prizm-navigation-basic-example [isNavigationAbsolute]="true"></prizm-navigation-basic-example>
-    </prizm-doc-example>
+    </prizm-doc-example> -->
   </ng-template>
 
   <ng-template prizmDocPageTab prizmDocHost>
@@ -46,6 +46,13 @@
         documentationPropertyMode="output"
       >
         Изменение активного элемента
+      </ng-template>
+      <ng-template
+        documentationPropertyName="expandedItemsChange"
+        documentationPropertyType="EventEmitter<INavigationTree[]>"
+        documentationPropertyMode="output"
+      >
+        Изменение развернутых элементов
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>

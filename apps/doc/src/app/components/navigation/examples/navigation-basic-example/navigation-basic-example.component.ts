@@ -6,10 +6,12 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsBars,
   prizmIconsBatteryThreeQuarters,
+  prizmIconsCameraMovie,
   prizmIconsDatabase,
   prizmIconsList,
   prizmIconsMusic,
 } from '@prizm-ui/icons/full/source';
+import { LOCAL_STORAGE } from '@ng-web-apis/common';
 
 @Component({
   selector: 'prizm-navigation-basic-example',
@@ -29,6 +31,7 @@ export class NavigationBasicExampleComponent {
   public readonly logo = 'assets/example/logo-dark.png';
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private readonly localStorage = inject(LOCAL_STORAGE) as Storage;
 
   constructor(private readonly themeSwitcher: PrizmThemeService) {
     this.iconsFullRegistry.registerIcons(
@@ -36,8 +39,12 @@ export class NavigationBasicExampleComponent {
       prizmIconsMusic,
       prizmIconsList,
       prizmIconsBatteryThreeQuarters,
-      prizmIconsDatabase
+      prizmIconsDatabase,
+      prizmIconsCameraMovie
     );
+
+    this.processNavigationState();
+    this.activeElement = this.getActiveElement() ?? (this.data[1].children as INavigationTree[])[1];
   }
 
   public toggleNavigation(): void {
@@ -63,5 +70,60 @@ export class NavigationBasicExampleComponent {
       this.activeElement = item;
     }
     this.parentActiveIdx = idx;
+    this.localStorage.setItem('NAVIGATION_ACTIVE_ITEM_TITLE_EXAMPLE', item.title);
+  }
+
+  public saveNavigationState(tree: INavigationTree[]): void {
+    this.localStorage.setItem('NAVIGATION_EXPANDED_ITEMS_EXAMPLE', JSON.stringify(tree));
+  }
+
+  private processNavigationState() {
+    const navigationState = this.localStorage.getItem('NAVIGATION_EXPANDED_ITEMS_EXAMPLE');
+
+    if (navigationState) {
+      const parsedState = JSON.parse(navigationState);
+      this.restoreExpanded(this.data, parsedState);
+    } else {
+      this.saveNavigationState(this.data);
+    }
+  }
+
+  private restoreExpanded(menuItems: INavigationTree[], storedMenuItems: INavigationTree[]) {
+    storedMenuItems.forEach(stordeItem => {
+      const menuItem = menuItems.find(el => el.title === stordeItem.title);
+
+      if (menuItem) {
+        menuItem.isExpanded = stordeItem.isExpanded;
+      }
+
+      if (stordeItem.children && menuItem?.children) {
+        this.restoreExpanded(menuItem.children, stordeItem.children);
+      }
+    });
+  }
+
+  private getActiveElement(): INavigationTree | null {
+    const activeElTitile = this.localStorage.getItem('NAVIGATION_ACTIVE_ITEM_TITLE_EXAMPLE');
+    if (activeElTitile) {
+      return this.findActiveItem(this.data, activeElTitile);
+    }
+    return null;
+  }
+
+  private findActiveItem(menuItems: INavigationTree[], title: string): INavigationTree | null {
+    for (const item of menuItems) {
+      if (item.title === title) {
+        return item;
+      }
+
+      if (item.children) {
+        const currElement = this.findActiveItem(item.children, title);
+        if (currElement) {
+          return currElement;
+        }
+      }
+    }
+
+    return null;
   }
 }
