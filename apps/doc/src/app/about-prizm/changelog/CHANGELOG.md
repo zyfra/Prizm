@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(chore): tests did not passed #0
 - fix(components/button): text in buttons should be in a single line #1365
 - fix(doc/navigation): extra code files removed from example #1365
 - fix(components/panel): fix incorrect css variable name for subheader color #2186

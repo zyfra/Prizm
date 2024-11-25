@@ -6,6 +6,7 @@ import { ActiveNavigationItemService } from '../../services/active-navigation-it
 
 import { PrizmNavigationItemExpandableComponent } from './prizm-navigation-item-expandable.component';
 import { ExpandedNavigationItemService } from '../../services/expanded-navigation.service';
+import { PrizmNavigationModule } from '../../prizm-navigation.module';
 
 describe('PrizmNavigationItemExpandableComponent', () => {
   let component: PrizmNavigationItemExpandableComponent;
@@ -13,7 +14,7 @@ describe('PrizmNavigationItemExpandableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule],
+      imports: [NoopAnimationsModule, PrizmNavigationModule],
       declarations: [PrizmNavigationItemExpandableComponent],
       providers: [
         {

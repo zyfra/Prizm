@@ -45,7 +45,7 @@ describe('InputChipsControlComponent', () => {
 
     component.chips = chips;
     // eslint-disable-next-line @typescript-eslint/no-empty-function
-    component.removeChips({ stopPropagation: (): void => {} } as MouseEvent, chipIdx);
+    component.removeChips({ stopPropagation: (): void => {} } as MouseEvent, chipIdx, chipName);
     expect(component.chipsList.find(item => item === chipName)).toBeFalsy();
   });
 });
