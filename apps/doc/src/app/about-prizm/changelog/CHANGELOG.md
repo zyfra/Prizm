@@ -27,6 +27,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bug fixes
 
+- fix(chore): pipeline to publish did not run after create tag #0
 - fix(chore): liner given errors #0
 - fix(chore): tests did not passed #0
 - fix(components/button): text in buttons should be in a single line #1365

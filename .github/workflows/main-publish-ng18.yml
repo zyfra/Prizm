@@ -1,6 +1,9 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
 name: Publish main packages 17
 on:
+  push:
+    tags:
+      - '5.*'
   workflow_dispatch:
   workflow_call:
 env:
