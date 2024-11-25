@@ -23,9 +23,11 @@ All notable changes to this project will be documented in this file.
 - feat(doc/input-chips): add input layout properties to live demo #653
 - feat(components/navigation): add icons support for non-expandable items #1477
 - feat(components/navigation): add expanded items support #1838
+- feat(chore): added @nx/eslint as dev dependency
 
 ### Bug fixes
 
+- fix(chore): liner given errors #0
 - fix(chore): tests did not passed #0
 - fix(components/button): text in buttons should be in a single line #1365
 - fix(doc/navigation): extra code files removed from example #1365
