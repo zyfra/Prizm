@@ -1,7 +1,13 @@
 <div class="host" [prizmTheme]="theme" prizmFocusTrap>
   <ng-container *polymorphOutlet="context.outerHeader as data; context: context">
     <div class="header prizm-font-title-h4" *ngIf="context.header || context.outerHeader">
-      <div class="title" *polymorphOutlet="context.header as data; context: context">
+      <div
+        class="title"
+        #host
+        *polymorphOutlet="context.header as data; context: context"
+        [prizmHintOnOverflow]="data"
+        [prizmHintOnOverflowEl]="host"
+      >
         {{ data }}
       </div>
       <button

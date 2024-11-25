@@ -3,7 +3,7 @@ import { delay, delayWhen, map } from 'rxjs/operators';
 
 export function prizmIsTextOverflow(element: HTMLElement): boolean {
   if (element) {
-    return element.offsetWidth < element.scrollWidth;
+    return element.offsetWidth < element.scrollWidth || element.offsetHeight < element.scrollHeight;
   } else {
     return false;
   }

@@ -1,6 +1,11 @@
 <div class="host" [prizmTheme]="theme" prizmFocusTrap>
-  <div class="content">
-    <div class="title prizm-font-title-h4">
+  <div class="content" [class.has-description]="!!context.description">
+    <div
+      class="title prizm-font-title-h4"
+      #host
+      [prizmHintOnOverflow]="context.title"
+      [prizmHintOnOverflowEl]="host"
+    >
       <ng-container *polymorphOutlet="$any(context.title) as data; context: context">
         {{ data }}
       </ng-container>
