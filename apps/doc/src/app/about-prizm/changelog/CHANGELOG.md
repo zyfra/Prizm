@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.0](https://github.com/zyfra/Prizm)
+
+### Features
+
+- feat(helpers/is-text-overflow): added ability to check vertical text overflow
+- feat(doc/dialog): beautify live demo 'with template' examples
+- feat(doc/confirm-dialog): beautify live demo 'with template' examples
+- feat(doc/sidebar): beautify live demo 'with template' examples
+- feat(components/navigation): add icons support for non-expandable items #1477
+- feat(components/navigation): add expanded items support #1838
+
+### Bugfixes
+
+- fix(components/panel): fix incorrect css variable name for subheader color #2186
+- fix(components/dialog): limit dialog header with 1 line of text only #755
+- fix(components/confirm-dialog): limit dialog header with 3 lines of text only #755
+- fix(components/confirm-dialog): add gap only for dialog with description #000
+- fix(components/button): text in buttons should be in a single line #1365
+- fix(doc/navigation): extra code files removed from example #1365
+- fix(components/navigation): active item should be highlighted after reload #1511
+
 ## [4.7.0](https://github.com/zyfra/Prizm)
 
 ### Features
