@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "5.2.0",
+  "version": "5.3.0",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -104,6 +104,7 @@
     "@nrwl/eslint-plugin-nx": "19.5.6",
     "@nx/cypress": "19.5.6",
     "@nx/devkit": "19.5.6",
+    "@nx/eslint": "19.5.6",
     "@nx/jest": "19.5.6",
     "@nx/js": "19.5.6",
     "@nx/linter": "19.5.6",

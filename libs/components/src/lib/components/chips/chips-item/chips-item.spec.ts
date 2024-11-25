@@ -1,12 +1,12 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { PrizmChipsItemComponent } from './chips-item.component';
 import { By } from '@angular/platform-browser';
-import { PrizmCallFuncModule, PrizmLetModule } from '@prizm-ui/helpers';
+import { PrizmCallFuncPipe, PrizmLetDirective } from '@prizm-ui/helpers';
 import { CommonModule } from '@angular/common';
-import { PrizmElementReadyModule } from '../../../directives/element-ready';
-import { PrizmHintModule } from '../../../directives/hint/hint.module';
-import { PrizmLifecycleModule } from '../../../directives/lifecycle/lifecycle.module';
+import { PrizmElementReadyDirective } from '../../../directives/element-ready';
 import { ChangeDetectionStrategy } from '@angular/core';
+import { PrizmLifecycleDirective } from '../../../directives/lifecycle/lifecycle.directive';
+import { PrizmHintDirective } from '../../../directives/hint/hint.directive';
 
 describe('PrizmChipsItemComponent', () => {
   let component: PrizmChipsItemComponent;
@@ -17,11 +17,11 @@ describe('PrizmChipsItemComponent', () => {
       imports: [
         PrizmChipsItemComponent,
         CommonModule,
-        PrizmCallFuncModule,
-        PrizmLifecycleModule,
-        PrizmElementReadyModule,
-        PrizmLetModule,
-        PrizmHintModule,
+        PrizmCallFuncPipe,
+        PrizmLifecycleDirective,
+        PrizmElementReadyDirective,
+        PrizmLetDirective,
+        PrizmHintDirective,
       ],
     })
       .overrideComponent(PrizmChipsItemComponent, {

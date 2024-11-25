@@ -4,7 +4,7 @@ on:
   workflow_call:
   pull_request_target:
     branches:
-      - main
+      - v4
 jobs:
   doc_deploy:
     runs-on: ubuntu-latest
