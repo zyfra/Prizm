@@ -76,7 +76,9 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   public childrenElements: PrizmTreeMultiSelectItemComponent<K>[] = [];
   public cdRef = inject(ChangeDetectorRef);
   public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS) as PrizmTreeMultiSelectItemDirective[];
-  protected treeSelectSearchDirective = inject(PrizmTreeMultiSelectSearchDirective);
+  protected treeSelectSearchDirective = inject(
+    PrizmTreeMultiSelectSearchDirective
+  ) as PrizmTreeMultiSelectSearchDirective;
   public treeSelectItemDirective = inject(PrizmTreeMultiSelectItemDirective);
   readonly treeSelectIsOpenedDirective = inject(PrizmTreeSelectIsOpenedDirective);
   protected readonly childrenOpened$$ = new BehaviorSubject(
