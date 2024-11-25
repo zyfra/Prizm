@@ -24,8 +24,8 @@ export class PrizmTimePickerExampleComponent {
 
   public timeVariants: ReadonlyArray<PrizmTime | undefined> = [
     new PrizmTime(2, 5, 0),
-    new PrizmTime(21, 20, 15),
-    new PrizmTime(0, 21, 20),
+    new PrizmTime(21, 52, 15),
+    new PrizmTime(0, 21, 42),
     undefined,
   ];
 

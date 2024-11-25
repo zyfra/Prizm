@@ -3,6 +3,7 @@ import {
   Component,
   EventEmitter,
   Inject,
+  Input,
   input,
   Output,
   signal,
@@ -45,6 +46,10 @@ import { PrizmPickerDisablePipe } from './pipes/picker-disable.pipe';
   providers: [...prizmI18nInitWithKey(PRIZM_TIME_PICKER, 'timePicker')],
 })
 export class PrizmTimePickerComponent extends PrizmAbstractTestId {
+  @Input() set time(value: PrizmTime | undefined) {
+    this.updateinternalTime(value);
+  }
+
   @Output()
   readonly timeChanged = new EventEmitter<PrizmTime>();
 
@@ -52,16 +57,12 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   readonly canceled = new EventEmitter<void>();
 
   public timeMode = input<'HH:MM' | 'HH:MM:SS'>('HH:MM:SS');
-  public timeSheetState = signal<PrizmTimePaginationState>('hours');
-
-  // TODO: add custum disabled handler support
-  // public disabledItemHandler = input<PrizmBooleanHandler<PrizmTime>>(PRIZM_ALWAYS_FALSE_HANDLER);
-
-  public time = input<PrizmTime>();
-  public currentTime = signal<PrizmTime | undefined>(undefined);
-
   public minTime = input<PrizmTime>();
   public maxTime = input<PrizmTime>();
+
+  // public disabledItemHandler = input<PrizmBooleanHandler<PrizmTime>>(PRIZM_ALWAYS_FALSE_HANDLER);
+
+  public timeSheetState = signal<PrizmTimePaginationState>('hours');
 
   public internalTime = signal<PrizmTimePickerInternalTime>({});
 
@@ -90,12 +91,12 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
 
   public setValue() {
     const time = { ...this.internalTime() };
+    const a = new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0);
 
-    this.currentTime.set(new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0));
+    // this.currentTime.set(new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0));
 
-    this.updateinternalTime(this.currentTime());
-
-    this.timeChanged.emit(this.currentTime());
+    this.updateinternalTime(a);
+    this.timeChanged.emit(a);
   }
 
   public cancel() {
