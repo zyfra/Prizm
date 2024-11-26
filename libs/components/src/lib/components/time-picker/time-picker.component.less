@@ -1,13 +1,12 @@
-@paddings: 16px;
-@paginationHeight: 40px;
-@calendarWidth: 272px;
-@calendarHeight: 308px;
+@paginationHeight: 48px;
+@footerHeight: 68px;
+@pickerWidth: 272px;
+@pickerHeight: 308px;
 
 :host {
   display: block;
-  height: @calendarHeight;
-  width: @calendarWidth;
-  padding: @paddings;
+  height: @pickerHeight;
+  width: @pickerWidth;
   box-sizing: content-box;
   background-color: var(--prizm-background-fill-primary);
 
@@ -27,6 +26,6 @@
 }
 
 .z-scrollbar {
-  height: @calendarHeight - @paginationHeight - (@paddings * 2);
-  width: @calendarWidth + @paddings;
+  height: @pickerHeight - @paginationHeight - @footerHeight;
+  width: @pickerWidth;
 }
