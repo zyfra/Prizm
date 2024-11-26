@@ -23,7 +23,7 @@ import { PrizmTimePaginationState } from '../internal/primitive-time-pagination/
 import { PrizmTimePickerInternalTime } from './types/types';
 import { PrizmTimePickerDisabledItemsPipe } from './pipes/picker-disable-items.pipe';
 import { PrizmTimeSheetPipe } from './pipes/time-sheet.pipe';
-import { PrizmBooleanHandler, PrizmMapper } from '../../types';
+import { PrizmBooleanHandler } from '../../types';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../constants';
 import { PrizmPickerDisablePipe } from './pipes/picker-disable.pipe';
 
@@ -46,21 +46,21 @@ import { PrizmPickerDisablePipe } from './pipes/picker-disable.pipe';
   providers: [...prizmI18nInitWithKey(PRIZM_TIME_PICKER, 'timePicker')],
 })
 export class PrizmTimePickerComponent extends PrizmAbstractTestId {
-  @Input() set time(value: PrizmTime | undefined) {
-    this.updateinternalTime(value);
-  }
-
   @Output()
   readonly timeChanged = new EventEmitter<PrizmTime>();
 
   @Output()
   readonly canceled = new EventEmitter<void>();
 
+  @Input() set time(value: PrizmTime | undefined) {
+    this.updateinternalTime(value);
+  }
+
   public timeMode = input<'HH:MM' | 'HH:MM:SS'>('HH:MM:SS');
   public minTime = input<PrizmTime>();
   public maxTime = input<PrizmTime>();
 
-  // public disabledItemHandler = input<PrizmBooleanHandler<PrizmTime>>(PRIZM_ALWAYS_FALSE_HANDLER);
+  public disabledItemHandler = input<PrizmBooleanHandler<PrizmTime>>(PRIZM_ALWAYS_FALSE_HANDLER);
 
   public timeSheetState = signal<PrizmTimePaginationState>('hours');
 
@@ -75,14 +75,6 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
     super();
   }
 
-  //   readonly disabledItemHandlerMapper: PrizmMapper<
-  //   PrizmBooleanHandler<PrizmTime>,
-  //   PrizmBooleanHandler<PrizmTime>
-  // > =
-  //   (disabledItemHandler, min: PrizmTime, max: PrizmTime) =>
-  //   (item: PrizmTime): boolean =>
-  //     item.timeBefore(min) || item.timeAfter(max) || disabledItemHandler(item);
-
   public timeClicked(time: number) {
     const internalTime = { ...this.internalTime() };
     internalTime[this.timeSheetState()] = time;
@@ -92,8 +84,6 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   public setValue() {
     const time = { ...this.internalTime() };
     const a = new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0);
-
-    // this.currentTime.set(new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0));
 
     this.updateinternalTime(a);
     this.timeChanged.emit(a);
