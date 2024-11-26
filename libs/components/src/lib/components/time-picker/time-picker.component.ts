@@ -23,9 +23,8 @@ import { PrizmTimePaginationState } from '../internal/primitive-time-pagination/
 import { PrizmTimePickerInternalTime } from './types/types';
 import { PrizmTimePickerDisabledItemsPipe } from './pipes/picker-disable-items.pipe';
 import { PrizmTimeSheetPipe } from './pipes/time-sheet.pipe';
-import { PrizmBooleanHandler } from '../../types';
-import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../constants';
 import { PrizmPickerDisablePipe } from './pipes/picker-disable.pipe';
+import { Compare } from '@prizm-ui/helpers';
 
 @Component({
   selector: `prizm-time-picker`,
@@ -75,16 +74,24 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
 
   public timeClicked(time: number) {
     const internalTime = { ...this.internalTime() };
-    internalTime[this.timeSheetState()] = time;
-    this.internalTime.set(internalTime);
+    const sheetState = this.timeSheetState();
+
+    internalTime[sheetState] = time;
+
+    if ((sheetState !== 'seconds' && this.minTime()) || this.maxTime()) {
+      this.internalTime.set(this.getCorrectedTime(internalTime));
+    } else {
+      this.internalTime.set(internalTime);
+    }
   }
 
   public setValue() {
-    const time = { ...this.internalTime() };
-    const a = new PrizmTime(time.hours ?? 0, time.minutes ?? 0, time.seconds ?? 0);
+    const internal = this.getCorrectedTime(this.internalTime(), true);
 
-    this.updateinternalTime(a);
-    this.timeChanged.emit(a);
+    const time = new PrizmTime(internal.hours, internal.minutes, internal.seconds);
+
+    this.updateinternalTime(time);
+    this.timeChanged.emit(time);
   }
 
   public cancel() {
@@ -99,5 +106,66 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
       minutes: time.minutes,
       seconds: time.seconds,
     });
+  }
+
+  private getCorrectedTime(time: PrizmTimePickerInternalTime): PrizmTimePickerInternalTime;
+  private getCorrectedTime(
+    time: PrizmTimePickerInternalTime,
+    setZero: boolean
+  ): Required<PrizmTimePickerInternalTime>;
+
+  private getCorrectedTime(
+    time: PrizmTimePickerInternalTime,
+    setZero?: boolean
+  ): PrizmTimePickerInternalTime {
+    let result = { ...time };
+
+    if (Compare.isNotNullish(setZero)) {
+      (result.hours = result.hours ?? 0),
+        (result.minutes = result.minutes ?? 0),
+        (result.seconds = result.seconds ?? 0);
+    }
+
+    const min = this.minTime();
+    const max = this.maxTime();
+
+    if (min) {
+      result = this.correctValueByMin(result, min);
+    }
+
+    if (max) {
+      result = this.correctValueByMax(result, max);
+    }
+
+    return result;
+  }
+
+  private correctValueByMin(time: PrizmTimePickerInternalTime, min: PrizmTime): PrizmTimePickerInternalTime {
+    const result = { ...time };
+    Compare.isNotNullish(result.hours) && result.hours < min.hours ? (result.hours = min.hours) : null;
+
+    if (result.hours === min.hours && Compare.isNotNullish(result.minutes)) {
+      result.minutes < min.minutes ? (result.minutes = min.minutes) : null;
+    }
+
+    if (result.minutes === min.minutes && Compare.isNotNullish(result.seconds)) {
+      result.seconds < min.seconds ? (result.seconds = min.seconds) : null;
+    }
+
+    return result;
+  }
+
+  private correctValueByMax(time: PrizmTimePickerInternalTime, max: PrizmTime): PrizmTimePickerInternalTime {
+    const result = { ...time };
+    Compare.isNotNullish(result.hours) && result.hours > max.hours ? (result.hours = max.hours) : null;
+
+    if (result.hours === max.hours && Compare.isNotNullish(result.minutes)) {
+      result.minutes > max.minutes ? (result.minutes = max.minutes) : null;
+    }
+
+    if (result.minutes === max.minutes && Compare.isNotNullish(result.seconds)) {
+      result.seconds > max.seconds ? (result.seconds = max.seconds) : null;
+    }
+    return result;
   }
 }

@@ -1,5 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { PrizmTimePickerInternalTime } from '../types/types';
+import { Compare } from '@prizm-ui/helpers';
 
 @Pipe({
   name: `prizmPickerDisable`,
@@ -7,14 +8,10 @@ import { PrizmTimePickerInternalTime } from '../types/types';
 })
 export class PrizmPickerDisablePipe implements PipeTransform {
   public transform(time: PrizmTimePickerInternalTime): boolean {
-    // TODO: add check for min max validity if partially set
     return !(
-      time.hours ||
-      time.hours === 0 ||
-      time.minutes ||
-      time.minutes === 0 ||
-      time.seconds ||
-      time.seconds === 0
+      Compare.isNotNullish(time.hours) ||
+      Compare.isNotNullish(time.minutes) ||
+      Compare.isNotNullish(time.seconds)
     );
   }
 }

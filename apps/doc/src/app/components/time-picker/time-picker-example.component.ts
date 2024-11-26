@@ -16,7 +16,6 @@ export class PrizmTimePickerExampleComponent {
     new PrizmTime(1, 2, 0),
     new PrizmTime(22, 12, 17),
     new PrizmTime(0, 20, 0),
-    undefined,
   ];
 
   public minTime = this.minMaxVariants[3];
