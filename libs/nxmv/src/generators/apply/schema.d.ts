@@ -11,6 +11,7 @@ export interface PrizmNxMvSchema {
 export type PrizmNxMvConfigVersion = {
   extFolder?: string;
   extFile: string;
+  check?: string[];
   rootChange: boolean;
   all: boolean;
   projects: string[];

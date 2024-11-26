@@ -125,7 +125,7 @@ async function processFiles(
     .filter(i => version.all || needProjects.includes(i.name as any))
     .map(i => i.root);
 
-  const allRoot = [...(version.rootChange ? ['/'] : []), ...projects];
+  const allRoot = [...(version.rootChange ? ['/'] : []), ...(version.check ?? []), ...projects];
 
   const remove = version.remove ?? [];
   remove.forEach(rmFile => tree.delete(rmFile));
@@ -135,6 +135,9 @@ async function processFiles(
       tree,
       sourceRoot,
       filePath => {
+        if (filePath.includes('github')) {
+          console.log('#mz github', sourceRoot, filePath);
+        }
         const fileName = filePath.split('/').pop() ?? '';
         const extFiles = Array.isArray(version.extFile) ? version.extFile : [version.extFile];
 

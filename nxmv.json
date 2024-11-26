@@ -32,6 +32,7 @@
       "extFile": [".ng18", ".ng17", ".ng16", ".ng15"],
       "all": true,
       "rootChange": true,
+      "check": [".github"],
       "remove": ["angular.json"],
       "consts": {
         "ngVersion": "18.1.3",
