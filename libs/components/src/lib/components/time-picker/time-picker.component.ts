@@ -60,8 +60,6 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   public minTime = input<PrizmTime>();
   public maxTime = input<PrizmTime>();
 
-  public disabledItemHandler = input<PrizmBooleanHandler<PrizmTime>>(PRIZM_ALWAYS_FALSE_HANDLER);
-
   public timeSheetState = signal<PrizmTimePaginationState>('hours');
 
   public internalTime = signal<PrizmTimePickerInternalTime>({});
