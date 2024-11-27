@@ -21,7 +21,7 @@ export class PrizmThemeService implements OnDestroy {
     theme: PrizmTheme;
     el?: HTMLElement;
   }>({
-    theme: this.getInitialTheme(),
+    theme: 'light',
   });
   readonly change$ = this.changeSource$.pipe(
     tap(data => data.el && this.themeStorage.set(data.el, data.theme))
@@ -93,10 +93,5 @@ export class PrizmThemeService implements OnDestroy {
     const style = el.style;
     style.setProperty(`--${token}`, value);
     return true;
-  }
-
-  // Need for microfront
-  private getInitialTheme(): PrizmTheme {
-    return this.rootElement.getAttribute(this.attThemeKey) ?? 'light';
   }
 }
