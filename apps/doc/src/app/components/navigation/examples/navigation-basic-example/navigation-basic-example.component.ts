@@ -70,15 +70,15 @@ export class NavigationBasicExampleComponent {
       this.activeElement = item;
     }
     this.parentActiveIdx = idx;
-    this.localStorage.setItem('ACTIVE_ITEM_TITLE_EXAMPLE', item.title);
+    this.localStorage.setItem('NAVIGATION_ACTIVE_ITEM_TITLE_EXAMPLE', item.title);
   }
 
   public saveNavigationState(tree: INavigationTree[]): void {
-    this.localStorage.setItem('EXPANDED_ITEMS_EXAMPLE', JSON.stringify(tree));
+    this.localStorage.setItem('NAVIGATION_EXPANDED_ITEMS_EXAMPLE', JSON.stringify(tree));
   }
 
   private processNavigationState() {
-    const navigationState = this.localStorage.getItem('EXPANDED_ITEMS_EXAMPLE');
+    const navigationState = this.localStorage.getItem('NAVIGATION_EXPANDED_ITEMS_EXAMPLE');
 
     if (navigationState) {
       const parsedState = JSON.parse(navigationState);
@@ -103,7 +103,7 @@ export class NavigationBasicExampleComponent {
   }
 
   private getActiveElement(): INavigationTree | null {
-    const activeElTitile = this.localStorage.getItem('ACTIVE_ITEM_TITLE_EXAMPLE');
+    const activeElTitile = this.localStorage.getItem('NAVIGATION_ACTIVE_ITEM_TITLE_EXAMPLE');
     if (activeElTitile) {
       return this.findActiveItem(this.data, activeElTitile);
     }
