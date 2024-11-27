@@ -16,10 +16,17 @@ export class PrizmTimePickerExampleComponent {
     new PrizmTime(1, 2, 0),
     new PrizmTime(22, 12, 17),
     new PrizmTime(0, 20, 0),
+    new PrizmTime(3, 0, 0),
+    new PrizmTime(6, 0, 0),
+    new PrizmTime(0, 10, 0),
+    new PrizmTime(0, 20, 0),
+    new PrizmTime(0, 0, 45),
+    new PrizmTime(0, 0, 55),
+    undefined,
   ];
 
-  public minTime = this.minMaxVariants[3];
-  public maxTime = this.minMaxVariants[3];
+  public minTime = this.minMaxVariants[9];
+  public maxTime = this.minMaxVariants[9];
 
   public timeVariants: ReadonlyArray<PrizmTime | undefined> = [
     new PrizmTime(2, 5, 0),
