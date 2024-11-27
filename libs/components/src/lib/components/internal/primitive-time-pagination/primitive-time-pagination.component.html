@@ -2,7 +2,7 @@
   @if (dictionary$ | async; as dictionary) {
   <button
     class="pagination-btn"
-    [attr.testId]="'prizm-primitive-time-pagination__hours-button'"
+    [attr.testId]="'ui_primitive_time_pagination__hours-button'"
     [class.active]="activeMode === 'hours'"
     [prizmFocusable]="true"
     (click)="updateActiveMode('hours')"
@@ -13,7 +13,7 @@
   <div class="time-separator">:</div>
   <button
     class="pagination-btn"
-    [attr.testId]="'prizm-primitive-time-pagination__minutes-button'"
+    [attr.testId]="'ui_primitive_time_pagination__minutes-button'"
     [class.active]="activeMode === 'minutes'"
     [prizmFocusable]="true"
     (click)="updateActiveMode('minutes')"
@@ -25,7 +25,7 @@
   <div class="time-separator">:</div>
   <button
     class="pagination-btn"
-    [attr.testId]="'prizm-primitive-time-pagination__seconds-button'"
+    [attr.testId]="'ui_primitive_time_pagination__seconds-button'"
     [class.active]="activeMode === 'seconds'"
     [prizmFocusable]="true"
     (click)="updateActiveMode('seconds')"
