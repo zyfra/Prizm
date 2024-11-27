@@ -29,6 +29,7 @@ import { PrizmMapperPipe } from '../../../pipes';
 import { CommonModule } from '@angular/common';
 import { PrizmScrollbarModule } from '../../scrollbar';
 import { PrizmCalendarComponent } from '../../calendar';
+import { PrizmDateTimeRange } from '../../../@core';
 
 /**
  * @internal
@@ -91,19 +92,18 @@ export class PrizmPrimitiveCalendarRangeComponent extends PrizmAbstractTestId im
     @Inject(PrizmDestroyService) destroy$: PrizmDestroyService
   ) {
     super();
-    if (!valueChanges) {
-      return;
+    if (valueChanges) {
+      valueChanges
+        .pipe(
+          tap(value => {
+            this.value = value instanceof PrizmDateTimeRange ? value.dayRange : value;
+            this.updateViewedMonths();
+          }),
+          tap(() => changeDetectorRef.markForCheck()),
+          takeUntil(destroy$)
+        )
+        .subscribe();
     }
-
-    valueChanges
-      .pipe(
-        tap(() => changeDetectorRef.markForCheck()),
-        takeUntil(destroy$)
-      )
-      .subscribe(value => {
-        this.value = value;
-        this.updateViewedMonths();
-      });
   }
 
   get cappedUserViewedMonthSecond(): PrizmMonth {

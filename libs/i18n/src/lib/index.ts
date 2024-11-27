@@ -4,3 +4,4 @@ export * from './languages';
 export * from './switch';
 export * from './tokens';
 export * from './tools';
+export * from './service';

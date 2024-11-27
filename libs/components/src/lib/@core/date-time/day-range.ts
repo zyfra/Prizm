@@ -117,7 +117,7 @@ export class PrizmDayRange extends PrizmMonthRange {
    * Human readable format.
    */
   public getFormattedDayRange(dateFormat: PrizmDateMode, dateSeparator: string): string {
-    const from = this.from.getFormattedDay(dateFormat, dateSeparator);
+    const from = this.from?.getFormattedDay(dateFormat, dateSeparator) ?? '';
     const to = this.to?.getFormattedDay(dateFormat, dateSeparator) ?? '';
 
     return `${from}${PRIZM_RANGE_SEPARATOR_CHAR}${to}`;
@@ -128,9 +128,6 @@ export class PrizmDayRange extends PrizmMonthRange {
   }
 
   public override toString(dateFormat: PrizmDateMode = `DMY`, dateSeparator = `.`): string {
-    const from = this.from.getFormattedDay(dateFormat, dateSeparator);
-    const to = this.to?.getFormattedDay(dateFormat, dateSeparator) ?? '';
-
-    return `${from}${PRIZM_RANGE_SEPARATOR_CHAR}${to}`;
+    return this.getFormattedDayRange(dateFormat, dateSeparator);
   }
 }

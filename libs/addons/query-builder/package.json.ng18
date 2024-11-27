@@ -1,0 +1,10 @@
+{
+  "name": "@prizm-ui/addon-query-builder",
+  "version": "<%= version %>",
+  "peerDependencies": {
+    "@angular/common": "^18.1.3",
+    "@angular/core": "^18.1.3",
+    "@angular/cdk": "^18.1.3"
+  },
+  "sideEffects": false
+}

@@ -104,6 +104,7 @@
     "@nrwl/eslint-plugin-nx": "17.2.8",
     "@nx/cypress": "17.2.8",
     "@nx/devkit": "17.2.8",
+    "@nx/eslint": "19.5.6",
     "@nx/jest": "17.2.8",
     "@nx/js": "17.2.8",
     "@nx/linter": "17.2.8",

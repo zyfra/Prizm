@@ -34,6 +34,33 @@ export class PrizmDateTimeRange {
     return origin;
   }
 
+  public static fromLocalNativeDate(from: Date, to: Date): PrizmDateTimeRange {
+    const dayRange = PrizmDayRange.fromLocalNativeDate(from, to);
+    const timeRange = new PrizmTimeRange(
+      PrizmTime.fromLocalNativeDate(from),
+      PrizmTime.fromLocalNativeDate(to)
+    );
+    return new PrizmDateTimeRange(dayRange, timeRange);
+  }
+
+  public toLocalNativeDate(): [Date | null, Date | null] {
+    const from = this.dayRange.from.toLocalNativeDate();
+    if (this.timeRange?.from) {
+      from.setHours(this.timeRange.from.hours);
+      from.setMinutes(this.timeRange.from.minutes);
+      from.setSeconds(this.timeRange.from.seconds);
+    }
+
+    const to = this.dayRange.to.toLocalNativeDate();
+    if (this.timeRange?.to) {
+      from.setHours(this.timeRange.to.hours);
+      from.setMinutes(this.timeRange.to.minutes);
+      from.setSeconds(this.timeRange.to.seconds);
+    }
+
+    return [from ?? null, to ?? null];
+  }
+
   public copy(): PrizmDateTimeRange {
     return new PrizmDateTimeRange(this.dayRange, this.timeRange);
   }

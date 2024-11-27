@@ -1,14 +1,4 @@
-import {
-  Component,
-  ChangeDetectionStrategy,
-  Input,
-  inject,
-  ChangeDetectorRef,
-  OnDestroy,
-  OnInit,
-  ViewChild,
-  ElementRef,
-} from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input, inject, ViewChild, ElementRef } from '@angular/core';
 import { INavigationTree } from './../../navigation.interfaces';
 import { expandAnimation } from '../../../accordion/accordion.animation';
 import { BehaviorSubject, combineLatest, Observable } from 'rxjs';
@@ -17,7 +7,8 @@ import { ActiveNavigationItemService } from '../../services/active-navigation-it
 import { PrizmAbstractTestId } from '@prizm-ui/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsAngleRight, prizmIconsFolder } from '@prizm-ui/icons/full/source';
-import { prizmIsTextOverflow } from '../../../../util';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
+import { ExpandedNavigationItemService } from '../../services/expanded-navigation.service';
 
 @Component({
   selector: 'prizm-navigation-item-expandable',
@@ -26,17 +17,18 @@ import { prizmIsTextOverflow } from '../../../../util';
   changeDetection: ChangeDetectionStrategy.OnPush,
   animations: [expandAnimation],
 })
-export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
+export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId {
   @ViewChild('container', { static: true }) container!: ElementRef;
+
+  @Input() public deep!: number;
+
+  @Input({ transform: coerceBooleanProperty }) public isExpanded = false;
+
   @Input() public set data(tree: INavigationTree) {
     this.data$.next(tree);
   }
-  @Input() public deep!: number;
 
-  public isExpanded = false;
   override readonly testId_ = 'ui_navigation--item-expandable';
-
-  readonly prizmIsTextOverflow = prizmIsTextOverflow;
 
   public data$ = new BehaviorSubject<INavigationTree | null>(null);
   public isActive$: Observable<boolean> = combineLatest([
@@ -50,31 +42,19 @@ export class PrizmNavigationItemExpandableComponent extends PrizmAbstractTestId 
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
-  private resizeObserver!: ResizeObserver;
-
   constructor(
     public activeItemService: ActiveNavigationItemService,
-    private readonly cdRef: ChangeDetectorRef
+    public expandedService: ExpandedNavigationItemService
   ) {
     super();
 
     this.iconsFullRegistry.registerIcons(prizmIconsFolder, prizmIconsAngleRight);
   }
 
-  public ngOnInit(): void {
-    this.resizeObserver = new ResizeObserver(() => {
-      this.cdRef.markForCheck();
-    });
-    this.resizeObserver.observe(this.container.nativeElement);
-  }
-
-  public ngOnDestroy(): void {
-    this.resizeObserver.disconnect();
-  }
-
   public toggle($event: Event): void {
     $event.stopPropagation();
     this.isExpanded = !this.isExpanded;
+    this.expandedService.updateExpanded(this.menuItem!, this.isExpanded);
   }
 
   public navClick(): void {

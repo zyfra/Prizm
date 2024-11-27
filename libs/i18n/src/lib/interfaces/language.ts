@@ -1,5 +1,6 @@
 import { PrizmCountryIsoCode } from '../enums/country-iso-code';
 import { PrizmLanguageName, PrizmLanguageShortName } from './language-names';
+import { Observable } from 'rxjs';
 
 // prettier-ignore
 type MONTHS_ARRAY = [string, string, string, string, string, string, string, string, string, string, string, string];
@@ -337,3 +338,5 @@ export interface PrizmLanguage
     PrizmLanguagePaginator,
     PrizmLanguageTimePagination,
     PrizmLanguageTimePicker {}
+
+export type PrizmI18nFn<K> = (lan: PrizmLanguageName) => K | Observable<K>;

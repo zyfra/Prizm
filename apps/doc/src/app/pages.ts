@@ -1,5 +1,6 @@
 import { PrizmDocPage, PrizmDocPageGroup } from '@prizm-ui/doc';
 import { SectionNameEnglishEnum, SectionNameEnum } from './model';
+import { addonsEnglishPages, addonsRussianPages } from './addons/pages';
 
 type OrderedPage = { order?: number };
 
@@ -259,7 +260,6 @@ export const pages: PrizmOrderedDocPage = [
   {
     section: SectionNameEnum.components,
     title: 'Listing Item',
-    status: 'preview',
     keywords: 'list item, cell, dropdown cell, listing item, список, элемент списка',
     route: '/components/listing-item',
   },
@@ -775,6 +775,8 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'charts, column-group, графики',
     route: '/charts/column-group',
   },
+  // Addons
+  ...addonsRussianPages,
 ];
 
 export const pagesEnglish: PrizmOrderedDocPage = [
@@ -1027,7 +1029,6 @@ export const pagesEnglish: PrizmOrderedDocPage = [
   {
     section: SectionNameEnglishEnum.components,
     title: 'Listing Item',
-    status: 'preview',
     keywords: 'list item, cell, dropdown cell, listing item',
     route: '/components/listing-item',
   },
@@ -1415,7 +1416,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
   },
 
   {
-    section: SectionNameEnum.tools,
+    section: SectionNameEnglishEnum.tools,
     title: 'Nxmv',
     keywords: 'nxmv, move, version, версии, изменить',
     route: '/tools/nxmv',
@@ -1540,4 +1541,6 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     keywords: 'charts, column group',
     route: '/charts/column-group',
   },
+  // Addons
+  ...addonsEnglishPages,
 ];

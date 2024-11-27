@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ADDONS_ROUTES } from './addons/routes';
 
 export const ROUTES: Routes = [
   {
@@ -1007,6 +1008,7 @@ export const ROUTES: Routes = [
       title: 'File upload',
     },
   },
+  ...ADDONS_ROUTES,
   { path: '**', redirectTo: 'how-to-work/' },
 ];
 

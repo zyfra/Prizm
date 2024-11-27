@@ -1,0 +1,190 @@
+<prizm-doc-page header="Query builder">
+  <div class="page-description" description>Our component for building logical expressions</div>
+
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="basicExample" heading="Base">
+      <prizm-query-builder-basic-example />
+    </prizm-doc-example>
+
+    <prizm-doc-example
+      id="scrollable"
+      [content]="scrollableExample"
+      heading="Scrollable"
+      description="Responsive layout with 3 levels of nested expressions without horizontal scrollbar"
+    >
+      <prizm-query-builder-scrollable-example />
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <section style="container-type: inline-size">
+        <prizm-query-builder
+          [formControl]="control"
+          [disabled]="disabled"
+          [style.--prizm-input-layout-width]="prizmInputLayoutWidth"
+          [style.--prizm-query-builder-node-width]="prizmQueryBuilderNodeWidth"
+          prizmDocHostElementKey="PrizmQueryBuilderComponent"
+        >
+          <ng-template
+            [prizmQueryBuilderCondition]
+            [prizmQueryBuilderConditionPrepare]="prepare"
+            let-condition
+          >
+            <ng-container
+              *ngTemplateOutlet="template ?? prizmInputs; context: { $implicit: condition }"
+            ></ng-container>
+          </ng-template>
+        </prizm-query-builder>
+      </section>
+
+      <span>{{ stringify(control.value) }}</span>
+    </prizm-doc-demo>
+
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      [control]="control"
+      heading="PrizmQueryBuilderComponent"
+      hostComponentKey="PrizmQueryBuilderComponent"
+    >
+      <ng-template
+        [documentationPropertyValues]="expressions"
+        (documentationPropertyValueChange)="control.setValue($event)"
+        documentationPropertyName="expression"
+        documentationPropertyType="ExpressionModel"
+        documentationPropertyMode="input"
+      >
+        Change associated expression value
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="disabled"
+        documentationPropertyName="disabled"
+        documentationPropertyType="boolean"
+        documentationPropertyMode="input"
+      >
+        Change disabled state of control
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      heading="PrizmConditionDefDirective"
+      hostComponentKey="PrizmConditionDefDirective"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="prepare"
+        [documentationPropertyValues]="preparePresets"
+        documentationPropertyName="prepare"
+        documentationPropertyType="ConditionPrepareFn"
+        documentationPropertyMode="input"
+      >
+        Condition node associated data `init` hook. Use it to configure node's related form controls (set
+        default values, apply/remove validators, etc.).
+      </ng-template>
+
+      <ng-template
+        [documentationPropertyValues]="[nativeInputs, prizmInputs, prizmInputSelect]"
+        (documentationPropertyValueChange)="template = $event"
+        documentationPropertyName="template"
+        documentationPropertyType="TemplateRef"
+      >
+        Condition node template
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation
+      [hasTestId]="false"
+      heading="CSS custom properties"
+      hostComponentKey="PrizmQueryBuilderComponent"
+    >
+      <ng-template
+        [(documentationPropertyValue)]="prizmInputLayoutWidth"
+        documentationPropertyName="--prizm-input-layout-width"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Input layout width
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmQueryBuilderNodeWidth"
+        [documentationPropertyValues]="[
+          'initial',
+          'fit-content',
+          '60%',
+          'calc(100cqw - (8px + 32px + 8px + 2px) * 3 - 32px)'
+        ]"
+        documentationPropertyName="--prizm-query-builder-node-width"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Query builder node container width
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Import <code>PrizmQueryBuilder</code>
+          where you want to use our component:
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="my.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>
+
+<ng-template #nativeInputs let-condition>
+  <div
+    [style.--prizm-input-layout-width]="prizmInputLayoutWidth"
+    style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem"
+  >
+    <input [formControl]="condition.field" />
+
+    <input [formControl]="condition.operator" />
+
+    <input [formControl]="condition.value" />
+  </div>
+</ng-template>
+
+<ng-template #prizmInputs let-condition>
+  <div
+    [style.--prizm-input-layout-width]="prizmInputLayoutWidth"
+    style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem"
+  >
+    <prizm-input-layout [size]="'m'">
+      <input [formControl]="condition.field" prizmInput />
+    </prizm-input-layout>
+
+    <prizm-input-layout [size]="'m'">
+      <input [formControl]="condition.operator" prizmInput />
+    </prizm-input-layout>
+
+    <prizm-input-layout [size]="'m'">
+      <input [formControl]="condition.value" prizmInput />
+    </prizm-input-layout>
+  </div>
+</ng-template>
+
+<ng-template #prizmInputSelect let-condition>
+  <div
+    [style.--prizm-input-layout-width]="prizmInputLayoutWidth"
+    style="display: grid; grid-template-columns: 1fr 20ch 1fr; gap: 0.5rem"
+  >
+    <prizm-input-layout [size]="'m'">
+      <prizm-input-select [formControl]="condition.field" [items]="fieldOptions" />
+    </prizm-input-layout>
+
+    <prizm-input-layout [size]="'m'">
+      <prizm-input-select [formControl]="condition.operator" [items]="operatorOptions" />
+    </prizm-input-layout>
+
+    <prizm-input-layout [size]="'m'">
+      <input [formControl]="condition.value" prizmInput />
+    </prizm-input-layout>
+  </div>
+</ng-template>

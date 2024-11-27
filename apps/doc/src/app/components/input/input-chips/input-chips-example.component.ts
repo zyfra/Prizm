@@ -27,19 +27,23 @@ export class InputChipsExampleComponent {
   public prizmChipsItemColor: string | null = null;
 
   public inputPosition: PrizmInputPosition = 'left';
-  public inputPositions: PrizmInputPosition[] = ['left', 'center'];
+  public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+  public border = true;
   public outer!: false;
   public readonly control = new UntypedFormControl([]);
   public readonly controlText = new UntypedFormControl('');
-  public size: PrizmInputSize = 'l';
-  public sizesOuter: PrizmInputSize[] = ['l', 'm', 's'];
-  public sizesInner: PrizmInputSize[] = ['l', 'm'];
+  get sizeVariants(): ReadonlyArray<PrizmInputSize> {
+    return this.outer ? ['s', 'm', 'l'] : ['m', 'l'];
+  }
+  public size = this.sizeVariants[0];
 
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
 
   public forceClearVariants: ReadonlyArray<boolean | null> = [null, false, true];
   public forceClear = this.forceClearVariants[0];
+  public hideClearButtonHint: boolean | null = null;
+  public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
   public chips: string[] = ['Чипс 1', 'Чипс 2', 'Чипс 3'];
   public testIdPostfix!: string;

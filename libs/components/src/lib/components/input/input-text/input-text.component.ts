@@ -8,21 +8,17 @@ import {
   HostBinding,
   HostListener,
   inject,
-  Injector,
   Input,
   OnDestroy,
   OnInit,
-  Optional,
   Output,
   Renderer2,
-  Self,
 } from '@angular/core';
-import { FormControl, NgControl, Validators } from '@angular/forms';
+import { NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { takeUntil, tap } from 'rxjs/operators';
-import { PrizmInputControl } from '../common/base/input-control.class';
+import { takeUntil, tap } from 'rxjs';
 import { PrizmInputHintDirective, PrizmInputLayoutComponent } from '../common';
-import { NgxMaskDirective } from 'ngx-mask';
+import { PrizmInputControl } from '../common/base/input-control.class';
 
 @Component({
   selector:
@@ -49,10 +45,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   @Input()
   get disabled(): boolean {
-    if (this.ngControl && this.ngControl.disabled !== null) {
-      return this.ngControl.disabled;
-    }
-    return this._disabled;
+    return this.ngControl?.disabled ?? this._disabled;
   }
   /**
    * @deprecated
@@ -93,35 +86,33 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     this._required = value;
     this.stateChanges.next();
   }
+  private _required: boolean | undefined;
 
   public invalid = false;
-  private _required: boolean | undefined;
 
   override readonly testId_ = 'ui_input_text';
   /**
    * Input value input
    */
   get value(): VALUE {
-    return (this.ngControl?.value || this._inputValue.value) as VALUE;
+    return this.ngControl ? this.ngControl.value : this._inputValue.value;
   }
 
   /**
    * @deprecated
-   * */
+   */
   @Input()
   set value(value: VALUE) {
-    if (this.ngControl && this.ngControl.value !== value) {
-      queueMicrotask(() => {
-        this.ngControl?.control?.patchValue(value);
-      });
+    if (this.ngControl) {
+      if (this.ngControl.value !== value) {
+        this.ngControl.control?.patchValue(value);
+      }
     } else {
       this.updateValue(value);
-      this.updateEmptyState();
       this.stateChanges.next();
     }
-
-    this.valueChanged.next(this.value);
   }
+
   private get _inputValue() {
     return this.elementRef.nativeElement as HTMLInputElement;
   }
@@ -130,6 +121,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   // eslint-disable-next-line @angular-eslint/no-output-on-prefix
   @Output() onClear = new EventEmitter<MouseEvent>();
 
+  /** @deprecated */
   @Output() valueChanged = new EventEmitter<VALUE>();
   /**
    * Empty state
@@ -137,13 +129,10 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   @HostBinding('class.empty')
   public empty!: boolean;
 
-  readonly maybeMask = inject(NgxMaskDirective, {
-    optional: true,
-  }) as NgxMaskDirective;
-
   readonly parentLayout = inject(PrizmInputLayoutComponent, {
     optional: true,
   });
+
   /**
    * Focus state
    */
@@ -183,29 +172,23 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
     super();
     this.nativeElementType = this.elementRef.nativeElement.type;
 
-    afterRender(
-      () => {
-        this.updateEmptyState();
-      },
-      {
-        injector: inject(Injector),
-      }
-    );
+    afterRender({
+      read: () => this.updateEmptyState(),
+    });
   }
 
   public ngOnInit(): void {
-    if (this.ngControl) this.initControlListener();
+    this.initControlListener();
     this.inputHint?.updateHint();
-    this.safeClearNgxMaskListener();
+    this.safeClearListener();
   }
 
-  private safeClearNgxMaskListener() {
-    // TODO: fix ngxMask bug when clear value
+  private safeClearListener() {
+    // Some components (e.g. `InputLayoutDateRange`) has several child inputs
+    // which cleared via following subscription
     this.parentLayout?.clear
       .pipe(
-        tap(() => {
-          this.maybeMask?.writeValue(null as any);
-        }),
+        tap($event => this.clear($event)),
         takeUntil(this.destroy)
       )
       .subscribe();
@@ -234,27 +217,29 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private initControlListener(): void {
-    this.ngControl?.statusChanges
-      ?.pipe(
+    if (!this.ngControl?.control) {
+      // Update clear button state in case of setup without `NG_CONTROL` directive applied (i.e. just native input)
+      const unlisten = this.renderer2_.listen(this._inputValue, 'input', () => this.updateEmptyState());
+      this.destroy.addCallback(unlisten);
+      return;
+    }
+
+    this.ngControl.control.statusChanges
+      .pipe(
         tap(() => {
           this.updateErrorState();
           this.cdr.markForCheck();
-        }),
-        tap(() => {
           this.stateChanges.next();
         }),
         takeUntil(this.destroy)
       )
       .subscribe();
 
-    this.ngControl?.valueChanges
-      ?.pipe(
+    this.ngControl.control.valueChanges
+      .pipe(
         tap(value => {
-          this.updateErrorState();
+          // Update hint and empty state
           this.updateValue(value);
-        }),
-        tap(() => {
-          this.stateChanges.next();
         }),
         takeUntil(this.destroy)
       )
@@ -262,30 +247,38 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private updateEmptyState(): void {
-    this.empty = !(this.elementRef.nativeElement.value && this.elementRef.nativeElement.value.length);
+    const prev = this.empty;
+    this.empty = !this.elementRef.nativeElement.value;
+    // Check if value changes to prevent infinite CD loop
+    if (prev !== this.empty) this.stateChanges.next();
   }
 
   private updateErrorState(): void {
     this.invalid = Boolean(this.ngControl && this.ngControl.invalid);
   }
 
+  /** Update `<input>` value */
   private updateValue(value: VALUE): void {
     if (value !== this.value) this.renderer2_.setProperty(this._inputValue, 'value', value);
     this.inputHint?.updateHint();
+    this.updateEmptyState();
   }
 
   public clear(event: MouseEvent): void {
-    if (this.disabled) return;
+    if (this.disabled || this.empty) return;
 
     this.updateValue(null as VALUE);
-    this.ngControl?.control?.setValue('');
-    this.updateEmptyState();
-    this.updateErrorState();
+    if (this.ngControl?.control) {
+      // let `ControlValueAccessor` (e.g. it can be ngx-mask) to update <input> value
+      this.ngControl.control.setValue('');
+    }
 
+    // Mark control as touched while we do not focus it (usually touched applied on blur)
     this.markControl({ touched: true, dirty: true });
     this.onClear.emit(event);
-    this.valueChanged.next('' as VALUE);
 
+    // NOTE: ngx-mask has listener to keydown event, so we must ensure HTMLInputElement is cleared before dispatch
+    // otherwise the NgxMaskDirective's internal value is recovered from it
     this.elementRef.nativeElement.dispatchEvent(
       new KeyboardEvent('keydown', {
         key: 'Backspace',

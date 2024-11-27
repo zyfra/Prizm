@@ -6,6 +6,7 @@ export enum SectionNameEnum {
   components = 'Компоненты',
   charts = 'Графики',
   tools = 'Инструменты',
+  addons = 'Дополнения',
 }
 
 export enum SectionNameEnglishEnum {
@@ -16,4 +17,5 @@ export enum SectionNameEnglishEnum {
   components = 'Components',
   charts = 'Charts',
   tools = 'Tools',
+  addons = 'Addons',
 }

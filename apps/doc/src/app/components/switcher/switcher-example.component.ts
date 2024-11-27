@@ -96,6 +96,11 @@ export class SwitcherExampleComponent {
     HTML: import('./examples/switcher-only-icon-example/switcher-only-icon-example.component.html?raw'),
   };
 
+  public readonly exampleOverflow: TuiDocExample = {
+    TypeScript: import('./examples/switcher-overflow-example/switcher-overflow-example.component?raw'),
+    HTML: import('./examples/switcher-overflow-example/switcher-overflow-example.component.html?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);

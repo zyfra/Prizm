@@ -5,13 +5,8 @@ import { BehaviorSubject } from 'rxjs';
 import { ActiveNavigationItemService } from '../../services/active-navigation-item.service';
 
 import { PrizmNavigationItemExpandableComponent } from './prizm-navigation-item-expandable.component';
-
-// for fix ResizeObserver is not defined
-global.ResizeObserver = class {
-  public observe() {}
-  public unobserve() {}
-  public disconnect() {}
-};
+import { ExpandedNavigationItemService } from '../../services/expanded-navigation.service';
+import { PrizmNavigationModule } from '../../prizm-navigation.module';
 
 describe('PrizmNavigationItemExpandableComponent', () => {
   let component: PrizmNavigationItemExpandableComponent;
@@ -19,7 +14,7 @@ describe('PrizmNavigationItemExpandableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NoopAnimationsModule],
+      imports: [NoopAnimationsModule, PrizmNavigationModule],
       declarations: [PrizmNavigationItemExpandableComponent],
       providers: [
         {
@@ -27,6 +22,13 @@ describe('PrizmNavigationItemExpandableComponent', () => {
           useValue: {
             activeItem$: new BehaviorSubject({}),
             activeItem: {},
+          },
+        },
+        {
+          provide: ExpandedNavigationItemService,
+          useValue: {
+            itemsState$: new BehaviorSubject([]),
+            itemsState: [],
           },
         },
       ],

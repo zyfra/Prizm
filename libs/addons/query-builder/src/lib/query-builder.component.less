@@ -1,0 +1,100 @@
+// Padding required for drag preview
+@node_padding: 4px;
+
+prizm-data-list {
+  padding: 8px 0;
+}
+
+.query-builder__tree {
+  padding: 16px - @node_padding;
+}
+
+.query-builder__tree,
+.cdk-drop-list {
+  display: grid;
+  gap: 16px - @node_padding * 2;
+}
+
+.query-builder__tree-node {
+  // Padding and border radius is for drag-drop preview
+  padding: @node_padding;
+  border-radius: 2px;
+
+  .hstack();
+  align-items: flex-start;
+}
+
+.query-builder {
+  &__node-container {
+    display: grid;
+    gap: 16px - @node_padding;
+
+    // Starting with level 2 indicate groups with border
+    [aria-level='2'] & {
+      border-left: 2px solid var(--_nesting-level-marker-color);
+      padding-left: 8px;
+    }
+
+    width: var(--prizm-query-builder-node-width, 100%);
+  }
+
+  &__node-content,
+  &__expression,
+  &__exclude {
+    .hstack();
+  }
+
+  &__condition {
+    flex-grow: 1;
+  }
+
+  &__remove {
+    visibility: hidden;
+
+    *:is(:hover, :focus-within) > & {
+      visibility: visible;
+    }
+  }
+}
+
+.cdk-drag-handle:not(.cdk-drag-disabled) {
+  cursor: grab;
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  box-shadow: var(--prizm-shadow-big-bottom);
+  background-color: var(--prizm-background-fill-primary);
+}
+
+.cdk-drop-list {
+  min-height: 1rem;
+
+  &:not(.cdk-drop-list-receiving):not(.cdk-drop-list-dragging):empty {
+    display: none;
+  }
+}
+
+.cdk-drag-placeholder {
+  border-top: 2px solid var(--prizm-status-info-primary-default);
+}
+
+// Animate an item drop
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+// Animate items sorting
+.cdk-drop-list-dragging .query-builder__tree-node:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.hstack() {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+}

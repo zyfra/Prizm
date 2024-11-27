@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { PrizmNavigationComponent } from './prizm-navigation.component';
 import { ActiveNavigationItemService } from './services/active-navigation-item.service';
+import { ExpandedNavigationItemService } from './services/expanded-navigation.service';
 
 describe('PrizmNavigationComponent', () => {
   let component: PrizmNavigationComponent;
@@ -17,6 +18,13 @@ describe('PrizmNavigationComponent', () => {
           useValue: {
             activeItem$: new BehaviorSubject({}),
             activeItem: {},
+          },
+        },
+        {
+          provide: ExpandedNavigationItemService,
+          useValue: {
+            itemsState$: new BehaviorSubject([]),
+            itemsState: [],
           },
         },
       ],

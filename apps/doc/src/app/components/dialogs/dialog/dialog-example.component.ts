@@ -2,8 +2,6 @@ import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
-  PrizmAppearance,
-  PrizmAppearanceType,
   PrizmBaseDialogContext,
   PrizmDialogOptions,
   PrizmDialogService,
@@ -11,11 +9,9 @@ import {
   PrizmOverlayInsidePlacement,
   PrizmOverscrollMode,
   PrizmScrollbarVisibility,
-  PrizmSize,
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
-import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
 
 @Component({
   selector: 'prizm-dialog-example',
@@ -24,36 +20,8 @@ import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DialogExampleComponent {
-  public pseudoHovered = false;
-  public pseudoPressed = false;
-  public pseudoFocused = false;
-  public pseudoState = '';
-  public focusable = false;
-
-  public focusedChange = false;
-  public pressedChange = false;
-  public hoveredChange = false;
-  public focusVisibleChange = false;
   public readonly visibilityVariants: ReadonlyArray<PrizmScrollbarVisibility> = ['auto', 'hidden', 'visible'];
   public visibility: PrizmScrollbarVisibility = this.visibilityVariants[0];
-
-  iconVariants: ReadonlyArray<PolymorphContent<{ size: PrizmSize }>> = ['', ...PRIZM_ICONS_NAMES];
-  icon: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
-  iconRight: PolymorphContent<{ size: PrizmSize }> = this.iconVariants[0];
-  appearanceVariants: ReadonlyArray<PrizmAppearance> = [
-    'primary',
-    'secondary',
-    'success',
-    'warning',
-    'danger',
-  ];
-  appearance: PrizmAppearance = this.appearanceVariants[0];
-
-  appearanceTypeVariants: ReadonlyArray<PrizmAppearanceType> = ['fill', 'outline', 'ghost'];
-  appearanceType: PrizmAppearanceType = this.appearanceTypeVariants[0];
-  disabled = false;
-  showLoader = false;
-
   public overscrollVariants: ReadonlyArray<PrizmOverscrollMode> = ['scroll', 'all', 'none'];
   public overscroll: PrizmOverscrollMode = this.overscrollVariants[0];
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
