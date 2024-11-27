@@ -3,6 +3,7 @@ import { PrizmPrimitiveTimePickerItem } from '../../internal/primitive-time-pick
 import { PrizmTime } from '../../../@core';
 import { PrizmTimePaginationState } from '../../internal/primitive-time-pagination/types/types';
 import { PrizmTimePickerInternalTime } from '../types/types';
+import { Compare } from '@prizm-ui/helpers';
 
 @Pipe({
   name: `prizmTimeDisabledItems`,
@@ -17,8 +18,8 @@ export class PrizmTimePickerDisabledItemsPipe implements PipeTransform {
     maxTime?: PrizmTime
   ): PrizmPrimitiveTimePickerItem[] {
     if (!minTime && !maxTime) return [];
-    if (sheetState === 'minutes' && !currentTime.hours) return [];
-    if (sheetState === 'seconds' && !currentTime.minutes) return [];
+    if (sheetState === 'minutes' && !Compare.isNotNullish(currentTime.hours)) return [];
+    if (sheetState === 'seconds' && !Compare.isNotNullish(currentTime.minutes)) return [];
 
     const result: PrizmPrimitiveTimePickerItem[] = [];
 
