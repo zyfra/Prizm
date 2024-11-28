@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.
 - fix(components/button): text in buttons should be in a single line #1365
 - fix(doc/navigation): extra code files removed from example #1365
 - fix(components/navigation): active item should be highlighted after reload #1511
+- fix(theme/theme-service): set correct initial theme for micro frontend #2201
 
 ## [4.7.0](https://github.com/zyfra/Prizm)
 
