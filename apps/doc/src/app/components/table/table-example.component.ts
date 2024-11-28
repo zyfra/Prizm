@@ -119,6 +119,18 @@ export class TableExampleComponent {
     LESS: import('./examples/table-editable-row-example/table-editable-row-example.component.less?raw'),
   };
 
+  public readonly exampleEditableLayoutsTable: TuiDocExample = {
+    TypeScript: import(
+      './examples/table-editable-layouts-example/table-editable-layouts-example.component?raw'
+    ),
+    HTML: import(
+      './examples/table-editable-layouts-example/table-editable-layouts-example.component.html?raw'
+    ),
+    LESS: import(
+      './examples/table-editable-layouts-example/table-editable-layouts-example.component.less?raw'
+    ),
+  };
+
   public exampleRowGroupTable: TuiDocExample = {
     TypeScript: import('./examples/table-row-group-example/table-row-group-example.component?raw'),
     HTML: import('./examples/table-row-group-example/table-row-group-example.component.html?raw'),
