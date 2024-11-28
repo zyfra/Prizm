@@ -1,0 +1,38 @@
+:host.prizm-input-layout-inserted {
+  width: 100%;
+
+  &.has-hidden-control .prizm-input-form-inner-container {
+    padding: 0;
+  }
+
+  .prizm-input-form {
+    background-color: transparent;
+    border: none;
+    &:hover {
+      border: none;
+    }
+
+    &-focused:not(.prizm-input-form-disabled),
+    &:focus-within:not(.prizm-input-form-disabled) {
+      border-color: none;
+      box-shadow: none;
+      position: relative;
+
+      &:hover {
+        border-color: nonde;
+      }
+    }
+
+    .prizm-input-form-inner-container {
+      padding: 0;
+
+      &:host-context([data-size='l']) {
+        padding: 0;
+      }
+    }
+
+    &-body {
+      flex-shrink: 1;
+    }
+  }
+}

@@ -10,6 +10,7 @@ import {
   PrizmColumnSettingsComponent,
   PrizmDropdownHostComponent,
   PrizmDropdownHostModule,
+  PrizmInputLayoutInsertedDirective,
   PrizmInputTextModule,
   PrizmLoaderComponent,
   PrizmPaginatorComponent,
@@ -102,6 +103,7 @@ import { TableEditableLayoutsExampleComponent } from './examples/table-editable-
     PrizmWidgetComponent,
     PrizmColumnSettingsComponent,
     PrizmIconsFullComponent,
+    PrizmInputLayoutInsertedDirective,
   ],
 })
 export class TableExampleModule {}

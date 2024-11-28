@@ -32,6 +32,10 @@
   background: inherit;
   color: inherit;
 
+  &:has([prizmInputLayoutInserted]) {
+    padding: 0;
+  }
+
   &:has([prizmInput]:focus) {
     background-color: var(--prizm-background-fill-primary);
     box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-active) inset;
@@ -70,10 +74,6 @@
     &:has([prizmInput]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-status-alarm-primary-default) inset;
     }
-  }
-
-  & > .prizm-input-layout {
-    width: 100%;
   }
 }
 

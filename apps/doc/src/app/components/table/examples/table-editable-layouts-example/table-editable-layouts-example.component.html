@@ -1,5 +1,5 @@
 <prizm-scrollbar class="scrollable" visibility="hidden">
-  <table class="table" [columns]="columns" prizmTable tableBorderStyle="horizontal">
+  <table class="table" [columns]="columns" prizmTable>
     <thead>
       <tr prizmThGroup>
         <th *prizmHead="'code'" [resizable]="true" [sorter]="null" prizmTh>Код</th>
@@ -14,6 +14,7 @@
       <tr
         class="row"
         *prizmRow="let item of products; let i = index"
+        [status]="item.status ?? 'default'"
         [active]="selectedItemsCodes.includes(item.code)"
         [class.row_edit]="currentEditableRow === item"
         (click)="selectRow($event, item.code, currentEditableRow === item)"
@@ -31,7 +32,7 @@
         </td>
         <td *prizmCell="'category'" prizmTd prizmDropdownHost>
           <!-- [disabled]="currentEditableRow !== item" -->
-          <prizm-input-layout [border]="false">
+          <prizm-input-layout prizmInputLayoutInserted>
             <prizm-input-select
               [ngModel]="item.category"
               [items]="categories"
