@@ -17,7 +17,7 @@ import {
 })
 export class TableEditableLayoutsExampleComponent {
   public selectedItemsCodes: string[] = [];
-  public columns: string[] = ['code', 'name', 'category', 'count', 'actions'];
+  public columns: string[] = ['code', 'name', 'category', 'date', 'actions'];
   public products: ITableProduct[] = TABLE_EXAMPLE_DATA_1;
   public categories: string[] = [...new Set(this.products.map(i => i.category))];
   public updatedRow: ITableProduct | null = null;

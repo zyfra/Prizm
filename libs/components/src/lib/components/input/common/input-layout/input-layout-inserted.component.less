@@ -35,4 +35,18 @@
       flex-shrink: 1;
     }
   }
+
+  .prizm-input-button-default {
+    display: flex;
+    visibility: hidden;
+  }
+
+  &:not(.disabled) {
+    &:hover,
+    &:focus-within {
+      .prizm-input-button-default {
+        visibility: visible;
+      }
+    }
+  }
 }

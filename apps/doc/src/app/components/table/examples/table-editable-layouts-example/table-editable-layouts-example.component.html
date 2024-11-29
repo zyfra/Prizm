@@ -5,7 +5,7 @@
         <th *prizmHead="'code'" [resizable]="true" [sorter]="null" prizmTh>Код</th>
         <th *prizmHead="'name'" [resizable]="true" prizmTh>Наименование</th>
         <th *prizmHead="'category'" [resizable]="true" prizmTh>Категория</th>
-        <th *prizmHead="'count'" [resizable]="true" prizmTh>Количество</th>
+        <th *prizmHead="'date'" [resizable]="true" prizmTh>Количество</th>
         <th class="head__actions" *prizmHead="'actions'" [sorter]="null" prizmTh></th>
       </tr>
     </thead>
@@ -22,18 +22,20 @@
       >
         <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>
-          <input
-            [disabled]="currentEditableRow !== item"
-            [value]="item.name"
-            (click)="$event.stopPropagation()"
-            (blur)="changeItemName($event, 'name')"
-            prizmInput
-          />
+          <prizm-input-layout prizmInputLayoutInserted>
+            <input
+              [disabled]="currentEditableRow !== item"
+              [value]="item.name"
+              (click)="$event.stopPropagation()"
+              (blur)="changeItemName($event, 'name')"
+              prizmInput
+            />
+          </prizm-input-layout>
         </td>
         <td *prizmCell="'category'" prizmTd prizmDropdownHost>
-          <!-- [disabled]="currentEditableRow !== item" -->
           <prizm-input-layout prizmInputLayoutInserted>
             <prizm-input-select
+              [disabled]="currentEditableRow !== item"
               [ngModel]="item.category"
               [items]="categories"
               (ngModelChange)="changeByValue($event, 'category')"
@@ -41,15 +43,15 @@
             </prizm-input-select>
           </prizm-input-layout>
         </td>
-        <td *prizmCell="'count'" prizmTd>
-          <input
-            class="format__number"
-            [disabled]="currentEditableRow !== item"
-            [value]="$any(item.count)"
-            (click)="$event.stopPropagation()"
-            (blur)="changeItemName($event, 'count')"
-            prizmInput
-          />
+        <td *prizmCell="'date'" prizmTd>
+          <prizm-input-layout prizmInputLayoutInserted>
+            <prizm-input-layout-date
+              [disabled]="currentEditableRow !== item"
+              [ngModel]="$any(item.date)"
+              (ngModelChange)="changeByValue($event, 'date')"
+              (click)="$event.stopPropagation()"
+            ></prizm-input-layout-date>
+          </prizm-input-layout>
         </td>
         <td *prizmCell="'actions'" prizmTd>
           <div class="edit-buttons-container" (click)="$event.stopPropagation()">
