@@ -27,6 +27,7 @@ module.exports = {
             'components',
             'helpers',
             'core',
+            'ci',
             'icons',
             'icons-loader',
             'flag-icons',

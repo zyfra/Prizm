@@ -1,5 +1,5 @@
 # TODO: later change tag by input variable ${{ inputs.tag }}
-name: Deploy doc main 17 (v4 and main)
+name: Deploy doc main 17 (v4)
 on:
   workflow_dispatch:
   workflow_call:
@@ -99,12 +99,3 @@ jobs:
           projectId: prizmui
           channelId: live
           target: v4
-
-      - name: Deploy doc to firebase (main)
-        uses: FirebaseExtended/action-hosting-deploy@v0
-        with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
-          projectId: prizmui
-          channelId: live
-          target: main
