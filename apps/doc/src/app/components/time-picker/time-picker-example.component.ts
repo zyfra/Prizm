@@ -12,7 +12,7 @@ export class PrizmTimePickerExampleComponent {
   public timeModeVariants: ReadonlyArray<'HH:MM' | 'HH:MM:SS'> = ['HH:MM', 'HH:MM:SS'];
   public timeMode = this.timeModeVariants[1];
 
-  public minMaxVariants: ReadonlyArray<PrizmTime | undefined> = [
+  public minMaxVariants: ReadonlyArray<PrizmTime | null> = [
     new PrizmTime(1, 2, 0),
     new PrizmTime(22, 12, 17),
     new PrizmTime(0, 20, 0),
@@ -22,17 +22,17 @@ export class PrizmTimePickerExampleComponent {
     new PrizmTime(0, 20, 0),
     new PrizmTime(0, 0, 45),
     new PrizmTime(0, 0, 55),
-    undefined,
+    null,
   ];
 
   public minTime = this.minMaxVariants[9];
   public maxTime = this.minMaxVariants[9];
 
-  public timeVariants: ReadonlyArray<PrizmTime | undefined> = [
+  public timeVariants: ReadonlyArray<PrizmTime | null> = [
     new PrizmTime(2, 5, 0),
     new PrizmTime(21, 52, 15),
     new PrizmTime(0, 21, 42),
-    undefined,
+    null,
   ];
 
   public time = this.timeVariants[0];

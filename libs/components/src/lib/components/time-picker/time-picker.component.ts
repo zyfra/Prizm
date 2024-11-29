@@ -100,12 +100,15 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   }
 
   private updateinternalTime(time: PrizmTime | undefined) {
-    if (!time) return;
-    this.internalTime.set({
-      hours: time.hours,
-      minutes: time.minutes,
-      seconds: time.seconds,
-    });
+    if (!time) {
+      this.internalTime.set({});
+    } else {
+      this.internalTime.set({
+        hours: time.hours,
+        minutes: time.minutes,
+        seconds: time.seconds,
+      });
+    }
   }
 
   private getCorrectedTime(time: PrizmTimePickerInternalTime): PrizmTimePickerInternalTime;

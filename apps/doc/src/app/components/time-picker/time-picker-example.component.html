@@ -12,9 +12,9 @@
         #element
         [prizmDocHostElement]="element"
         [timeMode]="timeMode"
-        [minTime]="minTime"
-        [maxTime]="maxTime"
-        [time]="time"
+        [minTime]="$any(minTime)"
+        [maxTime]="$any(maxTime)"
+        [time]="$any(time)"
       ></prizm-time-picker>
     </prizm-doc-demo>
     <prizm-doc-documentation [hasTestId]="true">
