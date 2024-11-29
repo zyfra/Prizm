@@ -859,6 +859,8 @@ export const PRIZM_ICONS_LAZY_SET = {
     import('@prizm-ui/icons/base/source/letter-month').then(m => m['prizmIconsLetterMonth']),
   'letter-second': () =>
     import('@prizm-ui/icons/base/source/letter-second').then(m => m['prizmIconsLetterSecond']),
+  'letter-time-utc': () =>
+    import('@prizm-ui/icons/base/source/letter-time-utc').then(m => m['prizmIconsLetterTimeUtc']),
   'letter-time': () => import('@prizm-ui/icons/base/source/letter-time').then(m => m['prizmIconsLetterTime']),
   'letter-year': () => import('@prizm-ui/icons/base/source/letter-year').then(m => m['prizmIconsLetterYear']),
   'library-plus': () =>

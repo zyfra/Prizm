@@ -41,7 +41,7 @@ import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import {
-  prizmIconsLetterTime,
+  prizmIconsLetterTimeUtc,
   prizmIconsCirclePlus,
   prizmIconsMinusCircle,
   prizmIconsLetterYear,
@@ -141,7 +141,7 @@ export class PrizmInputLayoutDateRelativeComponent
 
     this.iconsRegistry.registerIcons(
       prizmIconsSymbolAsterisk,
-      prizmIconsLetterTime,
+      prizmIconsLetterTimeUtc,
       prizmIconsCirclePlus,
       prizmIconsMinusCircle,
       prizmIconsLetterYear,
