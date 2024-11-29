@@ -1,9 +1,9 @@
 name: Beta Releases After Merge
 on:
-  pull_request:
-    branches:
-      - main
-    types: [closed]
+  #  pull_request:
+  #    branches:
+  #      - main
+  #    types: [closed]
   workflow_dispatch:
 env:
   npmrc_config_push: ${{ secrets.NPMRC_CONFIG_PUSH }}
