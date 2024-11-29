@@ -14,14 +14,15 @@
       <tr
         class="row"
         *prizmRow="let item of products; let i = index"
-        [status]="item.status ?? 'default'"
         [active]="selectedItemsCodes.includes(item.code)"
         [class.row_edit]="currentEditableRow === item"
         (click)="selectRow($event, item.code, currentEditableRow === item)"
         prizmTr
       >
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
-        <td *prizmCell="'name'" prizmTd>
+        <td class="format__number" *prizmCell="'code'" [status]="item.status ?? 'default'" prizmTd>
+          {{ item.code | spaceNumber : '0.0-0' }}
+        </td>
+        <td *prizmCell="'name'" [status]="item.status ?? 'default'" prizmTd>
           <prizm-input-layout prizmInputLayoutInserted>
             <input
               [disabled]="currentEditableRow !== item"
@@ -32,7 +33,7 @@
             />
           </prizm-input-layout>
         </td>
-        <td *prizmCell="'category'" prizmTd prizmDropdownHost>
+        <td *prizmCell="'category'" [status]="item.status ?? 'default'" prizmTd prizmDropdownHost>
           <prizm-input-layout prizmInputLayoutInserted>
             <prizm-input-select
               [disabled]="currentEditableRow !== item"
@@ -43,7 +44,7 @@
             </prizm-input-select>
           </prizm-input-layout>
         </td>
-        <td *prizmCell="'date'" prizmTd>
+        <td *prizmCell="'date'" [status]="item.status ?? 'default'" prizmTd>
           <prizm-input-layout prizmInputLayoutInserted>
             <prizm-input-layout-date
               [disabled]="currentEditableRow !== item"
@@ -53,7 +54,7 @@
             ></prizm-input-layout-date>
           </prizm-input-layout>
         </td>
-        <td *prizmCell="'actions'" prizmTd>
+        <td *prizmCell="'actions'" [status]="item.status ?? 'default'" prizmTd>
           <div class="edit-buttons-container" (click)="$event.stopPropagation()">
             <button
               *ngIf="currentEditableRow !== item"
