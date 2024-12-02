@@ -42,5 +42,10 @@ export class PrizmTimePickerExampleComponent {
     HTML: import('./examples/time-picker-basic-example/time-picker-basic-example.component.html?raw'),
   };
 
+  public readonly exampleMinMaxTimePicker: TuiDocExample = {
+    TypeScript: import('./examples/time-picker-min-max-example/time-picker-min-max-example.component?raw'),
+    HTML: import('./examples/time-picker-min-max-example/time-picker-min-max-example.component.html?raw'),
+  };
+
   public readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 }
