@@ -1,13 +1,4 @@
-import {
-  ChangeDetectionStrategy,
-  Component,
-  EventEmitter,
-  Inject,
-  Input,
-  input,
-  Output,
-  signal,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, Input, input, output, signal } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmPrimitiveTimePickerComponent } from '../internal/primitive-time-picker';
@@ -45,11 +36,9 @@ import { Compare } from '@prizm-ui/helpers';
   providers: [...prizmI18nInitWithKey(PRIZM_TIME_PICKER, 'timePicker')],
 })
 export class PrizmTimePickerComponent extends PrizmAbstractTestId {
-  @Output()
-  readonly timeChanged = new EventEmitter<PrizmTime>();
+  public timeChanged = output<PrizmTime>();
 
-  @Output()
-  readonly canceled = new EventEmitter<void>();
+  public canceled = output<void>();
 
   @Input() set time(value: PrizmTime | undefined) {
     this.updateinternalTime(value);
