@@ -8,7 +8,7 @@
     (actvieModeChange)="timeSheetState.set($event)"
   ></prizm-primitive-time-pagination>
 
-  <prizm-scrollbar class="z-scrollbar">
+  <prizm-scrollbar class="z-scrollbar" [visibility]="sheetState === 'hours' ? 'hidden' : 'visible'">
     <prizm-primitive-time-picker
       [timeSheet]="timeSheet"
       [disabledItems]="timeSheet | prizmTimeDisabledItems : sheetState : time : minTime() : maxTime()"
