@@ -51,12 +51,9 @@ import { PrizmInputLayoutComponent } from '../input';
   imports: [
     NgIf,
     NgFor,
-    NgTemplateOutlet,
     AsyncPipe,
     PrizmChipsItemComponent,
     PrizmCallFuncPipe,
-    PrizmLifecycleDirective,
-    PrizmElementReadyDirective,
     PrizmLetDirective,
     PrizmHintDirective,
     PrizmOverflowItemDirective,

@@ -33,6 +33,7 @@
         *ngIf="(overflowHost.hiddenElements$ | async)?.length"
         [prizmHint]="overflowHost.hiddenElements$ | prizmGetContextByKeys | async | prizmCallFunc : joinHints"
         [prizmHintDirection]="hintDirection"
+        [prizmHintCanShow]="hintCanShow"
       >
         ...
       </div>
