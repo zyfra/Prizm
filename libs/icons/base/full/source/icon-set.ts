@@ -469,6 +469,7 @@ import { prizmIconsLetterHour } from './letter-hour/prizmIcons-letter-hour.icon'
 import { prizmIconsLetterMinute } from './letter-minute/prizmIcons-letter-minute.icon';
 import { prizmIconsLetterMonth } from './letter-month/prizmIcons-letter-month.icon';
 import { prizmIconsLetterSecond } from './letter-second/prizmIcons-letter-second.icon';
+import { prizmIconsLetterTimeUtc } from './letter-time-utc/prizmIcons-letter-time-utc.icon';
 import { prizmIconsLetterTime } from './letter-time/prizmIcons-letter-time.icon';
 import { prizmIconsLetterYear } from './letter-year/prizmIcons-letter-year.icon';
 import { prizmIconsLibraryPlus } from './library-plus/prizmIcons-library-plus.icon';
@@ -1370,6 +1371,7 @@ export const PRIZM_ICONS_FULL_SET = [
   prizmIconsLetterMinute,
   prizmIconsLetterMonth,
   prizmIconsLetterSecond,
+  prizmIconsLetterTimeUtc,
   prizmIconsLetterTime,
   prizmIconsLetterYear,
   prizmIconsLibraryPlus,

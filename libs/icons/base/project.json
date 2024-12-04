@@ -175,7 +175,7 @@
         "generateArraySet": true,
         "iconArraySetNameExportName": "PRIZM_ICONS_ARRAY",
 
-        "generateIconSet": true,
+        "generateIconSet": false,
         "iconSetNameExportName": "PRIZM_ICONS_SET",
         "iconSetNameFileName": "icon-set"
       },
@@ -198,7 +198,7 @@
         "generateArraySet": true,
         "iconArraySetNameExportName": "PRIZM_ICONS_FULL_ARRAY",
 
-        "generateIconSet": true,
+        "generateIconSet": false,
         "iconSetNameExportName": "PRIZM_ICONS_FULL_SET",
         "iconSetNameFileName": "icon-set"
       },
