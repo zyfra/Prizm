@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, Inject, Input, input, output, signal } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  effect,
+  Inject,
+  input,
+  output,
+  signal,
+  untracked,
+} from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import { PrizmPrimitiveTimePickerComponent } from '../internal/primitive-time-picker';
@@ -40,42 +50,47 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
 
   public canceled = output<void>();
 
-  @Input() set time(value: PrizmTime | undefined) {
-    this.updateinternalTime(value);
-  }
-
+  public time = input<PrizmTime | undefined>();
   public timeMode = input<'HH:MM' | 'HH:MM:SS'>('HH:MM:SS');
   public minTime = input<PrizmTime>();
   public maxTime = input<PrizmTime>();
 
   public timeSheetState = signal<PrizmTimePaginationState>('hours');
 
-  public internalTime = signal<PrizmTimePickerInternalTime>({});
+  public internalTime: PrizmTimePickerInternalTime = {};
 
   override readonly testId_ = 'ui_time_picker';
 
   constructor(
     @Inject(PRIZM_TIME_PICKER)
-    public readonly dictionary$: Observable<PrizmLanguageTimePicker['timePicker']>
+    public readonly dictionary$: Observable<PrizmLanguageTimePicker['timePicker']>,
+    private readonly cdr: ChangeDetectorRef
   ) {
     super();
+
+    effect(() => {
+      this.updateinternalTime(this.time());
+    });
   }
 
   public timeClicked(time: number) {
-    const internalTime = { ...this.internalTime() };
+    const internalTime = { ...this.internalTime };
     const sheetState = this.timeSheetState();
 
     internalTime[sheetState] = time;
 
     if ((sheetState !== 'seconds' && this.minTime()) || this.maxTime()) {
-      this.internalTime.set(this.getCorrectedTime(internalTime));
+      this.internalTime = this.getCorrectedTime(internalTime);
     } else {
-      this.internalTime.set(internalTime);
+      this.internalTime = internalTime;
     }
   }
 
   public setValue() {
-    const internal = this.getCorrectedTime(this.internalTime(), true);
+    const internal = this.getCorrectedTime(
+      { ...this.internalTime, seconds: this.timeMode() === 'HH:MM' ? 0 : this.internalTime.seconds },
+      true
+    );
 
     const time = new PrizmTime(internal.hours, internal.minutes, internal.seconds);
 
@@ -84,20 +99,22 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   }
 
   public cancel() {
-    this.internalTime.set({});
+    this.internalTime = {};
     this.canceled.emit();
   }
 
   private updateinternalTime(time: PrizmTime | undefined) {
     if (!time) {
-      this.internalTime.set({});
+      this.internalTime = {};
     } else {
-      this.internalTime.set({
+      this.internalTime = {
         hours: time.hours,
         minutes: time.minutes,
         seconds: time.seconds,
-      });
+      };
     }
+
+    this.cdr.markForCheck();
   }
 
   private getCorrectedTime(time: PrizmTimePickerInternalTime): PrizmTimePickerInternalTime;
