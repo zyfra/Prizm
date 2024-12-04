@@ -8,7 +8,7 @@ import { PrizmTime } from '@prizm-ui/components';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmTimePickerBasicExampleComponent {
-  public time: PrizmTime | null = null;
+  public time: PrizmTime | null = new PrizmTime(16, 26, 4);
 
   public timeChanged(value: PrizmTime) {
     this.time = value;
