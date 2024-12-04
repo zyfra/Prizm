@@ -45,7 +45,7 @@ export class PrizmInputHintDirective {
   }
 
   public ngOnChanges(): void {
-    this.hintSyncChanges();
+    this.updateHint();
   }
 
   private hintSyncChanges(): void {
