@@ -267,7 +267,7 @@ export class PrizmComboboxComponent<T>
   }
 
   private _select(item: T): void {
-    if (item) this.userText = null;
+    this.userText = null;
     const selectedValue = item && this.transformer(item);
     if (!this.identityMatcher(selectedValue, this.value!)) {
       this.updateValue(selectedValue);
