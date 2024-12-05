@@ -256,8 +256,9 @@ export class PrizmComboboxComponent<T>
   }
 
   public override clear(ev: MouseEvent): void {
+    this.userText = null;
     ev.stopImmediatePropagation();
-    this.updateValue(null as any);
+    this.updateValue(null);
     this.markAsTouched();
     this.changeDetectorRef.markForCheck();
   }
