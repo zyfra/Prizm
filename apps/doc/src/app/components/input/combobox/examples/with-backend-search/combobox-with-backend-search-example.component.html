@@ -1,0 +1,18 @@
+<prizm-input-layout label="Выберите из списка">
+  @let items = (items$ | async)!;
+  <prizm-combobox
+    #prizmCombobox="prizmCombobox"
+    [items]="items"
+    [formControl]="control"
+    (searchChange)="search($event)"
+    icon="magnifying-glass"
+  >
+    <prizm-loader *prizmComboboxDataList [showLoader]="showLoader" [overlay]="true">
+      <prizm-scrollbar [visibility]="'visible'">
+        <prizm-combobox-item *ngFor="let item of items" [item]="item">
+          {{ item }}
+        </prizm-combobox-item>
+      </prizm-scrollbar>
+    </prizm-loader>
+  </prizm-combobox>
+</prizm-input-layout>
