@@ -340,6 +340,7 @@ export class PrizmComboboxComponent<T>
   protected override refreshLocalValue(value: T | null): void {
     super.refreshLocalValue(value);
     this.userText = null;
+    this.search = null;
   }
 
   protected changeParentFocusedClass(add: boolean) {
