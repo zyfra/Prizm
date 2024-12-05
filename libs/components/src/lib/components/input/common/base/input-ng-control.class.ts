@@ -155,7 +155,7 @@ export abstract class PrizmInputNgControl<T>
     this.stateChanges.next();
   }
 
-  private refreshLocalValue(value: T | null): void {
+  protected refreshLocalValue(value: T | null): void {
     this.previousInternalValue$$.next(value);
     this.checkControlUpdate();
   }
