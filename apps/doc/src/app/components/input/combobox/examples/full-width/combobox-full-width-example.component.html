@@ -1,0 +1,15 @@
+<prizm-input-layout label="Validators">
+  <prizm-combobox [formControl]="control" [items]="items" [searchMatcher]="searchMatcher" style="width: 100%">
+  </prizm-combobox>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()" prizmButton>
+    Set default value: <b>{{ items[0] }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ control.value }}</div>

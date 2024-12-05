@@ -1,0 +1,21 @@
+<prizm-input-layout label="Validators">
+  <prizm-combobox
+    #input
+    [formControl]="control"
+    [items]="(searchItems$ | async)!"
+    [prizmHintCanShow]="true"
+    (searchChange)="search$.next($event)"
+  ></prizm-combobox>
+  <ng-template [control]="input" prizmInputStatusText></ng-template>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()" prizmButton>
+    Set default value: <b>{{ items[0] }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ control.value }}</div>

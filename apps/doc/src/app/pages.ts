@@ -268,11 +268,16 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Inputs',
     subPages: [
       {
+        title: 'Combobox',
+        keywords: 'combobox, form',
+        route: '/components/combobox',
+        status: 'preview',
+      },
+      {
         title: 'InputMultiSelect',
         keywords: 'input-multi-select, multi-select, form',
         route: '/components/input-multi-select',
       },
-
       {
         title: 'InputTreeMultiSelect',
         keywords: 'input-tree-multi-select, tree-multi-select, form',
@@ -1036,6 +1041,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     section: SectionNameEnglishEnum.components,
     title: 'Inputs',
     subPages: [
+      {
+        title: 'Combobox',
+        keywords: 'combobox, form',
+        route: '/components/combobox',
+        status: 'preview',
+      },
       {
         title: 'InputMultiSelect',
         keywords: 'input-multi-select, multi-select, form',
