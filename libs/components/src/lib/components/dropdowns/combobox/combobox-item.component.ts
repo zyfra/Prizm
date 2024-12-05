@@ -3,7 +3,7 @@ import { PrizmCallFuncPipe, PrizmDestroyService, PrizmToObservablePipe } from '@
 import { PolymorphOutletDirective } from '../../../directives/polymorph';
 import { PrizmComboboxOptionDirective } from './combobox-option.directive';
 import { AsyncPipe, NgIf } from '@angular/common';
-import { PrizmHintDirective } from '../../../directives';
+import { PrizmHintOnOverflowDirective } from '../../../directives';
 import { PrizmComboboxComponent } from './combobox.component';
 
 @Component({
@@ -16,10 +16,10 @@ import { PrizmComboboxComponent } from './combobox.component';
     NgIf,
     PrizmComboboxOptionDirective,
     PrizmCallFuncPipe,
-    PrizmHintDirective,
     PolymorphOutletDirective,
     PrizmToObservablePipe,
     AsyncPipe,
+    PrizmHintOnOverflowDirective,
   ],
   providers: [PrizmDestroyService],
   exportAs: 'prizmComboboxItem',

@@ -15,10 +15,9 @@
     <span
       class="text"
       #elem
-      [prizmHint]="text!"
-      [prizmHintHost]="hostHint"
+      [prizmHintOnOverflow]="text!"
+      [prizmHintOnOverflowEl]="hostHint"
       [prizmHintDirection]="parent.direction"
-      [prizmHintCanShow]="$any(elem | prizmCallFunc : parent.prizmIsTextOverflow$ | async)"
     >
       <ng-container
         *polymorphOutlet="

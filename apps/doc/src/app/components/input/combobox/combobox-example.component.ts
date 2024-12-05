@@ -180,8 +180,4 @@ export class ComboboxExampleComponent {
   public identityMatcher = (a: unknown, b: unknown): boolean => {
     return a === b;
   };
-
-  public setValue(val: string): void {
-    this.control.setValue(val);
-  }
 }
