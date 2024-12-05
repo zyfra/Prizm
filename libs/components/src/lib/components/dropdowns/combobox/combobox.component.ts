@@ -244,10 +244,11 @@ export class PrizmComboboxComponent<T>
   }
 
   public onClear(): void {
+    this.userText = null;
     timer(0)
       .pipe(
         tap(() => {
-          this.select(null as any);
+          this.updateValue(null);
           this.changeDetectorRef.markForCheck();
         })
       )
