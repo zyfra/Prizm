@@ -154,8 +154,6 @@ export class PrizmComboboxComponent<T>
   emptyContent: PolymorphContent = this.options.emptyContent;
 
   override readonly clickable = true;
-  readonly isPolymorphPrimitive = isPolymorphPrimitive;
-  readonly prizmIsTextOverflow$ = prizmIsTextOverflow$;
 
   /**
    * need only clear function
@@ -337,6 +335,11 @@ export class PrizmComboboxComponent<T>
   protected onChangeModalVisible(visible: boolean): void {
     if (!visible) this.clearSearch();
     this.changeParentFocusedClass(visible);
+  }
+
+  protected override refreshLocalValue(value: T | null): void {
+    super.refreshLocalValue(value);
+    this.userText = null;
   }
 
   protected changeParentFocusedClass(add: boolean) {
