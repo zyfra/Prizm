@@ -627,6 +627,13 @@ export const pages: PrizmOrderedDocPage = [
     keywords: 'file upload',
     route: '/components/file-upload',
   },
+  {
+    section: SectionNameEnum.components,
+    title: 'Time Picker',
+    keywords: 'time picker, время',
+    route: '/components/time-picker',
+    status: 'preview',
+  },
   // Tools
   {
     section: SectionNameEnum.tools,
@@ -1387,6 +1394,13 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'File Upload',
     keywords: 'file upload',
     route: '/components/file-upload',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Time Picker',
+    keywords: 'time picker, время',
+    route: '/components/time-picker',
+    status: 'preview',
   },
   {
     section: SectionNameEnglishEnum.tools,

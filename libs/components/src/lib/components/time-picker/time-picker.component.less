@@ -1,0 +1,31 @@
+@paginationHeight: 48px;
+@footerHeight: 68px;
+@pickerWidth: 272px;
+@pickerHeight: 308px;
+
+:host {
+  display: block;
+  height: @pickerHeight;
+  width: @pickerWidth;
+  box-sizing: content-box;
+  background-color: var(--prizm-background-fill-primary);
+
+  .footer {
+    border-top: 1px solid var(--prizm-background-stroke);
+    padding: var(--prizm-time-picker-footer-padding, 16px);
+    max-width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+
+    [prizmButton] {
+      flex: 1;
+    }
+  }
+}
+
+.z-scrollbar {
+  height: @pickerHeight - @paginationHeight - @footerHeight;
+  width: @pickerWidth;
+}

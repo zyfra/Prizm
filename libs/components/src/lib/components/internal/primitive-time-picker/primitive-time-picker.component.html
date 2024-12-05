@@ -1,0 +1,16 @@
+<div class="grid">
+  <div
+    class="z-cell"
+    *ngFor="let item of timeSheet"
+    [attr.data-state]="getItemState(item)"
+    [attr.data-range]="itemIsChosen(item)"
+    [prizmScrollIntoView]="scrollItemIntoView(item.value)"
+    (prizmHoveredChange)="onItemHovered($event && item)"
+    (prizmPressedChange)="onItemPressed($event && item)"
+    (click)="onItemClick(item.value)"
+  >
+    <div class="z-item prizm-font-btn-links-14">
+      {{ item.key }}
+    </div>
+  </div>
+</div>

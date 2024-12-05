@@ -1,0 +1,35 @@
+<div class="" picker-host>
+  @let sheetState = timeSheetState(); @let timeSheet = sheetState | prizmTimeSheet;
+  <prizm-primitive-time-pagination
+    [value]="internalTime"
+    [timeMode]="timeMode()"
+    [activeMode]="sheetState"
+    (actvieModeChange)="timeSheetState.set($event)"
+  ></prizm-primitive-time-pagination>
+
+  <prizm-scrollbar class="z-scrollbar" [visibility]="sheetState === 'hours' ? 'hidden' : 'visible'">
+    <prizm-primitive-time-picker
+      [timeSheet]="timeSheet"
+      [disabledItems]="timeSheet | prizmTimeDisabledItems : sheetState : internalTime : minTime() : maxTime()"
+      [selectedItem]="internalTime[sheetState]"
+      (timeClick)="timeClicked($event)"
+    ></prizm-primitive-time-picker>
+  </prizm-scrollbar>
+</div>
+
+<div class="footer">
+  @let dictionary = dictionary$ | async;
+  <button (click)="cancel()" appearance="secondary" appearanceType="ghost" size="xm" prizmButton>
+    {{ dictionary?.cancelButton }}
+  </button>
+  <button
+    [disabled]="internalTime | prizmPickerDisable"
+    (click)="setValue()"
+    appearance="primary"
+    appearanceType="fill"
+    size="xm"
+    prizmButton
+  >
+    {{ dictionary?.applyButton }}
+  </button>
+</div>

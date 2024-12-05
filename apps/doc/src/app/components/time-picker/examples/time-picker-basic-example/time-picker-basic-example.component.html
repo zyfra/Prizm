@@ -1,0 +1,10 @@
+<prizm-time-picker
+  [time]="$any(time)"
+  (timeChanged)="timeChanged($event)"
+  (canceled)="canceled()"
+></prizm-time-picker>
+
+<br />
+<br />
+
+{{ time | json }}

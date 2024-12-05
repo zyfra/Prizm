@@ -1,0 +1,93 @@
+<prizm-doc-page header="TimePicker">
+  <div class="page-description" description>Our Time Picker component for select time.</div>
+  <ng-template prizmDocPageTab>
+    <prizm-doc-example id="base" [content]="exampleBasicTimePicker" heading="Base">
+      <prizm-time-picker-basic-example></prizm-time-picker-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="minMax" [content]="exampleMinMaxTimePicker" heading="Min and Max time">
+      <prizm-time-picker-min-max-example></prizm-time-picker-min-max-example>
+    </prizm-doc-example>
+  </ng-template>
+
+  <ng-template prizmDocPageTab prizmDocHost>
+    <prizm-doc-demo>
+      <prizm-time-picker
+        #element
+        [prizmDocHostElement]="element"
+        [timeMode]="timeMode"
+        [minTime]="$any(minTime)"
+        [maxTime]="$any(maxTime)"
+        [time]="$any(time)"
+      ></prizm-time-picker>
+    </prizm-doc-demo>
+    <prizm-doc-documentation [hasTestId]="true">
+      <ng-template
+        [(documentationPropertyValue)]="timeMode"
+        [documentationPropertyValues]="timeModeVariants"
+        documentationPropertyName="timeMode"
+        documentationPropertyType="'HH:MM:SS' | 'HH:MM'"
+        documentationPropertyMode="input"
+      >
+        timeMode
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="time"
+        [documentationPropertyValues]="timeVariants"
+        documentationPropertyName="time"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="input"
+      >
+        time
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="minTime"
+        [documentationPropertyValues]="minMaxVariants"
+        documentationPropertyName="minTime"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="input"
+      >
+        minTime
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="maxTime"
+        [documentationPropertyValues]="minMaxVariants"
+        documentationPropertyName="maxTime"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="input"
+      >
+        maxTime
+      </ng-template>
+      <ng-template
+        documentationPropertyName="timeChanged"
+        documentationPropertyType="PrizmTime"
+        documentationPropertyMode="output"
+      >
+        Time Changed
+      </ng-template>
+      <ng-template
+        documentationPropertyName="canceled"
+        documentationPropertyType="void"
+        documentationPropertyMode="output"
+      >
+        Canceled
+      </ng-template>
+    </prizm-doc-documentation>
+  </ng-template>
+
+  <ng-template prizmDocPageTab>
+    <ol class="b-demo-steps">
+      <li>
+        <p>
+          Импортируйте <code>PrizmTimePicker</code>
+          в модуль или компонент в котором хотите его использовать
+        </p>
+
+        <prizm-doc-code [code]="setupModule" filename="custom.module.ts"></prizm-doc-code>
+      </li>
+    </ol>
+  </ng-template>
+</prizm-doc-page>

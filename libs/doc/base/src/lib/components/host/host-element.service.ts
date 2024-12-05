@@ -1,9 +1,17 @@
-import { ComponentFactoryResolver, ElementRef, Injectable, OnDestroy, Type } from '@angular/core';
+import {
+  ComponentFactoryResolver,
+  ElementRef,
+  Injectable,
+  OnDestroy,
+  OutputEmitterRef,
+  Type,
+} from '@angular/core';
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
 import { PrizmDocumentationPropertyType } from '../../types/pages';
 import { debounceTime, takeUntil, tap } from 'rxjs/operators';
 import { PrizmPageService } from '../page/page.service';
 import { PrizmDocHostElementListenerService } from './host-element-listener.service';
+import { outputToObservable } from '@angular/core/rxjs-interop';
 
 export type PrizmDocHosSet = {
   type: string;
@@ -222,7 +230,12 @@ export class PrizmDocHostElementService implements OnDestroy {
       return;
     }
 
-    el.nativeElement?.[eventRealKey]
+    const emmiter =
+      el.nativeElement?.[eventRealKey] instanceof OutputEmitterRef
+        ? outputToObservable(el.nativeElement?.[eventRealKey])
+        : el.nativeElement?.[eventRealKey];
+
+    emmiter
       ?.pipe(
         takeUntil(this.destroyListener$),
         tap(data => {
