@@ -28,8 +28,8 @@ export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
 ];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '5.3.3 (ng18)',
-    version: '5.3.3',
+    label: '5.4.0 (ng18)',
+    version: '5.4.0',
     stackblitz: 'https://stackblitz.com/edit/prizm-v5-demo',
     link: getDocSite.bind(null, 'https://doc.prizm.zyfra.com', 'http://prizm.site'),
 
