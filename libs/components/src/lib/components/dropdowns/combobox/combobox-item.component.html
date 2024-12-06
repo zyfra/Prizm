@@ -1,0 +1,36 @@
+<div
+  class="item"
+  #hostHint
+  [class.selected]="
+    item === parent.value ||
+    (item &&
+      parent.value &&
+      (parent.transformer(item) | prizmCallFunc : parent.identityMatcher : parent.value))
+  "
+  [value]="item"
+  prizmComboboxOption
+>
+  <ng-container *ngIf="!parent.isNullish(item)">
+    @let text = item | prizmCallFunc : parent.stringify | prizmToObservable | async;
+    <span
+      class="text"
+      #elem
+      [prizmHintOnOverflow]="text!"
+      [prizmHintOnOverflowEl]="hostHint"
+      [prizmHintDirection]="parent.direction"
+    >
+      <ng-container
+        *polymorphOutlet="
+          parent.listItemTemplate ?? parent.valueTemplate as content;
+          context: {
+            $implicit: item,
+            value: item | prizmCallFunc : parent.transformer,
+            stringify: $any(text)
+          }
+        "
+      >
+        {{ text }}
+      </ng-container>
+    </span>
+  </ng-container>
+</div>

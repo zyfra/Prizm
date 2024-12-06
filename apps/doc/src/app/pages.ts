@@ -268,11 +268,16 @@ export const pages: PrizmOrderedDocPage = [
     title: 'Inputs',
     subPages: [
       {
+        title: 'Combobox',
+        keywords: 'combobox, form',
+        route: '/components/combobox',
+        status: 'preview',
+      },
+      {
         title: 'InputMultiSelect',
         keywords: 'input-multi-select, multi-select, form',
         route: '/components/input-multi-select',
       },
-
       {
         title: 'InputTreeMultiSelect',
         keywords: 'input-tree-multi-select, tree-multi-select, form',
@@ -626,6 +631,13 @@ export const pages: PrizmOrderedDocPage = [
     title: 'File Upload',
     keywords: 'file upload',
     route: '/components/file-upload',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'Time Picker',
+    keywords: 'time picker, время',
+    route: '/components/time-picker',
+    status: 'preview',
   },
   // Tools
   {
@@ -1030,6 +1042,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'Inputs',
     subPages: [
       {
+        title: 'Combobox',
+        keywords: 'combobox, form',
+        route: '/components/combobox',
+        status: 'preview',
+      },
+      {
         title: 'InputMultiSelect',
         keywords: 'input-multi-select, multi-select, form',
         route: '/components/input-multi-select',
@@ -1387,6 +1405,13 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'File Upload',
     keywords: 'file upload',
     route: '/components/file-upload',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Time Picker',
+    keywords: 'time picker, время',
+    route: '/components/time-picker',
+    status: 'preview',
   },
   {
     section: SectionNameEnglishEnum.tools,

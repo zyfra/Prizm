@@ -472,6 +472,7 @@ export type PrizmIconsType =
   | 'letter-minute'
   | 'letter-month'
   | 'letter-second'
+  | 'letter-time-utc'
   | 'letter-time'
   | 'letter-year'
   | 'library-plus'
@@ -1373,6 +1374,7 @@ export const PrizmIconsType = {
   'letter-minute': 'letter-minute' as PrizmIconsType,
   'letter-month': 'letter-month' as PrizmIconsType,
   'letter-second': 'letter-second' as PrizmIconsType,
+  'letter-time-utc': 'letter-time-utc' as PrizmIconsType,
   'letter-time': 'letter-time' as PrizmIconsType,
   'letter-year': 'letter-year' as PrizmIconsType,
   'library-plus': 'library-plus' as PrizmIconsType,
@@ -2280,6 +2282,7 @@ export enum PrizmIconsEnum {
   LETTER_MINUTE = 'letter-minute',
   LETTER_MONTH = 'letter-month',
   LETTER_SECOND = 'letter-second',
+  LETTER_TIME_UTC = 'letter-time-utc',
   LETTER_TIME = 'letter-time',
   LETTER_YEAR = 'letter-year',
   LIBRARY_PLUS = 'library-plus',

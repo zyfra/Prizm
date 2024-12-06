@@ -4,6 +4,8 @@ import { distinctUntilChanged, map, tap } from 'rxjs/operators';
 import { PrizmTheme } from '../types/theme';
 import { DOCUMENT } from '@angular/common';
 
+export const ATT_THEME_KEY = 'data-prizm-theme';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -21,7 +23,7 @@ export class PrizmThemeService implements OnDestroy {
     theme: PrizmTheme;
     el?: HTMLElement;
   }>({
-    theme: 'light',
+    theme: this.getInitialTheme(),
   });
   readonly change$ = this.changeSource$.pipe(
     tap(data => data.el && this.themeStorage.set(data.el, data.theme))
@@ -40,7 +42,7 @@ export class PrizmThemeService implements OnDestroy {
   public getLastThemeForElement(el: HTMLElement = this.rootElement): string | null {
     let theme = this.themeStorage.get(el);
     if (el !== this.rootElement_)
-      theme = el.closest(`[${this.attThemeKey}]`)?.getAttribute(this.attThemeKey) as string;
+      theme = el.closest(`[${ATT_THEME_KEY}]`)?.getAttribute(ATT_THEME_KEY) as string;
     return theme ?? null;
   }
 
@@ -62,11 +64,11 @@ export class PrizmThemeService implements OnDestroy {
   }
 
   public getByElement(el?: HTMLElement): PrizmTheme {
-    return (el ?? this.rootElement)?.getAttribute(this.attThemeKey) as PrizmTheme;
+    return (el ?? this.rootElement)?.getAttribute(ATT_THEME_KEY) as PrizmTheme;
   }
 
   private setToHtml(theme: PrizmTheme, el?: HTMLElement): void {
-    (el ?? this.rootElement)?.setAttribute(this.attThemeKey, theme);
+    (el ?? this.rootElement)?.setAttribute(ATT_THEME_KEY, theme);
   }
 
   public update(theme: PrizmTheme, el: HTMLElement = this.rootElement): void {
@@ -93,5 +95,10 @@ export class PrizmThemeService implements OnDestroy {
     const style = el.style;
     style.setProperty(`--${token}`, value);
     return true;
+  }
+
+  // Need for microfront
+  private getInitialTheme(): PrizmTheme {
+    return this.rootElement.getAttribute(ATT_THEME_KEY) ?? 'light';
   }
 }

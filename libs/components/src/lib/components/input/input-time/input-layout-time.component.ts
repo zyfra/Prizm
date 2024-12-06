@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  HostBinding,
   inject,
   Inject,
   Injector,

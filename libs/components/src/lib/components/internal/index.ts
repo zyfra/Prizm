@@ -4,3 +4,5 @@ export * from './primitive-month-picker';
 export * from './primitive-spin-button';
 export * from './primitive-year-month-pagination';
 export * from './primitive-year-picker';
+export * from './primitive-time-picker';
+export * from './primitive-time-pagination';

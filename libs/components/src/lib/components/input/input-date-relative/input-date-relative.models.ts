@@ -42,7 +42,7 @@ const DefaultRelativeMenuItems = {
     {
       id: 'midnight',
       groupId: 'time',
-      icon: 'letter-time',
+      icon: 'letter-time-utc',
       label: 'Полночь текущих суток',
     },
   ],

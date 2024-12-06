@@ -1,0 +1,24 @@
+@import '../../../../styles/ui-local.less';
+
+@itemSize: 40px;
+
+.picker(@itemSize, @itemSize);
+
+:host {
+  padding: 16px;
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    width: @itemSize * 6;
+  }
+}
+
+.z-item {
+  color: var(--prizm-text-icon-secondary);
+}
+
+.z-item {
+  display: flex;
+  flex-direction: column;
+}

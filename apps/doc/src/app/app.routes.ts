@@ -452,6 +452,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/combobox',
+    loadChildren: () =>
+      import('./components/input/combobox/combobox-example.module').then(i => i.ComboboxExampleModule),
+    data: {
+      title: 'Combobox',
+    },
+  },
+  {
     path: 'components/input-tree-multi-select',
     loadChildren: () =>
       import('./components/input/input-tree-multi-select/input-tree-multi-select.module').then(
@@ -705,6 +713,14 @@ export const ROUTES: Routes = [
       import('./components/listing-item/listing-item-example.module').then(i => i.ListingItemExampleModule),
     data: {
       title: 'Listing Item',
+    },
+  },
+  {
+    path: 'components/time-picker',
+    loadChildren: () =>
+      import('./components/time-picker/time-picker-example.module').then(i => i.TimePickerExampleModule),
+    data: {
+      title: 'Time Picker',
     },
   },
   {

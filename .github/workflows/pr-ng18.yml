@@ -28,14 +28,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json.ng18') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: 'Initial changes 18'
         run: |
-          cp -f package.json.ng17 package.json
-          cp -f package-lock.json.ng17 package-lock.json
+          cp -f package.json.ng18 package.json
+          cp -f package-lock.json.ng18 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -62,7 +62,7 @@ jobs:
       - name: 'Build doc app for firebase hosting'
         run: npm run build:doc
 
-      - name: 'Upload to Firebase HOSTING (ng17)'
+      - name: 'Upload to Firebase HOSTING (ng18)'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
@@ -94,14 +94,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json.ng18') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: 'Initial changes 18'
         run: |
-          cp -f package.json.ng17 package.json
-          cp -f package-lock.json.ng17 package-lock.json
+          cp -f package.json.ng18 package.json
+          cp -f package-lock.json.ng18 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -122,7 +122,7 @@ jobs:
       #      - run: npx nx workspace-lint
       #      - run: npx nx clear-cache
 
-      - name: 'Set version 17'
+      - name: 'Set version 18'
         run: npx nx generate @prizm-ui/nx-mv:apply -n v18
 
       - name: 'Clears all the cached Nx artifacts and metadata '

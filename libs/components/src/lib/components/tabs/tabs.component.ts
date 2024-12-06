@@ -32,9 +32,9 @@ import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
 import {
   PolymorphOutletDirective,
-  PrizmDropdownControllerDirective,
   PrizmHintDirective,
   PrizmLifecycleDirective,
+  PrizmScrollIntoViewDirective,
 } from '../../directives';
 import { PrizmButtonComponent } from '../button';
 import { PrizmDataListComponent } from '../data-list';
@@ -66,14 +66,13 @@ import {
     PrizmCallFuncPipe,
     PrizmLetDirective,
     PrizmButtonComponent,
-    PrizmDropdownControllerDirective,
     PrizmDataListComponent,
-    PrizmTabComponent,
     PrizmListingItemComponent,
     PrizmCounterComponent,
     PrizmIconTabsPipe,
     PrizmHintDirective,
     PrizmIconsFullComponent,
+    PrizmScrollIntoViewDirective,
   ],
 })
 export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, OnDestroy {
@@ -201,6 +200,10 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   public clickTab(index: number): void {
     this.openLeft = this.openRight = false;
     this.tabClickHandler(index);
+  }
+
+  public scrollItemIntoView(tabIndex: number): boolean {
+    return tabIndex === this.activeTabIndex;
   }
 
   private initTabClickListener(): void {

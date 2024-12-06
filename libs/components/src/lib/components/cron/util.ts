@@ -1,15 +1,7 @@
 import { PrizmCronUiDayType } from './model';
 import { PRIZM_CRON_UI_DAYS_OF_WEEK_CRON_KEYS } from './const';
-import { prizmGetNumberWithZero } from '@prizm-ui/core';
 import { PrizmInputCarouselArrayContent } from '../input/carousel';
-
-export function getArrWithStringNumbers(length: number, start = 1, withZero = false): string[] {
-  return Array.from({ length }, (_, i) => {
-    const sum = i + start;
-    const result = withZero ? prizmGetNumberWithZero(sum) : sum;
-    return result + '';
-  });
-}
+import { getArrWithStringNumbers } from '../../util/common/get-arr-string-numbers';
 
 export function getCarousel(length: number, start = 1): PrizmInputCarouselArrayContent<string> {
   return new PrizmInputCarouselArrayContent(

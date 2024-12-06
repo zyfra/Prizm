@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.3.2](https://github.com/zyfra/Prizm) (28-11-2024)
+
+### Bug fixes
+
+- fix(theme/theme-service): set correct initial theme for micro frontend #2201
+
 ## [5.3.1](https://github.com/zyfra/Prizm) (27-11-2024)
 
 ### Bug fixes

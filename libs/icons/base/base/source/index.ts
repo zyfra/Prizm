@@ -469,6 +469,7 @@ export { prizmIconsLetterHour } from './letter-hour/prizmIcons-letter-hour.icon'
 export { prizmIconsLetterMinute } from './letter-minute/prizmIcons-letter-minute.icon';
 export { prizmIconsLetterMonth } from './letter-month/prizmIcons-letter-month.icon';
 export { prizmIconsLetterSecond } from './letter-second/prizmIcons-letter-second.icon';
+export { prizmIconsLetterTimeUtc } from './letter-time-utc/prizmIcons-letter-time-utc.icon';
 export { prizmIconsLetterTime } from './letter-time/prizmIcons-letter-time.icon';
 export { prizmIconsLetterYear } from './letter-year/prizmIcons-letter-year.icon';
 export { prizmIconsLibraryPlus } from './library-plus/prizmIcons-library-plus.icon';

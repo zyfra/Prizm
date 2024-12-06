@@ -218,8 +218,8 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
 
   private initControlListener(): void {
     if (!this.ngControl?.control) {
-      // Update clear button state in case of setup without `NG_CONTROL` directive applied (i.e. just native input)
-      const unlisten = this.renderer2_.listen(this._inputValue, 'input', () => this.updateEmptyState());
+      // Update clear button state and hint in case of setup without `NG_CONTROL` directive applied (i.e. just native input)
+      const unlisten = this.renderer2_.listen(this._inputValue, 'input', () => this.updateValue(this.value));
       this.destroy.addCallback(unlisten);
       return;
     }

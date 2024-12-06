@@ -470,6 +470,7 @@ export const PRIZM_FULL_ICONS_NAMES = [
   'letter-minute',
   'letter-month',
   'letter-second',
+  'letter-time-utc',
   'letter-time',
   'letter-year',
   'library-plus',

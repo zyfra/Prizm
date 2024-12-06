@@ -1,0 +1,18 @@
+<prizm-time-picker
+  [minTime]="minTime"
+  [maxTime]="maxTime"
+  (timeChanged)="timeChanged($event)"
+  (canceled)="canceled()"
+></prizm-time-picker>
+
+<br />
+<br />
+
+time: {{ time | json }}
+<br />
+
+minTime {{ minTime | json }}
+
+<br />
+
+maxTime {{ maxTime | json }}
