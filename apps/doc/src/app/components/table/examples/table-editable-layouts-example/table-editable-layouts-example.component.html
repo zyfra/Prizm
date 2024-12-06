@@ -1,0 +1,100 @@
+<prizm-scrollbar class="scrollable" visibility="hidden">
+  <table class="table" [columns]="columns" prizmTable>
+    <thead>
+      <tr prizmThGroup>
+        <th *prizmHead="'code'" [resizable]="true" [sorter]="null" prizmTh>Код</th>
+        <th *prizmHead="'name'" [resizable]="true" prizmTh>Наименование</th>
+        <th *prizmHead="'category'" [resizable]="true" prizmTh>Категория</th>
+        <th *prizmHead="'date'" [resizable]="true" prizmTh>Дата</th>
+        <th class="head__actions" *prizmHead="'actions'" [sorter]="null" prizmTh></th>
+      </tr>
+    </thead>
+
+    <tbody [data]="products" prizmTbody>
+      <tr
+        class="row"
+        *prizmRow="let item of products; let i = index"
+        [active]="selectedItemsCodes.includes(item.code)"
+        [class.row_edit]="currentEditableRow === item"
+        (click)="selectRow($event, item.code, currentEditableRow === item)"
+        prizmTr
+      >
+        <td class="format__number" *prizmCell="'code'" [status]="item.status ?? 'default'" prizmTd>
+          {{ item.code | spaceNumber : '0.0-0' }}
+        </td>
+        <td *prizmCell="'name'" [status]="item.status ?? 'default'" prizmTd>
+          <prizm-input-layout prizmInputLayoutInserted>
+            <input
+              [disabled]="currentEditableRow !== item"
+              [value]="item.name"
+              [prizmHintCanShow]="true"
+              (click)="$event.stopPropagation()"
+              (blur)="changeItemName($event, 'name')"
+              prizmInput
+            />
+          </prizm-input-layout>
+        </td>
+        <td *prizmCell="'category'" [status]="item.status ?? 'default'" prizmTd prizmDropdownHost>
+          <prizm-input-layout prizmInputLayoutInserted>
+            <prizm-input-select
+              [disabled]="currentEditableRow !== item"
+              [ngModel]="item.category"
+              [items]="categories"
+              (ngModelChange)="changeByValue($event, 'category')"
+            >
+            </prizm-input-select>
+          </prizm-input-layout>
+        </td>
+        <td *prizmCell="'date'" [status]="item.status ?? 'default'" prizmTd>
+          <prizm-input-layout prizmInputLayoutInserted>
+            <prizm-input-layout-date
+              [disabled]="currentEditableRow !== item"
+              [ngModel]="$any(item.date)"
+              (ngModelChange)="changeByValue($event, 'date')"
+              (click)="$event.stopPropagation()"
+            ></prizm-input-layout-date>
+          </prizm-input-layout>
+        </td>
+        <td *prizmCell="'actions'" [status]="item.status ?? 'default'" prizmTd>
+          <div class="edit-buttons-container" (click)="$event.stopPropagation()">
+            <button
+              *ngIf="currentEditableRow !== item"
+              (click)="onRowEditInit(item)"
+              appearance="secondary"
+              icon="pencil"
+              prizmIconButton
+              appearanceType="ghost"
+              size="s"
+            ></button>
+            <button
+              *ngIf="currentEditableRow === item"
+              (click)="onRowEditSave()"
+              appearance="secondary"
+              icon="circle-check-empty"
+              prizmIconButton
+              appearanceType="ghost"
+              size="s"
+            ></button>
+            <button
+              *ngIf="currentEditableRow === item"
+              (click)="onRowEditCancel(item)"
+              appearance="secondary"
+              icon="xmark"
+              prizmIconButton
+              appearanceType="ghost"
+              size="s"
+            ></button>
+            <button
+              (click)="onRowDelete(item)"
+              appearance="secondary"
+              icon="trash-empty"
+              prizmIconButton
+              appearanceType="ghost"
+              size="s"
+            ></button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</prizm-scrollbar>

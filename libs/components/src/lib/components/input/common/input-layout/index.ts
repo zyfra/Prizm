@@ -4,3 +4,4 @@ export * from './input-layout-left.directive';
 export * from './input-layout-subtext.directive';
 export * from './input-layout-in-body.directive';
 export * from './input-layout.component';
+export * from './input-layout-inserted.directive';

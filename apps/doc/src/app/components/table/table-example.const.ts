@@ -1,3 +1,4 @@
+import { PrizmDay } from '@prizm-ui/components';
 import { ITableProduct } from './examples/table-basic-example/table-basic-example.component';
 
 export const TABLE_EXAMPLE_TREE_DATA_1: ITableProduct[] = [
@@ -6,30 +7,35 @@ export const TABLE_EXAMPLE_TREE_DATA_1: ITableProduct[] = [
     name: 'Name 1',
     category: 'Premium',
     count: 3000,
+    date: new PrizmDay(2023, 1, 12),
     children: [
       {
         code: '1_1',
         name: 'Name 1_1',
         category: 'Premium',
         count: 2000,
+        date: new PrizmDay(2029, 10, 15),
         children: [
           {
             code: '1_1_1',
             name: 'Name 1_1_1',
             category: 'Premium',
             count: 500,
+            date: new PrizmDay(2013, 2, 5),
           },
           {
             code: '1_1_2',
             name: 'Name 1_1_2',
             category: 'Premium',
             count: 500,
+            date: new PrizmDay(2019, 9, 26),
           },
           {
             code: '1_1_3',
             name: 'Name 1_1_3',
             category: 'Premium',
             count: 100,
+            date: new PrizmDay(2015, 1, 10),
           },
         ],
       },
@@ -38,6 +44,7 @@ export const TABLE_EXAMPLE_TREE_DATA_1: ITableProduct[] = [
         name: 'Name 1_2',
         category: 'Premium',
         count: 1000,
+        date: new PrizmDay(2022, 4, 7),
       },
     ],
   },
@@ -47,30 +54,35 @@ export const TABLE_EXAMPLE_TREE_DATA_1: ITableProduct[] = [
     category: 'Active',
     count: 123,
     status: 'success',
+    date: new PrizmDay(2003, 7, 7),
     children: [
       {
         code: '2_1',
         name: 'Name 2_1',
         category: 'Premium',
         count: 2000,
+        date: new PrizmDay(2002, 10, 10),
         children: [
           {
             code: '2_1_1',
             name: 'Name 2_1_1',
             category: 'Premium',
             count: 500,
+            date: new PrizmDay(2024, 4, 13),
           },
           {
             code: '2_1_2',
             name: 'Name 2_1_2',
             category: 'Premium',
             count: 500,
+            date: new PrizmDay(2023, 10, 2),
           },
           {
             code: '2_1_3',
             name: 'Name 2_1_3',
             category: 'Premium',
             count: 100,
+            date: new PrizmDay(2022, 11, 11),
           },
         ],
       },
@@ -79,6 +91,7 @@ export const TABLE_EXAMPLE_TREE_DATA_1: ITableProduct[] = [
         name: 'Name 2_2',
         category: 'Premium',
         count: 1000,
+        date: new PrizmDay(2018, 5, 28),
       },
     ],
   },
@@ -90,6 +103,7 @@ export const TABLE_EXAMPLE_DATA_1: ITableProduct[] = [
     name: 'Name 1',
     category: 'Premium',
     count: 3000,
+    date: new PrizmDay(2017, 10, 19),
   },
   {
     code: '2',
@@ -97,6 +111,7 @@ export const TABLE_EXAMPLE_DATA_1: ITableProduct[] = [
     category: 'Active',
     count: 123,
     status: 'success',
+    date: new PrizmDay(2020, 11, 15),
   },
   {
     code: '3',
@@ -104,12 +119,14 @@ export const TABLE_EXAMPLE_DATA_1: ITableProduct[] = [
     category: 'Sport',
     count: 56000,
     status: 'success',
+    date: new PrizmDay(2019, 11, 12),
   },
   {
     code: '4',
     name: 'Name 4',
     category: 'Sport+',
     count: 539,
+    date: new PrizmDay(2024, 1, 12),
   },
   {
     code: '5',
@@ -117,12 +134,14 @@ export const TABLE_EXAMPLE_DATA_1: ITableProduct[] = [
     category: 'Premium',
     count: 23,
     status: 'danger',
+    date: new PrizmDay(2010, 10, 10),
   },
   {
     code: '6',
     name: 'Name 6',
     category: 'Premium',
     count: 99,
+    date: new PrizmDay(2005, 3, 23),
   },
   {
     code: '7',
@@ -130,24 +149,28 @@ export const TABLE_EXAMPLE_DATA_1: ITableProduct[] = [
     category: 'Premium',
     count: 23,
     status: 'warning',
+    date: new PrizmDay(2004, 5, 14),
   },
   {
     code: '8',
     name: 'Name 8 that will be the longest name ever',
     category: 'Premium',
     count: 99,
+    date: new PrizmDay(2007, 6, 27),
   },
   {
     code: '9',
     name: 'Name 5',
     category: 'Premium',
     count: 23,
+    date: new PrizmDay(2020, 10, 22),
   },
   {
     code: '10',
     name: 'Name 6',
     category: 'Premium',
     count: 99,
+    date: new PrizmDay(2023, 10, 22),
   },
 ];
 
@@ -157,12 +180,14 @@ export const TABLE_EXAMPLE_DATA_2: ITableProduct[] = [
     name: 'Name 1',
     category: 'Premium',
     count: 3000,
+    date: new PrizmDay(2024, 1, 12),
   },
   {
     code: '452346',
     name: 'Name 2',
     category: 'Active',
     count: 123,
+    date: new PrizmDay(2020, 8, 8),
   },
   {
     code: '78292',
@@ -170,6 +195,7 @@ export const TABLE_EXAMPLE_DATA_2: ITableProduct[] = [
     category: 'Sport',
     count: 500,
     status: 'danger',
+    date: new PrizmDay(2019, 4, 12),
   },
   {
     code: '1532254',
@@ -177,6 +203,7 @@ export const TABLE_EXAMPLE_DATA_2: ITableProduct[] = [
     category: 'Sport+',
     count: 579,
     status: 'danger',
+    date: new PrizmDay(2016, 2, 17),
   },
   {
     code: '16704',
@@ -184,12 +211,14 @@ export const TABLE_EXAMPLE_DATA_2: ITableProduct[] = [
     category: 'Premium',
     count: 213,
     status: 'danger',
+    date: new PrizmDay(2023, 7, 9),
   },
   {
     code: '3482',
     name: 'Name 623',
     category: 'Premium',
     count: 199,
+    date: new PrizmDay(2018, 11, 4),
   },
   {
     code: '123412',
@@ -197,6 +226,7 @@ export const TABLE_EXAMPLE_DATA_2: ITableProduct[] = [
     category: 'Premium',
     count: 231,
     status: 'warning',
+    date: new PrizmDay(2024, 1, 1),
   },
 ];
 
@@ -206,12 +236,14 @@ export const TABLE_EXAMPLE_DATA_SEARCH: ITableProduct[] = [
     name: 'Углексилый газ',
     category: 'Premium',
     count: 99,
+    date: new PrizmDay(2022, 2, 7),
   },
   {
     code: '1',
     name: 'Полиуретан',
     category: 'Premium',
     count: 3000,
+    date: new PrizmDay(2021, 9, 9),
   },
   {
     code: '2',
@@ -219,6 +251,7 @@ export const TABLE_EXAMPLE_DATA_SEARCH: ITableProduct[] = [
     category: 'Active',
     count: 123,
     status: 'success',
+    date: new PrizmDay(2020, 7, 1),
   },
   {
     code: '3',
@@ -226,12 +259,14 @@ export const TABLE_EXAMPLE_DATA_SEARCH: ITableProduct[] = [
     category: 'Sport',
     count: 56000,
     status: 'success',
+    date: new PrizmDay(2021, 9, 12),
   },
   {
     code: '4',
     name: 'Пропант',
     category: 'Sport+',
     count: 539,
+    date: new PrizmDay(2012, 10, 29),
   },
   {
     code: '5',
@@ -239,12 +274,14 @@ export const TABLE_EXAMPLE_DATA_SEARCH: ITableProduct[] = [
     category: 'Premium',
     count: 23,
     status: 'danger',
+    date: new PrizmDay(2021, 8, 10),
   },
   {
     code: '6',
     name: 'Полиуретан',
     category: 'Premium',
     count: 99,
+    date: new PrizmDay(2022, 5, 14),
   },
   {
     code: '7',
@@ -252,17 +289,20 @@ export const TABLE_EXAMPLE_DATA_SEARCH: ITableProduct[] = [
     category: 'Premium',
     count: 23,
     status: 'warning',
+    date: new PrizmDay(2019, 7, 12),
   },
   {
     code: '9',
     name: 'Водород',
     category: 'Premium',
     count: 23,
+    date: new PrizmDay(2023, 11, 12),
   },
   {
     code: '10',
     name: 'Компаунд',
     category: 'Premium',
     count: 99,
+    date: new PrizmDay(2023, 1, 12),
   },
 ];

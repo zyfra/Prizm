@@ -10,6 +10,8 @@ import {
   PrizmColumnSettingsComponent,
   PrizmDropdownHostComponent,
   PrizmDropdownHostModule,
+  PrizmInputLayoutDateComponent,
+  PrizmInputLayoutInsertedDirective,
   PrizmInputTextModule,
   PrizmLoaderComponent,
   PrizmPaginatorComponent,
@@ -47,6 +49,7 @@ import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/
 import { PrizmStickyHeaderPipe } from './examples/table-column-settings-example/pipes/header-sticky-pipe.pipe';
 import { TableTrackByExampleComponent } from './examples/table-track-by-example/table-track-by-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { TableEditableLayoutsExampleComponent } from './examples/table-editable-layouts-example/table-editable-layouts-example.component';
 
 @NgModule({
   declarations: [
@@ -77,6 +80,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     TableColumnSettingsExampleComponent,
     PrizmStickyColumnPipe,
     PrizmStickyHeaderPipe,
+    TableEditableLayoutsExampleComponent,
   ],
   imports: [
     CommonModule,
@@ -100,6 +104,8 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmWidgetComponent,
     PrizmColumnSettingsComponent,
     PrizmIconsFullComponent,
+    PrizmInputLayoutInsertedDirective,
+    PrizmInputLayoutDateComponent,
   ],
 })
 export class TableExampleModule {}

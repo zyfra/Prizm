@@ -31,7 +31,6 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckFill,
   prizmIconsCircleExclamationFill,
-  prizmIconsCircleInfoFill,
   prizmIconsDeleteContent,
   prizmIconsTempChevronsDropdownSmall,
   prizmIconsTriangleExclamationFill,
@@ -52,6 +51,7 @@ export type PrizmInputLayoutClearButtonContext = {
     './input-layout.component.less',
     './input-layout-hidden-control.component.less',
     './input-layout-textarea.component.less',
+    './input-layout-inserted.component.less',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property

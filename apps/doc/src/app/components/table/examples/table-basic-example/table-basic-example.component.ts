@@ -1,5 +1,5 @@
 import { Component, ChangeDetectionStrategy } from '@angular/core';
-import { PrizmTableCellStatus } from '@prizm-ui/components';
+import { PrizmDay, PrizmTableCellStatus } from '@prizm-ui/components';
 import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
 
 export interface ITableProduct {
@@ -10,6 +10,7 @@ export interface ITableProduct {
   category: string;
   count: number;
   children?: ITableProduct[];
+  date: PrizmDay;
 }
 
 @Component({
