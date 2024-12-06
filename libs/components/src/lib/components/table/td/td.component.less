@@ -36,6 +36,10 @@
     padding: 0;
   }
 
+  &:has([prizmInputLayoutInserted].disabled) {
+    padding-right: 22px;
+  }
+
   &:has([prizmInput]:focus),
   &:has([prizmInputLayoutInserted]:focus) {
     background-color: var(--prizm-background-fill-primary);
