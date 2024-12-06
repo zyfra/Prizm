@@ -27,6 +27,7 @@
             <input
               [disabled]="currentEditableRow !== item"
               [value]="item.name"
+              [prizmHintCanShow]="true"
               (click)="$event.stopPropagation()"
               (blur)="changeItemName($event, 'name')"
               prizmInput

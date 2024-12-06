@@ -1,6 +1,13 @@
 :host.prizm-input-layout-inserted {
   width: 100%;
 
+  .prizm-input-form-disabled {
+    ::ng-deep [prizmInputIconButton] {
+      display: flex;
+      visibility: hidden;
+    }
+  }
+
   &.has-hidden-control .prizm-input-form-inner-container {
     padding: 0;
   }
