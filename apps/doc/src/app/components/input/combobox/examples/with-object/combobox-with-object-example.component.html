@@ -1,0 +1,29 @@
+<prizm-input-layout label="Validators">
+  <prizm-combobox
+    [items]="items"
+    [valueTemplate]="valueTemplate"
+    [formControl]="valueControl"
+    [identityMatcher]="identityMatcher"
+    [stringify]="stringify"
+    [searchMatcher]="searchMatcher"
+  >
+  </prizm-combobox>
+</prizm-input-layout>
+<br />
+<br />
+<div>
+  <button (click)="setDefaultValue()">
+    Set default value: <b>{{ items[0].name | json }}</b>
+  </button>
+</div>
+
+<br />
+<br />
+<div>Current value: {{ valueControl.value | json }}</div>
+
+<ng-template #valueTemplate let-value let-stringify="stringify">
+  <div class="item">
+    <prizm-icons-full name="user-check"></prizm-icons-full>
+    <span>{{ stringify }}</span>
+  </div>
+</ng-template>

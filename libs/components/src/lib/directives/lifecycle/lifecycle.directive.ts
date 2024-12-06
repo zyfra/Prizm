@@ -1,10 +1,12 @@
 import {
   AfterContentInit,
   AfterViewInit,
+  booleanAttribute,
   Directive,
   ElementRef,
   EventEmitter,
   Inject,
+  Input,
   OnDestroy,
   OnInit,
   Output,
@@ -31,6 +33,10 @@ export class PrizmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy
   @Output()
   readonly prizmOnDestroy = new EventEmitter<ElementRef>();
 
+  @Input({
+    transform: booleanAttribute,
+  })
+  prizmLifecycleDisabled = false;
   private readonly afterViewInitSource$ = new ReplaySubject(1);
   readonly afterViewInit$ = this.afterViewInitSource$.pipe(debounceTime(0));
 
@@ -40,19 +46,23 @@ export class PrizmLifecycleDirective implements AfterViewInit, OnInit, OnDestroy
   ) {}
 
   ngAfterViewInit(): void {
+    if (this.prizmLifecycleDisabled) return;
     this.prizmAfterViewInit.next(this.element);
     this.afterViewInitSource$.next(this.element);
   }
 
   ngAfterContentInit(): void {
+    if (this.prizmLifecycleDisabled) return;
     this.prizmAfterContentInit.next(this.element);
   }
 
   ngOnDestroy(): void {
+    if (this.prizmLifecycleDisabled) return;
     this.prizmOnDestroy.next(this.element);
   }
 
   ngOnInit(): void {
+    if (this.prizmLifecycleDisabled) return;
     this.prizmOnInit.next(this.element);
   }
 }
