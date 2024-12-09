@@ -32,7 +32,12 @@
   background: inherit;
   color: inherit;
 
-  &:has([prizmInput]:focus) {
+  &:has([prizmInputLayoutInserted]) {
+    padding: 0;
+  }
+
+  &:has([prizmInput]:focus),
+  &:has([prizmInputLayoutInserted]:focus) {
     background-color: var(--prizm-background-fill-primary);
     box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-active) inset;
   }
@@ -41,7 +46,9 @@
     background: var(--prizm-status-success-secondary-default);
 
     &:has([prizmInput]:not(:disabled)):hover,
-    &:has([prizmInput]:focus) {
+    &:has([prizmInput]:focus),
+    &:has([prizmInputLayoutInserted]:not(.disabled)):hover,
+    &:has([prizmInputLayoutInserted]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-status-success-primary-default) inset;
     }
   }
@@ -49,7 +56,8 @@
   &[status='default'] {
     background: inherit;
 
-    &:has([prizmInput]:not(:focus):not(:disabled)):hover {
+    &:has([prizmInput]:not(:focus):not(:disabled)):hover,
+    &:has([prizmInputLayoutInserted]:not(:focus):not(.disabled)):hover {
       box-shadow: 0 0 0 1px var(--prizm-table-stroke-cell-hover) inset;
     }
   }
@@ -58,7 +66,9 @@
     background: var(--prizm-status-warning-secondary-default);
 
     &:has([prizmInput]:not(:disabled)):hover,
-    &:has([prizmInput]:focus) {
+    &:has([prizmInput]:focus),
+    &:has([prizmInputLayoutInserted]:not(.disabled)):hover,
+    &:has([prizmInputLayoutInserted]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-status-warning-primary-default) inset;
     }
   }
@@ -67,7 +77,9 @@
     background: var(--prizm-status-alarm-secondary-default);
 
     &:has([prizmInput]:not(:disabled)):hover,
-    &:has([prizmInput]:focus) {
+    &:has([prizmInput]:focus),
+    &:has([prizmInputLayoutInserted]:not(.disabled)):hover,
+    &:has([prizmInputLayoutInserted]:focus) {
       box-shadow: 0 0 0 1px var(--prizm-status-alarm-primary-default) inset;
     }
   }

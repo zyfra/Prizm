@@ -31,7 +31,6 @@ import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckFill,
   prizmIconsCircleExclamationFill,
-  prizmIconsCircleInfoFill,
   prizmIconsDeleteContent,
   prizmIconsTempChevronsDropdownSmall,
   prizmIconsTriangleExclamationFill,
@@ -52,6 +51,7 @@ export type PrizmInputLayoutClearButtonContext = {
     './input-layout.component.less',
     './input-layout-hidden-control.component.less',
     './input-layout-textarea.component.less',
+    './input-layout-inserted.component.less',
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   // eslint-disable-next-line @angular-eslint/no-host-metadata-property
@@ -115,12 +115,7 @@ export class PrizmInputLayoutComponent
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
-    if (this.disabled) return false;
-    return typeof this.forceClear === 'boolean'
-      ? this.forceClear
-      : this.control.hasClearButton &&
-          !this.letDirective?.context?.disabled &&
-          !this.letDirective?.context?.empty;
+    return typeof this.forceClear === 'boolean' ? this.forceClear : this.control.hasClearButton;
   }
 
   @ContentChild(PrizmInputControl, { static: true }) control!: PrizmInputControl<any>;
