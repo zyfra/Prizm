@@ -115,12 +115,7 @@ export class PrizmInputLayoutComponent
 
   public readonly label$ = new BehaviorSubject<string | null>(null);
   get showClearButton(): boolean {
-    if (this.disabled) return false;
-    return typeof this.forceClear === 'boolean'
-      ? this.forceClear
-      : this.control.hasClearButton &&
-          !this.letDirective?.context?.disabled &&
-          !this.letDirective?.context?.empty;
+    return typeof this.forceClear === 'boolean' ? this.forceClear : this.control.hasClearButton;
   }
 
   @ContentChild(PrizmInputControl, { static: true }) control!: PrizmInputControl<any>;
