@@ -8,5 +8,5 @@ import { UntypedFormControl, Validators } from '@angular/forms';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputNumberBasicExampleComponent {
-  public requiredInputControl = new UntypedFormControl(2, Validators.required);
+  public requiredInputControl = new UntypedFormControl(2);
 }
