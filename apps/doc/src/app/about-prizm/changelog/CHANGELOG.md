@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file.
 - feat(doc/live-demo): add support for signal output events
 - feat(chore): auto release and commits abilities
 - feat(helpers): added disabled attribute to control emits for lifecycle directive
+- feat(doc): change specific v4 version like 4.8.0 to v4
 
 ### Bug fixes
 
