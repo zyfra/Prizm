@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import { PrizmShadowType, PrizmShadowTypeEnum } from '@prizm-ui/components';
-import { PrizmDocCodeDemoService } from '../../code-demo/code-demo.service';
 
 @Component({
   selector: 'prizm-card-example',
@@ -29,5 +28,10 @@ export class CardComponent {
   readonly exampleBase: TuiDocExample = {
     TypeScript: import('./examples/base/card-base-example.component.ts?raw'),
     HTML: import('./examples/base/card-base-example.component.html?raw'),
+  };
+
+  readonly exampleProvider: TuiDocExample = {
+    TypeScript: import('./examples/shadow-provider/card-shadow-provider-example.component.ts?raw'),
+    HTML: import('./examples/shadow-provider/card-shadow-provider-example.component.html?raw'),
   };
 }
