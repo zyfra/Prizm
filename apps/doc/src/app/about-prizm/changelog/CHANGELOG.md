@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file.
 ### Features
 
 - feat(components/input-layout): added prizmInputLayoutInserted directive to support input layouts in tables #276 #408
+- feat(components/input-layout): changed logic for hiding clear button #276 #408
 - feat(components/date-relative): changed time to icon to new #1479
 - feat(icons): added new icon for time letter #1479
 - feat(local): disabled set generator for icons
