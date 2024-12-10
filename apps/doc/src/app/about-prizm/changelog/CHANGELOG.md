@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - feat(chore): auto release and commits abilities
 - feat(helpers): added disabled attribute to control emits for lifecycle directive
 - feat(doc): change specific v4 version like 4.8.0 to v4
+- feat(nxmv): added new input for vars from config
 
 ### Bug fixes
 
