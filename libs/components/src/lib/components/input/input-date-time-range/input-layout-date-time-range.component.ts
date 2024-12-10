@@ -34,7 +34,7 @@ import { PRIZM_DATE_TEXTS, PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE, PRIZM_TIME_TEXTS 
 import { PRIZM_DATE_TIME_RANGE_VALUE_TRANSFORMER } from '../../../tokens/date-inputs-value-transformers';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { filterTruthy, PrizmDestroyService, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
@@ -53,11 +53,7 @@ import { PrizmDateTimeMinMax } from './model';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { CommonModule } from '@angular/common';
 import { PrizmMaskModule } from '../../../modules';
-import {
-  PolymorphOutletDirective,
-  PrizmLifecycleDirective,
-  PrizmValueAccessorModule,
-} from '../../../directives';
+import { PrizmLifecycleDirective, PrizmValueAccessorModule } from '../../../directives';
 import { PrizmDataListComponent } from '../../data-list';
 import { PrizmInputLayoutTimeModule } from '../input-time';
 import { PrizmInputTextModule } from '../input-text';
@@ -96,14 +92,10 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
     PrizmMaskModule,
     PrizmInputZoneModule,
     PrizmLifecycleDirective,
-    PrizmLetDirective,
-    PrizmDataListComponent,
     PrizmInputLayoutTimeModule,
-    PolymorphOutletDirective,
     PrizmInputTextModule,
     PrizmDropdownHostComponent,
     PrizmCalendarRangeComponent,
-    PrizmValueAccessorModule,
     FormsModule,
     PrizmTimeConstraintsPipe,
     PrizmPluckPipe,

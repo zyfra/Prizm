@@ -41,12 +41,8 @@ import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/hel
 import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective } from '../common';
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
-import { PrizmLifecycleModule } from '../../../directives/lifecycle';
-import { PolymorphOutletDirective } from '../../../directives/polymorph';
-import {
-  PrizmInputNativeValueModule,
-  PrizmInputNativeValueNeedChange,
-} from '../../../directives/native-value';
+import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
+import { PrizmInputNativeValueNeedChange } from '../../../directives/native-value';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host/dropdown-host.component';
@@ -54,8 +50,6 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PrizmDataListComponent } from '../../data-list/data-list.component';
 import { PrizmCalendarComponent } from '../../calendar';
-import { PrizmLinkComponent } from '../../link';
-import { PrizmValueAccessorModule } from '../../../directives/value-accessor/value-accessor.module';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
 import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
@@ -97,16 +91,12 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     ReactiveFormsModule,
     PrizmMaskModule,
     PrizmDataListComponent,
-    PolymorphOutletDirective,
     PrizmInputZoneModule,
     FormsModule,
-    PrizmLifecycleModule,
+    PrizmLifecycleDirective,
     PrizmPreventDefaultDirective,
     PrizmCalendarComponent,
-    PrizmLinkComponent,
     PrizmDropdownHostComponent,
-    PrizmValueAccessorModule,
-    PrizmInputNativeValueModule,
     PrizmListingItemComponent,
     PrizmPluckPipe,
     PrizmTimeConstraintsPipe,
@@ -446,7 +436,10 @@ export class PrizmInputLayoutDateTimeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
-    if (!open) this.completeDateIfAreNotPending();
+    if (!open) {
+      this.month = null;
+      this.completeDateIfAreNotPending();
+    }
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
