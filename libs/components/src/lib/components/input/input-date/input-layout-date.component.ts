@@ -225,6 +225,7 @@ export class PrizmInputLayoutDateComponent extends PrizmInputNgControl<PrizmDay 
 
   public onOpenChange(open: boolean): void {
     this.open = open;
+    if (!this.open) this.month = null;
     this.changeDetectorRef.markForCheck();
   }
 

@@ -5,7 +5,11 @@ import { RouterModule } from '@angular/router';
 import { InputLayoutDateTimeRangeComponent } from './input-layout-date-time-range.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutDateTimeRangeBaseExampleComponent } from './examples/base/input-layout-date-time-range-base-example.component';
-import { PolymorphModule, PrizmInputLayoutDateTimeRangeModule } from '@prizm-ui/components';
+import {
+  PolymorphModule,
+  PrizmButtonComponent,
+  PrizmInputLayoutDateTimeRangeModule,
+} from '@prizm-ui/components';
 import { PrizmInputLayoutDateTimeRangeDisabledExampleComponent } from './examples/disabled/input-layout-date-time-range-disabled-example.component';
 import { PrizmInputNativeDateRangeBaseExampleComponent } from './examples/native-date/input-native-date-time-range-base-example.component';
 import { PrizmInputLayoutDateTimeRangeFormGroupExampleComponent } from './examples/form-group/input-layout-date-time-range-form-group-example.component';
@@ -18,6 +22,7 @@ import { PrizmInputLayoutDateTimeRangeFormGroupExampleComponent } from './exampl
     ReactiveFormsModule,
     PolymorphModule,
     PrizmInputLayoutDateTimeRangeModule,
+    PrizmButtonComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateTimeRangeComponent)),
   ],
   declarations: [
