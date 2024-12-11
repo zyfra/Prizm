@@ -109,6 +109,7 @@
             *ngSwitchCase="true"
             [interactive]="true"
             [class.alone]="!showStatusButton"
+            [class.force-clear]="forceClear"
             [disabled]="$.disabled"
             [prizmInputIconButton]="$any(clearButton) ?? 'delete-content'"
             [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
