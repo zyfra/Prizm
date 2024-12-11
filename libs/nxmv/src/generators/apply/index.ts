@@ -144,6 +144,7 @@ async function processFiles(
             let fileContent = tree.read(filePath)?.toString();
 
             const allVariables = {
+              ...(version.vars ?? {}),
               ...varsPassedByCommand,
               ...(version.consts ?? {}),
             };

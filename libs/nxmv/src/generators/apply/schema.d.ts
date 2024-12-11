@@ -16,7 +16,10 @@ export type PrizmNxMvConfigVersion = {
   projects: string[];
   remove?: string[];
   project: string;
+  /* constants cannot be replaced with from command line */
   consts?: Record<string, string | number>;
+  /* variables may be replaced with from command line */
+  vars?: Record<string, string | number>;
 };
 export interface PrizmNxMvConfig {
   versions: {

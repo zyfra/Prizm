@@ -18,7 +18,6 @@ import { PrizmDestroyService, prizmFormatNumber } from '@prizm-ui/helpers';
 import { fromEvent, merge, Subject } from 'rxjs';
 import { map, takeUntil, tap, throttleTime } from 'rxjs/operators';
 import { PrizmDecimal } from '@prizm-ui/core';
-import { PrizmHintDirective } from '../../../directives';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsMinus, prizmIconsPlus } from '@prizm-ui/icons/full/source';
 
@@ -224,6 +223,7 @@ export class PrizmInputNumberComponent extends PrizmInputControl<number> impleme
     this.ngControl?.statusChanges
       ?.pipe(
         tap(() => {
+          this.inputHint?.updateHint();
           this.stateChanges.next();
         }),
         takeUntil(this.destroy$)
