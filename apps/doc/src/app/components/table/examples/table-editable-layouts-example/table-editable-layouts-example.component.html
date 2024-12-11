@@ -23,7 +23,7 @@
           {{ item.code | spaceNumber : '0.0-0' }}
         </td>
         <td *prizmCell="'name'" [status]="item.status ?? 'default'" prizmTd>
-          <prizm-input-layout prizmInputLayoutInserted>
+          <prizm-input-layout [inserted]="true">
             <input
               [disabled]="currentEditableRow !== item"
               [value]="item.name"
@@ -35,7 +35,7 @@
           </prizm-input-layout>
         </td>
         <td *prizmCell="'category'" [status]="item.status ?? 'default'" prizmTd prizmDropdownHost>
-          <prizm-input-layout prizmInputLayoutInserted>
+          <prizm-input-layout [inserted]="true">
             <prizm-input-select
               [disabled]="currentEditableRow !== item"
               [ngModel]="item.category"
@@ -46,7 +46,7 @@
           </prizm-input-layout>
         </td>
         <td *prizmCell="'date'" [status]="item.status ?? 'default'" prizmTd>
-          <prizm-input-layout prizmInputLayoutInserted>
+          <prizm-input-layout [inserted]="true">
             <prizm-input-layout-date
               [disabled]="currentEditableRow !== item"
               [ngModel]="$any(item.date)"

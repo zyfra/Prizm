@@ -88,6 +88,11 @@ export class PrizmInputLayoutComponent
   @Input() border = true;
   @Input() position: PrizmInputPosition = 'left';
   @Input() forceClear: boolean | null = null;
+
+  @HostBinding('class.prizm-input-layout-inserted')
+  @Input()
+  inserted: boolean | null = null;
+
   @Output() clear = new EventEmitter<MouseEvent>();
 
   @ViewChild(PrizmLetDirective) letDirective!: PrizmLetDirective<{
