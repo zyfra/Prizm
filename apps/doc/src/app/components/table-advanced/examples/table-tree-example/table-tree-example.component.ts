@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PrizmTableCellStatus, prizmTableDefaultColumnSort } from '@prizm-ui/components';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
-import { TABLE_EXAMPLE_TREE_DATA_1 } from '../../table-example.const';
+import { TABLE_EXAMPLE_TREE_DATA_1 } from '../../table-advanced-example.const';
 
 export interface ITableProduct {
   id?: number | string;

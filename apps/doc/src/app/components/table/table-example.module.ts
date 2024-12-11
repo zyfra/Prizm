@@ -34,30 +34,16 @@ import { TableSearchExampleComponent } from './examples/table-search-example/tab
 import { TableBorderStyleExampleComponent } from './examples/table-border-style-example/table-border-style-example.component';
 import { TableSelectableMetaExampleComponent } from './examples/table-selectable-meta/table-selectable-meta-example.component';
 import { TableSortExampleComponent } from './examples/table-sort-example/table-sort-example.component';
-import { TableServerSortExampleComponent } from './examples/table-server-sort-example/table-server-sort-example.component';
 import { TableEmptyExampleComponent } from './examples/table-empty-example/table-empty-example.component';
 import { TableLoadingExampleComponent } from './examples/table-loading-example/table-loading-example.component';
-import { TableStickyExampleComponent } from './examples/table-sticky-example/table-sticky-example.component';
 import { TableDataSourceExampleComponent } from './examples/table-data-source-example/table-data-source-example.component';
-import { TableDynamicDynamicRowGroupExampleComponent } from './examples/table-dynamic-row-group-example/table-dynamic-row-group-example.component';
-import { TableInheritColsExampleComponent } from './examples/table-inherit-cols/table-inherit-cols-example.component';
-import { TableIndexExampleComponent } from './examples/table-index-example/table-index-example.component';
-import { TableTreePaginationExampleComponent } from './examples/table-tree-pagination-example/table-tree-pagination-example.component';
-import { TableTreeExampleComponent } from './examples/table-tree-example/table-tree-example.component';
 import { TableColumnSettingsExampleComponent } from './examples/table-column-settings-example/table-column-settings-example.component';
 import { PrizmStickyColumnPipe } from './examples/table-column-settings-example/pipes/column-sticky-pipe.pipe';
 import { PrizmStickyHeaderPipe } from './examples/table-column-settings-example/pipes/header-sticky-pipe.pipe';
-import { TableTrackByExampleComponent } from './examples/table-track-by-example/table-track-by-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
-import { TableEditableLayoutsExampleComponent } from './examples/table-editable-layouts-example/table-editable-layouts-example.component';
 
 @NgModule({
   declarations: [
-    TableTrackByExampleComponent,
-    TableTreeExampleComponent,
-    TableIndexExampleComponent,
-    TableTreePaginationExampleComponent,
-    TableInheritColsExampleComponent,
     TableExampleComponent,
     TableBasicExampleComponent,
     TableLoadingExampleComponent,
@@ -68,19 +54,14 @@ import { TableEditableLayoutsExampleComponent } from './examples/table-editable-
     TableFilterExampleComponent,
     TableStatusExampleComponent,
     TableSortExampleComponent,
-    TableServerSortExampleComponent,
     TableDataSourceExampleComponent,
     TableRowGroupExampleComponent,
     TableSearchExampleComponent,
     TableBorderStyleExampleComponent,
-    TableTreePaginationExampleComponent,
-    TableStickyExampleComponent,
     TableSelectableMetaExampleComponent,
-    TableDynamicDynamicRowGroupExampleComponent,
     TableColumnSettingsExampleComponent,
     PrizmStickyColumnPipe,
     PrizmStickyHeaderPipe,
-    TableEditableLayoutsExampleComponent,
   ],
   imports: [
     CommonModule,

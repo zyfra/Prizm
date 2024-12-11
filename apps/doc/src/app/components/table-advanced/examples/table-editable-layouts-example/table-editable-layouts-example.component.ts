@@ -1,6 +1,5 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
-import { ITableProduct } from '../table-basic-example/table-basic-example.component';
-import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
+import { TABLE_EXAMPLE_DATA_1 } from '../../table-advanced-example.const';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
   prizmIconsCircleCheckEmpty,
@@ -8,6 +7,7 @@ import {
   prizmIconsTrashEmpty,
   prizmIconsXmark,
 } from '@prizm-ui/icons/full/source';
+import { ITableProduct } from '../../table-advanced-example.component';
 
 @Component({
   selector: 'prizm-table-editable-layouts-example',

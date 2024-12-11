@@ -532,6 +532,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'Table Advanced',
+    keywords: 'table, таблица',
+    route: '/components/table-advanced',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Panel',
     keywords: 'panel, панель, header, хэдер',
     route: '/components/panel',
@@ -1303,6 +1309,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'Table',
     keywords: 'table',
     route: '/components/table',
+  },
+  {
+    section: SectionNameEnglishEnum.components,
+    title: 'Table Advanced',
+    keywords: 'table, advanced',
+    route: '/components/table-advanced',
   },
   {
     section: SectionNameEnglishEnum.components,
