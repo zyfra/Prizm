@@ -21,7 +21,7 @@ export class PrizmSelectBaseExampleComponent {
     'Three',
     'Very long text with a lot of characters and spaces and other stuff and things',
   ];
-  readonly control = new UntypedFormControl(this.items[1], [Validators.required]);
+  readonly control = new UntypedFormControl(null, [Validators.required]);
 
   public setDefaultValue(): void {
     this.control.setValue(this.items[0], { emitEvent: false });

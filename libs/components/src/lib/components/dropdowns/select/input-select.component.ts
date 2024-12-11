@@ -80,6 +80,7 @@ import {
   PrizmDropdownControllerModule,
   PrizmHintDirective,
   PrizmLifecycleDirective,
+  PrizmLifecycleModule,
 } from '../../../directives';
 import { PrizmIconComponent } from '../../icon';
 import { PrizmDataListComponent } from '../../data-list';
@@ -99,27 +100,23 @@ import { prizmI18nInitWithKey } from '../../../services';
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
   imports: [
-    PrizmOverlayComponent,
-    PrizmInputSelectOptionDirective,
     PolymorphOutletDirective,
     PrizmInputTextModule,
     PrizmChipsModule,
+    PrizmLifecycleModule,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
     PrizmLetDirective,
     PrizmAutoFocusModule,
-    PrizmHintDirective,
     PrizmIconComponent,
     PrizmCallFuncPipe,
-    PrizmScrollbarDirective,
     PrizmDropdownControllerModule,
     PrizmLifecycleDirective,
     PrizmDataListComponent,
     PrizmSelectInputItemComponent,
     PrizmDropdownHostComponent,
     PrizmToObservablePipe,
-    PrizmInputSelectOptionDirective,
   ],
   providers: [
     {
@@ -349,7 +346,6 @@ export class PrizmSelectInputComponent<T> extends PrizmInputNgControl<T> impleme
   }
 
   public select(item: T): void {
-    this.markAsTouched();
     const selectedValue = item && this.transformer(item);
     if (!this.identityMatcher(selectedValue, this.value)) {
       this.updateValue(selectedValue);
