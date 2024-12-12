@@ -1,116 +1,65 @@
 <prizm-doc-page header="Table" package="UI">
-  <div class="page-description" description>
-    Our table component is a powerful tool for displaying data in a tabular format.
-  </div>
+  <div class="page-description" description>Table advanced examples.</div>
   <ng-template prizmDocPageTab>
-    <prizm-doc-example id="base" [stackblitzVersions]="null" [content]="exampleBasicTable" heading="Base">
-      <prizm-table-basic-example></prizm-table-basic-example>
-    </prizm-doc-example>
-
     <prizm-doc-example
-      id="borderStyle"
+      id="dynamic-row-group"
       [stackblitzVersions]="null"
-      [content]="exampleBorderStyleTable"
-      heading="Border styles"
+      [content]="exampleDynamicRowGroupTable"
+      heading="Dynamic table row group"
     >
-      <prizm-table-border-style-example></prizm-table-border-style-example>
+      <prizm-table-dynamic-row-group-example></prizm-table-dynamic-row-group-example>
     </prizm-doc-example>
 
     <prizm-doc-example
-      id="status"
+      id="editableLayouts"
       [stackblitzVersions]="null"
-      [content]="exampleStatusTable"
-      heading="Table with row&cell statuses"
+      [content]="exampleEditableLayoutsTable"
+      heading="Editable row with input layouts"
     >
-      <prizm-table-status-example></prizm-table-status-example>
+      <prizm-table-editable-layouts-example></prizm-table-editable-layouts-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="index" [stackblitzVersions]="null" [content]="exampleIndexTable" heading="Index">
+      <prizm-table-index-example></prizm-table-index-example>
     </prizm-doc-example>
 
     <prizm-doc-example
-      id="selectable"
+      id="inherit-cols"
       [stackblitzVersions]="null"
-      [content]="exampleSelectableTable"
-      heading="Selectable"
+      [content]="exampleInheritColsTable"
+      heading="Inherit Cols"
     >
-      <prizm-table-selectable-example></prizm-table-selectable-example>
+      <prizm-inherit-cols-basic-example></prizm-inherit-cols-basic-example>
+    </prizm-doc-example>
+
+    <prizm-doc-example id="server-sort" [content]="exampleServerSortTable" heading="Server Sort">
+      <prizm-table-server-sort-example></prizm-table-server-sort-example>
     </prizm-doc-example>
 
     <prizm-doc-example
-      id="multi-meta-select"
-      [content]="exampleSelectableMetaTable"
-      heading="Multi select with meta"
-    >
-      <prizm-table-selectable-meta-example></prizm-table-selectable-meta-example>
-    </prizm-doc-example>
-
-    <prizm-doc-example
-      id="rowGroup"
+      id="sticky"
       [stackblitzVersions]="null"
-      [content]="exampleRowGroupTable"
-      heading="Table row group"
+      [content]="exampleStickyTable"
+      heading="Sticky"
     >
-      <prizm-table-row-group-example></prizm-table-row-group-example>
+      <prizm-table-sticky-example></prizm-table-sticky-example>
     </prizm-doc-example>
 
     <prizm-doc-example
-      id="filter"
+      id="track-by"
       [stackblitzVersions]="null"
-      [content]="exampleFilterTable"
-      heading="Filter"
+      [content]="exampleTrackBy"
+      heading="Track By"
     >
-      <prizm-table-filter-example></prizm-table-filter-example>
+      <prizm-table-track-by-example></prizm-table-track-by-example>
     </prizm-doc-example>
 
-    <prizm-doc-example
-      id="search"
-      [stackblitzVersions]="null"
-      [content]="exampleSearchTable"
-      heading="Search"
-    >
-      <prizm-table-search-example></prizm-table-search-example>
+    <prizm-doc-example id="tree" [stackblitzVersions]="null" [content]="exampleTreeTable" heading="Tree">
+      <prizm-table-tree-example></prizm-table-tree-example>
     </prizm-doc-example>
 
-    <prizm-doc-example id="sort" [stackblitzVersions]="null" [content]="exampleSortTable" heading="Base Sort">
-      <prizm-table-sort-example></prizm-table-sort-example>
-    </prizm-doc-example>
-
-    <prizm-doc-example
-      id="datasource"
-      [stackblitzVersions]="null"
-      [content]="exampleDataSourceTable"
-      heading="Sort, Search, Pagination"
-    >
-      <prizm-table-data-source-example></prizm-table-data-source-example>
-    </prizm-doc-example>
-
-    <prizm-doc-example
-      id="editableCol"
-      [stackblitzVersions]="null"
-      [content]="exampleEditableColTable"
-      heading="Editable col"
-    >
-      <prizm-table-editable-col-example></prizm-table-editable-col-example>
-    </prizm-doc-example>
-
-    <prizm-doc-example
-      id="editableRow"
-      [stackblitzVersions]="null"
-      [content]="exampleEditableRowTable"
-      heading="Editable row"
-    >
-      <prizm-table-editable-row-example></prizm-table-editable-row-example>
-    </prizm-doc-example>
-
-    <prizm-doc-example id="empty" [stackblitzVersions]="null" [content]="exampleEmptyTable" heading="Empty">
-      <prizm-table-empty-example></prizm-table-empty-example>
-    </prizm-doc-example>
-
-    <prizm-doc-example
-      id="column-settings"
-      [stackblitzVersions]="null"
-      [content]="exampleColumnSettingsTable"
-      heading="Column settings"
-    >
-      <prizm-table-column-settings-example></prizm-table-column-settings-example>
+    <prizm-doc-example id="tree-pagination" [content]="exampleTreePaginationTable" heading="Tree pagination">
+      <prizm-table-tree-pagination-example></prizm-table-tree-pagination-example>
     </prizm-doc-example>
   </ng-template>
 

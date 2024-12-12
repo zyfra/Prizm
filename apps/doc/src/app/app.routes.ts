@@ -700,6 +700,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/table-advanced',
+    loadChildren: () =>
+      import('./components/table-advanced/table-advenced-example.module').then(
+        i => i.TableAdvancedExampleModule
+      ),
+    data: {
+      title: 'Table',
+    },
+  },
+  {
     path: 'components/accordion',
     loadChildren: () =>
       import('./components/accordion/accordion-example.module').then(i => i.AccordionExampleModule),
