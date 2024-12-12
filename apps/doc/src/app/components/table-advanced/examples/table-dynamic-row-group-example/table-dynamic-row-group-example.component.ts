@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { PrizmTableCellStatus } from '@prizm-ui/components';
-import { TABLE_EXAMPLE_DATA_1 } from '../../table-example.const';
+import { TABLE_EXAMPLE_DATA_1 } from '../../table-advanced-example.const';
 
 export interface ITableProduct {
   id?: number | string;
