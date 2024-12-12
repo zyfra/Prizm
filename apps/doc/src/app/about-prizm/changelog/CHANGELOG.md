@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file.
 - feat(helpers): added disabled attribute to control emits for lifecycle directive
 - feat(doc): change specific v4 version like 4.8.0 to v4
 - feat(nxmv): added new input for vars from config
+- feat(doc/table): add advanced table examples page
 
 ### Bug fixes
 
