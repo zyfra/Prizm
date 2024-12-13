@@ -24,7 +24,6 @@
           <input
             [disabled]="currentEditableRow !== item"
             [value]="item.name"
-            (click)="$event.stopPropagation()"
             (blur)="changeItemName($event, 'name')"
             prizmInput
           />
@@ -43,7 +42,6 @@
             class="format__number"
             [disabled]="currentEditableRow !== item"
             [value]="$any(item.count)"
-            (click)="$event.stopPropagation()"
             (blur)="changeItemName($event, 'count')"
             prizmInput
           />
