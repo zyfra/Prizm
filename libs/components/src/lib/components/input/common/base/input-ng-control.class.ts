@@ -20,7 +20,7 @@ export abstract class PrizmInputNgControl<T>
   readonly layoutComponent?: PrizmInputLayoutComponent | null;
   private previousInternalValue$$ = new BehaviorSubject<T | null>(null);
   onChange: (val: T) => void = PRIZM_EMPTY_FUNCTION;
-  onTouch: (val: T) => void = PRIZM_EMPTY_FUNCTION;
+  onTouch: () => void = PRIZM_EMPTY_FUNCTION;
   onTouched = PRIZM_EMPTY_FUNCTION;
   protected readonly focusableElement?: ElementRef<HTMLInputElement> | any;
 
