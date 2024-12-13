@@ -8,6 +8,7 @@
   [appearance]="appearanceDirective.appearance"
   [class.switcher_active_disabled]="isActive && isDisabled"
   [pseudoPressed]="isActive"
+  type="button"
   prizmButton
 >
   <div #prizmHasValue="prizmHasValue" prizmHasValue>
@@ -24,6 +25,7 @@
     [size]="size"
     [appearanceType]="appearanceTypeDirective.appearanceType"
     [appearance]="appearanceDirective.appearance"
+    type="button"
     prizmIconButton
   ></button>
 </ng-container>
