@@ -25,6 +25,8 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/toast): toast content width changed #305
 - fix(components/input): correction input hint behavior for input without ng-control #1966
+- fix(components/input-number): correction input hint behavior
+- fix(components/input-chips): correction input hint behavior
 - fix(components/tabs): autoscrolling to selected tab in dropdown added #1962
 - fix(ci): for 5 and 4 versions publisher did not work
 - fix(chore): stackblitz did not work
