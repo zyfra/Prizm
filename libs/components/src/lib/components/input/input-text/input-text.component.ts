@@ -12,12 +12,10 @@ import {
   Input,
   OnDestroy,
   OnInit,
-  Optional,
   Output,
   Renderer2,
-  Self,
 } from '@angular/core';
-import { FormControl, NgControl, Validators } from '@angular/forms';
+import { NgControl, Validators } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { PrizmInputControl } from '../common/base/input-control.class';
@@ -194,7 +192,7 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   public ngOnInit(): void {
-    if (this.ngControl) this.initControlListener();
+    this.initControlListener();
     this.inputHint?.updateHint();
     this.safeClearNgxMaskListener();
   }
@@ -234,6 +232,13 @@ export class PrizmInputTextComponent<VALUE extends string | number | null = stri
   }
 
   private initControlListener(): void {
+    if (!this.ngControl?.control) {
+      // Update clear button state and hint in case of setup without `NG_CONTROL` directive applied (i.e. just native input)
+      const unlisten = this.renderer2_.listen(this._inputValue, 'input', () => this.updateValue(this.value));
+      this.destroy.addCallback(unlisten);
+      return;
+    }
+
     this.ngControl?.statusChanges
       ?.pipe(
         tap(() => {
