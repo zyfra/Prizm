@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { CardComponent } from './card.component';
 import { PrizmCardBaseExampleComponent } from './examples/base/card-base-example.component';
 import { PrizmCardComponent } from '@prizm-ui/components';
+import { PrizmCardShadowProviderExampleComponent } from './examples/shadow-provider/card-shadow-provider-example.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { PrizmCardComponent } from '@prizm-ui/components';
     PrizmCardComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(CardComponent)),
   ],
-  declarations: [PrizmCardBaseExampleComponent, CardComponent],
+  declarations: [PrizmCardBaseExampleComponent, CardComponent, PrizmCardShadowProviderExampleComponent],
   exports: [CardComponent],
 })
 export class CardModule {}
