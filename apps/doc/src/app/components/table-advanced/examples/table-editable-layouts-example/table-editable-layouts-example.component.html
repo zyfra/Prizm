@@ -28,7 +28,6 @@
               [disabled]="currentEditableRow !== item"
               [value]="item.name"
               [prizmHintCanShow]="true"
-              (click)="$event.stopPropagation()"
               (blur)="changeItemName($event, 'name')"
               prizmInput
             />
@@ -51,7 +50,6 @@
               [disabled]="currentEditableRow !== item"
               [ngModel]="$any(item.date)"
               (ngModelChange)="changeByValue($event, 'date')"
-              (click)="$event.stopPropagation()"
             ></prizm-input-layout-date>
           </prizm-input-layout>
         </td>
