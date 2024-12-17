@@ -5,7 +5,7 @@
   [canOpen]="!disabled"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   [content]="$any(getTemplate(dropdownTimeTemplate, dropdownDateTemplate))"
-  [prizmDropdownHostWidth]="openTimeTemplate ? '100%' : 'auto'"
+  [prizmDropdownHostWidth]="openTimeTemplate && !timePickerTemplate ? '100%' : 'auto'"
   [isOpen]="!disabled && (openTimeTemplate || open)"
   [closeByEsc]="true"
   (isOpenChange)="onOpenChange($event); $event && prizmDropdownHostComponent.reCalculatePositions()"
@@ -105,15 +105,16 @@
     (prizmAfterViewInit)="markAsTouched(); prizmDropdownHostComponent.reCalculatePositions()"
     (prizmOnDestroy)="openTimeTemplate = false"
     prizmLifecycle
-  >
-    <ng-container>
-      <prizm-listing-item
-        *ngFor="let item of timeItems | prizmTimeConstraints : calendarValue : _min : _max; let idx = index"
-        [selected]="value?.[1] && item.isSameTime($any(value?.[1]))"
-        (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
-      >
-        {{ item }}
-      </prizm-listing-item>
+    ><ng-container *polymorphOutlet="timePickerTemplate">
+      <ng-container>
+        <prizm-listing-item
+          *ngFor="let item of timeItems | prizmTimeConstraints : calendarValue : _min : _max; let idx = index"
+          [selected]="value?.[1] && item.isSameTime($any(value?.[1]))"
+          (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"
+        >
+          {{ item }}
+        </prizm-listing-item>
+      </ng-container>
     </ng-container>
   </prizm-data-list>
 </ng-template>
