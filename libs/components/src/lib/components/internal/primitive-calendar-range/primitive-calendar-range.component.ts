@@ -25,6 +25,7 @@ import { PrizmMapper } from '../../../types/mapper';
 import { PrizmMarkerHandler } from '../../../types/marker-handler';
 import { PrizmAbstractTestId } from '../../../abstract/interactive';
 import { PrizmRangeState } from '../../../@core/enums';
+import { PrizmDateTimeRange } from '../../../@core';
 
 /**
  * @internal
@@ -85,19 +86,19 @@ export class PrizmPrimitiveCalendarRangeComponent extends PrizmAbstractTestId im
     @Inject(PrizmDestroyService) destroy$: PrizmDestroyService
   ) {
     super();
-    if (!valueChanges) {
-      return;
-    }
 
-    valueChanges
-      .pipe(
-        tap(() => changeDetectorRef.markForCheck()),
-        takeUntil(destroy$)
-      )
-      .subscribe(value => {
-        this.value = value;
-        this.updateViewedMonths();
-      });
+    if (valueChanges) {
+      valueChanges
+        .pipe(
+          tap(value => {
+            this.value = value instanceof PrizmDateTimeRange ? value.dayRange : value;
+            this.updateViewedMonths();
+          }),
+          tap(() => changeDetectorRef.markForCheck()),
+          takeUntil(destroy$)
+        )
+        .subscribe();
+    }
   }
 
   get cappedUserViewedMonthSecond(): PrizmMonth {

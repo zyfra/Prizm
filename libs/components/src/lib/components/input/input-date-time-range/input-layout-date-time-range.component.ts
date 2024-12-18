@@ -63,6 +63,7 @@ import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/s
 import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
+import { PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS } from './input-date-range-time.providers';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -84,6 +85,7 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateTimeRangeComponent },
+    ...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
   ],
   standalone: true,
   imports: [
