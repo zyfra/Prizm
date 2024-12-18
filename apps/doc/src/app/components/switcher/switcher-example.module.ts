@@ -25,12 +25,7 @@ import { SwitcherProjectionExampleComponent } from './examples/switcher-projecti
 import { SwitcherProjectionValueExampleComponent } from './examples/switcher-projection-value-example/switcher-projection-value-example.component';
 import { SwitcherBasicValueExampleComponent } from './examples/switcher-basic-value-example/switcher-basic-value-example.component';
 import { SwitcherOverflowExampleComponent } from './examples/switcher-overflow-example/switcher-overflow-example.component';
-import {
-  PrizmCallFuncPipe,
-  PrizmContextGetByKysPipe,
-  PrizmOverflowHostDirective,
-  PrizmOverflowItemDirective,
-} from '@prizm-ui/helpers';
+import { PrizmOverflowHostDirective, PrizmOverflowItemDirective } from '@prizm-ui/helpers';
 
 @NgModule({
   declarations: [
