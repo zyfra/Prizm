@@ -8,3 +8,7 @@
   <div>max: {{ max?.toString() ?? '' }}</div>
   <div>value: {{ value?.value?.toString() ?? '' }}</div>
 </div>
+
+<br />
+<button (click)="setDefaultValue()" prizmButton>Set default value</button>
+<button (click)="clear()" prizmButton>Clear</button>

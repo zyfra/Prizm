@@ -17,6 +17,10 @@ import { tap } from 'rxjs/operators';
         display: flex;
         gap: 1rem;
       }
+
+      [prizmButton] {
+        margin-right: 24px;
+      }
     `,
   ],
 })
@@ -26,7 +30,7 @@ export class PrizmInputLayoutDateTimeRangeBaseExampleComponent implements OnInit
   );
 
   public min: PrizmDateTime = new PrizmDateTime(new PrizmDay(2018, 1, 1), new PrizmTime(10, 0));
-  public max: PrizmDateTime = new PrizmDateTime(new PrizmDay(2025, 10, 10), new PrizmTime(18, 30));
+  public max: PrizmDateTime = new PrizmDateTime(new PrizmDay(2029, 10, 10), new PrizmTime(18, 30));
 
   private readonly destroy = inject(DestroyRef);
   ngOnInit() {
@@ -38,5 +42,15 @@ export class PrizmInputLayoutDateTimeRangeBaseExampleComponent implements OnInit
         takeUntilDestroyed(this.destroy)
       )
       .subscribe();
+  }
+
+  public setDefaultValue(): void {
+    this.value.setValue(
+      new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2028, 2, 10), new PrizmDay(2028, 4, 10)))
+    );
+  }
+
+  public clear(): void {
+    this.value.setValue(null);
   }
 }

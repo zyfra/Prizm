@@ -42,11 +42,7 @@ import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective }
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
-import { PolymorphOutletDirective } from '../../../directives/polymorph';
-import {
-  PrizmInputNativeValueDirective,
-  PrizmInputNativeValueNeedChange,
-} from '../../../directives/native-value';
+import { PrizmInputNativeValueNeedChange } from '../../../directives/native-value';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host/dropdown-host.component';
@@ -54,8 +50,6 @@ import { PrizmInputTextModule } from '../input-text/input-text.module';
 import { PrizmMaskModule } from '../../../modules/mask/mask.module';
 import { PrizmDataListComponent } from '../../data-list/data-list.component';
 import { PrizmCalendarComponent } from '../../calendar';
-import { PrizmLinkComponent } from '../../link';
-import { PrizmValueAccessorDirective } from '../../../directives/value-accessor/value-accessor.directive';
 import { PrizmListingItemComponent } from '../../listing-item';
 import { PrizmPreventDefaultDirective } from '../../../directives';
 import { PrizmLanguageInputLayoutDateTime } from '@prizm-ui/i18n';
@@ -97,16 +91,12 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     ReactiveFormsModule,
     PrizmMaskModule,
     PrizmDataListComponent,
-    PolymorphOutletDirective,
     PrizmInputZoneModule,
     FormsModule,
     PrizmLifecycleDirective,
     PrizmPreventDefaultDirective,
     PrizmCalendarComponent,
-    PrizmLinkComponent,
     PrizmDropdownHostComponent,
-    PrizmValueAccessorDirective,
-    PrizmInputNativeValueDirective,
     PrizmListingItemComponent,
     PrizmPluckPipe,
     PrizmTimeConstraintsPipe,
@@ -446,7 +436,10 @@ export class PrizmInputLayoutDateTimeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
-    if (!open) this.completeDateIfAreNotPending();
+    if (!open) {
+      this.month = null;
+      this.completeDateIfAreNotPending();
+    }
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {
