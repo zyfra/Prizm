@@ -28,8 +28,8 @@ import {
   PrizmStringifyDirective,
 } from '@prizm-ui/helpers';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
-import { AsyncPipe, NgFor, NgIf, NgTemplateOutlet } from '@angular/common';
-import { PrizmElementReadyDirective, PrizmHintDirective, PrizmLifecycleDirective } from '../../directives';
+import { AsyncPipe, NgFor, NgIf } from '@angular/common';
+import { PrizmHintDirective } from '../../directives';
 import { PrizmChipsItemComponent } from './chips-item';
 import { PrizmInputLayoutComponent } from '../input';
 
@@ -51,12 +51,9 @@ import { PrizmInputLayoutComponent } from '../input';
   imports: [
     NgIf,
     NgFor,
-    NgTemplateOutlet,
     AsyncPipe,
     PrizmChipsItemComponent,
     PrizmCallFuncPipe,
-    PrizmLifecycleDirective,
-    PrizmElementReadyDirective,
     PrizmLetDirective,
     PrizmHintDirective,
     PrizmOverflowItemDirective,
