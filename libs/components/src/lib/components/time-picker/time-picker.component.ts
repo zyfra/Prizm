@@ -7,7 +7,6 @@ import {
   input,
   output,
   signal,
-  untracked,
 } from '@angular/core';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
