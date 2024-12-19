@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4.0](https://github.com/zyfra/Prizm) (09-12-2024)
+
+### Features
+
+- feat(components/input-layout): added prizmInputLayoutInserted directive to support input layouts in tables #276 #408
+- feat(components/input-layout): changed logic for hiding clear button #276 #408
+- feat(components/date-relative): changed time to icon to new #1479
+- feat(icons): added new icon for time letter #1479
+- feat(local): disabled set generator for icons
+- feat(components/combobox): new component combobox #906
+- feat(helpers/lifecycle): added input to disable emits
+- feat(components/time-picker): add new component #2103
+- feat(doc/live-demo): add support for signal output events
+- feat(chore): auto release and commits abilities
+- feat(helpers): added disabled attribute to control emits for lifecycle directive
+- feat(doc): change specific v4 version like 4.8.0 to v4
+- feat(nxmv): added new input for vars from config
+- feat(doc/table): add advanced table examples page
+
+### Bug fixes
+
+- fix(components/toast): toast content width changed #305
+- fix(components/input): correction input hint behavior for input without ng-control #1966
+- fix(components/input-number): correction input hint behavior
+- fix(components/input-chips): correction input hint behavior
+- fix(components/tabs): autoscrolling to selected tab in dropdown added #1962
+- fix(ci): for 5 and 4 versions publisher did not work
+- fix(chore): stackblitz did not work
+
 ## [5.3.2](https://github.com/zyfra/Prizm) (28-11-2024)
 
 ### Bug fixes

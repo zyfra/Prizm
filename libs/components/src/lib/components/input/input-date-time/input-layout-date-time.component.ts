@@ -92,7 +92,6 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     ReactiveFormsModule,
     PrizmMaskModule,
     PrizmDataListComponent,
-    PolymorphOutletDirective,
     PrizmInputZoneModule,
     FormsModule,
     PrizmLifecycleDirective,
@@ -102,6 +101,7 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     PrizmListingItemComponent,
     PrizmPluckPipe,
     PrizmTimeConstraintsPipe,
+    PolymorphOutletDirective,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
@@ -456,7 +456,10 @@ export class PrizmInputLayoutDateTimeComponent
   public onOpenChange(open: boolean): void {
     this.open = open;
     this.changeDetectorRef.markForCheck();
-    if (!open) this.completeDateIfAreNotPending();
+    if (!open) {
+      this.month = null;
+      this.completeDateIfAreNotPending();
+    }
   }
 
   public override writeValue(value: [PrizmDay | null, PrizmTime | null] | null): void {

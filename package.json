@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "5.3.3",
+  "version": "5.4.0",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -115,12 +115,12 @@
     "@swc-node/register": "1.9.2",
     "@swc/cli": "0.3.12",
     "@swc/core": "1.5.7",
-    "@taiga-ui/addon-doc": "^3.69.0",
-    "@taiga-ui/addon-mobile": "^3.69.0",
-    "@taiga-ui/cdk": "^3.69.0",
-    "@taiga-ui/core": "^3.69.0",
-    "@taiga-ui/icons": "^3.69.0",
-    "@taiga-ui/kit": "^3.69.0",
+    "@taiga-ui/addon-doc": "^3.100.0",
+    "@taiga-ui/addon-mobile": "^3.100.0",
+    "@taiga-ui/cdk": "^3.100.0",
+    "@taiga-ui/core": "^3.100.0",
+    "@taiga-ui/icons": "^3.100.0",
+    "@taiga-ui/kit": "^3.100.0",
     "@types/dompurify": "^2.3.3",
     "@types/jest": "29.4.4",
     "@types/lodash": "^4.14.191",

@@ -10,7 +10,6 @@ import { PRIZM_MONTHS } from '../../../tokens/i18n';
 import { CommonModule } from '@angular/common';
 import { PrizmFocusableDirective } from '../../../directives';
 import { PrizmPrimitiveSpinButtonComponent } from '../primitive-spin-button';
-import { PrizmLinkComponent } from '../../link';
 import { PrizmMonthPipe } from '../../../pipes';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
@@ -26,7 +25,6 @@ import { prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
     CommonModule,
     PrizmFocusableDirective,
     PrizmPrimitiveSpinButtonComponent,
-    PrizmLinkComponent,
     PrizmMonthPipe,
     PrizmIconsFullComponent,
   ],

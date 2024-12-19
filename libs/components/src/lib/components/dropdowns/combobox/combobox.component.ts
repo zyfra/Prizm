@@ -255,7 +255,6 @@ export class PrizmComboboxComponent<T>
 
   public override clear(ev: MouseEvent): void {
     this.userText = null;
-    ev.stopImmediatePropagation();
     this.updateValue(null);
     this.markAsTouched();
     this.changeDetectorRef.markForCheck();
@@ -347,6 +346,11 @@ export class PrizmComboboxComponent<T>
     if (this.disabled) return;
     this.opened$$.next(add);
     this.focused$$.next(add);
+  }
+
+  protected safeOpenClosedModal() {
+    if (this.opened$$.value) return;
+    this.opened$$.next(true);
   }
 
   private clearSearch() {

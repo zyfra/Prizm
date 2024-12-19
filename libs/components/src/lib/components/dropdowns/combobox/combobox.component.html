@@ -53,6 +53,7 @@
         (prizmOnInit)="changeParentFocusedClass(true)"
         (ngModelChange)="searchEmit($event)"
         (focus)="focused$$.next(true)"
+        (keypress)="safeOpenClosedModal()"
         (blur)="onTouch(); focused$$.next(false)"
         prizmAutoFocus
         prizmInput
