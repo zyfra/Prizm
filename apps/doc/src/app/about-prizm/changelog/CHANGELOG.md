@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [4.8.1](https://github.com/zyfra/Prizm)
+
+### Bugfixes
+
+- fix(components/input-layout-date-time): update calendar view after control value changed #2243
+- fix(components/input-layout-date): update calendar view after control value changed #2243
+- fix(components/switcher): add attribute type="button" to switcher button #2254
+- fix(components/tabs): autoscrolling to selected tab in dropdown added #1962
+- fix(components/input): correction input hint behavior for input without ng-control #1966
+- fix(components/input-number): correction input hint behavior
+- fix(components/input-chips): correction input hint behavior
+- fix(components/toast): toast content width changed #305
+- fix(doc): search after first clear did not work #0
+- fix(ci): disabled tests
+- ref(chore): remove package lock template
+
 ## [4.8.0](https://github.com/zyfra/Prizm)
 
 ### Features

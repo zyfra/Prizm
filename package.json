@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "4.8.0",
+  "version": "4.8.1",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -110,7 +110,7 @@
     "@nx/node": "17.2.8",
     "@nx/plugin": "17.2.8",
     "@nx/workspace": "17.2.8",
-    "@prizm-ui/nx-mv": "^5.0.0-rc.1",
+    "@prizm-ui/nx-mv": "^5.4.0",
     "@schematics/angular": "17.0.10",
     "@swc-node/register": "1.6.8",
     "@swc/cli": "~0.1.62",
