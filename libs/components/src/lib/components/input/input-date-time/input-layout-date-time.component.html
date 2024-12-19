@@ -100,12 +100,15 @@
 <ng-template #dropdownTimeTemplate>
   <prizm-data-list
     class="block"
-    *ngIf="timeItems.length"
+    *ngIf="timeItems.length || timePickerTemplate"
     [style.--prizm-data-list-border]="0"
+    [defaultStyle]="!timePickerTemplate"
+    [scroll]="timePickerTemplate ? 'none' : 'auto'"
     (prizmAfterViewInit)="markAsTouched(); prizmDropdownHostComponent.reCalculatePositions()"
     (prizmOnDestroy)="openTimeTemplate = false"
     prizmLifecycle
-    ><ng-container *polymorphOutlet="timePickerTemplate">
+  >
+    <ng-container *polymorphOutlet="timePickerTemplate">
       <ng-container>
         <prizm-listing-item
           *ngFor="let item of timeItems | prizmTimeConstraints : calendarValue : _min : _max; let idx = index"
