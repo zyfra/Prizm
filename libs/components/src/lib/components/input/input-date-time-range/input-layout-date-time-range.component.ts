@@ -53,12 +53,7 @@ import { PrizmDateTimeMinMax } from './model';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { CommonModule } from '@angular/common';
 import { PrizmMaskModule } from '../../../modules';
-import {
-  PolymorphOutletDirective,
-  PrizmLifecycleDirective,
-  PrizmValueAccessorModule,
-} from '../../../directives';
-import { PrizmDataListComponent } from '../../data-list';
+import { PrizmLifecycleDirective } from '../../../directives';
 import { PrizmInputLayoutTimeModule } from '../input-time';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
@@ -68,6 +63,7 @@ import { prizmIconsCalendarRange, prizmIconsClock } from '@prizm-ui/icons/full/s
 import { transformDateIfNeeded } from '../../../@core/date-time/date-transform-util';
 import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-constraints.pipe';
 import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
+import { PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS } from './input-date-range-time.providers';
 
 @Component({
   selector: `prizm-input-layout-date-time-range`,
@@ -89,6 +85,7 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
     },
     PrizmDestroyService,
     { provide: PrizmInputControl, useExisting: PrizmInputLayoutDateTimeRangeComponent },
+    ...PRIZM_INPUT_DATE_TIME_RANGE_PROVIDERS,
   ],
   standalone: true,
   imports: [
@@ -96,14 +93,11 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
     PrizmMaskModule,
     PrizmInputZoneModule,
     PrizmLifecycleDirective,
-    PrizmLetDirective,
-    PrizmDataListComponent,
     PrizmInputLayoutTimeModule,
-    PolymorphOutletDirective,
     PrizmInputTextModule,
     PrizmDropdownHostComponent,
     PrizmCalendarRangeComponent,
-    PrizmValueAccessorModule,
+    PrizmLetDirective,
     FormsModule,
     PrizmTimeConstraintsPipe,
     PrizmPluckPipe,

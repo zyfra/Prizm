@@ -37,7 +37,7 @@ import { PrizmPreventDefaultDirective } from '../../directives';
 import { PrizmCalendarComponent } from '../calendar';
 import { PrizmDataListComponent } from '../data-list';
 import { PrizmPrimitiveCalendarRangeModule } from '../internal';
-import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
 
@@ -55,7 +55,6 @@ import { prizmIconsCheck } from '@prizm-ui/icons/full/source';
     PrizmDataListComponent,
     PrizmPrimitiveCalendarRangeModule,
     PrizmCalendarComponent,
-    PrizmIconsComponent,
     PrizmIconsFullComponent,
   ],
   providers: [...prizmI18nInitWithKey(PRIZM_OTHER_DATE_TEXT, 'otherDate'), PrizmDestroyService],
