@@ -11,8 +11,8 @@
         "nxVersion": "17.2.8"
       },
       "vars": {
-        "version": "4.8.1",
-        "v5version": "5.4.0"
+        "version": "<%= version %>",
+        "v5version": "<%= v5version %>"
       }
     }
   }
