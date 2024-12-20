@@ -1,6 +1,5 @@
 import { InjectionToken, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
-import { PrizmContextWithImplicit } from '../../../types';
 import {
   PrizmComboboxIdentityMatcher,
   PrizmComboboxStringify,

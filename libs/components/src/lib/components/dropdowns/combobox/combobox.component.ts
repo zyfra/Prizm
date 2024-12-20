@@ -25,7 +25,7 @@ import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl, PrizmInputTextModule } from '../../input';
 import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, defer, merge, Observable, of, Subject, timer } from 'rxjs';
+import { BehaviorSubject, defer, isObservable, merge, Observable, of, Subject, timer } from 'rxjs';
 import {
   PrizmComboboxIdentityMatcher,
   PrizmComboboxStringify,
@@ -60,6 +60,7 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
+import { PrizmComboboxMissingValueHandlerDirective } from './combobox-missing-value-handler.directive';
 
 @Component({
   selector: 'prizm-combobox',
@@ -122,6 +123,8 @@ export class PrizmComboboxComponent<T>
   get items(): T[] {
     return this.items$.value;
   }
+
+  @Output() itemsChange = new EventEmitter<T[]>();
 
   @Input()
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
@@ -186,6 +189,7 @@ export class PrizmComboboxComponent<T>
   readonly isNullish = Compare.isNullish;
   protected userText: string | null = null;
   private searchValue!: string;
+  private readonly destroyPrevious$ = new Subject<void>();
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();
@@ -195,6 +199,9 @@ export class PrizmComboboxComponent<T>
     self: true,
   });
   protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  protected readonly missingValueHandlerDirective = inject(PrizmComboboxMissingValueHandlerDirective<T>, {
+    optional: true,
+  });
   constructor(
     @Inject(PRIZM_COMBOBOX_OPTIONS) private readonly options: PrizmComboboxOptions<T>,
     @Inject(Injector) injector: Injector,
@@ -267,8 +274,13 @@ export class PrizmComboboxComponent<T>
 
   private _select(item: T): void {
     this.userText = null;
+    console.log('#mz _select:item', item);
     const selectedValue = item && this.transformer(item);
+    console.log('#mz _select:selectedValue', selectedValue, this.value);
+
     if (!this.identityMatcher(selectedValue, this.value!)) {
+      console.log('#mz _select:updateValue', selectedValue);
+
       this.updateValue(selectedValue);
     }
   }
@@ -287,9 +299,41 @@ export class PrizmComboboxComponent<T>
 
   private updateFromSearch(searchValue: string) {
     const item = this.items.find(item => this.stringify(item)?.toLowerCase() === searchValue.toLowerCase());
-    if (item === this.value) return;
-    if (!item) return void this.updateValue(null);
+    if (item && item === this.value) return;
+
+    if (!item) {
+      console.log('#mz updateFromSearch:1', item);
+      if (!this.hasMissingValueHandler()) return void this.updateValue(null);
+      console.log('#mz updateFromSearch:2', item);
+      return this.addFromMissingValueHandler(searchValue);
+    }
+
     this._select(item);
+  }
+
+  private hasMissingValueHandler() {
+    const missingValueHandler = this.missingValueHandlerDirective?.missingValueHandler;
+    return typeof missingValueHandler === 'function';
+  }
+
+  private addFromMissingValueHandler(searchValue: string) {
+    const missingValueHandler = this.missingValueHandlerDirective!.missingValueHandler;
+
+    const value = missingValueHandler(searchValue);
+
+    this.destroyPrevious$.next();
+
+    defer(() => (isObservable(value) ? value : of(value)))
+      .pipe(
+        tap(item => {
+          this.items = [value, ...this.items];
+          this.itemsChange.next(this.items);
+          this._select(item);
+        }),
+        takeUntil(this.destroy$),
+        takeUntil(this.destroyPrevious$)
+      )
+      .subscribe();
   }
 
   public getValueFromItems(value: T, items: T[]) {

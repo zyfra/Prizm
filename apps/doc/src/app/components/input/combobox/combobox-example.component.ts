@@ -104,6 +104,14 @@ export class ComboboxExampleComponent {
     TypeScript: import('./examples/base/combobox-base-example.component.ts?raw'),
     HTML: import('./examples/base/combobox-base-example.component.html?raw'),
   };
+  readonly exampleMissingValueHandler: TuiDocExample = {
+    TypeScript: import(
+      './examples/missing-value-handler/combobox-missing-value-handler-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/missing-value-handler/combobox-missing-value-handler-example.component.html?raw'
+    ),
+  };
   readonly exampleVirtualScroll: TuiDocExample = {
     TypeScript: import('./examples/virtual-scroll/combobox-virtual-scroll-example.component.ts?raw'),
     HTML: import('./examples/virtual-scroll/combobox-virtual-scroll-example.component.html?raw'),
