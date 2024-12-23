@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.4.1](https://github.com/zyfra/Prizm) (19-12-2024)
+
+### Bug fixes
+
+- fix(components/input-layout-date-time): update calendar view after control value changed #2243
+- fix(doc): search after first clearing did not work #0
+- fix(chore): removed package lock template
+- fix(components/switcher): add attribute type="button" to switcher button #2254
+- fix(components/table): add styles for focus within in inserted inputs
+
 ## [5.4.0](https://github.com/zyfra/Prizm) (09-12-2024)
 
 ### Features
