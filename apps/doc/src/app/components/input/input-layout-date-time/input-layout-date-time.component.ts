@@ -110,4 +110,13 @@ export class InputLayoutDateTimeTimeComponent {
     TypeScript: import('./examples/required/input-layout-date-time-required-example.component.ts?raw'),
     HTML: import('./examples/required/input-layout-date-time-required-example.component.html?raw'),
   };
+
+  public readonly exampleCustomTimePicker: TuiDocExample = {
+    TypeScript: import(
+      './examples/custom-time-picker/input-layout-date-time-custom-time-picker-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/custom-time-picker/input-layout-date-time-custom-time-picker-example.component.html?raw'
+    ),
+  };
 }

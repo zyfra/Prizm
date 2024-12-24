@@ -2,7 +2,7 @@
   class="z-wrapper"
   [canOpen]="interactive && !!filtered.length"
   [content]="dropdownContent"
-  [prizmDropdownHostWidth]="'100%'"
+  [prizmDropdownHostWidth]="!timePickerTemplate ? '100%' : 'auto'"
   [isOpen]="interactive && open && !!filtered.length"
   [closeByEsc]="true"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
@@ -27,14 +27,22 @@
 </prizm-dropdown-host>
 
 <ng-template #dropdownContent>
-  <prizm-data-list class="block" [style.--prizm-data-list-border]="0" (prizmAfterViewInit)="markAsTouched()">
-    <ng-container *ngIf="items?.length">
-      <prizm-listing-item
-        *ngFor="let item of filtered; let idx = index"
-        [selected]="value && item.isSameTime(value)"
-        (click)="onMenuClick(item)"
-        >{{ item }}
-      </prizm-listing-item>
+  <prizm-data-list
+    class="block"
+    [style.--prizm-data-list-border]="0"
+    [defaultStyle]="!timePickerTemplate"
+    [scroll]="timePickerTemplate ? 'none' : 'auto'"
+    (prizmAfterViewInit)="markAsTouched()"
+  >
+    <ng-container *ngIf="items?.length || timePickerTemplate">
+      <ng-container *polymorphOutlet="timePickerTemplate">
+        <prizm-listing-item
+          *ngFor="let item of filtered; let idx = index"
+          [selected]="value && item.isSameTime(value)"
+          (click)="onMenuClick(item)"
+          >{{ item }}
+        </prizm-listing-item>
+      </ng-container>
     </ng-container>
   </prizm-data-list>
 </ng-template>

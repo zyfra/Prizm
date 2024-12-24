@@ -42,6 +42,7 @@ import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective }
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
+import { PolymorphOutletDirective } from '../../../directives/polymorph';
 import { PrizmInputNativeValueNeedChange } from '../../../directives/native-value';
 import { DOCUMENT, NgFor, NgIf } from '@angular/common';
 import { prizmI18nInitWithKeys } from '../../../services';
@@ -100,6 +101,7 @@ import { PrizmTimeConstraintsPipe } from '../../../pipes/time-constraints/time-c
     PrizmListingItemComponent,
     PrizmPluckPipe,
     PrizmTimeConstraintsPipe,
+    PolymorphOutletDirective,
   ],
 })
 export class PrizmInputLayoutDateTimeComponent
@@ -162,6 +164,10 @@ export class PrizmInputLayoutDateTimeComponent
   @prizmDefaultProp()
   timeMode: PrizmTimeMode = `HH:MM`;
 
+  @Input()
+  @prizmDefaultProp()
+  timePickerTemplate: TemplateRef<unknown> | null = null;
+
   override readonly testId_ = 'ui_input_date_time';
 
   public openTimeTemplate = false;
@@ -214,6 +220,20 @@ export class PrizmInputLayoutDateTimeComponent
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
+
+  /**
+   * @public api
+   * */
+  public toggleTimeDropdown(open: boolean): void {
+    this.openTimeDropdown(open);
+  }
+
+  /**
+   * @public api
+   * */
+  public onTimeSelected(time: PrizmTime): void {
+    this.onTimeMenuClick(time);
   }
 
   private completeDateIfAreNotPending() {
@@ -494,9 +514,9 @@ export class PrizmInputLayoutDateTimeComponent
     return this.timeItems.find(item => PRIZM_STRICT_MATCHER(item, value));
   }
 
-  public onTimeMenuClick(item: PrizmTime, ev: Event): void {
-    ev.preventDefault();
-    ev.stopPropagation();
+  public onTimeMenuClick(item: PrizmTime, ev?: Event): void {
+    ev?.preventDefault();
+    ev?.stopPropagation();
 
     // if (!(this.value[1] && item.isSameTime(this.value[1])))
     //   this.onDayClick(this.value[0] ?? PrizmDay.currentLocal(), item);
