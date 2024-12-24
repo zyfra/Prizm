@@ -27,6 +27,6 @@
     [minTime]="$any(control.value && control.value[0].daySame(min[0]) ? min[1] : null)"
     [maxTime]="$any(control.value && control.value[0].daySame(max[0]) ? max[1] : null)"
     (timeChanged)="dateTime.onTimeSelected($event)"
-    (canceled)="dateTime.openTimeDropdown(false)"
+    (canceled)="dateTime.toggleTimeDropdown(false)"
   ></prizm-time-picker>
 </ng-template>

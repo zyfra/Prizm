@@ -1,0 +1,16 @@
+<prizm-input-layout label="Введите время">
+  <prizm-input-layout-time
+    #timeControl
+    [ngModel]="time"
+    [timePickerTemplate]="pickerTemplate"
+  ></prizm-input-layout-time>
+</prizm-input-layout>
+
+<ng-template #pickerTemplate>
+  <prizm-time-picker
+    [timeMode]="'HH:MM'"
+    [time]="time"
+    (timeChanged)="timeControl.onTimeSelected($event)"
+    (canceled)="timeControl.toggleTimeDropdown(false)"
+  ></prizm-time-picker>
+</ng-template>
