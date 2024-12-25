@@ -1,0 +1,55 @@
+<prizm-input-layout label="Выберите период">
+  <prizm-input-layout-date-time-range
+    #dateTime
+    [footerFromTemplate]="footerTemplate"
+    [formControl]="control"
+    [min]="min"
+    [max]="max"
+  >
+  </prizm-input-layout-date-time-range>
+</prizm-input-layout>
+<h3>
+  Value:
+  <b>{{ control.value }}</b>
+</h3>
+
+<pre>
+  min: {{ min.toLocalNativeDate() }}
+  max: {{ max.toLocalNativeDate() }}
+</pre>
+
+<br />
+<button (click)="setDefaultValue()" prizmButton>Set default value</button>
+<button (click)="clear()" prizmButton>Clear</button>
+
+<ng-template #footerTemplateFrom>
+  <prizm-input-layout label="Начало">
+    <prizm-input-layout-time
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [ngModel]="control.value?.timeRange?.from"
+    >
+    </prizm-input-layout-time>
+  </prizm-input-layout>
+</ng-template>
+
+<ng-template #footerTemplate let-value>
+  <prizm-input-layout label="Начало">
+    <prizm-input-layout-time
+      #timeControl
+      [timePickerTemplate]="pickerTemplate"
+      [style.--prizm-dropdown-host-width]="'100%'"
+      [ngModel]="value"
+    >
+    </prizm-input-layout-time>
+  </prizm-input-layout>
+
+  <ng-template #pickerTemplate>
+    <prizm-time-picker
+      [timeMode]="'HH:MM'"
+      [time]="value"
+      (timeChanged)="dateTime.onTimeSelected($event, 'from')"
+    ></prizm-time-picker>
+  </ng-template>
+</ng-template>
+
+(canceled)="dateTime.openTimeDropdown(false)"

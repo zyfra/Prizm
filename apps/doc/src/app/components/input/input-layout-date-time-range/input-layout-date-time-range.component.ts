@@ -83,4 +83,13 @@ export class InputLayoutDateTimeRangeComponent {
     TypeScript: import('./examples/native-date/input-native-date-time-range-base-example.component.ts?raw'),
     HTML: import('./examples/native-date/input-native-date-time-range-base-example.component.html?raw'),
   };
+
+  readonly exampleCustomTimePicker: TuiDocExample = {
+    TypeScript: import(
+      './examples/custom-time-picker/input-layout-date-time-range-custom-time-picker-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/custom-time-picker/input-layout-date-time-range-custom-time-picker-example.component.html?raw'
+    ),
+  };
 }

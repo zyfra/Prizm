@@ -33,7 +33,7 @@ import { PrizmDateMode } from '../../../types/date-mode';
 import { PRIZM_DATE_TEXTS, PRIZM_INPUT_LAYOUT_DATE_TIME_RANGE, PRIZM_TIME_TEXTS } from '../../../tokens/';
 import { PrizmControlValueTransformer } from '../../../types/control-value-transformer';
 import { prizmNullableSame } from '../../../util/common/nullable-same';
-import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
+import { filterTruthy, PrizmDestroyService, PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
 import { PrizmInputControl } from '../common/base/input-control.class';
 import { PrizmInputNgControl } from '../common/base/input-ng-control.class';
 import { debounceTime, delay, distinctUntilChanged, map, share, takeUntil, tap } from 'rxjs/operators';
@@ -52,7 +52,7 @@ import { PrizmDateTimeMinMax } from './model';
 import { prizmI18nInitWithKeys } from '../../../services';
 import { CommonModule } from '@angular/common';
 import { PrizmMaskModule } from '../../../modules';
-import { PrizmLifecycleDirective } from '../../../directives';
+import { PolymorphContent, PolymorphOutletDirective, PrizmLifecycleDirective } from '../../../directives';
 import { PrizmInputLayoutTimeModule } from '../input-time';
 import { PrizmInputTextModule } from '../input-text';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
@@ -99,6 +99,8 @@ import { PrizmLanguageInputLayoutDateTimeRange } from '@prizm-ui/i18n';
     FormsModule,
     PrizmTimeConstraintsPipe,
     PrizmPluckPipe,
+    PrizmLetDirective,
+    PolymorphOutletDirective,
   ],
 })
 export class PrizmInputLayoutDateTimeRangeComponent
@@ -111,11 +113,14 @@ export class PrizmInputLayoutDateTimeRangeComponent
   @ViewChild('focusableElementRef', { read: PrizmInputZoneDirective })
   public override readonly focusableElement?: PrizmInputZoneDirective;
 
-  @ContentChild('footerFrom', { read: TemplateRef })
-  public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;
+  // @ContentChild('footerFrom', { read: TemplateRef })
+  // public readonly footerFromTemplate?: TemplateRef<HTMLInputElement>;
 
-  @ContentChild('footerTo', { read: TemplateRef })
-  public readonly footerToTemplate?: TemplateRef<HTMLInputElement>;
+  @Input() footerFromTemplate: PolymorphContent<{ value: unknown }> | null = null;
+  @Input() footerToTemplate: TemplateRef<HTMLInputElement> | null = null;
+
+  // @ContentChild('footerTo', { read: TemplateRef })
+  // public readonly footerToTemplate?: TemplateRef<HTMLInputElement>;
 
   @Input()
   @prizmDefaultProp()
@@ -311,6 +316,14 @@ export class PrizmInputLayoutDateTimeRangeComponent
       return this.nativeValueTimeTo$$.value || '';
     }
     return val;
+  }
+
+  /**
+   * @public api
+   * */
+
+  public onTimeSelected(value: PrizmTime, control: 'from' | 'to') {
+    control === 'from' ? this.updateTimeFrom(value) : this.updateTimeTo(value);
   }
 
   public onOpenChange(open: boolean): void {

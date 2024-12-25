@@ -118,6 +118,7 @@
   <!--  -->
   <ng-template #dropdown>
     <prizm-calendar-range
+      *prizmLet="dictionary$ | async | prizmPluck : ['time'] as timeStr"
       [style.--prizm-input-layout-width]="'100%'"
       [style.--prizm-dropdown-host-width]="'100%'"
       [defaultViewedMonth]="defaultViewedMonth"
@@ -132,35 +133,38 @@
       (prizmAfterViewInit)="markAsTouched()"
       (valueChange)="onRangeChange($event)"
     >
-      @let timeStr = dictionary$ | async | prizmPluck : 'time';
       <ng-container footerFrom>
-        <prizm-input-layout [label]="timeStr">
-          <prizm-input-layout-time
-            [style.--prizm-dropdown-host-width]="'100%'"
-            [ngModelOptions]="{ standalone: true }"
-            [ngModel]="value?.timeRange?.from"
-            [items]="timeItems | prizmTimeConstraints : $any(value?.dayRange?.from) : _min : _max"
-            [strict]="timeStrict"
-            [mode]="timeMode"
-            (ngModelChange)="updateTimeFrom($event)"
-          >
-          </prizm-input-layout-time>
-        </prizm-input-layout>
+        <ng-container *polymorphOutlet="footerFromTemplate">
+          <prizm-input-layout [label]="timeStr">
+            <prizm-input-layout-time
+              [style.--prizm-dropdown-host-width]="'100%'"
+              [ngModelOptions]="{ standalone: true }"
+              [ngModel]="value?.timeRange?.from"
+              [items]="timeItems | prizmTimeConstraints : $any(value?.dayRange?.from) : _min : _max"
+              [strict]="timeStrict"
+              [mode]="timeMode"
+              (ngModelChange)="updateTimeFrom($event)"
+            >
+            </prizm-input-layout-time>
+          </prizm-input-layout>
+        </ng-container>
       </ng-container>
       <ng-container footerTo>
-        <prizm-input-layout [label]="timeStr">
-          <prizm-input-layout-time
-            [style.--prizm-dropdown-host-width]="'100%'"
-            [ngModelOptions]="{ standalone: true }"
-            [ngModel]="value?.timeRange?.to"
-            [ngModelOptions]="{ standalone: true }"
-            [strict]="timeStrict"
-            [items]="timeItems | prizmTimeConstraints : $any(value?.dayRange?.to) : _min : _max"
-            [mode]="timeMode"
-            (ngModelChange)="updateTimeTo($event)"
-          >
-          </prizm-input-layout-time>
-        </prizm-input-layout>
+        <ng-container *polymorphOutlet="footerToTemplate; context: value">
+          <prizm-input-layout [label]="timeStr">
+            <prizm-input-layout-time
+              [style.--prizm-dropdown-host-width]="'100%'"
+              [ngModelOptions]="{ standalone: true }"
+              [ngModel]="value?.timeRange?.to"
+              [ngModelOptions]="{ standalone: true }"
+              [strict]="timeStrict"
+              [items]="timeItems | prizmTimeConstraints : $any(value?.dayRange?.to) : _min : _max"
+              [mode]="timeMode"
+              (ngModelChange)="updateTimeTo($event)"
+            >
+            </prizm-input-layout-time>
+          </prizm-input-layout>
+        </ng-container>
       </ng-container>
     </prizm-calendar-range>
   </ng-template>

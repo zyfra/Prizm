@@ -9,10 +9,13 @@ import {
   PolymorphModule,
   PrizmButtonComponent,
   PrizmInputLayoutDateTimeRangeModule,
+  PrizmInputLayoutTimeComponent,
+  PrizmTimePickerComponent,
 } from '@prizm-ui/components';
 import { PrizmInputLayoutDateTimeRangeDisabledExampleComponent } from './examples/disabled/input-layout-date-time-range-disabled-example.component';
 import { PrizmInputNativeDateRangeBaseExampleComponent } from './examples/native-date/input-native-date-time-range-base-example.component';
 import { PrizmInputLayoutDateTimeRangeFormGroupExampleComponent } from './examples/form-group/input-layout-date-time-range-form-group-example.component';
+import { PrizmInputLayoutDateTimeRangeCustomTimePickerExampleComponent } from './examples/custom-time-picker/input-layout-date-time-range-custom-time-picker-example.component';
 
 @NgModule({
   imports: [
@@ -23,6 +26,8 @@ import { PrizmInputLayoutDateTimeRangeFormGroupExampleComponent } from './exampl
     PolymorphModule,
     PrizmInputLayoutDateTimeRangeModule,
     PrizmButtonComponent,
+    PrizmTimePickerComponent,
+    PrizmInputLayoutTimeComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateTimeRangeComponent)),
   ],
   declarations: [
@@ -30,6 +35,7 @@ import { PrizmInputLayoutDateTimeRangeFormGroupExampleComponent } from './exampl
     PrizmInputLayoutDateTimeRangeBaseExampleComponent,
     PrizmInputLayoutDateTimeRangeDisabledExampleComponent,
     PrizmInputNativeDateRangeBaseExampleComponent,
+    PrizmInputLayoutDateTimeRangeCustomTimePickerExampleComponent,
     InputLayoutDateTimeRangeComponent,
   ],
   exports: [InputLayoutDateTimeRangeComponent],
