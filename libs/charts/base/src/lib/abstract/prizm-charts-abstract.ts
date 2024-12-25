@@ -5,7 +5,7 @@ import { PrizmChartTheme } from '../theme/types';
 @Component({ template: '' })
 export abstract class PrizmChartsAbstractComponent<
     ORIGIN extends Record<string, any>,
-    OPTIONS extends Record<string, any>
+    OPTIONS extends Record<string, any>,
   >
   extends PrizmAbstractTestId
   implements OnDestroy

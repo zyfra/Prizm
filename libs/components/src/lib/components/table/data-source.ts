@@ -48,7 +48,7 @@ type FilterPredicate<T> = (o: T, index: number) => boolean;
  */
 export class PrizmTableDataSource<
   T,
-  P extends PrizmTableDataSourcePaginator = PrizmTableDataSourcePaginator
+  P extends PrizmTableDataSourcePaginator = PrizmTableDataSourcePaginator,
 > extends DataSource<T> {
   /** Stream that emits when a new data array is set on the data source. */
   private readonly _data: BehaviorSubject<T[]>;

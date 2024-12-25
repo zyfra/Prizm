@@ -14,7 +14,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class PrizmChartsScatterComponent<
-  T extends Record<string, unknown>
+  T extends Record<string, unknown>,
 > extends PrizmChartsAbstractComponent<PrizmChartsScatterOrigin, PrizmChartsScatterOptions> {
   readonly name = 'scatter';
 
@@ -69,7 +69,10 @@ export class PrizmChartsScatterComponent<
   }
   override readonly testId_ = 'ui_charts_scatter';
 
-  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
+  constructor(
+    private readonly elRef: ElementRef<HTMLElement>,
+    private readonly injector: Injector
+  ) {
     super(injector);
     this.prizmChartThemeService.initIfNecessary();
     this.init();

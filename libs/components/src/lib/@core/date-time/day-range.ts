@@ -17,7 +17,10 @@ export const prizmIsDateMode = (dateMode: string): dateMode is PrizmDateMode =>
  * An immutable range of two {@link PrizmDay} objects
  */
 export class PrizmDayRange extends PrizmMonthRange {
-  constructor(override readonly from: PrizmDay, override readonly to: PrizmDay) {
+  constructor(
+    override readonly from: PrizmDay,
+    override readonly to: PrizmDay
+  ) {
     super(from, to);
 
     if (from && to) prizmAssert.assert(from.daySameOrBefore(to));

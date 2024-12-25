@@ -26,6 +26,8 @@ import { PrizmComboboxVirtualScrollExampleComponent } from './examples/virtual-s
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+import { PrizmComboboxMissingValueHandlerExampleComponent } from './examples/missing-value-handler/combobox-missing-value-handler-example.component';
+import { PrizmComboboxAutocompleteModeExampleComponent } from './examples/autocomplete-mode/combobox-autocomplete-mode-example.component';
 
 @NgModule({
   imports: [
@@ -45,6 +47,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmLoaderComponent,
   ],
   declarations: [
+    PrizmComboboxAutocompleteModeExampleComponent,
     PrizmComboboxAsyncExampleComponent,
     PrizmComboboxWithTransformerExampleComponent,
     PrizmComboboxFullWidthExampleComponent,
@@ -57,6 +60,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmComboboxWithListItemTemplateExampleComponent,
     ComboboxExampleComponent,
     PrizmComboboxVirtualScrollExampleComponent,
+    PrizmComboboxMissingValueHandlerExampleComponent,
   ],
   exports: [ComboboxExampleComponent],
 })

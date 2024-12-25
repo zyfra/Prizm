@@ -2,7 +2,7 @@
   <prizm-combobox #input #prizmCombobox="prizmCombobox" [formControl]="control" [items]="items" searchMatcher>
     <prizm-scrollbar *prizmComboboxDataList [visibility]="'visible'">
       <cdk-virtual-scroll-viewport class="scroll" [itemSize]="50" prizmScrollable>
-        <prizm-combobox-item *cdkVirtualFor="let item of prizmCombobox.items" [item]="item">
+        <prizm-combobox-item *cdkVirtualFor="let item of items" [item]="item">
           {{ item }}
         </prizm-combobox-item>
       </cdk-virtual-scroll-viewport>

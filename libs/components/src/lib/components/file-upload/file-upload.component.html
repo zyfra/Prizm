@@ -10,10 +10,10 @@
 
   <div class="dropzone" #dropzone (drop)="onDrop($event)">
     <div class="dropzone__title">
-      {{ translations | prizmPluck : ['dropzone__title'] }}
+      {{ translations | prizmPluck: ['dropzone__title'] }}
     </div>
     <div class="dropzone__description">
-      {{ translations | prizmPluck : ['dropzone__description'] }}
+      {{ translations | prizmPluck: ['dropzone__description'] }}
     </div>
     <div class="dropzone__user-content">
       <ng-content></ng-content>
@@ -22,7 +22,7 @@
     <button
       class="dropzone__file-select"
       [disabled]="disabled || files.length >= calculatedMaxFilesCount"
-      [prizmHint]="translations | prizmPluck : ['btn__select_hint_error']"
+      [prizmHint]="translations | prizmPluck: ['btn__select_hint_error']"
       [prizmHintCanShow]="files.length >= calculatedMaxFilesCount"
       (click)="inputFile.click()"
       type="button"
@@ -31,7 +31,7 @@
       appearance="secondary"
       size="m"
     >
-      {{ translations | prizmPluck : ['btn__select'] }}
+      {{ translations | prizmPluck: ['btn__select'] }}
     </button>
   </div>
 
@@ -41,7 +41,7 @@
         <img
           class="file__image"
           *ngIf="item.value.url; else iconTpl"
-          [src]="item.value.url | prizmSanitizer : 'bypassSecurityTrustResourceUrl'"
+          [src]="item.value.url | prizmSanitizer: 'bypassSecurityTrustResourceUrl'"
         />
 
         <ng-template #iconTpl>
@@ -59,25 +59,25 @@
           <span class="file__extension">{{ item.key | prizmFileExtension }}</span>
         </div>
         <span class="file__size" *prizmLet="item.value.file.size | prizmFileSize as fileSize">
-          {{ fileSize.value + ' ' }} {{ translations | prizmPluck : [fileSize.key] }}
+          {{ fileSize.value + ' ' }} {{ translations | prizmPluck: [fileSize.key] }}
         </span>
       </div>
 
       <div class="file__stage">
-        {{ translations | prizmPluck : [item.value.progress | prizmUploadStatus : item.value.error] }}
+        {{ translations | prizmPluck: [item.value.progress | prizmUploadStatus: item.value.error] }}
       </div>
 
       <div class="file__actions">
         @for (action of actions(item.key); track action.event) {
-        <button
-          [disabled]="!!action.disabled || disabled"
-          [icon]="action.icon"
-          (click)="actionHandler(action.event, item.key)"
-          prizmIconButton
-          appearanceType="ghost"
-          appearance="secondary"
-          size="s"
-        ></button>
+          <button
+            [disabled]="!!action.disabled || disabled"
+            [icon]="action.icon"
+            (click)="actionHandler(action.event, item.key)"
+            prizmIconButton
+            appearanceType="ghost"
+            appearance="secondary"
+            size="s"
+          ></button>
         }
         <button
           class="file__retry-btn"
@@ -105,7 +105,7 @@
 
       <div class="file__progress progress">
         <progress
-          class="progress__bar {{ item.value.progress | prizmUploadStatus : item.value.error }}"
+          class="progress__bar {{ item.value.progress | prizmUploadStatus: item.value.error }}"
           [value]="item.value.progress"
           prizmProgressBar
           max="100"

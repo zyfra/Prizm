@@ -26,7 +26,7 @@
     class="t-row"
     *ngFor="
       let propertyConnector of propertiesConnectors
-        | prizmCallFunc : updateOnChanges : propertiesInnerConnectors
+        | prizmCallFunc: updateOnChanges : propertiesInnerConnectors
         | async;
       let idx = index
     "
@@ -80,7 +80,7 @@
           ></tui-data-list-wrapper>
         </tui-select>
         <ng-template #selectContent let-data>
-          <code>{{ data | prizmCallFunc : inspectAny }}</code>
+          <code>{{ data | prizmCallFunc: inspectAny }}</code>
         </ng-template>
 
         <ng-template #noItems>
@@ -193,7 +193,7 @@
 </ng-container>
 <ng-container *ngIf="control">
   <ng-template
-    [documentationPropertyValue]="control | prizmCallFunc : isTouchedFromControl$ | async"
+    [documentationPropertyValue]="control | prizmCallFunc: isTouchedFromControl$ | async"
     (documentationPropertyValueChange)="setTouched(control, $any($event))"
     documentationPropertyName="touched"
     documentationPropertyType="boolean"
@@ -203,7 +203,7 @@
   </ng-template>
 
   <ng-template
-    [documentationPropertyValue]="control | prizmCallFunc : isDirtyFromControl$ | async"
+    [documentationPropertyValue]="control | prizmCallFunc: isDirtyFromControl$ | async"
     (documentationPropertyValueChange)="setDirty(control, $any($event))"
     documentationPropertyName="dirty"
     documentationPropertyType="boolean"
@@ -213,7 +213,7 @@
   </ng-template>
 
   <ng-template
-    [documentationPropertyValue]="control | prizmCallFunc : isPristineFromControl$ | async"
+    [documentationPropertyValue]="control | prizmCallFunc: isPristineFromControl$ | async"
     (documentationPropertyValueChange)="setPristine(control, $any($event))"
     documentationPropertyName="pristine"
     documentationPropertyType="boolean"
@@ -223,7 +223,7 @@
   </ng-template>
 
   <ng-template
-    [documentationPropertyValue]="control | prizmCallFunc : getDisabledFromControl$ | async"
+    [documentationPropertyValue]="control | prizmCallFunc: getDisabledFromControl$ | async"
     (documentationPropertyValueChange)="updateStateOfControl(control, $any($event))"
     documentationPropertyName="disabled"
     documentationPropertyType="boolean"
@@ -233,7 +233,7 @@
   </ng-template>
 
   <ng-template
-    [documentationPropertyValue]="control | prizmCallFunc : getValueFromControl$ | async"
+    [documentationPropertyValue]="control | prizmCallFunc: getValueFromControl$ | async"
     (documentationPropertyValueChange)="updateValueOfControl(control, $any($event))"
     documentationPropertyName="value"
     documentationPropertyType="string"
@@ -243,7 +243,7 @@
   </ng-template>
 
   <ng-template
-    [documentationPropertyValue]="control | prizmCallFunc : getRequiredFromControl$ | async"
+    [documentationPropertyValue]="control | prizmCallFunc: getRequiredFromControl$ | async"
     (documentationPropertyValueChange)="updateRequiredValidatorOfControl(control, $any($event))"
     documentationPropertyName="required"
     documentationPropertyType="boolean"

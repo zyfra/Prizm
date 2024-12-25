@@ -26,6 +26,6 @@
 
 <ng-template #showIconTemp let-icon="icon">
   <ng-container *polymorphOutlet="icon as content; context: { size: size }">
-    <prizm-icons-full [name]="content | prizmToType : 'string'" [size]="16"></prizm-icons-full>
+    <prizm-icons-full [name]="content | prizmToType: 'string'" [size]="16"></prizm-icons-full>
   </ng-container>
 </ng-template>

@@ -42,7 +42,7 @@
 
     <prizm-doc-documentation>
       <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isTouchedFromControl$ | async"
+        [documentationPropertyValue]="fc | prizmCallFunc: isTouchedFromControl$ | async"
         (documentationPropertyValueChange)="setTouched(fc, $any($event))"
         documentationPropertyName="touched"
         documentationPropertyType="boolean"
@@ -52,7 +52,7 @@
       </ng-template>
 
       <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isDirtyFromControl$ | async"
+        [documentationPropertyValue]="fc | prizmCallFunc: isDirtyFromControl$ | async"
         (documentationPropertyValueChange)="setDirty(fc, $any($event))"
         documentationPropertyName="dirty"
         documentationPropertyType="boolean"
@@ -62,7 +62,7 @@
       </ng-template>
 
       <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : isPristineFromControl$ | async"
+        [documentationPropertyValue]="fc | prizmCallFunc: isPristineFromControl$ | async"
         (documentationPropertyValueChange)="setPristine(fc, $any($event))"
         documentationPropertyName="pristine"
         documentationPropertyType="boolean"
@@ -72,7 +72,7 @@
       </ng-template>
 
       <ng-template
-        [documentationPropertyValue]="fc | prizmCallFunc : getDisabledFromControl$ | async"
+        [documentationPropertyValue]="fc | prizmCallFunc: getDisabledFromControl$ | async"
         (documentationPropertyValueChange)="updateStateOfControl(fc, $any($event))"
         documentationPropertyName="disabled"
         documentationPropertyType="boolean"

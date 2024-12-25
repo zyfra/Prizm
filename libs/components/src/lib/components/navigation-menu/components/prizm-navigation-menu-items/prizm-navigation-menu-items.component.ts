@@ -28,7 +28,7 @@ import { prizmEmptyQueryList } from '@prizm-ui/helpers';
   imports: [PrizmTreeModule, NgFor, PrizmNavigationMenuItemComponent],
 })
 export class PrizmNavigationMenuItemsComponent<
-  T extends { children?: unknown[] }
+  T extends { children?: unknown[] },
 > extends PrizmAbstractTestId {
   @ViewChildren(PrizmNavigationMenuItemComponent) private menuItemsList: QueryList<
     PrizmNavigationMenuItemComponent<T>

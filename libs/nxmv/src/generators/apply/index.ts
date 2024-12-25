@@ -22,12 +22,15 @@ function renderEjs(content: string, params: Record<string, unknown>): string {
 function getVarsPassedByCommand(schema: PrizmNxMvSchema): Record<string, unknown> {
   return Object.entries(schema)
     .filter(([key]) => key.startsWith('var'))
-    .reduce((acc, [key, val]) => {
-      const keyWithoutPrefix = key.replace(/^var/, '');
-      const formattedKey = [keyWithoutPrefix[0].toLowerCase(), keyWithoutPrefix.slice(1)].join('');
-      acc[formattedKey] = val;
-      return acc;
-    }, {} as Record<string, unknown>);
+    .reduce(
+      (acc, [key, val]) => {
+        const keyWithoutPrefix = key.replace(/^var/, '');
+        const formattedKey = [keyWithoutPrefix[0].toLowerCase(), keyWithoutPrefix.slice(1)].join('');
+        acc[formattedKey] = val;
+        return acc;
+      },
+      {} as Record<string, unknown>
+    );
 }
 
 /**

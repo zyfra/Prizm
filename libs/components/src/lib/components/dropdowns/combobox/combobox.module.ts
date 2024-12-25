@@ -4,6 +4,8 @@ import { PrizmComboboxComponent } from './combobox.component';
 import { PrizmComboboxItemComponent } from './combobox-item.component';
 import { PrizmComboboxDataListDirective } from './combobox-data-list.directive';
 import { PrizmComboboxSourceItemsDirective } from './combobox-source-items.directive';
+import { PrizmComboboxMissingValueHandlerDirective } from './combobox-missing-value-handler.directive';
+import { PrizmComboboxAutocompleteDirective } from './combobox-autocomplete.directive';
 
 /**
  * use standalone directives
@@ -11,6 +13,8 @@ import { PrizmComboboxSourceItemsDirective } from './combobox-source-items.direc
 @NgModule({
   imports: [
     PrizmComboboxComponent,
+    PrizmComboboxMissingValueHandlerDirective,
+    PrizmComboboxAutocompleteDirective,
     PrizmComboboxItemComponent,
     PrizmComboboxSourceItemsDirective,
     PrizmComboboxDataListDirective,
@@ -18,6 +22,8 @@ import { PrizmComboboxSourceItemsDirective } from './combobox-source-items.direc
   ],
   exports: [
     PrizmComboboxComponent,
+    PrizmComboboxMissingValueHandlerDirective,
+    PrizmComboboxAutocompleteDirective,
     PrizmComboboxItemComponent,
     PrizmComboboxSourceItemsDirective,
     PrizmComboboxDataListDirective,

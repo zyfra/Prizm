@@ -6,10 +6,10 @@
     class="z-cell"
     *ngFor="let day of weekDays$ | async; let i = index"
     [class.z-cell_weekend]="i > 4"
-    [innerText]="day | prizmCallFunc : capitalizeFirstLetter"
+    [innerText]="day | prizmCallFunc: capitalizeFirstLetter"
   ></div>
 </div>
-<div *prizmLet="month | prizmCalendarSheet : true as sheet">
+<div *prizmLet="month | prizmCalendarSheet: true as sheet">
   <div
     class="z-row"
     *prizmRepeatTimes="let rowIndex of sheet.length"
@@ -38,13 +38,13 @@
             {{ item.day }}
             <div
               class="z-status"
-              *ngIf="item | prizmCallFunc : getDayStatus : daysWithStatus as dayStatus"
+              *ngIf="item | prizmCallFunc: getDayStatus : daysWithStatus as dayStatus"
               [style.--prizm-status-day-color]="dayStatus"
               [attr.data-prizm-status]="dayStatus"
             ></div>
             <div
               class="z-dots"
-              *ngIf="item | prizmMapper : toMarkers : itemIsToday(item) : !!getItemRange(item) as markers"
+              *ngIf="item | prizmMapper: toMarkers : itemIsToday(item) : !!getItemRange(item) as markers"
             >
               <div class="z-dot"></div>
               <div class="z-dot" *ngIf="markers.length > 1"></div>

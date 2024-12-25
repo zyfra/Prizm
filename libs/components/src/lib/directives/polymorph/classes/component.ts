@@ -4,7 +4,10 @@ import { Injector } from '@angular/core';
 import { POLYMORPH_CONTEXT } from '../tokens/context';
 
 export class PolymorphComponent<T> {
-  constructor(public readonly component: Type<T>, private readonly i?: Injector) {}
+  constructor(
+    public readonly component: Type<T>,
+    private readonly i?: Injector
+  ) {}
 
   public createInjector<C>(injector: Injector, useValue?: C): Injector {
     return Injector.create({

@@ -7,7 +7,7 @@
     invalid: control.invalid | prizmToObservable | async,
     required: control.required | prizmToObservable | async,
     inputLayout: inputLayout$ | async,
-    emptyLabel: emptyLabel
+    emptyLabel: emptyLabel,
   } as $"
 >
   <ng-template #labelTemplate>
@@ -16,7 +16,7 @@
       *ngIf="label$ | async"
       [ngClass]="[
         control.nativeElementType ? 'label-container-' + control.nativeElementType : '',
-        'label-container-' + (outer ? 'outer' : 'inner')
+        'label-container-' + (outer ? 'outer' : 'inner'),
       ]"
       [class.label-container-focused]="$.focused"
       [attr.data-size]="size"
@@ -44,7 +44,7 @@
           [interactive]="true"
           [disabled]="$.disabled"
           [prizmInputIconButton]="$any(clearButton)"
-          [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
+          [prizmHint]="$.inputLayout | prizmPluck: ['clear']"
           [prizmHintDirection]="'b'"
           [prizmHintCanShow]="!hideClearButtonHint"
           (mousedown)="onClearClick($event)"
@@ -81,7 +81,7 @@
       'prizm-input-empty-label': emptyLabel,
       'prizm-input-form-disabled': $.disabled,
       'prizm-input-form-touched': $.touched,
-      'prizm-input-form-invalid': $.invalid
+      'prizm-input-form-invalid': $.invalid,
     }"
   >
     <div class="prizm-input-form__first">
@@ -112,7 +112,7 @@
             [class.force-clear]="forceClear"
             [disabled]="$.disabled"
             [prizmInputIconButton]="$any(clearButton) ?? 'delete-content'"
-            [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
+            [prizmHint]="$.inputLayout | prizmPluck: ['clear']"
             [prizmHintDirection]="'b'"
             [prizmHintCanShow]="!hideClearButtonHint"
             (mousedown)="onClearClick($event)"

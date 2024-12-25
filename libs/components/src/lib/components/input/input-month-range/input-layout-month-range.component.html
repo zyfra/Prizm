@@ -17,10 +17,7 @@
     [ngModelOptions]="{ standalone: true }"
     [ngModel]="
       value
-        ? computeValue(
-            value.from | prizmMapper : formatter | async,
-            value.to | prizmMapper : formatter | async
-          )
+        ? computeValue(value.from | prizmMapper: formatter | async, value.to | prizmMapper: formatter | async)
         : ''
     "
     (click)="open = !open"

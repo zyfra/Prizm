@@ -21,7 +21,7 @@ import { DEFAULT_TOOLBAR_CONFIG, DEFAULT_SEARCH_CONFIG, DEFAULT_EMPTY_MESSAGE_CO
 
 @Injectable()
 export class PrizmNavigationMenuGroupService<
-  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
+  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] },
 > implements OnDestroy
 {
   private groupId$$ = new BehaviorSubject<string | null>(null);

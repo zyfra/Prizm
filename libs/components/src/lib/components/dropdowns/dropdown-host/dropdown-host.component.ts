@@ -50,6 +50,7 @@ import { PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmZoneEventService } from '../../../directives/zone-event/zone-event.service';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
 import { PrizmDropdownHostDirective } from './dropdown-host.directive';
+import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Component({
   selector: 'prizm-dropdown-host',
@@ -136,8 +137,8 @@ export class PrizmDropdownHostComponent extends PrizmAbstractTestId implements A
     return this._placement;
   }
 
-  @Input() set isOpen(state: boolean) {
-    this.isOpen$.next(state);
+  @Input() set isOpen(state: BooleanInput) {
+    this.isOpen$.next(coerceBooleanProperty(state));
   }
   get isOpen(): boolean {
     return this.isOpen$.value;

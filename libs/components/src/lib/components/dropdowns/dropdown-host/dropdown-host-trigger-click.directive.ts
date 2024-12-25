@@ -1,61 +1,70 @@
 import {
   ChangeDetectorRef,
+  computed,
   DestroyRef,
   Directive,
   ElementRef,
   inject,
-  Input,
-  OnChanges,
+  Injector,
+  input,
   OnInit,
 } from '@angular/core';
 import { PrizmDropdownHostComponent } from './dropdown-host.component';
-import { fromEvent, Subject } from 'rxjs';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter, takeUntil, tap } from 'rxjs/operators';
-import { BooleanInput, coerceBooleanProperty } from '@angular/cdk/coercion';
+import { combineLatest, fromEvent } from 'rxjs';
+import { takeUntilDestroyed, toObservable } from '@angular/core/rxjs-interop';
+import { filter, switchMap, tap } from 'rxjs/operators';
+import { coerceBooleanProperty } from '@angular/cdk/coercion';
 
 @Directive({
   selector: 'prizm-dropdown-host[dropdownTrigger="click"]',
   standalone: true,
   exportAs: 'prizmDropdownTriggerClick',
 })
-export class PrizmDropdownTriggerClickDirective implements OnChanges, OnInit {
-  @Input() dropdownTriggerElement?: HTMLElement;
-  @Input({
+export class PrizmDropdownTriggerClickDirective implements OnInit {
+  dropdownTriggerElement = input<HTMLElement>();
+  dropdownDisabled = input(false, {
     transform: coerceBooleanProperty,
-  })
-  dropdownDisabled = false;
+  });
 
   readonly #dropdownHost = inject(PrizmDropdownHostComponent, {
     host: true,
   });
   readonly #elementRef = inject(ElementRef);
   readonly #destroyRef = inject(DestroyRef);
+  readonly #injector = inject(Injector);
   readonly #cdRef = inject(ChangeDetectorRef);
-  readonly #destroy = new Subject<void>();
+  readonly #dropdownHostComponent = inject(PrizmDropdownHostComponent);
 
-  get #triggerElement() {
-    return this.dropdownTriggerElement ?? this.#elementRef.nativeElement;
-  }
+  readonly #triggerElement = computed<HTMLElement>(() => {
+    return this.dropdownTriggerElement() ?? this.#elementRef.nativeElement;
+  });
 
   ngOnInit(): void {
     this.init();
   }
 
-  ngOnChanges(): void {
-    this.init();
-  }
-
   private init() {
-    this.#destroy.next();
-    fromEvent(this.#triggerElement, 'click')
+    combineLatest([
+      toObservable(this.dropdownDisabled, {
+        injector: this.#injector,
+      }).pipe(
+        tap(disabled => {
+          if (!disabled) return;
+          this.#dropdownHostComponent.close();
+        })
+      ),
+      toObservable(this.#triggerElement, {
+        injector: this.#injector,
+      }),
+    ])
       .pipe(
-        filter(() => !this.dropdownDisabled),
+        filter(([disabled]) => !disabled),
+        switchMap(([, triggerElement]) => fromEvent(triggerElement, 'click')),
+        filter(() => !this.dropdownDisabled()),
         tap(() => {
           this.#dropdownHost.toggle();
           this.#cdRef.markForCheck();
         }),
-        takeUntil(this.#destroy),
         takeUntilDestroyed(this.#destroyRef)
       )
       .subscribe();

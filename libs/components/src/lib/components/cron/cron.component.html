@@ -1,6 +1,6 @@
 <div class="block">
   <div class="title py-none inner-block small-padding">
-    <ng-container *prizmLet="cronTitle ?? (cronI18n$ | async | prizmPluck : ['title']) as title">
+    <ng-container *prizmLet="cronTitle ?? (cronI18n$ | async | prizmPluck: ['title']) as title">
       <span
         class="prizm-font-title-h4 cron-title"
         #element
@@ -38,10 +38,10 @@
         </prizm-input-layout>
       </ng-container>
       <button *ngIf="resetButton" (click)="reset()" prizmButton size="m">
-        {{ cronI18n$ | async | prizmPluck : ['resetText'] }}
+        {{ cronI18n$ | async | prizmPluck: ['resetText'] }}
       </button>
       <button *ngIf="!autoSubmit" [disabled]="disabled" (click)="submit()" prizmButton size="m">
-        {{ cronI18n$ | async | prizmPluck : ['submitText'] }}
+        {{ cronI18n$ | async | prizmPluck: ['submitText'] }}
       </button>
     </div>
   </div>
@@ -85,7 +85,7 @@
 
   <div class="inner-block date-period border-bottom" *ngIf="!hidePeriod">
     <div class="date-block">
-      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['startDateLabel']" size="m">
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck: ['startDateLabel']" size="m">
         <prizm-input-layout-date-time
           [formControl]="startDateControl"
           [max]="endDateControl.value ?? undefined"
@@ -93,7 +93,7 @@
         </prizm-input-layout-date-time>
       </prizm-input-layout>
 
-      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck : ['endDateLabel']" size="m">
+      <prizm-input-layout [label]="cronI18n$ | async | prizmPluck: ['endDateLabel']" size="m">
         <prizm-input-layout-date-time
           [min]="startDateControl.value ?? undefined"
           [disabled]="indefinitely"
@@ -105,7 +105,7 @@
     <div class="date-footer">
       <div class="indefinitely-toggle">
         <prizm-toggle [formControl]="indefinitelyControl" size="m"> </prizm-toggle>
-        {{ cronI18n$ | async | prizmPluck : ['indefinitelyLabel'] }}
+        {{ cronI18n$ | async | prizmPluck: ['indefinitelyLabel'] }}
       </div>
     </div>
   </div>

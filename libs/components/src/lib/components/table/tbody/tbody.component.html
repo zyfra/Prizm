@@ -42,7 +42,7 @@
             first: first,
             last: last,
             count: count,
-            deepLevel: 0
+            deepLevel: 0,
           })
         "
         prizmTableRowInit
@@ -99,7 +99,7 @@
       deepLevel: deepLevel,
       first: first,
       last: last,
-      count: count
+      count: count,
     }"
   ></ng-container>
 
@@ -114,7 +114,7 @@
           deepLevel: deepLevel,
           first: first,
           last: last,
-          count: count
+          count: count,
         }"
       >
       </ng-container>
@@ -128,8 +128,8 @@
     <ng-container
       *ngIf="
         row?.prizmRowGetChildren && item
-          | prizmCallFunc : $any(row?.prizmRowGetChildren)
-          | prizmCallFunc : sortChildren
+          | prizmCallFunc: $any(row?.prizmRowGetChildren)
+          | prizmCallFunc: sortChildren
           | async as children;
         else treeLoadingTemplateRef
       "
@@ -156,7 +156,7 @@
             deepLevel: (deepLevel ?? 0) + 1,
             first: childFirst,
             last: childLast,
-            count: childCount + count
+            count: childCount + count,
           })
         "
         prizmTableRowInit
