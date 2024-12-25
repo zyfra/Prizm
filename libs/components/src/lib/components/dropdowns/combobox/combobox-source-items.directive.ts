@@ -1,6 +1,13 @@
-import { ChangeDetectorRef, DestroyRef, Directive, inject, Input, OnInit } from '@angular/core';
-import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { tap } from 'rxjs';
+import {
+  ChangeDetectorRef,
+  DestroyRef,
+  Directive,
+  effect,
+  inject,
+  input,
+  Input,
+  untracked,
+} from '@angular/core';
 import { PrizmComboboxSearchMatcher } from './combobox.model';
 import { PrizmComboboxComponent } from './combobox.component';
 
@@ -9,33 +16,55 @@ import { PrizmComboboxComponent } from './combobox.component';
   exportAs: 'prizmComboboxOption',
   standalone: true,
 })
-export class PrizmComboboxSourceItemsDirective<T = any> implements OnInit {
-  @Input()
-  items: T[] = [];
+export class PrizmComboboxSourceItemsDirective<T = any> {
+  // @Input()
+  items = input<T[]>([]);
 
-  @Input()
-  searchMatcher: PrizmComboboxSearchMatcher<T> | '' = '';
+  // @Input()
+  searchMatcher = input<PrizmComboboxSearchMatcher<T> | ''>('');
 
   private readonly baseComponent = inject(PrizmComboboxComponent);
   private readonly destroyRef = inject(DestroyRef);
   private readonly cdRef = inject(ChangeDetectorRef);
 
-  ngOnInit() {
-    this.baseComponent.searchChange
-      .pipe(
-        tap(search => {
-          this.baseComponent.items = search
-            ? this.items.filter(item => this.isSearched(item, search)) ?? []
-            : this.items;
-          this.cdRef.markForCheck();
-        }),
-        takeUntilDestroyed(this.destroyRef)
-      )
-      .subscribe();
-  }
+  e = effect(
+    () => {
+      const items = untracked(this.items);
+      const searchMatcher = untracked(this.searchMatcher);
+      const search = this.baseComponent.search();
+      console.log('#mz search-change', {
+        search,
+        result: search ? (items.filter(item => this.isSearched(item, search, searchMatcher)) ?? []) : items,
+      });
+      this.baseComponent.items.set(
+        search ? (items.filter(item => this.isSearched(item, search, searchMatcher)) ?? []) : items
+      );
+      this.cdRef.markForCheck();
+    },
+    { allowSignalWrites: true }
+  );
 
-  private isSearched(item: T, search: string): boolean {
-    if (typeof this.searchMatcher === 'function') return this.searchMatcher(search, item);
+  // ngOnInit() {
+  // this.baseComponent.search
+  //   .pipe(
+  //     tap(search => {
+  //       console.log('#mz search-change', search
+  //         ? (this.items.filter(item => this.isSearched(item, search)) ?? [])
+  //         : this.items)
+  //       this.baseComponent.items.set(
+  //         search
+  //           ? (this.items.filter(item => this.isSearched(item, search)) ?? [])
+  //           : this.items
+  //       );
+  //       this.cdRef.markForCheck();
+  //     }),
+  //     takeUntilDestroyed(this.destroyRef)
+  //   )
+  //   .subscribe();
+  // }
+
+  private isSearched(item: T, search: string, searchMatcher: PrizmComboboxSearchMatcher<T> | ''): boolean {
+    if (typeof searchMatcher === 'function') return searchMatcher(search, item);
 
     return this.baseComponent.stringify(item).includes(search);
   }

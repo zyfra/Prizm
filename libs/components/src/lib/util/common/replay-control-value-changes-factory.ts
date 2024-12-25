@@ -9,7 +9,7 @@ import { prizmReplayedValueChangesFrom } from '../../observables/replay-control-
 import { PrizmControlValueTransformer } from '../../types/control-value-transformer';
 
 export function prizmReplayControlValueChangesFactory<
-  T extends PrizmDayRange | PrizmDay | [PrizmDay | null, PrizmTime | null]
+  T extends PrizmDayRange | PrizmDay | [PrizmDay | null, PrizmTime | null],
 >(
   control: NgControl | null,
   valueTransformer?: PrizmControlValueTransformer<T> | null

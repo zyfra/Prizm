@@ -16,7 +16,7 @@
           ></prizm-radio-button>
         </div>
         <div class="content row">
-          {{ cronI18n | prizmPluck : ['everyHour'] }}
+          {{ cronI18n | prizmPluck: ['everyHour'] }}
         </div>
       </label>
     </ng-container>
@@ -37,21 +37,21 @@
           ></prizm-radio-button>
         </div>
         <div class="content row">
-          <span>{{ cronI18n | prizmPluck : ['every'] }}</span>
+          <span>{{ cronI18n | prizmPluck: ['every'] }}</span>
           <prizm-cron-carousel
-            [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
-            [value]="cronUiState.state$ | async | prizmPluck : ['everyChosenTimesAfterChosen', 'on']"
+            [content]="cronUiState.list | prizmPluck: ['everyChosenTimesAfterChosen', 'on']"
+            [value]="cronUiState.state$ | async | prizmPluck: ['everyChosenTimesAfterChosen', 'on']"
             (valueChange)="cronUiState.updateOn({ on: $event })"
           >
             <ng-template #content let-value="content">
               {{ value }}
             </ng-template>
           </prizm-cron-carousel>
-          <span>{{ cronI18n | prizmPluck : ['hourSince'] }}</span>
+          <span>{{ cronI18n | prizmPluck: ['hourSince'] }}</span>
 
           <prizm-cron-carousel
-            [content]="cronUiState.list | prizmPluck : ['everyChosenTimesAfterChosen', 'after']"
-            [value]="cronUiState.state$ | async | prizmPluck : ['everyChosenTimesAfterChosen', 'after']"
+            [content]="cronUiState.list | prizmPluck: ['everyChosenTimesAfterChosen', 'after']"
+            [value]="cronUiState.state$ | async | prizmPluck: ['everyChosenTimesAfterChosen', 'after']"
             (valueChange)="cronUiState.updateOn({ after: $event })"
           ></prizm-cron-carousel>
         </div>
@@ -74,11 +74,11 @@
           ></prizm-radio-button>
         </div>
         <div class="content column">
-          <span>{{ cronI18n | prizmPluck : ['selectedHour'] }}</span>
+          <span>{{ cronI18n | prizmPluck: ['selectedHour'] }}</span>
           <prizm-cron-schedule
             #scheduleComponent
             [items]="cronUiState.list.specified"
-            [selected]="cronUiState.state$ | async | prizmPluck : ['specified']"
+            [selected]="cronUiState.state$ | async | prizmPluck: ['specified']"
             (selectedChange)="cronUiState.updateSpecified($event)"
           ></prizm-cron-schedule>
         </div>
@@ -102,19 +102,19 @@
         </div>
         <div class="content">
           <span>
-            {{ cronI18n | prizmPluck : ['everyHourFrom'] }}
+            {{ cronI18n | prizmPluck: ['everyHourFrom'] }}
           </span>
           <prizm-cron-carousel
             #start
             [content]="cronUiState.list.between.start"
-            [value]="cronUiState.state$ | async | prizmPluck : ['between', 'start']"
+            [value]="cronUiState.state$ | async | prizmPluck: ['between', 'start']"
             (valueChange)="cronUiState.updateBetween({ start: $event })"
           ></prizm-cron-carousel>
-          <span>{{ cronI18n | prizmPluck : ['to'] }}</span>
+          <span>{{ cronI18n | prizmPluck: ['to'] }}</span>
           <prizm-cron-carousel
             #end
             [content]="cronUiState.list.between.end"
-            [value]="cronUiState.state$ | async | prizmPluck : ['between', 'end']"
+            [value]="cronUiState.state$ | async | prizmPluck: ['between', 'end']"
             (valueChange)="cronUiState.updateBetween({ end: $event })"
           ></prizm-cron-carousel>
         </div>

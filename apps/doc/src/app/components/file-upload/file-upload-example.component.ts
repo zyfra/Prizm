@@ -65,7 +65,10 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
   files: Array<File> = [];
   disabled = false;
 
-  constructor(private readonly toastService: PrizmToastService, private http: HttpClient) {
+  constructor(
+    private readonly toastService: PrizmToastService,
+    private http: HttpClient
+  ) {
     getMultiMockFiles().then(files => {
       this.initFilesVariants.update(fs => {
         fs.push(files);

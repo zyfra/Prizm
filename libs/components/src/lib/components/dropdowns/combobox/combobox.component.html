@@ -1,10 +1,10 @@
 @let itemList = items$ | async;
 <ng-container>
-  @let val = items && value | prizmCallFunc : getFullObjectOfCurrent : itemList;
+  @let val = items() && value | prizmCallFunc: getFullObjectOfCurrent : itemList;
   <prizm-dropdown-host
     #dropdownHostRef
     [content]="dropdown"
-    [isOpen]="$any(opened$ | async)"
+    [isOpen]="(opened$ | async)!"
     [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
     [prizmDropdownHostWidth]="dropdownWidth"
     [prizmDropdownMinHeight]="minDropdownHeight"
@@ -16,28 +16,34 @@
     (isOpenChange)="onChangeModalVisible($event)"
     dropdownTrigger="click"
   >
-    @let focused_ = (focused$$ | async) || false; @let text = val | prizmCallFunc : stringifyForInner :
-    layoutComponent?.outer : layoutComponent?.label : placeholder | async; @if (valueTemplate &&
-    editableTemplate) { @if (!focused_) {
-    <ng-container
-      *polymorphOutlet="
-        valueTemplate && editableTemplate as content;
-        context: {
-          $implicit: $any(val),
-          value: val | prizmCallFunc : transformer,
-          stringify: $any(val | prizmCallFunc : stringify | prizmToObservable | async)
-        }
-      "
-    >
-    </ng-container>
+    @let focused_ = (focused$$ | async) || false;
+    @let text =
+      val
+        | prizmCallFunc: stringifyForInner : layoutComponent?.outer : layoutComponent?.label : placeholder
+        | async;
+    @if (valueTemplate && editableTemplate) {
+      @if (!focused_) {
+        <ng-container
+          *polymorphOutlet="
+            valueTemplate && editableTemplate as content;
+            context: {
+              $implicit: $any(val),
+              value: val | prizmCallFunc: transformer,
+              stringify: $any(val | prizmCallFunc: stringify | prizmToObservable | async),
+            }
+          "
+        >
+        </ng-container>
+      } @else {
+        <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
+      }
     } @else {
-    <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
-    } } @else {
-    <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
+      <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
     }
 
     <ng-template #inputTemplate>
-      @let inputValue = search ?? userText ?? text ?? '';
+      @let inputValue = search() ?? userText ?? text ?? '';
+
       <input
         class="input-search"
         #focusableElementRef
@@ -61,11 +67,11 @@
     </ng-template>
 
     <ng-template #editableTemplate>
-      @let val = value | prizmCallFunc : getFullObjectOfCurrent : itemList;
+      @let val = value | prizmCallFunc: getFullObjectOfCurrent : itemList;
       <div
         #focusableElementRef
         [ngModelOptions]="{ standalone: true }"
-        [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
+        [ngModel]="(value | prizmCallFunc: getCurrentValue : itemList) ?? ''"
         [attr.contenteditable]="false"
         [tabIndex]="!disabled ? 1 : -1"
         [disabled]="disabled"
@@ -79,19 +85,21 @@
               valueTemplate as content;
               context: {
                 $implicit: $any(val),
-                value: val | prizmCallFunc : transformer,
-                stringify: $any(val | prizmCallFunc : stringify | prizmToObservable | async)
+                value: val | prizmCallFunc: transformer,
+                stringify: $any(val | prizmCallFunc: stringify | prizmToObservable | async),
               }
             "
           >
-            @let text = val | prizmCallFunc : stringify | prizmToObservable | async;
+            @let text = val | prizmCallFunc: stringify | prizmToObservable | async;
             <ng-container>
               {{ text }}
             </ng-container>
           </ng-container>
         </ng-container>
         <ng-template #placeholderTemplate>
-          <div class="placeholder">{{ userText || placeholder }}</div>
+          <div class="placeholder">
+            {{ userText || placeholder }}
+          </div>
         </ng-template>
       </div>
     </ng-template>

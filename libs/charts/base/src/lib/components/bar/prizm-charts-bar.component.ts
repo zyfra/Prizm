@@ -74,7 +74,10 @@ export class PrizmChartsBarComponent<T extends Record<string, unknown>> extends 
 
   private origin_!: Bar;
 
-  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
+  constructor(
+    private readonly elRef: ElementRef<HTMLElement>,
+    private readonly injector: Injector
+  ) {
     super(injector);
     this.prizmChartThemeService.initIfNecessary();
     this.init();
