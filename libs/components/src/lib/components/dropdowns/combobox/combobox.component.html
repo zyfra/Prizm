@@ -1,16 +1,17 @@
-@let itemList = items$ | async;
+@let itemList = items();
 <ng-container>
   @let val = items() && value | prizmCallFunc: getFullObjectOfCurrent : itemList;
   <prizm-dropdown-host
     #dropdownHostRef
     [content]="dropdown"
-    [isOpen]="(opened$ | async)!"
+    [isOpen]="opened()"
     [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
     [prizmDropdownHostWidth]="dropdownWidth"
     [prizmDropdownMinHeight]="minDropdownHeight"
     [prizmDropdownMaxHeight]="maxDropdownHeight"
     [autoReposition]="!!dropdownAutoReposition"
     [dropdownStyles]="dropdownStyles"
+    [dropdownDisabled]="dropdownDisabled()"
     [dropdownTriggerElement]="layoutComponent?.el?.nativeElement"
     [dropdownClasses]="dropdownClasses"
     (isOpenChange)="onChangeModalVisible($event)"
@@ -59,7 +60,7 @@
         (prizmOnInit)="changeParentFocusedClass(true)"
         (ngModelChange)="searchEmit($event)"
         (focus)="focused$$.next(true)"
-        (keypress)="safeOpenClosedModal()"
+        (keypress)="printing.set($event)"
         (blur)="onTouch(); focused$$.next(false)"
         prizmAutoFocus
         prizmInput
@@ -132,13 +133,13 @@
     <ng-container
       *polymorphOutlet="
         icon || defaultIcon as iconName;
-        context: $any({ opened: opened$ | async, disabled: disabled })
+        context: $any({ opened: opened(), disabled: disabled })
       "
     >
       <prizm-icons-full
         [class.disabled]="disabled"
-        [class.opened]="opened$ | async"
-        [class.active]="(focused$ | async) || (opened$ | async)"
+        [class.opened]="opened()"
+        [class.active]="(focused$ | async) || opened()"
         [class.icon-dropdown]="iconName === defaultIcon"
         [name]="$any(iconName)"
         [prizmFocusable]="true"

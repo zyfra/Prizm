@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
-import { PrizmComboboxSearchMatcher, PrizmComboboxStringify } from '@prizm-ui/components';
+import { PrizmComboboxSearchMatcher } from '@prizm-ui/components';
 import { Subject } from 'rxjs';
-import { map, startWith, tap } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
-  selector: 'prizm-combobox-missing-value-handler-example',
-  templateUrl: './combobox-missing-value-handler-example.component.html',
+  selector: 'prizm-combobox-autocomplete-mode-example',
+  templateUrl: './combobox-autocomplete-mode-example.component.html',
   styles: [
     `
       .box {
@@ -16,7 +16,7 @@ import { map, startWith, tap } from 'rxjs/operators';
     `,
   ],
 })
-export class PrizmComboboxMissingValueHandlerExampleComponent {
+export class PrizmComboboxAutocompleteModeExampleComponent {
   protected items = [
     'One',
     'Two',

@@ -112,6 +112,10 @@ export class ComboboxExampleComponent {
       './examples/missing-value-handler/combobox-missing-value-handler-example.component.html?raw'
     ),
   };
+  readonly exampleAutoCompleteMode: TuiDocExample = {
+    TypeScript: import('./examples/autocomplete-mode/combobox-autocomplete-mode-example.component.ts?raw'),
+    HTML: import('./examples/autocomplete-mode/combobox-autocomplete-mode-example.component.html?raw'),
+  };
   readonly exampleVirtualScroll: TuiDocExample = {
     TypeScript: import('./examples/virtual-scroll/combobox-virtual-scroll-example.component.ts?raw'),
     HTML: import('./examples/virtual-scroll/combobox-virtual-scroll-example.component.html?raw'),

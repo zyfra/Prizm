@@ -20,10 +20,6 @@ import { PrizmComboboxMissingValueHandler, PrizmComboboxMissingValueHandlerToken
         };
       },
     },
-    {
-      provide: PRIZM_COMBOBOX_SHOW_DROPDOWN_ON_EMPTY,
-      useValue: false,
-    },
   ],
 })
 export class PrizmComboboxMissingValueHandlerDirective<T> {

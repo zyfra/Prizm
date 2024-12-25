@@ -1,19 +1,18 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   ContentChild,
   effect,
   ElementRef,
-  EventEmitter,
   forwardRef,
   inject,
   Inject,
   Injector,
-  input,
   Input,
   model,
   OnInit,
-  Output,
+  signal,
   untracked,
   ViewChild,
 } from '@angular/core';
@@ -30,7 +29,7 @@ import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl, PrizmInputTextModule } from '../../input';
 import { prizmIsNativeFocused } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, defer, merge, Observable, of, Subject, timer } from 'rxjs';
+import { defer, merge, Observable, of, Subject, timer } from 'rxjs';
 import {
   PrizmComboboxIdentityMatcher,
   PrizmComboboxStringify,
@@ -65,6 +64,7 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-combobox',
@@ -116,18 +116,9 @@ export class PrizmComboboxComponent<T>
 
   @ContentChild(PrizmComboboxDataListDirective) customItemDataList?: PrizmComboboxDataListDirective;
 
-  // @Input() search: string | null = null;
   search = model<string | null>(null);
   @Input() prizmHintDirection: PrizmOverlayOutsidePlacement = 't';
   @Input() prizmHintCanShow!: BooleanInput;
-
-  // @Input() set items(data: T[]) {
-  //   this.items$.next(data);
-  //   if (this.search) this.updateFromSearch(this.search);
-  // }
-  // get items(): T[] {
-  //   return this.items$.value;
-  // }
 
   items = model.required<T[]>();
 
@@ -188,11 +179,7 @@ export class PrizmComboboxComponent<T>
 
   readonly isNotNullish = Compare.isNotNullish;
 
-  // @Output()
-  // public readonly searchChange = new EventEmitter<string | null>();
-
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
-  public readonly items$ = new BehaviorSubject<T[]>([]);
   public liveItems$!: Observable<any[]>;
   public readonly defaultIcon = 'triangle-down';
   public readonly nativeElementType = 'combobox';
@@ -203,8 +190,11 @@ export class PrizmComboboxComponent<T>
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();
-  readonly opened$$ = new BehaviorSubject<boolean>(false);
-  readonly opened$: Observable<boolean> = this.opened$$.asObservable();
+  readonly opened = signal(false);
+  readonly dropdownDisabled = computed(() => {
+    return !this.showDropdownOnEmpty && !this.items().length;
+  });
+
   private readonly inputSelectOptionService = inject(PrizmComboboxOptionService, {
     self: true,
   });
@@ -239,7 +229,9 @@ export class PrizmComboboxComponent<T>
   public override ngOnInit() {
     super.ngOnInit();
     this.initSelectListener();
-    this.liveItems$ = this.items$.pipe(
+    this.liveItems$ = toObservable(this.items, {
+      injector: this.injector,
+    }).pipe(
       tap(() => {
         this.dropdownHostElement?.reCalculatePositions(1000 / 60);
       }),
@@ -281,7 +273,7 @@ export class PrizmComboboxComponent<T>
 
   public select(item: T): void {
     this.onlySelect(item);
-    this.opened$$.next(false);
+    this.opened.set(false);
   }
 
   public onlySelect(item: T): void {
@@ -302,7 +294,6 @@ export class PrizmComboboxComponent<T>
   protected searchEmit(value: string): void {
     this.userText = value;
     if (this.search() === value) return;
-    console.log('#mz searchEmit', value);
     this.search.set(value);
   }
 
@@ -359,7 +350,7 @@ export class PrizmComboboxComponent<T>
   }
 
   protected onChangeModalVisible(visible: boolean): void {
-    if (!visible) this.clearSearch();
+    if (!visible && !this.dropdownDisabled()) this.clearSearch();
     this.changeParentFocusedClass(visible);
   }
 
@@ -372,15 +363,22 @@ export class PrizmComboboxComponent<T>
   protected changeParentFocusedClass(add: boolean) {
     if (this.disabled) return;
 
-    this.opened$$.next(add);
+    if (!this.dropdownDisabled()) {
+      this.opened.set(add);
+    }
+
     this.focused$$.next(add);
   }
-
-  protected safeOpenClosedModal() {
-    if (this.opened$$.value) return;
-
-    this.opened$$.next(true);
-  }
+  readonly printing = signal<KeyboardEvent | null>(null);
+  ee = effect(
+    () => {
+      if (!this.printing()) return;
+      this.opened.set(!this.dropdownDisabled());
+    },
+    {
+      allowSignalWrites: true,
+    }
+  );
 
   private clearSearch() {
     this.search.set(null);

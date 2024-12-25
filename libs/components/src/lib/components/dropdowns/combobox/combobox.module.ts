@@ -5,6 +5,7 @@ import { PrizmComboboxItemComponent } from './combobox-item.component';
 import { PrizmComboboxDataListDirective } from './combobox-data-list.directive';
 import { PrizmComboboxSourceItemsDirective } from './combobox-source-items.directive';
 import { PrizmComboboxMissingValueHandlerDirective } from './combobox-missing-value-handler.directive';
+import { PrizmComboboxAutocompleteDirective } from './combobox-autocomplete.directive';
 
 /**
  * use standalone directives
@@ -13,6 +14,7 @@ import { PrizmComboboxMissingValueHandlerDirective } from './combobox-missing-va
   imports: [
     PrizmComboboxComponent,
     PrizmComboboxMissingValueHandlerDirective,
+    PrizmComboboxAutocompleteDirective,
     PrizmComboboxItemComponent,
     PrizmComboboxSourceItemsDirective,
     PrizmComboboxDataListDirective,
@@ -21,6 +23,7 @@ import { PrizmComboboxMissingValueHandlerDirective } from './combobox-missing-va
   exports: [
     PrizmComboboxComponent,
     PrizmComboboxMissingValueHandlerDirective,
+    PrizmComboboxAutocompleteDirective,
     PrizmComboboxItemComponent,
     PrizmComboboxSourceItemsDirective,
     PrizmComboboxDataListDirective,
