@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ElementRef, HostBinding, Inject, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
+import { PRIZM_ANIMATIONS_DURATION, PRIZM_DIALOG_KIT } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil } from 'rxjs/operators';
@@ -13,13 +13,14 @@ import { PolymorphModule, PrizmFocusTrapDirective, PrizmHintOnOverflowDirective 
 import { PrizmTheme, PrizmThemeModule } from '@prizm-ui/theme';
 import { PrizmButtonComponent } from '../../button';
 import { PrizmScrollbarModule } from '../../scrollbar';
+import { prizmI18nInitWithKey, PrizmLanguageDialogs } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: PRIZM_DIALOG_PROVIDERS,
+  providers: [PRIZM_DIALOG_PROVIDERS, ...prizmI18nInitWithKey(PRIZM_DIALOG_KIT, 'dialog')],
   standalone: true,
   imports: [
     CommonModule,
@@ -79,6 +80,8 @@ export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTe
   constructor(
     @Inject(PRIZM_ANIMATIONS_DURATION) private readonly duration: number,
     @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
+    @Inject(PRIZM_DIALOG_KIT)
+    public readonly dictionary$: Observable<PrizmLanguageDialogs['dialog']>,
     private readonly destroy$: PrizmDestroyService,
     private readonly elRef: ElementRef
   ) {
