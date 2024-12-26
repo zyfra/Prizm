@@ -7,6 +7,7 @@ import {
   Inject,
   Injector,
   Input,
+  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -31,6 +32,7 @@ import { PrizmInputControl, PrizmInputNgControl } from '../common';
 import { prizmI18nInitWithKey } from '../../../services';
 import { CommonModule } from '@angular/common';
 import {
+  PolymorphOutletDirective,
   PrizmDropdownControllerDirective,
   PrizmLifecycleDirective,
   PrizmValueAccessorDirective,
@@ -73,6 +75,7 @@ import { prizmIconsClock } from '@prizm-ui/icons/full/source';
     FormsModule,
     PrizmValueAccessorDirective,
     PrizmListingItemComponent,
+    PolymorphOutletDirective,
   ],
 })
 export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime | null> {
@@ -110,6 +113,10 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   @prizmDefaultProp()
   extraButtonInjector: Injector;
 
+  @Input()
+  @prizmDefaultProp()
+  timePickerTemplate: TemplateRef<unknown> | null = null;
+
   override readonly testId_ = 'ui_input_time';
 
   public open = false;
@@ -133,6 +140,20 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   public override ngOnInit(): void {
     super.ngOnInit();
     this.rightButtons$ = this.extraButtonInjector.get(PRIZM_DATE_RIGHT_BUTTONS);
+  }
+
+  /**
+   * @public api
+   * */
+  public toggleTimeDropdown(open: boolean): void {
+    this.onOpen(open);
+  }
+
+  /**
+   * @public api
+   * */
+  public onTimeSelected(time: PrizmTime): void {
+    this.onMenuClick(time);
   }
 
   get filtered(): readonly PrizmTime[] {
