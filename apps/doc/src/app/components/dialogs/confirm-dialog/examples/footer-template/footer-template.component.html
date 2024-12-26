@@ -5,16 +5,22 @@
     <button
       (click)="completeWith('secondary')"
       prizmButton
-      appearance="secondary"
+      appearance="primary"
       appearanceType="fill"
       size="l"
     >
       Cancel
     </button>
-    <button (click)="completeWith('danger')" prizmButton appearance="danger" appearanceType="fill" size="l">
+    <button
+      (click)="completeWith('danger')"
+      prizmButton
+      appearance="secondary"
+      appearanceType="outline"
+      size="l"
+    >
       Danger Action
     </button>
-    <button (click)="completeWith('primary')" prizmButton appearance="primary" appearanceType="fill" size="l">
+    <button (click)="completeWith('primary')" prizmButton appearance="danger" appearanceType="ghost" size="l">
       Confirm
     </button>
   </div>

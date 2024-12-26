@@ -11,19 +11,25 @@
       </ng-container>
 
       <div class="footer prizm-font-btn-links-14">
+        @let dictionary = dictionary$ | async;
         <ng-container>
           <div class="vertical">
             <div class="top">
               <ng-container
                 *ngIf="context.confirmButton"
                 [ngTemplateOutlet]="buttonTemplate"
-                [ngTemplateOutletContext]="{ button: context.confirmButton }"
+                [ngTemplateOutletContext]="{
+                  button: context.confirmButton,
+                  defaultText: dictionary?.confirm
+                }"
               >
               </ng-container>
               <ng-container
                 *ngIf="context.supportButton"
                 [ngTemplateOutlet]="buttonTemplate"
-                [ngTemplateOutletContext]="$any({ button: context.supportButton })"
+                [ngTemplateOutletContext]="
+                  $any({ button: context.supportButton, defaultText: dictionary?.quit })
+                "
               >
               </ng-container>
             </div>
@@ -31,14 +37,14 @@
               <ng-container
                 *ngIf="context.cancelButton"
                 [ngTemplateOutlet]="buttonTemplate"
-                [ngTemplateOutletContext]="{ button: context.cancelButton }"
+                [ngTemplateOutletContext]="{ button: context.cancelButton, defaultText: dictionary?.cancel }"
               >
               </ng-container>
             </div>
           </div>
         </ng-container>
 
-        <ng-template #buttonTemplate let-button="button">
+        <ng-template #buttonTemplate let-button="button" let-defaultText="defaultText">
           <button
             [style]="button.style"
             [appearance]="button.appearance"
@@ -49,7 +55,7 @@
             (click)="button.action(context)"
             prizmButton
           >
-            {{ button.text }}
+            {{ button.text ?? defaultText }}
           </button>
         </ng-template>
       </div>

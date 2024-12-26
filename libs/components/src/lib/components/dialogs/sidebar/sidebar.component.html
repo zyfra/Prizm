@@ -43,6 +43,7 @@
   </div>
 
   <div class="footer prizm-font-btn-links-14" *ngIf="!context.hideFooter">
+    @let dictionary = dictionary$ | async;
     <ng-container *ngIf="context.footer; else notFooter">
       <div *polymorphOutlet="context.footer as footer; context: context">
         {{ footer }}
@@ -55,7 +56,7 @@
             <ng-container
               *ngIf="context.supportButton"
               [ngTemplateOutlet]="buttonTemplate"
-              [ngTemplateOutletContext]="{ button: context.supportButton }"
+              [ngTemplateOutletContext]="{ button: context.supportButton, defaultText: dictionary?.continue }"
             >
             </ng-container>
           </div>
@@ -63,21 +64,21 @@
             <ng-container
               *ngIf="context.cancelButton"
               [ngTemplateOutlet]="buttonTemplate"
-              [ngTemplateOutletContext]="{ button: context.cancelButton }"
+              [ngTemplateOutletContext]="{ button: context.cancelButton, defaultText: dictionary?.cancel }"
             >
             </ng-container>
 
             <ng-container
               *ngIf="context.confirmButton"
               [ngTemplateOutlet]="buttonTemplate"
-              [ngTemplateOutletContext]="{ button: context.confirmButton }"
+              [ngTemplateOutletContext]="{ button: context.confirmButton, defaultText: dictionary?.confirm }"
             >
             </ng-container>
           </div>
         </div>
       </ng-container>
 
-      <ng-template #buttonTemplate let-button="button">
+      <ng-template #buttonTemplate let-button="button" let-defaultText="defaultText">
         <button
           [style]="button.style"
           [appearance]="button.appearance"
@@ -89,7 +90,7 @@
           (click)="button.action(context)"
           prizmButton
         >
-          {{ button.text }}
+          {{ button.text ?? defaultText }}
         </button>
       </ng-template>
     </ng-template>

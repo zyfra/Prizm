@@ -4,6 +4,7 @@ import {
   PrizmLanguageColumnSettings,
   PrizmLanguageCore,
   PrizmLanguageCron,
+  PrizmLanguageDialogs,
   PrizmLanguageFileUpload,
   PrizmLanguageInputLayout,
   PrizmLanguageInputLayoutDateRelative,
@@ -87,4 +88,8 @@ export const PRIZM_TIME_PAGINATION = new InjectionToken<
 
 export const PRIZM_TIME_PICKER = new InjectionToken<Observable<PrizmLanguageTimePicker['timePicker']>>(
   `time picker i18n text`
+);
+
+export const PRIZM_DIALOG_KIT = new InjectionToken<Observable<PrizmLanguageDialogs['dialog']>>(
+  `base language dialog texts`
 );

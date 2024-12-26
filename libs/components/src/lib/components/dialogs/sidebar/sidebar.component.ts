@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PRIZM_ANIMATIONS_DURATION } from '../../../tokens';
+import { PRIZM_ANIMATIONS_DURATION, PRIZM_DIALOG_KIT } from '../../../tokens';
 import { PRIZM_DIALOG_CLOSE_STREAM, PRIZM_DIALOG_PROVIDERS } from '../dialog/dialog-options';
 import { PrizmAnimationOptions, prizmFadeIn, prizmSlideInTop } from '../../../animations';
 import { takeUntil, tap } from 'rxjs/operators';
@@ -22,13 +22,14 @@ import { PrizmScrollbarComponent } from '../../scrollbar';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsXmark } from '@prizm-ui/icons/full/source';
+import { prizmI18nInitWithKey, PrizmLanguageDialogs } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: PRIZM_DIALOG_PROVIDERS,
+  providers: [PRIZM_DIALOG_PROVIDERS, ...prizmI18nInitWithKey(PRIZM_DIALOG_KIT, 'dialog')],
   animations: [prizmSlideInTop, prizmFadeIn],
   standalone: true,
   imports: [
@@ -96,6 +97,8 @@ export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
   constructor(
     @Inject(PRIZM_ANIMATIONS_DURATION) private readonly duration: number,
     @Inject(PRIZM_DIALOG_CLOSE_STREAM) readonly close$: Observable<unknown>,
+    @Inject(PRIZM_DIALOG_KIT)
+    public readonly dictionary$: Observable<PrizmLanguageDialogs['dialog']>,
     private readonly destroy$: PrizmDestroyService
   ) {
     super();
