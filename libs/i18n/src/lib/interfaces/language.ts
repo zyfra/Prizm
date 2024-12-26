@@ -172,6 +172,7 @@ export interface PrizmLanguageDialogs {
     confirm: string;
     cancel: string;
     continue: string;
+    quit: string;
   };
 }
 

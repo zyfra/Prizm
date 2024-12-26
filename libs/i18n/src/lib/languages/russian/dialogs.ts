@@ -5,5 +5,6 @@ export const PRIZM_RUSSIAN_DIALOG: PrizmLanguageDialogs = {
     confirm: 'Подтвердить',
     cancel: 'Отменить',
     continue: 'Продолжить',
+    quit: 'Выйти без сохранения',
   },
 };

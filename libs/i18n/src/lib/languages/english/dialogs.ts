@@ -5,5 +5,6 @@ export const PRIZM_ENGLISH_DIALOG: PrizmLanguageDialogs = {
     confirm: 'Confirm',
     cancel: 'Cancel',
     continue: 'Continue',
+    quit: 'Quit without saving',
   },
 };
