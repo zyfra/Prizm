@@ -9,6 +9,4 @@ export const prizmCardDefaultOptions: PrizmCardOptions = {
   shadow: 'mini-bottom',
 };
 
-export const PRIZM_CARD_OPTIONS = new InjectionToken<Partial<PrizmCardOptions>>('Prizm card options', {
-  factory: (): PrizmCardOptions => prizmCardDefaultOptions,
-});
+export const PRIZM_CARD_OPTIONS = new InjectionToken<Partial<PrizmCardOptions>>('Prizm card options');
