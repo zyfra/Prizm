@@ -1,25 +1,33 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input } from '@angular/core';
-import { prizmGetShadow, PrizmShadowDirective, PrizmShadowType } from '../../directives/shadow';
+import { ChangeDetectionStrategy, Component, HostBinding, Inject, Input, Optional } from '@angular/core';
+import { prizmGetShadow, PrizmShadowType } from '../../directives/shadow';
 import { PrizmShadowValue } from '../../directives/shadow/models';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { CommonModule } from '@angular/common';
+import { PRIZM_CARD_OPTIONS, prizmCardDefaultOptions, PrizmCardOptions } from './card-options';
 
 @Component({
   selector: 'prizm-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [],
   standalone: true,
-  imports: [CommonModule, PrizmShadowDirective],
+  imports: [CommonModule],
 })
 export class PrizmCardComponent extends PrizmAbstractTestId {
-  @Input() shadow: PrizmShadowType = 'mini-bottom';
+  @Input() shadow: PrizmShadowType | undefined;
+
+  override readonly testId_ = 'ui_card';
+
+  private options: PrizmCardOptions = { ...prizmCardDefaultOptions };
+
+  constructor(@Optional() @Inject(PRIZM_CARD_OPTIONS) customOptions: PrizmCardOptions) {
+    super();
+
+    this.options = { ...this.options, ...customOptions };
+  }
 
   @HostBinding('style.box-shadow')
   private get boxShadow(): PrizmShadowValue {
-    return prizmGetShadow(this.shadow);
+    return prizmGetShadow(this.shadow ?? this.options.shadow);
   }
-
-  override readonly testId_ = 'ui_card';
 }
