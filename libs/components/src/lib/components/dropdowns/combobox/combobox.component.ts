@@ -175,7 +175,7 @@ export class PrizmComboboxComponent<T>
   @Input()
   listItemTemplate: PolymorphContent<PrizmComboboxValueContext<T>> = this.options.listItemTemplate;
 
-  override readonly testId_ = 'uionlySelect';
+  override readonly testId_ = 'ui_combobox';
 
   readonly isNotNullish = Compare.isNotNullish;
 
