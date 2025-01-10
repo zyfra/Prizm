@@ -241,7 +241,7 @@ export class PrizmComboboxComponent<T>
   }
 
   public override get empty(): Observable<boolean> {
-    return this.value$.pipe(map(value => value == null && !this.search && !this.userText));
+    return this.value$.pipe(map(value => value == null && !this.search() && !this.userText));
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
@@ -264,7 +264,7 @@ export class PrizmComboboxComponent<T>
       .subscribe();
   }
 
-  public override clear(ev: MouseEvent): void {
+  public override clear(): void {
     this.userText = null;
     this.updateValue(null);
     this.markAsTouched();
@@ -293,6 +293,7 @@ export class PrizmComboboxComponent<T>
 
   protected searchEmit(value: string): void {
     this.userText = value;
+    if (!value) this.clear();
     if (this.search() === value) return;
     this.search.set(value);
   }
@@ -317,6 +318,7 @@ export class PrizmComboboxComponent<T>
 
   public getCurrentValue(value: T, items: T[]): string | Observable<string> {
     const newItem = this.getFullObjectOfCurrent(this.value!, items);
+
     if (Compare.isNullish(newItem)) return '';
     return this.stringify(newItem ?? value);
   }

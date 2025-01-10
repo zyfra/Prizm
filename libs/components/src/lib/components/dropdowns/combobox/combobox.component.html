@@ -43,7 +43,7 @@
     }
 
     <ng-template #inputTemplate>
-      @let inputValue = search() ?? userText ?? text ?? '';
+      @let inputValue = search() || (userText ?? text ?? '');
 
       <input
         class="input-search"
@@ -57,6 +57,7 @@
         [prizmHintCanShow]="prizmHintCanShow"
         [ngModelOptions]="{ standalone: true }"
         [ngModel]="inputValue"
+        [title]="'#mz:text [' + text + '] | val:[' + val + ']'"
         (prizmOnInit)="changeParentFocusedClass(true)"
         (ngModelChange)="searchEmit($event)"
         (focus)="focused$$.next(true)"
