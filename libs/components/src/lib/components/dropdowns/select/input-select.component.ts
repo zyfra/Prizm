@@ -27,6 +27,8 @@ import {
   PolymorphOutletDirective,
 } from '../../../directives/polymorph';
 import {
+  EMPTY_CONTENT_TEXT_KEY,
+  NULL_CONTENT_TEXT_KEY,
   PRIZM_SELECT_OPTIONS,
   PrizmSelectOptions,
   PrizmSelectStringify,
@@ -42,6 +44,7 @@ import {
   shareReplay,
   startWith,
   switchMap,
+  take,
   takeUntil,
   tap,
 } from 'rxjs/operators';
@@ -89,11 +92,12 @@ import { PrizmInputSelectDataListDirective } from './input-select-data-list.dire
 import { BooleanInput } from '@angular/cdk/coercion';
 import { PrizmScrollbarDirective } from '../../scrollbar/scrollbar.directive';
 import { PrizmOverlayComponent } from '../../../modules/overlay/overlay.component';
-import { PRIZM_SEARCH_TEXT } from '../../../tokens';
+import { PRIZM_SEARCH_TEXT, PRIZM_SELECT } from '../../../tokens';
 import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
+import { PrizmLanguageSelect } from '@prizm-ui/i18n';
 
 @Component({
   selector: 'prizm-input-select',
@@ -121,7 +125,6 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     PrizmSelectInputItemComponent,
     PrizmDropdownHostComponent,
     PrizmToObservablePipe,
-    PrizmInputSelectOptionDirective,
     PrizmIconsFullComponent,
     PrizmFocusableDirective,
   ],
@@ -135,6 +138,7 @@ import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/ico
     PrizmInputSelectOptionService,
     { provide: PrizmInputControl, useExisting: PrizmSelectInputComponent },
     ...prizmI18nInitWithKey(PRIZM_SEARCH_TEXT, 'search'),
+    ...prizmI18nInitWithKey(PRIZM_SELECT, 'select'),
   ],
   exportAs: 'prizmSelectInput',
 })
@@ -212,9 +216,12 @@ export class PrizmSelectInputComponent<T>
   @prizmDefaultProp()
   emptyContent: PolymorphContent = this.options.emptyContent;
 
+  readonly nullContentTextKey = NULL_CONTENT_TEXT_KEY;
+  readonly emptyContentTextKey = EMPTY_CONTENT_TEXT_KEY;
+
   @Input()
   @prizmDefaultProp()
-  nullContent: PolymorphContent = this.options.nullContent;
+  nullContent: PolymorphContent = this.options.nullContent ?? this.nullContentTextKey;
 
   override readonly clickable = true;
   readonly isPolymorphPrimitive = isPolymorphPrimitive;
@@ -272,7 +279,8 @@ export class PrizmSelectInputComponent<T>
   constructor(
     @Inject(PRIZM_SELECT_OPTIONS) private readonly options: PrizmSelectOptions<T>,
     @Inject(Injector) injector: Injector,
-    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>
+    @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>,
+    @Inject(PRIZM_SELECT) readonly selectTranslation$: Observable<PrizmLanguageSelect['select']>
   ) {
     super(injector);
 

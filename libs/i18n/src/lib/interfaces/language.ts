@@ -36,6 +36,13 @@ export interface PrizmLanguageInputLayout {
   };
 }
 
+export interface PrizmLanguageSelect {
+  select: {
+    nullContentText: string;
+    emptyContentText: string;
+  };
+}
+
 export interface PrizmLanguageInputLayoutDateTime {
   inputLayoutDateTime: {
     wrongFormat: string;
@@ -337,6 +344,7 @@ export interface PrizmLanguage
     PrizmLanguageColumnSettings,
     PrizmLanguagePaginator,
     PrizmLanguageTimePagination,
-    PrizmLanguageTimePicker {}
+    PrizmLanguageTimePicker,
+    PrizmLanguageSelect {}
 
 export type PrizmI18nFn<K> = (lan: PrizmLanguageName) => K | Observable<K>;

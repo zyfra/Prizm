@@ -14,13 +14,21 @@
     (isOpenChange)="opened$$.next($event)"
   >
     <ng-container>
+      @if (selectTranslation$ | async; as dictionary) {
       <ng-container
         *polymorphOutlet="
           valueTemplate && editableTemplate as content;
           context: {
             $implicit: $any(val),
             value: val | prizmCallFunc : transformer,
-            stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
+            stringify: $any(
+              val
+                | prizmCallFunc
+                  : stringify
+                  : $any(nullContent === nullContentTextKey ? dictionary[nullContentTextKey] : nullContent)
+                | prizmToObservable
+                | async
+            )
           }
         "
       >
@@ -54,8 +62,8 @@
           />
         </ng-container>
       </ng-container>
+      }
     </ng-container>
-
     <ng-template #editableTemplate>
       <div
         #focusableElementRef
@@ -70,6 +78,7 @@
         prizmInput
       >
         <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
+          @if (selectTranslation$ | async; as dictionary) {
           <ng-container
             *polymorphOutlet="
               valueTemplate as content;
@@ -77,19 +86,32 @@
                 $implicit: $any(val),
                 value: val | prizmCallFunc : transformer,
                 stringify: $any(
-                  val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async
+                  val
+                    | prizmCallFunc
+                      : stringify
+                      : $any(
+                          nullContent === nullContentTextKey ? dictionary[nullContentTextKey] : nullContent
+                        )
+                    | prizmToObservable
+                    | async
                 )
               }
             "
           >
             <ng-container
               *prizmLet="
-                val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
+                val
+                  | prizmCallFunc
+                    : stringify
+                    : $any(nullContent === nullContentTextKey ? dictionary[nullContentTextKey] : nullContent)
+                  | prizmToObservable
+                  | async as text
               "
             >
               {{ text }}
             </ng-container>
           </ng-container>
+          }
         </ng-container>
         <ng-template #placeholderTemplate>
           <div class="placeholder">{{ placeholder }}</div>
@@ -124,11 +146,13 @@
           </ng-container>
         </ng-container>
         <ng-template #emptyTemplate>
+          @if (selectTranslation$ | async; as dictionary) {
           <div class="empty-template">
             <ng-container *polymorphOutlet="emptyContent as content">
-              {{ content }}
+              {{ content || dictionary[emptyContentTextKey] }}
             </ng-container>
           </div>
+          }
         </ng-template>
       </prizm-data-list>
     </ng-template>

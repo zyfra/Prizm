@@ -11,6 +11,7 @@ import { PRIZM_ENGLISH_TIME_PAGINATION } from './time-pagination';
 import { PRIZM_ENGLISH_TIME_PICKER } from './time-picker';
 import { PRIZM_ENGLISH_LANGUAGE_KIT } from './kit';
 import { PRIZM_ENGLISH_PAGINATOR } from './paginator';
+import { PRIZM_ENGLISH_SELECT } from './select';
 
 export const PRIZM_ENGLISH_LANGUAGE = {
   name: `english`,
@@ -27,4 +28,5 @@ export const PRIZM_ENGLISH_LANGUAGE = {
   ...PRIZM_ENGLISH_PAGINATOR,
   ...PRIZM_ENGLISH_TIME_PAGINATION,
   ...PRIZM_ENGLISH_TIME_PICKER,
+  ...PRIZM_ENGLISH_SELECT,
 } as PrizmLanguage;

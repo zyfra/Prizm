@@ -12,11 +12,21 @@
   prizmInputSelectOption
 >
   <ng-container *ngIf="!parent.isNullish(item); else nullContentTemplate">
+    @if (parent.selectTranslation$ | async; as dictionary) {
     <span
       class="text"
       #elem
       *prizmLet="
-        item | prizmCallFunc : parent.stringify : $any(parent.nullContent) | prizmToObservable | async as text
+        item
+          | prizmCallFunc
+            : parent.stringify
+            : $any(
+                parent.nullContent === parent.nullContentTextKey
+                  ? dictionary[parent.nullContentTextKey]
+                  : parent.nullContent
+              )
+          | prizmToObservable
+          | async as text
       "
       [prizmHint]="text"
       [prizmHintHost]="hostHint"
@@ -36,12 +46,18 @@
         {{ text }}
       </ng-container>
     </span>
+    }
   </ng-container>
 
   <ng-template #nullContentTemplate>
     <ng-container *ngIf="parent.nullContent">
       <ng-container *polymorphOutlet="parent.nullContent as content">
-        {{ content }}
+        @if (parent.selectTranslation$ | async; as dictionary) {
+        {{
+          content === parent.nullContentTextKey ? dictionary[parent.nullContentTextKey] : parent.nullContent
+        }}
+
+        }
       </ng-container>
     </ng-container>
   </ng-template>
