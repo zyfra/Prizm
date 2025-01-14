@@ -20,7 +20,7 @@ export class PrizmCardComponent extends PrizmAbstractTestId {
 
   private options: PrizmCardOptions = { ...prizmCardDefaultOptions };
 
-  constructor(@Optional() @Inject(PRIZM_CARD_OPTIONS) customOptions: PrizmCardOptions) {
+  constructor(@Optional() @Inject(PRIZM_CARD_OPTIONS) customOptions: Partial<PrizmCardOptions>) {
     super();
 
     this.options = { ...this.options, ...customOptions };
