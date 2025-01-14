@@ -23,9 +23,9 @@
 <ng-template #pickerTemplate>
   <prizm-time-picker
     [timeMode]="'HH:MM'"
-    [time]="control.value && control.value[1]"
-    [minTime]="$any(control.value && control.value[0].daySame(min[0]) ? min[1] : null)"
-    [maxTime]="$any(control.value && control.value[0].daySame(max[0]) ? max[1] : null)"
+    [time]="control.value?.[1]"
+    [minTime]="$any(getMinMaxTime(min))"
+    [maxTime]="$any(getMinMaxTime(max))"
     (timeChanged)="dateTime.onTimeSelected($event)"
     (canceled)="dateTime.toggleTimeDropdown(false)"
   ></prizm-time-picker>
