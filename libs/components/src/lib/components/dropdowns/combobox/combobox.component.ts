@@ -357,9 +357,10 @@ export class PrizmComboboxComponent<T>
   }
 
   protected override refreshLocalValue(value: T | null): void {
-    super.refreshLocalValue(value);
     this.userText = null;
     this.search.set(null);
+    this.printing.set(null);
+    super.refreshLocalValue(value);
   }
 
   protected changeParentFocusedClass(add: boolean) {
@@ -372,7 +373,7 @@ export class PrizmComboboxComponent<T>
     this.focused$$.next(add);
   }
   readonly printing = signal<KeyboardEvent | null>(null);
-  ee = effect(
+  private effectOnPrinting = effect(
     () => {
       if (!this.printing()) return;
       this.opened.set(!this.dropdownDisabled());
