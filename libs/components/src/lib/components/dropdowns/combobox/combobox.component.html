@@ -22,11 +22,11 @@
       val
         | prizmCallFunc: stringifyForInner : layoutComponent?.outer : layoutComponent?.label : placeholder
         | async;
-    @if (valueTemplate && editableTemplate) {
+    @if (valueTemplate) {
       @if (!focused_) {
         <ng-container
           *polymorphOutlet="
-            valueTemplate && editableTemplate as content;
+            editableTemplate as content;
             context: {
               $implicit: $any(val),
               value: val | prizmCallFunc: transformer,
@@ -79,6 +79,7 @@
         (focus)="focused$$.next(true)"
         (blur)="focused$$.next(false)"
         prizmInput
+        class="editable-wrapper"
       >
         <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
           <ng-container
@@ -98,9 +99,7 @@
           </ng-container>
         </ng-container>
         <ng-template #placeholderTemplate>
-          <div class="placeholder">
-            {{ userText || placeholder }}
-          </div>
+          <div class="placeholder">{{ userText || placeholder }}</div>
         </ng-template>
       </div>
     </ng-template>
