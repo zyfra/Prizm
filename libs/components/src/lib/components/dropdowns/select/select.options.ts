@@ -66,8 +66,8 @@ export const PRIZM_SELECT_DEFAULT_OPTIONS: PrizmSelectOptions<unknown> = {
   dropdownWidth: '100%',
   minDropdownHeight: 0,
   maxDropdownHeight: 342,
-  emptyContent: 'Ничего не найдено',
-  nullContent: 'Не выбрано',
+  emptyContent: null,
+  nullContent: null,
   transformer: item => item,
   searchMatcher: (searchValue: string, item: unknown): boolean => {
     return !!item?.toString()?.toLowerCase().includes(searchValue?.toLowerCase());
@@ -100,3 +100,6 @@ export const prizmSelectOptionsProvider: (options: Partial<PrizmSelectOptions<un
   provide: PRIZM_SELECT_OPTIONS,
   useValue: { ...PRIZM_SELECT_DEFAULT_OPTIONS, ...options },
 });
+
+export const NULL_CONTENT_TEXT_KEY = 'nullContentText';
+export const EMPTY_CONTENT_TEXT_KEY = 'emptyContentText';

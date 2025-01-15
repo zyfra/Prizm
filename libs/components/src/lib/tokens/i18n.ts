@@ -11,6 +11,7 @@ import {
   PrizmLanguageInputLayoutDateTimeRange,
   PrizmLanguageKit,
   PrizmLanguagePaginator,
+  PrizmLanguageSelect,
   PrizmLanguageTimePagination,
   PrizmLanguageTimePicker,
 } from '@prizm-ui/i18n';
@@ -88,3 +89,5 @@ export const PRIZM_TIME_PAGINATION = new InjectionToken<
 export const PRIZM_TIME_PICKER = new InjectionToken<Observable<PrizmLanguageTimePicker['timePicker']>>(
   `time picker i18n text`
 );
+
+export const PRIZM_SELECT = new InjectionToken<Observable<PrizmLanguageSelect['select']>>(`select i18n text`);

@@ -11,3 +11,4 @@ export * from './column-settings';
 export * from './paginator';
 export * from './input';
 export * from './input-layout-date-time';
+export * from './select';
