@@ -167,6 +167,15 @@ export interface PrizmLanguageTimePicker {
   };
 }
 
+export interface PrizmLanguageDialogs {
+  dialog: {
+    confirm: string;
+    cancel: string;
+    continue: string;
+    quit: string;
+  };
+}
+
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -337,6 +346,7 @@ export interface PrizmLanguage
     PrizmLanguageColumnSettings,
     PrizmLanguagePaginator,
     PrizmLanguageTimePagination,
-    PrizmLanguageTimePicker {}
+    PrizmLanguageTimePicker,
+    PrizmLanguageDialogs {}
 
 export type PrizmI18nFn<K> = (lan: PrizmLanguageName) => K | Observable<K>;

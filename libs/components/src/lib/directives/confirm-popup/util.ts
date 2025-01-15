@@ -36,12 +36,11 @@ export const prizmGetConfirmPopupContext: PrizmHintGetContextFn = function getCo
 function generateButton(
   options: PrizmConfirmPopupContext,
   button: PrizmConfirmDialogButton | string,
-  defaultText: string,
   defaultComplete: PrizmConfirmDialogResultDefaultType,
   defaultAppearance?: PrizmAppearance,
   defaultAppearanceType?: PrizmAppearanceType
 ): PrizmConfirmDialogButton {
-  const buttonText = (typeof button === 'string' ? button : button?.text) ?? defaultText;
+  const buttonText = (typeof button === 'string' ? button : button?.text) ?? null;
   const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PrizmConfirmDialogButton>;
 
   const result = {
@@ -64,7 +63,6 @@ function safeUpdateButtonsWithDefaultStyles(options: PrizmConfirmPopupContext): 
   const supportButton = generateButton(
     options,
     options.supportButton as string,
-    'Выйти без сохранения',
     PrizmConfirmDialogResultDefaultType.support,
     'danger',
     'outline'
@@ -73,7 +71,6 @@ function safeUpdateButtonsWithDefaultStyles(options: PrizmConfirmPopupContext): 
   const confirmButton = generateButton(
     options,
     options.confirmButton as string,
-    'Подтвердить',
     PrizmConfirmDialogResultDefaultType.confirm,
     'primary'
   );
@@ -81,7 +78,6 @@ function safeUpdateButtonsWithDefaultStyles(options: PrizmConfirmPopupContext): 
   const cancelButton = generateButton(
     options,
     options.cancelButton as string,
-    'Отмена',
     PrizmConfirmDialogResultDefaultType.cancel,
     'secondary',
     'ghost'

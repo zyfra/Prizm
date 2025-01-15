@@ -57,7 +57,6 @@ export class PrizmConfirmDialogService<
       this.generateButton(
         options,
         options.supportButton,
-        'Продолжить',
         PrizmConfirmDialogResultDefaultType.confirm,
         'danger',
         'ghost'
@@ -66,7 +65,6 @@ export class PrizmConfirmDialogService<
     const confirmButton = this.generateButton(
       options,
       options.confirmButton as any,
-      'Подтвердить',
       PrizmConfirmDialogResultDefaultType.confirm,
       'primary'
     );
@@ -74,7 +72,6 @@ export class PrizmConfirmDialogService<
     const cancelButton = this.generateButton(
       options,
       options.cancelButton as any,
-      'Отмена',
       PrizmConfirmDialogResultDefaultType.cancel,
       'secondary',
       'ghost'
@@ -88,12 +85,11 @@ export class PrizmConfirmDialogService<
   private generateButton(
     options: Partial<T>,
     button: PrizmConfirmDialogButton | string,
-    defaultText: string,
     defaultComplete: PrizmConfirmDialogResultDefaultType,
     defaultAppearance?: PrizmAppearance,
     defaultAppearanceType?: PrizmAppearanceType
   ): PrizmConfirmDialogButton {
-    const buttonText = (typeof button === 'string' ? button : button?.text) ?? defaultText;
+    const buttonText = (typeof button === 'string' ? button : button?.text) ?? null;
     const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PrizmConfirmDialogButton>;
 
     return {

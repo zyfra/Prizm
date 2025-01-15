@@ -74,7 +74,6 @@ export class PrizmSidebarService<
       this.generateButton(
         options,
         options.supportButton as any,
-        'Продолжить',
         PrizmSidebarResultDefaultType.confirm,
         'danger',
         'ghost'
@@ -83,7 +82,6 @@ export class PrizmSidebarService<
     const confirmButton = this.generateButton(
       options,
       options.confirmButton as any,
-      'Подтвердить',
       PrizmSidebarResultDefaultType.confirm,
       'primary'
     );
@@ -93,7 +91,6 @@ export class PrizmSidebarService<
       this.generateButton(
         options,
         options.cancelButton as any,
-        'Отмена',
         PrizmSidebarResultDefaultType.cancel,
         'secondary',
         'ghost'
@@ -107,12 +104,11 @@ export class PrizmSidebarService<
   private generateButton(
     options: Partial<T>,
     button: PrizmSidebarButton | string,
-    defaultText: string,
     defaultComplete: PrizmSidebarResultDefaultType,
     defaultAppearance?: PrizmAppearance,
     defaultAppearanceType?: PrizmAppearanceType
   ): PrizmSidebarButton {
-    const buttonText = (typeof button === 'string' ? button : button?.text) ?? defaultText;
+    const buttonText = (typeof button === 'string' ? button : button?.text) ?? null;
     const btn = ((typeof button === 'string' ? {} : button) ?? {}) as Partial<PrizmSidebarButton>;
 
     return {
