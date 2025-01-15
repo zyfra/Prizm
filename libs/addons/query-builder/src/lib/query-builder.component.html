@@ -1,8 +1,8 @@
 @let i18n = i18n$ | async;
 
 <div class="query-builder__tree" aria-role="tree">
-  @for(node of data; track node) {
-  <ng-container *ngTemplateOutlet="nodeTemplate; context: { $implicit: node, level: 0 }"></ng-container>
+  @for (node of data; track node) {
+    <ng-container *ngTemplateOutlet="nodeTemplate; context: { $implicit: node, level: 0 }"></ng-container>
   }
 </div>
 
@@ -25,114 +25,117 @@
     aria-expanded="true"
   >
     @if (level !== 0) {
-    <button
-      [icon]="'grip-dots-vertical'"
-      [size]="'m'"
-      [appearanceType]="'ghost'"
-      [appearance]="'secondary'"
-      [disabled]="disabled"
-      [focusable]="false"
-      prizmIconButton
-      cdkDragHandle
-    ></button>
+      <button
+        [icon]="'grip-dots-vertical'"
+        [size]="'m'"
+        [appearanceType]="'ghost'"
+        [appearance]="'secondary'"
+        [disabled]="disabled"
+        [focusable]="false"
+        prizmIconButton
+        cdkDragHandle
+      ></button>
     }
 
     <div
       class="query-builder__node-container"
       [ngStyle]="{ '--_nesting-level-marker-color': isCondition(node) ? 'transparent' : null }"
     >
-      @switch (isCondition(node)) { @case (true) {
-      <div class="query-builder__node-content">
-        <div class="query-builder__condition">
-          <ng-container
-            [ngTemplateOutlet]="conditionNodeTemplate().template"
-            [ngTemplateOutletContext]="{ $implicit: node.form.controls }"
-          />
-        </div>
+      @switch (isCondition(node)) {
+        @case (true) {
+          <div class="query-builder__node-content">
+            <div class="query-builder__condition">
+              <ng-container
+                [ngTemplateOutlet]="conditionNodeTemplate().template"
+                [ngTemplateOutletContext]="{ $implicit: node.form.controls }"
+              />
+            </div>
 
-        @if (!disabled) {
-        <button
-          class="query-builder__remove"
-          [size]="'s'"
-          [icon]="'trash'"
-          [appearanceType]="'ghost'"
-          [appearance]="'secondary'"
-          (click)="removeNode(node)"
-          prizmIconButton
-        ></button>
-        }
-      </div>
-      } @default {
-      <div class="query-builder__node-content">
-        <div class="query-builder__expression">
-          <prizm-switcher [size]="'m'" [formControl]="node.form.controls.operator">
-            <prizm-switcher-item [value]="'AND'">{{ i18n?.and }}</prizm-switcher-item>
-            <prizm-switcher-item [value]="'OR'">{{ i18n?.or }}</prizm-switcher-item>
-          </prizm-switcher>
-
-          @if (!disabled) {
-          <prizm-dropdown-host
-            #ddh
-            [content]="listbox"
-            [placement]="'bl'"
-            [autoReposition]="false"
-            [prizmDropdownHostWidth]="'auto'"
-            style="--prizm-dropdown-host-width: auto"
-          >
-            <button
-              [icon]="'plus-triangle-down'"
-              [size]="'m'"
-              [appearanceType]="'ghost'"
-              [appearance]="'secondary'"
-              (click)="ddh.isOpen = !ddh.isOpen"
-              prizmIconButton
-            ></button>
-
-            <ng-template #listbox>
-              <prizm-data-list>
-                <prizm-listing-item (click)="createConditionNode(node); ddh.close()">
-                  {{ i18n?.addCondition }}
-                </prizm-listing-item>
-
-                <prizm-listing-item (click)="createExpressionNode(node); ddh.close()">
-                  {{ i18n?.addNestedExpression }}
-                </prizm-listing-item>
-              </prizm-data-list>
-            </ng-template>
-          </prizm-dropdown-host>
-          }
-
-          <ng-container>
-            @if (level !== 0) {
-            <label class="query-builder__exclude">
-              <prizm-toggle [formControl]="node.form.controls.exclude" [size]="'m'"></prizm-toggle>
-              <span>{{ i18n?.exclude }}</span>
-            </label>
+            @if (!disabled) {
+              <button
+                class="query-builder__remove"
+                [size]="'s'"
+                [icon]="'trash'"
+                [appearanceType]="'ghost'"
+                [appearance]="'secondary'"
+                (click)="removeNode(node)"
+                prizmIconButton
+              ></button>
             }
-          </ng-container>
-        </div>
-
-        @if (level !== 0 && !disabled) {
-        <button
-          class="query-builder__remove"
-          [size]="'s'"
-          [icon]="'trash'"
-          [appearanceType]="'ghost'"
-          [appearance]="'secondary'"
-          (click)="removeNode(node)"
-          prizmIconButton
-        ></button>
+          </div>
         }
-      </div>
+        @default {
+          <div class="query-builder__node-content">
+            <div class="query-builder__expression">
+              <prizm-switcher [size]="'m'" [formControl]="node.form.controls.operator">
+                <prizm-switcher-item [value]="'AND'">{{ i18n?.and }}</prizm-switcher-item>
+                <prizm-switcher-item [value]="'OR'">{{ i18n?.or }}</prizm-switcher-item>
+              </prizm-switcher>
 
-      <div [cdkDropListData]="node" [cdkDropListConnectedTo]="dropLists()" cdkDropList>
-        @for(childNode of node.children; track childNode) {
-        <ng-container
-          *ngTemplateOutlet="nodeTemplate; context: { $implicit: childNode, level: level + 1 }"
-        ></ng-container>
+              @if (!disabled) {
+                <prizm-dropdown-host
+                  #ddh
+                  [content]="listbox"
+                  [placement]="'bl'"
+                  [autoReposition]="false"
+                  [prizmDropdownHostWidth]="'auto'"
+                  style="--prizm-dropdown-host-width: auto"
+                >
+                  <button
+                    [icon]="'plus-triangle-down'"
+                    [size]="'m'"
+                    [appearanceType]="'ghost'"
+                    [appearance]="'secondary'"
+                    (click)="ddh.isOpen = !ddh.isOpen"
+                    prizmIconButton
+                  ></button>
+
+                  <ng-template #listbox>
+                    <prizm-data-list>
+                      <prizm-listing-item (click)="createConditionNode(node); ddh.close()">
+                        {{ i18n?.addCondition }}
+                      </prizm-listing-item>
+
+                      <prizm-listing-item (click)="createExpressionNode(node); ddh.close()">
+                        {{ i18n?.addNestedExpression }}
+                      </prizm-listing-item>
+                    </prizm-data-list>
+                  </ng-template>
+                </prizm-dropdown-host>
+              }
+
+              <ng-container>
+                @if (level !== 0) {
+                  <label class="query-builder__exclude">
+                    <prizm-toggle [formControl]="node.form.controls.exclude" [size]="'m'"></prizm-toggle>
+                    <span>{{ i18n?.exclude }}</span>
+                  </label>
+                }
+              </ng-container>
+            </div>
+
+            @if (level !== 0 && !disabled) {
+              <button
+                class="query-builder__remove"
+                [size]="'s'"
+                [icon]="'trash'"
+                [appearanceType]="'ghost'"
+                [appearance]="'secondary'"
+                (click)="removeNode(node)"
+                prizmIconButton
+              ></button>
+            }
+          </div>
+
+          <div [cdkDropListData]="node" [cdkDropListConnectedTo]="dropLists()" cdkDropList>
+            @for (childNode of node.children; track childNode) {
+              <ng-container
+                *ngTemplateOutlet="nodeTemplate; context: { $implicit: childNode, level: level + 1 }"
+              ></ng-container>
+            }
+          </div>
         }
-      </div>
-      } }
+      }
     </div>
 
     <div class="query-builder__placeholder" *cdkDragPlaceholder></div>

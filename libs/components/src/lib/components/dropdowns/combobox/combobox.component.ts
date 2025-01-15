@@ -1,31 +1,35 @@
 import {
   ChangeDetectionStrategy,
   Component,
+  computed,
   ContentChild,
+  effect,
   ElementRef,
-  EventEmitter,
   forwardRef,
   inject,
   Inject,
   Injector,
   Input,
+  model,
   OnInit,
-  Output,
+  signal,
+  untracked,
   ViewChild,
 } from '@angular/core';
 import { Compare, PrizmCallFuncPipe, PrizmDestroyService, PrizmToObservablePipe } from '@prizm-ui/helpers';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { PolymorphContent, PolymorphOutletDirective } from '../../../directives/polymorph';
 import {
-  isPolymorphPrimitive,
-  PolymorphContent,
-  PolymorphOutletDirective,
-} from '../../../directives/polymorph';
-import { PRIZM_COMBOBOX_OPTIONS, PrizmComboboxOptions } from './combobox.options';
+  injectOptionalMissingValueHandler,
+  PRIZM_COMBOBOX_OPTIONS,
+  PRIZM_COMBOBOX_SHOW_DROPDOWN_ON_EMPTY,
+  PrizmComboboxOptions,
+} from './combobox.options';
 import { PrizmNativeFocusableElement } from '../../../types';
 import { PrizmInputControl, PrizmInputTextModule } from '../../input';
-import { prizmIsNativeFocused, prizmIsTextOverflow$ } from '../../../util';
+import { prizmIsNativeFocused } from '../../../util';
 import { debounceTime, map, shareReplay, startWith, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { BehaviorSubject, defer, merge, Observable, of, Subject, timer } from 'rxjs';
+import { defer, merge, Observable, of, Subject, timer } from 'rxjs';
 import {
   PrizmComboboxIdentityMatcher,
   PrizmComboboxStringify,
@@ -60,6 +64,7 @@ import { prizmI18nInitWithKey } from '../../../services';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsMagnifyingGlass, prizmIconsTriangleDown } from '@prizm-ui/icons/full/source';
+import { toObservable } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-combobox',
@@ -111,17 +116,17 @@ export class PrizmComboboxComponent<T>
 
   @ContentChild(PrizmComboboxDataListDirective) customItemDataList?: PrizmComboboxDataListDirective;
 
-  @Input() search: string | null = null;
+  search = model<string | null>(null);
   @Input() prizmHintDirection: PrizmOverlayOutsidePlacement = 't';
   @Input() prizmHintCanShow!: BooleanInput;
 
-  @Input() set items(data: T[]) {
-    this.items$.next(data);
-    if (this.search) this.updateFromSearch(this.search);
-  }
-  get items(): T[] {
-    return this.items$.value;
-  }
+  items = model.required<T[]>();
+
+  updateSearchAfterItems = effect(() => {
+    this.items();
+    const search = untracked(this.search);
+    if (search) this.updateFromSearch(search);
+  });
 
   @Input()
   dropdownScroll: PrizmScrollbarVisibility = 'auto';
@@ -170,15 +175,11 @@ export class PrizmComboboxComponent<T>
   @Input()
   listItemTemplate: PolymorphContent<PrizmComboboxValueContext<T>> = this.options.listItemTemplate;
 
-  override readonly testId_ = 'ui_select';
+  override readonly testId_ = 'ui_combobox';
 
   readonly isNotNullish = Compare.isNotNullish;
 
-  @Output()
-  public readonly searchChange = new EventEmitter<string | null>();
-
   public readonly direction: PrizmOverlayOutsidePlacement = PrizmOverlayOutsidePlacement.RIGHT;
-  public readonly items$ = new BehaviorSubject<T[]>([]);
   public liveItems$!: Observable<any[]>;
   public readonly defaultIcon = 'triangle-down';
   public readonly nativeElementType = 'combobox';
@@ -189,11 +190,20 @@ export class PrizmComboboxComponent<T>
 
   readonly focused$$ = new Subject<boolean>();
   readonly focused$ = this.focused$$.asObservable();
-  readonly opened$$ = new BehaviorSubject<boolean>(false);
-  readonly opened$: Observable<boolean> = this.opened$$.asObservable();
+  readonly opened = signal(false);
+  readonly dropdownDisabled = computed(() => {
+    return !this.showDropdownOnEmpty && !this.items().length;
+  });
+
   private readonly inputSelectOptionService = inject(PrizmComboboxOptionService, {
     self: true,
   });
+  private readonly showDropdownOnEmpty =
+    inject(PRIZM_COMBOBOX_SHOW_DROPDOWN_ON_EMPTY, {
+      optional: true,
+      host: true,
+    }) ?? true;
+
   protected readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
   constructor(
     @Inject(PRIZM_COMBOBOX_OPTIONS) private readonly options: PrizmComboboxOptions<T>,
@@ -201,7 +211,6 @@ export class PrizmComboboxComponent<T>
     @Inject(PRIZM_SEARCH_TEXT) readonly searchLabelTranslation$: Observable<string>
   ) {
     super(injector);
-
     this.iconsFullRegistry.registerIcons(prizmIconsTriangleDown, prizmIconsMagnifyingGlass);
   }
 
@@ -220,7 +229,9 @@ export class PrizmComboboxComponent<T>
   public override ngOnInit() {
     super.ngOnInit();
     this.initSelectListener();
-    this.liveItems$ = this.items$.pipe(
+    this.liveItems$ = toObservable(this.items, {
+      injector: this.injector,
+    }).pipe(
       tap(() => {
         this.dropdownHostElement?.reCalculatePositions(1000 / 60);
       }),
@@ -230,7 +241,7 @@ export class PrizmComboboxComponent<T>
   }
 
   public override get empty(): Observable<boolean> {
-    return this.value$.pipe(map(value => value == null && !this.search && !this.userText));
+    return this.value$.pipe(map(value => value == null && !this.search() && !this.userText));
   }
 
   get nativeFocusableElement(): PrizmNativeFocusableElement | null {
@@ -253,7 +264,7 @@ export class PrizmComboboxComponent<T>
       .subscribe();
   }
 
-  public override clear(ev: MouseEvent): void {
+  public override clear(): void {
     this.userText = null;
     this.updateValue(null);
     this.markAsTouched();
@@ -261,13 +272,14 @@ export class PrizmComboboxComponent<T>
   }
 
   public select(item: T): void {
-    this._select(item);
-    this.opened$$.next(false);
+    this.onlySelect(item);
+    this.opened.set(false);
   }
 
-  private _select(item: T): void {
+  public onlySelect(item: T): void {
     this.userText = null;
     const selectedValue = item && this.transformer(item);
+
     if (!this.identityMatcher(selectedValue, this.value!)) {
       this.updateValue(selectedValue);
     }
@@ -281,15 +293,22 @@ export class PrizmComboboxComponent<T>
 
   protected searchEmit(value: string): void {
     this.userText = value;
-    if (this.search === value) return;
-    this.searchChange.emit((this.search = value));
+    if (!value) this.clear();
+    if (this.search() === value) return;
+    this.search.set(value);
   }
 
   private updateFromSearch(searchValue: string) {
-    const item = this.items.find(item => this.stringify(item)?.toLowerCase() === searchValue.toLowerCase());
-    if (item === this.value) return;
-    if (!item) return void this.updateValue(null);
-    this._select(item);
+    const item = this.items().find(item => this.stringify(item)?.toLowerCase() === searchValue.toLowerCase());
+    if (item && item === this.value) return;
+
+    if (!item) {
+      const missingValueHandler = injectOptionalMissingValueHandler<T>(this.injector);
+      if (!missingValueHandler) return void this.updateValue(null);
+      return missingValueHandler.handler(searchValue, this);
+    }
+
+    this.onlySelect(item);
   }
 
   public getValueFromItems(value: T, items: T[]) {
@@ -299,13 +318,14 @@ export class PrizmComboboxComponent<T>
 
   public getCurrentValue(value: T, items: T[]): string | Observable<string> {
     const newItem = this.getFullObjectOfCurrent(this.value!, items);
+
     if (Compare.isNullish(newItem)) return '';
     return this.stringify(newItem ?? value);
   }
 
   public getFullObjectOfCurrent(value: T, items: T[]): T | null {
     if (Compare.isNullish(value)) return null;
-    const newItem = this.getValueFromItems(this.value!, items);
+    const newItem = this.getValueFromItems(this.value!, items) ?? value ?? null;
     return newItem!;
   }
 
@@ -332,28 +352,38 @@ export class PrizmComboboxComponent<T>
   }
 
   protected onChangeModalVisible(visible: boolean): void {
-    if (!visible) this.clearSearch();
+    if (!visible && !this.dropdownDisabled()) this.clearSearch();
     this.changeParentFocusedClass(visible);
   }
 
   protected override refreshLocalValue(value: T | null): void {
-    super.refreshLocalValue(value);
     this.userText = null;
-    this.search = null;
+    this.search.set(null);
+    this.printing.set(null);
+    super.refreshLocalValue(value);
   }
 
   protected changeParentFocusedClass(add: boolean) {
     if (this.disabled) return;
-    this.opened$$.next(add);
+
+    if (!this.dropdownDisabled()) {
+      this.opened.set(add);
+    }
+
     this.focused$$.next(add);
   }
-
-  protected safeOpenClosedModal() {
-    if (this.opened$$.value) return;
-    this.opened$$.next(true);
-  }
+  readonly printing = signal<KeyboardEvent | null>(null);
+  private effectOnPrinting = effect(
+    () => {
+      if (!this.printing()) return;
+      this.opened.set(!this.dropdownDisabled());
+    },
+    {
+      allowSignalWrites: true,
+    }
+  );
 
   private clearSearch() {
-    this.searchChange.emit((this.search = null));
+    this.search.set(null);
   }
 }

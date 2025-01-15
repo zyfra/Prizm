@@ -1,37 +1,38 @@
 <div class="box">
   @if (dictionary$ | async; as dictionary) {
-  <button
-    class="pagination-btn"
-    [attr.testId]="'ui_primitive_time_pagination__hours-button'"
-    [class.active]="activeMode === 'hours'"
-    [prizmFocusable]="true"
-    (click)="updateActiveMode('hours')"
-    type="button"
-  >
-    {{ (value?.hours | prizmNumberWithZero) ?? dictionary.hours }}
-  </button>
-  <div class="time-separator">:</div>
-  <button
-    class="pagination-btn"
-    [attr.testId]="'ui_primitive_time_pagination__minutes-button'"
-    [class.active]="activeMode === 'minutes'"
-    [prizmFocusable]="true"
-    (click)="updateActiveMode('minutes')"
-    type="button"
-  >
-    {{ (value?.minutes | prizmNumberWithZero) ?? dictionary.minutes }}
-  </button>
-  @if (timeMode === 'HH:MM:SS') {
-  <div class="time-separator">:</div>
-  <button
-    class="pagination-btn"
-    [attr.testId]="'ui_primitive_time_pagination__seconds-button'"
-    [class.active]="activeMode === 'seconds'"
-    [prizmFocusable]="true"
-    (click)="updateActiveMode('seconds')"
-    type="button"
-  >
-    {{ (value?.seconds | prizmNumberWithZero) ?? dictionary.seconds }}
-  </button>
-  }}
+    <button
+      class="pagination-btn"
+      [attr.testId]="'ui_primitive_time_pagination__hours-button'"
+      [class.active]="activeMode === 'hours'"
+      [prizmFocusable]="true"
+      (click)="updateActiveMode('hours')"
+      type="button"
+    >
+      {{ (value?.hours | prizmNumberWithZero) ?? dictionary.hours }}
+    </button>
+    <div class="time-separator">:</div>
+    <button
+      class="pagination-btn"
+      [attr.testId]="'ui_primitive_time_pagination__minutes-button'"
+      [class.active]="activeMode === 'minutes'"
+      [prizmFocusable]="true"
+      (click)="updateActiveMode('minutes')"
+      type="button"
+    >
+      {{ (value?.minutes | prizmNumberWithZero) ?? dictionary.minutes }}
+    </button>
+    @if (timeMode === 'HH:MM:SS') {
+      <div class="time-separator">:</div>
+      <button
+        class="pagination-btn"
+        [attr.testId]="'ui_primitive_time_pagination__seconds-button'"
+        [class.active]="activeMode === 'seconds'"
+        [prizmFocusable]="true"
+        (click)="updateActiveMode('seconds')"
+        type="button"
+      >
+        {{ (value?.seconds | prizmNumberWithZero) ?? dictionary.seconds }}
+      </button>
+    }
+  }
 </div>

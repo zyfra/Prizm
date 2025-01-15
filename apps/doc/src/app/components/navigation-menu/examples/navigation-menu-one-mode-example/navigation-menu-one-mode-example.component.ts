@@ -21,7 +21,10 @@ export class NavigationMenuOneModeExampleComponent {
 
   items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
 
-  constructor(private readonly iconRegistry: PrizmIconsFullRegistry, private cdr: ChangeDetectorRef) {
+  constructor(
+    private readonly iconRegistry: PrizmIconsFullRegistry,
+    private cdr: ChangeDetectorRef
+  ) {
     this.iconRegistry.registerIcons(PRIZM_ICONS_FULL_SET);
   }
 

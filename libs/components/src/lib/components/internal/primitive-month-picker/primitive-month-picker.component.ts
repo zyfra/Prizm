@@ -150,8 +150,8 @@ export class PrizmPrimitiveMonthPickerComponent extends PrizmAbstractTestId {
       return value.from.month === item && value.from.year === this.currentYear
         ? PrizmRangeState.Start
         : value.to.month === item && value.from.year === this.currentYear
-        ? PrizmRangeState.End
-        : null;
+          ? PrizmRangeState.End
+          : null;
     }
 
     if (this.rangeState === PrizmRangeState.Start && value.from.month === item) {
