@@ -1,10 +1,10 @@
 # Prizm UI
 
-![prizm workflow](https://github.com/zyfra/Prizm/actions/workflows/ci.yml/badge.svg)
+![prizm workflow](https://prizm.zyfra.com/assets/images/header/logo-prizm.gif)
 
 - About: [prizm.zyfra.com](http://prizm.zyfra.com/)
 - Documentation&Descriptions: [prizm.site](http://prizm.site/) & [GitBook](https://prizmds.gitbook.io/documentation)
-- Figma: [Figma Community](https://www.figma.com/community/file/1156311020501452261/prizm-omponent-base-5-0)
+- Figma: [Community](https://www.figma.com/community/file/1156311020501452261/prizm-omponent-base-5-0)
 - Git: [github.com/zyfra/Prizm](https://github.com/zyfra/Prizm)
 
 ## Libraries
