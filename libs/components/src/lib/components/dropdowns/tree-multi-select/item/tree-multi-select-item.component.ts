@@ -35,6 +35,7 @@ import { PrizmTreeMultiSelectSearchDirective } from '../search';
 import { PrizmCheckboxComponent } from '../../../checkbox';
 import { PrizmTreeMultiSelectSelectedDirective } from '../tree-select-multi-selected.directive';
 import { getPrizmLabelPosition } from '../tree-multi-select-checkbox.directive';
+import { PrizmTreeMultiSelectModeDirective } from '../mode';
 
 @Component({
   selector: 'prizm-input-tree-multi-select-item',
@@ -90,6 +91,9 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   protected readonly injector = inject(Injector);
   public readonly elementRef = inject(ElementRef);
   protected readonly renderer2 = inject(Renderer2);
+  protected readonly treeMultiSelectModeDirective = inject(PrizmTreeMultiSelectModeDirective, {
+    optional: true,
+  });
   protected readonly parent = inject(PrizmTreeMultiSelectItemComponent, {
     skipSelf: true,
     optional: true,
@@ -145,6 +149,7 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   }
 
   public hasSelectedChildren() {
+    if (this.treeMultiSelectModeDirective?.mode() === 'only-current') return false;
     return this.treeSelectSelectedDirective.hasSelectedChildren(
       this.treeSelectItemDirective.prizmInputTreeSelectItem
     );
@@ -179,17 +184,19 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
 
   private _select() {
     this.treeSelectSelectedDirective.add(this.treeSelectItemDirective.prizmInputTreeSelectItem);
-    this.safeUpdateParentState();
-    this.safeUnselectChildren();
+    if (!this.treeMultiSelectModeDirective || this.treeMultiSelectModeDirective.mode() === 'auto-select') {
+      this.safeUpdateParentState();
+      this.safeUnselectChildren();
+    }
   }
 
-  public safeUpdateParentState() {
+  protected safeUpdateParentState() {
     if (!this.parent) return;
     if (!this.parent.hasAllSelectedChildren()) return;
     this.parent.select();
   }
 
-  public safeUnselectChildren() {
+  protected safeUnselectChildren() {
     if (!this.children?.length) return;
     this.unselectChildren();
   }
@@ -198,18 +205,20 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
     const parentSelected = this.parent?.isSelected();
     this.unselectSelf();
 
-    // unselect parent
-    const parents = this.parents.map(i => i.prizmInputTreeSelectItem);
-    parents.forEach(parent => this.treeSelectSelectedDirective.unselect(parent));
+    // unselectChildren
+    if (!this.treeMultiSelectModeDirective || this.treeMultiSelectModeDirective.mode() === 'auto-select') {
+      // unselect parent
+      const parents = this.parents.map(i => i.prizmInputTreeSelectItem);
+      parents.forEach(parent => this.treeSelectSelectedDirective.unselect(parent));
 
-    // unselectChildrent
-    this.childrenElements.forEach(child => child.unselect());
+      this.childrenElements.forEach(child => child.unselect());
 
-    // select children if parent was selected
-    if (parentSelected) {
-      this.parent!.childrenElements.forEach(child => {
-        if (child !== this) child.select();
-      });
+      // select children if parent was selected
+      if (parentSelected) {
+        this.parent!.childrenElements.forEach(child => {
+          if (child !== this) child.select();
+        });
+      }
     }
   }
 

@@ -105,6 +105,10 @@ export class InputTreeMultiSelectComponent {
     TypeScript: import('./examples/i18n/tree-select-i18n-example.component.ts?raw'),
     HTML: import('./examples/i18n/tree-select-i18n-example.component.html?raw'),
   };
+  readonly exampleMode: TuiDocExample = {
+    TypeScript: import('./examples/only-current/tree-select-only-current-example.component.ts?raw'),
+    HTML: import('./examples/only-current/tree-select-only-current-example.component.html?raw'),
+  };
   readonly exampleProjection: TuiDocExample = {
     TypeScript: import('./examples/projection/tree-select-projection-example.component.ts?raw'),
     HTML: import('./examples/projection/tree-select-projection-example.component.html?raw'),
