@@ -28,8 +28,8 @@ export const PRIZM_LANGUAGES_META: readonly PrizmLanguageMeta[] = [
 ];
 export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
   {
-    label: '5.4.1 (ng18)',
-    version: '5.4.1',
+    label: '5.5.0 (ng18)',
+    version: '5.5.0',
     stackblitz: 'https://stackblitz.com/edit/prizm-v5-demo',
     link: getDocSite.bind(null, 'https://doc.prizm.zyfra.com', 'http://prizm.site'),
 
@@ -42,7 +42,7 @@ export const PRIZM_VERSIONS_META: readonly PrizmVersionMeta[] = [
     label: 'v4',
     version: '4',
     stackblitz: 'https://stackblitz.com/edit/prizm-v4-demo',
-    link: getDocSite.bind(null, 'http://4.8.0.doc.prizm.site', 'https://prizm-v4.web.app'),
+    link: getDocSite.bind(null, 'http://4.8.1.doc.prizm.site', 'https://prizm-v4.web.app'),
     otherLinks: [],
     cb: (hostName: string, current: PrizmVersionMeta) => {
       return hostName.startsWith('prizm-v4--');
