@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file.
 
 - fix(components/confirm-dialog): correct footer buttons margins #2209
 - fix(doc/confirm-dialog): correct footer template example according to style guides #2209
+- fix(components/confirm-popup): correct margin for cancel button #2296
 
 ### Features
 
