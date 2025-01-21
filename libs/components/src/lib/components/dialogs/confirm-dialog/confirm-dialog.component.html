@@ -64,7 +64,7 @@
             >
             </ng-container>
           </div>
-          <div class="bottom">
+          <div class="bottom" [class.extra-margin]="context.confirmButton && context.supportButton">
             <ng-container
               *ngIf="context.cancelButton"
               [ngTemplateOutlet]="buttonTemplate"

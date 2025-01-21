@@ -2,6 +2,30 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.5.0](https://github.com/zyfra/Prizm) (16-01-2025)
+
+### Bug fixes
+
+- fix(components/confirm-dialog): correct footer buttons margins #2209
+- fix(doc/confirm-dialog): correct footer template example according to style guides #2209
+- fix(components/confirm-popup): correct margin for cancel button #2296
+
+### Features
+
+- feat(components/card): add card options provider #1669
+- feat(components/combobox): support missing value handler
+- feat(docs/combobox): example with missing value handler
+- feat(components/combobox): added support autocomplete mode
+- feat(docs/combobox): example with autocomplete mode
+- feat(chore): update prettier for support template angular variables and fixed all files
+- feat(components/confirm-dialog): add translations for default button texts #2209
+- feat(components/sidebar): add translations for default button texts #2209
+- feat(components/confirm-popup: add translations for default button texts #2209
+
+### Breacking changes
+
+- bc(components) in dictionary - why we do this read herewhy we do this read [here](https://github.com/zyfra/Prizm/discussions/1617)
+
 ## [5.4.1](https://github.com/zyfra/Prizm) (19-12-2024)
 
 ### Bug fixes
