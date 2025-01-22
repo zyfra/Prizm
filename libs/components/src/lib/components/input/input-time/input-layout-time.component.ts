@@ -28,7 +28,7 @@ import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
-import { PrizmInputControl, PrizmInputNgControl } from '../common';
+import { PrizmInputControl, PrizmInputNgControl, PrizmTimeTemplateDirective } from '../common';
 import { prizmI18nInitWithKey } from '../../../services';
 import { CommonModule } from '@angular/common';
 import {
@@ -113,9 +113,9 @@ export class PrizmInputLayoutTimeComponent extends PrizmInputNgControl<PrizmTime
   @prizmDefaultProp()
   extraButtonInjector: Injector;
 
-  @Input()
-  @prizmDefaultProp()
-  timePickerTemplate: TemplateRef<unknown> | null = null;
+  readonly timePickerCustomTemplate = inject(PrizmTimeTemplateDirective, {
+    optional: true,
+  });
 
   override readonly testId_ = 'ui_input_time';
 

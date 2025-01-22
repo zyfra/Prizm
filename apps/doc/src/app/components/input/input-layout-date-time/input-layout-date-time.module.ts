@@ -8,6 +8,7 @@ import {
   PrizmButtonComponent,
   PrizmInputLayoutDateTimeModule,
   PrizmTimePickerComponent,
+  PrizmTimeTemplateDirective,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutDateTimeBaseExampleComponent } from './examples/base/input-layout-date-time-base-example.component';
@@ -30,6 +31,7 @@ import { PrizmInputLayoutDateTimeCustomPickerExampleComponent } from './examples
     PrizmTimePickerComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateTimeTimeComponent)),
     PrizmButtonComponent,
+    PrizmTimeTemplateDirective,
   ],
   declarations: [
     PrizmInputLayoutDateTimeBaseTransformerExampleComponent,

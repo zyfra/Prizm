@@ -38,7 +38,12 @@ import { PRIZM_DATE_RIGHT_BUTTONS } from '../../../tokens/date-extra-buttons';
 import { PrizmDateButton } from '../../../types/date-button';
 import { PRIZM_STRICT_MATCHER } from '../../../constants';
 import { filterTruthy, PrizmDestroyService, PrizmPluckPipe } from '@prizm-ui/helpers';
-import { PrizmInputControl, PrizmInputNgControl, PrizmInputStatusTextDirective } from '../common';
+import {
+  PrizmInputControl,
+  PrizmInputNgControl,
+  PrizmInputStatusTextDirective,
+  PrizmTimeTemplateDirective,
+} from '../common';
 import { PrizmInputZoneDirective, PrizmInputZoneModule } from '../../../directives/input-zone';
 import { debounceTime, delay, map, takeUntil } from 'rxjs/operators';
 import { PrizmLifecycleDirective } from '../../../directives/lifecycle';
@@ -164,9 +169,9 @@ export class PrizmInputLayoutDateTimeComponent
   @prizmDefaultProp()
   timeMode: PrizmTimeMode = `HH:MM`;
 
-  @Input()
-  @prizmDefaultProp()
-  timePickerTemplate: TemplateRef<unknown> | null = null;
+  readonly timePickerCustomTemplate = inject(PrizmTimeTemplateDirective, {
+    optional: true,
+  });
 
   override readonly testId_ = 'ui_input_date_time';
 

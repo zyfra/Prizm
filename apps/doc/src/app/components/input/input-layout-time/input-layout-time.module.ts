@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { prizmDocGenerateRoutes, PrizmAddonDocModule } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { InputLayoutTimeTimeComponent } from './input-layout-time.component';
-import { PolymorphModule, PrizmInputLayoutTimeModule, PrizmTimePickerComponent } from '@prizm-ui/components';
+import {
+  PolymorphModule,
+  PrizmInputLayoutTimeModule,
+  PrizmTimePickerComponent,
+  PrizmTimeTemplateDirective,
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutTimeBaseExampleComponent } from './examples/base/input-layout-time-base-example.component';
 import { PrizmInputLayoutTimeWithSecondsExampleComponent } from './examples/with-seconds/input-layout-time-with-seconds-example.component';
@@ -20,6 +25,7 @@ import { PrizmInputLayoutTimeCustomTimePickerExampleComponent } from './examples
     PolymorphModule,
     PrizmInputLayoutTimeModule,
     PrizmTimePickerComponent,
+    PrizmTimeTemplateDirective,
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutTimeTimeComponent)),
   ],
   declarations: [
