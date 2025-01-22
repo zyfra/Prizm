@@ -28,6 +28,10 @@ export class PrizmTreeControllerDirective<T> implements PrizmTreeController, Pri
   @prizmDefaultProp()
   map: Map<T, boolean> = new Map();
 
+  @Input()
+  @prizmDefaultProp()
+  prizmTreeItemExpandKeyFn: (item: T) => any = (item: T) => item;
+
   @Output()
   readonly toggled = new EventEmitter<T>();
 
@@ -44,14 +48,19 @@ export class PrizmTreeControllerDirective<T> implements PrizmTreeController, Pri
     this.items.delete(item);
   }
 
-  public isExpanded(item: PrizmTreeItemComponent): boolean {
+  public getValue(item: PrizmTreeItemComponent): T | undefined {
     const value = this.items.get(item);
+    return value && this.prizmTreeItemExpandKeyFn(value);
+  }
+
+  public isExpanded(item: PrizmTreeItemComponent): boolean {
+    const value = this.getValue(item);
 
     return (value && this.map.get(value)) ?? this.prizmTreeController;
   }
 
   public toggle(item: PrizmTreeItemComponent): void {
-    const value = this.items.get(item);
+    const value = this.getValue(item);
     const isExpanded = !this.isExpanded(item);
 
     if (!prizmIsPresent(value)) {
