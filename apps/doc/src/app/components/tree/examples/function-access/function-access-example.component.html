@@ -2,7 +2,9 @@
   <prizm-tree
     [childrenHandler]="childrenHandler"
     [content]="nodeTemplate"
+    [map]="expandMap"
     [prizmTreeController]="false"
+    [prizmTreeItemExpandKeyFn]="prizmTreeItemExpandKeyFn"
     [value]="tree[0]"
   ></prizm-tree>
 }

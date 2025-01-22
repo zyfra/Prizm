@@ -150,11 +150,17 @@ const originTree: TreeNode = {
   `,
 })
 export class TreeFunctionAccessExampleComponent {
+  /** Map, содержимым которого будет управлять prizm-tree дерево */
+  public expandMap = new Map<TreeNode, boolean>();
   /** ID выбранных объектов **/
   public selectedIdSet = new Set<string>();
+  /** Структура дерева, где с течением времени меняются ссылки на узлы как правило при работе в state manager`ах */
   public tree$$ = new BehaviorSubject(this.getWorkTree([structuredClone(originTree)], this.selectedIdSet));
   readonly tree$ = this.tree$$.asObservable();
+  /** Хендлер для получения дочерних нод */
   readonly childrenHandler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children ?? [];
+  /** Функция получения примитива из узла ноды для определения раскрытости узла */
+  readonly prizmTreeItemExpandKeyFn = (item: TreeNode) => item.id;
 
   public toggleNode(node: TreeNode, isSelected: boolean): void {
     if (node.children.length === 0) {
