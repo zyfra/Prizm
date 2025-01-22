@@ -7,7 +7,7 @@
     invalid: control.invalid | prizmToObservable | async,
     required: control.required | prizmToObservable | async,
     inputLayout: inputLayout$ | async,
-    emptyLabel: emptyLabel
+    emptyLabel: emptyLabel,
   } as $"
 >
   <ng-template #labelTemplate>
@@ -81,7 +81,7 @@
       'prizm-input-empty-label': emptyLabel,
       'prizm-input-form-disabled': $.disabled,
       'prizm-input-form-touched': $.touched,
-      'prizm-input-form-invalid': $.invalid
+      'prizm-input-form-invalid': $.invalid,
     }"
   >
     <div class="prizm-input-form__first">

@@ -132,7 +132,7 @@
       (prizmAfterViewInit)="markAsTouched()"
       (valueChange)="onRangeChange($event)"
     >
-      @let timeStr = dictionary$ | async | prizmPluck : 'time';
+      @let timeStr = dictionary$ | async | prizmPluck: 'time';
       <ng-container footerFrom>
         <prizm-input-layout [label]="timeStr">
           <prizm-input-layout-time

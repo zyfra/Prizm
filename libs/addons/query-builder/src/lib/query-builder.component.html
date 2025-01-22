@@ -1,7 +1,7 @@
 @let i18n = i18n$ | async;
 
 <div class="query-builder__tree" aria-role="tree">
-  @for(node of data; track node) {
+  @for (node of data; track node) {
   <ng-container *ngTemplateOutlet="nodeTemplate; context: { $implicit: node, level: 0 }"></ng-container>
   }
 </div>
@@ -126,7 +126,7 @@
       </div>
 
       <div [cdkDropListData]="node" [cdkDropListConnectedTo]="dropLists()" cdkDropList>
-        @for(childNode of node.children; track childNode) {
+        @for (childNode of node.children; track childNode) {
         <ng-container
           *ngTemplateOutlet="nodeTemplate; context: { $implicit: childNode, level: level + 1 }"
         ></ng-container>

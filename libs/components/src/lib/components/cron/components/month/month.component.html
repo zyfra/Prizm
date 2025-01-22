@@ -3,7 +3,7 @@
     *prizmLet="{
       cron: cronI18n$ | async,
       months: (monthsI18n$ | async) ?? [],
-      shortMonths: (shortMonthsI18n$ | async) ?? []
+      shortMonths: (shortMonthsI18n$ | async) ?? [],
     } as i18n"
   >
     <ng-container *ngIf="cronUiState.canShowCronListItem(specifiedList, cronUiState.TYPES.every)">

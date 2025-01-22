@@ -1,8 +1,8 @@
-import { InjectionToken, ValueProvider } from '@angular/core';
+import { InjectionToken, Injector, ValueProvider } from '@angular/core';
 import { PolymorphContent } from '../../../directives';
-import { PrizmContextWithImplicit } from '../../../types';
 import {
   PrizmComboboxIdentityMatcher,
+  PrizmComboboxMissingValueHandlerToken,
   PrizmComboboxStringify,
   PrizmComboboxValueContext,
   PrizmComboboxValueTransformer,
@@ -49,6 +49,19 @@ export const PRIZM_COMBOBOX_DEFAULT_OPTIONS: PrizmComboboxOptions<unknown> = {
   placeholder: '',
 };
 
+export const PRIZM_COMBOBOX_SHOW_DROPDOWN_ON_EMPTY = new InjectionToken<boolean>(
+  'show dropdown for combobox when its empty'
+);
+export const PRIZM_COMBOBOX_SELECT_MISSING_HANDLER = new InjectionToken<
+  PrizmComboboxMissingValueHandlerToken<unknown>
+>('select missing handler');
+
+export function injectOptionalMissingValueHandler<T>(injector: Injector) {
+  return injector.get(
+    PRIZM_COMBOBOX_SELECT_MISSING_HANDLER,
+    null
+  ) as PrizmComboboxMissingValueHandlerToken<T> | null;
+}
 export const PRIZM_COMBOBOX_OPTIONS = new InjectionToken<PrizmComboboxOptions<unknown>>(
   'Default parameters for select',
   {

@@ -19,8 +19,8 @@
           valueTemplate && editableTemplate as content;
           context: {
             $implicit: $any(val),
-            value: val | prizmCallFunc : transformer,
-            stringify: $any(val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async)
+            value: val | prizmCallFunc: transformer,
+            stringify: $any(val | prizmCallFunc: stringify : $any(nullContent) | prizmToObservable | async),
           }
         "
       >
@@ -75,10 +75,10 @@
               valueTemplate as content;
               context: {
                 $implicit: $any(val),
-                value: val | prizmCallFunc : transformer,
+                value: val | prizmCallFunc: transformer,
                 stringify: $any(
-                  val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async
-                )
+                  val | prizmCallFunc: stringify : $any(nullContent) | prizmToObservable | async
+                ),
               }
             "
           >

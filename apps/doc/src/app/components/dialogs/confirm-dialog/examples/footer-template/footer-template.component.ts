@@ -15,7 +15,14 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
       .custom-footer {
         display: flex;
         flex-direction: column;
-        gap: 1rem;
+
+        [prizmButton] {
+          margin-bottom: 8px;
+        }
+
+        [prizmButton]:last-child {
+          margin-top: 8px;
+        }
       }
     `,
   ],
