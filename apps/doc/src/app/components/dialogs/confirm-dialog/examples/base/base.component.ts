@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PrizmConfirmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 import { takeUntil } from 'rxjs/operators';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDocDocumentationComponent } from '@prizm-ui/doc';
 
 @Component({
   selector: 'prizm-dialog-service-example',
@@ -17,6 +18,7 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   providers: [PrizmDestroyService],
 })
 export class PrizmDialogServiceExampleComponent {
+  @ViewChild('doc') doc!: PrizmDocDocumentationComponent;
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = PrizmOverlayInsidePlacement.CENTER;
   public backdrop = true;
@@ -35,6 +37,7 @@ export class PrizmDialogServiceExampleComponent {
           position: this.position,
           backdrop: this.backdrop,
           size: 'm',
+          testId: this.doc.testIdPostfix,
         }
       )
       .pipe(takeUntil(this.destroy$))

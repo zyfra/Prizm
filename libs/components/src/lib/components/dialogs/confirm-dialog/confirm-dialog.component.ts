@@ -67,6 +67,15 @@ export class PrizmDialogConfirmComponent<DATA = unknown> extends PrizmAbstractTe
   @HostBinding('style.width')
   readonly width = '100%';
 
+  @HostBinding('attr.data-testid')
+  override get testId() {
+    const postfix = this.testIdPostfix || this.context.testId;
+    return this.generateMainTestId + (postfix ? `--${postfix}` : '');
+  }
+  override set testId(value: string) {
+    this.testIdPostfix = value;
+  }
+
   override readonly testId_ = 'ui_form_submit';
 
   private readonly animation = {
