@@ -27,7 +27,7 @@ export class PrizmInputLayoutDateTimeCustomPickerExampleComponent {
   }
 
   public getMinMaxTime(dayToCompare: [PrizmDay, PrizmTime]): PrizmTime | null {
-    if (!this.control.value) return null;
+    if (!this.control.value || !this.control.value[0]) return null;
     return this.control.value[0].daySame(dayToCompare[0]) ? dayToCompare[1] : null;
   }
 }
