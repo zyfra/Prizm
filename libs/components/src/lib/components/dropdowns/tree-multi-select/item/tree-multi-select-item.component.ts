@@ -74,6 +74,9 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
   readonly checkboxPosition = getPrizmLabelPosition();
   public childrenElements: PrizmTreeMultiSelectItemComponent<K>[] = [];
+  get neighbours() {
+    return (this.parent?.childrenElements ?? []).filter(child => child !== this);
+  }
   public cdRef = inject(ChangeDetectorRef);
   public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS) as PrizmTreeMultiSelectItemDirective[];
   protected treeSelectSearchDirective = inject(PrizmTreeMultiSelectSearchDirective);
@@ -194,27 +197,32 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
     this.unselectChildren();
   }
 
-  public unselect() {
+  public unselect(exceptChildren: PrizmTreeMultiSelectItemComponent<K>[] = []) {
     const parentSelected = this.parent?.isSelected();
+    console.log('#mz unselect:1', {
+      neighboursSelected: this.neighbours.length,
+      exceptChildrenLength: exceptChildren.length,
+      parentSelected,
+      exceptChildren,
+      neighbours: this.neighbours,
+      self: this,
+    });
+
+    // unselect current
     this.unselectSelf();
 
-    // unselect parent
-    const parents = this.parents.map(i => i.prizmInputTreeSelectItem);
-    parents.forEach(parent => this.treeSelectSelectedDirective.unselect(parent));
+    // unselected specific child
+    this.childrenElements.forEach(child => {
+      if (exceptChildren.includes(child)) return;
+      child.unselectSelf();
+    });
 
-    // unselectChildrent
-    this.childrenElements.forEach(child => child.unselect());
-
-    // select children if parent was selected
-    if (parentSelected) {
-      this.parent!.childrenElements.forEach(child => {
-        if (child !== this) child.select();
-      });
-    }
+    if (parentSelected) this.parent!.unselect(this.neighbours);
   }
 
   public unselectSelf() {
     this.treeSelectSelectedDirective.unselect(this.treeSelectItemDirective.prizmInputTreeSelectItem);
+    console.log('#mz unselectSelf');
   }
 
   public unselectChildren() {
@@ -228,11 +236,18 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
    * @public api
    * */
   public toggleSelected() {
+    console.log('#mz toggleSelected', 1);
     if (this.isSelected()) {
+      console.log('#mz toggleSelected:unselect');
+
       this.unselect();
     } else if (this.hasSelectedChildren()) {
+      console.log('#mz toggleSelected:select-children');
+
       this._select();
     } else {
+      console.log('#mz toggleSelected:select');
+
       this._select();
     }
   }
@@ -282,7 +297,11 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   }
 
   protected isSelected() {
-    return this.treeSelectSelectedDirective.isSelfSelected(this.value) || this.isParentSelected();
+    return this.isSelfSelected() || this.isParentSelected();
+  }
+
+  public isSelfSelected() {
+    return this.treeSelectSelectedDirective.isSelfSelected(this.value);
   }
 
   protected isSelected$() {
