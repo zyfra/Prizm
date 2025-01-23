@@ -7,7 +7,6 @@ import {
   Inject,
   Injector,
   Input,
-  TemplateRef,
   ViewChild,
 } from '@angular/core';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';

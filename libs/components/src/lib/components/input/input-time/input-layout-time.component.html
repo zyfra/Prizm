@@ -1,9 +1,9 @@
 <prizm-dropdown-host
   class="z-wrapper"
-  [canOpen]="interactive && !!filtered.length"
+  [canOpen]="interactive && (!!filtered.length || !!timePickerCustomTemplate)"
   [content]="dropdownContent"
   [prizmDropdownHostWidth]="!timePickerCustomTemplate ? '100%' : 'auto'"
-  [isOpen]="interactive && open && !!filtered.length"
+  [isOpen]="interactive && open && (!!filtered.length || !!timePickerCustomTemplate)"
   [closeByEsc]="true"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   (isOpenChange)="onOpen($event)"
