@@ -16,7 +16,7 @@
       *ngIf="label$ | async"
       [ngClass]="[
         control.nativeElementType ? 'label-container-' + control.nativeElementType : '',
-        'label-container-' + (outer ? 'outer' : 'inner'),
+        'label-container-' + (outer ? 'outer' : 'inner')
       ]"
       [class.label-container-focused]="$.focused"
       [attr.data-size]="size"
@@ -44,7 +44,7 @@
           [interactive]="true"
           [disabled]="$.disabled"
           [prizmInputIconButton]="$any(clearButton)"
-          [prizmHint]="$.inputLayout | prizmPluck: ['clear']"
+          [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
           [prizmHintDirection]="'b'"
           [prizmHintCanShow]="!hideClearButtonHint"
           (mousedown)="onClearClick($event)"
@@ -112,7 +112,7 @@
             [class.force-clear]="forceClear"
             [disabled]="$.disabled"
             [prizmInputIconButton]="$any(clearButton) ?? 'delete-content'"
-            [prizmHint]="$.inputLayout | prizmPluck: ['clear']"
+            [prizmHint]="$.inputLayout | prizmPluck : ['clear']"
             [prizmHintDirection]="'b'"
             [prizmHintCanShow]="!hideClearButtonHint"
             (mousedown)="onClearClick($event)"

@@ -5,8 +5,8 @@
         <tr prizmThGroup>
           <th
             *prizmHead="'code'"
-            [prizmStickyLeft]="'code' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'code' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -15,8 +15,8 @@
           </th>
           <th
             *prizmHead="'name'"
-            [prizmStickyLeft]="'name' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'name' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -25,8 +25,8 @@
           </th>
           <th
             *prizmHead="'category'"
-            [prizmStickyLeft]="'category' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'category' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -35,8 +35,8 @@
           </th>
           <th
             *prizmHead="'count'"
-            [prizmStickyLeft]="'count' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'count' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -45,8 +45,8 @@
           </th>
           <th
             *prizmHead="'nameTwin'"
-            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'nameTwin' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -55,8 +55,8 @@
           </th>
           <th
             *prizmHead="'categoryTwin'"
-            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -65,8 +65,8 @@
           </th>
           <th
             *prizmHead="'countTwin'"
-            [prizmStickyLeft]="'countTwin' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'countTwin' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyHeaderStyle"
             [class.unsticky]="settings.fixHeader | prizmStickyHeader"
             prizmTh
@@ -81,17 +81,17 @@
           <td
             class="format__number"
             *prizmCell="'code'"
-            [prizmStickyLeft]="'code' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'code' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'code' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'code' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
-            {{ item.code | spaceNumber: '0.0-0' }}
+            {{ item.code | spaceNumber : '0.0-0' }}
           </td>
           <td
             *prizmCell="'name'"
-            [prizmStickyLeft]="'name' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'name' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'name' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'name' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
@@ -99,8 +99,8 @@
           </td>
           <td
             *prizmCell="'category'"
-            [prizmStickyLeft]="'category' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'category' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'category' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'category' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
@@ -109,17 +109,17 @@
           <td
             class="format__number"
             *prizmCell="'count'"
-            [prizmStickyLeft]="'count' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'count' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'count' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'count' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
-            {{ item.count | spaceNumber: '0.0-0' }}
+            {{ item.count | spaceNumber : '0.0-0' }}
           </td>
           <td
             *prizmCell="'nameTwin'"
-            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'nameTwin' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'nameTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'nameTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
@@ -127,8 +127,8 @@
           </td>
           <td
             *prizmCell="'categoryTwin'"
-            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'categoryTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'categoryTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
@@ -137,12 +137,12 @@
           <td
             class="format__number"
             *prizmCell="'countTwin'"
-            [prizmStickyLeft]="'countTwin' | prizmStickyColumn: stickyLeftIds"
-            [prizmStickyRight]="'countTwin' | prizmStickyColumn: stickyRightIds"
+            [prizmStickyLeft]="'countTwin' | prizmStickyColumn : stickyLeftIds"
+            [prizmStickyRight]="'countTwin' | prizmStickyColumn : stickyRightIds"
             [stylesOnSticky]="stickyStyle"
             prizmTd
           >
-            {{ item.count | spaceNumber: '0.0-0' }}
+            {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>
       </tbody>

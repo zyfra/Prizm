@@ -72,10 +72,7 @@ export class PrizmDropdownHostDateListEditExampleComponent {
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
-  constructor(
-    public readonly cdRef: ChangeDetectorRef,
-    public readonly injector: Injector
-  ) {
+  constructor(public readonly cdRef: ChangeDetectorRef, public readonly injector: Injector) {
     this.iconsFullRegistry.registerIcons(
       prizmIconsCalendarRange,
       prizmIconsPlus,

@@ -1,0 +1,32 @@
+<prizm-input-layout label="Введите дату">
+  <prizm-input-layout-date-time
+    #dateTime
+    [enabled]="false"
+    [formControl]="control"
+    [min]="min"
+    [max]="max"
+    [prizmTimeTemplate]="pickerTemplate"
+    prizmDropdownHostControl
+  ></prizm-input-layout-date-time>
+</prizm-input-layout>
+
+<br />
+<button (click)="setDefaultValue()" prizmButton>Set default value</button>
+<button (click)="clear()" prizmButton>Clear</button>
+
+<pre>
+  min: {{ min[0].toLocalNativeDate() | date : 'shortDate' }} {{ min[1] }}
+  max: {{ max[0].toLocalNativeDate() | date : 'shortDate' }} {{ max[1] }}
+  value: {{ control.value }}
+</pre>
+
+<ng-template #pickerTemplate>
+  <prizm-time-picker
+    [timeMode]="'HH:MM'"
+    [time]="control.value?.[1]"
+    [minTime]="$any(getMinMaxTime(min))"
+    [maxTime]="$any(getMinMaxTime(max))"
+    (timeChanged)="dateTime.onTimeSelected($event)"
+    (canceled)="dateTime.toggleTimeDropdown(false)"
+  ></prizm-time-picker>
+</ng-template>

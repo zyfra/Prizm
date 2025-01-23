@@ -1,13 +1,13 @@
 <prizm-input-layout label="Validators">
   <prizm-combobox
     #input
-    autocomplete
     [missingValueHandler]="missingValueHandler"
     [formControl]="control"
     [items]="(searchItems$ | async)!"
     [prizmHintCanShow]="true"
     (itemsChange)="items = $event"
     (searchChange)="search$.next($event)"
+    autocomplete
   ></prizm-combobox>
   <ng-template [control]="input" prizmInputStatusText></ng-template>
 </prizm-input-layout>

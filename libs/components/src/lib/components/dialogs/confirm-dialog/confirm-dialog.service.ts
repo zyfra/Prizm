@@ -25,8 +25,7 @@ const DEFAULT_OPTIONS = {
   providedIn: 'root',
 })
 export class PrizmConfirmDialogService<
-  T extends
-    PrizmConfirmDialogOptions<PrizmConfirmDialogResult> = PrizmConfirmDialogOptions<PrizmConfirmDialogResult>,
+  T extends PrizmConfirmDialogOptions<PrizmConfirmDialogResult> = PrizmConfirmDialogOptions<PrizmConfirmDialogResult>
 > extends AbstractPrizmDialogService<T, PrizmConfirmDialogResult> {
   protected readonly component = PrizmDialogConfirmComponent;
   protected readonly defaultOptions = DEFAULT_OPTIONS as T;

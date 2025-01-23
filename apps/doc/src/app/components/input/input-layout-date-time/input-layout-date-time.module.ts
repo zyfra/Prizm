@@ -3,7 +3,13 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { InputLayoutDateTimeTimeComponent } from './input-layout-date-time.component';
-import { PolymorphModule, PrizmButtonComponent, PrizmInputLayoutDateTimeModule } from '@prizm-ui/components';
+import {
+  PolymorphModule,
+  PrizmButtonComponent,
+  PrizmInputLayoutDateTimeModule,
+  PrizmTimePickerComponent,
+  PrizmTimeTemplateDirective,
+} from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutDateTimeBaseExampleComponent } from './examples/base/input-layout-date-time-base-example.component';
 import { PrizmInputLayoutDateTimeWithSecondsExampleComponent } from './examples/with-seconds/input-layout-date-time-with-seconds-example.component';
@@ -12,6 +18,7 @@ import { PrizmInputLayoutDateTimeRequiredExampleComponent } from './examples/req
 import { PrizmInputLayoutDateTimeMinMaxExampleComponent } from './examples/min-max/input-layout-date-time-min-max-example.component';
 import { PrizmInputLayoutDateTimeMinMaxTimeExampleComponent } from './examples/min-max-time/input-layout-date-time-min-max-time-example.component';
 import { PrizmInputLayoutDateTimeBaseTransformerExampleComponent } from './examples/base-transformer/input-layout-date-time-base-transformer-example.component';
+import { PrizmInputLayoutDateTimeCustomPickerExampleComponent } from './examples/custom-time-picker/input-layout-date-time-custom-time-picker-example.component';
 
 @NgModule({
   imports: [
@@ -21,8 +28,10 @@ import { PrizmInputLayoutDateTimeBaseTransformerExampleComponent } from './examp
     ReactiveFormsModule,
     PolymorphModule,
     PrizmInputLayoutDateTimeModule,
+    PrizmTimePickerComponent,
     RouterModule.forChild(prizmDocGenerateRoutes(InputLayoutDateTimeTimeComponent)),
     PrizmButtonComponent,
+    PrizmTimeTemplateDirective,
   ],
   declarations: [
     PrizmInputLayoutDateTimeBaseTransformerExampleComponent,
@@ -32,6 +41,7 @@ import { PrizmInputLayoutDateTimeBaseTransformerExampleComponent } from './examp
     PrizmInputLayoutDateTimeRequiredExampleComponent,
     PrizmInputLayoutDateTimeWithSecondsExampleComponent,
     PrizmInputLayoutDateTimeNativeExampleComponent,
+    PrizmInputLayoutDateTimeCustomPickerExampleComponent,
     InputLayoutDateTimeTimeComponent,
   ],
   exports: [InputLayoutDateTimeTimeComponent],

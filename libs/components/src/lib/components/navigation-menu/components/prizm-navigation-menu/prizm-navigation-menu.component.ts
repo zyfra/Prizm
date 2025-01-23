@@ -62,7 +62,7 @@ import { PrizmScrollbarComponent } from '../../../scrollbar';
   providers: [PrizmNavigationMenuService, PrizmNavigationMenuToolbarService, PrizmDestroyService],
 })
 export class PrizmNavigationMenuComponent<
-  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] },
+  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
 > extends PrizmAbstractTestId {
   @ContentChildren(PrizmNavigationMenuGroupComponent)
   menuGroups: QueryList<PrizmNavigationMenuGroupComponent<UserItem>> = prizmEmptyQueryList();

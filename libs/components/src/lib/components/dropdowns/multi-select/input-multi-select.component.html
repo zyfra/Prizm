@@ -25,7 +25,7 @@
     [tabIndex]="!disabled ? 1 : -1"
     [placeholder]="placeholder"
     [ngModelOptions]="{ standalone: true }"
-    [ngModel]="($any(value) | prizmCallFunc: stringify) ?? ''"
+    [ngModel]="($any(value) | prizmCallFunc : stringify) ?? ''"
     (blur)="onTouch()"
     prizmInput
   />
@@ -70,7 +70,7 @@
             <div
               class="text"
               #elem
-              *prizmLet="item | prizmCallFunc: stringify : $any(emptyContent) as text"
+              *prizmLet="item | prizmCallFunc : stringify : $any(emptyContent) as text"
               [prizmHintOnOverflow]="text"
               [prizmHintDirection]="direction"
             >

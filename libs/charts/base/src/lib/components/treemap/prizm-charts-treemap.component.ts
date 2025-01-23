@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class PrizmChartsTreemapComponent<
-  T extends Record<string, unknown>,
+  T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsTreemapOrigin, PrizmChartsTreemapOptions> {
   @Input()
   set data(data: PrizmChartsTreemapData) {
@@ -42,10 +42,7 @@ export class PrizmChartsTreemapComponent<
   }
   override readonly testId_ = 'ui_charts_treemap';
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.prizmChartThemeService.initIfNecessary();
     this.init();

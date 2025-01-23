@@ -1,10 +1,10 @@
 <ng-container *ngIf="!items.length; else presets">
   <prizm-primitive-calendar-range
     [markerHandler]="markerHandler"
-    [min]="min | prizmMapper: maxLengthMapper : value : maxLength : true"
-    [max]="max | prizmMapper: maxLengthMapper : value : maxLength : false"
+    [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
+    [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
     [defaultViewedMonthFirst]="computedMonth"
-    [defaultViewedMonthSecond]="computedMonth | prizmMapper: getEndRangeMonthOrShift"
+    [defaultViewedMonthSecond]="computedMonth | prizmMapper : getEndRangeMonthOrShift"
     [disabledItemHandler]="calculatedDisabledItemHandler"
     [value]="value"
     (dayClick)="onDayClick($event)"
@@ -30,8 +30,8 @@
     <prizm-calendar
       [value]="value"
       [markerHandler]="markerHandler"
-      [min]="min | prizmMapper: maxLengthMapper : value : maxLength : true"
-      [max]="max | prizmMapper: maxLengthMapper : value : maxLength : false"
+      [min]="min | prizmMapper : maxLengthMapper : value : maxLength : true"
+      [max]="max | prizmMapper : maxLengthMapper : value : maxLength : false"
       [month]="computedMonth"
       [disabledItemHandler]="calculatedDisabledItemHandler"
       (dayClick)="onDayClick($event)"
@@ -48,7 +48,7 @@
     >
       <button
         class="button-list"
-        *ngFor="let item of items | prizmMapper: mapper : min : max : minLength : (otherDateText$ | async)"
+        *ngFor="let item of items | prizmMapper : mapper : min : max : minLength : (otherDateText$ | async)"
         [attr.aria-checked]="isItemActive(item)"
         (keydown.enter.prevent)="onItemSelect(item)"
         (keydown.space.prevent)="onItemSelect(item)"

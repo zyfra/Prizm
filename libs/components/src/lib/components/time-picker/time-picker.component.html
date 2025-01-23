@@ -10,7 +10,7 @@
   <prizm-scrollbar class="z-scrollbar" [visibility]="sheetState === 'hours' ? 'hidden' : 'visible'">
     <prizm-primitive-time-picker
       [timeSheet]="timeSheet"
-      [disabledItems]="timeSheet | prizmTimeDisabledItems: sheetState : internalTime : minTime() : maxTime()"
+      [disabledItems]="timeSheet | prizmTimeDisabledItems : sheetState : internalTime : minTime() : maxTime()"
       [selectedItem]="internalTime[sheetState]"
       (timeClick)="timeClicked($event)"
     ></prizm-primitive-time-picker>

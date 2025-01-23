@@ -12,10 +12,7 @@ import { prizmGetActualTarget } from '../util/dom/get-actual-target';
 export class PrizmHoveredService {
   private readonly documentEvents$: Observable<Event>;
 
-  constructor(
-    @Inject(DOCUMENT) documentRef: Document,
-    @Inject(NgZone) private readonly ngZone: NgZone
-  ) {
+  constructor(@Inject(DOCUMENT) documentRef: Document, @Inject(NgZone) private readonly ngZone: NgZone) {
     this.documentEvents$ = merge(
       prizmTypedFromEvent(documentRef, 'mousemove'),
       prizmTypedFromEvent(documentRef, 'touchstart', { capture: true })

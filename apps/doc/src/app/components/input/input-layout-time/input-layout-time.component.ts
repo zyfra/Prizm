@@ -80,4 +80,13 @@ export class InputLayoutTimeTimeComponent {
     TypeScript: import('./examples/with-preset/input-layout-time-with-preset-example.component.ts?raw'),
     HTML: import('./examples/with-preset/input-layout-time-with-preset-example.component.html?raw'),
   };
+
+  public readonly exampleCustomTimePicker: TuiDocExample = {
+    TypeScript: import(
+      './examples/custom-time-picker/input-layout-time-custom-time-picker-example.component.ts?raw'
+    ),
+    HTML: import(
+      './examples/custom-time-picker/input-layout-time-custom-time-picker-example.component.html?raw'
+    ),
+  };
 }

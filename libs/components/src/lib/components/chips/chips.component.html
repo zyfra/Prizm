@@ -15,7 +15,7 @@
       [hintCanShow]="hintCanShow"
       [hintDirection]="hintDirection"
       [class.single-line]="singleLine"
-      [hintText]="item | prizmCallFunc: stringify"
+      [hintText]="item | prizmCallFunc : stringify"
       [deletable]="deletable"
       [disabled]="accessorIsDisabled"
       [prizmContext]="item"
@@ -24,14 +24,14 @@
       (click)="chipClick(item)"
       prizmOverflowItem
     >
-      {{ item | prizmCallFunc: stringify }}
+      {{ item | prizmCallFunc : stringify }}
     </prizm-chips-item>
 
     <ng-container *ngIf="overflowHost.active">
       <div
         class="more-item"
         *ngIf="(overflowHost.hiddenElements$ | async)?.length"
-        [prizmHint]="overflowHost.hiddenElements$ | prizmGetContextByKeys | async | prizmCallFunc: joinHints"
+        [prizmHint]="overflowHost.hiddenElements$ | prizmGetContextByKeys | async | prizmCallFunc : joinHints"
         [prizmHintDirection]="hintDirection"
         [prizmHintCanShow]="hintCanShow"
       >

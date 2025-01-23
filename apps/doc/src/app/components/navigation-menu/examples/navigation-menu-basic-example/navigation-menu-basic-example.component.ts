@@ -21,10 +21,7 @@ export class NavigationMenuBasicExampleComponent {
   items: PrizmNavigationMenuItem[] = MOKED_ITEMS;
   activeItem: PrizmNavigationMenuItem;
 
-  constructor(
-    private readonly iconRegistry: PrizmIconsFullRegistry,
-    private cdr: ChangeDetectorRef
-  ) {
+  constructor(private readonly iconRegistry: PrizmIconsFullRegistry, private cdr: ChangeDetectorRef) {
     this.iconRegistry.registerIcons(PRIZM_ICONS_FULL_SET);
 
     const childItemsArray = this.items[0].children as PrizmNavigationMenuItem[];

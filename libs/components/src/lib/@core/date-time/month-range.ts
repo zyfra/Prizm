@@ -7,10 +7,7 @@ import { prizmAssert } from '@prizm-ui/core';
  * An immutable range of two {@link PrizmMonth} objects
  */
 export class PrizmMonthRange {
-  constructor(
-    readonly from: PrizmMonth,
-    readonly to: PrizmMonth
-  ) {
+  constructor(readonly from: PrizmMonth, readonly to: PrizmMonth) {
     if (from && to) prizmAssert.assert(from.monthSameOrBefore(to));
   }
 

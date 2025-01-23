@@ -149,8 +149,8 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
       return value.from.year === item
         ? PrizmRangeState.Start
         : value.to.year === item
-          ? PrizmRangeState.End
-          : null;
+        ? PrizmRangeState.End
+        : null;
     }
 
     if (this.rangeState === PrizmRangeState.Start && value.from.year === item) {

@@ -17,11 +17,7 @@ import { prizmAssert, prizmPadStart } from '@prizm-ui/core';
  * Immutable date object, consisting of day, month and year
  */
 export class PrizmDay extends PrizmMonth {
-  constructor(
-    year: number,
-    month: number,
-    readonly day: number
-  ) {
+  constructor(year: number, month: number, readonly day: number) {
     super(year, month);
     prizmAssert.assert(PrizmDay.isValidDay(year, month, day), {
       year,

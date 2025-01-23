@@ -37,10 +37,7 @@ export const PRIZM_MILLISECONDS_IN_HOUR = PRIZM_MILLISECONDS_IN_MINUTE * PRIZM_M
 export const PRIZM_MILLISECONDS_IN_DAY = PRIZM_MILLISECONDS_IN_HOUR * PRIZM_HOURS_IN_DAY;
 
 export class PrizmDateTime {
-  constructor(
-    public day: PrizmDay,
-    public time: PrizmTime | null = new PrizmTime(0, 0)
-  ) {}
+  constructor(public day: PrizmDay, public time: PrizmTime | null = new PrizmTime(0, 0)) {}
 
   public static fromLocalNativeDate(date: Date): PrizmDateTime {
     return new PrizmDateTime(PrizmDay.fromLocalNativeDate(date), PrizmTime.fromLocalNativeDate(date));

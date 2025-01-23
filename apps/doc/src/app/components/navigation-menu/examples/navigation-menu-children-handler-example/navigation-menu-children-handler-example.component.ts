@@ -32,6 +32,6 @@ export class NavigationMenuChildrenHandlerExampleComponent {
   /** Hides 3rd level children */
   childrenHandler: PrizmNavigationMenuChildrenHandler<PrizmNavigationMenuItem> = item => {
     const shouldHideChildren = item.original instanceof ParentItem;
-    return shouldHideChildren ? [] : (item.children ?? []);
+    return shouldHideChildren ? [] : item.children ?? [];
   };
 }

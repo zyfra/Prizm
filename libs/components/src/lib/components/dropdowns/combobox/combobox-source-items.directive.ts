@@ -28,7 +28,7 @@ export class PrizmComboboxSourceItemsDirective<T = any> {
       const searchMatcher = untracked(this.searchMatcher);
       const search = this.baseComponent.search();
       this.baseComponent.items.set(
-        search ? (items.filter(item => this.isSearched(item, search, searchMatcher)) ?? []) : items
+        search ? items.filter(item => this.isSearched(item, search, searchMatcher)) ?? [] : items
       );
       this.cdRef.markForCheck();
     },

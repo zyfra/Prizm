@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class PrizmChartsWaterfallComponent<
-  T extends Record<string, unknown>,
+  T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsWaterfallOrigin, PrizmChartsWaterfallOptions> {
   readonly name = 'waterfall';
   private origin_!: PrizmChartsWaterfallOrigin;
@@ -54,10 +54,7 @@ export class PrizmChartsWaterfallComponent<
   }
   override readonly testId_ = 'ui_charts_waterfall';
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.init();
   }
