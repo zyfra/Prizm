@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { animationFrameScheduler, BehaviorSubject, merge, Observable, of } from 'rxjs';
-import { prizmAutoEmit, prizmDefaultProp } from '@prizm-ui/core';
+import { prizmAutoEmit } from '@prizm-ui/core';
 
 import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
