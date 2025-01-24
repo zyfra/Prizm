@@ -82,6 +82,15 @@ export class PrizmSidebarComponent<DATA = unknown> extends PrizmAbstractTestId {
     return this.animation;
   }
 
+  @HostBinding('attr.data-testid')
+  override get testId() {
+    const postfix = this.testIdPostfix || this.context.testId;
+    return this.generateMainTestId + (postfix ? `--${postfix}` : '');
+  }
+  override set testId(value: string) {
+    this.testIdPostfix = value;
+  }
+
   override readonly testId_ = 'ui_area--sidebar';
 
   private readonly animation = {

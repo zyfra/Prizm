@@ -1,5 +1,6 @@
 import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
+import { PrizmDocDocumentationComponent } from '@prizm-ui/doc';
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -16,6 +17,8 @@ import { tap } from 'rxjs/operators';
 })
 export class PrizmSidebarServiceExampleComponent {
   @ViewChild('contentExample') contentExample!: TemplateRef<any>;
+  @ViewChild('doc') doc!: PrizmDocDocumentationComponent;
+
   public positionVariants: PrizmOverlayInsidePlacement[] = [
     PrizmOverlayInsidePlacement.LEFT,
     PrizmOverlayInsidePlacement.RIGHT,
@@ -38,6 +41,7 @@ export class PrizmSidebarServiceExampleComponent {
         backdrop: this.backdrop,
         dismissible: this.dismissible,
         size: 'm',
+        testId: this.doc.testIdPostfix,
       })
       .pipe(
         tap({

@@ -4,6 +4,7 @@ import {
   Component,
   ContentChildren,
   forwardRef,
+  inject,
   Inject,
   Input,
   OnDestroy,
@@ -19,7 +20,7 @@ import { PrizmHeadDirective } from '../directives/head.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmThComponent } from '../th/th.component';
-import { moveInEventLoopIteration, prizmEmptyQueryList } from '@prizm-ui/helpers';
+import { moveInEventLoopIteration, prizmEmptyQueryList, PrizmTestIdDirective } from '@prizm-ui/helpers';
 import { PrizmTableService } from '../table.service';
 import { PrizmThGroupService } from './th-group.service';
 
@@ -29,6 +30,12 @@ import { PrizmThGroupService } from './th-group.service';
   templateUrl: `./th-group.template.html`,
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [PRIZM_TABLE_PROVIDER, PrizmThGroupService],
+  hostDirectives: [
+    {
+      directive: PrizmTestIdDirective,
+      inputs: ['testId'],
+    },
+  ],
 })
 export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
   implements OnInit, AfterContentInit, OnDestroy
@@ -62,6 +69,8 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
     colspan: number;
   }>;
 
+  private readonly testIdDirective = inject(PrizmTestIdDirective);
+
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
     public readonly table: PrizmTableDirective<T>,
@@ -69,6 +78,8 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
     @Self() public readonly thGroupService: PrizmThGroupService
   ) {
     this.tableService.addThGroup(this);
+
+    this.testIdDirective.generateMainTestId = 'ui_th_group';
   }
 
   ngOnInit(): void {

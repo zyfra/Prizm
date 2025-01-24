@@ -61,6 +61,7 @@ import {
   PrizmToggleComponent,
 } from '@prizm-ui/components';
 import { PrizmI18nQueryBuilderService } from './i18n/service';
+import { PrizmTestIdDirective } from '@prizm-ui/helpers';
 
 interface ExpressionNode {
   type: 'exp';
@@ -107,6 +108,12 @@ type Node = ExpressionNode | ConditionNode;
     PrizmDataListComponent,
     PrizmListingItemComponent,
     PrizmScrollbarComponent,
+  ],
+  hostDirectives: [
+    {
+      directive: PrizmTestIdDirective,
+      inputs: ['testId'],
+    },
   ],
 })
 export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor, Validator {
@@ -155,9 +162,11 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private destroyRef = inject(DestroyRef);
   private cdr = inject(ChangeDetectorRef);
   private registry = inject(PrizmIconsFullRegistry);
+  private readonly testIdDirective = inject(PrizmTestIdDirective);
 
   constructor() {
     this.registry.registerIcons(prizmIconsTrash, prizmIconsGripDotsVertical, prizmIconsPlusTriangleDown);
+    this.testIdDirective.generateMainTestId = 'ui_query-builder';
     effect(this._assignDragToList);
   }
 

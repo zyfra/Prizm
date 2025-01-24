@@ -10,7 +10,7 @@
   </div>
 </ng-template>
 <div style="margin-top: 16px">
-  <prizm-doc-documentation [hasTestId]="false">
+  <prizm-doc-documentation #doc [hasTestId]="true">
     <ng-template
       [(documentationPropertyValue)]="position"
       [documentationPropertyValues]="positionVariants"

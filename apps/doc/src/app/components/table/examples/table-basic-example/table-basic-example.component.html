@@ -1,9 +1,9 @@
 <h3>Size XL</h3>
 <prizm-scrollbar class="scrollable">
-  <table class="table" prizmTable size="xl">
-    <thead>
-      <tr prizmThGroup>
-        <th prizmTh>Код</th>
+  <table class="table" [testId]="'my-base-super-table'" prizmTable size="xl">
+    <thead [testId]="'my-base-table_head'" prizmThead>
+      <tr [testId]="'my-base-th-group'" prizmThGroup>
+        <th [testId]="'my-base-amazing-th'" prizmTh>Код</th>
         <th prizmTh>Наименование</th>
         <th prizmTh>Категория</th>
         <th prizmTh>Количество</th>
@@ -13,7 +13,7 @@
       </tr>
     </thead>
 
-    <tbody [data]="products" prizmTbody>
+    <tbody [data]="products" [testId]="'my-base-table-body'" prizmTbody>
       <ng-container
         *prizmRow="
           let item of products;
@@ -24,9 +24,9 @@
           let last = last
         "
       >
-        <tr prizmTr>
-          <td class="format__number" prizmTd>
-            {{ item.code | spaceNumber: '0.0-0' }}
+        <tr [testId]="'my-base-table-row'" prizmTr>
+          <td class="format__number" [testId]="'my-base-td'" prizmTd>
+            {{ item.code | spaceNumber : '0.0-0' }}
           </td>
           <td prizmTd>
             {{ item.name }}<br />
@@ -35,10 +35,10 @@
             {{ last ? '#last' : '' }}
           </td>
           <td prizmTd>{{ item.category }}</td>
-          <td class="format__number" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>
           <td prizmTd>{{ item.category }}</td>
-          <td class="format__number" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
         </tr>
       </ng-container>
     </tbody>
@@ -73,7 +73,7 @@
       >
         <tr prizmTr>
           <td class="format__number" prizmTd>
-            {{ item.code | spaceNumber: '0.0-0' }}
+            {{ item.code | spaceNumber : '0.0-0' }}
           </td>
           <td prizmTd>
             {{ item.name }}<br />
@@ -82,10 +82,10 @@
             {{ last ? '#last' : '' }}
           </td>
           <td prizmTd>{{ item.category }}</td>
-          <td class="format__number" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>
           <td prizmTd>{{ item.category }}</td>
-          <td class="format__number" prizmTd>{{ item.count | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.count | spaceNumber : '0.0-0' }}</td>
         </tr>
       </ng-container>
     </tbody>
@@ -107,11 +107,11 @@
     <tbody [data]="products" prizmTbody>
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
-          <td class="format__number" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>
           <td prizmTd>{{ item.category }}</td>
           <td class="format__number" prizmTd>
-            {{ item.count | spaceNumber: '0.0-0' }}
+            {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>
       </ng-container>
@@ -134,11 +134,11 @@
     <tbody [data]="products" prizmTbody>
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
-          <td class="format__number" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>
           <td prizmTd>{{ item.category }}</td>
           <td class="format__number" prizmTd>
-            {{ item.count | spaceNumber: '0.0-0' }}
+            {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>
       </ng-container>
@@ -161,11 +161,11 @@
     <tbody [data]="products" prizmTbody>
       <ng-container *prizmRow="let item of products; let i = index">
         <tr prizmTr>
-          <td class="format__number" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+          <td class="format__number" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
           <td prizmTd>{{ item.name }}</td>
           <td prizmTd>{{ item.category }}</td>
           <td class="format__number" prizmTd>
-            {{ item.count | spaceNumber: '0.0-0' }}
+            {{ item.count | spaceNumber : '0.0-0' }}
           </td>
         </tr>
       </ng-container>

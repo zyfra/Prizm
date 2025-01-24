@@ -18,7 +18,7 @@ import {
 import { CollectionViewer, isDataSource, ListRange } from '@angular/cdk/collections';
 
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList, PrizmTestIdDirective } from '@prizm-ui/helpers';
 import { BehaviorSubject, isObservable, Observable } from 'rxjs';
 import { switchMap, takeUntil, tap } from 'rxjs/operators';
 import { PolymorphContent } from '../../../directives';
@@ -42,6 +42,12 @@ import { prizmIconsAngleRight } from '@prizm-ui/icons/base/source';
   styleUrls: [`./tbody.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: PRIZM_TABLE_PROVIDER,
+  hostDirectives: [
+    {
+      directive: PrizmTestIdDirective,
+      inputs: ['testId'],
+    },
+  ],
 })
 export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   implements CollectionViewer, AfterViewInit, OnDestroy
@@ -151,6 +157,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   });
 
   private readonly iconsRegistry = inject(PrizmIconsRegistry);
+  private readonly testIdDirective = inject(PrizmTestIdDirective);
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
@@ -161,6 +168,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
     private changeDetectorRef: ChangeDetectorRef
   ) {
     this.iconsRegistry.registerIcons(prizmIconsAngleRight);
+    this.testIdDirective.generateMainTestId = 'ui_table_body';
   }
 
   ngAfterViewInit(): void {
