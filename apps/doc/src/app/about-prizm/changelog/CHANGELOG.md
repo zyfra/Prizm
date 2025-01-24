@@ -22,7 +22,7 @@ All notable changes to this project will be documented in this file.
 - feat(components/sidebar): add translations for default button texts #2209
 - feat(components/confirm-popup: add translations for default button texts #2209
 
-### Breacking changes
+### Breaking changes
 
 - bc(components) in dictionary - why we do this read herewhy we do this read [here](https://github.com/zyfra/Prizm/discussions/1617)
 
