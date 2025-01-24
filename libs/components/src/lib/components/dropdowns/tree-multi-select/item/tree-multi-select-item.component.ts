@@ -291,7 +291,11 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   }
 
   protected isSelected() {
-    return this.treeSelectSelectedDirective.isSelfSelected(this.value) || this.isParentSelected();
+    if (this.treeSelectSelectedDirective.isSelfSelected(this.value)) return true;
+
+    if (this.treeMultiSelectModeDirective?.mode() === 'only-current') return false;
+
+    return this.isParentSelected();
   }
 
   protected isSelected$() {
