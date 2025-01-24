@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PrizmDropdownHostClasses,
@@ -10,6 +10,8 @@ import {
   PrizmOverlayOutsidePlacement,
   PrizmScrollbarVisibility,
   PrizmInputTreeMultiSelectCheckboxPosition,
+  PrizmTreeMultiSelectMode,
+  PrizmTreeMultiSelectModeDirective,
 } from '@prizm-ui/components';
 import { UntypedFormControl, Validators } from '@angular/forms';
 
@@ -24,6 +26,7 @@ type TreeSelectItem = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputTreeMultiSelectComponent {
+  protected readonly treeMultiSelectMode = viewChild(PrizmTreeMultiSelectModeDirective);
   public dropdownStylesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
     {
@@ -52,11 +55,14 @@ export class InputTreeMultiSelectComponent {
 
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly checkboxDirective = 'PrizmInputTreeMultiSelectCheckboxDirective';
+  readonly modeDirective = 'PrizmTreeMultiSelectModeDirective';
   readonly selectKey = 'PrizmInputTreeMultiSelectComponent';
   public readOnly = false;
   public border = true;
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+  public modeVariants: PrizmTreeMultiSelectMode[] = ['only-current', 'auto-select'];
+  public mode: PrizmTreeMultiSelectMode = 'auto-select';
 
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];

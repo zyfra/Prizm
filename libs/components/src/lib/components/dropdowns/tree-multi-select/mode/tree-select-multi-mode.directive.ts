@@ -6,6 +6,7 @@ import { PrizmTreeMultiSelectMode } from './model';
   selector: 'prizm-input-tree-multi-select[mode]',
   standalone: true,
   providers: [PrizmDestroyService],
+  exportAs: 'prizmTreeMultiSelectMode',
 })
 export class PrizmTreeMultiSelectModeDirective {
   mode = input.required<PrizmTreeMultiSelectMode>();

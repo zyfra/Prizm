@@ -39,6 +39,7 @@
         <prizm-input-tree-multi-select
           #element
           #input="prizmInputTreeMultiSelect"
+          #treeMultiSelectMode="prizmTreeMultiSelectMode"
           #checkboxElement="prizmTreeMultiSelectCheckbox"
           [checkboxPosition]="checkboxPosition"
           [searchMatcher]="searchMatcher"
@@ -48,6 +49,7 @@
           [prizmDropdownMinHeight]="prizmDropdownMinHeight"
           [prizmDropdownMaxHeight]="prizmDropdownMaxHeight"
           [placeholder]="placeholder"
+          [mode]="mode"
           [searchLabel]="searchLabel"
           [searchPlaceholder]="searchPlaceholder"
           [emptyListTemplate]="emptyListTemplate"
@@ -86,6 +88,18 @@
         documentationPropertyMode="input"
       >
         Checkbox Position
+      </ng-template>
+    </prizm-doc-documentation>
+
+    <prizm-doc-documentation [hasTestId]="false" [heading]="modeDirective" [hostComponentKey]="modeDirective">
+      <ng-template
+        [(documentationPropertyValue)]="mode"
+        [documentationPropertyValues]="modeVariants"
+        documentationPropertyName="mode"
+        documentationPropertyType="PrizmTreeMultiSelectMode"
+        documentationPropertyMode="input"
+      >
+        Mode
       </ng-template>
     </prizm-doc-documentation>
 
@@ -167,16 +181,6 @@
         Search matcher (use for custom search)
       </ng-template>
 
-      <!--      TODO later add support as in switcher -->
-      <!--      <ng-template-->
-      <!--        [documentationPropertyValue]="items"-->
-      <!--        documentationPropertyName="items"-->
-      <!--        documentationPropertyType="T[]"-->
-      <!--        documentationPropertyMode="input"-->
-      <!--      >-->
-      <!--        Items-->
-      <!--      </ng-template>-->
-
       <ng-template
         [(documentationPropertyValue)]="searchable"
         documentationPropertyName="searchable"
@@ -235,16 +239,6 @@
       >
         Search Label
       </ng-template>
-
-      <!-- TODO later check in demo and uncomment    -->
-      <!--      <ng-template-->
-      <!--        [(documentationPropertyValue)]="value"-->
-      <!--        documentationPropertyName="value"-->
-      <!--        documentationPropertyType="string"-->
-      <!--        documentationPropertyMode="input-output"-->
-      <!--      >-->
-      <!--        Value-->
-      <!--      </ng-template>-->
 
       <ng-template
         [documentationPropertyValue]="emptyListTemplate"
