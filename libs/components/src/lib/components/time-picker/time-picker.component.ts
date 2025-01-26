@@ -51,7 +51,7 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
   public canceled = output<void>();
 
   public time = input<PrizmTime | undefined>();
-  public timeMode = input<'HH:MM' | 'HH:MM:SS'>('HH:MM:SS');
+  public timeMode = input<'HH' | 'HH:MM' | 'HH:MM:SS'>('HH:MM:SS');
   public minTime = input<PrizmTime>();
   public maxTime = input<PrizmTime>();
 
