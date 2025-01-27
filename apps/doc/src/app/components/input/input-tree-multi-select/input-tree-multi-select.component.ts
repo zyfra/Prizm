@@ -26,7 +26,6 @@ type TreeSelectItem = {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputTreeMultiSelectComponent {
-  protected readonly treeMultiSelectMode = viewChild(PrizmTreeMultiSelectModeDirective);
   public dropdownStylesVariants: ReadonlyArray<PrizmDropdownHostStyles> = [
     null,
     {

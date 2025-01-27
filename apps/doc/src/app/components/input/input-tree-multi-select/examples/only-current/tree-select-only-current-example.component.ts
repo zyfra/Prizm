@@ -62,12 +62,7 @@ export class PrizmTreeSelectOnlyCurrentExampleComponent {
     },
   ];
   public value = this.items[0];
-  readonly control = new UntypedFormControl(
-    [
-      // this.items[ 1 ]
-    ],
-    [Validators.required]
-  );
+  readonly control = new UntypedFormControl([], [Validators.required]);
 
   public stringify(item: TreeSelectItem | null): string {
     return item?.value ?? '';
