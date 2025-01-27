@@ -19,7 +19,7 @@ import { PrizmTestIdDirective } from '@prizm-ui/helpers';
   ],
 })
 export class PrizmTheadDirective {
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor() {
     this.testIdDirective.generateMainTestId = 'ui_table_head';

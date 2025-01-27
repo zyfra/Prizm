@@ -42,7 +42,7 @@ export class PrizmTdComponent implements OnInit, OnDestroy {
     return this.colspan ?? this.elementRef?.nativeElement?.getAttribute('colspan') ?? 1;
   }
 
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     private readonly tdService: PrizmTdService,

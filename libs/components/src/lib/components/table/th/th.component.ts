@@ -66,7 +66,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   }
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     @Optional()

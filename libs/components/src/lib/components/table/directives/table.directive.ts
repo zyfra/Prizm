@@ -96,7 +96,7 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   @Output()
   readonly sortChange: Observable<PrizmTableCellSorter<T>[]> = this.sorterService.changes$;
 
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     public readonly tree: PrizmTableTreeService,

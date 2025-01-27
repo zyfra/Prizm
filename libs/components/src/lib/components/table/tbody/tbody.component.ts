@@ -157,7 +157,7 @@ export class PrizmTbodyComponent<T extends Partial<Record<keyof T, unknown>>>
   });
 
   private readonly iconsRegistry = inject(PrizmIconsRegistry);
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))

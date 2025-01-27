@@ -93,7 +93,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   );
 
   @Input() @HostBinding('attr.active') public active = false;
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))

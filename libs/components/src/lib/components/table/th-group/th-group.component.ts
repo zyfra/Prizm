@@ -69,7 +69,7 @@ export class PrizmThGroupComponent<T extends Partial<Record<keyof T, any>>>
     colspan: number;
   }>;
 
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))

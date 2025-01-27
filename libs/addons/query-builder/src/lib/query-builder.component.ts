@@ -19,6 +19,7 @@ import {
   contentChild,
   DestroyRef,
   effect,
+  Host,
   inject,
   Injector,
   Input,
@@ -162,7 +163,7 @@ export class PrizmQueryBuilderComponent implements OnInit, ControlValueAccessor,
   private destroyRef = inject(DestroyRef);
   private cdr = inject(ChangeDetectorRef);
   private registry = inject(PrizmIconsFullRegistry);
-  private readonly testIdDirective = inject(PrizmTestIdDirective);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor() {
     this.registry.registerIcons(prizmIconsTrash, prizmIconsGripDotsVertical, prizmIconsPlusTriangleDown);
