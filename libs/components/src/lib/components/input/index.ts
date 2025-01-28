@@ -12,3 +12,4 @@ export * from './input-month';
 export * from './input-date-time-range';
 export * from './input-month-range';
 export * from './common';
+export * from './input-year';

@@ -480,6 +480,16 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/input-layout-year',
+    loadChildren: () =>
+      import('./components/input/input-layout-year/input-layout-year-example.module').then(
+        i => i.InputLayoutYearExampleModule
+      ),
+    data: {
+      title: 'Input Layout Year',
+    },
+  },
+  {
     path: 'components/input-layout-month-range',
     loadChildren: () =>
       import('./components/input/input-layout-month-range/input-layout-month-range.module').then(
@@ -945,6 +955,16 @@ export const ROUTES: Routes = [
       ),
     data: {
       title: 'Calendar Month',
+    },
+  },
+  {
+    path: 'components/calendar-year',
+    loadChildren: () =>
+      import('./components/calendars/calendar-year/calendar-year.module').then(
+        i => i.ExampleCalendarYearExampleModule
+      ),
+    data: {
+      title: 'Calendar Year',
     },
   },
   {
