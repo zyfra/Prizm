@@ -43,10 +43,7 @@ export class PrizmCronUiDayState extends PrizmCronUiBaseState<typeof PrizmCronUi
   public readonly afterDayOfMonthListRepeatDays = getCarousel(31, 1);
   public afterDayOfMonthListRepeatDaysValue = this.afterDayOfMonthListRepeatDays.first;
   public nearestDayOfMonthValue = '1';
-  constructor(
-    public readonly cron: PrizmCronService,
-    public readonly destroy$: PrizmDestroyService
-  ) {
+  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
     super(
       cron.value$.pipe(map(i => [i.dayOfMonth, i.dayOfWeek])),
       PrizmCronUiDayType.every,

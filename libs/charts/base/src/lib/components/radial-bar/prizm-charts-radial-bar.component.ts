@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class PrizmChartsRadialBarComponent<
-  T extends Record<string, unknown>,
+  T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsRadialBarOrigin, PrizmChartsRadialBarOptions> {
   private origin_!: PrizmChartsRadialBarOrigin;
   get origin(): PrizmChartsRadialBarOrigin {
@@ -63,10 +63,7 @@ export class PrizmChartsRadialBarComponent<
   }
   override readonly testId_ = 'ui_charts_radar_bar';
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.init();
   }

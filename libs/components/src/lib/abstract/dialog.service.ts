@@ -19,7 +19,7 @@ import { prizmGenerateId } from '@prizm-ui/helpers';
 export abstract class AbstractPrizmDialogService<
   T extends PrizmDialogBaseOptions,
   O = unknown,
-  DATA = unknown,
+  DATA = unknown
 > {
   protected abstract readonly component: Type<unknown>;
   protected abstract readonly defaultOptions: T;

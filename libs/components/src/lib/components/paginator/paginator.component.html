@@ -5,7 +5,7 @@
       *ngIf="!paginatorOptions?.noRowsSelector && !paginatorOptions?.noRowsSelectorLabel"
     >
       <ng-container
-        *polymorphOutlet="textOnPage ? textOnPage : (language | prizmPluck: ['linesOnPage']) as title"
+        *polymorphOutlet="textOnPage ? textOnPage : (language | prizmPluck : ['linesOnPage']) as title"
       >
         {{ title }}
       </ng-container>
@@ -27,14 +27,14 @@
   <div class="content">
     <span class="rows rows__show" *ngIf="!paginatorOptions?.noInfo" [hidden]="disabled">
       <span data-testid="paginator-i18n-lines-shown">
-        {{ language | prizmPluck: ['linesShown'] }}
+        {{ language | prizmPluck : ['linesShown'] }}
       </span>
       <span data-testid="paginator-lines-shown"> {{ (currentPage - 1) * rows + 1 }} </span>-
       <span data-testid="paginator-total-count">
         {{ currentPage * rows > $any(totalRecords) ? totalRecords : currentPage * rows }}
       </span>
       <span data-testid="paginator-i18n-from-text">
-        {{ language | prizmPluck: ['fromText'] }}
+        {{ language | prizmPluck : ['fromText'] }}
       </span>
       <span data-testid="paginator-real-total-record">
         {{ realTotalRecord }}
@@ -188,7 +188,7 @@
         appearance="primary"
         size="m"
       >
-        {{ moreButtonLabel ? moreButtonLabel : (language | prizmPluck: ['moreButtonLabel']) }}
+        {{ moreButtonLabel ? moreButtonLabel : (language | prizmPluck : ['moreButtonLabel']) }}
       </button>
     </div>
   </div>

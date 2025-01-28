@@ -239,8 +239,8 @@ export class PrizmCronHRExpressionDescriptor {
         return s == '0'
           ? ''
           : parseInt(s) < 20
-            ? this.i18n.atX0SecondsPastTheMinute(s)
-            : this.i18n.atX0SecondsPastTheMinuteGt20() || this.i18n.atX0SecondsPastTheMinute(s);
+          ? this.i18n.atX0SecondsPastTheMinute(s)
+          : this.i18n.atX0SecondsPastTheMinuteGt20() || this.i18n.atX0SecondsPastTheMinute(s);
       }
     );
 
@@ -267,8 +267,8 @@ export class PrizmCronHRExpressionDescriptor {
           return s == '0' && hourExpression.indexOf('/') == -1 && secondsExpression == ''
             ? this.i18n.everyHour()
             : parseInt(s) < 20
-              ? this.i18n.atX0MinutesPastTheHour(s)
-              : this.i18n.atX0MinutesPastTheHourGt20() || this.i18n.atX0MinutesPastTheHour(s);
+            ? this.i18n.atX0MinutesPastTheHour(s)
+            : this.i18n.atX0MinutesPastTheHourGt20() || this.i18n.atX0MinutesPastTheHour(s);
         } catch (e) {
           return this.i18n.atX0MinutesPastTheHour(s);
         }
@@ -484,8 +484,8 @@ export class PrizmCronHRExpressionDescriptor {
                 return s == 'L'
                   ? this.i18n.lastDay()
                   : this.i18n.dayX0
-                    ? PrizmCronHRStringUtilities.format(this.i18n.dayX0(), s)
-                    : s;
+                  ? PrizmCronHRStringUtilities.format(this.i18n.dayX0(), s)
+                  : s;
               },
               s => {
                 return s == '1' ? this.i18n.commaEveryDay() : this.i18n.commaEveryX0Days(s);

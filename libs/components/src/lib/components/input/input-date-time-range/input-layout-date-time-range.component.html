@@ -139,7 +139,7 @@
             [style.--prizm-dropdown-host-width]="'100%'"
             [ngModelOptions]="{ standalone: true }"
             [ngModel]="value?.timeRange?.from"
-            [items]="timeItems | prizmTimeConstraints: $any(value?.dayRange?.from) : _min : _max"
+            [items]="timeItems | prizmTimeConstraints : $any(value?.dayRange?.from) : _min : _max"
             [strict]="timeStrict"
             [mode]="timeMode"
             (ngModelChange)="updateTimeFrom($event)"
@@ -155,7 +155,7 @@
             [ngModel]="value?.timeRange?.to"
             [ngModelOptions]="{ standalone: true }"
             [strict]="timeStrict"
-            [items]="timeItems | prizmTimeConstraints: $any(value?.dayRange?.to) : _min : _max"
+            [items]="timeItems | prizmTimeConstraints : $any(value?.dayRange?.to) : _min : _max"
             [mode]="timeMode"
             (ngModelChange)="updateTimeTo($event)"
           >

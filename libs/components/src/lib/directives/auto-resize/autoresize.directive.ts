@@ -15,10 +15,7 @@ export class PrizmAutoResizeDirective implements OnInit, AfterViewInit {
   get scrollHeight(): number {
     return this.elementRef.nativeElement.scrollHeight;
   }
-  constructor(
-    private elementRef: ElementRef<HTMLTextAreaElement>,
-    private destroy: PrizmDestroyService
-  ) {}
+  constructor(private elementRef: ElementRef<HTMLTextAreaElement>, private destroy: PrizmDestroyService) {}
 
   @HostListener(':input')
   private onInput() {

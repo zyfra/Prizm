@@ -6,7 +6,6 @@
   display: flex;
   flex-direction: column;
 
-  cursor: pointer;
   border-top: 1px solid var(--prizm-background-stroke);
 
   &_focused:not(.accordion_disabled),
@@ -19,10 +18,16 @@
     position: relative;
   }
 
+  &.accordion_disabled {
+    .accordion__header {
+      cursor: not-allowed;
+    }
+  }
+
   &__header {
     height: 48px;
     padding: 0 16px;
-
+    cursor: pointer;
     display: flex;
     align-items: center;
 
@@ -95,10 +100,7 @@
   }
 
   &_disabled {
-    cursor: not-allowed;
-
     & > .accordion__header .title,
-    & > .accordion__header,
     & > .accordion__header .header-icon {
       color: var(--prizm-text-icon-disable);
       pointer-events: none;

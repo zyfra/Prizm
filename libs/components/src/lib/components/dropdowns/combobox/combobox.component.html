@@ -17,15 +17,11 @@
     (isOpenChange)="onChangeModalVisible($event)"
     dropdownTrigger="click"
   >
-    @let focused_ = (focused$$ | async) || false;
-    @let text =
-      val
-        | prizmCallFunc: stringifyForInner : layoutComponent?.outer : layoutComponent?.label : placeholder
-        | async;
-    @if (valueTemplate) {
-      @if (!focused_) {
-        <ng-container
-          *polymorphOutlet="
+    @let focused_ = (focused$$ | async) || false; @let text = val | prizmCallFunc: stringifyForInner :
+    layoutComponent?.outer : layoutComponent?.label : placeholder | async; @if (valueTemplate) { @if
+    (!focused_) {
+    <ng-container
+      *polymorphOutlet="
             editableTemplate as content;
             context: {
               $implicit: $any(val),
@@ -33,13 +29,12 @@
               stringify: $any(val | prizmCallFunc: stringify | prizmToObservable | async),
             }
           "
-        >
-        </ng-container>
-      } @else {
-        <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
-      }
+    >
+    </ng-container>
     } @else {
-      <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
+    <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
+    } } @else {
+    <ng-container [ngTemplateOutlet]="inputTemplate"></ng-container>
     }
 
     <ng-template #inputTemplate>
@@ -70,16 +65,16 @@
     <ng-template #editableTemplate>
       @let val = value | prizmCallFunc: getFullObjectOfCurrent : itemList;
       <div
+        class="editable-wrapper"
         #focusableElementRef
         [ngModelOptions]="{ standalone: true }"
-        [ngModel]="(value | prizmCallFunc: getCurrentValue : itemList) ?? ''"
+        [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
         [attr.contenteditable]="false"
         [tabIndex]="!disabled ? 1 : -1"
         [disabled]="disabled"
         (focus)="focused$$.next(true)"
         (blur)="focused$$.next(false)"
         prizmInput
-        class="editable-wrapper"
       >
         <ng-container *ngIf="isNotNullish(val); else placeholderTemplate">
           <ng-container

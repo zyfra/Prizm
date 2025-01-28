@@ -184,13 +184,10 @@ function sortDocPages(
 
   // Flatten the grouped object into an array and sort the subpages recursively
   return [...grouped.entries()]
-    .reduce(
-      (base, [, values]) => {
-        base.push(...values.sort((a, b) => a.title.localeCompare(b.title)));
-        return base;
-      },
-      [] as (PrizmDocPage | PrizmDocPageGroup)[]
-    )
+    .reduce((base, [, values]) => {
+      base.push(...values.sort((a, b) => a.title.localeCompare(b.title)));
+      return base;
+    }, [] as (PrizmDocPage | PrizmDocPageGroup)[])
     .map((page: PrizmDocPage | PrizmDocPageGroup) => {
       // Sort the subpages recursively if the page has subpages
       return {

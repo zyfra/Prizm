@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class PrizmChartsGaugeComponent<
-  T extends Record<string, unknown>,
+  T extends Record<string, unknown>
 > extends PrizmChartsAbstractComponent<PrizmChartsGaugeOrigin, PrizmChartsGaugeOptions> {
   private origin_!: PrizmChartsGaugeOrigin;
   get origin(): PrizmChartsGaugeOrigin {
@@ -31,10 +31,7 @@ export class PrizmChartsGaugeComponent<
   }
   override readonly testId_ = 'ui_charts_gauge';
 
-  constructor(
-    private readonly elRef: ElementRef<HTMLElement>,
-    private readonly injector: Injector
-  ) {
+  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
     super(injector);
     this.init();
   }

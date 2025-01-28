@@ -128,8 +128,8 @@
     <ng-container
       *ngIf="
         row?.prizmRowGetChildren && item
-          | prizmCallFunc: $any(row?.prizmRowGetChildren)
-          | prizmCallFunc: sortChildren
+          | prizmCallFunc : $any(row?.prizmRowGetChildren)
+          | prizmCallFunc : sortChildren
           | async as children;
         else treeLoadingTemplateRef
       "

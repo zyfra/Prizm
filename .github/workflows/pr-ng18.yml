@@ -32,10 +32,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node_modules_ng_18-
 
-      - name: 'Initial changes 18'
-        run: |
-          cp -f package.json.ng18 package.json
-          cp -f package-lock.json.ng18 package-lock.json
+      #      - name: 'Initial changes 18'
+      #        run: |
+      #          cp -f package.json.ng18 package.json
+      #          cp -f package-lock.json.ng18 package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'

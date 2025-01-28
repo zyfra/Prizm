@@ -37,10 +37,9 @@ export const HINT_HOVERED_CLASS = '_hint_hovered';
   standalone: true,
 })
 export class PrizmHintDirective<
-    OPTIONS extends PrizmHintOptions = PrizmHintOptions,
-    CONTEXT extends PrizmHintContext = PrizmHintContext,
-  >
-  implements OnInit, OnDestroy
+  OPTIONS extends PrizmHintOptions = PrizmHintOptions,
+  CONTEXT extends PrizmHintContext = PrizmHintContext
+> implements OnInit, OnDestroy
 {
   protected readonly options = inject(PRIZM_HINT_OPTIONS) as OPTIONS;
   protected readonly injector = inject(Injector);

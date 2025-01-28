@@ -55,7 +55,7 @@ import { PrizmNavigationMenuToolbarComponent } from '../prizm-navigation-menu-to
   ],
 })
 export class PrizmNavigationMenuGroupComponent<
-    UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] },
+    UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
   >
   extends PrizmAbstractTestId
   implements OnInit
