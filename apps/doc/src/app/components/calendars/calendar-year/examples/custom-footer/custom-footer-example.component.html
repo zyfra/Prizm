@@ -1,0 +1,14 @@
+<prizm-calendar-year [value]="value" (yearClick)="onYearClick($event)">
+  <ng-container footer>
+    <button (click)="cancel()" appearance="secondary" appearanceType="ghost" size="xm" prizmButton>
+      <ng-container *prizmIfLang="'russian'; else engCancel"> Отменить </ng-container>
+      <ng-template #engCancel> Cancel </ng-template>
+    </button>
+    <button (click)="setValue()" appearance="primary" appearanceType="fill" size="xm" prizmButton>
+      <ng-container *prizmIfLang="'russian'; else engApply"> Применить </ng-container>
+      <ng-template #engApply> Apply </ng-template>
+    </button>
+  </ng-container>
+</prizm-calendar-year>
+<br />
+<p><b>Selected:</b> {{ value }}</p>

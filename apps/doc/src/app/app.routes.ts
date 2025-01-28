@@ -960,7 +960,7 @@ export const ROUTES: Routes = [
   {
     path: 'components/calendar-year',
     loadChildren: () =>
-      import('./components/calendars/calendar-year/calendar-year.module').then(
+      import('./components/calendars/calendar-year/calendar-year-example.module').then(
         i => i.ExampleCalendarYearExampleModule
       ),
     data: {

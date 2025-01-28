@@ -21,6 +21,11 @@ export class ExampleCalendarYearComponent {
     HTML: import(`./examples/base/base.component.html?raw`),
   };
 
+  readonly customFooterExample: TuiDocExample = {
+    TypeScript: import(`./examples/custom-footer/custom-footer-example.component.ts?raw`),
+    HTML: import(`./examples/custom-footer/custom-footer-example.component.html?raw`),
+  };
+
   readonly minVariants = [PRIZM_FIRST_DAY, new PrizmYear(2019), new PrizmYear(2007)];
 
   readonly maxVariants = [PRIZM_LAST_DAY, new PrizmYear(2020), new PrizmYear(2023), new PrizmYear(2015)];
