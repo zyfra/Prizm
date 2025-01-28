@@ -11,7 +11,7 @@ export abstract class PrizmCronUiBaseState<
   ENUM extends Record<string, unknown> = typeof PrizmCronUiBaseType,
   TYPE = PrizmCronUiBaseType,
   STATE extends PrizmCronUiState<TYPE> = PrizmCronUiState<TYPE>,
-  LIST extends PrizmCronUiStateList = PrizmCronUiStateList,
+  LIST extends PrizmCronUiStateList = PrizmCronUiStateList
 > {
   readonly list: LIST = {
     everyChosenTimesAfterChosen: this.everyChosenTimesAfterChosen.list,

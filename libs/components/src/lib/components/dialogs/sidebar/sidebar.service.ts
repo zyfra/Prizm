@@ -33,7 +33,7 @@ const DEFAULT_OPTIONS = {
   providedIn: 'root',
 })
 export class PrizmSidebarService<
-  T extends PrizmSidebarOptions<PrizmSidebarResult> = PrizmSidebarOptions<PrizmSidebarResult>,
+  T extends PrizmSidebarOptions<PrizmSidebarResult> = PrizmSidebarOptions<PrizmSidebarResult>
 > extends AbstractPrizmDialogService<T, PrizmSidebarResult> {
   protected readonly component = PrizmSidebarComponent;
   protected readonly defaultOptions = DEFAULT_OPTIONS as T;

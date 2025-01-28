@@ -31,7 +31,7 @@ export class PrizmPluckPipe implements PipeTransform {
     K extends keyof T,
     K2 extends keyof T[K],
     K3 extends keyof T[K][K2],
-    K4 extends keyof T[K][K2][K3],
+    K4 extends keyof T[K][K2][K3]
   >(input: T | null, arr: [K, K2, K3, K4], defaultValue?: unknown): T extends null ? null : T[K][K2][K3][K4];
   public transform<
     T,
@@ -39,7 +39,7 @@ export class PrizmPluckPipe implements PipeTransform {
     K2 extends keyof T[K],
     K3 extends keyof T[K][K2],
     K4 extends keyof T[K][K2][K3],
-    K5 extends keyof T[K][K2][K3][K4],
+    K5 extends keyof T[K][K2][K3][K4]
   >(
     input: T | null,
     arr: [K, K2, K3, K4, K5],
@@ -52,7 +52,7 @@ export class PrizmPluckPipe implements PipeTransform {
     K3 extends keyof T[K][K2],
     K4 extends keyof T[K][K2][K3],
     K5 extends keyof T[K][K2][K3][K4],
-    K6 extends keyof T[K][K2][K3][K4][K5],
+    K6 extends keyof T[K][K2][K3][K4][K5]
   >(
     input: T | null,
     arr: [K, K2, K3, K4, K5, K6],
@@ -65,7 +65,7 @@ export class PrizmPluckPipe implements PipeTransform {
     K3 extends keyof T[K][K2] & string,
     K4 extends keyof T[K][K2][K3] & string,
     K5 extends keyof T[K][K2][K3][K4] & string,
-    K6 extends keyof T[K][K2][K3][K4][K5] & string,
+    K6 extends keyof T[K][K2][K3][K4][K5] & string
   >(
     input: T | null,
     key: K | [K] | [K, K2] | [K, K2, K3] | [K, K2, K3, K4] | [K, K2, K3, K4, K5] | [K, K2, K3, K4, K5, K6],

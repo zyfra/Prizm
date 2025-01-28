@@ -12,7 +12,7 @@
 >
   {{ searchText }}
   <ng-container *ngIf="canOpen">
-    <tui-data-list *tuiDataList [class.is-full]="!(filtered$ | async | prizmCallFunc: isEmpty)">
+    <tui-data-list *tuiDataList [class.is-full]="!(filtered$ | async | prizmCallFunc : isEmpty)">
       <tui-opt-group
         *ngFor="let group of filtered$ | async; let index = index"
         [label]="labelsList[index] || ''"

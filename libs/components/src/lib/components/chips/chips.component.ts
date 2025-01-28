@@ -97,10 +97,7 @@ export class PrizmChipsComponent<T = any>
   public chipsList$: BehaviorSubject<T[]> = new BehaviorSubject<T[]>([]);
   private subscription: Subscription = new Subscription();
 
-  constructor(
-    private readonly cdRef: ChangeDetectorRef,
-    private readonly destroy$: PrizmDestroyService
-  ) {
+  constructor(private readonly cdRef: ChangeDetectorRef, private readonly destroy$: PrizmDestroyService) {
     super();
   }
 

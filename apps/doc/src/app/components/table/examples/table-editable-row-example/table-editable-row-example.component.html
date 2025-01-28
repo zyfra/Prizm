@@ -19,7 +19,7 @@
         (click)="selectRow($event, item.code, currentEditableRow === item)"
         prizmTr
       >
-        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber: '0.0-0' }}</td>
+        <td class="format__number" *prizmCell="'code'" prizmTd>{{ item.code | spaceNumber : '0.0-0' }}</td>
         <td *prizmCell="'name'" prizmTd>
           <input
             [disabled]="currentEditableRow !== item"

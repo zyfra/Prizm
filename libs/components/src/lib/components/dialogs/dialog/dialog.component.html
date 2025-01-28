@@ -34,7 +34,7 @@
     <ng-container *polymorphOutlet="footer as data; context: context">
       <div class="buttons" *ngIf="isFooterArray; else temp">
         <button
-          *ngFor="let footerButton of data | prizmToType: BUTTONS"
+          *ngFor="let footerButton of data | prizmToType : BUTTONS"
           [style]="footerButton.style"
           [appearance]="footerButton.appearance"
           [appearanceType]="footerButton.appearanceType"

@@ -6,10 +6,7 @@ import { PrizmAccessorImplClass } from './prizm-accessor-impl.class';
 export abstract class PrizmWrappedFormComponent extends PrizmAccessorImplClass {
   public readonly formControl: UntypedFormControl = new UntypedFormControl();
 
-  constructor(
-    public readonly injector: Injector,
-    @Optional() @Self() public readonly ngControl: NgControl
-  ) {
+  constructor(public readonly injector: Injector, @Optional() @Self() public readonly ngControl: NgControl) {
     super();
 
     if (ngControl != null) {

@@ -9,3 +9,4 @@ export * from './input-hint';
 export * from './input-allowed-symbols';
 export * from './input-corrector';
 export * from './base';
+export * from './time-template';

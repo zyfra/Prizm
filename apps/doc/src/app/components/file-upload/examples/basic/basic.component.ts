@@ -150,10 +150,7 @@ export class PrizmFileUploadBasicExampleComponent implements OnDestroy {
       );
   }
 
-  constructor(
-    private readonly toastService: PrizmToastService,
-    private http: HttpClient
-  ) {}
+  constructor(private readonly toastService: PrizmToastService, private http: HttpClient) {}
 
   public ngOnDestroy(): void {
     this.progress$$.complete();
