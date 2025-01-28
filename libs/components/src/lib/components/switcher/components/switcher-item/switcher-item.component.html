@@ -4,6 +4,7 @@
   [disabled]="isDisabled"
   [icon]="icon"
   [size]="size"
+  (blur)="switcherControlDirective.onTouched()"
   [appearanceType]="appearanceTypeDirective.appearanceType"
   [appearance]="appearanceDirective.appearance"
   [class.switcher_active_disabled]="isActive && isDisabled"
