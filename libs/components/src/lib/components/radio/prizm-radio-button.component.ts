@@ -19,6 +19,12 @@ import { NgIf } from '@angular/common';
   encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [NgIf, ReactiveFormsModule],
+  // eslint-disable-next-line @angular-eslint/no-inputs-metadata-property
+  inputs: [
+    {
+      name: 'testId',
+    },
+  ],
 })
 export class PrizmRadioButtonComponent extends PrizmWrappedFormComponent {
   @Input()

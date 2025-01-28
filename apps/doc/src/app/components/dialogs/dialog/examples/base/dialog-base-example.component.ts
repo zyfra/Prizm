@@ -1,5 +1,6 @@
-import { Component, Inject } from '@angular/core';
+import { Component, Inject, ViewChild } from '@angular/core';
 import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
+import { PrizmDocDocumentationComponent } from '@prizm-ui/doc';
 
 @Component({
   selector: 'prizm-dialog-service-example',
@@ -14,6 +15,7 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
   ],
 })
 export class PrizmDialogServiceExampleComponent {
+  @ViewChild('doc') doc!: PrizmDocDocumentationComponent;
   public positionVariants: PrizmOverlayInsidePlacement[] = Object.values(PrizmOverlayInsidePlacement);
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
@@ -34,6 +36,8 @@ export class PrizmDialogServiceExampleComponent {
           dismissible: this.dismissible,
           backdrop: this.backdrop,
           size: 'm',
+          id: 'my_id',
+          testId: this.doc.testIdPostfix,
         }
       )
       .subscribe();

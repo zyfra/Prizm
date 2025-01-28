@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, viewChild } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PrizmDropdownHostClasses,
@@ -10,6 +10,8 @@ import {
   PrizmOverlayOutsidePlacement,
   PrizmScrollbarVisibility,
   PrizmInputTreeMultiSelectCheckboxPosition,
+  PrizmTreeMultiSelectMode,
+  PrizmTreeMultiSelectModeDirective,
 } from '@prizm-ui/components';
 import { UntypedFormControl, Validators } from '@angular/forms';
 
@@ -52,11 +54,14 @@ export class InputTreeMultiSelectComponent {
 
   readonly layoutKey = 'PrizmInputLayoutComponent';
   readonly checkboxDirective = 'PrizmInputTreeMultiSelectCheckboxDirective';
+  readonly modeDirective = 'PrizmTreeMultiSelectModeDirective';
   readonly selectKey = 'PrizmInputTreeMultiSelectComponent';
   public readOnly = false;
   public border = true;
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
+  public modeVariants: PrizmTreeMultiSelectMode[] = ['only-current', 'auto-select'];
+  public mode: PrizmTreeMultiSelectMode = 'auto-select';
 
   public status: PrizmInputStatus = 'default';
   public statuses: PrizmInputStatus[] = ['default', 'success', 'warning', 'danger'];
@@ -104,6 +109,10 @@ export class InputTreeMultiSelectComponent {
   readonly exampleI18N: TuiDocExample = {
     TypeScript: import('./examples/i18n/tree-select-i18n-example.component.ts?raw'),
     HTML: import('./examples/i18n/tree-select-i18n-example.component.html?raw'),
+  };
+  readonly exampleMode: TuiDocExample = {
+    TypeScript: import('./examples/only-current/tree-select-only-current-example.component.ts?raw'),
+    HTML: import('./examples/only-current/tree-select-only-current-example.component.html?raw'),
   };
   readonly exampleProjection: TuiDocExample = {
     TypeScript: import('./examples/projection/tree-select-projection-example.component.ts?raw'),

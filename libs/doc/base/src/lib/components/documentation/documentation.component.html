@@ -182,7 +182,7 @@
 <ng-container *ngIf="hasTestId">
   <ng-template
     #testIdTemplate="documentationProperty"
-    [documentationPropertyValue]="testIdPostfix"
+    [(documentationPropertyValue)]="testIdPostfix"
     [documentationPropertyName]="testIdName"
     (documentationPropertyValueChange)="changeTestIdPostfix($event, $any(testIdTemplate.host))"
     documentationPropertyType="string"

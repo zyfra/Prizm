@@ -77,6 +77,15 @@ export class PrizmDialogComponent<O = unknown, DATA = unknown> extends PrizmAbst
   @HostBinding('style.width')
   readonly width = '100%';
 
+  @HostBinding('attr.data-testid')
+  override get testId() {
+    const postfix = this.testIdPostfix || this.context.testId;
+    return this.generateMainTestId + (postfix ? `--${postfix}` : '');
+  }
+  override set testId(value: string) {
+    this.testIdPostfix = value;
+  }
+
   @prizmPure
   public get isFooterArray(): boolean {
     return Boolean(this.footer && Array.isArray(this.footer) && this.footer.length);

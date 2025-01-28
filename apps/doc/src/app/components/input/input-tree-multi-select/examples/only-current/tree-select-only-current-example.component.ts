@@ -7,8 +7,8 @@ type TreeSelectItem = {
 };
 
 @Component({
-  selector: 'prizm-tree-select-projection-example',
-  templateUrl: './tree-select-projection-example.component.html',
+  selector: 'prizm-tree-select-only-current-example',
+  templateUrl: './tree-select-only-current-example.component.html',
   styles: [
     `
       .box {
@@ -25,7 +25,7 @@ type TreeSelectItem = {
     `,
   ],
 })
-export class PrizmTreeSelectProjectionExampleComponent {
+export class PrizmTreeSelectOnlyCurrentExampleComponent {
   readonly items: TreeSelectItem[] = [
     {
       value: 'One',

@@ -1,6 +1,7 @@
 ```ts
 import { NgModule } from '@angular/core';
 import {
+  PrizmTreeMultiSelectModeDirective,
   PrizmTreeMultiSelectItemDirective,
   PrizmTreeMultiSelectItemComponent,
   PrizmInputTreeMultiSelectComponent,
@@ -9,6 +10,7 @@ import {
 
 @NgModule({
   imports: [
+    PrizmTreeMultiSelectModeDirective,
     PrizmTreeMultiSelectItemDirective,
     PrizmTreeMultiSelectItemComponent,
     PrizmInputTreeMultiSelectCheckboxDirective,
