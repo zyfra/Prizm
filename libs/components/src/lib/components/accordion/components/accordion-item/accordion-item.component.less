@@ -19,7 +19,7 @@
   }
 
   &.accordion_disabled {
-    &__header {
+    .accordion__header {
       cursor: not-allowed;
     }
   }
@@ -104,7 +104,7 @@
     & > .accordion__header,
     & > .accordion__header .header-icon {
       color: var(--prizm-text-icon-disable);
-      pointer-events: none;
+      pointer-events: visible;
     }
   }
 }
