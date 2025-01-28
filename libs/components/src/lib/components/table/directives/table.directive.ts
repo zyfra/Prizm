@@ -4,6 +4,7 @@ import {
   Directive,
   EventEmitter,
   HostBinding,
+  inject,
   Inject,
   Input,
   Output,
@@ -21,7 +22,7 @@ import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmTableRowService } from '../service/row.service';
 import { prizmTableDefaultColumnSort } from '../table.const';
 import { PrizmTableService } from '../table.service';
-import { PrizmDestroyService } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmTestIdDirective } from '@prizm-ui/helpers';
 
 @Directive({
   selector: `table[prizmTable]`,
@@ -36,6 +37,12 @@ import { PrizmDestroyService } from '@prizm-ui/helpers';
   host: {
     style: `border-collapse: separate; border-spacing: 0`,
   },
+  hostDirectives: [
+    {
+      directive: PrizmTestIdDirective,
+      inputs: ['testId'],
+    },
+  ],
   exportAs: 'prizmTable',
 })
 export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
@@ -89,6 +96,8 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
   @Output()
   readonly sortChange: Observable<PrizmTableCellSorter<T>[]> = this.sorterService.changes$;
 
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
+
   constructor(
     public readonly tree: PrizmTableTreeService,
     public readonly sorterService: PrizmTableSorterService<T>,
@@ -98,6 +107,8 @@ export class PrizmTableDirective<T extends Partial<Record<keyof T, unknown>>>
     @Inject(ChangeDetectorRef) private readonly changeDetectorRef: ChangeDetectorRef
   ) {
     super();
+
+    this.testIdDirective.generateMainTestId = 'ui_table';
   }
 
   @Input()

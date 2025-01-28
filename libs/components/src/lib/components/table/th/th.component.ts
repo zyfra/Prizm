@@ -24,6 +24,7 @@ import {
   prizmIconsArrowDownWideShort,
   prizmIconsArrowUpWideShort,
 } from '@prizm-ui/icons/base/source';
+import { PrizmTestIdDirective } from '@prizm-ui/helpers';
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
@@ -35,6 +36,12 @@ import {
     {
       provide: PRIZM_ELEMENT_REF,
       useExisting: ElementRef,
+    },
+  ],
+  hostDirectives: [
+    {
+      directive: PrizmTestIdDirective,
+      inputs: ['testId'],
     },
   ],
 })
@@ -59,6 +66,7 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
   }
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     @Optional()
@@ -75,6 +83,8 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
       prizmIconsArrowDownWideShort,
       prizmIconsArrowUpWideShort
     );
+
+    this.testIdDirective.generateMainTestId = 'ui_table_th';
   }
 
   get key(): keyof T {
@@ -113,8 +123,8 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
         !this.isCurrent
           ? 'arrow-up-arrow-down-v'
           : this.sorterService.cellOrder(this.key as string) === 'asc'
-            ? `arrow-down-wide-short`
-            : `arrow-up-wide-short`
+          ? `arrow-down-wide-short`
+          : `arrow-up-wide-short`
       )
     );
   }

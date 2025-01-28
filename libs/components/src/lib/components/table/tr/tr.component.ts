@@ -4,6 +4,7 @@ import {
   ContentChildren,
   forwardRef,
   HostBinding,
+  inject,
   Inject,
   Input,
   QueryList,
@@ -11,14 +12,14 @@ import {
 } from '@angular/core';
 import { debounceTime, map, startWith, switchMap } from 'rxjs/operators';
 import { animationFrameScheduler, BehaviorSubject, merge, Observable, of } from 'rxjs';
-import { prizmAutoEmit, prizmDefaultProp } from '@prizm-ui/core';
+import { prizmAutoEmit } from '@prizm-ui/core';
 
 import { PrizmCellDirective } from '../directives/cell.directive';
 import { PrizmTableDirective } from '../directives/table.directive';
 import { PRIZM_TABLE_PROVIDER } from '../providers/table.provider';
 import { PrizmTbodyComponent } from '../tbody/tbody.component';
 import { PrizmTableCellStatus } from '../table.types';
-import { PrizmDestroyService, prizmEmptyQueryList } from '@prizm-ui/helpers';
+import { PrizmDestroyService, prizmEmptyQueryList, PrizmTestIdDirective } from '@prizm-ui/helpers';
 import { PrizmTableTreeService } from '../service/tree.service';
 import { PrizmCellService } from '../directives/cell.service';
 import { PrizmTdService } from '../td/td.service';
@@ -32,6 +33,12 @@ import { PrizmTdService } from '../td/td.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
   providers: [PRIZM_TABLE_PROVIDER, PrizmCellService, PrizmTdService],
+  hostDirectives: [
+    {
+      directive: PrizmTestIdDirective,
+      inputs: ['testId'],
+    },
+  ],
 })
 export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   @Input() @HostBinding('attr.status') public status: PrizmTableCellStatus = 'default';
@@ -86,6 +93,7 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
   );
 
   @Input() @HostBinding('attr.active') public active = false;
+  private readonly testIdDirective = inject(PrizmTestIdDirective, { host: true });
 
   constructor(
     @Inject(forwardRef(() => PrizmTableDirective))
@@ -96,7 +104,9 @@ export class PrizmTrComponent<T extends Partial<Record<keyof T, unknown>>> {
     private readonly td: PrizmTdService,
     private readonly tableTreeService: PrizmTableTreeService,
     @Inject(PrizmDestroyService) readonly destroy$: PrizmDestroyService
-  ) {}
+  ) {
+    this.testIdDirective.generateMainTestId = 'ui_table_row';
+  }
 
   public showChildren(idx: number): void {
     this.tableTreeService.showChildren(idx);
