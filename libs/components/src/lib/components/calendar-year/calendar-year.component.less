@@ -1,12 +1,16 @@
+@height: 312px;
+@width: 312px;
+@padding: 16px;
+
 :host {
   display: block;
-  height: 312px;
-  width: 312px;
-  padding: 16px;
+  height: @height;
+  width: @width;
+  padding: @padding;
 
   .footer {
     border-top: 1px solid var(--prizm-background-stroke);
-    padding: var(--prizm-time-picker-footer-padding, 16px);
+    padding: var(--prizm-time-picker-footer-padding, @padding);
     max-width: 100%;
 
     display: flex;
@@ -19,25 +23,7 @@
   }
 }
 
-.z-row {
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.z-cell {
-  box-sizing: content-box;
-
-  &:not([data-range='start']):not([data-range='single']):not([data-range='end']):hover {
-    background-color: var(--prizm-button-ghost-hover);
-
-    .z-item {
-      color: var(--prizm-button-primary-solid-hover) !important;
-      border-color: var(--prizm-button-ghost-hover);
-    }
-  }
-}
-
 .scrollbar {
-  height: inherit;
-  width: inherit;
+  height: calc(@height - @padding * 2);
+  width: calc(@width - @padding * 2);
 }
