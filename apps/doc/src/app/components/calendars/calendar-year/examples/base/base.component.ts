@@ -10,7 +10,7 @@ import { PrizmYear } from '@prizm-ui/components';
 export class PrizmCalendarYearBaseExampleComponent {
   value: PrizmYear | null = null;
 
-  public onYearClick(month: PrizmYear): void {
-    this.value = month;
+  public onYearClick(year: PrizmYear): void {
+    this.value = year;
   }
 }
