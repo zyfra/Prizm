@@ -49,6 +49,9 @@ export class PrizmSwitcherControlDirective implements ControlValueAccessor, Afte
         filter(selected => this.selected !== selected),
         tap(idx => {
           this.selected = idx;
+          // fix value but it will not marked as dirty
+          // in case when we fix overflowed value (passed incorrect index)
+          this.ngControl?.control?.setValue(this.storeByIndexDirective.get(idx)?.value ?? idx);
         }),
         tap(() => this.cdRef.markForCheck()),
         takeUntil(this.destroy$)

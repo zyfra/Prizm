@@ -135,8 +135,8 @@ export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId
   }
 
   protected updateControlState() {
-    const value = this.selectedIndexDirective.select(this.currentIndexDirective.index);
-    this.switcherControlDirective.onChange(value);
+    const valueOrIndex = this.value ?? this.currentIndexDirective.index;
+    this.switcherControlDirective.onChange(valueOrIndex);
     this.switcherControlDirective.onTouched();
   }
 
