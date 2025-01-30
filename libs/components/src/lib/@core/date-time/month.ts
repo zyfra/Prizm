@@ -15,7 +15,10 @@ export class PrizmMonth extends PrizmYear implements PrizmMonthLike {
    * @param year
    * @param month (starting with 0)
    */
-  constructor(year: number, readonly month: number) {
+  constructor(
+    year: number,
+    readonly month: number
+  ) {
     super(year);
     prizmAssert.assert(PrizmMonth.isValidMonth(year, month));
   }

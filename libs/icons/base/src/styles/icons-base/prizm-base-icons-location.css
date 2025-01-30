@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'prizm-base-icons';
-  src: url('/assets/prizm/icons/base/prizm-base-icons.eot?5f6da968f8bd954f73f940f789eb2bd4#iefix')
+  src:
+    url('/assets/prizm/icons/base/prizm-base-icons.eot?5f6da968f8bd954f73f940f789eb2bd4#iefix')
       format('embedded-opentype'),
     url('/assets/prizm/icons/base/prizm-base-icons.woff2?5f6da968f8bd954f73f940f789eb2bd4') format('woff2'),
     url('/assets/prizm/icons/base/prizm-base-icons.woff?5f6da968f8bd954f73f940f789eb2bd4') format('woff'),

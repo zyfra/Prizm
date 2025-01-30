@@ -56,7 +56,7 @@
   </ng-template>
 
   <ng-template #itemTemplate let-item="item" let-elem="elem" let-zone="zone" let-idx="idx" let-isNew="isNew">
-    <div class="list-item" *prizmLet="item.range | prizmCallFunc : convertDate as dateArr">
+    <div class="list-item" *prizmLet="item.range | prizmCallFunc: convertDate as dateArr">
       <div class="item-content" [ngSwitch]="item === selection">
         <div class="edit-block" *ngSwitchCase="true">
           <prizm-input-layout label="От">
@@ -80,7 +80,7 @@
         <prizm-radio-button
           *ngSwitchDefault
           [value]="item.range"
-          [label]="(dateArr[0] | date : 'short') + ' - ' + (dateArr[1] | date : 'short')"
+          [label]="(dateArr[0] | date: 'short') + ' - ' + (dateArr[1] | date: 'short')"
           (click)="select(item)"
         ></prizm-radio-button>
       </div>

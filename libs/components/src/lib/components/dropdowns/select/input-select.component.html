@@ -1,7 +1,7 @@
 <ng-container *prizmLet="items$ | async as itemList">
   <prizm-dropdown-host
     #dropdownHostRef
-    *prizmLet="items && value | prizmCallFunc : getFullObjectOfCurrent : itemList as val"
+    *prizmLet="items && value | prizmCallFunc: getFullObjectOfCurrent : itemList as val"
     [content]="dropdown"
     [isOpen]="$any(opened$ | async)"
     [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
@@ -59,9 +59,9 @@
     <ng-template #editableTemplate>
       <div
         #focusableElementRef
-        *prizmLet="value | prizmCallFunc : getFullObjectOfCurrent : itemList as val"
+        *prizmLet="value | prizmCallFunc: getFullObjectOfCurrent : itemList as val"
         [ngModelOptions]="{ standalone: true }"
-        [ngModel]="(value | prizmCallFunc : getCurrentValue : itemList) ?? ''"
+        [ngModel]="(value | prizmCallFunc: getCurrentValue : itemList) ?? ''"
         [attr.contenteditable]="false"
         [tabIndex]="!disabled ? 1 : -1"
         [disabled]="disabled"
@@ -84,7 +84,7 @@
           >
             <ng-container
               *prizmLet="
-                val | prizmCallFunc : stringify : $any(nullContent) | prizmToObservable | async as text
+                val | prizmCallFunc: stringify : $any(nullContent) | prizmToObservable | async as text
               "
             >
               {{ text }}
