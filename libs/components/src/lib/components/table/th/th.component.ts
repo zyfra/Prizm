@@ -123,8 +123,8 @@ export class PrizmThComponent<T extends Partial<Record<keyof T, any>>> {
         !this.isCurrent
           ? 'arrow-up-arrow-down-v'
           : this.sorterService.cellOrder(this.key as string) === 'asc'
-          ? `arrow-down-wide-short`
-          : `arrow-up-wide-short`
+            ? `arrow-down-wide-short`
+            : `arrow-up-wide-short`
       )
     );
   }

@@ -24,7 +24,7 @@ interface InternalItemsState<UserItem> {
 
 @Injectable()
 export class PrizmNavigationMenuService<
-  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] }
+  UserItem extends Omit<PrizmNavigationMenuItem, 'children'> & { children?: UserItem[] },
 > {
   private internalItemsState$$ = new BehaviorSubject<InternalItemsState<UserItem>>({});
 

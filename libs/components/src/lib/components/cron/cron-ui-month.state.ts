@@ -8,7 +8,10 @@ import { PrizmCronService } from '../../services/cron';
 
 @Injectable()
 export class PrizmCronUiMonthState extends PrizmCronUiBaseState {
-  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
+  constructor(
+    public readonly cron: PrizmCronService,
+    public readonly destroy$: PrizmDestroyService
+  ) {
     super(
       cron.month$,
       PrizmCronUiBaseType.every,
