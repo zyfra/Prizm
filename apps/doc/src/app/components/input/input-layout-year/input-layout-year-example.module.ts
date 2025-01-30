@@ -9,7 +9,7 @@ import {
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmInputLayoutYearBaseExampleComponent } from './examples/base/input-layout-year-base-example.component';
-import { InputLayoutYearExampleComponent } from './input-layout-year.component';
+import { InputLayoutYearExampleComponent } from './input-layout-year-example.component';
 
 @NgModule({
   imports: [

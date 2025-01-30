@@ -24,6 +24,8 @@
           #element
           [prizmDocHostElement]="element"
           [prizmDocHostElementKey]="controlKey"
+          [min]="min"
+          [max]="max"
           [formControl]="control"
           [placeholder]="placeholder"
         ></prizm-input-layout-year>
@@ -54,24 +56,28 @@
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="min"
+        [documentationPropertyValues]="minVariants"
         documentationPropertyName="min"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmYear"
         documentationPropertyMode="input"
       >
-        Min Date
+        Min Year
       </ng-template>
 
       <ng-template
+        [(documentationPropertyValue)]="max"
+        [documentationPropertyValues]="maxVariants"
         documentationPropertyName="max"
-        documentationPropertyType="PrizmDay | [PrizmDay, PrizmTime]"
+        documentationPropertyType="PrizmYear"
         documentationPropertyMode="input"
       >
-        Max Date
+        Max Year
       </ng-template>
 
       <ng-template
         documentationPropertyName="disabledItemHandler"
-        documentationPropertyType="PrizmBooleanHandler<PrizmDay>"
+        documentationPropertyType="PrizmBooleanHandler<number>"
         documentationPropertyMode="input"
       >
         Disabled Item Handler
@@ -176,7 +182,7 @@
       <li>
         <p>
           Import
-          <code>PrizmInputLayoutMonthModule</code>
+          <code>PrizmInputLayoutYearComponent</code>
           into a module where you want to use our component
         </p>
 

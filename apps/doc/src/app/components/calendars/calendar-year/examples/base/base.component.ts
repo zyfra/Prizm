@@ -8,7 +8,7 @@ import { PrizmYear } from '@prizm-ui/components';
   encapsulation: ViewEncapsulation.Emulated,
 })
 export class PrizmCalendarYearBaseExampleComponent {
-  value: PrizmYear | null = null;
+  value: PrizmYear | null = new PrizmYear(2032);
 
   public onYearClick(year: PrizmYear): void {
     this.value = year;

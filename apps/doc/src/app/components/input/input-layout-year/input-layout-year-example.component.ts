@@ -1,18 +1,25 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
-import { PrizmDay, PrizmInputPosition, PrizmInputSize, PrizmInputStatus } from '@prizm-ui/components';
+import {
+  PRIZM_FIRST_DAY,
+  PRIZM_LAST_DAY,
+  PrizmInputPosition,
+  PrizmInputSize,
+  PrizmInputStatus,
+  PrizmYear,
+} from '@prizm-ui/components';
 import { UntypedFormControl } from '@angular/forms';
 
 @Component({
-  selector: 'prizm-input-layout-month-example',
+  selector: 'prizm-input-layout-year-example',
   templateUrl: './input-layout-year-example.component.html',
   styleUrls: ['./input-layout-year-example.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InputLayoutYearExampleComponent {
   readonly layoutKey = 'PrizmInputLayoutComponent';
-  readonly controlKey = 'PrizmInputLayoutMonthComponent';
-  public readOnly = false;
+  readonly controlKey = 'PrizmInputLayoutYearComponent';
+
   public border = false;
   public inputPosition: PrizmInputPosition = 'left';
   public inputPositionVariants: PrizmInputPosition[] = ['left', 'center'];
@@ -26,23 +33,17 @@ export class InputLayoutYearExampleComponent {
   public hideClearButtonHint: boolean | null = null;
   public hideHintVariants: ReadonlyArray<boolean | null> = [null, false, true];
 
-  val!: PrizmDay;
-  public pseudoInvalid = false;
-  public pseudoHovered = false;
-  public readonly = false;
-  public pseudoPressed = false;
-  public pseudoFocused = false;
-  public focusable = true;
-  public pseudoState = '';
-  public focusedChange = false;
-  public pressedChange = false;
-  public hoveredChange = false;
-  public focusVisibleChange = false;
+  readonly minVariants = [PRIZM_FIRST_DAY, new PrizmYear(2019), new PrizmYear(2007)];
 
-  public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
+  readonly maxVariants = [PRIZM_LAST_DAY, new PrizmYear(2020), new PrizmYear(2023), new PrizmYear(2015)];
 
-  public label = 'Абсолютное';
-  public placeholder = 'Выберите дату';
+  min = this.minVariants[0];
+  max = this.maxVariants[0];
+
+  public readonly control = new UntypedFormControl(new PrizmYear(2017));
+
+  public label = 'Год';
+  public placeholder = 'Выберите год';
   public testIdPostfix!: string;
   public sizeVariants: ReadonlyArray<PrizmInputSize> = ['l', 'm', 's'];
   public size: PrizmInputSize = 'm';

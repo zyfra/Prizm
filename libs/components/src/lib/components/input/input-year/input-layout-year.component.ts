@@ -11,25 +11,17 @@ import {
   ViewChild,
 } from '@angular/core';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-import { PrizmDay } from '../../../@core/date-time/day';
-import { PrizmMonth } from '../../../@core/date-time/month';
+import { BehaviorSubject } from 'rxjs';
 import { PrizmYear } from '../../../@core/date-time/year';
 import { PRIZM_ALWAYS_FALSE_HANDLER } from '../../../constants/always-false-handler';
-import { PrizmMonthPipe } from '../../../pipes/month/month.pipe';
-import { PRIZM_MONTH_FORMATTER_PROVIDER } from '../../../providers/month-formatter.provider';
 import { PRIZM_INPUT_DATE_OPTIONS, PrizmInputDateOptions } from '../../../tokens/input-date-options';
-import { PRIZM_MONTH_FORMATTER } from '../../../tokens/month-formatter';
 import { PrizmDateButton } from '../../../types/date-button';
-import { PrizmBooleanHandler, PrizmHandler } from '../../../types/handler';
+import { PrizmBooleanHandler } from '../../../types/handler';
 import { prizmIsNativeFocusedIn } from '../../../util/is-native-focused-in';
 import { FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PrizmDestroyService } from '@prizm-ui/helpers';
 import { PrizmInputControl, PrizmInputNgControl } from '../common';
-import { prizmI18nInitWithKey } from '../../../services';
-import { PRIZM_MONTHS } from '../../../tokens';
 import { CommonModule } from '@angular/common';
-import { PrizmCalendarMonthComponent } from '../../calendar-month';
 import { PrizmDropdownHostComponent } from '../../dropdowns/dropdown-host';
 import {
   PolymorphOutletDirective,
@@ -38,10 +30,9 @@ import {
 } from '../../../directives';
 import { PrizmMaskModule } from '../../../modules';
 import { PrizmInputTextModule } from '../input-text';
-import { PrizmMapperPipe } from '../../table/pipes/mapper/mapper.pipe';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCalendarBlank } from '@prizm-ui/icons/full/source';
-import { PrizmPrimitiveYearPickerComponent } from '../../internal';
+import { PrizmCalendarYearComponent } from '../../calendar-year';
 
 @Component({
   selector: `prizm-input-layout-year`,
@@ -49,9 +40,6 @@ import { PrizmPrimitiveYearPickerComponent } from '../../internal';
   styleUrls: [`./input-layout-year.component.less`],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
-    ...prizmI18nInitWithKey(PRIZM_MONTHS, 'months'),
-    PRIZM_MONTH_FORMATTER_PROVIDER,
-    PrizmMonthPipe,
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => PrizmInputLayoutYearComponent),
@@ -63,7 +51,7 @@ import { PrizmPrimitiveYearPickerComponent } from '../../internal';
   standalone: true,
   imports: [
     CommonModule,
-    PrizmCalendarMonthComponent,
+    PrizmCalendarYearComponent,
     PrizmDropdownHostComponent,
     PrizmPreventDefaultDirective,
     FormsModule,
@@ -71,21 +59,19 @@ import { PrizmPrimitiveYearPickerComponent } from '../../internal';
     PolymorphOutletDirective,
     PrizmMaskModule,
     PrizmInputTextModule,
-    PrizmMapperPipe,
-    PrizmPrimitiveYearPickerComponent,
   ],
 })
-export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmMonth | null> {
+export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear | null> {
   readonly hasClearButton = true;
-  readonly nativeElementType = 'input-month';
-  override readonly testId_ = 'ui_input_month';
+  readonly nativeElementType = 'input-number';
+  override readonly testId_ = 'ui_input_year';
 
   @ViewChild('focusableElementRef', { read: ElementRef })
   public override readonly focusableElement?: ElementRef<HTMLInputElement>;
 
   @Input()
   @prizmDefaultProp()
-  public min: PrizmMonth = this.options.min;
+  public min: PrizmYear = this.options.min;
 
   @Input()
   @prizmDefaultProp()
@@ -97,16 +83,16 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmMont
 
   @Input()
   @prizmDefaultProp()
-  public max: PrizmMonth = this.options.max;
+  public max: PrizmYear = this.options.max;
 
   @Input()
   @prizmDefaultProp()
-  public disabledItemHandler: PrizmBooleanHandler<PrizmMonth> = PRIZM_ALWAYS_FALSE_HANDLER;
+  public disabledItemHandler: PrizmBooleanHandler<number> = PRIZM_ALWAYS_FALSE_HANDLER;
   public open = false;
 
-  public activeYear: PrizmYear = this.value || PrizmDay.currentLocal();
-
   public rightButtons$!: BehaviorSubject<PrizmDateButton[]>;
+
+  protected year = this.value;
 
   get interactive() {
     return !this.disabled;
@@ -120,8 +106,6 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmMont
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(
-    @Inject(PRIZM_MONTH_FORMATTER)
-    readonly formatter: PrizmHandler<PrizmMonth | null, Observable<string>>,
     @Inject(PRIZM_INPUT_DATE_OPTIONS)
     private readonly options: PrizmInputDateOptions,
     @Inject(Injector) injector: Injector
@@ -145,29 +129,31 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmMont
     return this.options.icon;
   }
 
-  public onValueChange(value: string): void {
-    if (value) {
-      return;
-    }
-
-    this.updateValue(null);
+  public onValueChange(value: number): void {
+    const year = value ? new PrizmYear(this.getCorrectedYear(value)) : null;
+    this.updateValue(year);
     this.onOpenChange(true);
   }
 
-  public onMonthClick(month: PrizmMonth): void {
-    this.updateValue(month);
+  public onYearClick(year: PrizmYear): void {
+    this.updateValue(year);
     this.close();
   }
 
   public onOpenChange(open: boolean): void {
-    if (open && this.value) {
-      this.activeYear = this.value;
-    }
     this.open = open;
     this.changeDetectorRef.markForCheck();
   }
 
   private close(): void {
     this.open = false;
+  }
+
+  private getCorrectedYear(year: number): number {
+    if (year < this.min.year) return this.min.year;
+
+    if (year > this.max.year) return this.max.year;
+
+    return year;
   }
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
-import { PrizmDay } from '@prizm-ui/components';
+import { FormControl } from '@angular/forms';
+import { PrizmYear } from '@prizm-ui/components';
 
 @Component({
   selector: 'prizm-input-layout-year-base-example',
@@ -15,5 +15,5 @@ import { PrizmDay } from '@prizm-ui/components';
   ],
 })
 export class PrizmInputLayoutYearBaseExampleComponent {
-  public readonly control = new UntypedFormControl(new PrizmDay(2017, 0, 15));
+  public readonly control = new FormControl<PrizmYear | null>(new PrizmYear(2017));
 }

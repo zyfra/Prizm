@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
-import { PrizmAbstractTestId, prizmDefaultProp } from '@prizm-ui/core';
+import { prizmDefaultProp } from '@prizm-ui/core';
 import { PrizmDay } from '../../@core/date-time/day';
 import { PRIZM_FIRST_DAY, PRIZM_LAST_DAY } from '../../@core/date-time/days.const';
 import { PrizmYear } from '../../@core/date-time/year';

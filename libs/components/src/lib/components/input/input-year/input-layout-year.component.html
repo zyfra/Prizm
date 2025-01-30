@@ -3,6 +3,7 @@
   [canOpen]="interactive"
   [content]="dropdown"
   [isOpen]="open && interactive"
+  [closeByEsc]="true"
   [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
   (isOpenChange)="onOpenChange($event)"
   prizmDropdownHostWidth="auto"
@@ -11,33 +12,23 @@
     class="input-search"
     #focusableElementRef
     [placeholder]="placeholder"
-    [readonly]="true"
     [disabled]="disabled"
-    [ngModelOptions]="{ standalone: true }"
-    [ngModel]="(value | prizmMapper: formatter | async) || ''"
+    mask="0000"
+    [ngModel]="value?.year"
+    [ngModelOptions]="{ updateOn: 'blur', standalone: true }"
     (ngModelChange)="onValueChange($event || '')"
     prizmInput
   />
   <ng-template #dropdown>
-    <!-- <prizm-calendar-month
-      [(year)]="activeYear"
+    <prizm-calendar-year
       [disabledItemHandler]="disabledItemHandler"
       [min]="min"
       [max]="max"
       [value]="value"
       (prizmAfterViewInit)="markAsTouched()"
-      (monthClick)="onMonthClick($event)"
+      (yearClick)="onYearClick($event)"
       prizmPreventDefault="mousedown"
-    ></prizm-calendar-month> -->
-    <!-- <prizm-primitive-year-picker
-      [min]="min"
-      [max]="max"
-      [initialItem]="year"
-      [value]="value"
-      [rangeState]="rangeState"
-      (yearClick)="onPickerYearClick($event)"
-      automation-id="prizm-calendar__year"
-    ></prizm-primitive-year-picker> -->
+    ></prizm-calendar-year>
   </ng-template>
 </prizm-dropdown-host>
 <ng-container *prizmInputLayoutRight>
