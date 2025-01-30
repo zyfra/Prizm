@@ -74,7 +74,7 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   override readonly testId_ = 'ui_tree_multi_select_item';
   public children = inject(PRIZM_TREE_SELECT_ITEM_CHILDREN);
   readonly checkboxPosition = getPrizmLabelPosition();
-  public childrenElements: PrizmTreeMultiSelectItemComponent<K>[] = [];
+  public childrenElements = new Set<PrizmTreeMultiSelectItemComponent<K>>();
   public cdRef = inject(ChangeDetectorRef);
   public parents = inject(PRIZM_TREE_SELECT_ITEM_PARENTS) as PrizmTreeMultiSelectItemDirective[];
   protected treeSelectSearchDirective = inject(PrizmTreeMultiSelectSearchDirective);
@@ -115,7 +115,7 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
   constructor() {
     super();
     this.iconsFullRegistry.registerIcons(prizmIconsChevronMiniRight);
-    this.parent?.childrenElements.push(this);
+    this.parent?.childrenElements.add(this);
   }
 
   ngOnInit() {
@@ -123,6 +123,10 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
     this.initControllerOnSearch();
 
     setTimeout(() => this.openIfHasSelectedChildren(), 0);
+  }
+
+  ngOnDestroy() {
+    this.parent?.childrenElements.delete(this);
   }
 
   protected initChildrenOpener() {
@@ -216,7 +220,9 @@ export class PrizmTreeMultiSelectItemComponent<K> extends PrizmAbstractTestId {
       // select children if parent was selected
       if (parentSelected) {
         this.parent!.childrenElements.forEach(child => {
-          if (child !== this) child.select();
+          if (child !== this) {
+            child.select();
+          }
         });
       }
     }
