@@ -26,7 +26,7 @@ export class PrizmPrimitiveTimePaginationComponent extends PrizmAbstractTestId {
 
   @Input()
   @prizmDefaultProp()
-  timeMode: 'HH:MM' | 'HH:MM:SS' = 'HH:MM:SS';
+  timeMode: 'HH' | 'HH:MM' | 'HH:MM:SS' = 'HH:MM:SS';
 
   @Input()
   @prizmDefaultProp()
