@@ -71,6 +71,17 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
     effect(() => {
       this.updateinternalTime(this.time());
     });
+
+    effect(
+      () => {
+        const mode = this.timeMode();
+        const state = untracked(this.timeSheetState);
+        this.updateSheetStateOnModeChange(state, mode);
+      },
+      {
+        allowSignalWrites: true,
+      }
+    );
   }
 
   public timeClicked(time: number) {
@@ -176,5 +187,13 @@ export class PrizmTimePickerComponent extends PrizmAbstractTestId {
       result.seconds > max.seconds ? (result.seconds = max.seconds) : null;
     }
     return result;
+  }
+
+  private updateSheetStateOnModeChange(state: PrizmTimePaginationState, mode: 'HH' | 'HH:MM' | 'HH:MM:SS') {
+    if (state === 'hours' || mode === 'HH:MM:SS') return;
+
+    const correctedState =
+      state === 'seconds' && mode === 'HH:MM' ? 'minutes' : mode === 'HH' ? 'hours' : state;
+    this.timeSheetState.set(correctedState);
   }
 }
