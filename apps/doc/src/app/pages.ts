@@ -251,6 +251,11 @@ export const pages: PrizmOrderedDocPage = [
         route: '/components/calendar-month',
       },
       {
+        title: 'Calendar Year',
+        keywords: 'calendar-year, календарь, года',
+        route: '/components/calendar-year',
+      },
+      {
         title: 'Calendar Range',
         keywords: 'calendar-range, календарь, диапозон',
         route: '/components/calendar-range',
@@ -322,6 +327,11 @@ export const pages: PrizmOrderedDocPage = [
         title: 'InputLayoutMonthRange',
         keywords: 'input-layout-month-range, date, form',
         route: '/components/input-layout-month-range',
+      },
+      {
+        title: 'InputLayoutYear',
+        keywords: 'input-layout-year, year, form',
+        route: '/components/input-layout-year',
       },
       {
         title: 'InputLayoutDateRange',
@@ -1031,6 +1041,11 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         route: '/components/calendar-month',
       },
       {
+        title: 'Calendar Year',
+        keywords: 'calendar-year, календарь, года',
+        route: '/components/calendar-year',
+      },
+      {
         title: 'Calendar Range',
         keywords: 'calendar-range',
         route: '/components/calendar-range',
@@ -1102,6 +1117,11 @@ export const pagesEnglish: PrizmOrderedDocPage = [
         title: 'InputLayoutMonthRange',
         keywords: 'input-layout-month-range, date, form',
         route: '/components/input-layout-month-range',
+      },
+      {
+        title: 'InputLayoutYear',
+        keywords: 'input-layout-year, year, form, год',
+        route: '/components/input-layout-year',
       },
       {
         title: 'InputLayoutDateRange',
