@@ -3,7 +3,6 @@ import {
   Component,
   ElementRef,
   forwardRef,
-  HostListener,
   inject,
   Inject,
   Injector,
@@ -98,11 +97,6 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
     return !this.disabled;
   }
 
-  @HostListener(`click`)
-  public onClick(): void {
-    this.open = !this.open;
-  }
-
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
 
   constructor(
@@ -132,7 +126,7 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
   public onValueChange(value: number): void {
     const year = value ? new PrizmYear(this.getCorrectedYear(value)) : null;
     this.updateValue(year);
-    this.onOpenChange(true);
+    this.close();
   }
 
   public onYearClick(year: PrizmYear): void {
@@ -145,8 +139,13 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
     this.changeDetectorRef.markForCheck();
   }
 
-  private close(): void {
-    this.open = false;
+  public safeOpenModal(): void {
+    if (!this.open && !this.disabled) {
+      this.open = true;
+      this.changeDetectorRef.markForCheck();
+    } else {
+      this.close();
+    }
   }
 
   private getCorrectedYear(year: number): number {
@@ -155,5 +154,9 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
     if (year > this.max.year) return this.max.year;
 
     return year;
+  }
+
+  private close() {
+    this.open = false;
   }
 }

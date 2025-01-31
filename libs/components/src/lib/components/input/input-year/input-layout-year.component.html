@@ -16,8 +16,9 @@
     mask="0000"
     [ngModel]="value?.year"
     [ngModelOptions]="{ updateOn: 'blur', standalone: true }"
-    (ngModelChange)="onValueChange($event || '')"
+    (ngModelChange)="onValueChange($event)"
     prizmInput
+    (click)="safeOpenModal()"
   />
   <ng-template #dropdown>
     <prizm-calendar-year
@@ -37,7 +38,7 @@
       [prizmInputIconButton]="$any(data)"
       [interactive]="true"
       [disabled]="disabled"
-      (click)="onOpenChange(!open)"
+      (click)="safeOpenModal()"
     ></button>
   </ng-container>
 
