@@ -3,37 +3,37 @@ import { PrizmHandler } from '@prizm-ui/components';
 import { BehaviorSubject } from 'rxjs';
 
 interface TreeNode {
-  /** Уникальный идентификатор */
+  /** Unique identifier */
   id: string;
-  /** Подпись */
+  /** Signature */
   name: string;
-  /** Узел выбран (чекнут) **/
+  /** The node is chosen (check) */
   checked: boolean;
-  /** Узел в состоянии неопределённости  */
+  /** Indicates that a checkbox is neither "on" or "off" */
   indeterminate: boolean;
-  /** Дочерние узлы */
+  /** Direct descendants */
   children: TreeNode[];
-  /** Общее число потомков */
+  /** The total number of descendants */
   constChildrenCount: number;
-  /** Отмеченное число потомков */
+  /** The noted number of descendants */
   selectedChildrenCount: number;
 }
 
 const originTree: TreeNode = {
   id: 'f9cfa517-7144-4a72-9fac-1fb234813b8a',
-  name: 'Завод',
+  name: 'Plant',
   checked: false,
   indeterminate: false,
   children: [
     {
       id: '6ad20829-8fd8-4d25-9e42-f097087fe5ab',
-      name: 'Производство №1',
+      name: 'Production №1',
       checked: false,
       indeterminate: false,
       children: [
         {
           id: '73ed7ee4-befa-4d70-bfaf-b42b7b99782c',
-          name: 'Переработка сырья 1',
+          name: 'Processing of raw materials 1',
           checked: false,
           indeterminate: false,
           children: [],
@@ -42,7 +42,7 @@ const originTree: TreeNode = {
         },
         {
           id: '2be3ef3b-4417-49eb-a636-a21a546ceb65',
-          name: 'Резервуар 101',
+          name: 'Tank 101',
           checked: false,
           indeterminate: false,
           children: [],
@@ -51,7 +51,7 @@ const originTree: TreeNode = {
         },
         {
           id: 'e5d8b0aa-2f19-4f0c-bf76-ebb186672da9',
-          name: 'Резервуар 102',
+          name: 'Tank 102',
           checked: false,
           indeterminate: false,
           children: [],
@@ -60,7 +60,7 @@ const originTree: TreeNode = {
         },
         {
           id: 'd90ff26b-9135-41f4-bbf2-03952de4fa6e',
-          name: 'Смешения сырья установки 1',
+          name: 'Mixing raw materials installation 1',
           checked: false,
           indeterminate: false,
           children: [],
@@ -73,13 +73,13 @@ const originTree: TreeNode = {
     },
     {
       id: 'e4c8100a-9f6c-443f-9979-915bb6b254e5',
-      name: 'Производство №2',
+      name: 'Production №2',
       checked: false,
       indeterminate: false,
       children: [
         {
           id: '2f32dcd6-3d17-4e19-b97b-4d082c347c35',
-          name: 'Переработка сырья 2',
+          name: 'Processing of raw materials 2',
           checked: false,
           indeterminate: false,
           children: [],
@@ -88,7 +88,7 @@ const originTree: TreeNode = {
         },
         {
           id: '9841c60b-ac85-44f8-b83c-6097afca151f',
-          name: 'Переработка сырья 2.1',
+          name: 'Processing of raw materials 2.1',
           checked: false,
           indeterminate: false,
           children: [],
@@ -97,7 +97,7 @@ const originTree: TreeNode = {
         },
         {
           id: '3a7b68c9-3918-4f44-80aa-4fdee9e7431f',
-          name: 'Резервуар 301',
+          name: 'Tank 301',
           checked: false,
           indeterminate: false,
           children: [],
@@ -106,7 +106,7 @@ const originTree: TreeNode = {
         },
         {
           id: '19544871-e1d8-4db3-b8ff-65d658851b48',
-          name: 'Резервуар 302',
+          name: 'Tank 302',
           checked: false,
           indeterminate: false,
           children: [],
@@ -115,7 +115,7 @@ const originTree: TreeNode = {
         },
         {
           id: 'a2d68cdc-4060-4390-9c15-0e55fdf55e7d',
-          name: 'Смешение сырья Установки 2',
+          name: 'Mixing raw materials installation 2',
           checked: false,
           indeterminate: false,
           children: [],
@@ -150,16 +150,16 @@ const originTree: TreeNode = {
   `,
 })
 export class TreeFunctionAccessExampleComponent {
-  /** Map, содержимым которого будет управлять prizm-tree дерево */
+  /** MAP, the contents of which will control Prizm-Tree */
   public expandMap = new Map<TreeNode, boolean>();
-  /** ID выбранных объектов **/
+  /** ID of selected objects**/
   public selectedIdSet = new Set<string>();
-  /** Структура дерева, где с течением времени меняются ссылки на узлы как правило при работе в state manager`ах */
+  /** The structure of the tree, where over time, links to nodes are changing, as a rule when working in State Manager. */
   public tree$$ = new BehaviorSubject(this.getWorkTree([structuredClone(originTree)], this.selectedIdSet));
   readonly tree$ = this.tree$$.asObservable();
-  /** Хендлер для получения дочерних нод */
+
   readonly childrenHandler: PrizmHandler<TreeNode, readonly TreeNode[]> = item => item.children ?? [];
-  /** Функция получения примитива из узла ноды для определения раскрытости узла */
+
   readonly prizmTreeItemExpandKeyFn = (item: TreeNode) => item.id;
 
   public toggleNode(node: TreeNode, isSelected: boolean): void {
@@ -224,9 +224,9 @@ export class TreeFunctionAccessExampleComponent {
   }
 
   /**
-   * Получить список идентификаторов листьев дерева
-   * @param tree - исходное дерево (поддерево)
-   * @param idList - список идентификаторов искомых узлов
+   * Get a list of tree leaves
+   * @param tree - origin tree (subtree)
+   * @param idList - List of identifiers of the desired nodes
    */
   private getLeafIdList(tree: TreeNode[], idList: string[]): string[] {
     const result: string[] = [];

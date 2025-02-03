@@ -48,11 +48,6 @@ export class PrizmTreeControllerDirective<T> implements PrizmTreeController, Pri
     this.items.delete(item);
   }
 
-  public getValue(item: PrizmTreeItemComponent): T | undefined {
-    const value = this.items.get(item);
-    return value && this.prizmTreeItemExpandKeyFn(value);
-  }
-
   public isExpanded(item: PrizmTreeItemComponent): boolean {
     const value = this.getValue(item);
 
@@ -84,5 +79,10 @@ export class PrizmTreeControllerDirective<T> implements PrizmTreeController, Pri
       isExpanded,
     });
     this.map.set(value, isExpanded);
+  }
+
+  private getValue(item: PrizmTreeItemComponent): T | undefined {
+    const value = this.items.get(item);
+    return value && this.prizmTreeItemExpandKeyFn(value);
   }
 }
