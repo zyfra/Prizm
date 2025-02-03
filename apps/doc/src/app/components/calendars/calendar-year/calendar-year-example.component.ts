@@ -33,6 +33,9 @@ export class ExampleCalendarYearComponent {
   min = this.minVariants[0];
   max = this.maxVariants[0];
 
+  public prizmCalendarYearFooterPadding: string | null = null;
+  public prizmCalendarYearFooterHeight: string | null = null;
+
   readonly disabledItemHandlerVariants: ReadonlyArray<PrizmBooleanHandler<number>> = [
     PRIZM_ALWAYS_FALSE_HANDLER,
     (year: number): boolean => year % 3 === 0,

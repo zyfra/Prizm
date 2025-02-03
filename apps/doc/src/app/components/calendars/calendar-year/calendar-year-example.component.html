@@ -24,6 +24,8 @@
         [max]="max"
         [value]="value"
         (yearClick)="onYearClick($event)"
+        [style.--prizm-calendar-year-footer-padding]="prizmCalendarYearFooterPadding"
+        [style.--prizm-calendar-year-footer-height]="prizmCalendarYearFooterHeight"
       ></prizm-calendar-year>
     </prizm-doc-demo>
     <prizm-doc-documentation>
@@ -74,6 +76,24 @@
         documentationPropertyType="PrizmYear"
       >
         Selected year
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmCalendarYearFooterPadding"
+        documentationPropertyName="prizm-calendar-year-footer-padding"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Calendar year footer padding
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="prizmCalendarYearFooterHeight"
+        documentationPropertyName="prizm-calendar-year-footer-height"
+        documentationPropertyType="string"
+        documentationPropertyMode="css-var"
+      >
+        Calendar year footer height
       </ng-template>
     </prizm-doc-documentation>
   </ng-template>
