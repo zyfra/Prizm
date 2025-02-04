@@ -53,9 +53,9 @@ export class PrizmDateTimeRange {
 
     const to = this.dayRange.to.toLocalNativeDate();
     if (this.timeRange?.to) {
-      from.setHours(this.timeRange.to.hours);
-      from.setMinutes(this.timeRange.to.minutes);
-      from.setSeconds(this.timeRange.to.seconds);
+      to.setHours(this.timeRange.to.hours);
+      to.setMinutes(this.timeRange.to.minutes);
+      to.setSeconds(this.timeRange.to.seconds);
     }
 
     return [from ?? null, to ?? null];
