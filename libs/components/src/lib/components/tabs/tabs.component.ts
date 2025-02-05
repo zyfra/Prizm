@@ -139,7 +139,10 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
   public ngOnInit(): void {
     this.tabsService.initObservingTabsParent(this.tabsContainer.nativeElement);
     this.mutationObserver = new MutationObserver(() => this.mutationDetector$.next());
-    this.resizeObserver = new ResizeObserver(() => this.mutationDetector$.next());
+    this.resizeObserver = new ResizeObserver(() => {
+      this.mutationDetector$.next();
+    });
+
     this.mutationObserver.observe(this.tabsContainer.nativeElement, {
       attributes: true,
       characterData: true,
@@ -237,8 +240,10 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.tabElements.forEach(item => {
       tabsWidth += item?.el.nativeElement.clientWidth;
     });
-
-    if (tabsWidth > tabContainerElement.clientWidth) {
+    const difference = Math.abs(tabsWidth - tabContainerElement.clientWidth);
+    // INFO: threshold need for detect on changed browser zoom
+    const threshold = 5;
+    if (difference > threshold) {
       const scrollLeft = tabContainerElement.scrollLeft;
       if (scrollLeft === 0) {
         this.isRightBtnActive = true;
