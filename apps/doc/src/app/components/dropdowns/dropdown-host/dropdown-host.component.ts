@@ -63,6 +63,10 @@ export class DropdownHostComponent {
     TypeScript: import('./examples/with-template/template.ts?raw'),
     HTML: import('./examples/with-template/template.html?raw'),
   };
+  readonly exampleWithNested: TuiDocExample = {
+    TypeScript: import('./examples/nested/template.ts?raw'),
+    HTML: import('./examples/nested/template.html?raw'),
+  };
   readonly exampleWithMethods: TuiDocExample = {
     TypeScript: import('./examples/by-method/by-method-example.component?raw'),
     HTML: import('./examples/by-method/by-method-example.component.html?raw'),

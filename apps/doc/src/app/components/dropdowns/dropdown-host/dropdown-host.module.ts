@@ -25,6 +25,7 @@ import { PrizmDropdownHostDateListExampleComponent } from './examples/date-list-
 import { PrizmDropdownHostCustomStyleComponent } from './examples/custom-style/custom-style-example.component';
 import { PrizmDropdownHostExampleByMethodComponent } from './examples/by-method/by-method-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
+import { PrizmDropdownHostExampleNestedComponent } from './examples/nested/template';
 
 @NgModule({
   imports: [
@@ -49,6 +50,7 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmDropdownTriggerClickDirective,
   ],
   declarations: [
+    PrizmDropdownHostExampleNestedComponent,
     PrizmDropdownHostExampleByMethodComponent,
     PrizmDropdownHostCustomStyleComponent,
     PrizmDropdownHostExampleWithTemplateComponent,

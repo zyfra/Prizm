@@ -1,0 +1,17 @@
+<prizm-dropdown-host [content]="dropdown" prizmDropdownHostWidth="auto" [(isOpen)]="open">
+  <button prizmButton type="button" (click)="open = !open">Button</button>
+</prizm-dropdown-host>
+
+<ng-template #dropdown>
+  <prizm-dropdown-host [content]="dropdown2" prizmDropdownHostWidth="auto" [(isOpen)]="open2">
+    <button prizmButton type="button" (click)="open2 = !open2">Dropdown 2</button>
+  </prizm-dropdown-host>
+
+  <ng-template #dropdown2>
+    <prizm-dropdown-host [content]="dropdown3" prizmDropdownHostWidth="auto" [(isOpen)]="open3">
+      <button prizmButton type="button" (click)="open3 = !open3">Dropdown 3</button>
+    </prizm-dropdown-host>
+
+    <ng-template #dropdown3> LAST </ng-template>
+  </ng-template>
+</ng-template>
