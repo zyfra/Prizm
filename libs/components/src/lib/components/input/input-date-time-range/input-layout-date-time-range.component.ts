@@ -460,8 +460,13 @@ export class PrizmInputLayoutDateTimeRangeComponent
     let parsedTimeFrom = fromTime && PrizmTime.correctTime(PrizmTime.fromString(fromTime));
     let parsedTimeTo = toTime && PrizmTime.correctTime(PrizmTime.fromString(toTime));
 
-    if (parsedTimeFrom) parsedTimeFrom = this.timeLimit([parsedFrom as any, parsedTimeFrom]) as any;
-    if (parsedTimeTo) parsedTimeTo = this.timeLimit([parsedTo as any, parsedTimeTo]) as any;
+    if (parsedTimeFrom && parsedFrom?.daySameOrBefore(this.calendarMinDay)) {
+      parsedTimeFrom = this.timeLimit([parsedFrom as any, parsedTimeFrom]) as any;
+    }
+
+    if (parsedTimeTo && parsedTo?.daySameOrAfter(this.calendarMaxDay)) {
+      parsedTimeTo = this.timeLimit([parsedTo as any, parsedTimeTo]) as any;
+    }
 
     if (parsedTimeTo || parsedTimeFrom) {
       if (!parsedFrom) {
