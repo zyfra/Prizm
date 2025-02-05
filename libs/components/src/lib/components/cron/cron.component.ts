@@ -1,4 +1,5 @@
 import {
+  AfterViewInit,
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
@@ -34,7 +35,7 @@ import { prizmIsTextOverflow } from '../../util';
 import { PrizmCronPeriod, PrizmCronTabItem, PrizmCronTabSpecifiedList } from './model';
 import { PrizmCronUiDayState } from './cron-ui-day.state';
 import { prizmDefaultProp } from '@prizm-ui/core';
-import { asapScheduler, BehaviorSubject, combineLatest, concat, Observable, timer } from 'rxjs';
+import { asapScheduler, BehaviorSubject, combineLatest, concat, Observable, Subject, timer } from 'rxjs';
 import { PRIZM_LANGUAGE, PrizmLanguage, PrizmLanguageCron } from '@prizm-ui/i18n';
 import { prizmCronHRToString } from '../cron-human-readable/human-readable/crons-i18n';
 import { PRIZM_CALENDAR_MONTHS, PRIZM_CRON, PRIZM_MONTHS } from '../../tokens';
@@ -77,7 +78,7 @@ import { AsyncPipe } from '@angular/common';
     PrizmCronWeekPipe,
   ],
 })
-export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
+export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit, AfterViewInit {
   @Input() public cronTitle: string | null = null;
   @Input() public set value(value: string) {
     if (!value) return;
@@ -166,7 +167,7 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
   }
 
   private tabs$: BehaviorSubject<PrizmCronTabItem[]> = new BehaviorSubject<PrizmCronTabItem[]>([]);
-  private selected$: BehaviorSubject<PrizmCronTabItem> = new BehaviorSubject<PrizmCronTabItem>('second');
+  private selected$ = new Subject<PrizmCronTabItem>();
 
   public switchers$$ = new BehaviorSubject<PrizmSwitcherItem<PrizmCronTabItem>[]>([]);
 
@@ -202,6 +203,10 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
     this.iconsFullRegistry.registerIcons(prizmIconsCopy);
   }
 
+  ngAfterViewInit(): void {
+    this.initSelectedChangeListener();
+  }
+
   public ngOnInit(): void {
     this.initAutoSubmiter();
     this.cronUiSecondState.init();
@@ -235,7 +240,9 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
         takeUntil(this.destroy$)
       )
       .subscribe();
+  }
 
+  private initSelectedChangeListener() {
     this.tabs$
       .pipe(
         observeOn(asapScheduler),
@@ -252,25 +259,31 @@ export class PrizmCronComponent extends PrizmAbstractTestId implements OnInit {
         takeUntil(this.destroy$)
       )
       .subscribe();
-
     combineLatest([this.selected$, this.tabs$, this.switchers$$])
       .pipe(
         debounceTime(0),
-        tap(([selected, tabs, switchers]) => {
-          this.selectedSwitcherIdx = switchers.findIndex(i => i.id === selected);
-
-          if (tabs.length && !tabs.includes(selected)) {
-            this.selectedChange.emit(tabs[0]);
-          } else {
-            this.selectedChange.emit(selected);
-          }
+        map(([selected, tabs, switchers]) => {
+          return [
+            tabs.length && !tabs.includes(selected) ? tabs[0] : selected,
+            selected,
+            tabs,
+            switchers,
+          ] as const;
         }),
-        tap(() => this.cdRef.markForCheck()),
+        distinctUntilChanged(([selected], [oldSelected]) => {
+          return selected === oldSelected;
+        }),
+        tap(([newSelect, , , switchers]) => {
+          const newIdx = switchers.findIndex(i => i.id === newSelect);
+          if (newIdx === this.selectedSwitcherIdx) return;
+          this.selectedSwitcherIdx = switchers.findIndex(i => i.id === newSelect);
+          this.selectedChange.emit(newSelect);
+          this.cdRef.markForCheck();
+        }),
         takeUntil(this.destroy$)
       )
       .subscribe();
   }
-
   private endDateStateCorrector(): void {
     if (this.indefinitelyControl.value) this.endDateControl.disable();
     else this.endDateControl.enable();
