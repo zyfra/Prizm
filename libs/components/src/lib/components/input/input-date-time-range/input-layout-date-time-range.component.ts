@@ -324,7 +324,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
     const toValue = this.nativeValueTo$$.value;
     const fromTimeValue = this.nativeValueTimeFrom$$.value;
     const toTimeValue = this.nativeValueTimeTo$$.value;
-
     // stop if empty
     if (!fromValue && !toValue && !fromTimeValue && !toTimeValue) return;
 
@@ -511,10 +510,12 @@ export class PrizmInputLayoutDateTimeRangeComponent
 
   public override writeValue(value: PrizmDateTimeRange | null): void {
     super.writeValue(value as any);
-    this.nativeValueTimeFrom$$.next(value?.timeRange?.from?.toString(this.timeMode) ?? '');
-    this.nativeValueTimeTo$$.next(value?.timeRange?.to?.toString(this.timeMode) ?? '');
-    this.nativeValueFrom$$.next(value?.dayRange?.from?.toString() ?? '');
-    this.nativeValueTo$$.next(value?.dayRange?.to?.toString() ?? '');
+
+    // Need to use this.value instead of parameter for transformed values compatibility
+    this.nativeValueTimeFrom$$.next(this.value?.timeRange?.from?.toString(this.timeMode) ?? '');
+    this.nativeValueTimeTo$$.next(this.value?.timeRange?.to?.toString(this.timeMode) ?? '');
+    this.nativeValueFrom$$.next(this.value?.dayRange?.from?.toString() ?? '');
+    this.nativeValueTo$$.next(this.value?.dayRange?.to?.toString() ?? '');
   }
 
   private toggle(): void {
