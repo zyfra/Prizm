@@ -20,7 +20,7 @@
         prizmTr
       >
         <td class="format__number" *prizmCell="'code'" [status]="item.status ?? 'default'" prizmTd>
-          {{ item.code | spaceNumber : '0.0-0' }}
+          {{ item.code | spaceNumber: '0.0-0' }}
         </td>
         <td *prizmCell="'name'" [status]="item.status ?? 'default'" prizmTd>
           <prizm-input-layout prizmInputLayoutInserted>

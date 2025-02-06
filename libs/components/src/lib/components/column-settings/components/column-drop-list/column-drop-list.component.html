@@ -17,7 +17,7 @@
           [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
           [prizmHint]="
             isLastColumnShown && column.status === 'default'
-              ? (translations | prizmPluck : ['disabledHint'])
+              ? (translations | prizmPluck: ['disabledHint'])
               : ''
           "
           (click)="toggleColumnStatus(column)"
@@ -35,7 +35,7 @@
 </prizm-scrollbar>
 
 <ng-template #dropZone>
-  <div class="dropzone">{{ translations | prizmPluck : ['dropzone'] }}</div>
+  <div class="dropzone">{{ translations | prizmPluck: ['dropzone'] }}</div>
 </ng-template>
 
 <ng-template #placeholder>

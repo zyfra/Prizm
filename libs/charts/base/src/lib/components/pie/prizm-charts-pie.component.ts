@@ -72,7 +72,10 @@ export class PrizmChartsPieComponent<T extends Record<string, unknown>> extends 
   }
   override readonly testId_ = 'ui_charts_pie';
 
-  constructor(private readonly elRef: ElementRef<HTMLElement>, private readonly injector: Injector) {
+  constructor(
+    private readonly elRef: ElementRef<HTMLElement>,
+    private readonly injector: Injector
+  ) {
     super(injector);
     this.init();
   }

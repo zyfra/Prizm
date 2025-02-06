@@ -8,7 +8,10 @@ import { getArrWithStringNumbers } from '../../util/common/get-arr-string-number
 
 @Injectable()
 export class PrizmCronUiHourState extends PrizmCronUiBaseState {
-  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
+  constructor(
+    public readonly cron: PrizmCronService,
+    public readonly destroy$: PrizmDestroyService
+  ) {
     super(
       cron.hour$,
       PrizmCronUiBaseType.every,

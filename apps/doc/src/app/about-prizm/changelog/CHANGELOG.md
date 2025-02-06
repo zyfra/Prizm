@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.6.0](https://github.com/zyfra/Prizm) (28-01-2025)
+
+### Features
+
+- feat(components/tree-multi-select): added new mode for select only signle #2279 #2091
+- feat(helpers/test-id): add test-id directive #2304
+- feat(components/table): add test-id support for table and its inner components #2304
+- feat(doc/splitter): add values for splitter area #2304
+- feat(addon/query-builder): add testId support #2304
+- feat(components/input-layout-date-time): add ability to customise time dropdown #1140
+- feat(components/input-layout-time): add ability to customise time dropdown #1140
+
+### Bug fixes
+
+- fix(components/switcher): wrong set touched state #2180
+- fix(components/accordion): cursor pointer on body #2141
+- fix(components/dialog): test id postfix setters override #2304
+- fix(components/confirm-dialog): test id postfix setters override #2304
+- fix(components/sidebar): test id postfix setters override #2304
+- fix(components/radio-button): add input for testId in component metadata to fix ability of property binding for testId #2304
+
 ## [5.5.0](https://github.com/zyfra/Prizm) (16-01-2025)
 
 ### Bug fixes

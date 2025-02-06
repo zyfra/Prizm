@@ -4,10 +4,10 @@
 </prizm-input-layout>
 
 <pre>
-  {{ control.value | date : 'short' }}
+  {{ control.value | date: 'short' }}
   {{ control.value }}
-  min: {{ min | date : 'short' }}
-  max: {{ max | date : 'short' }}
+  min: {{ min | date: 'short' }}
+  max: {{ max | date: 'short' }}
 </pre>
 
 <button (click)="setDate('UTC')" prizmButton>Set UTC</button>

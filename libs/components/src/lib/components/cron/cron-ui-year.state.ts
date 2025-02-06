@@ -10,7 +10,10 @@ import { PrizmCarouselArrayContent } from '../input/carousel';
 export class PrizmCronUiYearState extends PrizmCronUiBaseState {
   readonly currentYear = new Date().getFullYear();
 
-  constructor(public readonly cron: PrizmCronService, public readonly destroy$: PrizmDestroyService) {
+  constructor(
+    public readonly cron: PrizmCronService,
+    public readonly destroy$: PrizmDestroyService
+  ) {
     super(
       cron.year$,
       PrizmCronUiBaseType.every,

@@ -1,6 +1,7 @@
 @font-face {
   font-family: 'prizm-flag-icons';
-  src: url('./prizm-flag-icons.ttf?4241c85dbe1bb36be80365747697a8f8') format('truetype'),
+  src:
+    url('./prizm-flag-icons.ttf?4241c85dbe1bb36be80365747697a8f8') format('truetype'),
     url('./prizm-flag-icons.woff?4241c85dbe1bb36be80365747697a8f8') format('woff'),
     url('./prizm-flag-icons.eot?4241c85dbe1bb36be80365747697a8f8#iefix') format('embedded-opentype'),
     url('./prizm-flag-icons.woff2?4241c85dbe1bb36be80365747697a8f8') format('woff2');
