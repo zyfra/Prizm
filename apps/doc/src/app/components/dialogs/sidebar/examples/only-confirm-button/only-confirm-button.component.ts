@@ -1,4 +1,5 @@
-import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, DestroyRef, inject, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 
 @Component({
@@ -23,6 +24,8 @@ export class PrizmSidebarOnlyConfirmButtonExampleComponent {
   public backdrop = false;
   public dismissible = false;
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   public show(): void {
@@ -39,6 +42,7 @@ export class PrizmSidebarOnlyConfirmButtonExampleComponent {
         dismissible: this.dismissible,
         size: 'm',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

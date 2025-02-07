@@ -1,4 +1,5 @@
-import { Component, Inject } from '@angular/core';
+import { Component, DestroyRef, inject, Inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/components';
 
 @Component({
@@ -20,6 +21,8 @@ export class PrizmSidebarTopBottomExampleComponent {
   ];
   public position: PrizmOverlayInsidePlacement = this.positionVariants[1];
   public backdrop = false;
+
+  private readonly destroyRef = inject(DestroyRef);
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
@@ -48,6 +51,7 @@ export class PrizmSidebarTopBottomExampleComponent {
           size: 'm',
         }
       )
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

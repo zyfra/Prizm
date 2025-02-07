@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
@@ -12,6 +12,7 @@ import {
 } from '@prizm-ui/components';
 import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-dialog-example',
@@ -71,6 +72,8 @@ export class DialogExampleComponent {
     HTML: import('./examples/result/dialog-result-handling-example.component.html?raw'),
   };
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   @prizmPure
@@ -94,6 +97,7 @@ export class DialogExampleComponent {
         size: this.size,
         dismissible: this.dismissible,
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(result => console.log('result from dialog', { result }));
   }
 }

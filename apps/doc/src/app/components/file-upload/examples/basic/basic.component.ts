@@ -1,5 +1,6 @@
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy, OnDestroy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy, inject, DestroyRef } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmFilesProgress, PrizmFileValidationErrors, PrizmToastService } from '@prizm-ui/components';
 import { BehaviorSubject } from 'rxjs';
 
@@ -15,6 +16,8 @@ export class PrizmFileUploadBasicExampleComponent implements OnDestroy {
   disabled = false;
   acceptedTypes = 'image/*';
   maxFiles = 3;
+
+  private readonly destroyRef = inject(DestroyRef);
 
   public onFilesChange(files: Array<File>): void {
     console.log('fileschange');
@@ -51,6 +54,7 @@ export class PrizmFileUploadBasicExampleComponent implements OnDestroy {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {
@@ -109,6 +113,7 @@ export class PrizmFileUploadBasicExampleComponent implements OnDestroy {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {

@@ -1,4 +1,5 @@
-import { Component, ElementRef, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, Validators } from '@angular/forms';
 import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 
@@ -30,6 +31,8 @@ export class PrizmDialogServiceWithParentExampleComponent {
   ];
   readonly control = new FormControl(this.items[1], [Validators.required]);
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   public show(): void {
@@ -48,6 +51,7 @@ export class PrizmDialogServiceWithParentExampleComponent {
           dialogContentPadding: '5px 10px 25px 20px',
         },
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

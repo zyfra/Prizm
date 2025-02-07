@@ -1,5 +1,5 @@
 import { HttpEvent, HttpEventType, HttpClient } from '@angular/common/http';
-import { Component, ChangeDetectionStrategy, OnDestroy, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnDestroy, signal, inject, DestroyRef } from '@angular/core';
 import {
   PrizmActionEvent,
   PrizmFilesProgress,
@@ -10,6 +10,7 @@ import {
 import { RawLoaderContent, TuiDocExample } from '@taiga-ui/addon-doc';
 import { BehaviorSubject } from 'rxjs';
 import { getMultiMockFiles } from './files.utils';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   templateUrl: './file-upload-example.component.html',
@@ -65,6 +66,8 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
   files: Array<File> = [];
   disabled = false;
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(
     private readonly toastService: PrizmToastService,
     private http: HttpClient
@@ -111,6 +114,7 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {
@@ -169,6 +173,7 @@ export class PrizmFileUploadExampleComponent implements OnDestroy {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {

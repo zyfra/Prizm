@@ -1,4 +1,5 @@
-import { Component, ElementRef, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, DestroyRef, ElementRef, inject, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, Validators } from '@angular/forms';
 import { PrizmOverlayInsidePlacement, PrizmSidebarService } from '@prizm-ui/components';
 
@@ -27,6 +28,8 @@ export class PrizmSidebarWithParentExampleComponent {
   ];
   readonly control = new FormControl(this.items[1], [Validators.required]);
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   public show(): void {
@@ -47,6 +50,7 @@ export class PrizmSidebarWithParentExampleComponent {
           sidebarContentPadding: '5px 10px',
         },
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

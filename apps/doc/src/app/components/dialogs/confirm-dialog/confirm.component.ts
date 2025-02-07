@@ -2,6 +2,8 @@ import {
   AfterViewInit,
   ChangeDetectionStrategy,
   Component,
+  DestroyRef,
+  inject,
   Inject,
   TemplateRef,
   ViewChild,
@@ -24,6 +26,7 @@ import {
 import { prizmPure } from '@prizm-ui/core';
 import { generatePolymorphVariants } from '../../../util';
 import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-tooltip-example',
@@ -123,6 +126,8 @@ export class ConfirmComponent implements AfterViewInit {
     MODULE: import('./examples/full/full.module?raw'),
   };
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(
     @Inject(PrizmConfirmDialogService) private readonly dialogConfirmService: PrizmConfirmDialogService
   ) {}
@@ -154,6 +159,7 @@ export class ConfirmComponent implements AfterViewInit {
         position: this.position,
         size: this.size,
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(result => console.log('result from dialog', { result }));
   }
 

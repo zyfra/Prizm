@@ -1,4 +1,4 @@
-import { Component, Self } from '@angular/core';
+import { Component, DestroyRef, inject, Self } from '@angular/core';
 import {
   PRIZM_RUSSIAN_LANGUAGE,
   PRIZM_ENGLISH_LANGUAGE,
@@ -9,6 +9,7 @@ import {
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { PrizmFilesProgress, PrizmFileValidationErrors } from '@prizm-ui/components';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-language-switcher-example',
@@ -35,6 +36,9 @@ export class PrizmLanguageSwitcherExampleComponent {
 
   progress$$ = new BehaviorSubject<PrizmFilesProgress>({});
   files: Array<File> = [];
+
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(
     @Self()
     private readonly prizmLanguageSwitcher: PrizmLanguageSwitcher,
@@ -81,6 +85,7 @@ export class PrizmLanguageSwitcherExampleComponent {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {
@@ -136,6 +141,7 @@ export class PrizmLanguageSwitcherExampleComponent {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {

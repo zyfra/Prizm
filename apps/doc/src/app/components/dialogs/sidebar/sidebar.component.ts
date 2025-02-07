@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, Inject } from '@angular/core';
 import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
 import {
   PolymorphContent,
@@ -18,6 +18,7 @@ import { generatePolymorphVariants } from '../../../util';
 import { prizmPure } from '@prizm-ui/core';
 import { of } from 'rxjs';
 import { PRIZM_ICONS_NAMES } from '@prizm-ui/icons/base/names';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-tooltip-example',
@@ -122,6 +123,8 @@ export class SidebarComponent {
     HTML: import('./examples/custom-wrapper-style/custom-wrapper-style.component.html?raw'),
   };
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   @prizmPure
@@ -147,6 +150,7 @@ export class SidebarComponent {
         canClose: () => of(this.canClose),
         size: this.size,
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(result => console.log('result from sidebar', { result }));
   }
 }

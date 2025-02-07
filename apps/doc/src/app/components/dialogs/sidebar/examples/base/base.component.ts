@@ -1,4 +1,5 @@
-import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, DestroyRef, inject, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 import { PrizmDocDocumentationComponent } from '@prizm-ui/doc';
 import { tap } from 'rxjs/operators';
@@ -27,6 +28,8 @@ export class PrizmSidebarServiceExampleComponent {
   public backdrop = false;
   public dismissible = false;
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {}
 
   public show(): void {
@@ -51,7 +54,8 @@ export class PrizmSidebarServiceExampleComponent {
           next: () => {
             console.log('NEXT');
           },
-        })
+        }),
+        takeUntilDestroyed(this.destroyRef)
       )
       .subscribe();
   }

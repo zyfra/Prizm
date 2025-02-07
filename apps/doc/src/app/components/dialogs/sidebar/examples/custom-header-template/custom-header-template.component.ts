@@ -1,4 +1,5 @@
-import { Component, Inject, TemplateRef, ViewChild, inject } from '@angular/core';
+import { Component, DestroyRef, Inject, TemplateRef, ViewChild, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCircleXmarkFill } from '@prizm-ui/icons/full/source';
@@ -25,6 +26,8 @@ export class PrizmSidebarCustomHeaderTemplateExampleComponent {
   public backdrop = false;
   public dismissible = false;
   public canClose = true;
+
+  private readonly destroyRef = inject(DestroyRef);
 
   @ViewChild('headerTemplate') headerTemplate!: TemplateRef<any>;
   @ViewChild('outerTemplate') outerTemplate!: TemplateRef<any>;
@@ -54,6 +57,7 @@ export class PrizmSidebarCustomHeaderTemplateExampleComponent {
           size: 'm',
         }
       )
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }
