@@ -113,6 +113,6 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
 
       nativeElement.scrollTop = offsetTop + detail.offsetHeight / 2 - nativeElement.clientHeight / 2;
       nativeElement.scrollLeft = offsetLeft + detail.offsetWidth / 2 - nativeElement.clientWidth / 2;
-    }, 3);
+    });
   }
 }
