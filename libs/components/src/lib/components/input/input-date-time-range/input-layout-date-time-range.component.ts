@@ -319,40 +319,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
     if (!open) this.completeDateIfAreNotPending();
   }
 
-  private completeDateIfAreNotPending() {
-    const fromValue = this.nativeValueFrom$$.value;
-    const toValue = this.nativeValueTo$$.value;
-    const fromTimeValue = this.nativeValueTimeFrom$$.value;
-    const toTimeValue = this.nativeValueTimeTo$$.value;
-    // stop if empty
-    if (!fromValue && !toValue && !fromTimeValue && !toTimeValue) return;
-
-    // stop if started value
-    if (fromValue && fromValue.length !== this.computedDateMask.length) return;
-    if (toValue && toValue.length !== this.computedDateMask.length) return;
-    if (fromTimeValue && fromTimeValue.length !== this.computedTimeMask.length) return;
-    if (toTimeValue && toTimeValue.length !== this.computedTimeMask.length) return;
-
-    const parsedFrom = fromValue
-      ? PrizmDay.normalizeParse(fromValue, this.dateFormat)
-      : new PrizmDay(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
-
-    const parsedTo = toValue ? PrizmDay.normalizeParse(toValue, this.dateFormat) : parsedFrom.append({});
-
-    const parsedTimeTo = PrizmTime.correctTime(
-      toTimeValue ? PrizmTime.fromString(toTimeValue) : new PrizmTime(23, 59)
-    );
-
-    const parsedTimeFrom = PrizmTime.correctTime(
-      fromTimeValue ? PrizmTime.fromString(fromTimeValue) : new PrizmTime(0, 0)
-    );
-
-    this.nativeValueTo$$.next(parsedTo.toString(this.dateFormat));
-    this.nativeValueFrom$$.next(parsedFrom.toString(this.dateFormat));
-    this.nativeValueTimeTo$$.next(parsedTimeTo.toString(this.timeMode));
-    this.nativeValueTimeFrom$$.next(parsedTimeFrom.toString(this.timeMode));
-  }
-
   public ngAfterViewInit(): void {
     this.focusableElement?.blur$
       .pipe(
@@ -404,10 +370,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
       .subscribe();
   }
 
-  private timeToString(value: PrizmTime | unknown): string | null {
-    return value instanceof PrizmTime ? value.toString(this.timeMode) : null;
-  }
-
   public onDateValueChange(value: string, isFormValue: boolean): void {
     if (isFormValue && value === this.fromValue) return;
     if (!isFormValue && value === this.toValue) return;
@@ -434,19 +396,59 @@ export class PrizmInputLayoutDateTimeRangeComponent
   public onRangeChange(range: PrizmDayRange | null): void {
     this.focusInput();
 
-    if (!range) {
-      this.nativeValueTo$$.next('');
-      this.nativeValueFrom$$.next('');
-    }
+    if (
+      range &&
+      !prizmNullableSame<PrizmDayRange>(this.value?.dayRange as any, range, (a, b) => a?.daySame(b))
+    ) {
+      const timeRange =
+        this.value && this.value.timeRange
+          ? new PrizmTimeRange(
+              this.timeLimit([range.from, this.value?.timeRange.from]) as PrizmTime,
+              this.timeLimit([range.to, this.value?.timeRange.to]) as PrizmTime
+            )
+          : null;
 
-    if (!prizmNullableSame<PrizmDayRange>(this.value?.dayRange as any, range, (a, b) => a?.daySame(b))) {
-      const newValue = new PrizmDateTimeRange(range as any, (this.value?.timeRange ?? null) as any);
+      const newValue = new PrizmDateTimeRange(range as any, timeRange as any);
       this.updateValue(newValue);
       this.open = false;
     }
     this.nativeValueTo$$.next(range?.to?.toString() ?? '');
     this.nativeValueFrom$$.next(range?.from?.toString() ?? '');
     this.changeDetectorRef.markForCheck();
+  }
+
+  private completeDateIfAreNotPending() {
+    const fromValue = this.nativeValueFrom$$.value;
+    const toValue = this.nativeValueTo$$.value;
+    const fromTimeValue = this.nativeValueTimeFrom$$.value;
+    const toTimeValue = this.nativeValueTimeTo$$.value;
+    // stop if empty
+    if (!fromValue && !toValue && !fromTimeValue && !toTimeValue) return;
+
+    // stop if started value
+    if (fromValue && fromValue.length !== this.computedDateMask.length) return;
+    if (toValue && toValue.length !== this.computedDateMask.length) return;
+    if (fromTimeValue && fromTimeValue.length !== this.computedTimeMask.length) return;
+    if (toTimeValue && toTimeValue.length !== this.computedTimeMask.length) return;
+
+    const parsedFrom = fromValue
+      ? PrizmDay.normalizeParse(fromValue, this.dateFormat)
+      : new PrizmDay(new Date().getFullYear(), new Date().getMonth(), new Date().getDate());
+
+    const parsedTo = toValue ? PrizmDay.normalizeParse(toValue, this.dateFormat) : parsedFrom.append({});
+
+    const parsedTimeTo = PrizmTime.correctTime(
+      toTimeValue ? PrizmTime.fromString(toTimeValue) : new PrizmTime(23, 59)
+    );
+
+    const parsedTimeFrom = PrizmTime.correctTime(
+      fromTimeValue ? PrizmTime.fromString(fromTimeValue) : new PrizmTime(0, 0)
+    );
+
+    this.nativeValueTo$$.next(parsedTo.toString(this.dateFormat));
+    this.nativeValueFrom$$.next(parsedFrom.toString(this.dateFormat));
+    this.nativeValueTimeTo$$.next(parsedTimeTo.toString(this.timeMode));
+    this.nativeValueTimeFrom$$.next(parsedTimeFrom.toString(this.timeMode));
   }
 
   private updateWithCorrectDateAndTime(from: string, to: string, fromTime: string, toTime: string): void {
@@ -508,16 +510,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
     return value.dayLimit(this.getDayFromMinMax(this._min), this.getDayFromMinMax(this._max));
   }
 
-  public override writeValue(value: PrizmDateTimeRange | null): void {
-    super.writeValue(value as any);
-
-    // Need to use this.value instead of parameter for transformed values compatibility
-    this.nativeValueTimeFrom$$.next(this.value?.timeRange?.from?.toString(this.timeMode) ?? '');
-    this.nativeValueTimeTo$$.next(this.value?.timeRange?.to?.toString(this.timeMode) ?? '');
-    this.nativeValueFrom$$.next(this.value?.dayRange?.from?.toString() ?? '');
-    this.nativeValueTo$$.next(this.value?.dayRange?.to?.toString() ?? '');
-  }
-
   private toggle(): void {
     this.open = !this.open;
   }
@@ -570,6 +562,10 @@ export class PrizmInputLayoutDateTimeRangeComponent
         })
       )
       .subscribe();
+  }
+
+  private timeToString(value: PrizmTime | unknown): string | null {
+    return value instanceof PrizmTime ? value.toString(this.timeMode) : null;
   }
 }
 
