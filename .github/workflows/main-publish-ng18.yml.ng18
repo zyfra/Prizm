@@ -72,7 +72,7 @@ jobs:
 
       - name: Upload dist as artifacts...
         id: dist-cache-save
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -134,7 +134,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -162,7 +162,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -190,7 +190,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -218,7 +218,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -246,7 +246,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -274,7 +274,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -302,7 +302,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -330,7 +330,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -358,7 +358,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -386,7 +386,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -414,7 +414,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
@@ -442,7 +442,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
