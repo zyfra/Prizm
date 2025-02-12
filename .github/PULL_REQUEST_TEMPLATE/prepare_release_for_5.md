@@ -26,7 +26,7 @@
 
 - [ ] Изменить версии в соответствующем массиве на ветке V4
   - apps/doc/src/app/version-manager/versions.constants.ts
-- [ ] Изменить version на текущий в файле nxmv.json и запустив команду `npx nx generate nx-mv:apply -n v18 --var-version 5.6.0 --var-v4version 4.8.1` важно передавать --var-version нужную версию
+- [ ] Изменить version на текущий в файле nxmv.json и запустив команду `npx nx generate nx-mv:apply -n v18 --var-version 5.7.0 --var-v4version 4.8.1` важно передавать --var-version нужную версию
 - [ ] Добавить в каждый тип ваши изменения в этом PR
 - [ ] Удалите не нужные группы изменений для этого PR (Features, Bug Fixes, Breacking Changes, Refactor)
 - [ ] Добавить изменения в changelog о новой версии
