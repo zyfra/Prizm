@@ -15,6 +15,7 @@ import { PrizmYear } from '@prizm-ui/components';
 })
 export class PrizmCalendarYearCustomFooterExampleComponent {
   value: PrizmYear | null = null;
+  appliedValue: PrizmYear | null = null;
 
   public onYearClick(year: PrizmYear): void {
     this.value = year;
@@ -22,9 +23,10 @@ export class PrizmCalendarYearCustomFooterExampleComponent {
 
   public cancel(): void {
     this.value = null;
+    this.appliedValue = null;
   }
 
   public setValue() {
-    this.value = new PrizmYear(2023);
+    this.appliedValue = this.value;
   }
 }
