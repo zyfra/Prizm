@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [5.7.0](https://github.com/zyfra/Prizm)
+
+### Features
+
+- feat(components/tree): add input func to detect tree node expand state #2289
+
 ## [5.6.0](https://github.com/zyfra/Prizm) (28-01-2025)
 
 ### Features
