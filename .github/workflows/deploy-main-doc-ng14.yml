@@ -78,7 +78,7 @@ jobs:
             ${{ runner.os }}-node_modules_ng_14-
 
       - name: Download dist from artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: dist
           path: ./dist
