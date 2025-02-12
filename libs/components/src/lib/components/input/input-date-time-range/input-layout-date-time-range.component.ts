@@ -166,8 +166,6 @@ export class PrizmInputLayoutDateTimeRangeComponent
   maxLength: PrizmDayLike | null = null;
 
   open = false;
-  // TODO: finish
-  // openTimeTemplate = false;
 
   @Input()
   @prizmDefaultProp()
@@ -422,6 +420,7 @@ export class PrizmInputLayoutDateTimeRangeComponent
     const toValue = this.nativeValueTo$$.value;
     const fromTimeValue = this.nativeValueTimeFrom$$.value;
     const toTimeValue = this.nativeValueTimeTo$$.value;
+
     // stop if empty
     if (!fromValue && !toValue && !fromTimeValue && !toTimeValue) return;
 

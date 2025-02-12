@@ -91,31 +91,6 @@
       prizmInputInZone
     />
   </div>
-
-  <!--  TODO add after create time range component -->
-  <!--  <ng-template #dropdownTimeTemplate>-->
-  <!--    <prizm-data-list-->
-  <!--      class="block"-->
-  <!--      *ngIf="timeItems.length"-->
-  <!--      [style.&#45;&#45;prizm-data-list-border]="0"-->
-  <!--      (prizmAfterViewInit)="markAsTouched(); prizmDropdownHostComponent.reCalculatePositions()"-->
-  <!--      (prizmOnDestroy)="openTimeTemplate = false"-->
-  <!--      prizmLifecycle-->
-  <!--    >-->
-  <!--      <ng-container>-->
-  <!--        <div-->
-  <!--          class="time-item"-->
-  <!--          *ngFor="let item of timeItems; let idx = index"-->
-  <!--          (click)="$event.stopPropagation(); onTimeMenuClick(item, $event)"-->
-  <!--        >-->
-  <!--        <span class="text">-->
-  <!--          {{ item }}-->
-  <!--        </span>-->
-  <!--        </div>-->
-  <!--      </ng-container>-->
-  <!--    </prizm-data-list>-->
-  <!--  </ng-template>-->
-  <!--  -->
   <ng-template #dropdown>
     <prizm-calendar-range
       [style.--prizm-input-layout-width]="'100%'"
@@ -174,13 +149,6 @@
     (click)="focusableElementRef.focus(); onOpenChange(!open)"
     prizmInputIconButton="calendar-range"
   ></button>
-  <!--  TODO add after create time-range modal -->
-  <!--  <button-->
-  <!--    [interactive]="true"-->
-  <!--    [disabled]="disabled"-->
-  <!--    (click)="onOpen(!open)"-->
-  <!--    prizmInputIconButton="date-clock"-->
-  <!--  ></button>-->
   <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
   </ng-container>
 </ng-container>
