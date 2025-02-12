@@ -57,6 +57,11 @@ export class TreeComponent {
     Model: import('./examples/lazy/tree-template-lazy.model?raw'),
   };
 
+  public readonly exampleAccessByIdFunction: TuiDocExample = {
+    TypeScript: import('./examples/function-access/function-access-example.component?raw'),
+    HTML: import('./examples/function-access/function-access-example.component.html?raw'),
+  };
+
   public readonly exampleComponent: TuiDocExample = {
     TypeScript: import('./examples/component/tree-component-example.component.ts?raw'),
     HTML: import('./examples/component/tree-component-example.component.html?raw'),

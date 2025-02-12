@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { PrizmAddonDocModule, prizmDocGenerateRoutes } from '@prizm-ui/doc';
 import { RouterModule } from '@angular/router';
 import { TreeComponent } from './tree.component';
-import { PrizmButtonComponent, PrizmSidebarComponent, PrizmTreeModule } from '@prizm-ui/components';
+import {
+  PrizmButtonComponent,
+  PrizmCheckboxComponent,
+  PrizmSidebarComponent,
+  PrizmTreeModule,
+} from '@prizm-ui/components';
 import { TreeBaseExampleComponent } from './examples/base/tree-base-example.component';
 import { TreeArrayExampleComponent } from './examples/array/tree-array-example.component';
 import { TreeTemplateExampleComponent } from './examples/template/tree-template-example.component';
@@ -16,6 +21,7 @@ import { TreeInModalExampleComponent } from './examples/in-modal/tree-in-modal-e
 import { TreeActiveColorExampleComponent } from './examples/active-color/tree-active-color-example.component';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+import { TreeFunctionAccessExampleComponent } from './examples/function-access/function-access-example.component';
 
 @NgModule({
   imports: [
@@ -30,6 +36,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     RouterModule.forChild(prizmDocGenerateRoutes(TreeComponent)),
     PrizmIconsFullComponent,
     PrizmIfLanguageDirective,
+    PrizmCheckboxComponent,
   ],
   declarations: [
     TreeActiveColorExampleComponent,
@@ -39,6 +46,7 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     TreeTemplateExampleComponent,
     TreeComponentExampleComponent,
     TreePaddingInputExampleComponent,
+    TreeFunctionAccessExampleComponent,
     TreeComponent,
   ],
   exports: [TreeComponent],

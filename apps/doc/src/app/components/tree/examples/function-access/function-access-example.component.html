@@ -1,0 +1,23 @@
+@if (tree$ | async; as tree) {
+  <prizm-tree
+    [childrenHandler]="childrenHandler"
+    [content]="nodeTemplate"
+    [map]="expandMap"
+    [prizmTreeController]="false"
+    [prizmTreeItemExpandKeyFn]="prizmTreeItemExpandKeyFn"
+    [value]="tree[0]"
+  ></prizm-tree>
+}
+
+<ng-template #nodeTemplate let-node>
+  <div class="node">
+    <prizm-checkbox
+      size="s"
+      [checked]="node.checked"
+      [indeterminate]="node.indeterminate"
+      (changed)="toggleNode(node, $event)"
+    >
+      <span class="node__label">{{ node.name }}</span>
+    </prizm-checkbox>
+  </div>
+</ng-template>
