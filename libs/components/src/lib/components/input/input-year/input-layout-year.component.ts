@@ -126,7 +126,6 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
   public onValueChange(value: number): void {
     const year = value ? new PrizmYear(this.getCorrectedYear(value)) : null;
     this.updateValue(year);
-    this.close();
   }
 
   public onYearClick(year: PrizmYear): void {
@@ -142,6 +141,7 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
   public safeOpenModal(): void {
     if (!this.open && !this.disabled) {
       this.open = true;
+      this.year = this.value;
       this.changeDetectorRef.markForCheck();
     } else {
       this.close();

@@ -15,17 +15,16 @@
     [disabled]="disabled"
     mask="0000"
     [ngModel]="value?.year"
-    [ngModelOptions]="{ updateOn: 'blur', standalone: true }"
+    [ngModelOptions]="{ standalone: true }"
     (ngModelChange)="onValueChange($event)"
     prizmInput
-    (click)="safeOpenModal()"
   />
   <ng-template #dropdown>
     <prizm-calendar-year
       [disabledItemHandler]="disabledItemHandler"
       [min]="min"
       [max]="max"
-      [value]="value"
+      [value]="year"
       (prizmAfterViewInit)="markAsTouched()"
       (yearClick)="onYearClick($event)"
       prizmPreventDefault="mousedown"
