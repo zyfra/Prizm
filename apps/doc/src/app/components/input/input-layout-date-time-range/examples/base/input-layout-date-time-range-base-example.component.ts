@@ -26,7 +26,7 @@ import { tap } from 'rxjs/operators';
 })
 export class PrizmInputLayoutDateTimeRangeBaseExampleComponent implements OnInit {
   readonly value = new FormControl(
-    new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
+    new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 5, 10)))
   );
 
   public min: PrizmDateTime = new PrizmDateTime(new PrizmDay(2018, 1, 1), new PrizmTime(10, 0));
