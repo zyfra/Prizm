@@ -60,6 +60,11 @@ export class PrizmZoneEventService {
     this.parentSet.add(parent);
   }
 
+  public deleteParent(parent: PrizmZoneEventService): void {
+    if (!parent) return;
+    this.parentSet.delete(parent);
+  }
+
   public safeAddListener(eventName: string, hostElement: HTMLElement): void {
     this.hostElement$$.next(hostElement);
     this.destroy();
