@@ -63,14 +63,24 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  private initChildren() {
+    this.childrenZones.map(childZone => {
+      this.initChild(childZone);
+    });
+  }
+
+  private initChild(child: PrizmZoneEventService) {
+    if (child.parents.includes(this.eventZoneService)) return;
+    child.setParent(this.eventZoneService);
+    child.parents.forEach(c => this.initChild(c));
+  }
+
   public ngOnInit(): void {
     if (this.parentZone) {
       this.eventZoneService.setParent(this.parentZone.eventZoneService);
     }
-    this.childrenZones.map(childrenZone => {
-      childrenZone.setParent(this.eventZoneService);
-    });
     this.safeInit();
+    this.initChildren();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {

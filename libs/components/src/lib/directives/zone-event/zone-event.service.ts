@@ -12,7 +12,10 @@ export class PrizmZoneEventService {
   private readonly childrenChanges$: Observable<Set<PrizmZoneEventService>> = this.childrenChanges$$.pipe(
     mapTo(this.childrenSet)
   );
-  private parents = new Set<PrizmZoneEventService>();
+  private parentSet = new Set<PrizmZoneEventService>();
+  get parents() {
+    return [...this.parentSet];
+  }
   public readonly destroyPrevious$ = new Subject<void>();
   public readonly destroy$ = new Subject<void>();
   public readonly inside$$ = new Subject<PrizmZoneEvent>();
@@ -31,7 +34,7 @@ export class PrizmZoneEventService {
     @SkipSelf() @Optional() private zoneService: PrizmZoneEventService,
     @Inject(DOCUMENT) private readonly documentRef: Document
   ) {
-    if (this.zoneService) this.parents.add(this.zoneService);
+    if (this.zoneService) this.parentSet.add(this.zoneService);
   }
 
   public triggerEvent(
@@ -46,7 +49,7 @@ export class PrizmZoneEventService {
       service,
     });
     guardFromRecursiveCall.add(this);
-    this.parents.forEach(parent => {
+    this.parentSet.forEach(parent => {
       if (guardFromRecursiveCall.has(parent)) return;
       parent.triggerEvent(name, event, service, guardFromRecursiveCall);
     });
@@ -54,7 +57,7 @@ export class PrizmZoneEventService {
 
   public setParent(parent: PrizmZoneEventService): void {
     if (!parent) return;
-    this.parents.add(parent);
+    this.parentSet.add(parent);
   }
 
   public safeAddListener(eventName: string, hostElement: HTMLElement): void {
