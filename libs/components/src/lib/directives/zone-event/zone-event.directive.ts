@@ -129,5 +129,6 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void {
     this.destroyPrevious$.next();
     this.destroyPrevious$.complete();
+    this.deleteChildren(this.childrenZones);
   }
 }
