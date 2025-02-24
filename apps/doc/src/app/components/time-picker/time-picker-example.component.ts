@@ -9,7 +9,7 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmTimePickerExampleComponent {
-  public timeModeVariants: ReadonlyArray<'HH:MM' | 'HH:MM:SS'> = ['HH:MM', 'HH:MM:SS'];
+  public timeModeVariants: ReadonlyArray<'HH' | 'HH:MM' | 'HH:MM:SS'> = ['HH:MM', 'HH:MM:SS', 'HH'];
   public timeMode = this.timeModeVariants[1];
 
   public minMaxVariants: ReadonlyArray<PrizmTime | null> = [
