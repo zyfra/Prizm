@@ -1,6 +1,7 @@
-import { Component, Inject } from '@angular/core';
+import { Component, DestroyRef, inject, Inject } from '@angular/core';
 import { PrizmButtonComponent, PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 import { MyDialogService } from './my-custom-service';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-dialog-custom-service-example',
@@ -28,6 +29,8 @@ export class PrizmDialogCustomServiceExampleComponent {
   public backdrop = false;
   public dismissible = true;
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   public show(): void {
@@ -43,6 +46,7 @@ export class PrizmDialogCustomServiceExampleComponent {
           dismissible: this.dismissible,
         }
       )
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

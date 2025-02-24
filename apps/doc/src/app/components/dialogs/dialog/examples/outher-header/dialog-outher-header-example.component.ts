@@ -1,4 +1,5 @@
-import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, DestroyRef, inject, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 
 @Component({
@@ -31,6 +32,8 @@ export class PrizmDialogOuterHeaderExampleComponent {
   public backdrop = false;
   public dismissible = true;
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   public show(): void {
@@ -52,6 +55,7 @@ export class PrizmDialogOuterHeaderExampleComponent {
           size: 'm',
         }
       )
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, Inject } from '@angular/core';
 import { debounceTime, filter, map } from 'rxjs/operators';
 import { PrizmThemeService } from '@prizm-ui/theme';
 import { LOCAL_STORAGE } from '@ng-web-apis/common';
@@ -11,6 +11,7 @@ import {
   prizmIconSvgOtherGitHub,
   prizmIconSvgShapeGeometrySquareCirclePlusTriangleFill,
 } from '../icons-svg';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-doc-logo',
@@ -45,6 +46,7 @@ export class LogoComponent {
   }
 
   protected readonly PrizmIconSvgEnum = PrizmIconSvgEnum;
+  private readonly destroyRef = inject(DestroyRef);
 
   public openThemeChanger() {
     this.dialogService
@@ -54,6 +56,7 @@ export class LogoComponent {
         height: 800,
         width: 1000,
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

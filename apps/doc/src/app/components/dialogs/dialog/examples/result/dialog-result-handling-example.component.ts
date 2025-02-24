@@ -1,4 +1,5 @@
-import { Component, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { Component, DestroyRef, inject, Inject, TemplateRef, ViewChild } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { UntypedFormControl } from '@angular/forms';
 import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 
@@ -26,6 +27,8 @@ export class PrizmDialogServiceResultHandlingExampleComponent {
   public control = new UntypedFormControl('');
   public result: unknown;
 
+  private readonly destroyRef = inject(DestroyRef);
+
   constructor(@Inject(PrizmDialogService) private readonly dialogService: PrizmDialogService) {}
 
   public show(): void {
@@ -39,6 +42,7 @@ export class PrizmDialogServiceResultHandlingExampleComponent {
         backdrop: false,
         size: 'm',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(result => {
         this.result = result;
         this.control.reset();

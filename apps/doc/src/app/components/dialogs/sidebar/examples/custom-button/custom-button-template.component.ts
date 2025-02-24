@@ -1,4 +1,5 @@
-import { Component, Inject, TemplateRef, ViewChild, inject } from '@angular/core';
+import { Component, DestroyRef, Inject, TemplateRef, ViewChild, inject } from '@angular/core';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { PrizmSidebarService, PrizmOverlayInsidePlacement } from '@prizm-ui/components';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsCircleXmarkFill } from '@prizm-ui/icons/full/source';
@@ -31,6 +32,7 @@ export class PrizmSidebarCustomButtonTemplateExampleComponent {
   @ViewChild('outerTemplate') outerTemplate!: TemplateRef<any>;
 
   private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+  private readonly destroyRef = inject(DestroyRef);
 
   constructor(@Inject(PrizmSidebarService) private readonly sidebarService: PrizmSidebarService) {
     this.iconsFullRegistry.registerIcons(prizmIconsCircleXmarkFill);
@@ -65,6 +67,7 @@ export class PrizmSidebarCustomButtonTemplateExampleComponent {
           size: 'm',
         }
       )
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }

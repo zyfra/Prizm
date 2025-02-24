@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, DestroyRef, inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { HttpClient, HttpEvent, HttpEventType } from '@angular/common/http';
 import { PrizmFilesProgress, PrizmFileValidationErrors, PrizmToastService } from '@prizm-ui/components';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-file-upload-i18n-example',
@@ -13,6 +14,8 @@ export class PrizmFileUploadI18nExampleComponent {
   disabled = false;
   acceptedTypes = 'image/*';
   maxFiles = 3;
+
+  private readonly destroyRef = inject(DestroyRef);
 
   public onFilesChange(files: Array<File>): void {
     const filesToUpload = files.filter(file => !this.files.some(el => el === file));
@@ -54,6 +57,7 @@ export class PrizmFileUploadI18nExampleComponent {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {
@@ -112,6 +116,7 @@ export class PrizmFileUploadI18nExampleComponent {
         reportProgress: true,
         observe: 'events',
       })
+      .pipe(takeUntilDestroyed(this.destroyRef))
       .subscribe(
         (event: HttpEvent<any>) => {
           switch (event.type) {

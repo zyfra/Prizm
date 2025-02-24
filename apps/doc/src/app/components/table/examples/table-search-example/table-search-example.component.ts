@@ -1,8 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit } from '@angular/core';
 import { ITableProduct } from '../table-basic-example/table-basic-example.component';
 import { TABLE_EXAMPLE_DATA_SEARCH } from '../../table-example.const';
 import { FormControl } from '@angular/forms';
 import { tap } from 'rxjs/operators';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'prizm-table-search-example',
@@ -16,6 +17,9 @@ export class TableSearchExampleComponent implements OnInit {
   public searchString: string | null = null;
   public searchAllowedProducts: ITableProduct[] = this.products;
   public readonly control = new FormControl(false);
+
+  private readonly destroyRef = inject(DestroyRef);
+
   public search<T extends keyof ITableProduct>(value: string, key: T): void {
     this.searchString = value.toLowerCase();
     this.searchAllowedProducts = this.products.filter(product =>
@@ -28,7 +32,8 @@ export class TableSearchExampleComponent implements OnInit {
       .pipe(
         tap(() => {
           this.searchAllowedProducts = [...this.products];
-        })
+        }),
+        takeUntilDestroyed(this.destroyRef)
       )
       .subscribe();
   }

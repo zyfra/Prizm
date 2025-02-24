@@ -107,7 +107,6 @@ export class AppComponent implements AfterViewInit {
 
     this.prizmDocHostElementListenerService.checkInfo$
       .pipe(
-        takeUntil(this.destroy$),
         tap(event => {
           if (
             !event.notListenerInputs?.length &&
@@ -132,7 +131,8 @@ export class AppComponent implements AfterViewInit {
               title: `Element: ${event.key} Selector:${event.selector} has not api for inputs or outputs`,
             }
           );
-        })
+        }),
+        takeUntil(this.destroy$)
       )
       .subscribe();
   }

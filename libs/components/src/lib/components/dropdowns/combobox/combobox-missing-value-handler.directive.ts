@@ -1,4 +1,4 @@
-import { Directive, inject, Input } from '@angular/core';
+import { DestroyRef, Directive, inject, Input } from '@angular/core';
 import { defer, isObservable, of, Subject } from 'rxjs';
 import { takeUntil, tap } from 'rxjs/operators';
 import { type PrizmComboboxComponent } from './combobox.component';
@@ -7,6 +7,7 @@ import {
   PRIZM_COMBOBOX_SHOW_DROPDOWN_ON_EMPTY,
 } from './combobox.options';
 import { PrizmComboboxMissingValueHandler, PrizmComboboxMissingValueHandlerToken } from './combobox.model';
+import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 
 @Directive({
   selector: 'prizm-combobox[missingValueHandler]',
@@ -45,6 +46,8 @@ export class PrizmComboboxMissingValueHandlerDirective<T> {
 
   private readonly destroyPrevious$ = new Subject<void>();
 
+  private readonly destroyRef = inject(DestroyRef);
+
   private addFromMissingValueHandler(searchValue: string, comboboxComponent: PrizmComboboxComponent<T>) {
     const missingValueHandler = this.missingValueHandler;
 
@@ -60,6 +63,7 @@ export class PrizmComboboxMissingValueHandlerDirective<T> {
           comboboxComponent.onlySelect(item);
         })
       )
+      .pipe(takeUntil(this.destroyPrevious$), takeUntilDestroyed(this.destroyRef))
       .subscribe();
   }
 }
