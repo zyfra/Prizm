@@ -5,7 +5,7 @@
     *ngIf="!!chipsList?.length"
     [active]="singleLine"
     [class.hidden]="singleLine"
-    [reserveSpace]="{ x: 48 }"
+    [reserveSpace]="layoutComponent?.status === 'default' ? { x: 48 } : { x: 76 }"
     [host]="layoutComponent?.el?.nativeElement"
     prizmOverflowHost
   >
