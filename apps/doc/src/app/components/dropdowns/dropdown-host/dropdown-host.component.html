@@ -46,6 +46,7 @@
       <prizm-dropdown-host
         #element
         #dropdownTriggerClickElement="prizmDropdownTriggerClick"
+        [dropdownDisabled]="disabled"
         [(isOpen)]="isOpen"
         [content]="withHeaderAndFooter"
         [autoReposition]="autoReposition"
