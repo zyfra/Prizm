@@ -19,13 +19,17 @@ export function getPrizmDeps(version: string) {
     case '4':
       prizmVersion = '4.x.x';
       break;
+
+    case '5':
+      prizmVersion = '5.x.x';
+      break;
   }
 
   return {
     '@prizm-ui/components': prizmVersion,
     '@prizm-ui/charts': prizmVersion,
     '@prizm-ui/core': prizmVersion,
-    ...(prizmVersion === '4.x.x' ? { '@prizm-ui/icons-loader': prizmVersion } : {}),
+    ...(prizmVersion === '5.x.x' ? { '@prizm-ui/icons-loader': prizmVersion } : {}),
     '@prizm-ui/helpers': prizmVersion,
     '@prizm-ui/i18n': prizmVersion,
     '@prizm-ui/icons': prizmVersion,
@@ -113,6 +117,10 @@ export function getPrizmNgDeps(version: PrizmDocDemoMainVersion) {
 
     case '4':
       ngVersion = '17.x.x';
+      break;
+
+    case '5':
+      ngVersion = '18.x.x';
       break;
   }
 
