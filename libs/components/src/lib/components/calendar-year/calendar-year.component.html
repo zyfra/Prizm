@@ -1,0 +1,14 @@
+<prizm-scrollbar class="scrollbar">
+  <prizm-primitive-year-picker
+    [min]="min"
+    [max]="max"
+    [initialItem]="initialYear"
+    [value]="value"
+    [intervalSupport]="true"
+    [disabledItemHandler]="disabledItemHandler"
+    (yearClick)="onPickerYearClick($event)"
+  ></prizm-primitive-year-picker>
+</prizm-scrollbar>
+<div class="footer">
+  <ng-content select="[footer]"></ng-content>
+</div>
