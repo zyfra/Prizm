@@ -63,18 +63,40 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
     }
   }
 
+  private initChildren(childrenZones: PrizmZoneEventService[]) {
+    childrenZones.map(childZone => {
+      this.initChild(childZone);
+    });
+  }
+
+  private initChild(child: PrizmZoneEventService) {
+    if (child.parents.includes(this.eventZoneService)) return;
+    child.setParent(this.eventZoneService);
+    child.parents.forEach(c => this.initChild(c));
+  }
+  private deleteChildren(childrenZones: PrizmZoneEventService[]) {
+    childrenZones.map(childZone => {
+      this.deleteChild(childZone);
+    });
+  }
+
+  private deleteChild(child: PrizmZoneEventService) {
+    if (!child.parents.includes(this.eventZoneService)) return;
+    child.deleteParent(this.eventZoneService);
+    child.parents.forEach(c => this.deleteChild(c));
+  }
+
   public ngOnInit(): void {
     if (this.parentZone) {
       this.eventZoneService.setParent(this.parentZone.eventZoneService);
     }
-    this.childrenZones.map(childrenZone => {
-      childrenZone.setParent(this.eventZoneService);
-    });
     this.safeInit();
   }
 
   public ngOnChanges(changes: SimpleChanges): void {
     this.safeInit();
+    if (changes['childrenZones']?.previousValue) this.deleteChildren(changes['childrenZones']?.previousValue);
+    if (changes['childrenZones']?.currentValue) this.initChildren(changes['childrenZones']?.currentValue);
   }
 
   public async safeInit(): Promise<void> {
@@ -107,5 +129,6 @@ export class PrizmZoneEventDirective implements OnInit, OnChanges, OnDestroy {
   ngOnDestroy(): void {
     this.destroyPrevious$.next();
     this.destroyPrevious$.complete();
+    this.deleteChildren(this.childrenZones);
   }
 }
