@@ -33,7 +33,7 @@ export class InputLayoutDateTimeRangeComponent {
 
   public label = 'Период';
   readonly value = new UntypedFormControl(
-    new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 2, 10)))
+    new PrizmDateTimeRange(new PrizmDayRange(new PrizmDay(2018, 2, 10), new PrizmDay(2018, 6, 10)))
   );
 
   public minMaxVariants = [
