@@ -68,6 +68,15 @@
           >
             V4 (NG17)
           </button>
+          <button
+            *ngIf="stackblitzVersions?.includes('5')"
+            (click)="open('5')"
+            prizmButton
+            appearanceType="outline"
+            size="s"
+          >
+            V5 (NG18)
+          </button>
         </div>
       </prizm-data-list>
     </ng-template>

@@ -41,13 +41,7 @@ export class PrizmDocExampleComponent {
   @Input()
   heading: PolymorpheusContent = ``;
   @Input()
-  stackblitzVersions: PrizmDocDemoMainVersion[] | null = [
-    // TODO later think about active for example without new icons in doc
-    // '1',
-    // '2',
-    // '3',
-    '4',
-  ];
+  stackblitzVersions: PrizmDocDemoMainVersion[] | null = ['5'];
 
   @Input()
   description: PolymorpheusContent = ``;

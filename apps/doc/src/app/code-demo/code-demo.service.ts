@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import sdk from '@stackblitz/sdk';
-import { getAllDeps, getPrizmDeps, isStandaloneComponent } from './util';
+import { getAllDeps, isStandaloneComponent } from './util';
 import { TsFileComponentParser } from './classes';
 import { PrizmDocDemoMainVersion } from '@prizm-ui/doc';
 import { ProjectDependencies } from '@stackblitz/sdk/types/interfaces';

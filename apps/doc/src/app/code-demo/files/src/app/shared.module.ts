@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PrizmIconsComponent, PrizmIconsFullComponent, PrizmIconsSvgComponent } from '@prizm-ui/icons';
+import { PrizmIconsComponent, PrizmIconsFullComponent } from '@prizm-ui/icons';
 import {
   PrizmAccordionModule,
   PrizmBreadcrumbsModule,
@@ -15,6 +15,7 @@ import {
   PrizmCronHumanReadablePipe,
   PrizmCronModule,
   PrizmDataListModule,
+  PrizmDataListWrapperComponent,
   PrizmDialogComponent,
   PrizmDialogConfirmComponent,
   PrizmDropdownHostModule,
@@ -22,6 +23,7 @@ import {
   PrizmFileUploadComponent,
   PrizmGridModule,
   PrizmHintDirective,
+  PrizmHintOnOverflowDirective,
   PrizmIndicatorComponent,
   PrizmInputCarouselModule,
   PrizmInputDateMultiComponent,
@@ -39,6 +41,9 @@ import {
   PrizmInputPasswordModule,
   PrizmInputSelectModule,
   PrizmInputTextModule,
+  PrizmInputTreeMultiSelectCheckboxDirective,
+  PrizmInputTreeMultiSelectComponent,
+  PrizmInputTreeSelectComponent,
   PrizmListingItemComponent,
   PrizmLoaderComponent,
   PrizmMaskModule,
@@ -63,6 +68,11 @@ import {
   PrizmToggleComponent,
   PrizmTooltipModule,
   PrizmTreeModule,
+  PrizmTreeMultiSelectItemComponent,
+  PrizmTreeMultiSelectItemDirective,
+  PrizmTreeMultiSelectModeDirective,
+  PrizmTreeSelectItemComponent,
+  PrizmTreeSelectItemDirective,
   PrizmWidgetComponent,
 } from '@prizm-ui/components';
 import {
@@ -92,6 +102,17 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     // for full variant
     PrizmIconsFullComponent,
 
+    PrizmDataListWrapperComponent,
+    PrizmTreeMultiSelectModeDirective,
+    PrizmTreeMultiSelectItemDirective,
+    PrizmTreeMultiSelectItemComponent,
+    PrizmInputTreeMultiSelectCheckboxDirective,
+    PrizmInputTreeMultiSelectComponent,
+
+    PrizmTreeSelectItemDirective,
+    PrizmTreeSelectItemComponent,
+    PrizmInputTreeSelectComponent,
+
     PrizmButtonComponent,
     PrizmAccordionModule,
     PrizmBreadcrumbsModule,
@@ -111,7 +132,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmFileUploadComponent,
     PrizmGridModule,
     PrizmHintDirective,
-    PrizmIconsSvgComponent,
+    PrizmHintOnOverflowDirective,
     PrizmIndicatorComponent,
     PrizmInputMultiSelectModule,
     PrizmInputLayoutDateTimeComponent,
@@ -174,11 +195,22 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmDataListModule,
 
     PrizmIfLanguageDirective,
-    PrizmIconsSvgComponent,
     // for base variant
     PrizmIconsComponent,
     // for full variant
     PrizmIconsFullComponent,
+
+    PrizmDataListWrapperComponent,
+
+    PrizmTreeMultiSelectModeDirective,
+    PrizmTreeMultiSelectItemDirective,
+    PrizmTreeMultiSelectItemComponent,
+    PrizmInputTreeMultiSelectCheckboxDirective,
+    PrizmInputTreeMultiSelectComponent,
+
+    PrizmTreeSelectItemDirective,
+    PrizmTreeSelectItemComponent,
+    PrizmInputTreeSelectComponent,
 
     PrizmButtonComponent,
     PrizmAccordionModule,
@@ -199,6 +231,7 @@ import { PrizmFlagIconsComponent } from '@prizm-ui/flag-icons';
     PrizmFileUploadComponent,
     PrizmGridModule,
     PrizmHintDirective,
+    PrizmHintOnOverflowDirective,
     PrizmIndicatorComponent,
     PrizmInputMultiSelectModule,
     PrizmInputLayoutDateTimeComponent,
