@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [5.7.0](https://github.com/zyfra/Prizm)
+## [5.8.0](https://github.com/zyfra/Prizm)
 
 ### Features
 
