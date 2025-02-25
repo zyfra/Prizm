@@ -6,6 +6,27 @@ All notable changes to this project will be documented in this file.
 
 ### Features
 
+- feat(doc/dropdown-host): added example with nested dropdown #2329
+- feat(components/zone-event): added parents zone from children #2329
+- feat(components/tree): add input func to detect tree node expand state #2289
+- feat(components/time-picker): add only hour edit mode #2298
+
+### Bugfixes
+
+- fix(components/input-layout-date-time-range): native transformer assign wrong value for 'to' control #2326
+- fix(components/cron): double emits change event #2113
+- fix(components/dropdown-host): triple and more nested drodpdowns did not work #2329
+- fix(chore): stackblitz version for v5
+- fix(doc/dropdown-host): add disable property to live demo #2343
+- fix(components/multi-select): chevron overlaps input for layout with status #1744
+- fix(components/tree-multi-select): chevron overlaps input for layout with status #1744
+- fix(components/tab): button disappear after click from dropdown #2096
+- fix(components/tabs): wrong display right button on zoomed browser viewport #988
+
+## [5.7.0](https://github.com/zyfra/Prizm)
+
+### Features
+
 - feat(components/tree): add input func to detect tree node expand state #2289
 
 ## [5.6.0](https://github.com/zyfra/Prizm) (28-01-2025)
