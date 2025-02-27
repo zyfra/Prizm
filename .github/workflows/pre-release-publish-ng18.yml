@@ -29,14 +29,14 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
-      - name: 'Initial changes 18'
-        run: |
-          cp -f package.json.ng17 package.json
-          cp -f package-lock.json.ng17 package-lock.json
+      #      - name: 'Initial changes 18'
+      #        run: |
+      #          cp -f package.json.ng18 package.json
+      #          cp -f package-lock.json package-lock.json
 
       - name: Install dependencies
         if: steps.cache-restore.outputs.cache-hit != 'true'
@@ -57,7 +57,7 @@ jobs:
       - name: Set up environment variables
         run: |
           last_next_version=$(
-            (npm view @prizm-ui/components versions --tag next --json 2>/dev/null || echo '4.3.0-next.0') | jq '([.[] | select(startswith("4.3.0-next"))] | last // "4.3.0-next.0")' 2>/dev/null || echo '4.3.0-next.0'
+            (npm view @prizm-ui/components versions --tag next --json 2>/dev/null || echo '5.8.0-next.0') | jq '([.[] | select(startswith("5.8.0-next"))] | last // "5.8.0-next.0")' 2>/dev/null || echo '5.8.0-next.0'
           )
           echo "LAST_NEXT_VERSION=${last_next_version}" >> $GITHUB_ENV
 
@@ -87,9 +87,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -124,9 +124,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -151,9 +151,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -178,9 +178,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -204,9 +204,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -231,9 +231,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -258,9 +258,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -285,9 +285,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -312,9 +312,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -339,9 +339,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -366,9 +366,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
@@ -393,9 +393,9 @@ jobs:
         uses: actions/cache/restore@v3
         with:
           path: ./node_modules
-          key: ${{ runner.os }}-node_modules_ng_17-${{ hashFiles('package-lock.json.ng17') }}
+          key: ${{ runner.os }}-node_modules_ng_18-${{ hashFiles('package-lock.json') }}
           restore-keys: |
-            ${{ runner.os }}-node_modules_ng_17-
+            ${{ runner.os }}-node_modules_ng_18-
 
       - name: Download dist from artifact
         uses: actions/download-artifact@v4
