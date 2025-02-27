@@ -1,6 +1,8 @@
 # Prizm UI
 
-![prizm workflow](https://prizm.zyfra.com/assets/images/header/logo-prizm.gif)
+<div id="header" align="center">
+  <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExand3eG8wMmVidjNrZmNoeWpwcDJlcmlkNW5hMTN4YTlpODc0bjc2aCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/9tUN2jZS0mQkdR0AEl/giphy.gif" width="256"/>
+</div>
 
 - About: [prizm.zyfra.com](http://prizm.zyfra.com/)
 - Documentation&Descriptions: [prizm.site](http://prizm.site/) & [GitBook](https://prizmds.gitbook.io/documentation)
