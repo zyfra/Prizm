@@ -89,6 +89,7 @@ Build library:
     # - cat ${NPMRC_CONFIG} > .npmrc
     # - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
     # - cp .npmrc ~/
+    - export NODE_OPTIONS="--max_old_space_size=8192"
     - npm install
     - npm run build:all
   artifacts:
