@@ -15,7 +15,7 @@ import {
   ViewChild,
 } from '@angular/core';
 import { PrizmTabSize } from './tabs.interface';
-import { animationFrameScheduler, Subject, Subscription } from 'rxjs';
+import { animationFrameScheduler, fromEvent, Subject, Subscription } from 'rxjs';
 import { debounceTime, observeOn, skip, takeUntil, tap } from 'rxjs/operators';
 import { PrizmTabsService } from './tabs.service';
 import { PrizmTabComponent } from './components/tab.component';
@@ -143,6 +143,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.tabsService.initObservingTabsParent(this.tabsContainer.nativeElement);
     this.mutationObserver = new MutationObserver(() => this.mutationDetector$.next());
     this.resizeObserver = new ResizeObserver(() => this.mutationDetector$.next());
+
     this.mutationObserver.observe(this.tabsContainer.nativeElement, {
       attributes: true,
       characterData: true,
@@ -150,6 +151,7 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     });
     this.resizeObserver.observe(this.tabsContainer.nativeElement);
     this.initTabClickListener();
+    this.initScrollEndListener();
 
     this.subscription.add(
       this.mutationDetector$
@@ -163,6 +165,18 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.resizeObserver?.disconnect();
     this.mutationDetector$.complete();
     this.subscription.unsubscribe();
+  }
+
+  private initScrollEndListener(): void {
+    fromEvent(this.tabsContainer.nativeElement, 'scroll')
+      .pipe(
+        debounceTime(0),
+        tap(() => {
+          this.calculateControlsState(this.tabsContainer.nativeElement.scrollLeft);
+        }),
+        takeUntil(this.destroy$)
+      )
+      .subscribe();
   }
 
   public tabClickHandler(idx: number): void {
@@ -240,13 +254,15 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     this.tabElements.forEach(item => {
       tabsWidth += item?.el.nativeElement.clientWidth;
     });
-
-    if (tabsWidth > tabContainerElement.clientWidth) {
+    const difference = Math.abs(tabsWidth - tabContainerElement.clientWidth);
+    // INFO: threshold need for detect on changed browser zoom
+    const threshold = 5;
+    if (difference > threshold) {
       const scrollLeft = tabContainerElement.scrollLeft;
       if (scrollLeft === 0) {
         this.isRightBtnActive = true;
       } else {
-        this.calculateControlsState(scrollLeft);
+        this.calculateControlsState(tabContainerElement.scrollLeft);
       }
     } else {
       this.isRightBtnActive = false;
@@ -264,5 +280,6 @@ export class PrizmTabsComponent extends PrizmAbstractTestId implements OnInit, O
     const offsetWidth = tabsContainerElement.offsetWidth;
     this.isLeftBtnActive = scrollLeft > 20;
     this.isRightBtnActive = scrollWidth - offsetWidth - scrollLeft > 20;
+    this.cdRef.markForCheck();
   }
 }
