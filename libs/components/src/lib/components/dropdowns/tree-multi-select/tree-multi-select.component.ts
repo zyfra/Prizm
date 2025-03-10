@@ -168,7 +168,9 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
 {
   searchable = false;
   override hidden = true;
-  readonly button_layout_width = 64;
+  get button_layout_width() {
+    return this.layoutComponent?.status === 'default' ? 64 : 90;
+  }
 
   @ContentChild(PrizmDataListDirective) dataListDirective?: PrizmDataListDirective;
 
@@ -193,7 +195,7 @@ export class PrizmInputTreeMultiSelectComponent<T = any>
 
   @HostBinding('class.inner')
   get inner(): boolean {
-    return !this.layoutComponent?.outer ?? false;
+    return !this.layoutComponent?.outer;
   }
 
   @Input()
