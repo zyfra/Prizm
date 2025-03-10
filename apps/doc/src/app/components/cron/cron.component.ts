@@ -24,7 +24,7 @@ export class CronComponent {
   public showHumanReadable = true;
   public hideResult = false;
   public resetButton = false;
-  public selected: PrizmCronTabItem = 'month';
+  public selected: PrizmCronTabItem = 'hour';
   tabs: PrizmCronTabItem[] = ['hour', 'day', 'month', 'year'];
   readonly allTabs: PrizmCronTabItem[] = ['second', 'minute', 'hour', 'day', 'month', 'year'];
   public value!: string;
