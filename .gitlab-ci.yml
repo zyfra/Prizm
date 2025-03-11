@@ -125,15 +125,10 @@ Deploy:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: ['']
   rules:
-    - if: >-
-        $CI_COMMIT_BRANCH != null &&
-        $CI_PIPELINE_SOURCE == 'push' &&
-        $CI_OPEN_MERGE_REQUESTS != null
-      when: never
-    - if: >-
-        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
-        $CI_COMMIT_TAG != null ||
-        $CI_OPEN_MERGE_REQUESTS != null
+    - if: '$RUN_DEPLOY == "true"'
+      when: on_success
+    - when: never
+
   script:
     - mkdir -p $HOME/.kube
     - cat /builds/public-group/prizm.tmp/NEW_KUBE_CONFIG | sed s/NEW_KUBE_TOKEN/$NEW_KUBE_TOKEN/g > ~/.kube/config
