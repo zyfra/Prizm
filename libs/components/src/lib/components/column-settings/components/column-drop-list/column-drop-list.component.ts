@@ -65,6 +65,8 @@ export class PrizmColumnDropListComponent extends PrizmAbstractTestId {
   }
 
   public toggleColumnStatus(column: PrizmColumnSettings): void {
+    if (column.status === 'sticky') return;
+
     if (column.status === 'default') {
       column.status = 'hidden';
     } else if (column.status === 'hidden') {

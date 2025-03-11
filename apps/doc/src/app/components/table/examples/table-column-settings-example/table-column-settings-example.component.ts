@@ -55,7 +55,7 @@ export class TableColumnSettingsExampleComponent {
       {
         id: 'categoryTwin',
         name: 'Категория 2',
-        status: 'default',
+        status: 'sticky',
       },
       {
         id: 'countTwin',

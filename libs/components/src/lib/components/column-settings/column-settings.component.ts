@@ -119,7 +119,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   public showAll() {
     this._settings.columns = this._settings.columns.map(el => {
-      return { ...el, status: 'default' };
+      return { ...el, status: el.status === 'sticky' ? el.status : 'default' };
     });
     this.checkIsLastShown();
   }

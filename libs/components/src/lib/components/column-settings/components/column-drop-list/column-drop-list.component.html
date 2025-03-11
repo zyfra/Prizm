@@ -7,7 +7,6 @@
       prizmTheme
     >
       <ng-container leftBox>
-        <!--        <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>-->
         <prizm-icons [size]="24" name="grip-dots-vertical"></prizm-icons>
       </ng-container>
       <span>{{ column.name }}</span>
@@ -18,7 +17,9 @@
           [prizmHint]="
             isLastColumnShown && column.status === 'default'
               ? (translations | prizmPluck: ['disabledHint'])
-              : (translations | prizmPluck: ['hideColumnHint'])
+              : column.status === 'sticky'
+                ? (translations | prizmPluck: ['notHideColumnHint'])
+                : (translations | prizmPluck: ['hideColumnHint'])
           "
           (click)="toggleColumnStatus(column)"
           prizmIconButton

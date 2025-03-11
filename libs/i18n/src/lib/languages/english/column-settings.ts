@@ -15,5 +15,6 @@ export const PRIZM_ENGLISH_COLUMN_SETTINGS: PrizmLanguageColumnSettings = {
     dropzone: 'Drag column here',
     disabledHint: 'Cannot hide the last column',
     hideColumnHint: 'Hide the column',
+    notHideColumnHint: 'This column cannot be hidden',
   },
 };
