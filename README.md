@@ -120,7 +120,7 @@ or you can only import to your root styles.less
 
 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
-Our library are based on [Taiga UI by Tinkoff](https://github.com/tinkoff/taiga-ui).
+Our docs are based on [Taiga UI by Tinkoff](https://github.com/taiga-family/taiga-ui/blob/main/projects/addon-doc/README.md).
 All Taiga UI packages are covered by Apache 2.0
 Read more about their license [here](https://github.com/Tinkoff/taiga-ui/blob/main/LICENSE)
 Thanks to [Taiga UI](https://github.com/tinkoff/taiga-ui)
