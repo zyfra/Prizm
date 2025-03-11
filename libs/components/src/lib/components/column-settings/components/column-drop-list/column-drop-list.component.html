@@ -13,6 +13,7 @@
       <ng-container rightBox>
         <button
           [icon]="column.status | prizmColumnIcon"
+          [class.btn-hidden]="column.status === 'default'"
           [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
           [prizmHint]="
             isLastColumnShown && column.status === 'default'
