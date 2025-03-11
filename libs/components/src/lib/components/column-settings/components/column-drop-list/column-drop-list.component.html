@@ -18,7 +18,7 @@
           [prizmHint]="
             isLastColumnShown && column.status === 'default'
               ? (translations | prizmPluck: ['disabledHint'])
-              : ''
+              : (translations | prizmPluck: ['hideColumnHint'])
           "
           (click)="toggleColumnStatus(column)"
           prizmIconButton
