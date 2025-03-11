@@ -9,7 +9,15 @@
 - Figma: [Community](https://www.figma.com/community/file/1156311020501452261/prizm-omponent-base-5-0)
 - Git: [github.com/zyfra/Prizm](https://github.com/zyfra/Prizm)
 
-## Libraries
+## Community
+
+- Your ideas are very welcome in Github issues or discussions
+
+- Join [PRIZM News](https://t.me/prizmdesign) Telegram chanel 
+
+- Chat join [Prizm Community](https://t.me/prizmcom) Telegram group
+
+# Libraries
 
 ```
 @prizm-ui/core
@@ -118,18 +126,15 @@ or you can only import to your root styles.less
 
 # Thanks to
 
-This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
+🔹 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
-Our docs are based on [Taiga UI](https://github.com/taiga-family/taiga-ui/blob/main/projects/addon-doc/README.md).
-All Taiga UI packages are covered by Apache 2.0
-Read more about their license [here](https://github.com/taiga-family/taiga-ui/blob/main/LICENSE)
-Thanks to [Taiga UI](https://github.com/taiga-family/taiga-ui)
+🔹 Our **docs** are based on [Taiga UI](https://github.com/taiga-family/taiga-ui/blob/main/projects/addon-doc/README.md). All Taiga UI packages are covered by Apache 2.0 (read more [here](https://github.com/taiga-family/taiga-ui/blob/main/LICENSE)). Thanks to [Taiga UI](https://github.com/taiga-family/taiga-ui)
 
-We use nrwl nx as monorepo. Thanks to [Nrwl team](https://github.com/nrwl)
+🔹 We use nrwl nx as monorepo. Thanks to [Nrwl team](https://github.com/nrwl)
 
-Our charts library are base on AntV G2Plot. Thanks to [AntV G2Plot](https://github.com/antvis/G2Plot)
+🔹 Our charts library are base on AntV G2Plot. Thanks to [AntV G2Plot](https://github.com/antvis/G2Plot)
 
-Also we want to give thanks to all the following
+🔹 Also we want to give thanks to all the following
 
 - [husky](https://github.com/typicode/husky)
 - [ngx-markdown](https://github.com/jfcere/ngx-markdown)
@@ -156,10 +161,20 @@ Also we want to give thanks to all the following
 - [typescript](https://github.com/microsoft/TypeScript)
 - [commitlint](https://github.com/conventional-changelog/commitlint)
 
+
+# Contributors
+
+See our [CONTRIBUTING.md](/CONTRIBUTING.md) guide.
+
+<a href="https://github.com/zyfra/Prizm/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=zyfra/Prizm" />
+</a>
+
+
 # License
 
-You are welcome to utilize our library in both commercial and personal projects.
+- You are welcome to utilize our library in both commercial and personal projects.
 
-The Prizm UI packages are licensed under the MIT License.
+- The Prizm UI packages are licensed under the MIT [License](https://github.com/zyfra/Prizm/blob/main/LICENSE).
 
-Read more about this license [here](https://opensource.org/license/mit/)
+- Read more about this license [here](https://opensource.org/license/mit/)
