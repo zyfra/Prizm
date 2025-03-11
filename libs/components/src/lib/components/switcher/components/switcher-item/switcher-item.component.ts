@@ -32,6 +32,7 @@ import {
 import { PrizmSwitcherTypeDirective } from '../../directives/switcher-type.directive';
 import { PrizmSwitcherFullWidthDirective } from '../../directives/switcher-full-width.directive';
 import { ObserversModule } from '@angular/cdk/observers';
+import { PrizmSwitcherControlDirective } from '../../directives';
 
 @Component({
   selector: 'prizm-switcher-item',
@@ -57,6 +58,7 @@ import { ObserversModule } from '@angular/cdk/observers';
     },
   ],
   hostDirectives: [
+    PrizmSwitcherControlDirective,
     PrizmSyncChildDirective,
     PrizmCurrentIndexDirective,
     PrizmAddToStoreDirective,
@@ -122,7 +124,9 @@ export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId
 
   @HostListener('click') public selectHandler() {
     if (this.isDisabled) return false;
-    return this.select();
+    const value = this.select();
+    this.updateControlState();
+    return value;
   }
 
   public select() {
@@ -130,9 +134,18 @@ export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId
     return true;
   }
 
+  protected updateControlState() {
+    const value = this.selectedIndexDirective.select(this.currentIndexDirective.index);
+    this.switcherControlDirective.onChange(value);
+    this.switcherControlDirective.onTouched();
+  }
+
   override readonly testId_ = 'ui_switcher_item';
 
   private readonly parentDisableDirective = inject(PrizmDisabledDirective, {
+    skipSelf: true,
+  });
+  protected readonly switcherControlDirective = inject(PrizmSwitcherControlDirective, {
     skipSelf: true,
   });
   private readonly currentDisableDirective = inject(PrizmDisabledDirective, {

@@ -8,6 +8,7 @@
   [appearance]="appearanceDirective.appearance"
   [class.switcher_active_disabled]="isActive && isDisabled"
   [pseudoPressed]="isActive"
+  (blur)="switcherControlDirective.onTouched()"
   type="button"
   prizmButton
 >
