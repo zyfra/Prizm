@@ -135,7 +135,6 @@ Deploy:
     - chmod 600 ~/.kube/config
     - cat ~/.kube/config
   # Debug kubeconfig
-    - kubectl config current-context
     - kubectl cluster-info
 
     - export HELM_EXPERIMENTAL_OCI=1
