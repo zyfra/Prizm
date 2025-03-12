@@ -128,7 +128,7 @@ or you can only import to your root styles.less
 
 🔹 This is a library for one of the best Angular frameworks. Thanks to [Angular team](https://github.com/angular)
 
-🔹 Our **docs** are based on [Taiga UI](https://github.com/taiga-family/taiga-ui/blob/main/projects/addon-doc/README.md). All Taiga UI packages are covered by Apache 2.0 (read more [here](https://github.com/taiga-family/taiga-ui/blob/main/LICENSE)). Thanks to [Taiga UI](https://github.com/taiga-family/taiga-ui)
+🔹 Our **docs** are based on [Taiga UI (library for developing documentation portals for Angular libraries)](https://github.com/taiga-family/taiga-ui/blob/main/projects/addon-doc/README.md). All Taiga UI packages are covered by Apache 2.0 (read more [here](https://github.com/taiga-family/taiga-ui/blob/main/LICENSE)). Thanks to [Taiga UI](https://github.com/taiga-family/taiga-ui)
 
 🔹 We use nrwl nx as monorepo. Thanks to [Nrwl team](https://github.com/nrwl)
 
