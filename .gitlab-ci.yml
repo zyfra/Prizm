@@ -131,7 +131,7 @@ Deploy:
 
   script:
     - mkdir -p $HOME/.kube
-    - cat /builds/public-group/prizm.tmp/NEW_KUBE_CONFIG | sed s/NEW_KUBE_TOKEN/$NEW_KUBE_TOKEN/g > ~/.kube/config
+    - echo "$NEW_KUBE_CONFIG" | sed s/NEW_KUBE_TOKEN/$NEW_KUBE_TOKEN/g > ~/.kube/config
     - cat ~/.kube/config
 
     - export HELM_EXPERIMENTAL_OCI=1
