@@ -134,6 +134,9 @@ Deploy:
     - echo "$NEW_KUBE_CONFIG" | sed s/NEW_KUBE_TOKEN/$NEW_KUBE_TOKEN/g > ~/.kube/config
     - chmod 600 ~/.kube/config
     - cat ~/.kube/config
+  # Debug kubeconfig
+    - kubectl config current-context
+    - kubectl cluster-info
 
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login $ZIF_HELM_REGISTRY -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
