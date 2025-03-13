@@ -1,0 +1,46 @@
+<prizm-dropdown-host
+  class="z-hosted"
+  [canOpen]="interactive"
+  [content]="dropdown"
+  [isOpen]="open && interactive"
+  [closeByEsc]="true"
+  [prizmDropdownHost]="layoutComponent?.el?.nativeElement"
+  (isOpenChange)="onOpenChange($event)"
+  prizmDropdownHostWidth="auto"
+>
+  <input
+    class="input-search"
+    #focusableElementRef
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    mask="0000"
+    [ngModel]="value?.year"
+    [ngModelOptions]="{ updateOn: 'blur', standalone: true }"
+    (ngModelChange)="onValueChange($event)"
+    prizmInput
+  />
+  <ng-template #dropdown>
+    <prizm-calendar-year
+      [disabledItemHandler]="disabledItemHandler"
+      [min]="min"
+      [max]="max"
+      [value]="year"
+      (prizmAfterViewInit)="markAsTouched()"
+      (yearClick)="onYearClick($event)"
+      prizmPreventDefault="mousedown"
+    ></prizm-calendar-year>
+  </ng-template>
+</prizm-dropdown-host>
+<ng-container *prizmInputLayoutRight>
+  <ng-container *polymorphOutlet="calendarIcon as data">
+    <button
+      [prizmInputIconButton]="$any(data)"
+      [interactive]="true"
+      [disabled]="disabled"
+      (click)="safeOpenModal()"
+    ></button>
+  </ng-container>
+
+  <ng-container *ngFor="let button of rightButtons$ | async" [ngTemplateOutlet]="button.template">
+  </ng-container>
+</ng-container>

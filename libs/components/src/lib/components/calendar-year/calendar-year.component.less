@@ -1,0 +1,26 @@
+@height: 312px;
+@width: 312px;
+@padding: 16px;
+
+:host {
+  display: block;
+  height: calc(@height + var(--prizm-calendar-year-footer-height, 0));
+  width: @width;
+  padding: @padding;
+
+  .footer:not(:empty) {
+    border-top: 1px solid var(--prizm-background-stroke);
+    height: 68px;
+    padding: var(--prizm-calendar-year-footer-padding, @padding);
+    max-width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+  }
+}
+
+.scrollbar {
+  height: calc(@height - @padding * 2);
+  width: calc(@width - @padding * 2);
+}
