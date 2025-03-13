@@ -4,12 +4,11 @@ import { PrizmColumnSettings } from './../../column-settings.model';
 import { PrizmLanguageColumnSettings } from '@prizm-ui/i18n';
 import { CDK_DRAG_CONFIG, DragDropConfig, DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
-import { PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
+import { PrizmPluckPipe } from '@prizm-ui/helpers';
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmColumnIconPipe } from '../../pipes/column-icon.pipe';
+import { PrizmColumnHintPipe } from '../../pipes/column-hint.pipe';
 import { PrizmButtonComponent } from '../../../button/button.component';
-import { PrizmToggleComponent } from '../../../toggle/toggle.component';
 import { PrizmScrollbarComponent } from '../../../scrollbar/scrollbar.component';
 import { PrizmHintDirective } from '../../../../directives/hint/hint.directive';
 import { PrizmListingItemComponent } from '../../../listing-item';
@@ -32,15 +31,13 @@ const DragConfig: DragDropConfig = {
   imports: [
     CommonModule,
     PrizmButtonComponent,
-    PrizmToggleComponent,
     DragDropModule,
     PrizmScrollbarComponent,
-    PrizmLetDirective,
     PrizmPluckPipe,
     PrizmHintDirective,
     FormsModule,
     PrizmThemeModule,
-    PrizmColumnIconPipe,
+    PrizmColumnHintPipe,
     PrizmListingItemComponent,
     PrizmIconsComponent,
   ],

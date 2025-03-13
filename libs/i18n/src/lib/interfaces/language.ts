@@ -142,6 +142,7 @@ export interface PrizmLanguageColumnSettings {
     disabledHint: string;
     hideColumnHint: string;
     notHideColumnHint: string;
+    showColumnHint: string;
   };
 }
 
