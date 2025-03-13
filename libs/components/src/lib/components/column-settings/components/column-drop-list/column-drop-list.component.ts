@@ -16,6 +16,7 @@ import { PrizmIconsComponent } from '@prizm-ui/icons';
 import { PrizmIconsFullRegistry, PrizmIconsRegistry } from '@prizm-ui/icons/core';
 import { prizmIconsGripDotsVertical } from '@prizm-ui/icons/base/source';
 import { prizmIconsEye, prizmIconsEyeClosed, prizmIconsLock } from '@prizm-ui/icons/full/source';
+import { PrizmColumnIconPipe } from '../../pipes/column-icon.pipe';
 
 const DragConfig: DragDropConfig = {
   zIndex: 9999,
@@ -38,6 +39,7 @@ const DragConfig: DragDropConfig = {
     FormsModule,
     PrizmThemeModule,
     PrizmColumnHintPipe,
+    PrizmColumnIconPipe,
     PrizmListingItemComponent,
     PrizmIconsComponent,
   ],

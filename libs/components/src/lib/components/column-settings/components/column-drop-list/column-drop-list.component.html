@@ -12,8 +12,8 @@
       <span>{{ column.name }}</span>
       <ng-container rightBox>
         <button
-          [icon]="column.status === 'hidden' ? 'eye-closed' : column.status === 'sticky' ? 'lock' : 'eye'"
-          [class.btn-hidden]="column.status === 'default'"
+          [icon]="column.status | prizmColumnIcon: isLastColumnShown"
+          [class.btn-hidden]="column.status === 'default' && !isLastColumnShown"
           [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
           [prizmHint]="translations | prizmColumnHint: column.status : isLastColumnShown"
           (click)="toggleColumnStatus(column)"
