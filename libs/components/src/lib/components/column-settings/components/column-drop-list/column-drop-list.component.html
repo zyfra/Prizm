@@ -7,19 +7,15 @@
       prizmTheme
     >
       <ng-container leftBox>
-        <!--        <prizm-icon [size]="24" iconClass="editor-dots"></prizm-icon>-->
         <prizm-icons [size]="24" name="grip-dots-vertical"></prizm-icons>
       </ng-container>
       <span>{{ column.name }}</span>
       <ng-container rightBox>
         <button
-          [icon]="column.status | prizmColumnIcon"
+          [icon]="column.status | prizmColumnIcon: isLastColumnShown"
+          [class.btn-hidden]="column.status === 'default' && !isLastColumnShown"
           [disabled]="column.status === 'sticky' || (isLastColumnShown && column.status === 'default')"
-          [prizmHint]="
-            isLastColumnShown && column.status === 'default'
-              ? (translations | prizmPluck: ['disabledHint'])
-              : ''
-          "
+          [prizmHint]="translations | prizmColumnHint: column.status : isLastColumnShown"
           (click)="toggleColumnStatus(column)"
           prizmIconButton
           appearanceType="ghost"
