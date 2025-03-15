@@ -7,7 +7,6 @@ import { PrizmOverlayOutsidePlacement } from '@prizm-ui/components';
   styles: [
     `
       .box {
-        padding: 8px;
         .title {
           font-size: 14px;
           font-weight: 500;

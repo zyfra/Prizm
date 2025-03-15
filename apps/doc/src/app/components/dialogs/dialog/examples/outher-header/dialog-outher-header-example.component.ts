@@ -14,7 +14,7 @@ import { PrizmDialogService, PrizmOverlayInsidePlacement } from '@prizm-ui/compo
 
       .header {
         border-bottom: 1px solid var(--prizm-background-stroke);
-        padding: var(--prizm-dialog-header-padding, 14px 16px);
+        padding: var(--prizm-dialog-header-padding, 16px);
         display: flex;
         justify-content: space-between;
         font-style: var(--prizm-dialog-header-font-style, normal);
