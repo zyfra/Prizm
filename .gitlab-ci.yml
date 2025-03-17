@@ -121,6 +121,8 @@ Build library:
 #
 Deploy:
   stage: deploy
+  tags:
+    - dmz
   image:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: ['']
