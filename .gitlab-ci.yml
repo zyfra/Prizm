@@ -130,9 +130,9 @@ Deploy:
   script:
     - set -x
     - mkdir -p $HOME/.kube
-    - echo "$KUBE_CONFIG" > ~/.kube/config
-    - chmod 600 ~/.kube/config
-    - cat ~/.kube/config
+    - echo "$NEW_KUBE_CONFIG" > /root/.kube/config
+    - chmod 600 /root/.kube/config
+    - cat /root/.kube/config
     # Вывод краткой информации о кластере
     - kubectl cluster-info --v=6
     - export HELM_EXPERIMENTAL_OCI=1
