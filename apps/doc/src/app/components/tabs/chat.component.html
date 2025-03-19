@@ -1,0 +1,49 @@
+<div class="openai-chat-container">
+  <div class="chat-messages">
+    <div
+      *ngFor="let message of messages"
+      [ngClass]="{
+        'user-message': message.role === 'user',
+        'assistant-message': message.role === 'assistant',
+        'system-message': message.role === 'system',
+      }"
+    >
+      <strong>{{
+        message.role === 'user' ? 'Вы:' : message.role === 'assistant' ? 'Ассистент:' : 'Система:'
+      }}</strong>
+      <div class="message-content">
+        <markdown class="variable-binding" [data]="message.content"></markdown>
+      </div>
+    </div>
+
+    <!-- Индикатор загрузки и текущего ответа -->
+    <div *ngIf="isLoading()" class="assistant-message typing">
+      <strong>Ассистент:</strong>
+      <div class="message-content">
+        <markdown class="variable-binding" [data]="currentResponse()"></markdown>
+        <div class="typing-indicator">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <!-- Сообщение об ошибке -->
+      <div *ngIf="error" class="error-message">
+        <span>❌ {{ error }}</span>
+      </div>
+    </div>
+
+    <div class="chat-input">
+      <textarea
+        [(ngModel)]="userInput"
+        placeholder="Введите ваш вопрос..."
+        rows="3"
+        (keydown)="onKeydown($event)"
+        [disabled]="isLoading()"
+      ></textarea>
+
+      <button (click)="sendMessage()" [disabled]="!userInput.trim() || isLoading()">Отправить</button>
+    </div>
+  </div>
+</div>

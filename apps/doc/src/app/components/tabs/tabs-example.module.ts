@@ -14,9 +14,13 @@ import { TabsExampleComponentContentComponent } from './examples/tabs-example-co
 import { TabsExampleComponentComponent } from './examples/tabs-example-component/tabs-example-component.component';
 import { TabsExampleInPanelComponent } from './examples/tabs-example-in-panel/tabs-example-in-panel.component';
 import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
+import { OpenAiChatComponent } from './chat.component';
+import { FormsModule } from '@angular/forms';
+import { MarkdownComponent } from 'ngx-markdown';
 
 @NgModule({
   declarations: [
+    OpenAiChatComponent,
     TabsExampleComponent,
     TabsExampleBasicComponent,
     TabsExampleComponentContentComponent,
@@ -35,6 +39,8 @@ import { PrizmIfLanguageDirective } from '@prizm-ui/i18n';
     PrizmTabsModule,
     PrizmPanelComponent,
     PrizmIfLanguageDirective,
+    FormsModule,
+    MarkdownComponent,
   ],
 })
 export class TabsExampleModule {}

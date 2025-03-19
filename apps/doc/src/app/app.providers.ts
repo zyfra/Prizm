@@ -29,7 +29,7 @@ import { SectionNameEnglishEnum, SectionNameEnum } from './model';
 import { PrizmLanguageName, PrizmLanguageSwitcher } from '@prizm-ui/i18n';
 import { distinctUntilChanged, map, switchMap } from 'rxjs/operators';
 
-export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `How to use`];
+export const DEFAULT_TABS = [`Examples`, `Live demo`, `Setup`, `AI Assistant`];
 const TITLE_PREFIX = 'Prizm UI: ';
 
 export const HIGHLIGHT_OPTIONS_VALUE = {
