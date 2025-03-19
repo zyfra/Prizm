@@ -78,17 +78,8 @@ Build js image:
 
 Build library:
   stage: build
-  # // include after k8s stable work
-  # cache:
-  #   paths:
-  #     - node_modules
-  #     - /cache/Cypress
-  #     - node_modules/.cache/nx
   image: $ZUI_BUILD_IMAGE_NAME:$ZUI_BUILD_IMAGE_TAG
   script:
-    # - cat ${NPMRC_CONFIG} > .npmrc
-    # - echo "_auth=$NPM_AUTH_TOKEN" >> .npmrc
-    # - cp .npmrc ~/
     - export NODE_OPTIONS="--max_old_space_size=8192"
     - npm install
     - npm run build:all
@@ -97,6 +88,12 @@ Build library:
     paths:
       - dist/
   extends: ['.tags_k8s', '.except_skip_ci']
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}
+    paths:
+      - node_modules/
+      - .cache/
+
 
 #Release package:
 #  stage: release
@@ -133,7 +130,7 @@ Deploy:
   script:
     - set -x
     - mkdir -p $HOME/.kube
-    - echo "$NEW_KUBE_CONFIG" > ~/.kube/config
+    - echo "$KUBE_CONFIG" > ~/.kube/config
     - chmod 600 ~/.kube/config
     - cat ~/.kube/config
     # Вывод краткой информации о кластере
