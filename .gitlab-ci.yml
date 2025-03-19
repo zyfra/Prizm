@@ -131,11 +131,13 @@ Deploy:
       when: on_success
     - when: never
   script:
+    - set -x
     - mkdir -p $HOME/.kube
     - echo "$NEW_KUBE_CONFIG" > ~/.kube/config
     - chmod 600 ~/.kube/config
+    - cat ~/.kube/config
     # Вывод краткой информации о кластере
-    - kubectl cluster-info
+    - kubectl cluster-info --v=6
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login $ZIF_HELM_REGISTRY -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
