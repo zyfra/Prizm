@@ -130,7 +130,7 @@ Deploy:
   script:
     - set -x
     - mkdir -p $HOME/.kube
-    - echo "$NEW_KUBE_CONFIG" > /root/.kube/config
+    - cat "$NEW_KUBE_CONFIG" > /root/.kube/config
     - chmod 600 /root/.kube/config
     - cat /root/.kube/config
     # Вывод краткой информации о кластере
