@@ -126,6 +126,9 @@ export class PrizmInputLayoutYearComponent extends PrizmInputNgControl<PrizmYear
   public onValueChange(value: number): void {
     const year = value ? new PrizmYear(this.getCorrectedYear(value)) : null;
     this.updateValue(year);
+    if (this.focusableElement && this.focusableElement.nativeElement.value !== year?.toString()) {
+      this.focusableElement.nativeElement.value = year?.toString() || '';
+    }
   }
 
   public onYearClick(year: PrizmYear): void {
