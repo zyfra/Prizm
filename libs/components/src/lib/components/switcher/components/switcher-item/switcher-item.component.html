@@ -1,6 +1,5 @@
 <button
-  class="switcher switcher-text"
-  [class.has-value]="prizmHasValue.hasVal$ | async"
+  class="switcher"
   [disabled]="isDisabled"
   [icon]="icon"
   [size]="size"
@@ -12,21 +11,5 @@
   type="button"
   prizmButton
 >
-  <div #prizmHasValue="prizmHasValue" prizmHasValue>
-    <ng-content></ng-content>
-  </div>
+  <ng-content></ng-content>
 </button>
-
-<ng-container *ngIf="prizmHasValue.empty">
-  <button
-    class="switcher switcher_icon"
-    [pseudoPressed]="isActive"
-    [disabled]="isDisabled"
-    [icon]="icon"
-    [size]="size"
-    [appearanceType]="appearanceTypeDirective.appearanceType"
-    [appearance]="appearanceDirective.appearance"
-    type="button"
-    prizmIconButton
-  ></button>
-</ng-container>
