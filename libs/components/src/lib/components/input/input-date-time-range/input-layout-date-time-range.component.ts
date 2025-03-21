@@ -480,6 +480,25 @@ export class PrizmInputLayoutDateTimeRangeComponent
       }
     }
 
+    this.focusableElement?.updateNativeValues(
+      {
+        idx: 0,
+        value: parsedFrom?.toString() ?? '',
+      },
+      {
+        idx: 1,
+        value: parsedTimeFrom?.toString() ?? '',
+      },
+      {
+        idx: 2,
+        value: parsedTo?.toString() ?? '',
+      },
+      {
+        idx: 3,
+        value: parsedTimeTo?.toString() ?? '',
+      }
+    );
+
     this.updateValue(
       new PrizmDateTimeRange(
         (parsedFrom && parsedTo ? new PrizmDayRange(parsedFrom, parsedTo) : null) as any,
