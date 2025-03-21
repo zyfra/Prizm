@@ -26,6 +26,17 @@
     justify-content: center;
   }
 
+  &[prizmButton]:has(prizm-icons-full ~ .text:empty) {
+    aspect-ratio: 1 / 1;
+
+    .z-wrapper {
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
   .z-wrapper {
     min-height: inherit;
   }
