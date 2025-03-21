@@ -212,6 +212,7 @@ export class PrizmPrimitiveYearPickerComponent extends PrizmAbstractTestId {
     // TODO delete after update dropdown-host (need activeZone optionan, for dynamic change elements)
     $event.stopImmediatePropagation();
 
+    this.updateHoveredItem(false, item);
     this.yearClick.emit(new PrizmYear(item));
   }
 
