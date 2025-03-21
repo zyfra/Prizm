@@ -75,7 +75,7 @@ export interface ChatOptions {
   providedIn: 'root',
 })
 export class OpenAiService {
-  private readonly baseUrl = 'http://localhost:3500/ai/v1/simple';
+  // private readonly baseUrl = 'http://localhost:3500/ai/v1/simple/sendMessage';
 
   constructor() {}
 

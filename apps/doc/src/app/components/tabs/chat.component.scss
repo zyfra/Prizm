@@ -150,3 +150,9 @@
     background-color: #999;
   }
 }
+
+:host ::ng-deep pre {
+  background-color: black;
+  border-radius: 4px;
+  padding: 8px;
+}
