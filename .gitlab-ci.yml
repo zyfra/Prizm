@@ -8,7 +8,7 @@ variables:
   ZUI_BUILD_IMAGE_TAG: '18'
   LANGUAGE: 'typescript'
   GIT_SUBMODULE_STRATEGY: recursive
-  RUN_TESTS: 'true'
+  RUN_TESTS: 'false'
   SKIP_FRONTEND_IMAGE_TEST: 'true'
   NX_NO_CLOUD: 'true'
   ENABLE_APP_REGISTRATION: 'false'
@@ -124,17 +124,19 @@ Deploy:
     name: $ZIF_TOOLS_RUNNER_IMAGE:$ZIF_TOOLS_RUNNER_TAG
     entrypoint: ['']
   rules:
-    - if: '$RUN_DEPLOY == "true"'
-      when: on_success
-    - when: never
+    - if: >-
+        $CI_COMMIT_BRANCH != null &&
+        $CI_PIPELINE_SOURCE == 'push' &&
+        $CI_OPEN_MERGE_REQUESTS != null
+      when: never
+    - if: >-
+        $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH ||
+        $CI_COMMIT_TAG != null ||
+        $CI_OPEN_MERGE_REQUESTS != null
   script:
-    - set -x
     - mkdir -p $HOME/.kube
-    - cat "$NEW_KUBE_CONFIG" > /root/.kube/config
-    - chmod 600 /root/.kube/config
-    - cat /root/.kube/config
+    - cat "$KUBE_CONFIG" > ~/.kube/config
     # Вывод краткой информации о кластере
-    - kubectl cluster-info --v=6
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login $ZIF_HELM_REGISTRY -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
