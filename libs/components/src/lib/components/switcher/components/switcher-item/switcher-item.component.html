@@ -10,6 +10,9 @@
   [pseudoPressed]="isActive"
   type="button"
   prizmButton
+  [attr.prizmIconButton]="prizmHasValue.empty ? true : null"
+  #prizmHasValue="prizmHasValue"
+  prizmHasValue
 >
   <ng-content></ng-content>
 </button>

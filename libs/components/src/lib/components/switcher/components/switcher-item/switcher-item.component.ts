@@ -23,6 +23,7 @@ import {
   PrizmCurrentIndexDirective,
   PrizmDestroyService,
   PrizmDisabledDirective,
+  PrizmHasValueDirective,
   PrizmMutationObserverService,
   PrizmSelectedIndexDirective,
   PrizmSizeDirective,
@@ -86,7 +87,7 @@ import { PrizmSwitcherControlDirective } from '../../directives';
       ],
     },
   ],
-  imports: [CommonModule, PrizmButtonComponent, ObserversModule],
+  imports: [CommonModule, PrizmButtonComponent, ObserversModule, PrizmHasValueDirective],
 })
 export class PrizmSwitcherItemComponent<T = unknown> extends PrizmAbstractTestId {
   @HostBinding('attr.switcher-type')
