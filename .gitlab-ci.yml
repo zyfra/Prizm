@@ -176,8 +176,8 @@ Deploy:
           --set image.tag=$DEPLOY_VERSION \
           --set image.namespace=public-group \
           --set serviceName=$CI_PROJECT_NAME-$DEPLOY_RELEASE \
-          --set ingress.host=dmz.doc.prizm.site \
-          --set ingress.tls.tlsHost=dmz.doc.prizm.site \
+          --set ingress.host=mr-prizm.dmz.private.ziiot.ru \
+          --set ingress.tls.tlsHost=mr-prizm.dmz.private.ziiot.ru \
           --set ingress.path=/ \
           --set ingress.urlRewrite=false \
           --set podAnnotations.randomForUpgrade="random-$((1 + RANDOM % 10))"
