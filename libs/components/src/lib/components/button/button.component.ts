@@ -14,7 +14,7 @@ import { PRIZM_BUTTON_OPTIONS, PrizmButtonOptions, PrizmContent } from './button
 import { AbstractPrizmInteractive } from '../../abstract/interactive';
 import { prizmIsNativeFocused } from '../../util/is-native-focused';
 import { PrizmSize } from '../../util/size-bigger';
-import { PrizmCallFuncPipe, PrizmDestroyService, PrizmToTypePipe } from '@prizm-ui/helpers';
+import { PrizmDestroyService, PrizmHasValueDirective, PrizmToTypePipe } from '@prizm-ui/helpers';
 import { takeUntil, tap } from 'rxjs/operators';
 import { prizmPressedObservable } from '../../observables/pressed-observable';
 import { PrizmAppearance, PrizmAppearanceType } from '../../types/appearance.types';
@@ -45,9 +45,9 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmWrapperComponent,
     PolymorphOutletDirective,
     PrizmLoaderComponent,
-    PrizmCallFuncPipe,
     PrizmToTypePipe,
     PrizmIconsFullComponent,
+    PrizmHasValueDirective,
   ],
   providers: [
     PrizmDestroyService,

@@ -1,5 +1,6 @@
 <prizm-wrapper
   class="z-wrapper"
+  [class.empty-text]="prizmHasValue.empty"
   [attr.data-appearance-type]="appearanceType!"
   [appearance]="appearance!"
   [hovered]="computedHovered"
@@ -14,7 +15,9 @@
       [ngTemplateOutlet]="showIconTemp"
       [ngTemplateOutletContext]="{ icon: icon }"
     ></ng-container>
-    <div class="text prizm-font-btn-links-14"><ng-content></ng-content></div>
+    <div class="text prizm-font-btn-links-14" #prizmHasValue="prizmHasValue" prizmHasValue>
+      <ng-content></ng-content>
+    </div>
     <ng-container
       *ngIf="iconRight"
       [ngTemplateOutlet]="showIconTemp"
