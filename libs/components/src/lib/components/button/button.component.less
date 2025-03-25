@@ -20,53 +20,37 @@
     transition: 0.3s;
   }
 
-  &[prizmIconButton] .z-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  &[prizmButton]:has(prizm-icons-full ~ .text:empty) {
-    aspect-ratio: 1 / 1;
-
-    .z-wrapper {
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-  }
-
   .z-wrapper {
     min-height: inherit;
   }
 
-  .addSize(@size, @height, @width, @padding, @outline-padding) {
+  .addSize(@size, @height, @padding) {
     &[data-size='@{size}'] {
       min-height: @height;
-
-      &[prizmIconButton] {
-        width: @width;
-
-        .z-wrapper {
-          padding: 0;
-        }
-      }
 
       .z-wrapper {
         padding: @padding;
       }
+    }
 
-      .z-wrapper[data-appearance-type='outline'] {
-        padding: @outline-padding;
+    &[prizmIconButton],
+    &[prizmButton]:has(prizm-icons-full ~ .text:empty) {
+      aspect-ratio: 1 / 1;
+
+      .z-wrapper {
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
     }
   }
-  .addSize('xl', 44px, 44px, 14px 16px 14px 16px, 12px 16px 12px 16px);
-  .addSize('l', 40px, 40px, 12px 16px 12px 16px, 10px 16px 10px 16px);
-  .addSize('xm', 36px, 36px, 10px 16px 10px 16px, 8px 16px 8px 16px );
-  .addSize('m', 32px, 32px, 8px 16px 8px 16px, 6px 16px 6px 16px);
-  .addSize('s', 24px, 24px, 4px 8px 4px 8px, 2px 16px 2px 16px);
+
+  .addSize('xl', 44px, 14px 16px 14px 16px);
+  .addSize('l', 40px, 12px 16px 12px 16px);
+  .addSize('xm', 36px, 10px 16px 10px 16px);
+  .addSize('m', 32px, 8px 16px 8px 16px);
+  .addSize('s', 24px, 4px 8px 4px 8px);
 }
 
 .z-loader {
