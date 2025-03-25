@@ -136,7 +136,8 @@ Deploy:
   script:
     - mkdir -p $HOME/.kube
     - cat "$KUBE_CONFIG" > ~/.kube/config
-    # Вывод краткой информации о кластере
+    - chmod 600 ~/.kube/config
+    - helm -n $DEPLOY_NAMESPACE list
     - export HELM_EXPERIMENTAL_OCI=1
     - helm registry login $ZIF_HELM_REGISTRY -u $QUAY_REGISTRY_LOGIN -p $QUAY_REGISTRY_PASSWORD
     - helm chart pull $ZIF_GENERIC_SERVICE_CHART:$ZIF_GENERIC_SERVICE_TAG
@@ -152,8 +153,9 @@ Deploy:
         DEPLOY_RELEASE="${DEPLOY_SANITIZED//\./}"
         DEPLOY_VERSION="$DEPLOY_SANITIZED"
       else
-        DEPLOY_RELEASE="test-deploy-release"
-        DEPLOY_VERSION="TEST-DEPLOY-RELEASE"
+        DEPLOY_RELEASE="mr-$CI_MERGE_REQUEST_IID"
+        DEPLOY_VERSION="MR-$CI_MERGE_REQUEST_IID"
+
       fi
       echo "DEPLOY_RELEASE: ${DEPLOY_RELEASE}"
       echo "DEPLOY_VERSION: ${DEPLOY_VERSION}"
@@ -182,4 +184,3 @@ Deploy:
       fi
   needs:
     - Build js image
-  extends: ['.tags_k8s']
