@@ -96,6 +96,5 @@ export class PrizmTreeSelectBaseExampleComponent {
   }
   public change(): void {
     this.control.setValue(null);
-    // this.selectedItems$$.next(this.selectedItems$$.value === this.items ? this.items2 : this.items);
   }
 }
