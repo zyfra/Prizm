@@ -24,7 +24,7 @@ export interface ChatResponseChunk {
   providedIn: 'root',
 })
 export class OpenAiService {
-  private readonly baseUrl = 'http://localhost:3500/ai/v1/simple/sendMessage';
+  private readonly baseUrl = 'https://back.magomadov.dev/ai/v1/simple/sendMessage';
 
   constructor() {}
 
