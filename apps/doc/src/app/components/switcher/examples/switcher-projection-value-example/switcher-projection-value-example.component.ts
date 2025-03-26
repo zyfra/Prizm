@@ -21,12 +21,10 @@ export class SwitcherProjectionValueExampleComponent {
     },
     {
       title: 'Мнемосхемы',
-      appearanceType: 'outline',
       value: 'mnemonics',
     },
     {
       title: 'Дашборды',
-      appearance: 'primary',
       value: 'dashboard',
     },
   ];
