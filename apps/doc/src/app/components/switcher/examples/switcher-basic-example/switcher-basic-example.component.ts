@@ -19,11 +19,9 @@ export class SwitcherBasicExampleComponent {
     },
     {
       title: 'Мнемосхемы',
-      appearanceType: 'outline',
     },
     {
       title: 'Дашборды',
-      appearance: 'primary',
     },
   ];
   public readonly control = new FormControl(10);

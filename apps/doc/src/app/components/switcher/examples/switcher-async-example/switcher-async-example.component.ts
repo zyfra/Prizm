@@ -19,7 +19,6 @@ export class SwitcherAsyncExampleComponent {
     },
     {
       title: 'Графики',
-      appearance: 'danger',
     },
     {
       title: 'Мнемосхемы',
@@ -27,7 +26,6 @@ export class SwitcherAsyncExampleComponent {
     },
     {
       title: 'Дашборды',
-      appearance: 'success',
     },
   ];
 
@@ -38,7 +36,6 @@ export class SwitcherAsyncExampleComponent {
     },
     {
       title: 'Санкт-Петербург',
-      appearanceType: 'fill',
     },
   ];
 
