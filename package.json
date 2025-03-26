@@ -1,6 +1,6 @@
 {
   "name": "@prizm-ui/sdk",
-  "version": "5.8.0",
+  "version": "5.8.1",
   "license": "MIT",
   "husky": {
     "hooks": {
@@ -17,7 +17,6 @@
     "cypress:open": "cypress open",
     "start": "nx run doc:serve",
     "build": "nx affected:build --all",
-    "build:all": "nx run-many -t build --all",
     "build:next": "nx run doc:build",
     "build:doc": "nx run doc:build:development --deployUrl=/ --baseHref=/",
     "build:stats": "nx build next --stats-json",
