@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 
 ### Bugfixes
 
-- feat(components/input-tree-multi-select): InputTreeMultiSelect: Fixed an issue where cloned values could not be unselected. Now, users can properly remove selected items. (#2353, #2352)
+- fix(components/input-tree-multi-select): InputTreeMultiSelect: Fixed an issue where cloned values could not be unselected. Now, users can properly remove selected items. (#2353, #2352)
   (Added a test example in the documentation to verify the fix.)
 
 ## [5.8.0](https://github.com/zyfra/Prizm)
