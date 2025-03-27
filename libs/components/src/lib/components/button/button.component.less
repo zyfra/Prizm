@@ -34,8 +34,8 @@
     }
 
     &[prizmIconButton],
-    &[prizmButton]:has(prizm-icons-full ~ .text:empty),
-    &[prizmButton]:has(prizm-icons-full ~ .empty-text) {
+    &[prizmButton]:has(prizm-icons-full:only-of-type):has(.text:empty),
+    &[prizmButton]:has(prizm-icons-full:only-of-type):has(.empty-text) {
       aspect-ratio: 1 / 1;
 
       .z-wrapper {
@@ -43,6 +43,10 @@
         display: flex;
         align-items: center;
         justify-content: center;
+
+        .text {
+          display: none;
+        }
       }
     }
   }
