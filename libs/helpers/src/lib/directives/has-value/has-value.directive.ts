@@ -1,4 +1,12 @@
-import { AfterViewInit, Directive, ElementRef, EventEmitter, inject, OnInit, Output } from '@angular/core';
+import {
+  ChangeDetectorRef,
+  Directive,
+  ElementRef,
+  EventEmitter,
+  inject,
+  OnInit,
+  Output,
+} from '@angular/core';
 import { PrizmMutationObserverService } from '../../services/mutation-observer';
 import { concat, defer, of } from 'rxjs';
 import { map, shareReplay } from 'rxjs/operators';
@@ -11,6 +19,7 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class PrizmHasValueDirective implements OnInit {
   @Output() hasValue = new EventEmitter<boolean>();
+
   public readonly hasVal$ = concat(
     defer(() => of(this.hasVal)),
     this.hasValue.asObservable()
@@ -21,21 +30,56 @@ export class PrizmHasValueDirective implements OnInit {
     self: true,
   });
 
+  private _hasContent = true;
+
+  private readonly cdr = inject(ChangeDetectorRef);
+
   get hasVal() {
-    return !!this.elRef.nativeElement.childNodes.length;
+    return this._hasContent;
   }
   get empty() {
     return !this.hasVal;
   }
 
   ngOnInit(): void {
-    this.emit();
-    this.mutationObserverService.observe(this.elRef.nativeElement, () => {
-      this.emit();
+    this.mutationObserverService.observe(this.elRef.nativeElement, () => this.checkAndUpdateState(), {
+      childList: true,
+      subtree: true,
+      characterData: true,
     });
+
+    this.checkAndUpdateState();
   }
 
-  private emit() {
-    this.hasValue.emit(!!this.elRef.nativeElement.childNodes.length);
+  private checkAndUpdateState(): void {
+    const currentState = this.checkContent(this.elRef.nativeElement);
+
+    if (currentState !== this._hasContent) {
+      this._hasContent = currentState;
+
+      this.hasValue.emit(currentState);
+      this.cdr.markForCheck();
+    }
+  }
+
+  private checkContent(element: HTMLElement): boolean {
+    return Array.from(element.childNodes).some(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        return !!node.textContent?.trim();
+      }
+
+      if (node.nodeType === Node.ELEMENT_NODE) {
+        const el = node as HTMLElement;
+
+        const style = window.getComputedStyle(el);
+        if (style.display === 'none' || style.visibility === 'hidden') {
+          return false;
+        }
+
+        return this.checkContent(el);
+      }
+
+      return false;
+    });
   }
 }
