@@ -87,7 +87,6 @@ export class PrizmTreeSelectBaseExampleComponent {
     a: TreeSelectItem,
     b: TreeSelectItem
   ): boolean => {
-    console.log('#Mz identityMatcher', { a, b });
     return a?.data.id === b?.data.id;
   };
 
