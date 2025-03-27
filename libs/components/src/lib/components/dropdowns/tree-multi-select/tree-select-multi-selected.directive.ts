@@ -73,7 +73,7 @@ export class PrizmTreeMultiSelectSelectedDirective<T> {
 
   public unselect(item: T) {
     if (!this.value) return;
-    this.value = this.value.filter(i => i !== item);
+    this.value = this.value.filter(i => !this.treeSelectIdentityMatcherDirective.identityMatcher(i, item));
   }
 
   public hasSelectedChildren(item: T): boolean {

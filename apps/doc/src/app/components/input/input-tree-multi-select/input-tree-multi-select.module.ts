@@ -10,14 +10,14 @@ import {
   PrizmDataListWrapperComponent,
   PrizmHintOnOverflowDirective,
   PrizmInputCommonModule,
+  PrizmInputTreeMultiSelectCheckboxDirective,
   PrizmInputTreeMultiSelectComponent,
   PrizmInputTreeSelectComponent,
   PrizmScrollbarModule,
-  PrizmInputTreeMultiSelectCheckboxDirective,
   PrizmTreeMultiSelectItemComponent,
   PrizmTreeMultiSelectItemDirective,
-  PrizmTreeSelectItemComponent,
   PrizmTreeMultiSelectModeDirective,
+  PrizmTreeSelectItemComponent,
 } from '@prizm-ui/components';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PrizmHtmlRefDirective, PrizmLetDirective } from '@prizm-ui/helpers';
@@ -28,6 +28,7 @@ import { PrizmTreeSelectTransformExampleComponent } from './examples/transform/t
 import { PrizmTreeSelectSearchExampleComponent } from './examples/search/tree-select-search-example.component';
 import { PrizmTreeSelectI18nExampleComponent } from './examples/i18n/tree-select-i18n-example.component';
 import { PrizmTreeSelectOnlyCurrentExampleComponent } from './examples/only-current/tree-select-only-current-example.component';
+import { PrizmTreeSelectBaseExampleComponent } from './examples/base/tree-select-base-example.component';
 
 @NgModule({
   imports: [
@@ -62,6 +63,7 @@ import { PrizmTreeSelectOnlyCurrentExampleComponent } from './examples/only-curr
     PrizmTreeSelectTransformExampleComponent,
     PrizmTreeSelectSearchExampleComponent,
     PrizmTreeSelectProjectionExampleComponent,
+    PrizmTreeSelectBaseExampleComponent,
     InputTreeMultiSelectComponent,
   ],
   exports: [InputTreeMultiSelectComponent],
