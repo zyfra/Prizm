@@ -27,18 +27,6 @@ export class PanelExampleComponent {
     LESS: import('./examples/panel-example-with-back/panel-example-with-back.component.less?raw'),
   };
 
-  public readonly panelWithBreadcrumbsExample: TuiDocExample = {
-    TypeScript: import(
-      './examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component?raw'
-    ),
-    HTML: import(
-      './examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component.html?raw'
-    ),
-    LESS: import(
-      './examples/panel-example-with-breadcrumbs/panel-example-with-breadcrumbs.component.less?raw'
-    ),
-  };
-
   public readonly panelWithTabsExample: TuiDocExample = {
     TypeScript: import('./examples/panel-example-with-tabs/panel-example-with-tabs.component?raw'),
     HTML: import('./examples/panel-example-with-tabs/panel-example-with-tabs.component.html?raw'),
