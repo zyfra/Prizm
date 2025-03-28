@@ -19,6 +19,7 @@ import { PrizmScrollbarVisibility } from './scrollbar.model';
 import { PrizmAbstractTestId } from '../../abstract/interactive';
 import { PrizmScrollControlsComponent } from './scroll-controls.component';
 import { AsyncPipe } from '@angular/common';
+import { prizmExecuteAfterFrames } from '@prizm-ui/helpers';
 
 export function scrollRefFactory({ browserScrollRef }: PrizmScrollbarComponent): ElementRef<HTMLElement> {
   return browserScrollRef;
@@ -106,9 +107,12 @@ export class PrizmScrollbarComponent extends PrizmAbstractTestId {
       return;
     }
 
-    const { nativeElement } = this.browserScrollRef;
-    const { offsetTop, offsetLeft } = prizmGetElementOffset(nativeElement, detail);
-    nativeElement.scrollTop = offsetTop + detail.offsetHeight / 2 - nativeElement.clientHeight / 2;
-    nativeElement.scrollLeft = offsetLeft + detail.offsetWidth / 2 - nativeElement.clientWidth / 2;
+    prizmExecuteAfterFrames(() => {
+      const { nativeElement } = this.browserScrollRef;
+      const { offsetTop, offsetLeft } = prizmGetElementOffset(nativeElement, detail);
+
+      nativeElement.scrollTop = offsetTop + detail.offsetHeight / 2 - nativeElement.clientHeight / 2;
+      nativeElement.scrollLeft = offsetLeft + detail.offsetWidth / 2 - nativeElement.clientWidth / 2;
+    });
   }
 }

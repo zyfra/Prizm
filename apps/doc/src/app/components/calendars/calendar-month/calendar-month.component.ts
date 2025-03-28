@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import {
   PRIZM_FIRST_DAY,
   PrizmMonth,
@@ -10,7 +10,6 @@ import {
   PrizmYear,
 } from '@prizm-ui/components';
 import { TuiDocExample } from '@taiga-ui/addon-doc';
-import { TuiAlertService } from '@taiga-ui/core';
 
 @Component({
   selector: `prizm-example-prizm-calendar-month`,
