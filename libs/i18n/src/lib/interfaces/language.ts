@@ -140,6 +140,9 @@ export interface PrizmLanguageColumnSettings {
     dropzone: string;
     mainColumns: string;
     disabledHint: string;
+    hideColumnHint: string;
+    notHideColumnHint: string;
+    showColumnHint: string;
   };
 }
 

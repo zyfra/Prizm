@@ -6,17 +6,8 @@ import { PrizmColumnStatus } from '../column-settings.model';
   standalone: true,
 })
 export class PrizmColumnIconPipe implements PipeTransform {
-  public transform(status: PrizmColumnStatus): string {
-    let icon = 'eye';
-    switch (status) {
-      case 'hidden':
-        icon = 'eye-closed';
-        break;
-
-      case 'sticky':
-        icon = 'lock';
-        break;
-    }
-    return icon;
+  public transform(status: PrizmColumnStatus, isLastColumnShown: boolean): string {
+    if (status === 'sticky' || (status === 'default' && isLastColumnShown)) return 'lock';
+    return status === 'hidden' ? 'eye-closed' : 'eye';
   }
 }

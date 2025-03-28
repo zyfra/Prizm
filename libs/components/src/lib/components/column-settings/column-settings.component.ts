@@ -23,15 +23,11 @@ import { Observable } from 'rxjs';
 import { PRIZM_COLUMN_SETTINGS } from '../../tokens';
 import { prizmI18nInitWithKey } from '../../services';
 import { CommonModule } from '@angular/common';
-import { PrizmCardComponent } from '../card';
 import { PrizmButtonComponent } from '../button';
 import { PrizmToggleComponent } from '../toggle';
-import { PrizmScrollbarComponent } from '../scrollbar';
 import { PrizmLetDirective, PrizmPluckPipe } from '@prizm-ui/helpers';
-import { PrizmHintDirective } from '../../directives';
 import { FormsModule } from '@angular/forms';
 import { PrizmThemeModule } from '@prizm-ui/theme';
-import { PrizmColumnIconPipe } from './pipes/column-icon.pipe';
 import { PrizmColumnDropListComponent } from './components/column-drop-list/column-drop-list.component';
 
 @Component({
@@ -42,18 +38,14 @@ import { PrizmColumnDropListComponent } from './components/column-drop-list/colu
   standalone: true,
   imports: [
     CommonModule,
-    PrizmCardComponent,
     PrizmButtonComponent,
     PrizmToggleComponent,
     DragDropModule,
-    PrizmScrollbarComponent,
     PrizmColumnDropListComponent,
     PrizmLetDirective,
     PrizmPluckPipe,
-    PrizmHintDirective,
     FormsModule,
     PrizmThemeModule,
-    PrizmColumnIconPipe,
   ],
   providers: [...prizmI18nInitWithKey(PRIZM_COLUMN_SETTINGS, 'columnSettings')],
 })
@@ -119,7 +111,7 @@ export class PrizmColumnSettingsComponent extends PrizmAbstractTestId implements
 
   public showAll() {
     this._settings.columns = this._settings.columns.map(el => {
-      return { ...el, status: 'default' };
+      return { ...el, status: el.status === 'sticky' ? el.status : 'default' };
     });
     this.checkIsLastShown();
   }

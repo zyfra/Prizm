@@ -14,5 +14,8 @@ export const PRIZM_RUSSIAN_COLUMN_SETTINGS: PrizmLanguageColumnSettings = {
     stickyRight: 'Фиксированные колонки справа',
     dropzone: 'Перетащите колонку',
     disabledHint: 'Нельзя скрыть последнюю колонку',
+    hideColumnHint: 'Скрыть колонку',
+    notHideColumnHint: 'Нельзя скрыть данную колонку',
+    showColumnHint: 'Показать колонку',
   },
 };
