@@ -232,6 +232,12 @@ export const pages: PrizmOrderedDocPage = [
   },
   {
     section: SectionNameEnum.components,
+    title: 'None Content',
+    keywords: 'none content, empty page, пустая страница, заглушка',
+    route: '/components/none-content',
+  },
+  {
+    section: SectionNameEnum.components,
     title: 'Widget',
     keywords: 'widget, prizm-widget, виджет',
     route: '/components/widget',
@@ -1021,6 +1027,12 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'Card',
     keywords: 'card, prizm-card',
     route: '/components/card',
+  },
+  {
+    section: SectionNameEnum.components,
+    title: 'None Content',
+    keywords: 'none content, empty page',
+    route: '/components/none-content',
   },
   {
     section: SectionNameEnglishEnum.components,
