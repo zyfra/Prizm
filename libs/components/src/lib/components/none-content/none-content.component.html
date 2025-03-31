@@ -1,1 +1,7 @@
-<ng-content></ng-content>
+@let dictionary = dictionary$ | async;
+<div class="prizm-font-btn-links-14">{{ dictionary?.heading }}</div>
+
+<div class="prizm-font-main-body-14 text-container">
+  <span class="text-custom"><ng-content [select]="descriptionText"></ng-content></span>
+  <span class="text-default"> {{ dictionary?.description }}</span>
+</div>

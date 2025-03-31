@@ -1,2 +1,20 @@
 :host {
+  height: 100%;
+  width: 100%;
+  padding: 16px;
+  background-color: var(--prizm-background-fill-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 16px;
+
+  .text-container {
+    .text-default {
+      display: none;
+    }
+    .custom-text:empty + .text-default {
+      display: block;
+    }
+  }
 }

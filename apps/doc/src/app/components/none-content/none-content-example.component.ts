@@ -17,4 +17,9 @@ export class PrizmNoneContentExampleComponent {
     TypeScript: import('./examples/base/none-content-base-example.component.ts?raw'),
     HTML: import('./examples/base/none-content-base-example.component.html?raw'),
   };
+
+  readonly exampleCustom: TuiDocExample = {
+    TypeScript: import('./examples/custom/none-content-custom-example.component.ts?raw'),
+    HTML: import('./examples/custom/none-content-custom-example.component.html?raw'),
+  };
 }

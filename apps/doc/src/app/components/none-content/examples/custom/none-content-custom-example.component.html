@@ -1,0 +1,21 @@
+<prizm-widget title="Заголовок виджета">
+  <prizm-none-content>
+    <ng-container descriptionText>
+      <ng-container *prizmIfLang="'russian'; else eng">
+        <div class="container">
+          <span>Возникла ошибка загрузки.</span>
+
+          <button prizmButton>Повторить</button>
+        </div>
+      </ng-container>
+    </ng-container>
+  </prizm-none-content>
+</prizm-widget>
+
+<ng-template #eng>
+  <div class="container">
+    <span>Loading error.</span>
+
+    <button prizmButton>Retry</button>
+  </div>
+</ng-template>
