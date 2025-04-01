@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { PrizmHasValueDirective, PrizmTestIdDirective } from '@prizm-ui/helpers';
+import { PrizmTestIdDirective } from '@prizm-ui/helpers';
 import { prizmI18nInitWithKey, PrizmLanguageNoneContent } from '@prizm-ui/i18n';
 import { Observable } from 'rxjs';
 import { PRIZM_NONE_CONTENT } from '../../tokens';
@@ -11,7 +11,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrls: ['./none-content.component.less'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: true,
-  imports: [AsyncPipe, PrizmHasValueDirective],
+  imports: [AsyncPipe],
   providers: [...prizmI18nInitWithKey(PRIZM_NONE_CONTENT, 'noneContent')],
   hostDirectives: [
     {

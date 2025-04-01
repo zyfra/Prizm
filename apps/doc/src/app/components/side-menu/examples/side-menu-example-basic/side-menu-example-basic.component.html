@@ -76,8 +76,8 @@
           </div>
         </prizm-panel>
       </div>
-      <prizm-none-content *ngIf="selectedElementIdx === -1"></prizm-none-content>
-      <div class="side-menu__content" [class.side-menu__content_empty]="selectedElementIdx === -1">
+      <div class="side-menu__content">
+        <prizm-none-content *ngIf="selectedElementIdx === -1"></prizm-none-content>
         <div class="input" *ngIf="selectedElementIdx > -1">
           <prizm-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
             <input prizmInput value="Контент" />

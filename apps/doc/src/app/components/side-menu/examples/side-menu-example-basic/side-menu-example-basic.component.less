@@ -4,7 +4,6 @@
     flex-direction: column;
 
     .toggle-container {
-      padding: 0 24px;
       display: flex;
       align-items: center;
     }
@@ -39,7 +38,7 @@
         flex-direction: column;
 
         border: 1px solid var(--prizm-background-stroke);
-        background: var(--prizm-background-fill-secondary);
+        background: var(--prizm-background-fill-primary);
 
         .header {
           height: 48px;
@@ -51,17 +50,12 @@
           align-items: center;
           justify-content: center;
           flex: 1;
+          padding: 16px;
 
           overflow: hidden;
 
-          &_empty {
-            display: none;
-          }
-
           .input {
             height: 100%;
-            padding: 8px;
-
             display: flex;
             flex: 1;
           }

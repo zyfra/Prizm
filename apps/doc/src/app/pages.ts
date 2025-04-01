@@ -235,6 +235,7 @@ export const pages: PrizmOrderedDocPage = [
     title: 'None Content',
     keywords: 'none content, empty page, пустая страница, заглушка',
     route: '/components/none-content',
+    status: 'preview',
   },
   {
     section: SectionNameEnum.components,
@@ -1033,6 +1034,7 @@ export const pagesEnglish: PrizmOrderedDocPage = [
     title: 'None Content',
     keywords: 'none content, empty page',
     route: '/components/none-content',
+    status: 'preview',
   },
   {
     section: SectionNameEnglishEnum.components,
