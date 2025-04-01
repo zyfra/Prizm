@@ -1,10 +1,11 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { PrizmIconsFullRegistry } from '@prizm-ui/icons/core';
 import {
-  prizmIconsDeleteContent,
+  prizmIconsBan,
   prizmIconsEditorDown,
   prizmIconsFloppy,
   prizmIconsPanelRight,
+  prizmIconsPencilArrowRight,
 } from '@prizm-ui/icons/full/source';
 
 @Component({
@@ -31,6 +32,18 @@ export class SideMenuExampleBasicComponent {
   public selectedElementIdx = -1;
   public sideMenuType: 'col' | 'line' = 'line';
 
+  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
+
+  constructor() {
+    this.iconsFullRegistry.registerIcons(
+      prizmIconsEditorDown,
+      prizmIconsFloppy,
+      prizmIconsPanelRight,
+      prizmIconsPencilArrowRight,
+      prizmIconsBan
+    );
+  }
+
   public toggleElementState(idx: number): void {
     this.selectedElementIdx = this.selectedElementIdx === idx ? -1 : idx;
   }
@@ -41,16 +54,5 @@ export class SideMenuExampleBasicComponent {
 
   public toggleSideMenu(): void {
     this.isSideMenuOpened = !this.isSideMenuOpened;
-  }
-
-  private readonly iconsFullRegistry = inject(PrizmIconsFullRegistry);
-
-  constructor() {
-    this.iconsFullRegistry.registerIcons(
-      prizmIconsEditorDown,
-      prizmIconsDeleteContent,
-      prizmIconsFloppy,
-      prizmIconsPanelRight
-    );
   }
 }

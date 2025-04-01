@@ -6,8 +6,10 @@ import { RouterModule } from '@angular/router';
 import { SideMenuExampleBasicComponent } from './examples/side-menu-example-basic/side-menu-example-basic.component';
 import {
   PrizmButtonComponent,
+  PrizmHintDirective,
   PrizmInputTextModule,
   PrizmListingItemComponent,
+  PrizmNoneContentComponent,
   PrizmPanelComponent,
 } from '@prizm-ui/components';
 import { PrizmIconsFullComponent } from '@prizm-ui/icons';
@@ -23,6 +25,8 @@ import { PrizmIconsFullComponent } from '@prizm-ui/icons';
     PrizmButtonComponent,
     PrizmListingItemComponent,
     PrizmIconsFullComponent,
+    PrizmHintDirective,
+    PrizmNoneContentComponent,
   ],
 })
 export class SideMenuExampleModule {}

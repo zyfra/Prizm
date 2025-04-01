@@ -28,38 +28,60 @@
         <prizm-panel header="Side Menu">
           <div class="instruments" instruments>
             <div class="instruments__group">
-              <prizm-icons-full
-                class="instruments__icon"
-                [size]="16"
-                (click)="changeSideMenuType()"
-                name="editor-down"
-              ></prizm-icons-full>
+              <button
+                [icon]="'pencil-arrow-right'"
+                prizmIconButton
+                appearanceType="ghost"
+                appearance="secondary"
+                size="xm"
+                [prizmHint]="'Продолжить редактирование'"
+                prizmHintDirection="t"
+              ></button>
             </div>
 
             <div class="instruments__group">
-              <prizm-icons-full
-                class="instruments__icon"
-                [size]="16"
-                name="delete-content"
-              ></prizm-icons-full>
+              <button
+                [icon]="'editor-down'"
+                prizmIconButton
+                appearanceType="ghost"
+                appearance="secondary"
+                size="xm"
+                [prizmHint]="'Смена ориентации'"
+                prizmHintDirection="t"
+                (click)="changeSideMenuType()"
+              ></button>
+            </div>
 
-              <prizm-icons-full class="instruments__icon" [size]="16" name="floppy"></prizm-icons-full>
+            <div class="instruments__group">
+              <button
+                [icon]="'ban'"
+                prizmIconButton
+                appearanceType="ghost"
+                appearance="secondary"
+                size="xm"
+                [prizmHint]="'Отменить'"
+                prizmHintDirection="t"
+                (click)="toggleSideMenu()"
+              ></button>
+              <button
+                [icon]="'floppy'"
+                prizmIconButton
+                appearanceType="ghost"
+                appearance="secondary"
+                [prizmHint]="'Сохранить'"
+                prizmHintDirection="t"
+                size="xm"
+              ></button>
             </div>
           </div>
         </prizm-panel>
       </div>
+      <prizm-none-content *ngIf="selectedElementIdx === -1"></prizm-none-content>
       <div class="side-menu__content" [class.side-menu__content_empty]="selectedElementIdx === -1">
         <div class="input" *ngIf="selectedElementIdx > -1">
           <prizm-input-layout [style.width.%]="100" [label]="'Заголовок ' + (selectedElementIdx + 1)">
             <input prizmInput value="Контент" />
           </prizm-input-layout>
-        </div>
-        <div class="empty-message" *ngIf="selectedElementIdx === -1">
-          <span class="empty-message__main">Нет данных для отображения</span>
-          <span class="empty-message__sub"
-            >Чтобы просмотреть информацию в этой области нужно изменить условия отображения или
-            фильтрации.</span
-          >
         </div>
       </div>
     </div>
