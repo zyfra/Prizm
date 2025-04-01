@@ -34,7 +34,7 @@
         <div class="label--title">
           {{ label$ | async }}
         </div>
-        <span class="prizm-input-label-required" *ngIf="$.required">*</span>
+        <span class="prizm-input-label-required" *ngIf="$.required && !$.disabled">*</span>
       </label>
 
       <ng-container [ngSwitch]="isPolymorphPrimitive(clearButton)">
