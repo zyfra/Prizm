@@ -63,3 +63,6 @@ import 'zone.js'; // Included with Angular CLI.
 /***************************************************************************************************
  * APPLICATION IMPORTS
  */
+
+// handler to fix issue with zone.js and angular cdk preventDefault in listeners
+document.addEventListener('mousemove', () => {}, { passive: false, capture: true });
