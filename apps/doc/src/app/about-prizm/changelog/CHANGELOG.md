@@ -2,7 +2,34 @@
 
 All notable changes to this project will be documented in this file.
 
-## [5.8.1](https://github.com/zyfra/Prizm)
+## [5.9.0](https://github.com/zyfra/Prizm) (28-03-2025)
+
+### Features
+
+- feat(components/calendar-year): add new component #2297
+- feat(components/input-layout-year): add new component #2017
+- feat(helpers/animation-frame): new function to execute after passed frame
+- feat(components/column-settings): add hint for hide button #2325 BREAKING CHANGE in dictionaries, why we do this read [here](https://github.com/zyfra/Prizm/discussions/1617)
+- feat(components/column-settings): last shown column icon should be lock #2325
+
+### Bugfixes
+
+- fix(components/input-layout-date-time-range): fix time correction when min and max used #2331
+- fix(components/input-layout-date-time-range): correct value set for first manual input with value transformers #2330
+- fix(components/confirm-dialog): correct paddings #2305
+- fix(components/confirm-popup): correct paddings #2305
+- fix(components/sidebar): correct paddings #2305
+- fix(doc/dialog): correct paddings for custom header #2305
+- fix(doc/tooltip): correct paddings for template example #2305
+- fix(components/chips): remove outline from chips on hover #2382
+- fix(components/column-settings): fix styles in component #2325
+- fix(components/column-settings): sticky column can't be hidden #2325
+- fix(components/column-settings): default column status should be shown only on hover #2325
+- fix(doc/column-settings): hide header settings in example as obsolete #2325
+- fix(doc/panel): remove panel breadcrumbs exemple as obsolete #2406
+- fix(doc/panel): change buttons size in example from M to XM according to design guide #2406
+
+## [5.8.1](https://github.com/zyfra/Prizm) (27-03-2025)
 
 ### Bugfixes
 

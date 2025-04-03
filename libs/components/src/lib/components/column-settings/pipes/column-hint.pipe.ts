@@ -12,6 +12,8 @@ export class PrizmColumnHintPipe implements PipeTransform {
     status: PrizmColumnStatus,
     isLastColumnShown: boolean
   ): string {
+    if (!translations) return '';
+
     if (isLastColumnShown && status === 'default') return translations.disabledHint;
 
     if (status === 'sticky') return translations.notHideColumnHint;
