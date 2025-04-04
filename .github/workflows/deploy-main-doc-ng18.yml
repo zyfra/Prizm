@@ -96,7 +96,7 @@ jobs:
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PRIZMUI }}'
-          firebaseToolsVersion: '13.35.1'
+          firebaseCliVersion: '13.35.1'
           projectId: prizmui
           channelId: live
           target: main
