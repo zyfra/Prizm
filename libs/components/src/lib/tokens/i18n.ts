@@ -11,6 +11,7 @@ import {
   PrizmLanguageInputLayoutDateTime,
   PrizmLanguageInputLayoutDateTimeRange,
   PrizmLanguageKit,
+  PrizmLanguageNoneContent,
   PrizmLanguagePaginator,
   PrizmLanguageTimePagination,
   PrizmLanguageTimePicker,
@@ -88,6 +89,10 @@ export const PRIZM_TIME_PAGINATION = new InjectionToken<
 
 export const PRIZM_TIME_PICKER = new InjectionToken<Observable<PrizmLanguageTimePicker['timePicker']>>(
   `time picker i18n text`
+);
+
+export const PRIZM_NONE_CONTENT = new InjectionToken<Observable<PrizmLanguageNoneContent['noneContent']>>(
+  `none content default texts`
 );
 
 export const PRIZM_DIALOG_KIT = new InjectionToken<Observable<PrizmLanguageDialogs['dialog']>>(
