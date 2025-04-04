@@ -5,6 +5,11 @@
       "implementation": "./src/executors/build/executor",
       "schema": "./src/executors/build/schema.json",
       "description": "build executor"
+    },
+    "ai-sync": {
+      "implementation": "./src/executors/ai-sync/executor",
+      "schema": "./src/executors/ai-sync/schema.json",
+      "description": "ai sync files"
     }
   }
 }

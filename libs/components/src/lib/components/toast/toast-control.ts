@@ -16,26 +16,52 @@ import { PrizmToastService } from './toast.service';
   providedIn: 'root',
 })
 export class PrizmToastControl {
+  /**
+   * Subject для завершения подписок при смене состояния или уничтожении компонента.
+   */
   readonly destroy$ = new Subject<void>();
+
+  private toastService?: PrizmToastService;
+
   constructor(
     private readonly overlayService: PrizmOverlayService,
-    private readonly toastService: PrizmToastService,
     private readonly injector: Injector
-  ) {
-    this.init(PrizmToastPosition.TOP_RIGHT);
-    this.init(PrizmToastPosition.TOP_LEFT);
-    this.init(PrizmToastPosition.TOP_MIDDLE);
-    this.init(PrizmToastPosition.BOTTOM_RIGHT);
-    this.init(PrizmToastPosition.BOTTOM_LEFT);
-    this.init(PrizmToastPosition.BOTTOM_MIDDLE);
+  ) {}
+
+  /**
+   * Инициализирует оверлеи для всех поддерживаемых позиций уведомлений.
+   *
+   * @param toastService Сервис, предоставляющий уведомления.
+   */
+  public initializeOverlays(toastService: PrizmToastService): void {
+    this.toastService = toastService;
+
+    // Завершаем все предыдущие подписки, чтобы избежать утечек памяти
+    this.destroy$.next();
+
+    // Инициализируем оверлеи для каждой позиции уведомлений
+    this.initOverlayForPosition(PrizmToastPosition.TOP_RIGHT);
+    this.initOverlayForPosition(PrizmToastPosition.TOP_LEFT);
+    this.initOverlayForPosition(PrizmToastPosition.TOP_MIDDLE);
+    this.initOverlayForPosition(PrizmToastPosition.BOTTOM_RIGHT);
+    this.initOverlayForPosition(PrizmToastPosition.BOTTOM_LEFT);
+    this.initOverlayForPosition(PrizmToastPosition.BOTTOM_MIDDLE);
   }
 
-  private create(
-    changesForThisPosition$: Observable<PrizmToastRef[]>,
+  /**
+   * Создает контроллер оверлея для заданной позиции уведомления.
+   *
+   * @param changesForPosition$ Observable с уведомлениями для данной позиции.
+   * @param position Позиция уведомления.
+   * @returns Контроллер оверлея или undefined, если позиция не поддерживается.
+   */
+  private createOverlayControl(
+    changesForPosition$: Observable<PrizmToastRef[]>,
     position: PrizmToastOptions['position']
   ): PrizmOverlayControl | void {
     const placement = this.getOverlayPosition(position);
     if (!placement) return;
+
     const overlayPosition = new PrizmOverlayGlobalPosition({
       placement,
       width: 'auto',
@@ -45,7 +71,7 @@ export class PrizmToastControl {
     const control = this.overlayService
       .position(overlayPosition)
       .content(PrizmToastContainerComponent, {
-        refs$: changesForThisPosition$,
+        refs$: changesForPosition$,
         position: position,
       })
       .create({ parentInjector: this.injector });
@@ -53,6 +79,12 @@ export class PrizmToastControl {
     return control;
   }
 
+  /**
+   * Преобразует позицию уведомления в соответствующую позицию оверлея.
+   *
+   * @param position Позиция уведомления.
+   * @returns Разметку расположения для оверлея или undefined, если позиция не поддерживается.
+   */
   private getOverlayPosition(position: PrizmToastOptions['position']): PrizmOverlayInsidePlacement | void {
     switch (position) {
       case PrizmToastPosition.BOTTOM_LEFT:
@@ -70,37 +102,64 @@ export class PrizmToastControl {
     }
   }
 
-  public init(position: PrizmToastOptions['position']): void {
-    const changesForThisPosition$ = this.toastService.changes$.pipe(
+  /**
+   * Инициализирует оверлей для конкретной позиции уведомления.
+   *
+   * @param position Позиция уведомления.
+   */
+  public initOverlayForPosition(position: PrizmToastOptions['position']): void {
+    if (!this.toastService) {
+      throw new Error('Need pass toast service');
+    }
+
+    const changesForPosition$ = this.toastService.changes$.pipe(
       map(items => items.filter(item => item.position === position && item.show)),
       shareReplay(1)
     );
-    const control = this.create(changesForThisPosition$, position);
+
+    const control = this.createOverlayControl(changesForPosition$, position);
     if (!control) return;
 
-    changesForThisPosition$
+    changesForPosition$
       .pipe(
         tap(refs => {
-          if (!refs.length) return this.close(control);
-          this.open(control);
+          if (!refs.length) {
+            return this.closeOverlay(control);
+          }
+          this.openOverlay(control);
         }),
-        finalize(() => this.destroy(control)),
+        finalize(() => this.destroyOverlay(control)),
         takeUntil(this.destroy$)
       )
       .subscribe();
   }
 
-  private destroy(control: PrizmOverlayControl | null): void {
-    this.close(control);
+  /**
+   * Закрывает и уничтожает заданный контроллер оверлея.
+   *
+   * @param control Контроллер оверлея, который необходимо уничтожить.
+   */
+  private destroyOverlay(control: PrizmOverlayControl | null): void {
+    this.closeOverlay(control);
     control?.destroy();
     control = null;
   }
 
-  private close(control: PrizmOverlayControl | null): void {
+  /**
+   * Закрывает оверлей, если контроллер существует.
+   *
+   * @param control Контроллер оверлея.
+   */
+  private closeOverlay(control: PrizmOverlayControl | null): void {
     control?.close();
   }
 
-  private open(control: PrizmOverlayControl | null): void {
+  /**
+   * Открывает оверлей, если контроллер существует.
+   *
+   * @param control Контроллер оверлея.
+   */
+  private openOverlay(control: PrizmOverlayControl | null): void {
     control?.open();
   }
 }

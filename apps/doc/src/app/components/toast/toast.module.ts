@@ -26,7 +26,7 @@ import { PrizmToastSecondaryExampleComponent } from './examples/message-secondar
     PrizmRadioButtonComponent,
     FormsModule,
     ReactiveFormsModule,
-    PrizmToastModule,
+    // PrizmToastModule,
     RouterModule.forChild(prizmDocGenerateRoutes(ToastComponent)),
   ],
   declarations: [

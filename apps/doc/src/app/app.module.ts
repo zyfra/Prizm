@@ -61,7 +61,7 @@ registerLocaleData(localeRu);
     TuiModeModule,
     TuiLinkModule,
     VersionManagerModule,
-    PrizmToastModule,
+    // PrizmToastModule,
     HttpClientModule,
     PrizmAccordionModule,
     DesignSystemModule,

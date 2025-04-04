@@ -4,6 +4,15 @@
   "sourceRoot": "libs/plugin/src",
   "projectType": "library",
   "targets": {
+    "sync-files": {
+      "executor": "@prizm-ui/nx-plugin:ai-sync",
+      "options": {
+        "directory": "libs/theme/src/lib",
+        "serverUrl": "http://localhost:3500",
+        "endpoint": "/ai/v1/simple/insertByFile/prizm/prizm-code",
+        "concurrency": 1
+      }
+    },
     "lint": {
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],

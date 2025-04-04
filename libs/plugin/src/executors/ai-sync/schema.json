@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "title": "File Sync Executor",
+  "description": "Executor for synchronizing files with a server",
+  "type": "object",
+  "properties": {
+    "directory": {
+      "type": "string",
+      "description": "Path to the directory to synchronize (relative to workspace root)"
+    },
+    "branch": {
+      "type": "string",
+      "description": "Git branch for synchronization"
+    },
+    "compareBranch": {
+      "type": "string",
+      "description": "Git branch for comparison (usually main or master)"
+    },
+    "serverUrl": {
+      "type": "string",
+      "description": "Server URL",
+      "default": "http://localhost:3500"
+    },
+    "concurrency": {
+      "type": "number",
+      "description": "Maximum number of parallel requests",
+      "default": 5
+    },
+    "endpoint": {
+      "type": "string",
+      "description": "API endpoint for file upload",
+      "default": "/ai/v1/simple/insertByFile/prizm/prizm-code"
+    },
+    "keyPrefix": {
+      "type": "string",
+      "description": "Prefix for file key",
+      "default": ""
+    }
+  },
+  "required": ["directory"]
+}

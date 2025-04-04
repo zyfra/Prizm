@@ -5,7 +5,6 @@ import { PrizmOverlayComponent } from '../../modules/overlay';
 import { ToastComponent } from './toast/toast.component';
 import { ToastWrapperComponent } from './toast-wrapper/toast-wrapper.component';
 import { PolymorphModule } from '../../directives';
-import { PrizmToastControl } from './toast-control';
 import { PrizmFocusTrapDirective } from '../../directives/focus-trap';
 import { PrizmButtonComponent } from '../button';
 import { PrizmIndicatorComponent } from '../indicator';
@@ -28,6 +27,4 @@ import { PrizmScrollbarModule } from '../scrollbar';
   ],
   declarations: [PrizmToastContainerComponent, ToastWrapperComponent, ToastComponent],
 })
-export class PrizmToastModule {
-  constructor(private readonly toastControl: PrizmToastControl) {}
-}
+export class PrizmToastModule {}

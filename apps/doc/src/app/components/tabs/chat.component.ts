@@ -41,7 +41,17 @@ export class OpenAiChatComponent implements OnDestroy {
 
     // Вызываем API с фиксированной моделью
     this.openAiService
-      .streamChatCompletion('service123', 'gpt-3.5-turbo', this.messages)
+      .streamChatCompletion(
+        'prizm',
+        'prizmai',
+        this.messages.map(message => ({
+          content: message.role === 'user' ? (message.input?.content ?? message.content) : message.content,
+          role: message.role,
+        })),
+        {
+          forceIngest: ['libs/components/src/lib/components/tabs/%'],
+        }
+      )
       .pipe(takeUntil(this.destroy$))
       .subscribe({
         next: (chunk: ChatResponseChunk) => {
@@ -53,7 +63,11 @@ export class OpenAiChatComponent implements OnDestroy {
             this.messages.push({
               role: 'assistant',
               content: chunk.full,
+              input: chunk.formatedMessage && {
+                content: chunk.formatedMessage?.content,
+              },
             });
+            console.log('#mz messages', [...this.messages]);
             this.isLoading.set(false);
             this.currentResponse.set('');
           }

@@ -14,6 +14,7 @@ export default {
       },
     ],
   },
+  testEnvironment: 'jsdom',
   transformIgnorePatterns: ['node_modules/(?!.*.mjs$)'],
   snapshotSerializers: [
     'jest-preset-angular/build/serializers/no-ng-attributes',

@@ -5,6 +5,9 @@ import { SSE } from 'sse.js';
 export interface ChatMessage {
   role: 'user' | 'assistant' | 'system';
   content: string;
+  input?: {
+    content: string;
+  };
 }
 
 export interface ChatResponseChunk {
@@ -14,6 +17,10 @@ export interface ChatResponseChunk {
   model: string;
   serviceId: string;
   assistentId: string;
+  finishReason?: string;
+  formatedMessage?: {
+    content: string;
+  };
   special?: {
     getting?: boolean;
     specialEl?: Record<string, any> | null;
@@ -24,7 +31,8 @@ export interface ChatResponseChunk {
   providedIn: 'root',
 })
 export class OpenAiService {
-  private readonly baseUrl = 'https://back.magomadov.dev/ai/v1/simple/sendMessage';
+  // private readonly baseUrl = 'https://back.magomadov.dev/ai/v1/simple/sendMessage';
+  private readonly baseUrl = 'http://localhost:3500/ai/v1/simple/sendMessage';
 
   constructor() {}
 
@@ -41,6 +49,7 @@ export class OpenAiService {
       topP?: number;
       frequencyPenalty?: number;
       presencePenalty?: number;
+      forceIngest?: string[] | string;
     }
   ): Observable<ChatResponseChunk> {
     const url = `${this.baseUrl}/${serviceId}/${modelId}`;
@@ -57,11 +66,22 @@ export class OpenAiService {
       });
 
       let specElCode = '';
+      let counter = 0;
       eventSource.onmessage = event => {
         try {
+          if (counter === 0) {
+            console.log('#mz FIRST', counter, event);
+          }
+          counter++;
           const data: ChatResponseChunk = JSON.parse(event.data);
+          console.log('#mz counter', counter, data);
+
           full += data.content;
           data.full = full;
+
+          if (data.formatedMessage) {
+            console.log('#mz INPUT', data);
+          }
 
           if (data.content.includes('ꝋ')) {
             // end for special element
@@ -79,6 +99,12 @@ export class OpenAiService {
             observer.next({
               ...data,
               content: specElCode,
+              ...(data.formatedMessage
+                ? {
+                    formatedMessage: data.formatedMessage,
+                  }
+                : {}),
+              finishReason: data.finishReason,
               special: {
                 specialEl: json,
                 getting: false,
@@ -109,6 +135,7 @@ export class OpenAiService {
           if (data.done) {
             eventSource.close();
             observer.complete();
+            console.log('#mz DATA:END', data);
           }
         } catch (error) {
           observer.error(new Error(`Ошибка парсинга SSE-сообщения: ${error}`));
