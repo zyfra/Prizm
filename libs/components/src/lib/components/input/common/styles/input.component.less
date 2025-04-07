@@ -59,6 +59,11 @@
 // In outer context
 :host-context(.prizm-input-form-outer) {
   padding: 7px 0px;
+
+  &:host-context(.prizm-input-form-textarea) {
+    padding: 4px 0px;
+    line-height: 24px;
+  }
 }
 
 // need for optimization output selector in less
@@ -70,7 +75,7 @@
   padding: 7px 0px;
 }
 
-:host-context(.prizm-input-form-outer[data-size='s']) {
+:host-context(.prizm-input-form-outer[data-size='s']:not(.prizm-input-form-textarea)) {
   font-size: 12px;
   padding: 4px 0px;
 }
