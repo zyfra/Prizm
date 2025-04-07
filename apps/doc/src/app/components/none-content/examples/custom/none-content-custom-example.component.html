@@ -1,18 +1,21 @@
 <prizm-widget title="Заголовок виджета">
   <prizm-none-content>
-    <ng-container descriptionText>
-      <ng-container *prizmIfLang="'russian'; else eng">
-        <div class="container">
-          <span>Возникла ошибка загрузки</span>
+    <ng-container *prizmIfLang="'russian'; else engHeader" header-text>
+      Нет данных для отображения
+    </ng-container>
+    <ng-container *prizmIfLang="'russian'; else engDescription" description-text>
+      <div class="container">
+        <span>Возникла ошибка загрузки</span>
 
-          <button prizmButton>Повторить</button>
-        </div>
-      </ng-container>
+        <button prizmButton>Повторить</button>
+      </div>
     </ng-container>
   </prizm-none-content>
 </prizm-widget>
 
-<ng-template #eng>
+<ng-template #engHeader>No data to display</ng-template>
+
+<ng-template #engDescription>
   <div class="container">
     <span>Loading error</span>
 

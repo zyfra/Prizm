@@ -15,4 +15,3 @@ export * from './dialogs';
 export * from './input-layout-date-time-range';
 export * from './time-pagination';
 export * from './time-picker';
-export * from './none-content';

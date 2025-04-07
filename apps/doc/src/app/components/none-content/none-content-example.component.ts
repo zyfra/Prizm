@@ -8,8 +8,9 @@ import { RawLoaderContent, TuiDocExample } from '@prizm-ui/doc';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PrizmNoneContentExampleComponent {
-  content =
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum';
+  public headerText = 'Нет данных для отображения';
+  public descriptionText =
+    'Чтобы просмотреть информацию в этой области нужно изменить условия отображения или фильтрации';
 
   readonly setupModule: RawLoaderContent = import('./examples/setup-module.md?raw');
 

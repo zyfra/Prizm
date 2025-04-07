@@ -12,7 +12,6 @@ import { PRIZM_RUSSIAN_TIME_PICKER } from './time-picker';
 import { PRIZM_RUSSIAN_LANGUAGE_KIT } from './kit';
 import { PRIZM_RUSSIAN_PAGINATOR } from './paginator';
 import { PRIZM_RUSSIAN_DIALOG } from './dialogs';
-import { PRIZM_RUSSIAN_NONE_CONTENT } from './none-content';
 
 export const PRIZM_RUSSIAN_LANGUAGE = {
   name: `russian`,
@@ -30,5 +29,4 @@ export const PRIZM_RUSSIAN_LANGUAGE = {
   ...PRIZM_RUSSIAN_TIME_PAGINATION,
   ...PRIZM_RUSSIAN_TIME_PICKER,
   ...PRIZM_RUSSIAN_DIALOG,
-  ...PRIZM_RUSSIAN_NONE_CONTENT,
 } as PrizmLanguage;

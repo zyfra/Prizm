@@ -179,13 +179,6 @@ export interface PrizmLanguageDialogs {
   };
 }
 
-export interface PrizmLanguageNoneContent {
-  noneContent: {
-    heading: string;
-    description: string;
-  };
-}
-
 export interface PrizmLanguageCore {
   months: MONTHS_ARRAY;
   close: string;
@@ -357,7 +350,6 @@ export interface PrizmLanguage
     PrizmLanguagePaginator,
     PrizmLanguageTimePagination,
     PrizmLanguageTimePicker,
-    PrizmLanguageDialogs,
-    PrizmLanguageNoneContent {}
+    PrizmLanguageDialogs {}
 
 export type PrizmI18nFn<K> = (lan: PrizmLanguageName) => K | Observable<K>;

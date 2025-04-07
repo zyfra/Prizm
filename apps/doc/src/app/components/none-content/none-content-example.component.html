@@ -12,8 +12,32 @@
 
   <ng-template prizmDocPageTab prizmDocHost>
     <prizm-doc-demo>
-      <prizm-none-content></prizm-none-content>
+      <prizm-none-content>
+        <ng-container header-text> {{ headerText }} </ng-container>
+
+        <ng-container description-text>
+          {{ descriptionText }}
+        </ng-container>
+      </prizm-none-content>
     </prizm-doc-demo>
+
+    <prizm-doc-documentation [hasTestId]="false">
+      <ng-template
+        [(documentationPropertyValue)]="headerText"
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
+      >
+        header-text
+      </ng-template>
+
+      <ng-template
+        [(documentationPropertyValue)]="descriptionText"
+        documentationPropertyName="ng-content"
+        documentationPropertyType="string"
+      >
+        description-text
+      </ng-template>
+    </prizm-doc-documentation>
   </ng-template>
 
   <ng-template prizmDocPageTab>
