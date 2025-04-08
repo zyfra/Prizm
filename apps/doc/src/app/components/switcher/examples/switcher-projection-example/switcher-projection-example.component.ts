@@ -20,11 +20,9 @@ export class SwitcherProjectionExampleComponent {
     },
     {
       title: 'Мнемосхемы',
-      appearanceType: 'outline',
     },
     {
       title: 'Дашборды',
-      appearance: 'primary',
     },
   ];
   public readonly switchers2: PrizmSwitcherItem[] = [

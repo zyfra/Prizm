@@ -12,16 +12,18 @@ export class SwitcherBasicValueExampleComponent {
   public readonly switchers: PrizmSwitcherItem[] = [
     {
       title: 'Таблицы',
+      appearance: 'primary',
       disabled: true,
       id: 'table',
     },
     {
       title: 'Графики',
+      appearance: 'primary',
       id: 'graphic',
     },
     {
       title: 'Мнемосхемы',
-      appearanceType: 'outline',
+      appearance: 'primary',
       id: 'mnemonics',
     },
     {

@@ -1,10 +1,5 @@
 <prizm-switcher [formControl]="control" fullWidth type="outer">
-  <prizm-switcher-item
-    *ngFor="let item of switchers$ | async"
-    [disabled]="!!item.disabled"
-    [appearance]="item.appearance ?? 'secondary'"
-    [appearanceType]="item.appearanceType ?? 'ghost'"
-  >
+  <prizm-switcher-item *ngFor="let item of switchers$ | async" [disabled]="!!item.disabled">
     {{ item.title }}
   </prizm-switcher-item>
 </prizm-switcher>
