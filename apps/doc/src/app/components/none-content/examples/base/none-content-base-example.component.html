@@ -1,0 +1,17 @@
+<prizm-widget title="Заголовок виджета">
+  <prizm-none-content>
+    <ng-container *prizmIfLang="'russian'; else engHeader" header-text>
+      Нет данных для отображения
+    </ng-container>
+
+    <ng-container *prizmIfLang="'russian'; else engDescription" description-text>
+      Чтобы просмотреть информацию в этой области нужно изменить условия отображения или фильтрации
+    </ng-container>
+  </prizm-none-content>
+</prizm-widget>
+
+<ng-template #engHeader>No data to display</ng-template>
+
+<ng-template #engDescription>
+  To view information in this area, you need to change the display or filtering conditions
+</ng-template>

@@ -248,6 +248,14 @@ export const ROUTES: Routes = [
     },
   },
   {
+    path: 'components/none-content',
+    loadChildren: () =>
+      import('./components/none-content/none-content.module').then(i => i.NoneContentExampleModule),
+    data: {
+      title: 'None Content',
+    },
+  },
+  {
     path: 'components/progress-line-bar',
     loadChildren: () =>
       import('./components/progress/line-bar/progress-line-bar.module').then(i => i.ProgressLineBarModule),
