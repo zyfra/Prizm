@@ -925,14 +925,6 @@ export const ROUTES: Routes = [
     },
   },
   {
-    path: 'components/navigation',
-    loadChildren: () =>
-      import('./components/navigation/navigation-example.module').then(i => i.NavigationExampleModule),
-    data: {
-      title: 'Navigation',
-    },
-  },
-  {
     path: 'components/switcher',
     loadChildren: () =>
       import('./components/switcher/switcher-example.module').then(i => i.SwitcherExampleModule),

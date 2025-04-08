@@ -11,6 +11,13 @@ import { PrizmToTypePipe } from '@prizm-ui/helpers';
 import { PrizmCalculateNavMarginPipe } from './pipes/calculate-margin.pipe';
 import { ExpandedNavigationItemService } from './services/expanded-navigation.service';
 
+// TODO: to remove in 7.0
+
+/**
+ * @deprecated
+ * since 5.10.0
+ *
+ */
 @NgModule({
   declarations: [
     PrizmNavigationComponent,
