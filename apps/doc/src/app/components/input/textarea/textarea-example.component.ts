@@ -40,7 +40,7 @@ export class TextareaExampleComponent {
 
   public disabled = false;
 
-  height = null;
+  height = 100;
   testIdPostfix!: string;
   width = '20rem';
   public inputPosition: PrizmInputPosition = 'left';
